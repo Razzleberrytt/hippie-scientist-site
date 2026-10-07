@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "supersedes_semantic_audit": "r6",
+  "failure_count": 48,
+  "status": "repair_required",
+  "failures": [
+    {
+      "wave": 5501,
+      "category": "stress_anxiety",
+      "pmid": "41228524",
+      "reason": "MASLD/oxidative-stress false positive"
+    },
+    {
+      "wave": 5503,
+      "category": "stress_anxiety",
+      "pmid": "39943054",
+      "reason": "plant stress"
+    },
+    {
+      "wave": 5504,
+      "category": "stress_anxiety",
+      "pmid": "40376401",
+      "reason": "oxidative-stress false positive"
+    },
+    {
+      "wave": 5505,
+      "category": "stress_anxiety",
+      "pmid": "40563371",
+      "reason": "oxidative-stress false positive"
+    },
+    {
+      "wave": 5507,
+      "category": "stress_anxiety",
+      "pmid": "39484841",
+      "reason": "rice salt stress"
+    },
+    {
+      "wave": 5514,
+      "category": "stress_anxiety",
+      "pmid": "39806168",
+      "reason": "avian oxidative stress"
+    },
+    {
+      "wave": 5515,
+      "category": "stress_anxiety",
+      "pmid": "39838318",
+      "reason": "soybean magnesium stress"
+    },
+    {
+      "wave": 5521,
+      "category": "stress_anxiety",
+      "pmid": "40203618",
+      "reason": "cellular heat stress"
+    },
+    {
+      "wave": 5523,
+      "category": "stress_anxiety",
+      "pmid": "40291931",
+      "reason": "ER-stress toxicity"
+    },
+    {
+      "wave": 5527,
+      "category": "stress_anxiety",
+      "pmid": "40662630",
+      "reason": "protein glycation oxidative stress"
+    },
+    {
+      "wave": 5528,
+      "category": "stress_anxiety",
+      "pmid": "40672600",
+      "reason": "coronary oxidative-stress biomarker"
+    },
+    {
+      "wave": 5531,
+      "category": "stress_anxiety",
+      "pmid": "40997134",
+      "reason": "tea-plant drought stress"
+    },
+    {
+      "wave": 5534,
+      "category": "stress_anxiety",
+      "pmid": "41207541",
+      "reason": "heat-stress gut barrier"
+    },
+    {
+      "wave": 5535,
+      "category": "stress_anxiety",
+      "pmid": "41291405",
+      "reason": "lavender plant salt stress"
+    },
+    {
+      "wave": 5538,
+      "category": "stress_anxiety",
+      "pmid": "41324719",
+      "reason": "ashwagandha plant osmotic stress"
+    },
+    {
+      "wave": 5539,
+      "category": "stress_anxiety",
+      "pmid": "41421676",
+      "reason": "industrial cold stress"
+    },
+    {
+      "wave": 5540,
+      "category": "stress_anxiety",
+      "pmid": "41537746",
+      "reason": "sepsis oxidative stress"
+    },
+    {
+      "wave": 5628,
+      "category": "cardiometabolic",
+      "pmid": "42745676",
+      "reason": "neonatal parenteral lipid category mismatch"
+    },
+    {
+      "wave": 5636,
+      "category": "cardiometabolic",
+      "pmid": "42605134",
+      "reason": "parenteral nutrition category mismatch"
+    },
+    {
+      "wave": 5638,
+      "category": "cardiometabolic",
+      "pmid": "42614129",
+      "reason": "turbot/fish study"
+    },
+    {
+      "wave": 5639,
+      "category": "cardiometabolic",
+      "pmid": "42616233",
+      "reason": "fish study"
+    },
+    {
+      "wave": 5641,
+      "category": "cardiometabolic",
+      "pmid": "42627382",
+      "reason": "fish-oil processing chemistry"
+    },
+    {
+      "wave": 5642,
+      "category": "cardiometabolic",
+      "pmid": "42632673",
+      "reason": "fish-oil degradation chemistry"
+    },
+    {
+      "wave": 5643,
+      "category": "cardiometabolic",
+      "pmid": "42641706",
+      "reason": "plant biomanufacturing"
+    },
+    {
+      "wave": 5647,
+      "category": "cardiometabolic",
+      "pmid": "42682832",
+      "reason": "drug/kidney transplant potassium mismatch"
+    },
+    {
+      "wave": 5652,
+      "category": "cardiometabolic",
+      "pmid": "42748620",
+      "reason": "vascular implant materials"
+    },
+    {
+      "wave": 5659,
+      "category": "cardiometabolic",
+      "pmid": "42817146",
+      "reason": "food emulsion formulation"
+    },
+    {
+      "wave": 5660,
+      "category": "cardiometabolic",
+      "pmid": "42821124",
+      "reason": "catfish study"
+    },
+    {
+      "wave": 5686,
+      "category": "aging_sarcopenia",
+      "pmid": "42835593",
+      "reason": "food emulsion oxidative aging"
+    },
+    {
+      "wave": 5690,
+      "category": "aging_sarcopenia",
+      "pmid": "42733461",
+      "reason": "C. elegans"
+    },
+    {
+      "wave": 5707,
+      "category": "aging_sarcopenia",
+      "pmid": "42772368",
+      "reason": "lung-transplant category mismatch"
+    },
+    {
+      "wave": 5712,
+      "category": "micronutrients",
+      "pmid": "42798940",
+      "reason": "iron in plants"
+    },
+    {
+      "wave": 5714,
+      "category": "micronutrients",
+      "pmid": "42801658",
+      "reason": "cancer ferroptosis mismatch"
+    },
+    {
+      "wave": 5741,
+      "category": "women_health",
+      "pmid": "42494622",
+      "reason": "general folate-food category mismatch"
+    },
+    {
+      "wave": 5769,
+      "category": "gut",
+      "pmid": "42748698",
+      "reason": "co-encapsulation/formulation focus"
+    },
+    {
+      "wave": 5790,
+      "category": "gut",
+      "pmid": "42748616",
+      "reason": "wound scaffold microbiome"
+    },
+    {
+      "wave": 5851,
+      "category": "inflammation_pain",
+      "pmid": "42662176",
+      "reason": "microneedle/nanozyme wound model"
+    },
+    {
+      "wave": 5857,
+      "category": "inflammation_pain",
+      "pmid": "42700907",
+      "reason": "nasal-cell microneedle formulation"
+    },
+    {
+      "wave": 5859,
+      "category": "inflammation_pain",
+      "pmid": "42710442",
+      "reason": "chick toxicology"
+    },
+    {
+      "wave": 5883,
+      "category": "metabolic",
+      "pmid": "42258295",
+      "reason": "chromium colloids in plant cell walls"
+    },
+    {
+      "wave": 5884,
+      "category": "metabolic",
+      "pmid": "42270284",
+      "reason": "bacterial spoilage metabolism"
+    },
+    {
+      "wave": 5891,
+      "category": "metabolic",
+      "pmid": "42346410",
+      "reason": "rabbit toxicology"
+    },
+    {
+      "wave": 5916,
+      "category": "botanicals_mushrooms",
+      "pmid": "42506299",
+      "reason": "Ganoderma seed dressing/wheat"
+    },
+    {
+      "wave": 5944,
+      "category": "safety_interactions",
+      "pmid": "42794717",
+      "reason": "broad wheat functional-food review"
+    },
+    {
+      "wave": 5945,
+      "category": "safety_interactions",
+      "pmid": "42796477",
+      "reason": "botanical insecticide"
+    },
+    {
+      "wave": 5949,
+      "category": "safety_interactions",
+      "pmid": "42622030",
+      "reason": "canine nutraceutical study"
+    },
+    {
+      "wave": 5975,
+      "category": "immune_respiratory",
+      "pmid": "42637882",
+      "reason": "cancer prognostic signature"
+    },
+    {
+      "wave": 5982,
+      "category": "immune_respiratory",
+      "pmid": "42668497",
+      "reason": "nanotherapeutic prostatitis"
+    }
+  ]
+}

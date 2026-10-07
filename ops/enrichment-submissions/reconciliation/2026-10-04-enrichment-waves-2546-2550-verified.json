@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2546-2550",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2546,
+      "pmid": "42792697",
+      "title": "Mechanistic Links Between Natural Bioactive Molecules and Tumor Immune Microenvironment States in PD-1/PD-L1 Resistance.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Direct checkpoint-combination evidence is largely preclinical; several candidates are supported only indirectly."
+    },
+    {
+      "wave": 2547,
+      "pmid": "42792677",
+      "title": "Mechanisms of Action of Herbal Preparations for the Rehabilitation of Dust-Related Diseases of the Bronchopulmonary System.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Most phytotherapeutic support is experimental; proposed herbal rehabilitation strategies require clinical validation."
+    },
+    {
+      "wave": 2548,
+      "pmid": "42792150",
+      "title": "Edible Fungi and Skin Redox Homeostasis: Bioactive Diversity, Processing, Oral Exposure, and Evidence Gaps.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Human oral evidence is narrow and biomarker-heavy; processing, exposure, and contaminant control materially limit translation."
+    },
+    {
+      "wave": 2549,
+      "pmid": "42778934",
+      "title": "Natural product therapy in diabetic kidney disease: emerging multiomics-mediated signalling pathway and molecular target.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Multi-omics mechanistic review spans formulas, extracts, and compounds; clinical efficacy and ingredient-specific attribution remain uncertain."
+    },
+    {
+      "wave": 2550,
+      "pmid": "42777993",
+      "title": "Ganoderma lucidum polysaccharides and their immunomodulatory effects via the Dectin-1/NF-κB signaling axis.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Mechanistic and preclinical evidence dominates; human clinical trials are still required."
+    }
+  ]
+}

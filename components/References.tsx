@@ -8,6 +8,8 @@ export type Ref = {
   year?: string | number
   pmid?: string
   doi?: string
+  sourceType?: string
+  evidenceLevel?: string
 }
 
 function sourceLabel(url: string): string {
@@ -65,6 +67,14 @@ export default function References({ refs }: { refs: Ref[] }) {
                   {ref.title || ref.text}
                 </cite>
                 {ref.title ? <span> {ref.text}</span> : null}
+                {(ref.sourceType || ref.evidenceLevel || ref.pmid || ref.doi) ? (
+                  <span className="mt-1.5 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[0.62rem] uppercase tracking-[0.08em] text-[color:var(--hs-body)]">
+                    {ref.evidenceLevel ? <span>{ref.evidenceLevel}</span> : null}
+                    {ref.sourceType ? <span>{ref.sourceType}</span> : null}
+                    {ref.pmid ? <span>PMID {ref.pmid}</span> : null}
+                    {ref.doi ? <span>DOI {ref.doi}</span> : null}
+                  </span>
+                ) : null}
                 {ref.year ? <meta itemProp="datePublished" content={String(ref.year)} /> : null}
                 {ref.pmid ? <meta itemProp="identifier" content={`PMID:${ref.pmid}`} /> : null}
                 {ref.doi ? <meta itemProp="identifier" content={`DOI:${ref.doi}`} /> : null}

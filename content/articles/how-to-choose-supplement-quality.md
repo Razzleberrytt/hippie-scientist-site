@@ -25,6 +25,31 @@ tags:
   - education
 profile_status: published
 ai_assisted: false
+keyTakeaways:
+  - "A quality supplement is not identified by one magic seal, a high price, or the phrase 'lab tested'; verifiable finished-product certification, transparent labeling, lot traceability, credible testing documentation, and accountable manufacturing are stronger signals."
+  - "Third-party certification can reduce uncertainty about identity, label accuracy, contaminants, or manufacturing quality, but it does not prove that a supplement is clinically effective, universally safe, or appropriate for a specific person."
+  - "FDA current good manufacturing practice requirements govern manufacturing and quality systems, but cGMP compliance or a facility audit is not FDA approval of a finished supplement."
+  - "A useful certificate of analysis should identify the product or ingredient, match the lot when possible, name the laboratory, show what was tested, report results with units and specifications, and include enough method context to interpret the result."
+  - "Quality control and clinical evidence answer different questions: one asks whether a product is what it claims to be, while the other asks whether the intervention improves the intended outcome."
+citationQuestions:
+  - "How do you choose a high-quality supplement?"
+  - "What does third-party tested mean on a supplement?"
+  - "Do USP or NSF seals prove a supplement is safe and effective?"
+  - "What is the difference between cGMP compliance and third-party product certification?"
+  - "How do you read a supplement certificate of analysis?"
+  - "What should a good supplement COA contain?"
+  - "Is an FDA-approved supplement claim a red flag?"
+  - "How do you check whether a supplement certification is real?"
+  - "What are common supplement quality red flags?"
+  - "How should supplement quality claims be separated from clinical efficacy claims?"
+canonicalConcepts:
+  - "dietary supplement quality"
+  - "third-party certification"
+  - "current good manufacturing practice"
+  - "certificate of analysis"
+  - "supplement labeling"
+  - "product traceability"
+  - "supplement adulteration"
 faqs:
   - question: "What does 'third-party tested' actually mean?"
     answer: "It should mean an organization independent of the brand evaluated at least some aspect of the product or manufacturing process. But programs differ. Some certify finished-product identity, label accuracy and contaminants; others may audit facilities or test selected batches. Look for the named program, verify the product in that program's public database when possible, and check what the certification actually covers."

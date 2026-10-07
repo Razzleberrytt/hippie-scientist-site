@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4876-4905-relevance-review",
+  "summary": {
+    "range": "4876-4905",
+    "rows": 30,
+    "keep": 12,
+    "replace_preferred": 3,
+    "replace": 15,
+    "replacement_waves": [
+      4876,
+      4877,
+      4883,
+      4887,
+      4888,
+      4889,
+      4890,
+      4891,
+      4892,
+      4893,
+      4894,
+      4897,
+      4898,
+      4899,
+      4900,
+      4902,
+      4903,
+      4904
+    ]
+  },
+  "policy_note": "Prefer human clinical/systematic supplement or nutrient evidence; reject veterinary, preclinical, pharmaceutical-only, artificial-bioengineering, and non-nutraceutical category drift where stronger evidence exists.",
+  "rows": [
+    {
+      "wave": 4876,
+      "pmid": "42286692",
+      "title": "Effects of percussive therapy dosages on recovery from acute exercise-induced muscle damage: a systematic review and meta-analysis.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "human recovery evidence but percussive therapy rather than supplement/nutraceutical evidence"
+    },
+    {
+      "wave": 4877,
+      "pmid": "42271035",
+      "title": "Combined effects of photobiomodulation and osteopathic manipulation on the physical performance of young adults subjected to exercise-induced muscle damage: a randomized placebo-controlled trial.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "photobiomodulation/osteopathic intervention; not aligned to supplement/mitochondrial enrichment"
+    },
+    {
+      "wave": 4878,
+      "pmid": "41903346",
+      "title": "Creatine supplementation modifies fat deposition in arm and leg tissues in individuals with Down syndrome.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4879,
+      "pmid": "41683264",
+      "title": "Impact of Powdered Tart Cherry Supplementation on Performance Recovery Following Repeated Sprint Exercise.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4880,
+      "pmid": "42588107",
+      "title": "Multistrain Probiotic Supplementation Combined with a Standardized Diet Did Not Significantly Affect Exercise Performance or Inflammatory Responses in Male Endurance Runners: A Randomized Controlled Trial.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4881,
+      "pmid": "41846233",
+      "title": "Efficacy and Safety of Low-Dose Ashwagandha Supplementation on Exercise Endurance: A Randomized, Placebo-Controlled, Double-Blind, Clinical Trial.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4882,
+      "pmid": "42124047",
+      "title": "Effects of LC n-3 PUFA Supplementation on Muscle Pain, Function, and Damage Markers in Healthy Young to Middle-Aged Adults Following Acute or Chronic Exercise: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4883,
+      "pmid": "41818607",
+      "title": "Gliclazide Enhances Exercise Performance and Recovery of Muscle Strength in Healthy Trained Individuals: A Randomized Controlled Trial.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "gliclazide is a prescription drug intervention, outside the supplement evidence target"
+    },
+    {
+      "wave": 4884,
+      "pmid": "41800295",
+      "title": "Coenzyme Q10 Impact on Ovarian Reserve Measures and the Intra-Cytoplasmic Sperm Injection (ICSI) Outcomes in Women with Poor Ovarian Response: A Randomized Controlled Study.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4885,
+      "pmid": "42009009",
+      "title": "Safety and efficacy of individualised exercise and NAD(+) precursor supplementation in patients with Friedreich's ataxia in the USA: a single-centre, 2 × 2 factorial, randomised controlled trial.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4886,
+      "pmid": "42278649",
+      "title": "Evaluating a Coenzyme Q10-Based Food for Special Medical Purpose, for Mitochondrial Diseases Management: An Open-Label, Pilot Trial.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4887,
+      "pmid": "42410653",
+      "title": "COQ2-Associated Primary Coenzyme Q10 Deficiency Presenting With Proteinuria: A Case Report and Literature Review.",
+      "category": "mitochondrial_energy",
+      "decision": "replace_preferred",
+      "reason": "direct CoQ10-deficiency clinical evidence but case-report level; keep only if stronger evidence unavailable"
+    },
+    {
+      "wave": 4888,
+      "pmid": "42670645",
+      "title": "Energy and Reducing Power Regeneration Systems for Artificial Cells and Their Applications.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "artificial-cell bioengineering review; off-target for human mitochondrial/nutraceutical evidence"
+    },
+    {
+      "wave": 4889,
+      "pmid": "42792171",
+      "title": "LDHC Hyperacetylation Disrupts the Guanidinoacetic Acid-Creatine Axis Underlying Cryoinjury in Boar Sperm: Rescue by GAA Supplementation.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "boar-sperm cryoinjury experiment; veterinary/preclinical evidence"
+    },
+    {
+      "wave": 4890,
+      "pmid": "42766322",
+      "title": "Retbindin Dynamically Redistributes to Preserve Retinal Flavin-Dependent Homeostasis in Response to Riboflavin Availability and Circadian Demand.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "retinal flavin homeostasis mechanism is too preclinical/mechanistic for this enrichment slot"
+    },
+    {
+      "wave": 4891,
+      "pmid": "42817158",
+      "title": "Neonatal high-dose riboflavin attenuates abdominal adiposity and binge eating associated with adipose metabolic remodeling in experimental cerebral palsy.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "experimental cerebral-palsy/riboflavin study is preclinical and not human clinical evidence"
+    },
+    {
+      "wave": 4892,
+      "pmid": "42783647",
+      "title": "Acute Post-Match Fatigue and Recovery Kinetics of Neuromuscular Performance and Muscle Damage After a Friendly Match in Elite Youth Football Players.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "human exercise-fatigue study but no supplement or nutraceutical intervention"
+    },
+    {
+      "wave": 4893,
+      "pmid": "42805300",
+      "title": "Synergistic Effects of L-Carnitine and Moderate-Intensity Exercise on Testicular Damage Induced by Varicocele: Implications for miR-570, Irisin, Hsp70-2a, and Hsp90 Crosstalk.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "L-carnitine varicocele/testicular-damage mechanism appears preclinical and is not a direct human mitochondrial outcome study"
+    },
+    {
+      "wave": 4894,
+      "pmid": "42782335",
+      "title": "Comparing high-intensity resistance training incorporating periodic eccentric-only exercise with blood flow restriction training in older men: physiological responses and exercise feasibility.",
+      "category": "mitochondrial_energy",
+      "decision": "replace_preferred",
+      "reason": "human exercise physiology in older men; useful but not nutraceutical-specific, so lower priority"
+    },
+    {
+      "wave": 4895,
+      "pmid": "42776599",
+      "title": "Metabolism of Nicotinamide Adenine Dinucleotide+ in Atherosclerosis: Mechanisms and Nutritional Modulation.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4896,
+      "pmid": "42800365",
+      "title": "Creatine for glucagon-like peptide-1-associated muscle loss.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4897,
+      "pmid": "42733040",
+      "title": "Fetal hypoxia causes oocyte oxidative stress damage via the Sirt3/Sod2 pathway and can be alleviated by nicotinamide mononucleotide.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "fetal-hypoxia/NMN oocyte study is preclinical reproductive biology"
+    },
+    {
+      "wave": 4898,
+      "pmid": "42785002",
+      "title": "Neurometabolic brain changes in MS associated with fatigue and anxiety.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "human MS neurometabolic fatigue/anxiety study but no supplement intervention; replace if direct nutrient evidence available"
+    },
+    {
+      "wave": 4899,
+      "pmid": "42735786",
+      "title": "NAMPT activation protects against myocardial ischemia/reperfusion injury via FSP1-CoQ10 ferroptosis defense.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "SIRT1/CoQ10 ferroptosis mechanism is pharmacologic/preclinical rather than clinical supplementation"
+    },
+    {
+      "wave": 4900,
+      "pmid": "42727908",
+      "title": "Metal-catalyzed phosphorylation by phosphite and energy at origins.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "origins-of-life phosphite phosphorylation chemistry is completely off-domain"
+    },
+    {
+      "wave": 4901,
+      "pmid": "42476091",
+      "title": "Riboflavin therapy in complex I deficiency: Two new cases of leukoencephalopathy and a systematic literature review.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    },
+    {
+      "wave": 4902,
+      "pmid": "42826097",
+      "title": "Lacticaseibacillus rhamnosus GG enhances gefitinib efficacy and reduces treatment-related toxicity via propionyl-L-carnitine regulation.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "probiotic/gefitinib cancer-treatment mechanism is category-mismatched and likely preclinical/translational"
+    },
+    {
+      "wave": 4903,
+      "pmid": "42717829",
+      "title": "Pharmacological activation of SIRT1 alleviates sepsis-associated acute kidney injury by improving renal mitochondrial energy metabolism.",
+      "category": "mitochondrial_energy",
+      "decision": "replace",
+      "reason": "pharmacological SIRT1 activation in sepsis-associated AKI is not nutraceutical evidence"
+    },
+    {
+      "wave": 4904,
+      "pmid": "42759487",
+      "title": "Comparative effects of thermal recovery strategies on strength, muscle soreness and molecular markers following exercise-induced muscle damage in healthy adults.",
+      "category": "mitochondrial_energy",
+      "decision": "replace_preferred",
+      "reason": "human thermal-recovery intervention is useful exercise evidence but not supplement-specific"
+    },
+    {
+      "wave": 4905,
+      "pmid": "42669985",
+      "title": "Nicotinamide Adenine Dinucleotide and Its Anti-aging Effects in the Context of Longevity and Menopause.",
+      "category": "mitochondrial_energy",
+      "decision": "keep",
+      "reason": "directly useful human clinical/systematic nutrient, supplement, or mitochondrial-energy evidence"
+    }
+  ]
+}

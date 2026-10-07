@@ -18,7 +18,7 @@ const UPDATED_DATE = '2026-09-17'
 export const metadata: Metadata = {
   title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
   description:
-    'Compare the best-studied sleep supplements by evidence strength, directness, safety and limitations: melatonin, L-theanine, magnesium, ashwagandha, valerian and passionflower.',
+    'Compare the best-studied natural sleep supplements by evidence strength, directness, safety and limitations: melatonin, L-theanine, magnesium, ashwagandha, valerian and passionflower.',
   alternates: { canonical: '/guides/sleep/best-supplements-for-sleep/' },
   openGraph: {
     title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
@@ -81,6 +81,7 @@ const HEADINGS: Heading[] = [
 
 const FAQS = [
   { question: 'What is the best supplement for sleep overall?', answer: 'There is no evidence-based universal winner. Melatonin has the clearest role when circadian timing is the issue. L-theanine has promising recent sleep-quality data. Magnesium has low-certainty evidence plus one newer small-effect trial. Ashwagandha has a small positive pooled signal. Valerian and passionflower have weaker evidence. Chronic insomnia is better served by CBT-I than by ranking supplements.' },
+  { question: 'What are the best natural supplements for sleep?', answer: 'There is no universal best natural sleep supplement. Melatonin has the clearest circadian use case; L-theanine has promising newer subjective sleep data; magnesium and ashwagandha have more limited or context-dependent signals; valerian and passionflower remain weaker. The right choice depends on the sleep problem, evidence directness, safety, and product match.' },
   { question: 'Which sleep supplement has the strongest direct evidence?', answer: 'For a clearly defined use case, melatonin has the most established circadian role. For chronic insomnia specifically, none of these supplements has evidence comparable with CBT-I. Evidence directness is more important than simply counting positive studies.' },
   { question: 'Is magnesium glycinate one of the best sleep supplements?', answer: 'The evidence is not strong enough to call it one of the best universally. A 2025 magnesium bisglycinate trial found a statistically significant but small improvement in insomnia severity, while a prior systematic review found low to very-low certainty evidence in older adults.' },
   { question: 'Is L-theanine better than melatonin?', answer: 'They answer different questions. Melatonin is a circadian signal and fits timing problems better. L-theanine has newer evidence for subjective sleep-quality outcomes but is not established as a treatment for clinical insomnia.' },
@@ -103,7 +104,7 @@ const SLEEP_DECISION_CANDIDATES = [
     fit: 'Promising for subjective sleep quality and pre-sleep mental quieting, but not established as a clinical-insomnia treatment.',
     safetyCheck: 'Review sedative stacking and blood-pressure context before combining it with other calming products.',
     qualitySignals: ['Single-ingredient or transparently labeled formula', 'Clear serving-size labeling', 'Third-party quality verification when available'],
-    profileHref: '/compounds/l-theanine/',
+    profileHref: '/guides/herbs/l-theanine/',
   },
   {
     slug: 'magnesium',
@@ -146,7 +147,7 @@ export default function BestSupplementsForSleepPage() {
               · Last evidence review September 17, 2026
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-              This is the decision page, not the encyclopedia. It compares the six most commonly considered sleep supplements
+              This is the decision page, not the encyclopedia. It compares six commonly considered natural sleep supplements
               by <strong className="text-ink">directness of human evidence, effect size, formulation match and safety</strong>.
               “Best” here means “most defensible for a clearly defined question,” not “strongest sedative.”
             </p>

@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1101-1125-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1076-1100-selection",
+  "program": {
+    "range": "1001-1500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 125,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1500"
+  },
+  "source_provenance": [
+    "Sider Scholar/OpenAlex + NCBI PubMed exact-source verification",
+    "collision screening against merged history, pending Waves 501-1000, and active Waves 1001-1100"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 1500"
+  },
+  "waves": [
+    {
+      "wave": 1101,
+      "entity_slug": "creatine",
+      "pmid": "42141930",
+      "focus": "Seven-RCT meta-analysis in postmenopausal women found small gains in lean mass and leg-press strength, especially when creatine was paired with resistance training, while bone density was unchanged; effects were context-dependent and safety signals were mild.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1102,
+      "entity_slug": "creatine-musculoskeletal-pain",
+      "pmid": "42407202",
+      "focus": "Systematic review of eight small clinical studies found creatine alone had limited clinical benefit in chronic musculoskeletal pain, while creatine plus resistance exercise sometimes improved strength, muscle mass and selected quality-of-life outcomes; pain/inflammation results were inconsistent.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1103,
+      "entity_slug": "vitamin-d",
+      "pmid": "42100752",
+      "focus": "Stratified systematic review found vitamin D benefits were most consistent in deficient older/clinical populations, while elite-athlete performance, BMD and fracture outcomes in broadly replete adults were often null; supports deficiency correction rather than universal ergogenic use.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1104,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "42499192",
+      "focus": "Systematic review of 101 studies found acute sodium-bicarbonate protocols commonly produced gastrointestinal symptoms that increased with single-dose exposure; spread dosing and alternative delivery formats may reduce symptoms, but direct comparative evidence remains insufficient.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1105,
+      "entity_slug": "ketone-supplements",
+      "pmid": "42514217",
+      "focus": "Systematic review of 26 controlled studies found exogenous ketones reliably raised beta-hydroxybutyrate and altered metabolism, but exercise-performance effects ranged from benefit to null or impairment and depended heavily on protocol/co-ingestion context.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1106,
+      "entity_slug": "caffeine-sodium-bicarbonate",
+      "pmid": "42783782",
+      "focus": "Bayesian network meta-analysis of 13 co-supplementation trials found small performance benefits from caffeine, sodium bicarbonate and their combination versus placebo, but no clear evidence that co-ingestion outperformed either supplement alone despite larger metabolic changes.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1107,
+      "entity_slug": "whey-soy-protein",
+      "pmid": "41454445",
+      "focus": "Meta-analysis of 12 resistance-training studies in young adults found no significant lean-mass advantage from whey or soy supplementation, while whey improved bench-press and squat strength; protein type, training context and small study count limit generalization.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1108,
+      "entity_slug": "protein-related-sarcopenia",
+      "pmid": "42712362",
+      "focus": "Network meta-analysis of 18 RCTs/1,341 older adults found protein-related supplementation added to exercise improved grip strength and ASMI but not TUG overall; HMB/whey/leucine rankings were exploratory because certainty was very low and the network sparse.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1109,
+      "entity_slug": "omega-3",
+      "pmid": "41826682",
+      "focus": "Small eight-week RCT in 18 healthy men found omega-3 supplementation altered oxylipins and attenuated peak strength loss after eccentric muscle damage, but soreness did not differ; mechanistic recovery signal from a very small sample.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1110,
+      "entity_slug": "omega-3",
+      "pmid": "41891174",
+      "focus": "Meta-analysis of 41 RCTs found moderate reductions in selected post-exercise inflammatory/muscle-damage markers and soreness with EPA/DHA, but subgroup patterns reflected heterogeneous doses, durations and athlete populations; biomarker recovery is not equivalent to performance enhancement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1111,
+      "entity_slug": "protein-creatine-omega3-athletes",
+      "pmid": "41901084",
+      "focus": "Network meta-analysis of 35 trials suggested outcome-specific rankings: creatine for strength, protein for endurance and omega-3 for recovery; indirect ranking evidence should not be treated as head-to-head proof of superiority.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1112,
+      "entity_slug": "omega-3",
+      "pmid": "41934732",
+      "focus": "Secondary randomized analysis in older adults undergoing exercise found omega-3 selectively lowered PGE2 while several other lipid/inflammatory mediators changed similarly in both groups; biomarker modulation did not establish a functional performance benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1113,
+      "entity_slug": "epa-structured-lipid",
+      "pmid": "41992745",
+      "focus": "Eight-week active-comparator RCT in 28 young men found structured EPA/MCT lipid increased serum EPA:AA more than a physical mixture but did not improve muscular endurance or fatigue outcomes; direct biomarker-versus-performance dissociation.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1114,
+      "entity_slug": "pro-anabolic-modulators",
+      "pmid": "42003496",
+      "focus": "Systematic review of 53 RCTs across vitamin D, leucine, omega-3 and probiotics found generally favorable but heterogeneous muscle-function signals with mostly low/very-low certainty; multi-agent category evidence cannot be converted into a universal sarcopenia recommendation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1115,
+      "entity_slug": "fish-protein-vitamin-d-omega3",
+      "pmid": "42189275",
+      "focus": "Triple-crossover RCT in recreationally trained adults found six weeks of high-intensity functional training improved performance, but added fish protein+vitamin D+omega-3 did not enhance measured adaptations versus whey or maltodextrin controls.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1116,
+      "entity_slug": "dha",
+      "pmid": "42213158",
+      "focus": "Twelve-week placebo-controlled trial in trained adults found microencapsulated DHA increased omega-3 index and reduced post-eccentric-exercise soreness with selected neuromuscular/inflammatory differences; formulation and exercise-recovery context remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1117,
+      "entity_slug": "omega-3",
+      "pmid": "42392582",
+      "focus": "Systematic review of 11 human studies found inconsistent neuromuscular effects from long-chain omega-3 supplementation, with numerous null and some context-specific adverse findings; current evidence remains limited and heterogeneous.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1118,
+      "entity_slug": "curcumin",
+      "pmid": "42356379",
+      "focus": "Systematic review of 15 sport/exercise RCTs found selected oxidative-stress and recovery signals but inconsistent muscle-damage, inflammation, soreness/fatigue and performance effects; certainty ranged from low to very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1119,
+      "entity_slug": "citrulline-malate",
+      "pmid": "41900522",
+      "focus": "Small randomized crossover pilot in 12 resistance-trained adults found 12 g but not 8 g citrulline malate modestly increased leg-press repetitions, with no broad dose-response conclusion justified from the tiny sample.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1120,
+      "entity_slug": "citrulline-malate-l-arginine",
+      "pmid": "41958907",
+      "focus": "Randomized crossover trial in 16 highly trained male taekwondo athletes found combined citrulline malate plus L-arginine improved selected anaerobic, agility and jump outcomes versus placebo/single-supplement conditions; combination design prevents single-ingredient attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1121,
+      "entity_slug": "beetroot-vitamin-c",
+      "pmid": "41998779",
+      "focus": "Randomized crossover trial in collegiate wrestlers found acute beetroot juice plus vitamin C improved selected Wingate power outcomes and lowered post-exercise glucose, while CK and LDH were unchanged; co-supplementation prevents beetroot-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1122,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42019929",
+      "focus": "Randomized double-blind trial in 12 elite swimmers found acute beetroot juice did not improve repeated 200-m performance, lactate or perceived exertion under competition-like conditions; useful elite-performance null evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1123,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42075028",
+      "focus": "Very small crossover pilot in 10 amateur triathletes found beetroot nitrate strongly increased NO-pathway and several oxidative/inflammatory biomarkers without clear lipid-oxidative damage; functional performance significance was not established.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1124,
+      "entity_slug": "beetroot-nitrate-caffeine",
+      "pmid": "42124064",
+      "focus": "Randomized crossover trial in 15 trained male cyclists found nitrate, caffeine and their combination did not significantly change end power, work above end power, peak power, mean power or total work during a 3-min all-out test.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1125,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42148901",
+      "focus": "Randomized double-blind trial in 12 trained male sprinters found beetroot juice markedly raised salivary nitrate/nitrite but did not improve jump height, 60/100-m sprint performance or most neuromuscular measures; direct biomarker-performance null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

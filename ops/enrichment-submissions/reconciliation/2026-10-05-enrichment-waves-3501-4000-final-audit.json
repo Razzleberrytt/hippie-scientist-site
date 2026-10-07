@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch": "waves-3501-4000",
+  "status": "complete_pending_repository_validation",
+  "findings": 500,
+  "wave_coverage": {
+    "first": 3501,
+    "last": 4000,
+    "missing": []
+  },
+  "finalized_prior_basis": {
+    "through_wave_3500_unique_pmids": 3435,
+    "source": "2026-10-04-enrichment-waves-3001-3500-pmid-index.json"
+  },
+  "dedupe": {
+    "prior_unique_pmids": 3435,
+    "new_unique_pmids": 500,
+    "cumulative_unique_pmids": 3935,
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0,
+    "prior_pmid_collisions": 0
+  },
+  "verification": {
+    "final_consolidated_row_count": 500,
+    "exact_pubmed_title_and_abstract": true,
+    "all_rows_abstract_verified": true,
+    "unverified_rows": 0
+  },
+  "finalized_repairs": {
+    "prior_reconciliation_repair_rows": 20,
+    "pr_review_category_firewall_replacements": 4,
+    "retraction_quarantine_rows": 2,
+    "replaced_waves": [
+      3611,
+      3612,
+      3889,
+      3915
+    ],
+    "quarantined_waves": [
+      3935,
+      3936
+    ],
+    "review_repair_receipt": "2026-10-05-enrichment-waves-3611-3936-review-repair-exact.json"
+  },
+  "category_counts": {
+    "aging_sarcopenia": 34,
+    "botanicals_mushrooms": 31,
+    "cannabinoid_safety": 34,
+    "cardiometabolic": 16,
+    "cognition_focus": 34,
+    "gut": 9,
+    "immune_respiratory": 34,
+    "inflammation_pain": 34,
+    "metabolic": 28,
+    "micronutrients": 12,
+    "mitochondrial_energy": 34,
+    "mood": 34,
+    "performance": 16,
+    "safety_interactions": 33,
+    "sleep": 35,
+    "stress_anxiety": 29,
+    "withdrawal_nps": 29,
+    "women_health": 24
+  },
+  "state_counts": {
+    "selected_exact_verified": 415,
+    "research_only_exact_verified_review_repair": 4,
+    "research_only_exact_verified_final_repair": 20,
+    "research_only_exact_verified": 59,
+    "research_only_retraction_notice_ineligible": 1,
+    "research_only_retracted_publication_ineligible": 1
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-05-enrichment-waves-3501-4000-verified-consolidated.json",
+    "cumulative_index": "2026-10-05-enrichment-waves-3501-4000-pmid-index.json",
+    "final_selection": "2026-10-05-enrichment-waves-3501-4000-final-selection.json",
+    "review_repair_receipt": "2026-10-05-enrichment-waves-3611-3936-review-repair-exact.json"
+  },
+  "authority_note": "The finalized consolidated receipt supersedes stale pending states or superseded rows in earlier selection, aggregate, exact, replacement, and repair artifacts.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "retraction_quarantine": true
+  }
+}

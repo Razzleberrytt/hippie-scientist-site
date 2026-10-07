@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3340,
+      "pmid": "42347476",
+      "doi": "10.3390/sports14060252",
+      "category": "performance",
+      "title": "Acute Moderate-Dose β-Alanine Improves Exercise Efficiency via Bicarbonate-Related Mechanisms During a Cycling Time Trial.",
+      "journal": "Sports (Basel, Switzerland)",
+      "pub_date": "2026-Jun-20",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "In 85 recreational cyclists, acute beta-alanine did not improve distance, speed, cadence, or heart rate during a 10-minute cycling time trial, but the moderate dose reduced mechanical work required for similar performance and this correlated with bicarbonate changes."
+    },
+    {
+      "wave": 3345,
+      "pmid": "42355449",
+      "doi": "10.3390/life16060922",
+      "category": "performance",
+      "title": "Acute Caffeine Ingestion, Calendar-Based Menstrual-Cycle Window, Time of Day, and Match-Induced Fatigue Independently and Interactively Influence Psychophysiological, Cognitive, and Physical Performance in Elite Female Volleyball Players: A Randomized Double-Blind Placebo-Controlled Crossover Design Study.",
+      "journal": "Life (Basel, Switzerland)",
+      "pub_date": "2026-May-30",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized double-blind placebo-controlled crossover study in 13 elite female volleyball players found acute caffeine improved several psychophysiological, cognitive, agility, and neuromuscular outcomes, with effects varying by testing window, time of day, and fatigue state; authors caution that larger hormonally verified samples are needed."
+    }
+  ]
+}

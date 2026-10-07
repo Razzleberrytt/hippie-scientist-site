@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "repairs": [
+    "3538-3550",
+    "3551-3562"
+  ],
+  "row_count": 2,
+  "verified_count": 2,
+  "rows": [
+    {
+      "wave": 3545,
+      "pmid": "42815388",
+      "title": "Application of Cu2+-chelated curcumin/chitosan coating in maintaining the storage quality of harvested passion fruit.",
+      "abstract": "Passion fruit is susceptible to postharvest spoilage, requiring innovative preservation strategies. This study developed a novel Cu2+-chelated curcumin/chitosan composite coating (CuCur-CS) via self-assembly. Under ambient temperature, CuCur-CS treatment was the most effective, exhibiting the lowest weight loss rate (only 5.6% on day 18), along with superior fruit shape and surface color retention. The coating stabilized sugar-acid balance by suppressing respiration and alleviating oxidative stress. By day 18, H2O2 and MDA contents in the control increased by 53% and 28%, respectively, versus only 11% and 12% in CuCur-CS. Metabolomics revealed that CuCur-CS attenuated energy metabolism by stabilizing TCA cycle intermediates, while modulating phenylpropanoid and fatty acid pathways to suppress volatile alcohols, esters, and excessive phenolics and flavonoids. These actions delay aroma degradation and prevent antioxidant overactivation. Overall, CuCur-CS effectively retards senescence and postharvest losses, offering a promising preservation solution for passion fruit.",
+      "journal": "Food chemistry",
+      "pub_date": "2026-Sep-27",
+      "pdf_link": "https://doi.org/10.1016/j.foodchem.2026.151328",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3562,
+      "pmid": "42745018",
+      "title": "The Endocannabinoid System in Endometriosis-Associated Pain: Mechanisms, Molecular Targets, and Therapeutic Implications.",
+      "abstract": "Endometriosis is a chronic gynecological disorder affecting approximately 10% of reproductive-age women, characterized by the ectopic growth of endometrial tissue and severe pain, including dysmenorrhea, chronic pelvic pain, dyspareunia, dysuria, and dyschezia. Current treatments are limited in efficacy and associated with significant side effects, underscoring the urgent need for novel therapeutic strategies. The endocannabinoid system (ECS) has emerged as a promising therapeutic target, given its well-established roles in pain modulation, inflammation, and immune regulation. Epidemiological evidence demonstrates that women with endometriosis increasingly use cannabis for symptom self-management, yet the underlying mechanisms remain poorly characterized. This review integrates preclinical and human evidence to comprehensively evaluate the mechanistic basis of cannabinoid efficacy in endometriosis-associated pain. Evidence from in vitro studies and animal models indicates that cannabinoids target three main mechanisms of endometriosis-associated pain, including inflammation, nociceptive signaling, and lesion proliferation. Cannabinoids suppress pain signaling and sensitization by interacting with cannabinoid and non-cannabinoid receptors expressed in endometriotic lesions. Cannabinoids attenuate endometriosis-induced inflammation by inhibiting proinflammatory cytokine signaling and reducing the release of inflammatory mediators by mast cells and peritoneal macrophages. Cannabinoids also exert antiproliferative effects in endometriosis models, thereby suppressing the growth of endometriotic lesions. In conclusion, the ECS is a promising therapeutic target for endometriosis-associated pain, as it regulates nociception, inflammation, and proliferation. These promising findings highlight the potential therapeutic benefits of cannabinoids for endometriosis-associated pain, warranting the need for clinical trials to evaluate the safety and effectiveness of cannabinoid therapies in endometriosis.",
+      "journal": "Reproductive sciences (Thousand Oaks, Calif.)",
+      "pub_date": "2026-Sep-15",
+      "pdf_link": "https://doi.org/10.1007/s43032-026-02201-9",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9095948/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    }
+  ]
+}

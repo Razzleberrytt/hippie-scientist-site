@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2001-2025-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1501-2000-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 25,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2001,
+      "entity_slug": "vitamin-d-status-response-supplementation-very-preterm",
+      "pmid": "41974919",
+      "focus": "Observational study on vitamin d status and response to supplementation in very preterm infants reports VDD is highly prevalent at birth in very preterm infants. Daily intake <400 IU/kg generally normalizes vitamin D status by 8 weeks while minimizing. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2002,
+      "entity_slug": "serum-vitamin-d-levels-patients-medication-related",
+      "pmid": "41975407",
+      "focus": "Meta-analysis on serum vitamin d levels in patients with medication-related osteonecrosis of the reports CLINICAL RELEVANCE: In antiresorptive-treated adults, serum 25-hydroxyvitamin D levels measured after diagnosis do not differ meaningfully between patients with MRONJ and exposed controls, suggesting. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2003,
+      "entity_slug": "from-lab-law-emerging-applications-potential-benefits",
+      "pmid": "41975425",
+      "focus": "Review on from lab to law: emerging applications, potential benefits, evolving regulatory framework reports Such a structured methodology provides a scalable, evidence-driven basis for evaluating engineered probiotics according to the biological nature of the modification rather than a. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2004,
+      "entity_slug": "vitamin-d-as-regulator-biological-clock-implications",
+      "pmid": "41977424",
+      "focus": "Review on vitamin d as a regulator of the biological clock-implications for circadian-metabolic reports Although interventional studies yield heterogeneous results, higher vitamin D status may confer protective metabolic and neurobehavioral effects. This review summarizes current evidence on the. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2005,
+      "entity_slug": "acidosis-iron-dyshomeostasis-inflammatory-injury",
+      "pmid": "41977458",
+      "focus": "Review on acidosis, iron dyshomeostasis and inflammatory injury reports These changes result in intracellular iron sequestration that frequently becomes noxious. Pharmacological strategies to inhibit NTBI transport are proposed to protect against iron overload. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2006,
+      "entity_slug": "modulation-glucose-homeostasis-metabolic-endotoxemia-circulating-short",
+      "pmid": "41978077",
+      "focus": "Randomized controlled trial on modulation of glucose homeostasis, metabolic endotoxemia and circulating short-chain fatty acids reports Conclusions: Twelve weeks of multi-species probiotic supplementation improved fasting glucose, reduced incretin and inflammatory biomarkers and attenuated metabolic endotoxemia, without alterations in circulating SCFAs. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2007,
+      "entity_slug": "differential-dose-dependent-redistribution-vitamin-d-metabolites",
+      "pmid": "41978112",
+      "focus": "Randomized controlled trial on differential and dose-dependent redistribution of vitamin d metabolites after acute high-intensity reports Conclusions: The efficacy of vitamin D3 supplementation and the acute exercise-induced vitamin D responses appear to be training-dependent. A daily dose of 6000 IU. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2008,
+      "entity_slug": "coffee-caffeine-depression-symptom-level-modulation-challenges",
+      "pmid": "41978115",
+      "focus": "Review on coffee and caffeine in depression: symptom-level modulation and challenges in nutripsychiatric reports Coffee and caffeine should not be conceptualised as antidepressant interventions. Instead, they appear to act as context-dependent modulators of symptom expression in depression, particularly. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2009,
+      "entity_slug": "ginger-bioactives-as-multi-target-therapeutics-mechanisms",
+      "pmid": "41978129",
+      "focus": "Review on ginger bioactives as multi-target therapeutics: mechanisms, delivery innovation, and human health reports Recent studies have also highlighted the role of artificial intelligence (AI) in accelerating the discovery and evaluation of bioactive agents with therapeutic relevance across. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2010,
+      "entity_slug": "vitamin-d-nutritional-programming-during-first-1000",
+      "pmid": "41978146",
+      "focus": "Review on vitamin d: nutritional programming during the first 1000 days of life reports Vitamin D fulfills several biological plausibility criteria for a potential early-life programming factor, although current human evidence remains heterogeneous. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2011,
+      "entity_slug": "vitamin-b12-deficiency-diagnostic-work-up-global",
+      "pmid": "41978148",
+      "focus": "Review on vitamin b12 deficiency in the diagnostic work-up of global developmental delay reports Conclusions: Targeted assessment of vitamin B12 status in children with GDD, together with evaluation of maternal status, represents a clinically relevant approach to identifying. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2012,
+      "entity_slug": "probiotic-synbiotic-oral-supplementation-autoimmune-diseases-updated",
+      "pmid": "41978157",
+      "focus": "Meta-analysis on effect of probiotic and synbiotic oral supplementation in autoimmune diseases: an reports Oral probiotic supplementation lowers the levels of some inflammatory markers in patients with autoimmune diseases. Further studies with longer follow-up durations are needed to. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2013,
+      "entity_slug": "probiotic-supplementation-core-symptoms-autism-spectrum-disorder",
+      "pmid": "41978177",
+      "focus": "Systematic review on effects of probiotic supplementation on core symptoms of autism spectrum disorder reports However, there is limited high-quality evidence on this. Evidence for other core domains remains limited and inconsistent, highlighting the need for well-designed, multicenter trials. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2014,
+      "entity_slug": "association-between-levels-magnesium-diabetic-retinopathy-diabetic",
+      "pmid": "41978212",
+      "focus": "Meta-analysis on association between levels of magnesium and diabetic retinopathy in diabetic patients reports This systematic review and meta-analysis conclude that magnesium levels are significantly lower in patients with diabetic retinopathy than in diabetic controls without retinopathy. A. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2015,
+      "entity_slug": "vitamin-d-office-workers-review-musculoskeletal-immune",
+      "pmid": "41978299",
+      "focus": "Review on vitamin d in office workers: a review of musculoskeletal and immune reports Addressing the low level of vitamin D in office workers is essential for promoting musculoskeletal health, supporting immune functions, and enhancing workforce productivity. This. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2016,
+      "entity_slug": "vitamin-d-deficiency-supplementation-myocardial-hepatic-iron",
+      "pmid": "41979683",
+      "focus": "Observational study on effects of vitamin d deficiency and supplementation on myocardial and hepatic reports CONCLUSION: Vitamin D supplementation was associated with significant improvement in myocardial and hepatic iron parameters, suggesting a potential beneficial role in reducing iron-induced organ. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2017,
+      "entity_slug": "overlaps-mammalian-iron-manganese-homeostasis-recent-advances",
+      "pmid": "41979805",
+      "focus": "Review on overlaps in mammalian iron and manganese homeostasis: recent advances reports We also briefly review SLC39A14 and SLC39A8 deficiency, two other inherited diseases of manganese imbalance, and the current understanding of the function of SLC39A14. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2018,
+      "entity_slug": "zinc-containing-biomaterials-bone-disease-therapy-tissue",
+      "pmid": "41980378",
+      "focus": "Review on zinc-containing biomaterials for bone disease therapy and tissue repair: design principles reports Furthermore, we discuss the clinical translation of Zn-containing platforms, including commercially available products, ongoing clinical trials, and preclinical systems. Ultimately, Zn-containing biomaterials hold promise. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2019,
+      "entity_slug": "research-review-omega-3-supplementation-reduce-antisocial",
+      "pmid": "41980788",
+      "focus": "Meta-analysis on research review: omega-3 supplementation to reduce antisocial behavior - a systematic reports Given that omega-3 supplementation is relatively cheap, easy to implement, transfers well from the research environment to community settings, and has additional health benefits. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2020,
+      "entity_slug": "eggshell-membrane-composition-extraction-functional-properties-high",
+      "pmid": "41981859",
+      "focus": "Review on eggshell membrane: composition, extraction, functional properties, and high-value applications in functional reports This review also addresses current challenges in scaling up ESM utilization-including improving extraction efficiency, ensuring quality consistency, and meeting regulatory requirements-and highlights future directions. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2021,
+      "entity_slug": "race-distance-probiotics-intervention-kidney-muscle-gut",
+      "pmid": "41981959",
+      "focus": "Randomized controlled trial on effects of race distance and probiotics intervention on kidney, muscle, and reports These findings suggest that prolonged intense exercise induces kidney and muscle injury as well as gut inflammation, with more severe effects observed in ultra-distance. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2022,
+      "entity_slug": "vitamin-d-status-supplementation-multiple-sclerosis-systematic",
+      "pmid": "41983136",
+      "focus": "Meta-analysis on vitamin d status, supplementation, and multiple sclerosis: a systematic review and reports This systematic analysis confirms that patients with MS exhibit significantly lower serum 25(OH)D levels compared to healthy controls, with notable reductions observed during clinical. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2023,
+      "entity_slug": "molecular-insights-into-vitamin-d-atopic-dermatitis",
+      "pmid": "41983140",
+      "focus": "Review on molecular insights into the role of vitamin d in atopic dermatitis reports The review further discusses ongoing controversies regarding optimal dosing and evaluates the limitations of current clinical evidence. Finally, emerging research directions, such as vitamin. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2024,
+      "entity_slug": "nutrition-dietary-supplements-age-related-macular-degeneration",
+      "pmid": "41984164",
+      "focus": "Review on nutrition and dietary supplements in age-related macular degeneration reports There is evidence of a protective effect for individual nutrients such as lutein, zeaxanthin, zinc and omega‑3 fatty acids. The AREDS studies in particular. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2025,
+      "entity_slug": "efficacy-oral-vitamin-supplementation-dry-eye-disease",
+      "pmid": "41984344",
+      "focus": "Systematic review on the efficacy of oral vitamin supplementation in dry eye disease: a reports The available evidence is limited due to not being well-controlled or adequately powered, having a very short follow-up duration and variable dosage of supplementation. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    }
+  ]
+}

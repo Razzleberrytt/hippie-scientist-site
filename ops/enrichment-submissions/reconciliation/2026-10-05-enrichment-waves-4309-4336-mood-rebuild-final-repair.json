@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "batch": "mood-rebuild-final-repair",
+  "rows": [
+    {
+      "wave": 4327,
+      "pmid": "42548312",
+      "replaces_pmid": "41599247",
+      "category": "mood",
+      "title": "Serum n-3 fatty acids and obesity-comorbid depression in US adults: an integrated epidemiology and network pharmacology study.",
+      "verified_title": "Serum n-3 fatty acids and obesity-comorbid depression in US adults: an integrated epidemiology and network pharmacology study.",
+      "verified_journal": "The British journal of nutrition",
+      "verified_pub_date": "2026-Aug-04",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "n-3 PUFA, DHA and EPA possess anti-inflammatory properties, yet their association with obesity-depression comorbidity remains unclear. This study investigated the association among USA adults and explored underlying mechanisms. We performed a cross-sectional analysis of 4,423 adults participating in the National Health and Nutrition Examination Survey 2003-2004 and 2011-2014. Serum fatty acids were quantified by gas chromatography. Obesity was defined using anthropometric criteria, and depression was assessed using the Patient Health Questionnaire-9 or antidepressant use. Multivariable logistic regression estimated odds ratio (OR) per sd increase in PUFA levels. Mechanistic explore through network pharmacology identified potential pathways, which were examined using correlation analyses with inflammatory indices. Higher n-3 PUFA levels were associated with lower odds of central obesity comorbid depression in females (OR: 0·82, 95 % CI: 0·69-0·96) and older adults (OR: 0·79, 95 % CI: 0·64-0·97). DHA was significantly associated with lower odds of central obesity (OR: 0·83, 95 % CI: 0·73-0·95), depressive symptoms (OR: 0·88, 95 % CI: 0·77-1·00) and their comorbidity (OR: 0·85, 95 % CI: 0·74-0·98), whereas no significant associations were found for EPA. Mechanistic exploration implicated DHA in TNF and IL-17 signalling pathways, supported by inverse correlations with monocyte:HDL ratio (r: -0·138, P < 0·001) and lymphocyte:HDL ratio (r: -0·108, P < 0·001). In conclusion, serum DHA is inversely associated with obesity-depression comorbidity, with potential involvement of anti-inflammatory pathways. These findings underscore the potential of DHA for the management of obesity comorbid depression and the need for further interventional trials.",
+      "pdf_link": "https://doi.org/10.1017/S0007114526108198",
+      "full_text_link": null,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    },
+    {
+      "wave": 4334,
+      "pmid": "42358300",
+      "replaces_pmid": "42358300",
+      "category": "mood",
+      "title": "Association of vitamin D deficiency with incident depression in patients with hearing impairment: an observational retrospective cohort study.",
+      "verified_title": "Association of vitamin D deficiency with incident depression in patients with hearing impairment: an observational retrospective cohort study.",
+      "verified_journal": "Frontiers in nutrition",
+      "verified_pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "Hearing impairment is associated with an elevated risk of depression, yet modifiable risk factors in this population remain poorly characterized. Although vitamin D deficiency (VDD) has been linked to depression in general populations, no large-scale study has examined this association among adults with hearing impairment. This retrospective cohort study used the TriNetX Global Collaborative Network. Adults aged ≥18 years with hearing impairment who underwent serum 25-hydroxyvitamin D [25(OH)D] testing between 2010 and 2023 were classified into VDD (< 20 ng/ml) and sufficiency (≥30 ng/ml) cohorts. Thus, the study population represented a selected healthcare-utilizing cohort with available vitamin D measurements. After propensity score matching (48,184 per group), Cox models estimated hazard ratios (HRs) for incident depression over 12 years using a 1-year landmark design. For the primary outcome, VDD was associated with a significantly higher risk of overall depression (HR, 1.57; 95% CI, 1.51-1.64; P < 0.001). For secondary outcomes, significant associations were observed for depressive episode (HR, 1.60), recurrent depression (HR, 1.62), suicidal behavior/self-harm (HR, 1.47), and all-cause mortality (HR, 1.40; all P < 0.001). The associations remained robust across sensitivity analyses (HRs, 1.55-1.65). Subgroup analyses showed consistent associations across sex, age, and comorbidity strata, with significant effect modification by age, obesity, and chronic pain. Vitamin D insufficiency (20.0-29.9 ng/ml) showed a smaller but significant association (HR, 1.37), consistent with an exposure-gradient pattern across predefined vitamin D categories. The negative control outcome (acute appendicitis) was non-significant (P = 0.267). VDD was associated with increased long-term depression risk among adults with hearing impairment who underwent serum 25(OH)D testing. Vitamin D status may represent a potential risk marker for depression in this selected healthcare-utilizing population; however, the observational design does not establish that vitamin D correction reduces depression risk.",
+      "pdf_link": "https://doi.org/10.3389/fnut.2026.1856953",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13290609/",
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    }
+  ]
+}

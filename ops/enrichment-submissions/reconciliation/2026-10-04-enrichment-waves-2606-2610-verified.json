@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2606-2610",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2606,
+      "pmid": "42616216",
+      "title": "Bacopa monnieri and Alzheimer's disease: mechanistic convergence, cognitive outcomes and translational perspectives.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The Bacopa evidence base spans mechanistic and preclinical work with limited clinical translation; Alzheimer disease efficacy and disease modification are not established."
+    },
+    {
+      "wave": 2607,
+      "pmid": "42794785",
+      "title": "AMPK-Directed Therapeutics for MASLD: Mechanistic Rationale, Activator Classes, and Clinical Translation.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "This review covers multiple AMPK-directed therapeutic classes and mechanisms; pathway plausibility does not establish efficacy for any particular supplement or natural compound in MASLD."
+    },
+    {
+      "wave": 2608,
+      "pmid": "42774343",
+      "title": "Berberine as a multitarget modulator of metabolic inflammation: molecular mechanisms, circadian regulation, and translational perspectives.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review synthesizes broad mechanistic and translational evidence; berberine's low bioavailability, formulation differences, and heterogeneous clinical contexts limit direct efficacy generalization."
+    },
+    {
+      "wave": 2609,
+      "pmid": "42792232",
+      "title": "Molecular Mechanisms of Obesity-Associated Oxidative Stress and Therapeutic Strategies.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "This is a mechanism-focused obesity review spanning many therapeutic strategies; redox-pathway plausibility should not be treated as proof that any specific antioxidant supplement improves clinical outcomes."
+    },
+    {
+      "wave": 2610,
+      "pmid": "42792223",
+      "title": "Oxidative Stability and Nanoencapsulation of Marine Omega-3 LC-PUFAs for Sustainable Aquaculture and Human Health.",
+      "abstract_verified": true,
+      "state": "research_only_formulation_review",
+      "evidence_boundary": "The paper focuses on oxidation, feed and food-chain stability, and encapsulation of EPA/DHA rather than direct human clinical outcomes; formulation stability is not equivalent to efficacy."
+    }
+  ]
+}

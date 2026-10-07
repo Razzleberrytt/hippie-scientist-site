@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "range": "2556-2605",
+  "source": "NCBI PubMed exact fetch fallback",
+  "rows": [
+    {
+      "wave": 2557,
+      "pmid": "42704497",
+      "state": "research_only_source_verified",
+      "focus": "Meta-analysis of nine dementia trials found cannabinoids did not improve agitation, neuropsychiatric symptoms, or cognition; somnolence was increased.",
+      "evidence_boundary": "Moderate-to-low certainty, heterogeneous trials; no class-wide efficacy signal."
+    },
+    {
+      "wave": 2558,
+      "pmid": "42773786",
+      "state": "research_only_source_verified",
+      "focus": "Systematic review of five RCTs found cannabinoid effects varied strongly by indication and formulation; oral CBD did not help acute low back pain, while THC+CBD and a standardized extract showed signals in specific conditions.",
+      "evidence_boundary": "Formulation-, route-, and indication-specific findings do not support a class-wide effect."
+    },
+    {
+      "wave": 2562,
+      "pmid": "42627450",
+      "state": "research_only_source_verified",
+      "focus": "Review of newer antiseizure medications found substantial agent-specific renal/hepatic pharmacokinetic differences; cannabidiol was among agents less affected by renal decline.",
+      "evidence_boundary": "Prescription-drug PK review; cannabidiol findings apply to labeled antiseizure-medication use, not general supplement dosing."
+    },
+    {
+      "wave": 2563,
+      "pmid": "42813605",
+      "state": "research_only_preclinical_review",
+      "focus": "Systematic review of 49 rodent studies found THC generally reduced affiliative social behavior in wild-type rodents, with model-, dose-, sex-, and timing-dependent effects.",
+      "evidence_boundary": "Rodent evidence with reporting limitations cannot be generalized directly to humans."
+    },
+    {
+      "wave": 2564,
+      "pmid": "42813543",
+      "state": "research_only_veterinary_pk",
+      "focus": "Four-week canine osteoarthritis study found highly variable CBD exposure and no statistically significant major PK interaction with carprofen, though coadministration signals warrant further study.",
+      "evidence_boundary": "Veterinary pharmacokinetics; human interaction magnitude cannot be inferred."
+    },
+    {
+      "wave": 2565,
+      "pmid": "42807438",
+      "state": "research_only_in_vitro",
+      "focus": "CBD/epirubicin-loaded hydroxyapatite nanocarrier improved membrane interaction and ovarian-cancer-cell cytotoxicity in laboratory models.",
+      "evidence_boundary": "Nanocarrier and cell-culture evidence is preclinical and not evidence for CBD cancer treatment in humans."
+    },
+    {
+      "wave": 2569,
+      "pmid": "42769824",
+      "state": "research_only_regulatory_safety",
+      "focus": "EFSA novel-food opinion on ≥98% CBD concluded safety could not be established because key identity, toxicology, reproductive/developmental, and human data gaps were not resolved.",
+      "evidence_boundary": "Regulatory safety conclusion is specific to the assessed novel-food dossier and proposed use conditions."
+    },
+    {
+      "wave": 2570,
+      "pmid": "42769758",
+      "state": "research_only_regulatory_safety",
+      "focus": "EFSA novel-food opinion on a Cannabis sativa extract containing CBD and other cannabinoids concluded safety could not be established because requested data gaps remained unresolved.",
+      "evidence_boundary": "Regulatory safety conclusion is product/dossier-specific and should not be generalized to all cannabis extracts."
+    },
+    {
+      "wave": 2571,
+      "pmid": "42765195",
+      "state": "research_only_observational",
+      "focus": "Multicenter retrospective adult epilepsy cohort reported ≥50% seizure reduction in roughly 46% at 12 months, with adverse events common but mostly mild.",
+      "evidence_boundary": "Retrospective observational data cannot isolate CBD's independent treatment effect; controlled prospective studies are needed."
+    },
+    {
+      "wave": 2589,
+      "pmid": "42798689",
+      "state": "research_only_meta_analysis",
+      "focus": "Systematic review/meta-analysis of CoQ10 in athletes found no robust overall ergogenic or physiological benefit; a favorable oxidative-stress sensitivity signal was fragile and heterogeneous.",
+      "evidence_boundary": "Small studies and heterogeneity limit confidence; pooled performance outcomes were largely neutral."
+    },
+    {
+      "wave": 2593,
+      "pmid": "42822834",
+      "state": "research_only_rct",
+      "focus": "Ten-week randomized dietary intervention found moderate pasture-raised red meat maintained plasma DPA relative to a vegetarian PBMA pattern without detectable differences in cardiometabolic biomarkers.",
+      "evidence_boundary": "Whole-diet comparison cannot be interpreted as an isolated omega-3 supplementation effect."
+    },
+    {
+      "wave": 2596,
+      "pmid": "42807157",
+      "state": "research_only_rct",
+      "focus": "Randomized double-blind trial found ubiquinone, ubiquinol, and ubiquinol+geranylgeraniol increased plasma CoQ10; geranylgeraniol alone did not, and patient-reported vitality/health outcomes did not differ from placebo.",
+      "evidence_boundary": "Biomarker elevation does not by itself demonstrate clinical benefit."
+    },
+    {
+      "wave": 2597,
+      "pmid": "42798115",
+      "state": "research_only_mendelian_randomization",
+      "focus": "Two-sample Mendelian randomization associated genetically predicted higher omega-3 and lower omega-6/omega-3 ratio with lower Crohn disease susceptibility.",
+      "evidence_boundary": "Genetically proxied fatty-acid levels are not equivalent to dietary intake or supplementation; heterogeneity makes causality only suggestive."
+    },
+    {
+      "wave": 2598,
+      "pmid": "42796958",
+      "state": "research_only_replacement_observational",
+      "replaces_rejected_pmid": "42782716",
+      "focus": "Cross-sectional collegiate-athlete study found low omega-3 index was common, with only weak correlations with systolic blood pressure and triglycerides.",
+      "evidence_boundary": "Cross-sectional biomarker associations cannot establish benefit from omega-3 supplementation."
+    },
+    {
+      "wave": 2601,
+      "pmid": "42822582",
+      "state": "research_only_review",
+      "focus": "Narrative cardiovascular-diet review emphasized dietary-pattern quality over single nutrients; it also noted dose-dependent coronary benefit signals and atrial-fibrillation concerns with high-dose omega-3 formulations.",
+      "evidence_boundary": "Narrative synthesis spans heterogeneous evidence and should not be treated as a single intervention estimate."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2598,
+      "pmid": "42782716",
+      "reason": "PubMed exact fetch returned no title or abstract; rejected fail-closed."
+    }
+  ]
+}

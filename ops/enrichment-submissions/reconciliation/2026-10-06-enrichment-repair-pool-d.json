@@ -1,0 +1,1246 @@
+{
+  "schema_version": 1,
+  "row_count": 124,
+  "rows": [
+    {
+      "category": "stress_anxiety",
+      "pmid": "31964900",
+      "doi": "10.1038/s41598-019-55601-0",
+      "title": "Lavender essential oil induces oxidative stress which modifies the bacterial membrane permeability of carbapenemase producing Klebsiella pneumoniae.",
+      "journal": "Scientific reports",
+      "pub_date": "2020 Jan 21",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32030454",
+      "doi": "10.1007/s00431-020-03595-7",
+      "title": "Can lavender oil inhalation help to overcome dental anxiety and pain in children? A randomized clinical trial.",
+      "journal": "European journal of pediatrics",
+      "pub_date": "2020 Jun",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32178950",
+      "doi": "10.1016/j.jopan.2019.12.004",
+      "title": "A Randomized Prospective Placebo-Controlled Study of the Effects of Lavender Aromatherapy on Preoperative Anxiety in Cataract Surgery Patients.",
+      "journal": "Journal of perianesthesia nursing : official journal of the American Society of PeriAnesthesia Nurses",
+      "pub_date": "2020 Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32212806",
+      "doi": "10.31557/APJCP.2020.21.3.771",
+      "title": "The Effect of Lavender Aroma on Anxiety of Patients Having Bone Marrow Biopsy.",
+      "journal": "Asian Pacific journal of cancer prevention : APJCP",
+      "pub_date": "2020 Mar 1",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32267031",
+      "doi": "10.1002/ptr.6698",
+      "title": "The effect of aromatherapy with rose and lavender on anxiety, surgical site pain, and extubation time after open-heart surgery: A double-center randomized controlled trial.",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2020 Oct",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32341707",
+      "doi": "10.25122/jml-2019-0105",
+      "title": "The Effect of Music Therapy and Aromatherapy with Chamomile-Lavender Essential Oil on the Anxiety of Clinical Nurses: A Randomized and Double-Blind Clinical Trial.",
+      "journal": "Journal of medicine and life",
+      "pub_date": "2020 Jan-Mar",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32444033",
+      "doi": "10.1016/j.ctim.2020.102393",
+      "title": "The effect of lavender herbal tea on the anxiety and depression of the elderly: A randomized clinical trial.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2020 May",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32798174",
+      "doi": "10.1016/j.explore.2020.07.011",
+      "title": "Effects of lavender oil intervention before endoscopic retrograde cholangiopancreatography on patients' vital signs, pain and anxiety: A randomized controlled study.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2021 Sep-Oct",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "32891272",
+      "doi": "10.1016/j.ctcp.2020.101182",
+      "title": "The effects of lavender aromatherapy on stress and pain perception in children during dental treatment: A randomized clinical trial.",
+      "journal": "Complementary therapies in clinical practice",
+      "pub_date": "2020 Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33152801",
+      "doi": "10.1111/jfbc.13547",
+      "title": "Action mechanism of Roman chamomile in the treatment of anxiety disorder based on network pharmacology.",
+      "journal": "Journal of food biochemistry",
+      "pub_date": "2021 Jan",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33207379",
+      "doi": "10.1055/a-1268-7135",
+      "title": "Kava (Piper methysticum) Extract for the Treatment of Nervous Anxiety, Tension and Restlessness.",
+      "journal": "Drug research",
+      "pub_date": "2021 Feb",
+      "pub_type": "Observational Study",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33314994",
+      "doi": "10.1080/1028415X.2020.1859727",
+      "title": "Chamomile decoction mitigates high fat diet-induced anxiety-like behavior, neuroinflammation and cerebral ROS overload.",
+      "journal": "Nutritional neuroscience",
+      "pub_date": "2022 Jul",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33454232",
+      "doi": "10.1016/j.explore.2020.12.012",
+      "title": "The effects of Lavender and Chamomile essential oil inhalation aromatherapy on depression, anxiety and stress in older community-dwelling people: A randomized controlled trial.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2022 May-Jun",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33488750",
+      "doi": "10.1155/2020/8830083",
+      "title": "The Immediate Effects of Lavender Aromatherapy Massage versus Massage in Work Stress, Burnout, and HRV Parameters: A Randomized Controlled Trial.",
+      "journal": "Evidence-based complementary and alternative medicine : eCAM",
+      "pub_date": "2020",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33534425",
+      "doi": "10.1097/HNP.0000000000000430",
+      "title": "The Effect of Lavender Aromatherapy on Heart Rate, Blood Pressure, and Perceived Stress Among Cardiac Rehabilitation Patients: A Pilot Study.",
+      "journal": "Holistic nursing practice",
+      "pub_date": "2024 Jul-Aug 01",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33548936",
+      "doi": "10.1055/s-0041-1724465",
+      "title": "The Effect of Lavender Oil on Perioperative Pain, Anxiety, Depression, and Sleep after Microvascular Breast Reconstruction: A Prospective, Single-Blinded, Randomized, Controlled Trial.",
+      "journal": "Journal of reconstructive microsurgery",
+      "pub_date": "2021 Jul",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33626029",
+      "doi": "10.1097/SPV.0000000000001032",
+      "title": "Lavender Aromatherapy for Anxiety and Pain During Multichannel Urodynamics: A Randomized Controlled Pilot Trial.",
+      "journal": "Female pelvic medicine & reconstructive surgery",
+      "pub_date": "2021 Nov 1",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33640257",
+      "doi": "10.1016/j.pmn.2021.01.009",
+      "title": "Effect of Lavender Aromatherapy On Arteriovenous Fistula Puncture Pain and the Level of State and Trait Anxiety in Hemodialysis Patients: A Randomized Controlled Trial.",
+      "journal": "Pain management nursing : official journal of the American Society of Pain Management Nurses",
+      "pub_date": "2021 Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33881421",
+      "doi": "10.1039/d0fo02974b",
+      "title": "Rhodiola extract promotes longevity and stress resistance of Caenorhabditis elegans via DAF-16 and SKN-1.",
+      "journal": "Food & function",
+      "pub_date": "2021 May 21",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "33896388",
+      "doi": "10.1080/1028415X.2021.1909204",
+      "title": "A combination of green tea, rhodiola, magnesium and B vitamins modulates brain activity and protects against the effects of induced social stress in healthy volunteers.",
+      "journal": "Nutritional neuroscience",
+      "pub_date": "2022 Sep",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34153228",
+      "doi": "10.1016/j.nwh.2021.05.005",
+      "title": "Lavender Aromatherapy as a Nurse-Driven Intervention for Preoperative Anxiety.",
+      "journal": "Nursing for women's health",
+      "pub_date": "2021 Aug",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34222473",
+      "doi": "10.1155/2021/5565956",
+      "title": "The Effects of Lavender and Citrus aurantium on Anxiety and Agitation of the Conscious Patients in Intensive Care Units: A Parallel Randomized Placebo-Controlled Trial.",
+      "journal": "BioMed research international",
+      "pub_date": "2021",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34356287",
+      "doi": "10.3390/healthcare9070909",
+      "title": "Influences of Lavender Essential Oil Inhalation on Stress Responses during Short-Duration Sleep Cycles: A Pilot Study.",
+      "journal": "Healthcare (Basel, Switzerland)",
+      "pub_date": "2021 Jul 18",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34397501",
+      "doi": "10.1097/TME.0000000000000364",
+      "title": "The Efficacy of Lavender Aromatherapy in Reducing the Overcrowding-Related Anxiety in Health Care Workers.",
+      "journal": "Advanced emergency nursing journal",
+      "pub_date": "2021 Jul-Sep 01",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34761035",
+      "doi": "10.4103/jehp.jehp_88_21",
+      "title": "Effects of blended aromatherapy using lavender and damask rose oils on the test anxiety of nursing students.",
+      "journal": "Journal of education and health promotion",
+      "pub_date": "2021",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34820153",
+      "doi": "10.1177/21649561211059074",
+      "title": "Lavender Aromatherapy to Reduce Anxiety During Intrauterine Insemination: A Randomized Controlled Trial.",
+      "journal": "Global advances in health and medicine",
+      "pub_date": "2021",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "34984050",
+      "doi": "10.31486/toj.21.0013",
+      "title": "Impact of Lavender on Pain and Anxiety Levels Associated With Spine Procedures.",
+      "journal": "Ochsner journal",
+      "pub_date": "2021 Winter",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35027302",
+      "doi": "10.1016/j.explore.2021.12.006",
+      "title": "Effectiveness of aromatherapy with inhaled lavender essential oil and breathing exercises on ECT-related anxiety in depressed patients.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2022 Nov-Dec",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35085018",
+      "doi": "10.1089/jicm.2021.0171",
+      "title": "Efficacy of Auricular Acupuncture and Lavender Oil Aromatherapy in Reducing Preinterventional Anxiety in Cardiovascular Patients: A Randomized Single-Blind Placebo-Controlled Trial.",
+      "journal": "Journal of integrative and complementary medicine",
+      "pub_date": "2022 Jan",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35202010",
+      "doi": "10.1097/NMC.0000000000000803",
+      "title": "A Pilot Randomized Control Trial to Assess the Impact of Lavender on Anxiety and Comfort After Cesarean Birth and the Barriers Encountered.",
+      "journal": "MCN. The American journal of maternal child nursing",
+      "pub_date": "2022 Mar-Apr 01",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35212648",
+      "doi": null,
+      "title": "Effects of Long-term Administration of Inhaled Lavender During Hemodialysis on Patients' Invasive Pain, Anxiety, and Comfort During Cannulation: A Single-blind Randomized Controlled Trial.",
+      "journal": "Alternative therapies in health and medicine",
+      "pub_date": "2023 Mar",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35429599",
+      "doi": "10.1016/j.ctim.2022.102832",
+      "title": "The effect of lavender on stress in individuals: A systematic review and meta-analysis.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2022 Sep",
+      "pub_type": "Systematic Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35745023",
+      "doi": "10.3390/molecules27123902",
+      "title": "The Effectiveness of Rhodiola rosea L. Preparations in Alleviating Various Aspects of Life-Stress Symptoms and Stress-Induced Conditions-Encouraging Clinical Evidence.",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_date": "2022 Jun 17",
+      "pub_type": "Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35784602",
+      "doi": "10.1589/jpts.34.503",
+      "title": "Effects of nighttime lavender aromatherapy on mood and physiological indices of stress in healthy young females.",
+      "journal": "Journal of physical therapy science",
+      "pub_date": "2022 Jul",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35938130",
+      "doi": "10.3389/fnut.2022.935001",
+      "title": "A Combination of Green Tea, Rhodiola, Magnesium, and B Vitamins Increases Electroencephalogram Theta Activity During Attentional Task Performance Under Conditions of Induced Social Stress.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2022",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35987997",
+      "doi": "10.1016/j.jopan.2022.05.067",
+      "title": "The Effect of Lavender on Anxiety and Hemodynamic Status Before Septorhinoplasy and Rhinoplasty.",
+      "journal": "Journal of perianesthesia nursing : official journal of the American Society of PeriAnesthesia Nurses",
+      "pub_date": "2023 Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "36306254",
+      "doi": "10.7899/JCE-21-44",
+      "title": "Effect of lavender and rosemary aromatherapy on test anxiety in chiropractic students.",
+      "journal": "The Journal of chiropractic education",
+      "pub_date": "2023 Mar 1",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "36476355",
+      "doi": "10.1016/j.explore.2022.11.008",
+      "title": "The effect of lavender aromatherapy on the level of intraoperative anxiety in caesarean case under spinal anesthesia: A randomized controlled trial.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2023 May-Jun",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "36646611",
+      "doi": "10.1016/j.explore.2023.01.002",
+      "title": "Effects of rose and lavender scents on nurses' job stress: A randomized controlled trial.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2023 May-Jun",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37121899",
+      "doi": "10.4037/ajcc2023721",
+      "title": "Utility of a \"Lavender Lounge\" to Reduce Stress Among Critical Care Registered Nurses: A Cross-Sectional Study.",
+      "journal": "American journal of critical care : an official publication, American Association of Critical-Care Nurses",
+      "pub_date": "2023 May 1",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37178804",
+      "doi": "10.1016/j.ijcard.2023.05.014",
+      "title": "Rhodiola wallichiana var.cholaensis protects against myocardial ischemia-reperfusion injury by attenuating oxidative stress-mediated apoptosis via enhancing Nrf2 signaling.",
+      "journal": "International journal of cardiology",
+      "pub_date": "2023 Aug 1",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37289849",
+      "doi": "10.1097/SGA.0000000000000754",
+      "title": "The Effect of Precolonoscopy Lavender Inhalation on Patient Anxiety and Comfort: A Randomized, Controlled, Double-Blinded, Single-Center Study.",
+      "journal": "Gastroenterology nursing : the official journal of the Society of Gastroenterology Nurses and Associates",
+      "pub_date": "2023 Sep-Oct 01",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37404935",
+      "doi": "10.4103/jehp.jehp_634_22",
+      "title": "Investigating the effect of Swedish massage with chamomile oil on labor pain and anxiety of primiparous women: A clinical trial.",
+      "journal": "Journal of education and health promotion",
+      "pub_date": "2023",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37554839",
+      "doi": "10.1016/j.heliyon.2023.e18492",
+      "title": "Aromatherapy for the brain: Lavender's healing effect on epilepsy, depression, anxiety, migraine, and Alzheimer's disease: A review article.",
+      "journal": "Heliyon",
+      "pub_date": "2023 Aug",
+      "pub_type": "Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37767766",
+      "doi": "10.1002/ptr.7999",
+      "title": "Effect of kava (Piper methysticum) on peripheral gene expression among individuals with generalized anxiety disorder: A post hoc analysis of a randomized controlled trial.",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2023 Dec",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37932761",
+      "doi": "10.1186/s12906-023-04231-1",
+      "title": "The effect of lavender aroma for anxiety disorder: a study protocol for a multicenter, double-masked, randomized, placebo-controlled clinical trial.",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_date": "2023 Nov 6",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37960239",
+      "doi": "10.3390/nu15214586",
+      "title": "Neuroimaging Insights: Kava's (Piper methysticum) Effect on Dorsal Anterior Cingulate Cortex GABA in Generalized Anxiety Disorder.",
+      "journal": "Nutrients",
+      "pub_date": "2023 Oct 28",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "37998470",
+      "doi": "10.3390/healthcare11222978",
+      "title": "Anxiety-Reducing Effects of Lavender Essential Oil Inhalation: A Systematic Review.",
+      "journal": "Healthcare (Basel, Switzerland)",
+      "pub_date": "2023 Nov 17",
+      "pub_type": "Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38036371",
+      "doi": "10.1016/j.explore.2023.11.008",
+      "title": "The effect of the hand massage using baby oil with lavender application on the procedural pain and state anxiety of women undergoing brachytherapy: A parallel-group randomized controlled study.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2024 Jul-Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38162239",
+      "doi": "10.5005/jp-journals-10005-2674",
+      "title": "Comparative Evaluation between Lavender Essential Oil and Patchouli Essential Oil in Aromatherapy and Its Effect on Dental Anxiety in Children.",
+      "journal": "International journal of clinical pediatric dentistry",
+      "pub_date": "2023 Sep-Oct",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38172912",
+      "doi": "10.1186/s12906-023-04326-9",
+      "title": "Effects of aromatherapy with Matricaria chamomile essential oil on anxiety and hemodynamic indices in patients with acute coronary syndrome, 2021: a randomized controlled trial.",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_date": "2024 Jan 3",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38286818",
+      "doi": "10.1038/s41405-024-00186-8",
+      "title": "The effect of aromatherapy with Lavender-Neroli oil and music in management of pediatric dental anxiety: a randomized control trial.",
+      "journal": "BDJ open",
+      "pub_date": "2024 Jan 29",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38300194",
+      "doi": "10.1016/j.jopan.2023.10.021",
+      "title": "Comparison of the Effects of Aromatherapy With Damask Rose and Chamomile Essential Oil on Preoperative Pain and Anxiety in Emergency Orthopedic Surgery: A Randomized Controlled Trial.",
+      "journal": "Journal of perianesthesia nursing : official journal of the American Society of PeriAnesthesia Nurses",
+      "pub_date": "2024 Aug",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38445620",
+      "doi": "10.1080/13880209.2024.2319117",
+      "title": "Elucidating the role of Rhodiola rosea L. in sepsis-induced acute lung injury via network pharmacology: emphasis on inflammatory response, oxidative stress, and the PI3K-AKT pathway.",
+      "journal": "Pharmaceutical biology",
+      "pub_date": "2024 Dec",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38490827",
+      "doi": "10.1016/j.explore.2024.02.009",
+      "title": "The effect of lavender and bergamot oil applied via inhalation on the anxiety level and sleep quality of surgical intensive care unit patients.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2024 Sep-Oct",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39047346",
+      "doi": "10.1016/j.explore.2024.103033",
+      "title": "The effect of lavender and rosemary aromatherapy application on cognitive functions, anxiety, and sleep quality in the elderly with diabetes.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2024 Nov-Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39109685",
+      "doi": "10.1002/tox.24372",
+      "title": "Rhodiola and Salidroside Attenuate Oxidative Stress-Triggered H9c2 Cardiomyoblast Apoptosis Through IGF1R-Induced ERK1/2 Activation.",
+      "journal": "Environmental toxicology",
+      "pub_date": "2024 Nov",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39205591",
+      "doi": "10.31557/APJCP.2024.25.8.2919",
+      "title": "In vivo Evaluation of Antioxidant Activity of Chamomile Extract against Procyclidine-Induced Oxidative Stress: Potential Application in Cancer Prevention.",
+      "journal": "Asian Pacific journal of cancer prevention : APJCP",
+      "pub_date": "2024 Aug 1",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39346373",
+      "doi": "10.4103/jpbs.jpbs_601_24",
+      "title": "Effect of Lavender Oil on Social Anxiety Among First-Year College Students.",
+      "journal": "Journal of pharmacy & bioallied sciences",
+      "pub_date": "2024 Jul",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39400653",
+      "doi": "10.1007/s44197-024-00305-6",
+      "title": "Aromatherapy Using Lavender Oil Effectiveness on Pain and Anxiety After C-Section: A Randomized Controlled Trial.",
+      "journal": "Journal of epidemiology and global health",
+      "pub_date": "2024 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39669183",
+      "doi": "10.1002/hsr2.70113",
+      "title": "Effect of Citrus aurantium and chamomile aromas on anxiety and vital signs in cardiac care unit patients: A randomized clinical trial.",
+      "journal": "Health science reports",
+      "pub_date": "2024 Dec",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39685078",
+      "doi": "10.3390/healthcare12232456",
+      "title": "Efficacy of Lavender Essential Oil in Reducing Stress, Insomnia, and Anxiety in Pregnant Women: A Systematic Review.",
+      "journal": "Healthcare (Basel, Switzerland)",
+      "pub_date": "2024 Dec 5",
+      "pub_type": "Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39693951",
+      "doi": "10.1016/j.plaphy.2024.109376",
+      "title": "Investigation into the mechanisms of photosynthetic regulation and adaptation under salt stress in lavender.",
+      "journal": "Plant physiology and biochemistry : PPB",
+      "pub_date": "2025 Feb",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "39709468",
+      "doi": "10.1186/s12906-024-04722-9",
+      "title": "The potential of AB-free kava in enabling tobacco cessation via management of abstinence-related stress and insomnia: study protocol for a randomized clinical trial.",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_date": "2024 Dec 21",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40127529",
+      "doi": "10.1016/j.ctcp.2025.101973",
+      "title": "Evaluating the impact of lavender aromatherapy and music therapy on reducing stress, anxiety, and depression in female nurses during the COVID-19 pandemic.",
+      "journal": "Complementary therapies in clinical practice",
+      "pub_date": "2025 May",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40145478",
+      "doi": "10.14744/eej.2024.06641",
+      "title": "Effect of Lavender Oral Drops in Reducing Dental Anxiety Among Patients Requiring Endodontic Treatment: A Randomised Clinical Trial.",
+      "journal": "European endodontic journal",
+      "pub_date": "2025 Jan",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40271444",
+      "doi": "10.3389/fpls.2025.1506660",
+      "title": "Impact of drought stress on biochemical and molecular responses in lavender (Lavandula angustifolia Mill.): effects on essential oil composition and antibacterial activity.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40288054",
+      "doi": "10.1016/j.pedn.2025.04.025",
+      "title": "The effect of lavender oil on anxiety before endoscopy in children: A randomized controlled trial.",
+      "journal": "Journal of pediatric nursing",
+      "pub_date": "2025 Jul-Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40654405",
+      "doi": "10.1016/j.jds.2024.12.004",
+      "title": "The effects of lavender, chamomile and peppermint inhalation aromatherapy on dental anxiety in children: A randomized controlled trial.",
+      "journal": "Journal of dental sciences",
+      "pub_date": "2025 Jul",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40949566",
+      "doi": "10.3389/fpls.2025.1661227",
+      "title": "Structural and functional insights into NAD(P)H-quinone oxidoreductases in lavender: implications for abiotic stress tolerance and essential oil production.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41076308",
+      "doi": "10.1177/27683605251386221",
+      "title": "Comparative Effects of Lavender Aromatherapy and Nature Sounds on Anxiety and Pain in Cataract Surgery Patients: A Randomized Controlled Trial.",
+      "journal": "Journal of integrative and complementary medicine",
+      "pub_date": "2026 Feb",
+      "pub_type": "Comparative Study",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41084264",
+      "doi": "10.2174/0113816128395989250913081954",
+      "title": "Effect of Lavender Essential Oil-based Aromatherapy on Anxiety: An Overview of Results of Recent Randomized Controlled Trials.",
+      "journal": "Current pharmaceutical design",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41177368",
+      "doi": "10.1016/j.ctim.2025.103296",
+      "title": "Short- and long-term effects of inhaled lavender essential oil on anxiety, fatigue, blood pressure, and sleep quality in middle-aged adults with hypertension: A randomized placebo-controlled pilot study.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41186791",
+      "doi": "10.1007/s10695-025-01580-1",
+      "title": "Effect of dietary additives based on essential oils of Lemongrass and Chamomile on the zootechnical performance and physiological stress response of European seabass (Dicentrarchus labrax) in aquaculture.",
+      "journal": "Fish physiology and biochemistry",
+      "pub_date": "2025 Nov 4",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41238616",
+      "doi": "10.1038/s41598-025-23567-x",
+      "title": "Comparative physiological responses of english lavender cultivars to drought stress and abscisic acid treatments with implications for agricultural water management.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Nov 14",
+      "pub_type": "Comparative Study",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41291405",
+      "doi": "10.1186/s12870-025-07705-1",
+      "title": "Exogenous curcumin alleviates salt stress in lavender plants: a physiological and biochemical investigation.",
+      "journal": "BMC plant biology",
+      "pub_date": "2025 Nov 25",
+      "pub_type": "Journal Article",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41553229",
+      "doi": "10.17219/dmp/186872",
+      "title": "Aromatherapy with lavender essential oil for the control of dental anxiety in patients undergoing dental surgery: A triple-blind randomized clinical trial.",
+      "journal": "Dental and medical problems",
+      "pub_date": "2026 Jan-Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41914240",
+      "doi": "10.1155/bmri/6355273",
+      "title": "Toxicological Assessment of LN20188, a Botanical Combination of Withania somnifera Root and Abelmoschus esculentus Fruit Extracts.",
+      "journal": "BioMed research international",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41915570",
+      "doi": "10.1615/IntJMedMushrooms.2025062333",
+      "title": "Bioactives of Lion's Mane Medicinal Mushroom Hericium erinaceus (Agaricomycetes) Targeting PPAR Signaling Pathway: An Experimental and In Silico Investigation.",
+      "journal": "International journal of medicinal mushrooms",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41921254",
+      "doi": "10.1016/j.nutres.2026.03.002",
+      "title": "Ginseng in exercise training and injury recovery: Composition, mechanism of action, dosage recommendations, and safety analysis.",
+      "journal": "Nutrition research (New York, N.Y.)",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41927962",
+      "doi": "10.1007/s11095-026-04060-0",
+      "title": "New Vistas for Withania somnifera in Signal Transduction of Inflammation and Aging.",
+      "journal": "Pharmaceutical research",
+      "pub_date": "2026 Apr",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41936838",
+      "doi": "10.1016/j.jep.2026.121627",
+      "title": "Research progress from traditional medicine to chemical composition, pharmacological activity, and clinical application of Rhodiola crenulata.",
+      "journal": "Journal of ethnopharmacology",
+      "pub_date": "2026 Jul 15",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41940566",
+      "doi": "10.1177/02601060261439102",
+      "title": "Effects of 8 days of Ashwagandha supplementation on strength, fatigue, soreness, and recovery in amateur handball players: A double-blind, randomized, placebo-controlled trial.",
+      "journal": "Nutrition and health",
+      "pub_date": "2026 Apr 6",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41952870",
+      "doi": "10.3389/fnagi.2026.1752446",
+      "title": "Intervention of ginseng-derived macromolecular drugs in Alzheimer's disease: exploring mechanisms and assessing potential.",
+      "journal": "Frontiers in aging neuroscience",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41960426",
+      "doi": "10.3389/fmicb.2026.1785529",
+      "title": "Genomic and metabolomic insights into the enhancement of rare ginsenosides in Panax ginseng through solid-state fermentation by Aspergillus cristatus JH-5.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41987003",
+      "doi": "10.1002/ptr.70314",
+      "title": "Safety Evaluation of an Aqueous Root and Leaf Extract of Ashwagandha ( Withania somnifera ).",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42004591",
+      "doi": "10.3389/fphar.2026.1764382",
+      "title": "Research progress on the prevention and treatment of exercise-induced fatigue with ginseng and relevant formulas.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42061772",
+      "doi": "10.1016/j.phrs.2026.108217",
+      "title": "Remote mobilization of gut Tregs exosomes serves as nanoshuttles for targeted cardioprotection against ischemia/reperfusion injury by ginseng polysaccharides.",
+      "journal": "Pharmacological research",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42065761",
+      "doi": "10.1007/s00210-026-05379-6",
+      "title": "20(R)-Rg3 derived from ginseng fibrous roots ameliorates DSS-induced colitis via selective modulation of glucocorticoid receptor signaling.",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42082841",
+      "doi": "10.1007/s12011-026-05107-4",
+      "title": "The Chronic Metabolic Fingerprint of Canine Anxiety: Hair Trace Element Dyshomeostasis and the Dissociation of Behavioral Recovery via Hericium erinaceus.",
+      "journal": "Biological trace element research",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42100315",
+      "doi": "10.3389/fphar.2026.1712401",
+      "title": "The efficacy and safety of ginseng berry saponin for heart failure: a systematic review and meta-analysis.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42112126",
+      "doi": "10.1016/j.jgr.2025.100932",
+      "title": "Effects of red ginseng on gut microbiome in patients after gastrointestinal cancer surgery: A pilot, randomized controlled trial.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 May",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42160897",
+      "doi": "10.1016/j.phymed.2026.158313",
+      "title": "Preclinical investigation and clinical trials of Red ginseng as an immunomodulator: a narrative review from 2015 to 2025.",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2026 Jul 25",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42253745",
+      "doi": "10.3389/fnut.2026.1823678",
+      "title": "Safety and tolerability of Ashwagandha (Withania somnifera) root extract in healthy adults: a prospective, non-comparative study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42262747",
+      "doi": "10.1080/19390211.2026.2680314",
+      "title": "Microscopy Combined with LC-UV Analysis as a Tool for Authentication of Ginseng Species Used in Traditional Medicine and Detection of Their Adulterants.",
+      "journal": "Journal of dietary supplements",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42264398",
+      "doi": "10.1016/j.fitote.2026.107317",
+      "title": "A multidimensional strategy for identifying quality markers of Radix ginseng-Schisandra chinensis in the disruption of the inflammation-cancer transformation process of hepatocellular carcinoma based on metabolic regulation and chemical properties.",
+      "journal": "Fitoterapia",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42273332",
+      "doi": "10.1002/fsn3.71968",
+      "title": "Exploring the Mechanisms of Total Saponins of Black Ginseng and Ginsenoside Rg3 Against Doxorubicin-Induced Cardiotoxicity.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42278065",
+      "doi": "10.3390/ani16111631",
+      "title": "Effects of Non-Fermented Red Ginseng Marc in a Commercial Liquid Feeding System on Growth Performance, Fecal Short-Chain Fatty Acids, Blood Profiles, and Pork Quality in Growing Finishing Pigs.",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_date": "2026 May 27",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42317874",
+      "doi": "10.3389/fnut.2026.1748861",
+      "title": "Nutritional supplementation with Panax ginseng extract and bone health in osteoporotic animal models: a systematic review and meta-analysis.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42335514",
+      "doi": "10.1016/j.biopha.2026.119712",
+      "title": "Bacoside-A from Bacopa monnieri (L.) Wettst. in Parkinson's disease: In Silico and preclinical insights into dopaminergic neuroprotection.",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42338756",
+      "doi": "10.1016/j.ajps.2026.101168",
+      "title": "Red ginseng-derived nanovesicles to modulate osteoblast and osteoclastogenesis for osteoporosis therapy.",
+      "journal": "Asian journal of pharmaceutical sciences",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42352952",
+      "doi": "10.3390/ijms27125229",
+      "title": "Phytochemical Profile, Antioxidant Activity, and Neuroprotective Effects of Bacopa monnieri Extract in a Lipopolysaccharide-Induced Dementia Model.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Jun 9",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42356373",
+      "doi": "10.3390/nu18121986",
+      "title": "Curcumin, Coenzyme-Q10, and Bioactive Compounds in Ashwagandha Extract: Multi-Targeting Potential of Co-Administered Natural Health Compounds as Therapeutic and Preventative Interventions in Alzheimer's and Parkinson's Disease Models.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Jun 19",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395005",
+      "doi": "10.1016/j.jgr.2026.101052",
+      "title": "Contemporary utilization of ginseng among individuals with health needs: A nationwide questionnaire survey.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395006",
+      "doi": "10.1016/j.jgr.2026.101023",
+      "title": "Microbiome-mediated pharmacology of ginseng: Mechanistic insights into metabolic regulation and therapeutic potential.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395011",
+      "doi": "10.1016/j.jgr.2026.101022",
+      "title": "Red ginseng-mediated modulation of the NLRP3 Inflammasome in neuroinflammatory-related cognitive impairments.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395019",
+      "doi": "10.1016/j.jgr.2026.101059",
+      "title": "Panax ginseng as a microbial ecosystem modulator: implications for systemic health via the gut-organ axes.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395024",
+      "doi": "10.1016/j.jgr.2026.101068",
+      "title": "Efficacy and safety of Korean red ginseng as adjunctive therapy in type 2 diabetes mellitus: a 12-week randomized, double-blind, placebo-controlled trial.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395025",
+      "doi": "10.1016/j.jgr.2026.101029",
+      "title": "Ginsenosides from Panax ginseng: Their mechanisms, microbiome determinants, and translational strategies in therapeutic activity against cancer.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395028",
+      "doi": "10.1016/j.jgr.2026.101027",
+      "title": "Contemporary perceptions of ginseng among individuals with health needs: A nationwide questionnaire survey.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42395029",
+      "doi": "10.1016/j.jgr.2026.101064",
+      "title": "Panax ginseng as a proteome-metabolome medicinal ecosystem: Reframing pharmacology beyond a strictly saponin-centric paradigm.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42404155",
+      "doi": "10.3389/fnut.2026.1857685",
+      "title": "Indigenous knowledge and modern science: a comprehensive review of phytochemicals in Panax ginseng flower for nutritional and health applications.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42426589",
+      "doi": "10.1186/s12863-026-01464-0",
+      "title": "Complete genome sequence of Leuconostoc lactis B34-1-7-1 isolated from Panax ginseng in South Korea.",
+      "journal": "BMC genomic data",
+      "pub_date": "2026 Jul 9",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42445674",
+      "doi": "10.3389/fpls.2026.1873808",
+      "title": "Quality differentiation and salidroside biosynthesis in Rhodiola crenulata, R. fastigiata, and intergrades.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42450611",
+      "doi": "10.3390/biology15131063",
+      "title": "Comprehensive Identification of CPP Gene Family Members in Panax ginseng and Expression Analysis of PgCPP and Key Protopanaxadiol Ginsenoside Biosynthesis Genes in Response to MeJA.",
+      "journal": "Biology",
+      "pub_date": "2026 Jul 3",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42495314",
+      "doi": "10.1021/acsomega.6c03518",
+      "title": "Recognition Analysis of Ginseng Radix et Rhizoma and Confused Varieties according to Chemometrics and Machine Learning.",
+      "journal": "ACS omega",
+      "pub_date": "2026 Jul 21",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42497599",
+      "doi": "10.1016/j.jep.2026.122216",
+      "title": "Integrating multi-omics and network pharmacology in a systems approach: a mechanism study of ginseng-derived panaxadiol saponins against immune-mediated aplastic anemia.",
+      "journal": "Journal of ethnopharmacology",
+      "pub_date": "2027 Jan 10",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42538425",
+      "doi": "10.1007/s00210-026-05760-5",
+      "title": "Protective effects of ginseng against reproductive injury: mechanisms and research progress.",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42589118",
+      "doi": "10.3390/biology15151251",
+      "title": "Comprehensive Genome Identification of the PHD Gene Family in Panax ginseng and Expression Analysis of PgPHD Genes in Response to MeJA.",
+      "journal": "Biology",
+      "pub_date": "2026 Jul 30",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42718943",
+      "doi": "10.1016/j.jgr.2026.101021",
+      "title": "Therapeutic potential of ginseng and ginsenosides on muscle wasting disorders: Cachexia, sarcopenia, anorexia, and aging.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42719320",
+      "doi": "10.1016/j.jgr.2026.101107",
+      "title": "Mechanistic elucidation of Panax ginseng in improving atherosclerosis via multidimensional artificial intelligence computing coupled with experimental validation.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42719322",
+      "doi": "10.1016/j.jgr.2026.101108",
+      "title": "The roles of ginseng and ginsenosides for immune regulation: Relation to immunometabolic responses.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42719408",
+      "doi": "10.1016/j.jgr.2026.100975",
+      "title": "Ginseng polysaccharides: Structures-based classification and biological activities-A review.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42807730",
+      "doi": "10.1155/ianc/6693812",
+      "title": "Exploration of Active Compounds and Potential Mechanisms of Ginseng Dripping Pills: An Integrated Study Utilizing UHPLC-Q-Orbitrap MS Analysis and Network Pharmacology.",
+      "journal": "International journal of analytical chemistry",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

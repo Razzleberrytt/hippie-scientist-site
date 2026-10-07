@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "row_count": 9,
+  "rows": [
+    {
+      "pmid": "41642164",
+      "title": "Omega-3 fatty acids and oral and systemic inflammation: A secondary analysis of a randomized trial in patients with coronary artery disease.",
+      "journal": "Journal of the American Dental Association (1939)",
+      "pub_date": "2026-Aug",
+      "pdf_link": "https://doi.org/10.1016/j.adaj.2025.12.013",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13006002/",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "40974763",
+      "title": "Effects of omega-3 fatty acids on hyper-inflammatory response and clinical outcomes in critically ill patients: a meta-analysis.",
+      "journal": "Intensive & critical care nursing",
+      "pub_date": "2026-Feb",
+      "pdf_link": "https://doi.org/10.1016/j.iccn.2025.104228",
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "37686880",
+      "title": "Efficacy of Boswellia serrata Extract and/or an Omega-3-Based Product for Improving Pain and Function in People Older Than 40 Years with Persistent Knee Pain: A Randomized Double-Blind Controlled Clinical Trial.",
+      "journal": "Nutrients",
+      "pub_date": "2023-Sep-03",
+      "pdf_link": "https://doi.org/10.3390/nu15173848",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10490338/",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "37764678",
+      "title": "Inflammatory and Metabolic Biomarker Assessment in a Randomized Presurgical Trial of Curcumin and Anthocyanin Supplements in Patients with Colorectal Adenomas.",
+      "journal": "Nutrients",
+      "pub_date": "2023-Sep-07",
+      "pdf_link": "https://doi.org/10.3390/nu15183894",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10537228/",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "37768015",
+      "title": "The effect of two anti-inflammatory dietary components, omega-3 and resveratrol, on endometriosis.",
+      "journal": "Ginekologia polska",
+      "pub_date": "2024",
+      "pdf_link": "https://doi.org/10.5603/gpl.97573",
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "38747270",
+      "title": "Synchronizing positive effect of vitamin C and chromium on hyper lipidemia, hyperglycemia, liver enzymes and BMI of diabetes mellitus type 2 patients.",
+      "journal": "Pakistan journal of pharmaceutical sciences",
+      "pub_date": "2024-Jan",
+      "pdf_link": null,
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "34825791",
+      "title": "Insulin-sensitizing effect and antioxidant action of alpha lipoic acid in oligomenorrheic women with polycystic ovary syndrome.",
+      "journal": "Minerva obstetrics and gynecology",
+      "pub_date": "2023-Apr",
+      "pdf_link": "https://doi.org/10.23736/S2724-606X.21.04983-6",
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "38466959",
+      "title": "A Systematic Review Evaluating Cinnamon's Effects on Glucose Utilizing a Ranking System to Assess Bias and Study Quality.",
+      "journal": "Journal of medicinal food",
+      "pub_date": "2024-Sep",
+      "pdf_link": "https://doi.org/10.1089/jmf.2023.0277",
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "pmid": "34684666",
+      "title": "Berberine Phospholipid Is an Effective Insulin Sensitizer and Improves Metabolic and Hormonal Disorders in Women with Polycystic Ovary Syndrome: A One-Group Pretest-Post-Test Explanatory Study.",
+      "journal": "Nutrients",
+      "pub_date": "2021-Oct-19",
+      "pdf_link": "https://doi.org/10.3390/nu13103665",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8538182/",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    }
+  ]
+}

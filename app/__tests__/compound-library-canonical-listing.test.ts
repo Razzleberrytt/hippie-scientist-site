@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { selectPublishedCompounds } from '../compounds/library-selector'
+import { selectCanonicalCompounds, selectPublishedCompounds } from '../compounds/library-selector'
 import { isRedirectedCompoundDuplicate } from '../../lib/deprecated-compound-canonicals'
 
 const root = process.cwd()
@@ -41,6 +41,24 @@ describe('compound library canonical listings', () => {
     expect(isRedirectedCompoundDuplicate('gingerol', presentSlugs)).toBe(true)
   })
 
+  it('counts canonical compounds regardless of publication status', () => {
+    const compounds = selectCanonicalCompounds([
+      { slug: 'z-tracked', displayName: 'Zed', indexability_status: 'NOINDEX' },
+      { slug: 'hidden', displayName: 'Hidden', indexability_status: 'PUBLISH', runtime_export_decision: 'hide' },
+      { slug: 'berberine', displayName: 'Berberine', indexability_status: 'PUBLISH' },
+      { slug: 'berberine-hcl', displayName: 'Berberine HCl', indexability_status: 'PUBLISH' },
+      { slug: 'garlic-extract', displayName: 'Garlic Extract', indexability_status: 'PUBLISH' },
+      { slug: 'a-tracked', displayName: 'Alpha', indexability_status: 'NEEDS_REVIEW' },
+    ])
+
+    expect(compounds.map((compound) => compound.slug)).toEqual([
+      'a-tracked',
+      'berberine',
+      'hidden',
+      'z-tracked',
+    ])
+  })
+
   it('selects only canonical published compounds and sorts them for the library', () => {
     const compounds = selectPublishedCompounds([
       { slug: 'z-published', displayName: 'Zed', indexability_status: 'PUBLISH' },
@@ -61,6 +79,21 @@ describe('compound library canonical listings', () => {
 
     expect(firstPage).toContain('loadPublishedCompounds')
     expect(paginatedPage).toContain('loadPublishedCompounds')
+  })
+
+  it('keeps the homepage tracked-compound counter wired to the fresh canonical runtime inventory', () => {
+    const compounds = JSON.parse(read('public/data/compounds.json'))
+    const metricsSource = read('lib/public-site-metrics.ts')
+    const homepageSource = read('components/homepage-v2.tsx')
+
+    expect(Array.isArray(compounds)).toBe(true)
+    const canonicalCompounds = selectCanonicalCompounds(compounds)
+    expect(canonicalCompounds.length).toBeGreaterThan(0)
+    expect(canonicalCompounds.length).toBeLessThanOrEqual(compounds.length)
+
+    expect(metricsSource).toContain('totalCompounds: canonicalCompounds.length')
+    expect(homepageSource).toContain("value: metrics.totalCompounds")
+    expect(homepageSource).not.toMatch(/value:\\s*\\d+\\s*,\\s*label:\\s*['"]Compounds tracked['"]/)
   })
 
   it('does not advertise an inflated fixed profile count in metadata', () => {

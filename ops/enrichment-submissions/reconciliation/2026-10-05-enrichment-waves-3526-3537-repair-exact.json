@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repair_of": "2026-10-05-enrichment-waves-3526-3537-exact.json",
+  "row_count": 2,
+  "verified_count": 2,
+  "rows": [
+    {
+      "wave": 3528,
+      "pmid": "42498056",
+      "title": "Impact of African-enriched GATM regulatory variants on creatinine-derived estimated glomerular filtration rate.",
+      "abstract": "Serum creatinine is a commonly used biomarker for estimating glomerular filtration rate (eGFR), but is influenced by determinants unrelated to kidney function, including muscle mass, age, sex, diet, and genetic variation. Biological drivers of persistent eGFR bias in African ancestry populations remain understudied. Here, we investigated whether African-enriched genetic variation at the glycine amidinotransferase (GATM) locus, encoding the rate limiting enzyme in creatine biosynthesis, contributes to systematic bias in creatinine-based estimates of GFR. We analyzed whole-genome sequencing and phenotypic data from population-based cohorts in Uganda (5,760 individuals) and South Africa (827 individuals). Genome-wide association studies were integrated with expression quantitative trait locus and metabolomic analyses to characterize biological mechanisms. The iohexol measured GFR was used to quantify systematic bias for creatinine-based estimates (eGFRCr). Diagnostic implications were evaluated in African American participants of the Million Veteran Program. We described variants associated with eGFRCr at the GATM locus that were common in African populations (allele frequency about 50%) but rare or absent in Europeans. These variants explained 1.0%-1.7% of the variance in eGFRCr and were associated with increased GATM expression and enhanced creatine synthesis, resulting in higher serum creatinine and consequently lower eGFRCr. Each allele was associated with an approximately 2 ml/min per 1.73 m2 lower eGFRCr, and the association was independent of measured GFR, age, sex, and body composition. In contrast, these variants showed no association with measured GFR or cystatin C-based eGFR, supporting a biomarker-specific effect. In African American participants, GATM variants were associated with increased odds of a CKD diagnosis using eGFRCr thresholds but not with end-stage kidney disease. African-enriched GATM variants are associated with measurable bias in creatinine-based GFR estimation without evidence of altered kidney function. These findings improve understanding of differences in kidney function biomarkers and may be relevant when interpreting creatinine-based estimates, particularly in populations where the variant is common.",
+      "journal": "Kidney international",
+      "pub_date": "2026-Oct",
+      "pdf_link": "https://doi.org/10.1016/j.kint.2026.06.038",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3532,
+      "pmid": "42827864",
+      "title": "Novel bioactive compounds in the treatment of osteoporosis: chemistry-driven discovery from preclinical validation to clinical translation.",
+      "abstract": "Osteoporosis affects an estimated 200 million people worldwide. Fragility fractures of the hip, spine, and wrist carry high mortality and impose a heavy socioeconomic burden. Bisphosphonates, denosumab, selective estrogen receptor modulators (SERMs), teriparatide, abaloparatide, and the recent sclerostin antibody romosozumab have improved clinical outcomes, but unmet needs remain. Long-term antiresorptive use is complicated by atypical femoral fractures and osteonecrosis of the jaw; denosumab discontinuation causes rebound bone loss; romosozumab carries a cardiovascular caution. Persistence on therapy beyond 1 year is low, and no oral osteoanabolic agent has reached the clinic. Against this background, medicinal chemistry is producing a wave of next-line compounds. These include rationally designed small molecules and peptidomimetics targeting the Wnt pathway, calcium-sensing receptor antagonists (calcilytics) intended to mimic pulsatile parathyroid hormone, refined cathepsin K inhibitors, modulators of activin and myostatin signaling, and bone-targeted nanomedicines. Plant-derived scaffolds with anti-osteoporotic activity, particularly icariin, icaritin, genistein, naringin, resveratrol, curcumin, oleanolic acid, psoralen, and berberine, are being optimized chemically to address poor bioavailability. Senolytic combinations and PROTAC-based degraders represent newer modes of action. This review examines the chemistry behind these compounds, their structure-activity relationships, their preclinical pharmacology, and their progress through clinical evaluation. We pay particular attention to the failures (odanacatib, calcilytics, integrin antagonists, Src inhibitors) as well as the successes, because the lessons from attrition shape the chemistry choices that follow. We attempt to identify those chemistry-led strategies that have most reliably accelerated bench-to-bedside translation in bone disease, and those that have not.",
+      "journal": "Frontiers in chemistry",
+      "pub_date": "2026",
+      "pdf_link": "https://doi.org/10.3389/fchem.2026.1917991",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13630783/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    }
+  ]
+}

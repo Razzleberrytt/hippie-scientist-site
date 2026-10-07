@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "row": {
+    "wave": 3203,
+    "pmid": "42828782",
+    "doi": "10.1016/j.clnu.2026.106801",
+    "category": "inflammation_pain",
+    "title": "Lifestyle strategies and nutraceuticals in chronic venous disease: an evidence-weighted synthesis and clinical positioning.",
+    "abstract": "Chronic venous disease (CVD), including chronic venous insufficiency and venous leg ulcers (VLU), is common and substantially impairs quality of life. Compression is the cornerstone of conservative care, but lifestyle measures and selected nutraceuticals may provide additional benefit. This review aims to synthesize and clinically position evidence on adiposity, weight management, diet-related factors, and venoactive nutraceuticals across CVD phenotypes. Evidence from epidemiological studies, clinical cohorts, randomized trials, and meta-analyses was summarized using a pragmatic phenotype-aware framework distinguishing early symptomatic disease from advanced phenotypes with oedema, skin changes, or venous ulceration. Excess adiposity shows a consistent, modifiable association with higher CVD prevalence, greater clinical severity, and poorer outcomes, supporting weight management as a foundational conservative strategy. Nutritional epidemiology provides mainly associative signals for dietary patterns and individual foods; these data best inform counselling within broader weight optimization and cardiometabolic risk reduction rather than disease-specific prescriptions. For symptomatic C0 to C4 disease, flavonoid-based venoactive nutraceuticals, particularly micronized purified flavonoid fraction (MPFF) and Vitis vinifera seed extract (VVSE), show the most consistent improvements in heaviness, pain, clinical severity scores, and quality of life. In advanced disease, adjunctive MPFF, Centella asiatica and omega-3 fatty acids may favorably influence VLU healing within compression-based protocols, although heterogeneity limits certainty. A phenotype-stratified approach should prioritise weight control and compression as core interventions, with targeted nutraceuticals considered according to dominant clinical goals: symptom relief, quality of life, oedema control, or ulcer healing. Harmonized trials with clinically meaningful endpoints are needed.",
+    "journal": "Clinical nutrition (Edinburgh, Scotland)",
+    "pub_date": "2026-Sep-18",
+    "title_match_score": 1,
+    "recovery_method": "doi",
+    "selected_title": "Lifestyle strategies and nutraceuticals in chronic venous disease: an evidence-weighted synthesis and clinical positioning."
+  }
+}

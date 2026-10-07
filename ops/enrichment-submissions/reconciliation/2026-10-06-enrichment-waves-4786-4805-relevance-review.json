@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4786-4805-relevance-review",
+  "summary": {
+    "range": "4786-4805",
+    "rows": 20,
+    "keep": 4,
+    "replace_preferred": 1,
+    "replace": 15,
+    "replacement_waves": [
+      4786,
+      4787,
+      4788,
+      4789,
+      4790,
+      4791,
+      4792,
+      4793,
+      4794,
+      4795,
+      4797,
+      4798,
+      4799,
+      4800,
+      4801,
+      4804
+    ]
+  },
+  "policy_note": "Prefer direct human clinical/safety/outcome evidence. Reject veterinary evidence, formulation-only nanotechnology, disease-mechanism drift, and category-mismatched preclinical rows when stronger human evidence is available.",
+  "rows": [
+    {
+      "wave": 4786,
+      "pmid": "42361529",
+      "title": "Curcumin analogue C66 attenuates hypertensive nephropathy by inhibiting JNK-mediated inflammation.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "curcumin analogue nephropathy evidence is primarily experimental/mechanistic rather than human supplement evidence"
+    },
+    {
+      "wave": 4787,
+      "pmid": "42542236",
+      "title": "Fatty acid amide metabolism in systemic lupus erythematosus: Evidence, mechanisms, and translational potential.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "fatty-acid-amide review in lupus is mechanistic/translational but too category-tangential for the pain/inflammation slot"
+    },
+    {
+      "wave": 4788,
+      "pmid": "42531832",
+      "title": "6-shogaol suppresses MAPK14 to attenuate endoplasmic reticulum stress and alleviate alcohol-associated liver disease.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "6-shogaol liver-disease mechanism study is primarily experimental and category-mismatched"
+    },
+    {
+      "wave": 4789,
+      "pmid": "42468577",
+      "title": "Targeting neuroinflammation and neurodegeneration in Parkinson's disease: Emerging natural and synthetic therapeutic strategies.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "broad Parkinson neuroinflammation therapeutic review is too diffuse and not supplement-specific enough for this slot"
+    },
+    {
+      "wave": 4790,
+      "pmid": "42425421",
+      "title": "Dietary bioactive compounds and inflammaging: Pro-inflammatory triggers and geroprotective countermeasures.",
+      "category": "inflammation_pain",
+      "decision": "replace_preferred",
+      "reason": "inflammaging/dietary-bioactives review is relevant background but lower priority than direct human intervention evidence"
+    },
+    {
+      "wave": 4791,
+      "pmid": "42394314",
+      "title": "Curcumin as a Multifaceted Epigenetic Modulator With a Disease-Oriented Perspective.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "broad curcumin epigenetic review is mechanistic and disease-spanning; replace with stronger human outcome evidence if available"
+    },
+    {
+      "wave": 4792,
+      "pmid": "42364341",
+      "title": "Rewiring lipid metabolism in diabetic kidney disease: Pathogenic networks and the therapeutic convergence of natural products.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "diabetic kidney disease natural-products review is primarily metabolic/nephrology and category-mismatched"
+    },
+    {
+      "wave": 4793,
+      "pmid": "42522514",
+      "title": "GZ21T as an emerging topical dermatologic therapy: A literature review.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "topical dermatologic therapy review is outside the intended supplement pain/inflammation evidence job"
+    },
+    {
+      "wave": 4794,
+      "pmid": "42451115",
+      "title": "Dual Activation of GLP-1 and AMPK Pathways by a Multi-Botanical Formulation Improves Obesity and Metabolic Dysfunction in Experimental Models.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "multi-botanical obesity study is experimental-model metabolic evidence; wrong category and not human"
+    },
+    {
+      "wave": 4795,
+      "pmid": "42343272",
+      "title": "Endoscope-assisted vitrectomy using a 25-gauge system for endophthalmitis: a case series.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "endophthalmitis vitrectomy case series is unrelated to supplement/inflammation enrichment"
+    },
+    {
+      "wave": 4796,
+      "pmid": "42356281",
+      "title": "Palmitoylethanolamide/Baicalin Supplementation and Changes in Pain and Sudomotor Function in Type 2 Diabetes: A Retrospective Matched Real-World Cohort Study.",
+      "category": "inflammation_pain",
+      "decision": "keep",
+      "reason": "human real-world cohort directly evaluates PEA/baicalin supplementation and pain-related outcomes"
+    },
+    {
+      "wave": 4797,
+      "pmid": "42347974",
+      "title": "Orchestrating Diabetic Wound Healing by a Sunlight-Activated AIEgen-Selenide Nanospray: From Infection Control to Tissue Regeneration.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "AIEgen-selenide nanospray wound-healing platform is formulation/nanotech evidence; formulation firewall"
+    },
+    {
+      "wave": 4798,
+      "pmid": "42418839",
+      "title": "Folic acid-functionalized PEGylated magnetic nanocarriers for targeted delivery of curcumin to inflamed tissues.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "magnetic nanocarrier curcumin delivery is formulation-only preclinical nanotech"
+    },
+    {
+      "wave": 4799,
+      "pmid": "42399241",
+      "title": "Disruption of MCL1/BOK transmembrane interaction as a novel strategy to induce cell death in tumours.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "tumor-cell death mechanism is oncology molecular biology and off-target for this category"
+    },
+    {
+      "wave": 4800,
+      "pmid": "42454758",
+      "title": "Diarylheptanoid Phytoestrogen from Curcuma comosa Attenuates Colitis and Colitis-Associated Colorectal Cancer by Inhibiting Inflammation and Oxidative Stress and Modulating Gut Microbiota.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "Curcuma comosa colitis/CRC study is preclinical disease-model evidence; replace with human evidence if possible"
+    },
+    {
+      "wave": 4801,
+      "pmid": "42513202",
+      "title": "Palmitoylethanolamide in Human and Animal Obesity.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "PEA obesity review mixes human and animal evidence and is better aligned to metabolic than inflammation/pain"
+    },
+    {
+      "wave": 4802,
+      "pmid": "42696025",
+      "title": "Chestnut flour-enriched bread reduces postprandial glycaemic response in healthy adults: a randomised, controlled crossover study.",
+      "category": "metabolic",
+      "decision": "keep",
+      "reason": "randomized controlled human food intervention with glycemic outcome"
+    },
+    {
+      "wave": 4803,
+      "pmid": "42696856",
+      "title": "Postprandial metabolic responses to a glycomacropeptide-based protein substitute in different meal contexts - Implications for phenylketonuria (PKU).",
+      "category": "metabolic",
+      "decision": "keep",
+      "reason": "human postprandial metabolic-response study with clinically relevant PKU context"
+    },
+    {
+      "wave": 4804,
+      "pmid": "42600415",
+      "title": "Metabolic and endocrine modulation of the gut-adipose tissue axis via pro-, pre-, and postbiotics in overweight dogs: A systematic review.",
+      "category": "metabolic",
+      "decision": "replace",
+      "reason": "systematic review in overweight dogs is veterinary evidence and outside the human-first enrichment target"
+    },
+    {
+      "wave": 4805,
+      "pmid": "42654212",
+      "title": "Effects of a Multi-Component Nutraceutical (NUT2) on the Lipid Profile in Adults with Low-to-Moderate Cardiovascular Risk: A Randomized Placebo-Controlled Trial.",
+      "category": "metabolic",
+      "decision": "keep",
+      "reason": "randomized placebo-controlled human nutraceutical trial with lipid outcomes"
+    }
+  ]
+}

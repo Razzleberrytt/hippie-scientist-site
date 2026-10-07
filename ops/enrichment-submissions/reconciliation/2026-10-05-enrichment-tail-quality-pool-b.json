@@ -1,0 +1,776 @@
+{
+  "schema_version": 1,
+  "row_count": 77,
+  "rows": [
+    {
+      "category": "inflammation_pain",
+      "pmid": "42782661",
+      "doi": "10.3390/biomimetics11090635",
+      "title": "Multifunctional Silk Fibroin-Curcuminoid Films Combining Regenerative and Antioxidant Properties with pH Sensing for Wound Dressing Applications.",
+      "journal": "Biomimetics (Basel, Switzerland)",
+      "pub_date": "2026 Sep 5",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42785078",
+      "doi": "10.1016/j.vetimm.2026.111215",
+      "title": "Oral and topical phytopharmaceuticals for bovine mastitis: Effects of Terminalia bellerica, Boswellia serrata, Bergenia ciliata, and Piper betle formulations on udder health and immune responses.",
+      "journal": "Veterinary immunology and immunopathology",
+      "pub_date": "2026 Sep 20",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42791796",
+      "doi": "10.3390/ani16182939",
+      "title": "Histological and Lectinhistochemical Pattern of the Inflammatory Response to Ascocotyle sp. Metacercariae in Mugil liza Hearts.",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42791798",
+      "doi": "10.3390/ani16182942",
+      "title": "Curcumin Attenuates Escherichia coli-Induced Enteritis and Macrophage Inflammation in Broilers.",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42796589",
+      "doi": "10.3390/molecules31183303",
+      "title": "Astaxanthin-Turmeric-Honeysuckle Extract Combination Attenuates DSS-Induced Colitis with Preservation of the Epithelial Barrier and Reduced NLRP3/Caspase-1/GSDMD Signaling.",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42803496",
+      "doi": "10.1080/1061186X.2026.2741215",
+      "title": "Neuroprotective Effects of Nanocurcumin in Spinal Cord Injury: Modulation of Inflammatory and Inflammasome-Associated Signaling in an Integrated In Vivo, In Silico, and Machine-Learning Study.",
+      "journal": "Journal of drug targeting",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42803668",
+      "doi": "10.4081/aiua.2026.15916",
+      "title": "Postoperative administration of a combination of Phycocyanin, PEA and Selenium following prostatic deobstructive surgery: a preliminary clinical study.",
+      "journal": "Archivio italiano di urologia, andrologia : organo ufficiale [di] Societa italiana di ecografia urologica e nefrologica",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42814403",
+      "doi": "10.1142/S0192415X26500813",
+      "title": "Curcumin from Turmeric Alleviates Lipid Metabolism: Network Pharmacology and Cellular Validation.",
+      "journal": "The American journal of Chinese medicine",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42828456",
+      "doi": "10.1002/cbin.70222",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "journal": "Cell biology international",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "42828924",
+      "doi": "10.1016/j.colsurfb.2026.116227",
+      "title": "Cur-EGCG-Fe coordination nanoparticle-functionalized gelatin hydrogel biointerfaces for antibacterial and inflammatory microenvironment-regulatory wound repair.",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((curcumin OR turmeric OR boswellia OR ginger OR \"palmitoylethanolamide\" OR PEA) AND (pain OR inflammation OR osteoarthritis OR migraine OR neuropathic)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42826720",
+      "doi": "10.1016/j.devcel.2026.09.001",
+      "title": "Nitrate-responsive Sialin2 couples stress granule assembly and clearance to maintain neuronal homeostasis.",
+      "journal": "Developmental cell",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42827030",
+      "doi": "10.1039/d6fd00090h",
+      "title": "Electrolyte and gas flow rate balance in flow cells for lithium-mediated ammonia electrosynthesis.",
+      "journal": "Faraday discussions",
+      "pub_date": "2026 Oct 3",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42827259",
+      "doi": "10.1186/s40793-026-00953-0",
+      "title": "Dual legacy of plant water-deficit-tolerance and watering history shapes rhizosphere microbial transplant outcomes in tomato post-drought recovery.",
+      "journal": "Environmental microbiome",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42827985",
+      "doi": "10.1039/d6ta02802k",
+      "title": "Multi-oxirane additives as property modifiers for DGEBA-based structural electrolytes.",
+      "journal": "Journal of materials chemistry. A",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42828060",
+      "doi": "10.7759/cureus.115627",
+      "title": "Serial Serum Creatine Phosphokinase and Lactate Dehydrogenase Levels as Biomarkers of Severity and Intermediate Syndrome in Organophosphorus Compound Poisoning: A Prospective Observational Study.",
+      "journal": "Cureus",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42830381",
+      "doi": "10.1007/s40820-026-02353-y",
+      "title": "High-Conductivity and Moisture-Tolerant Sulfide Electrolyte Enabled by Bifunctional Coating for Practical All-Solid-State Lithium Batteries.",
+      "journal": "Nano-micro letters",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42830777",
+      "doi": "10.1016/j.cdnut.2026.109528",
+      "title": "Acute Effects of a Low Dose of Caffeine on Physiological and Performance Factors in Young Male Soccer Players: A Randomized Crossover Study.",
+      "journal": "Current developments in nutrition",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42831326",
+      "doi": "10.1039/d6fd00080k",
+      "title": "Photoinduced structural modulation of CuO/C photocathode governs product selectivity in photoelectrochemical nitrate reduction.",
+      "journal": "Faraday discussions",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42831375",
+      "doi": "10.1039/d6mh01029f",
+      "title": "3d transition metal (Fe, Co, Ni, Cu) compounds for electrocatalytic nitrate reduction to ammonia: fundamentals, strategies, and progress.",
+      "journal": "Materials horizons",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Review",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42831499",
+      "doi": "10.1039/d6cp01881e",
+      "title": "Decoupling the influence of dielectric constant and electrolyte structure on ion transport and dissociation.",
+      "journal": "Physical chemistry chemical physics : PCCP",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42832309",
+      "doi": "10.1080/10408398.2026.2742761",
+      "title": "Exercise combined with creatine supplementation for skeletal muscle hypertrophy: mechanistic basis, nutritional context, and applications.",
+      "journal": "Critical reviews in food science and nutrition",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Review",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42800485",
+      "doi": "10.1016/j.biortech.2026.135959",
+      "title": "Efficient Myoinositol biosynthesis from glucose through gluconate bypass of glycolysis.",
+      "journal": "Bioresource technology",
+      "pub_date": "2026 Sep 26",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42808373",
+      "doi": "10.1155/bmri/4023284",
+      "title": "Provegetarian Food Pattern and Obesity Among Saudi Non-Pregnant Females of Reproductive Age.",
+      "journal": "BioMed research international",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42811360",
+      "doi": "10.1186/s13020-026-01533-7",
+      "title": "Berberine attenuates diabetic kidney injury via FOXO1/SP1-associated regulation of renal SGLT-2 expression.",
+      "journal": "Chinese medicine",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42812999",
+      "doi": "10.1039/d6ra07383b",
+      "title": "Eco-conscious Fe-Cu bimetallic nanozymes as a multimodal colorimetric platform for glucose and hexavalent chromium determination.",
+      "journal": "RSC advances",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42815267",
+      "doi": "10.1016/j.phymed.2026.158824",
+      "title": "Fermented Polygonatum kingianum polysaccharide exerts enhanced anti-obesity effects by modulating the gut microbiota-GDCA-TGR5 axis.",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42817120",
+      "doi": "10.2174/0118715273459828260925063553",
+      "title": "Molecular Footprints of Diabetic Peripheral Neuropathy: Investigating Transcriptional Modulation of Sphingolipid Metabolism, Myelin-specific Genes and Neurotrophic Factors Under Elevated Glucose and Harnessing Therapeutic Potential of DHA and ALA.",
+      "journal": "CNS & neurological disorders drug targets",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42818267",
+      "doi": "10.64898/2026.09.06.749722",
+      "title": "ULK1 and ULK2 Restrain Skeletal Myofiber Growth by Balancing Protein Synthesis and Degradation.",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_date": "2026 Sep 10",
+      "pub_type": "Preprint",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42819509",
+      "doi": "10.7759/cureus.115506",
+      "title": "Relationship Between Obesity, Insulin Resistance, and Gastrointestinal Disorders Among Adult Patients With Established Cardiovascular Disease.",
+      "journal": "Cureus",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42821141",
+      "doi": "10.1007/s10142-026-02052-2",
+      "title": "Network pharmacology, single-cell transcriptomics, machine learning and experimental validation identifying CHEK2 and HPGD as key therapeutic targets of berberine in diabetic nephropathy.",
+      "journal": "Functional & integrative genomics",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42829140",
+      "doi": "10.1016/j.phrs.2026.108482",
+      "title": "A branched α-glucan from Galli Gigeriae Endothelium Corneum alleviates high-fat diet-induced obesity in a gut microbiota-dependent manner.",
+      "journal": "Pharmacological research",
+      "pub_date": "2026 Oct 3",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42829475",
+      "doi": "10.1080/09205063.2026.2741657",
+      "title": "Dual pH/glucose-responsive berberine-loaded bioactive glass/carboxymethyl chitosan hydrogel for promoting diabetic wound healing.",
+      "journal": "Journal of biomaterials science. Polymer edition",
+      "pub_date": "2026 Oct 4",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42763710",
+      "doi": "10.2147/JMDH.S626532",
+      "title": "Association Between SNAIL1 Gene Expression, SNAIL1 Genetic Variation, Vitamin D Receptor Gene Expression, and Vitamin-D Status Among Jordanian Asthmatic Patients.",
+      "journal": "Journal of multidisciplinary healthcare",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42769103",
+      "doi": "10.2147/IJWH.S618420",
+      "title": "Peripheral Blood Transcriptomic Features Distinguishing Postpartum Depression from Major Depressive Disorder and Healthy Postpartum Controls.",
+      "journal": "International journal of women's health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42772682",
+      "doi": "10.1016/j.tjnut.2026.101838",
+      "title": "Vitamin D Deficiency Is Associated with Increased Uterine Fibroid Risk: A Systematic Review and Meta-Analysis.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42773179",
+      "doi": "10.1038/s41386-026-02549-1",
+      "title": "Kappa opioid receptor-dependent depressive-like behaviors associated with morphine withdrawal contribute to stress-induced reinstatement of morphine seeking.",
+      "journal": "Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42784066",
+      "doi": "10.3390/nursrep16090301",
+      "title": "Associations Between Anxiety, Depression, and Disease Activity in Newly Diagnosed Patients with Inflammatory Bowel Disease: A Prospective Cohort Study.",
+      "journal": "Nursing reports (Pavia, Italy)",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42792438",
+      "doi": "10.3390/bs16091639",
+      "title": "MTHFR Gene Variants and Major Depressive Disorder in Mexican-Mestizos.",
+      "journal": "Behavioral sciences (Basel, Switzerland)",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42797463",
+      "doi": "10.3390/ph19091419",
+      "title": "Modulation of Caffeine-Induced Behavioral Alterations by N-Acetylcysteine in a Pharmacological Challenge Model.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42807834",
+      "doi": "10.7150/ijbs.128620",
+      "title": "Hippocampal NLRP3 Inflammasome Drives Anxiety- and Depressive-Like Behaviors Following Drug-Induced Liver Injury.",
+      "journal": "International journal of biological sciences",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42817096",
+      "doi": "10.2174/0113895575464832260917050501",
+      "title": "Emerging Role of Natural Products and Dietary Supplements in Major Depressive Disorder: Therapeutic and Mechanistic Insights.",
+      "journal": "Mini reviews in medicinal chemistry",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "42830497",
+      "doi": "10.1111/jipb.70410",
+      "title": "A NAC-MYB-cysteine regulatory module enhances drought and salt tolerance in soybean.",
+      "journal": "Journal of integrative plant biology",
+      "pub_date": "2026 Oct 4",
+      "pub_type": "Journal Article",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "safety_interactions",
+      "pmid": "42828851",
+      "doi": "10.1016/j.phymed.2026.158820",
+      "title": "Targeting ferritinophagy via NCOA4-FTH1 disruption by sodium tanshinone IIA sulfonate alleviates cardiotoxicity and enhances anti-tumor efficacy.",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((\"dietary supplement\" OR herbal OR botanical OR nutraceutical OR supplement) AND (safety OR adverse OR interaction OR hepatotoxicity OR \"liver injury\" OR cytochrome OR CYP OR warfarin OR serotonin)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "safety_interactions",
+      "pmid": "42829357",
+      "doi": "10.1007/s11306-026-02536-z",
+      "title": "Synergistic lipase inhibition by Garcinia parvifolia metabolites: a (1)H NMR-based metabolomic deciphering of ligand interactions.",
+      "journal": "Metabolomics : Official journal of the Metabolomic Society",
+      "pub_date": "2026 Oct 3",
+      "pub_type": "Journal Article",
+      "query": "((\"dietary supplement\" OR herbal OR botanical OR nutraceutical OR supplement) AND (safety OR adverse OR interaction OR hepatotoxicity OR \"liver injury\" OR cytochrome OR CYP OR warfarin OR serotonin)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "safety_interactions",
+      "pmid": "42829484",
+      "doi": "10.2147/DDDT.S636596",
+      "title": "Screening and Determination of Biomarkers and Their Associated Active Components for Enhanced Therapeutic Effect of Exocarpium Citri Grandis-Folium Ginkgo Couplet on Liver Injury Caused by Hyperlipidemia via UPLC-TOF-MS and UPLC-MS.",
+      "journal": "Drug design, development and therapy",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"dietary supplement\" OR herbal OR botanical OR nutraceutical OR supplement) AND (safety OR adverse OR interaction OR hepatotoxicity OR \"liver injury\" OR cytochrome OR CYP OR warfarin OR serotonin)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "safety_interactions",
+      "pmid": "42832166",
+      "doi": "10.1007/s40123-026-01509-8",
+      "title": "Effects and Safety of Grape Skin Enzyme Fermentation Extract for Eye Fatigue and Dry Eye Symptoms: An Exploratory Randomized Controlled Trial.",
+      "journal": "Ophthalmology and therapy",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((\"dietary supplement\" OR herbal OR botanical OR nutraceutical OR supplement) AND (safety OR adverse OR interaction OR hepatotoxicity OR \"liver injury\" OR cytochrome OR CYP OR warfarin OR serotonin)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "36256767",
+      "doi": null,
+      "title": "Kratom Toxicity and Withdrawal.",
+      "journal": null,
+      "pub_date": "2026 Jan",
+      "pub_type": "Study Guide",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42715657",
+      "doi": "10.1016/j.drugalcdep.2026.113338",
+      "title": "Animal models of spontaneous opioid withdrawal.",
+      "journal": "Drug and alcohol dependence",
+      "pub_date": "2026 Sep 2",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42715782",
+      "doi": "10.1016/j.ajem.2026.08.044",
+      "title": "Risk of respiratory and neurologic effects in children ingesting kratom and related alkaloids.",
+      "journal": "The American journal of emergency medicine",
+      "pub_date": "2026 Aug 29",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42727065",
+      "doi": "10.1097/ADM.0000000000001765",
+      "title": "The Overlapping Symptoms of Perimenopause and Opioid Withdrawal: When Hormone Therapy is \"Even more Important for My Recovery than My Methadone\".",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42728853",
+      "doi": "10.1080/13880209.2026.2727756",
+      "title": "A design of experiments approach to production of medicinal bioactives in Mitragyna speciosa (Korth.) Havil.",
+      "journal": "Pharmaceutical biology",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42755023",
+      "doi": "10.1111/ajad.70201",
+      "title": "Opioid withdrawal syndrome-associated cognitive impairment: A narrative review.",
+      "journal": "The American journal on addictions",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42757335",
+      "doi": null,
+      "title": "Kratom in Clinical Practice: What Physicians Need to Know.",
+      "journal": "Missouri medicine",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42757738",
+      "doi": "10.1080/02791072.2026.2729619",
+      "title": "Cerebellar Alteration in Resting-State Functional Connectivity Among Kratom (Mitragyna speciosa) Users: Insights from Functional MRI.",
+      "journal": "Journal of psychoactive drugs",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42767352",
+      "doi": "10.1016/j.phytochem.2026.115085",
+      "title": "Kratomines A-E, a series of diastereomeric indole alkaloids with α-glucosidase inhibition from the leaves of Mitragyna speciosa.",
+      "journal": "Phytochemistry",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42773179",
+      "doi": "10.1038/s41386-026-02549-1",
+      "title": "Kappa opioid receptor-dependent depressive-like behaviors associated with morphine withdrawal contribute to stress-induced reinstatement of morphine seeking.",
+      "journal": "Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42781979",
+      "doi": "10.5055/jom.1002",
+      "title": "Buprenorphine microinductions: Investigating the ideal initial dose based on oral morphine equivalent requirements for stabilizing withdrawal symptoms.",
+      "journal": "Journal of opioid management",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42798746",
+      "doi": "10.3389/fphar.2026.1895945",
+      "title": "Exploratory evaluation of encapsulated kratom using multimodal quantitative sensory testing in dogs.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42802024",
+      "doi": "10.1542/hpeds.2025-009186",
+      "title": "Predictive Performance of Screening Methods for Neonatal Opioid Withdrawal Syndrome.",
+      "journal": "Hospital pediatrics",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42804230",
+      "doi": "10.1037/pha0000878",
+      "title": "Effects of simulated and real opioid withdrawal on delay discounting for opioids and money in people who use fentanyl daily.",
+      "journal": "Experimental and clinical psychopharmacology",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42806043",
+      "doi": "10.1038/s41372-026-02913-5",
+      "title": "Randomized pilot study comparing standard vs high-calorie feeding in infants with Neonatal Opioid Withdrawal Syndrome.",
+      "journal": "Journal of perinatology : official journal of the California Perinatal Association",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42811689",
+      "doi": "10.1002/jhm.70506",
+      "title": "Clinical progress note: Management of the hospitalized patient with medetomidine withdrawal.",
+      "journal": "Journal of hospital medicine",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42822000",
+      "doi": "10.1097/ADM.0000000000001785",
+      "title": "Kratom-labeled Products in the US Compared With Traditionally Consumed Natural Kratom in Southeast Asia.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42825201",
+      "doi": "10.7759/cureus.117298",
+      "title": "Barriers to Maternal Presence at the Bedside of Infants With Neonatal Opioid Withdrawal Syndrome.",
+      "journal": "Cureus",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42769103",
+      "doi": "10.2147/IJWH.S618420",
+      "title": "Peripheral Blood Transcriptomic Features Distinguishing Postpartum Depression from Major Depressive Disorder and Healthy Postpartum Controls.",
+      "journal": "International journal of women's health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42771637",
+      "doi": "10.1371/journal.pone.0358781",
+      "title": "Maternal serum vitamin D levels and preeclampsia among Kenyan pregnant women: A matched case-control study.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42772082",
+      "doi": "10.1016/j.biomaterials.2026.124639",
+      "title": "Nanoparticle-mediated magnetic hyperthermia for ectopic pregnancy treatment.",
+      "journal": "Biomaterials",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42777736",
+      "doi": "10.5694/mja2.70301",
+      "title": "Living Evidence for Australian Pregnancy and Postnatal Care (LEAPP): Transforming the Australian Pregnancy and Postnatal Care Guidelines.",
+      "journal": "The Medical journal of Australia",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42784456",
+      "doi": "10.1016/j.celrep.2026.118040",
+      "title": "Placental trophoblasts exhibit iron dysregulation and ferroptosis signaling associated with SARS-CoV-2 restriction.",
+      "journal": "Cell reports",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42792760",
+      "doi": "10.3390/biomedicines14092018",
+      "title": "Therapeutic Management of Schistosomiasis in Pregnancy: A Comprehensive Review of Praziquantel Safety and Clinical Outcomes.",
+      "journal": "Biomedicines",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42803694",
+      "doi": "10.1096/fj.202504881RR",
+      "title": "Gestational Changes in Placental Iron Homeostasis are Associated With Ferroptosis-Associated Redox Signaling and Trophoblast Behavior.",
+      "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+      "pub_date": "2026 Oct 15",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42812249",
+      "doi": "10.3389/fcdhc.2026.1939424",
+      "title": "The correlation between serum magnesium, phosphorus, and calcium levels during pregnancy and the risk of gestational diabetes mellitus as well as adverse pregnancy outcomes.",
+      "journal": "Frontiers in clinical diabetes and healthcare",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42820139",
+      "doi": "10.1155/anem/5554286",
+      "title": "Prevalence and Risk Factors of Maternal Anemia Among Pregnant Women in Central Jordan.",
+      "journal": "Anemia",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42822351",
+      "doi": "10.1016/j.placenta.2026.09.021",
+      "title": "Placental transport of inorganic ions for skeletal development during male seahorse (Hippocampus abdominalis) pregnancy.",
+      "journal": "Placenta",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42822959",
+      "doi": "10.1016/j.jes.2026.02.022",
+      "title": "Polycyclic aromatic hydrocarbons exposure induced early pregnancy loss through epigenetic regulation of SDHB.",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42823945",
+      "doi": "10.3389/fendo.2026.1934166",
+      "title": "Real-world treatment outcomes in pregnancy and lactation-associated osteoporosis: a nationwide multicenter cohort study.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Multicenter Study",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42832540",
+      "doi": "10.1371/journal.pgph.0004729",
+      "title": "Maternal healthcare quality, continuity, and experiences among pregnant adolescents and adult women in Ethiopia, Kenya, and South Africa: A cohort study.",
+      "journal": "PLOS global public health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

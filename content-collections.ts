@@ -9,10 +9,13 @@ const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/
 const articleReferenceSchema = z.object({
   title: z.string().min(1),
   authors: z.string().default(''),
+  journal: z.string().default(''),
   year: z.string().default(''),
   pmid: z.string().default(''),
   doi: z.string().default(''),
   url: z.string().default(''),
+  sourceType: z.string().default(''),
+  evidenceLevel: z.string().default(''),
 })
 
 const mdxOptions = {
@@ -130,8 +133,12 @@ const blogPosts = defineCollection({
     slug: z.string().regex(slugPattern),
     excerpt: z.string().default(''),
     date: z.string().regex(isoDatePattern).optional(),
+    updatedAt: z.string().regex(isoDatePattern).optional(),
     tags: z.array(z.string()).default([]),
     ai_assisted: z.boolean().optional(),
+    keyTakeaways: z.array(z.string().min(1)).max(8).optional(),
+    citationQuestions: z.array(z.string().min(1)).max(12).optional(),
+    canonicalConcepts: z.array(z.string().min(1)).max(20).optional(),
     content: z.string(),
   }),
   transform: async (document, context) => {
@@ -146,17 +153,17 @@ const blogPosts = defineCollection({
     return {
       ...document,
       description: document.excerpt,
-      lastUpdated: document.date ?? '',
-      factualUpdated: document.date ?? '',
+      lastUpdated: document.updatedAt ?? document.date ?? '',
+      factualUpdated: document.updatedAt ?? document.date ?? '',
       templateUpdated: '',
       category: 'Field Notes',
       readingTime: `${estimatedMinutes} min read`,
       evidenceGrade: '',
       references: [],
       relatedSlugs: [],
-      keyTakeaways: [],
-      citationQuestions: [],
-      canonicalConcepts: [],
+      keyTakeaways: document.keyTakeaways ?? [],
+      citationQuestions: document.citationQuestions ?? [],
+      canonicalConcepts: document.canonicalConcepts ?? [],
       body,
       url: `/articles/${document.slug}`,
     }

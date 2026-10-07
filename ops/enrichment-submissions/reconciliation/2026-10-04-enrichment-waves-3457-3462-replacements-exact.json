@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3457,
+      "pmid": "41886310",
+      "doi": "10.15585/mmwr.mm7511a1",
+      "category": "withdrawal_nps",
+      "title": "Increases in Kratom-Related Reports to Poison Centers - National Poison Data System, United States, 2015-2025.",
+      "journal": "MMWR. Morbidity and mortality weekly report",
+      "pub_date": "2026-Mar-26",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "National Poison Data System analysis found kratom-related poison-center reports rose sharply from 2015 to 2025. Multiple-substance reports had higher hospitalization and serious-outcome rates and accounted for most kratom-associated deaths in the dataset.",
+      "evidence_boundary": "Poison-center surveillance is descriptive and subject to reporting bias; it identifies trends and risk patterns rather than population incidence or causality."
+    },
+    {
+      "wave": 3462,
+      "pmid": "42225057",
+      "doi": "10.1097/ADM.0000000000001723",
+      "category": "withdrawal_nps",
+      "title": "Buprenorphine for the Management of 7-Hydroxymitragynine (7-OH) Use: A Retrospective Case Series.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026-Jun-01",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Retrospective case series of nine patients with problematic purified 7-OH use described buprenorphine initiation strategies; most patients were successfully initiated and reported symptom improvement, without precipitated withdrawal in the reported series.",
+      "evidence_boundary": "Small retrospective uncontrolled case series; useful for emerging clinical management signals but insufficient to establish comparative efficacy, optimal dosing, or generalizable protocols."
+    }
+  ]
+}

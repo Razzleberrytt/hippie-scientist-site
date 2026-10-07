@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2591-2595",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2591,
+      "pmid": "42644517",
+      "title": "Effects of Cannabidiol-Rich Cannabis Oil on Facial Expression Recognition and Theory of Mind in Children With Autism Spectrum Disorder: A Randomized Clinical Trial.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "This is a post hoc subanalysis of a small pediatric ASD trial; social-cognition findings are exploratory and cannot establish broad efficacy of CBD-rich cannabis oil."
+    },
+    {
+      "wave": 2592,
+      "pmid": "42793382",
+      "title": "Investigating Neuropharmacological Features of the Cortical Activity of Cannabidiol GWP42003 P-A Phase 1 Clinical Trial.",
+      "abstract_verified": true,
+      "state": "research_only_phase1",
+      "evidence_boundary": "This phase 1 crossover study examined acute cortical physiology after a single high dose of purified CBD in healthy men; it is mechanistic and not an efficacy trial."
+    },
+    {
+      "wave": 2593,
+      "pmid": "42829743",
+      "title": "Efficacy of ginger and fennel in relieving primary dysmenorrhea: A triple-blind crossover controlled trial.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "The crossover trial is specific to young women with primary dysmenorrhea and short-cycle dosing; formulation, outcome, and population limits constrain generalization."
+    },
+    {
+      "wave": 2594,
+      "pmid": "42818883",
+      "title": "Omega-3 Supplementation with Lipid Biomarker Assessment in Youth with Migraine: A Quasi-Randomized Controlled Feasibility Trial.",
+      "abstract_verified": true,
+      "state": "research_only_preprint_trial",
+      "evidence_boundary": "This is a small quasi-randomized feasibility preprint in pediatric migraine; feasibility and biomarker target-engagement results should not be treated as established clinical efficacy."
+    },
+    {
+      "wave": 2595,
+      "pmid": "42729312",
+      "title": "Synergistic effects of intradialytic concurrent training and melatonin supplementation on immune cell adaptations in hemodialysis patients.",
+      "abstract_verified": true,
+      "state": "research_only_combination_trial",
+      "evidence_boundary": "Melatonin was tested together with structured intradialytic exercise in hemodialysis patients, so ingredient-specific attribution is limited by the combined intervention and disease context."
+    }
+  ]
+}

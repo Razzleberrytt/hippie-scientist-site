@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "wave": 3202,
+      "pmid": "42621591",
+      "doi": "10.7759/cureus.112993",
+      "category": "inflammation_pain",
+      "title": "Bioavailability-Enhanced Curcumin (CurcuBoost®) as Adjunct Therapy Improves Symptoms in Knee Osteoarthritis: A Randomized Clinical Trial.",
+      "journal": "Cureus",
+      "pub_date": "2026-Jul",
+      "title_match_score": 1,
+      "abstract": "Objectives This study aimed to evaluate the efficacy, safety, and tolerability of the bioavailability-enhanced curcumin formulation CurcuBoost® as an adjunct to standard of care (SOC) in subjects with knee osteoarthritis (OA). Methods In this randomized, open-label, parallel-group trial, adults aged 40-75 years with radiographically confirmed knee OA (Kellgren-Lawrence grade II-III) were randomized (1:1) to receive CurcuBoost® 500 mg once daily + SOC or SOC alone for eight weeks. Analyses were conducted in the modified intention-to-treat (mITT) population. Results All 50 participants completed the study. At week 8, CurcuBoost® + SOC resulted in significantly greater reductions in Western Ontario and McMaster Universities Osteoarthritis Index (WOMAC) pain compared with SOC alone (mean ± SD: 4.68 ± 1.65 vs 7.40 ± 2.18; p < 0.0001), corresponding to a 65.2% versus 44.0% reduction from baseline. Significant improvements favoring CurcuBoost® were also observed in WOMAC physical function (-59.1% vs -38.9%; p < 0.0001), WOMAC total score (-59.9% vs -40.7%; p < 0.0001), and Visual Analog Scale (VAS) pain score (-61.5% vs -39.5%; p < 0.0001). Outcome Measures in Rheumatology-Osteoarthritis Research Society International (OMERACT-OARSI) responder rates at week 8 were higher with CurcuBoost® (80% (n = 20) vs 48% (n = 12); p = 0.0184). Improvements in the EuroQol 5-Dimension questionnaire (EQ-5D) and global assessments were also significantly greater (all p < 0.01) in the CurcuBoost® + SOC group. No treatment-related serious adverse events (SAEs) were reported. Conclusion CurcuBoost® as an adjunct to SOC significantly improved pain, function, and quality of life in knee OA with a favorable safety profile, supporting its role as an effective complementary therapeutic option."
+    }
+  ]
+}

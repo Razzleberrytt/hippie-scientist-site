@@ -1,0 +1,699 @@
+{
+  "schema_version": 1,
+  "category": "cognition_focus",
+  "target": 23,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 69,
+  "rows": [
+    {
+      "pmid": "42371128",
+      "title": "Investigating enhancement of learning and memory following supplementation with Juice Plus(+)® Omega in an adolescent population.",
+      "doi": "10.1007/s00394-026-04012-9",
+      "pub_date": "2026 Jun 29",
+      "journal": "European journal of nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42612547",
+      "title": "Oxidation over omega-3: Reinterpreting the paradoxical link between fish oil supplements and accelerated cognitive decline.",
+      "doi": "10.1016/j.tjpad.2026.100660",
+      "pub_date": "2026 Aug 18",
+      "journal": "The journal of prevention of Alzheimer's disease",
+      "pub_type": "Letter",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42280655",
+      "title": "Unlocking the Power of Plant-Derived Natural Products: Therapeutic Benefits for Cognitive Health and Neuropsychiatric Symptoms in Dementia-Related Diseases.",
+      "doi": "10.3390/plants15111619",
+      "pub_date": "2026 May 25",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42309243",
+      "title": "Ayurvedic Herbs as neurogenesis modulators: Current understanding on their potential therapeutic relevance in enhancing neuroplasticity and cognition in aging and neurodegeneration.",
+      "doi": "10.1016/j.neuint.2026.106204",
+      "pub_date": "2026 Oct",
+      "journal": "Neurochemistry international",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42371337",
+      "title": "Phytohormone supplementation for omega-3 production in microalgae and its potential integration with wastewater cultivation.",
+      "doi": "10.1007/s11274-026-05082-x",
+      "pub_date": "2026 Jun 29",
+      "journal": "World journal of microbiology & biotechnology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42572677",
+      "title": "Anti-inflammatory Diets for Chronic Pain Disorders With a Focus on Fibromyalgia: A Narrative Review.",
+      "doi": "10.7759/cureus.112395",
+      "pub_date": "2026 Jul",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42687507",
+      "title": "Mild Cognitive Impairment Diagnosis and Care Algorithms and the Role of Digital Interventions: Expert Consensus.",
+      "doi": "10.1002/cns.71085",
+      "pub_date": "2026 Sep",
+      "journal": "CNS neuroscience & therapeutics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42757589",
+      "title": "Plant-based diets, cognitive function, and Alzheimer's disease.",
+      "doi": "10.1039/d6fo01946c",
+      "pub_date": "2026 Sep 18",
+      "journal": "Food & function",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42280463",
+      "title": "Potential Neuroprotective Effects of Docosahexaenoic Acid on Glutamate-Induced Neurotoxicity: A Systematic Review of Pre-Clinical Studies.",
+      "doi": "10.3390/nu18111819",
+      "pub_date": "2026 Jun 4",
+      "journal": "Nutrients",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42271192",
+      "title": "Prediction of cognitive outcome and progression to dementia using ω6-PUFA/ω3-PUFA ratio.",
+      "doi": "10.1002/alz.71590",
+      "pub_date": "2026 Jun",
+      "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42315445",
+      "title": "CNS target engagement of high-dose DHA supplementation in older adults at risk for dementia: a randomised, double-blind, placebo-controlled trial.",
+      "doi": "10.1016/j.ebiom.2026.106316",
+      "pub_date": "2026 Jul",
+      "journal": "EBioMedicine",
+      "pub_type": "Clinical Trial, Phase II",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42332971",
+      "title": "A balanced omega-6:3 fatty acid diet can shield honey bee cognition from pesticide impairment.",
+      "doi": "10.1242/jeb.252004",
+      "pub_date": "2026 Jul 1",
+      "journal": "The Journal of experimental biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42404568",
+      "title": "Changes in MoCA scores with sequential administration of Trikatu Cūrṇa and Brahmi Ghṛta in mild cognitive impairment: an exploratory single-arm clinical study.",
+      "doi": "10.3389/fmed.2026.1834211",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42422390",
+      "title": "Comparing full-body flywheel eccentric protocols: cluster set vs. traditional training on muscle damage, arterial stiffness, jump performance, grip strength, cognitive, and perceptual responses.",
+      "doi": "10.5114/biolsport.2026.158673",
+      "pub_date": "2026 Jan",
+      "journal": "Biology of sport",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42454737",
+      "title": "EXPRESS: Functional MRS uncovers age-related alterations in cerebral lactate dynamics during emotional-cognitive engagement, revealing metabolic vulnerability in the dACC.",
+      "doi": "10.1177/0271678X261472101",
+      "pub_date": "2026 Jul 15",
+      "journal": "Journal of cerebral blood flow and metabolism : official journal of the International Society of Cerebral Blood Flow and Metabolism",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42457037",
+      "title": "Nutritional Strategies Targeting Glucose Metabolism to Slow Cognitive Aging: A Scoping Review of Human Trials.",
+      "doi": "10.1016/j.ajcnut.2026.101434",
+      "pub_date": "2026 Sep",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42472033",
+      "title": "Unveiling Nutritional Disparities in Infantile Tremor Syndrome: A Focus on Holo-Transcobalamin and Essential Fatty Acids.",
+      "doi": "10.1155/jotm/3144439",
+      "pub_date": "2026",
+      "journal": "Journal of tropical medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42548045",
+      "title": "From Caffeine to Aspirin: Everyday Molecules as Triggers for Genetically Encoded Proximity Systems.",
+      "doi": "10.1002/chem.71530",
+      "pub_date": "2026 Aug 3",
+      "journal": "Chemistry (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42667458",
+      "title": "L-theanine from Camellia sinensis (L.) attenuates 3-NP-induced Huntington's disease-like alterations by remedying behavioral patterns and modulating neurotransmitters across three distinct brain regions: evidence from in-vivo and in-silico approaches.",
+      "doi": "10.1007/s11011-026-01967-w",
+      "pub_date": "2026 Aug 29",
+      "journal": "Metabolic brain disease",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42758031",
+      "title": "Utility of biomarkers in prediction of future cognition in Alzheimer's disease continuum changes over time.",
+      "doi": "10.1177/13872877261487572",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of Alzheimer's disease : JAD",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800118",
+      "title": "NMR-based serum metabolomics of dementia patients and search for metabolic biomarkers associated with cognitive decline.",
+      "doi": "10.1016/j.bpc.2026.107715",
+      "pub_date": "2026 Sep 23",
+      "journal": "Biophysical chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810842",
+      "title": "A single-center open-label, randomized, parallel-group controlled clinical trial on the long-term effect of the treatment with EGb 761 in blood markers of inflammation and neurodegeneration in patients with mild cognitive impairment: ACE-2020-EGb 761.",
+      "doi": "10.1177/13872877261490130",
+      "pub_date": "2026 Sep 29",
+      "journal": "Journal of Alzheimer's disease : JAD",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "20301651",
+      "title": "PRKN-Related Early-Onset Parkinson Disease.",
+      "doi": null,
+      "pub_date": "1993",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "30000958",
+      "title": "Marine Oils.",
+      "doi": null,
+      "pub_date": "2006",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42280310",
+      "title": "Early Biomarkers, Risk Factors, and Functional Indicators of Healthy Longevity and Their Relationship with Diet.",
+      "doi": "10.3390/nu18111664",
+      "pub_date": "2026 May 22",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42292638",
+      "title": "Research progress on dietary characteristics and feeding interventions in children with autism spectrum disorder: a narrative review.",
+      "doi": "10.21037/tp-2026-1-0162",
+      "pub_date": "2026 May 31",
+      "journal": "Translational pediatrics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42313306",
+      "title": "Strategies to optimize the nutritional profile of mammalian meat for infants and geriatric population.",
+      "doi": "10.1007/s44463-026-00094-5",
+      "pub_date": "2026 Jun 18",
+      "journal": "Food science of animal resources",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42335729",
+      "title": "Pasture species selection for free-range egg production systems: Implications for laying performance, egg quality, hen welfare, and soil functioning.",
+      "doi": "10.1016/j.psj.2026.107269",
+      "pub_date": "2026 Sep",
+      "journal": "Poultry science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42339676",
+      "title": "Phytochemical constituents, nutritional value, and biological activities of Lupinus albus: a review.",
+      "doi": "10.1080/14786419.2026.2689489",
+      "pub_date": "2026 Jun 24",
+      "journal": "Natural product research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42346344",
+      "title": "Lean Mass and Musculoskeletal Preservation in GLP-1-Based Obesity Treatment: Nutrition, Exercise, Supplementation, and Monitoring Strategies.",
+      "doi": "10.3390/metabo16060364",
+      "pub_date": "2026 May 27",
+      "journal": "Metabolites",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42347115",
+      "title": "Nutritional Influences on the Brain in ADHD: Evidence from Neuroimaging Studies.",
+      "doi": "10.3390/neurolint18060107",
+      "pub_date": "2026 May 29",
+      "journal": "Neurology international",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42355744",
+      "title": "Neurophysiology of Sleep-Deprivation Part 1: Effects of Sleep-Deprivation on Event-Related Potentials (ERPs)-Systematic and Mechanistic Review.",
+      "doi": "10.3390/jcm15124576",
+      "pub_date": "2026 Jun 12",
+      "journal": "Journal of clinical medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42394933",
+      "title": "Sleep deprivation: a comprehensive review of multisystem impacts, underlying mechanisms, and emerging interventions.",
+      "doi": "10.3389/fneur.2026.1819968",
+      "pub_date": "2026",
+      "journal": "Frontiers in neurology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42406197",
+      "title": "Translational potential of medicinal plants for Alzheimer's disease: integrated evidence from molecular mechanisms to preclinical and clinical findings.",
+      "doi": "10.1007/s13659-026-00621-3",
+      "pub_date": "2026 Jul 6",
+      "journal": "Natural products and bioprospecting",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42417057",
+      "title": "Assessing the influence of preconception paternal nutrition on offspring health: an evidence gap map.",
+      "doi": "10.1017/S2040174426100592",
+      "pub_date": "2026 Jul 8",
+      "journal": "Journal of developmental origins of health and disease",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42454751",
+      "title": "The vascular contribution to dementia: World Stroke Organization scientific statement.",
+      "doi": "10.1177/17474930261470506",
+      "pub_date": "2026 Jul 15",
+      "journal": "International journal of stroke : official journal of the International Stroke Society",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42464968",
+      "title": "From Tradition to Innovation: The Nutritional, Bioactive, and Sustainable Potential of Portulaca oleracea L.",
+      "doi": "10.1111/1750-3841.71288",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of food science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42510749",
+      "title": "Specialized Pro-Resolving Mediators at the Ocular Surface: Biosynthesis, Mechanisms, and Therapeutic Potential.",
+      "doi": "10.3390/biology15141203",
+      "pub_date": "2026 Jul 21",
+      "journal": "Biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42588181",
+      "title": "Therapeutic Potentials of Marine-Derived Compounds in Rheumatoid Arthritis.",
+      "doi": "10.3390/nu18152558",
+      "pub_date": "2026 Aug 5",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42645096",
+      "title": "Impact of Coffee Consumption on Fructose-Related Metabolic Alterations: Potential Mechanisms and Implications for Metabolic Diseases.",
+      "doi": "10.3390/diseases14080288",
+      "pub_date": "2026 Aug 11",
+      "journal": "Diseases (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42675452",
+      "title": "Integrative Approaches in Cardiovascular Disease: The Role of Nutraceuticals in Heart Failure, Atrial Fibrillation, and Related Conditions.",
+      "doi": "10.1002/ptr.70433",
+      "pub_date": "2026 Aug 31",
+      "journal": "Phytotherapy research : PTR",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42708154",
+      "title": "Timing of Digital Device Exposure as a Source of Measurement Error in Dry Eye Disease Research: A Critical Narrative Review.",
+      "doi": "10.7759/cureus.114181",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750265",
+      "title": "Advancing insights into fibromyalgia: an updated review of diagnosis and differential diagnosis.",
+      "doi": "10.1080/14737175.2026.2733188",
+      "pub_date": "2026 Oct",
+      "journal": "Expert review of neurotherapeutics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750926",
+      "title": "Dietary Patterns and Nutritional Factors in Multiple Sclerosis: A Narrative Review.",
+      "doi": "10.7759/cureus.114634",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766103",
+      "title": "Marine Microalgal Genes: Unlocking a New Era of Sustainable High Value PUFA Production for Neuroprotective Applications.",
+      "doi": "10.1007/s12013-026-02013-3",
+      "pub_date": "2026 Sep 21",
+      "journal": "Cell biochemistry and biophysics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42783900",
+      "title": "Valorization of Seafood Processing Wastes Using Subcritical Water Extraction-A Comprehensive Review.",
+      "doi": "10.3390/md24090307",
+      "pub_date": "2026 Sep 2",
+      "journal": "Marine drugs",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "28722879",
+      "title": "Deadly Single Dose Agents.",
+      "doi": null,
+      "pub_date": "2026 Jan",
+      "journal": null,
+      "pub_type": "Study Guide",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42258521",
+      "title": "Clinical Significance of Using Stress Echocardiography for Cardiovascular Rehabilitation.",
+      "doi": "10.3791/67420",
+      "pub_date": "2026 May 22",
+      "journal": "Journal of visualized experiments : JoVE",
+      "pub_type": "Video-Audio Media",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42296179",
+      "title": "BiTUGA: scalable prevalence-based unitig association testing for binary traits.",
+      "doi": "10.1093/g3journal/jkag149",
+      "pub_date": "2026 Aug 5",
+      "journal": "G3 (Bethesda, Md.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42304744",
+      "title": "The Therapeutic Effects of Dietary Supplements on OCD: A Narrative Review.",
+      "doi": "10.2174/0118715273429122260523223942",
+      "pub_date": "2026 Jun 11",
+      "journal": "CNS & neurological disorders drug targets",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42319826",
+      "title": "Cunninghamia lanceolata genome illuminates the evolutionary dynamics of gymnosperms.",
+      "doi": "10.1016/j.celrep.2026.117566",
+      "pub_date": "2026 Jul 28",
+      "journal": "Cell reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42322212",
+      "title": "Nutrition and Human Performance in Military Aviation: A Narrative Review.",
+      "doi": "10.1093/milmed/usag277",
+      "pub_date": "2026 Jun 20",
+      "journal": "Military medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42331866",
+      "title": "Potassium dichromate induces dose-dependent nephrotoxicity through oxidative stress-mediated downregulation of renal aquaporins and upregulation of KIM-1.",
+      "doi": "10.1038/s41598-026-53354-1",
+      "pub_date": "2026 Jun 22",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42336568",
+      "title": "Dibutyl phthalate affects glycerolipid metabolism and causes maternal impacts on the cladoceran Daphnia magna.",
+      "doi": "10.1016/j.jes.2025.09.066",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42353437",
+      "title": "Dietary Guanidinoacetic Acid Improves Meat Tenderness and Antioxidant Capacity in Rabbits via Modulating Muscle Fiber Characteristics and Fat Metabolism.",
+      "doi": "10.3390/ani16121827",
+      "pub_date": "2026 Jun 12",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42362109",
+      "title": "Nutrition for Elite Male Ice Hockey: Evidence-Based Recommendations.",
+      "doi": "10.1123/ijsnem.2025-0260",
+      "pub_date": "2026 Jun 26",
+      "journal": "International journal of sport nutrition and exercise metabolism",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42387404",
+      "title": "Genetic diversity of Camelina sativa: implications for sustainable crop improvement through Genotyping-by-Sequencing (GBS).",
+      "doi": "10.1186/s12870-026-09404-x",
+      "pub_date": "2026 Jul 1",
+      "journal": "BMC plant biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42403180",
+      "title": "Potential of marine dinoflagellates Amphidinium carterae and Prorocentrum minimum as fatty acids producers: A comparative transcriptome and fatty acid profiling study.",
+      "doi": "10.71150/jm.2604005",
+      "pub_date": "2026 Jun",
+      "journal": "Journal of microbiology (Seoul, Korea)",
+      "pub_type": "Comparative Study",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42409067",
+      "title": "Clinical Practice Guideline for the Diagnosis and Management of Tinnitus in Korea.",
+      "doi": "10.21053/ceo.2026-00130",
+      "pub_date": "2026 Jul 6",
+      "journal": "Clinical and experimental otorhinolaryngology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42411077",
+      "title": "A Review on the Mechanisms of Neurodegeneration and the Potential of Plant Bioactives in Managing Neurological Conditions.",
+      "doi": "10.2174/0118746098388719251206111338",
+      "pub_date": "2026 Jul 3",
+      "journal": "Current aging science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42438771",
+      "title": "Enhanced Energy Metabolism and Developmental Signaling in Neonatal Brains of Female Piglets Parenterally Fed with 18-Carbon n-3 Fatty Acid-Based Vegaven Compared with Fish Oil-Containing Lipid Emulsion.",
+      "doi": "10.1016/j.cdnut.2026.109400",
+      "pub_date": "2026 Jul",
+      "journal": "Current developments in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42443245",
+      "title": "High-performance liquid chromatography - diode array detection method validation for amentoflavone-type biflavonoids in five Encephalartos species with potential neuroprotective activity.",
+      "doi": "10.1038/s41598-026-60998-6",
+      "pub_date": "2026 Jul 13",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42443459",
+      "title": "The effect of nasal olfactory stimulation on apnea of prematurity: a randomized cross-over trial.",
+      "doi": "10.1038/s41390-026-05285-w",
+      "pub_date": "2026 Jul 13",
+      "journal": "Pediatric research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42451076",
+      "title": "The Role of Polyunsaturated Fatty Acids (PUFAs) in the Primary Prevention of Allergic Diseases in Children: A Position Paper of the SIAIP Primary and Secondary Prevention of Allergic Diseases and Nutraceuticals Committees.",
+      "doi": "10.3390/nu18132072",
+      "pub_date": "2026 Jun 24",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42456402",
+      "title": "Intermittent fasting increases plasma arachidonic acid.",
+      "doi": "10.1016/j.plefa.2026.102760",
+      "pub_date": "2026 Oct",
+      "journal": "Prostaglandins, leukotrienes, and essential fatty acids",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42461382",
+      "title": "Development and internal validation of an interpretable machine learning model using routine laboratory data for systemic sclerosis-associated pulmonary arterial hypertension.",
+      "doi": "10.1007/s00296-026-06255-5",
+      "pub_date": "2026 Jul 16",
+      "journal": "Rheumatology international",
+      "pub_type": "Validation Study",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42468781",
+      "title": "Adults with obesity and hyperglycemia have higher arachidonic and docosahexaenoic acid in subcutaneous adipose tissue.",
+      "doi": "10.1016/j.jlr.2026.101106",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of lipid research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42494692",
+      "title": "Fermented cassava peel with Pleurotus ostreatus as a functional feed: Effects on growth performance, gut health, microbiota, and meat quality in broiler chickens.",
+      "doi": "10.14202/vetworld.2026.2434-2449",
+      "pub_date": "2026 Jun",
+      "journal": "Veterinary world",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42495569",
+      "title": "TEVSER: a theory of evolving self-representations.",
+      "doi": "10.3389/fnhum.2026.1858621",
+      "pub_date": "2026",
+      "journal": "Frontiers in human neuroscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract] OR executive[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

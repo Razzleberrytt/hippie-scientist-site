@@ -296,17 +296,22 @@ Every major category should receive a flagship withdrawal + recovery page, even 
 
 - **Opioids — flagship implemented:** `/articles/opioid-withdrawal-recovery-guide/` (2026-10-03).
 - **Alcohol — flagship implemented:** `/articles/alcohol-withdrawal-recovery-guide/` (2026-10-03).
-- Existing kratom/7-OH and tianeptine withdrawal coverage remains eligible for dedicated Masterclass recovery upgrades rather than being treated as complete solely because a page exists.
+- **Benzodiazepines/Z-drugs — flagship implemented:** `/articles/benzodiazepine-zdrug-withdrawal-recovery-guide/` (2026-10-03).
+- **Stimulants — flagship implemented:** `/articles/stimulant-withdrawal-recovery-guide/` (2026-10-03).
+- **Nicotine — flagship implemented:** `/articles/nicotine-withdrawal-recovery-guide/` (2026-10-03).
+- **Kratom / 7-OH — Masterclass recovery guide implemented:** `/guides/other/kratom-7oh-withdrawal-management/` (2026-10-03).
+- **Cannabis — flagship implemented:** `/articles/cannabis-withdrawal-recovery-guide/` (2026-10-03).
+- Tianeptine withdrawal coverage remains eligible for a dedicated Masterclass recovery upgrade rather than being treated as complete solely because a page exists.
 
 Priority set:
 
 1. Opioids — flagship implemented; continue compound-specific spokes
 2. Alcohol — flagship implemented; continue targeted alcohol/AUD spokes
-3. Benzodiazepines and Z-drugs / sedative-hypnotics
-4. Stimulants (amphetamine, methamphetamine, cocaine)
-5. Nicotine
-6. Cannabis
-7. Kratom / 7-OH and kratom-derived opioids
+3. Benzodiazepines and Z-drugs / sedative-hypnotics — flagship implemented; continue individual-compound and novel-benzodiazepine spokes
+4. Stimulants (amphetamine, methamphetamine, cocaine) — flagship implemented; continue stimulant-specific treatment/recovery spokes
+5. Nicotine — flagship implemented; continue product-specific smoking, vaping, pouch, and smokeless-tobacco spokes
+6. Cannabis — flagship implemented; continue high-potency-product, sleep, CHS-differential, and CUD-treatment spokes
+7. Kratom / 7-OH and kratom-derived opioids — Masterclass recovery guide implemented; continue compound-specific recovery spokes
 8. Gabapentinoids
 9. Antidepressant discontinuation
 10. Ketamine and dissociatives

@@ -1,0 +1,651 @@
+{
+  "schema_version": 1,
+  "batch": "4001-4500-repair-candidate-pool",
+  "needs": {
+    "aging_sarcopenia": 1,
+    "botanicals_mushrooms": 2,
+    "cannabinoid_safety": 1,
+    "cardiometabolic": 2,
+    "cognition_focus": 2,
+    "gut": 4,
+    "mood": 14,
+    "withdrawal_nps": 13,
+    "performance": 7,
+    "safety_interactions": 5,
+    "sleep": 5,
+    "stress_anxiety": 3,
+    "women_health": 7
+  },
+  "rows": [
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42813034",
+      "doi": "10.3389/fimmu.2026.1944035",
+      "title": "Cellular heterogeneity and multicellular mechanisms in the pathogenesis of late-life depression: insights from single-cell and spatial multi-omics.",
+      "journal": "Frontiers in immunology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "(sarcopenia[Title/Abstract] OR frailty[Title/Abstract]) AND (protein OR creatine OR \"vitamin D\" OR resistance) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42814578",
+      "doi": "10.1093/ageing/afag290",
+      "title": "CCL2 and CXCL2 are markers of delirium vulnerability in community dwelling older people.",
+      "journal": "Age and ageing",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "(sarcopenia[Title/Abstract] OR frailty[Title/Abstract]) AND (protein OR creatine OR \"vitamin D\" OR resistance) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42821571",
+      "doi": "10.1371/journal.pone.0359659",
+      "title": "Transcription factor activity divergence across muscle atrophy conditions: A comparative analysis of spaceflight, aging, and disuse using decoupleR.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Comparative Study",
+      "query": "(sarcopenia[Title/Abstract] OR frailty[Title/Abstract]) AND (protein OR creatine OR \"vitamin D\" OR resistance) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42822209",
+      "doi": "10.1016/j.maturitas.2026.109137",
+      "title": "Combined associations of triglyceride-glucose index and biochemical sarcopenia index with cardiometabolic multimorbidity in middle-aged and older Chinese adults.",
+      "journal": "Maturitas",
+      "pub_date": "2026 Sep 26",
+      "pub_type": "Journal Article",
+      "query": "(sarcopenia[Title/Abstract] OR frailty[Title/Abstract]) AND (protein OR creatine OR \"vitamin D\" OR resistance) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42823935",
+      "doi": "10.17219/acem/225017",
+      "title": "Diet and nutrition in chronic heart failure: A scientific statement of the Polish Society of Dietetics.",
+      "journal": "Advances in clinical and experimental medicine : official organ Wroclaw Medical University",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "(sarcopenia[Title/Abstract] OR frailty[Title/Abstract]) AND (protein OR creatine OR \"vitamin D\" OR resistance) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42825473",
+      "doi": "10.4081/ejtm.2026.16061",
+      "title": "Proteomic and bioinformatic profiling of the aging mouse heart-diaphragm system.",
+      "journal": "European journal of translational myology",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "(sarcopenia[Title/Abstract] OR frailty[Title/Abstract]) AND (protein OR creatine OR \"vitamin D\" OR resistance) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42819834",
+      "doi": "10.1021/acsomega.6c06121",
+      "title": "Surface-Engineered Magnesium Metal-Organic Frameworks for Curcumin Stabilization: Interfacial Coordination Enhances Aqueous Stability and Boosts Antioxidant Efficacy 32-Fold.",
+      "journal": "ACS omega",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42823656",
+      "doi": "10.1186/s12870-026-08669-6",
+      "title": "Curcumin-rich plant material production through a robust and reproducible micropropagation protocol.",
+      "journal": "BMC plant biology",
+      "pub_date": "2026 Aug 5",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42825639",
+      "doi": "10.5935/1518-0557.20260117",
+      "title": "The Synergistic Role of Curcumin and L-Carnitine in Mitigating Cryo-preservation-Induced Damage in Human Sperm.",
+      "journal": "JBRA assisted reproduction",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42825902",
+      "doi": "10.18502/ijaai.v25is11.22490",
+      "title": "Impact of Vitamin D and Curcumin on CD4+ and CD8+ T cells Expressing CXCR3, CCR4, and CCR6 Chemokine Receptors in Patients with Relapsing-remitting Multiple Sclerosis.",
+      "journal": "Iranian journal of allergy, asthma, and immunology",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42826572",
+      "doi": "10.1016/j.compbiolchem.2026.109373",
+      "title": "In silico screening of phytochemical inhibitors against Agrobacterium proteins using ADMET prediction, molecular docking, molecular dynamics simulation, and in vitro antimicrobial evaluation.",
+      "journal": "Computational biology and chemistry",
+      "pub_date": "2026 Sep 3",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42826848",
+      "doi": "10.1016/j.ijpharm.2026.127501",
+      "title": "Computationally guided deep eutectic solvent with dual solubilizing and self-emulsifying functions for delivery of hydrophobic bioactives.",
+      "journal": "International journal of pharmaceutics",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42828456",
+      "doi": "10.1002/cbin.70222",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "journal": "Cell biology international",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract]) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42798482",
+      "doi": "10.3389/fendo.2026.1910610",
+      "title": "A six-metabolite signature characterizes metabolically unhealthy obesity and reveals hidden metabolic risk within metabolically healthy obesity.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42798526",
+      "doi": "10.3389/fendo.2026.1938560",
+      "title": "Serum magnesium and major adverse cardiovascular events in patients with diabetic foot ulcers: a retrospective cohort study.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42807137",
+      "doi": "10.3389/fmed.2026.1909897",
+      "title": "Ayurvedic management of Non-Sjögren's Dry Eye (Shushkakshipaka) as a preparation for cataract surgery-a case report.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42812376",
+      "doi": "10.3389/fmed.2026.1910302",
+      "title": "Progression of coronary artery calcification in chronic kidney disease: nonlinear associations with serum magnesium and parathyroid hormone.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42814137",
+      "doi": "10.1007/82_2026_361",
+      "title": "Dysregulated Resolution of Inflammation in Atherosclerosis: Mechanistic Insights and Therapeutic Opportunities.",
+      "journal": "Current topics in microbiology and immunology",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42814674",
+      "doi": "10.1159/kbr/adjag008",
+      "title": "Erratum.",
+      "journal": "Kidney & blood pressure research",
+      "pub_date": "2026",
+      "pub_type": "Published Erratum",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42818559",
+      "doi": "10.21203/rs.3.rs-11156776/v1",
+      "title": "Inflammatory Proteomic Network Architecture of Visceral Adiposity and Cardiometabolic Traits.",
+      "journal": "Research square",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Preprint",
+      "query": "((\"omega-3\"[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR berberine[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR triglycerides[Title/Abstract] OR lipids[Title/Abstract] OR cardiovascular[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "28722879",
+      "doi": null,
+      "title": "Deadly Single Dose Agents.",
+      "journal": null,
+      "pub_date": "2026 Jan",
+      "pub_type": "Study Guide",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42744487",
+      "doi": "10.1016/j.jsr.2026.07.012",
+      "title": "Sleep-deprived and behind the wheel: Exploring the impact of sleep patterns on new parents' driving behavior.",
+      "journal": "Journal of safety research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42748769",
+      "doi": "10.1016/j.pscychresns.2026.112318",
+      "title": "Hippocampal magnetic resonance spectroscopy markers in late life anxiety - a preliminary report.",
+      "journal": "Psychiatry research. Neuroimaging",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42774853",
+      "doi": "10.1021/envhealth.5c00851",
+      "title": "Neuronal and Astrocytic Lipid Metabolic Coupling Mediates Ozone-Induced Learning and Memory Impairment.",
+      "journal": "Environment & health (Washington, D.C.)",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42795429",
+      "doi": "10.3390/life16091565",
+      "title": "Acute Salivary Biomarker, Cognitive, and Tennis Performance Responses to Tennis-Specific Exercise Versus HIIT: A Randomized Crossover Study.",
+      "journal": "Life (Basel, Switzerland)",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42798728",
+      "doi": "10.1002/joa3.70479",
+      "title": "Do Stimulants Promote Arrhythmic Risk: Insights From a Human-Induced Pluripotent Stem Cell-Derived Cardiomyocyte Model.",
+      "journal": "Journal of arrhythmia",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42810623",
+      "doi": "10.1016/j.neuint.2026.106268",
+      "title": "Bacopa monnieri attenuates Alzheimer's pathology by modulating RNA metabolism, cellular stress responses, and Rho GTPase signaling: Phosphoproteomic insights from a cellular model of Alzheimer's disease.",
+      "journal": "Neurochemistry international",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title/Abstract] OR theanine[Title/Abstract] OR creatine[Title/Abstract] OR citicoline[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42820090",
+      "doi": "10.3389/fimmu.2026.1942637",
+      "title": "The microbiome-inflammasome axis in endometriosis-associated chronic pelvic pain: mechanisms and therapeutic opportunities from an immunological perspective.",
+      "journal": "Frontiers in immunology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42823420",
+      "doi": "10.1038/s41572-026-00741-7",
+      "title": "Irritable bowel syndrome.",
+      "journal": "Nature reviews. Disease primers",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Review",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42824488",
+      "doi": "10.3389/fnut.2026.1906822",
+      "title": "Associations of body fat percentage-based obesity with depression and comorbidity-related gut microbiota features in college students.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42825194",
+      "doi": "10.3389/fpls.2026.1892395",
+      "title": "Symbiotic interactions of plant microbiota in alleviating stress: a review.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42825603",
+      "doi": "10.1039/d6fo03527b",
+      "title": "Comparative genomic insights into strain-specific zinc-promoting effects of the spore-forming probiotic Heyndrickxia coagulans.",
+      "journal": "Food & function",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42827259",
+      "doi": "10.1186/s40793-026-00953-0",
+      "title": "Dual legacy of plant water-deficit-tolerance and watering history shapes rhizosphere microbial transplant outcomes in tomato post-drought recovery.",
+      "journal": "Environmental microbiome",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42827880",
+      "doi": "10.3389/fmicb.2026.1830432",
+      "title": "Soil acidification drives a massive accumulation of nitrite as a mechanistic bottleneck to inhibit maize growth and productivity.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42827958",
+      "doi": "10.3389/fmicb.2026.1956937",
+      "title": "Multi-omics profiling identifies intestinal microbial shifts and tissue-specific immunometabolic changes associated with experimental Nocardia seriolae challenge in hybrid sturgeon (Acipenser baerii♀ × Acipenser schrenckii♂).",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42828028",
+      "doi": "10.3389/fmolb.2026.1948915",
+      "title": "Heterogeneous mechanisms, risk stratification, and translational advances in the malignant transformation of oral potentially malignant disorders to oral squamous cell carcinoma.",
+      "journal": "Frontiers in molecular biosciences",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (\"irritable bowel\"[Title/Abstract] OR IBS[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "36256767",
+      "doi": null,
+      "title": "Kratom Toxicity and Withdrawal.",
+      "journal": null,
+      "pub_date": "2026 Jan",
+      "pub_type": "Study Guide",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42733798",
+      "doi": "10.1016/j.abrep.2026.100738",
+      "title": "Association between latent classes of tobacco, e-cigarette, alcohol, and illicit drug use patterns and depression among Thai adolescents.",
+      "journal": "Addictive behaviors reports",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42734577",
+      "doi": "10.1097/JAN.0000000000000650",
+      "title": "Utilizing a Standardized Bundle of Care to Improve Outcomes for Perinatal Patients with Substance Use Disorder: A Quality Improvement Project.",
+      "journal": "International journal of addiction nursing",
+      "pub_date": "2026 Jul-Sep 01",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42755023",
+      "doi": "10.1111/ajad.70201",
+      "title": "Opioid withdrawal syndrome-associated cognitive impairment: A narrative review.",
+      "journal": "The American journal on addictions",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Review",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42757335",
+      "doi": null,
+      "title": "Kratom in Clinical Practice: What Physicians Need to Know.",
+      "journal": "Missouri medicine",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Review",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42757529",
+      "doi": "10.1097/ADM.0000000000001760",
+      "title": "Insights About Nitazene Use From Self-reported Experiences on Reddit Obtained Using Natural Language Processing.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42757738",
+      "doi": "10.1080/02791072.2026.2729619",
+      "title": "Cerebellar Alteration in Resting-State Functional Connectivity Among Kratom (Mitragyna speciosa) Users: Insights from Functional MRI.",
+      "journal": "Journal of psychoactive drugs",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42758573",
+      "doi": "10.1080/00952990.2026.2714510",
+      "title": "Dying in the year after surviving: a perspective on elevated all-cause mortality among opioid overdose survivors.",
+      "journal": "The American journal of drug and alcohol abuse",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42766064",
+      "doi": "10.1007/s11916-026-01564-7",
+      "title": "Perioperative Pain in the Era of Emerging and Unregulated Substances: Recognition, Risk Assessment, and Management.",
+      "journal": "Current pain and headache reports",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Review",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42767352",
+      "doi": "10.1016/j.phytochem.2026.115085",
+      "title": "Kratomines A-E, a series of diastereomeric indole alkaloids with α-glucosidase inhibition from the leaves of Mitragyna speciosa.",
+      "journal": "Phytochemistry",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42773179",
+      "doi": "10.1038/s41386-026-02549-1",
+      "title": "Kappa opioid receptor-dependent depressive-like behaviors associated with morphine withdrawal contribute to stress-induced reinstatement of morphine seeking.",
+      "journal": "Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42773515",
+      "doi": "10.1093/jat/bkag086",
+      "title": "Development and Validation of an LC-MS/MS Method for the Detection of Substituted Phenethylamines and Phenidates Designated as Temporary Narcotics in Urine.",
+      "journal": "Journal of analytical toxicology",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42776462",
+      "doi": "10.1007/s40263-026-01334-4",
+      "title": "Approved Medications for Substance Use Disorders: An Umbrella Review of Systematic Reviews and Completed Phase 3 Randomized Controlled Trials.",
+      "journal": "CNS drugs",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Systematic Review",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42776676",
+      "doi": "10.3390/mps9050123",
+      "title": "Comparison of the Utility of Amplitude-Spectral and Coherence Features of Psychotropic Drugs' Action on ECoG Signal for Pharmaco-EEG Based Drug Screening in Rats.",
+      "journal": "Methods and protocols",
+      "pub_date": "2026 Aug 23",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42778126",
+      "doi": "10.1016/j.tox.2026.154593",
+      "title": "Multiorgan toxicity of 3-Chloromethcathinone (3-CMC) in male and female mice: Translational implications for liver, kidney, and spleen.",
+      "journal": "Toxicology",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42781979",
+      "doi": "10.5055/jom.1002",
+      "title": "Buprenorphine microinductions: Investigating the ideal initial dose based on oral morphine equivalent requirements for stabilizing withdrawal symptoms.",
+      "journal": "Journal of opioid management",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42790729",
+      "doi": "10.1016/j.neuropharm.2026.111197",
+      "title": "Addiction-like behavioral severity predicts prolonged oxycodone withdrawal-induced allodynia in genetically diverse rats.",
+      "journal": "Neuropharmacology",
+      "pub_date": "2026 Sep 26",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42793256",
+      "doi": "10.3390/cimb48090900",
+      "title": "Transcriptomic Reprogramming of the Human Placenta Following Maternal Opioid Exposure: Identification of Altered Metabolic and Translational Pathways.",
+      "journal": "Current issues in molecular biology",
+      "pub_date": "2026 Sep 3",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR \"7-hydroxymitragynine\"[Title/Abstract] OR tianeptine[Title/Abstract] OR phenibut[Title/Abstract] OR \"novel psychoactive\"[Title/Abstract] OR \"opioid withdrawal\"[Title/Abstract] OR \"benzodiazepine withdrawal\"[Title/Abstract] OR \"opioid taper\"[Title/Abstract]) AND 2015:2026[pdat]) AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42812249",
+      "doi": "10.3389/fcdhc.2026.1939424",
+      "title": "The correlation between serum magnesium, phosphorus, and calcium levels during pregnancy and the risk of gestational diabetes mellitus as well as adverse pregnancy outcomes.",
+      "journal": "Frontiers in clinical diabetes and healthcare",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42814899",
+      "doi": "10.1177/09612033261495245",
+      "title": "Multimarker profiling of immune and vascular disregulation in antiphospholipid syndrome and systemic lupus erythematosus.",
+      "journal": "Lupus",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42820139",
+      "doi": "10.1155/anem/5554286",
+      "title": "Prevalence and Risk Factors of Maternal Anemia Among Pregnant Women in Central Jordan.",
+      "journal": "Anemia",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42822351",
+      "doi": "10.1016/j.placenta.2026.09.021",
+      "title": "Placental transport of inorganic ions for skeletal development during male seahorse (Hippocampus abdominalis) pregnancy.",
+      "journal": "Placenta",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42822594",
+      "doi": "10.1016/j.bjane.2026.844839",
+      "title": "Implementing patient blood management in a Brazilian public women's hospital: a pre-post implementation study.",
+      "journal": "Brazilian journal of anesthesiology (Elsevier)",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42822959",
+      "doi": "10.1016/j.jes.2026.02.022",
+      "title": "Polycyclic aromatic hydrocarbons exposure induced early pregnancy loss through epigenetic regulation of SDHB.",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42823945",
+      "doi": "10.3389/fendo.2026.1934166",
+      "title": "Real-world treatment outcomes in pregnancy and lactation-associated osteoporosis: a nationwide multicenter cohort study.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Multicenter Study",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42825161",
+      "doi": "10.1016/j.xfnr.2026.100121",
+      "title": "A systematic review of restorative reproductive medicine practices.",
+      "journal": "F&S reviews",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42832540",
+      "doi": "10.1371/journal.pgph.0004729",
+      "title": "Maternal healthcare quality, continuity, and experiences among pregnant adolescents and adult women in Ethiopia, Kenya, and South Africa: A cohort study.",
+      "journal": "PLOS global public health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"omega-3\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

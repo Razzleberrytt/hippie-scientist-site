@@ -11,7 +11,7 @@ import References from '@/components/References'
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-anxiety`
-const DATE = '2026-09-19'
+const DATE = '2026-10-04'
 
 export const metadata: Metadata = {
   title: 'Best Herbs for Anxiety: Evidence-Ranked Guide (2026)',
@@ -66,6 +66,7 @@ const REFS = [
 ]
 
 const FAQS = [
+  { question: 'What are the best herbs for anxiety?', answer: 'There is no universal best herb for every person or anxiety disorder. Among the options compared here, oral Silexan has the most direct anxiety-disorder trial program, ashwagandha and chamomile have meaningful but less direct or smaller evidence bases, passionflower remains preliminary, and kava has mixed efficacy plus a materially higher liver-safety concern. Evidence belongs to the exact preparation that was studied.' },
   { question: 'Which herb has the strongest direct evidence for anxiety?', answer: 'Among the options compared here, oral Silexan has the most concentrated anxiety-disorder trial program, including placebo-controlled GAD and subthreshold-anxiety studies. But the claim belongs to a proprietary oral lavender-oil preparation, not lavender in general, and the 2023 meta-analysis reports substantial manufacturer involvement and author ties that should temper confidence.' },
   { question: 'Does ashwagandha help anxiety?', answer: 'Meta-analyses report reductions in anxiety and stress measures with specific ashwagandha preparations, but trial heterogeneity is high and one larger review rated the certainty of evidence low. Many studies also enroll people with elevated stress rather than a single diagnosed anxiety disorder.' },
   { question: 'Does chamomile help generalized anxiety disorder?', answer: 'Small controlled studies suggest a possible benefit. One placebo-controlled trial found a greater reduction in anxiety scores with chamomile, while a longer continuation study did not significantly reduce the primary relapse endpoint despite lower symptom scores. A 2019 meta-analysis described the GAD signal as promising but called for larger trials.' },
@@ -101,13 +102,13 @@ export default function BestHerbsForAnxietyPage() {
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Anxiety herb evidence guide · 22-source ledger</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Herbs for Anxiety: What Human Evidence Actually Supports</h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review September 19, 2026</p>
+          <p className="mt-2 text-xs text-muted">Last evidence review October 4, 2026</p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">Anxiety is one of the easiest supplement topics to overstate. A positive stress study is not the same as a generalized-anxiety-disorder trial, and a studied proprietary extract is not the same as the whole plant category. This guide ranks the evidence by <strong className="text-ink">diagnostic directness, preparation match, replication, funding concentration and safety</strong> — and includes negative trials alongside positive ones.</p>
           <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm"><Image src="/images/guides/best-herbs-for-anxiety.jpg" alt="Anxiety-related botanicals arranged for an evidence comparison" width={1536} height={1024} priority className="h-auto w-full" /></div><figcaption className="mt-3 text-center text-sm text-muted">Evidence belongs to the preparation that was studied. Oral lavender oil, lavender tea and aromatherapy are not interchangeable interventions.</figcaption></figure>
         </section>
 
         <section id="bottom-line" className="scroll-mt-20 rounded-[1.65rem] border border-brand-700/25 bg-brand-50/60 p-6 shadow-sm">
-          <p className="eyebrow-label">Bottom line</p><h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Silexan has the most direct anxiety-disorder evidence here — but it comes with a concentration caveat</h2>
+          <p className="eyebrow-label">Bottom line</p><h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">What are the best herbs for anxiety? Silexan has the most direct evidence here — with an important concentration caveat</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base"><p>Five placebo-controlled trials involving 1,213 adult outpatients found oral Silexan 80 mg/day superior to placebo across investigator- and patient-rated anxiety outcomes over ten weeks.<Cite n={1} /> A large GAD trial also tested 80 and 160 mg/day against placebo and paroxetine.<Cite n={2} /></p><p>That is unusually direct evidence for an herbal product, but it is <strong className="text-ink">not independent replication across unrelated lavender preparations</strong>. The 2023 meta-analysis states that the included studies were completed by the manufacturer, the work/publication received manufacturer financial support, one author was a company employee and several authors disclosed company ties.<Cite n={1} /></p><p><strong className="text-ink">Ashwagandha</strong> has repeated-dose stress/anxiety evidence but greater population and formulation heterogeneity.<Cite n={6} /><Cite n={7} /> <strong className="text-ink">Chamomile</strong> has a smaller but legitimate GAD research program.<Cite n={16} /><Cite n={17} /><Cite n={18} /> <strong className="text-ink">Passionflower</strong> remains preliminary, while <strong className="text-ink">kava</strong> combines mixed efficacy with a materially higher safety concern.<Cite n={8} /><Cite n={10} /><Cite n={14} /></p></div>
         </section>
 

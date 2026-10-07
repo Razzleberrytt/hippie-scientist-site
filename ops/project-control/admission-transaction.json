@@ -1,20 +1,19 @@
 {
-  "version": 2,
-  "base_revision": "85470582cbeaf68fedf9ef6c9386f109b1e281b2",
-  "last_verified": "2026-10-02T16:00:00Z",
-  "ticket": 6021,
-  "lane": "D",
-  "title": "nav: fix misleading Articles breadcrumb destination on focus-cluster pages",
-  "priority": "P1",
+  "version": 1,
+  "ticket": 6356,
+  "lane": "R",
+  "title": "Add first-party TikTok draft-upload provider",
+  "priority": "P0",
+  "base_revision": "1c123a71b488b44aae61d33deccd00ad7942e1e8",
+  "last_verified": "2026-10-06",
   "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 4,
-    "trafficPotential": 2,
-    "strategicLeverage": 3,
+    "businessImpact": 5,
+    "userValue": 5,
+    "trafficPotential": 3,
+    "strategicLeverage": 5,
     "confidence": 1,
-    "effort": 1
+    "effort": 4
   },
-  "score": 72,
-  "note": "Fresh exact-main revalidation after #6185 retirement. Admission only: fix the focus-cluster root breadcrumb label/destination mismatch and add an accessible breadcrumb name while preserving article copy, evidence, safety, metadata, canonicals, redirects, and layout.",
-  "control_issue": 6193
+  "score": 93.8,
+  "note": "Admit the bounded first-party TikTok draft-upload provider after a live Metricool account-limit failure. Direct Post remains out of scope because TikTok's current Direct Post intended-use rules reject private/internal managed-account uploader utilities."
 }

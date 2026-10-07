@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "wave": 3164,
+      "pmid": "42783805",
+      "doi": "10.3390/metabo16090680",
+      "category": "gut",
+      "title": "Coffee, the Gut Microbiome, and Host Metabolism: Gastrointestinal Fate, Microbial Transformation, Mechanistic Insights, and Prospects for Precision Nutrition.",
+      "journal": "Metabolites",
+      "pub_date": "2026-Sep-16",
+      "title_match_score": 1,
+      "abstract": "Coffee is one of the most widely consumed beverages worldwide and a major dietary source of bioactive compounds, including caffeine, chlorogenic acids (CGAs), trigonelline, non-digestible polysaccharides, and roasting-derived melanoidins. Habitual coffee consumption has been associated with a lower risk of type 2 diabetes (T2D) and more favorable liver-related outcomes, whereas evidence regarding obesity and metabolic dysfunction-associated steatotic liver disease (MASLD) remains heterogeneous. These associations may reflect interactions among coffee constituents, the gut microbiota, and host metabolic phenotypes rather than the effects of individual compounds alone. In this focused narrative review, we integrate evidence on the gastrointestinal fate, microbial transformation, and systemic availability of major coffee constituents, with particular emphasis on short-chain fatty acids, CGA-derived phenolic acids, and microbiota-dependent bile acid metabolism. We examine how these pathways may influence intestinal barrier integrity, mucosal immunity, enteroendocrine signaling, and gut-liver communication then consider their potential relevance to the regulation of energy, glucose, and lipid metabolism. We evaluate the relevance of these pathways to obesity, T2D, and MASLD, as well as major sources of inter-individual variability, including host genetics, baseline microbiota, metabolic phenotypes, background diet, and coffee composition, processing, brewing, filtration, dose, and beverage additives. Finally, we discuss physiologically relevant exposure levels, candidate biomarkers of individual responses, and risk-benefit considerations. Although mechanistic and preclinical evidence is accumulating, human studies directly demonstrating that coffee-induced microbiota changes mediate beneficial metabolic outcomes remain limited. Future randomized and mechanistic studies should integrate chemically characterized coffee exposures with longitudinal microbiome, metabolomic, physiological, and clinically relevant outcome measurements."
+    }
+  ]
+}

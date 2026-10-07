@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2511-2515",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2511,
+      "pmid": "42796400",
+      "title": "Vitamin D Deficiency in Hip Fracture Patients: Outcome-Specific Associations and Post-Fracture Management-A Narrative Review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Association and supplementation evidence is heterogeneous; multimodal benefits cannot be attributed to vitamin D alone."
+    },
+    {
+      "wave": 2512,
+      "pmid": "42792191",
+      "title": "Oxidative Stress in Vascular Aging: Therapeutic Potential of the Antioxidant Paradox. A State-of-the-Art Review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Preclinical promise contrasts with inconsistent large clinical trials; current evidence does not support antioxidant supplementation for cardiovascular prevention."
+    },
+    {
+      "wave": 2513,
+      "pmid": "42783381",
+      "title": "Precision Nutraceuticals and Biomarkers of Healthy Aging: A Scoping Review of Human Studies on Nutrigenomic-Based Interventions.",
+      "abstract_verified": true,
+      "state": "research_only_scoping_review",
+      "evidence_boundary": "Intermediate biomarker changes do not establish slowed biological aging or clinical benefit."
+    },
+    {
+      "wave": 2514,
+      "pmid": "42757020",
+      "title": "Potential interactions between creatine supplementation and prescription drugs: a narrative review and evidence-mapping perspective.",
+      "abstract_verified": true,
+      "state": "research_only_evidence_gap",
+      "evidence_boundary": "No controlled human interaction studies were found; absence of documented interactions is not evidence of no risk."
+    },
+    {
+      "wave": 2515,
+      "pmid": "42724423",
+      "title": "Current evidence and emerging therapeutic strategies for non-exercise interventions in sarcopenia associated with chronic obstructive pulmonary disease: a narrative review.",
+      "abstract_verified": true,
+      "state": "research_only_mixed_evidence",
+      "evidence_boundary": "Evidence tiers span clinical, preclinical, and translational data; findings cannot be generalized across intervention classes."
+    }
+  ]
+}

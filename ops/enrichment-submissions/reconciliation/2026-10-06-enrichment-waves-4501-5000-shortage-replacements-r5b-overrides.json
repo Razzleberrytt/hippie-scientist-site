@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5b-overrides",
+  "supersedes": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5.json for listed waves",
+  "row_count": 13,
+  "policy": {
+    "direct_condition_fit": true,
+    "human_clinical_or_systematic_priority": true,
+    "exact_pubmed_verification_required": true
+  },
+  "rows": [
+    {
+      "wave": 4721,
+      "category": "gut",
+      "pmid": "38999862",
+      "doi": "10.3390/nu16132114",
+      "title": "The Efficacy of Probiotics, Prebiotics, Synbiotics, and Fecal Microbiota Transplantation in Irritable Bowel Syndrome: A Systematic Review and Network Meta-Analysis.",
+      "journal": "Nutrients",
+      "pub_date": "2024 Jul 2",
+      "pub_type": "Network Meta-Analysis",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4723,
+      "category": "gut",
+      "pmid": "40392916",
+      "doi": "10.1080/13813455.2025.2507749",
+      "title": "The impact of a multi-species probiotic supplementation on clinical symptoms and biochemical factors in patients with irritable bowel syndrome: a randomised controlled trial.",
+      "journal": "Archives of physiology and biochemistry",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4784,
+      "category": "inflammation_pain",
+      "pmid": "36107505",
+      "doi": "10.1097/MD.0000000000030144",
+      "title": "Fast pain relief in exercise-induced acute musculoskeletal pain by turmeric-boswellia formulation: A randomized placebo-controlled double-blinded multicentre study.",
+      "journal": "Medicine",
+      "pub_date": "2022 Sep 2",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4785,
+      "category": "inflammation_pain",
+      "pmid": "39212491",
+      "doi": "10.1039/d4fo01640h",
+      "title": "Effectiveness and safety of steamed ginger extract on mild osteoarthritis: a randomized, double-blind, placebo-controlled clinical trial.",
+      "journal": "Food & function",
+      "pub_date": "2024 Sep 16",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4788,
+      "category": "inflammation_pain",
+      "pmid": "30927159",
+      "doi": "10.1007/s10787-019-00582-9",
+      "title": "A double-blind randomized placebo controlled study assessing safety, tolerability and efficacy of palmitoylethanolamide for symptoms of knee osteoarthritis.",
+      "journal": "Inflammopharmacology",
+      "pub_date": "2019 Jun",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4789,
+      "category": "inflammation_pain",
+      "pmid": "36235736",
+      "doi": "10.3390/nu14194084",
+      "title": "The Effect of Palmitoylethanolamide on Pain Intensity, Central and Peripheral Sensitization, and Pain Modulation in Healthy Volunteers-A Randomized, Double-Blinded, Placebo-Controlled Crossover Trial.",
+      "journal": "Nutrients",
+      "pub_date": "2022 Oct 1",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4790,
+      "category": "inflammation_pain",
+      "pmid": "38770631",
+      "doi": "10.1089/jicm.2023.0799",
+      "title": "Ginger for Pain Management in Primary Dysmenorrhea: A Systematic Review and Meta-Analysis.",
+      "journal": "Journal of integrative and complementary medicine",
+      "pub_date": "2024 Nov",
+      "pub_type": "Meta-Analysis",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4792,
+      "category": "inflammation_pain",
+      "pmid": "29676237",
+      "doi": "10.2174/1871527317666180420143830",
+      "title": "Ultra-micronized Palmitoylethanolamide Effects on Sleep-wake Rhythm and Neuropathic Pain Phenotypes in Patients with Carpal Tunnel Syndrome: An Open-label, Randomized Controlled Study.",
+      "journal": "CNS & neurological disorders drug targets",
+      "pub_date": "2018",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4793,
+      "category": "inflammation_pain",
+      "pmid": "36057884",
+      "doi": "10.1007/s10787-022-01033-8",
+      "title": "A randomized controlled trial assessing the safety and efficacy of palmitoylethanolamide for treating diabetic-related peripheral neuropathic pain.",
+      "journal": "Inflammopharmacology",
+      "pub_date": "2022 Dec",
+      "pub_type": "Journal Article",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4794,
+      "category": "inflammation_pain",
+      "pmid": "36986081",
+      "doi": "10.3390/nu15061350",
+      "title": "Palmitoylethanolamide in the Treatment of Chronic Pain: A Systematic Review and Meta-Analysis of Double-Blind Randomized Controlled Trials.",
+      "journal": "Nutrients",
+      "pub_date": "2023 Mar 10",
+      "pub_type": "Journal Article",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4798,
+      "category": "inflammation_pain",
+      "pmid": "32664057",
+      "doi": "10.1097/MD.0000000000020373",
+      "title": "Efficacy of high-dissolution turmeric-sesame formulation for pain relief in adult subjects with acute musculoskeletal pain compared to acetaminophen: A randomized controlled study.",
+      "journal": "Medicine",
+      "pub_date": "2020 Jul 10",
+      "pub_type": "Journal Article",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4799,
+      "category": "inflammation_pain",
+      "pmid": "34067240",
+      "doi": "10.3390/ijerph18115538",
+      "title": "Analysis of Effectiveness of a Supplement Combining Harpagophytum procumbens, Zingiber officinale and Bixa orellana in Healthy Recreational Runners with Self-Reported Knee Pain: A Pilot, Randomized, Triple-Blind, Placebo-Controlled Trial.",
+      "journal": "International journal of environmental research and public health",
+      "pub_date": "2021 May 22",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "state": "override_assigned_pending_exact_verification"
+    },
+    {
+      "wave": 4800,
+      "category": "inflammation_pain",
+      "pmid": "39220605",
+      "doi": "10.12688/f1000research.131344.2",
+      "title": "Effect of topical Zingiber cassumunar on painful diabetic neuropathy: a double-blind randomized-controlled trial.",
+      "journal": "F1000Research",
+      "pub_date": "2023",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "state": "override_assigned_pending_exact_verification"
+    }
+  ]
+}

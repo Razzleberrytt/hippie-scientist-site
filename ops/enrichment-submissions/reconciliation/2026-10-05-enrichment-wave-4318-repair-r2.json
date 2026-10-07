@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "row_count": 1,
+  "rows": [
+    {
+      "wave": 4318,
+      "category": "mood",
+      "replacement_for_pmid": "42784300",
+      "replacement_reason": "second_repair_after_first_replacement_failed_exact_verification",
+      "pmid": "40979519",
+      "doi": "10.1016/j.ahjo.2025.100599",
+      "title": "Randomized, placebo-controlled, double-blind clinical trial on the contributions of vitamin D in the control of cardiovascular risk factors, depressive symptoms and suicide risk.",
+      "journal": "American heart journal plus : cardiology research and practice",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+      "verified_title": "Randomized, placebo-controlled, double-blind clinical trial on the contributions of vitamin D in the control of cardiovascular risk factors, depressive symptoms and suicide risk.",
+      "verified_journal": "American heart journal plus : cardiology research and practice",
+      "verified_pub_date": "2025-Nov",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "To evaluate the contributions of vitamin D supplementation to the control of cardiovascular risk factors and the treatment of depressive symptoms, including suicide risk. A randomized, placebo-controlled, double-blind clinical trial was conducted with 224 adults (18-61 years) diagnosed with major depressive disorder, recruited from psychiatric clinics of two universities in Northeast Brazil. Participants were randomized to receive vitamin D supplementation (50,000 IU/week; n = 112) or placebo (n = 112) for six months. Assessments included depressive symptoms, suicide risk, clinical/laboratory cardiovascular parameters, and serum vitamin D at baseline and day 180. Statistical analysis used chi-squared or Fisher's exact test, McNemar's test, Student's t-test or Mann-Whitney test, with odds ratios (OR) and 95 % confidence intervals (CI). Significance level was set at 5 %. Vitamin D supplementation significantly increased serum concentrations to adequate physiological levels and led to marked reductions in depressive symptoms (p = 0.001) and suicide risk (p = 0.001). Additionally, 13 of 15 evaluated cardiovascular risk factors showed normalization or significant reduction, without adverse events related to calcium metabolism or other side effects. Improvements included better lipid profile, glycemic control, and inflammatory markers. Clinically, these findings suggest potential for vitamin D as an adjuvant therapy in depression management, contributing to both mental health and cardiometabolic stability. Strengths include the rigorous double-blind, randomized design, probabilistic sampling, and comprehensive clinical-laboratory evaluation. Limitations involve the single-region sample, lack of long-term follow-up after supplementation, and the exclusion of patients with severe comorbidities, which may limit generalizability. Weekly administration of 50,000 IU of vitamin D for six months proved effective in reducing depressive symptoms and suicide risk while improving cardiovascular health markers, highlighting its promise as an accessible, low-cost adjunctive therapy in psychiatric and primary care settings.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12449811/",
+      "pdf_link": "https://doi.org/10.1016/j.ahjo.2025.100599",
+      "state": "research_only_exact_verified_repair_r2"
+    }
+  ]
+}

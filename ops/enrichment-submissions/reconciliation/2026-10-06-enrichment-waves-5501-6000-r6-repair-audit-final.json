@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "status": "clean",
+  "expected_repairs": 38,
+  "repair_rows": 38,
+  "missing_waves": [],
+  "extra_waves": [],
+  "integrity": {
+    "unique_pmids": 38,
+    "duplicate_pmids": 0,
+    "duplicate_normalized_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "collisions_with_original_500": 0,
+    "exact_title_and_abstract_verified": 38,
+    "hard_off_domain_rows_remaining": 0
+  },
+  "semantic_failures": [],
+  "repair_files": [
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-5595.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-5672.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-5728.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-gut.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-cognition.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-mood.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-inflammation.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-metabolic.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-botanicals.json",
+    "2026-10-06-enrichment-waves-5501-6000-r6-repair-immune.json"
+  ]
+}

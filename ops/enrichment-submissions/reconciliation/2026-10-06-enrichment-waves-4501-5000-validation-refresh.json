@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-4501-5000",
+  "purpose": "trigger exact-head validation after current main was merged into the research branch",
+  "main_refresh_merge_sha": "7fb5b410fb79a43815ecabd03650a339ac993df3",
+  "research_only": true,
+  "runtime_effect": false,
+  "recommendation_effect": false
+}

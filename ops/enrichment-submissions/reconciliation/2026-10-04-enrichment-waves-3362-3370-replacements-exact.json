@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3362,
+      "pmid": "42488219",
+      "doi": "10.3389/fnut.2026.1880118",
+      "category": "performance",
+      "title": "Effects of acute caffeine supplementation on physical, physiological, and sport-specific performance in female volleyball players: a systematic review and three-level meta-analysis.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Systematic review and three-level meta-analysis of five randomized controlled trials in 66 female volleyball athletes. Evidence certainty was very low; no clear consistent ergogenic effect was demonstrated, and potential adverse effects included tremor, anxiety, and excessive stimulation."
+    },
+    {
+      "wave": 3370,
+      "pmid": "42454226",
+      "doi": "10.1002/fsn3.71991",
+      "category": "safety_interactions",
+      "title": "Assessment of Liver and Kidney Safety of Silver Fir (Abies alba) Branch Extract: An Open-Label Human Study of a Dietary Supplement.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2026-Jul",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Open-label single-arm study in 15 healthy adults consuming standardized silver fir branch extract for 14 days. Liver and kidney biochemical markers remained within reference ranges and no adverse events were reported; evidence is short-term and uncontrolled."
+    }
+  ]
+}
