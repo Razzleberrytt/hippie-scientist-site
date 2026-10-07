@@ -273,11 +273,22 @@ export async function stagePublicationMediaFromArtifacts({
   const pilot = readJson(path.join(sourceDir, 'bounded-pilot.json'))
   const pilotFormat = clean(pilot.lifecycle?.identity?.format || pilot.selectedOpportunity?.platform).toLowerCase()
   if (pilotFormat === 'short-video') {
-    await renderVerticalVideoMp4({
-      packageDir: sourceDir,
-      outputFile: path.join(sourceDir, 'short-video.mp4'),
-      ffmpegPath,
-    })
+    const release = clean(pilot?.assets?.release || pilot?.assets?.systemRelease) || 'R8.04'
+    if (release === 'R8.04') {
+      await renderVerticalVideoMp4({
+        packageDir: sourceDir,
+        outputFile: path.join(sourceDir, 'short-video.mp4'),
+        ffmpegPath,
+      })
+    } else if (release === 'R8.05') {
+      for (const file of ['short-video.mp4', 'short-video.mp4.receipt.json', 'r805-master-qa.receipt.json']) {
+        if (!fs.existsSync(path.join(sourceDir, file))) {
+          throw new Error(`R8.05 staging requires the exact already-rendered/reviewed master; missing ${file}`)
+        }
+      }
+    } else {
+      throw new Error(`unsupported video release: ${release}`)
+    }
   }
   return stagePublicationMedia({ pilot, packageData, sourceDir, publicRoot, publicOrigin, now })
 }
