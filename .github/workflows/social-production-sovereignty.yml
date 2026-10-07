@@ -44,4 +44,4 @@ jobs:
           node-version: '22'
       - run: node scripts/ci/validate-social-production-sovereignty.mjs
       - run: node scripts/ci/validate-social-creative-quality.mjs
-      - run: npx vitest run scripts/distribution/__tests__/r805-creative-gate.test.mjs
+      - run: node scripts/ci/test-r805-creative-gate.mjs
