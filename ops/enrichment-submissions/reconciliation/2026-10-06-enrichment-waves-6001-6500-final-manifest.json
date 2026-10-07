@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500-final",
+  "range": "6001-6500",
+  "status": "finalized_pending_repository_validation",
+  "exact_receipt_count": 68,
+  "authoritative_artifacts": {
+    "candidate_selection": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6001-6500-candidate-selection.json",
+    "final_audit": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6001-6500-final-audit.json",
+    "cumulative_pmid_index": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6001-6500-pmid-index.json",
+    "collision_repair_receipt": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6001-6500-collision-repairs-exact.json"
+  },
+  "exact_receipts": [
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6001-6008-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6009-6016-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6017-6024-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6025-6032-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6033-6036-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6037-6040-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6041-6044-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6045-6048-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6049-6056-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6057-6064-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6065-6072-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6073-6080-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6081-6088-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6089-6096-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6097-6104-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6105-6112-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6113-6120-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6121-6128-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6129-6136-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6137-6144-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6145-6152-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6153-6160-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6161-6168-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6169-6176-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6177-6184-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6185-6192-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6193-6200-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6201-6208-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6209-6216-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6217-6224-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6225-6232-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6233-6240-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6241-6248-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6249-6256-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6257-6264-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6265-6272-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6273-6280-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6281-6288-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6289-6296-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6297-6304-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6305-6312-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6313-6320-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6321-6328-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6329-6336-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6337-6344-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6345-6352-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6353-6360-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6361-6368-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6369-6376-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6377-6384-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6385-6392-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6393-6400-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6401-6408-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6409-6416-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6417-6420-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6421-6424-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6425-6428-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6429-6432-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6433-6436-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6437-6440-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6441-6448-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6449-6456-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6457-6464-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6465-6472-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6473-6480-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6481-6488-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6489-6496-exact.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6497-6500-exact.json"
+  ],
+  "integrity": {
+    "row_count": 500,
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "duplicate_normalized_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "semantic_failures": 0,
+    "cumulative_unique_pmids": 6435
+  },
+  "collision_repairs": [
+    {
+      "wave": 6006,
+      "old_pmid": "31006899",
+      "new_pmid": "19962288"
+    },
+    {
+      "wave": 6007,
+      "old_pmid": "41693488",
+      "new_pmid": "22311378"
+    },
+    {
+      "wave": 6013,
+      "old_pmid": "31655395",
+      "new_pmid": "26797633"
+    },
+    {
+      "wave": 6030,
+      "old_pmid": "31730539",
+      "new_pmid": "31813230"
+    },
+    {
+      "wave": 6031,
+      "old_pmid": "31792285",
+      "new_pmid": "35984871"
+    },
+    {
+      "wave": 6492,
+      "old_pmid": "33798465",
+      "new_pmid": "33748066"
+    }
+  ],
+  "policy": {
+    "research_only": true,
+    "recommendation_promotion": false,
+    "dosing_inference": false,
+    "fail_closed": true
+  }
+}

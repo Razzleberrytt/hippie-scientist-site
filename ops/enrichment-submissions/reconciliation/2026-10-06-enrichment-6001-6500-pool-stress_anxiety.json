@@ -1,0 +1,1359 @@
+{
+  "schema_version": 1,
+  "category": "stress_anxiety",
+  "target": 45,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 135,
+  "rows": [
+    {
+      "pmid": "42625049",
+      "title": "Harnessing magnesium nanoparticles for enhanced crop growth and stress mitigation.",
+      "doi": "10.1007/s00425-026-05126-4",
+      "pub_date": "2026 Aug 20",
+      "journal": "Planta",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42343966",
+      "title": "Biochemical shifts in Chlorella vulgaris via post-stationary magnesium sulfate stress: optimizing biomass for advanced bio-fertilizers.",
+      "doi": "10.3389/fpls.2026.1867866",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42433894",
+      "title": "Multi-omics analysis reveals galactose metabolism as a key regulatory pathway of stress adaptation to magnesium deficiency in passion fruit.",
+      "doi": "10.3389/fpls.2026.1878176",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42517519",
+      "title": "Effect of axial stress-loaded magnesium alloy intramedullary nails on bone fracture healing.",
+      "doi": "10.1039/d6bm00690f",
+      "pub_date": "2026 Aug 25",
+      "journal": "Biomaterials science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42564876",
+      "title": "Adaptive laboratory evolution of E. coli to magnesium chloride stress reveals noncanonical routes to broad chaotropic salt resistance.",
+      "doi": "10.3389/fmicb.2026.1898632",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42265215",
+      "title": "Association between a composite serum oxidative stress biomarker score and systemic inflammation: A multi-provincial cross-sectional study in Chinese adults.",
+      "doi": "10.1038/s41598-026-56388-7",
+      "pub_date": "2026 Jun 9",
+      "journal": "Scientific reports",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42734448",
+      "title": "Hydrogen-rich water combined with traditional Chinese medicine compound in the treatment of kidney stones: a randomized controlled prospective clinical trial.",
+      "doi": "10.4103/mgr.MEDGASRES-D-26-00067",
+      "pub_date": "2027 Jan 1",
+      "journal": "Medical gas research",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42242178",
+      "title": "Recent advances in microbial production of stress-relieving nutraceuticals.",
+      "doi": "10.1016/j.copbio.2026.103528",
+      "pub_date": "2026 Aug",
+      "journal": "Current opinion in biotechnology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42356373",
+      "title": "Curcumin, Coenzyme-Q10, and Bioactive Compounds in Ashwagandha Extract: Multi-Targeting Potential of Co-Administered Natural Health Compounds as Therapeutic and Preventative Interventions in Alzheimer's and Parkinson's Disease Models.",
+      "doi": "10.3390/nu18121986",
+      "pub_date": "2026 Jun 19",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42435218",
+      "title": "Point-of-care magnesium monitoring in athletes: a physiological framework for exercise-related arrhythmic vulnerability.",
+      "doi": "10.1007/s00421-026-06317-3",
+      "pub_date": "2026 Sep",
+      "journal": "European journal of applied physiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42451969",
+      "title": "Using Magnesium and Magnesium-Based Alloys as a Novel Biomaterial to Create Medical Devices by AM Techniques-A Review.",
+      "doi": "10.3390/ma19132890",
+      "pub_date": "2026 Jul 6",
+      "journal": "Materials (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42452494",
+      "title": "Mapping the Neuroprotective Landscape of Perioperative Magnesium Sulphate: A Translational Scoping Review.",
+      "doi": "10.3390/jcm15135032",
+      "pub_date": "2026 Jun 28",
+      "journal": "Journal of clinical medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42641717",
+      "title": "Effects of occupational lead exposure on oxidative stress and essential metal homeostasis in humans: A scoping review.",
+      "doi": "10.1016/j.etap.2026.105139",
+      "pub_date": "2026 Aug 26",
+      "journal": "Environmental toxicology and pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42649815",
+      "title": "Biodegradable Magnesium-Based Implants in Sports Orthopedic Surgery: Advances in Alloy Design, Surface Engineering, and Translational Evidence.",
+      "doi": "10.3390/bioengineering13080926",
+      "pub_date": "2026 Aug 15",
+      "journal": "Bioengineering (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42651842",
+      "title": "Magnesium Sulfate in Neonatal Hypoxic-Ischemic Encephalopathy: Bridging the Gap Between Molecular Neuroprotection and Clinical Outcomes.",
+      "doi": "10.3390/cimb48080844",
+      "pub_date": "2026 Aug 20",
+      "journal": "Current issues in molecular biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42721096",
+      "title": "Phyto adaptogens in stress management and health optimization: Current understanding and future perspectives.",
+      "doi": "10.1159/cmr/acfag007",
+      "pub_date": "2026 Sep 10",
+      "journal": "Complementary medicine research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829303",
+      "title": "Aromatherapy for Anxiety and Pain in Radiologic and Interventional Procedures a Scoping Review.",
+      "doi": "10.1016/j.pmn.2026.09.003",
+      "pub_date": "2026 Oct 3",
+      "journal": "Pain management nursing : official journal of the American Society of Pain Management Nurses",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42318382",
+      "title": "Effects of aromatherapy on objective physiological outcomes in adult ICU patients: a systematic review.",
+      "doi": "10.3389/fmed.2026.1807990",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42229215",
+      "title": "Oxalic acid enhances wheat (Triticum aestivum L.) resilience to combined abiotic stresses through integrated physiological and rhizospheric microbial modulation.",
+      "doi": "10.1016/j.plaphy.2026.111432",
+      "pub_date": "2026 Jul",
+      "journal": "Plant physiology and biochemistry : PPB",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42250298",
+      "title": "Rice 2C protein phosphatase, OsNY1, and magnesium oxide positively regulate arsenic tolerance by root cells reinforcement, metals detoxification, and protein phosphorylation.",
+      "doi": "10.1016/j.jhazmat.2026.142592",
+      "pub_date": "2026 Aug 1",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42262657",
+      "title": "RT-qPCR-based transcriptional profiling of the effects of tarantula logoplex on inflammatory, oxidative stress and apoptosis pathways in remote organs in experimental lower extremity ischemia-reperfusion injury.",
+      "doi": "10.1007/s11033-026-11958-w",
+      "pub_date": "2026 Jun 9",
+      "journal": "Molecular biology reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42277947",
+      "title": "A pilot study on the effect of feed supplementation with magnesium oxide and magnesium aspartate on blood magnesium content and tail lesions in pigs under practical on-farm conditions.",
+      "doi": "10.1186/s40813-026-00526-0",
+      "pub_date": "2026 Jun 11",
+      "journal": "Porcine health management",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42281461",
+      "title": "Axial Coordination of Melatonin in Magnesium Porphyrin: Structural Insights, Excited-State Dynamics, and Photostability.",
+      "doi": "10.1021/acs.inorgchem.6c00370",
+      "pub_date": "2026 Jun 29",
+      "journal": "Inorganic chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42301553",
+      "title": "Metabolomic insights into inter-familial and pre-transport treatment effects on live transport stress in selectively-bred mussels, Perna canaliculus.",
+      "doi": "10.1007/s11306-026-02477-7",
+      "pub_date": "2026 Jun 16",
+      "journal": "Metabolomics : Official journal of the Metabolomic Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42313056",
+      "title": "Beneficial fungi reprogram tree metabolism toward growth and stress-associated pathways.",
+      "doi": "10.1128/aem.00412-26",
+      "pub_date": "2026 Jul 22",
+      "journal": "Applied and environmental microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42316005",
+      "title": "Distinct Mg²⁺ responses and species-specific transcriptional regulation of the magnesium transporter MGR2 in Saccharum officinarum and Saccharum spontaneum.",
+      "doi": "10.1186/s12870-026-09288-x",
+      "pub_date": "2026 Jun 18",
+      "journal": "BMC plant biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42334907",
+      "title": "Neuropsychiatric symptoms of chronic stress and pharmacist counseling.",
+      "doi": "10.36290/csf.2026.017",
+      "pub_date": "2026",
+      "journal": "Ceska a Slovenska farmacie : casopis Ceske farmaceuticke spolecnosti a Slovenske farmaceuticke spolecnosti",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42348037",
+      "title": "Combined Puerarin and Magnesium Acetyl Taurate Intervention Mitigates Autism-Like Pathology Through Glutamatergic and MAPK Pathway Regulation.",
+      "doi": "10.1007/s11064-026-04820-9",
+      "pub_date": "2026 Jun 25",
+      "journal": "Neurochemical research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42361498",
+      "title": "Mallotus japonicus leaf extract restores TRPM6 magnesium channel expression and suppresses cellular senescence in colonic epithelial cells.",
+      "doi": "10.1016/j.abb.2026.110915",
+      "pub_date": "2026 Sep",
+      "journal": "Archives of biochemistry and biophysics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42363093",
+      "title": "Combined application of nano-magnesium oxide and humic acid improves potato drought tolerance and soil health.",
+      "doi": "10.1186/s12870-026-09350-8",
+      "pub_date": "2026 Jun 26",
+      "journal": "BMC plant biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42377345",
+      "title": "[Micronutrients and phytotherapy in the response to stress].",
+      "doi": "10.20960/nh.06961",
+      "pub_date": "2026 Jul 20",
+      "journal": "Nutricion hospitalaria",
+      "pub_type": "English Abstract",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42385299",
+      "title": "Heat stress responses in dairy cows: a longitudinal study across multiple heat waves.",
+      "doi": "10.1016/j.jtherbio.2026.104530",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of thermal biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42392245",
+      "title": "Epigallocatechin-3-gallate, l-theanine and theophylline abolish high-glucose-induced renal cell senescence and subsequent epithelial-mesenchymal transition and fibroblast activation via SIRT1/PGC-1α axis: Implications for diabetic kidney disease.",
+      "doi": "10.1016/j.cbi.2026.112228",
+      "pub_date": "2026 Sep 1",
+      "journal": "Chemico-biological interactions",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42402070",
+      "title": "Size dependent antibacterial mechanism of magnesium oxide nanoparticles against Ralstonia solanacearum.",
+      "doi": "10.1186/s11671-026-04771-8",
+      "pub_date": "2026 Jul 5",
+      "journal": "Discover nano",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42411499",
+      "title": "TRPM7 Channel-Mediated Mitochondrial Oxidative Stress Induces Dysfunction of Müller Cells Under High Glucose and Low Mg(2+) Stress.",
+      "doi": "10.31083/FBL50306",
+      "pub_date": "2026 Jun 8",
+      "journal": "Frontiers in bioscience (Landmark edition)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42419125",
+      "title": "Crocetin from saffron ameliorates motor symptoms in Parkinson's disease models by improving mitochondrial function and PINK1/Parkin mediated mitophagy.",
+      "doi": "10.1016/j.phymed.2026.158505",
+      "pub_date": "2026 Sep",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42421368",
+      "title": "Exploring the protective impacts of Rhodiola rosea extract against vancomycin-induced hepatic and renal toxicity through the activation of Nrf2/HO-1 and MAPK kinases, inhibition of NF-κB and TGF-β1 signaling pathways, role of apoptosis and inflammation associated-markers.",
+      "doi": "10.1080/01480545.2026.2700298",
+      "pub_date": "2026 Jul 8",
+      "journal": "Drug and chemical toxicology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42424785",
+      "title": "Polycarbonate-hydroxyapatite hybrid coatings enabling antibacterial and osteogenic regulation of magnesium implants.",
+      "doi": "10.1016/j.colsurfb.2026.115966",
+      "pub_date": "2026 Nov",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42448731",
+      "title": "Prevalence and patterns of use of dietary supplements and OTC medications for mood improvement and stress relief among adults in Poland.",
+      "doi": "10.1038/s41598-026-61359-z",
+      "pub_date": "2026 Jul 14",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42452295",
+      "title": "Foliar Application of MgO Nanoparticles Modulates Magnesium Nutrition and Fruit Quality in Loquat Under Mg-Deficient Conditions.",
+      "doi": "10.3390/plants15132099",
+      "pub_date": "2026 Jul 6",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42454872",
+      "title": "Aromatherapy to Reduce Stress in Nurses: A Pilot Study.",
+      "doi": "10.1177/08980101261467532",
+      "pub_date": "2026 Jul 15",
+      "journal": "Journal of holistic nursing : official journal of the American Holistic Nurses' Association",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42456347",
+      "title": "Protective effect of crocin against arsenic trioxide-induced cardiomyocyte apoptosis: possible involvement the PERK/eIF2α/CHOP-mediated endoplasmic reticulum stress response.",
+      "doi": "10.1016/j.bbrc.2026.154251",
+      "pub_date": "2026 Sep 10",
+      "journal": "Biochemical and biophysical research communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42459370",
+      "title": "Foliar application of magnesium and amino acids to off-season maize: a strategy to improve photosynthetic and antioxidant metabolism.",
+      "doi": "10.3389/fpls.2026.1850949",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42462674",
+      "title": "Low-salinity stress alters growth, histology, physiology, and transcriptomic profiles of the gills and antennal glands in Macrobrachium rosenbergii.",
+      "doi": "10.1016/j.cbd.2026.101937",
+      "pub_date": "2026 Dec",
+      "journal": "Comparative biochemistry and physiology. Part D, Genomics & proteomics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42484642",
+      "title": "Formaldehyde directly induces cytotoxicity in human lymphocytes through ROS formation, mitochondrial/lysosomal destruction and oxidative stress; analysis of the protective effects of crocin.",
+      "doi": "10.1080/00498254.2026.2707488",
+      "pub_date": "2026 Sep",
+      "journal": "Xenobiotica; the fate of foreign compounds in biological systems",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42498044",
+      "title": "Data driven optimization of PGPR biomass yield for development of carrier based bioformulation for ameliorating salt stress in Salvia hispanica (chia) seedlings.",
+      "doi": "10.1016/j.mimet.2026.107640",
+      "pub_date": "2026 Sep",
+      "journal": "Journal of microbiological methods",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42507981",
+      "title": "Heterologous expression of CsAlaDC enhances thermotolerance through a functional ethylamine-theanine-GABA metabolic network in tomato.",
+      "doi": "10.1093/plphys/kiag543",
+      "pub_date": "2026 Aug 4",
+      "journal": "Plant physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42518692",
+      "title": "Tea egg-inspired high mechanical strength hydrogel microneedle patch combined with tea polyphenol-magnesium nanoparticles promotes spinal cord injury repair.",
+      "doi": "10.1016/j.mtbio.2026.103444",
+      "pub_date": "2026 Aug",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42531995",
+      "title": "Early-life stress at the time of the plague in Northern Italy (17th century): The case of two individuals with severe hypoplastic defects from Lazzaretto Vecchio (Venice).",
+      "doi": "10.1016/j.archoralbio.2026.106706",
+      "pub_date": "2026 Nov",
+      "journal": "Archives of oral biology",
+      "pub_type": "Historical Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42574988",
+      "title": "HNF4α promotes urate excretion by activating ABCG2 and mediates the anti-hyperuricemic effect of saffron floral bio-residue.",
+      "doi": "10.1016/j.phymed.2026.158680",
+      "pub_date": "2026 Oct",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42589403",
+      "title": "Withania somnifera-Functionalized Selenium Nanoparticles Attenuate Glycerol-Induced Rhabdomyolysis-Associated Acute Renal Failure.",
+      "doi": "10.3390/ijms27156746",
+      "pub_date": "2026 Jul 28",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42609096",
+      "title": "Lysine-metal complexes modulate nutrient and gene responses in Pb-stressed maize (Zea mays L.).",
+      "doi": "10.1002/jeq2.70238",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Journal of environmental quality",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42609591",
+      "title": "Computational analysis of therapeutic potential for simplified Piper spp.- derived medicinal mixtures in anxiety, sleep, pain and seizure.",
+      "doi": "10.3389/fphar.2026.1750146",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42636110",
+      "title": "Zinc increases stress granule formation by promoting RNA condensation.",
+      "doi": "10.1016/j.celrep.2026.117870",
+      "pub_date": "2026 Sep 22",
+      "journal": "Cell reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42665173",
+      "title": "Integrative multi-omics analysis of magnesium-mediated alleviation of nitrite toxicity in Litopenaeus vannamei.",
+      "doi": "10.1016/j.cbpc.2026.110678",
+      "pub_date": "2026 Aug 31",
+      "journal": "Comparative biochemistry and physiology. Toxicology & pharmacology : CBP",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42687797",
+      "title": "3D-Printed poly(lactic acid)/magnesium scaffolds functionalized with chitosan-chlorhexidine gluconate microspheres for antibacterial repair of infected bone defects.",
+      "doi": "10.1039/d6tb00975a",
+      "pub_date": "2026 Sep 23",
+      "journal": "Journal of materials chemistry. B",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42692685",
+      "title": "Single-cell transcriptomics reveals heterogeneous stress responses and Mg(2+)-mediated survival mechanisms in Lactobacillus delbrueckii subsp. bulgaricus during freeze-drying and storage.",
+      "doi": "10.1016/j.foodres.2026.120273",
+      "pub_date": "2026 Nov 1",
+      "journal": "Food research international (Ottawa, Ont.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42743908",
+      "title": "EEG changes associated with stress reduction in university students following exposure to essential oil odors.",
+      "doi": "10.1016/j.explore.2026.103527",
+      "pub_date": "2026 Sep 3",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748709",
+      "title": "Metabolite profiling indicates comparative effects of magnesium oxide nanoparticle vs. its bulk priming on lead tolerance and nutritional quality in mungbean sprouts.",
+      "doi": "10.1016/j.foodchem.2026.151056",
+      "pub_date": "2026 Sep 9",
+      "journal": "Food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42768433",
+      "title": "Evaluating the Pattern of Kava (Piper methysticum) Consumption in Australia by Wastewater-Based Epidemiology.",
+      "doi": "10.1111/dar.70263",
+      "pub_date": "2026 Sep",
+      "journal": "Drug and alcohol review",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769881",
+      "title": "Bacterially induced synthesis of low-Cd struvite coupled with Cd(2+) biosorption under high cadmium stress.",
+      "doi": "10.1039/d6ra05024g",
+      "pub_date": "2026 Sep 21",
+      "journal": "RSC advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42778894",
+      "title": "Comparative effects of chemical and PGPR-based biostimulants on growth, mineral uptake, and biochemical responses of Rosmarinus officinalis under drought stress.",
+      "doi": "10.1186/s12870-026-09670-9",
+      "pub_date": "2026 Aug 4",
+      "journal": "BMC plant biology",
+      "pub_type": "Comparative Study",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42782665",
+      "title": "Biomedical Hydrogels Based on Oxidized Hyaluronic Acid and Carboxymethyl Chitosan Coordinated with Magnesium Ions.",
+      "doi": "10.3390/biomimetics11090639",
+      "pub_date": "2026 Sep 6",
+      "journal": "Biomimetics (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42788370",
+      "title": "Salidroside attenuates myocardial ischemia‑reperfusion‑induced oxidative stress and ferroptosis by promoting USP11‑mediated  deubiquitination of PRDX2.",
+      "doi": "10.3892/ijmm.2026.6000",
+      "pub_date": "2026 Nov",
+      "journal": "International journal of molecular medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42803697",
+      "title": "A Magnesium-Phenolic Coordinated Hydrogel Orchestrates Antiapoptotic, Immunomodulatory, and Angiogenic Niches for Aging Wound Regeneration.",
+      "doi": "10.1021/acsami.6c07348",
+      "pub_date": "2026 Sep 28",
+      "journal": "ACS applied materials & interfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814517",
+      "title": "Magnesium Phosphate Composite Hydrogel Dressing Promotes Diabetic Wound Repair Through Anti-Inflammatory, Antioxidant, Angiogenic, and Metabolic Regulatory Mechanisms.",
+      "doi": "10.1002/adhm.71782",
+      "pub_date": "2026 Sep 30",
+      "journal": "Advanced healthcare materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42309243",
+      "title": "Ayurvedic Herbs as neurogenesis modulators: Current understanding on their potential therapeutic relevance in enhancing neuroplasticity and cognition in aging and neurodegeneration.",
+      "doi": "10.1016/j.neuint.2026.106204",
+      "pub_date": "2026 Oct",
+      "journal": "Neurochemistry international",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42341830",
+      "title": "Sustainable metallic biomaterials for orthopaedic implants: a comprehensive review of biodegradable and conventional metals.",
+      "doi": "10.1088/1748-605X/ae8230",
+      "pub_date": "2026 Jul 16",
+      "journal": "Biomedical materials (Bristol, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42378001",
+      "title": "Small Intestinal Bacterial Overgrowth: Microbiome Dysregulation, Gut-Brain Axis Disruption, and Systemic Consequences.",
+      "doi": "10.1002/mnfr.70541",
+      "pub_date": "2026 Jul",
+      "journal": "Molecular nutrition & food research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42382677",
+      "title": "Medicinal Plants and Their Bioactive Phytochemicals as Emerging Therapeutic Strategies for Alzheimer's Disease: An Integrative Review of Preclinical and Clinical Evidence.",
+      "doi": "10.1155/sci5/6124916",
+      "pub_date": "2026",
+      "journal": "Scientifica",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42417935",
+      "title": "Regulation of NLRP3 inflammasome signaling in Alzheimer's disease: emerging neuroprotective role of phytochemicals.",
+      "doi": "10.1007/s10787-026-02324-0",
+      "pub_date": "2026 Aug",
+      "journal": "Inflammopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42425421",
+      "title": "Dietary bioactive compounds and inflammaging: Pro-inflammatory triggers and geroprotective countermeasures.",
+      "doi": "10.1016/j.arr.2026.103241",
+      "pub_date": "2026 Oct",
+      "journal": "Ageing research reviews",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42437394",
+      "title": "Energy-storage and self-healing microcapsules for secondary batteries: from preparation methods and electrochemical performance to enhancement mechanisms.",
+      "doi": "10.1039/d6cc02876d",
+      "pub_date": "2026 Jul 28",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42438634",
+      "title": "Primary Vascular Dysregulation in Normal-Tension Glaucoma: Pathophysiology and Management.",
+      "doi": "10.7759/cureus.110693",
+      "pub_date": "2026 Jun",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42484700",
+      "title": "Micronutrients in immune ageing and diabetic wound healing: modulating inflammation and promoting tissue repair.",
+      "doi": "10.1007/s00592-026-02744-y",
+      "pub_date": "2026 Jul 22",
+      "journal": "Acta diabetologica",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42491930",
+      "title": "Plant-based macronutrients and micronutrients in combating osteoporosis: research insights and molecular pathways.",
+      "doi": "10.1039/d6ra02084d",
+      "pub_date": "2026 Aug 5",
+      "journal": "RSC advances",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42506093",
+      "title": "Perioperative Arrhythmias: Pathophysiology, Risk Stratification, Management, and Emerging Technologies-A Narrative Review Toward Personalised Care.",
+      "doi": "10.3390/jpm16070367",
+      "pub_date": "2026 Jul 4",
+      "journal": "Journal of personalized medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42546933",
+      "title": "Modulation of pancreatic β-cell function by adaptogens: Emerging evidence and integrative therapeutic potential.",
+      "doi": "10.1016/j.fitote.2026.107420",
+      "pub_date": "2026 Sep",
+      "journal": "Fitoterapia",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42568664",
+      "title": "Lavandula angustifolia and Echium amoenum as emerging adjuncts to cognitive behavioral therapy for major depressive disorder: mechanistic insights into neurotrophic, monoaminergic, and anti-inflammatory pathways.",
+      "doi": "10.3389/fpsyt.2026.1776230",
+      "pub_date": "2026",
+      "journal": "Frontiers in psychiatry",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42575271",
+      "title": "Analysis of androgen modulation by natural products.",
+      "doi": "10.1016/j.phrs.2026.108377",
+      "pub_date": "2026 Sep",
+      "journal": "Pharmacological research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42582728",
+      "title": "Beyond Conventional Treatment: Herbal Medicine and Nutraceuticals as Complementary Therapies for COPD and Asthma.",
+      "doi": "10.2174/0118743064454037260510201039",
+      "pub_date": "2026",
+      "journal": "The open respiratory medicine journal",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42588175",
+      "title": "Current Evidence and Practical Considerations for Adaptogen Use in Exercise Recovery, Training Adaptation, and Exercise Performance in Athletes: A Narrative Review.",
+      "doi": "10.3390/nu18152552",
+      "pub_date": "2026 Aug 4",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42596797",
+      "title": "A recent update on luteolin: mechanisms and therapeutic implications in cardiac disease.",
+      "doi": "10.1515/jbcpp-2026-0104",
+      "pub_date": "2026 Sep 25",
+      "journal": "Journal of basic and clinical physiology and pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42675452",
+      "title": "Integrative Approaches in Cardiovascular Disease: The Role of Nutraceuticals in Heart Failure, Atrial Fibrillation, and Related Conditions.",
+      "doi": "10.1002/ptr.70433",
+      "pub_date": "2026 Aug 31",
+      "journal": "Phytotherapy research : PTR",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42679097",
+      "title": "Mechanism-based nutritional strategies for performance and recovery in soccer players: a qualitative research synthesis.",
+      "doi": "10.1080/15502783.2026.2721836",
+      "pub_date": "2026 Dec 30",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738239",
+      "title": "From the Classical Schmid Factor to Tensor-Based Global Measures: A Critical Review and Practical Advice for Beginners.",
+      "doi": "10.3390/ma19173803",
+      "pub_date": "2026 Sep 7",
+      "journal": "Materials (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42819139",
+      "title": "Zero-dimensional anodes across monovalent and multivalent batteries: a critical review of interfacial dynamics, bottlenecks, and solutions.",
+      "doi": "10.1039/d6ra08119c",
+      "pub_date": "2026 Sep 30",
+      "journal": "RSC advances",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42222404",
+      "title": "Systemic dysregulation of essential and toxic elements and redox homeostasis in gynecologic malignancies.",
+      "doi": "10.3389/fonc.2026.1770641",
+      "pub_date": "2026",
+      "journal": "Frontiers in oncology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42224245",
+      "title": "Nonlinear relationship between circulating homocysteine and parathyroid hormone among patients with osteoporotic fractures: A cross-sectional study based on a hospital cohort.",
+      "doi": "10.1371/journal.pone.0349418",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42243584",
+      "title": "Biochemical and blood gas parameters in llamas (Lama glama) raised at moderate altitude: preliminary data from a subtropical environment.",
+      "doi": "10.1007/s11250-026-05118-2",
+      "pub_date": "2026 Jun 4",
+      "journal": "Tropical animal health and production",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42252611",
+      "title": "Corrosion-Driven Degradation of Mg WE43 Plates for Mandibular Fracture Fixation: An In-Silico Study.",
+      "doi": "10.1002/jbm.b.70112",
+      "pub_date": "2026 Jun",
+      "journal": "Journal of biomedical materials research. Part B, Applied biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42269496",
+      "title": "Evaluation of mangrove ecosystem dynamics in the arid environment: For restoration on the Qatar coast using satellite data and by hyperspectral imaging.",
+      "doi": "10.1016/j.marpolbul.2026.119961",
+      "pub_date": "2026 Oct",
+      "journal": "Marine pollution bulletin",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42270740",
+      "title": "Comprehensive genomic analysis of avian Escherichia coli from Noakhali uncovers multidrug resistance, metal resistance, and zoonotic signatures.",
+      "doi": "10.1038/s41598-026-54331-4",
+      "pub_date": "2026 Jun 10",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42275471",
+      "title": "Subcellular metallomic networks orchestrate physiological outcomes: Single-cell mapping via an integrated SEM-FIB-TOF-SIMS platform.",
+      "doi": "10.1073/pnas.2601472123",
+      "pub_date": "2026 Jun 16",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42279749",
+      "title": "Proteomic and Metabolomic Analysis Reveals Candidate Biomarkers and Meat Quality Differences in Divergent Climatically Adapted Sheep Breeds.",
+      "doi": "10.3390/foods15111962",
+      "pub_date": "2026 Jun 2",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42280650",
+      "title": "Evaluation of MgO Nanoparticle Foliar Treatment on the Early Stages of Sweet Basil (Ocimum basilicum L.) Vegetation.",
+      "doi": "10.3390/plants15111612",
+      "pub_date": "2026 May 24",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42299001",
+      "title": "Exploring TRPM7 Channel-Kinase for Disease Modulation: A Translational Approach.",
+      "doi": "10.2174/0127724328432668260302192316",
+      "pub_date": "2026 Apr 1",
+      "journal": "Current reviews in clinical and experimental pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42308196",
+      "title": "Mechanical behavior and constitutive modeling of CO2-foamed carbonated MgO-based solidified slurry under Unconsolidated Undrained (UU) triaxial conditions.",
+      "doi": "10.1371/journal.pone.0351078",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42339357",
+      "title": "Dietary intake, lifestyle behaviors, and sleep architecture among night-shift medical residents: a cross-sectional study.",
+      "doi": "10.3389/fnut.2026.1851443",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42339877",
+      "title": "Microbial intervention by Acinetobacter schindleri SR-5-1 alleviates cadmium toxicity in pea cultivation.",
+      "doi": "10.1080/15592324.2026.2689808",
+      "pub_date": "2026 Dec 31",
+      "journal": "Plant signaling & behavior",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42343771",
+      "title": "[Identification, expression profiling, and natural allelic variation analysis of the Sbsgr gene family in sorghum].",
+      "doi": "10.13345/j.cjb.250917",
+      "pub_date": "2026 May 25",
+      "journal": "Sheng wu gong cheng xue bao = Chinese journal of biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42344428",
+      "title": "Physiological and Biochemical Responses to Repeated Administration of Ivermectin in Rabbits.",
+      "doi": "10.12688/f1000research.174211.2",
+      "pub_date": "2026",
+      "journal": "F1000Research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42355161",
+      "title": "Performance-Boosted Interpretable ML via Optuna-SHAP: Uncovering Orientation-Driven Twinning in Mg Alloys.",
+      "doi": "10.3390/ma19122579",
+      "pub_date": "2026 Jun 15",
+      "journal": "Materials (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42360834",
+      "title": "Water-Reactive Printable Ga-Al-Mg Liquid Metal Alloy for Rapid Wound Hemorrhage Sensing.",
+      "doi": "10.1021/acssensors.6c00817",
+      "pub_date": "2026 Jul 24",
+      "journal": "ACS sensors",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42364617",
+      "title": "Impact of PFOA on biodenitrification and regulatory role of Mg(2+) via regulating substrate uptake and electron transport.",
+      "doi": "10.1016/j.jenvman.2026.130280",
+      "pub_date": "2026 Jul 31",
+      "journal": "Journal of environmental management",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42372848",
+      "title": "Integrated life cycle assessment for quantifying the carbon impact of rare earth elements mining.",
+      "doi": "10.1016/j.envres.2026.125117",
+      "pub_date": "2026 Sep 15",
+      "journal": "Environmental research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42378481",
+      "title": "[The effect of long-term exposure to essential oils on the psychoemotional state and mental performance of elderly people.].",
+      "doi": "10.34922/AE.2026.39.2.016",
+      "pub_date": "2026",
+      "journal": "Advances in gerontology = Uspekhi gerontologii",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42391576",
+      "title": "The stoichiometric decoupling of leaf Ca to K and Mg is driven by their differential responses to climate.",
+      "doi": "10.1111/plb.70249",
+      "pub_date": "2026 Oct",
+      "journal": "Plant biology (Stuttgart, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42391880",
+      "title": "Flavokawain C alleviates dextran sulphate sodium-induced colitis through suppressing necroptosis via blocking RIPK1-RIPK3-MLKL axis.",
+      "doi": "10.1016/j.intimp.2026.117076",
+      "pub_date": "2026 Oct 1",
+      "journal": "International immunopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42392407",
+      "title": "A one-step surface engineering strategy based on PEG-EGCG to improve systemic delivery and survival of transplanted mesenchymal stromal cells.",
+      "doi": "10.1016/j.jconrel.2026.115153",
+      "pub_date": "2026 Sep 10",
+      "journal": "Journal of controlled release : official journal of the Controlled Release Society",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42396543",
+      "title": "Associations of Dietary Patterns and Micronutrients With Major Adverse Cardiovascular Events and Mortality Among Populations With Cardiovascular-Kidney-Metabolic Syndrome Stages 0-3: Results From Two Prospective Cohorts.",
+      "doi": "10.1002/fsn3.72082",
+      "pub_date": "2026 Jul",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42400932",
+      "title": "Bioinstructive Hybrid Scaffold Integrating Phosphoinositide 3-Kinase-Akt and Complementary Survival Pathways for Kidney Regeneration.",
+      "doi": "10.1021/acsnano.6c03229",
+      "pub_date": "2026 Jul 14",
+      "journal": "ACS nano",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42412933",
+      "title": "Covalent phytobilin adducts of GUN4 implicate a photoprotective mechanism in chlorophyll biosynthesis.",
+      "doi": "10.1073/pnas.2533100123",
+      "pub_date": "2026 Jul 14",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450691",
+      "title": "Serum Macro- and Trace-Element Alterations and Redox Imbalance in Cattle with Naturally Occurring Dermatophytosis.",
+      "doi": "10.3390/ani16131984",
+      "pub_date": "2026 Jun 27",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42460508",
+      "title": "Triple-Shielded Microneedle Patch: A Synergistic Approach to Combat Infection, Oxidation and Inflammation in Wound Healing.",
+      "doi": "10.1002/smll.74600",
+      "pub_date": "2026 Sep",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42462612",
+      "title": "Linking ambient fire emissions to respiratory effects using gelatin filter sampling.",
+      "doi": "10.1016/j.jhazmat.2026.142991",
+      "pub_date": "2026 Sep 1",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42468384",
+      "title": "A Mg-Al layered double hydroxide-based nanocomposite functionalized with PTHrP-2 and loaded with polyoxometalates for osteoarthritis therapy.",
+      "doi": "10.1016/j.biomaterials.2026.124450",
+      "pub_date": "2027 Jan",
+      "journal": "Biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42468596",
+      "title": "M2 macrophage-based biohybrid system regulates intestinal microbiota homeostasis and immunity for the treatment of inflammatory bowel disease.",
+      "doi": "10.1016/j.actbio.2026.07.030",
+      "pub_date": "2026 Aug",
+      "journal": "Acta biomaterialia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42496851",
+      "title": "Click-crosslinked nano-hydrogel enables metabolic immune reprogramming for diabetic foot ulcers.",
+      "doi": "10.1007/s11427-025-3178-1",
+      "pub_date": "2026 Aug",
+      "journal": "Science China. Life sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42514576",
+      "title": "Functional Effects of Calcium Sources in Soilless Lettuce Cultivation.",
+      "doi": "10.3390/plants15142209",
+      "pub_date": "2026 Jul 20",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42536046",
+      "title": "Early-stage diagnosis of nutrient deficiency by chlorophyll fluorescence in maize.",
+      "doi": "10.1111/plb.70273",
+      "pub_date": "2026 Oct",
+      "journal": "Plant biology (Stuttgart, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42555085",
+      "title": "High-performance MXene/CuNWs/MH-TPU piezoresistive strain sensors fabricated via template-assisted phase separation with integrated thermal-EMI dual protection for emergency rescue.",
+      "doi": "10.1039/d6tb01131d",
+      "pub_date": "2026 Aug 19",
+      "journal": "Journal of materials chemistry. B",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42569905",
+      "title": "The SNHG16/miR-485-5p axis exacerbates neuronal injury in pediatric temporal lobe epilepsy.",
+      "doi": "10.1002/epd2.70316",
+      "pub_date": "2026 Aug 8",
+      "journal": "Epileptic disorders : international epilepsy journal with videotape",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42571062",
+      "title": "Impact of A Fertility Diet on Male Reproductive Function: A 12-Week Randomized Clinical Trial in Idiopathic Infertility Patients.",
+      "doi": "10.22074/ijfs.2025.2059560.1874",
+      "pub_date": "2026 Jul 27",
+      "journal": "International journal of fertility & sterility",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42586514",
+      "title": "Balancing Act: Dual targeting of PhoPQ and QseBC two-component systems in Edwardsiella tarda enhances attenuation but diminishes protective immunity.",
+      "doi": "10.1016/j.micpath.2026.108764",
+      "pub_date": "2026 Oct",
+      "journal": "Microbial pathogenesis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42590247",
+      "title": "Influence of Post Processing and Alloying with Zn on Formability of an Mg-2Al-0.5Ca-0.4Mn Alloy.",
+      "doi": "10.3390/ma19153168",
+      "pub_date": "2026 Jul 24",
+      "journal": "Materials (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42591058",
+      "title": "Chromatin Packing Domain Engineering Through the Manipulation of Nuclear Cationic States.",
+      "doi": "10.1002/advs.76786",
+      "pub_date": "2026 Aug 13",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42613701",
+      "title": "Integrative Phytotherapy for Neurodegenerative Disorders: Bridging Traditional Botanicals, Bioactive Compounds, and Nanotechnology.",
+      "doi": "10.2174/0113892010419603260127123920",
+      "pub_date": "2026 Jul 31",
+      "journal": "Current pharmaceutical biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42617826",
+      "title": "Salidroside and tyrosol exert anxiolytic effects by modulating brain endogenous phenols via 4-hydroxyphenyllactic acid as a key functional metabolite.",
+      "doi": "10.1016/j.jep.2026.122303",
+      "pub_date": "2026 Aug 19",
+      "journal": "Journal of ethnopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42633382",
+      "title": "Phototriggered adhesive hydrogels integrating Mg/Quercetin MOFs for synchronous regulation of inflammation and angiogenesis in diabetic wounds.",
+      "doi": "10.1016/j.mtbio.2026.103547",
+      "pub_date": "2026 Oct",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42650218",
+      "title": "Protective Effects of Selected Herbal Additives Against Ochratoxin A-Induced Toxicosis and Oxidative Damage in Rabbits.",
+      "doi": "10.3390/antiox15080954",
+      "pub_date": "2026 Jul 30",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42651845",
+      "title": "Integrative Multi-Omics Analysis Reveals Systemic Transcriptional and Hormonal Reprogramming Associated with a Rice Yellow-Green Leaf Mutant.",
+      "doi": "10.3390/cimb48080848",
+      "pub_date": "2026 Aug 20",
+      "journal": "Current issues in molecular biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42653436",
+      "title": "Cognitive and Neurochemical Effects of Brivaracetam Co-Administered with Ethanol: A Preclinical Study.",
+      "doi": "10.3390/ijms27167435",
+      "pub_date": "2026 Aug 20",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42657292",
+      "title": "Optimized Ag enhances antibacterial activity and corrosion resistance of extruded Mg-2Zn-0.2Ca alloy.",
+      "doi": "10.1016/j.isci.2026.117220",
+      "pub_date": "2026 Sep 18",
+      "journal": "iScience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42679751",
+      "title": "Flavokawain B inhibits ER-associated protein dislocation and reduces infectious Zika virus production.",
+      "doi": "10.1016/j.bbrc.2026.154518",
+      "pub_date": "2026 Oct 15",
+      "journal": "Biochemical and biophysical research communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((ashwagandha[Title/Abstract] OR \"Withania somnifera\"[Title/Abstract] OR theanine[Title/Abstract] OR kava[Title/Abstract] OR lavender[Title/Abstract] OR chamomile[Title/Abstract] OR rhodiola[Title/Abstract] OR saffron[Title/Abstract] OR magnesium[Title/Abstract]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}
