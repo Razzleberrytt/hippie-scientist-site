@@ -49,6 +49,13 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   if (clean(metadata.role) !== clean(asset.role) || clean(metadata.factualAuthority) !== clean(asset.factualAuthority)) {
     throw new Error(`video scene governed metadata mismatch: ${asset.file}`)
   }
+  if (clean(asset.beatId)) {
+    if (clean(metadata.beatId) !== clean(asset.beatId)
+        || clean(metadata.beatReceiptSha256) !== clean(asset.beatReceiptSha256)
+        || clean(metadata.cutReason) !== clean(asset.cutReason)) {
+      throw new Error(`R8.05 semantic beat metadata mismatch: ${asset.file}`)
+    }
+  }
   return { file, bytes }
 }
 
@@ -57,7 +64,13 @@ function verifyPackage(packageDir) {
   const manifestBytes = fs.readFileSync(manifestPath)
   const manifest = JSON.parse(manifestBytes.toString('utf8'))
   if (clean(manifest.renderer) !== 'vertical-video-package-v1') throw new Error('MP4 renderer requires vertical-video-package-v1 input')
-  if (Number(manifest.durationSeconds) !== 30) throw new Error('MP4 renderer requires an exact 30-second parent package')
+  const release = clean(manifest.release || manifest.systemRelease) || 'R8.04'
+  const durationSeconds = Number(manifest.durationSeconds)
+  if (release === 'R8.04' && durationSeconds !== 30) throw new Error('R8.04 MP4 renderer requires an exact 30-second parent package')
+  if (release === 'R8.05' && (!Number.isFinite(durationSeconds) || durationSeconds < 5 || durationSeconds > 60)) {
+    throw new Error('R8.05 MP4 renderer requires the voice-authored natural duration inside the 5-60s envelope')
+  }
+  if (!['R8.04', 'R8.05'].includes(release)) throw new Error(`unsupported video release: ${release}`)
   const sourceUrl = clean(manifest.sourceUrl)
   const sourceContentHash = clean(manifest.sourceContentHash)
   if (!sourceUrl || !sourceContentHash) throw new Error('parent package source provenance is required')
@@ -71,8 +84,16 @@ function verifyPackage(packageDir) {
   if (clean(timeline.sourceUrl) !== sourceUrl || clean(timeline.sourceContentHash) !== sourceContentHash) {
     throw new Error('timeline provenance does not match parent manifest')
   }
-  if (Number(timeline.durationSeconds) !== 30 || Number(timeline.width) !== 1080 || Number(timeline.height) !== 1920 || Number(timeline.fps) !== 30) {
-    throw new Error('timeline does not match canonical 1080x1920@30fps 30-second profile')
+  if (!timingMatches(timeline.durationSeconds, durationSeconds) || Number(timeline.width) !== 1080 || Number(timeline.height) !== 1920 || Number(timeline.fps) !== 30) {
+    throw new Error('timeline does not match the governed 1080x1920@30fps natural-duration profile')
+  }
+  if (release === 'R8.05') {
+    if (clean(timeline.systemRelease) !== 'R8.05' || clean(timeline.timingAuthority) !== 'exact-local-narration') {
+      throw new Error('R8.05 video timeline must be authored from exact local narration')
+    }
+    if (!clean(timeline.semanticBeatMapSha256) || clean(timeline.semanticBeatMapSha256) !== clean(manifest.creativeQuality?.semanticBeatMapSha256)) {
+      throw new Error('R8.05 video timeline is not bound to the approved semantic beat map')
+    }
   }
 
   const assets = Array.isArray(manifest.assets) ? manifest.assets : []
@@ -100,11 +121,11 @@ function verifyPackage(packageDir) {
     expectedStart = end
     totalDuration += duration
   }
-  if (!timingMatches(expectedStart, 30) || !timingMatches(totalDuration, 30)) {
-    throw new Error('video scene timing does not cover exactly 30 seconds')
+  if (!timingMatches(expectedStart, durationSeconds) || !timingMatches(totalDuration, durationSeconds)) {
+    throw new Error('video scene timing does not cover the exact governed runtime')
   }
 
-  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets }
+  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds }
 }
 
 function verifyLocalNarration(packageDir, manifest) {
@@ -116,7 +137,9 @@ function verifyLocalNarration(packageDir, manifest) {
   const scriptBytes = fs.readFileSync(scriptFile)
   if (sha256(scriptBytes) !== clean(scriptMeta.sha256)) throw new Error('narration script hash mismatch')
   const script = JSON.parse(scriptBytes.toString('utf8'))
-  if (clean(script.schemaVersion) !== 'ths-local-narration-script-v1' || clean(script.packId) !== clean(manifest.packId) || Number(script.durationSeconds) !== 30) {
+  if (clean(script.schemaVersion) !== 'ths-local-narration-script-v1'
+      || clean(script.packId) !== clean(manifest.packId)
+      || !timingMatches(script.durationSeconds, manifest.durationSeconds)) {
     throw new Error('narration script identity/profile does not match parent manifest')
   }
 
@@ -147,21 +170,39 @@ function verifyLocalNarration(packageDir, manifest) {
   if (narrationReceipt.accountRequired !== false || narrationReceipt.apiKeyRequired !== false || narrationReceipt.meteredCreditsRequired !== false) {
     throw new Error('R8.04 narration receipt indicates an account/API-key/credit dependency')
   }
-  if (clean(narrationReceipt.source?.scriptSha256) !== clean(scriptMeta.sha256) || clean(narrationReceipt.source?.packId) !== clean(manifest.packId)) {
-    throw new Error('local narration receipt was produced from a stale script/package')
+  const release = clean(manifest.release || manifest.systemRelease) || 'R8.04'
+  if (release === 'R8.04') {
+    if (clean(narrationReceipt.source?.scriptSha256) !== clean(scriptMeta.sha256) || clean(narrationReceipt.source?.packId) !== clean(manifest.packId)) {
+      throw new Error('local narration receipt was produced from a stale R8.04 script/package')
+    }
+  } else {
+    const bindings = manifest.r805Bindings
+    if (clean(narrationReceipt.release) !== 'R8.05'
+        || clean(narrationReceipt.source?.timingAuthority) !== 'exact-local-narration'
+        || clean(narrationReceipt.source?.creativeBriefSha256) !== clean(bindings?.creativeBrief?.sha256)
+        || clean(narrationReceipt.source?.beatTimelineSha256) !== clean(bindings?.semanticBeatTimeline?.sha256)
+        || clean(bindings?.audioSha256) !== audioSha256) {
+      throw new Error('R8.05 narration receipt does not match the voice-authored visual package bindings')
+    }
   }
   if (clean(narrationReceipt.output?.file) !== 'narration.wav' || clean(narrationReceipt.output?.sha256) !== audioSha256 || Number(narrationReceipt.output?.bytes) !== audioBytes.length) {
     throw new Error('local narration WAV does not match its provenance receipt')
   }
-  if (Number(narrationReceipt.profile?.durationSeconds) !== 30 || Number(narrationReceipt.profile?.channels) !== 1) {
-    throw new Error('local narration receipt does not match the canonical audio profile')
+  if (!timingMatches(narrationReceipt.profile?.durationSeconds, manifest.durationSeconds) || Number(narrationReceipt.profile?.channels) !== 1) {
+    throw new Error('local narration receipt does not match the governed audio profile')
   }
 
-  if (clean(voiceQa.schemaVersion) !== 'ths-voice-qa-receipt-v1' || clean(voiceQa.release) !== 'R8.04') {
-    throw new Error('R8.04 voice QA receipt is missing or incompatible')
+  if (clean(voiceQa.schemaVersion) !== 'ths-voice-qa-receipt-v1' || clean(voiceQa.release) !== release) {
+    throw new Error(`${release} voice QA receipt is missing or incompatible`)
   }
   if (clean(voiceQa.artifact?.sha256) !== audioSha256 || clean(voiceQa.narrationReceiptSha256) !== narrationReceiptSha256) {
     throw new Error('voice QA receipt does not bind the exact local narration artifact')
+  }
+  if (release === 'R8.05') {
+    if (clean(voiceQa.semanticBeatTimelineSha256) !== clean(manifest.r805Bindings?.semanticBeatTimeline?.sha256)
+        || clean(voiceQa.creativeBriefSha256) !== clean(manifest.r805Bindings?.creativeBrief?.sha256)) {
+      throw new Error('R8.05 voice QA is not bound to the exact semantic beat timeline and creative brief')
+    }
   }
   if (clean(voiceQa.engine?.kind) !== 'local-open-source') throw new Error('voice QA approved a non-local narration engine')
   if (clean(voiceQa.qa?.naturalPresence) !== 'pass' || clean(voiceQa.qa?.pronunciation) !== 'pass' || voiceQa.qa?.exactArtifactReviewed !== true) {
@@ -200,11 +241,12 @@ function ffmpegVersion(ffmpegPath) {
   return clean(String(result.stdout || '').split('\n')[0])
 }
 
-export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 }) {
+export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256, release = 'R8.04', durationSeconds = 30 }) {
   for (const [label, value] of Object.entries({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 })) {
-    if (!clean(value)) throw new Error(`${label} is required for R8.04 MP4 render identity`)
+    if (!clean(value)) throw new Error(`${label} is required for MP4 render identity`)
   }
-  return sha256(`vertical-video-mp4-v2-r804\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\nlibx264\naac192k\nyuv420p\n`)
+  const renderer = release === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
+  return sha256(`${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`)
 }
 
 export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
@@ -222,6 +264,8 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     ffmpegVersionLine: version,
     narrationSha256: narration.audioSha256,
     voiceQaSha256: narration.voiceQaSha256,
+    release: verified.release,
+    durationSeconds: verified.durationSeconds,
   })
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-video-mp4-'))
 
@@ -245,20 +289,20 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-f', 'concat', '-safe', '0', '-i', concatFile,
       '-i', narration.file,
       '-vf', 'fps=30,scale=1080:1920:flags=lanczos',
-      '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=30,atrim=duration=30',
+      '-af', `loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`,
       '-map', '0:v:0', '-map', '1:a:0',
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
       '-c:a', 'aac', '-b:a', '192k',
-      '-pix_fmt', 'yuv420p', '-t', '30',
+      '-pix_fmt', 'yuv420p', '-t', String(verified.durationSeconds),
       '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
     ])
 
     const outputBytes = fs.readFileSync(output)
     if (!outputBytes.length) throw new Error('ffmpeg produced an empty MP4')
     const receipt = {
-      schemaVersion: '2.0.0',
-      release: 'R8.04',
-      renderer: 'vertical-video-mp4-v2-r804',
+      schemaVersion: verified.release === 'R8.05' ? '3.0.0' : '2.0.0',
+      release: verified.release,
+      renderer: verified.release === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804',
       parentRenderer: verified.manifest.renderer,
       packId: verified.manifest.packId,
       sourceUrl: verified.sourceUrl,
@@ -270,13 +314,19 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         width: 1080,
         height: 1920,
         fps: 30,
-        durationSeconds: 30,
+        durationSeconds: verified.durationSeconds,
         codec: 'libx264',
         pixelFormat: 'yuv420p',
         audio: true,
         audioCodec: 'aac',
         audioBitrate: '192k',
       },
+      creativeQuality: verified.release === 'R8.05' ? {
+        semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
+        creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
+        semanticBeatTimelineSha256: clean(verified.manifest.r805Bindings?.semanticBeatTimeline?.sha256),
+        exactMasterCohesion: 'pending',
+      } : null,
       localNarration: {
         engine: clean(narration.narrationReceipt.engine?.name),
         model: clean(narration.narrationReceipt.engine?.model),
