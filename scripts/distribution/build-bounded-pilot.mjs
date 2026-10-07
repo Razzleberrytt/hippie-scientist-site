@@ -66,10 +66,14 @@ export function validateR805BriefCopyAgainstCanonical(brief, canonicalSpec) {
 
   for (const role of ['evidence', 'context', 'cta']) {
     const expected = canonicalByRole.get(role)
-    for (const beat of exactRoleBeats(brief, role)) {
-      if (!expected || clean(beat.narration) !== expected.narration || clean(beat.onScreenText) !== expected.onScreenText) {
-        errors.push(`R8.05 ${role} beat must match the canonical governed ${role} copy exactly`)
-      }
+    const beats = exactRoleBeats(brief, role)
+    if (beats.length !== 1) {
+      errors.push(`R8.05 requires exactly one governed ${role} beat`)
+      continue
+    }
+    const beat = beats[0]
+    if (!expected || clean(beat.narration) !== expected.narration || clean(beat.onScreenText) !== expected.onScreenText) {
+      errors.push(`R8.05 ${role} beat must match the canonical governed ${role} copy exactly`)
     }
   }
 
