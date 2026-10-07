@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6417-6424-exact",
   "range": "6417-6424",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6418,
-      "pmid": "35975564",
-      "title_verified": false,
-      "abstract_verified": false,
-      "verified_title": null
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "botanicals_mushrooms",
@@ -50,15 +42,16 @@
       "selection_score": 11,
       "wave": 6418,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "verified_title": "Protective effects of Panax ginseng against doxorubicin-induced cardiac toxicity in patients with non-metastatic breast cancer: A randomized, double-blind, placebo-controlled clinical trial.",
+      "abstract": "Anthracycline-based chemotherapy increases the risk of cancer therapeutics-related cardiac dysfunction. Recently, evidences from in vitro experiments and animal studies have shown that ginsenosides may exert cardiovascular protection against cancer therapeutics-related cardiac dysfunction. Here, we aimed to evaluate this effect in a clinical situation. In this randomized, double-blind, placebo-controlled clinical trial, women with non-metastatic breast cancer whose left ventricular ejection fraction was ≥ 50% were randomly assigned in 1:1 ratio to receive ginseng (1 g/day) or placebo besides standard chemotherapy. Echocardiographic measurements were performed at baseline, after the fourth, and eighth chemotherapy cycles. High-sensitive cardiac troponin I was assessed at baseline and after the 4th cycle. The primary endpoint of the study was change in left ventricular ejection fraction. Cancer therapeutics-related cardiac dysfunction was defined as a drop in left ventricular ejection fraction of ≥ 10% from baseline. Results from 30 patients were included in the final analysis (15 patients in each group). In the intervention and control groups, left ventricular ejection fraction was dropped from 62.0 ± 0.9% to 60.7 ± 1.0% (difference = -1.3 ± 1.1%) and from 63.27 ± 1.1% to 58.0 ± 1.3% (difference = -5.27 ± 0.8%), respectively (difference = 3.97%, p = 0.006) at the end of the fourth cycle of chemotherapy. After the eighth cycle of chemotherapy, the mean left ventricular ejection fraction was increased by 0.8 ± 1.3% from baseline in the intervention group, whereas the placebo group experienced a reduction of -7.3 ± 1.4% (difference = 8.1%, p-value < 0.001). None of the patients in the ginseng group in comparison to 1(6.7%, p-value = 0.5) and 5 (33.3%, p-value = 0.02) patients in the placebo group developed cancer therapeutics-related cardiac dysfunction after the fourth and eighth cycles, respectively. High-sensitive cardiac troponin I levels were not significantly different between groups. Prophylactic ginseng supplementation may protect against doxorubicin-induced early cancer therapeutics-related cardiac dysfunction and early decline in left ventricular ejection fraction in breast cancer patients.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1177/10781552221118530",
+      "full_text_link": "",
+      "verified_journal": "Journal of oncology pharmacy practice : official publication of the International Society of Oncology Pharmacy Practitioners",
+      "verified_pub_date": "2023-Sep",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Transient retrieval miss resolved on individual retry."
     },
     {
       "category": "botanicals_mushrooms",
