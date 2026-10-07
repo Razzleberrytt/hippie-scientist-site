@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6481-6488-exact",
   "range": "6481-6488",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6483,
-      "pmid": "38479439",
-      "title_verified": false,
-      "abstract_verified": true,
-      "verified_title": "The immune cell transcriptome is modulated by vitamin D3 supplementation in people with a first demyelinating event participating in a randomized placebo-controlled trial."
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "immune_respiratory",
@@ -76,12 +68,13 @@
       "verified_title": "The immune cell transcriptome is modulated by vitamin D3 supplementation in people with a first demyelinating event participating in a randomized placebo-controlled trial.",
       "abstract": "Vitamin D deficiency is a risk factor for developing multiple sclerosis. The PrevANZ trial was conducted to determine if vitamin D3 supplementation can prevent recurrent disease activity in people with a first demyelinating event. As a sub-study of this trial, we investigated the effect of supplementation on peripheral immune cell gene expression. Participants were randomized to 1000, 5000 or 10,000 international units daily of vitamin D3 or placebo. Peripheral blood was collected at baseline and 12 weeks and sent for ribonucleic acid sequencing. Datasets from 55 participants were included. Gene expression was modulated by high dose supplementation. Antigen presentation and viral response pathways were upregulated. Oxidative phosphorylation and immune signaling pathways, including tumor necrosis factor-alpha and interleukin-17 signaling, were downregulated. Overall, vitamin D3 supplementation for 12 weeks modulated the peripheral immune cell transcriptome with induction of anti-inflammatory gene expression profiles. Our results support a dose-dependent effect of vitamin D3 supplementation on immune gene expression.",
       "abstract_verified": true,
-      "title_verified": false,
+      "title_verified": true,
       "pdf_link": "https://doi.org/10.1016/j.clim.2024.110183",
       "full_text_link": "",
       "verified_journal": "Clinical immunology (Orlando, Fla.)",
       "verified_pub_date": "2024-May",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Exact PMID match; candidate 'vitamin D(3)' and PubMed 'vitamin D3' differ only by typography."
     },
     {
       "category": "immune_respiratory",
