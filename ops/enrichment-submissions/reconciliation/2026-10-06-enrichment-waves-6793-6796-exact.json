@@ -3,14 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6793-6796-exact",
   "range": "6793-6796",
   "row_count": 4,
-  "exact_verified_rows": 2,
+  "exact_verified_rows": 3,
   "failures": [
-    {
-      "wave": 6794,
-      "pmid": "32823218",
-      "title_verified": false,
-      "abstract_verified": false
-    },
     {
       "wave": 6796,
       "pmid": "31837640",
@@ -53,14 +47,14 @@
       "selection_score": 14,
       "wave": 6794,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Effect of adjunctive single dose parenteral Vitamin D supplementation in major depressive disorder with concurrent vitamin D deficiency: A double-blind randomized placebo-controlled trial.",
+      "abstract": "Adjunctive vitamin D replacement is a theoretically promising strategy to improve outcomes in major depression. Our objective was to assess the efficacy of a single parenteral dose of vitamin D supplementation at baseline as an adjunct to treatment as usual on change in depression symptom ratings (primary outcome), quality of life and clinical severity of illness (secondary outcomes) at the end of 12 weeks when compared to treatment as usual in patients with major depression and concurrent Vitamin D deficiency. Eligible participants were randomized to receive either treatment as usual (TAU; n = 23) or TAU plus single parenteral dose of 3,00,000 IU of vitamin D (n = 23) at baseline. Rater-blinded assessments of depression (primary outcome), quality of life (QoL) and clinical severity of illness were obtained at baseline, and end of follow-up (12 weeks). Intent-to-treat analyses were performed on the entire randomized sample. The intervention significantly improved depression symptom ratings, quality of life and clinical severity of illness at the end of the treatment phase. These findings indicate that a single parenteral dose (3,00,000 IU) of adjunctive vitamin D replacement at baseline is an effective and well tolerated intervention in major depressive disorder with concurrent Vitamin D deficiency. Additionally, it points to a possible role for vitamin D in the pathophysiology of depression and supports personalized approaches for treatment of major depressive disorder.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.jpsychires.2020.07.037",
+      "full_text_link": "",
+      "verified_journal": "Journal of psychiatric research",
+      "verified_pub_date": "2020-Oct",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
