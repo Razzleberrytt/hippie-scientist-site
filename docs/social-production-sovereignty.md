@@ -98,3 +98,7 @@ A production is non-canonical if a future rebuild requires access to an account-
 Quality may fail closed. Dependencies may not fail open.
 
 If a local capability is missing, repair the local capability. Do not substitute a lower-quality or credit-gated provider just to produce an artifact.
+
+## Local implementation guide
+
+The executable local narration setup, generation, exact-audio review, and failure procedure is documented in `docs/local-voice-runtime.md`. That guide is subordinate to this policy and may not introduce a hosted or credit-gated fallback.
