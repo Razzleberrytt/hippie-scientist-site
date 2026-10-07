@@ -89,9 +89,18 @@ function stageCarousel({ pilot, sourceDirectory, bundleDir, publicOrigin, object
 }
 
 function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, objectId, bundleId }) {
-  if (pilot?.assets?.renderer !== 'vertical-video-package-v1' || Number(pilot?.assets?.durationSeconds) !== 30) {
-    throw new Error('THS Publisher video staging requires the governed 30-second vertical-video package')
+  const packageRelease = clean(pilot?.assets?.release || pilot?.assets?.systemRelease) || 'R8.04'
+  const packageDuration = Number(pilot?.assets?.durationSeconds)
+  if (pilot?.assets?.renderer !== 'vertical-video-package-v1') {
+    throw new Error('THS Publisher video staging requires the governed vertical-video package')
   }
+  if (packageRelease === 'R8.04' && packageDuration !== 30) {
+    throw new Error('R8.04 Publisher staging requires the governed 30-second vertical-video package')
+  }
+  if (packageRelease === 'R8.05' && (!Number.isFinite(packageDuration) || packageDuration < 5 || packageDuration > 60)) {
+    throw new Error('R8.05 Publisher staging requires the exact voice-authored natural runtime')
+  }
+  if (!['R8.04', 'R8.05'].includes(packageRelease)) throw new Error(`unsupported THS video release: ${packageRelease}`)
   const manifestFile = path.join(sourceDirectory, 'video-asset-manifest.json')
   const mp4File = path.join(sourceDirectory, 'short-video.mp4')
   const receiptFile = `${mp4File}.receipt.json`
@@ -102,8 +111,10 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   const manifestBytes = fs.readFileSync(manifestFile)
   const mp4Bytes = fs.readFileSync(mp4File)
   const receipt = readJson(receiptFile)
-  if (receipt?.schemaVersion !== '2.0.0' || receipt?.renderer !== 'vertical-video-mp4-v2-r804' || receipt?.release !== 'R8.04') {
-    throw new Error('THS Publisher video staging requires a governed R8.04 vertical-video-mp4-v2-r804 receipt')
+  const expectedRenderer = packageRelease === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
+  const expectedSchema = packageRelease === 'R8.05' ? '3.0.0' : '2.0.0'
+  if (receipt?.schemaVersion !== expectedSchema || receipt?.renderer !== expectedRenderer || receipt?.release !== packageRelease) {
+    throw new Error(`THS Publisher video staging requires the governed ${packageRelease} ${expectedRenderer} receipt`)
   }
   if (clean(receipt.parentRenderer) !== clean(pilot.assets.renderer) || clean(receipt.packId) !== clean(pilot.assets.packId)) {
     throw new Error('THS Publisher MP4 receipt does not match the governed parent package')
@@ -118,8 +129,8 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   if (clean(receipt.output?.file) !== 'short-video.mp4' || clean(receipt.output?.sha256) !== actualHash || Number(receipt.output?.bytes) !== mp4Bytes.length) {
     throw new Error('THS Publisher MP4 output hash/size does not match its receipt')
   }
-  if (Number(receipt.profile?.width) !== 1080 || Number(receipt.profile?.height) !== 1920 || Number(receipt.profile?.durationSeconds) !== 30) {
-    throw new Error('THS Publisher MP4 receipt does not match the governed vertical-video profile')
+  if (Number(receipt.profile?.width) !== 1080 || Number(receipt.profile?.height) !== 1920 || Math.abs(Number(receipt.profile?.durationSeconds) - packageDuration) > 0.001) {
+    throw new Error('THS Publisher MP4 receipt does not match the governed vertical-video profile/runtime')
   }
   if (receipt.profile?.audio !== true || clean(receipt.profile?.audioCodec) !== 'aac') {
     throw new Error('R8.04 publication staging rejects silent vertical video')
@@ -128,7 +139,34 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
     throw new Error('R8.04 publication staging requires zero-credit local narration provenance')
   }
   if (clean(receipt.localNarration?.naturalPresence) !== 'pass' || clean(receipt.localNarration?.pronunciation) !== 'pass') {
-    throw new Error('R8.04 publication staging requires passed Natural Presence and pronunciation receipts')
+    throw new Error(`${packageRelease} publication staging requires passed Natural Presence and pronunciation receipts`)
+  }
+
+  let masterQa = null
+  if (packageRelease === 'R8.05') {
+    const masterQaFile = path.join(sourceDirectory, 'r805-master-qa.receipt.json')
+    if (!fs.existsSync(masterQaFile)) {
+      throw new Error('R8.05 publication staging requires exact-master cohesion approval; technical sync alone is insufficient')
+    }
+    const masterQaBytes = fs.readFileSync(masterQaFile)
+    masterQa = JSON.parse(masterQaBytes.toString('utf8'))
+    if (clean(masterQa.schemaVersion) !== 'ths-r805-master-qa-receipt-v1'
+        || clean(masterQa.release) !== 'R8.05'
+        || masterQa.exactArtifactReviewed !== true
+        || clean(masterQa.artifact?.sha256) !== actualHash
+        || Number(masterQa.artifact?.bytes) !== mp4Bytes.length
+        || clean(masterQa.mp4ReceiptSha256) !== sha256(fs.readFileSync(receiptFile))
+        || clean(masterQa.parentManifestSha256) !== sha256(manifestBytes)) {
+      throw new Error('R8.05 master QA receipt does not bind the exact MP4/render/manifest')
+    }
+    for (const field of ['wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync', 'cognitiveContinuity', 'hookPromiseDelivery']) {
+      if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.05 master QA requires ${field}=pass`)
+    }
+    if (clean(masterQa.creativeBindings?.semanticBeatMapSha256) !== clean(pilot.assets?.creativeQuality?.semanticBeatMapSha256)
+        || clean(masterQa.creativeBindings?.creativeBriefSha256) !== clean(pilot.assets?.r805Bindings?.creativeBrief?.sha256)
+        || clean(masterQa.creativeBindings?.semanticBeatTimelineSha256) !== clean(pilot.assets?.r805Bindings?.semanticBeatTimeline?.sha256)) {
+      throw new Error('R8.05 master QA semantic bindings are stale')
+    }
   }
 
   fs.writeFileSync(path.join(bundleDir, 'short-video.mp4'), mp4Bytes)
@@ -141,11 +179,17 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
       sha256: actualHash,
       width: 1080,
       height: 1920,
-      durationSeconds: 30,
+      durationSeconds: packageDuration,
       contentType: 'video/mp4',
       bytes: mp4Bytes.length,
       renderKey: clean(receipt.renderKey),
       parentManifestSha256: clean(receipt.parentManifestSha256),
+      masterQa: masterQa ? {
+        receiptSha256: sha256(Buffer.from(`${JSON.stringify(masterQa, null, 2)}\n`)),
+        wholePieceCohesion: clean(masterQa.qa?.wholePieceCohesion),
+        narrationVisualSync: clean(masterQa.qa?.narrationVisualSync),
+        internalMotionSync: clean(masterQa.qa?.internalMotionSync),
+      } : null,
       audio: {
         codec: clean(receipt.profile?.audioCodec),
         localEngine: clean(receipt.localNarration?.engine),
