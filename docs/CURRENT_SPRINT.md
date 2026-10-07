@@ -2,7 +2,7 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-06
+**Updated:** 2026-10-07
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
 **Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
@@ -50,6 +50,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M6 | Not started |
 
 ## Active / in review — implementation WIP 0/3
+
+**Production-safety control #6378 / PR #6377:** In review — enforce R8.04 sovereign social production after a real provider-credit failure exposed that local/no-credit voice existed as an option rather than a mandatory release path. Scope is bounded to the social production critical path: local narration, exact-audio QA, audible MP4 rendering, THS Publisher staging, zero-credit CI, and authoritative control documentation. This is a production-integrity repair, not a new broad publishing program and not proof of audience/business lift.
+
 
 **Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
 
