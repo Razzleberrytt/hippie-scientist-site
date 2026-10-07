@@ -40,6 +40,36 @@ function validBrief() {
         pauseAfterSeconds: 0.16,
       },
       {
+        id: 'finding',
+        role: 'finding',
+        narration: 'The combined stack did not clearly outperform the simpler arm.',
+        onScreenText: 'NO CLEAR ADVANTAGE',
+        visualPurpose: 'Deliver the concrete result before evidence details.',
+        spokenAnchor: 'did not clearly outperform',
+        visualAction: 'result statement receives a visible emphasis',
+        motion: { type: 'highlight' },
+        cutReason: 'emphasis',
+        factualAuthority: 'canonical-input',
+        primaryEntities: ['result'],
+        comparisonRequired: false,
+        pauseAfterSeconds: 0.12,
+      },
+      {
+        id: 'evidence',
+        role: 'evidence',
+        narration: 'The result came from randomized human evidence.',
+        onScreenText: 'RANDOMIZED HUMAN EVIDENCE',
+        visualPurpose: 'Show the evidence class after the payoff.',
+        spokenAnchor: 'randomized human evidence',
+        visualAction: 'evidence label is revealed',
+        motion: { type: 'reveal' },
+        cutReason: 'reveal',
+        factualAuthority: 'canonical-input',
+        primaryEntities: ['evidence-class'],
+        comparisonRequired: false,
+        pauseAfterSeconds: 0.12,
+      },
+      {
         id: 'qualifier',
         role: 'limitation',
         narration: 'But the ingredients were not tested one by one.',
@@ -53,6 +83,36 @@ function validBrief() {
         primaryEntities: ['ingredient-level-uncertainty'],
         comparisonRequired: false,
         pauseAfterSeconds: 0.14,
+      },
+      {
+        id: 'context',
+        role: 'context',
+        narration: 'Educational, not medical advice.',
+        onScreenText: 'Educational, not medical advice.',
+        visualPurpose: 'Keep the disclosure legible.',
+        spokenAnchor: 'Educational',
+        visualAction: 'disclosure receives a visible emphasis',
+        motion: { type: 'highlight' },
+        cutReason: 'pause',
+        factualAuthority: 'canonical-input',
+        primaryEntities: ['disclosure'],
+        comparisonRequired: false,
+        pauseAfterSeconds: 0.1,
+      },
+      {
+        id: 'cta',
+        role: 'cta',
+        narration: 'Read the full evidence page.',
+        onScreenText: 'Read the full evidence page.',
+        visualPurpose: 'End with the governed evidence CTA.',
+        spokenAnchor: 'Read the full evidence page',
+        visualAction: 'CTA is revealed',
+        motion: { type: 'reveal' },
+        cutReason: 'end',
+        factualAuthority: 'canonical-input',
+        primaryEntities: ['cta'],
+        comparisonRequired: false,
+        pauseAfterSeconds: 0.1,
       },
       {
         id: 'source',
@@ -89,10 +149,18 @@ describe('R8.05 creative gate', () => {
       cutOnMeaning: true,
       internalMotionPlanRequired: true,
       internalMotionSyncCertifiedAt: 'exact-master-qa',
-      semanticBeatCount: 3,
+      semanticBeatCount: 7,
     })
     expect(buildR805CreativeReceipt(brief).semanticBeatMapSha256).toMatch(/^[a-f0-9]{64}$/)
-    expect(buildR805CreativeReceipt(brief).beatReceipts).toHaveLength(3)
+    expect(buildR805CreativeReceipt(brief).beatReceipts).toHaveLength(7)
+  })
+
+  it('rejects self-reported payoff metadata when the rendered order starts with evidence', () => {
+    const brief = validBrief()
+    const hook = brief.beats.shift()
+    brief.beats.splice(2, 0, hook)
+    const errors = validateR805CreativeBrief(brief).join('\n')
+    expect(errors).toMatch(/hook to be the first rendered beat/i)
   })
 
   it('rejects methodology-first, fixed-duration, overloaded or repeatedly rescued work', () => {
