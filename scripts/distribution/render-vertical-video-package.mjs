@@ -342,6 +342,25 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   const captions = buildSrt(scenes)
   fs.writeFileSync(path.join(dir, 'captions.srt'), captions)
 
+  const narrationScript = {
+    schemaVersion: 'ths-local-narration-script-v1',
+    release: 'R8.04',
+    packId: mediaPack.packId,
+    sourceContentHash: mediaPack.source.contentHash,
+    sourceUrl: mediaPack.source.url,
+    durationSeconds: 30,
+    sampleRate: 24000,
+    scenes: scenes.map((scene) => ({
+      role: scene.role,
+      start: scene.start,
+      end: scene.end,
+      text: clean(scene.voiceover),
+      factualAuthority: scene.factualAuthority,
+    })),
+  }
+  const narrationScriptBytes = `${JSON.stringify(narrationScript, null, 2)}\n`
+  fs.writeFileSync(path.join(dir, 'narration-script.json'), narrationScriptBytes)
+
   const manifest = {
     schemaVersion: '1.0.0',
     packId: mediaPack.packId,
@@ -351,6 +370,13 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     durationSeconds: 30,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
     captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true },
+    narrationScript: {
+      file: 'narration-script.json',
+      sha256: sha256(narrationScriptBytes),
+      schemaVersion: narrationScript.schemaVersion,
+      localVoiceRequired: true,
+      premiumProviderFallbackAllowed: false,
+    },
     assets,
   }
   fs.writeFileSync(path.join(dir, 'video-asset-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
