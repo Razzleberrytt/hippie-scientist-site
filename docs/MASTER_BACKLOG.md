@@ -46,7 +46,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**#6378 / PR #6377 — production-safety control, in review:** make R8.04 sovereign zero-credit social production enforceable in real code. Acceptance requires an audible local/self-hosted narration path, exact-artifact Natural Presence/pronunciation approval, no silent MP4 release, manual-upload-capable packaging, and a CI gate that watches the actual production surfaces. Paid memberships, metered generation credits, third-party schedulers, and robotic system-TTS fallbacks are prohibited from the canonical critical path.
+**#6382 — R8.05 creative-quality control, active:** make attention and audiovisual coherence release gates rather than optional polish. Acceptance requires pre-render premise-interest and one-mental-job gates, payoff-before-method, natural-duration editing, narration-first semantic beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. Preserve all R8.04 zero-credit sovereignty and R8.03 evidence/trust invariants.
 
 
 **Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
