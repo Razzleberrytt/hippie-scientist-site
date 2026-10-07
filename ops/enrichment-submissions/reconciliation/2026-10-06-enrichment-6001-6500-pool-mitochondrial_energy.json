@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "category": "mitochondrial_energy",
+  "target": 6,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 18,
+  "rows": [
+    {
+      "pmid": "42530633",
+      "title": "Delaying task failure in high-intensity exercise: a Pi-afferent-effort framework for targeted sports nutrition.",
+      "doi": "10.1080/15502783.2026.2711031",
+      "pub_date": "2026 Dec 31",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42546117",
+      "title": "Mitochondria-targeted therapeutic strategies in assisted reproduction: challenges and potential solutions.",
+      "doi": "10.1093/humrep/deag118",
+      "pub_date": "2026 Sep 1",
+      "journal": "Human reproduction (Oxford, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42647263",
+      "title": "High-Intensity Exercise Performance as a Complex Adaptive System: An Integrative Review.",
+      "doi": "10.3390/muscles5030053",
+      "pub_date": "2026 Jul 24",
+      "journal": "Muscles (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42535808",
+      "title": "Systematic review of Leber's hereditary optic neuropathy - Clinical diagnosis, genetics overview and current concepts of treatment.",
+      "doi": "10.4103/IJO.IJO_1696_25",
+      "pub_date": "2026 Aug 1",
+      "journal": "Indian journal of ophthalmology",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42514861",
+      "title": "Enhancing the Pharmaceutical Profile of Alpha Lipoic Acid: Cyclodextrin Inclusion Complexation for Improved Stability and Bioavailability.",
+      "doi": "10.3390/pharmaceutics18070780",
+      "pub_date": "2026 Jun 25",
+      "journal": "Pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42515166",
+      "title": "Contribution of Disruption in Creatine Synthesis and Transporter to 6-PPD Quinone Induced Immunosuppression in Caenorhabditis elegans.",
+      "doi": "10.3390/toxics14070601",
+      "pub_date": "2026 Jul 9",
+      "journal": "Toxics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42531932",
+      "title": "Acute exposure to 6PPD-Q at environmentally relevant concentrations induces lipid and energy metabolism dysregulation in rainbow trout.",
+      "doi": "10.1016/j.jhazmat.2026.143103",
+      "pub_date": "2026 Sep 1",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42555686",
+      "title": "Gut microbiota-derived trimethylamine N-oxide (TMAO) and its association with neuroinflammation in migraine.",
+      "doi": "10.25259/IJMR_3392_2025",
+      "pub_date": "2026 Aug",
+      "journal": "The Indian journal of medical research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42563006",
+      "title": "Prognostic value of acylcarnitine-to-free carnitine ratio in ischemic stroke: associations with systemic inflammation and atherosclerosis.",
+      "doi": "10.1038/s41430-026-01810-6",
+      "pub_date": "2026 Aug 6",
+      "journal": "European journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42580770",
+      "title": "Changes in metabolomic profile in dogs with hepatic encephalopathy secondary to congenital portosystemic shunt suggests mitochondrial homeostasis disturbances.",
+      "doi": "10.2460/ajvr.26.04.0184",
+      "pub_date": "2026 Aug 11",
+      "journal": "American journal of veterinary research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42583432",
+      "title": "Oxidative Damage Induced Disruption of Mitochondrial Quality Control Underlying Abnormal Energy Metabolism in Peripheral Leukocytes of Schizophrenia Patients.",
+      "doi": "10.1093/schizbullopen/sgag029",
+      "pub_date": "2026",
+      "journal": "Schizophrenia bulletin open",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42584017",
+      "title": "Similar Muscle Recovery but Greater Soreness in Active Vegans on Low-Protein Diets Compared to High-Protein Omnivores Following Exercise-Induced Damage.",
+      "doi": "10.1111/nbu.70064",
+      "pub_date": "2026 Sep",
+      "journal": "Nutrition bulletin",
+      "pub_type": "Comparative Study",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42606150",
+      "title": "Age-Specific Signatures of Exercise-Induced Muscle Damage and the Neuromodulatory Efficacy of Standardized Foam Rolling.",
+      "doi": "10.1249/MSS.0000000000004109",
+      "pub_date": "2026 Aug 17",
+      "journal": "Medicine and science in sports and exercise",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42617800",
+      "title": "Mitochondrial Reactive Oxygen Species-Induced Metabolic Alterations Differentially Regulate Ferroptosis Vulnerability of Hepatocytes.",
+      "doi": "10.1016/j.ajpath.2026.07.010",
+      "pub_date": "2026 Aug 19",
+      "journal": "The American journal of pathology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42620183",
+      "title": "Recurrent Single-Nucleotide Insertions in the Mitochondrial Second Light-Strand Promoter Cause Tubulointerstitial Kidney Disease.",
+      "doi": "10.64898/2026.07.31.26359118",
+      "pub_date": "2026 Aug 3",
+      "journal": "medRxiv : the preprint server for health sciences",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42628692",
+      "title": "Inadequate Energy and Micronutrient Intakes across Filipino Population Groups: Findings from the 2021 Expanded National Nutrition Survey.",
+      "doi": "10.1016/j.tjnut.2026.101795",
+      "pub_date": "2026 Sep 1",
+      "journal": "The Journal of nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42634749",
+      "title": "Nicotinamide Mononucleotide (NMN) Prevents Age-Associated Transcriptional Drift in a Tissue-Dependent Manner: Mechanistic Leads From Ras-Related Protein Rab-11A-Mediated Trafficking and Carnitine Palmitoyltransferase 2-Linked Fatty Acid Oxidation.",
+      "doi": "10.7759/cureus.114956",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42639784",
+      "title": "Altered amino acids and acylcarnitines profile in infantile intrahepatic cholestasis liver disease: implication for Traditional Chinese Medicine syndrome differentiation.",
+      "doi": "10.19852/j.cnki.jtcm.2026.04.019",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of traditional Chinese medicine = Chung i tsa chih ying wen pan",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract] OR riboflavin[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract]) AND (fatigue[Title/Abstract] OR energy[Title/Abstract] OR mitochondrial[Title/Abstract] OR exercise[Title/Abstract] OR migraine[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

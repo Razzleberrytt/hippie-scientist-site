@@ -1,0 +1,1209 @@
+{
+  "schema_version": 1,
+  "category": "withdrawal_nps",
+  "target": 40,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 120,
+  "rows": [
+    {
+      "pmid": "42749032",
+      "title": "Dental caries associated with medications for opioid use disorder: drug effects, formulation factors, or both?",
+      "doi": "10.1016/j.ijpharm.2026.127422",
+      "pub_date": "2026 Sep 16",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750843",
+      "title": "Co-treating opioid and alcohol use disorders in the United States, 1960-2026: A historical policy review in the glucagon-like peptide-1 (GLP-1) era.",
+      "doi": "10.1016/j.dadr.2026.100474",
+      "pub_date": "2026 Dec",
+      "journal": "Drug and alcohol dependence reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831801",
+      "title": "Pharmacological interventions for alcohol use disorder on quality of life: a meta-analysis of randomized controlled trials.",
+      "doi": "10.1093/alcalc/agag067",
+      "pub_date": "2026 Sep 20",
+      "journal": "Alcohol and alcoholism (Oxford, Oxfordshire)",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42749222",
+      "title": "A scoping review of naltrexone treatment for opioid use disorder: Clinical hurdles and successes.",
+      "doi": "10.1016/j.ypmed.2026.108664",
+      "pub_date": "2026 Sep 16",
+      "journal": "Preventive medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752349",
+      "title": "Language, Social Support, and Recovery-Stage Transitions in Opioid Use Disorder on Reddit: Computational Analysis.",
+      "doi": "10.2196/91054",
+      "pub_date": "2026 Sep 17",
+      "journal": "Journal of medical Internet research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752436",
+      "title": "Perceptions of Technology and Digital Health Tools Among Recently Incarcerated Adults With Opioid Use Disorder: Semistructured Interview Study.",
+      "doi": "10.2196/90168",
+      "pub_date": "2026 Sep 17",
+      "journal": "Journal of medical Internet research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752995",
+      "title": "Naltrexone, Naloxone, Morphine, and Fentanyl Pharmacologically Chaperone a Mutant μ-Opioid Receptor via an Endoplasmic Reticulum Exit Site-Dependent Pathway.",
+      "doi": "10.1002/prp2.70315",
+      "pub_date": "2026 Oct",
+      "journal": "Pharmacology research & perspectives",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42758573",
+      "title": "Dying in the year after surviving: a perspective on elevated all-cause mortality among opioid overdose survivors.",
+      "doi": "10.1080/00952990.2026.2714510",
+      "pub_date": "2026 Sep 18",
+      "journal": "The American journal of drug and alcohol abuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42759706",
+      "title": "Association between medications for opioid use disorder and child removals.",
+      "doi": "10.1016/j.josat.2026.210118",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of substance use and addiction treatment",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42759811",
+      "title": "Samm50 downregulation-driven mitochondrial dysfunction triggers ferroptosis and contributes to ketamine-induced neurotoxicity and cognitive impairment.",
+      "doi": "10.1016/j.neuropharm.2026.111192",
+      "pub_date": "2026 Sep 18",
+      "journal": "Neuropharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760834",
+      "title": "Adding Treatment-Continuity Metrics to Opioid Toxicity Investigation: A Triangulation Hypothesis for Applied Toxicology.",
+      "doi": "10.1002/jat.70444",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of applied toxicology : JAT",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42761188",
+      "title": "Engaging veterans in the development of mobile health interventions to support medication treatment for opioid use disorder.",
+      "doi": "10.3389/fdgth.2026.1805086",
+      "pub_date": "2026",
+      "journal": "Frontiers in digital health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762342",
+      "title": "Genetic variation in BDNF is associated with opioid use disorder severity.",
+      "doi": "10.1007/s00439-026-02866-x",
+      "pub_date": "2026 Sep 19",
+      "journal": "Human genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762637",
+      "title": "Open-air drug markets and opioid-related overdose deaths.",
+      "doi": "10.1016/j.healthplace.2026.103733",
+      "pub_date": "2026 Sep 19",
+      "journal": "Health & place",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762708",
+      "title": "Treatment outcomes after initiating buprenorphine/naloxone or methadone for opioid use disorder among First Nation Peoples in Ontario, Canada.",
+      "doi": "10.1016/j.drugpo.2026.105513",
+      "pub_date": "2026 Sep 19",
+      "journal": "The International journal on drug policy",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42764790",
+      "title": "Caregiver perceptions toward naloxone for cancer patients at risk of opioid overdose.",
+      "doi": "10.1017/S1478951526103423",
+      "pub_date": "2026 Sep 21",
+      "journal": "Palliative & supportive care",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766292",
+      "title": "Buprenorphine via Telehealth-Closing the Gap for Pregnant and Postpartum Women With Opioid Use Disorder.",
+      "doi": "10.1001/jamainternmed.2026.4106",
+      "pub_date": "2026 Sep 21",
+      "journal": "JAMA internal medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42767114",
+      "title": "Higher prevalence of non-fatal overdose with opioid and stimulant use compared to use of opioids alone.",
+      "doi": "10.1016/j.drugalcdep.2026.113362",
+      "pub_date": "2026 Sep 10",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42770093",
+      "title": "Investigating hierarchical control among functional networks disrupted by opioid use disorder using effective connectivity.",
+      "doi": "10.1162/IMAG.a.1373",
+      "pub_date": "2026",
+      "journal": "Imaging neuroscience (Cambridge, Mass.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772088",
+      "title": "A telemedicine bridge clinic increases buprenorphine engagement and reduces emergency department visits among medicaid patients with opioid use disorder.",
+      "doi": "10.1016/j.drugalcdep.2026.113374",
+      "pub_date": "2026 Sep 19",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42773136",
+      "title": "A wearable acoustofluidic patch for rapid reversal of opioid overdose.",
+      "doi": "10.1038/s41467-026-77033-x",
+      "pub_date": "2026 Aug 24",
+      "journal": "Nature communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42773179",
+      "title": "Kappa opioid receptor-dependent depressive-like behaviors associated with morphine withdrawal contribute to stress-induced reinstatement of morphine seeking.",
+      "doi": "10.1038/s41386-026-02549-1",
+      "pub_date": "2026 Sep 22",
+      "journal": "Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42773813",
+      "title": "Redesigning Access: Implementation and Evaluation of a Drop-In Clinic for Telehealth Opioid Use Disorder Treatment.",
+      "doi": "10.1177/29767342261481495",
+      "pub_date": "2026 Sep 22",
+      "journal": "Substance use & addiction journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42773829",
+      "title": "Implementation Studies Funded by the National Institute on Drug Abuse on Opioid and Stimulant Use Disorders Treatment: An Updated Mapping Review (2020-2024).",
+      "doi": "10.1177/29767342261484105",
+      "pub_date": "2026 Sep 22",
+      "journal": "Substance use & addiction journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42774285",
+      "title": "Optimal buprenorphine exposure to treat patients with opioid use disorder in the era of fentanyl and polysubstance use.",
+      "doi": "10.3389/fphar.2026.1839067",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42776980",
+      "title": "Adoption of Evidence-Based Treatments for Opioid Use Disorders for Older Adults in the Deep South.",
+      "doi": "10.1097/JAN.0000000000000719",
+      "pub_date": "2026 Sep 23",
+      "journal": "International journal of addiction nursing",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777275",
+      "title": "Intraoperative Ketamine and Chronic Opioid Use After Lumbar Spine Surgery in Patients With and Without Opioid-Use Disorder: A Retrospective Database Analysis.",
+      "doi": "10.1213/ANE.0000000000008322",
+      "pub_date": "2026 Sep 23",
+      "journal": "Anesthesia and analgesia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779411",
+      "title": "The Carceral System's Role in Opioid Misuse and Overdose Risk Among Black Men: A Qualitative Analysis.",
+      "doi": "10.1080/02791072.2026.2696254",
+      "pub_date": "2026 Sep 24",
+      "journal": "Journal of psychoactive drugs",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780014",
+      "title": "Young adult polysubstance use trajectories and later non-prescribed opioid use and drug use disorder symptoms: A propensity score-matched analysis.",
+      "doi": "10.1016/j.dadr.2026.100479",
+      "pub_date": "2026 Dec",
+      "journal": "Drug and alcohol dependence reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780355",
+      "title": "Peer-guided movie neurofeedback to facilitate recovery in opioid use disorder.",
+      "doi": "10.64898/2026.09.18.26363414",
+      "pub_date": "2026 Sep 20",
+      "journal": "medRxiv : the preprint server for health sciences",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42781980",
+      "title": "Medications for opioid use disorder receipt in intensive care patients with opioid use disorder-A statewide cohort study.",
+      "doi": "10.5055/jom.1003",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Journal of opioid management",
+      "pub_type": "Multicenter Study",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42781984",
+      "title": "Examining physicians' behaviors regarding buprenorphine prescribing for opioid use disorder.",
+      "doi": "10.5055/jom.0978",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Journal of opioid management",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42787119",
+      "title": "Deciphering the impact of genetic variants on vulnerability to Opioid Use Disorder.",
+      "doi": "10.3389/fncel.2026.1814602",
+      "pub_date": "2026",
+      "journal": "Frontiers in cellular neuroscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42793593",
+      "title": "Psychosocial Factors Associated with Emotional Exhaustion Among Family Members of Individuals with Opioid Use Disorder: The Mediating Role of Perceived Social Support.",
+      "doi": "10.3390/healthcare14183055",
+      "pub_date": "2026 Sep 17",
+      "journal": "Healthcare (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800062",
+      "title": "Patterns and Correlates of Suicidality Among People With Opioid Dependence-A Cross-Sectional, Community-Based Study.",
+      "doi": "10.1080/15504263.2026.2726799",
+      "pub_date": "2026 Sep 26",
+      "journal": "Journal of dual diagnosis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800180",
+      "title": "Racial and ethnic disparities in medication for opioid use disorder treatment among medicaid enrollees.",
+      "doi": "10.1016/j.drugalcdep.2026.113355",
+      "pub_date": "2026 Sep 11",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42803141",
+      "title": "Examining Site-Level and Structural Factors Influencing the Recruitment and Engagement of Participants of Color in Perinatal Substance Use Research: Insights From the Medication Treatment for Opioid Use Disorder in Expectant Mothers (MOMs) Trial.",
+      "doi": "10.1177/29767342261478707",
+      "pub_date": "2026 Sep 28",
+      "journal": "Substance use & addiction journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804230",
+      "title": "Effects of simulated and real opioid withdrawal on delay discounting for opioids and money in people who use fentanyl daily.",
+      "doi": "10.1037/pha0000878",
+      "pub_date": "2026 Sep 28",
+      "journal": "Experimental and clinical psychopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804865",
+      "title": "Community social environment in relation to opioid use disorder across an urban-rural spectrum.",
+      "doi": "10.1016/j.socscimed.2026.119870",
+      "pub_date": "2026 Sep 23",
+      "journal": "Social science & medicine (1982)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805773",
+      "title": "Opioid use disorder diagnosis risk and neighbourhood-level marginalisation: a population-based retrospective cohort study.",
+      "doi": "10.1136/jech-2025-225502",
+      "pub_date": "2026 Sep 28",
+      "journal": "Journal of epidemiology and community health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806226",
+      "title": "Pain and Opioid Dose Reduction Based on Substance Use Disorder Status: Secondary Analysis from a Pragmatic Effectiveness Trial.",
+      "doi": "10.1007/s11606-026-10816-6",
+      "pub_date": "2026 Sep 28",
+      "journal": "Journal of general internal medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806715",
+      "title": "Methadone Versus Buprenorphine/Naloxone: Treatment Outcome Differences Among Individuals Receiving Medications for Opioid Use Disorders in Rural Treatment Settings-A 1-Year Retrospective Cohort Study.",
+      "doi": "10.1111/jrh.70219",
+      "pub_date": "2026 Sep",
+      "journal": "The Journal of rural health : official journal of the American Rural Health Association and the National Rural Health Care Association",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807692",
+      "title": "Customizing and fine-tuning opioid overdose machine learning models for community-specific dashboards.",
+      "doi": "10.1186/s40537-026-01507-4",
+      "pub_date": "2026 Jul 30",
+      "journal": "Journal of big data",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808565",
+      "title": "\"I Just Knew That I Needed Help\": Primarily Latine Adolescents and Young Adults Speak About Medication Treatment for Opioid Use Disorder in the Fentanyl Era.",
+      "doi": "10.1177/29767342261489719",
+      "pub_date": "2026 Sep 29",
+      "journal": "Substance use & addiction journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813246",
+      "title": "Perspectives of Racial and Ethnic Emergency Department Patient-Clinician Concordance in Opioid Use Disorder Encounters.",
+      "doi": "10.1177/29767342261489718",
+      "pub_date": "2026 Sep 30",
+      "journal": "Substance use & addiction journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813756",
+      "title": "LORETA Z-Score Neurofeedback and Dot-Probe Cognitive Rehabilitation for Reducing Addiction Severity in Patients with Opioid Use Disorder Receiving Methadone Maintenance Treatment: A Pilot Randomized Controlled Trial.",
+      "doi": "10.1177/15500594261494405",
+      "pub_date": "2026 Sep 30",
+      "journal": "Clinical EEG and neuroscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818063",
+      "title": "Morphine causes distinct changes in the lipidome throughout the brain and body after acute or chronic administration: implications for novel endogenous lipid signaling systems involved in opioid reward and withdrawal.",
+      "doi": "10.64898/2026.09.17.752401",
+      "pub_date": "2026 Sep 23",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42821413",
+      "title": "E-cigarette puffs per day and changes in cigarettes per day among combustible cigarette smokers with opioid use disorder: A secondary analysis of the Electronic Cigarettes to Address Combustible Cigarette Smoking for People With opioid use disorder (ERASER) study.",
+      "doi": "10.1037/pha0000883",
+      "pub_date": "2026 Oct 1",
+      "journal": "Experimental and clinical psychopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826019",
+      "title": "Opioid Use Disorder and Evidence-Based Care Among Medicaid-Enrolled Youths.",
+      "doi": "10.1001/jamanetworkopen.2026.37263",
+      "pub_date": "2026 Oct 1",
+      "journal": "JAMA network open",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826020",
+      "title": "Duration of Medication Use for Opioid Use Disorder and Risk of Postpartum Overdose and Death.",
+      "doi": "10.1001/jamanetworkopen.2026.37214",
+      "pub_date": "2026 Oct 1",
+      "journal": "JAMA network open",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827507",
+      "title": "Psychological vulnerability and opioid medication use disorder risk in chronic pain: the mediating role of affective states and gender differences.",
+      "doi": "10.3389/fpubh.2026.1810909",
+      "pub_date": "2026",
+      "journal": "Frontiers in public health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830391",
+      "title": "Designing Community-Based, Post-Overdose Outreach Programs in Rural Settings: Insights from People with Opioid Overdose Experiences.",
+      "doi": "10.1080/10826084.2026.2726527",
+      "pub_date": "2026 Oct 4",
+      "journal": "Substance use & misuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831747",
+      "title": "Survival After Hospitalization in Patients with Opioid Use Disorder: Impact of Medications for Opioid Use Disorder.",
+      "doi": "10.1080/10826084.2026.2742425",
+      "pub_date": "2026 Oct 5",
+      "journal": "Substance use & misuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832375",
+      "title": "Ketamine Use Disorder and Entrenchment of Delusional Beliefs: A Case Report.",
+      "doi": "10.1097/ADM.0000000000001788",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of addiction medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755274",
+      "title": "Strategies for the Care of Mothers With Substance Use Disorder.",
+      "doi": "10.7812/TPP/26.137",
+      "pub_date": "2026 Sep 18",
+      "journal": "The Permanente journal",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755511",
+      "title": "Internet Sales of \"Research Grade Compounds\": The Opioid SR-17018 (SR-17) as an Example.",
+      "doi": "10.7759/cureus.116383",
+      "pub_date": "2026 Sep",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796395",
+      "title": "Individualizing Perioperative Analgesia: Patient-Specific Determinants of Postoperative Pain and Opioid-Related Outcomes.",
+      "doi": "10.3390/medicina62091789",
+      "pub_date": "2026 Sep 17",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822150",
+      "title": "A critical review on synergistic toxicity: Plastics as \"Trojan-Horses\" for mercury biomagnification in polar avian predators.",
+      "doi": "10.1016/j.chemosphere.2026.145116",
+      "pub_date": "2026 Oct 1",
+      "journal": "Chemosphere",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830379",
+      "title": "Infections and the Opioid Epidemic: Changing Epidemiology and Treatment Options.",
+      "doi": "10.1007/s40265-026-02364-4",
+      "pub_date": "2026 Oct 4",
+      "journal": "Drugs",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748319",
+      "title": "The right to die: Legal analysis of end-of-life decisions in Ukraine.",
+      "doi": "10.36740/WLek/220855",
+      "pub_date": "2026",
+      "journal": "Wiadomosci lekarskie (Warsaw, Poland : 1960)",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42743214",
+      "title": "Specific Mental Disorder Comorbidities and MOUD Receipt for Opioid Misuse: Lower Receipt for Persons with Psychotic Disorders.",
+      "doi": "10.1080/15504263.2026.2729324",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of dual diagnosis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42743838",
+      "title": "Extended-release injection vs sublingual buprenorphine for illicit opioid use in pregnant patients with depression and/or anxiety.",
+      "doi": "10.1016/j.drugalcdep.2026.113358",
+      "pub_date": "2026 Sep 11",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42746040",
+      "title": "Facilitators and Challenges in Oral Health Care for Iranian Patients Undergoing Opioid Maintenance Treatment: A Qualitative Study.",
+      "doi": "10.34172/ahj.1662",
+      "pub_date": "2026 Jan",
+      "journal": "Addiction & health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42746358",
+      "title": "Exercise as a Neurobiological Intervention: Utilizing NAc Circuitry to Combat Addiction.",
+      "doi": "10.1016/j.addicn.2026.100276",
+      "pub_date": "2026 Dec",
+      "journal": "Addiction neuroscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748263",
+      "title": "Fentanyl purity and overdose decline: A reexamination of geographic trends.",
+      "doi": "10.1126/sciadv.aei7742",
+      "pub_date": "2026 Sep 18",
+      "journal": "Science advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748282",
+      "title": "Management of Patients with Medetomidine Withdrawal During Interfacility Transfer.",
+      "doi": "10.1080/10903127.2026.2728131",
+      "pub_date": "2026 Sep 16",
+      "journal": "Prehospital emergency care",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748644",
+      "title": "Use of sedative drugs among adults reporting illicit opioid use or prescription opioid use in the United States, 2017-2024.",
+      "doi": "10.1016/j.drugalcdep.2026.113361",
+      "pub_date": "2026 Sep 9",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752714",
+      "title": "Gallium-EGCG nanoparticles: a highly biocompatible multifunctional platform with iron-dependent 'Trojan horse' antibacterial activity and antioxidant properties.",
+      "doi": "10.1039/d6nh00182c",
+      "pub_date": "2026 Sep 17",
+      "journal": "Nanoscale horizons",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42758106",
+      "title": "Benzodiazepines use in primary care England: Prescribing patterns and adverse consequences.",
+      "doi": "10.1002/bcp.70824",
+      "pub_date": "2026 Sep 18",
+      "journal": "British journal of clinical pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42759705",
+      "title": "Interaction between narcotics anonymous and medications for opiate use disorder among 4382 United States survey respondents.",
+      "doi": "10.1016/j.josat.2026.210116",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of substance use and addiction treatment",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760287",
+      "title": "The Pathways Project: Exploring Substance Use Trajectories and Opioid-Related Outcomes in Adults Seeking Support for Substance Use Health.",
+      "doi": "10.1080/10826084.2026.2711400",
+      "pub_date": "2026 Sep 18",
+      "journal": "Substance use & misuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42761329",
+      "title": "pH-responsive R848-loaded Cu MOF NPs potentiate anti-tumor immunity via synergistic photothermal therapy and immunotherapy in hepatocellular carcinoma.",
+      "doi": "10.1016/j.mtbio.2026.103663",
+      "pub_date": "2026 Oct",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762253",
+      "title": "Acute toxicity and physiological responses of silver pompano (Trachinotus Blochii) to green-synthesized ZnO nanoparticles.",
+      "doi": "10.1007/s10695-026-01793-y",
+      "pub_date": "2026 Sep 19",
+      "journal": "Fish physiology and biochemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42764583",
+      "title": "Predictors of Naloxone Carriage Among People Who Use Opioids in Maine.",
+      "doi": "10.1080/10826084.2026.2729567",
+      "pub_date": "2026 Sep 20",
+      "journal": "Substance use & misuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42767088",
+      "title": "From compliance to participation in US methadone maintenance treatment: Realizing the promise of person-centered services for people who use opioids.",
+      "doi": "10.1016/j.drugpo.2026.105480",
+      "pub_date": "2026 Sep 21",
+      "journal": "The International journal on drug policy",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42768001",
+      "title": "Structure-guided allosteric modulation of the delta opioid receptor.",
+      "doi": "10.1038/s41467-026-76730-x",
+      "pub_date": "2026 Aug 22",
+      "journal": "Nature communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769898",
+      "title": "Geospatial Analysis of Opioid-Related Outcomes Across Riverside County ZIP Codes and Associations With Social Determinants of Health.",
+      "doi": "10.7759/cureus.114997",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42771037",
+      "title": "[Inpatient treatment of substance use disorders : Structures and treatment strategies: results of a nationwide survey of treatment facilities].",
+      "doi": "10.1007/s00115-026-02014-w",
+      "pub_date": "2026 Sep 22",
+      "journal": "Der Nervenarzt",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42781979",
+      "title": "Buprenorphine microinductions: Investigating the ideal initial dose based on oral morphine equivalent requirements for stabilizing withdrawal symptoms.",
+      "doi": "10.5055/jom.1002",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Journal of opioid management",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42782828",
+      "title": "Withdrawal, Treatment Completion, and Patient-Directed Discharge: A Bacchi-Informed Discourse Analysis for Addiction Nursing.",
+      "doi": "10.1097/JAN.0000000000000722",
+      "pub_date": "2026 Sep 24",
+      "journal": "International journal of addiction nursing",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42783776",
+      "title": "Comparison of Immunoassay Results near Cutoff Values with LC-MS/MS in Individuals with Substance Use Disorder Under Probation.",
+      "doi": "10.3390/metabo16090651",
+      "pub_date": "2026 Sep 4",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785038",
+      "title": "Discordance between self-reported and detected synthetic opioids reveals cychlorphine emergence among people who inject drugs in Estonia.",
+      "doi": "10.1016/j.drugpo.2026.105520",
+      "pub_date": "2026 Sep 22",
+      "journal": "The International journal on drug policy",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785752",
+      "title": "Modifiable Factors Associated With Substance Use Disorder Screening by Nurses: A Cross-Sectional Survey.",
+      "doi": "10.1111/jocn.70563",
+      "pub_date": "2026 Sep 24",
+      "journal": "Journal of clinical nursing",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42787112",
+      "title": "The opioid flexion phenotype: postural flexion and nodding in the fentanyl era.",
+      "doi": "10.3389/fnins.2026.1910436",
+      "pub_date": "2026",
+      "journal": "Frontiers in neuroscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42787168",
+      "title": "Naloxone reversal of fentanyl-induced respiratory depression versus naloxone-induced precipitated withdrawal: an in silico utility model.",
+      "doi": "10.3389/fphar.2026.1944044",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42788697",
+      "title": "Ketamine-enhanced psychotherapy for smoking cessation: A pilot study of feasibility, safety, and clinical outcomes.",
+      "doi": "10.1177/02698811261488486",
+      "pub_date": "2026 Sep 25",
+      "journal": "Journal of psychopharmacology (Oxford, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42793256",
+      "title": "Transcriptomic Reprogramming of the Human Placenta Following Maternal Opioid Exposure: Identification of Altered Metabolic and Translational Pathways.",
+      "doi": "10.3390/cimb48090900",
+      "pub_date": "2026 Sep 3",
+      "journal": "Current issues in molecular biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797319",
+      "title": "Programmable Organic A(2)S-TT NPs for NIR-II/Photoacoustic Imaging-Enabled Precision Therapy.",
+      "doi": "10.3390/pharmaceutics18091144",
+      "pub_date": "2026 Sep 10",
+      "journal": "Pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798222",
+      "title": "The association between chronic pain and non-fatal overdose in people who inject drugs: Longitudinal cohort study in Montreal, Canada, 2017 to 2025.",
+      "doi": "10.1111/add.70619",
+      "pub_date": "2026 Sep 25",
+      "journal": "Addiction (Abingdon, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42799567",
+      "title": "Exploring Provider Knowledge and Attitudes Toward Opioid-Induced Androgen Deficiency Through the Lens of the Theory of Planned Behavior.",
+      "doi": "10.1177/29767342261469763",
+      "pub_date": "2026 Sep 26",
+      "journal": "Substance use & addiction journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800245",
+      "title": "Polystyrene nanoplastics act as environmental buffers to alleviate the ecotoxicity of PFOS and alternative F-53B toward the submerged macrophyte Elodea nuttallii.",
+      "doi": "10.1016/j.aquatox.2026.108020",
+      "pub_date": "2026 Sep 12",
+      "journal": "Aquatic toxicology (Amsterdam, Netherlands)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801669",
+      "title": "Hederagenin Attenuates Morphine Addiction via GABAA1-Mediated Modulation of Ca(2) (+)-CaMK-CREB Signaling in Ventral Tegmental Dopaminergic Neurons.",
+      "doi": "10.1002/advs.77820",
+      "pub_date": "2026 Sep 27",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801908",
+      "title": "Prenatal care utilization among pregnant women with substance use disorder: A drug-free moms and babies program study.",
+      "doi": "10.1016/j.drugalcdep.2026.113370",
+      "pub_date": "2026 Sep 23",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804171",
+      "title": "Dexmedetomidine Use and Intensive Care Unit Admissions for Patients With Medetomidine Withdrawal.",
+      "doi": "10.1001/jamainternmed.2026.4568",
+      "pub_date": "2026 Sep 28",
+      "journal": "JAMA internal medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805500",
+      "title": "Nanoplastics amplify ciprofloxacin-induced immunotoxicity: Oxidative stress in splenocytes and conformational and functional changes in lysozyme.",
+      "doi": "10.1016/j.envpol.2026.129256",
+      "pub_date": "2026 Sep 28",
+      "journal": "Environmental pollution (Barking, Essex : 1987)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805551",
+      "title": "Tactile stimulation modulates withdrawal-related behaviors and brain molecular parameters in male offspring following perinatal morphine exposure.",
+      "doi": "10.1016/j.neuropharm.2026.111201",
+      "pub_date": "2026 Sep 28",
+      "journal": "Neuropharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807096",
+      "title": "Observational characterization of self-reported SR-17018 exposure and outcomes in individuals with prior opioid use histories.",
+      "doi": "10.3389/fphar.2026.1899247",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808816",
+      "title": "Modulation of Endoplasmic Reticulum Stress via CEBPB: A Potential Molecular Link to Therapeutic Action in Substance Use Disorders.",
+      "doi": "10.1002/cns.71183",
+      "pub_date": "2026 Oct",
+      "journal": "CNS neuroscience & therapeutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809971",
+      "title": "Native-state monitoring of nanoplastic corona dynamics and their mitigating role in ecotoxicity using an integrated hollow fiber flow field-flow fractionation platform.",
+      "doi": "10.1016/j.jhazmat.2026.143751",
+      "pub_date": "2026 Sep 25",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811689",
+      "title": "Clinical progress note: Management of the hospitalized patient with medetomidine withdrawal.",
+      "doi": "10.1002/jhm.70506",
+      "pub_date": "2026 Sep 29",
+      "journal": "Journal of hospital medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812145",
+      "title": "Emergency preparedness planning: lessons from COVID-19 and the opioid crisis in rural Ohio.",
+      "doi": "10.64898/2026.07.30.26359388",
+      "pub_date": "2026 Aug 2",
+      "journal": "medRxiv : the preprint server for health sciences",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818431",
+      "title": "Socioeconomic disparities in substance use disorder prevalence and severity across the life course.",
+      "doi": "10.64898/2026.09.03.26362182",
+      "pub_date": "2026 Sep 7",
+      "journal": "medRxiv : the preprint server for health sciences",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42820099",
+      "title": "Association of social determinants of health with opioid misuse among individuals with common psychiatric conditions.",
+      "doi": "10.1016/j.psycom.2026.100274",
+      "pub_date": "2026 Sep",
+      "journal": "Psychiatry research communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822176",
+      "title": "Daily polysubstance use associated with HIV, HCV, and non-fatal overdose among people who inject drugs: A latent class analysis using nationwide data.",
+      "doi": "10.1016/j.drugalcdep.2026.113375",
+      "pub_date": "2026 Sep 18",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822938",
+      "title": "Polystyrene nanoplastics amplify arsenite-induced toxicity to human serum albumin: Potentiated inhibition via complexation.",
+      "doi": "10.1016/j.jes.2026.03.071",
+      "pub_date": "2026 Nov",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824492",
+      "title": "Opioid-Free vs Opioid-Containing Regimens for Postoperative Pain Management After Orthopedic Surgery Discharge: A Meta-Analysis.",
+      "doi": "10.1007/s43465-026-01780-8",
+      "pub_date": "2026 Sep",
+      "journal": "Indian journal of orthopaedics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826562",
+      "title": "Facet-dependent effect of engineered nanoceria on dopaminergic neurotoxicity and motor deficits involving glutathione depletion.",
+      "doi": "10.1016/j.ecoenv.2026.120852",
+      "pub_date": "2026 Oct 2",
+      "journal": "Ecotoxicology and environmental safety",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828345",
+      "title": "Gender Differences in Health Risk Factors for Co-Use of Gabapentin and Opioids among Black Americans.",
+      "doi": "10.1080/16066359.2026.2678461",
+      "pub_date": "2026 Jun 1",
+      "journal": "Addiction research & theory",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828925",
+      "title": "Bioactive fucoidan-coated polylactic acid-based nanoparticles for co-delivery of vincristine and thymoquinone: Enhanced antitumor efficacy with reduced vincristine-associated toxicity.",
+      "doi": "10.1016/j.colsurfb.2026.116215",
+      "pub_date": "2026 Sep 30",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830002",
+      "title": "Declines in stimulant-involved overdose mortality occurred only with fentanyl co-involvement, United States, 2023-2024.",
+      "doi": "10.1016/j.drugalcdep.2026.113314",
+      "pub_date": "2026 Aug 12",
+      "journal": "Drug and alcohol dependence",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832416",
+      "title": "The Hushabye Opioid Pregnancy Preparation and Empowerment Program (HOPPE) An Innovative Approach to Neonatal Abstinence Syndrome.",
+      "doi": "10.1097/ANC.0000000000001438",
+      "pub_date": "2026 Oct 5",
+      "journal": "Advances in neonatal care : official journal of the National Association of Neonatal Nurses",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833598",
+      "title": "When the Plan Must Change: A Qualitative Study of Communicating Opioid Deprescribing Decisions.",
+      "doi": "10.1016/j.jpainsymman.2026.09.029",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of pain and symptom management",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833697",
+      "title": "Associations Between Pain Severity and Opioid Agonist Treatment Among People With Drug Injection Experience in Australia.",
+      "doi": "10.1111/dar.70276",
+      "pub_date": "2026 Nov",
+      "journal": "Drug and alcohol review",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42765041",
+      "title": "Intraoperative Mild Hypothermia Alleviate Acute Postoperative Pain Through Attenuating Sufentanil Metabolism: A Prospective Cohort Study with Experimental Validation.",
+      "doi": "10.2147/DDDT.S634368",
+      "pub_date": "2026",
+      "journal": "Drug design, development and therapy",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738607",
+      "title": "Microplastics and Nanoplastics in the Human Diet: Sources of Exposure, Bioavailability, Toxicokinetics, and Systemic Health Effects.",
+      "doi": "10.3390/molecules31172945",
+      "pub_date": "2026 Aug 22",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738652",
+      "title": "Carrier-Assisted Nanomaterials and Microbial Dynamics in Advanced Wastewater Treatment: A Review.",
+      "doi": "10.3390/molecules31172991",
+      "pub_date": "2026 Aug 26",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42742672",
+      "title": "Folate-modified chitosan nanocarriers in precision oncology: molecular engineering, targeted drug delivery, and clinical perspectives.",
+      "doi": "10.1007/s12032-026-03415-2",
+      "pub_date": "2026 Sep 15",
+      "journal": "Medical oncology (Northwood, London, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750367",
+      "title": "Microplastics-Mediated Gut Microbial Dysbiosis and Cellular Bioenergetic Impairment: A Critical Review.",
+      "doi": "10.1002/jat.70426",
+      "pub_date": "2026 Sep 16",
+      "journal": "Journal of applied toxicology : JAT",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755905",
+      "title": "Microplastics in food production systems: Sources, exposure pathways, and gastrointestinal health effects.",
+      "doi": "10.1016/j.crfs.2026.101557",
+      "pub_date": "2026",
+      "journal": "Current research in food science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42781777",
+      "title": "Microplastics as Emerging Neurotoxins: Brain Accumulation, Neuroinflammation, and Neurodegeneration Risk.",
+      "doi": "10.1002/jbt.71070",
+      "pub_date": "2026 Oct",
+      "journal": "Journal of biochemical and molecular toxicology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((kratom[Title/Abstract] OR mitragynine[Title/Abstract] OR opioid[Title/Abstract] OR benzodiazepine[Title/Abstract] OR ketamine[Title/Abstract] OR cathinone[Title/Abstract] OR \"new psychoactive substance\"[Title/Abstract] OR NPS[Title/Abstract]) AND (withdrawal[Title/Abstract] OR dependence[Title/Abstract] OR addiction[Title/Abstract] OR \"use disorder\"[Title/Abstract] OR toxicity[Title/Abstract] OR overdose[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

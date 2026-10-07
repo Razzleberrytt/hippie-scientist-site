@@ -1,0 +1,819 @@
+{
+  "schema_version": 1,
+  "category": "micronutrients",
+  "target": 27,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 81,
+  "rows": [
+    {
+      "pmid": "42824986",
+      "title": "Nano zinc supplementation in broiler nutrition: current evidence, mechanisms of action, and future perspectives.",
+      "doi": "10.3389/fvets.2026.1925519",
+      "pub_date": "2026",
+      "journal": "Frontiers in veterinary science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796904",
+      "title": "Effects of Foliar Calcium and Magnesium Application on Peach (Prunus persica L.) Nutrition Status and Fruit Quality Formation.",
+      "doi": "10.3390/plants15182873",
+      "pub_date": "2026 Sep 19",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811960",
+      "title": "Antioxidant Responses to Dietary Supplementation With Non-Enriched and Selenium-Enriched Mushrooms and Selenized Yeast in Piglets.",
+      "doi": "10.1002/mnfr.70609",
+      "pub_date": "2026 Oct",
+      "journal": "Molecular nutrition & food research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827474",
+      "title": "Associations between cognitive reserve, iron deposition in the basal ganglia, and cognitive function in mild cognitive impairment.",
+      "doi": "10.3389/fpsyg.2026.1900685",
+      "pub_date": "2026",
+      "journal": "Frontiers in psychology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798940",
+      "title": "Iron need attention: a review on the role of iron in plants.",
+      "doi": "10.3389/fpls.2026.1876801",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801811",
+      "title": "Nano-selenium, organic selenium, and novel selenium sources: Which is best for clean and sustainable poultry production?",
+      "doi": "10.1016/j.psj.2026.107785",
+      "pub_date": "2026 Sep 16",
+      "journal": "Poultry science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834726",
+      "title": "The gut-kidney-brain axis in chronic kidney disease: mechanisms and nutritional interventions for cognitive protection.",
+      "doi": "10.1039/d6fo02137a",
+      "pub_date": "2026 Oct 6",
+      "journal": "Food & function",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796859",
+      "title": "Comparative Transcriptomic Analysis Reveals Conserved and Nutrient-Specific Responses to Nutrient Deficiencies in Quinoa.",
+      "doi": "10.3390/plants15182828",
+      "pub_date": "2026 Sep 15",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797964",
+      "title": "Combined Effects of Nano-Zinc Oxide and Sesame Oil on Growth Performance, Antioxidant Defense, and Mineral Metabolism in Growing Rabbits.",
+      "doi": "10.3390/vetsci13090929",
+      "pub_date": "2026 Sep 9",
+      "journal": "Veterinary sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798520",
+      "title": "Associations between fat-soluble vitamin status, growth, and development in Chinese children aged 3-14 years: a cross-sectional study.",
+      "doi": "10.3389/fped.2026.1829557",
+      "pub_date": "2026",
+      "journal": "Frontiers in pediatrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42799046",
+      "title": "Iodine nutrition, thyroid function, and thyroid autoimmunity four decades after Universal Salt Iodisation in India: a cross-sectional study among schoolchildren (ICMR-SALT-T 1).",
+      "doi": "10.1016/j.lansea.2026.100866",
+      "pub_date": "2026 Nov",
+      "journal": "The Lancet regional health. Southeast Asia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800045",
+      "title": "Long-term thyroid outcomes and survival in hyperthyroid cats treated with radioiodine: association with overt and subclinical hypothyroidism and levothyroxine treatment.",
+      "doi": "10.1093/jvimsj/aalag233",
+      "pub_date": "2026 Sep 1",
+      "journal": "Journal of veterinary internal medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800484",
+      "title": "The eukaryotic host-microbe-phage-nutrition interplay determines the bacterial effectors of supplemental lysine's health benefits: An experimental cellular senescence model of digestive conditions in older adults.",
+      "doi": "10.1016/j.mad.2026.112260",
+      "pub_date": "2026 Sep 26",
+      "journal": "Mechanisms of ageing and development",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805370",
+      "title": "Feeding Ascophyllum nodosum meal or ethylenediamine dihydroiodide to transition dairy cows: Effects on milk yield and plasma concentrations of thyroid hormones and markers of metabolic status.",
+      "doi": "10.3168/jds.2026-28524",
+      "pub_date": "2026 Sep 28",
+      "journal": "Journal of dairy science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806651",
+      "title": "Association Between Preoperative Serum 25-Hydroxyvitamin D Levels and Early Wound Healing Following Open Trigger Finger Release.",
+      "doi": "10.1177/15589447261487491",
+      "pub_date": "2026 Sep 28",
+      "journal": "Hand (New York, N.Y.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809651",
+      "title": "The Iron Chaperone PCBP2 Controls Systemic Iron Homeostasis by Regulating Iron Flux in Red Pulp Macrophages.",
+      "doi": "10.1182/blood.2026034230",
+      "pub_date": "2026 Sep 29",
+      "journal": "Blood",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814490",
+      "title": "Analytical performance of a single epitope meta-sandwich total 25-hydroxyvitamin D immunoassay and establishment of reference intervals in a Chinese population.",
+      "doi": "10.1177/00045632261497590",
+      "pub_date": "2026 Sep 30",
+      "journal": "Annals of clinical biochemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42816388",
+      "title": "Severe Anemia and Neutropenia Associated with Copper Deficiency in Three elderly Adults Residing in Nursing Homes.",
+      "doi": "10.2169/internalmedicine.7706-26",
+      "pub_date": "2026 Sep 29",
+      "journal": "Internal medicine (Tokyo, Japan)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42816867",
+      "title": "Quantitative PCCT spectral parameters for noninvasive prediction of EGFR status and its subtypes in lung adenocarcinoma.",
+      "doi": "10.1186/s40644-026-01122-9",
+      "pub_date": "2026 Sep 2",
+      "journal": "Cancer imaging : the official publication of the International Cancer Imaging Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824662",
+      "title": "Evaluating the Association of Serum 25-Hydroxyvitamin D, Osteocalcin, Periostin, and Estradiol Levels With Hip Fracture Type and Severity in Patients Attending a Tertiary Care Center.",
+      "doi": "10.7759/cureus.115558",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827970",
+      "title": "Patient-reported symptom profiles in vitamin B(12) deficiency and pernicious anemia: a cross-sectional study using latent class analysis.",
+      "doi": "10.3389/fmed.2026.1927721",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828923",
+      "title": "Biogenic selenium nanoparticles as dual-action antithrombotic agents: Targeting platelet activation cascades and thrombus formation.",
+      "doi": "10.1016/j.colsurfb.2026.116216",
+      "pub_date": "2026 Sep 29",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832858",
+      "title": "Role of zinc oxide nanoparticles in the parasitism and abomasal pathophysiology of lambs artificially infected with Haemonchus contortus.",
+      "doi": "10.1016/j.vetpar.2026.110933",
+      "pub_date": "2026 Sep 29",
+      "journal": "Veterinary parasitology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833523",
+      "title": "Gut microbiota-expressed sulfotransferase sulfonates 25-hydroxyvitamin D3 and promotes depression.",
+      "doi": "10.1016/j.bbi.2026.107043",
+      "pub_date": "2026 Oct 5",
+      "journal": "Brain, behavior, and immunity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834498",
+      "title": "Maternal calcium deficiency and offspring programming: mechanistic and translational insights.",
+      "doi": "10.6065/apem.2652056.028",
+      "pub_date": "2026 Sep 24",
+      "journal": "Annals of pediatric endocrinology & metabolism",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836311",
+      "title": "Individual effects of a nutritional supplementation blend on sleep in professional under-17 footballers: a replicate crossover trial.",
+      "doi": "10.1080/24733938.2026.2741064",
+      "pub_date": "2026 Oct 6",
+      "journal": "Science & medicine in football",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836684",
+      "title": "Baseline 25-Hydroxyvitamin D and Progression-Free Survival in de novo mHSPC: Prognostic Model Development and External Validation.",
+      "doi": "10.1093/oncolo/oyag396",
+      "pub_date": "2026 Oct 6",
+      "journal": "The oncologist",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837117",
+      "title": "[Zinc homeostasis in plants: the role of ZIP, MTP and HMA transporters and chelating agents].",
+      "doi": "10.18388/1sjq4a75",
+      "pub_date": "2026 Oct 6",
+      "journal": "Postepy biochemii",
+      "pub_type": "English Abstract",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837257",
+      "title": "Bacterial endosymbiont suppresses detoxification through folate-mediated DNA methylation in Nilaparvata lugens.",
+      "doi": "10.1016/j.celrep.2026.118103",
+      "pub_date": "2026 Oct 6",
+      "journal": "Cell reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837281",
+      "title": "Nutritional composition of plant-based meat alternatives and modeled implications for adult nutrient intake: a comparative analysis with conventional meats and traditional plant proteins.",
+      "doi": "10.1080/10408398.2026.2742119",
+      "pub_date": "2026 Oct 6",
+      "journal": "Critical reviews in food science and nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797910",
+      "title": "Dietary Antioxidants and Nrf2-Related Redox Responses in Sheep: Evidence, Limitations, and Implications for Health and Productivity.",
+      "doi": "10.3390/vetsci13090875",
+      "pub_date": "2026 Aug 27",
+      "journal": "Veterinary sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800293",
+      "title": "Comprehensive overview of the molecular interactions between selected elements and enzymes in hip osteoarthritis.",
+      "doi": "10.1016/j.jtemb.2026.127954",
+      "pub_date": "2026 Sep 19",
+      "journal": "Journal of trace elements in medicine and biology : organ of the Society for Minerals and Trace Elements (GMS)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800970",
+      "title": "Traditional Chinese Medicine as an Adjunct in Hyperthyroidism Management: A Narrative Review of Pathophysiology, Proposed Mechanisms, and Clinical Evidence.",
+      "doi": "10.2147/IJGM.S625971",
+      "pub_date": "2026",
+      "journal": "International journal of general medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807181",
+      "title": "The Role of Diet in the Management of Chronic Idiopathic Urticaria: A Scoping Review.",
+      "doi": "10.7759/cureus.115321",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42819040",
+      "title": "Elevated CO(2) and the hidden hunger crisis: mechanisms, magnitudes, and mitigation of micronutrient dilution in staple crops.",
+      "doi": "10.3389/fpls.2026.1929375",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824698",
+      "title": "Ten tips to reduce fracture risk by non-pharmacologic interventions in CKD-associated osteoporosis.",
+      "doi": "10.1093/ckj/sfag303",
+      "pub_date": "2026 Oct",
+      "journal": "Clinical kidney journal",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833024",
+      "title": "Multifunctional platinum(IV) prodrugs: Targeted delivery, stimuli-responsive release, and precision oncology.",
+      "doi": "10.1016/j.ejmech.2026.119385",
+      "pub_date": "2026 Sep 29",
+      "journal": "European journal of medicinal chemistry",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834324",
+      "title": "Effects of calcitriol (1,25(OH)₂D₃) on endothelial-derived factors implicated in atheromatous plaque vulnerability.",
+      "doi": "10.1007/s42000-026-00831-x",
+      "pub_date": "2026 Oct 5",
+      "journal": "Hormones (Athens, Greece)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834831",
+      "title": "An evaluation of mitapivat for the treatment of non-transfusion-dependent alpha- and beta-thalassemia.",
+      "doi": "10.1080/20415990.2026.2742638",
+      "pub_date": "2026 Oct 6",
+      "journal": "Therapeutic delivery",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835725",
+      "title": "Endocrine-metabolic modulators in sperm biotechnology: cross-species mechanisms and translational priorities.",
+      "doi": "10.3389/fvets.2026.1920393",
+      "pub_date": "2026",
+      "journal": "Frontiers in veterinary science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836947",
+      "title": "Long-Term Effects of Biliopancreatic Diversion (BPD), Biliopancreatic Diversion with Duodenal Switch (BPD-DS), and Single Anastomosis Duodeno‑Ileal Bypass with Sleeve Gastrectomy (SADI‑S) in Patients with Obesity: A Meta-Analysis.",
+      "doi": "10.1007/s11695-026-08977-8",
+      "pub_date": "2026 Oct 6",
+      "journal": "Obesity surgery",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796299",
+      "title": "Pre-Thrombolysis Biological Correlates of Admission Glasgow Coma Scale in Older Adults with Acute Ischemic Stroke: A Retrospective Single-Center Cohort Study.",
+      "doi": "10.3390/medicina62091692",
+      "pub_date": "2026 Sep 3",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796837",
+      "title": "Biochemical Profile of Limnospira platensis Cultivated Under Elevated CO(2) with the Addition of Sodium Selenite.",
+      "doi": "10.3390/plants15182804",
+      "pub_date": "2026 Sep 13",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796985",
+      "title": "Evaluating Dietary Assessment Methods in Adults with Cystic Fibrosis in the Modulator Era: A Comparison of Food Frequency Questionnaires and Three-Day Food Diaries.",
+      "doi": "10.3390/nu18183002",
+      "pub_date": "2026 Sep 14",
+      "journal": "Nutrients",
+      "pub_type": "Comparative Study",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798034",
+      "title": "Association of the composite dietary antioxidant index with advanced cardiovascular-kidney-metabolic syndrome in U.S. adults: A cross-sectional study based on NHANES 2001-2018.",
+      "doi": "10.1097/MD.0000000000050849",
+      "pub_date": "2026 Sep 25",
+      "journal": "Medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798192",
+      "title": "Factors Predicting the Need for Intravenous Calcium Infusion in Patients With Advanced Primary Hyperparathyroidism Undergoing Parathyroidectomy.",
+      "doi": "10.1002/wjs.70586",
+      "pub_date": "2026 Sep 25",
+      "journal": "World journal of surgery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798675",
+      "title": "Demographic Profile and Clinical Presentation of Celiac Disease in the Pakistani Population: A Systematic Review and Meta-analysis.",
+      "doi": "10.5005/jp-journals-10018-1505",
+      "pub_date": "2026 Jan-Jun",
+      "journal": "Euroasian journal of hepato-gastroenterology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42799402",
+      "title": "Analysis of critical nutrients in ketogenic diets for adults based on optimized hypothetical meal plans.",
+      "doi": "10.3389/fnut.2026.1829975",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42799426",
+      "title": "Stress Fracture Risk in Military Trainees Is Associated With Modifiable Lifestyle and Training Factors: A Retrospective Case-Control Study.",
+      "doi": "10.7759/cureus.115226",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801394",
+      "title": "Genetic Association of VDR Polymorphism with Diabetic Foot Ulcers in Type 2 Diabetes: Evidence from Kerala, India.",
+      "doi": "10.1007/s10528-026-11450-x",
+      "pub_date": "2026 Sep 27",
+      "journal": "Biochemical genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801693",
+      "title": "Persistent Zn(2+) Influx-Mediated Deacetylation of ANXA2 Regulates the \"Zn(2+)-Autophagic Flux\" and Alleviates Intervertebral Disc Degeneration.",
+      "doi": "10.1002/advs.77870",
+      "pub_date": "2026 Sep 27",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42803555",
+      "title": "Carbon source-dependent metabolic states govern redox homeostasis and cofactor biosynthesis in Propionibacterium freudenreichii.",
+      "doi": "10.1128/msystems.01023-26",
+      "pub_date": "2026 Sep 28",
+      "journal": "mSystems",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804455",
+      "title": "Food consumption patterns and nutrient adequacy across lifecycle stages in Bangladesh.",
+      "doi": "10.1371/journal.pone.0359205",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804661",
+      "title": "A mobile lncRNA QingLattice mediates DML-IDN2 crosstalk via chromatin looping to reprogram DNA methylation and nutrient allocation.",
+      "doi": "10.1093/plcell/koag303",
+      "pub_date": "2026 Sep 28",
+      "journal": "The Plant cell",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805497",
+      "title": "Zfp469 Deletion Attenuates Liver Fibrosis by Suppressing Extracellular Matrix Production in Hepatic Stellate Cells.",
+      "doi": "10.1016/j.bj.2026.101044",
+      "pub_date": "2026 Sep 28",
+      "journal": "Biomedical journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806508",
+      "title": "Alterations in trace element homeostasis in dogs with parvoviral enteritis.",
+      "doi": "10.1002/vetr.71215",
+      "pub_date": "2026 Sep 28",
+      "journal": "The Veterinary record",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807173",
+      "title": "Nutritional Composition, Chemical Safety, and Microbiological Quality of Farmed Palm Weevil Larvae (Rhynchophorus phoenicis) From a Commercial Rearing Unit in Ghana.",
+      "doi": "10.1002/fsn3.72402",
+      "pub_date": "2026 Oct",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807210",
+      "title": "Serum ferritin as an independent biomarker of subclinical synovitis in rheumatoid arthritis patients in clinical remission or low disease activity.",
+      "doi": "10.3389/fmed.2026.1921362",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808033",
+      "title": "Burden, Trends, Associated Diseases and Predictions of Alopecia Areata in China, Japan, South Korea, and Globally: A GBD 2023 Analysis.",
+      "doi": "10.2147/CCID.S646030",
+      "pub_date": "2026",
+      "journal": "Clinical, cosmetic and investigational dermatology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808588",
+      "title": "Amiloride for the treatment of cisplatin-induced hypomagnesemia.",
+      "doi": "10.5546/aap.2026-11207.eng",
+      "pub_date": "2026 Oct 1",
+      "journal": "Archivos argentinos de pediatria",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808911",
+      "title": "Incidence and clinical distribution of congenital hypothyroidism in Bolu Province, Türkiye: a four-year analysis of the National Newborn Screening Program.",
+      "doi": "10.1080/03007995.2026.2736327",
+      "pub_date": "2026 Sep 29",
+      "journal": "Current medical research and opinion",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809043",
+      "title": "The Role of Porin Proteins and ygiU-nhaR in the Formation of Biofilm in Escherichia coli.",
+      "doi": "10.1007/s00284-026-05171-y",
+      "pub_date": "2026 Sep 29",
+      "journal": "Current microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809150",
+      "title": "Effects of elemental-based formulation on grain trace elements, amino acid profiles, antioxidant enzyme activities, gene expression and arsenic uptake in soil-grown rice under arsenic stress.",
+      "doi": "10.1007/s10534-026-00894-8",
+      "pub_date": "2026 Sep 29",
+      "journal": "Biometals : an international journal on the role of metal ions in biology, biochemistry, and medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810073",
+      "title": "The Effects of Demographic Data on Age at First Seizure, Total Number of Seizures, and Seizure Type in Febrile Convulsion.",
+      "doi": "10.1016/j.pediatrneurol.2026.09.003",
+      "pub_date": "2026 Sep 7",
+      "journal": "Pediatric neurology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810521",
+      "title": "Intracellular Zn(2+) levels regulate susceptibility to hepatitis B virus infection by modulating NTCP-mediated viral entry.",
+      "doi": "10.1016/j.antiviral.2026.106542",
+      "pub_date": "2026 Sep 29",
+      "journal": "Antiviral research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811705",
+      "title": "[Psychological factors and comprehensive intervention in factitious oral ulcer among children and adolescents: a real-world study].",
+      "doi": "10.3760/cma.j.cn112144-20251201-00477",
+      "pub_date": "2026 Sep 30",
+      "journal": "Zhonghua kou qiang yi xue za zhi = Zhonghua kouqiang yixue zazhi = Chinese journal of stomatology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813438",
+      "title": "Familial occurrence of multiple sclerosis - current state of knowledge.",
+      "doi": "10.5603/pjnns.112253",
+      "pub_date": "2026 Sep 30",
+      "journal": "Neurologia i neurochirurgia polska",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813739",
+      "title": "Comparison of maternal serum calcidiol and microRNA-1323 expression in term and early preterm births.",
+      "doi": "10.4274/tjod.galenos.2026.79054",
+      "pub_date": "2026 Sep 30",
+      "journal": "Turkish journal of obstetrics and gynecology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814674",
+      "title": "Erratum.",
+      "doi": "10.1159/kbr/adjag008",
+      "pub_date": "2026",
+      "journal": "Kidney & blood pressure research",
+      "pub_type": "Published Erratum",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42815609",
+      "title": "Pseudoalteromonas lipolytica and its EPS-overproducing variant for acid mine drainage control: biofilm formation and biomineralization.",
+      "doi": "10.1016/j.envres.2026.125820",
+      "pub_date": "2026 Sep 30",
+      "journal": "Environmental research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42815965",
+      "title": "Construction of risk prediction models for psoriasis based on 45 dietary nutrients using machine learning and SHAP analysis.",
+      "doi": "10.6133/apjcn.202610_35(5).0006",
+      "pub_date": "2026 Oct",
+      "journal": "Asia Pacific journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817261",
+      "title": "Endocrine Complications in Patients with Congenital Dyserythropoietic Anemia: A Single-Center Cohort Study.",
+      "doi": "10.1080/03630269.2026.2729185",
+      "pub_date": "2026 Sep 30",
+      "journal": "Hemoglobin",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818076",
+      "title": "Extracting interpretable single-cell metabolic states with graph-guided representation learning.",
+      "doi": "10.64898/2026.09.17.751504",
+      "pub_date": "2026 Sep 24",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818765",
+      "title": "Gluconate acts as a signal to induce biofilm in Bacillus subtilis.",
+      "doi": "10.64898/2026.09.08.750294",
+      "pub_date": "2026 Sep 10",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42820139",
+      "title": "Prevalence and Risk Factors of Maternal Anemia Among Pregnant Women in Central Jordan.",
+      "doi": "10.1155/anem/5554286",
+      "pub_date": "2026",
+      "journal": "Anemia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822594",
+      "title": "Implementing patient blood management in a Brazilian public women's hospital: a pre-post implementation study.",
+      "doi": "10.1016/j.bjane.2026.844839",
+      "pub_date": "2026 Oct 1",
+      "journal": "Brazilian journal of anesthesiology (Elsevier)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42823749",
+      "title": "Timing of umbilical cord clamping and its predictors among neonates in Northeast Ethiopia: a multicenter prospective observational study.",
+      "doi": "10.1186/s40748-026-00301-7",
+      "pub_date": "2026 Oct 2",
+      "journal": "Maternal health, neonatology and perinatology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42823935",
+      "title": "Diet and nutrition in chronic heart failure: A scientific statement of the Polish Society of Dietetics.",
+      "doi": "10.17219/acem/225017",
+      "pub_date": "2026 Oct 2",
+      "journal": "Advances in clinical and experimental medicine : official organ Wroclaw Medical University",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824545",
+      "title": "Retrospective analysis of thyroid functions and sonographic characteristics of the thyroid gland in a health check-up population in China during 2020-2024.",
+      "doi": "10.3389/fpubh.2026.1838770",
+      "pub_date": "2026",
+      "journal": "Frontiers in public health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824712",
+      "title": "Occurrence, source identification, and human health risk assessment of potentially toxic elements in freshwater sources used for aquaculture in the Senegal, Gambia, and Casamance river basins.",
+      "doi": "10.1016/j.toxrep.2026.102340",
+      "pub_date": "2026 Dec",
+      "journal": "Toxicology reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42825986",
+      "title": "Sitosterolemia presenting as unexplained cytopenias: hematologic manifestations and genetic spectrum.",
+      "doi": "10.1007/s44313-026-00176-9",
+      "pub_date": "2026 Oct 2",
+      "journal": "Blood research",
+      "pub_type": "Letter",
+      "has_abstract": true,
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

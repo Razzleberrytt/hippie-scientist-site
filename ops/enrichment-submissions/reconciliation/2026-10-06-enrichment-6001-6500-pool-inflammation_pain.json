@@ -1,0 +1,819 @@
+{
+  "schema_version": 1,
+  "category": "inflammation_pain",
+  "target": 28,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 81,
+  "rows": [
+    {
+      "pmid": "42680958",
+      "title": "Curcumin nanoformulations for modulating neuroinflammation and oxidative stress in Alzheimer's disease: blood-brain barrier transport, formulation strategies and therapeutic applications.",
+      "doi": "10.1007/s10787-026-02381-5",
+      "pub_date": "2026 Sep 2",
+      "journal": "Inflammopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42662082",
+      "title": "Integrated quantitative sensory testing and psychological phenotyping dataset for capsaicin-induced neuropathic pain susceptibility.",
+      "doi": "10.1016/j.dib.2026.113141",
+      "pub_date": "2026 Aug",
+      "journal": "Data in brief",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42662176",
+      "title": "Methacrylated gelatin microneedles loaded with cobalt-curcumin nanozymes promote diabetic wound healing by modulating oxidative stress and inflammatory microenvironment.",
+      "doi": "10.1039/d6ra03654f",
+      "pub_date": "2026 Sep 23",
+      "journal": "RSC advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42690793",
+      "title": "Anti-inflammatory Diterpenoids and Sesquiterpenoids from the Rhizomes of Shell Ginger (Alpinia zerumbet).",
+      "doi": "10.1021/acs.jafc.6c09118",
+      "pub_date": "2026 Sep 2",
+      "journal": "Journal of agricultural and food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42713857",
+      "title": "Demethoxycurcumin Alleviates Lipopolysaccharide-Induced Acute Lung Injury via Nrf2-Mediated Anti-Inflammation and Ferroptosis Inhibition.",
+      "doi": "10.1155/mi/9154680",
+      "pub_date": "2026",
+      "journal": "Mediators of inflammation",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42713901",
+      "title": "Curcumin-encapsulated ROS-responsive nanoparticles for modulation of oxidative stress and inflammation in sepsis.",
+      "doi": "10.1039/d6tb01496h",
+      "pub_date": "2026 Sep 9",
+      "journal": "Journal of materials chemistry. B",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828845",
+      "title": "CCR2-high monocyte membrane-coated ginger-derived exosome-like nanoparticles attenuate spinal cord injury by inhibiting ferroptosis-mediated neuronal death and neuroinflammation via Nrf2/GPX4 axis activation.",
+      "doi": "10.1016/j.phymed.2026.158819",
+      "pub_date": "2026 Sep 23",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835591",
+      "title": "Salmon bone-derived chondroitin sulfate nanogels for controlled delivery of curcumin: release behavior, structural characteristics and anti-inflammatory efficacy.",
+      "doi": "10.1039/d6ra06378k",
+      "pub_date": "2026 Oct 5",
+      "journal": "RSC advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837101",
+      "title": "Enhancing meloxicam efficacy in acute and chronic inflammatory pain: a novel dose-sparing approach using ultramicronized palmitoylethanolamide.",
+      "doi": "10.1007/s10787-026-02380-6",
+      "pub_date": "2026 Oct 6",
+      "journal": "Inflammopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42671707",
+      "title": "Long-Term Efficacy and Safety of Treatments for Chronic Peripheral Neuropathic Pain: A Systematic Review and Narrative Synthesis.",
+      "doi": "10.1007/s40122-026-00884-1",
+      "pub_date": "2026 Oct",
+      "journal": "Pain and therapy",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42696208",
+      "title": "Molecular target for neuroinflammation and pain management: transient receptor potential vanilloid 1.",
+      "doi": "10.1007/s10787-026-02385-1",
+      "pub_date": "2026 Sep 4",
+      "journal": "Inflammopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42753318",
+      "title": "Profiles of nonsteroidal anti-inflammatory drug-induced gastric antral ulcers: A comprehensive review of the preclinical data.",
+      "doi": "10.1016/j.jpet.2026.105024",
+      "pub_date": "2026 Aug 29",
+      "journal": "The Journal of pharmacology and experimental therapeutics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42688447",
+      "title": "Current advances in the epidemiology, risk factors, prevention, management, and long-term outcomes of herpes zoster and post-herpetic neuralgia.",
+      "doi": "10.3389/fmicb.2026.1903334",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42652270",
+      "title": "Sensory Preferences Influencing the Likelihood That African American Pregnant Women Will Consume Nutrient-Dense, Anti-Inflammatory Foods.",
+      "doi": "10.3390/ijerph23080954",
+      "pub_date": "2026 Jul 24",
+      "journal": "International journal of environmental research and public health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42656742",
+      "title": "Targeting efferocytosis with carbonized polymer dots from a natural anti-inflammatory drug to alleviate excessive inflammatory responses in the acute phase of myocardial infarction.",
+      "doi": "10.1016/j.mtbio.2026.103557",
+      "pub_date": "2026 Oct",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42666527",
+      "title": "Protective Effects of Mango Ginger (Curcuma amada Roxb.) Ethanol Extract against Carbon Tetrachloride-Induced Toxicity: In Vivo and In Silico Evidence.",
+      "doi": "10.1016/j.cdnut.2026.109506",
+      "pub_date": "2026 Sep",
+      "journal": "Current developments in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42668469",
+      "title": "ALOX15-driven ω-6 fatty acid metabolism promotes type 2 inflammation in eosinophilic chronic rhinosinusitis with nasal polyps.",
+      "doi": "10.1016/j.jacig.2026.100759",
+      "pub_date": "2026 Nov",
+      "journal": "The journal of allergy and clinical immunology. Global",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42679500",
+      "title": "Discordant fatty acid profile drives residual inflammatory risk in metabolically vulnerable patients with low atherogenic lipoprotein burden.",
+      "doi": "10.1016/j.atherosclerosis.2026.121885",
+      "pub_date": "2026 Oct",
+      "journal": "Atherosclerosis",
+      "pub_type": "Multicenter Study",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42692086",
+      "title": "Hybrid PLGA nanoparticles outperform SLNs in intracellular delivery of an anti-inflammatory lipid mediator to skeletal muscle cells.",
+      "doi": "10.1016/j.jconrel.2026.115332",
+      "pub_date": "2026 Sep 3",
+      "journal": "Journal of controlled release : official journal of the Controlled Release Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42693836",
+      "title": "Pharmacological Management of Diabetic Neuropathy: Current Evidence, Clinical Positioning, and Emerging Therapeutic Targets.",
+      "doi": "10.2174/011570159X455049260809205038",
+      "pub_date": "2026 Aug 22",
+      "journal": "Current neuropharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42700907",
+      "title": "PEGylated curcumin for cigarette smoke-induced oxidative stress: From nasal epithelial cells to fast- dissolving microneedle patches.",
+      "doi": "10.1016/j.ijpharm.2026.127370",
+      "pub_date": "2026 Oct 5",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42705403",
+      "title": "Palmitoylethanolamide alleviates osteoclast activation and reduces bone loss in osteoporosis by regulating mitochondrial function.",
+      "doi": "10.1016/j.bone.2026.118089",
+      "pub_date": "2026 Sep 7",
+      "journal": "Bone",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42710442",
+      "title": "Curcumin attenuates di(2-ethylhexyl) phthalate-induced hepatic injury in chicks via oxidative stress, glycolysis, and PANoptosis-related signaling.",
+      "doi": "10.1016/j.psj.2026.107494",
+      "pub_date": "2026 Jul 26",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42710751",
+      "title": "Chitosan-celluloses wafers containing emulsified curcumin: a nano-in-matrix approach for buccal delivery.",
+      "doi": "10.1016/j.ijpharm.2026.127396",
+      "pub_date": "2026 Sep 8",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42711841",
+      "title": "Engineering a Multifunctional Sprayable Curcumin-Modified Polyitaconate-Based Hydrogel to Accelerate Methicillin-Resistant Staphylococcus aureus-Infected Wound Healing.",
+      "doi": "10.1002/adhm.71699",
+      "pub_date": "2026 Sep 8",
+      "journal": "Advanced healthcare materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42712478",
+      "title": "A novel Bacillus megaterium/ω-3 PUFA synbiotic attenuates colon inflammation and promotes a pro-resolving macrophage profile ex-vivo.",
+      "doi": "10.3389/fimmu.2026.1916994",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42716473",
+      "title": "Inflammatory proteomic signatures of cardiometabolic traits and the contribution of visceral adipose tissue: a cross-sectional and network proteomic analysis.",
+      "doi": "10.1016/j.ajcnut.2026.101517",
+      "pub_date": "2026 Sep 9",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42727671",
+      "title": "Injectable plant vesicles-biomineralized ZnO(2) hydrogel for synergistic chemodynamic antibacterial, anti-inflammatory, and regenerative treatment of infected diabetic wounds.",
+      "doi": "10.1016/j.ijbiomac.2026.154433",
+      "pub_date": "2026 Sep 11",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42765822",
+      "title": "Pain Modulates Optimism-Biased Belief Updating and Confidence.",
+      "doi": "10.1111/nyas.70407",
+      "pub_date": "2026 Sep",
+      "journal": "Annals of the New York Academy of Sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766950",
+      "title": "Ligand-free alkyl-modified chitosan nanoparticles are preferentially internalized by microglia and deliver curcumin to suppress cytokine release.",
+      "doi": "10.1016/j.bioadv.2026.215175",
+      "pub_date": "2027 Jan",
+      "journal": "Biomaterials advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772018",
+      "title": "Capsaicin and cinnamaldehyde as topical transient receptor potential vanilloid 1 and transient receptor potential ankyrin 1 agonists in humans: Formulation, stability, and pharmacodynamic evaluation.",
+      "doi": "10.1016/j.jpet.2026.105023",
+      "pub_date": "2026 Aug 29",
+      "journal": "The Journal of pharmacology and experimental therapeutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772617",
+      "title": "Standardized Curcuma longa-Cannabis sativa extract derived from a traditional Thai formulation for psoriasis: anti-inflammatory activity, keratinocyte modulation, and skin-targeted delivery.",
+      "doi": "10.1016/j.jep.2026.122428",
+      "pub_date": "2026 Sep 23",
+      "journal": "Journal of ethnopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779184",
+      "title": "EXPRESS: NEUROPROTECTIVE EFFICACY OF AN OMEGA-3 DIGLYCERIDE EMULSION IN A PIGLET MODEL OF NEWBORN HYPOXIC-ISCHEMIC BRAIN DAMAGE.",
+      "doi": "10.1177/0271678X261494381",
+      "pub_date": "2026 Sep 23",
+      "journal": "Journal of cerebral blood flow and metabolism : official journal of the International Society of Cerebral Blood Flow and Metabolism",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42783789",
+      "title": "Longitudinal Changes in Body Composition, Resting Metabolic Rate, and Inflammation After Sleeve Gastrectomy: Associations with Dietary Polyunsaturated Fatty Acid Balance.",
+      "doi": "10.3390/metabo16090664",
+      "pub_date": "2026 Sep 9",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42790661",
+      "title": "Modulating Pain via Virtual-Reality-based Interoceptive Modeling: A Randomized Crossover Experiment in an All-Female Sample.",
+      "doi": "10.1016/j.jpain.2026.106450",
+      "pub_date": "2026 Sep 25",
+      "journal": "The journal of pain",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805573",
+      "title": "Self-assembled nanoparticle system synchronizing rapid analgesia and sustained anti-inflammatory therapy for inflammatory pain.",
+      "doi": "10.1016/j.ijpharm.2026.127478",
+      "pub_date": "2026 Sep 28",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814137",
+      "title": "Dysregulated Resolution of Inflammation in Atherosclerosis: Mechanistic Insights and Therapeutic Opportunities.",
+      "doi": "10.1007/82_2026_361",
+      "pub_date": "2026 Oct 1",
+      "journal": "Current topics in microbiology and immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42815686",
+      "title": "Assessing the value of systematic screening and early management of neuropathic pain after total knee arthroplasty. A single-center retrospective study.",
+      "doi": "10.1016/j.otsr.2026.104914",
+      "pub_date": "2026 Sep 30",
+      "journal": "Orthopaedics & traumatology, surgery & research : OTSR",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818559",
+      "title": "Inflammatory Proteomic Network Architecture of Visceral Adiposity and Cardiometabolic Traits.",
+      "doi": "10.21203/rs.3.rs-11156776/v1",
+      "pub_date": "2026 Sep 28",
+      "journal": "Research square",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822729",
+      "title": "NRF2 activation mediates the protective effects of capsaicin against MGO/STZ-induced chondrocyte apoptosis and diabetic articular cartilage injury.",
+      "doi": "10.1016/j.taap.2026.118068",
+      "pub_date": "2026 Oct 1",
+      "journal": "Toxicology and applied pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828456",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "doi": "10.1002/cbin.70222",
+      "pub_date": "2026 Oct",
+      "journal": "Cell biology international",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828924",
+      "title": "Cur-EGCG-Fe coordination nanoparticle-functionalized gelatin hydrogel biointerfaces for antibacterial and inflammatory microenvironment-regulatory wound repair.",
+      "doi": "10.1016/j.colsurfb.2026.116227",
+      "pub_date": "2026 Oct 2",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835552",
+      "title": "Innovative myeloid ecotropic viral integration site 1-engineered exosome platform combating oxidative stress and inflammation in acute pulmonary damage.",
+      "doi": "10.1002/btm2.70150",
+      "pub_date": "2026 Sep",
+      "journal": "Bioengineering & translational medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837086",
+      "title": "Surface charge-dependent effects of BSA-curcumin nanoparticles combined with amikacin in antimicrobial photodynamic therapy: A pilot In Vivo study of multidrug-resistant Pseudomonas aeruginosa skin infection.",
+      "doi": "10.1007/s10103-026-05054-5",
+      "pub_date": "2026 Oct 6",
+      "journal": "Lasers in medical science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42652249",
+      "title": "Non-Pharmacological Strategies in Atherosclerotic Cardiovascular Disease: From Molecular Mechanisms to Clinical Integration.",
+      "doi": "10.3390/biomedicines14081868",
+      "pub_date": "2026 Aug 20",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42653338",
+      "title": "Mitochondrial-Centered Biological Networks in Metabolic Disease: Toward Precision Mitochondrial Medicine.",
+      "doi": "10.3390/ijms27167334",
+      "pub_date": "2026 Aug 17",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42657370",
+      "title": "Topical regimens for the management of uremic pruritus.",
+      "doi": "10.3389/fmed.2026.1857124",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42666058",
+      "title": "Multitargeted drug strategies for Alzheimer's and Parkinson's diseases.",
+      "doi": "10.1515/znc-2026-0116",
+      "pub_date": "2026 Aug 31",
+      "journal": "Zeitschrift fur Naturforschung. C, Journal of biosciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42667129",
+      "title": "Nanotechnology-enabled delivery of bioactive compounds for neuroprotection in Parkinson's disease: mechanisms and future directions.",
+      "doi": "10.1080/09205063.2026.2723464",
+      "pub_date": "2026 Aug 29",
+      "journal": "Journal of biomaterials science. Polymer edition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42675452",
+      "title": "Integrative Approaches in Cardiovascular Disease: The Role of Nutraceuticals in Heart Failure, Atrial Fibrillation, and Related Conditions.",
+      "doi": "10.1002/ptr.70433",
+      "pub_date": "2026 Aug 31",
+      "journal": "Phytotherapy research : PTR",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42689994",
+      "title": "From an Age-Stratified Perspective: Divergent Adaptive Mechanisms of the Traumatic Brain Injury Repair Network Between Pediatric and Adult Patients.",
+      "doi": "10.31083/FBL45754",
+      "pub_date": "2026 Aug 14",
+      "journal": "Frontiers in bioscience (Landmark edition)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42702401",
+      "title": "Pharmacokinetic and Pharmacodynamic Interactions Between Anti-Asthma Drugs and Medicinal Plants: A Comprehensive Review.",
+      "doi": "10.1002/ptr.70436",
+      "pub_date": "2026 Sep 6",
+      "journal": "Phytotherapy research : PTR",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42707668",
+      "title": "From Macronutrients to Functional Foods: Nutritional Strategies for Recovery Following High-Intensity Exercise.",
+      "doi": "10.1002/fsn3.72331",
+      "pub_date": "2026 Sep",
+      "journal": "Food science & nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42732972",
+      "title": "Plant-Derived Bioactives and PPAR Signaling in Functional Dyspepsia: Mechanistic Insights and Therapeutic Perspectives.",
+      "doi": "10.1002/ptr.70449",
+      "pub_date": "2026 Sep 13",
+      "journal": "Phytotherapy research : PTR",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750926",
+      "title": "Dietary Patterns and Nutritional Factors in Multiple Sclerosis: A Narrative Review.",
+      "doi": "10.7759/cureus.114634",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42763246",
+      "title": "TRPV1 channels in skin homeostasis and disease: From sensory transduction to therapeutic targeting.",
+      "doi": "10.1016/j.intimp.2026.117447",
+      "pub_date": "2026 Sep 20",
+      "journal": "International immunopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785100",
+      "title": "Perioperative immunonutrition in gastrointestinal malignancies: Clinical benefit, patient selection, and current uncertainties.",
+      "doi": "10.1016/j.suronc.2026.102572",
+      "pub_date": "2026 Sep 22",
+      "journal": "Surgical oncology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808430",
+      "title": "Postoperative nutritional interventions and recovery: Molecular mechanisms, clinical outcomes, and ERAS-based practice.",
+      "doi": "10.17219/acem/215104",
+      "pub_date": "2026 Sep",
+      "journal": "Advances in clinical and experimental medicine : official organ Wroclaw Medical University",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828782",
+      "title": "Lifestyle strategies and nutraceuticals in chronic venous disease: an evidence-weighted synthesis and clinical positioning.",
+      "doi": "10.1016/j.clnu.2026.106801",
+      "pub_date": "2026 Sep 18",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836020",
+      "title": "The HO-1/bilirubin axis in cardiovascular protection: critical evidence for modulation by plant metabolites and traditional multi-component formulations used in Chinese medicine.",
+      "doi": "10.3389/fphar.2026.1902935",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42660766",
+      "title": "Metabolic signatures of sleep health and stroke risk: A prospective cohort study with mediation analysis.",
+      "doi": "10.1016/j.sleh.2026.08.008",
+      "pub_date": "2026 Oct",
+      "journal": "Sleep health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42661439",
+      "title": "MSI: A Mahalanobis-Based Molecular Similarity Index for High-Dimensional Embeddings.",
+      "doi": "10.1002/minf.70051",
+      "pub_date": "2026 Sep",
+      "journal": "Molecular informatics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42665125",
+      "title": "Nitrogen gas-derived cold atmospheric plasma suppresses pruritus through modulation of peripheral sensory neurons and keratinocytes.",
+      "doi": "10.1016/j.neuropharm.2026.111164",
+      "pub_date": "2026 Aug 28",
+      "journal": "Neuropharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42665153",
+      "title": "Airway lipid mediators in horses: Baseline bronchoalveolar lavage fluid profiles and effects of EPA and DHA-rich microalgae oil supplementation.",
+      "doi": "10.1016/j.tvjl.2026.106862",
+      "pub_date": "2026 Aug 28",
+      "journal": "Veterinary journal (London, England : 1997)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42669982",
+      "title": "Hedychium Coronarium J. Koenig: Ethnobotany, Phytochemistry, and Therapeutic Potential: A Comprehensive Review.",
+      "doi": "10.2174/0113895575454718260731102214",
+      "pub_date": "2026 Aug 17",
+      "journal": "Mini reviews in medicinal chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42687244",
+      "title": "A Modular Prussian Blue Nanozyme-Based Microneedle Platform With Flexible Therapeutic Formulations for Localized Treatment of Traumatic Brain Injury.",
+      "doi": "10.1002/adhm.71565",
+      "pub_date": "2026 Sep",
+      "journal": "Advanced healthcare materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42688674",
+      "title": "A scientometric study on the characteristics of herbal medicine and identification of herbaceous agents for treatment of periodontal diseases.",
+      "doi": "10.1016/j.jds.2025.12.009",
+      "pub_date": "2026",
+      "journal": "Journal of dental sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42713565",
+      "title": "Immune regulatory networks and gut microbiota-associated targets in endometriosis: an integrative multi-omics and network analysis.",
+      "doi": "10.1515/biol-2025-1372",
+      "pub_date": "2026 Jan",
+      "journal": "Open life sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42727713",
+      "title": "Human umbilical cord extracellular matrix-integrated electrospun nanofibers as bioactive wound dressings.",
+      "doi": "10.1016/j.ijpharm.2026.127400",
+      "pub_date": "2026 Sep 11",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42742399",
+      "title": "A multifunctional Janus patch featuring immunomodulation and wet adhesion for periodontitis treatment.",
+      "doi": "10.1039/d6mh01329e",
+      "pub_date": "2026 Sep 15",
+      "journal": "Materials horizons",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777830",
+      "title": "Buffering cellular stress during mRNA delivery enables immunoregulatory interleukin-2 therapy.",
+      "doi": "10.1016/j.jconrel.2026.115393",
+      "pub_date": "2026 Sep 23",
+      "journal": "Journal of controlled release : official journal of the Controlled Release Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798482",
+      "title": "A six-metabolite signature characterizes metabolically unhealthy obesity and reveals hidden metabolic risk within metabolically healthy obesity.",
+      "doi": "10.3389/fendo.2026.1910610",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800524",
+      "title": "A programmed oxidized alginate/chitosan sandwich-layered dressing for sequential regulation of diabetic wound healing.",
+      "doi": "10.1016/j.ijbiomac.2026.154642",
+      "pub_date": "2026 Sep 26",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809944",
+      "title": "Associations of endocannabinoids and related lipid mediators with depressive symptoms during perimenopause.",
+      "doi": "10.1016/j.psyneuen.2026.108021",
+      "pub_date": "2026 Sep 12",
+      "journal": "Psychoneuroendocrinology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814405",
+      "title": "Brain-Gut Axis Perspective on Irritable Bowel Syndrome: The Role of Gut Microbiota and Therapeutic Strategies of Traditional Chinese Medicine.",
+      "doi": "10.1142/S0192415X26500771",
+      "pub_date": "2026 Sep 30",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814674",
+      "title": "Erratum.",
+      "doi": "10.1159/kbr/adjag008",
+      "pub_date": "2026",
+      "journal": "Kidney & blood pressure research",
+      "pub_type": "Published Erratum",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817086",
+      "title": "Current and Emerging Drug Therapy for Acne Vulgaris: A Comprehensive Review.",
+      "doi": "10.2174/0127724344483799260920072308",
+      "pub_date": "2026 Sep 29",
+      "journal": "Recent advances in anti-infective drug discovery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817133",
+      "title": "Neuroprotective Potential of Phytochemicals: Exploration of Molecular Mechanisms in Neurodegeneration.",
+      "doi": "10.2174/0113816128479495260914134343",
+      "pub_date": "2026 Sep 29",
+      "journal": "Current pharmaceutical design",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817135",
+      "title": "ZhiXiaoSanZheng Decoction Ameliorates HGPA-induced HK-2 Cell Injury and Mitochondrial Metabolic Imbalance by Regulating the AMPK/PPARα/CPT1A Pathway.",
+      "doi": "10.2174/0113816128525206260914061658",
+      "pub_date": "2026 Sep 30",
+      "journal": "Current pharmaceutical design",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42819829",
+      "title": "Discovery and Characterization of Neuroactive Secondary Metabolites from Acacia sieberiana with Potential Analgesic Properties.",
+      "doi": "10.1021/acsomega.6c06672",
+      "pub_date": "2026 Sep 1",
+      "journal": "ACS omega",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828013",
+      "title": "The Lipid Switch: Ultra-High Dose Omega Fatty Acids Determine MYCN Neuroblastoma Fate and Implicate Substrate-Level Oxylipin Competition.",
+      "doi": "10.1021/acsptsci.6c00098",
+      "pub_date": "2026 Sep 11",
+      "journal": "ACS pharmacology & translational science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((curcumin[Title/Abstract] OR turmeric[Title/Abstract] OR boswellia[Title/Abstract] OR omega-3[Title/Abstract] OR ginger[Title/Abstract] OR capsaicin[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (pain[Title/Abstract] OR inflammation[Title/Abstract] OR inflammatory[Title/Abstract] OR osteoarthritis[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

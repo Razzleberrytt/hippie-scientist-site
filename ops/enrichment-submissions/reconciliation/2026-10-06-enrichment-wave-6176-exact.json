@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "range": "6176",
+  "source_selection": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6001-6500-r2-candidate-selection.json",
+  "stats": {
+    "rows": 1,
+    "title_verified": 1,
+    "abstract_verified": 1,
+    "semantic_pass": 0,
+    "human_relevance": 0,
+    "failures": [
+      {
+        "wave": 6176,
+        "pmid": "42709628",
+        "title": "High Mass Activity of a Dendritic Ag-Cu Relay Catalyst for Nitrate to Ammonia Electroreduction.",
+        "title_verified": true,
+        "abstract_verified": true,
+        "semantic_pass": false,
+        "human_relevance": false,
+        "error": null
+      }
+    ]
+  },
+  "rows": [
+    {
+      "pmid": "42709628",
+      "title": "High Mass Activity of a Dendritic Ag-Cu Relay Catalyst for Nitrate to Ammonia Electroreduction.",
+      "doi": "10.1021/acsami.6c12419",
+      "pub_date": "2026 Sep 8",
+      "journal": "ACS applied materials & interfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]",
+      "wave": 6176,
+      "category": "performance",
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "High Mass Activity of a Dendritic Ag-Cu Relay Catalyst for Nitrate to Ammonia Electroreduction.",
+      "abstract": "Owing to the growing demand for NH3 as an energy carrier, developing alternative NH3 production routes that overcome the limitations of the Haber-Bosch process is essential. The electrochemical nitrate reduction reaction (NO3RR) offers a sustainable alternative to thermochemical ammonia synthesis by simultaneously mitigating nitrate pollution and enabling renewable-energy-driven NH3 production. Here, we demonstrate high mass activity for NH3 production through the electrochemical NO3RR using a dendritic Ag-Cu relay catalyst, highlighting the NO3RR as a sustainable alternative to the Haber-Bosch process. The dendritic morphology of the Ag-Cu catalyst, fabricated by a simple, compact, and scalable galvanic-displacement method, maximizes the electroactive surface area of Ag per unit loading and induces relay effect between Cu and Ag. A mass activity of 7.34 mol h-1·g-1, with a Faradaic efficiency of 96.4%, representing a 1.2-fold improvement over the state-of-the-art performance under alkaline media, was achieved. The catalyst exhibits excellent performance in a practical full-cell configuration, highlighting its potential as a promising alternative or complementary pathway to the conventional Haber-Bosch ammonia synthesis.",
+      "verified_journal": "ACS applied materials & interfaces",
+      "verified_pub_date": "2026-Sep-08",
+      "pdf_link": "https://doi.org/10.1021/acsami.6c12419",
+      "full_text_link": null,
+      "title_verified": true,
+      "abstract_verified": true,
+      "semantic_pass": false,
+      "human_relevance": false,
+      "verification_error": null
+    }
+  ]
+}
