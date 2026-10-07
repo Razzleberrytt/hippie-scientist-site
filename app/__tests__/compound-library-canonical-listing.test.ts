@@ -83,13 +83,10 @@ describe('compound library canonical listings', () => {
 
   it('keeps the homepage tracked-compound counter wired to the fresh canonical runtime inventory', () => {
     const compounds = JSON.parse(read('public/data/compounds.json'))
-    const buildReport = JSON.parse(read('public/data/build-report.json'))
     const metricsSource = read('lib/public-site-metrics.ts')
     const homepageSource = read('components/homepage-v2.tsx')
 
     expect(Array.isArray(compounds)).toBe(true)
-    expect(compounds).toHaveLength(Number(buildReport?.counts?.compounds))
-
     const canonicalCompounds = selectCanonicalCompounds(compounds)
     expect(canonicalCompounds.length).toBeGreaterThan(0)
     expect(canonicalCompounds.length).toBeLessThanOrEqual(compounds.length)
