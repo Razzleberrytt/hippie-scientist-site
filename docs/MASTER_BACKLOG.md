@@ -46,7 +46,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**#6378 / PR #6377 — production-safety control, in review:** make R8.04 sovereign zero-credit social production enforceable in real code. Acceptance requires an audible local/self-hosted narration path, exact-artifact Natural Presence/pronunciation approval, no silent MP4 release, manual-upload-capable packaging, and a CI gate that watches the actual production surfaces. Paid memberships, metered generation credits, third-party schedulers, and robotic system-TTS fallbacks are prohibited from the canonical critical path.
+**#6379 — local-production usability follow-up, in implementation:** expose the merged R8.04 sovereign path as prepare/finalize/status commands, stop explicitly at exact-audio review for short-video, and emit a hash-bound native manual-upload packet. This is an ergonomics/operability layer over #6378, not a new provider or publishing authority.
 
 
 **Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
@@ -62,7 +62,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-06
+### Verified completion refresh — 2026-10-07
+
+- **#6378 / PR #6377 — completed:** merged as `48f2229170bd6aecf4b81a2b6962aa884e6c5e01`. Zero-credit R8.04 production, local narration provenance, exact-audio QA, audible MP4 enforcement, manual-native-upload baseline transport, and sovereignty regression gates are on `main`. External audience/business outcomes remain **Unknown**.
+
+### Earlier completion refresh — 2026-10-06
 
 - **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. First-party publication identity/state, TikTok draft transport, Observer/reconciliation, provider-neutral staging, and Metricool publication freeze are implemented and exact-head validation/build gates passed. External Cloudflare D1/KV bindings, production secrets, TikTok app approval, creator authorization, and live publication receipt remain pending/Unknown.
 
