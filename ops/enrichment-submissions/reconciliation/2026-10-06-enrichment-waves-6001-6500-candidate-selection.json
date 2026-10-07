@@ -141,13 +141,14 @@
       "title": "A multi-center, double-blind, randomised study of the Lavender oil preparation Silexan in comparison to Lorazepam for generalized anxiety disorder.",
       "doi": "10.1016/j.phymed.2009.10.006",
       "pub_date": "2010-Feb",
-      "pub_type": "Systematic Review",
+      "pub_type": "Randomized Controlled Trial",
       "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
       "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6006,
       "state": "candidate_exact_verified_collision_repair",
       "selection_score": 28,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "category": "stress_anxiety",
@@ -156,13 +157,14 @@
       "title": "The acute effects of kava and oxazepam on anxiety, mood, neurocognition; and genetic correlates: a randomized, placebo-controlled, double-blind study.",
       "doi": "10.1002/hup.2216",
       "pub_date": "2012-May",
-      "pub_type": "Meta-Analysis",
+      "pub_type": "Randomized Controlled Trial",
       "journal": "Human psychopharmacology",
       "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6007,
       "state": "candidate_exact_verified_collision_repair",
       "selection_score": 28,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "category": "stress_anxiety",
@@ -241,13 +243,14 @@
       "title": "Anti-Stress, Behavioural and Magnetoencephalography Effects of an L-Theanine-Based Nutrient Drink: A Randomised, Double-Blind, Placebo-Controlled, Crossover Trial.",
       "doi": "10.3390/nu8010053",
       "pub_date": "2016-Jan-19",
-      "pub_type": "Systematic Review",
+      "pub_type": "Randomized Controlled Trial",
       "journal": "Nutrients",
       "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6013,
       "state": "candidate_exact_verified_collision_repair",
       "selection_score": 19,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "category": "stress_anxiety",
@@ -486,7 +489,8 @@
       "wave": 6030,
       "state": "candidate_exact_verified_collision_repair",
       "selection_score": 19,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "category": "stress_anxiety",
@@ -495,13 +499,14 @@
       "title": "The Impact of Ashwagandha on Stress, Sleep Quality, and Food Cravings in College Students: Quantitative Analysis of a Double-Blind Randomized Control Trial.",
       "doi": "10.1089/jmf.2022.0040",
       "pub_date": "2022-Dec",
-      "pub_type": "Systematic Review",
+      "pub_type": "Randomized Controlled Trial",
       "journal": "Journal of medicinal food",
       "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6031,
       "state": "candidate_exact_verified_collision_repair",
       "selection_score": 19,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "category": "stress_anxiety",
@@ -6956,7 +6961,8 @@
       "wave": 6492,
       "state": "candidate_exact_verified_collision_repair",
       "selection_score": 28,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "category": "immune_respiratory",
