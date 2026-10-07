@@ -128,7 +128,7 @@ function validateIdentity(mediaPack, creativeSpec) {
   }
   if (!clean(creativeSpec?.delivery?.disclosure)) throw new Error('creative spec governed disclosure is required')
   const video = creativeSpec?.verticalVideo
-  const release = clean(creativeSpec?.systemRelease) || 'R8.05'
+  const release = clean(creativeSpec?.systemRelease) || 'R8.04'
   if (release === 'R8.05') {
     const quality = creativeSpec?.creativeQuality
     if (clean(quality?.schemaVersion) !== 'ths-r805-creative-receipt-v2' || clean(quality?.release) !== 'R8.05' || clean(quality?.status) !== 'approved') {
@@ -497,7 +497,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
 export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir }) {
   const dir = path.resolve(outputDir)
   fs.mkdirSync(dir, { recursive: true })
-  const release = clean(creativeSpec?.systemRelease) || 'R8.05'
+  const release = clean(creativeSpec?.systemRelease) || 'R8.04'
   const built = release === 'R8.05'
     ? buildTimelineR805(mediaPack, creativeSpec, dir)
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
