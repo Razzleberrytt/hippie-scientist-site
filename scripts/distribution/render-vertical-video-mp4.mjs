@@ -30,13 +30,13 @@ function decodeXmlEntities(value) {
 }
 
 function parseSceneMetadata(svg) {
-  const match = svg.match(/<metadata>([\\s\\S]*?)<\\/metadata>/)
+  const match = svg.match(/<metadata>([\s\S]*?)<\/metadata>/)
   if (!match) throw new Error('video scene is missing embedded provenance metadata')
   return JSON.parse(decodeXmlEntities(match[1]))
 }
 
 function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
-  const file = assertCanonicalChild(packageDir, asset.file, /^video-scene-\\d{2}\\.svg$/)
+  const file = assertCanonicalChild(packageDir, asset.file, /^video-scene-\d{2}\.svg$/)
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(asset.sha256)) throw new Error(`video scene hash mismatch: ${asset.file}`)
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
@@ -62,7 +62,7 @@ function verifyPackage(packageDir) {
   const sourceContentHash = clean(manifest.sourceContentHash)
   if (!sourceUrl || !sourceContentHash) throw new Error('parent package source provenance is required')
 
-  const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\\.json$/)
+  const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\.json$/)
   const timelineBytes = fs.readFileSync(timelineFile)
   if (sha256(timelineBytes) !== clean(manifest.timeline?.sha256)) throw new Error('video timeline hash mismatch')
   const timeline = JSON.parse(timelineBytes.toString('utf8'))
@@ -112,7 +112,7 @@ function verifyLocalNarration(packageDir, manifest) {
   if (scriptMeta?.localVoiceRequired !== true || scriptMeta?.premiumProviderFallbackAllowed !== false) {
     throw new Error('R8.04 parent package must require local voice and forbid premium-provider fallback')
   }
-  const scriptFile = assertCanonicalChild(packageDir, scriptMeta.file, /^narration-script\\.json$/)
+  const scriptFile = assertCanonicalChild(packageDir, scriptMeta.file, /^narration-script\.json$/)
   const scriptBytes = fs.readFileSync(scriptFile)
   if (sha256(scriptBytes) !== clean(scriptMeta.sha256)) throw new Error('narration script hash mismatch')
   const script = JSON.parse(scriptBytes.toString('utf8'))
@@ -120,9 +120,9 @@ function verifyLocalNarration(packageDir, manifest) {
     throw new Error('narration script identity/profile does not match parent manifest')
   }
 
-  const audioFile = assertCanonicalChild(packageDir, 'narration.wav', /^narration\\.wav$/)
-  const narrationReceiptFile = assertCanonicalChild(packageDir, 'narration.wav.receipt.json', /^narration\\.wav\\.receipt\\.json$/)
-  const voiceQaFile = assertCanonicalChild(packageDir, 'voice-qa.receipt.json', /^voice-qa\\.receipt\\.json$/)
+  const audioFile = assertCanonicalChild(packageDir, 'narration.wav', /^narration\.wav$/)
+  const narrationReceiptFile = assertCanonicalChild(packageDir, 'narration.wav.receipt.json', /^narration\.wav\.receipt\.json$/)
+  const voiceQaFile = assertCanonicalChild(packageDir, 'voice-qa.receipt.json', /^voice-qa\.receipt\.json$/)
   for (const file of [audioFile, narrationReceiptFile, voiceQaFile]) {
     if (!fs.existsSync(file)) {
       throw new Error(`R8.04 local narration is incomplete: missing ${path.basename(file)}; hosted/credit fallback is forbidden`)
@@ -184,7 +184,7 @@ function verifyLocalNarration(packageDir, manifest) {
  * Spawn a command, tolerating Windows batch shims without shell:true.
  */
 function runCommand(executable, args, options = {}) {
-  const isWindowsShim = process.platform === 'win32' && /\\.(cmd|bat)$/i.test(executable)
+  const isWindowsShim = process.platform === 'win32' && /\.(cmd|bat)$/i.test(executable)
   const [command, commandArgs] = isWindowsShim
     ? [process.env.ComSpec || 'cmd.exe', ['/d', '/s', '/c', executable, ...args]]
     : [executable, args]
@@ -197,14 +197,14 @@ function runCommand(executable, args, options = {}) {
 
 function ffmpegVersion(ffmpegPath) {
   const result = runCommand(ffmpegPath, ['-version'])
-  return clean(String(result.stdout || '').split('\\n')[0])
+  return clean(String(result.stdout || '').split('\n')[0])
 }
 
 export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 }) {
   for (const [label, value] of Object.entries({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 })) {
     if (!clean(value)) throw new Error(`${label} is required for R8.04 MP4 render identity`)
   }
-  return sha256(`vertical-video-mp4-v2-r804\\n${clean(manifestSha256)}\\n${clean(ffmpegVersionLine)}\\n${clean(narrationSha256)}\\n${clean(voiceQaSha256)}\\n1080x1920\\n30fps\\nlibx264\\naac192k\\nyuv420p\\n`)
+  return sha256(`vertical-video-mp4-v2-r804\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\nlibx264\naac192k\nyuv420p\n`)
 }
 
 export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
@@ -232,13 +232,13 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       const { bytes } = verifyScene({ packageDir: inputDir, asset, sourceUrl: verified.sourceUrl, sourceContentHash: verified.sourceContentHash })
       const pngFile = path.join(tempDir, `scene-${String(index + 1).padStart(2, '0')}.png`)
       await sharp(bytes).png({ compressionLevel: 9, adaptiveFiltering: false }).toFile(pngFile)
-      concatLines.push(`file '${pngFile.replace(/'/g, "'\\\\''")}'`)
+      concatLines.push(`file '${pngFile.replace(/'/g, "'\\''")}'`)
       concatLines.push(`duration ${Number(asset.duration).toFixed(3)}`)
     }
     const finalPng = path.join(tempDir, `scene-${String(verified.assets.length).padStart(2, '0')}.png`)
-    concatLines.push(`file '${finalPng.replace(/'/g, "'\\\\''")}'`)
+    concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
     const concatFile = path.join(tempDir, 'concat.txt')
-    fs.writeFileSync(concatFile, `${concatLines.join('\\n')}\\n`)
+    fs.writeFileSync(concatFile, `${concatLines.join('\n')}\n`)
 
     runCommand(ffmpegPath, [
       '-hide_banner', '-loglevel', 'error',
@@ -292,7 +292,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       },
       output: { file: path.basename(output), sha256: sha256(outputBytes), bytes: outputBytes.length },
     }
-    fs.writeFileSync(`${output}.receipt.json`, `${JSON.stringify(receipt, null, 2)}\\n`)
+    fs.writeFileSync(`${output}.receipt.json`, `${JSON.stringify(receipt, null, 2)}\n`)
     return receipt
   } finally {
     fs.rmSync(tempDir, { recursive: true, force: true })
