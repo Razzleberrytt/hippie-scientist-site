@@ -38,9 +38,19 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 }
 
 export function buildLosslessCreativeSpec(input) {
-  const systemRelease = clean(input?.systemRelease)
-  const r805Brief = systemRelease === 'R8.05' ? assertR805CreativeBrief(input?.creativeBrief) : null
-  const r805Receipt = r805Brief ? buildR805CreativeReceipt(r805Brief) : null
+  const systemRelease = clean(input?.systemRelease) || 'R8.05'
+  const hasR805Brief = systemRelease === 'R8.05' && input?.creativeBrief && typeof input.creativeBrief === 'object'
+  const r805Brief = hasR805Brief ? assertR805CreativeBrief(input.creativeBrief) : null
+  const r805Receipt = r805Brief
+    ? buildR805CreativeReceipt(r805Brief)
+    : systemRelease === 'R8.05'
+      ? {
+          schemaVersion: 'ths-r805-creative-receipt-v2',
+          release: 'R8.05',
+          status: 'concept-required',
+          reason: 'Bulk/review generation is allowed, but R8.05 video rendering requires an approved creative brief and exact local narration timeline.',
+        }
+      : null
   const base = buildCreativeSpec(input)
   const creativeHook = buildCreativeHook(input)
   const maxChars = CREATIVE_BRAND_TOKENS.typography.bodyMaxChars
@@ -245,6 +255,8 @@ export function buildLosslessCreativeSpec(input) {
     },
     verticalVideo: {
       ...verticalVideo,
+      durationSeconds: r805Receipt?.status === 'approved' ? null : verticalVideo.durationSeconds,
+      timingAuthority: r805Receipt?.status === 'approved' ? 'exact-local-narration' : 'review-only-template',
       visualRegressionFingerprint: visualRegression.fingerprint,
     },
     delivery: {
