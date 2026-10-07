@@ -15,6 +15,14 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
+function safeSegment(value, label) {
+  const segment = clean(value)
+  if (!/^[a-z0-9][a-z0-9._-]*$/i.test(segment) || segment === '.' || segment === '..') {
+    throw new Error(`invalid ${label}: ${segment || '<missing>'}`)
+  }
+  return segment
+}
+
 function writeJson(file, value) {
   fs.mkdirSync(path.dirname(file), { recursive: true })
   fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`)
@@ -83,7 +91,7 @@ export function buildManualUploadPacket({
   if (stagedManifest?.schemaVersion !== 'ths-publication-media-v1' || stagedManifest?.status !== 'ready-for-provider') {
     throw new Error('manual upload packet requires a validated THS publication-media manifest')
   }
-  const objectId = clean(stagedManifest.researchObjectId)
+  const objectId = safeSegment(stagedManifest.researchObjectId, 'research object id')
   const fingerprint = clean(stagedManifest.identityFingerprint)
   if (!objectId || !/^[a-f0-9]{64}$/i.test(fingerprint)) {
     throw new Error('manual upload packet requires canonical publication identity')
