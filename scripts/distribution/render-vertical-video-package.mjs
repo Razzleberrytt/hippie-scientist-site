@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
+import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -125,16 +126,25 @@ function validateIdentity(mediaPack, creativeSpec) {
   }
   if (!clean(creativeSpec?.delivery?.disclosure)) throw new Error('creative spec governed disclosure is required')
   const video = creativeSpec?.verticalVideo
-  if (clean(creativeSpec?.systemRelease) === 'R8.05') {
+  const release = clean(creativeSpec?.systemRelease) || 'R8.05'
+  if (release === 'R8.05') {
     const quality = creativeSpec?.creativeQuality
-    if (clean(quality?.schemaVersion) !== 'ths-r805-creative-receipt-v1' || clean(quality?.release) !== 'R8.05') {
-      throw new Error('R8.05 vertical video requires a validated creative-quality receipt before rendering')
+    if (clean(quality?.schemaVersion) !== 'ths-r805-creative-receipt-v2' || clean(quality?.release) !== 'R8.05' || clean(quality?.status) !== 'approved') {
+      throw new Error('R8.05 vertical video requires an approved creative brief before rendering')
     }
     if (quality?.narrationIsTimingMaster !== true || quality?.semanticClipOwnership !== true || quality?.cutOnMeaning !== true || quality?.internalMotionSync !== true) {
       throw new Error('R8.05 creative-quality receipt is missing semantic AV-lock invariants')
     }
+    if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
+      throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
+    }
+  } else if (release === 'R8.04') {
+    if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') {
+      throw new Error('R8.04 vertical video creative spec must define the canonical 30-second 1080x1920 profile')
+    }
+  } else {
+    throw new Error(`unsupported social production release: ${release}`)
   }
-  if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') throw new Error('vertical video creative spec must define the canonical 30-second 1080x1920 profile')
   const canvas = video.canvas ?? CREATIVE_BRAND_TOKENS.canvas.vertical
   if (Number(canvas.width) !== 1080 || Number(canvas.height) !== 1920) throw new Error('vertical video canvas must be 1080x1920')
 
@@ -153,7 +163,7 @@ function validateIdentity(mediaPack, creativeSpec) {
   }
 }
 
-function buildTimeline(mediaPack, creativeSpec) {
+function buildTimelineR804(mediaPack, creativeSpec) {
   validateIdentity(mediaPack, creativeSpec)
   const contrastErrors = validateCreativeContrast()
   if (contrastErrors.length) throw new Error(`invalid brand contrast: ${contrastErrors.join('; ')}`)
@@ -241,6 +251,158 @@ function buildTimeline(mediaPack, creativeSpec) {
   return scenes
 }
 
+
+function readRequiredJson(file, label) {
+  if (!fs.existsSync(file)) throw new Error(`R8.05 requires ${label}: ${path.basename(file)}`)
+  const bytes = fs.readFileSync(file)
+  return { bytes, sha256: sha256(bytes), value: JSON.parse(bytes.toString('utf8')) }
+}
+
+function colorTreatmentForRole(role, requested) {
+  if (clean(requested)) return clean(requested)
+  return ({
+    hook: 'primaryDark',
+    finding: 'evidence',
+    evidence: 'evidence',
+    limitation: 'primaryLight',
+    source: 'source',
+    context: 'disclosure',
+    cta: 'primaryDark',
+  })[role] || 'primaryLight'
+}
+
+function buildTimelineR805(mediaPack, creativeSpec, dir) {
+  validateIdentity(mediaPack, creativeSpec)
+  const quality = creativeSpec.creativeQuality
+  const briefFile = readRequiredJson(path.join(dir, 'r805-creative-brief.json'), 'creative brief')
+  const beatTimelineFile = readRequiredJson(path.join(dir, 'semantic-beat-timeline.json'), 'semantic beat timeline')
+  const narrationReceiptFile = readRequiredJson(path.join(dir, 'narration.wav.receipt.json'), 'local narration receipt')
+  const voiceQaFile = readRequiredJson(path.join(dir, 'voice-qa.receipt.json'), 'exact narration QA receipt')
+  const audioFile = path.join(dir, 'narration.wav')
+  if (!fs.existsSync(audioFile)) throw new Error('R8.05 requires exact local narration.wav before visual rendering')
+  const audioBytes = fs.readFileSync(audioFile)
+  const audioSha = sha256(audioBytes)
+
+  const brief = assertR805CreativeBrief(briefFile.value)
+  const freshQuality = buildR805CreativeReceipt(brief)
+  if (freshQuality.semanticBeatMapSha256 !== quality.semanticBeatMapSha256
+      || JSON.stringify(freshQuality.beatReceipts) !== JSON.stringify(quality.beatReceipts)) {
+    throw new Error('R8.05 creative-quality receipt does not bind the exact creative brief')
+  }
+  if (clean(brief.sourceIdentity?.id) !== clean(mediaPack.researchObjectIds?.[0])
+      || clean(brief.sourceIdentity?.sourceUrl) !== clean(mediaPack.source.url)) {
+    throw new Error('R8.05 creative brief source identity does not match the governed media pack')
+  }
+
+  const narrationReceipt = narrationReceiptFile.value
+  const beatTimeline = beatTimelineFile.value
+  const voiceQa = voiceQaFile.value
+  if (clean(narrationReceipt.release) !== 'R8.05'
+      || clean(narrationReceipt.source?.timingAuthority) !== 'exact-local-narration'
+      || clean(narrationReceipt.source?.creativeBriefSha256) !== briefFile.sha256
+      || clean(narrationReceipt.source?.beatTimelineSha256) !== beatTimelineFile.sha256
+      || clean(narrationReceipt.output?.sha256) !== audioSha) {
+    throw new Error('R8.05 narration provenance is not bound to the exact brief/timeline/audio')
+  }
+  if (clean(beatTimeline.schemaVersion) !== 'ths-r805-semantic-beat-timeline-v1'
+      || clean(beatTimeline.release) !== 'R8.05'
+      || clean(beatTimeline.timingAuthority) !== 'exact-local-narration'
+      || clean(beatTimeline.creativeBriefSha256) !== briefFile.sha256
+      || clean(beatTimeline.audioSha256) !== audioSha) {
+    throw new Error('R8.05 semantic beat timeline is stale or not voice-authored')
+  }
+  if (clean(voiceQa.release) !== 'R8.05'
+      || clean(voiceQa.artifact?.sha256) !== audioSha
+      || clean(voiceQa.narrationReceiptSha256) !== narrationReceiptFile.sha256
+      || clean(voiceQa.semanticBeatTimelineSha256) !== beatTimelineFile.sha256
+      || clean(voiceQa.creativeBriefSha256) !== briefFile.sha256
+      || voiceQa.qa?.exactArtifactReviewed !== true
+      || clean(voiceQa.qa?.naturalPresence) !== 'pass'
+      || clean(voiceQa.qa?.pronunciation) !== 'pass') {
+    throw new Error('R8.05 exact local narration has not passed artifact-bound voice QA')
+  }
+
+  const timelineBeats = Array.isArray(beatTimeline.beats) ? beatTimeline.beats : []
+  if (timelineBeats.length !== brief.beats.length || quality.beatReceipts.length !== brief.beats.length) {
+    throw new Error('R8.05 semantic beat inventory mismatch')
+  }
+
+  let expectedStart = 0
+  let sourceCount = 0
+  const scenes = brief.beats.map((beat, index) => {
+    const timed = timelineBeats[index]
+    const governed = quality.beatReceipts[index]
+    if (clean(timed?.id) !== clean(beat.id) || clean(governed?.id) !== clean(beat.id) || clean(timed?.role) !== clean(beat.role)) {
+      throw new Error(`R8.05 beat identity mismatch at index ${index}`)
+    }
+    for (const [field, actual] of [
+      ['narrationSha256', sha256(clean(beat.narration))],
+      ['onScreenTextSha256', sha256(clean(beat.onScreenText))],
+      ['visualPurposeSha256', sha256(clean(beat.visualPurpose))],
+      ['spokenAnchorSha256', sha256(clean(beat.spokenAnchor))],
+      ['visualActionSha256', sha256(clean(beat.visualAction))],
+    ]) {
+      if (clean(timed?.[field]) !== actual || clean(governed?.[field]) !== actual) {
+        throw new Error(`R8.05 beat ${beat.id} ${field} does not match exact voice/creative binding`)
+      }
+    }
+    if (clean(timed?.cutReason) !== clean(beat.cutReason) || clean(governed?.cutReason) !== clean(beat.cutReason)) {
+      throw new Error(`R8.05 beat ${beat.id} cut reason drifted`)
+    }
+    const start = Number(timed.start)
+    const end = Number(timed.end)
+    if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start || !timingMatches(start, expectedStart)) {
+      throw new Error(`R8.05 beat ${beat.id} timing is not contiguous`)
+    }
+    expectedStart = end
+    if (clean(beat.role) === 'source') {
+      sourceCount += 1
+      if (clean(beat.onScreenText) !== clean(mediaPack.source.url) || end - start < 3) {
+        throw new Error('R8.05 source beat must show the exact canonical URL for at least three seconds')
+      }
+    }
+    return {
+      beatId: clean(beat.id),
+      role: clean(beat.role),
+      start,
+      end,
+      speechEnd: Number(timed.speechEnd),
+      onScreenText: clean(beat.onScreenText),
+      voiceover: clean(beat.narration),
+      visualPurpose: clean(beat.visualPurpose),
+      spokenAnchor: clean(beat.spokenAnchor),
+      visualAction: clean(beat.visualAction),
+      cutReason: clean(beat.cutReason),
+      factualAuthority: clean(beat.factualAuthority) || 'creative-framing',
+      colorTreatment: colorTreatmentForRole(clean(beat.role), beat.colorTreatment),
+      beatReceiptSha256: sha256(JSON.stringify(governed)),
+      sourceLegibility: clean(beat.role) === 'source' ? creativeSpec.verticalVideo.sourceLegibility : undefined,
+    }
+  })
+
+  const durationSeconds = Number(beatTimeline.durationSeconds)
+  if (!Number.isFinite(durationSeconds) || durationSeconds < 5 || durationSeconds > 60 || !timingMatches(expectedStart, durationSeconds)) {
+    throw new Error('R8.05 exact narration duration is outside the governed natural-runtime envelope')
+  }
+  if (Number(narrationReceipt.profile?.durationSeconds) !== durationSeconds) {
+    throw new Error('R8.05 narration receipt duration does not match its semantic timeline')
+  }
+  if (sourceCount !== 1) throw new Error('R8.05 rendered timeline requires exactly one dedicated source beat')
+
+  return {
+    scenes,
+    durationSeconds,
+    bindings: {
+      creativeBrief: { file: 'r805-creative-brief.json', sha256: briefFile.sha256 },
+      semanticBeatTimeline: { file: 'semantic-beat-timeline.json', sha256: beatTimelineFile.sha256 },
+      narrationReceipt: { file: 'narration.wav.receipt.json', sha256: narrationReceiptFile.sha256 },
+      voiceQaReceipt: { file: 'voice-qa.receipt.json', sha256: voiceQaFile.sha256 },
+      audioSha256: audioSha,
+      semanticBeatMapSha256: quality.semanticBeatMapSha256,
+    },
+  }
+}
+
 function verticalPlatformIntersection() {
   const zones = Object.values(CREATIVE_BRAND_TOKENS.platformSafeZones)
     .filter((zone) => zone.format === 'vertical')
@@ -291,6 +453,11 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     factualAuthority: scene.factualAuthority,
     renderer: 'vertical-video-package-v1',
     role: scene.role,
+    beatId: scene.beatId || null,
+    beatReceiptSha256: scene.beatReceiptSha256 || null,
+    spokenAnchor: scene.spokenAnchor || null,
+    visualAction: scene.visualAction || null,
+    cutReason: scene.cutReason || null,
     start: scene.start,
     end: scene.end,
     safeArea: { x, right: safeRight, width: safeWidth, top: safe.top, bottom: canvas.height - safe.bottom },
@@ -300,9 +467,13 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
 }
 
 export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir }) {
-  const scenes = buildTimeline(mediaPack, creativeSpec)
   const dir = path.resolve(outputDir)
   fs.mkdirSync(dir, { recursive: true })
+  const release = clean(creativeSpec?.systemRelease) || 'R8.05'
+  const built = release === 'R8.05'
+    ? buildTimelineR805(mediaPack, creativeSpec, dir)
+    : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
+  const { scenes, durationSeconds, bindings } = built
   const disclosure = clean(creativeSpec.delivery.disclosure)
 
   const assets = scenes.map((scene, index) => {
@@ -317,6 +488,9 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fs.writeFileSync(path.join(dir, file), bytes)
     return {
       id: `video-scene-${index + 1}`,
+      beatId: scene.beatId || null,
+      beatReceiptSha256: scene.beatReceiptSha256 || null,
+      cutReason: scene.cutReason || null,
       type: 'vertical-video-scene',
       format: 'svg',
       file,
@@ -334,16 +508,21 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   })
 
   const timeline = {
-    schemaVersion: '1.0.0',
+    schemaVersion: '1.1.0',
     renderer: 'vertical-video-package-v1',
+    systemRelease: release,
+    timingAuthority: release === 'R8.05' ? 'exact-local-narration' : 'legacy-authored-30s',
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
     sourceUrl: mediaPack.source.url,
     width: 1080,
     height: 1920,
     fps: 30,
-    durationSeconds: 30,
-    scenes: assets.map(({ id, file, sha256: hash, start, end, duration, role, factualAuthority }) => ({ id, file, sha256: hash, start, end, duration, role, factualAuthority })),
+    durationSeconds,
+    semanticBeatMapSha256: bindings?.semanticBeatMapSha256 ?? null,
+    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, file, sha256: hash, start, end, duration, role, factualAuthority }) => ({
+      id, beatId, beatReceiptSha256, cutReason, file, sha256: hash, start, end, duration, role, factualAuthority,
+    })),
   }
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
   fs.writeFileSync(path.join(dir, 'video-timeline.json'), timelineBytes)
@@ -353,13 +532,15 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
 
   const narrationScript = {
     schemaVersion: 'ths-local-narration-script-v1',
-    release: 'R8.04',
+    release,
+    timingAuthority: release === 'R8.05' ? 'exact-local-narration' : 'legacy-authored-30s',
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
     sourceUrl: mediaPack.source.url,
-    durationSeconds: 30,
+    durationSeconds,
     sampleRate: 24000,
     scenes: scenes.map((scene) => ({
+      beatId: scene.beatId || null,
       role: scene.role,
       start: scene.start,
       end: scene.end,
@@ -371,14 +552,16 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   fs.writeFileSync(path.join(dir, 'narration-script.json'), narrationScriptBytes)
 
   const manifest = {
-    schemaVersion: '1.0.0',
+    schemaVersion: '1.1.0',
+    release,
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
     sourceUrl: mediaPack.source.url,
     renderer: 'vertical-video-package-v1',
-    systemRelease: clean(creativeSpec.systemRelease) || null,
+    systemRelease: release,
     creativeQuality: creativeSpec.creativeQuality ?? null,
-    durationSeconds: 30,
+    r805Bindings: bindings,
+    durationSeconds,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
     captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true },
     narrationScript: {
@@ -387,6 +570,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       schemaVersion: narrationScript.schemaVersion,
       localVoiceRequired: true,
       premiumProviderFallbackAllowed: false,
+      timingAuthority: narrationScript.timingAuthority,
     },
     assets,
   }
