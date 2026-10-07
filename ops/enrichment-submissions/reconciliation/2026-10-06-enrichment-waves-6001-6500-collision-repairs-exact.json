@@ -17,7 +17,9 @@
       "full_text_link": "",
       "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
       "pub_date": "2010-Feb",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type": "Randomized Controlled Trial",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "wave": 6007,
@@ -33,7 +35,9 @@
       "full_text_link": "",
       "journal": "Human psychopharmacology",
       "pub_date": "2012-May",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type": "Randomized Controlled Trial",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "wave": 6013,
@@ -49,7 +53,9 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4728665/",
       "journal": "Nutrients",
       "pub_date": "2016-Jan-19",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type": "Randomized Controlled Trial",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "wave": 6030,
@@ -65,7 +71,9 @@
       "full_text_link": "",
       "journal": "The Australian and New Zealand journal of psychiatry",
       "pub_date": "2020-Mar",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type": "Randomized Controlled Trial",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "wave": 6031,
@@ -81,7 +89,9 @@
       "full_text_link": "",
       "journal": "Journal of medicinal food",
       "pub_date": "2022-Dec",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type": "Randomized Controlled Trial",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     },
     {
       "wave": 6492,
@@ -97,7 +107,9 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7973108/",
       "journal": "Frontiers in public health",
       "pub_date": "2021",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "pub_type": "Systematic Review",
+      "pub_type_source": "study_design_classification_from_exact_replacement_record"
     }
   ]
 }
