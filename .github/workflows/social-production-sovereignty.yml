@@ -1,0 +1,39 @@
+name: Social production sovereignty
+
+on:
+  pull_request:
+    paths:
+      - 'config/social-production-sovereignty.json'
+      - 'docs/social-production-sovereignty.md'
+      - 'docs/local-voice-runtime.md'
+      - 'scripts/distribution/**'
+      - 'scripts/ci/validate-social-production-sovereignty.mjs'
+      - '.github/workflows/ths-publisher-publication.yml'
+      - '.github/workflows/deploy.yml'
+      - '.github/workflows/social-production-sovereignty.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/social-production-sovereignty.json'
+      - 'docs/social-production-sovereignty.md'
+      - 'docs/local-voice-runtime.md'
+      - 'scripts/distribution/**'
+      - 'scripts/ci/validate-social-production-sovereignty.mjs'
+      - '.github/workflows/ths-publisher-publication.yml'
+      - '.github/workflows/deploy.yml'
+      - '.github/workflows/social-production-sovereignty.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sovereignty:
+    name: Zero-credit critical path
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/ci/validate-social-production-sovereignty.mjs
