@@ -29,7 +29,7 @@ function exactRoleBeats(brief, role) {
   return (brief?.beats || []).filter((beat) => clean(beat?.role) === role)
 }
 
-function validateR805BriefCopyAgainstCanonical(brief, canonicalSpec) {
+export function validateR805BriefCopyAgainstCanonical(brief, canonicalSpec) {
   const errors = []
   const video = canonicalSpec?.verticalVideo
   const canonicalHook = clean(video?.firstTwoSecondHook)
