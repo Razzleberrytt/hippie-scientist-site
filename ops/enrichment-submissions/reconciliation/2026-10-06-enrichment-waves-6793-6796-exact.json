@@ -3,15 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6793-6796-exact",
   "range": "6793-6796",
   "row_count": 4,
-  "exact_verified_rows": 3,
-  "failures": [
-    {
-      "wave": 6796,
-      "pmid": "31837640",
-      "title_verified": false,
-      "abstract_verified": false
-    }
-  ],
+  "exact_verified_rows": 4,
+  "failures": [],
   "rows": [
     {
       "category": "mood",
@@ -91,14 +84,14 @@
       "selection_score": 14,
       "wave": 6796,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Effects of zinc, vitamin D, and their co-supplementation on mood, serum cortisol, and brain-derived neurotrophic factor in patients with obesity and mild to moderate depressive symptoms: A phase II, 12-wk, 2 × 2 factorial design, double-blind, randomized, placebo-controlled trial.",
+      "abstract": "The aim of this study was to investigate the effects of zinc, vitamin D, and their co-supplementation versus placebo on changes in the Beck Depression Inventory II (BDI-II) score, serum cortisol level, and brain-derived neurotrophic factor (BDNF) in obese/overweight patients with depressive symptoms. This 2 × 2 factorial, double-blind, randomized, placebo-controlled trial with obese/overweight patients with depressive symptoms was conducted in the Endocrinology and Metabolism Research Center (EMRC), Vali-Asr, Emam Khomeini Hospital between July 2016 and February 2017. The intervention period was 12 wk. There were 140 randomized participants who were obese or overweight (mean ± SD, 38.35± 6.70 y of age; mean ± SD body mass index, 30.1 ± 3.78 kg/m2) with BDI ≥ 10. Participants were randomly assigned to one of four groups in a 1:1:1:1 ratio: 2000 IU/d vitamin D + zinc placebo; 30 mg/d zinc gluconate + vitamin D placebo; 2000 IU/d vitamin D + 30 mg/d zinc gluconate; or vitamin D placebo + zinc placebo for 12 wk. We analyzed 125 participants, and a significant decrease in BDI-II was found among those who received zinc, vitamin D, or joint zinc-vitamin D supplements compared with the placebo group (P < 0.001). Zinc was significantly more effective than vitamin D on decreasing the depression score. Supplementation with zinc, vitamin D, or a combination of the two had no significant effects on serum cortisol (P = 0.974) or BDNF (P = 0.076). Fifteen patients discontinued participation owing to pregnancy (n = 1), severe anemia (n = 1), and unspecified unwillingness to continue (n = 13). Supplementation with zinc, vitamin D, or in combination for 12 wk yielded significant beneficial effects on the BDI-II score in obese or overweight patients with BDI-II ≥10.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.nut.2019.110601",
+      "full_text_link": "",
+      "verified_journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "verified_pub_date": "2020-Mar",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     }
   ]
