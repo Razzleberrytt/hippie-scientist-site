@@ -125,6 +125,15 @@ function validateIdentity(mediaPack, creativeSpec) {
   }
   if (!clean(creativeSpec?.delivery?.disclosure)) throw new Error('creative spec governed disclosure is required')
   const video = creativeSpec?.verticalVideo
+  if (clean(creativeSpec?.systemRelease) === 'R8.05') {
+    const quality = creativeSpec?.creativeQuality
+    if (clean(quality?.schemaVersion) !== 'ths-r805-creative-receipt-v1' || clean(quality?.release) !== 'R8.05') {
+      throw new Error('R8.05 vertical video requires a validated creative-quality receipt before rendering')
+    }
+    if (quality?.narrationIsTimingMaster !== true || quality?.semanticClipOwnership !== true || quality?.cutOnMeaning !== true || quality?.internalMotionSync !== true) {
+      throw new Error('R8.05 creative-quality receipt is missing semantic AV-lock invariants')
+    }
+  }
   if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') throw new Error('vertical video creative spec must define the canonical 30-second 1080x1920 profile')
   const canvas = video.canvas ?? CREATIVE_BRAND_TOKENS.canvas.vertical
   if (Number(canvas.width) !== 1080 || Number(canvas.height) !== 1920) throw new Error('vertical video canvas must be 1080x1920')
@@ -367,6 +376,8 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     sourceContentHash: mediaPack.source.contentHash,
     sourceUrl: mediaPack.source.url,
     renderer: 'vertical-video-package-v1',
+    systemRelease: clean(creativeSpec.systemRelease) || null,
+    creativeQuality: creativeSpec.creativeQuality ?? null,
     durationSeconds: 30,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
     captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true },
