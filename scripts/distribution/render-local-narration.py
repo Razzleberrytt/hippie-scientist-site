@@ -369,6 +369,19 @@ def render_r804(package_dir: Path, args) -> int:
     return 0
 
 
+def parent_manifest_release(package_dir: Path) -> str | None:
+    manifest_path = package_dir / "video-asset-manifest.json"
+    if not manifest_path.is_file():
+        return None
+    manifest = read_json(manifest_path)
+    release = str(manifest.get("release") or manifest.get("systemRelease") or "").strip()
+    if not release:
+        return "R8.04"
+    if release not in {"R8.04", "R8.05"}:
+        raise RuntimeError(f"unsupported parent video release: {release}")
+    return release
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Render local THS narration without hosted credits")
     parser.add_argument("--package-dir", required=True)
@@ -383,6 +396,20 @@ def main() -> int:
     package_dir.mkdir(parents=True, exist_ok=True)
 
     brief_path = Path(args.brief).resolve() if args.brief else package_dir / "r805-creative-brief.json"
+    parent_release = parent_manifest_release(package_dir)
+
+    if parent_release == "R8.04":
+        return render_r804(package_dir, args)
+
+    if parent_release == "R8.05":
+        if not brief_path.is_file():
+            raise RuntimeError("R8.05 parent manifest requires r805-creative-brief.json before local narration")
+        if brief_path.parent != package_dir:
+            target = package_dir / "r805-creative-brief.json"
+            target.write_bytes(brief_path.read_bytes())
+            brief_path = target
+        return render_r805(package_dir, brief_path, args)
+
     if brief_path.is_file():
         if brief_path.parent != package_dir:
             target = package_dir / "r805-creative-brief.json"
