@@ -78,6 +78,36 @@ If the rebuilt concept still needs explanation to become interesting, still over
 
 There is no endless polish loop. Sunk cost never waives the quality floor.
 
+## Canonical R8.05 production order
+
+R8.05 reverses the old visuals-first repair pattern. The order is mandatory:
+
+1. EvidenceBridge-authorized research object and lossless governed copy.
+2. Approved R8.05 creative brief with one mental job, early payoff, semantic beats, supported motion primitives, and exact factual-copy reconstruction.
+3. Local Kokoro narration at natural speed. The exact WAV creates the semantic beat timeline; no fixed-duration template owns timing.
+4. Exact narration QA for Natural Presence and pronunciation.
+5. Visual package generated from the exact voice-derived beat timings. Narrated beats must use a renderable `reveal` or `highlight` primitive; silent/source beats use `hold`.
+6. MP4 render using the same natural runtime and beat cue precision.
+7. PerceptualQA watches the exact encoded MP4 and explicitly approves whole-piece cohesion, narration↔visual sync, internal-motion sync, cognitive continuity, and hook→payoff delivery.
+8. PublishOps stages that same approved MP4 hash. R8.05 staging may not rerender or replace the reviewed master.
+9. Manual native upload remains the baseline publication transport.
+
+A failure at any step moves backward to the owning step. It never silently routes around the problem through a premium provider or by publishing a different artifact.
+
+## Factual-copy boundary
+
+R8.05 creative pacing does not create a new scientific-authority layer. Finding and limitation beats must reconstruct the canonical governed copy exactly. Evidence, disclosure/context, CTA, and source beats must match their governed canonical forms. The hook may use only the evidence-safe canonical hook unless EvidenceBridge separately authorizes a new framing. An arbitrary brief cannot inherit a safety receipt produced for different words.
+
+## Renderable internal motion
+
+A text description of motion is not proof that motion exists. R8.05 therefore accepts only motion primitives the local renderer can actually execute:
+
+- `reveal` — the governed text is absent before the voice-derived anchor cue and appears at the cue.
+- `highlight` — the governed text remains visible and a visible emphasis appears at the cue.
+- `hold` — static hold for a silent/source beat only.
+
+The voice-derived anchor cue is an authored estimate based on the measured exact speech duration and the position of the spoken anchor in the line. It is not treated as final proof of perceptual synchronization; the exact-master QA must still watch the finished MP4 and pass internal-motion sync.
+
 ## Release floor
 
 R8.05 passes only when all inherited R8.04 sovereignty and R8.03 evidence/trust gates pass **and**:
