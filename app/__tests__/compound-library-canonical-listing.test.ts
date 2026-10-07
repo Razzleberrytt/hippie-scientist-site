@@ -81,6 +81,21 @@ describe('compound library canonical listings', () => {
     expect(paginatedPage).toContain('loadPublishedCompounds')
   })
 
+  it('keeps the homepage tracked-compound counter wired to the fresh canonical runtime inventory', () => {
+    const compounds = JSON.parse(read('public/data/compounds.json'))
+    const metricsSource = read('lib/public-site-metrics.ts')
+    const homepageSource = read('components/homepage-v2.tsx')
+
+    expect(Array.isArray(compounds)).toBe(true)
+    const canonicalCompounds = selectCanonicalCompounds(compounds)
+    expect(canonicalCompounds.length).toBeGreaterThan(0)
+    expect(canonicalCompounds.length).toBeLessThanOrEqual(compounds.length)
+
+    expect(metricsSource).toContain('totalCompounds: canonicalCompounds.length')
+    expect(homepageSource).toContain("value: metrics.totalCompounds")
+    expect(homepageSource).not.toMatch(/value:\\s*\\d+\\s*,\\s*label:\\s*['"]Compounds tracked['"]/)
+  })
+
   it('does not advertise an inflated fixed profile count in metadata', () => {
     const firstPage = read('app/compounds/page.tsx')
 

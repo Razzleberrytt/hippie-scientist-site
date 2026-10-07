@@ -1,0 +1,1029 @@
+{
+  "schema_version": 1,
+  "category": "immune_respiratory",
+  "target": 34,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 102,
+  "rows": [
+    {
+      "pmid": "42724464",
+      "title": "Probiotics in asthma: immunoregulatory mechanisms and emerging opportunities for respiratory delivery-a narrative review.",
+      "doi": "10.21037/tp-2026-0390",
+      "pub_date": "2026 Aug 31",
+      "journal": "Translational pediatrics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42726367",
+      "title": "Gram-Positive and Gram-Negative Probiotic Extracellular Vesicles: Mechanisms of Immune Modulation and Therapeutic Opportunities in Atopic Dermatitis.",
+      "doi": "10.1007/s12016-026-09201-2",
+      "pub_date": "2026 Sep 11",
+      "journal": "Clinical reviews in allergy & immunology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42730010",
+      "title": "Probiotic lactic acid bacterial strains MG4693 and MG5474 alleviate atopic dermatitis by enhancing intestinal barrier integrity and modulating the immune system.",
+      "doi": "10.29219/fnr.v70.13890",
+      "pub_date": "2026",
+      "journal": "Food & nutrition research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731206",
+      "title": "Effects of dietary protease and protease-probiotic combination on growth performance, nutrient digestibility, and intestinal immune response in broiler chickens.",
+      "doi": "10.1016/j.psj.2026.107540",
+      "pub_date": "2026 Jul 30",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748616",
+      "title": "Probiotic cells-encapsulated electrospun scaffolds accelerate diabetic wound healingviasynergistic anti-infection activity and skin microbiome modulation.",
+      "doi": "10.1016/j.colsurfb.2026.116188",
+      "pub_date": "2026 Sep 15",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754466",
+      "title": "A bio-orthogonally engineered probiotic-T cell chimera amplifies adoptive cell therapy through spatial DC-T cell immune licensing.",
+      "doi": "10.1016/j.scib.2026.09.009",
+      "pub_date": "2026 Sep 4",
+      "journal": "Science bulletin",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760127",
+      "title": "Targeting fatigue in COPD with chronic respiratory failure undergoing pulmonary rehabilitation: a multicentre, randomised, placebo-controlled trial of L-arginine/liposomal vitamin C.",
+      "doi": "10.1136/thorax-2026-225106",
+      "pub_date": "2026 Sep 18",
+      "journal": "Thorax",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42815179",
+      "title": "The C2H2 zinc-finger protein CaZAT11 positively regulates cold tolerance in pepper and physically interacts with CaSTOP1.",
+      "doi": "10.1016/j.plaphy.2026.111793",
+      "pub_date": "2026 Sep 28",
+      "journal": "Plant physiology and biochemistry : PPB",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42724737",
+      "title": "Gut-lung axis in chronic respiratory diseases: a narrative review of emerging insights.",
+      "doi": "10.21037/jtd-2026-0628",
+      "pub_date": "2026 Aug 31",
+      "journal": "Journal of thoracic disease",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731099",
+      "title": "Beyond the skin barrier: nanocarrier-based drug delivery with emerging insights into the gut-skin axis and probiotic modulation in atopic dermatitis.",
+      "doi": "10.1093/jpp/rgag100",
+      "pub_date": "2026 Sep 1",
+      "journal": "The Journal of pharmacy and pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42736181",
+      "title": "Mechanisms of probiotic action in poultry gut: Colonization resistance, bioactive metabolites, quorum sensing activity, and immunomodulation.",
+      "doi": "10.1016/j.psj.2026.107616",
+      "pub_date": "2026 Aug 15",
+      "journal": "Poultry science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42761183",
+      "title": "Gut microbiome-immune-metabolic axis in fatigue: mechanistic insights and food science approaches.",
+      "doi": "10.1007/s10068-026-02282-x",
+      "pub_date": "2026 Oct",
+      "journal": "Food science and biotechnology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42778087",
+      "title": "Bifidobacteria and Clostridioides difficile infection: review of emerging therapeutic perspectives.",
+      "doi": "10.1016/j.anaerobe.2026.103085",
+      "pub_date": "2026 Sep 23",
+      "journal": "Anaerobe",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42820108",
+      "title": "Metalloimmunotherapies: metal-driven regulatory networks in the immune microenvironment.",
+      "doi": "10.3389/fimmu.2026.1901186",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824986",
+      "title": "Nano zinc supplementation in broiler nutrition: current evidence, mechanisms of action, and future perspectives.",
+      "doi": "10.3389/fvets.2026.1925519",
+      "pub_date": "2026",
+      "journal": "Frontiers in veterinary science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42741344",
+      "title": "Functional mechanisms, current applications, and future perspectives of dairy products in oral health.",
+      "doi": "10.3389/fpubh.2026.1898007",
+      "pub_date": "2026",
+      "journal": "Frontiers in public health",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42723058",
+      "title": "Integrated endocrine-oxidative-metabolic and trace element responses to heat and cold stress in dromedary camels (Camelus dromedarius).",
+      "doi": "10.1186/s12917-026-05866-1",
+      "pub_date": "2026 Sep 9",
+      "journal": "BMC veterinary research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42726282",
+      "title": "Probiotic Characterization and Anti-biofilm Activity of Ligilactobacillus salivarius: Implications for Periodontal Disease Management.",
+      "doi": "10.1007/s00284-026-05150-3",
+      "pub_date": "2026 Sep 11",
+      "journal": "Current microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42726742",
+      "title": "Vitamin D alleviates indoxyl sulfate-induced inflammatory and cholesterol dysregulation in macrophages: Implications for vascular health in patients receiving hemodialysis.",
+      "doi": "10.1371/journal.pone.0357984",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42729209",
+      "title": "Vitamin C enhances cytotoxicity of CAR-and εTRuC-engineered γδ T cells and modulates Ca(2+), NFAT, NF-κB and ERK signaling in human γδ T cells.",
+      "doi": "10.3389/fimmu.2026.1759941",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42730959",
+      "title": "Genomic Insights Into the Probiotic and Safety Attributes of Pediococcus acidilactici BC-7 for its Potential Application in Livestock Health.",
+      "doi": "10.1007/s12602-026-11208-2",
+      "pub_date": "2026 Sep 12",
+      "journal": "Probiotics and antimicrobial proteins",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731227",
+      "title": "Wildlife-derived Lactobacillus agilis LA-V4 alleviates Salmonella Typhimurium infection in broilers through gut microbiota remodeling and hepatic autophagy restoration.",
+      "doi": "10.1016/j.psj.2026.107661",
+      "pub_date": "2026 Aug 19",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737277",
+      "title": "Lacticaseibacillus paracasei LPB27: Effectively Enhances the Immune System by Improving the Intestinal Environment.",
+      "doi": "10.3390/foods15173033",
+      "pub_date": "2026 Aug 27",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737757",
+      "title": "Effects of Probiotic Supplementation from Dry-Off Through Early Lactation on Serum Protein Indices and Free Amino Acids in Dairy Cows: A Randomized Field Study.",
+      "doi": "10.3390/ijms27177860",
+      "pub_date": "2026 Sep 2",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738435",
+      "title": "Lactobacillus Modulates the Rumen Microbiota and Transcriptome to Enhance Nutrient Digestion in Yaks Fed High-Concentrate Diets During the Cold Season.",
+      "doi": "10.3390/ani16172644",
+      "pub_date": "2026 Aug 24",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738556",
+      "title": "Dietary Supplementation with Multispecies Probiotic Fermented Broth Improves Nutrient Digestibility and Carcass Traits While Modulating the Cecal Microbiota and Thigh Muscle Fatty Acid Profile in Yellow-Feathered Broilers.",
+      "doi": "10.3390/ani16172768",
+      "pub_date": "2026 Sep 3",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42742739",
+      "title": "Screening of largemouth bass-derived Bacillus subtilis and synergistic regulation of growth performance, intestinal health, and resistance against Edwardsiella piscicida infection.",
+      "doi": "10.1007/s00203-026-05183-z",
+      "pub_date": "2026 Sep 15",
+      "journal": "Archives of microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42744271",
+      "title": "Engineering cellulose acetate microneedle coated with zinc-phenolic imidazolium poly(ionic liquids) for atopic dermatitis treatment.",
+      "doi": "10.1016/j.ijbiomac.2026.154512",
+      "pub_date": "2026 Sep 16",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42745778",
+      "title": "Vitamin D(3) oral rinsing reduces salivary SARS-CoV-2 antigen detectability: a clinical trial with public health implications.",
+      "doi": "10.3389/froh.2026.1943222",
+      "pub_date": "2026",
+      "journal": "Frontiers in oral health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42749091",
+      "title": "Screening and characterization of a probiotic fish-derived Enterococcus faecium and its co-fermentation with Acanthopanax senticosus extract modulate growth and immunity in crucian carp(Carassius auratus).",
+      "doi": "10.1016/j.micpath.2026.108830",
+      "pub_date": "2026 Sep 16",
+      "journal": "Microbial pathogenesis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755078",
+      "title": "Spatial Microbiota-Metabolite-Mucosa Crosstalk During Piglet Weaning: A Niche-Aware Framework for the Design of Commensal Probiotic Consortia.",
+      "doi": "10.5713/ab.260666",
+      "pub_date": "2026 Sep 16",
+      "journal": "Animal bioscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42759905",
+      "title": "Pathogen-specific immune responses in Cornu aspersum maxima reveal hematopoietic activity of the hepatopancreas and innate lymphoid-like functions of hyalinocytes.",
+      "doi": "10.1016/j.dci.2026.105729",
+      "pub_date": "2026 Sep 18",
+      "journal": "Developmental and comparative immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42761692",
+      "title": "Self-assembled quercetin-zinc supramolecular nanoparticles exhibit strong antibacterial and anti-biofilm activity against methicillin-resistant Staphylococcus aureus.",
+      "doi": "10.3389/fmicb.2026.1908591",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42763419",
+      "title": "The Effect of Multi-Strain Probiotics, Zinc and Copper on the Performance of Broiler Chickens Challenged With Clostridium perfringens.",
+      "doi": "10.1002/vms3.71176",
+      "pub_date": "2026 Sep",
+      "journal": "Veterinary medicine and science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42763789",
+      "title": "Evaluation of a new non-competitive chemiluminescent immunoassay for 25-OH vitamin D measurement.",
+      "doi": "10.1515/dx-2026-0094",
+      "pub_date": "2026 Sep 21",
+      "journal": "Diagnosis (Berlin, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42765877",
+      "title": "Modulating innate immune responses to curli fibers through protein engineering.",
+      "doi": "10.1128/iai.00394-26",
+      "pub_date": "2026 Sep 21",
+      "journal": "Infection and immunity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766960",
+      "title": "Reprogramming immunological debris clearance with astaxanthin-loaded engineered probiotic vesicles suppresses colorectal tumorigenesis.",
+      "doi": "10.1016/j.biomaterials.2026.124633",
+      "pub_date": "2026 Sep 17",
+      "journal": "Biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42774820",
+      "title": "Combined Effects of Dietary Soybean Lecithin With Vitamin C or Inositol on Growth, Gonadal Development, and Intestinal Microbiota in Longsnout Catfish.",
+      "doi": "10.1155/anu/4061190",
+      "pub_date": "2026",
+      "journal": "Aquaculture nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42775102",
+      "title": "Zinc silicate microspheres-mediated bacterial metabolic interference and microenvironment remodeling for chronic wound repair.",
+      "doi": "10.1016/j.bioactmat.2026.07.052",
+      "pub_date": "2027 Jan",
+      "journal": "Bioactive materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42776746",
+      "title": "Neonatal enteric infection disrupts the microbiota-gut-brain axis through pattern recognition receptors and altered neuroimmune signaling.",
+      "doi": "10.1073/pnas.2606222123",
+      "pub_date": "2026 Sep 29",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777355",
+      "title": "Effects of Hiroshimana old pickle containing lactic acid bacteria as a potential probiotic source for broiler chicks.",
+      "doi": "10.1016/j.psj.2026.107704",
+      "pub_date": "2026 Aug 25",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777782",
+      "title": "Trace Element Changes in Goat Milk Following Experimentally Induced Intramammary Infection With Biofilm Positive and Negative Strains of Staphylococcus aureus.",
+      "doi": "10.1002/vms3.71250",
+      "pub_date": "2026 Sep",
+      "journal": "Veterinary medicine and science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779739",
+      "title": "Shigella flexneri undergoes niche-specific adaptation during infection.",
+      "doi": "10.64898/2026.09.15.751907",
+      "pub_date": "2026 Sep 17",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779953",
+      "title": "Characterization of Resolved, Localized, and Progressing Infections at the Maternal-Fetal Interface in a Nonhuman Primate Model.",
+      "doi": "10.64898/2026.09.15.751503",
+      "pub_date": "2026 Sep 17",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779971",
+      "title": "Engineered living materials suppress uropathogenic E. coli growth and invasion of urothelial cells through sustained probiotic release.",
+      "doi": "10.64898/2026.09.15.751868",
+      "pub_date": "2026 Sep 17",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780970",
+      "title": "Physician Experiences and Prescribing Preferences for Targeted B-complex and Vitamin C Supplementation in Daily Clinical Practice: A National KAP Survey in India.",
+      "doi": "10.7759/cureus.115073",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785032",
+      "title": "Dietary zinc oxide nanoparticles alter tissue-specific shifts in fatty acid and amino acid profiles but do not affect meat quality or targeted rumen bacteria in Haemonchus contortus-infected lambs.",
+      "doi": "10.1016/j.foodchem.2026.151233",
+      "pub_date": "2026 Sep 23",
+      "journal": "Food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800464",
+      "title": "Metabolomic signatures associated with probiotic use in atopic dermatitis: An exploratory study.",
+      "doi": "10.1016/j.jpba.2026.117744",
+      "pub_date": "2026 Sep 21",
+      "journal": "Journal of pharmaceutical and biomedical analysis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42803642",
+      "title": "γ-Fe(2)O(3) nanozyme-based dual colorimetric sensor for hydrogen peroxide and vitamin C detection: application to dermatological vitamin C serum samples.",
+      "doi": "10.1039/d6ay01656a",
+      "pub_date": "2026 Sep 28",
+      "journal": "Analytical methods : advancing methods and applications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804040",
+      "title": "Exploring whole-genome analysis of a gamma-aminobutyric acid -producing marine Lactiplantibacillus plantarum: genomic insights into neuroactive and probiotic potential.",
+      "doi": "10.1007/s11274-026-05275-4",
+      "pub_date": "2026 Sep 28",
+      "journal": "World journal of microbiology & biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804366",
+      "title": "Comparative bioactivity screening and chitosan nanoparticle formulation of pharmacy-grade medicinal tea extracts used for common cold.",
+      "doi": "10.1080/09603123.2026.2739939",
+      "pub_date": "2026 Sep 28",
+      "journal": "International journal of environmental health research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804643",
+      "title": "Zinc mediates the allosteric activation of Shiftless to suppress programmed -1 ribosomal frameshifting.",
+      "doi": "10.1073/pnas.2608087123",
+      "pub_date": "2026 Oct 6",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804957",
+      "title": "Regulatory effect of surface functionalized medical zinc alloy on the growth and inflammatory response of vascular endothelial cells.",
+      "doi": "10.1016/j.tice.2026.103990",
+      "pub_date": "2026 Sep 23",
+      "journal": "Tissue & cell",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806690",
+      "title": "Biotechnological Approaches to Probiotics and Postbiotics through the Gut-Brain Axis Modulation.",
+      "doi": "10.22034/IBJ.30.4.193",
+      "pub_date": "2026 Jan 6",
+      "journal": "Iranian biomedical journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806817",
+      "title": "Dietary Echinacea purpurea Attenuates Oxidative Stress and Alters Cytokine Gene Expression Among Heat-Stressed Broiler Chickens at High Altitude.",
+      "doi": "10.1002/vms3.71234",
+      "pub_date": "2026 Nov",
+      "journal": "Veterinary medicine and science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807267",
+      "title": "Effects of dietary supplementation with bacteriocin-like inhibitory substance-producing Weissella cibaria XN-2a on growth performance, immune responses, and gut microbiota in crucian carp (Carassius auratus).",
+      "doi": "10.3389/fmicb.2026.1953174",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810521",
+      "title": "Intracellular Zn(2+) levels regulate susceptibility to hepatitis B virus infection by modulating NTCP-mediated viral entry.",
+      "doi": "10.1016/j.antiviral.2026.106542",
+      "pub_date": "2026 Sep 29",
+      "journal": "Antiviral research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42819850",
+      "title": "Structure-Biofunction Relationships in Nanoparticle-Reinforced PVA/Alginate Hydrogels for Infection-Controlled Tissue-Contact Applications.",
+      "doi": "10.1021/acsomega.6c02968",
+      "pub_date": "2026 Sep 1",
+      "journal": "ACS omega",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824603",
+      "title": "A nutritionally balanced menu for emergencies: beyond the COVID-19 pandemic.",
+      "doi": "10.3389/fnut.2026.1855250",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42825189",
+      "title": "Zinc ion-releasing immunomodulatory hydrogels for enhanced wound healing.",
+      "doi": "10.1093/rb/rbag147",
+      "pub_date": "2026",
+      "journal": "Regenerative biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827943",
+      "title": "Gut microbial allies and adversaries in SARS-CoV-2 infection.",
+      "doi": "10.1016/j.crmicr.2026.100661",
+      "pub_date": "2026 Dec",
+      "journal": "Current research in microbial sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829259",
+      "title": "Infant dermatitis induces long-lasting innate immune imprinting associated with the exacerbated adult atopic dermatitis-like skin inflammation.",
+      "doi": "10.1016/j.alit.2026.08.005",
+      "pub_date": "2026 Oct 3",
+      "journal": "Allergology international : official journal of the Japanese Society of Allergology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832303",
+      "title": "Efficacy and safety of probiotic supplementation in psoriatic arthritis - a randomized controlled trial.",
+      "doi": "10.1093/rheumatology/keag547",
+      "pub_date": "2026 Oct 5",
+      "journal": "Rheumatology (Oxford, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832858",
+      "title": "Role of zinc oxide nanoparticles in the parasitism and abomasal pathophysiology of lambs artificially infected with Haemonchus contortus.",
+      "doi": "10.1016/j.vetpar.2026.110933",
+      "pub_date": "2026 Sep 29",
+      "journal": "Veterinary parasitology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42733103",
+      "title": "Postbiotic Metabolites: Therapeutic Potential, Industrial Applications, Market Dynamics, and Regulatory Frameworks.",
+      "doi": "10.1007/s12602-026-11213-5",
+      "pub_date": "2026 Sep 14",
+      "journal": "Probiotics and antimicrobial proteins",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42735570",
+      "title": "Gut microbiota on sleep disorders throughout the lifespan.",
+      "doi": "10.1016/j.micres.2026.128724",
+      "pub_date": "2026 Sep 9",
+      "journal": "Microbiological research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42735919",
+      "title": "A Review on Heat Stress in Broiler Chickens: Mechanisms, Effects and Mitigation Strategies.",
+      "doi": "10.1002/vms3.71219",
+      "pub_date": "2026 Sep",
+      "journal": "Veterinary medicine and science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738959",
+      "title": "Immunometabolic Plasticity in Sarcopenic Obesity: Toward a New Paradigm for Precision Immunonutrition.",
+      "doi": "10.3390/nu18172787",
+      "pub_date": "2026 Aug 26",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42746048",
+      "title": "Microbial diversity, antimicrobial resistance and zoonotic implications of the reptile gut microbiota: an updated review.",
+      "doi": "10.3389/fmicb.2026.1913228",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42749524",
+      "title": "Growth and nutrition in early life for very preterm infants - Implications for neonatal lung health.",
+      "doi": "10.1016/j.prrv.2026.09.001",
+      "pub_date": "2026 Sep 8",
+      "journal": "Paediatric respiratory reviews",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42753072",
+      "title": "KLF transcription factors in metabolic kidney disease: from podocyte protection to tubulointerstitial fibrosis.",
+      "doi": "10.1007/s11255-026-05400-0",
+      "pub_date": "2026 Sep 17",
+      "journal": "International urology and nephrology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769745",
+      "title": "Gut and Gastric Dysbiosis in Hyperemesis Gravidarum: A Scoping Review of Microbiome-Targeted Evidence and Translational Pathways.",
+      "doi": "10.2147/IJWH.S632969",
+      "pub_date": "2026",
+      "journal": "International journal of women's health",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42776412",
+      "title": "Extracellular Vesicles from Lactic Acid Bacteria: Emerging Postbiotic Effectors in Host-Microbe Crosstalk.",
+      "doi": "10.1007/s12602-026-11223-3",
+      "pub_date": "2026 Sep 23",
+      "journal": "Probiotics and antimicrobial proteins",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797015",
+      "title": "Microbiome-Derived Metabolic Signaling in the Gut-Skin Axis: Implications for Nutricosmetics and Healthy Skin Aging.",
+      "doi": "10.3390/nu18183032",
+      "pub_date": "2026 Sep 16",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809174",
+      "title": "Lactiplantibacillus plantarum as a Biosafe Microbial Bridge in the Gut-Environment Continuum.",
+      "doi": "10.1007/s12602-026-11222-4",
+      "pub_date": "2026 Sep 29",
+      "journal": "Probiotics and antimicrobial proteins",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812452",
+      "title": "Topical maternal breast milk versus commercial topical products for diaper dermatitis in infants: a systematic review.",
+      "doi": "10.1177/17449871261481751",
+      "pub_date": "2026 Sep 28",
+      "journal": "Journal of research in nursing : JRN",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812824",
+      "title": "Bacterial consortium construction for inhibition of Salmonella in chickens.",
+      "doi": "10.3389/fmicb.2026.1895137",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828074",
+      "title": "Bacterial extracellular vesicles as central mediators of microbiota-host communication.",
+      "doi": "10.3389/fmicb.2026.1910885",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834862",
+      "title": "Genetics-Informed Pharmacological Intervention in Gestational Diabetes Mellitus: Current Therapeutic Alignment, Emerging Targets and a Translational Roadmap.",
+      "doi": "10.1111/dom.71404",
+      "pub_date": "2026 Oct 6",
+      "journal": "Diabetes, obesity & metabolism",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "28846243",
+      "title": "Febrile Seizure.",
+      "doi": null,
+      "pub_date": "2026 Jan",
+      "journal": null,
+      "pub_type": "Study Guide",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42722760",
+      "title": "Effects of ResB supplementation on gut microbiome composition in elderly pneumonia: a randomized pilot trial.",
+      "doi": "10.1038/s41430-026-01822-2",
+      "pub_date": "2026 Sep 10",
+      "journal": "European journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42725523",
+      "title": "Advancement and Challenges in Multiple Sclerosis: Understanding the Disease from Etiology to Treatment.",
+      "doi": "10.2174/0115672026468062260824061821",
+      "pub_date": "2026 Sep 4",
+      "journal": "Current neurovascular research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42733728",
+      "title": "A logic-gated nanoplatform spatiotemporally orchestrates immunometabolic reprogramming and osteogenesis for diabetic periodontal regeneration.",
+      "doi": "10.1016/j.bioactmat.2026.08.051",
+      "pub_date": "2027 Feb",
+      "journal": "Bioactive materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738492",
+      "title": "Asexual Development and Virulence Are Not Affected by Knockout of Five Sexual-Stage Candidate Genes in Toxoplasma gondii.",
+      "doi": "10.3390/ani16172704",
+      "pub_date": "2026 Aug 31",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42739456",
+      "title": "Differences in Valsa Canker Resistance and Its Physiological Mechanisms Among Various Apple Rootstock-Scion Combinations.",
+      "doi": "10.3390/plants15172689",
+      "pub_date": "2026 Sep 1",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42741254",
+      "title": "Optimization of water and fertilizer regime for greenhouse radish using BBD response surface method coupled with NSGA-II algorithm.",
+      "doi": "10.3389/fpls.2025.1651490",
+      "pub_date": "2025",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42744209",
+      "title": "BmPGRP-L4 drives antibacterial activity and prophenoloxidase pathway activation in the silkworm Bombyx mori.",
+      "doi": "10.1016/j.jip.2026.108749",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of invertebrate pathology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748259",
+      "title": "Microbiota-derived indole limits Campylobacter jejuni colonization by inhibiting respiration and metabolism.",
+      "doi": "10.1126/sciadv.aei6934",
+      "pub_date": "2026 Sep 18",
+      "journal": "Science advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748619",
+      "title": "Sulfurized PEO-derived coating on biodegradable Zn orchestrates immunoregulation and vascularized osteogenesis for orthopedic applications.",
+      "doi": "10.1016/j.colsurfb.2026.116161",
+      "pub_date": "2026 Sep 10",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755016",
+      "title": "Synthetic Lethality of Fungal Catabolite Repressors Reveals Essential Coupling of Carbon Repression With Mitochondrial and Ribosomal Gene Expression.",
+      "doi": "10.1111/mmi.70116",
+      "pub_date": "2026 Sep 17",
+      "journal": "Molecular microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755259",
+      "title": "Asthma and female reproductive health: implications for fertility and pregnancy.",
+      "doi": "10.1097/MED.0000000000000980",
+      "pub_date": "2026 Sep 18",
+      "journal": "Current opinion in endocrinology, diabetes, and obesity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42758094",
+      "title": "Comparing the preservation effects of various treatments on mangoes: systematic review and network-meta-analysis.",
+      "doi": "10.1002/jsfa.71063",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762253",
+      "title": "Acute toxicity and physiological responses of silver pompano (Trachinotus Blochii) to green-synthesized ZnO nanoparticles.",
+      "doi": "10.1007/s10695-026-01793-y",
+      "pub_date": "2026 Sep 19",
+      "journal": "Fish physiology and biochemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42764510",
+      "title": "The Effect of rs7975232 (ApaI) and rs731236 (TaqI) VDR Polymorphisms on HIV/AIDS Prevalence and Mortality: An International Population Genetics Analysis.",
+      "doi": "10.1177/08892229261487810",
+      "pub_date": "2026 Sep 20",
+      "journal": "AIDS research and human retroviruses",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42765180",
+      "title": "Paricalcitol Attenuates Bleomycin-induced Pulmonary Fibrosis: Insights from Immunohistochemical and Molecular Genetic Analysis.",
+      "doi": "10.2174/0118715303434362251212040431",
+      "pub_date": "2026",
+      "journal": "Endocrine, metabolic & immune disorders drug targets",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766930",
+      "title": "The relationship between ions exposure and incident stroke with different severity and its mediating effect analysis.",
+      "doi": "10.1016/j.jtemb.2026.127959",
+      "pub_date": "2026 Sep 17",
+      "journal": "Journal of trace elements in medicine and biology : organ of the Society for Minerals and Trace Elements (GMS)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42770331",
+      "title": "BaCas12a3 represents a new subtype of type V CRISPR effector with collateral activity toward tRNA.",
+      "doi": "10.1093/nar/gkag915",
+      "pub_date": "2026 Sep 22",
+      "journal": "Nucleic acids research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772385",
+      "title": "Phycospheric bacteria enhance temperature tolerance of Isochrysis zhanjiangensis: Unveiling the key functional member Labrenzia algicola 520.",
+      "doi": "10.1016/j.biortech.2026.135924",
+      "pub_date": "2026 Sep 22",
+      "journal": "Bioresource technology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42775932",
+      "title": "Dual-Pronged Light-Free Photodynamic Immunotherapy Enabled by a Chemiexcited Hydrogel.",
+      "doi": "10.1002/smll.75619",
+      "pub_date": "2026 Sep 23",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777117",
+      "title": "Telomere-to-telomere co-mapping of transposable elements and human genes identifies a cluster of young L1 elements in the interferon-alpha domain with potential evolutionary arms-race.",
+      "doi": "10.1093/g3journal/jkag250",
+      "pub_date": "2026 Sep 23",
+      "journal": "G3 (Bethesda, Md.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777364",
+      "title": "Combined Bifidobacterium bifidum and Bacillus toyonensis supplementation in drinking water improves productive efficiency, physiological status, and meat quality in broiler chickens.",
+      "doi": "10.1016/j.psj.2026.107807",
+      "pub_date": "2026 Sep 21",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780490",
+      "title": "Hydrogel-integrated osteogenic microtissues promote repair of infected intervertebral defects through sequential immunomodulation.",
+      "doi": "10.1016/j.mtbio.2026.103657",
+      "pub_date": "2026 Oct",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR zinc[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "category": "women_health",
+  "target": 28,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 84,
+  "rows": [
+    {
+      "pmid": "42588027",
+      "title": "Prevalence and Factors Associated with Anaemia Among Sub-Saharan African Adolescents: A Systematic Review and Meta-Analysis of Nutritional, Socio-Demographic, Environmental, and Infectious Factors.",
+      "doi": "10.3390/nu18152404",
+      "pub_date": "2026 Jul 23",
+      "journal": "Nutrients",
+      "pub_type": "Meta-Analysis",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42436286",
+      "title": "Association of iron status with gestational diabetes and preeclampsia in an obesogenic context: Results from a cohort of pregnant Chilean women.",
+      "doi": "10.1038/s41430-026-01783-6",
+      "pub_date": "2026 Sep",
+      "journal": "European journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42485105",
+      "title": "A Retrospective Propensity-Matched Cohort Study of Intravenous Versus Oral Iron Formulations for Management of Iron Deficiency Anemia in Pregnancy.",
+      "doi": "10.1213/ANE.0000000000008229",
+      "pub_date": "2026 Jul 17",
+      "journal": "Anesthesia and analgesia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42561451",
+      "title": "Serum 25-hydroxyvitamin D concentrations and cardiometabolic health across pregnancy: associations with glucose homeostasis, cholesterol, and abdominal adiposity.",
+      "doi": "10.1139/apnm-2025-0364",
+      "pub_date": "2026 Jan 1",
+      "journal": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42673811",
+      "title": "Low maternal red blood cell 5-methyltetrahydrofolate levels in early pregnancy are associated with increased risk of birth defects: A prospective cohort study.",
+      "doi": "10.1016/j.clnu.2026.106760",
+      "pub_date": "2026 Oct",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42447776",
+      "title": "The impact of Helicobacter pylori infection on Pregnancy: A narrative review.",
+      "doi": "10.1016/j.ejogrb.2026.115279",
+      "pub_date": "2026 Sep",
+      "journal": "European journal of obstetrics, gynecology, and reproductive biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42494622",
+      "title": "Folate-Containing Fermented Foods of Plant and Animal Origin: The Value of Traditional Foods to Tackle Folate Deficiency.",
+      "doi": "10.1002/fsn3.72126",
+      "pub_date": "2026 Jul",
+      "journal": "Food science & nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42541620",
+      "title": "Management of Chronic Hypoparathyroidism and Hyperparathyroidism in Pregnancy/Lactation.",
+      "doi": "10.1007/s11914-026-00979-w",
+      "pub_date": "2026 Aug 1",
+      "journal": "Current osteoporosis reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42598146",
+      "title": "Call to action: identifying an underlying bleeding disorder in adolescents with heavy menstrual bleeding.",
+      "doi": "10.1016/j.rpth.2026.106818",
+      "pub_date": "2026 Jul",
+      "journal": "Research and practice in thrombosis and haemostasis",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42621664",
+      "title": "Diet during Pregnancy and Allergy Onset in the Childhood: A Systematic Literature Review and Meta-Analysis.",
+      "doi": "10.4103/ijpvm.ijpvm_393_24",
+      "pub_date": "2026",
+      "journal": "International journal of preventive medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42792760",
+      "title": "Therapeutic Management of Schistosomiasis in Pregnancy: A Comprehensive Review of Praziquantel Safety and Clinical Outcomes.",
+      "doi": "10.3390/biomedicines14092018",
+      "pub_date": "2026 Sep 8",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42432589",
+      "title": "A nomogram to predict early spontaneous abortion in women with polycystic ovary syndrome: a retrospective cohort study.",
+      "doi": "10.1186/s12884-026-09641-w",
+      "pub_date": "2026 Jul 10",
+      "journal": "BMC pregnancy and childbirth",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42436301",
+      "title": "GATA1 silencing restrains granulosa cell ferroptosis through downregulation of TFRC in polycystic ovary syndrome.",
+      "doi": "10.1038/s41598-026-61608-1",
+      "pub_date": "2026 Jul 11",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42436532",
+      "title": "Macrophagic myofasciitis associated with transferrin receptor 2 and solute carrier family 40 member 1 variants and iron dysregulation: a case report.",
+      "doi": "10.1186/s13256-026-06348-6",
+      "pub_date": "2026 Jul 12",
+      "journal": "Journal of medical case reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42455974",
+      "title": "Osteoporosis associated with pregnancy and lactation (PLO): can REMS have a role in prevention and follow-up?",
+      "doi": "10.1530/EDM-24-0102",
+      "pub_date": "2026 Jul 1",
+      "journal": "Endocrinology, diabetes & metabolism case reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42466600",
+      "title": "Stearoyl-CoA desaturase 1-mediated lipid metabolic reprogramming in granulosa cells contributes to follicular dysfunction in non-overweight polycystic ovary syndrome patients.",
+      "doi": "10.1093/biolre/ioag152",
+      "pub_date": "2026 Jul 17",
+      "journal": "Biology of reproduction",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42473574",
+      "title": "Construction of a Risk Identification Model Based on Electrolytes and Related Factors for Nausea and Vomiting in Pregnancy: A Secondary Analysis of Clinical Trial Data.",
+      "doi": "10.2147/IJWH.S618603",
+      "pub_date": "2026",
+      "journal": "International journal of women's health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42498474",
+      "title": "Level and predictors of micronutrient intake inadequacy among pregnant women attending public health facilities in Bahir Dar City, Northwest Ethiopia: a multicentre, cross-sectional study.",
+      "doi": "10.1136/bmjopen-2026-120307",
+      "pub_date": "2026 Jul 24",
+      "journal": "BMJ open",
+      "pub_type": "Multicenter Study",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42502751",
+      "title": "Nutrition, Physical Activity and Other Health Aspects Before and During Pregnancy - Recommendations by the Nationwide \"Healthy Start Network\" (Netzwerk Gesund ins Leben) 2026.",
+      "doi": "10.1055/a-2827-5905",
+      "pub_date": "2026 Jun",
+      "journal": "Geburtshilfe und Frauenheilkunde",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42514329",
+      "title": "Nutritional Knowledge, Dietary Behaviours and Supplementation Practices Among Pregnant Women in Poland: A Repeated Cross-Sectional Study Across a Decade.",
+      "doi": "10.3390/nu18142260",
+      "pub_date": "2026 Jul 10",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42514370",
+      "title": "Effectiveness of Health Systems Strengthening Implementation Model to Improve Health of Pregnant and Lactating Women by Increasing Compliance with IFA and Calcium Tablets: A Quasi-Experimental Study.",
+      "doi": "10.3390/nu18142301",
+      "pub_date": "2026 Jul 14",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42545147",
+      "title": "Maternal and newborn health in vegan and omnivore pregnancies: A prospective pilot study (PREGGIE).",
+      "doi": "10.1177/02601060261474598",
+      "pub_date": "2026 Aug 3",
+      "journal": "Nutrition and health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42553145",
+      "title": "Highly informed, yet undersupported: dietary supplement use, information sources, and perceived risks among pregnant vegans in German-speaking regions-findings from the VedieS study.",
+      "doi": "10.3389/fnut.2026.1866907",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42558910",
+      "title": "Assessment of Nutritional and Nonnutritional Correlates of Anemia in Pregnancy: A Hospital-Based Cross-Sectional Study for Public Health Interventions in the Bono East Region of Ghana.",
+      "doi": "10.1002/hsr2.72965",
+      "pub_date": "2026 Aug",
+      "journal": "Health science reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42562434",
+      "title": "Menopause and osteoporosis: Non-pharmacological and pharmacological management.",
+      "doi": "10.31128/AJGP-05-26-8155",
+      "pub_date": "2026 Aug",
+      "journal": "Australian journal of general practice",
+      "pub_type": "Clinical Study",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42586405",
+      "title": "Transfusion Practices and Hematologic Recovery in Adolescents with Heavy Menstrual Bleeding and Anemia: A Retrospective Cohort Study.",
+      "doi": "10.1016/j.jpag.2026.08.002",
+      "pub_date": "2026 Aug 13",
+      "journal": "Journal of pediatric and adolescent gynecology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42590079",
+      "title": "Association Between Maternal Serum 25-Hydroxyvitamin D Concentrations and Gestational Diabetes Mellitus in Women Undergoing Diagnostic 100-g Oral Glucose Tolerance Testing.",
+      "doi": "10.3390/jcm15155977",
+      "pub_date": "2026 Jul 31",
+      "journal": "Journal of clinical medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42605875",
+      "title": "Multivariate patterns of trace elements in anemia during pregnancy: Insights from principal component analysis in a hospital-based study from North India.",
+      "doi": "10.1002/ijgo.71299",
+      "pub_date": "2026 Aug 17",
+      "journal": "International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42610364",
+      "title": "Association Between Pregnant Women's Risk Perception and Uptake of Antenatal Care Practices.",
+      "doi": "10.1111/jmwh.70170",
+      "pub_date": "2026 Aug 18",
+      "journal": "Journal of midwifery & women's health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42616556",
+      "title": "Bilateral talar stress fractures in pregnancy-related osteoporosis: A rare case report.",
+      "doi": "10.1177/10538127261477945",
+      "pub_date": "2026 Aug 19",
+      "journal": "Journal of back and musculoskeletal rehabilitation",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42629609",
+      "title": "Association Between Relative Cord Hyperleptinemia and Offspring Outcomes in Pregnant Women With Overweight or Obesity.",
+      "doi": "10.1111/ijpo.70144",
+      "pub_date": "2026 Aug",
+      "journal": "Pediatric obesity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42634273",
+      "title": "Risk factors for intrapartum stillbirth and the survival probabilities of fetuses among pregnant women with complications: Secondary analysis of data from a multicenter prospective cohort study in India.",
+      "doi": "10.1002/ijgo.71321",
+      "pub_date": "2026 Aug 23",
+      "journal": "International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42634819",
+      "title": "Prevalence of Anemia and Associated Factors Among Pregnant Women Attending a Rural Primary Health Care Facility in Delhi.",
+      "doi": "10.7759/cureus.113281",
+      "pub_date": "2026 Jul",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42643091",
+      "title": "Prevalence of vitamin B12 deficiency and associated factors in pregnant Spanish women.",
+      "doi": "10.1080/03630242.2026.2719873",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Women & health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42652270",
+      "title": "Sensory Preferences Influencing the Likelihood That African American Pregnant Women Will Consume Nutrient-Dense, Anti-Inflammatory Foods.",
+      "doi": "10.3390/ijerph23080954",
+      "pub_date": "2026 Jul 24",
+      "journal": "International journal of environmental research and public health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42664627",
+      "title": "Anaemia in pregnancy in rural new South Wales: a retrospective study of prevalence, risk factors, and guideline adherence.",
+      "doi": "10.1016/j.midw.2026.104959",
+      "pub_date": "2026 Aug 22",
+      "journal": "Midwifery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42674342",
+      "title": "Maternal exposure to essential and non-essential metals and thyroid hormone status in a Canadian pregnancy cohort.",
+      "doi": "10.1016/j.envres.2026.125592",
+      "pub_date": "2026 Nov 1",
+      "journal": "Environmental research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42718097",
+      "title": "Ferrous Sulfate and Folic Acid Supplementation in Pregnant People in Primary Health Care: a Cross-Sectional Study, Criciúma, 2022.",
+      "doi": "10.1590/S2237-96222026v35e20240377.en",
+      "pub_date": "2026",
+      "journal": "Epidemiologia e servicos de saude : revista do Sistema Unico de Saude do Brasil",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754147",
+      "title": "Treatable Traits in Pregnant Women With Asthma: a Retrospective Study of Prevalence and Associations With Exacerbation and Poor Asthma Control.",
+      "doi": "10.1016/j.jaip.2026.08.045",
+      "pub_date": "2026 Sep 17",
+      "journal": "The journal of allergy and clinical immunology. In practice",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42755259",
+      "title": "Asthma and female reproductive health: implications for fertility and pregnancy.",
+      "doi": "10.1097/MED.0000000000000980",
+      "pub_date": "2026 Sep 18",
+      "journal": "Current opinion in endocrinology, diabetes, and obesity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762711",
+      "title": "Cord blood 25(OH)D in high-risk pregnancies: An ANCOVA-based analysis in hypertensive disorders, severe anaemia, and gestational diabetes.",
+      "doi": "10.1016/j.earlhumdev.2026.106667",
+      "pub_date": "2026 Sep 18",
+      "journal": "Early human development",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42764640",
+      "title": "The correlation between maternal expression of miR-146b and repeated failure of frozen-thawed embryo transfer pregnancy.",
+      "doi": "10.1080/14647273.2026.2725675",
+      "pub_date": "2026 Dec",
+      "journal": "Human fertility (Cambridge, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772082",
+      "title": "Nanoparticle-mediated magnetic hyperthermia for ectopic pregnancy treatment.",
+      "doi": "10.1016/j.biomaterials.2026.124639",
+      "pub_date": "2026 Sep 17",
+      "journal": "Biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785516",
+      "title": "Effectiveness and Safety of Intravenous Iron Formulations in Children with Iron Deficiency.",
+      "doi": "10.1016/j.jpeds.2026.115345",
+      "pub_date": "2026 Sep 24",
+      "journal": "The Journal of pediatrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42820139",
+      "title": "Prevalence and Risk Factors of Maternal Anemia Among Pregnant Women in Central Jordan.",
+      "doi": "10.1155/anem/5554286",
+      "pub_date": "2026",
+      "journal": "Anemia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822351",
+      "title": "Placental transport of inorganic ions for skeletal development during male seahorse (Hippocampus abdominalis) pregnancy.",
+      "doi": "10.1016/j.placenta.2026.09.021",
+      "pub_date": "2026 Sep 25",
+      "journal": "Placenta",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822959",
+      "title": "Polycyclic aromatic hydrocarbons exposure induced early pregnancy loss through epigenetic regulation of SDHB.",
+      "doi": "10.1016/j.jes.2026.02.022",
+      "pub_date": "2026 Nov",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "20301298",
+      "title": "Dystrophinopathies.",
+      "doi": null,
+      "pub_date": "1993",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "30000958",
+      "title": "Marine Oils.",
+      "doi": null,
+      "pub_date": "2006",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42488865",
+      "title": "Dietary Diversity and Associated Factors among Women of Reproductive Age in Jaja, A Rural Community in Kaduna State, Nigeria.",
+      "doi": null,
+      "pub_date": "2025 Nov-Dec",
+      "journal": "Nigerian medical journal : journal of the Nigeria Medical Association",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42491567",
+      "title": "Helicobacter pylori eradication: a narrative review.",
+      "doi": "10.3389/fgstr.2026.1823571",
+      "pub_date": "2026",
+      "journal": "Frontiers in gastroenterology (Lausanne, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42514287",
+      "title": "Choline and Its Companions: Inter-Related Roles of Choline and B Vitamins in Fetal Development and Offspring Health.",
+      "doi": "10.3390/nu18142218",
+      "pub_date": "2026 Jul 8",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42541137",
+      "title": "Calcium Supplementation in the Indian Context: A Consensus Statement by the Endocrine Society of India Skeletal Health Taskforce.",
+      "doi": "10.4103/ijem.ijem_45_26",
+      "pub_date": "2026 May-Jun",
+      "journal": "Indian journal of endocrinology and metabolism",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42590871",
+      "title": "From prevalence to precision: Integrating phenotype, symptoms, reproductive goals, and treatment in leiomyoma care.",
+      "doi": "10.1002/ijgo.71262",
+      "pub_date": "2026 Oct",
+      "journal": "International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42645197",
+      "title": "Chronic Aseptic Myometritis: A Mechanistic Framework Linking Sterile Myometrial Inflammation to Uterine Fibroid Initiation and a Roadmap for Primary Prevention.",
+      "doi": "10.3390/cells15161469",
+      "pub_date": "2026 Aug 17",
+      "journal": "Cells",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42645866",
+      "title": "Diuretics in Cardiovascular Disease: For How Long and at What Dose?",
+      "doi": "10.3390/jcdd13080395",
+      "pub_date": "2026 Aug 17",
+      "journal": "Journal of cardiovascular development and disease",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42659810",
+      "title": "Estrogen signaling and ferroptosis in intervertebral disc degeneration: A proposed mechanistic framework and its evidence gaps.",
+      "doi": "10.1016/j.tice.2026.103892",
+      "pub_date": "2026 Aug 22",
+      "journal": "Tissue & cell",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42733653",
+      "title": "Regulated Cell Death at the Maternal-Fetal Interface in Preeclampsia: Apoptosis, Necroptosis, Pyroptosis, Ferroptosis, Autophagic Cell Death, and Cuproptosis - A Narrative Review.",
+      "doi": "10.2147/IJGM.S637273",
+      "pub_date": "2026",
+      "journal": "International journal of general medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42735734",
+      "title": "NRF2 signalling in endometriosis: A hormone-independent axis for fertility-preserving therapeutic innovation.",
+      "doi": "10.1016/j.phrs.2026.108453",
+      "pub_date": "2026 Sep 14",
+      "journal": "Pharmacological research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737952",
+      "title": "Physiological Adaptation to Plant-Based Diets: A Homeostatic Framework for Sustained Dietary Change.",
+      "doi": "10.3390/biology15171520",
+      "pub_date": "2026 Sep 3",
+      "journal": "Biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750845",
+      "title": "Dual role of ferroptosis in embryonic development, cascade amplification regulatory mechanism and targeted intervention.",
+      "doi": "10.3389/fcell.2026.1912633",
+      "pub_date": "2026",
+      "journal": "Frontiers in cell and developmental biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "28846243",
+      "title": "Febrile Seizure.",
+      "doi": null,
+      "pub_date": "2026 Jan",
+      "journal": null,
+      "pub_type": "Study Guide",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42436490",
+      "title": "Assessment of maternal healthcare utilization and continuum of care among reproductive-age women in Gujarat: a cross-sectional study.",
+      "doi": "10.1186/s12913-026-15063-3",
+      "pub_date": "2026 Jul 11",
+      "journal": "BMC health services research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42442504",
+      "title": "Rational engineering of the Arabidopsis thaliana plant cysteine oxidase 4 active site can reduce biochemical activity and improve submergence tolerance.",
+      "doi": "10.1016/j.jbc.2026.113331",
+      "pub_date": "2026 Sep",
+      "journal": "The Journal of biological chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42451076",
+      "title": "The Role of Polyunsaturated Fatty Acids (PUFAs) in the Primary Prevention of Allergic Diseases in Children: A Position Paper of the SIAIP Primary and Secondary Prevention of Allergic Diseases and Nutraceuticals Committees.",
+      "doi": "10.3390/nu18132072",
+      "pub_date": "2026 Jun 24",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42464732",
+      "title": "Ferroptosis-Mediated Placental Dysfunction in the Pathophysiology of Gestational Diabetes Mellitus.",
+      "doi": "10.1111/aji.70288",
+      "pub_date": "2026 Jul",
+      "journal": "American journal of reproductive immunology (New York, N.Y. : 1989)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42464896",
+      "title": "Feasibility and Readiness for Scaling-Up Multiple Micronutrient Supplements in Nepal: A Qualitative Study Using the Expandnet Scaling-Up Framework.",
+      "doi": "10.1111/mcn.70231",
+      "pub_date": "2026 Jul",
+      "journal": "Maternal & child nutrition",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42472033",
+      "title": "Unveiling Nutritional Disparities in Infantile Tremor Syndrome: A Focus on Holo-Transcobalamin and Essential Fatty Acids.",
+      "doi": "10.1155/jotm/3144439",
+      "pub_date": "2026",
+      "journal": "Journal of tropical medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42483275",
+      "title": "Association of Maternal Anemia and Adverse Fetal Birth Outcomes Among Women Who Gave Birth at Public Hospitals in Southern Ethiopia: An Unmatched Case-Control Study.",
+      "doi": "10.1155/anem/9108578",
+      "pub_date": "2026",
+      "journal": "Anemia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42502349",
+      "title": "Clinical Value of Serum APOC1, LMNA, and TPM4 in Predicting Fetal Cardiac Abnormalities in Elderly Parturients.",
+      "doi": "10.2147/IJWH.S607411",
+      "pub_date": "2026",
+      "journal": "International journal of women's health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42506534",
+      "title": "Folic acid ameliorates myelination deficits and cognitive-emotional impairments in offspring of advanced maternal age.",
+      "doi": "10.1080/1028415X.2026.2707983",
+      "pub_date": "2026 Jul 27",
+      "journal": "Nutritional neuroscience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42512760",
+      "title": "Maternal Nutritional Adherence and Second-Trimester Amniotic-Fluid Metabolomic Profiles: An Exploratory Study.",
+      "doi": "10.3390/medicina62071217",
+      "pub_date": "2026 Jun 23",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42524146",
+      "title": "Burden and Associated Factors of Anaemia Among Rural School-Going Adolescent Girls in North Coastal Andhra Pradesh, India: A Cross-Sectional Study.",
+      "doi": "10.7759/cureus.111649",
+      "pub_date": "2026 Jun",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42526217",
+      "title": "Polystyrene nanoplastics impair placental function and promote embryo resorption through ROS-mediated ferroptosis-related injury.",
+      "doi": "10.1016/j.ecoenv.2026.120578",
+      "pub_date": "2026 Sep 1",
+      "journal": "Ecotoxicology and environmental safety",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42549400",
+      "title": "Knowledge, Practice, and Health System Challenges in the Management of Pre-Eclampsia: A Cross-Sectional Study of Midwives at Princess Christian Maternity Hospital.",
+      "doi": "10.2147/IJWH.S585975",
+      "pub_date": "2026",
+      "journal": "International journal of women's health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42552559",
+      "title": "Multiple micronutrient supplements (MMS) for adolescent girls: are we getting carried away by the hype?",
+      "doi": "10.1186/s40795-026-01449-3",
+      "pub_date": "2026 Aug 4",
+      "journal": "BMC nutrition",
+      "pub_type": "Letter",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42556557",
+      "title": "The Clinical Course of Chronic Venous Disease.",
+      "doi": "10.1016/j.ejvs.2026.07.065",
+      "pub_date": "2026 Aug 5",
+      "journal": "European journal of vascular and endovascular surgery : the official journal of the European Society for Vascular Surgery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42568808",
+      "title": "Uncovering Modifiable Contributors to Depressive Symptoms During Antidepressant Prescription Renewal: A Primary Care Case Report.",
+      "doi": "10.1002/ccr3.73316",
+      "pub_date": "2026 Aug",
+      "journal": "Clinical case reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42570824",
+      "title": "Polystyrene nanoplastics induce fetal growth restriction via a novel NMNAT3 depletion cascade disrupting placental mitochondrial energetics and activating ferritinophagic ferroptosis.",
+      "doi": "10.1016/j.freeradbiomed.2026.08.010",
+      "pub_date": "2026 Nov",
+      "journal": "Free radical biology & medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42571281",
+      "title": "Low Birth Weight Newborns at Public Hospitals in the Awi Zone of Northwest Ethiopia: Birth Defects and Associated Variables.",
+      "doi": "10.1155/ijpe/2312755",
+      "pub_date": "2026",
+      "journal": "International journal of pediatrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42596970",
+      "title": "Food desert residence and prenatal diet quality.",
+      "doi": "10.1002/pmf2.70307",
+      "pub_date": "2026 May",
+      "journal": "Pregnancy (Hoboken, N.J.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42598636",
+      "title": "Drug Utilization Pattern and Maternal Outcomes of Obstetric Medications in Antenatal and Postnatal Women at a Tertiary Care Hospital.",
+      "doi": "10.4103/jpbs.jpbs_124_26",
+      "pub_date": "2026 Jul-Sep",
+      "journal": "Journal of pharmacy & bioallied sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42600047",
+      "title": "Endometriosis-related peritoneal adhesion formation: molecular mechanisms and clinical significance.",
+      "doi": "10.1093/humupd/dmag021",
+      "pub_date": "2026 Aug 14",
+      "journal": "Human reproduction update",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42634779",
+      "title": "Birth Defects Related to Prenatal Exposure to Essential and Toxic Elements.",
+      "doi": "10.7759/cureus.113265",
+      "pub_date": "2026 Jul",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((inositol[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR iron[Title/Abstract] OR folate[Title/Abstract] OR omega-3[Title/Abstract] OR magnesium[Title/Abstract]) AND (pregnancy[Title/Abstract] OR menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR PCOS[Title/Abstract] OR menstrual[Title/Abstract] OR \"polycystic ovary\"[Title/Abstract] OR premenstrual[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}
