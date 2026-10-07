@@ -201,33 +201,33 @@ export async function buildBoundedPilot({
       assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: packageData.creativeSpec })
       fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
     } else {
-    const briefFile = path.join(outputDir, 'r805-creative-brief.json')
-    const requiredVoiceFiles = [
-      briefFile,
-      path.join(outputDir, 'narration.wav'),
-      path.join(outputDir, 'narration.wav.receipt.json'),
-      path.join(outputDir, 'semantic-beat-timeline.json'),
-      path.join(outputDir, 'voice-qa.receipt.json'),
-    ]
-    for (const file of requiredVoiceFiles) {
-      if (!fs.existsSync(file)) {
-        throw new Error(`R8.05 short-video pilot is not render-ready: missing ${path.basename(file)}. Create/approve the local voice-first work order before bounded-pilot rendering.`)
+      const briefFile = path.join(outputDir, 'r805-creative-brief.json')
+      const requiredVoiceFiles = [
+        briefFile,
+        path.join(outputDir, 'narration.wav'),
+        path.join(outputDir, 'narration.wav.receipt.json'),
+        path.join(outputDir, 'semantic-beat-timeline.json'),
+        path.join(outputDir, 'voice-qa.receipt.json'),
+      ]
+      for (const file of requiredVoiceFiles) {
+        if (!fs.existsSync(file)) {
+          throw new Error(`R8.05 short-video pilot is not render-ready: missing ${path.basename(file)}. Create/approve the local voice-first work order before bounded-pilot rendering.`)
+        }
       }
-    }
-    const researchObjects = readJson(path.resolve(process.env.DISTRIBUTION_RESEARCH_OBJECTS || 'data/distribution/research-objects.json'))
-    const sourceObject = researchObjects.find((object) => object?.id === selectedId)
-    if (!sourceObject) throw new Error(`R8.05 short-video pilot cannot resolve canonical research object ${selectedId}`)
-    assertResearchObjectMatchesMediaPack(sourceObject, mediaPack)
-    const creativeBrief = readJson(briefFile)
-    const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief })
-    const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
-    const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
-    if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
-      throw new Error('R8.05 short-video pilot requires fresh lossless evidence-safety validation of the exact brief copy')
-    }
-    const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: renderCreativeSpec, outputDir })
-    assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: renderCreativeSpec })
-    fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+      const researchObjects = readJson(path.resolve(process.env.DISTRIBUTION_RESEARCH_OBJECTS || 'data/distribution/research-objects.json'))
+      const sourceObject = researchObjects.find((object) => object?.id === selectedId)
+      if (!sourceObject) throw new Error(`R8.05 short-video pilot cannot resolve canonical research object ${selectedId}`)
+      assertResearchObjectMatchesMediaPack(sourceObject, mediaPack)
+      const creativeBrief = readJson(briefFile)
+      const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief })
+      const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
+      const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
+      if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
+        throw new Error('R8.05 short-video pilot requires fresh lossless evidence-safety validation of the exact brief copy')
+      }
+      const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: renderCreativeSpec, outputDir })
+      assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: renderCreativeSpec })
+      fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
     }
   } else {
     throw new Error('bounded pilot supports governed carousel or short-video formats only')
