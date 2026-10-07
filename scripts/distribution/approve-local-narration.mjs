@@ -23,6 +23,40 @@ function parseArgs(argv) {
   return args
 }
 
+function readRequiredJson(file, label) {
+  if (!fs.existsSync(file)) throw new Error(`missing ${label}: ${path.basename(file)}`)
+  const bytes = fs.readFileSync(file)
+  return { bytes, value: JSON.parse(bytes.toString('utf8')), sha256: sha256(bytes) }
+}
+
+function verifyR805Source(dir, narrationReceipt, audioSha) {
+  const briefName = clean(narrationReceipt?.source?.creativeBriefFile)
+  const timelineName = clean(narrationReceipt?.source?.beatTimelineFile)
+  if (briefName !== 'r805-creative-brief.json' || timelineName !== 'semantic-beat-timeline.json') {
+    throw new Error('R8.05 narration receipt must bind canonical creative brief and semantic beat timeline')
+  }
+  const brief = readRequiredJson(path.join(dir, briefName), 'R8.05 creative brief')
+  const timeline = readRequiredJson(path.join(dir, timelineName), 'R8.05 semantic beat timeline')
+  if (clean(narrationReceipt.source?.creativeBriefSha256) !== brief.sha256) {
+    throw new Error('R8.05 narration receipt creative brief hash is stale')
+  }
+  if (clean(narrationReceipt.source?.beatTimelineSha256) !== timeline.sha256) {
+    throw new Error('R8.05 narration receipt semantic timeline hash is stale')
+  }
+  if (clean(timeline.value?.schemaVersion) !== 'ths-r805-semantic-beat-timeline-v1'
+      || clean(timeline.value?.release) !== 'R8.05'
+      || clean(timeline.value?.timingAuthority) !== 'exact-local-narration') {
+    throw new Error('R8.05 semantic beat timeline has incompatible identity')
+  }
+  if (clean(timeline.value?.creativeBriefSha256) !== brief.sha256 || clean(timeline.value?.audioSha256) !== audioSha) {
+    throw new Error('R8.05 semantic beat timeline is not bound to the exact brief/audio')
+  }
+  if (Number(timeline.value?.durationSeconds) !== Number(narrationReceipt?.profile?.durationSeconds)) {
+    throw new Error('R8.05 narration duration does not match semantic beat timeline')
+  }
+  return { brief, timeline }
+}
+
 export function approveLocalNarration({
   packageDir,
   reviewer,
@@ -32,34 +66,43 @@ export function approveLocalNarration({
   now = new Date().toISOString(),
 } = {}) {
   const dir = path.resolve(packageDir || '')
-  const manifestPath = path.join(dir, 'video-asset-manifest.json')
   const audioPath = path.join(dir, 'narration.wav')
   const narrationReceiptPath = path.join(dir, 'narration.wav.receipt.json')
-  for (const file of [manifestPath, audioPath, narrationReceiptPath]) {
+  for (const file of [audioPath, narrationReceiptPath]) {
     if (!fs.existsSync(file)) throw new Error(`missing local voice artifact: ${path.basename(file)}`)
   }
 
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   const audioBytes = fs.readFileSync(audioPath)
   const narrationReceiptBytes = fs.readFileSync(narrationReceiptPath)
   const narrationReceipt = JSON.parse(narrationReceiptBytes.toString('utf8'))
   const audioSha = sha256(audioBytes)
+  const release = clean(narrationReceipt?.release) || 'R8.04'
 
   if (narrationReceipt?.schemaVersion !== 'ths-local-narration-receipt-v1') {
     throw new Error('unexpected local narration receipt schema')
   }
   if (narrationReceipt?.engine?.kind !== 'local-open-source') {
-    throw new Error('R8.04 approval accepts only local-open-source narration')
+    throw new Error(`${release} approval accepts only local-open-source narration`)
   }
   if (narrationReceipt?.accountRequired !== false || narrationReceipt?.apiKeyRequired !== false || narrationReceipt?.meteredCreditsRequired !== false) {
-    throw new Error('R8.04 narration may not depend on an account, API key, or metered credits')
+    throw new Error(`${release} narration may not depend on an account, API key, or metered credits`)
   }
   if (clean(narrationReceipt?.output?.sha256) !== audioSha || Number(narrationReceipt?.output?.bytes) !== audioBytes.length) {
     throw new Error('local narration WAV does not match its provenance receipt')
   }
-  if (clean(narrationReceipt?.source?.scriptSha256) !== clean(manifest?.narrationScript?.sha256)) {
-    throw new Error('local narration was synthesized from a stale narration script')
+
+  let sourceBinding = null
+  if (release === 'R8.05') {
+    sourceBinding = verifyR805Source(dir, narrationReceipt, audioSha)
+  } else if (release === 'R8.04') {
+    const manifest = readRequiredJson(path.join(dir, 'video-asset-manifest.json'), 'R8.04 parent manifest')
+    if (clean(narrationReceipt?.source?.scriptSha256) !== clean(manifest.value?.narrationScript?.sha256)) {
+      throw new Error('local narration was synthesized from a stale R8.04 narration script')
+    }
+  } else {
+    throw new Error(`unsupported narration release: ${release}`)
   }
+
   if (naturalPresence !== 'pass' || pronunciation !== 'pass') {
     throw new Error('Natural Presence and pronunciation must both explicitly pass; poor voice quality fails closed')
   }
@@ -67,11 +110,13 @@ export function approveLocalNarration({
 
   const receipt = {
     schemaVersion: 'ths-voice-qa-receipt-v1',
-    release: 'R8.04',
+    release,
     reviewedAt: now,
     reviewer: clean(reviewer),
     artifact: { file: 'narration.wav', sha256: audioSha, bytes: audioBytes.length },
     narrationReceiptSha256: sha256(narrationReceiptBytes),
+    semanticBeatTimelineSha256: sourceBinding?.timeline?.sha256 ?? null,
+    creativeBriefSha256: sourceBinding?.brief?.sha256 ?? null,
     engine: {
       name: clean(narrationReceipt.engine?.name),
       model: clean(narrationReceipt.engine?.model),
@@ -100,5 +145,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     pronunciation: args.pronunciation,
     notes: args.notes || '',
   })
-  console.log(`[voice-engine] exact narration approved for R8.04: ${receipt.artifact.sha256}`)
+  console.log(`[voice-engine] exact narration approved for ${receipt.release}: ${receipt.artifact.sha256}`)
 }
