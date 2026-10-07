@@ -57,7 +57,7 @@ function core(o) {
 }
 
 function buildClaimSafeCreativeSpec(object) {
-  const spec = buildLosslessCreativeSpec(object)
+  const spec = buildLosslessCreativeSpec({ ...object, systemRelease: 'R8.05' })
   const serialized = JSON.stringify(spec)
   const requiredFactualText = {
     finding: sentence(object.finding),

@@ -7,6 +7,8 @@ import { createDistributionLifecycle, transitionDistributionLifecycle } from './
 import { renderCarouselAssets } from './render-carousel-svg.mjs'
 import { renderCarouselRasterAssets } from './render-carousel-raster.mjs'
 import { renderVerticalVideoPackage } from './render-vertical-video-package.mjs'
+import { buildLosslessCreativeSpec } from './creative-spec-lossless.mjs'
+import { hashResearchObject } from './distribution-pack-contract.mjs'
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
@@ -14,13 +16,114 @@ function readJson(file) {
 
 const SUPPORTED_PILOT_FORMATS = new Set(['carousel', 'short-video'])
 
+const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
+
+function joinedRoleCopy(brief, role, field) {
+  return clean((brief?.beats || [])
+    .filter((beat) => clean(beat?.role) === role)
+    .map((beat) => clean(beat?.[field]))
+    .filter(Boolean)
+    .join(' '))
+}
+
+function exactRoleBeats(brief, role) {
+  return (brief?.beats || []).filter((beat) => clean(beat?.role) === role)
+}
+
+export function validateR805BriefCopyAgainstCanonical(brief, canonicalSpec) {
+  const errors = []
+  const video = canonicalSpec?.verticalVideo
+  const canonicalHook = clean(video?.firstTwoSecondHook)
+  const canonicalFinding = clean(video?.losslessCopy?.finding?.sourceText)
+  const canonicalLimitation = clean(video?.losslessCopy?.limitation?.sourceText)
+  const sourceUrl = clean(canonicalSpec?.sourceIdentity?.sourceUrl)
+  const canonicalByRole = new Map(
+    (video?.scenes || []).map((scene) => [clean(scene?.role), {
+      narration: clean(scene?.voiceover),
+      onScreenText: clean(scene?.onScreenText),
+    }]),
+  )
+
+  for (const [role, expected] of [['finding', canonicalFinding], ['limitation', canonicalLimitation]]) {
+    const beats = exactRoleBeats(brief, role)
+    if (!beats.length) {
+      errors.push(`R8.05 requires at least one ${role} beat so governed claim/qualifier copy cannot disappear`)
+      continue
+    }
+    if (joinedRoleCopy(brief, role, 'narration') !== expected) {
+      errors.push(`R8.05 ${role} narration must reconstruct the canonical governed ${role} exactly`)
+    }
+    if (joinedRoleCopy(brief, role, 'onScreenText') !== expected) {
+      errors.push(`R8.05 ${role} on-screen copy must reconstruct the canonical governed ${role} exactly`)
+    }
+  }
+
+  for (const beat of exactRoleBeats(brief, 'hook')) {
+    if (!canonicalHook || clean(beat.narration) !== canonicalHook || clean(beat.onScreenText) !== canonicalHook) {
+      errors.push('R8.05 hook copy must use the evidence-safe canonical hook; arbitrary factual reframing requires a new EvidenceBridge-authorized hook')
+    }
+  }
+
+  for (const role of ['evidence', 'context', 'cta']) {
+    const expected = canonicalByRole.get(role)
+    const beats = exactRoleBeats(brief, role)
+    if (beats.length !== 1) {
+      errors.push(`R8.05 requires exactly one governed ${role} beat`)
+      continue
+    }
+    const beat = beats[0]
+    if (!expected || clean(beat.narration) !== expected.narration || clean(beat.onScreenText) !== expected.onScreenText) {
+      errors.push(`R8.05 ${role} beat must match the canonical governed ${role} copy exactly`)
+    }
+  }
+
+  const sourceBeats = exactRoleBeats(brief, 'source')
+  if (sourceBeats.length !== 1 || clean(sourceBeats[0]?.onScreenText) !== sourceUrl || clean(sourceBeats[0]?.narration)) {
+    errors.push('R8.05 source beat must be the exact canonical source URL with no invented narration')
+  }
+
+  for (const beat of brief?.beats || []) {
+    const role = clean(beat?.role)
+    if (clean(beat?.factualAuthority) === 'creative-framing' && role !== 'hook') {
+      errors.push(`R8.05 creative-framing authority is allowed only on the evidence-safe hook, not ${role || '<missing>'}`)
+    }
+  }
+
+  if (errors.length) {
+    throw new Error(`R8.05 EvidenceBridge copy gate failed:\n- ${[...new Set(errors)].join('\n- ')}`)
+  }
+  return 'validated-lossless'
+}
+
+export function resolveShortVideoRelease(packageData) {
+  const release = clean(packageData?.creativeSpec?.systemRelease) || 'R8.04'
+  if (!['R8.04', 'R8.05'].includes(release)) {
+    throw new Error(`unsupported short-video system release: ${release}`)
+  }
+  return release
+}
+
+export function assertResearchObjectMatchesMediaPack(researchObject, mediaPack) {
+  if (!researchObject || typeof researchObject !== 'object' || Array.isArray(researchObject)) {
+    throw new Error('R8.05 source research object is unavailable')
+  }
+  const expected = clean(mediaPack?.source?.contentHash)
+  const actual = hashResearchObject(researchObject)
+  if (!expected || actual !== expected) {
+    throw new Error('R8.05 research object is STALE relative to the governed media-pack content hash; regenerate distribution artifacts before rendering')
+  }
+  return true
+}
+
 function withVerticalVideoProvenance({ manifest, mediaPack, creativeSpec }) {
   return {
     ...manifest,
     ...buildAssetProvenance({
       mediaPack,
       renderer: manifest.renderer,
-      templateVersion: 'vertical-video-30s-v1',
+      templateVersion: clean(manifest?.release || manifest?.systemRelease) === 'R8.05'
+        ? 'vertical-video-r805-natural-v1'
+        : 'vertical-video-30s-v1',
       creativeSpecHash: hashStableValue(creativeSpec),
     }),
   }
@@ -96,9 +199,40 @@ export async function buildBoundedPilot({
     const svgManifest = renderCarouselAssets({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
     assetManifest = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir })
   } else if (selection.selected.platform === 'short-video') {
-    const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
-    assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: packageData.creativeSpec })
-    fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+    const videoRelease = resolveShortVideoRelease(packageData)
+    if (videoRelease === 'R8.04') {
+      const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
+      assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: packageData.creativeSpec })
+      fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+    } else {
+      const briefFile = path.join(outputDir, 'r805-creative-brief.json')
+      const requiredVoiceFiles = [
+        briefFile,
+        path.join(outputDir, 'narration.wav'),
+        path.join(outputDir, 'narration.wav.receipt.json'),
+        path.join(outputDir, 'semantic-beat-timeline.json'),
+        path.join(outputDir, 'voice-qa.receipt.json'),
+      ]
+      for (const file of requiredVoiceFiles) {
+        if (!fs.existsSync(file)) {
+          throw new Error(`R8.05 short-video pilot is not render-ready: missing ${path.basename(file)}. Create/approve the local voice-first work order before bounded-pilot rendering.`)
+        }
+      }
+      const researchObjects = readJson(path.resolve(process.env.DISTRIBUTION_RESEARCH_OBJECTS || 'data/distribution/research-objects.json'))
+      const sourceObject = researchObjects.find((object) => object?.id === selectedId)
+      if (!sourceObject) throw new Error(`R8.05 short-video pilot cannot resolve canonical research object ${selectedId}`)
+      assertResearchObjectMatchesMediaPack(sourceObject, mediaPack)
+      const creativeBrief = readJson(briefFile)
+      const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief })
+      const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
+      const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
+      if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
+        throw new Error('R8.05 short-video pilot requires fresh lossless evidence-safety validation of the exact brief copy')
+      }
+      const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: renderCreativeSpec, outputDir })
+      assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: renderCreativeSpec })
+      fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+    }
   } else {
     throw new Error('bounded pilot supports governed carousel or short-video formats only')
   }

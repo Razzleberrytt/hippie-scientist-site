@@ -51,7 +51,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — implementation WIP 0/3
 
-**Production-safety control #6378 / PR #6377:** In review — enforce R8.04 sovereign social production after a real provider-credit failure exposed that local/no-credit voice existed as an option rather than a mandatory release path. Scope is bounded to the social production critical path: local narration, exact-audio QA, audible MP4 rendering, THS Publisher staging, zero-credit CI, and authoritative control documentation. This is a production-integrity repair, not a new broad publishing program and not proof of audience/business lift.
+**Creative-quality control #6382:** Active — implement R8.05 Attention-First Story Architecture & Semantic AV Lock after a real TikTok field failure exposed that scientific correctness, clean visuals and a good local narrator can still produce weak social content. Scope is bounded to premise selection and audiovisual temporal coherence: premise-interest, one-mental-job, payoff-before-method, natural-duration, narration-first beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. R8.04 zero-credit sovereignty remains mandatory.
 
 
 **Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
