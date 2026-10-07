@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6425-6432-exact",
   "range": "6425-6432",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6426,
-      "pmid": "32090788",
-      "title_verified": false,
-      "abstract_verified": false,
-      "verified_title": null
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "botanicals_mushrooms",
@@ -50,15 +42,16 @@
       "selection_score": 10,
       "wave": 6426,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "verified_title": "Antidepressants effects of Rhodiola capsule combined with sertraline for major depressive disorder: A randomized double-blind placebo-controlled clinical trial.",
+      "abstract": "We performed a proof of concept trial to evaluate relative safety and efficacy of Rhodiola Capsule for mild to moderate major depressive disorder(MDD). It is a randomized double-blind placebo-controlled clinical trial which 100 patients were randomized to 12 weeks into three groups. One of which (group A: 33 patients) received one sertraline and two placebos(0.6 g/day) tablets daily, a second (group B: 33 patients) received one sertraline and two Rhodiola capsules (0.6 g/day) daily, and a third (group C: 34 patients) received one sertraline,one placebo tablet and one tablet of Rhodiola capsule (0.3 g/day)daily. Changes over time in Hamilton Depression Rating (HAM-D), Beck Depression Inventory (BDI), and Clinical Global Impression Change (CGI/C) scores were examined. Significant post-treatment improvements were observed for both groups (Rhodiola Capsule) in HAMD, BDI, and CGI scores. The decline in HAMD, BDI, and CGI scores was greater for group B versus group A and C.While the CGI (versus group A) were greater for group B and C. Statistically significant reductions were observed for HAM-D, BDI, and CGI scores for all treatment conditions with significant difference between groups. The decline in HAM-D, BDI, and CGI scores was greater for group B versus group C and A. It is concluded that the Rhodiola capsule shows anti-depressive potency in patients with depression disorder when administered in dosages of either 0.3 or 0.6 g/day over a 12-week period.Rhodiola capsule can improve the quality of life and clinical symptoms.The high doses of Rhodiola capsule are better than the lower doses.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.jad.2020.01.065",
+      "full_text_link": "",
+      "verified_journal": "Journal of affective disorders",
+      "verified_pub_date": "2020-Mar-15",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Transient retrieval miss resolved on individual retry."
     },
     {
       "category": "botanicals_mushrooms",
