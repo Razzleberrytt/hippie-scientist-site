@@ -164,9 +164,12 @@ def render_r805(package_dir: Path, brief_path: Path, args) -> int:
             raise RuntimeError(f"R8.05 beat {index + 1} has missing/duplicate id")
         seen.add(beat_id)
         narration = " ".join(str(beat.get("narration") or "").strip().split())
+        spoken_anchor = " ".join(str(beat.get("spokenAnchor") or "").strip().split())
         start_samples = cursor_samples
 
         if narration:
+            if not spoken_anchor or spoken_anchor.lower() not in narration.lower():
+                raise RuntimeError(f"R8.05 beat {beat_id} spokenAnchor must occur inside narration")
             audio = generate_text(pipeline, narration, args.voice, args.speed)
             speech_samples = audio.size
             pause_seconds = float(beat.get("pauseAfterSeconds", 0.14))
@@ -175,12 +178,16 @@ def render_r805(package_dir: Path, brief_path: Path, args) -> int:
             pause_samples = round(pause_seconds * SAMPLE_RATE)
             beat_audio = np.concatenate([audio, np.zeros(pause_samples, dtype=np.float32)])
             speech_end_samples = start_samples + speech_samples
+            anchor_index = narration.lower().index(spoken_anchor.lower())
+            anchor_mid_ratio = (anchor_index + (len(spoken_anchor) / 2.0)) / max(1, len(narration))
+            anchor_cue_samples = start_samples + round(speech_samples * anchor_mid_ratio)
         else:
             hold_seconds = float(beat.get("holdSeconds", 0))
             if hold_seconds <= 0 or hold_seconds > 7:
                 raise RuntimeError(f"R8.05 silent beat {beat_id} requires holdSeconds > 0 and <= 7")
             beat_audio = np.zeros(round(hold_seconds * SAMPLE_RATE), dtype=np.float32)
             speech_end_samples = start_samples
+            anchor_cue_samples = start_samples
 
         rendered.append(beat_audio)
         cursor_samples += beat_audio.size
@@ -191,6 +198,8 @@ def render_r805(package_dir: Path, brief_path: Path, args) -> int:
             "speechEnd": round(speech_end_samples / SAMPLE_RATE, 4),
             "end": round(cursor_samples / SAMPLE_RATE, 4),
             "duration": round(beat_audio.size / SAMPLE_RATE, 4),
+            "anchorCue": round(anchor_cue_samples / SAMPLE_RATE, 4) if narration else None,
+            "anchorTimingMethod": "voice-duration-proportional-text-anchor" if narration else "hold",
             "narrationSha256": sha256_text(narration),
             "onScreenTextSha256": sha256_text(str(beat.get("onScreenText") or "")),
             "visualPurposeSha256": sha256_text(str(beat.get("visualPurpose") or "")),
