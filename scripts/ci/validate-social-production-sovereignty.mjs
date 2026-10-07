@@ -67,6 +67,81 @@ if (!fs.existsSync(policyPath)) {
   }
 }
 
+function readRequired(relativePath) {
+  const file = path.join(root, relativePath)
+  if (!fs.existsSync(file)) {
+    fail(`missing governed production surface: ${relativePath}`)
+    return ''
+  }
+  return fs.readFileSync(file, 'utf8')
+}
+
+const videoPackage = readRequired('scripts/distribution/render-vertical-video-package.mjs')
+for (const marker of [
+  "narration-script.json",
+  "ths-local-narration-script-v1",
+  "localVoiceRequired: true",
+  "premiumProviderFallbackAllowed: false",
+]) {
+  if (!videoPackage.includes(marker)) fail(`vertical video package lost local narration contract: ${marker}`)
+}
+
+const mp4Renderer = readRequired('scripts/distribution/render-vertical-video-mp4.mjs')
+for (const marker of [
+  "verifyLocalNarration",
+  "vertical-video-mp4-v2-r804",
+  "audio: true",
+  "audioCodec: 'aac'",
+  "local-open-source",
+  "Natural Presence and pronunciation must pass",
+]) {
+  if (!mp4Renderer.includes(marker)) fail(`MP4 renderer lost R8.04 audio invariant: ${marker}`)
+}
+if (mp4Renderer.includes("'-an'") || mp4Renderer.includes('"-an"')) {
+  fail('R8.04 MP4 renderer may not disable audio with -an')
+}
+
+const publisherStage = readRequired('scripts/distribution/stage-publication-media.mjs')
+for (const marker of [
+  "vertical-video-mp4-v2-r804",
+  "receipt.profile?.audio !== true",
+  "engineKind) !== 'local-open-source'",
+  "naturalPresence) !== 'pass'",
+  "pronunciation) !== 'pass'",
+]) {
+  if (!publisherStage.includes(marker)) fail(`THS Publisher staging lost local-audio release gate: ${marker}`)
+}
+
+const localVoice = readRequired('scripts/distribution/render-local-narration.py')
+for (const marker of [
+  "KPipeline",
+  "meteredCreditsRequired",
+  '"local-open-source"',
+  "Natural Presence remains pending",
+]) {
+  if (!localVoice.includes(marker)) fail(`local voice runtime is missing sovereignty marker: ${marker}`)
+}
+
+const voiceApproval = readRequired('scripts/distribution/approve-local-narration.mjs')
+for (const marker of [
+  "ths-voice-qa-receipt-v1",
+  "naturalPresence !== 'pass'",
+  "pronunciation !== 'pass'",
+  "exactArtifactReviewed: true",
+]) {
+  if (!voiceApproval.includes(marker)) fail(`voice approval gate is missing: ${marker}`)
+}
+
+const publisherWorkflow = readRequired('.github/workflows/ths-publisher-publication.yml')
+if (/METRICOOL|metricool/i.test(publisherWorkflow)) {
+  fail('THS Publisher workflow may not route new publication through Metricool')
+}
+
+const deployWorkflow = readRequired('.github/workflows/deploy.yml')
+if (deployWorkflow.includes('Build governed Metricool publication pilot')) {
+  fail('deploy workflow still presents Metricool as the governed production authority')
+}
+
 if (!process.exitCode) {
-  console.log('[social-production-sovereignty] PASS — R8.04 zero-credit critical path is locked')
+  console.log('[social-production-sovereignty] PASS — R8.04 zero-credit critical path is locked in policy and production code')
 }
