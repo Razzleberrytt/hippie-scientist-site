@@ -2,7 +2,7 @@
   "schema_version": 1,
   "batch_id": "2026-10-06-enrichment-waves-6501-7000-candidate-selection",
   "range": "6501-7000",
-  "stage": "strict_human_evidence_candidates_pending_exact_verification",
+  "stage": "strict_human_evidence_candidates_semantic_clean_pending_exact_verification",
   "predecessor_index": "2026-10-06-enrichment-waves-6001-6500-pmid-index.json",
   "predecessor_unique_pmids": 6435,
   "policy": {
@@ -2201,16 +2201,17 @@
     },
     {
       "category": "micronutrients",
-      "pmid": "42156552",
-      "title": "Circannual prevalence of vitamin D insufficiency in older and minoritized ethnic adults in Northern Britain: screening outcomes from a clinical trial.",
-      "doi": "10.1038/s41430-026-01760-z",
-      "pub_date": "2026 Aug",
-      "pub_type": "Randomized Controlled Trial",
-      "journal": "European journal of clinical nutrition",
-      "discovery_query": "((folate[Title] OR \"vitamin B12\"[Title] OR cobalamin[Title] OR \"vitamin D\"[Title]) AND (deficiency[Title] OR supplementation[Title] OR status[Title] OR intake[Title] OR insufficiency[Title])) AND 2005:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 16,
+      "target": 30,
+      "pmid": "42185813",
+      "title": "Roxadustat for CKD-related anemia in patients undergoing peritoneal dialysis: a systematic review and meta-analysis.",
+      "doi": "10.1186/s12882-025-04723-x",
+      "pub_date": "2026 May 25",
+      "pub_type": "Meta-Analysis",
+      "journal": "BMC nephrology",
+      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract]) AND (deficiency[Title] OR supplementation[Title] OR status[Title] OR intake[Title] OR anemia[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6666,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 19
     },
     {
       "category": "micronutrients",
@@ -3196,29 +3197,31 @@
     },
     {
       "category": "gut",
-      "pmid": "42524136",
-      "title": "Functional convergence amid taxonomic variability in gut microbiome-immune checkpoint inhibitor research: a bibliometric and mechanistic synthesis.",
-      "doi": "10.3389/fimmu.2026.1883259",
+      "target": 35,
+      "pmid": "42688076",
+      "title": "IBD-related inflammatory memory and colorectal cancer: epigenetic mechanisms and microbiome interventions.",
+      "doi": "10.3389/fimmu.2026.1912351",
       "pub_date": "2026",
       "pub_type": "Systematic Review",
       "journal": "Frontiers in immunology",
-      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title] OR irritable[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 9,
+      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6742,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 9
     },
     {
       "category": "gut",
-      "pmid": "42568357",
-      "title": "Global landscape and knowledge structure of research on pancreatitis and gut microbiota: a bibliometric analysis based on WoSCC and Scopus (2006 - 2025).",
-      "doi": "10.3389/fcimb.2026.1878923",
-      "pub_date": "2026",
-      "pub_type": "Systematic Review",
-      "journal": "Frontiers in cellular and infection microbiology",
-      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title] OR irritable[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 9,
+      "target": 35,
+      "pmid": "42481422",
+      "title": "Oral microbiome dysbiosis and oral-gut microbial network disruption in hand osteoarthritis: data from the Xiangya Osteoarthritis Study.",
+      "doi": "10.1136/rmdopen-2026-006962",
+      "pub_date": "2026 Jul 21",
+      "pub_type": "Observational Study",
+      "journal": "RMD open",
+      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6743,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 4
     },
     {
       "category": "cognition_focus",
@@ -6562,6 +6565,29 @@
       "selection_score": 13,
       "wave": 7000,
       "state": "candidate_pending_exact_verification"
+    }
+  ],
+  "semantic_repairs": [
+    {
+      "wave": 6666,
+      "old_pmid": "42156552",
+      "new_pmid": "42185813",
+      "old_title": "Circannual prevalence of vitamin D insufficiency in older and minoritized ethnic adults in Northern Britain: screening outcomes from a clinical trial.",
+      "new_title": "Roxadustat for CKD-related anemia in patients undergoing peritoneal dialysis: a systematic review and meta-analysis."
+    },
+    {
+      "wave": 6742,
+      "old_pmid": "42524136",
+      "new_pmid": "42688076",
+      "old_title": "Functional convergence amid taxonomic variability in gut microbiome-immune checkpoint inhibitor research: a bibliometric and mechanistic synthesis.",
+      "new_title": "IBD-related inflammatory memory and colorectal cancer: epigenetic mechanisms and microbiome interventions."
+    },
+    {
+      "wave": 6743,
+      "old_pmid": "42568357",
+      "new_pmid": "42481422",
+      "old_title": "Global landscape and knowledge structure of research on pancreatitis and gut microbiota: a bibliometric analysis based on WoSCC and Scopus (2006 - 2025).",
+      "new_title": "Oral microbiome dysbiosis and oral-gut microbial network disruption in hand osteoarthritis: data from the Xiangya Osteoarthritis Study."
     }
   ]
 }
