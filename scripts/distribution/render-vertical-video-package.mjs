@@ -8,6 +8,8 @@ import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creati
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const roundMillis = (value) => Math.round(Number(value) * 1000) / 1000
+const roundTenThousandth = (value) => Math.round(Number(value) * 10000) / 10000
+const timingMatches = (a, b) => Number.isFinite(Number(a)) && Number.isFinite(Number(b)) && Math.abs(Number(a) - Number(b)) <= 0.0006
 
 function escapeXml(value) {
   return clean(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[char])
@@ -132,8 +134,9 @@ function validateIdentity(mediaPack, creativeSpec) {
     if (clean(quality?.schemaVersion) !== 'ths-r805-creative-receipt-v2' || clean(quality?.release) !== 'R8.05' || clean(quality?.status) !== 'approved') {
       throw new Error('R8.05 vertical video requires an approved creative brief before rendering')
     }
-    if (quality?.narrationIsTimingMaster !== true || quality?.semanticClipOwnership !== true || quality?.cutOnMeaning !== true || quality?.internalMotionSync !== true) {
-      throw new Error('R8.05 creative-quality receipt is missing semantic AV-lock invariants')
+    if (quality?.narrationIsTimingMaster !== true || quality?.semanticClipOwnership !== true || quality?.cutOnMeaning !== true
+        || quality?.internalMotionPlanRequired !== true || clean(quality?.internalMotionSyncCertifiedAt) !== 'exact-master-qa') {
+      throw new Error('R8.05 creative-quality receipt is missing semantic AV-lock planning invariants')
     }
     if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
@@ -349,6 +352,8 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
     if (clean(timed?.cutReason) !== clean(beat.cutReason) || clean(governed?.cutReason) !== clean(beat.cutReason)) {
       throw new Error(`R8.05 beat ${beat.id} cut reason drifted`)
     }
+    const motionType = clean(beat?.motion?.type)
+    if (clean(governed?.motionType) !== motionType) throw new Error(`R8.05 beat ${beat.id} motion type drifted`)
     const start = Number(timed.start)
     const end = Number(timed.end)
     if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start || !timingMatches(start, expectedStart)) {
@@ -361,12 +366,24 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
         throw new Error('R8.05 source beat must show the exact canonical URL for at least three seconds')
       }
     }
+    const speechEnd = Number(timed.speechEnd)
+    const anchorCue = timed.anchorCue === null || timed.anchorCue === undefined ? null : Number(timed.anchorCue)
+    if (clean(beat.narration)) {
+      if (!Number.isFinite(speechEnd) || speechEnd <= start || speechEnd > end) throw new Error(`R8.05 beat ${beat.id} speechEnd is invalid`)
+      if (!Number.isFinite(anchorCue) || anchorCue <= start || anchorCue >= speechEnd) throw new Error(`R8.05 beat ${beat.id} anchorCue must fall inside exact spoken audio`)
+      if (clean(timed.anchorTimingMethod) !== 'voice-duration-proportional-text-anchor') throw new Error(`R8.05 beat ${beat.id} anchor timing method is not governed`)
+    } else if (motionType !== 'hold') {
+      throw new Error(`R8.05 silent beat ${beat.id} must use hold motion`)
+    }
     return {
       beatId: clean(beat.id),
       role: clean(beat.role),
       start,
       end,
-      speechEnd: Number(timed.speechEnd),
+      speechEnd,
+      motionType,
+      motionCueOffset: anchorCue === null ? null : roundTenThousandth(anchorCue - start),
+      motionCueMethod: clean(timed.anchorTimingMethod),
       onScreenText: clean(beat.onScreenText),
       voiceover: clean(beat.narration),
       visualPurpose: clean(beat.visualPurpose),
@@ -416,6 +433,7 @@ function verticalPlatformIntersection() {
 
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const canvas = CREATIVE_BRAND_TOKENS.canvas.vertical
+  const motionPhase = clean(options.motionPhase) || 'post'
   const { foreground, background } = treatment(scene.colorTreatment)
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
@@ -442,7 +460,13 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const safeWidth = safeRight - x
   const contentTop = safe.top + 160
   const lineHeight = Math.ceil(fontSize * 1.42)
-  const headline = lines.map((line, index) => `<text x="${x}" y="${contentTop + (index * lineHeight)}" font-size="${fontSize}" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
+  const headlineVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
+  const headline = headlineVisible
+    ? lines.map((line, index) => `<text x="${x}" y="${contentTop + (index * lineHeight)}" font-size="${fontSize}" font-weight="700" fill="${foreground}">${escapeXml(line)}</text>`).join('')
+    : ''
+  const highlight = scene.motionType === 'highlight' && motionPhase === 'post'
+    ? `<rect x="${x}" y="${contentTop + (lines.length * lineHeight) + 16}" width="${Math.min(safeWidth, Math.max(180, safeWidth * 0.62))}" height="8" rx="4" fill="${foreground}"/>`
+    : ''
   const disclosureY = canvas.height - safe.bottom - 70
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
@@ -458,11 +482,15 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     spokenAnchor: scene.spokenAnchor || null,
     visualAction: scene.visualAction || null,
     cutReason: scene.cutReason || null,
+    motionType: scene.motionType || null,
+    motionPhase,
+    motionCueOffset: scene.motionCueOffset ?? null,
+    motionCueMethod: scene.motionCueMethod || null,
     start: scene.start,
     end: scene.end,
     safeArea: { x, right: safeRight, width: safeWidth, top: safe.top, bottom: canvas.height - safe.bottom },
   })
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
@@ -477,20 +505,51 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   const disclosure = clean(creativeSpec.delivery.disclosure)
 
   const assets = scenes.map((scene, index) => {
+    const suffix = String(index + 1).padStart(2, '0')
     const rendered = renderVerticalVideoSceneSvg(scene, {
       sourceUrl: mediaPack.source.url,
       contentHash: mediaPack.source.contentHash,
       disclosure,
       sourceLegibility: creativeSpec.verticalVideo.sourceLegibility,
+      motionPhase: 'post',
     })
-    const file = `video-scene-${String(index + 1).padStart(2, '0')}.svg`
+    const file = `video-scene-${suffix}.svg`
     const bytes = `${rendered.svg}\n`
     fs.writeFileSync(path.join(dir, file), bytes)
+
+    let motion = { type: scene.motionType || 'hold', cueOffset: null, cueMethod: scene.motionCueMethod || 'hold' }
+    if (release === 'R8.05' && ['reveal', 'highlight'].includes(scene.motionType)) {
+      const cueOffset = roundTenThousandth(scene.motionCueOffset)
+      const sceneDuration = roundTenThousandth(scene.end - scene.start)
+      if (!(cueOffset > 0 && cueOffset < sceneDuration)) throw new Error(`R8.05 beat ${scene.beatId} has an invalid internal-motion cue`)
+      const preRendered = renderVerticalVideoSceneSvg(scene, {
+        sourceUrl: mediaPack.source.url,
+        contentHash: mediaPack.source.contentHash,
+        disclosure,
+        sourceLegibility: creativeSpec.verticalVideo.sourceLegibility,
+        motionPhase: 'pre',
+      })
+      const preFile = `video-scene-${suffix}-pre.svg`
+      const preBytes = `${preRendered.svg}\n`
+      fs.writeFileSync(path.join(dir, preFile), preBytes)
+      motion = {
+        type: scene.motionType,
+        cueOffset,
+        cueMethod: scene.motionCueMethod,
+        preFile,
+        preSha256: sha256(preBytes),
+        postFile: file,
+        postSha256: sha256(bytes),
+      }
+    }
+
     return {
       id: `video-scene-${index + 1}`,
       beatId: scene.beatId || null,
       beatReceiptSha256: scene.beatReceiptSha256 || null,
       cutReason: scene.cutReason || null,
+      spoken: Boolean(clean(scene.voiceover)),
+      motion,
       type: 'vertical-video-scene',
       format: 'svg',
       file,
@@ -499,7 +558,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       height: rendered.height,
       start: scene.start,
       end: scene.end,
-      duration: roundMillis(scene.end - scene.start),
+      duration: release === 'R8.05' ? roundTenThousandth(scene.end - scene.start) : roundMillis(scene.end - scene.start),
       role: scene.role,
       factualAuthority: scene.factualAuthority,
       sourceContentHash: mediaPack.source.contentHash,
@@ -520,8 +579,8 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fps: 30,
     durationSeconds,
     semanticBeatMapSha256: bindings?.semanticBeatMapSha256 ?? null,
-    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, file, sha256: hash, start, end, duration, role, factualAuthority }) => ({
-      id, beatId, beatReceiptSha256, cutReason, file, sha256: hash, start, end, duration, role, factualAuthority,
+    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority }) => ({
+      id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority,
     })),
   }
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
