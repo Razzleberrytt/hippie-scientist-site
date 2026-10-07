@@ -108,7 +108,8 @@ export function validateR805CreativeBrief(brief) {
   if (!beats.length) errors.push('at least one semantic beat is required')
 
   const ids = new Set()
-  let sourceCount = 0
+  const roleCounts = new Map([...ROLES].map((role) => [role, 0]))
+  const roleFirstIndex = new Map()
   for (const [index, raw] of beats.entries()) {
     const beat = canonicalBeat(raw)
     const label = `beat ${index + 1}`
@@ -117,7 +118,10 @@ export function validateR805CreativeBrief(brief) {
     else ids.add(beat.id)
 
     if (!ROLES.has(beat.role)) errors.push(`${label} requires a governed role`)
-    if (beat.role === 'source') sourceCount += 1
+    else {
+      roleCounts.set(beat.role, Number(roleCounts.get(beat.role) || 0) + 1)
+      if (!roleFirstIndex.has(beat.role)) roleFirstIndex.set(beat.role, index)
+    }
     if (!beat.onScreenText) errors.push(`${label} requires onScreenText`)
     if (!beat.visualPurpose) errors.push(`${label} requires visualPurpose bound to the narration`)
     if (!beat.visualAction) errors.push(`${label} requires visualAction for internal-motion synchronization`)
@@ -147,7 +151,22 @@ export function validateR805CreativeBrief(brief) {
       errors.push(`${label} may not set holdSeconds when narration is present`)
     }
   }
-  if (sourceCount !== 1) errors.push('R8.05 requires exactly one dedicated source beat')
+  for (const role of ['hook', 'evidence', 'source', 'context', 'cta']) {
+    if (Number(roleCounts.get(role) || 0) !== 1) errors.push(`R8.05 requires exactly one ${role} beat`)
+  }
+  for (const role of ['finding', 'limitation']) {
+    if (Number(roleCounts.get(role) || 0) < 1) errors.push(`R8.05 requires at least one ${role} beat`)
+  }
+
+  if (beats.length && canonicalBeat(beats[0]).role !== 'hook') {
+    errors.push('R8.05 payoff ordering requires the hook to be the first rendered beat')
+  }
+  const findingIndex = roleFirstIndex.get('finding')
+  const evidenceIndex = roleFirstIndex.get('evidence')
+  if (Number.isInteger(findingIndex) && Number.isInteger(evidenceIndex) && findingIndex > evidenceIndex) {
+    errors.push('R8.05 payoff-before-method requires the finding beat before the evidence/method beat')
+  }
+
   const sourceBeat = beats.map(canonicalBeat).find((beat) => beat.role === 'source')
   if (sourceBeat && sourceBeat.onScreenText !== clean(brief?.sourceIdentity?.sourceUrl)) {
     errors.push('source beat onScreenText must equal sourceIdentity.sourceUrl exactly')
