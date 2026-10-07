@@ -15,6 +15,81 @@ function readJson(file) {
 
 const SUPPORTED_PILOT_FORMATS = new Set(['carousel', 'short-video'])
 
+const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
+
+function joinedRoleCopy(brief, role, field) {
+  return clean((brief?.beats || [])
+    .filter((beat) => clean(beat?.role) === role)
+    .map((beat) => clean(beat?.[field]))
+    .filter(Boolean)
+    .join(' '))
+}
+
+function exactRoleBeats(brief, role) {
+  return (brief?.beats || []).filter((beat) => clean(beat?.role) === role)
+}
+
+function validateR805BriefCopyAgainstCanonical(brief, canonicalSpec) {
+  const errors = []
+  const video = canonicalSpec?.verticalVideo
+  const canonicalHook = clean(video?.firstTwoSecondHook)
+  const canonicalFinding = clean(video?.losslessCopy?.finding?.sourceText)
+  const canonicalLimitation = clean(video?.losslessCopy?.limitation?.sourceText)
+  const sourceUrl = clean(canonicalSpec?.sourceIdentity?.sourceUrl)
+  const canonicalByRole = new Map(
+    (video?.scenes || []).map((scene) => [clean(scene?.role), {
+      narration: clean(scene?.voiceover),
+      onScreenText: clean(scene?.onScreenText),
+    }]),
+  )
+
+  for (const [role, expected] of [['finding', canonicalFinding], ['limitation', canonicalLimitation]]) {
+    const beats = exactRoleBeats(brief, role)
+    if (!beats.length) {
+      errors.push(`R8.05 requires at least one ${role} beat so governed claim/qualifier copy cannot disappear`)
+      continue
+    }
+    if (joinedRoleCopy(brief, role, 'narration') !== expected) {
+      errors.push(`R8.05 ${role} narration must reconstruct the canonical governed ${role} exactly`)
+    }
+    if (joinedRoleCopy(brief, role, 'onScreenText') !== expected) {
+      errors.push(`R8.05 ${role} on-screen copy must reconstruct the canonical governed ${role} exactly`)
+    }
+  }
+
+  for (const beat of exactRoleBeats(brief, 'hook')) {
+    if (!canonicalHook || clean(beat.narration) !== canonicalHook || clean(beat.onScreenText) !== canonicalHook) {
+      errors.push('R8.05 hook copy must use the evidence-safe canonical hook; arbitrary factual reframing requires a new EvidenceBridge-authorized hook')
+    }
+  }
+
+  for (const role of ['evidence', 'context', 'cta']) {
+    const expected = canonicalByRole.get(role)
+    for (const beat of exactRoleBeats(brief, role)) {
+      if (!expected || clean(beat.narration) !== expected.narration || clean(beat.onScreenText) !== expected.onScreenText) {
+        errors.push(`R8.05 ${role} beat must match the canonical governed ${role} copy exactly`)
+      }
+    }
+  }
+
+  const sourceBeats = exactRoleBeats(brief, 'source')
+  if (sourceBeats.length !== 1 || clean(sourceBeats[0]?.onScreenText) !== sourceUrl || clean(sourceBeats[0]?.narration)) {
+    errors.push('R8.05 source beat must be the exact canonical source URL with no invented narration')
+  }
+
+  for (const beat of brief?.beats || []) {
+    const role = clean(beat?.role)
+    if (clean(beat?.factualAuthority) === 'creative-framing' && role !== 'hook') {
+      errors.push(`R8.05 creative-framing authority is allowed only on the evidence-safe hook, not ${role || '<missing>'}`)
+    }
+  }
+
+  if (errors.length) {
+    throw new Error(`R8.05 EvidenceBridge copy gate failed:\n- ${[...new Set(errors)].join('\n- ')}`)
+  }
+  return 'validated-lossless'
+}
+
 function withVerticalVideoProvenance({ manifest, mediaPack, creativeSpec }) {
   return {
     ...manifest,
@@ -114,12 +189,11 @@ export async function buildBoundedPilot({
     const sourceObject = researchObjects.find((object) => object?.id === selectedId)
     if (!sourceObject) throw new Error(`R8.05 short-video pilot cannot resolve canonical research object ${selectedId}`)
     const creativeBrief = readJson(briefFile)
-    const renderCreativeSpec = {
-      ...buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief }),
-      claimSafetyStatus: packageData.creativeSpec?.claimSafetyStatus,
-    }
+    const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief })
+    const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
+    const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
     if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
-      throw new Error('R8.05 short-video pilot requires the inherited lossless evidence-safety gate')
+      throw new Error('R8.05 short-video pilot requires fresh lossless evidence-safety validation of the exact brief copy')
     }
     const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: renderCreativeSpec, outputDir })
     assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: renderCreativeSpec })
