@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6685-6692-exact",
   "range": "6685-6692",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6692,
-      "pmid": "40582869",
-      "title_verified": false,
-      "abstract_verified": true,
-      "verified_title": "Relationship between Circulating Vitamin D Concentration and the Maternal Gut Microbiota during Early Pregnancy in Japanese Women: Results of a Pilot Study of Antenatal Vitamin D3 Supplementation."
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "women_health",
@@ -183,12 +175,13 @@
       "verified_title": "Relationship between Circulating Vitamin D Concentration and the Maternal Gut Microbiota during Early Pregnancy in Japanese Women: Results of a Pilot Study of Antenatal Vitamin D3 Supplementation.",
       "abstract": "Recent studies have demonstrated a significant role for gut microbiota dysbiosis in the pathogenesis of various diseases, pregnancy outcomes, and fetal growth. Vitamin D modulates innate immunity and promotes immune tolerance, suggesting involvement in shaping the gut microbiota. However, the relationship between vitamin D and the gut microbiota during pregnancy has not been evaluated in detail. In this study, we administered a vitamin D3 supplement (VD) to pregnant Japanese women, starting during the first trimester of pregnancy, and characterized changes in the circulating concentration of vitamin D and the gut microbiome. Sixty-two pregnant women were randomly allocated to three groups. VD was administered at low (200 IU/d), medium (400 IU/d), or high (1,000 IU/d) doses for 8 wk from 12 to 15 wk of pregnancy, and changes in the serum 25-hydroxyvitamin D (25(OH)D) concentration and the gut microbiome were evaluated. Changes in gut microbial taxa abundance were analyzed by Wilcoxon matched-pairs signed-rank test. Before VD administration, 96.8% of the participants were VD-deficient, and none had a sufficient VD concentration. The serum 25(OH)D concentration increased in a dose-dependent manner in all the dose groups. Additionally, the abundance of Fusicatenibacter in the gut microbiota increased in a VD dosedependent manner, with a significant increase observed in the high-dose group. From these results, in pregnant Japanese women, the administration of high-dose VD increases the prevalence of VD sufficiency and alters the gut microbial composition, suggesting that this has benefits for the maternal and neonatal immune systems.",
       "abstract_verified": true,
-      "title_verified": false,
+      "title_verified": true,
       "pdf_link": "https://doi.org/10.3177/jnsv.71.185",
       "full_text_link": "",
       "verified_journal": "Journal of nutritional science and vitaminology",
       "verified_pub_date": "2025",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Exact PMID match; candidate 'Vitamin D(3)' and PubMed 'Vitamin D3' differ only by chemical typography."
     }
   ]
 }
