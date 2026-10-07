@@ -51,7 +51,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — implementation WIP 0/3
 
-**Production-safety control #6378 / PR #6377:** In review — enforce R8.04 sovereign social production after a real provider-credit failure exposed that local/no-credit voice existed as an option rather than a mandatory release path. Scope is bounded to the social production critical path: local narration, exact-audio QA, audible MP4 rendering, THS Publisher staging, zero-credit CI, and authoritative control documentation. This is a production-integrity repair, not a new broad publishing program and not proof of audience/business lift.
+**Production usability follow-up #6379:** In implementation — expose the already-merged R8.04 sovereign path through repo-owned `social:local:prepare`, `social:local:finalize`, and `social:local:status` commands plus a hash-bound manual-upload packet. Scope does not change scientific permission, publication identity, or platform authorization; it removes operator friction without reintroducing a premium/provider dependency.
 
 
 **Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
@@ -69,7 +69,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 Research-only enrichment staging is not canonical implementation admission. #6338 / PR #6339 is completed; no new work may overlap an active normal-lane owner.
 
-### Verified completion refresh — 2026-10-06
+### Verified completion refresh — 2026-10-07
+
+- **#6378 / PR #6377 — completed:** merged to `main` as `48f2229170bd6aecf4b81a2b6962aa884e6c5e01`. R8.04 now enforces zero-credit local narration, exact-audio Natural Presence/pronunciation approval, audible MP4 rendering, silent/non-local rejection in THS Publisher staging, manual-native-upload baseline transport, and production-surface sovereignty CI. Audience/business impact remains **Unknown**.
+
+### Earlier completion refresh — 2026-10-06
 
 - **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. Canonical `publication_id` identity, D1-backed publication state, governed TikTok draft-upload transport, Observer/reconciliation semantics, owner `/publish-ths` entry point, provider-neutral media staging, and hard-frozen Metricool publication paths are implemented. Exact-head CI, full tests/data/security, Fast UI, Site Health, Atomic, Build Quality, Research Distribution, Project Control, and production build/output passed before merge. Cloudflare D1/KV bindings, server secrets, TikTok app approval, and creator authorization remain external production setup; no live TikTok publication receipt is claimed yet.
 
