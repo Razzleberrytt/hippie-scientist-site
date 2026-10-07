@@ -34,7 +34,7 @@ else {
 }
 
 for (const [file, markers] of [
-  [policyPath, ['one mental job', 'payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'one macro rebuild']],
+  [policyPath, ['one mental job', 'Payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'One macro rebuild']],
   [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'macroRebuildCount']],
 ]) {
   if (!fs.existsSync(file)) {
