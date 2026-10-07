@@ -95,6 +95,13 @@ describe('R8.04 local social production handoff', () => {
     })
   })
 
+  it('rejects a forged research-object path before writing a packet', () => {
+    const { stagedRoot, releaseRoot, manifest } = fixture()
+    manifest.researchObjectId = '../escaped'
+    expect(() => buildManualUploadPacket({ stagedManifest: manifest, stagedRoot, releaseRoot }))
+      .toThrow(/invalid research object id/i)
+  })
+
   it('rejects staged-media tampering before building the packet', () => {
     const { stagedRoot, releaseRoot, manifest, objectId, bundleId } = fixture()
     fs.writeFileSync(path.join(stagedRoot, objectId, bundleId, 'short-video.mp4'), 'tampered')
