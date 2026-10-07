@@ -27,15 +27,22 @@ else {
   if (cfg.timing?.semantic_clip_ownership_required !== true) fail('semantic clip ownership must remain required')
   if (cfg.timing?.cut_on_meaning_required !== true) fail('cut-on-meaning must remain required')
   if (cfg.timing?.internal_motion_sync_required !== true) fail('internal-motion synchrony must remain required')
+  if (cfg.timing?.exact_local_narration_timeline_required !== true) fail('exact local narration timeline must remain required')
+  if (cfg.timing?.visual_timeline_may_not_precede_voice_timeline !== true) fail('visual timeline may not precede voice timing')
   if (cfg.final_cohesion?.whole_piece_review_required !== true) fail('whole-piece cohesion review must remain required')
   if (cfg.final_cohesion?.technical_sync_alone_is_insufficient !== true) fail('technical sync may not satisfy cohesion')
+  if (cfg.final_cohesion?.exact_mp4_hash_binding_required !== true) fail('exact MP4 hash binding must remain required')
+  if (cfg.final_cohesion?.publication_requires_master_qa_receipt !== true) fail('master QA receipt must remain required before publication')
   if (cfg.recovery?.macro_rebuild_limit !== 1) fail('macro rebuild limit must remain one')
   if (cfg.failure_semantics?.premise !== 'fail_before_render') fail('weak premise must fail before render')
 }
 
 for (const [file, markers] of [
   [policyPath, ['one mental job', 'Payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'One macro rebuild']],
-  [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'macroRebuildCount']],
+  [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'semanticBeatMapSha256', 'macroRebuildCount']],
+  [path.join(root, 'scripts', 'distribution', 'render-local-narration.py'), ['semantic-beat-timeline.json', 'exact-local-narration']],
+  [path.join(root, 'scripts', 'distribution', 'approve-r805-master.mjs'), ['ths-r805-master-qa-receipt-v1', 'wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync']],
+  [path.join(root, 'scripts', 'distribution', 'stage-publication-media.mjs'), ['r805-master-qa.receipt.json', 'technical sync alone is insufficient']],
 ]) {
   if (!fs.existsSync(file)) {
     fail(`missing governed creative surface: ${path.relative(root, file)}`)
