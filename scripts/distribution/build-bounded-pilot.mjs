@@ -8,6 +8,7 @@ import { renderCarouselAssets } from './render-carousel-svg.mjs'
 import { renderCarouselRasterAssets } from './render-carousel-raster.mjs'
 import { renderVerticalVideoPackage } from './render-vertical-video-package.mjs'
 import { buildLosslessCreativeSpec } from './creative-spec-lossless.mjs'
+import { hashResearchObject } from './distribution-pack-contract.mjs'
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
@@ -90,13 +91,35 @@ export function validateR805BriefCopyAgainstCanonical(brief, canonicalSpec) {
   return 'validated-lossless'
 }
 
+export function resolveShortVideoRelease(packageData) {
+  const release = clean(packageData?.creativeSpec?.systemRelease) || 'R8.04'
+  if (!['R8.04', 'R8.05'].includes(release)) {
+    throw new Error(`unsupported short-video system release: ${release}`)
+  }
+  return release
+}
+
+export function assertResearchObjectMatchesMediaPack(researchObject, mediaPack) {
+  if (!researchObject || typeof researchObject !== 'object' || Array.isArray(researchObject)) {
+    throw new Error('R8.05 source research object is unavailable')
+  }
+  const expected = clean(mediaPack?.source?.contentHash)
+  const actual = hashResearchObject(researchObject)
+  if (!expected || actual !== expected) {
+    throw new Error('R8.05 research object is STALE relative to the governed media-pack content hash; regenerate distribution artifacts before rendering')
+  }
+  return true
+}
+
 function withVerticalVideoProvenance({ manifest, mediaPack, creativeSpec }) {
   return {
     ...manifest,
     ...buildAssetProvenance({
       mediaPack,
       renderer: manifest.renderer,
-      templateVersion: 'vertical-video-30s-v1',
+      templateVersion: clean(manifest?.release || manifest?.systemRelease) === 'R8.05'
+        ? 'vertical-video-r805-natural-v1'
+        : 'vertical-video-30s-v1',
       creativeSpecHash: hashStableValue(creativeSpec),
     }),
   }
@@ -172,6 +195,12 @@ export async function buildBoundedPilot({
     const svgManifest = renderCarouselAssets({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
     assetManifest = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir })
   } else if (selection.selected.platform === 'short-video') {
+    const videoRelease = resolveShortVideoRelease(packageData)
+    if (videoRelease === 'R8.04') {
+      const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: packageData.creativeSpec, outputDir })
+      assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: packageData.creativeSpec })
+      fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+    } else {
     const briefFile = path.join(outputDir, 'r805-creative-brief.json')
     const requiredVoiceFiles = [
       briefFile,
@@ -188,6 +217,7 @@ export async function buildBoundedPilot({
     const researchObjects = readJson(path.resolve(process.env.DISTRIBUTION_RESEARCH_OBJECTS || 'data/distribution/research-objects.json'))
     const sourceObject = researchObjects.find((object) => object?.id === selectedId)
     if (!sourceObject) throw new Error(`R8.05 short-video pilot cannot resolve canonical research object ${selectedId}`)
+    assertResearchObjectMatchesMediaPack(sourceObject, mediaPack)
     const creativeBrief = readJson(briefFile)
     const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief })
     const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
@@ -198,6 +228,7 @@ export async function buildBoundedPilot({
     const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: renderCreativeSpec, outputDir })
     assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: renderCreativeSpec })
     fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
+    }
   } else {
     throw new Error('bounded pilot supports governed carousel or short-video formats only')
   }
