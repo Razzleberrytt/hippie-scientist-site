@@ -25,6 +25,29 @@ sudo apt-get install -y espeak-ng ffmpeg
 
 Windows can install `espeak-ng` locally and point `FFMPEG_PATH` at a local FFmpeg executable. No global Python package install is required when a virtual environment is used.
 
+## Preferred operator path
+
+Use the repo-owned R8.04 commands rather than invoking provider tools or remembering the individual build steps:
+
+```bash
+npm run social:local:prepare
+```
+
+For a short-video selection, this builds the governed distribution package and bounded pilot, generates the exact local Kokoro narration, writes `artifacts/distribution/local-production-state.json`, and **stops at voice QA**. Listen to the generated `narration.wav`; do not approve a robotic take.
+
+After the exact WAV passes Natural Presence and pronunciation review:
+
+```bash
+npm run social:local:finalize -- \\
+  --reviewer perceptual-qa \\
+  --natural-presence pass \\
+  --pronunciation pass
+```
+
+Finalize renders the audible MP4, re-validates provenance and voice receipts, and writes a self-contained manual-upload packet under `artifacts/distribution/manual-upload/<research-object>/<bundle>/`. The packet contains the exact media, `caption.txt`, `UPLOAD.txt`, and a hash-bound `release-manifest.json`. No scheduler or premium editor is required.
+
+Use `npm run social:local:status` to inspect the current local production state.
+
 ## Exact production sequence
 
 After a governed vertical-video package exists:
