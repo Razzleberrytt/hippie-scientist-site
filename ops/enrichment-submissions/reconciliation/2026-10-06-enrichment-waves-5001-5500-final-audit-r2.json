@@ -1,0 +1,337 @@
+{
+  "schema_version": 2,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "status": "final_exact_verified_relevance_repaired_collision_free",
+  "row_count": 500,
+  "range": "5001-5500",
+  "prior_unique_pmids": 4935,
+  "new_unique_pmids": 500,
+  "cumulative_unique_pmids": 5435,
+  "integrity": {
+    "row_count": 500,
+    "first_wave": 5001,
+    "last_wave": 5500,
+    "contiguous": true,
+    "abstract_verified": 500,
+    "exact_title_verified": 500,
+    "unique_pmids": 500,
+    "duplicate_pmids": [],
+    "duplicate_dois": [],
+    "duplicate_titles": [],
+    "prior_pmid_collisions": [],
+    "hard_off_domain": [],
+    "replacements_total": 35,
+    "collision_replacements": 13
+  },
+  "retry_overrides": 14,
+  "replacements_total": 35,
+  "relevance_quality_replacements": 22,
+  "upstream_collision_replacements": 13,
+  "category_counts": {
+    "stress_anxiety": 11,
+    "sleep": 30,
+    "withdrawal_nps": 50,
+    "cardiometabolic": 19,
+    "cannabinoid_safety": 17,
+    "mitochondrial_energy": 30,
+    "performance": 7,
+    "aging_sarcopenia": 20,
+    "micronutrients": 49,
+    "women_health": 50,
+    "gut": 23,
+    "immune_respiratory": 41,
+    "cognition_focus": 40,
+    "mood": 32,
+    "inflammation_pain": 23,
+    "metabolic": 34,
+    "botanicals_mushrooms": 24
+  },
+  "state_counts": {
+    "research_only_exact_verified_final": 451,
+    "research_only_exact_verified_final_collision_replacement": 13,
+    "research_only_exact_verified_final_retry": 14,
+    "research_only_exact_verified_final_replacement": 22
+  },
+  "replacements": [
+    {
+      "wave": 5021,
+      "category": "mitochondrial_energy",
+      "pmid": "42528893",
+      "title": "Effects of Lactiplantibacillus plantarum supplementation on exercise performance and recovery: a systematic review and narrative synthesis.",
+      "replacement_for_pmid": "41826633",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5026,
+      "category": "mitochondrial_energy",
+      "pmid": "42487402",
+      "title": "Efficacy and Safety of Enzyme-Derived Deer Velvet Extract Supplementation on Adults with Chronic Fatigue: a Randomized, Placebo-Controlled, Double-Blind Trial.",
+      "replacement_for_pmid": "41903346",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5033,
+      "category": "mitochondrial_energy",
+      "pmid": "42577968",
+      "title": "VSL#3® supplementation improves fatigue in long COVID: results from the DELong#3 randomized placebo-controlled trial.",
+      "replacement_for_pmid": "42248424",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5034,
+      "category": "mitochondrial_energy",
+      "pmid": "42601943",
+      "title": "Efficacy and safety of higher versus lower protein provision with meaningful dose separation in critically ill adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "replacement_for_pmid": "42271035",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5036,
+      "category": "micronutrients",
+      "pmid": "41476304",
+      "title": "Effects of multivitamin combined with magnesium sulfate versus magnesium sulfate alone on hemodynamics, coagulation, and maternal-infant outcomes in preeclampsia: a randomized controlled study.",
+      "replacement_for_pmid": "42499083",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5038,
+      "category": "micronutrients",
+      "pmid": "41475066",
+      "title": "Clinical safety of ultra-high-dose methylcobalamin in patients with amyotrophic lateral sclerosis: Open-label extension of a phase 2/3 randomized controlled study.",
+      "replacement_for_pmid": "42544905",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5040,
+      "category": "mitochondrial_energy",
+      "pmid": "41470847",
+      "title": "Effects of Greek Yogurt Supplementation and Exercise on Markers of Bone Turnover and Inflammation in Older Adult Exercisers: An 8-Week Pilot Intervention Trial.",
+      "replacement_for_pmid": "42588107",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5043,
+      "category": "micronutrients",
+      "pmid": "41461260",
+      "title": "The Effect of Vitamin B-12 Supplementation During Pregnancy on Early Motor Performance: Secondary Analyses From a Double-Blinded Randomized Controlled Trial.",
+      "replacement_for_pmid": "42631762",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5053,
+      "category": "mitochondrial_energy",
+      "pmid": "41385355",
+      "title": "Effects of supplemental protein in older people: an overview of meta-analyses.",
+      "replacement_for_pmid": "42286692",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5074,
+      "category": "gut",
+      "pmid": "41561177",
+      "title": "Clinical benefits of Bifidobacterium infantis YLGB-1496 in modulating gut microbiota and immunity in young children.",
+      "replacement_for_pmid": "42274817",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5121,
+      "category": "micronutrients",
+      "pmid": "41506003",
+      "title": "Vitamin D supplementation and incidence of major depressive disorder - A randomized clinical trial.",
+      "replacement_for_pmid": "42709983",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5122,
+      "category": "micronutrients",
+      "pmid": "41420666",
+      "title": "Effect of Maternal Vitamin B12 Status and Supplementation on Child Neurodevelopment and Cognition: A Systematic Review.",
+      "replacement_for_pmid": "42778894",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5125,
+      "category": "cognition_focus",
+      "pmid": "41499921",
+      "title": "Aronia melanocarpa extract supplementation affects brain vascular function and cognitive performance: A randomized, double-blind, placebo-controlled, cross-over study in older adults with overweight or obesity.",
+      "replacement_for_pmid": "38718157",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5187,
+      "category": "mitochondrial_energy",
+      "pmid": "41496202",
+      "title": "Resistance-based training improves mitochondrial capacity and redox balance in aging adults, independent of polyphenol supplementation.",
+      "replacement_for_pmid": "42751143",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5276,
+      "category": "inflammation_pain",
+      "pmid": "41126953",
+      "title": "Efficacy of botanical extracts for knee osteoarthritis: a network meta-analysis of randomized controlled trials.",
+      "replacement_for_pmid": "42064340",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5277,
+      "category": "inflammation_pain",
+      "pmid": "41197197",
+      "title": "Adjunctive curcumin nano-micelles reduce overall pruritus intensity in refractory post-burn pruritus: A randomized controlled trial.",
+      "replacement_for_pmid": "42065458",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5297,
+      "category": "cognition_focus",
+      "pmid": "41470898",
+      "title": "Beetroot Juice Supplementation as a Healthy Aging Strategy Through Improving Physical Performance and Cognitive Functions: A Systematic Review.",
+      "replacement_for_pmid": "42227473",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5305,
+      "category": "inflammation_pain",
+      "pmid": "41462252",
+      "title": "Efficacy of antioxidant supplementation in alleviating endometriosis-related pain: insights from a systematic review and meta-analysis of RCTs.",
+      "replacement_for_pmid": "42290771",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5313,
+      "category": "cannabinoid_safety",
+      "pmid": "42671837",
+      "title": "Dose-Dependent Effects of Cannabis Edibles on Simulated Driving Performance: A Randomized Clinical Trial.",
+      "replacement_for_pmid": "42311392",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5345,
+      "category": "inflammation_pain",
+      "pmid": "41465480",
+      "title": "Synergistic Effects of High-Intensity Interval Training and Asparagus officinalis L. Root Extract Supplementation on Metabolic Regulation, Oxidative Stress, and Inflammation in Overweight and Obese Adults.",
+      "replacement_for_pmid": "42474159",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5350,
+      "category": "immune_respiratory",
+      "pmid": "42627298",
+      "title": "Maitake mushroom supplementation modulates upper respiratory symptoms and immune responses in healthy adults: a randomized, double-blind, placebo-controlled trial.",
+      "replacement_for_pmid": "42486032",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5393,
+      "category": "metabolic",
+      "pmid": "42426860",
+      "title": "Oral magnesium supplements and insulin resistance in individuals with diabetes and pre-diabetes: an updated systematic review and meta-analysis of randomized controlled trials.",
+      "replacement_for_pmid": "42637038",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5414,
+      "category": "micronutrients",
+      "pmid": "41449463",
+      "title": "Effect of vitamin D supplementation on skeletal muscle function and quality of life in patients with chronic intestinal failure: a randomized controlled trial : Clean version.",
+      "replacement_for_pmid": "42694401",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5421,
+      "category": "gut",
+      "pmid": "41574348",
+      "title": "Efficacy and safety of probiotics combined with bismuth-containing quadruple therapy for Helicobacter pylori eradication: a systematic review and meta-analysis.",
+      "replacement_for_pmid": "42709192",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5446,
+      "category": "metabolic",
+      "pmid": "42514394",
+      "title": "Combined Aerobic-Resistance Training and Taurine Supplementation Reduce Asprosin and Elevate Spexin in Men with Obesity: A 12-Week Supplement-Blinded, Randomized Controlled Trial.",
+      "replacement_for_pmid": "42759094",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5465,
+      "category": "botanicals_mushrooms",
+      "pmid": "41394012",
+      "title": "Efficacy and safety of Shatavari root extract (Asparagus racemosus) for menopausal symptoms: a randomized, double-blind, three-arm, placebo-controlled study.",
+      "replacement_for_pmid": "42788841",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5467,
+      "category": "botanicals_mushrooms",
+      "pmid": "41319069",
+      "title": "Antidiabetic and Metabolic Effects of Turmeric (Curcuma Longa) in Patients with Type 2 Diabetes Mellitus or Hyperglycemia - A Systematic Meta-Review and Meta-Analysis.",
+      "replacement_for_pmid": "42793313",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5468,
+      "category": "botanicals_mushrooms",
+      "pmid": "41176175",
+      "title": "Effectiveness and safety of turmeric for the treatment of COVID-19: An updated systematic review and meta-analysis of randomized controlled trials.",
+      "replacement_for_pmid": "42794742",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5469,
+      "category": "botanicals_mushrooms",
+      "pmid": "41470859",
+      "title": "Opuntia dillenii as a Nutraceutical and Dietary Resource for Disease Prevention and Management: A Systematic Review.",
+      "replacement_for_pmid": "42795311",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5472,
+      "category": "botanicals_mushrooms",
+      "pmid": "41185016",
+      "title": "Effectiveness of curcumin mouthwash in preventing traumatic ulcers in orthodontic patients.",
+      "replacement_for_pmid": "42797939",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5476,
+      "category": "mitochondrial_energy",
+      "pmid": "41461265",
+      "title": "Effects of EPA+DHA and Corn Oil Supplementation on PUFA Concentrations across Plasma Lipid Pools and on Downstream Oxylipins: Exploratory Results from a Randomized Controlled Trial in Healthy Humans.",
+      "replacement_for_pmid": "42800365",
+      "replacement_reason": "upstream_pmid_collision_replacement"
+    },
+    {
+      "wave": 5486,
+      "category": "botanicals_mushrooms",
+      "pmid": "41173082",
+      "title": "Panax notoginseng saponins against ischemic stroke: From molecule to clinic.",
+      "replacement_for_pmid": "42815388",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5491,
+      "category": "micronutrients",
+      "pmid": "41487531",
+      "title": "Efficacy of sublingual and oral vitamin B12 versus intramuscular administration: insights from a systematic review and meta-analysis.",
+      "replacement_for_pmid": "42819320",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5499,
+      "category": "micronutrients",
+      "pmid": "41448804",
+      "title": "Impact evaluation of a population-based 'Screen and Treat for Anaemia Reduction (STAR)' strategy: a cluster randomised trial in rural Telangana, India.",
+      "replacement_for_pmid": "42826768",
+      "replacement_reason": "final_relevance_quality_replacement"
+    },
+    {
+      "wave": 5500,
+      "category": "aging_sarcopenia",
+      "pmid": "41485966",
+      "title": "Individualized Nutritional Rehabilitation Improves Muscle Strength, Cognitive Function, and Quality of Life in Elderly Patients with Sarcopenia and Cognitive Impairment: A Randomized Controlled Trial.",
+      "replacement_for_pmid": "42827393",
+      "replacement_reason": "final_relevance_quality_replacement"
+    }
+  ]
+}

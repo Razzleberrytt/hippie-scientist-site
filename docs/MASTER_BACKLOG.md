@@ -50,17 +50,18 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6356 / PR #6357 | Build THS Publisher v0.1 with first-party TikTok adapter | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
-**Current admission (verified 2026-10-06):** Normal implementation WIP is **1/3**. #6356 owns Revenue/Conversion / L5 for the first-party TikTok draft-upload provider, revalidated against exact base `1c123a71b488b44aae61d33deccd00ad7942e1e8`. Discovery/SEO and Authority/Content remain free.
+**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-05
+### Verified completion refresh — 2026-10-06
+
+- **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. First-party publication identity/state, TikTok draft transport, Observer/reconciliation, provider-neutral staging, and Metricool publication freeze are implemented and exact-head validation/build gates passed. External Cloudflare D1/KV bindings, production secrets, TikTok app approval, creator authorization, and live publication receipt remain pending/Unknown.
 
 - **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
 
@@ -92,7 +93,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Revenue/Conversion is occupied by #6356; Discovery/SEO and Authority/Content are free. No additional candidate is admitted by vacancy alone.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

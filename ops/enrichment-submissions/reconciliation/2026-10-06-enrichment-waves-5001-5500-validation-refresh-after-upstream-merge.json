@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "purpose": "trigger exact-head validation after upstream Waves 4501-5000 merged to main and main was synchronized into this branch",
+  "upstream_merge_sha": "a6e991b6f38694734ebc4ffe1523cd031a8ca615",
+  "main_sync_merge_sha": "a8aa46a268571ebe819902123e3ac01facb45196",
+  "research_only": true,
+  "runtime_effect": false,
+  "recommendation_effect": false
+}

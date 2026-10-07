@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row_count": 1,
+  "rows": [
+    {
+      "wave": 5580,
+      "category": "sleep",
+      "old_pmid": "42836179",
+      "old_title": "Niosome-mediated melatonin delivery via SilMA/GelMA microneedles promotes healing of sleep deprivation-aggravated oral ulcers.",
+      "pmid": "7972346",
+      "doi": "10.1055/s-2007-1014295",
+      "title": "The effect of valerian extract on sleep polygraphy in poor sleepers: a pilot study.",
+      "journal": "Pharmacopsychiatry",
+      "pub_date": "1994-Jul",
+      "abstract": "The effect of acute and repeated treatment (seven days) with a valerian extract (Valdispert forte, 405 mg t.i.d.) on objective and subjective measures of sleep was studied. Polysomnography was conducted in 14 elderly poor sleepers on three nights, at one-week intervals (N0, N1, N2). N0 was an adaptation night, N1 and N2 the first and last night under treatment. Six subjects received placebo and eight subjects valerian. Subjects in the valerian group showed an increase in slow-wave sleep (SWS) and a decrease in sleep stage 1. Density of K-complexes was increased under active treatment. There was no effect on sleep onset time or time awake after sleep onset. REM sleep was unaltered. There was also no effect on self-rated sleep quality. We hypothesize that valerian increases SWS in subjects with low baseline values.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1055/s-2007-1014295",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified"
+    }
+  ]
+}

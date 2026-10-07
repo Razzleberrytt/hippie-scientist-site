@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row": {
+    "wave": 5595,
+    "category": "withdrawal_nps",
+    "old_pmid": "36256767",
+    "old_title": "Kratom Toxicity and Withdrawal.",
+    "pmid": "42727882",
+    "doi": "10.1016/j.jaclp.2026.09.001",
+    "title": "Transdermal buprenorphine in low-dose induction strategies for opioid use disorder: a case report and systematic review.",
+    "journal": "Journal of the Academy of Consultation-Liaison Psychiatry",
+    "pub_date": "2026-Sep-11",
+    "abstract": "As hospitalizations for patients with opioid use disorder (OUD) increase, there is a need to implement evidence-based OUD treatment effectively. Buprenorphine is a partial mu-opioid agonist with high binding affinity and approved by the Food and Drug Administration for OUD and pain. Due to its high binding affinity at the mu-opioid receptor, it can rapidly displace other opioid agonists and precipitate withdrawal symptoms if administered at standard doses. Transdermal (TD) buprenorphine offers a lower starting dose than sublingual formulations and gradual, continuous drug delivery. Since precipitated withdrawal (PW) can lead to treatment refusal or premature, self-directed discharges, optimizing buprenorphine induction and prioritizing dose tolerance is paramount. To characterize low-dose buprenorphine induction (LDBI) approaches utilizing TD formulations for OUD, including starting doses, protocol duration, full opioid agonist exposure, and withdrawal symptoms. We present a patient with chronic pain and OUD, for which TD buprenorphine was utilized concurrently with full opioid agonists to transition to sublingual buprenorphine for analgesia and craving control. A systematic review following the PRISMA 2020 guidelines was conducted across five databases. Studies were included if they were in English and used transdermal buprenorphine to start maintenance OUD treatment. Studies using TD buprenorphine solely for withdrawal or pain were excluded. Extracted variables included demographic data, TD and sublingual (SL) buprenorphine doses, induction duration, and withdrawal outcomes. Twenty-two studies met inclusion criteria, representing 326 patients with OUD. Starting TD buprenorphine doses ranged from 5 to 120 ug/hr. 16 studies reported final buprenorphine doses at the end of induction, with 4 of those studies reporting transition to depot formulations of buprenorphine. Maintenance buprenorphine doses ranged from SL 2 to 32 mg, and depot 64 to 300 mg monthly. 96 identified cases transitioned from methadone to buprenorphine. While the time frame for buprenorphine induction ranged from 1 to 46 days, most cases transitioned over 3 to 6 days. Buprenorphine is effective and relatively well-tolerated for OUD, though concerns about PW limit patient and clinician comfort with initiating treatment during concurrent opioid use. TD buprenorphine delivery is gradual and may facilitate LDBI, reducing self-directed discharge and treatment termination.",
+    "abstract_verified": true,
+    "exact_title_verified": true,
+    "full_text_link": null,
+    "pdf_link": "https://doi.org/10.1016/j.jaclp.2026.09.001",
+    "source": "NCBI PubMed exact retrieval via Sider Scholar",
+    "state": "research_only_exact_verified_pending_relevance"
+  }
+}
