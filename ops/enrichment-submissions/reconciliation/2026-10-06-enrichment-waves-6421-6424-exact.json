@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6421-6424-exact",
   "range": "6421-6424",
   "row_count": 4,
-  "exact_verified_rows": 3,
-  "failures": [
-    {
-      "wave": 6422,
-      "pmid": "25268730",
-      "title_verified": false,
-      "abstract_verified": false,
-      "verified_title": null
-    }
-  ],
+  "exact_verified_rows": 4,
+  "failures": [],
   "rows": [
     {
       "category": "botanicals_mushrooms",
@@ -50,14 +42,14 @@
       "selection_score": 11,
       "wave": 6422,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Rhodiola rosea for mental and physical fatigue in nursing students: a randomized controlled trial.",
+      "abstract": "Fatigue is one of many unintended consequences of shift work in the nursing profession. Natural health products (NHPs) for fatigue are becoming an increasingly popular topic of clinical study; one such NHP is Rhodiola rosea. A well-designed, rigorously conducted randomized controlled trial is required before therapeutic claims for this product can be made. To compare the efficacy of R. rosea with placebo for reducing fatigue in nursing students on shift work. A parallel-group randomized, double-blinded, placebo-controlled trial of 18-55 year old students from the Faculty of Nursing from the University of Alberta, participating in clinical rotations between January 2011 and September 2011. Participants were randomized to take 364 mg of either R. rosea or identical placebo at the start of their wakeful period and up to one additional capsule within the following four hours on a daily basis over a 42-day period. The primary outcome was reduction in fatigue over the 42-day trial period measured using the Vitality-subscale of the RAND-36, cross-validated by the visual analogue scale for fatigue (VAS-F). Secondary outcomes included health-related quality of life, individualized outcomes assessment, and adverse events. A total of 48 participants were randomized to R. rosea (n = 24) or placebo (n = 24). The mean change in scores on the Vitality-subscale was significantly different between the study groups at day 42 in favor of placebo (-17.3 (95% CI -30.6, -3.9), p = 0.011), The mean change in scores on the VAS-F was also significantly difference between study groups at day 42 in favour of placebo (1.9 (95% CI 0.4, 3.5), p = 0.015). Total number of adverse events did not differ between R. rosea and placebo groups. This study indicates that among nursing students on shift work, a 42-day course of R. Rosea compared with placebo worsened fatigue; however, the results should be interpreted with caution. Clinicaltrials.gov NCT01278992.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1371/journal.pone.0108416",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4182456/",
+      "verified_journal": "PloS one",
+      "verified_pub_date": "2014",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
