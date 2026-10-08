@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "active_batch_counter": 1,
+  "active_batch_id": "rolling-0001",
+  "reservations": [
+    {
+      "pmid": "40698027",
+      "title": "Effect of a saffron extract on sleep quality in adults with moderate insomnia: A decentralized, randomized, double-blind, placebo-controlled trial",
+      "doi": "10.1016/j.sleepx.2025.100147",
+      "source_title": "Effect of a saffron extract on sleep quality in adults with moderate insomnia: A decentralized, randomized, double-blind, placebo-controlled trial",
+      "abstract": "A three-arm decentralized randomized double-blind placebo-controlled trial enrolled 165 adults reporting moderate insomnia to compare a standardized saffron extract at 20 mg or 30 mg daily against placebo over four weeks. The primary outcome was change in Athens Insomnia Scale symptoms; secondary outcomes included self-rated sleep quality, perceived stress, mood, sleepiness and quality of life. Among 150 completers, the saffron groups combined had a modestly greater adjusted improvement in insomnia symptoms than placebo (difference -0.95, 95% CI -1.79 to -0.11). Both doses showed improvements in some self-rated sleep quality and stress comparisons. Several other secondary measures did not significantly differ. No serious adverse events were reported. Interpretation is limited by short follow-up, self-report outcomes and sponsor involvement.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40698027/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep",
+      "relevance_reason": "Human randomized trial of a specified saffron preparation for insomnia and perceived stress, with mixed secondary results and funding caveats relevant to THS sleep evidence.",
+      "evidence_class": "human",
+      "study_design": "Three-arm randomized double-blind placebo-controlled decentralized trial",
+      "study_details": {
+        "publication_year": 2025,
+        "journal": "Sleep Medicine X",
+        "sample_randomized": 165,
+        "sample_completed": 150,
+        "duration_weeks": 4,
+        "primary_endpoint": "Athens Insomnia Scale change",
+        "analysis": "Intention-to-treat with per-protocol confirmation",
+        "funding": "Activ'Inside SAS; sponsor-associated author affiliations",
+        "registration": "Not independently checked in this intake"
+      },
+      "population": {
+        "description": "Adults self-reporting moderate insomnia",
+        "n_randomized": 165,
+        "n_completed": 150
+      },
+      "intervention": {
+        "ingredient": "Crocus sativus saffron extract",
+        "formulation": "Safr'Inside standardized extract",
+        "arms": [
+          {
+            "daily_mg": 20
+          },
+          {
+            "daily_mg": 30
+          }
+        ],
+        "duration_weeks": 4
+      },
+      "comparator": {
+        "description": "Placebo"
+      },
+      "outcomes": [
+        {
+          "endpoint": "Athens Insomnia Scale",
+          "result": "Combined saffron arms showed modest adjusted improvement relative to placebo: difference -0.95; 95% CI -1.79 to -0.11; P<0.05",
+          "direction": "positive",
+          "is_primary": true
+        },
+        {
+          "endpoint": "Self-reported sleep quality and perceived stress",
+          "result": "Selected secondary between-group comparisons favored each saffron dose after three to four weeks; formulation-specific, self-report endpoints",
+          "direction": "positive",
+          "is_primary": false
+        },
+        {
+          "endpoint": "Other psychological, sleepiness and quality-of-life secondary measures",
+          "result": "Not all prespecified secondary measures differed significantly between groups",
+          "direction": "null_or_mixed",
+          "is_primary": false
+        }
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "grade": "research-only, ungraded",
+        "notes": "Modest primary difference; short duration; no objective sleep physiology established; subgroup and long-term generalizability unclear."
+      },
+      "adverse_effects": {
+        "reported": "No serious adverse events in the four-week trial",
+        "limits": "Small, short trial cannot establish rare or long-term safety."
+      },
+      "interactions": {
+        "reported": "No direct drug interaction experiment in this study",
+        "limits": "No evidence here that saffron is safe with sedatives, antidepressants or other medications."
+      },
+      "limitations": [
+        "Four-week duration",
+        "Self-reported primary and secondary outcomes",
+        "Modest primary between-group difference",
+        "Industry funding and sponsor-affiliated investigators",
+        "Multiple secondary outcomes and incomplete significance across measures"
+      ],
+      "provenance": {
+        "source": "NCBI PubMed indexed original journal article",
+        "pmid": "40698027",
+        "pmcid": "PMC12281372",
+        "doi": "10.1016/j.sleepx.2025.100147",
+        "journal": "Sleep Medicine X",
+        "published": "2025-07-09",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/40698027/",
+        "abstract_checked": true,
+        "identity_checked_against_main_7435_pmid_index": true,
+        "identity_checked_against_pr6397_prospective_7935_index": true,
+        "identity_checked_against_pr6390_6935_index": true,
+        "clinical_admission": false
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 0,
+        "contradiction": 0,
+        "novelty": 0,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 0,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "73ae5ca435eb27b9f457",
+      "reserved_at": "2026-10-08T16:39:11.476Z",
+      "source_branch": "research/intake/1/20261008-saffron-40698027"
+    }
+  ],
+  "batches": [
+    {
+      "id": "rolling-0001",
+      "state": "ACTIVE",
+      "created_at": "2026-10-08T16:39:11.408Z"
+    }
+  ],
+  "incidents": [],
+  "observatory": {
+    "schema_version": 1,
+    "active_batch_id": "rolling-0001",
+    "total_reservations": 1,
+    "by_lane": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "by_state": {
+      "SOURCE_VERIFIED": 1
+    },
+    "batches": [
+      {
+        "id": "rolling-0001",
+        "state": "ACTIVE",
+        "count": 1,
+        "pr_number": null,
+        "blocker": null
+      }
+    ],
+    "incidents": []
+  }
+}
