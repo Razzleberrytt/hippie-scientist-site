@@ -28,3 +28,6 @@ Issue: #6411. This is a research-only control plane, not a clinical evidence pub
 3. Verified 500 freeze and independent review gates.
 4. CI passes on exact head, and an approved coordinator owns merges.
 5. Only then re-enable paused lane 3.
+
+## Validation bootstrap
+The PR that introduces the Research rolling gate is validated by the repository's pre-existing high-risk CI stack while held from merge. After that workflow exists on `main`, ordinary research/data PRs are required to pass `Research rolling gate` on their exact head before the autonomous merge controller can merge them.
