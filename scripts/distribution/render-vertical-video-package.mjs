@@ -500,7 +500,7 @@ function verticalPlatformIntersection() {
   }
 }
 
-function renderAuthoredComposition(scene, { x, width, top, bottom, foreground }) {
+function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase }) {
   const family = clean(scene.compositionFamily)
   if (!family) return ''
   const available = bottom - top
@@ -546,7 +546,7 @@ function renderAuthoredComposition(scene, { x, width, top, bottom, foreground })
   const motif = clean(scene.motifId)
     ? `<g data-r807-motif="${escapeXml(scene.motifId)}"><path d="M ${x + width - 112} ${y + 18} L ${x + width - 72} ${y + 54} L ${x + width - 30} ${y + 18}" ${softStroke}/><circle cx="${x + width - 112}" cy="${y + 18}" r="10" fill="${foreground}"/><circle cx="${x + width - 72}" cy="${y + 54}" r="10" fill="${foreground}"/><circle cx="${x + width - 30}" cy="${y + 18}" r="10" fill="${foreground}"/></g>`
     : ''
-  const interrupt = scene.patternInterrupt === true
+  const interrupt = scene.patternInterrupt === true && motionPhase === 'post'
     ? `<rect data-r807-pattern-interrupt="true" x="${x - 16}" y="${y - 18}" width="${width + 32}" height="${h + 36}" rx="42" fill="none" stroke="${foreground}" stroke-width="7" stroke-dasharray="22 16" stroke-opacity="0.82"/>`
     : ''
   return `<g data-r807-composition="${escapeXml(family)}">${interrupt}${body}${motif}</g>`
@@ -590,13 +590,17 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     : ''
   const disclosureY = canvas.height - safe.bottom - 70
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
-  const composition = renderAuthoredComposition(scene, {
-    x,
-    width: safeWidth,
-    top: compositionTop,
-    bottom: disclosureY - 72,
-    foreground,
-  })
+  const compositionVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
+  const composition = compositionVisible
+    ? renderAuthoredComposition(scene, {
+        x,
+        width: safeWidth,
+        top: compositionTop,
+        bottom: disclosureY - 72,
+        foreground,
+        motionPhase,
+      })
+    : ''
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
     sourceUrl,
