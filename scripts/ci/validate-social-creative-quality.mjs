@@ -46,7 +46,7 @@ else {
 for (const [file, markers] of [
   [policyPath, ['one mental job', 'Payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'One macro rebuild']],
   [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'semanticBeatMapSha256', "requires exactly one ${role} beat", 'hook to be the first rendered beat', 'payoff-before-method requires the finding beat before the evidence/method beat', 'internalMotionPlanRequired', 'exact-master-qa', 'macroRebuildCount']],
-  [r806GatePath, ['concept lab requires exactly three candidates', 'visualPotentialScore >= 4', 'opening beat 2 must be the finding/payoff', 'opening requires at least two distinct visual teaching modes', 'Metricool as optional', 'manual native fallback']],
+  [r806GatePath, ['concept lab requires exactly three candidates', 'visualPotentialScore >= 4', 'opening beat 2 must be the finding/payoff', 'opening requires at least two distinct visual teaching modes', 'overlaySha256', 'Metricool as optional', 'manual native fallback']],
   [path.join(root, 'scripts', 'distribution', 'render-local-narration.py'), ['semantic-beat-timeline.json', 'exact-local-narration', 'parent_manifest_release', 'parent_release == "R8.04"', 'parent_release == "R8.05"']],
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-package.mjs'), ["|| 'R8.04'", 'motionPhase', "motionPhase: 'pre'", 'motionCueOffset', 'voice-duration-proportional-text-anchor']],
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-mp4.mjs'), ['verifyMotionVariant', 'cue.toFixed(4)', 'internalMotionRendered: true']],
