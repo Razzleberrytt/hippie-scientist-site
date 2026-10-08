@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42696867",
+    "42767813",
+    "41790706",
+    "42196981",
+    "42318267",
+    "42483039",
+    "42656342",
+    "42654319",
+    "42343233",
+    "41866316",
+    "42010597"
+  ],
+  "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review."
+}
