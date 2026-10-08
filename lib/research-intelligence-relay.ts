@@ -42,6 +42,21 @@ export type InstrumentRelay={
 const CO_MENTION_LIMIT='Bibliographic text or sampled PMID membership does not establish efficacy, mechanism, causation, safety, or absence of evidence.'
 const REVIEW_LIMIT='Publication identity does not establish independent trials, comparable endpoints, or a clinical conclusion.'
 
+/**
+ * The Voyages form requires two DISTINCT non-method concepts and at least one
+ * title-backed anchor. A related-paper link by itself cannot open a usable
+ * source-scoped concept trace.
+ */
+export function pickTraceableConceptPair(
+  graph:SemanticNetwork,pmid:string,
+):readonly [string,string]|null {
+  const eligible=graph.entries[pmid]?.mentions.filter(m=>m.kind!=='method')||[]
+  const title=eligible.find(m=>m.basis==='title')
+  if(!title)return null
+  const other=eligible.find(m=>m.id!==title.id)
+  return other?[title.id,other.id]:null
+}
+
 export function buildInstrumentRelay(
   studio:ResearchStudio,
   graph:SemanticNetwork,
@@ -68,9 +83,10 @@ export function buildInstrumentRelay(
   const timelines=studio.timeline.some(t=>t.pmids.includes(pmid)&&t.sources>0)
   const links=graph.entries[pmid]?.related||[]
   const sourceConcepts=graph.entries[pmid]?.mentions.filter(m=>m.kind!=='method')||[]
+  const traceablePair=pickTraceableConceptPair(graph,pmid)
   if(timelines)insert('dna','time','source-year-membership','The same PubMed record is indexed in a dated publication bucket.')
   if(sourceConcepts.length>0)insert('dna','ask','source-concept-index','Ask the Evidence can retrieve this exact source using indexed text concepts.')
-  if(links.length>0)insert('dna','voyages','source-concept-index','Related source records share literal indexed concepts; each link retains a separate PMID.')
+  if(traceablePair&&links.length>0)insert('dna','voyages','source-concept-index','Related source records share literal indexed concepts; each link retains a separate PMID.')
   if(verified.frontiers.length>0)insert('dna','frontier','source-pmid-membership','A limited research-coverage question explicitly samples this PMID.')
   if(verified.safety.length+verified.investigations.length>0)insert('dna','safety','source-pmid-membership','An indexed safety-text or investigation sample explicitly includes this PMID.')
   if(verified.debates.length>0)insert('dna','contradictions','exact-reviewed-citation-identity','A separately reviewed direction-review candidate is joined by an exact published citation identifier.',REVIEW_LIMIT)
@@ -82,7 +98,7 @@ export function buildInstrumentRelay(
   if(timelines&&verified.debates.length>0){
     insert('time','contradictions','exact-reviewed-citation-identity','The dated source is explicitly cross-referenced to a reviewed citation direction candidate.',REVIEW_LIMIT)
   }
-  if(sourceConcepts.length>0&&links.length>0){
+  if(traceablePair&&links.length>0){
     insert('voyages','ask','source-concept-index','Concepts used in a source-witnessed bibliographic route can be explored through source retrieval.')
   }
   if(verified.frontiers.some(f=>f.samplePmids.includes(pmid))&&
