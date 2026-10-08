@@ -14,6 +14,7 @@ on:
       - Lighthouse CI
       - P0 Visual Proof
       - Research Distribution
+      - Research rolling gate
     types: [completed]
   schedule:
     - cron: '*/10 * * * *'
