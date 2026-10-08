@@ -331,7 +331,14 @@ async function syncPrBranch(repo, number, expectedHeadSha) {
   return result
 }
 
-function recoveryInputsFor(runName, pr) {
+export function recoveryInputsFor(runName, pr) {
+  if (runName === 'Research Source Register Integration') {
+    return {
+      recovery_pr_number: String(pr.number),
+      recovery_base_ref: pr.base.ref,
+      recovery_head_sha: pr.head.sha,
+    }
+  }
   if (runName === 'Atomic upgrade gate' || runName === 'Build quality regression') {
     return {
       recovery_pr_number: String(pr.number),
