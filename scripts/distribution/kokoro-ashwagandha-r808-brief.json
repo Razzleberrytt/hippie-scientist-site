@@ -1,0 +1,61 @@
+{
+  "release": "R8.05",
+  "beats": [
+    {
+      "id": "s01-hook",
+      "role": "hook",
+      "narration": "Ashwagandha has a catch.",
+      "spokenAnchor": "has a catch",
+      "onScreenText": "ASHWAGANDHA HAS A CATCH.",
+      "pauseAfterSeconds": 0.22
+    },
+    {
+      "id": "s02-finding",
+      "role": "finding",
+      "narration": "Some extracts may ease stress.",
+      "spokenAnchor": "ease stress",
+      "onScreenText": "SOME EXTRACTS MAY EASE STRESS.",
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "s03-evidence",
+      "role": "evidence",
+      "narration": "But many trials are small and short, and formulations vary.",
+      "spokenAnchor": "formulations vary",
+      "onScreenText": "NOT EVERY EXTRACT IS THE SAME.",
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "s04-limitation",
+      "role": "limitation",
+      "narration": "Rare liver injuries have been reported.",
+      "spokenAnchor": "liver injuries",
+      "onScreenText": "RARE DOES NOT MEAN NEVER.",
+      "pauseAfterSeconds": 0.2
+    },
+    {
+      "id": "s05-safety",
+      "role": "context",
+      "narration": "Pregnancy, thyroid conditions, and some medicines change the safety picture.",
+      "spokenAnchor": "safety picture",
+      "onScreenText": "WHO SHOULD BE CAUTIOUS?",
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "s06-takeaway",
+      "role": "cta",
+      "narration": "Natural does not mean risk-free.",
+      "spokenAnchor": "risk-free",
+      "onScreenText": "NATURAL DOES NOT MEAN RISK-FREE.",
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "s07-source",
+      "role": "source",
+      "narration": "Read the evidence at The Hippie Scientist.",
+      "spokenAnchor": "The Hippie Scientist",
+      "onScreenText": "thehippiescientist.net/herbs/ashwagandha/",
+      "pauseAfterSeconds": 0.8
+    }
+  ]
+}

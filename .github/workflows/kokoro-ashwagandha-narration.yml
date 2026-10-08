@@ -1,0 +1,55 @@
+name: Kokoro Ashwagandha narration
+on:
+  push:
+    branches:
+      - feat/kokoro-ashwagandha-voice
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  generate-kokoro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install open-source neural voice
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          python -m pip install --upgrade pip
+          python -m pip install -r scripts/distribution/requirements-local-voice.txt
+      - name: Synthesize exact Kokoro voice and semantic beat timeline
+        env:
+          HF_HUB_DISABLE_XET: '1'
+          HF_HUB_ENABLE_HF_TRANSFER: '0'
+        run: |
+          python scripts/distribution/render-local-narration.py \
+            --package-dir artifacts/narration/ashwagandha-kokoro-r808 \
+            --brief scripts/distribution/kokoro-ashwagandha-r808-brief.json \
+            --voice am_michael
+      - name: Verify actual voice identity and sample data
+        run: |
+          python - <<'PY'
+          import json, pathlib, wave
+          p=pathlib.Path('artifacts/narration/ashwagandha-kokoro-r808')
+          r=json.loads((p/'narration.wav.receipt.json').read_text())
+          assert r['engine']['name']=='kokoro'
+          assert r['engine']['model']=='Kokoro-82M'
+          assert r['engine']['voice']=='am_michael'
+          with wave.open(str(p/'narration.wav')) as w:
+              assert w.getframerate()==24000
+              assert w.getnframes()>5*24000
+          print('Verified Kokoro-82M, am_michael, PCM 24kHz, nonzero duration')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ths-ashwagandha-kokoro-wav
+          path: |
+            artifacts/narration/ashwagandha-kokoro-r808/narration.wav
+            artifacts/narration/ashwagandha-kokoro-r808/narration.wav.receipt.json
+            artifacts/narration/ashwagandha-kokoro-r808/semantic-beat-timeline.json
+            artifacts/narration/ashwagandha-kokoro-r808/r805-creative-brief.json
+          if-no-files-found: error
