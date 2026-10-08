@@ -1,0 +1,1593 @@
+{
+  "schema_version": 1,
+  "chunk": 2,
+  "source_receipts": 16,
+  "row_count": 128,
+  "errors": [],
+  "receipts": [
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6629-6636-exact.json",
+      "range": [
+        6629,
+        6636
+      ],
+      "rows": [
+        {
+          "wave": 6629,
+          "pmid": "41137261",
+          "title": "Associations of C-reactive protein/albumin ratio with frailty and the risk of mortality: An observational study.",
+          "verified_title": "Associations of C-reactive protein/albumin ratio with frailty and the risk of mortality: An observational study.",
+          "doi": "10.1097/MD.0000000000045329",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1720,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6630,
+          "pmid": "41076327",
+          "title": "Change in C-reactive protein-triglyceride glucose index and risk of stroke among middle-aged and older adults free of diabetes: A national cohort study.",
+          "verified_title": "Change in C-reactive protein-triglyceride glucose index and risk of stroke among middle-aged and older adults free of diabetes: A national cohort study.",
+          "doi": "10.1016/j.numecd.2025.104372",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1449,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6631,
+          "pmid": "41946023",
+          "title": "Impact of a physiotherapy-led low threshold exercise and protein supplementation intervention to optimise physical function and target frailty in people experiencing homelessness and addiction: The LEAP-II trial.",
+          "verified_title": "Impact of a physiotherapy-led low threshold exercise and protein supplementation intervention to optimise physical function and target frailty in people experiencing homelessness and addiction: The LEAP-II trial.",
+          "doi": "10.1016/j.physio.2025.101873",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1677,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6632,
+          "pmid": "42192366",
+          "title": "Associations of the combined C-reactive protein-triglyceride glucose index and frailty index in different dimensions with incident stroke among individuals with stages 0-3 cardiovascular-kidney-metabolic syndrome.",
+          "verified_title": "Associations of the combined C-reactive protein-triglyceride glucose index and frailty index in different dimensions with incident stroke among individuals with stages 0-3 cardiovascular-kidney-metabolic syndrome.",
+          "doi": "10.1186/s12933-026-03199-9",
+          "category": "aging_sarcopenia",
+          "abstract_length": 2550,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6633,
+          "pmid": "41139548",
+          "title": "C-reactive protein-to-albumin ratio as a marker of frailty, impaired physical function, and mortality in older adults with heart failure.",
+          "verified_title": "C-reactive protein-to-albumin ratio as a marker of frailty, impaired physical function, and mortality in older adults with heart failure.",
+          "doi": "10.1016/j.numecd.2025.104377",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1759,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6634,
+          "pmid": "41302641",
+          "title": "Effects of Resistance Training Combined with Vitamin D Supplementation on Health-Related Variables in the Elderly: Muscle Strength, Body Composition, and Inflammatory Status.",
+          "verified_title": "Effects of Resistance Training Combined with Vitamin D Supplementation on Health-Related Variables in the Elderly: Muscle Strength, Body Composition, and Inflammatory Status.",
+          "doi": "10.3390/ijerph22111695",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1767,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6635,
+          "pmid": "41101508",
+          "title": "Ingestion of 20 g Whey or Canola Protein Does Not Further Increase Muscle Protein Synthesis Rates During Recovery From Resistance Exercise In Healthy, Young Females.",
+          "verified_title": "Ingestion of 20 g Whey or Canola Protein Does Not Further Increase Muscle Protein Synthesis Rates During Recovery From Resistance Exercise In Healthy, Young Females.",
+          "doi": "10.1016/j.tjnut.2025.10.018",
+          "category": "aging_sarcopenia",
+          "abstract_length": 2284,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6636,
+          "pmid": "42584017",
+          "title": "Similar Muscle Recovery but Greater Soreness in Active Vegans on Low-Protein Diets Compared to High-Protein Omnivores Following Exercise-Induced Damage.",
+          "verified_title": "Similar Muscle Recovery but Greater Soreness in Active Vegans on Low-Protein Diets Compared to High-Protein Omnivores Following Exercise-Induced Damage.",
+          "doi": "10.1111/nbu.70064",
+          "category": "aging_sarcopenia",
+          "abstract_length": 2171,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6637-6644-exact.json",
+      "range": [
+        6637,
+        6644
+      ],
+      "rows": [
+        {
+          "wave": 6637,
+          "pmid": "42224478",
+          "title": "Effects of multiple micronutrient supplementation on cognitive function in children: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "Effects of multiple micronutrient supplementation on cognitive function in children: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1080/1028415X.2026.2650636",
+          "category": "micronutrients",
+          "abstract_length": 1565,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6638,
+          "pmid": "41524998",
+          "title": "Ferric Carboxymaltose Among Patients with Heart Failure and Iron Deficiency: An Updated Meta-Analysis of Randomized Controlled Trials.",
+          "verified_title": "Ferric Carboxymaltose Among Patients with Heart Failure and Iron Deficiency: An Updated Meta-Analysis of Randomized Controlled Trials.",
+          "doi": "10.1007/s12012-026-10090-2",
+          "category": "micronutrients",
+          "abstract_length": 1434,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6639,
+          "pmid": "41711738",
+          "title": "Intravenous ferric carboxymaltose in patients with heart failure and iron deficiency: a systematic review and meta-analysis of randomized controlled trials with trial sequential analysis.",
+          "verified_title": "Intravenous ferric carboxymaltose in patients with heart failure and iron deficiency: a systematic review and meta-analysis of randomized controlled trials with trial sequential analysis.",
+          "doi": "10.1093/eschf/xvaf018",
+          "category": "micronutrients",
+          "abstract_length": 1949,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6640,
+          "pmid": "41063100",
+          "title": "The effects of combined calcium and vitamin D supplementation on bone mineral density and fracture risk in postmenopausal women with osteoporosis: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "The effects of combined calcium and vitamin D supplementation on bone mineral density and fracture risk in postmenopausal women with osteoporosis: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1186/s12891-025-09089-7",
+          "category": "micronutrients",
+          "abstract_length": 1885,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6641,
+          "pmid": "40063075",
+          "title": "Comparison of Effects of Iron and Multiple Micronutrient Supplementation on Hematological and Growth Indicators among Older Children, Adolescents, and Young Adults in Low- and Middle-Income Countries: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+          "verified_title": "Comparison of Effects of Iron and Multiple Micronutrient Supplementation on Hematological and Growth Indicators among Older Children, Adolescents, and Young Adults in Low- and Middle-Income Countries: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+          "doi": "10.1093/nutrit/nuaf019",
+          "category": "micronutrients",
+          "abstract_length": 2045,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6642,
+          "pmid": "42129691",
+          "title": "Impact of maternal micronutrient supplementation on pregnancy outcomes in developing countries: a systematic review and meta-analysis.",
+          "verified_title": "Impact of maternal micronutrient supplementation on pregnancy outcomes in developing countries: a systematic review and meta-analysis.",
+          "doi": "10.1186/s12884-026-09210-1",
+          "category": "micronutrients",
+          "abstract_length": 1763,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6643,
+          "pmid": "41951148",
+          "title": "Effects of vitamin D supplementation on patients with systemic lupus erythematosus: A systematic review and meta-analysis.",
+          "verified_title": "Effects of vitamin D supplementation on patients with systemic lupus erythematosus: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.autrev.2026.104057",
+          "category": "micronutrients",
+          "abstract_length": 1514,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6644,
+          "pmid": "41896739",
+          "title": "Intravenous iron therapy for patients with heart failure: a meta-analysis stratified by chronic kidney disease status.",
+          "verified_title": "Intravenous iron therapy for patients with heart failure: a meta-analysis stratified by chronic kidney disease status.",
+          "doi": "10.1186/s12872-026-05672-5",
+          "category": "micronutrients",
+          "abstract_length": 1405,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6645-6652-exact.json",
+      "range": [
+        6645,
+        6652
+      ],
+      "rows": [
+        {
+          "wave": 6645,
+          "pmid": "41967219",
+          "title": "The association between micronutrient status and clinical outcomes in children with cancer undergoing treatment: A systematic review and meta-analysis.",
+          "verified_title": "The association between micronutrient status and clinical outcomes in children with cancer undergoing treatment: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.clnu.2026.106653",
+          "category": "micronutrients",
+          "abstract_length": 2098,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6646,
+          "pmid": "42426275",
+          "title": "Efficacy and safety of intravenous ferric carboxymaltose versus oral iron in pregnant women with anemia: a systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of intravenous ferric carboxymaltose versus oral iron in pregnant women with anemia: a systematic review and meta-analysis.",
+          "doi": "10.1007/s00228-026-04111-w",
+          "category": "micronutrients",
+          "abstract_length": 2061,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6647,
+          "pmid": "41784434",
+          "title": "The prevalence of nonmalignant gastrointestinal disease in patients with iron deficiency anemia: a systematic review and meta-analysis.",
+          "verified_title": "The prevalence of nonmalignant gastrointestinal disease in patients with iron deficiency anemia: a systematic review and meta-analysis.",
+          "doi": "10.1097/MEG.0000000000003160",
+          "category": "micronutrients",
+          "abstract_length": 1849,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6648,
+          "pmid": "40802583",
+          "title": "Obesity and Its Association With Micronutrient Deficiency Among Mexican Children and Adolescents: A Systematic Review and Meta-analysis.",
+          "verified_title": "Obesity and Its Association With Micronutrient Deficiency Among Mexican Children and Adolescents: A Systematic Review and Meta-analysis.",
+          "doi": "10.1093/nutrit/nuaf148",
+          "category": "micronutrients",
+          "abstract_length": 1811,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6649,
+          "pmid": "41572874",
+          "title": "Global prevalence of iron deficiency anaemia among children aged 5-12 years: a systematic review and meta-analysis.",
+          "verified_title": "Global prevalence of iron deficiency anaemia among children aged 5-12 years: a systematic review and meta-analysis.",
+          "doi": "10.7189/jogh.16.04027",
+          "category": "micronutrients",
+          "abstract_length": 1611,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6650,
+          "pmid": "41922931",
+          "title": "The association between serum trace elements and iron deficiency anemia in children and adolescents: a systematic review and meta-analysis.",
+          "verified_title": "The association between serum trace elements and iron deficiency anemia in children and adolescents: a systematic review and meta-analysis.",
+          "doi": "10.1080/16078454.2026.2650058",
+          "category": "micronutrients",
+          "abstract_length": 1588,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6651,
+          "pmid": "40306386",
+          "title": "Effect of prenatal multiple micronutrient supplementation compared with iron and folic acid supplementation on size at birth and subsequent growth through 24 mo of age: a systematic review and meta-analysis.",
+          "verified_title": "Effect of prenatal multiple micronutrient supplementation compared with iron and folic acid supplementation on size at birth and subsequent growth through 24 mo of age: a systematic review and meta-analysis.",
+          "doi": "10.1016/j.ajcnut.2025.04.022",
+          "category": "micronutrients",
+          "abstract_length": 2014,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6652,
+          "pmid": "40451462",
+          "title": "Contribution of Maternal Adherence to the Effect of Multiple Micronutrient Supplementation During Pregnancy: A Systematic Review and Individual Participant Data Meta-analysis.",
+          "verified_title": "Contribution of Maternal Adherence to the Effect of Multiple Micronutrient Supplementation During Pregnancy: A Systematic Review and Individual Participant Data Meta-analysis.",
+          "doi": "10.1016/j.advnut.2025.100455",
+          "category": "micronutrients",
+          "abstract_length": 2142,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6653-6660-exact.json",
+      "range": [
+        6653,
+        6660
+      ],
+      "rows": [
+        {
+          "wave": 6653,
+          "pmid": "39449037",
+          "title": "Enteral micronutrient supplementation and neurodevelopmental outcomes in preterm or low birth weight infants: A systematic review and meta-analysis.",
+          "verified_title": "Enteral micronutrient supplementation and neurodevelopmental outcomes in preterm or low birth weight infants: A systematic review and meta-analysis.",
+          "doi": "10.1111/mcn.13756",
+          "category": "micronutrients",
+          "abstract_length": 1629,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6654,
+          "pmid": "40752545",
+          "title": "Effects of vitamin and multiple micronutrient supplementation for pregnant and/or lactating women on maternal and infant nutritional status in low- and middle-income countries: a systematic review and meta-analysis.",
+          "verified_title": "Effects of vitamin and multiple micronutrient supplementation for pregnant and/or lactating women on maternal and infant nutritional status in low- and middle-income countries: a systematic review and meta-analysis.",
+          "doi": "10.1016/j.advnut.2025.100487",
+          "category": "micronutrients",
+          "abstract_length": 2264,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6655,
+          "pmid": "39074459",
+          "title": "Preconception Folic Acid and Multivitamin Supplementation for the Prevention of Neural Tube Defect: An Umbrella Review of Systematic Review and Meta-analysis.",
+          "verified_title": "Preconception Folic Acid and Multivitamin Supplementation for the Prevention of Neural Tube Defect: An Umbrella Review of Systematic Review and Meta-analysis.",
+          "doi": "10.1159/000539803",
+          "category": "micronutrients",
+          "abstract_length": 3311,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6656,
+          "pmid": "38892564",
+          "title": "Preventive Intake of a Multiple Micronutrient Supplement during Mild, Acute SARS-CoV-2 Infection to Reduce the Post-Acute COVID-19 Condition: A Double-Blind, Placebo-Controlled, Randomized Clinical Trial.",
+          "verified_title": "Preventive Intake of a Multiple Micronutrient Supplement during Mild, Acute SARS-CoV-2 Infection to Reduce the Post-Acute COVID-19 Condition: A Double-Blind, Placebo-Controlled, Randomized Clinical Trial.",
+          "doi": "10.3390/nu16111631",
+          "category": "micronutrients",
+          "abstract_length": 1590,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6657,
+          "pmid": "38613061",
+          "title": "Improvement of Lung Function by Micronutrient Supplementation in Patients with COPD: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Improvement of Lung Function by Micronutrient Supplementation in Patients with COPD: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu16071028",
+          "category": "micronutrients",
+          "abstract_length": 2079,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6658,
+          "pmid": "39717776",
+          "title": "Vitamin, antioxidant and micronutrient supplementation and the risk of developing incident autoimmune diseases: a systematic review and meta-analysis.",
+          "verified_title": "Vitamin, antioxidant and micronutrient supplementation and the risk of developing incident autoimmune diseases: a systematic review and meta-analysis.",
+          "doi": "10.3389/fimmu.2024.1453703",
+          "category": "micronutrients",
+          "abstract_length": 1850,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6659,
+          "pmid": "41711473",
+          "title": "Can cadmium toxicity be a driving force for iron deficiency anemia - a systematic review and meta-analysis.",
+          "verified_title": "Can cadmium toxicity be a driving force for iron deficiency anemia - a systematic review and meta-analysis.",
+          "doi": "10.1515/reveh-2025-0080",
+          "category": "micronutrients",
+          "abstract_length": 1647,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6660,
+          "pmid": "41955565",
+          "title": "Effectiveness of mHealth-Based Nutritional Interventions on Iron Status of Pregnant Women: Systematic Review of Randomized Controlled Trials.",
+          "verified_title": "Effectiveness of mHealth-Based Nutritional Interventions on Iron Status of Pregnant Women: Systematic Review of Randomized Controlled Trials.",
+          "doi": "10.2196/81001",
+          "category": "micronutrients",
+          "abstract_length": 3252,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6661-6668-exact.json",
+      "range": [
+        6661,
+        6668
+      ],
+      "rows": [
+        {
+          "wave": 6661,
+          "pmid": "41675569",
+          "title": "Correlations between iodine status and the risk of thyroid nodules, a systematic review and dose-response meta-analysis.",
+          "verified_title": "Correlations between iodine status and the risk of thyroid nodules, a systematic review and dose-response meta-analysis.",
+          "doi": "10.3389/fendo.2026.1711749",
+          "category": "micronutrients",
+          "abstract_length": 2610,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6662,
+          "pmid": "41805244",
+          "title": "Vitamin D Supplementation in Type 2 Diabetes: A Systematic Review of Randomized Controlled Trials.",
+          "verified_title": "Vitamin D Supplementation in Type 2 Diabetes: A Systematic Review of Randomized Controlled Trials.",
+          "doi": "10.1080/19390211.2026.2636469",
+          "category": "micronutrients",
+          "abstract_length": 1724,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6663,
+          "pmid": "39365171",
+          "title": "Dietary mineral intake and risk of bladder cancer: a systematic review and meta-analysis.",
+          "verified_title": "Dietary mineral intake and risk of bladder cancer: a systematic review and meta-analysis.",
+          "doi": "10.1097/CEJ.0000000000000922",
+          "category": "micronutrients",
+          "abstract_length": 1076,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6664,
+          "pmid": "41470790",
+          "title": "Impact of Dietary Patterns on Skeletal Health: A Systematic Review and Meta-Analysis of Bone Mineral Density, Fracture, Bone Turnover Markers, and Nutritional Status.",
+          "verified_title": "Impact of Dietary Patterns on Skeletal Health: A Systematic Review and Meta-Analysis of Bone Mineral Density, Fracture, Bone Turnover Markers, and Nutritional Status.",
+          "doi": "10.3390/nu17243845",
+          "category": "micronutrients",
+          "abstract_length": 2383,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6665,
+          "pmid": "41825741",
+          "title": "Effect of 2-Year Caloric Restriction in the Absence of Malnutrition on Indicators of Anemia, Iron Status, and Hepcidin in Healthy Adults: A Randomized Clinical Trial.",
+          "verified_title": "Effect of 2-Year Caloric Restriction in the Absence of Malnutrition on Indicators of Anemia, Iron Status, and Hepcidin in Healthy Adults: A Randomized Clinical Trial.",
+          "doi": "10.1016/j.tjnut.2026.101474",
+          "category": "micronutrients",
+          "abstract_length": 2564,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6666,
+          "pmid": "42156552",
+          "title": "Circannual prevalence of vitamin D insufficiency in older and minoritized ethnic adults in Northern Britain: screening outcomes from a clinical trial.",
+          "verified_title": "Circannual prevalence of vitamin D insufficiency in older and minoritized ethnic adults in Northern Britain: screening outcomes from a clinical trial.",
+          "doi": "10.1038/s41430-026-01760-z",
+          "category": "micronutrients",
+          "abstract_length": 1037,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6667,
+          "pmid": "39964350",
+          "title": "Effects of cocoa extract supplementation and multivitamin/multimineral supplements on self-reported fractures in the Cocoa Supplement and Multivitamins Outcomes Study randomized clinical trial.",
+          "verified_title": "Effects of cocoa extract supplementation and multivitamin/multimineral supplements on self-reported fractures in the Cocoa Supplement and Multivitamins Outcomes Study randomized clinical trial.",
+          "doi": "10.1093/jbmr/zjaf030",
+          "category": "micronutrients",
+          "abstract_length": 2096,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6668,
+          "pmid": "40966617",
+          "title": "Effects of 2-year cocoa extract supplementation on inflammaging biomarkers in older US adults: findings from the COcoa Supplement and Multivitamin Outcomes Study randomised clinical trial.",
+          "verified_title": "Effects of 2-year cocoa extract supplementation on inflammaging biomarkers in older US adults: findings from the COcoa Supplement and Multivitamin Outcomes Study randomised clinical trial.",
+          "doi": "10.1093/ageing/afaf269",
+          "category": "micronutrients",
+          "abstract_length": 1779,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6669-6676-exact.json",
+      "range": [
+        6669,
+        6676
+      ],
+      "rows": [
+        {
+          "wave": 6669,
+          "pmid": "39599758",
+          "title": "Beneficial Effects of Micronutrient Supplementation in Restoring the Altered Microbiota and Gut-Retina Axis in Patients with Neovascular Age-Related Macular Degeneration-A Randomized Clinical Trial.",
+          "verified_title": "Beneficial Effects of Micronutrient Supplementation in Restoring the Altered Microbiota and Gut-Retina Axis in Patients with Neovascular Age-Related Macular Degeneration-A Randomized Clinical Trial.",
+          "doi": "10.3390/nu16223971",
+          "category": "micronutrients",
+          "abstract_length": 2190,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6670,
+          "pmid": "41591819",
+          "title": "Effect of Intravenous Iron Dextran on Kidney Outcomes in Acute Kidney Injury with Iron Deficiency: A Randomized Trial.",
+          "verified_title": "Effect of Intravenous Iron Dextran on Kidney Outcomes in Acute Kidney Injury with Iron Deficiency: A Randomized Trial.",
+          "doi": "10.34067/KID.0000001136",
+          "category": "micronutrients",
+          "abstract_length": 1924,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6671,
+          "pmid": "39363110",
+          "title": "Improvements to mood, stress and loneliness following 12-week multivitamin supplementation in older adults: a randomised, placebo-controlled, trial.",
+          "verified_title": "Improvements to mood, stress and loneliness following 12-week multivitamin supplementation in older adults: a randomised, placebo-controlled, trial.",
+          "doi": "10.1038/s41430-024-01517-6",
+          "category": "micronutrients",
+          "abstract_length": 1702,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6672,
+          "pmid": "38890302",
+          "title": "Faecal microbiota of schoolchildren is associated with nutritional status and markers of inflammation: a double-blinded cluster-randomized controlled trial using multi-micronutrient fortified rice.",
+          "verified_title": "Faecal microbiota of schoolchildren is associated with nutritional status and markers of inflammation: a double-blinded cluster-randomized controlled trial using multi-micronutrient fortified rice.",
+          "doi": "10.1038/s41467-024-49093-4",
+          "category": "micronutrients",
+          "abstract_length": 1204,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6673,
+          "pmid": "38477739",
+          "title": "Influence of vitamin D supplementation on bone mineral content, bone turnover markers, and fracture risk in South African schoolchildren: multicenter double-blind randomized placebo-controlled trial (ViDiKids).",
+          "verified_title": "Influence of vitamin D supplementation on bone mineral content, bone turnover markers, and fracture risk in South African schoolchildren: multicenter double-blind randomized placebo-controlled trial (ViDiKids).",
+          "doi": "10.1093/jbmr/zjae007",
+          "category": "micronutrients",
+          "abstract_length": 1785,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6674,
+          "pmid": "39203937",
+          "title": "Is Oral Iron and Folate Supplementation during Pregnancy Protective against Low Birth Weight and Preterm Birth in Africa? A Systematic Review and Meta-Analysis.",
+          "verified_title": "Is Oral Iron and Folate Supplementation during Pregnancy Protective against Low Birth Weight and Preterm Birth in Africa? A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu16162801",
+          "category": "women_health",
+          "abstract_length": 1332,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6675,
+          "pmid": "38994457",
+          "title": "Effects of vitamin D supplementation on oxidative stress biomarkers of Iranian women with polycystic ovary syndrome: a meta-analysis study.",
+          "verified_title": "Effects of vitamin D supplementation on oxidative stress biomarkers of Iranian women with polycystic ovary syndrome: a meta-analysis study.",
+          "doi": "10.61622/rbgo/2024rbgo37",
+          "category": "women_health",
+          "abstract_length": 1634,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6676,
+          "pmid": "39944206",
+          "title": "Association of iron status indicators with thyroid hormone concentrations during pregnancy: a systematic review and meta-analysis.",
+          "verified_title": "Association of iron status indicators with thyroid hormone concentrations during pregnancy: a systematic review and meta-analysis.",
+          "doi": "10.3389/fendo.2025.1533169",
+          "category": "women_health",
+          "abstract_length": 1866,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6677-6684-exact.json",
+      "range": [
+        6677,
+        6684
+      ],
+      "rows": [
+        {
+          "wave": 6677,
+          "pmid": "39077939",
+          "title": "Vitamin D supplementation for women during pregnancy.",
+          "verified_title": "Vitamin D supplementation for women during pregnancy.",
+          "doi": "10.1002/14651858.CD008873.pub5",
+          "category": "women_health",
+          "abstract_length": 6192,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6678,
+          "pmid": "38765534",
+          "title": "A meta-analysis of ferric carboxymaltose versus other intravenous iron preparations for the management of iron deficiency anemia during pregnancy.",
+          "verified_title": "A meta-analysis of ferric carboxymaltose versus other intravenous iron preparations for the management of iron deficiency anemia during pregnancy.",
+          "doi": "10.61622/rbgo/2024AO21",
+          "category": "women_health",
+          "abstract_length": 1775,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6679,
+          "pmid": "41754208",
+          "title": "Periconception Maternal Vitamin D Status on Nausea and Vomiting Symptoms in Early Pregnancy Among Women with a History of Pregnancy Loss.",
+          "verified_title": "Periconception Maternal Vitamin D Status on Nausea and Vomiting Symptoms in Early Pregnancy Among Women with a History of Pregnancy Loss.",
+          "doi": "10.3390/nu18040692",
+          "category": "women_health",
+          "abstract_length": 1944,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6680,
+          "pmid": "40417750",
+          "title": "Polycystic Ovary Syndrome and Vitamin D Status - Impact of Vitamin D Supplementation on Insulin Resistance.",
+          "verified_title": "Polycystic Ovary Syndrome and Vitamin D Status - Impact of Vitamin D Supplementation on Insulin Resistance.",
+          "doi": "10.2174/0115748871310723250516041347",
+          "category": "women_health",
+          "abstract_length": 2240,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6681,
+          "pmid": "41628108",
+          "title": "Patients' perceptions of care in a Type 1 hybrid effectiveness-implementation trial on intravenous iron for anaemia in pregnancy in Nigeria.",
+          "verified_title": "Patients' perceptions of care in a Type 1 hybrid effectiveness-implementation trial on intravenous iron for anaemia in pregnancy in Nigeria.",
+          "doi": "10.1371/journal.pone.0324578",
+          "category": "women_health",
+          "abstract_length": 1979,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6682,
+          "pmid": "40290028",
+          "title": "Neurodevelopmental Outcomes in the Offspring of Women with Vitamin D Deficiency and Women Who Received Vitamin D Supplementation During Pregnancy.",
+          "verified_title": "Neurodevelopmental Outcomes in the Offspring of Women with Vitamin D Deficiency and Women Who Received Vitamin D Supplementation During Pregnancy.",
+          "doi": "10.3390/nu17060978",
+          "category": "women_health",
+          "abstract_length": 2609,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6683,
+          "pmid": "39543837",
+          "title": "Effect of vitamin D adjuvant therapy on the proportion of regulatory T cells in peripheral blood and pregnancy outcome of patients with recurrent miscarriage.",
+          "verified_title": "Effect of vitamin D adjuvant therapy on the proportion of regulatory T cells in peripheral blood and pregnancy outcome of patients with recurrent miscarriage.",
+          "doi": "10.1111/jog.16151",
+          "category": "women_health",
+          "abstract_length": 1663,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6684,
+          "pmid": "38877762",
+          "title": "Dolutegravir- Versus Efavirenz-Based Treatment in Pregnancy: Impact on Red Blood Cell Folate Concentrations in Pregnant Women and Their Infants.",
+          "verified_title": "Dolutegravir- Versus Efavirenz-Based Treatment in Pregnancy: Impact on Red Blood Cell Folate Concentrations in Pregnant Women and Their Infants.",
+          "doi": "10.1093/infdis/jiae308",
+          "category": "women_health",
+          "abstract_length": 1547,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6685-6692-exact.json",
+      "range": [
+        6685,
+        6692
+      ],
+      "rows": [
+        {
+          "wave": 6685,
+          "pmid": "39651609",
+          "title": "Effect and safety of intravenous iron compared to oral iron for treatment of iron deficiency anaemia in pregnancy.",
+          "verified_title": "Effect and safety of intravenous iron compared to oral iron for treatment of iron deficiency anaemia in pregnancy.",
+          "doi": "10.1002/14651858.CD016136",
+          "category": "women_health",
+          "abstract_length": 6555,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6686,
+          "pmid": "39145520",
+          "title": "Daily oral iron supplementation during pregnancy.",
+          "verified_title": "Daily oral iron supplementation during pregnancy.",
+          "doi": "10.1002/14651858.CD004736.pub6",
+          "category": "women_health",
+          "abstract_length": 6266,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6687,
+          "pmid": "39582678",
+          "title": "Low-Dose Prophylactic Oral Iron Supplementation (Ferrous Fumarate, Ferrous Bisglycinate, and Ferrous Sulphate) in Pregnancy Is Not Associated With Clinically Significant Gastrointestinal Complaints: Results From Two Randomized Studies.",
+          "verified_title": "Low-Dose Prophylactic Oral Iron Supplementation (Ferrous Fumarate, Ferrous Bisglycinate, and Ferrous Sulphate) in Pregnancy Is Not Associated With Clinically Significant Gastrointestinal Complaints: Results From Two Randomized Studies.",
+          "doi": "10.1155/2024/1716798",
+          "category": "women_health",
+          "abstract_length": 2701,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6688,
+          "pmid": "41651072",
+          "title": "Maternal Adiposity and DNA Methylation of TfR2 and HJV Genes in Early Pregnancy: Mediating Role of Inflammation and Consequences for Iron Status.",
+          "verified_title": "Maternal Adiposity and DNA Methylation of TfR2 and HJV Genes in Early Pregnancy: Mediating Role of Inflammation and Consequences for Iron Status.",
+          "doi": "10.1016/j.tjnut.2026.101393",
+          "category": "women_health",
+          "abstract_length": 2102,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6689,
+          "pmid": "41097872",
+          "title": "Impact of TMPRSS6 Genetic Variants on Maternal Iron Status in Pregnancy: A Systematic Review.",
+          "verified_title": "Impact of TMPRSS6 Genetic Variants on Maternal Iron Status in Pregnancy: A Systematic Review.",
+          "doi": "10.1002/bdr2.2538",
+          "category": "women_health",
+          "abstract_length": 1660,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6690,
+          "pmid": "41224959",
+          "title": "Efficacy and safety of emulsified microsomal ferric pyrophosphate vs. Ferrous Ascorbate in pregnancy with iron-deficiency anemia- a randomized, comparative study.",
+          "verified_title": "Efficacy and safety of emulsified microsomal ferric pyrophosphate vs. Ferrous Ascorbate in pregnancy with iron-deficiency anemia- a randomized, comparative study.",
+          "doi": "10.1038/s41598-025-23353-9",
+          "category": "women_health",
+          "abstract_length": 1361,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6691,
+          "pmid": "40329233",
+          "title": "A plethora of laboratory protocols for vitamin D receptor (VDR) gene variants detection: a systematic review of associations with hypertensive disorders of pregnancy.",
+          "verified_title": "A plethora of laboratory protocols for vitamin D receptor (VDR) gene variants detection: a systematic review of associations with hypertensive disorders of pregnancy.",
+          "doi": "10.1186/s12884-025-07510-6",
+          "category": "women_health",
+          "abstract_length": 1896,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6692,
+          "pmid": "40582869",
+          "title": "Relationship between Circulating Vitamin D Concentration and the Maternal Gut Microbiota during Early Pregnancy in Japanese Women: Results of a Pilot Study of Antenatal Vitamin D(3) Supplementation.",
+          "verified_title": "Relationship between Circulating Vitamin D Concentration and the Maternal Gut Microbiota during Early Pregnancy in Japanese Women: Results of a Pilot Study of Antenatal Vitamin D3 Supplementation.",
+          "doi": "10.3177/jnsv.71.185",
+          "category": "women_health",
+          "abstract_length": 1656,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6693-6700-exact.json",
+      "range": [
+        6693,
+        6700
+      ],
+      "rows": [
+        {
+          "wave": 6693,
+          "pmid": "39208353",
+          "title": "The impact of different doses of oral iron supplementation during pregnancy: a pilot randomized trial.",
+          "verified_title": "The impact of different doses of oral iron supplementation during pregnancy: a pilot randomized trial.",
+          "doi": "10.1182/bloodadvances.2024013408",
+          "category": "women_health",
+          "abstract_length": 1622,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6694,
+          "pmid": "38816412",
+          "title": "Effects of vitamin D in pregnancy on maternal and offspring health-related outcomes: An umbrella review of systematic review and meta-analyses.",
+          "verified_title": "Effects of vitamin D in pregnancy on maternal and offspring health-related outcomes: An umbrella review of systematic review and meta-analyses.",
+          "doi": "10.1038/s41387-024-00296-0",
+          "category": "women_health",
+          "abstract_length": 2065,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6695,
+          "pmid": "38999805",
+          "title": "Higher Plasma Myo-Inositol in Pregnancy Associated with Reduced Postpartum Blood Loss: Secondary Analyses of the NiPPeR Trial.",
+          "verified_title": "Higher Plasma Myo-Inositol in Pregnancy Associated with Reduced Postpartum Blood Loss: Secondary Analyses of the NiPPeR Trial.",
+          "doi": "10.3390/nu16132054",
+          "category": "women_health",
+          "abstract_length": 1437,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6696,
+          "pmid": "39080634",
+          "title": "Effect of dairy products fortified with vitamin d(3) on restless legs syndrome in women with premenstrual syndrome, abdominal obesity and vitamin d deficiency: a pilot study.",
+          "verified_title": "Effect of dairy products fortified with vitamin d3 on restless legs syndrome in women with premenstrual syndrome, abdominal obesity and vitamin d deficiency: a pilot study.",
+          "doi": "10.1186/s12905-024-03159-z",
+          "category": "women_health",
+          "abstract_length": 1523,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6697,
+          "pmid": "41198045",
+          "title": "Ferric Carboxymaltose as an Effective and Safe Alternative to Iron Sucrose for Treatment of Iron Deficiency Anemia during Pregnancy.",
+          "verified_title": "Ferric Carboxymaltose as an Effective and Safe Alternative to Iron Sucrose for Treatment of Iron Deficiency Anemia during Pregnancy.",
+          "doi": "10.34763/jmotherandchild.20252901.d-25-00018",
+          "category": "women_health",
+          "abstract_length": 1123,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6698,
+          "pmid": "40871698",
+          "title": "Intravenous Ferric Carboxymaltose for the Treatment of Iron Deficiency Anemia During Pregnancy: Effects on Maternal and Fetal Wellbeing-A Multicenter Retrospective Observational Study.",
+          "verified_title": "Intravenous Ferric Carboxymaltose for the Treatment of Iron Deficiency Anemia During Pregnancy: Effects on Maternal and Fetal Wellbeing-A Multicenter Retrospective Observational Study.",
+          "doi": "10.3390/nu17162670",
+          "category": "women_health",
+          "abstract_length": 1466,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6699,
+          "pmid": "41238120",
+          "title": "Impact of Maternal Iron Deficiency in Early Pregnancy on Neonatal Iron Status and Neurodevelopment at Two Years of Age: a Prospective, Maternal-Infant Cohort Study.",
+          "verified_title": "Impact of Maternal Iron Deficiency in Early Pregnancy on Neonatal Iron Status and Neurodevelopment at Two Years of Age: a Prospective, Maternal-Infant Cohort Study.",
+          "doi": "10.1016/j.tjnut.2025.11.009",
+          "category": "women_health",
+          "abstract_length": 2078,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6700,
+          "pmid": "41059575",
+          "title": "Vitamin D and calcium status in preeclampsia and pregnancy-induced hypertension.",
+          "verified_title": "Vitamin D and calcium status in preeclampsia and pregnancy-induced hypertension.",
+          "doi": "10.17305/bb.2025.13081",
+          "category": "women_health",
+          "abstract_length": 1846,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6701-6708-exact.json",
+      "range": [
+        6701,
+        6708
+      ],
+      "rows": [
+        {
+          "wave": 6701,
+          "pmid": "40482710",
+          "title": "Ferric Derisomaltose Versus Iron Sucrose in Pregnancy (FLIP): A Retrospective Observational Study on Outpatient Intravenous Iron Infusion Capacity.",
+          "verified_title": "Ferric Derisomaltose Versus Iron Sucrose in Pregnancy (FLIP): A Retrospective Observational Study on Outpatient Intravenous Iron Infusion Capacity.",
+          "doi": "10.1016/j.jogc.2025.102953",
+          "category": "women_health",
+          "abstract_length": 1626,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6702,
+          "pmid": "38846489",
+          "title": "Vitamin D binding protein correlate with estrogen increase after administration of human chorionic gonadotropin but do not affect ovulation, embryo, or pregnancy outcomes.",
+          "verified_title": "Vitamin D binding protein correlate with estrogen increase after administration of human chorionic gonadotropin but do not affect ovulation, embryo, or pregnancy outcomes.",
+          "doi": "10.3389/fendo.2024.1401975",
+          "category": "women_health",
+          "abstract_length": 1540,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6703,
+          "pmid": "39326699",
+          "title": "Folate and cobalamin status, indicators, modulators, interactions, and reference ranges from early pregnancy until birth: the Reus-Tarragona birth cohort study.",
+          "verified_title": "Folate and cobalamin status, indicators, modulators, interactions, and reference ranges from early pregnancy until birth: the Reus-Tarragona birth cohort study.",
+          "doi": "10.1016/j.ajcnut.2024.09.015",
+          "category": "women_health",
+          "abstract_length": 2271,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6704,
+          "pmid": "42413732",
+          "title": "Gut Microbiome-Modulating therapeutics and lipid profile in metabolic syndrome: A systematic review and meta-analysis of clinical trials.",
+          "verified_title": "Gut Microbiome-Modulating therapeutics and lipid profile in metabolic syndrome: A systematic review and meta-analysis of clinical trials.",
+          "doi": "10.1016/j.clnesp.2026.103461",
+          "category": "gut",
+          "abstract_length": 2419,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6705,
+          "pmid": "42390364",
+          "title": "Gut microbiota alterations in Alzheimer's disease and mild cognitive impairment: A systematic review and meta-analysis.",
+          "verified_title": "Gut microbiota alterations in Alzheimer's disease and mild cognitive impairment: A systematic review and meta-analysis.",
+          "doi": "10.1177/13872877261465913",
+          "category": "gut",
+          "abstract_length": 1755,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6706,
+          "pmid": "42411731",
+          "title": "Systematic Review and Meta-Analysis of the Efficacy of Fecal Microbiota Transplantation in Parkinson's Disease: An Exploration Based on UPDRS and Cognitive Scores.",
+          "verified_title": "Systematic Review and Meta-Analysis of the Efficacy of Fecal Microbiota Transplantation in Parkinson's Disease: An Exploration Based on UPDRS and Cognitive Scores.",
+          "doi": "10.31083/RN50106",
+          "category": "gut",
+          "abstract_length": 2002,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6707,
+          "pmid": "42418021",
+          "title": "The relationship between diabetic retinopathy and intestinal microbiota: a systematic review and meta analysis.",
+          "verified_title": "The relationship between diabetic retinopathy and intestinal microbiota: a systematic review and meta analysis.",
+          "doi": "10.1007/s10792-026-04149-w",
+          "category": "gut",
+          "abstract_length": 1413,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6708,
+          "pmid": "42434798",
+          "title": "The use of antibiotic, probiotic, and fecal microbiota transplantation in modulating immunotherapy efficacy and survival: a systematic review and meta-analysis of clinical outcomes.",
+          "verified_title": "The use of antibiotic, probiotic, and fecal microbiota transplantation in modulating immunotherapy efficacy and survival: a systematic review and meta-analysis of clinical outcomes.",
+          "doi": "10.1093/oncolo/oyag264",
+          "category": "gut",
+          "abstract_length": 1958,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6709-6716-exact.json",
+      "range": [
+        6709,
+        6716
+      ],
+      "rows": [
+        {
+          "wave": 6709,
+          "pmid": "42398974",
+          "title": "Impact of mode of birth and perinatal antibiotics on infant gut microbiota and health: a systematic review and meta-analysis.",
+          "verified_title": "Impact of mode of birth and perinatal antibiotics on infant gut microbiota and health: a systematic review and meta-analysis.",
+          "doi": "10.1136/bmjpo-2025-004170",
+          "category": "gut",
+          "abstract_length": 2356,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6710,
+          "pmid": "42379395",
+          "title": "Oat-Rich Low-Gluten Diet Modulates Plasma Short-Chain Fatty Acids without Significant Changes in Fecal Microbiome or Inflammatory Markers-A Randomized Clinical Trial in People with Cardiometabolic Risk.",
+          "verified_title": "Oat-Rich Low-Gluten Diet Modulates Plasma Short-Chain Fatty Acids without Significant Changes in Fecal Microbiome or Inflammatory Markers-A Randomized Clinical Trial in People with Cardiometabolic Risk.",
+          "doi": "10.1016/j.tjnut.2026.101690",
+          "category": "gut",
+          "abstract_length": 2131,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6711,
+          "pmid": "42371112",
+          "title": "The effectiveness of a plant-based milk with fermented brown rice on constipation symptoms via gut microbiota modulation: a double-blind randomized controlled trial.",
+          "verified_title": "The effectiveness of a plant-based milk with fermented brown rice on constipation symptoms via gut microbiota modulation: a double-blind randomized controlled trial.",
+          "doi": "10.1007/s00394-026-04029-0",
+          "category": "gut",
+          "abstract_length": 1887,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6712,
+          "pmid": "42441416",
+          "title": "Randomized, Double-Blind, Placebo-Controlled Trial of the Probiotic Lactiplantibacillus plantarum Probio87 for Gut-Vaginal Microbiota Modulation in Healthy Women.",
+          "verified_title": "Randomized, Double-Blind, Placebo-Controlled Trial of the Probiotic Lactiplantibacillus plantarum Probio87 for Gut-Vaginal Microbiota Modulation in Healthy Women.",
+          "doi": "10.1002/mnfr.70535",
+          "category": "gut",
+          "abstract_length": 1528,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6713,
+          "pmid": "42364424",
+          "title": "PRO-PLATINUM: A randomized, double-blind, placebo controlled study to investigate the efficacy of a probiotic intervention on the gut and vaginal microbiome of ovarian cancer patients undergoing treatment with platinum chemotherapy.",
+          "verified_title": "PRO-PLATINUM: A randomized, double-blind, placebo controlled study to investigate the efficacy of a probiotic intervention on the gut and vaginal microbiome of ovarian cancer patients undergoing treatment with platinum chemotherapy.",
+          "doi": "10.1016/j.ygyno.2026.06.016",
+          "category": "gut",
+          "abstract_length": 2024,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6714,
+          "pmid": "42451089",
+          "title": "Effects of Probiotic-Phytonutrient Blends on Defecation, Intestinal Barrier Function, and Gut Microbiota: A Randomized, Placebo-Controlled Trial.",
+          "verified_title": "Effects of Probiotic-Phytonutrient Blends on Defecation, Intestinal Barrier Function, and Gut Microbiota: A Randomized, Placebo-Controlled Trial.",
+          "doi": "10.3390/nu18132085",
+          "category": "gut",
+          "abstract_length": 2095,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6715,
+          "pmid": "42687165",
+          "title": "Comparison of clinical efficacy and gut microbiota characteristics in children with ASD treated with fecal microbiota transplantation and ketogenic diet.",
+          "verified_title": "Comparison of clinical efficacy and gut microbiota characteristics in children with ASD treated with fecal microbiota transplantation and ketogenic diet.",
+          "doi": "10.1186/s12888-026-08547-3",
+          "category": "gut",
+          "abstract_length": 1780,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6716,
+          "pmid": "42474437",
+          "title": "Lenalidomide-Related Diarrhea in Patients with Multiple Myeloma Is Associated with Gut Microbiota Dysbiosis and Disruption of the Bile Acid Pool.",
+          "verified_title": "Lenalidomide-Related Diarrhea in Patients with Multiple Myeloma Is Associated with Gut Microbiota Dysbiosis and Disruption of the Bile Acid Pool.",
+          "doi": "10.1158/1078-0432.CCR-26-0752",
+          "category": "gut",
+          "abstract_length": 1175,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6717-6724-exact.json",
+      "range": [
+        6717,
+        6724
+      ],
+      "rows": [
+        {
+          "wave": 6717,
+          "pmid": "42600939",
+          "title": "Efficacy of probiotic and synbiotic supplementation on antibiotic use duration and risk of postoperative infection in patients undergoing gastrointestinal and cancer-related surgery: An umbrella review of meta-analyses.",
+          "verified_title": "Efficacy of probiotic and synbiotic supplementation on antibiotic use duration and risk of postoperative infection in patients undergoing gastrointestinal and cancer-related surgery: An umbrella review of meta-analyses.",
+          "doi": "10.1016/j.clnesp.2026.105013",
+          "category": "gut",
+          "abstract_length": 2022,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6718,
+          "pmid": "42775700",
+          "title": "Associations Between Gut Microbiota and Immune Profiles in Community-Dwelling Older Adults and the Regulatory Role of Polygonatum odoratum.",
+          "verified_title": "Associations Between Gut Microbiota and Immune Profiles in Community-Dwelling Older Adults and the Regulatory Role of Polygonatum odoratum.",
+          "doi": "10.1111/acel.70724",
+          "category": "gut",
+          "abstract_length": 1908,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6719,
+          "pmid": "42692206",
+          "title": "Within- and between-visit variability and reproducibility of the oral microbiome in young adults with alcohol use disorder.",
+          "verified_title": "Within- and between-visit variability and reproducibility of the oral microbiome in young adults with alcohol use disorder.",
+          "doi": "10.1016/j.alcohol.2026.09.001",
+          "category": "gut",
+          "abstract_length": 1830,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6720,
+          "pmid": "42356063",
+          "title": "Impact of Gut Microbiota on the Clinical Course and Treatment Outcomes of Colorectal Cancer-A Systematic Review.",
+          "verified_title": "Impact of Gut Microbiota on the Clinical Course and Treatment Outcomes of Colorectal Cancer-A Systematic Review.",
+          "doi": "10.3390/medicina62061050",
+          "category": "gut",
+          "abstract_length": 2132,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6721,
+          "pmid": "42356145",
+          "title": "The Oral-Gut Microbiome Connection in Patients with Periodontitis: A Systematic Review.",
+          "verified_title": "The Oral-Gut Microbiome Connection in Patients with Periodontitis: A Systematic Review.",
+          "doi": "10.3390/medicina62061133",
+          "category": "gut",
+          "abstract_length": 1903,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6722,
+          "pmid": "42341762",
+          "title": "Meta-analysis reveals microbiome signatures for colorectal cancer that are universal across age groups and sequencing methods.",
+          "verified_title": "Meta-analysis reveals microbiome signatures for colorectal cancer that are universal across age groups and sequencing methods.",
+          "doi": "10.1016/j.chom.2026.05.030",
+          "category": "gut",
+          "abstract_length": 1197,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6723,
+          "pmid": "42451200",
+          "title": "Gut Microbiota Composition and Plasma Metabolomic Profile Are Associated with Amyloid Pathology and Cognitive Performance in Patients with Mild Cognitive Impairment.",
+          "verified_title": "Gut Microbiota Composition and Plasma Metabolomic Profile Are Associated with Amyloid Pathology and Cognitive Performance in Patients with Mild Cognitive Impairment.",
+          "doi": "10.3390/nu18132200",
+          "category": "gut",
+          "abstract_length": 2374,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6724,
+          "pmid": "42429666",
+          "title": "Sialidase inhibitor modulates gut microbiota and enhances mucosal protection in the treatment of ulcerative colitis.",
+          "verified_title": "Sialidase inhibitor modulates gut microbiota and enhances mucosal protection in the treatment of ulcerative colitis.",
+          "doi": "10.1128/msystems.00194-26",
+          "category": "gut",
+          "abstract_length": 2157,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6725-6732-exact.json",
+      "range": [
+        6725,
+        6732
+      ],
+      "rows": [
+        {
+          "wave": 6725,
+          "pmid": "42552184",
+          "title": "Impact of modified WuMei decoction combined with Bifidobacterium triple viable enteric-coated capsules on clinical efficacy and intestinal microbiota in patients after endoscopic resection of colonic polyps.",
+          "verified_title": "Impact of modified WuMei decoction combined with Bifidobacterium triple viable enteric-coated capsules on clinical efficacy and intestinal microbiota in patients after endoscopic resection of colonic polyps.",
+          "doi": "10.1016/j.ajg.2026.06.013",
+          "category": "gut",
+          "abstract_length": 1728,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6726,
+          "pmid": "42754908",
+          "title": "Machine learning identifies microbiome and clinical predictors of sustained weight loss following prolonged fasting.",
+          "verified_title": "Machine learning identifies microbiome and clinical predictors of sustained weight loss following prolonged fasting.",
+          "doi": "10.1186/s13073-026-01765-0",
+          "category": "gut",
+          "abstract_length": 2375,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6727,
+          "pmid": "42384599",
+          "title": "Peripheral biochemical correlates of social anxiety disorder: a systematic review focused on inflammatory markers, neuropeptides, hormones, and gut microbiota.",
+          "verified_title": "Peripheral biochemical correlates of social anxiety disorder: a systematic review focused on inflammatory markers, neuropeptides, hormones, and gut microbiota.",
+          "doi": "10.1080/15622975.2026.2692488",
+          "category": "gut",
+          "abstract_length": 1448,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6728,
+          "pmid": "42496113",
+          "title": "Resistant starch types 2 and 4 induce distinct and reversible changes in the human gut microbiome.",
+          "verified_title": "Resistant starch types 2 and 4 induce distinct and reversible changes in the human gut microbiome.",
+          "doi": "10.1128/spectrum.00763-26",
+          "category": "gut",
+          "abstract_length": 2886,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6729,
+          "pmid": "42462348",
+          "title": "Short-Term Effects of Comprehensive Periodontal Initial Therapy on Subgingival Microbiota in Nasopharyngeal Carcinoma Patients Undergoing Radiotherapy: A Pilot Randomised Controlled Trial.",
+          "verified_title": "Short-Term Effects of Comprehensive Periodontal Initial Therapy on Subgingival Microbiota in Nasopharyngeal Carcinoma Patients Undergoing Radiotherapy: A Pilot Randomised Controlled Trial.",
+          "doi": "10.1016/j.identj.2026.109743",
+          "category": "gut",
+          "abstract_length": 2274,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6730,
+          "pmid": "42477955",
+          "title": "Oral and Pancreatobiliary Microbiota in Cancer: A Systematic Review of Compositional Alterations and Their Clinical Implications.",
+          "verified_title": "Oral and Pancreatobiliary Microbiota in Cancer: A Systematic Review of Compositional Alterations and Their Clinical Implications.",
+          "doi": "10.1111/jop.70172",
+          "category": "gut",
+          "abstract_length": 2010,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6731,
+          "pmid": "42347203",
+          "title": "Nutritional Stunting Is Linked to Reduced Oral Microbiome Stability and Reconfigured Microbial Networks in Children: A Pilot Intervention Study.",
+          "verified_title": "Nutritional Stunting Is Linked to Reduced Oral Microbiome Stability and Reconfigured Microbial Networks in Children: A Pilot Intervention Study.",
+          "doi": "10.3390/pathogens15060591",
+          "category": "gut",
+          "abstract_length": 1625,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6732,
+          "pmid": "42451052",
+          "title": "Functional Soy and Lupin Protein-Based Beverages Modulate Gut Microbiome and Attenuate Metabolic Dysregulation in Adolescent Boys with Overweight and Obesity.",
+          "verified_title": "Functional Soy and Lupin Protein-Based Beverages Modulate Gut Microbiome and Attenuate Metabolic Dysregulation in Adolescent Boys with Overweight and Obesity.",
+          "doi": "10.3390/nu18132049",
+          "category": "gut",
+          "abstract_length": 1842,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6733-6740-exact.json",
+      "range": [
+        6733,
+        6740
+      ],
+      "rows": [
+        {
+          "wave": 6733,
+          "pmid": "42356400",
+          "title": "Effects of the Edible Microalga Chlorella on Gut Microbiota and on Brain Health: Current Evidence and Emerging Links.",
+          "verified_title": "Effects of the Edible Microalga Chlorella on Gut Microbiota and on Brain Health: Current Evidence and Emerging Links.",
+          "doi": "10.3390/nu18122014",
+          "category": "gut",
+          "abstract_length": 2077,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6734,
+          "pmid": "42346798",
+          "title": "Ascophyllan Supplementation Is Safe and Associated with Exploratory Modulation of Innate Immune Phenotypes, Biochemical Parameters, and the Gut Microbiome in a Randomized Pilot Trial.",
+          "verified_title": "Ascophyllan Supplementation Is Safe and Associated with Exploratory Modulation of Innate Immune Phenotypes, Biochemical Parameters, and the Gut Microbiome in a Randomized Pilot Trial.",
+          "doi": "10.3390/md24060213",
+          "category": "gut",
+          "abstract_length": 2211,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6735,
+          "pmid": "42401851",
+          "title": "Reproductive tract and follicular fluid microbiota and probiotic interventions in IVF/ICSI outcomes: a systematic review.",
+          "verified_title": "Reproductive tract and follicular fluid microbiota and probiotic interventions in IVF/ICSI outcomes: a systematic review.",
+          "doi": "10.1186/s12884-026-09523-1",
+          "category": "gut",
+          "abstract_length": 2140,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6736,
+          "pmid": "42399225",
+          "title": "Oral microbiome modulation mitigates hyperglycemia exacerbation in gestational diabetes mellitus.",
+          "verified_title": "Oral microbiome modulation mitigates hyperglycemia exacerbation in gestational diabetes mellitus.",
+          "doi": "10.1038/s41467-026-74917-w",
+          "category": "gut",
+          "abstract_length": 1997,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6737,
+          "pmid": "42451140",
+          "title": "Influence of Early Feeding Practices on Oral Microbiota Composition During Infancy and Potential Implications for Early Childhood Caries: A Systematic Review.",
+          "verified_title": "Influence of Early Feeding Practices on Oral Microbiota Composition During Infancy and Potential Implications for Early Childhood Caries: A Systematic Review.",
+          "doi": "10.3390/nu18132138",
+          "category": "gut",
+          "abstract_length": 3220,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6738,
+          "pmid": "42514393",
+          "title": "Autoprobiotic Supplements Attenuate Obesity and Improve Gut Microbiota, Carbohydrate, and Lipid Metabolism in Patients with Metabolic Syndrome: A Pilot Trial.",
+          "verified_title": "Autoprobiotic Supplements Attenuate Obesity and Improve Gut Microbiota, Carbohydrate, and Lipid Metabolism in Patients with Metabolic Syndrome: A Pilot Trial.",
+          "doi": "10.3390/nu18142324",
+          "category": "gut",
+          "abstract_length": 1945,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6739,
+          "pmid": "42406984",
+          "title": "A New Perspective on Endometriosis: How Gut and Reproductive Tract Microbiota Influence Disease Progression?",
+          "verified_title": "A New Perspective on Endometriosis: How Gut and Reproductive Tract Microbiota Influence Disease Progression?",
+          "doi": "10.1097/OGX.0000000000001557",
+          "category": "gut",
+          "abstract_length": 2024,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6740,
+          "pmid": "42689867",
+          "title": "Gut microbiota and metabolic alterations in participants with flatulence identify Faecalibacterium prausnitzii as a key microbial target for clinical intervention.",
+          "verified_title": "Gut microbiota and metabolic alterations in participants with flatulence identify Faecalibacterium prausnitzii as a key microbial target for clinical intervention.",
+          "doi": "10.1080/19490976.2026.2728332",
+          "category": "gut",
+          "abstract_length": 1578,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6741-6748-exact.json",
+      "range": [
+        6741,
+        6748
+      ],
+      "rows": [
+        {
+          "wave": 6741,
+          "pmid": "42559770",
+          "title": "Faecal microbiota transplantation for treating acute lower gastrointestinal graft-versus-host disease after allogeneic haematopoietic stem cell transplantation.",
+          "verified_title": "Faecal microbiota transplantation for treating acute lower gastrointestinal graft-versus-host disease after allogeneic haematopoietic stem cell transplantation.",
+          "doi": "10.1002/14651858.CD016225",
+          "category": "gut",
+          "abstract_length": 403,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6742,
+          "pmid": "42524136",
+          "title": "Functional convergence amid taxonomic variability in gut microbiome-immune checkpoint inhibitor research: a bibliometric and mechanistic synthesis.",
+          "verified_title": "Functional convergence amid taxonomic variability in gut microbiome-immune checkpoint inhibitor research: a bibliometric and mechanistic synthesis.",
+          "doi": "10.3389/fimmu.2026.1883259",
+          "category": "gut",
+          "abstract_length": 2022,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6743,
+          "pmid": "42568357",
+          "title": "Global landscape and knowledge structure of research on pancreatitis and gut microbiota: a bibliometric analysis based on WoSCC and Scopus (2006 - 2025).",
+          "verified_title": "Global landscape and knowledge structure of research on pancreatitis and gut microbiota: a bibliometric analysis based on WoSCC and Scopus (2006 - 2025).",
+          "doi": "10.3389/fcimb.2026.1878923",
+          "category": "gut",
+          "abstract_length": 2688,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6744,
+          "pmid": "32305302",
+          "title": "Omega-3, Omega-6, and Polyunsaturated Fat for Cognition: Systematic Review and Meta-analysis of Randomized Trials.",
+          "verified_title": "Omega-3, Omega-6, and Polyunsaturated Fat for Cognition: Systematic Review and Meta-analysis of Randomized Trials.",
+          "doi": "10.1016/j.jamda.2020.02.022",
+          "category": "cognition_focus",
+          "abstract_length": 2140,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6745,
+          "pmid": "32918470",
+          "title": "Impact of omega-3 fatty acid DHA and EPA supplementation in pregnant or breast-feeding women on cognitive performance of children: systematic review and meta-analysis.",
+          "verified_title": "Impact of omega-3 fatty acid DHA and EPA supplementation in pregnant or breast-feeding women on cognitive performance of children: systematic review and meta-analysis.",
+          "doi": "10.1093/nutrit/nuaa060",
+          "category": "cognition_focus",
+          "abstract_length": 1831,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6746,
+          "pmid": "31841161",
+          "title": "Long-chain omega-3 polyunsaturated fatty acids and cognitive decline in non-demented adults: a systematic review and meta-analysis.",
+          "verified_title": "Long-chain omega-3 polyunsaturated fatty acids and cognitive decline in non-demented adults: a systematic review and meta-analysis.",
+          "doi": "10.1093/nutrit/nuz073",
+          "category": "cognition_focus",
+          "abstract_length": 1543,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6747,
+          "pmid": "29704637",
+          "title": "Effects of creatine supplementation on cognitive function of healthy individuals: A systematic review of randomized controlled trials.",
+          "verified_title": "Effects of creatine supplementation on cognitive function of healthy individuals: A systematic review of randomized controlled trials.",
+          "doi": "10.1016/j.exger.2018.04.013",
+          "category": "cognition_focus",
+          "abstract_length": 1613,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6748,
+          "pmid": "31883771",
+          "title": "Impulsiveness in children with attention-deficit/hyperactivity disorder after an 8-week intervention with the Mediterranean diet and/or omega-3 fatty acids: A randomised clinical trial.",
+          "verified_title": "Impulsiveness in children with attention-deficit/hyperactivity disorder after an 8-week intervention with the Mediterranean diet and/or omega-3 fatty acids: A randomised clinical trial.",
+          "doi": "10.1016/j.nrl.2019.09.007",
+          "category": "cognition_focus",
+          "abstract_length": 1733,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6749-6756-exact.json",
+      "range": [
+        6749,
+        6756
+      ],
+      "rows": [
+        {
+          "wave": 6749,
+          "pmid": "33675344",
+          "title": "ω-3 Ethyl ester results in better cognitive function at 12 and 30 months than control in cognitively healthy subjects with coronary artery disease: a secondary analysis of a randomized clinical trial.",
+          "verified_title": "ω-3 Ethyl ester results in better cognitive function at 12 and 30 months than control in cognitively healthy subjects with coronary artery disease: a secondary analysis of a randomized clinical trial.",
+          "doi": "10.1093/ajcn/nqaa420",
+          "category": "cognition_focus",
+          "abstract_length": 1835,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6750,
+          "pmid": "30958356",
+          "title": "Homocysteine Status Modifies the Treatment Effect of Omega-3 Fatty Acids on Cognition in a Randomized Clinical Trial in Mild to Moderate Alzheimer's Disease: The OmegAD Study.",
+          "verified_title": "Homocysteine Status Modifies the Treatment Effect of Omega-3 Fatty Acids on Cognition in a Randomized Clinical Trial in Mild to Moderate Alzheimer's Disease: The OmegAD Study.",
+          "doi": "10.3233/JAD-181148",
+          "category": "cognition_focus",
+          "abstract_length": 1518,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6751,
+          "pmid": "29972210",
+          "title": "Effects of a Six-Month Multi-Ingredient Nutrition Supplement Intervention of Omega-3 Polyunsaturated Fatty Acids, vitamin D, Resveratrol, and Whey Protein on Cognitive Function in Older Adults: A Randomised, Double-Blind, Controlled Trial.",
+          "verified_title": "Effects of a Six-Month Multi-Ingredient Nutrition Supplement Intervention of Omega-3 Polyunsaturated Fatty Acids, vitamin D, Resveratrol, and Whey Protein on Cognitive Function in Older Adults: A Randomised, Double-Blind, Controlled Trial.",
+          "doi": "10.14283/jpad.2018.11",
+          "category": "cognition_focus",
+          "abstract_length": 2617,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6752,
+          "pmid": "32777998",
+          "title": "L-theanine improves neurophysiological measures of attention in a dose-dependent manner: a double-blind, placebo-controlled, crossover study.",
+          "verified_title": "L-theanine improves neurophysiological measures of attention in a dose-dependent manner: a double-blind, placebo-controlled, crossover study.",
+          "doi": "10.1080/1028415X.2020.1804098",
+          "category": "cognition_focus",
+          "abstract_length": 1406,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6753,
+          "pmid": "31736428",
+          "title": "Acute effects of combined Bacopa, American ginseng and whole coffee fruit on working memory and cerebral haemodynamic response of the prefrontal cortex: a double-blind, placebo-controlled study.",
+          "verified_title": "Acute effects of combined Bacopa, American ginseng and whole coffee fruit on working memory and cerebral haemodynamic response of the prefrontal cortex: a double-blind, placebo-controlled study.",
+          "doi": "10.1080/1028415X.2019.1690288",
+          "category": "cognition_focus",
+          "abstract_length": 1718,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6754,
+          "pmid": "33751906",
+          "title": "Effects of l-Theanine on Cognitive Function in Middle-Aged and Older Subjects: A Randomized Placebo-Controlled Study.",
+          "verified_title": "Effects of l-Theanine on Cognitive Function in Middle-Aged and Older Subjects: A Randomized Placebo-Controlled Study.",
+          "doi": "10.1089/jmf.2020.4803",
+          "category": "cognition_focus",
+          "abstract_length": 1184,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6755,
+          "pmid": "39488067",
+          "title": "Efficacy and safety profile of oral creatine monohydrate in add-on to cognitive-behavioural therapy in depression: An 8-week pilot, double-blind, randomised, placebo-controlled feasibility and exploratory trial in an under-resourced area.",
+          "verified_title": "Efficacy and safety profile of oral creatine monohydrate in add-on to cognitive-behavioural therapy in depression: An 8-week pilot, double-blind, randomised, placebo-controlled feasibility and exploratory trial in an under-resourced area.",
+          "doi": "10.1016/j.euroneuro.2024.10.004",
+          "category": "cognition_focus",
+          "abstract_length": 1450,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6756,
+          "pmid": "36055414",
+          "title": "A low- dose of caffeine suppresses EEG alpha power and improves working memory in healthy University males.",
+          "verified_title": "A low- dose of caffeine suppresses EEG alpha power and improves working memory in healthy University males.",
+          "doi": "10.1016/j.physbeh.2022.113955",
+          "category": "cognition_focus",
+          "abstract_length": 1567,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    }
+  ]
+}
