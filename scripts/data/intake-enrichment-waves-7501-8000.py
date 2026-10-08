@@ -61,7 +61,7 @@ HARD_TITLE = re.compile(
   r"bibliometric|scientometric|in vitro|in silico|murine|zebrafish|"
   r"mouse model|rat model|network pharmacology|preclinical practices|"
   r"preclinical studies|humans and animals|human and animal|"
-  r"clinical and preclinical|preclinical and clinical|animal models|animal studies|anxiolytic-like|studies in animals|animal experiment|in mice|mice and|in animals|animal and human|animals and human)\b", re.I
+  r"clinical and preclinical|preclinical and clinical|animal models|animal studies|anxiolytic-like|studies in animals|animal experiments?|in mice|mice and|in animals|animal and human|animals and human)\b", re.I
 )
 GOOD_TYPE = ("randomized controlled trial","controlled clinical trial","clinical trial",
              "meta-analysis","systematic review","observational study")
