@@ -64,7 +64,7 @@ describe('generational CI measurement',()=>{
     const r=summarizeGenerationSample([])
     expect(r.wallMinutesP50).toBeNull()
     expect(r.wallMinutesP95).toBeNull()
-    expect(r.runnerMinutesMeasured).toBe(0)
+    expect(r.runnerMinutesMeasured).toBeNull()
     expect(r.interpretation).toMatch(/Unknown/)
   })
   it('rejects invalid IDs or unavailable permission before network request',async()=>{
