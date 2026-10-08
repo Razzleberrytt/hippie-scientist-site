@@ -1,0 +1,1593 @@
+{
+  "schema_version": 1,
+  "chunk": 1,
+  "source_receipts": 16,
+  "row_count": 128,
+  "errors": [],
+  "receipts": [
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6501-6508-exact.json",
+      "range": [
+        6501,
+        6508
+      ],
+      "rows": [
+        {
+          "wave": 6501,
+          "pmid": "31461801",
+          "title": "Intrathecal dexmedetomidine versus magnesium sulphate for postoperative analgesia and stress response after caesarean delivery; randomized controlled double-blind study.",
+          "verified_title": "Intrathecal dexmedetomidine versus magnesium sulphate for postoperative analgesia and stress response after caesarean delivery; randomized controlled double-blind study.",
+          "doi": "10.1002/ejp.1476",
+          "category": "stress_anxiety",
+          "abstract_length": 1671,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6502,
+          "pmid": "35745154",
+          "title": "Effect of a Dietary Supplement Combining Bioactive Peptides and Magnesium on Adjustment Disorder with Anxiety: A Clinical Trial in General Practice.",
+          "verified_title": "Effect of a Dietary Supplement Combining Bioactive Peptides and Magnesium on Adjustment Disorder with Anxiety: A Clinical Trial in General Practice.",
+          "doi": "10.3390/nu14122425",
+          "category": "stress_anxiety",
+          "abstract_length": 1498,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6503,
+          "pmid": "33896388",
+          "title": "A combination of green tea, rhodiola, magnesium and B vitamins modulates brain activity and protects against the effects of induced social stress in healthy volunteers.",
+          "verified_title": "A combination of green tea, rhodiola, magnesium and B vitamins modulates brain activity and protects against the effects of induced social stress in healthy volunteers.",
+          "doi": "10.1080/1028415X.2021.1909204",
+          "category": "stress_anxiety",
+          "abstract_length": 1688,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6504,
+          "pmid": "30660371",
+          "title": "Effect of Lavender Oil on the Anxiety of Patients Before Breast Surgery.",
+          "verified_title": "Effect of Lavender Oil on the Anxiety of Patients Before Breast Surgery.",
+          "doi": "10.1016/j.jopan.2018.10.002",
+          "category": "stress_anxiety",
+          "abstract_length": 1196,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6505,
+          "pmid": "35987997",
+          "title": "The Effect of Lavender on Anxiety and Hemodynamic Status Before Septorhinoplasy and Rhinoplasty.",
+          "verified_title": "The Effect of Lavender on Anxiety and Hemodynamic Status Before Septorhinoplasy and Rhinoplasty.",
+          "doi": "10.1016/j.jopan.2022.05.067",
+          "category": "stress_anxiety",
+          "abstract_length": 1425,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6506,
+          "pmid": "35215501",
+          "title": "Use of Nutritional Supplements Based on L-Theanine and Vitamin B6 in Children with Tourette Syndrome, with Anxiety Disorders: A Pilot Study.",
+          "verified_title": "Use of Nutritional Supplements Based on L-Theanine and Vitamin B6 in Children with Tourette Syndrome, with Anxiety Disorders: A Pilot Study.",
+          "doi": "10.3390/nu14040852",
+          "category": "stress_anxiety",
+          "abstract_length": 1514,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6507,
+          "pmid": "31808709",
+          "title": "Putative Antidepressant Effect of Chamomile (Matricaria chamomilla L.) Oral Extract in Subjects with Comorbid Generalized Anxiety Disorder and Depression.",
+          "verified_title": "Putative Antidepressant Effect of Chamomile (Matricaria chamomilla L.) Oral Extract in Subjects with Comorbid Generalized Anxiety Disorder and Depression.",
+          "doi": "10.1089/acm.2019.0252",
+          "category": "stress_anxiety",
+          "abstract_length": 2032,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6508,
+          "pmid": "35202010",
+          "title": "A Pilot Randomized Control Trial to Assess the Impact of Lavender on Anxiety and Comfort After Cesarean Birth and the Barriers Encountered.",
+          "verified_title": "A Pilot Randomized Control Trial to Assess the Impact of Lavender on Anxiety and Comfort After Cesarean Birth and the Barriers Encountered.",
+          "doi": "10.1097/NMC.0000000000000803",
+          "category": "stress_anxiety",
+          "abstract_length": 1115,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6509-6516-exact.json",
+      "range": [
+        6509,
+        6516
+      ],
+      "rows": [
+        {
+          "wave": 6509,
+          "pmid": "33207379",
+          "title": "Kava (Piper methysticum) Extract for the Treatment of Nervous Anxiety, Tension and Restlessness.",
+          "verified_title": "Kava (Piper methysticum) Extract for the Treatment of Nervous Anxiety, Tension and Restlessness.",
+          "doi": "10.1055/a-1268-7135",
+          "category": "stress_anxiety",
+          "abstract_length": 1542,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6510,
+          "pmid": "35027302",
+          "title": "Effectiveness of aromatherapy with inhaled lavender essential oil and breathing exercises on ECT-related anxiety in depressed patients.",
+          "verified_title": "Effectiveness of aromatherapy with inhaled lavender essential oil and breathing exercises on ECT-related anxiety in depressed patients.",
+          "doi": "10.1016/j.explore.2021.12.006",
+          "category": "stress_anxiety",
+          "abstract_length": 1568,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6511,
+          "pmid": "36354243",
+          "title": "Effect of short-term magnesium supplementation on anxiety, depression and sleep quality in patients after open-heart surgery.",
+          "verified_title": "Effect of short-term magnesium supplementation on anxiety, depression and sleep quality in patients after open-heart surgery.",
+          "doi": "10.1684/mrh.2022.0503",
+          "category": "stress_anxiety",
+          "abstract_length": 1448,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6512,
+          "pmid": "36977935",
+          "title": "Effects of melatonin on postoperative sleep quality: a systematic review, meta-analysis, and trial sequential analysis.",
+          "verified_title": "Effects of melatonin on postoperative sleep quality: a systematic review, meta-analysis, and trial sequential analysis.",
+          "doi": "10.1007/s12630-023-02442-1",
+          "category": "sleep",
+          "abstract_length": 2235,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6513,
+          "pmid": "35277011",
+          "title": "Effect of Alpha-S1-Casein Tryptic Hydrolysate and L-Theanine on Poor Sleep Quality: A Double Blind, Randomized Placebo-Controlled Crossover Trial.",
+          "verified_title": "Effect of Alpha-S1-Casein Tryptic Hydrolysate and L-Theanine on Poor Sleep Quality: A Double Blind, Randomized Placebo-Controlled Crossover Trial.",
+          "doi": "10.3390/nu14030652",
+          "category": "sleep",
+          "abstract_length": 1364,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6514,
+          "pmid": "35436355",
+          "title": "High dose melatonin increases sleep duration during nighttime and daytime sleep episodes in older adults.",
+          "verified_title": "High dose melatonin increases sleep duration during nighttime and daytime sleep episodes in older adults.",
+          "doi": "10.1111/jpi.12801",
+          "category": "sleep",
+          "abstract_length": 1267,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6515,
+          "pmid": "40900353",
+          "title": "The role of melatonin timing on short-term memory retention during sleep restriction.",
+          "verified_title": "The role of melatonin timing on short-term memory retention during sleep restriction.",
+          "doi": "10.1007/s00213-025-06887-8",
+          "category": "sleep",
+          "abstract_length": 2553,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6516,
+          "pmid": "39821326",
+          "title": "Resetting of the Human Circadian Melatonin Rhythm by Ambient Hypoxia.",
+          "verified_title": "Resetting of the Human Circadian Melatonin Rhythm by Ambient Hypoxia.",
+          "doi": "10.1111/jpi.70029",
+          "category": "sleep",
+          "abstract_length": 1375,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6517-6524-exact.json",
+      "range": [
+        6517,
+        6524
+      ],
+      "rows": [
+        {
+          "wave": 6517,
+          "pmid": "35184264",
+          "title": "The Role of Magnesium in Sleep Health: a Systematic Review of Available Literature.",
+          "verified_title": "The Role of Magnesium in Sleep Health: a Systematic Review of Available Literature.",
+          "doi": "10.1007/s12011-022-03162-1",
+          "category": "sleep",
+          "abstract_length": 1876,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6518,
+          "pmid": "36011832",
+          "title": "The Effects of the Exogenous Melatonin on Shift Work Sleep Disorder in Health Personnel: A Systematic Review.",
+          "verified_title": "The Effects of the Exogenous Melatonin on Shift Work Sleep Disorder in Health Personnel: A Systematic Review.",
+          "doi": "10.3390/ijerph191610199",
+          "category": "sleep",
+          "abstract_length": 2048,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6519,
+          "pmid": "40696633",
+          "title": "Serum magnesium levels and their association with sleep quality and disease severity in fibromyalgia syndrome: An observational cross-sectional study.",
+          "verified_title": "Serum magnesium levels and their association with sleep quality and disease severity in fibromyalgia syndrome: An observational cross-sectional study.",
+          "doi": "10.1097/MD.0000000000043446",
+          "category": "sleep",
+          "abstract_length": 2182,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6520,
+          "pmid": "37958842",
+          "title": "Changes in Melatonin Concentration in a Clinical Observation Study under the Influence of Low-Frequency Magnetic Fields (Magnetic Stimulation in Men with Low Back Pain)-Results of Changes in an Eight-Point Circadian Profile.",
+          "verified_title": "Changes in Melatonin Concentration in a Clinical Observation Study under the Influence of Low-Frequency Magnetic Fields (Magnetic Stimulation in Men with Low Back Pain)-Results of Changes in an Eight-Point Circadian Profile.",
+          "doi": "10.3390/ijms242115860",
+          "category": "sleep",
+          "abstract_length": 1387,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6521,
+          "pmid": "35147654",
+          "title": "Insomnia treatment: a new multitasking natural compound based on melatonin and cannabis extracts.",
+          "verified_title": "Insomnia treatment: a new multitasking natural compound based on melatonin and cannabis extracts.",
+          "doi": "10.7417/CT.2022.2399",
+          "category": "sleep",
+          "abstract_length": 1340,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6522,
+          "pmid": "40288357",
+          "title": "Indirect Effect Model with Surge Function for Describing Melatonin Circadian Rhythm: Quantitative Comparison and Application between Normal Sleepers and Patients with Delayed Sleep-Wake Phase Disorder.",
+          "verified_title": "Indirect Effect Model with Surge Function for Describing Melatonin Circadian Rhythm: Quantitative Comparison and Application between Normal Sleepers and Patients with Delayed Sleep-Wake Phase Disorder.",
+          "doi": "10.1159/000546125",
+          "category": "sleep",
+          "abstract_length": 1986,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6523,
+          "pmid": "38112608",
+          "title": "Salivary Cortisol and Melatonin, Sleep, and Behavioral Patterns in Older Adults Living With Dementia.",
+          "verified_title": "Salivary Cortisol and Melatonin, Sleep, and Behavioral Patterns in Older Adults Living With Dementia.",
+          "doi": "10.1097/NNR.0000000000000709",
+          "category": "sleep",
+          "abstract_length": 2029,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6524,
+          "pmid": "39125347",
+          "title": "Effects of an Acute Dose of Zinc Monomethionine Asparate and Magnesium Asparate (ZMA) on Subsequent Sleep and Next-Day Morning Performance (Countermovement Jumps, Repeated Sprints and Stroop Test).",
+          "verified_title": "Effects of an Acute Dose of Zinc Monomethionine Asparate and Magnesium Asparate (ZMA) on Subsequent Sleep and Next-Day Morning Performance (Countermovement Jumps, Repeated Sprints and Stroop Test).",
+          "doi": "10.3390/nu16152466",
+          "category": "sleep",
+          "abstract_length": 1474,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6525-6532-exact.json",
+      "range": [
+        6525,
+        6532
+      ],
+      "rows": [
+        {
+          "wave": 6525,
+          "pmid": "38257144",
+          "title": "Effects of Supplementing Zinc Magnesium Aspartate on Sleep Quality and Submaximal Weightlifting Performance, following Two Consecutive Nights of Partial Sleep Deprivation.",
+          "verified_title": "Effects of Supplementing Zinc Magnesium Aspartate on Sleep Quality and Submaximal Weightlifting Performance, following Two Consecutive Nights of Partial Sleep Deprivation.",
+          "doi": "10.3390/nu16020251",
+          "category": "sleep",
+          "abstract_length": 1391,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6526,
+          "pmid": "37950776",
+          "title": "Comparing the Effectiveness of Physical Exercise Intervention and Melatonin Supplement in Improving Sleep Quality in Children with ASD.",
+          "verified_title": "Comparing the Effectiveness of Physical Exercise Intervention and Melatonin Supplement in Improving Sleep Quality in Children with ASD.",
+          "doi": "10.1007/s10803-023-06172-7",
+          "category": "sleep",
+          "abstract_length": 1334,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6527,
+          "pmid": "38347109",
+          "title": "Melatonin secretion and sleep disorders in patients with spinal cord injuries.",
+          "verified_title": "Melatonin secretion and sleep disorders in patients with spinal cord injuries.",
+          "doi": "10.1038/s41393-024-00959-w",
+          "category": "sleep",
+          "abstract_length": 1565,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6528,
+          "pmid": "36520251",
+          "title": "A 1-week sleep and light intervention improves mood in premenstrual dysphoric disorder in association with shifting melatonin offset time earlier.",
+          "verified_title": "A 1-week sleep and light intervention improves mood in premenstrual dysphoric disorder in association with shifting melatonin offset time earlier.",
+          "doi": "10.1007/s00737-022-01283-z",
+          "category": "sleep",
+          "abstract_length": 1772,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6529,
+          "pmid": "36647974",
+          "title": "Study of Exogenous Melatonin as a Treatment Modality for Sleep and Psychiatric Disorders in Hemodialysis Patients.",
+          "verified_title": "Study of Exogenous Melatonin as a Treatment Modality for Sleep and Psychiatric Disorders in Hemodialysis Patients.",
+          "doi": "10.4103/1319-2442.367802",
+          "category": "sleep",
+          "abstract_length": 1915,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6530,
+          "pmid": "36583881",
+          "title": "The effect of treatment with melatonin on primary school aged children with difficulty in initiation and maintenance of sleep.",
+          "verified_title": "The effect of treatment with melatonin on primary school aged children with difficulty in initiation and maintenance of sleep.",
+          "doi": "10.24953/turkjped.2018.1381",
+          "category": "sleep",
+          "abstract_length": 1417,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6531,
+          "pmid": "40009022",
+          "title": "Sleep Induction in Pediatric EEG Recordings: Chloral Hydrate Versus Melatonin and Hydoxyzine.",
+          "verified_title": "Sleep Induction in Pediatric EEG Recordings: Chloral Hydrate Versus Melatonin and Hydoxyzine.",
+          "doi": "10.1097/WNP.0000000000001113",
+          "category": "sleep",
+          "abstract_length": 1583,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6532,
+          "pmid": "38445651",
+          "title": "Low-dose exogenous melatonin plus evening dim light and time in bed scheduling advances circadian phase irrespective of measured or estimated dim light melatonin onset time: preliminary findings.",
+          "verified_title": "Low-dose exogenous melatonin plus evening dim light and time in bed scheduling advances circadian phase irrespective of measured or estimated dim light melatonin onset time: preliminary findings.",
+          "doi": "10.5664/jcsm.11076",
+          "category": "sleep",
+          "abstract_length": 2194,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6533-6540-exact.json",
+      "range": [
+        6533,
+        6540
+      ],
+      "rows": [
+        {
+          "wave": 6533,
+          "pmid": "37757507",
+          "title": "The effect of melatonin on sleep quality and cognitive function of individuals undergoing hemodialysis.",
+          "verified_title": "The effect of melatonin on sleep quality and cognitive function of individuals undergoing hemodialysis.",
+          "doi": "10.1016/j.sleep.2023.09.011",
+          "category": "sleep",
+          "abstract_length": 1678,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6534,
+          "pmid": "36586616",
+          "title": "Critically-timed sleep+light interventions differentially improve mood in pregnancy vs. postpartum depression by shifting melatonin rhythms.",
+          "verified_title": "Critically-timed sleep+light interventions differentially improve mood in pregnancy vs. postpartum depression by shifting melatonin rhythms.",
+          "doi": "10.1016/j.jad.2022.12.079",
+          "category": "sleep",
+          "abstract_length": 1653,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6535,
+          "pmid": "37302816",
+          "title": "Investigating the effects of a blue-blocking software on the daily rhythm of sleep, melatonin, cortisol, positive and negative emotions.",
+          "verified_title": "Investigating the effects of a blue-blocking software on the daily rhythm of sleep, melatonin, cortisol, positive and negative emotions.",
+          "doi": "10.1080/07420528.2023.2222816",
+          "category": "sleep",
+          "abstract_length": 2731,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6536,
+          "pmid": "35998110",
+          "title": "Melatonin suppression does not automatically alter sleepiness, vigilance, sensory processing, or sleep.",
+          "verified_title": "Melatonin suppression does not automatically alter sleepiness, vigilance, sensory processing, or sleep.",
+          "doi": "10.1093/sleep/zsac199",
+          "category": "sleep",
+          "abstract_length": 1945,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6537,
+          "pmid": "38309436",
+          "title": "Buprenorphine induced opioid withdrawal syndrome relieved by adjunctive Magnesium: A clinical trial.",
+          "verified_title": "Buprenorphine induced opioid withdrawal syndrome relieved by adjunctive Magnesium: A clinical trial.",
+          "doi": "10.1016/j.josat.2024.209307",
+          "category": "withdrawal_nps",
+          "abstract_length": 1765,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6538,
+          "pmid": "40342086",
+          "title": "Sustained-release naltrexone for opioid dependence.",
+          "verified_title": "Sustained-release naltrexone for opioid dependence.",
+          "doi": "10.1002/14651858.CD006140.pub3",
+          "category": "withdrawal_nps",
+          "abstract_length": 6348,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6539,
+          "pmid": "39798867",
+          "title": "Pomegranate juice ameliorates craving and oxidative stress on patients under medication for opioid addiction treatment with methadone and buprenorphine: A ranzomised controlled trial.",
+          "verified_title": "Pomegranate juice ameliorates craving and oxidative stress on patients under medication for opioid addiction treatment with methadone and buprenorphine: A ranzomised controlled trial.",
+          "doi": "10.1016/j.clnesp.2025.01.025",
+          "category": "withdrawal_nps",
+          "abstract_length": 1522,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6540,
+          "pmid": "39618048",
+          "title": "Recovery Capital and Subsequent Overdose Risk and Addiction Treatment Engagement Among Emergency Department Patients at High Risk of Opioid Overdose.",
+          "verified_title": "Recovery Capital and Subsequent Overdose Risk and Addiction Treatment Engagement Among Emergency Department Patients at High Risk of Opioid Overdose.",
+          "doi": "10.1080/10826084.2024.2434003",
+          "category": "withdrawal_nps",
+          "abstract_length": 1739,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6541-6548-exact.json",
+      "range": [
+        6541,
+        6548
+      ],
+      "rows": [
+        {
+          "wave": 6541,
+          "pmid": "35688053",
+          "title": "Outcomes of patients treated with low-dose flumazenil for benzodiazepine detoxification: A description of 26 participants.",
+          "verified_title": "Outcomes of patients treated with low-dose flumazenil for benzodiazepine detoxification: A description of 26 participants.",
+          "doi": "10.1016/j.drugalcdep.2022.109517",
+          "category": "withdrawal_nps",
+          "abstract_length": 1705,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6542,
+          "pmid": "40288650",
+          "title": "Proactive Addiction Consultation for Hospitalized Patients With Opioid Use Disorder: A Pilot Study.",
+          "verified_title": "Proactive Addiction Consultation for Hospitalized Patients With Opioid Use Disorder: A Pilot Study.",
+          "doi": "10.1016/j.jaclp.2025.04.002",
+          "category": "withdrawal_nps",
+          "abstract_length": 2729,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6543,
+          "pmid": "38110799",
+          "title": "Implicit Racial Bias in Evaluation of Neonatal Opioid Withdrawal Syndrome.",
+          "verified_title": "Implicit Racial Bias in Evaluation of Neonatal Opioid Withdrawal Syndrome.",
+          "doi": "10.1007/s40615-023-01887-w",
+          "category": "withdrawal_nps",
+          "abstract_length": 935,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6544,
+          "pmid": "40548916",
+          "title": "Transcutaneous Cervical Vagus Nerve Stimulation Modulates Prefrontal Cortex Activity During Opioid Withdrawal in Individuals With Opioid Use Disorder.",
+          "verified_title": "Transcutaneous Cervical Vagus Nerve Stimulation Modulates Prefrontal Cortex Activity During Opioid Withdrawal in Individuals With Opioid Use Disorder.",
+          "doi": "10.1016/j.neurom.2025.04.012",
+          "category": "withdrawal_nps",
+          "abstract_length": 1156,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6545,
+          "pmid": "38857770",
+          "title": "Reducing perceived barriers to scaling up overdose education and naloxone distribution and medications for opioid use disorder in the United States in the HEALing (Helping End Addiction Long-Term®) communities study.",
+          "verified_title": "Reducing perceived barriers to scaling up overdose education and naloxone distribution and medications for opioid use disorder in the United States in the HEALing (Helping End Addiction Long-Term®) communities study.",
+          "doi": "10.1016/j.ypmed.2024.108034",
+          "category": "withdrawal_nps",
+          "abstract_length": 1792,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6546,
+          "pmid": "36195895",
+          "title": "Factors that distinguish opioid withdrawal during induction with buprenorphine microdosing: a configurational analysis.",
+          "verified_title": "Factors that distinguish opioid withdrawal during induction with buprenorphine microdosing: a configurational analysis.",
+          "doi": "10.1186/s13722-022-00336-z",
+          "category": "withdrawal_nps",
+          "abstract_length": 1759,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6547,
+          "pmid": "35537121",
+          "title": "Adjunctive High-Definition Transcranial Direct Current Stimulation in Brain Glutamate-Glutamine and γ-Aminobutyric Acid, Withdrawal and Craving During Early Abstinence Among Patients With Opioid Use Disorder on Buprenorphine-Naloxone: A Proton Magnetic Resonance Spectroscopy-Based Pilot Study.",
+          "verified_title": "Adjunctive High-Definition Transcranial Direct Current Stimulation in Brain Glutamate-Glutamine and γ-Aminobutyric Acid, Withdrawal and Craving During Early Abstinence Among Patients With Opioid Use Disorder on Buprenorphine-Naloxone: A Proton Magnetic Resonance Spectroscopy-Based Pilot Study.",
+          "doi": "10.1097/YCT.0000000000000820",
+          "category": "withdrawal_nps",
+          "abstract_length": 1720,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6548,
+          "pmid": "35255353",
+          "title": "Innovating for real-world care: A systematic review of interventions to improve post-detoxification outcomes for opioid use disorder.",
+          "verified_title": "Innovating for real-world care: A systematic review of interventions to improve post-detoxification outcomes for opioid use disorder.",
+          "doi": "10.1016/j.drugalcdep.2022.109379",
+          "category": "withdrawal_nps",
+          "abstract_length": 1674,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6549-6556-exact.json",
+      "range": [
+        6549,
+        6556
+      ],
+      "rows": [
+        {
+          "wave": 6549,
+          "pmid": "36226785",
+          "title": "Reasons for leaving treatment among patients with opioid dependence: A 3-month prospective follow-up study.",
+          "verified_title": "Reasons for leaving treatment among patients with opioid dependence: A 3-month prospective follow-up study.",
+          "doi": "10.5055/jom.2022.0739",
+          "category": "withdrawal_nps",
+          "abstract_length": 1482,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6550,
+          "pmid": "35705944",
+          "title": "Morphine versus methadone for neonatal opioid withdrawal syndrome: a randomized controlled pilot study.",
+          "verified_title": "Morphine versus methadone for neonatal opioid withdrawal syndrome: a randomized controlled pilot study.",
+          "doi": "10.1186/s12887-022-03401-3",
+          "category": "withdrawal_nps",
+          "abstract_length": 1785,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6551,
+          "pmid": "42420665",
+          "title": "Liposuction for Lipedema Significantly Reduces Benzodiazepine Dependence: A Prospective Cohort Study.",
+          "verified_title": "Liposuction for Lipedema Significantly Reduces Benzodiazepine Dependence: A Prospective Cohort Study.",
+          "doi": "10.1007/s00266-026-06116-3",
+          "category": "withdrawal_nps",
+          "abstract_length": 2033,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6552,
+          "pmid": "39545441",
+          "title": "Therapeutic experience with tramadol for opioid dependence: A prospective observational study from India.",
+          "verified_title": "Therapeutic experience with tramadol for opioid dependence: A prospective observational study from India.",
+          "doi": "10.5055/jom.0898",
+          "category": "withdrawal_nps",
+          "abstract_length": 1440,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6553,
+          "pmid": "38671482",
+          "title": "Contextual barriers and enablers to establishing an addiction-focused consultation team for hospitalized adults with opioid use disorder.",
+          "verified_title": "Contextual barriers and enablers to establishing an addiction-focused consultation team for hospitalized adults with opioid use disorder.",
+          "doi": "10.1186/s13722-024-00461-x",
+          "category": "withdrawal_nps",
+          "abstract_length": 2628,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6554,
+          "pmid": "41945891",
+          "title": "Trends in Buprenorphine and Methadone Initiation for Opioid Use Disorder Among Patients Using Fentanyl: A Mixed-Methods Analysis From an Inpatient Addiction Consult Service.",
+          "verified_title": "Trends in Buprenorphine and Methadone Initiation for Opioid Use Disorder Among Patients Using Fentanyl: A Mixed-Methods Analysis From an Inpatient Addiction Consult Service.",
+          "doi": "10.1097/ADM.0000000000001693",
+          "category": "withdrawal_nps",
+          "abstract_length": 1779,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6555,
+          "pmid": "39908531",
+          "title": "Medication for Opioid Use Disorder for Hospitalized Patients at Six New York City Public Hospitals With an Addiction Consult Service.",
+          "verified_title": "Medication for Opioid Use Disorder for Hospitalized Patients at Six New York City Public Hospitals With an Addiction Consult Service.",
+          "doi": "10.1097/ADM.0000000000001450",
+          "category": "withdrawal_nps",
+          "abstract_length": 1629,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6556,
+          "pmid": "36052928",
+          "title": "Evaluation of an opioid and addiction treatment tele-education program for healthcare providers in a rural and frontier state.",
+          "verified_title": "Evaluation of an opioid and addiction treatment tele-education program for healthcare providers in a rural and frontier state.",
+          "doi": "10.5055/jom.2022.0725",
+          "category": "withdrawal_nps",
+          "abstract_length": 1188,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6557-6564-exact.json",
+      "range": [
+        6557,
+        6564
+      ],
+      "rows": [
+        {
+          "wave": 6557,
+          "pmid": "40312813",
+          "title": "Effect of the Comprehensive Addiction and Recovery Act (CARA) on Buprenorphine Prescribing for Opioid Use Disorder Among Medicare Beneficiaries With Back Pain.",
+          "verified_title": "Effect of the Comprehensive Addiction and Recovery Act (CARA) on Buprenorphine Prescribing for Opioid Use Disorder Among Medicare Beneficiaries With Back Pain.",
+          "doi": "10.1097/BRS.0000000000005243",
+          "category": "withdrawal_nps",
+          "abstract_length": 2042,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6558,
+          "pmid": "40116133",
+          "title": "Two-Phase Inpatient Withdrawal Programme for Long-Term Opioid Use in Non-Cancer Pain.",
+          "verified_title": "Two-Phase Inpatient Withdrawal Programme for Long-Term Opioid Use in Non-Cancer Pain.",
+          "doi": "10.1002/ejp.70010",
+          "category": "withdrawal_nps",
+          "abstract_length": 2175,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6559,
+          "pmid": "35412225",
+          "title": "Phenobarbital use in benzodiazepine and z-drug detoxification: a single-centre 15-year observational retrospective study in clinical practice.",
+          "verified_title": "Phenobarbital use in benzodiazepine and z-drug detoxification: a single-centre 15-year observational retrospective study in clinical practice.",
+          "doi": "10.1007/s11739-022-02976-0",
+          "category": "withdrawal_nps",
+          "abstract_length": 1633,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6560,
+          "pmid": "35599503",
+          "title": "Whole body massage for newborns: A report on non-invasive methodology for neonatal opioid withdrawal syndrome.",
+          "verified_title": "Whole body massage for newborns: A report on non-invasive methodology for neonatal opioid withdrawal syndrome.",
+          "doi": "10.3233/NPM-220989",
+          "category": "withdrawal_nps",
+          "abstract_length": 1252,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6561,
+          "pmid": "42095700",
+          "title": "Cost-Effectiveness of the START Hospital Addiction Consultation Service for Opioid Use Disorder Treatment.",
+          "verified_title": "Cost-Effectiveness of the START Hospital Addiction Consultation Service for Opioid Use Disorder Treatment.",
+          "doi": "10.1001/jamanetworkopen.2026.11324",
+          "category": "withdrawal_nps",
+          "abstract_length": 2471,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6562,
+          "pmid": "40379792",
+          "title": "[Current opioid consumption among younger patients : A comparison between the years 2019 and 2023 in a large addiction clinic in Hamburg].",
+          "verified_title": "[Current opioid consumption among younger patients : A comparison between the years 2019 and 2023 in a large addiction clinic in Hamburg].",
+          "doi": "10.1007/s00115-025-01833-7",
+          "category": "withdrawal_nps",
+          "abstract_length": 1693,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6563,
+          "pmid": "39736490",
+          "title": "Comparisons of management approaches in neonatal opioid withdrawal syndrome: The eat, sleep, console approach vs. the Finnegan approach.",
+          "verified_title": "Comparisons of management approaches in neonatal opioid withdrawal syndrome: The eat, sleep, console approach vs. the Finnegan approach.",
+          "doi": "10.1016/j.semperi.2024.152021",
+          "category": "withdrawal_nps",
+          "abstract_length": 423,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6564,
+          "pmid": "38976265",
+          "title": "Extended-Release 7-Day Injectable Buprenorphine for Patients With Minimal to Mild Opioid Withdrawal.",
+          "verified_title": "Extended-Release 7-Day Injectable Buprenorphine for Patients With Minimal to Mild Opioid Withdrawal.",
+          "doi": "10.1001/jamanetworkopen.2024.20702",
+          "category": "withdrawal_nps",
+          "abstract_length": 3297,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6565-6572-exact.json",
+      "range": [
+        6565,
+        6572
+      ],
+      "rows": [
+        {
+          "wave": 6565,
+          "pmid": "36796176",
+          "title": "Psychosocial problems and high amount of opioid administration are associated with opioid dependence and abuse after first exposure for chronic pain patients.",
+          "verified_title": "Psychosocial problems and high amount of opioid administration are associated with opioid dependence and abuse after first exposure for chronic pain patients.",
+          "doi": "10.1016/j.addbeh.2023.107657",
+          "category": "withdrawal_nps",
+          "abstract_length": 1655,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6566,
+          "pmid": "36549227",
+          "title": "The effects of childhood trauma and mental disorders on treatment engagement, contact with the criminal justice system, and mortality among people with opioid dependence.",
+          "verified_title": "The effects of childhood trauma and mental disorders on treatment engagement, contact with the criminal justice system, and mortality among people with opioid dependence.",
+          "doi": "10.1016/j.drugalcdep.2022.109734",
+          "category": "withdrawal_nps",
+          "abstract_length": 1723,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6567,
+          "pmid": "41772920",
+          "title": "Balancing transition and readmission: a comparative study of low-dose vs standard buprenorphine initiation for medically managed opioid withdrawal.",
+          "verified_title": "Balancing transition and readmission: a comparative study of low-dose vs standard buprenorphine initiation for medically managed opioid withdrawal.",
+          "doi": "10.1080/10550887.2026.2625026",
+          "category": "withdrawal_nps",
+          "abstract_length": 1862,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6568,
+          "pmid": "41579502",
+          "title": "Patterns of opioid and sedative use in adult ICUs: Insights from the ALERT-ICU study on iatrogenic withdrawal syndrome.",
+          "verified_title": "Patterns of opioid and sedative use in adult ICUs: Insights from the ALERT-ICU study on iatrogenic withdrawal syndrome.",
+          "doi": "10.1016/j.jcrc.2026.155444",
+          "category": "withdrawal_nps",
+          "abstract_length": 1472,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6569,
+          "pmid": "40410582",
+          "title": "Efficacy of stochastic vibro-tactile stimulation for newborns at risk of neonatal opioid withdrawal syndrome.",
+          "verified_title": "Efficacy of stochastic vibro-tactile stimulation for newborns at risk of neonatal opioid withdrawal syndrome.",
+          "doi": "10.1038/s41390-025-04162-2",
+          "category": "withdrawal_nps",
+          "abstract_length": 1878,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6570,
+          "pmid": "41271463",
+          "title": "A multisite pilot type 2 hybrid implementation-effectiveness trial of a community pharmacist-led model of collaborative care for Medication Assisted Treatment for Opioid Dependence: outcomes of the EPIC-MATOD trial.",
+          "verified_title": "A multisite pilot type 2 hybrid implementation-effectiveness trial of a community pharmacist-led model of collaborative care for Medication Assisted Treatment for Opioid Dependence: outcomes of the EPIC-MATOD trial.",
+          "doi": "10.1016/j.sapharm.2025.10.009",
+          "category": "withdrawal_nps",
+          "abstract_length": 1945,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6571,
+          "pmid": "39575611",
+          "title": "Pharmacokinetic Modeling and Model-Based Hypothesis Generation for Dose Optimization of Clonidine in Neonates With Neonatal Opioid Withdrawal Syndrome.",
+          "verified_title": "Pharmacokinetic Modeling and Model-Based Hypothesis Generation for Dose Optimization of Clonidine in Neonates With Neonatal Opioid Withdrawal Syndrome.",
+          "doi": "10.1002/cpt.3507",
+          "category": "withdrawal_nps",
+          "abstract_length": 1676,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6572,
+          "pmid": "40032221",
+          "title": "A Bayesian analysis of the VITAL trial: effects of ω-3 fatty acid supplementation on cardiovascular events.",
+          "verified_title": "A Bayesian analysis of the VITAL trial: effects of ω-3 fatty acid supplementation on cardiovascular events.",
+          "doi": "10.1016/j.ajcnut.2025.02.028",
+          "category": "cardiometabolic",
+          "abstract_length": 2170,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6573-6580-exact.json",
+      "range": [
+        6573,
+        6580
+      ],
+      "rows": [
+        {
+          "wave": 6573,
+          "pmid": "40841122",
+          "title": "Association of serum potassium time in target range with cardiovascular outcomes in patients with HFpEF.",
+          "verified_title": "Association of serum potassium time in target range with cardiovascular outcomes in patients with HFpEF.",
+          "doi": "10.1136/openhrt-2025-003439",
+          "category": "cardiometabolic",
+          "abstract_length": 1609,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6574,
+          "pmid": "39519588",
+          "title": "Improvement in Glycolipid Metabolism Parameters After Supplementing Fish Oil-Derived Omega-3 Fatty Acids Is Associated with Gut Microbiota and Lipid Metabolites in Type 2 Diabetes Mellitus.",
+          "verified_title": "Improvement in Glycolipid Metabolism Parameters After Supplementing Fish Oil-Derived Omega-3 Fatty Acids Is Associated with Gut Microbiota and Lipid Metabolites in Type 2 Diabetes Mellitus.",
+          "doi": "10.3390/nu16213755",
+          "category": "cardiometabolic",
+          "abstract_length": 2095,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6575,
+          "pmid": "37938096",
+          "title": "Effects of dietary nitrate and vitamin C co-ingestion on blood pressure and hand-grip strength in young adults.",
+          "verified_title": "Effects of dietary nitrate and vitamin C co-ingestion on blood pressure and hand-grip strength in young adults.",
+          "doi": "10.1024/0300-9831/a000799",
+          "category": "cardiometabolic",
+          "abstract_length": 1959,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6576,
+          "pmid": "41263071",
+          "title": "Consistency of Blood Pressure Response to Potassium-Enriched Salt in the China Salt Substitute Study.",
+          "verified_title": "Consistency of Blood Pressure Response to Potassium-Enriched Salt in the China Salt Substitute Study.",
+          "doi": "10.1161/HYPERTENSIONAHA.125.24723",
+          "category": "cardiometabolic",
+          "abstract_length": 1826,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6577,
+          "pmid": "40611483",
+          "title": "Diurnal Urinary Aldosterone Excretion and Potassium Intake During Pregnancy Are Associated With High Normal Blood Pressure in Early Childhood.",
+          "verified_title": "Diurnal Urinary Aldosterone Excretion and Potassium Intake During Pregnancy Are Associated With High Normal Blood Pressure in Early Childhood.",
+          "doi": "10.1161/JAHA.124.042165",
+          "category": "cardiometabolic",
+          "abstract_length": 1778,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6578,
+          "pmid": "40077649",
+          "title": "The Effects of a Whole-Food Plant-Based Nutrition Education Program on Blood Pressure and Potassium in Chronic Kidney Disease: A Proof-of-Concept Study.",
+          "verified_title": "The Effects of a Whole-Food Plant-Based Nutrition Education Program on Blood Pressure and Potassium in Chronic Kidney Disease: A Proof-of-Concept Study.",
+          "doi": "10.3390/nu17050779",
+          "category": "cardiometabolic",
+          "abstract_length": 2051,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6579,
+          "pmid": "38595031",
+          "title": "Omega-3 polyunsaturated fatty acid derived lipid mediators: a comprehensive update on their application in anti-cancer drug discovery.",
+          "verified_title": "Omega-3 polyunsaturated fatty acid derived lipid mediators: a comprehensive update on their application in anti-cancer drug discovery.",
+          "doi": "10.1080/17460441.2024.2340493",
+          "category": "cardiometabolic",
+          "abstract_length": 1386,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6580,
+          "pmid": "38548513",
+          "title": "Serum potassium abnormalities, renin-angiotensin-aldosterone system inhibitor discontinuation, and clinical outcomes in patients with chronic cardiovascular, metabolic, and renal conditions: A population-based analysis.",
+          "verified_title": "Serum potassium abnormalities, renin-angiotensin-aldosterone system inhibitor discontinuation, and clinical outcomes in patients with chronic cardiovascular, metabolic, and renal conditions: A population-based analysis.",
+          "doi": "10.1016/j.ejim.2024.03.021",
+          "category": "cardiometabolic",
+          "abstract_length": 1973,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6581-6588-exact.json",
+      "range": [
+        6581,
+        6588
+      ],
+      "rows": [
+        {
+          "wave": 6581,
+          "pmid": "41017568",
+          "title": "Comparative cardiovascular risk of sulfonylureas with low- and high-affinities for cardiac mitochondrial adenosine triphosphate-sensitive potassium channels versus dipeptidyl peptidase-4 inhibitors in patients with type 2 diabetes: A cohort study.",
+          "verified_title": "Comparative cardiovascular risk of sulfonylureas with low- and high-affinities for cardiac mitochondrial adenosine triphosphate-sensitive potassium channels versus dipeptidyl peptidase-4 inhibitors in patients with type 2 diabetes: A cohort study.",
+          "doi": "10.1111/dom.70157",
+          "category": "cardiometabolic",
+          "abstract_length": 1999,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6582,
+          "pmid": "41996571",
+          "title": "Sex-specific cardiovascular risk of lower potassium intake in patients with CKD.",
+          "verified_title": "Sex-specific cardiovascular risk of lower potassium intake in patients with CKD.",
+          "doi": "10.1093/eurjpc/zwag226",
+          "category": "cardiometabolic",
+          "abstract_length": 1596,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6583,
+          "pmid": "41201837",
+          "title": "Fish-Oil Supplementation and Cardiovascular Events in Patients Receiving Hemodialysis.",
+          "verified_title": "Fish-Oil Supplementation and Cardiovascular Events in Patients Receiving Hemodialysis.",
+          "doi": "10.1056/NEJMoa2513032",
+          "category": "cardiometabolic",
+          "abstract_length": 2565,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6584,
+          "pmid": "42035361",
+          "title": "Associations of 24-Hour Urinary Sodium, Potassium Excretion and Sodium-to-Potassium Ratio With Longitudinal Home Blood Pressure Control in Patients With Apparent Treatment-Resistant Hypertension.",
+          "verified_title": "Associations of 24-Hour Urinary Sodium, Potassium Excretion and Sodium-to-Potassium Ratio With Longitudinal Home Blood Pressure Control in Patients With Apparent Treatment-Resistant Hypertension.",
+          "doi": "10.1111/jch.70263",
+          "category": "cardiometabolic",
+          "abstract_length": 1869,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6585,
+          "pmid": "40158256",
+          "title": "Effects of Omega-3 PUFAs on lipid profiles and antioxidant response in depressed adolescents: A metabolomic and lipidomic study.",
+          "verified_title": "Effects of Omega-3 PUFAs on lipid profiles and antioxidant response in depressed adolescents: A metabolomic and lipidomic study.",
+          "doi": "10.1016/j.redox.2025.103617",
+          "category": "cardiometabolic",
+          "abstract_length": 1884,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6586,
+          "pmid": "40340487",
+          "title": "Comparative study between nebulized and intravenous magnesium sulfate for treatment of persistent pulmonary hypertension in neonates.",
+          "verified_title": "Comparative study between nebulized and intravenous magnesium sulfate for treatment of persistent pulmonary hypertension in neonates.",
+          "doi": "10.1177/19345798251325510",
+          "category": "cardiometabolic",
+          "abstract_length": 1610,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6587,
+          "pmid": "39707865",
+          "title": "Fish oil lipid emulsion compared with soybean oil lipid emulsion in pediatric patients with parenteral nutrition-associated cholestasis: A cost-effectiveness study.",
+          "verified_title": "Fish oil lipid emulsion compared with soybean oil lipid emulsion in pediatric patients with parenteral nutrition-associated cholestasis: A cost-effectiveness study.",
+          "doi": "10.1002/jpen.2713",
+          "category": "cardiometabolic",
+          "abstract_length": 1609,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6588,
+          "pmid": "38398809",
+          "title": "High Dose Fish Oil Added to Various Lipid Emulsions Normalizes Superoxide Dismutase 1 Activity in Home Parenteral Nutrition Patients.",
+          "verified_title": "High Dose Fish Oil Added to Various Lipid Emulsions Normalizes Superoxide Dismutase 1 Activity in Home Parenteral Nutrition Patients.",
+          "doi": "10.3390/nu16040485",
+          "category": "cardiometabolic",
+          "abstract_length": 1400,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6589-6596-exact.json",
+      "range": [
+        6589,
+        6596
+      ],
+      "rows": [
+        {
+          "wave": 6589,
+          "pmid": "38546454",
+          "title": "Increased nitrate intake from beetroot juice over 4 weeks affects nitrate metabolism, but not vascular function or blood pressure in older adults with hypertension.",
+          "verified_title": "Increased nitrate intake from beetroot juice over 4 weeks affects nitrate metabolism, but not vascular function or blood pressure in older adults with hypertension.",
+          "doi": "10.1039/d3fo03749e",
+          "category": "cardiometabolic",
+          "abstract_length": 1783,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6590,
+          "pmid": "37244392",
+          "title": "Short-term beetroot juice supplementation improves muscle speed and power but does not reduce blood pressure or oxidative stress in 65-79 y old men and women.",
+          "verified_title": "Short-term beetroot juice supplementation improves muscle speed and power but does not reduce blood pressure or oxidative stress in 65-79 y old men and women.",
+          "doi": "10.1016/j.niox.2023.05.005",
+          "category": "cardiometabolic",
+          "abstract_length": 1720,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6591,
+          "pmid": "38056999",
+          "title": "Omega-3 supplementation effects on cardiovascular risk and inflammatory profile in chronic kidney disease patients in hemodialysis treatment: An intervention study.",
+          "verified_title": "Omega-3 supplementation effects on cardiovascular risk and inflammatory profile in chronic kidney disease patients in hemodialysis treatment: An intervention study.",
+          "doi": "10.1016/j.clnesp.2023.09.914",
+          "category": "cardiometabolic",
+          "abstract_length": 1969,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6592,
+          "pmid": "37010174",
+          "title": "EFFECT OF MAGNESIUM L-LACTATE SUPPLEMENT ON BLOOD PRESSURE AND CORRECTED QT INTERVAL IN A SAMPLE OF IRAQI WOMEN WITH METABOLIC SYNDROME.",
+          "verified_title": "EFFECT OF MAGNESIUM L-LACTATE SUPPLEMENT ON BLOOD PRESSURE AND CORRECTED QT INTERVAL IN A SAMPLE OF IRAQI WOMEN WITH METABOLIC SYNDROME.",
+          "doi": "10.36740/WLek202302117",
+          "category": "cardiometabolic",
+          "abstract_length": 1242,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6593,
+          "pmid": "41284153",
+          "title": "Comparative review of translational approaches in lipid-based and water-based encapsulation strategies for coenzyme Q10.",
+          "verified_title": "Comparative review of translational approaches in lipid-based and water-based encapsulation strategies for coenzyme Q10.",
+          "doi": "10.1007/s13346-025-02015-3",
+          "category": "cardiometabolic",
+          "abstract_length": 1897,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6594,
+          "pmid": "40431478",
+          "title": "Low-Calorie, High-Protein Ketogenic Diet Versus Low-Calorie, Low-Sodium, and High-Potassium Mediterranean Diet in Overweight Patients and Patients with Obesity with High-Normal Blood Pressure or Grade I Hypertension: The Keto-Salt Pilot Study.",
+          "verified_title": "Low-Calorie, High-Protein Ketogenic Diet Versus Low-Calorie, Low-Sodium, and High-Potassium Mediterranean Diet in Overweight Patients and Patients with Obesity with High-Normal Blood Pressure or Grade I Hypertension: The Keto-Salt Pilot Study.",
+          "doi": "10.3390/nu17101739",
+          "category": "cardiometabolic",
+          "abstract_length": 2645,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6595,
+          "pmid": "39019159",
+          "title": "The Effect of Dietary Nitrate on the Oral Microbiome and Salivary Biomarkers in Individuals with High Blood Pressure.",
+          "verified_title": "The Effect of Dietary Nitrate on the Oral Microbiome and Salivary Biomarkers in Individuals with High Blood Pressure.",
+          "doi": "10.1016/j.tjnut.2024.07.002",
+          "category": "cardiometabolic",
+          "abstract_length": 1715,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6596,
+          "pmid": "39488682",
+          "title": "Biomarkers of glucose-insulin homeostasis and incident type 2 diabetes and cardiovascular disease: results from the Vitamin D and Omega-3 trial.",
+          "verified_title": "Biomarkers of glucose-insulin homeostasis and incident type 2 diabetes and cardiovascular disease: results from the Vitamin D and Omega-3 trial.",
+          "doi": "10.1186/s12933-024-02470-1",
+          "category": "cardiometabolic",
+          "abstract_length": 2258,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6597-6604-exact.json",
+      "range": [
+        6597,
+        6604
+      ],
+      "rows": [
+        {
+          "wave": 6597,
+          "pmid": "38131187",
+          "title": "Using Genetics to Inform Interventions Related to Sodium and Potassium in Hypertension.",
+          "verified_title": "Using Genetics to Inform Interventions Related to Sodium and Potassium in Hypertension.",
+          "doi": "10.1161/CIRCULATIONAHA.123.065394",
+          "category": "cardiometabolic",
+          "abstract_length": 2219,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6598,
+          "pmid": "38110181",
+          "title": "Metabolomic Insights on Potassium Excretion, Blood Pressure, and Glucose Homeostasis: The African-PREDICT Study.",
+          "verified_title": "Metabolomic Insights on Potassium Excretion, Blood Pressure, and Glucose Homeostasis: The African-PREDICT Study.",
+          "doi": "10.1016/j.tjnut.2023.12.025",
+          "category": "cardiometabolic",
+          "abstract_length": 1997,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6599,
+          "pmid": "38557512",
+          "title": "Comparative Efficacy and Safety of Amlodipine and Losartan Potassium in Essential Hypertension in a Tertiary Hospital of Bangladesh.",
+          "verified_title": "Comparative Efficacy and Safety of Amlodipine and Losartan Potassium in Essential Hypertension in a Tertiary Hospital of Bangladesh.",
+          "doi": "",
+          "category": "cardiometabolic",
+          "abstract_length": 2049,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6600,
+          "pmid": "39488904",
+          "title": "Sex differences in lipid mediators derived from omega-3 fatty acids in older individuals with low-grade chronic inflammation.",
+          "verified_title": "Sex differences in lipid mediators derived from omega-3 fatty acids in older individuals with low-grade chronic inflammation.",
+          "doi": "10.1016/j.plefa.2024.102655",
+          "category": "cardiometabolic",
+          "abstract_length": 1431,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6601,
+          "pmid": "37120928",
+          "title": "Acute beetroot juice reduces blood pressure in young Black and White males but not females.",
+          "verified_title": "Acute beetroot juice reduces blood pressure in young Black and White males but not females.",
+          "doi": "10.1016/j.redox.2023.102718",
+          "category": "cardiometabolic",
+          "abstract_length": 1747,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6602,
+          "pmid": "40962814",
+          "title": "Effect of caffeine and cannabidiol (CBD) co-administration on Δ9-tetrahydrocannabinol (Δ9-THC) subjective effects, performance impairment, and pharmacokinetics.",
+          "verified_title": "Effect of caffeine and cannabidiol (CBD) co-administration on Δ9-tetrahydrocannabinol (Δ9-THC) subjective effects, performance impairment, and pharmacokinetics.",
+          "doi": "10.1038/s41386-025-02232-x",
+          "category": "performance",
+          "abstract_length": 1976,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6603,
+          "pmid": "41297920",
+          "title": "How does acute caffeine ingestion affect maximal strength and muscular power in bench press and back squat in resistance-trained men?",
+          "verified_title": "How does acute caffeine ingestion affect maximal strength and muscular power in bench press and back squat in resistance-trained men?",
+          "doi": "10.1080/15502783.2025.2587791",
+          "category": "performance",
+          "abstract_length": 1833,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6604,
+          "pmid": "40944179",
+          "title": "Citrulline Supplementation Improves Microvascular Function and Muscle Strength in Middle-Aged and Older Adults with Type 2 Diabetes.",
+          "verified_title": "Citrulline Supplementation Improves Microvascular Function and Muscle Strength in Middle-Aged and Older Adults with Type 2 Diabetes.",
+          "doi": "10.3390/nu17172790",
+          "category": "performance",
+          "abstract_length": 1705,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6605-6612-exact.json",
+      "range": [
+        6605,
+        6612
+      ],
+      "rows": [
+        {
+          "wave": 6605,
+          "pmid": "42196973",
+          "title": "Differential Time-of-Day Effects of Caffeine Capsule and Mouth Rinse on Physical Performance and Volleyball-Specific Skills in Adolescent Male Volleyball Players.",
+          "verified_title": "Differential Time-of-Day Effects of Caffeine Capsule and Mouth Rinse on Physical Performance and Volleyball-Specific Skills in Adolescent Male Volleyball Players.",
+          "doi": "10.3390/nu18101514",
+          "category": "performance",
+          "abstract_length": 2396,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6606,
+          "pmid": "41599908",
+          "title": "Deceptive Caffeine Shows Limited Impact on Short-Term Neuromuscular Performance.",
+          "verified_title": "Deceptive Caffeine Shows Limited Impact on Short-Term Neuromuscular Performance.",
+          "doi": "10.3390/nu18020295",
+          "category": "performance",
+          "abstract_length": 2139,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6607,
+          "pmid": "41829961",
+          "title": "The Effect of Novel Low-Dose Caffeine Products on Physical Performance.",
+          "verified_title": "The Effect of Novel Low-Dose Caffeine Products on Physical Performance.",
+          "doi": "10.3390/nu18050791",
+          "category": "performance",
+          "abstract_length": 1806,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6608,
+          "pmid": "41562408",
+          "title": "Static Stretching Acutely Reduces the Ergogenic Effects of Caffeine on Sprint Performance but Not Maximal Ball Velocity in Football Players.",
+          "verified_title": "Static Stretching Acutely Reduces the Ergogenic Effects of Caffeine on Sprint Performance but Not Maximal Ball Velocity in Football Players.",
+          "doi": "10.1002/ejsc.70064",
+          "category": "performance",
+          "abstract_length": 1585,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6609,
+          "pmid": "41627185",
+          "title": "CYP1A2 Genotype and the Ergogenic Effect of Acute Caffeine Intake on Muscular Strength and Endurance Performance in Trained Individuals.",
+          "verified_title": "CYP1A2 Genotype and the Ergogenic Effect of Acute Caffeine Intake on Muscular Strength and Endurance Performance in Trained Individuals.",
+          "doi": "10.1111/sms.70214",
+          "category": "performance",
+          "abstract_length": 1710,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6610,
+          "pmid": "40770884",
+          "title": "Effects of Caffeine and Stress on Persistence and Performance in an Unsolvable Visual Search Task in Humans.",
+          "verified_title": "Effects of Caffeine and Stress on Persistence and Performance in an Unsolvable Visual Search Task in Humans.",
+          "doi": "10.1002/hup.70014",
+          "category": "performance",
+          "abstract_length": 1261,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6611,
+          "pmid": "41261949",
+          "title": "Caffeine exacerbates exercise-induced gut cell damage and is influenced by ADORA2A genotype but not CYP1A2 genotype: A preliminary study.",
+          "verified_title": "Caffeine exacerbates exercise-induced gut cell damage and is influenced by ADORA2A genotype but not CYP1A2 genotype: A preliminary study.",
+          "doi": "10.14814/phy2.70673",
+          "category": "performance",
+          "abstract_length": 1373,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6612,
+          "pmid": "41474358",
+          "title": "Effect of Chronic Caffeine Use on Performance in Division I Baseball Players During the Fall Collegiate Season.",
+          "verified_title": "Effect of Chronic Caffeine Use on Performance in Division I Baseball Players During the Fall Collegiate Season.",
+          "doi": "10.1080/27697061.2025.2604220",
+          "category": "performance",
+          "abstract_length": 1388,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6613-6620-exact.json",
+      "range": [
+        6613,
+        6620
+      ],
+      "rows": [
+        {
+          "wave": 6613,
+          "pmid": "40929353",
+          "title": "Dietary nitrate supplementation suppresses sympathetic neural responses to mechanoreflex activation during static handgrip exercise in postmenopausal women.",
+          "verified_title": "Dietary nitrate supplementation suppresses sympathetic neural responses to mechanoreflex activation during static handgrip exercise in postmenopausal women.",
+          "doi": "10.1152/japplphysiol.00108.2025",
+          "category": "performance",
+          "abstract_length": 2428,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6614,
+          "pmid": "41618893",
+          "title": "Effects of Carbohydrate Combined with Caffeine on the Sports Performance of Basketball Players.",
+          "verified_title": "Effects of Carbohydrate Combined with Caffeine on the Sports Performance of Basketball Players.",
+          "doi": "10.1177/15579883251412111",
+          "category": "performance",
+          "abstract_length": 2525,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6615,
+          "pmid": "41599941",
+          "title": "Coffee Versus Caffeine as Ergogenic Aids: Biological and Methodological Distinctions with Implications for Exercise Performance and Recovery.",
+          "verified_title": "Coffee Versus Caffeine as Ergogenic Aids: Biological and Methodological Distinctions with Implications for Exercise Performance and Recovery.",
+          "doi": "10.3390/nu18020328",
+          "category": "performance",
+          "abstract_length": 1785,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6616,
+          "pmid": "40964913",
+          "title": "Caffeine enhances performance regardless of fueling strategy; however, high carbohydrate availability is associated with improved training speeds compared with ketogenic diet.",
+          "verified_title": "Caffeine enhances performance regardless of fueling strategy; however, high carbohydrate availability is associated with improved training speeds compared with ketogenic diet.",
+          "doi": "10.1017/S0007114525105084",
+          "category": "performance",
+          "abstract_length": 1711,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6617,
+          "pmid": "41754127",
+          "title": "Effects of 8 Weeks of Resistance Training Combined with a High-Protein Diet and Omega-3 Supplementation on Body Composition, Muscular Performance, and Muscle-Related Biomarkers in Overweight Women.",
+          "verified_title": "Effects of 8 Weeks of Resistance Training Combined with a High-Protein Diet and Omega-3 Supplementation on Body Composition, Muscular Performance, and Muscle-Related Biomarkers in Overweight Women.",
+          "doi": "10.3390/nu18040611",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1894,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6618,
+          "pmid": "41638233",
+          "title": "Impact of a high-protein diet with and without strength training over 17 weeks on the plasma metabolome in older adults.",
+          "verified_title": "Impact of a high-protein diet with and without strength training over 17 weeks on the plasma metabolome in older adults.",
+          "doi": "10.1093/ageing/afag010",
+          "category": "aging_sarcopenia",
+          "abstract_length": 2034,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6619,
+          "pmid": "41582618",
+          "title": "The Effects of Soy Protein-Rich Meals on Muscle Health of Older Adults Are Linked to Gut Microbiome Modifications.",
+          "verified_title": "The Effects of Soy Protein-Rich Meals on Muscle Health of Older Adults Are Linked to Gut Microbiome Modifications.",
+          "doi": "10.1002/jcsm.70212",
+          "category": "aging_sarcopenia",
+          "abstract_length": 2860,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6620,
+          "pmid": "41160314",
+          "title": "Elevated alpha-1 antitrypsin and C-reactive protein: association on all-cause and cause-specific mortality in older adults.",
+          "verified_title": "Elevated alpha-1 antitrypsin and C-reactive protein: association on all-cause and cause-specific mortality in older adults.",
+          "doi": "10.1007/s11357-025-01956-4",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1692,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6621-6628-exact.json",
+      "range": [
+        6621,
+        6628
+      ],
+      "rows": [
+        {
+          "wave": 6621,
+          "pmid": "41010484",
+          "title": "Synbiotic Supplementation with Probiotics and Omega-3 Fatty Acids Enhances Upper-Body Muscle Strength in Elite Swimmers: Evidence for Gut-Muscle Axis Modulation During Race-Pace Training.",
+          "verified_title": "Synbiotic Supplementation with Probiotics and Omega-3 Fatty Acids Enhances Upper-Body Muscle Strength in Elite Swimmers: Evidence for Gut-Muscle Axis Modulation During Race-Pace Training.",
+          "doi": "10.3390/nu17182959",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1841,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6622,
+          "pmid": "41228483",
+          "title": "The Effect of Leucine-Enriched β-Lactoglobulin Versus an Isonitrogenous Whey Protein Isolate on Skeletal Muscle Protein Anabolism in Young Healthy Males.",
+          "verified_title": "The Effect of Leucine-Enriched β-Lactoglobulin Versus an Isonitrogenous Whey Protein Isolate on Skeletal Muscle Protein Anabolism in Young Healthy Males.",
+          "doi": "10.3390/nu17213410",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1754,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6623,
+          "pmid": "41228401",
+          "title": "Investigating the Digestibility, Bioavailability and Utilization of Protein Blends in Older Adults Using a Dual Stable Isotope Tracer Technique.",
+          "verified_title": "Investigating the Digestibility, Bioavailability and Utilization of Protein Blends in Older Adults Using a Dual Stable Isotope Tracer Technique.",
+          "doi": "10.3390/nu17213328",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1688,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6624,
+          "pmid": "41139271",
+          "title": "The effects of vitamin D combined with thermotherapy and resistance exercise on inflammatory factors, thyroid hormones and MSTN in elderly patients with sarcopenia.",
+          "verified_title": "The effects of vitamin D combined with thermotherapy and resistance exercise on inflammatory factors, thyroid hormones and MSTN in elderly patients with sarcopenia.",
+          "doi": "10.36721/PJPS.2025.38.6.REG.14442.1",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1432,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6625,
+          "pmid": "41611130",
+          "title": "Elevated miR-194-5p Expression during Short-Term Energy Deficit Attenuates Postexercise Muscle Protein Synthesis by Inhibiting Anabolic Signaling.",
+          "verified_title": "Elevated miR-194-5p Expression during Short-Term Energy Deficit Attenuates Postexercise Muscle Protein Synthesis by Inhibiting Anabolic Signaling.",
+          "doi": "10.1016/j.tjnut.2026.101380",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1858,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6626,
+          "pmid": "41515201",
+          "title": "Independent and Combined Effects of Resistance Training and Whey Protein on Skeletal Muscle Mass and Function in Individuals with MASLD Under Caloric Restriction.",
+          "verified_title": "Independent and Combined Effects of Resistance Training and Whey Protein on Skeletal Muscle Mass and Function in Individuals with MASLD Under Caloric Restriction.",
+          "doi": "10.3390/nu18010083",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1765,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6627,
+          "pmid": "41683325",
+          "title": "Effects of Astragalus membranaceus and Panax notoginseng Saponins Extract on the Pharmacokinetics of Whey Protein Absorption, Intestinal Permeability, and Muscle Function: A Pilot Study.",
+          "verified_title": "Effects of Astragalus membranaceus and Panax notoginseng Saponins Extract on the Pharmacokinetics of Whey Protein Absorption, Intestinal Permeability, and Muscle Function: A Pilot Study.",
+          "doi": "10.3390/nu18030504",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1810,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6628,
+          "pmid": "42508318",
+          "title": "Omega-3 fatty acids and Alzheimer's disease-related brain biomarkers in older adults enriched for preclinical Alzheimer's disease.",
+          "verified_title": "Omega-3 fatty acids and Alzheimer's disease-related brain biomarkers in older adults enriched for preclinical Alzheimer's disease.",
+          "doi": "10.1016/j.plefa.2026.102762",
+          "category": "aging_sarcopenia",
+          "abstract_length": 1760,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    }
+  ]
+}
