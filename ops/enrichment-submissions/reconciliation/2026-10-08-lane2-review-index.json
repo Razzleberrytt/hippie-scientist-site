@@ -56,5 +56,45 @@
     }
   ],
   "reviewStatus": "PARTIAL_REVIEW_REPAIR_DOCUMENTED_NOT_MERGE_READY",
-  "remainingReview": "Complete independent semantic review of all 500, verify global DOI/title collisions and replace or exclude quarantined entries before accepted counts"
+  "remainingReview": "Complete independent semantic review of all 500, verify global DOI/title collisions and replace or exclude quarantined entries before accepted counts",
+  "round2": {
+    "waves": [
+      7503,
+      7507,
+      7516,
+      7519,
+      7520,
+      7522,
+      7524,
+      7526,
+      7529,
+      7530,
+      7531,
+      7534,
+      7537,
+      7547,
+      7548,
+      7551,
+      7553,
+      7554,
+      7559,
+      7562,
+      7563,
+      7571,
+      7573,
+      7576,
+      7577
+    ],
+    "sourceReceiptVerified": 25,
+    "directPubMedRechecked": 2,
+    "primaryRecheckPending": 23,
+    "globalDOITitleCheck": "PENDING",
+    "state": "RESEARCH_ONLY_NOT_CLINICALLY_ADMITTED",
+    "highPriorityFindings": [
+      "7534 overall between-group stress/HR/MAP changes nonsignificant",
+      "7562 perceived sleep outcome nonsignificant",
+      "7576 no delirium or sleep benefit",
+      "7548 and 7551 are related pediatric melatonin follow-ups"
+    ]
+  }
 }
