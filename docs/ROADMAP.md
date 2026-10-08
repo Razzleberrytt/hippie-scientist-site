@@ -1,13 +1,20 @@
 # Roadmap
 
 **Status:** Authoritative milestone plan
-**Last updated:** 2026-08-28
+**Last updated:** 2026-10-08 (generational engineering P0 overlay; milestone history below retained)
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Change tracking:** #4403; execution sync 2026-08-27; post-audit hardening #4416
 **Planning rule:** A milestone is complete only when every exit condition has reproducible proof. Dates are intentionally omitted until dependencies and throughput are measured.
 **Scaling rule:** Once verified user or commercial outcomes exist, observed attributable behavior outranks speculative opportunity. Evidence, safety, disclosure, provenance, publication, accessibility, security, and release gates remain non-negotiable and cannot be overridden by traffic or revenue.
 
+## P0 execution-methodology overlay — Oct 8–16, 2026
+
+**Adopted:** [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) treats the next generation of evidence and semantic intelligence as one coordinated architecture while implementation remains small, scoped, independently reviewable and under the existing three-workstream WIP limit. [Operating playbook](GENERATIONAL_ENGINEERING_P0.md) and [readiness DAG](GENERATIONAL_ENGINEERING_READINESS.md) specify shared source/claim identity, twenty-instrument case handoff, read-only editorial review, production proof, owner gates and tiered verification. Expected gains are hypotheses; observed savings and business ROI are Unknown.
+
+**Execution window (proposed, not automatically scheduled):** October 12–16, beginning with exact GitHub and Cloudflare current-state reconciliation, then source/claim contracts, one vertical read-only case-to-editorial review trace, verification/deployment receipt and retrospective. No existing milestone M0–M6 advances automatically from architectural design, merged GitHub code, or a larger research register.
+
+**Safety/validation invariants:** existing backlog score, atomic PR governance, exact-head CI and merge controller, review-before-clinical-claim, static export and consent/privacy, accessible output, published-artifact provenance, rollback. Optimization eliminates redundant checks only with identical risk scope and demonstrable proof; it never eliminates a required scientific, security, accessibility, SEO or deployment gate.
 ## Status summary
 
 | Milestone | Status | Current constraint |
