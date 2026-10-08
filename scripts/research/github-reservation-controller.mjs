@@ -269,10 +269,11 @@ async function run(){
  if(mode==='reserve'){
    const p=required(process.env.CANDIDATE_PATH,'CANDIDATE_PATH');if(!p.startsWith(intakeRoot)||!p.endsWith('.json'))throw Error('unsafe candidate path');
    const manifest=validateManifest(JSON.parse(fs.readFileSync(p,'utf8')));const main=await findMainThroughWave();const pending=await listOpenPrRecords();let reserved=[];
-   const {reg}=await commitRegistryMutation(async reg=>{reserved=reserveInto(reg,manifest,[...main.records,...pending.records])},'research: reserve lane '+manifest.lane+' intake');
-   for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING')){try{await materializeBatch(reg,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}}
-   await commitRegistryMutation(async latest=>{for(const b of reg.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)};latest.incidents=[...(latest.incidents||[]),...(reg.incidents||[]).slice(-(reg.incidents?.length||0))]},'research: reconcile freeze/PR state');
-   appendSummary(reg);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
+   await commitRegistryMutation(async reg=>{reserved=reserveInto(reg,manifest,[...main.records,...pending.records])},'research: reserve lane '+manifest.lane+' intake');
+   const allocated=(await allocateFrozenRanges()).reg;
+   for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){try{await materializeBatch(allocated,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;allocated.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}}
+   const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: reconcile freeze/PR state')).reg;
+   appendSummary(final);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
  }else if(mode==='recover'){
    const {reg}=await commitRegistryMutation(async reg=>{
      for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING')){
