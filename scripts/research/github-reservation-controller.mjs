@@ -52,7 +52,7 @@ function reconcileBaseline(records){
 
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
- for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!researchPrefixes.some(p=>file.filename.startsWith(p))||!file.filename.endsWith('.json'))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
+ for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
  return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,title:p.title}))};
 }
 async function ensureRegistryBranch(){
@@ -98,20 +98,22 @@ function reserveInto(reg,manifest,baseline){
  return reserved;
 }
 async function findMainThroughWave(){
- const tree=scanLocal(process.cwd());let best={max:0,pmids:[]};
- for(const p of fs.readdirSync('ops/enrichment-submissions/reconciliation',{withFileTypes:true})){
-  if(!p.isFile()||!p.name.endsWith('-final-manifest.json'))continue;
-  try{
-   const m=JSON.parse(fs.readFileSync(path.join('ops/enrichment-submissions/reconciliation',p.name),'utf8')),n=Number(String(m.range||'').split('-')[1]);
-   if(!Number.isFinite(n)||n<=best.max)continue;
-   const indexPath=m.cumulative_index||path.join('ops/enrichment-submissions/reconciliation',p.name.replace(/-final-manifest\.json$/,'-pmid-index.json'));
-   const idx=JSON.parse(fs.readFileSync(indexPath,'utf8'));
-   if(idx.through_wave!==n||!Array.isArray(idx.pmids)||idx.pmids.length!==idx.total_unique_pmids)continue;
-   best={max:n,pmids:idx.pmids.map(String)};
-  }catch{}
+ const dir='ops/enrichment-submissions/reconciliation';
+ const batches=fs.readdirSync(dir,{withFileTypes:true}).filter(p=>p.isFile()&&p.name.endsWith('-final-manifest.json')).flatMap(p=>{try{
+   const m=JSON.parse(fs.readFileSync(path.join(dir,p.name),'utf8')),range=String(m.range||'').match(/^(\d+)-(\d+)$/);
+   if(!range||Number(range[2])-Number(range[1])+1!==500||m.research_only!==true||m.accepted_new_unique_pmids!==500)return[];
+   const idxName=m.cumulative_index?path.basename(m.cumulative_index):p.name.replace(/-final-manifest\.json$/,'-pmid-index.json');
+   const index=JSON.parse(fs.readFileSync(path.join(dir,idxName),'utf8'));
+   if(index.through_wave!==Number(range[2])||index.total_unique_pmids!==m.cumulative_unique_pmids||!Array.isArray(index.pmids)||index.pmids.length!==index.total_unique_pmids)return[];
+   return[{m,index,end:Number(range[2])}]
+  }catch{return[]}}).sort((a,b)=>b.end-a.end);
+ if(!batches.length)throw Error('authoritative main research PMID index unavailable');
+ const latest=batches[0],byPmid=new Map(latest.index.pmids.map(pmid=>[String(pmid),{pmid:String(pmid),title:'historical PMID '+String(pmid),doi:''}]));
+ for(const a of latest.m.artifact_parts||[]){
+   if(!a.path?.startsWith(dir+'/'))continue;
+   try{const part=JSON.parse(fs.readFileSync(a.path,'utf8'));for(const r of part.rows||[])if(r.pmid&&r.title)byPmid.set(String(r.pmid),{pmid:String(r.pmid),title:String(r.title),doi:r.doi?String(r.doi):''})}catch{}
  }
- if(!best.max||!best.pmids.length)throw Error('authoritative main research PMID index unavailable');
- return {max:best.max,pmids:best.pmids,records:tree};
+ return {max:latest.end,pmids:latest.index.pmids.map(String),records:[...byPmid.values()]};
 }
 async function materializeBatch(reg,batch){
  if(batch.state!=='FREEZE_PENDING')return;
