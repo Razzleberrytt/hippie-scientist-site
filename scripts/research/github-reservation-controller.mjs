@@ -84,11 +84,14 @@ async function putRegistry(current,value,message){
 function nextBatch(reg){
  reg.active_batch_counter=(reg.active_batch_counter??1)+1;reg.active_batch_id='rolling-'+String(reg.active_batch_counter).padStart(4,'0');reg.batches.push({id:reg.active_batch_id,state:'ACTIVE',created_at:new Date().toISOString()});return reg.active_batch_id;
 }
+const laneFocus={1:'sleep-stress-mood',2:'cognition-metabolic',3:'botanical-pharmacology-safety',4:'withdrawal-dependence-nps',5:'contradictions-replication'};
 function validateManifest(m){
  if(m?.schema_version!==1||!Number.isInteger(Number(m.lane))||Number(m.lane)<1||Number(m.lane)>5)throw Error('invalid lane manifest');
  if(m.research_only!==true)throw Error('research_only must be true');
+ if(m.lane_focus!==laneFocus[Number(m.lane)])throw Error('lane_focus does not match lane '+m.lane);
  if(!Array.isArray(m.records)||m.records.length<1||m.records.length>25)throw Error('manifest must contain 1..25 records');
  for(const r of m.records){
+  if(r.research_domain!==m.lane_focus)throw Error('record '+(r.pmid??'?')+' research_domain does not match lane focus');
   const x=review(r);if(!x.accepted)throw Error('record '+(r.pmid??'?')+' review failed: '+(x.reason||x.flags.join('; ')));
   const sig=r.signals;if(!sig||['safety','evidence_gap','contradiction','novelty','graph_connectivity'].some(k=>typeof sig[k]!=='number'||sig[k]<0||sig[k]>1))throw Error('record '+(r.pmid??'?')+' missing valid priority signals');
  }
