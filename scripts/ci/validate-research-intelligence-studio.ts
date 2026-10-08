@@ -358,6 +358,12 @@ for(const record of real.dna){
  assert.equal(received.caseFile.sourceSignature,realGraph.entries[record.pmid].sourceSignature)
  assert.equal(received.scope.pmid,record.pmid)
  assert.deepEqual(received.caseFile.reviewedCitationIds,[])
+ const scienceCase=buildScientificIntelligenceCase(real,realGraph,caseFile)
+ assert.equal(scienceCase.pmid,record.pmid)
+ assert.equal(scienceCase.capabilities.length,12)
+ assert.equal(scienceCase.calibrationChecks,13)
+ assert.equal(scienceCase.calibrationFailures,0)
+ assert.equal(scienceCase.autopublished,0)
  fullyReachable++
 }
 assert.equal(fullyReachable,500,'All 500 exact verified sources must share the same instrument identity contract')
