@@ -2,9 +2,13 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {validateManifest,reconcileBaseline} from './github-reservation-controller.mjs';
 
 const record=(pmid,domain)=>({
- pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,abstract:'A'.repeat(80),
- source_url:'https://pubmed.ncbi.nlm.nih.gov/'+pmid+'/',evidence_class:'human',study_design:'RCT',
- study_details:{population:'adults'},uncertainty:'moderate',adverse_effects:'reviewed',
+ pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,
+ abstract:'Verified source abstract long enough to represent an exact PubMed research record for controller validation and testing.',
+ source_url:'https://pubmed.ncbi.nlm.nih.gov/'+pmid+'/',
+ category:'stress_anxiety',relevance_reason:'Directly relevant to the lane research question and semantic evidence map.',
+ evidence_class:'human',study_design:'RCT',study_details:{n:60,duration:'6 weeks'},population:'Adults',
+ intervention:'Compound X',comparator:'Placebo',outcomes:['validated outcome score'],conclusion_direction:'positive',
+ interaction_evidence_level:'none',uncertainty:'moderate',adverse_effects:'reviewed',
  interactions:'reviewed',limitations:'small sample',provenance:'NCBI',research_domain:domain,
  signals:{safety:.2,evidence_gap:.5,contradiction:.1,novelty:.4,graph_connectivity:.3}
 });
