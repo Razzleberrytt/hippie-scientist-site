@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "records": [
+    {
+      "pmid": "40551718",
+      "title": "Ashwagandha (Withania somnifera) Plant Extracts Affect the Cytochrome P450 System and Cytotoxicity of Primary Human Hepatocytes",
+      "source_title": "Ashwagandha (Withania somnifera) Plant Extracts Affect the Cytochrome P450 System and Cytotoxicity of Primary Human Hepatocytes",
+      "doi": "10.1080/19390211.2025.2514458",
+      "abstract": "Primary human hepatocyte cultures were exposed to root and leaf ashwagandha extracts prepared with water or ethanol. An ethanol root extract altered CYP3A4 expression and activity, and a high-concentration ethanol leaf extract affected cell viability across time and concentration. These are laboratory observations rather than clinical interaction findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40551718/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "ashwagandha_hepatocyte_assays",
+      "relevance_reason": "Primary botanical pharmacology evidence requiring study-design-aware scientific review.",
+      "evidence_class": "in-vitro",
+      "study_design": "Primary human hepatocyte CYP expression and viability assays",
+      "study_details": {
+        "source": "PubMed indexed primary study",
+        "verified_on": "2026-10-08"
+      },
+      "population": "Primary human hepatocyte cultures",
+      "intervention": "Botanical extract and purified constituent experimental comparison",
+      "comparator": "Extracts, constituent fractions, or assay controls",
+      "outcomes": [
+        "Ethanol root extract modulated CYP3A4 expression and activity",
+        "High-concentration ethanol leaf extract reduced viability with time and concentration"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "preclinical",
+      "uncertainty": "Laboratory results are not evidence of clinical effectiveness or clinically meaningful interaction.",
+      "adverse_effects": "No clinical adverse events measured; laboratory outcomes only.",
+      "interactions": "Preclinical mechanistic effects only; no human drug-interaction trial.",
+      "limitations": "In vitro models and extract-dependent chemistry limit translation to humans.",
+      "provenance": {
+        "pmid": "40551718",
+        "doi": "10.1080/19390211.2025.2514458",
+        "source": "PubMed primary abstract",
+        "verified_on": "2026-10-08",
+        "review_status": "source_verified_only"
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.75,
+        "contradiction": 0.3,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      }
+    }
+  ]
+}
