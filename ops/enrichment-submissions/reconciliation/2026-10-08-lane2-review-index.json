@@ -34,5 +34,27 @@
     7506,
     7523,
     7528
-  ]
+  ],
+  "issueDisposition": [
+    {
+      "wave": 7506,
+      "finding": "Urinary incontinence is not psychological stress",
+      "action": "QUARANTINE_OFF_DOMAIN",
+      "clinicalAdmission": false
+    },
+    {
+      "wave": 7523,
+      "finding": "Rodent/preclinical evidence, not human clinical research",
+      "action": "QUARANTINE_NONHUMAN",
+      "clinicalAdmission": false
+    },
+    {
+      "wave": 7528,
+      "finding": "Rodent/preclinical evidence, not human clinical research",
+      "action": "QUARANTINE_NONHUMAN",
+      "clinicalAdmission": false
+    }
+  ],
+  "reviewStatus": "PARTIAL_REVIEW_REPAIR_DOCUMENTED_NOT_MERGE_READY",
+  "remainingReview": "Complete independent semantic review of all 500, verify global DOI/title collisions and replace or exclude quarantined entries before accepted counts"
 }
