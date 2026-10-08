@@ -71,7 +71,7 @@ assert.deepEqual(triad.investigations[0].pmids,['10000007'])
 assert.equal(triad.investigations[0].basis,'same-source-text-triple-mention')
 assert(triad.briefs.some(b=>b.mode==='cross-instrument-review'&&
   b.pmids.length===1&&b.pmids[0]==='10000007'&&b.allowAutopublish===false))
-const revisedSources=sources.map((r,i)=>i===0?{...r,title:r.title+' and safety'}:r)
+const revisedSources=sources.map((r,i)=>i===0?{...r,title:r.title+' and adverse events'}:r)
 assert.throws(()=>buildResearchIntelligenceStudio(revisedSources,graph,reviewed),/semantic witnesses are stale/,
   'Same PMIDs with altered source text must not inherit stale semantic concepts')
 assert(s.timeline.some(x=>x.year===2023 && x.sources===1))
