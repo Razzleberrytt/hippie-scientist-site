@@ -31,7 +31,7 @@ export function reserve(s,lane,batch,records){
   const seen=validateSnapshot(s);
   for(const r of records)for(const k of identityKeys(r)){if(seen.has(k))throw Error('collision '+k);seen.set(k,batch)}
   const stamp=new Date().toISOString();
-  s.reservations.push(...records.map(r=>({...r,lane:String(lane),batch,state:'RESERVED',reserved_at:stamp})));
+  s.reservations.push(...records.map(r=>({...r,lane:String(lane),batch,reservation_state:'RESERVED',reserved_at:stamp})));
   return s;
 }
 export function freeze(s,batch){
