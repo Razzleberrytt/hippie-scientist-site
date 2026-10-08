@@ -4,6 +4,7 @@ import path from 'node:path'
 import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
+import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -140,6 +141,26 @@ function validateIdentity(mediaPack, creativeSpec) {
     }
     if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
+    }
+    if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+      const direction = creativeSpec?.creativeDirection
+      if (clean(direction?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(direction?.release) !== 'R8.06'
+          || clean(direction?.runtimeBaseRelease) !== 'R8.05'
+          || clean(direction?.status) !== 'approved') {
+        throw new Error('R8.06 methodology requires an approved native-attention creative-direction receipt before rendering')
+      }
+      if (!/^[a-f0-9]{64}$/i.test(clean(direction?.overlaySha256))) {
+        throw new Error('R8.06 creative-direction receipt must bind the exact overlay plan')
+      }
+      if (direction?.openingConvergence !== true
+          || direction?.immediateFindingAfterHook !== true
+          || clean(direction?.nativeFeelCertifiedAt) !== 'exact-master-qa'
+          || direction?.deliveryPolicy?.metricoolOptional !== true
+          || direction?.deliveryPolicy?.manualFallbackRequired !== true
+          || direction?.deliveryPolicy?.providerMayMutateArtifact !== false) {
+        throw new Error('R8.06 creative-direction receipt is missing native-attention/delivery invariants')
+      }
     }
   } else if (release === 'R8.04') {
     if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') {
@@ -291,6 +312,15 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
   if (freshQuality.semanticBeatMapSha256 !== quality.semanticBeatMapSha256
       || JSON.stringify(freshQuality.beatReceipts) !== JSON.stringify(quality.beatReceipts)) {
     throw new Error('R8.05 creative-quality receipt does not bind the exact creative brief')
+  }
+  if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+    const freshDirection = buildR806CreativeReceipt(brief)
+    const direction = creativeSpec?.creativeDirection
+    if (clean(freshDirection.overlaySha256) !== clean(direction?.overlaySha256)
+        || clean(freshDirection.selectedConceptId) !== clean(direction?.selectedConceptId)
+        || JSON.stringify(freshDirection.earlyVisualTeachingModes) !== JSON.stringify(direction?.earlyVisualTeachingModes)) {
+      throw new Error('R8.06 creative-direction receipt does not bind the exact creative brief overlay')
+    }
   }
   if (clean(brief.sourceIdentity?.id) !== clean(mediaPack.researchObjectIds?.[0])
       || clean(brief.sourceIdentity?.sourceUrl) !== clean(mediaPack.source.url)) {
@@ -570,6 +600,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     schemaVersion: '1.1.0',
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
+    creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     timingAuthority: release === 'R8.05' ? 'exact-local-narration' : 'legacy-authored-30s',
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
@@ -618,7 +649,9 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     sourceUrl: mediaPack.source.url,
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
+    creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     creativeQuality: creativeSpec.creativeQuality ?? null,
+    creativeDirection: creativeSpec.creativeDirection ?? null,
     r805Bindings: bindings,
     durationSeconds,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },

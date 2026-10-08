@@ -223,7 +223,11 @@ export async function buildBoundedPilot({
       if (!sourceObject) throw new Error(`R8.05 short-video pilot cannot resolve canonical research object ${selectedId}`)
       assertResearchObjectMatchesMediaPack(sourceObject, mediaPack)
       const creativeBrief = readJson(briefFile)
-      const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeBrief })
+      const creativeMethodRelease = clean(packageData?.creativeSpec?.creativeMethodRelease) || 'R8.05'
+      const candidateSpec = buildLosslessCreativeSpec({ ...sourceObject, systemRelease: 'R8.05', creativeMethodRelease, creativeBrief })
+      if (creativeMethodRelease === 'R8.06' && clean(candidateSpec?.creativeDirection?.status) !== 'approved') {
+        throw new Error('R8.06 short-video pilot requires an approved hook-competition/native-visual creative-direction receipt')
+      }
       const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
       const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
       if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {

@@ -1,8 +1,8 @@
-# THS R8.05 — Attention-First Story Architecture & Semantic AV Lock
+# THS R8.06 — Hook Competition, Visual Teaching Objects & Native Delivery
 
 ## Status
 
-R8.05 is the canonical creative-production rule for new THS social video. It inherits R8.04 sovereign zero-credit production and all R8.03 evidence, uncertainty, continuity, trust, and artifact-bound QA rules.
+R8.06 is the canonical creative methodology for new THS social video. It runs on the proven R8.05 voice-first/semantic-AV production runtime and inherits R8.04 sovereign zero-credit production plus all R8.03 evidence, uncertainty, continuity, trust, and artifact-bound QA rules.
 
 R8.05 exists because a video can be scientifically accurate, technically valid, visually clean, and still be bad social content.
 
@@ -124,3 +124,51 @@ R8.05 passes only when all inherited R8.04 sovereignty and R8.03 evidence/trust 
 - the exact master passes whole-piece cohesion.
 
 If any of those fail, reframe, rebuild once, or kill the angle. Do not publish a technically correct video that still sucks.
+
+
+## R8.06 concept competition
+
+R8.05 answers “is this concept good enough to produce?” R8.06 first asks “which of three materially different angles deserves production?”
+
+Every release-ready brief carries exactly three concept candidates with distinct angle types. Each candidate states why a cold viewer should care, the one mental job, and the visual promise. The selected candidate must clear the interest floor, clear the visual-potential floor, and stay below the confusion ceiling. This is not a claim that internal scores predict virality; it is a fail-fast mechanism for obviously weak or visually dead angles.
+
+## Opening convergence and immediate payoff
+
+The cover, first frame, and first spoken line must make the same promise. R8.06 then requires the governed finding/payoff immediately after the hook and the evidence/method beat after that payoff. A viewer should not need to survive methodology before learning why the video matters.
+
+Audio-off viewing must still communicate the opening promise.
+
+## Visual teaching-object floor
+
+The first three beats each declare a visual teaching mode and an explicit teaching object. Supported planning modes are kinetic type, comparison, diagram, object, process, and source-evidence. The opening must use at least two distinct modes and may not be three consecutive kinetic-type/text-led beats.
+
+These fields are planning constraints, not permission to invent scientific graphics. EvidenceBridge remains factual authority. PerceptualQA must still reject a master whose “teaching objects” are merely decorative or whose execution collapses back into generic text cards.
+
+## R8.06 exact-master native-feel gate
+
+In addition to every R8.05 exact-master requirement, a canonical R8.06 master must explicitly pass:
+
+- opening scroll-stop;
+- native platform feel;
+- visible teaching-object execution;
+- rejection of text-card monotony.
+
+Those checks bind to the exact encoded MP4. A synchronized but sterile video fails closed.
+
+## Provider-agnostic delivery
+
+Metricool is allowed only as an optional convenience adapter after the exact master is approved. Manual native upload remains the required fallback.
+
+R8.06 delivery rules:
+
+- try Metricool only when available and useful;
+- never rebuild or alter the approved MP4 to satisfy a Metricool plan/account limitation;
+- a provider may not mutate the approved artifact;
+- after one provider failure, fall back to manual native upload rather than entering a repair loop;
+- publisher choice never affects EvidenceBridge, Voice Engine, EvidenceMotion, or PerceptualQA.
+
+## R8.06 release floor
+
+R8.06 passes only when every inherited R8.05/R8.04/R8.03 gate passes **and** concept competition, opening convergence, immediate finding/payoff, early visual teaching-object diversity, native-feel exact-master QA, and provider-agnostic delivery all pass.
+
+Audience-performance uplift remains Unknown until matched R8.06 field artifacts are published and measured.

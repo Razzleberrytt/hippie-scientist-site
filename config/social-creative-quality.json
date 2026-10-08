@@ -1,8 +1,9 @@
 {
   "schema": "ths.social.creative-quality.v1",
-  "release": "R8.05",
-  "name": "Attention-First Story Architecture & Semantic AV Lock",
+  "release": "R8.06",
+  "name": "Hook Competition, Visual Teaching Objects & Native Delivery",
   "inherits": [
+    "R8.05",
     "R8.04",
     "R8.03"
   ],
@@ -35,7 +36,13 @@
     "reject_pasted_narration_feel": true,
     "technical_sync_alone_is_insufficient": true,
     "exact_mp4_hash_binding_required": true,
-    "publication_requires_master_qa_receipt": true
+    "publication_requires_master_qa_receipt": true,
+    "r806_native_master_gates": [
+      "openingScrollStop",
+      "nativePlatformFeel",
+      "visualTeachingObject",
+      "textCardMonotonyRejected"
+    ]
   },
   "recovery": {
     "macro_rebuild_limit": 1,
@@ -47,5 +54,27 @@
     "sunk_cost": "never_waives_quality_floor",
     "missing_voice_timeline": "fail_before_visual_render",
     "missing_master_cohesion_receipt": "fail_before_staging"
+  },
+  "runtime_base_release": "R8.05",
+  "concept_lab": {
+    "candidate_count": 3,
+    "distinct_angle_types_required": true,
+    "selected_interest_score_min": 4,
+    "selected_visual_potential_score_min": 4,
+    "selected_confusion_score_max": 2
+  },
+  "opening_native": {
+    "cover_first_frame_first_line_convergence_required": true,
+    "immediate_finding_after_hook": true,
+    "evidence_after_finding": true,
+    "opening_visual_modes_min_distinct": 2,
+    "all_kinetic_type_opening_forbidden": true,
+    "teaching_object_required_first_three_beats": true
+  },
+  "delivery": {
+    "metricool_optional": true,
+    "manual_native_fallback_required": true,
+    "provider_may_mutate_artifact": false,
+    "provider_retry_policy": "one-provider-attempt-then-fallback"
   }
 }
