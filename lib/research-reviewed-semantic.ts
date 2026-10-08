@@ -32,7 +32,7 @@ export function getReviewedResearchSemanticOverlay(records:readonly SemanticReco
  if(!active.size)return {edges:[],contradictions:[]}
  const manifests=new Map<string,Manifest>()
  for(const name of readdirSync(DIR).filter(n=>n.endsWith('-final-manifest.json'))){
-  try{const m=read<Manifest>(join(DIR,name));if(m.batch_id)manifests.set(m.batch_id,m)}catch{}
+  try{const m=read<Manifest>(join(DIR,name));if(m.batch_id)manifests.set(m.batch_id,m)}catch{continue}
  }
  const edges:ReviewedSemanticEdge[]=[]
  const contradictions:ReviewedContradictionFlag[]=[]
