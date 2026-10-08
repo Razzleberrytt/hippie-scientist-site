@@ -216,14 +216,15 @@ export function buildResearchIntelligenceSuite(
   for(const c of coverage) {
     if(c.sourceMentions<2)continue
     const support=studies.filter(s=>s.concepts.some(m=>m.kind==='substance'&&m.id===c.id))
-    const sample=support.slice(0,5).map(s=>s.pmid)
     if(c.outcomes.length>0){
       const goal=c.outcomes[0]
+      const exactContext=support.filter(st=>st.concepts.some(m=>m.kind==='outcome'&&m.id===goal.id)).slice(0,5)
+      if(exactContext.length!==Math.min(goal.count,5))throw new Error('Outcome witnesses disagree with semantic coverage')
       opportunities.push({
         id:'context:'+c.id,angle:'evidence-context',
         headline:c.label+' × '+goal.label+': what was actually investigated?',
         rationale:c.sourceMentions+' papers mention '+c.label+'; '+goal.count+' co-mention '+goal.label+'. Verify study details before discussing any outcome.',
-        pmids:sample,workflow:'human-editorial-review-required',
+        pmids:exactContext.map(st=>st.pmid),workflow:'human-editorial-review-required',
       })
     }
     if(c.safetyContext.length){
@@ -238,11 +239,13 @@ export function buildResearchIntelligenceSuite(
     }
     if(c.populations.length) {
       const group=c.populations[0]
+      const exactPopulation=support.filter(st=>st.concepts.some(m=>m.kind==='population'&&m.id===group.id)).slice(0,5)
+      if(exactPopulation.length!==Math.min(group.count,5))throw new Error('Population witnesses disagree with semantic coverage')
       opportunities.push({
         id:'population:'+c.id,angle:'population-context',
         headline:c.label+' in '+group.label.toLowerCase()+': evidence scope audit',
         rationale:'Check whether the named population was actually enrolled, analyzed or only cited as background.',
-        pmids:sample,workflow:'human-editorial-review-required',
+        pmids:exactPopulation.map(st=>st.pmid),workflow:'human-editorial-review-required',
       })
     }
   }
