@@ -12,7 +12,7 @@
  */
 import {
   extractSemanticMentions, findExplainableConceptPath, RESEARCH_CONCEPTS,
-  normalizeSemanticText, type SemanticNetwork, type SemanticMention,
+  normalizeSemanticText, semanticSourceSignature, type SemanticNetwork, type SemanticMention,
 } from './research-semantic-network'
 
 export type StudioSource = {
@@ -403,6 +403,7 @@ export function buildResearchIntelligenceStudio(
      new Set(sources.map(s=>s.pmid)).size!==sources.length ||
      sources.some(s=>!network.entries[s.pmid]))throw new Error('Study DNA sources must exactly match graph PMIDs')
   if(network.summary.sourcePapers!==sources.length||sources.some(s=>
+    network.entries[s.pmid]?.sourceSignature!==semanticSourceSignature(s) ||
     JSON.stringify(network.entries[s.pmid]?.mentions)!==
     JSON.stringify(extractSemanticMentions(s.title,s.abstract)))) {
     throw new Error('Study DNA semantic witnesses are stale or inconsistent with source text')
