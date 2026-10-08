@@ -6,27 +6,6 @@
   "failures": [],
   "rows": [
     {
-      "pmid": "37686723",
-      "title": "Antihypertensive Effects of an Optimized Aged Garlic Extract in Subjects with Grade I Hypertension and Antihypertensive Drug Therapy: A Randomized, Triple-Blind Controlled Trial.",
-      "abstract": "The use of garlic (Allium sativum) for treating arterial hypertension has been recognized as effective for several decades. However, tolerance to treatment is low, and several technological modifications have been developed to improve its tolerability, such as the aging process at controlled temperature and humidity. This study aims to validate the antihypertensive effects of an optimized extract of aged black garlic with low doses of s-allyl-cysteine (SAC) in a Grade I hypertensive population with drug treatment. A randomized, triple-blind, placebo-controlled parallel trial was developed, where a daily supplementation with 0.25 mg/day of SAC for 12 weeks was performed. A reduction in systolic and diastolic blood pressure of 1.8 mmHg (0.7 to 4.1 95% CI) and 1.5 mmHg (0.3 to 3.0 95% CI), respectively, was observed. Similarly, an increase in blood nitric oxide (10.3 µM, 1.1 to 19.5 95% CI) and antioxidant capacity (7 × 10-3 µM TE/min, (1.2 to 13 × 10-3 95% CI) and a reduction in uric acid levels (-0.3 mg/dL, -0.5 to -0.001 95% CI) and ACE activity (-9.3 U/L; -18.4 to -0.4 95% CI) were observed. No changes in endothelial function and inflammatory cytokines were observed. It was concluded that low-dose SAC supplementation in an optimized black-garlic extract allows for an extra-significant reduction in blood pressure in a Grade I hypertensive population receiving drug treatment.",
-      "doi": "10.3390/nu15173691",
-      "journal": "Nutrients",
-      "pub_date": "2023Aug23",
-      "publication_types": [
-        "Randomized Controlled Trial",
-        "Journal Article"
-      ],
-      "category": "botanicals_mushrooms",
-      "discovery_query": "(ashwagandha OR rhodiola OR bacopa OR ginseng OR garlic OR \"lion mane\" OR echinacea) AND (clinical trial OR randomized OR efficacy OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Antihypertensive Effects of an Optimized Aged Garlic Extract in Subjects with Grade I Hypertension and Antihypertensive Drug Therapy: A Randomized, Triple-Blind Controlled Trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7901
-    },
-    {
       "pmid": "21965490",
       "title": "A phase II trial of a transmucosal herbal patch for the treatment of gingivitis.",
       "abstract": "BACKGROUND: Systemic treatments for gingivitis frequently are inadequate for controlling specific sites of severe gingival inflammation. The authors conducted a study to test site-specific therapy using a transmucosal herbal periodontal patch (THPP) that was impregnated with plant extracts reported to reduce inflammatory response. METHODS: The study was a single-center, randomized, placebo-controlled, double-masked, longitudinal phase II trial involving participants with clinically diagnosed gingivitis. Participants who were enrolled in the study received either THPPs or placebo patches (PP) for three days. The authors evaluated gingival inflammation visually using the gingival index (GI) and by measuring gingival crevicular fluid β-glucuronidase (BG) enzymatic activity at baseline (day one) and on days two, four, eight and 15. RESULTS: The authors randomly assigned 53 participants to receive the THPP or the PP. Participants who received the THPPs had a greater reduction in mean GI scores than did those who received the PPs. This finding was significant on days four and 15. The percentage of participants whose GI scores decreased by one or more was higher among those receiving the THPP than among those receiving the PP, as assessed on days four and 15. The average decrease in BG levels (fluorescence units) for participants receiving the THPP was significantly greater on days four and eight than they were for those receiving the PP. No serious adverse events were associated with the use of the THPP. CONCLUSIONS: Topical treatment by means of the THPP may be effective and safe in reducing topical gingival inflammation. Further studies are needed to confirm these findings and determine the best method for administering the THPP and the appropriate dosing. CLINICAL IMPLICATIONS: Site-specific treatment of gingival inflammation is feasible and could be used as an adjunct for systemic therapeutic interventions.",
@@ -47,7 +26,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7902
+      "wave": 7901
     },
     {
       "pmid": "25618966",
@@ -69,7 +48,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7903
+      "wave": 7902
     },
     {
       "pmid": "24055627",
@@ -91,7 +70,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7904
+      "wave": 7903
     },
     {
       "pmid": "23872254",
@@ -111,6 +90,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effects of red ginseng extract on sleeping behaviors in human volunteers.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7904
+    },
+    {
+      "pmid": "31490311",
+      "title": "Effect of Topical Garlic on Wound Healing and Scarring: A Clinical Trial.",
+      "abstract": "BACKGROUND: Historically, garlic containing compounds have been used on wounds to improve healing and ward off infection. Researchers have tested many of these ancient ointments, discovering that garlic is a common ingredient in those that are effective. OBJECTIVE: To determine the efficacy of topical garlic on surgical wounds compared with Vaseline by analysis of visual analog scales and digital photograph analysis. MATERIALS AND METHODS: Seventeen patients with 2 skin excisions applied a 30% garlic ointment to one surgical wound and Vaseline to the other surgical wound twice daily. They were followed up at 2 weeks and 4 weeks post-op. Digital photographs were taken of the sites, and wound visual analog scales were filled out by the patient and the physician. RESULTS: Patients and the onsite physician stated the garlic site healed better in 59% and 65% of the wounds, respectively, at 2 weeks. At 4 weeks, the patients and the onsite physician stated the garlic site healed better in 76% and 88% of wounds, respectively. Digital photograph analysis revealed less erythema at the garlic sites (p-value = .02). CONCLUSION: Surgical wounds treated with 30% garlic ointment healed with more cosmetically appealing scars than the Vaseline-treated sites.",
+      "doi": "10.1097/dss.0000000000002123",
+      "journal": "Dermatologic surgery : official publication for American Society for Dermatologic Surgery [et al.]",
+      "pub_date": "2020May",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "botanicals_mushrooms",
+      "discovery_query": "(ashwagandha OR rhodiola OR bacopa OR ginseng OR garlic OR \"lion mane\" OR echinacea) AND (clinical trial OR randomized OR efficacy OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effect of Topical Garlic on Wound Healing and Scarring: A Clinical Trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -182,28 +182,6 @@
       "wave": 7908
     },
     {
-      "pmid": "24465156",
-      "title": "Effects of a pre-workout supplement on lean mass, muscular performance, subjective workout experience and biomarkers of safety.",
-      "abstract": "In this prospective, randomized, double-blind, trial conducted in two parts, we examined the effects of a multi-ingredient pre-exercise workout supplement blend of creatine, betaine and a dendrobium extract (MMP) on safety, performance, and body composition in healthy men and women undergoing a supervised program of resistance exercise. Part 1 was an acute hemodynamic safety study wherein forty young, healthy men and women (26.2 ± 5.3 years, 70.4 ± 3.3 inches, 83.7 ± 14.9 kg, 26.0 ± 3.2 kg●m(-2)) ingest one dose of either the MMP or comparator in a randomized, double-blind, comparator controlled, crossover fashion before having their resting heart rate, blood, ECG and comprehensive blood chemistry and blood counts completed. Systolic (SBP) and diastolic (DBP) blood pressures were generally raised (3.0-5.4 mm Hg, p<0.01) following supplementation with MPP whereas in the comparator group SBP was marginally reduced by 0.3 to 1.2 mm Hg, p>0.05 at all time points) and DBP was increased (3.0 - 3.9 mm Hg, p<0.05 at all time points). No changes in EKG-corrected QT interval were observed, and no serious adverse events were reported. Part 2 was a six-week training study wherein forty-three young, healthy men and women (24.3 ± 2.9 years, 70.5 ± 3.1 inches, 83.8 ± 9.6 kg, 26.1 ± 2.7 kg●m(-2)) supplemented with daily pre-workout doses of either the MPP or a comparator in a randomized, double-blind, comparator-controlled fashion while following a standardized resistance training program for six weeks. MPP and the comparator were isocaloric and delivered the same amount of caffeine. Significant improvements in visual analog scale (VAS) scores for energy (p<0.024) and concentration (p<0.041) were found along with consistently higher levels of focus accompanied by less fatigue when MPP was consumed in comparison to comparator during upper body muscular strength-endurance tests at weeks 3 and 6. MPP supplementation for 6 weeks did not improve dual-energy x-ray absorptiometry (DEXA) measures of body composition or objective assessments of exercise performance. Overall, MPP use and administration was well tolerated. Self-reported scores for energy and concentration were significantly greater. Over a six-week training and supplementation period, MPP use was not associated with improvements in performance or body composition. Future studies should confirm these effects over a more prolonged training period.",
-      "doi": "10.7150/ijms.7073",
-      "journal": "International journal of medical sciences",
-      "pub_date": "2014",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "safety_interactions",
-      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effects of a pre-workout supplement on lean mass, muscular performance, subjective workout experience and biomarkers of safety.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7909
-    },
-    {
       "pmid": "24610312",
       "title": "Pharmacokinetics of the co-administration of boceprevir and St John's wort to male and female healthy volunteers.",
       "abstract": "BACKGROUND: St John's wort (SJW; Hypericum perforatum) induces CYP3A4 that is involved in the metabolism of the hepatitis C virus (HCV) protease inhibitor boceprevir. Reduced boceprevir exposure and efficacy would contribute to therapeutic failure and increase the risk for resistance development. Boceprevir is co-administered with interferon/ribavirin, and depression has been described frequently in patients undergoing HCV treatment. Patients may purchase over-the-counter herbals to manage depression, and knowing the interaction between SJW and boceprevir is desirable. METHODS: This Phase I, open-label, three-period, cross-over pharmacokinetic study enrolled healthy males and females who, following consent and screening procedures, were randomized to receive SJW on days 1-14, SJW plus boceprevir (SJW on days 22-35 and together on days 31-35) and boceprevir on days 52-56, separated by 7 day washout periods, or the same treatment in the opposite order. Pharmacokinetic sampling was performed at the end of each phase. RESULTS: Seventeen (11 female) subjects completed the study and no serious adverse events were reported. Geometric mean ratios (GMRs) and 90% CIs for boceprevir (with SJW versus alone) AUC(0-8), C(max) and C8 were 0.91 (0.87-0.96), 0.94 (0.82-1.07) and 1.00 (0.79-1.27), respectively. GMRs and 90% CIs for hypericin, the active component of SJW, (with boceprevir versus alone) AUC(0-8), C(max) and C(8) were 1.23 (1.10-1.38), 1.32 (1.16-1.52) and 1.37 (1.19-1.58), respectively. CONCLUSIONS: SJW did not have a clinically significant effect on boceprevir plasma concentrations (or those of its metabolite), suggesting that SJW and boceprevir can be safely co-administered.",
@@ -224,7 +202,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7910
+      "wave": 7909
     },
     {
       "pmid": "20089774",
@@ -245,7 +223,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7911
+      "wave": 7910
     },
     {
       "pmid": "25591969",
@@ -267,7 +245,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7912
+      "wave": 7911
     },
     {
       "pmid": "27655839",
@@ -285,6 +263,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Dietary supplement interactions with antiretrovirals: a systematic review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7912
+    },
+    {
+      "pmid": "26887532",
+      "title": "A Critical Approach to Evaluating Clinical Efficacy, Adverse Events and Drug Interactions of Herbal Remedies.",
+      "abstract": "Systematic reviews and meta-analyses represent the uppermost ladders in the hierarchy of evidence. Systematic reviews/meta-analyses suggest preliminary or satisfactory clinical evidence for agnus castus (Vitex agnus castus) for premenstrual complaints, flaxseed (Linum usitatissimum) for hypertension, feverfew (Tanacetum partenium) for migraine prevention, ginger (Zingiber officinalis) for pregnancy-induced nausea, ginseng (Panax ginseng) for improving fasting glucose levels as well as phytoestrogens and St John's wort (Hypericum perforatum) for the relief of some symptoms in menopause. However, firm conclusions of efficacy cannot be generally drawn. On the other hand, inconclusive evidence of efficacy or contradictory results have been reported for Aloe vera in the treatment of psoriasis, cranberry (Vaccinium macrocarpon) in cystitis prevention, ginkgo (Ginkgo biloba) for tinnitus and intermittent claudication, echinacea (Echinacea spp.) for the prevention of common cold and pomegranate (Punica granatum) for the prevention/treatment of cardiovascular diseases. A critical evaluation of the clinical data regarding the adverse effects has shown that herbal remedies are generally better tolerated than synthetic medications. Nevertheless, potentially serious adverse events, including herb-drug interactions, have been described. This suggests the need to be vigilant when using herbal remedies, particularly in specific conditions, such as during pregnancy and in the paediatric population. Copyright © 2016 John Wiley & Sons, Ltd.",
+      "doi": "10.1002/ptr.5591",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2016May",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "category": "safety_interactions",
+      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A Critical Approach to Evaluating Clinical Efficacy, Adverse Events and Drug Interactions of Herbal Remedies.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -312,27 +312,6 @@
       "wave": 7914
     },
     {
-      "pmid": "39400265",
-      "title": "A Randomized, Double-Blind, Placebo-Controlled Study Investigating the Safety and Efficacy of a Herbal Formulation on Knee Joint Function in Adults with Knee Osteoarthritis.",
-      "abstract": "Background: Current treatments for osteoarthritis (OA) pain and stiffness have limitations, including adverse effects. Therefore, effective and safe complementary or alternative therapies are needed. Dietary supplement GJ 191, comprising Epimedium, Dioscorea, and Salvia miltiorrhiza extracts, may address this need. Methods: This randomized, double-blind, placebo-controlled study investigated GJ 191 supplementation on knee OA symptoms. Seventy-two adults (40-75 years) with mild to moderate knee OA and mild to moderate knee pain were enrolled. The Knee Injury and Osteoarthritis Outcome Score (KOOS), Pain Visual Analog Scale (VAS), Quality of Life questionnaire, knee joint range of motion, serum C-reactive protein, and rescue medication use were assessed. The Western Ontario McMaster Universities Osteoarthritis Index (WOMAC) pain and stiffness scores were computed using KOOS scores. Results: Decreases in WOMAC pain scores were reported by both GJ 191 and placebo groups after 6 (-1.78 ± 2.71 and -1.34 ± 1.93, respectively; p < 0.01) and 12 (-2.31 ± 2.83 and -1.59 ± 2.69, respectively; p < 0.01) weeks, with no significant difference between groups. There were decreases in WOMAC stiffness scores for participants supplemented with GJ 191 by 0.53 ± 1.22 and 0.72 ± 1.46 (p ≤0.02) after 6 and 12 weeks, respectively, with respective decreases of 0.81 ± 1.51 and 0.75 ± 1.85 (p ≤0.03) for those on placebo. Significant improvements in current pain, as assessed by the Pain VAS, and bodily pain were reported by the GJ 191 group after 6 and 12 weeks, while the placebo group only reported significant improvements in these measures after 12 weeks. GJ 191 supplementation was safe and well tolerated. Conclusion: There was no significant difference in pain and stiffness scores between GJ 191 and placebo over the 12 weeks. While both groups reported improvements in WOMAC pain from baseline, improvements in current and bodily pain were experienced sooner with GJ 191 than placebo and were sustained over the study period. GJ 191 supplementation was safe and well tolerated. (CTR#: NCT04395547).",
-      "doi": "10.1089/jicm.2023.0124",
-      "journal": "Journal of integrative and complementary medicine",
-      "pub_date": "2025Jan",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "safety_interactions",
-      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "A Randomized, Double-Blind, Placebo-Controlled Study Investigating the Safety and Efficacy of a Herbal Formulation on Knee Joint Function in Adults with Knee Osteoarthritis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7915
-    },
-    {
       "pmid": "22869560",
       "title": "Herb-drug interaction between Echinacea purpurea and etravirine in HIV-infected patients.",
       "abstract": "The aim of this open-label, fixed-sequence study was to investigate the potential of the botanical supplement Echinacea purpurea to interact with etravirine, a nonnucleoside reverse transcriptase inhibitor of HIV. Fifteen HIV-infected patients receiving antiretroviral therapy with etravirine (400 mg once daily) for at least 4 weeks were included. E. purpurea root/extract-containing capsules were added to the antiretroviral treatment (500 mg every 8 h) for 14 days. Etravirine concentrations in plasma were determined by high-performance liquid chromatography immediately before and 1, 2, 4, 6, 8, 10, 12, and 24 h after a morning dose of etravirine on day 0 and etravirine plus E. purpurea on day 14. Individual etravirine pharmacokinetic parameters were calculated by noncompartmental analysis and compared between days 0 and 14 by means of the geometric mean ratio (GMR) and its 90% confidence interval (CI). The median age was 46 years (interquartile range, 41 to 50), and the median body weight was 76 kg (interquartile range, 68 to 92). Echinacea was well tolerated, and all participants completed the study. The GMR for etravirine coadministered with E. purpurea relative to etravirine alone was 1.07 (90% CI, 0.81 to 1.42) for the maximum concentration, 1.04 (90% CI, 0.79 to 1.38) for the area under the concentration-time curve from 0 to 24 h, and 1.04 (90% CI, 0.74 to 1.44) for the concentration at the end of the dosing interval. In conclusion, the coadministration of E. purpurea with etravirine was safe and well tolerated in HIV-infected patients; our data suggest that no dose adjustment for etravirine is necessary.",
@@ -349,6 +328,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Herb-drug interaction between Echinacea purpurea and etravirine in HIV-infected patients.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7915
+    },
+    {
+      "pmid": "39400265",
+      "title": "A Randomized, Double-Blind, Placebo-Controlled Study Investigating the Safety and Efficacy of a Herbal Formulation on Knee Joint Function in Adults with Knee Osteoarthritis.",
+      "abstract": "Background: Current treatments for osteoarthritis (OA) pain and stiffness have limitations, including adverse effects. Therefore, effective and safe complementary or alternative therapies are needed. Dietary supplement GJ 191, comprising Epimedium, Dioscorea, and Salvia miltiorrhiza extracts, may address this need. Methods: This randomized, double-blind, placebo-controlled study investigated GJ 191 supplementation on knee OA symptoms. Seventy-two adults (40-75 years) with mild to moderate knee OA and mild to moderate knee pain were enrolled. The Knee Injury and Osteoarthritis Outcome Score (KOOS), Pain Visual Analog Scale (VAS), Quality of Life questionnaire, knee joint range of motion, serum C-reactive protein, and rescue medication use were assessed. The Western Ontario McMaster Universities Osteoarthritis Index (WOMAC) pain and stiffness scores were computed using KOOS scores. Results: Decreases in WOMAC pain scores were reported by both GJ 191 and placebo groups after 6 (-1.78 ± 2.71 and -1.34 ± 1.93, respectively; p < 0.01) and 12 (-2.31 ± 2.83 and -1.59 ± 2.69, respectively; p < 0.01) weeks, with no significant difference between groups. There were decreases in WOMAC stiffness scores for participants supplemented with GJ 191 by 0.53 ± 1.22 and 0.72 ± 1.46 (p ≤0.02) after 6 and 12 weeks, respectively, with respective decreases of 0.81 ± 1.51 and 0.75 ± 1.85 (p ≤0.03) for those on placebo. Significant improvements in current pain, as assessed by the Pain VAS, and bodily pain were reported by the GJ 191 group after 6 and 12 weeks, while the placebo group only reported significant improvements in these measures after 12 weeks. GJ 191 supplementation was safe and well tolerated. Conclusion: There was no significant difference in pain and stiffness scores between GJ 191 and placebo over the 12 weeks. While both groups reported improvements in WOMAC pain from baseline, improvements in current and bodily pain were experienced sooner with GJ 191 than placebo and were sustained over the study period. GJ 191 supplementation was safe and well tolerated. (CTR#: NCT04395547).",
+      "doi": "10.1089/jicm.2023.0124",
+      "journal": "Journal of integrative and complementary medicine",
+      "pub_date": "2025Jan",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "safety_interactions",
+      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A Randomized, Double-Blind, Placebo-Controlled Study Investigating the Safety and Efficacy of a Herbal Formulation on Knee Joint Function in Adults with Knee Osteoarthritis.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -504,22 +504,22 @@
       "wave": 7923
     },
     {
-      "pmid": "26887532",
-      "title": "A Critical Approach to Evaluating Clinical Efficacy, Adverse Events and Drug Interactions of Herbal Remedies.",
-      "abstract": "Systematic reviews and meta-analyses represent the uppermost ladders in the hierarchy of evidence. Systematic reviews/meta-analyses suggest preliminary or satisfactory clinical evidence for agnus castus (Vitex agnus castus) for premenstrual complaints, flaxseed (Linum usitatissimum) for hypertension, feverfew (Tanacetum partenium) for migraine prevention, ginger (Zingiber officinalis) for pregnancy-induced nausea, ginseng (Panax ginseng) for improving fasting glucose levels as well as phytoestrogens and St John's wort (Hypericum perforatum) for the relief of some symptoms in menopause. However, firm conclusions of efficacy cannot be generally drawn. On the other hand, inconclusive evidence of efficacy or contradictory results have been reported for Aloe vera in the treatment of psoriasis, cranberry (Vaccinium macrocarpon) in cystitis prevention, ginkgo (Ginkgo biloba) for tinnitus and intermittent claudication, echinacea (Echinacea spp.) for the prevention of common cold and pomegranate (Punica granatum) for the prevention/treatment of cardiovascular diseases. A critical evaluation of the clinical data regarding the adverse effects has shown that herbal remedies are generally better tolerated than synthetic medications. Nevertheless, potentially serious adverse events, including herb-drug interactions, have been described. This suggests the need to be vigilant when using herbal remedies, particularly in specific conditions, such as during pregnancy and in the paediatric population. Copyright © 2016 John Wiley & Sons, Ltd.",
-      "doi": "10.1002/ptr.5591",
-      "journal": "Phytotherapy research : PTR",
-      "pub_date": "2016May",
+      "pmid": "24465156",
+      "title": "Effects of a pre-workout supplement on lean mass, muscular performance, subjective workout experience and biomarkers of safety.",
+      "abstract": "In this prospective, randomized, double-blind, trial conducted in two parts, we examined the effects of a multi-ingredient pre-exercise workout supplement blend of creatine, betaine and a dendrobium extract (MMP) on safety, performance, and body composition in healthy men and women undergoing a supervised program of resistance exercise. Part 1 was an acute hemodynamic safety study wherein forty young, healthy men and women (26.2 ± 5.3 years, 70.4 ± 3.3 inches, 83.7 ± 14.9 kg, 26.0 ± 3.2 kg●m(-2)) ingest one dose of either the MMP or comparator in a randomized, double-blind, comparator controlled, crossover fashion before having their resting heart rate, blood, ECG and comprehensive blood chemistry and blood counts completed. Systolic (SBP) and diastolic (DBP) blood pressures were generally raised (3.0-5.4 mm Hg, p<0.01) following supplementation with MPP whereas in the comparator group SBP was marginally reduced by 0.3 to 1.2 mm Hg, p>0.05 at all time points) and DBP was increased (3.0 - 3.9 mm Hg, p<0.05 at all time points). No changes in EKG-corrected QT interval were observed, and no serious adverse events were reported. Part 2 was a six-week training study wherein forty-three young, healthy men and women (24.3 ± 2.9 years, 70.5 ± 3.1 inches, 83.8 ± 9.6 kg, 26.1 ± 2.7 kg●m(-2)) supplemented with daily pre-workout doses of either the MPP or a comparator in a randomized, double-blind, comparator-controlled fashion while following a standardized resistance training program for six weeks. MPP and the comparator were isocaloric and delivered the same amount of caffeine. Significant improvements in visual analog scale (VAS) scores for energy (p<0.024) and concentration (p<0.041) were found along with consistently higher levels of focus accompanied by less fatigue when MPP was consumed in comparison to comparator during upper body muscular strength-endurance tests at weeks 3 and 6. MPP supplementation for 6 weeks did not improve dual-energy x-ray absorptiometry (DEXA) measures of body composition or objective assessments of exercise performance. Overall, MPP use and administration was well tolerated. Self-reported scores for energy and concentration were significantly greater. Over a six-week training and supplementation period, MPP use was not associated with improvements in performance or body composition. Future studies should confirm these effects over a more prolonged training period.",
+      "doi": "10.7150/ijms.7073",
+      "journal": "International journal of medical sciences",
+      "pub_date": "2014",
       "publication_types": [
         "Journal Article",
-        "Meta-Analysis",
-        "Systematic Review"
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ],
       "category": "safety_interactions",
       "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "A Critical Approach to Evaluating Clinical Efficacy, Adverse Events and Drug Interactions of Herbal Remedies.",
+      "verified_title": "Effects of a pre-workout supplement on lean mass, muscular performance, subjective workout experience and biomarkers of safety.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -957,27 +957,6 @@
       "wave": 7944
     },
     {
-      "pmid": "27234658",
-      "title": "Opioid withdrawal suppression efficacy of oral dronabinol in opioid dependent humans.",
-      "abstract": "BACKGROUND: The cannabinoid (CB) system is a rational novel target for treating opioid dependence, a significant public health problem around the world. This proof-of-concept study examined the potential efficacy of a CB1 receptor partial agonist, dronabinol, in relieving signs and symptoms of opioid withdrawal. METHODS: Twelve opioid dependent adults participated in this 5-week, inpatient, double-blind, randomized, placebo-controlled study. Volunteers were maintained on double-blind oxycodone (30mg oral, four times/day) and participated in a training session followed by 7 experimental sessions, each testing a single oral test dose (placebo, oxycodone 30 and 60mg, dronabinol 5, 10, 20, and 30mg [decreased from 40mg]). Placebo was substituted for oxycodone maintenance doses for 21h before each session in order to produce measurable opioid withdrawal. Outcomes included observer- and participant-ratings of opioid agonist, opioid withdrawal and psychomotor/cognitive performance. RESULTS: Oxycodone produced prototypic opioid agonist effects (i.e. suppressing withdrawal and increasing subjective effects indicative of abuse liability). Dronabinol 5 and 10mg produced effects most similar to placebo, while the 20 and 30mg doses produced modest signals of withdrawal suppression that were accompanied by dose-related increases in high, sedation, bad effects, feelings of heart racing, and tachycardia. Dronabinol was not liked more than placebo, showed some impairment in cognitive performance, and was identified as marijuana with increasing dose. CONCLUSION: CB1 receptor activation is a reasonable strategy to pursue for the treatment of opioid withdrawal; however, dronabinol is not a likely candidate given its modest withdrawal suppression effects of limited duration and previously reported tachycardia during opioid withdrawal.",
-      "doi": "10.1016/j.drugalcdep.2016.05.002",
-      "journal": "Drug and alcohol dependence",
-      "pub_date": "2016Jul01",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "cannabinoid_safety",
-      "discovery_query": "(cannabis OR cannabinoid OR cannabidiol OR THC) AND (psychosis OR cognition OR driving OR adverse OR dependence)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Opioid withdrawal suppression efficacy of oral dronabinol in opioid dependent humans.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7945
-    },
-    {
       "pmid": "23937597",
       "title": "Marijuana's dose-dependent effects in daily marijuana smokers.",
       "abstract": "Active marijuana produces significant subjective, psychomotor, and physiological effects relative to inactive marijuana, yet demonstrating that these effects are dose-dependent has proven difficult. This within-subject, double-blind study was designed to develop a smoking procedure to obtain a marijuana dose-response function. In four outpatient laboratory sessions, daily marijuana smokers (N = 17 males, 1 female) smoked six 5-s puffs from 3 marijuana cigarettes (2 puffs/cigarette). The number of puffs from active (≥5.5% Δ⁹-tetrahydrocannabinol/THC) and inactive (0.0% THC) marijuana varied according to condition (0, 2, 4, or 6 active puffs); active puffs were always smoked before inactive puffs. Subjective, physiological, and performance effects were assessed prior to and at set time points after marijuana administration. Active marijuana dose-dependently increased heart rate and decreased marijuana craving, despite evidence (carbon monoxide expiration, weight of marijuana cigarettes post-smoking) that participants inhaled less of each active marijuana cigarette than inactive cigarettes. Subjective ratings of marijuana \"strength,\" \"high,\" \"liking,\" \"good effect,\" and \"take again\" were increased by active marijuana compared with inactive marijuana, but these effects were not dose-dependent. Active marijuana also produced modest, non-dose-dependent deficits in attention, psychomotor function, and recall relative to the inactive condition. In summary, although changes in inhalation patterns as a function of marijuana strength likely minimized the difference between dose conditions, dose-dependent differences in marijuana's cardiovascular effects and ratings of craving were observed, whereas subjective ratings of marijuana effects did not significantly vary as a function of dose.",
@@ -997,7 +976,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7946
+      "wave": 7945
     },
     {
       "pmid": "19525335",
@@ -1019,7 +998,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7947
+      "wave": 7946
     },
     {
       "pmid": "20558502",
@@ -1040,7 +1019,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7948
+      "wave": 7947
     },
     {
       "pmid": "27884751",
@@ -1061,7 +1040,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7949
+      "wave": 7948
     },
     {
       "pmid": "31165913",
@@ -1083,7 +1062,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7950
+      "wave": 7949
     },
     {
       "pmid": "32759071",
@@ -1105,7 +1084,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7951
+      "wave": 7950
     },
     {
       "pmid": "32921794",
@@ -1127,7 +1106,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7952
+      "wave": 7951
     },
     {
       "pmid": "24998257",
@@ -1148,7 +1127,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7953
+      "wave": 7952
     },
     {
       "pmid": "31994476",
@@ -1170,7 +1149,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7954
+      "wave": 7953
     },
     {
       "pmid": "31439831",
@@ -1189,6 +1168,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Cannabidiol attenuates insular dysfunction during motivational salience processing in subjects at clinical high risk for psychosis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7954
+    },
+    {
+      "pmid": "35637624",
+      "title": "Effects of cannabidiol on simulated driving and cognitive performance: A dose-ranging randomised controlled trial.",
+      "abstract": "BACKGROUND: Cannabidiol (CBD), a major cannabinoid of Cannabis sativa, is widely consumed in prescription and non-prescription products. While CBD is generally considered 'non-intoxicating', its effects on safety-sensitive tasks are still under scrutiny. AIM: We investigated the effects of CBD on driving performance. METHODS: Healthy adults (n = 17) completed four treatment sessions involving the oral administration of a placebo, or 15, 300 or 1500 mg CBD in a randomised, double-blind, crossover design. Simulated driving performance was assessed between ~45-75 and ~210-240 min post-treatment (Drives 1 and 2) using a two-part scenario with 'standard' and 'car following' (CF) components. The primary outcome was standard deviation of lateral position (SDLP), a well-established measure of vehicular control. Cognitive function, subjective experiences and plasma CBD concentrations were also measured. Non-inferiority analyses tested the hypothesis that CBD would not increase SDLP by more than a margin equivalent to a 0.05% blood alcohol concentration (Cohen's dz = 0.50). RESULTS: Non-inferiority was established during the standard component of Drive 1 and CF component of Drive 2 on all CBD treatments and during the standard component of Drive 2 on the 15 and 1500 mg treatments (95% CIs < 0.5). The remaining comparisons to placebo were inconclusive (the 95% CIs included 0 and 0.50). No dose of CBD impaired cognition or induced feelings of intoxication (ps > 0.05). CBD was unexpectedly found to persist in plasma for prolonged periods of time (e.g. >4 weeks at 1500 mg). CONCLUSION: Acute, oral CBD treatment does not appear to induce feelings of intoxication and is unlikely to impair cognitive function or driving performance (Registration: ACTRN12619001552178).",
+      "doi": "10.1177/02698811221095356",
+      "journal": "Journal of psychopharmacology (Oxford, England)",
+      "pub_date": "2022Dec",
+      "publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "cannabinoid_safety",
+      "discovery_query": "(cannabis OR cannabinoid OR cannabidiol OR THC) AND (psychosis OR cognition OR driving OR adverse OR dependence)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of cannabidiol on simulated driving and cognitive performance: A dose-ranging randomised controlled trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1305,6 +1306,27 @@
       "wave": 7960
     },
     {
+      "pmid": "39193818",
+      "title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
+      "abstract": "BACKGROUND: Fatigue and gastrointestinal (GI) distress are common among athletes with an estimated 30-90% of athletes participating in marathons, triathlons, or similar events experiencing GI complaints. Intense exercise can lead to increased intestinal permeability, potentially allowing members of the gut microbiota to permeate into the bloodstream, resulting in an inflammatory response and cascade of performance-limiting outcomes. Probiotics, through their capacity to regulate the composition of the gut microbiota, may act as an adjunctive therapy by enhancing GI and immune function while mitigating inflammatory responses. This review investigates the effectiveness of probiotic supplementation on fatigue, inflammatory markers, and exercise performance based on randomized controlled trials (RCTs). METHODS: This review follows the Preferred Reporting Items for Systematic Reviews and Meta-Analysis (PRISMA) guidelines and PICOS (Population, Intervention, Comparison, Outcome, Study design) framework. A comprehensive search was conducted in Sportdiscus, PubMed, and Scopus databases, and the screening of titles, abstracts, and full articles was performed based on pre-defined eligibility criteria. Of the 3505 records identified, 1884 were screened using titles and abstracts, of which 450 studies were selected for full-text screening. After final screening, 13 studies met the eligibility criteria and were included for review. The studies contained 513 participants, consisting of 351 males and 115 females, however, two studies failed to mention the sex of the participants. Among the participants, 246 were defined as athletes, while the remaining participants were classified as recreationally active (n = 267). All trials were fully described and employed a double- or triple-blind placebo-controlled intervention using either a single probiotic strain or a multi-strain synbiotic (containing both pro- and pre-biotics). RESULTS: This review assesses the effects of daily probiotic supplementation, ranging from 13 to 90 days, on physical performance and physiological markers in various exercise protocols. Ten studies reported improvements in various parameters, such as, enhanced endurance performance, improved anxiety and stress levels, decreased GI symptoms, and reduced upper respiratory tract infections (URTI). Moreover, despite no improvements in maximal oxygen uptake (VO2), several studies demonstrated that probiotic supplementation led to amelioration in lactate, creatine kinase (CK), and ammonia concentrations, suggesting beneficial effects on mitigating exercise-induced muscular stress and damage. CONCLUSION: Probiotic supplementation, specifically at a minimum dosage of 15 billion CFUs daily for a duration of at least 28 days, may contribute to the reduction of perceived or actual fatigue.",
+      "doi": "10.1080/15502783.2024.2388085",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2024Dec",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "mitochondrial_energy",
+      "discovery_query": "(coenzyme Q10 OR ubiquinol OR carnitine OR nicotinamide riboside OR creatine) AND (fatigue OR mitochondrial OR energy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7961
+    },
+    {
       "pmid": "31567463",
       "title": "Integrative Therapies for Cancer-Related Fatigue.",
       "abstract": "Cancer-related fatigue (CRF) is a common symptom for which cancer patients often use integrative and integrative therapies; however, evidence supporting these therapies is limited. The aim of this review is to provide evidence-based recommendations for integrative interventions during and after cancer treatment for CRF. These recommendations are based on a systematic literature review from 1990 through 2019. Cognitive behavior therapy plus hypnosis and American ginseng can be considered during active treatment, and acupressure, mindfulness-based cognitive therapy, and qigong/tai chi easy can be considered during posttreatment. Coenzyme Q10 and L-carnitine are not recommended during active-treatment. All other integrative therapies for CRF had insufficient evidence to make a recommendation. While there is increasing evidence for integrative therapies for CRF, because of lack of rigorous trials and replication, no therapies could be definitively recommended. Further rigorously designed integrative therapy research is needed and should consider implementation and dissemination.",
@@ -1323,7 +1345,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7961
+      "wave": 7962
     },
     {
       "pmid": "38703861",
@@ -1345,7 +1367,29 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7962
+      "wave": 7963
+    },
+    {
+      "pmid": "30935142",
+      "title": "Effects of Creatine Supplementation on Athletic Performance in Soccer Players: A Systematic Review and Meta-Analysis.",
+      "abstract": "Studies have shown that creatine supplementation increases intramuscular creatine concentrations, favoring the energy system of phosphagens, which may help explain the observed improvements in high-intensity exercise performance. However, research on physical performance in soccer has shown controversial results, in part because the energy system used is not taken into account. The main aim of this investigation was to perform a systematic review and meta-analysis to determine the efficacy of creatine supplementation for increasing performance in skills related to soccer depending upon the type of metabolism used (aerobic, phosphagen, and anaerobic metabolism). A structured search was carried out following the Preferred Reporting Items for Systematic Review and Meta-Analyses (PRISMA) guidelines in the Medline/PubMed and Web of Science, Cochrane Library, and Scopus databases until January 2019. The search included studies with a double-blind and randomized experimental design in which creatine supplementation was compared to an identical placebo situation (dose, duration, timing, and drug appearance). There were no filters applied to the soccer players' level, gender, or age. A final meta-analysis was performed using the random effects model and pooled standardized mean differences (SMD) (Hedges's g). Nine studies published were included in the meta-analysis. This revealed that creatine supplementation did not present beneficial effects on aerobic performance tests (SMD, -0.05; 95% confidence interval (CI), -0.37 to 0.28; p = 0.78) and phosphagen metabolism performance tests (strength, single jump, single sprint, and agility tests: SMD, 0.21; 95% CI, -0.03 to 0.45; p = 0.08). However, creatine supplementation showed beneficial effects on anaerobic performance tests (SMD, 1.23; 95% CI, 0.55⁻1.91; p <0.001). Concretely, creatine demonstrated a large and significant effect on Wingate test performance (SMD, 2.26; 95% CI, 1.40⁻3.11; p <0.001). In conclusion, creatine supplementation with a loading dose of 20⁻30 g/day, divided 3⁻4 times per day, ingested for 6 to 7 days, and followed by 5 g/day for 9 weeks or with a low dose of 3 mg/kg/day for 14 days presents positive effects on improving physical performance tests related to anaerobic metabolism, especially anaerobic power, in soccer players.",
+      "doi": "10.3390/nu11040757",
+      "journal": "Nutrients",
+      "pub_date": "2019Mar31",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "category": "mitochondrial_energy",
+      "discovery_query": "(coenzyme Q10 OR ubiquinol OR carnitine OR nicotinamide riboside OR creatine) AND (fatigue OR mitochondrial OR energy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of Creatine Supplementation on Athletic Performance in Soccer Players: A Systematic Review and Meta-Analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7964
     },
     {
       "pmid": "35608922",
@@ -1368,7 +1412,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7963
+      "wave": 7965
     },
     {
       "pmid": "26439785",
@@ -1390,29 +1434,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7964
-    },
-    {
-      "pmid": "30935142",
-      "title": "Effects of Creatine Supplementation on Athletic Performance in Soccer Players: A Systematic Review and Meta-Analysis.",
-      "abstract": "Studies have shown that creatine supplementation increases intramuscular creatine concentrations, favoring the energy system of phosphagens, which may help explain the observed improvements in high-intensity exercise performance. However, research on physical performance in soccer has shown controversial results, in part because the energy system used is not taken into account. The main aim of this investigation was to perform a systematic review and meta-analysis to determine the efficacy of creatine supplementation for increasing performance in skills related to soccer depending upon the type of metabolism used (aerobic, phosphagen, and anaerobic metabolism). A structured search was carried out following the Preferred Reporting Items for Systematic Review and Meta-Analyses (PRISMA) guidelines in the Medline/PubMed and Web of Science, Cochrane Library, and Scopus databases until January 2019. The search included studies with a double-blind and randomized experimental design in which creatine supplementation was compared to an identical placebo situation (dose, duration, timing, and drug appearance). There were no filters applied to the soccer players' level, gender, or age. A final meta-analysis was performed using the random effects model and pooled standardized mean differences (SMD) (Hedges's g). Nine studies published were included in the meta-analysis. This revealed that creatine supplementation did not present beneficial effects on aerobic performance tests (SMD, -0.05; 95% confidence interval (CI), -0.37 to 0.28; p = 0.78) and phosphagen metabolism performance tests (strength, single jump, single sprint, and agility tests: SMD, 0.21; 95% CI, -0.03 to 0.45; p = 0.08). However, creatine supplementation showed beneficial effects on anaerobic performance tests (SMD, 1.23; 95% CI, 0.55⁻1.91; p <0.001). Concretely, creatine demonstrated a large and significant effect on Wingate test performance (SMD, 2.26; 95% CI, 1.40⁻3.11; p <0.001). In conclusion, creatine supplementation with a loading dose of 20⁻30 g/day, divided 3⁻4 times per day, ingested for 6 to 7 days, and followed by 5 g/day for 9 weeks or with a low dose of 3 mg/kg/day for 14 days presents positive effects on improving physical performance tests related to anaerobic metabolism, especially anaerobic power, in soccer players.",
-      "doi": "10.3390/nu11040757",
-      "journal": "Nutrients",
-      "pub_date": "2019Mar31",
-      "publication_types": [
-        "Journal Article",
-        "Meta-Analysis",
-        "Systematic Review"
-      ],
-      "category": "mitochondrial_energy",
-      "discovery_query": "(coenzyme Q10 OR ubiquinol OR carnitine OR nicotinamide riboside OR creatine) AND (fatigue OR mitochondrial OR energy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effects of Creatine Supplementation on Athletic Performance in Soccer Players: A Systematic Review and Meta-Analysis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7965
+      "wave": 7966
     },
     {
       "pmid": "20881878",
@@ -1434,7 +1456,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7966
+      "wave": 7967
     },
     {
       "pmid": "32958033",
@@ -1455,7 +1477,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7967
+      "wave": 7968
     },
     {
       "pmid": "32439266",
@@ -1477,7 +1499,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7968
+      "wave": 7969
     },
     {
       "pmid": "30219858",
@@ -1499,7 +1521,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7969
+      "wave": 7970
     },
     {
       "pmid": "35483523",
@@ -1521,7 +1543,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7970
+      "wave": 7971
     },
     {
       "pmid": "35010653",
@@ -1543,7 +1565,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7971
+      "wave": 7972
     },
     {
       "pmid": "32810739",
@@ -1562,27 +1584,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "The mitochondria-targeted antioxidant MitoQ, attenuates exercise-induced mitochondrial DNA damage.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7972
-    },
-    {
-      "pmid": "39193818",
-      "title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
-      "abstract": "BACKGROUND: Fatigue and gastrointestinal (GI) distress are common among athletes with an estimated 30-90% of athletes participating in marathons, triathlons, or similar events experiencing GI complaints. Intense exercise can lead to increased intestinal permeability, potentially allowing members of the gut microbiota to permeate into the bloodstream, resulting in an inflammatory response and cascade of performance-limiting outcomes. Probiotics, through their capacity to regulate the composition of the gut microbiota, may act as an adjunctive therapy by enhancing GI and immune function while mitigating inflammatory responses. This review investigates the effectiveness of probiotic supplementation on fatigue, inflammatory markers, and exercise performance based on randomized controlled trials (RCTs). METHODS: This review follows the Preferred Reporting Items for Systematic Reviews and Meta-Analysis (PRISMA) guidelines and PICOS (Population, Intervention, Comparison, Outcome, Study design) framework. A comprehensive search was conducted in Sportdiscus, PubMed, and Scopus databases, and the screening of titles, abstracts, and full articles was performed based on pre-defined eligibility criteria. Of the 3505 records identified, 1884 were screened using titles and abstracts, of which 450 studies were selected for full-text screening. After final screening, 13 studies met the eligibility criteria and were included for review. The studies contained 513 participants, consisting of 351 males and 115 females, however, two studies failed to mention the sex of the participants. Among the participants, 246 were defined as athletes, while the remaining participants were classified as recreationally active (n = 267). All trials were fully described and employed a double- or triple-blind placebo-controlled intervention using either a single probiotic strain or a multi-strain synbiotic (containing both pro- and pre-biotics). RESULTS: This review assesses the effects of daily probiotic supplementation, ranging from 13 to 90 days, on physical performance and physiological markers in various exercise protocols. Ten studies reported improvements in various parameters, such as, enhanced endurance performance, improved anxiety and stress levels, decreased GI symptoms, and reduced upper respiratory tract infections (URTI). Moreover, despite no improvements in maximal oxygen uptake (VO2), several studies demonstrated that probiotic supplementation led to amelioration in lactate, creatine kinase (CK), and ammonia concentrations, suggesting beneficial effects on mitigating exercise-induced muscular stress and damage. CONCLUSION: Probiotic supplementation, specifically at a minimum dosage of 15 billion CFUs daily for a duration of at least 28 days, may contribute to the reduction of perceived or actual fatigue.",
-      "doi": "10.1080/15502783.2024.2388085",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "pub_date": "2024Dec",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "mitochondrial_energy",
-      "discovery_query": "(coenzyme Q10 OR ubiquinol OR carnitine OR nicotinamide riboside OR creatine) AND (fatigue OR mitochondrial OR energy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1894,6 +1895,28 @@
       "wave": 7987
     },
     {
+      "pmid": "28518221",
+      "title": "Micronutrient supplementation in adults with HIV infection.",
+      "abstract": "BACKGROUND: Micronutrient deficiencies are common among adults living with HIV disease, particularly in low-income settings where the diet may be low in essential vitamins and minerals. Some micronutrients play critical roles in maintenance of the immune system, and routine supplementation could therefore be beneficial. This is an update of a Cochrane Review previously published in 2010. OBJECTIVES: To assess whether micronutrient supplements are effective and safe in reducing mortality and HIV-related morbidity of HIV-positive adults (excluding pregnant women). SEARCH METHODS: We performed literature searches from January 2010 to 18 November 2016 for new randomized controlled trials (RCTs) of micronutrient supplements since the previous review included all trials identified from searches prior to 2010. We searched the CENTRAL (the Cochrane Library), Embase, and PubMed databases. Also we checked the World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) and the ClinicalTrials.gov trials registers. We also checked the reference lists of all new included trials. SELECTION CRITERIA: We included RCTs that compared supplements that contained either single, dual, or multiple micronutrients with placebo, no treatment, or other supplements. We excluded studies that were primarily designed to investigate the role of micronutrients for the treatment of HIV-positive participants with metabolic morbidity related to highly active antiretroviral therapy (HAART). Primary outcomes included all-cause mortality, morbidity, and disease progression. DATA COLLECTION AND ANALYSIS: Two review authors independently selected trials for inclusion, and appraised trial quality for risk of bias. Where possible, we presented results as risk ratios (RR) for dichotomous variables, as hazard ratios (HRs) for time-to-event data, and as mean differences (MD) for continuous variables, each with 95% confidence intervals (CIs). Since we were often unable to pool the outcome data, we tabulated it for each comparison. We assessed the certainty of the evidence using the GRADE approach. MAIN RESULTS: We included 33 trials with 10,325 participants, of which 17 trials were new trials. Ten trials compared a daily multiple micronutrient supplement to placebo in doses up to 20 times the dietary reference intake, and one trial compared a daily standard dose with a high daily dose of multivitamins. Nineteen trials compared supplementation with single or dual micronutrients (such as vitamins A and D, zinc, and selenium) to placebo, and three trials compared different dosages or combinations of micronutrients. Multiple micronutrientsWe conducted analyses across antiretroviral therapy (ART)-naive adults (3 trials, 1448 participants), adults on antiretroviral therapy (ART) (1 trial, 400 participants), and ART-naive adults with concurrent active tuberculosis (3 trials, 1429 participants). Routine multiple micronutrient supplementation may have little or no effect on mortality in adults living with HIV (RR 0.91, 95% CI 0.72 to 1.15; 7 trials, 2897 participants, low certainty evidence).Routine supplementation for up to two years may have little or no effect on the average of mean CD4+ cell count (MD 26.40 cells/mm³, 95% CI -22.91 to 75.70; 6 trials, 1581 participants, low certainty evidence), or the average of mean viral load (MD -0.1 log10viral copies, 95% CI -0.26 to 0.06; 4 trials, 840 participants, moderate certainty evidence). One additional trial in ART-naïve adults did report an increase in the time to reach a CD4+ cell count < 250 cells/mm³ after two years of high dose supplementation in Botswana (HR 0.48, 95% CI 0.26 to 0.88; 1 trial, 439 participants). However, the trial authors reported this effect only in the trial arm that received multiple micronutrients plus selenium (not either supplementation alone), which is inconsistent with the findings of other trials that used similar combinations of micronutrients and selenium.In one additional trial that compared high-dose multiple micronutrient supplementation with standard doses in people on ART, peripheral neuropathy was lower with high dose supplements compared to standard dose (incidence rate ratio (IRR) 0.81, 95% CI 0.7 to 0.94; 1 trial, 3418 participants), but the trial was stopped early due to increased adverse events (elevated alanine transaminase (ALT) levels) in the high dose group. Single or dual micronutrientsNone of the trials of single or dual micronutrient supplements were adequately powered to assess for effects on mortality or morbidity outcomes. No clinically significant changes in CD4 cell count (data not pooled, 14 trials, 2370 participants, very low or low certainty evidence) or viral load (data not pooled, seven studies, 1334 participants, very low or low certainty evidence), were reported. Supplementation probably does increase blood concentrations of vitamin D and zinc (data not pooled, vitamin D: 4 trials, 299 participants, zinc: 4 trials, 484 participants, moderate certainty evidence) and may also increase blood concentrations of vitamin A (data not pooled, 3 trials, 495 participants, low certainty evidence), especially in those who are deficient. AUTHORS' CONCLUSIONS: The analyses of the available trials have not revealed consistent clinically important benefits with routine multiple micronutrient supplementation in people living with HIV. Larger trials might reveal small but important effects.These findings should not be interpreted as a reason to deny micronutrient supplements for people living with HIV where specific deficiencies are found or where the person's diet is insufficient to meet the recommended daily allowance of vitamins and minerals.",
+      "doi": "10.1002/14651858.cd003650.pub4",
+      "journal": "The Cochrane database of systematic reviews",
+      "pub_date": "2017May18",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "category": "immune_respiratory",
+      "discovery_query": "(vitamin C OR vitamin D OR zinc OR elderberry OR echinacea OR probiotic) AND (respiratory OR influenza OR common cold OR infection)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Micronutrient supplementation in adults with HIV infection.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7988
+    },
+    {
       "pmid": "26281160",
       "title": "[PROBIOTICS, NUTRITIONAL STATUS AND RESISTANCE TO RESPIRATORY INFECTIONS IN INFANTS].",
       "abstract": "Aim of this study was to investigate the efficacy of prophylactic use of a liquid probiotic form based on Enterococcus faecium L3 in children first year of life to increase resistance to acute respiratory infections (ARI) in the winter-spring period and improve nutritional status. In a specialized (psychoneurologic) orphanage of St. Petersburg within three months of winter-spring period in 2014 observed 29 children in the first year of life. Observed children were randomly divided into two groups. The main group (n = 14) within three months received daily per os liquid probiotic form based on E.faecium L3 in a daily dose of 1.5 x 10(9) CFU. A control group of children (n = 15) was comparable with the main group by gender and age. The children observed groups studied the incidence of ARI; number of vaccinated children; the number of children who received two or more vaccinations at the same time; the number of children with acute infectious diseases within 1 month after vaccination; dynamics of Chulitskaya index, body mass index, body weight and length. The data obtained are subjected to statistical analysis, the results were considered significant at p < 0.05. The results showed that the use of probiotic forms E.faecium L3 in infants helped to reduce the average number of ARI cases per child (0.29 ± 0.13 vs. 0.73 ± 0.12 in the control group; p < 0.05) only in the first month of the observation that combined with a significantly higher BMI values increase this month (0.54 ± 0.25 vs. 0.07 ± 0.22 kg/m2 in the control group; p < 0.05). Use the liquid probiotic form E.faecium L3 in infants had a positive impact on overall health, which is reflected in the implementation of routine vaccination activities--in the main group, the number of children who received two or more vaccinations at the same time was 18.1% more.",
@@ -1913,7 +1936,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7988
+      "wave": 7989
     },
     {
       "pmid": "25362524",
@@ -1934,7 +1957,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7989
+      "wave": 7990
     },
     {
       "pmid": "29048352",
@@ -1955,7 +1978,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7990
+      "wave": 7991
     },
     {
       "pmid": "31573637",
@@ -1978,7 +2001,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7991
+      "wave": 7992
     },
     {
       "pmid": "39058300",
@@ -1999,7 +2022,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7992
+      "wave": 7993
     },
     {
       "pmid": "35807801",
@@ -2020,7 +2043,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7993
+      "wave": 7994
     },
     {
       "pmid": "21637031",
@@ -2041,7 +2064,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7994
+      "wave": 7995
     },
     {
       "pmid": "36401501",
@@ -2063,7 +2086,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7995
+      "wave": 7996
     },
     {
       "pmid": "32842513",
@@ -2084,7 +2107,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7996
+      "wave": 7997
     },
     {
       "pmid": "32981933",
@@ -2106,7 +2129,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7997
+      "wave": 7998
     },
     {
       "pmid": "23180952",
@@ -2128,7 +2151,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7998
+      "wave": 7999
     },
     {
       "pmid": "31210557",
@@ -2147,27 +2170,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effects of probiotic administration on immune responses of children and adolescents with type 1 diabetes to a quadrivalent inactivated influenza vaccine.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7999
-    },
-    {
-      "pmid": "27363733",
-      "title": "Lactobacillus helveticus Lafti L10 supplementation reduces respiratory infection duration in a cohort of elite athletes: a randomized, double-blind, placebo-controlled trial.",
-      "abstract": "A randomized, double-blind, placebo-controlled study was conducted to evaluate if Lactobacillus helveticus Lafti L10 (Lallemand Health Solutions, Montreal, Que., Canada) supplementation during 14 weeks in winter can influence the duration, severity, and incidence of upper respiratory tract illness (URTI), as well as to monitor different immune parameters in the population of elite athletes. Before and after the treatment, cardiopulmonary testing and self-rated state of moods evaluation (by Profile of Mood States questionnaire) were performed and blood samples were collected. Thirty-nine elite athletes were randomized either to the placebo (n = 19) or the probiotic (n = 20) group. The probiotic group received L. helveticus Lafti L10, 2 × 10(10) Colony Forming Units. Lafti L10 significantly shortened the URTI episode duration (7.25 ± 2.90 vs. 10.64 ± 4.67 days, p = 0.047) and decreased the number of symptoms in the probiotic group (4.92 ± 1.96 vs. 6.91 ± 1.22, p = 0.035). Severity and incidence of URTI did not differ between the treatments. There were no significant changes in leukocyte subpopulation abundance, transforming growth factor-β serum levels, level of interleukin-10 secreted from peptidoglican stimulated peripheral blood mononuclear cells (PBMCs), interferon-γ level secreted from concanavalin A-stimulated PBMCs or viability/proliferation of PBMCs upon antigen stimulation. Group effect for CD4+/CD8+ ratio was significant (F[1,37] = 6.99, p = 0.020, η(2) = 0.350); this difference was not significant at baseline, but was evident after 14 weeks (p = 0.02). A significant interaction effect was noted for self-rated sense of vigor (F[1,37] = 11.76, p = 0.009, η(2) = 0.595). Self-rated sense of vigor increased in the probiotic group (18.5 ± 4.1 vs. 21.0 ± 2.6, p = 0.012). Probiotic strain Lafti L10 can be a beneficial nutritional supplement for the reduction of URTI length in elite athletes.",
-      "doi": "10.1139/apnm-2015-0541",
-      "journal": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
-      "pub_date": "2016Jul",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "immune_respiratory",
-      "discovery_query": "(vitamin C OR vitamin D OR zinc OR elderberry OR echinacea OR probiotic) AND (respiratory OR influenza OR common cold OR infection)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Lactobacillus helveticus Lafti L10 supplementation reduces respiratory infection duration in a cohort of elite athletes: a randomized, double-blind, placebo-controlled trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,

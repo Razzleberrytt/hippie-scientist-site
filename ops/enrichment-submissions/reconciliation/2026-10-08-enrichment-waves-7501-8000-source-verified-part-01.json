@@ -92,28 +92,6 @@
       "wave": 7504
     },
     {
-      "pmid": "19501822",
-      "title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
-      "abstract": "OBJECTIVE: To investigate the impact of Withania somnifera roots on semen profile, oxidative biomarkers, and reproductive hormone levels of infertile men. DESIGN: Prospective study. SETTING: Departments of Biochemistry and Urology, Chhatrapati Shahuji Maharaj Medical University, Lucknow, India. PATIENT(S): Seventy-five normal healthy fertile men (control subjects) and 75 men undergoing infertility screening. INTERVENTION(S): High-performance liquid chromatography assay procedure for quantization of vitamin A and E in seminal plasma. Biochemical parameters in seminal plasma were estimated by standard spectrophotometric procedures. Estimation of T, LH, FSH, and PRL in blood serum by RIA methods. MAIN OUTCOME MEASURES(S): Before and after the treatment, seminal plasma biochemical parameters, antioxidant vitamins, and serum T, LH, FSH, and PRL levels were measured. RESULT(S): Withania somnifera inhibited lipid peroxidation and protein carbonyl content and improved sperm count and motility. Treatment of infertile men recovered the seminal plasma levels of antioxidant enzymes and vitamins A, C, and E and corrected fructose. Moreover, treatment also significantly increased serum T and LH and reduced the levels of FSH and PRL. CONCLUSION(S): The treatment with W. somnifera effectively reduced oxidative stress, as assessed by decreased levels of various oxidants and improved level of diverse antioxidants. Moreover, the levels of T, LH, FSH and PRL, good indicators of semen quality, were also reversed in infertile subjects after treatment with the herbal preparation.",
-      "doi": "10.1016/j.fertnstert.2009.04.046",
-      "journal": "Fertility and sterility",
-      "pub_date": "2010Aug",
-      "publication_types": [
-        "Controlled Clinical Trial",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "stress_anxiety",
-      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7505
-    },
-    {
       "pmid": "28566632",
       "title": "Anti-stress Effect of Green Tea with Lowered Caffeine on Humans: A Pilot Study.",
       "abstract": "Theanine, an amino acid in tea, has significant anti-stress effects on animals and humans. However, the effect of theanine was blocked by caffeine and gallate-type catechins, which are the main components in tea. We examined the anti-stress effect of green tea with lowered caffeine, low-caffeine green tea, on humans. The study design was a single-blind group comparison and participants (n=20) were randomly assigned to low-caffeine or placebo tea groups. These teas (≥500 mL/d), which were eluted with room temperature water, were taken from 1 week prior to pharmacy practice and continued for 10 d in the practice period. The participants ingested theanine (ca. 15 mg/d) in low-caffeine green tea. To assess the anxiety of participants, the state-trait anxiety inventory test was used before pharmacy practice. The subjective stress of students was significantly lower in the low-caffeine-group than in the placebo-group during pharmacy practice. The level of salivary α-amylase activity, a stress marker, increased significantly after daily pharmacy practice in the placebo-group but not in the low-caffeine-group. These results suggested that the ingestion of low-caffeine green tea suppressed the excessive stress response of students. This study was registered at the University Hospital Medical Information Network (ID No. UMIN14942).",
@@ -132,7 +110,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7506
+      "wave": 7505
     },
     {
       "pmid": "31201809",
@@ -155,7 +133,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7507
+      "wave": 7506
     },
     {
       "pmid": "28783372",
@@ -173,6 +151,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effects of Aromatherapy Massage on Pregnant Women's Stress and Immune Function: A Longitudinal, Prospective, Randomized Controlled Trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7507
+    },
+    {
+      "pmid": "19501822",
+      "title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
+      "abstract": "OBJECTIVE: To investigate the impact of Withania somnifera roots on semen profile, oxidative biomarkers, and reproductive hormone levels of infertile men. DESIGN: Prospective study. SETTING: Departments of Biochemistry and Urology, Chhatrapati Shahuji Maharaj Medical University, Lucknow, India. PATIENT(S): Seventy-five normal healthy fertile men (control subjects) and 75 men undergoing infertility screening. INTERVENTION(S): High-performance liquid chromatography assay procedure for quantization of vitamin A and E in seminal plasma. Biochemical parameters in seminal plasma were estimated by standard spectrophotometric procedures. Estimation of T, LH, FSH, and PRL in blood serum by RIA methods. MAIN OUTCOME MEASURES(S): Before and after the treatment, seminal plasma biochemical parameters, antioxidant vitamins, and serum T, LH, FSH, and PRL levels were measured. RESULT(S): Withania somnifera inhibited lipid peroxidation and protein carbonyl content and improved sperm count and motility. Treatment of infertile men recovered the seminal plasma levels of antioxidant enzymes and vitamins A, C, and E and corrected fructose. Moreover, treatment also significantly increased serum T and LH and reduced the levels of FSH and PRL. CONCLUSION(S): The treatment with W. somnifera effectively reduced oxidative stress, as assessed by decreased levels of various oxidants and improved level of diverse antioxidants. Moreover, the levels of T, LH, FSH and PRL, good indicators of semen quality, were also reversed in infertile subjects after treatment with the herbal preparation.",
+      "doi": "10.1016/j.fertnstert.2009.04.046",
+      "journal": "Fertility and sterility",
+      "pub_date": "2010Aug",
+      "publication_types": [
+        "Controlled Clinical Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "stress_anxiety",
+      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -480,27 +480,6 @@
       "wave": 7522
     },
     {
-      "pmid": "30308973",
-      "title": "Stress-Reducing Function of Matcha Green Tea in Animal Experiments and Clinical Trials.",
-      "abstract": "Theanine, a major amino acid in green tea, exhibits a stress-reducing effect in mice and humans. Matcha, which is essentially theanine-rich powdered green tea, is abundant in caffeine. Caffeine has a strong antagonistic effect against theanine. The stress-reducing effect of matcha was examined with an animal experiment and a clinical trial. The stress-reducing effect of matcha marketed in Japan and abroad was assessed based on its composition. The stress-reducing effect of matcha in mice was evaluated as suppressed adrenal hypertrophy using territorially-based loaded stress. High contents of theanine and arginine in matcha exhibited a high stress-reducing effect. However, an effective stress-reducing outcome was only possible when the molar ratio of caffeine and epigallocatechin gallate (EGCG) to theanine and arginine was less than two. Participants (n = 39) consumed test-matcha, which was expected to have a stress-reducing effect, or placebo-matcha, where no effect was expected. Anxiety, a reaction to stress, was significantly lower in the test-matcha group than in the placebo group. To predict mental function of each matcha, both the quantity of theanine and the ratios of caffeine, EGCG, and arginine against theanine need to be verified.",
-      "doi": "10.3390/nu10101468",
-      "journal": "Nutrients",
-      "pub_date": "2018Oct10",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "stress_anxiety",
-      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Stress-Reducing Function of Matcha Green Tea in Animal Experiments and Clinical Trials.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7523
-    },
-    {
       "pmid": "25828061",
       "title": "Withania somnifera (Ashwagandha) in neurobehavioural disorders induced by brain oxidative stress in rodents: a systematic review and meta-analysis.",
       "abstract": "OBJECTIVES: Withania somnifera has been in use for several thousand years in Ayurveda to treat various neurological disorders. There is, however, not much scientific data on its protective role in neuronal pathology specifically against brain oxidative stress. Hence, an attempt is made in this work for systematic review and meta-analysis of W. somnifera on neurobehavioural disorders induced by brain oxidative stress in rodents. METHODS: A systematic search of the effect of W. somnifera on brain oxidative stress-induced neuronal pathology was performed using electronic databases. The systematic review was performed on neurobehavioural parameters, whereas meta-analysis of W. somnifera effect was done on oxidative stress markers (superoxide dismutase, catalase, glutathione peroxidase, glutathione and lipid peroxidation), nitrite, protein carbonyl, AchE, ChAT and Ach of rodent brain. Data were analysed using Review Manager Software. KEY FINDINGS: Twenty-eight studies were selected based upon the inclusion and exclusion criteria. W. somnifera appreciably inhibited the neurological abnormalities due to oxidative stress in rodent brain produced by different physical and chemical stimuli. W. somnifera also significantly restored the altered oxidative and other stress markers in different parts of rodent brain. SUMMARY: The systematic review provides scientific evidence for the traditional claim of W. somnifera use in different neurological aliments. However, future clinical trials are mandated to establish the therapeutic efficacy and safety in human beings.",
@@ -521,7 +500,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7524
+      "wave": 7523
     },
     {
       "pmid": "28395396",
@@ -542,7 +521,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7525
+      "wave": 7524
     },
     {
       "pmid": "36966288",
@@ -563,7 +542,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7526
+      "wave": 7525
     },
     {
       "pmid": "31192834",
@@ -584,7 +563,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7527
+      "wave": 7526
     },
     {
       "pmid": "29508154",
@@ -605,7 +584,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7528
+      "wave": 7527
     },
     {
       "pmid": "20614803",
@@ -626,7 +605,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7529
+      "wave": 7528
     },
     {
       "pmid": "30320657",
@@ -647,7 +626,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7530
+      "wave": 7529
     },
     {
       "pmid": "29071755",
@@ -668,7 +647,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7531
+      "wave": 7530
     },
     {
       "pmid": "27575673",
@@ -687,6 +666,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Comparing the effects of aromatherapy massage and inhalation aromatherapy on anxiety and pain in burn patients: A single-blind randomized clinical trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7531
+    },
+    {
+      "pmid": "28917370",
+      "title": "Aromatherapies using Osmanthus fragrans oil and grapefruit oil are effective complementary treatments for anxious patients undergoing colonoscopy: A randomized controlled study.",
+      "abstract": "BACKGROUND AND AIMS: Colonoscopy can be painful and uncomfortable. Aromatherapy is often used for the relief of anxiety or discomfort. Recently, it has been reported that olfactory stimulation induces various physiological effects. We investigated the effects of aromatherapy on anxiety and abdominal discomfort during colonoscopy. METHODS: The investigation was carried out using a randomized controlled study. Aromatherapy was performed by vapor diffusion, and each patient was given one of the following treatments: no inhalation (control group), essential-oil-less vapor (vehicle group), lavender oil (lavender group), grapefruit oil (grapefruit group), or Osmanthus fragrans oil (Osmanthus fragrans group). Following total colonoscopy procedures, each patient estimated their anxiety and abdominal discomfort using the Numeric Rating Scale. RESULTS: Total colonoscopy was performed on 361 patients. No complications caused by colonoscopy or aromatherapy were experienced. In the Osmanthus fragrans group, anxiety was significantly attenuated. The abdominal discomfort of patients who reported strong anxiety during colonoscopy was significantly attenuated in the grapefruit group and the Osmanthus fragrans group. CONCLUSION: Aromatherapies using Osmanthus fragrans oil and grapefruit oil are effective complementary treatments for anxious patients undergoing colonoscopy.",
+      "doi": "10.1016/j.ctim.2017.08.012",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2017Oct",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "stress_anxiety",
+      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Aromatherapies using Osmanthus fragrans oil and grapefruit oil are effective complementary treatments for anxious patients undergoing colonoscopy: A randomized controlled study.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -908,27 +908,6 @@
       "wave": 7542
     },
     {
-      "pmid": "33905827",
-      "title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
-      "abstract": "BACKGROUND: To evaluate the effect of Lavandula angustifolia essential oil inhalation on sleep and menopausal symptoms in postmenopausal women with insomnia. PARTICIPANTS: 35 postmenopausal women with a clinical diagnosis of insomnia were included, 17 in Aroma Group (AG) and 18 in Placebo Group (PG). METHODS: In this double-blind, randomized controlled trial, PG participants inhaled sunflower oil and AG participants inhaledLavandula angustifolia essential oil, for 29 days. Both groups received sleep hygiene guidelines before the intervention and weekly follow-up during it. Evaluations were performed before and after intervention. All statistical analyses and intention-to-treat test were performed in SPSS 22. Sleep quality (Primary outcome) was measured by Pittsburgh Sleep Quality Index. Secondary outcomes were polysomnography data, severity of insomnia, anxiety and depression symptoms, and postmenopausal symptoms. RESULTS: There were no significant differences between groups after intervention in the primary outcome (P = 0.22; effect size=0.69); however, a tendency of improvement in wake after sleep onset (WASO) was observed (P = 0.07; effect size=0.81; B = 42.2). Both groups presented better sleep quality over time (AG P < 0.001; PG P = 0.011). AG participants showed a significant decrease in sleep onset latency (P = 0.001), depression levels (P = 0.025), hot flashes (P < 0.001), postmenopausal symptoms (P < 0.001) and, in polysomnography data, increased sleep efficiency (P = 0.002) compared to baseline. CONCLUSION: Although no significant differences were observed between groups, our data presented a tendency of improvement in WASO. Moreover, AG participants had enhanced overall sleep pattern, quality and sleep efficiency. Weekly follow-up and sleep hygiene instructions were essential for both groups to show improvement in almost all outcomes. CLINICAL TRIAL REGISTRATION: Brazilian Registry of Clinical Trials, www.ensaiosclinicos.gov.br, RBR-5q5t5z.",
-      "doi": "10.1016/j.ctim.2021.102726",
-      "journal": "Complementary therapies in medicine",
-      "pub_date": "2021Jun",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "sleep",
-      "discovery_query": "(magnesium OR melatonin OR valerian OR glycine OR chamomile OR lavender OR ashwagandha) AND (insomnia OR sleep)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7543
-    },
-    {
       "pmid": "24199972",
       "title": "Valerian/lemon balm use for sleep disorders during menopause.",
       "abstract": "UNLABELLED: The onset of Menopause in women is frequently associated with sleep disruption with hot flushes intensifying problems. Thus the use of supplementary drugs to ameliorate these symptoms is of significance. OBJECTIVES: The purpose of this research was to determine whether valerian/lemon balm could assist by enhancing sleep patterns in this client group. METHODS: 100 women aged 50-60 years who complained of sleep disorders were studied. Subjects were selected randomly in a sampling method utilizing two groups of 50 people (intervention group with valerian/lemon balm and placebo group). The Pittsburgh Sleep Quality Index (PSQI) was administered pre and post-intervention. RESULTS: A significant difference was observed with reduced levels of sleep disorders amongst the experimental group when compared to the placebo group. CONCLUSION: Valerian/lemon balm may assist in reducing symptoms of sleep disorder during the menopause.",
@@ -947,7 +926,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7544
+      "wave": 7543
     },
     {
       "pmid": "33561990",
@@ -968,7 +947,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7545
+      "wave": 7544
     },
     {
       "pmid": "22038497",
@@ -986,6 +965,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effect of tart cherry juice (Prunus cerasus) on melatonin levels and enhanced sleep quality.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7545
+    },
+    {
+      "pmid": "33905827",
+      "title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
+      "abstract": "BACKGROUND: To evaluate the effect of Lavandula angustifolia essential oil inhalation on sleep and menopausal symptoms in postmenopausal women with insomnia. PARTICIPANTS: 35 postmenopausal women with a clinical diagnosis of insomnia were included, 17 in Aroma Group (AG) and 18 in Placebo Group (PG). METHODS: In this double-blind, randomized controlled trial, PG participants inhaled sunflower oil and AG participants inhaledLavandula angustifolia essential oil, for 29 days. Both groups received sleep hygiene guidelines before the intervention and weekly follow-up during it. Evaluations were performed before and after intervention. All statistical analyses and intention-to-treat test were performed in SPSS 22. Sleep quality (Primary outcome) was measured by Pittsburgh Sleep Quality Index. Secondary outcomes were polysomnography data, severity of insomnia, anxiety and depression symptoms, and postmenopausal symptoms. RESULTS: There were no significant differences between groups after intervention in the primary outcome (P = 0.22; effect size=0.69); however, a tendency of improvement in wake after sleep onset (WASO) was observed (P = 0.07; effect size=0.81; B = 42.2). Both groups presented better sleep quality over time (AG P < 0.001; PG P = 0.011). AG participants showed a significant decrease in sleep onset latency (P = 0.001), depression levels (P = 0.025), hot flashes (P < 0.001), postmenopausal symptoms (P < 0.001) and, in polysomnography data, increased sleep efficiency (P = 0.002) compared to baseline. CONCLUSION: Although no significant differences were observed between groups, our data presented a tendency of improvement in WASO. Moreover, AG participants had enhanced overall sleep pattern, quality and sleep efficiency. Weekly follow-up and sleep hygiene instructions were essential for both groups to show improvement in almost all outcomes. CLINICAL TRIAL REGISTRATION: Brazilian Registry of Clinical Trials, www.ensaiosclinicos.gov.br, RBR-5q5t5z.",
+      "doi": "10.1016/j.ctim.2021.102726",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2021Jun",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "sleep",
+      "discovery_query": "(magnesium OR melatonin OR valerian OR glycine OR chamomile OR lavender OR ashwagandha) AND (insomnia OR sleep)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1122,29 +1122,6 @@
       "wave": 7552
     },
     {
-      "pmid": "32912180",
-      "title": "Long-term melatonin treatment for the sleep problems and aberrant behaviors of children with neurodevelopmental disorders.",
-      "abstract": "BACKGROUND: Clinical evidence is required about the long-term efficacy and safety of melatonin treatment for sleep problems in children with neurodevelopmental disorders (NDDs) who underwent adequate sleep hygiene interventions. METHODS: We conducted a 26-week, multicenter, collaborative, uncontrolled, open-label, phase III clinical trial of melatonin granules in children 6 to 15 years of age who had NDDs and sleep problems. The study consisted of the 2-week screening phase, the 26-week medication phases I and II, and the 2-week follow-up phase. Children received 1, 2, or 4 mg melatonin granules orally in the medication phases. Variables of sleep status including sleep onset latency (SOL), aberrant behaviors listed on the Aberrant Behavior Check List-Japanese version (ABC-J), and safety were examined. The primary endpoint was SOL in the medication phase I. RESULTS: Between June 2016 and July 2018, 99 children (80 males and 19 females, 10.4 years in mean age) were enrolled at 17 medical institutions in Japan-74, 60, 22, 9, 6, and 1 of whom had autism spectrum disorder, attention-deficit/hyperactivity disorder, intellectual disabilities, motor disorders, specific learning disorder, and communication disorders, respectively, at baseline. Fifteen children received the maximal dose of 4 mg among the prespecified dose levels. SOL recorded with the electronic sleep diary shortened significantly (mean ± standard deviation [SD], - 36.7 ± 46.1 min; 95% confidence interval [CI], - 45.9 to - 27.5; P < 0.0001) in the medication phase I from baseline, and the SOL-shortening effect of melatonin persisted in the medication phase II and the follow-up phase. Temper upon wakening and sleepiness after awakening improved significantly (P < 0.0001 each) in the medication phase I from baseline and persisted in the follow-up phase. The following subscales of the ABC-J improved significantly: stereotypic behavior (P = 0.0322) in the medication phase I; and irritability, hyperactivity, and inappropriate speech (P < 0.0001) in the medication phase II. Treatment-emergent adverse events did not occur subsequent to week 16 after medication onset, and NDDs did not deteriorate in the follow-up phase. CONCLUSIONS: Long-term melatonin treatment in combination with adequate sleep hygiene interventions may afford clinical benefits to children with NDDs and potentially elevates their well-being. TRIAL REGISTRATION: ClinicalTrils.gov , NCT02757066 . Registered April 27, 2016.",
-      "doi": "10.1186/s12888-020-02847-y",
-      "journal": "BMC psychiatry",
-      "pub_date": "2020Sep10",
-      "publication_types": [
-        "Clinical Trial, Phase III",
-        "Journal Article",
-        "Multicenter Study",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "sleep",
-      "discovery_query": "(magnesium OR melatonin OR valerian OR glycine OR chamomile OR lavender OR ashwagandha) AND (insomnia OR sleep)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Long-term melatonin treatment for the sleep problems and aberrant behaviors of children with neurodevelopmental disorders.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7553
-    },
-    {
       "pmid": "33048904",
       "title": "The Effects of Melatonin Supplementation on Sleep Quality and Assessment of the Serum Melatonin in ICU Patients: A Randomized Controlled Trial.",
       "abstract": "OBJECTIVES: To evaluate whether the use of exogenous melatonin affects sleep, reduces the prevalence of delirium, and decreases the need for analgosedation and to assess whether serum melatonin indices correlate with exogenous administration in critically ill patients. DESIGN: Double-blind, randomized, placebo-controlled study. SETTING: Multicenter ICUs of two tertiary hospitals. PATIENTS: A total of 203 adult patients who were admitted to the ICU and administered with analgesics and/or sedatives. INTERVENTIONS: Oral melatonin (10 mg) or placebo for up to seven consecutive nights. MEASUREMENTS AND MAIN RESULTS: The number of observed sleeping hours at night was assessed by the bedside nurse. Sleep quality was evaluated using the Richards Campbell Questionnaire Sleep (RCSQ). The prevalence of delirium, pain, anxiety, adverse reactions, duration of mechanical ventilation, length of ICU and hospital stays, and doses of sedative and analgesic drugs administered were recorded. The use of analgesics and sedatives was assessed daily. Melatonin levels were determined by enzyme-linked immunosorbent assay. Based on the RCSQ results, sleep quality was assessed to be better in the melatonin group than that in the placebo group with a mean (SD) of 69.7 (21.2) and 60.7 (26.3), respectively (p = 0.029). About 45.8% and 34.4% of participants in the melatonin and placebo groups had very good sleep (risk ratio, 1.33; 95% CI, 0.94-1.89), whereas 3.1% and 14.6% had very poor sleep (risk ratio, 0.21; 95% CI, 0.06-0.71), respectively. No significant difference was observed regarding the days free of analgesics or sedatives, the duration of night sleep, and the occurrence of delirium, pain, and anxiety. Melatonin serum peak levels at 2 AM were 150 pg/mL (range, 125-2,125 pg/mL) in the melatonin group and 32.5 pg/mL (range, 18.5-35 pg/mL) in the placebo group (p < 0.001). CONCLUSIONS: Melatonin was associated with better sleep quality, which suggests its possible role in the routine care of critically ill patients in the future.",
@@ -1164,7 +1141,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7554
+      "wave": 7553
     },
     {
       "pmid": "38241803",
@@ -1185,7 +1162,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7555
+      "wave": 7554
     },
     {
       "pmid": "31512550",
@@ -1206,7 +1183,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7556
+      "wave": 7555
     },
     {
       "pmid": "33845710",
@@ -1227,7 +1204,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7557
+      "wave": 7556
     },
     {
       "pmid": "22445311",
@@ -1250,7 +1227,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7558
+      "wave": 7557
     },
     {
       "pmid": "29846091",
@@ -1271,7 +1248,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7559
+      "wave": 7558
     },
     {
       "pmid": "39775962",
@@ -1292,7 +1269,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7560
+      "wave": 7559
     },
     {
       "pmid": "32228330",
@@ -1313,7 +1290,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7561
+      "wave": 7560
     },
     {
       "pmid": "32428718",
@@ -1334,7 +1311,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7562
+      "wave": 7561
     },
     {
       "pmid": "24382614",
@@ -1356,7 +1333,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7563
+      "wave": 7562
     },
     {
       "pmid": "30636826",
@@ -1377,7 +1354,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7564
+      "wave": 7563
     },
     {
       "pmid": "21399726",
@@ -1400,7 +1377,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7565
+      "wave": 7564
     },
     {
       "pmid": "26356402",
@@ -1421,7 +1398,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7566
+      "wave": 7565
     },
     {
       "pmid": "25380732",
@@ -1443,7 +1420,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7567
+      "wave": 7566
     },
     {
       "pmid": "21939549",
@@ -1466,7 +1443,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7568
+      "wave": 7567
     },
     {
       "pmid": "34091954",
@@ -1487,7 +1464,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7569
+      "wave": 7568
     },
     {
       "pmid": "25644982",
@@ -1509,7 +1486,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7570
+      "wave": 7569
     },
     {
       "pmid": "20347389",
@@ -1530,7 +1507,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7571
+      "wave": 7570
     },
     {
       "pmid": "28648359",
@@ -1552,7 +1529,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7572
+      "wave": 7571
     },
     {
       "pmid": "32847731",
@@ -1573,7 +1550,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7573
+      "wave": 7572
     },
     {
       "pmid": "31715492",
@@ -1594,7 +1571,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7574
+      "wave": 7573
     },
     {
       "pmid": "22582680",
@@ -1615,7 +1592,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7575
+      "wave": 7574
     },
     {
       "pmid": "24597610",
@@ -1637,7 +1614,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7576
+      "wave": 7575
     },
     {
       "pmid": "29729237",
@@ -1660,7 +1637,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7577
+      "wave": 7576
     },
     {
       "pmid": "29908879",
@@ -1683,7 +1660,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7578
+      "wave": 7577
     },
     {
       "pmid": "26361788",
@@ -1705,7 +1682,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7579
+      "wave": 7578
     },
     {
       "pmid": "29154054",
@@ -1723,6 +1700,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "The effects of chamomile extract on sleep quality among elderly people: A clinical trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7579
+    },
+    {
+      "pmid": "20044310",
+      "title": "Antidepressant action of melatonin in the treatment of Delayed Sleep Phase Syndrome.",
+      "abstract": "BACKGROUND: Depression is a common problem in patients with Delayed Sleep Phase Syndrome (DSPS). This study used a randomized, double-blind, crossover, placebo-controlled approach to test the hypothesis that exogenous melatonin (5mg) can attenuate depressive symptomatology in DSPS patients. METHODS: Twenty patients with an established diagnosis of DSPS were dichotomized into DSPS with depressive symptoms (Group I; n=8) and without depressive symptoms (Group II; n=12) based on structured clinical interviews and a score greater than 17 on Center for Epidemiologic Studies Depression Scale (CES-D). Both groups received melatonin and placebo treatment for 4 weeks with a 1-week washout period in between. Participants underwent a clinical interview and psychometric evaluation to assess depression, and overnight polysomnographic sleep studies were carried out at baseline and at the end of melatonin and placebo treatments. Furthermore, melatonin secretion rhythm as a circadian phase marker was assessed by measuring urinary 6-sulphatoxymelatonin levels. RESULTS: Melatonin treatment significantly reduced depression scores in the depressed patients as measured by the CES-D and Hamilton Depression Rating Scale--17. Melatonin treatment improved sleep continuity in both groups compared to placebo and baseline conditions. Group I individuals showed marked alterations in melatonin rhythms compared to Group II individuals. CONCLUSION: Exogenous melatonin treatment may be an effective treatment modality for individuals with circadian rhythm sleep disorders and associated comorbid depressive symptomatology.",
+      "doi": "10.1016/j.sleep.2009.07.013",
+      "journal": "Sleep medicine",
+      "pub_date": "2010Feb",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "sleep",
+      "discovery_query": "(magnesium OR melatonin OR valerian OR glycine OR chamomile OR lavender OR ashwagandha) AND (insomnia OR sleep)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Antidepressant action of melatonin in the treatment of Delayed Sleep Phase Syndrome.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,

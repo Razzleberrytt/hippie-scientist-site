@@ -882,6 +882,48 @@
       "wave": 7740
     },
     {
+      "pmid": "39242081",
+      "title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
+      "abstract": "The neuropsychiatric effects of probiotics, prebiotics, and synbiotics have been gaining attention since the rise of microbial-gut-brain axis research. Nevertheless, some of the findings are inconsistent, and few studies have analysed the similarities and differences in the neuropsychiatric effects of the three comprehensively. To reveal the respective neuropsychiatric effects of probiotics, prebiotics, and synbiotics and synthesise the similarities and differences among the three effects, 47 meta-analyses with 12 types of neuropsychiatric results were integrated under an umbrella review. Probiotics, prebiotics, and synbiotics intake might all be associated with improvements in some neuropsychiatric outcomes, including neuropsychological test outcomes (probiotic and prebiotic), hepatic encephalopathy outcomes (probiotic, prebiotic, and synbiotic), instant memory in patients with Alzheimer's disease (probiotic), depressive symptoms (probiotic, prebiotic and synbiotic), mood states and psychiatric distress (probiotic), overall mental health (probiotic), neurological function (probiotic), brain-derived neurotrophic factor (BDNF) concentration (probiotic and synbiotic), and Pittsburgh Sleep Quality Index (PSQI) score (probiotic). All three are similar in that the intake of probiotics, prebiotics, and synbiotics might be associated with improvements in hepatic encephalopathy outcomes and depressive symptoms, both probiotic and synbiotic intake might be associated with elevated BDNF concentrations, and both probiotic and prebiotic intake might be associated with improved neuropsychological test results. The difference between the three is that the neuropsychiatric effects of probiotics might be more widespread and be reflected in the fact that probiotic intake might also be associated with improvements in mood states and psychiatric distress, overall mental health, neurological function, Alzheimer's disease patients' instant memory, and PSQI score. Probiotics might be the best and most promising option for improving neuropsychiatric outcomes. In the future, in addition to requiring more high-quality meta-analyses, further preclinical studies are needed to explore specific relevant mechanisms and determine true causal relationships.",
+      "doi": "10.1163/18762891-bja00035",
+      "journal": "Beneficial microbes",
+      "pub_date": "2024Sep05",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7741
+    },
+    {
+      "pmid": "29168036",
+      "title": "The gut microbiome, symptoms, and targeted interventions in children with cancer: a systematic review.",
+      "abstract": "PURPOSE: The gut microbiome plays a critical role in maintaining children's health and in preventing and treating children's disease. Current application of the gut microbiome in childhood cancer is still lacking. This study aimed to systematically review the following: (1) alternations in the gut microbiome throughout cancer treatment trajectories in children, (2) the associations between the gut microbiome and gastrointestinal (GI) symptoms and psychoneurological symptoms (PNS), and (3) the efficacy of therapeutic interventions in the gut microbiome in children with cancer. METHODS: PubMed, EMBASE, the Cochrane Library, and the American Society of Clinical Oncology abstract were searched. Eligible studies included all study types in which the gut microbiome was primarily reported in children with cancer. The Mixed Methods Assessment Tool was used to evaluate the methodology quality of included studies. Seven studies met our eligibility criteria, including two cohort studies, two case-control studies, and three randomized controlled trails. RESULTS: The findings showed that the diversity estimates of the gut microbiome in children with cancer were lower than those of healthy controls both pre- and post-treatment. Children with cancer showed a significantly lower relative abundance of healthy gut microbiome (e.g., Clostridium XIVa and Bifidobacterium) during and after cancer treatment. No adequate literature was identified to support the associations between dysbiosis of the gut microbiome and GI symptoms/PNS. The use of prebiotics (fructooligosaccharides) and probiotics (Bifidobacterium or Lactobacilli) appears to improve the microenvironment of the gut around 1 month (4-5 weeks) during chemotherapy rather than at the beginning of treatment. Data also suggest that both prebiotic and probiotic interventions decrease clinical side effects (e.g., infection and morbidity risk) in children with cancer. CONCLUSIONS: This study adds to the evidence that dysbiosis of the gut microbiome can be improved using prebiotic and probiotic supplementations in children with cancer. More well-designed experimental studies are needed to confirm this conclusion. Further studies are needed to examine the associations between the gut microbiome and GI symptoms/PNS in childhood cancer.",
+      "doi": "10.1007/s00520-017-3982-3",
+      "journal": "Supportive care in cancer : official journal of the Multinational Association of Supportive Care in Cancer",
+      "pub_date": "2018Feb",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The gut microbiome, symptoms, and targeted interventions in children with cancer: a systematic review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7742
+    },
+    {
       "pmid": "35562885",
       "title": "The Gut Microbiome in Depression and Potential Benefit of Prebiotics, Probiotics and Synbiotics: A Systematic Review of Clinical Trials and Observational Studies.",
       "abstract": "An emerging body of literature demonstrates differences in the gut microbiome (GMB) of patients with major depressive disorder (MDD) compared to healthy controls (HC), as well as the potential benefits of prebiotic, probiotic, and synbiotic treatment. We conducted a systematic review of 24 observational studies (n = 2817), and 19 interventional trials (n = 1119). We assessed alpha diversity, beta diversity, and taxa abundance changes in patients with MDD relative to HC, as well as the effect of prebiotics, probiotics, and synbiotics on depressive symptoms in individuals with clinical or subclinical depression. We observed no significant differences in alpha diversity but a significant difference in beta diversity between patients with MDD and HC. There were fluctuations in the abundance of specific taxa in patients with MDD relative to HC. Probiotic and synbiotic, but not prebiotic, treatment showed a modest benefit in reducing depressive symptoms in patients with MDD over four to nine weeks. The GMB profiles of patients with MDD differ significantly from HC, but further studies are needed to elucidate the benefits of prebiotic, probiotic and synbiotic treatments relative to antidepressants and over longer follow-up before these therapies are implemented into clinical practice.",
@@ -900,7 +942,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7741
+      "wave": 7743
     },
     {
       "pmid": "38717445",
@@ -922,7 +964,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7742
+      "wave": 7744
     },
     {
       "pmid": "38623929",
@@ -944,28 +986,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7743
-    },
-    {
-      "pmid": "39242081",
-      "title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
-      "abstract": "The neuropsychiatric effects of probiotics, prebiotics, and synbiotics have been gaining attention since the rise of microbial-gut-brain axis research. Nevertheless, some of the findings are inconsistent, and few studies have analysed the similarities and differences in the neuropsychiatric effects of the three comprehensively. To reveal the respective neuropsychiatric effects of probiotics, prebiotics, and synbiotics and synthesise the similarities and differences among the three effects, 47 meta-analyses with 12 types of neuropsychiatric results were integrated under an umbrella review. Probiotics, prebiotics, and synbiotics intake might all be associated with improvements in some neuropsychiatric outcomes, including neuropsychological test outcomes (probiotic and prebiotic), hepatic encephalopathy outcomes (probiotic, prebiotic, and synbiotic), instant memory in patients with Alzheimer's disease (probiotic), depressive symptoms (probiotic, prebiotic and synbiotic), mood states and psychiatric distress (probiotic), overall mental health (probiotic), neurological function (probiotic), brain-derived neurotrophic factor (BDNF) concentration (probiotic and synbiotic), and Pittsburgh Sleep Quality Index (PSQI) score (probiotic). All three are similar in that the intake of probiotics, prebiotics, and synbiotics might be associated with improvements in hepatic encephalopathy outcomes and depressive symptoms, both probiotic and synbiotic intake might be associated with elevated BDNF concentrations, and both probiotic and prebiotic intake might be associated with improved neuropsychological test results. The difference between the three is that the neuropsychiatric effects of probiotics might be more widespread and be reflected in the fact that probiotic intake might also be associated with improvements in mood states and psychiatric distress, overall mental health, neurological function, Alzheimer's disease patients' instant memory, and PSQI score. Probiotics might be the best and most promising option for improving neuropsychiatric outcomes. In the future, in addition to requiring more high-quality meta-analyses, further preclinical studies are needed to explore specific relevant mechanisms and determine true causal relationships.",
-      "doi": "10.1163/18762891-bja00035",
-      "journal": "Beneficial microbes",
-      "pub_date": "2024Sep05",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7744
+      "wave": 7745
     },
     {
       "pmid": "28213610",
@@ -987,7 +1008,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7745
+      "wave": 7746
     },
     {
       "pmid": "37992712",
@@ -1009,137 +1030,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7746
-    },
-    {
-      "pmid": "38280441",
-      "title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
-      "abstract": "The use of probiotics, prebiotics, synbiotics or fermented foods can modulate the gut-brain axis and constitute a potentially therapeutic intervention in psychiatric disorders. This systematic review aims to identify current evidence regarding these interventions in the treatment of patients with DSM/ICD psychiatric diagnoses. Forty-seven articles from 42 studies met the inclusion criteria. Risk of bias was assessed in all included studies. Major depression was the most studied disorder (n = 19 studies). Studies frequently focused on schizophrenia (n = 11) and bipolar disorder (n = 5) and there were limited studies in anorexia nervosa (n = 4), ADHD (n = 3), Tourette (n = 1), insomnia (n = 1), PTSD (n = 1) and generalized anxiety disorder (n = 1). Except in MDD, current evidence does not clarify the role of probiotics and prebiotics in the treatment of mental illness. Several studies point to an improvement in the immune and inflammatory profile (e.g. CRP, IL6), which may be a relevant mechanism of action of the therapeutic response identified in these studies. Future research should consider lifestyle and dietary habits of patients as possible confounders that may influence inter-individual treatment response.",
-      "doi": "10.1016/j.neubiorev.2024.105561",
-      "journal": "Neuroscience and biobehavioral reviews",
-      "pub_date": "2024Mar",
-      "publication_types": [
-        "Systematic Review",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7747
-    },
-    {
-      "pmid": "40362352",
-      "title": "Human Gut Microbiome: A Connecting Organ Between Nutrition, Metabolism, and Health.",
-      "abstract": "The gut microbiome plays a vital role in human health, functioning as a metabolic organ that influences nutrient absorption and overall well-being. With growing evidence that dietary interventions can modulate the microbiome and improve health, this review examines whether healthcare systems should prioritize personalized microbiome-targeted therapies, such as probiotics, prebiotics, and microbiota transplants, over traditional pharmaceutical treatments for chronic diseases like obesity, diabetes, cardiovascular risk, and inflammatory conditions. A systematic review using Web of Science and Scopus databases was conducted, followed by a scientometric analysis. Key metabolic pathways, such as dietary fiber fermentation and short-chain fatty acid production, were explored, focusing on their impact on lipid and glucose metabolism. The interactions between microbial metabolites and the immune system were also investigated. Dietary interventions, including increased fiber and probiotic intake, show potential for addressing dysbiosis linked to conditions, such as type 2 diabetes, obesity, and autoimmune diseases. The review emphasizes the need to incorporate microbiome modulation strategies into clinical practice and research, calling for a multidisciplinary approach that integrates nutrition, microbiology, and biochemistry to better understand the gut microbiome's complex role in health.",
-      "doi": "10.3390/ijms26094112",
-      "journal": "International journal of molecular sciences",
-      "pub_date": "2025Apr26",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Human Gut Microbiome: A Connecting Organ Between Nutrition, Metabolism, and Health.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7748
-    },
-    {
-      "pmid": "30294792",
-      "title": "Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, synbiotics and antibiotics in irritable bowel syndrome.",
-      "abstract": "BACKGROUND: Irritable bowel syndrome (IBS) is a chronic functional bowel disorder. Disturbances in the gastrointestinal microbiome may be involved in its aetiology. AIM: To perform a systematic review and meta-analysis to examine the efficacy of prebiotics, probiotics, synbiotics and antibiotics in IBS. METHODS: MEDLINE, EMBASE, and the Cochrane Controlled Trials Register were searched (up to July 2017). Randomised controlled trials (RCTs) recruiting adults with IBS, comparing prebiotics, probiotics, synbiotics or antibiotics with placebo or no therapy were eligible. Dichotomous symptom data were pooled to obtain a relative risk (RR) of remaining symptomatic after therapy, with a 95% confidence interval (CI). Continuous data were pooled using a standardised mean difference with a 95% CI. RESULTS: The search identified 4017 citations. Data for prebiotics and synbiotics were sparse. Fifty-three RCTs of probiotics, involving 5545 patients, were eligible. Particular combinations of probiotics, or specific species and strains, appeared to have beneficial effects on global IBS symptoms and abdominal pain, but it was not possible to draw definitive conclusions about their efficacy. There were five trials of similar design that used rifaximin in non-constipated IBS patients, which was more effective than placebo (RR of symptoms persisting = 0.84; 95% CI 0.79-0.90). Adverse events were no more common with probiotics or antibiotics. CONCLUSIONS: Which particular combination, species or strains of probiotics are effective for IBS remains, for the most part, unclear. Rifaximin has modest efficacy in improving symptoms in non-constipated IBS.",
-      "doi": "10.1111/apt.15001",
-      "journal": "Alimentary pharmacology & therapeutics",
-      "pub_date": "2018Nov",
-      "publication_types": [
-        "Journal Article",
-        "Meta-Analysis",
-        "Research Support, Non-U.S. Gov't",
-        "Systematic Review"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, synbiotics and antibiotics in irritable bowel syndrome.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7749
-    },
-    {
-      "pmid": "37446403",
-      "title": "Transforming Psoriasis Care: Probiotics and Prebiotics as Novel Therapeutic Approaches.",
-      "abstract": "Psoriasis is a chronic inflammatory skin disease with autoimmune pathological characteristics. Recent research has found a link between psoriasis, inflammation, and gut microbiota dysbiosis, and that probiotics and prebiotics provide benefits to patients. This 12-week open-label, single-center clinical trial evaluated the efficacy of probiotics (Bacillus indicus (HU36), Bacillus subtilis (HU58), Bacillus coagulans (SC208), Bacillus licheniformis (SL307), and Bacillus clausii (SC109)) and precision prebiotics (fructooligosaccharides, xylooligosaccharides, and galactooligosaccharides) in patients with psoriasis receiving topical therapy, with an emphasis on potential metabolic, immunological, and gut microbiota changes. In total, 63 patients were evaluated, with the first 42 enrolled patients assigned to the intervention group and the next 21 assigned to the control group (2:1 ratio; non-randomized). There were between-group differences in several patient characteristics at baseline, including age, psoriasis severity (the incidence of severe psoriasis was greater in the intervention group than in the control group), the presence of nail psoriasis, and psoriatic arthritis, though it is not clear whether or how these differences may have affected the study findings. Patients with psoriasis receiving anti-psoriatic local therapy and probiotic and prebiotic supplementation performed better in measures of disease activity, including Psoriasis Area and Severity Index, Dermatology Life Quality Index, inflammatory markers, and skin thickness compared with those not receiving supplementation. Furthermore, in the 15/42 patients in the intervention group who received gut microbiota analysis, the gut microbiota changed favorably following 12 weeks of probiotic and prebiotic supplementation, with a shift towards an anti-inflammatory profile.",
-      "doi": "10.3390/ijms241311225",
-      "journal": "International journal of molecular sciences",
-      "pub_date": "2023Jul07",
-      "publication_types": [
-        "Clinical Trial",
-        "Journal Article"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Transforming Psoriasis Care: Probiotics and Prebiotics as Novel Therapeutic Approaches.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7750
-    },
-    {
-      "pmid": "37386630",
-      "title": "Effect of prebiotics, probiotics, synbiotics on depression: results from a meta-analysis.",
-      "abstract": "Accumulating studies have shown the effects of gut microbiota management tools in improving depression. We conducted a meta-analysis to evaluate the effects of prebiotics, probiotics, and synbiotics on patients with depression. We searched six databases up to July 2022. In total, 13 randomized controlled trials (RCTs) with 786 participants were included. The overall results demonstrated that patients who received prebiotics, probiotics or synbiotics had significantly improved symptoms of depression compared with those in the placebo group. However, subgroup analysis only confirmed the significant antidepressant effects of agents that contained probiotics. In addition, patients with mild or moderate depression could both benefit from the treatment. Studies with a lower proportion of females reported stronger effects for alleviating depressive symptoms. In conclusion, agents that manipulate gut microbiota might improve mild-to-moderate depression. It is necessary to further investigate the benefits of prebiotic, probiotic and synbiotic treatments relative to antidepressants and follow up with individuals over a longer time before these therapies are implemented in clinical practice.",
-      "doi": "10.1186/s12888-023-04963-x",
-      "journal": "BMC psychiatry",
-      "pub_date": "2023Jun29",
-      "publication_types": [
-        "Meta-Analysis",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effect of prebiotics, probiotics, synbiotics on depression: results from a meta-analysis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7751
-    },
-    {
-      "pmid": "39643654",
-      "title": "Gut microbiome and bone health: update on mechanisms, clinical correlations, and possible treatment strategies.",
-      "abstract": "The intestinal microbiome is increasingly regarded as a relevant modulator of the pathophysiology of several age-related conditions, including frailty, sarcopenia, and cognitive decline. Aging is in fact associated with alteration of the equilibrium between symbiotic bacteria and opportunistic pathogens, leading to dysbiosis. The microbiome is able to regulate intestinal permeability and systemic inflammation, has a central role in intestinal amino acid metabolism, and produces a large number of metabolites and byproducts, with either beneficial or detrimental consequences for the host physiology. Recent evidence, from both preclinical animal models and clinical studies, suggests that these microbiome-centered pathways could contribute to bone homeostasis, regulating the balance between osteoblast and osteoclast function. In this systematic review, we provide an overview of the mechanisms involved in the gut-bone axis, with a particular focus on microbiome function and microbiome-derived mediators including short-chain fatty acids. We also review the current evidence linking gut microbiota dysbiosis with osteopenia and osteoporosis, and the results of the intervention studies on pre-, pro-, or post-biotics targeting bone mineral density loss in both animal models and human beings, indicating knowledge gaps and highlighting possible avenues for future research.",
-      "doi": "10.1007/s00198-024-07320-0",
-      "journal": "Osteoporosis international : a journal established as result of cooperation between the European Foundation for Osteoporosis and the National Osteoporosis Foundation of the USA",
-      "pub_date": "2025Feb",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Gut microbiome and bone health: update on mechanisms, clinical correlations, and possible treatment strategies.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7752
     },
     {
       "pmid": "36228569",
@@ -1162,7 +1053,137 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
+      "wave": 7748
+    },
+    {
+      "pmid": "40362352",
+      "title": "Human Gut Microbiome: A Connecting Organ Between Nutrition, Metabolism, and Health.",
+      "abstract": "The gut microbiome plays a vital role in human health, functioning as a metabolic organ that influences nutrient absorption and overall well-being. With growing evidence that dietary interventions can modulate the microbiome and improve health, this review examines whether healthcare systems should prioritize personalized microbiome-targeted therapies, such as probiotics, prebiotics, and microbiota transplants, over traditional pharmaceutical treatments for chronic diseases like obesity, diabetes, cardiovascular risk, and inflammatory conditions. A systematic review using Web of Science and Scopus databases was conducted, followed by a scientometric analysis. Key metabolic pathways, such as dietary fiber fermentation and short-chain fatty acid production, were explored, focusing on their impact on lipid and glucose metabolism. The interactions between microbial metabolites and the immune system were also investigated. Dietary interventions, including increased fiber and probiotic intake, show potential for addressing dysbiosis linked to conditions, such as type 2 diabetes, obesity, and autoimmune diseases. The review emphasizes the need to incorporate microbiome modulation strategies into clinical practice and research, calling for a multidisciplinary approach that integrates nutrition, microbiology, and biochemistry to better understand the gut microbiome's complex role in health.",
+      "doi": "10.3390/ijms26094112",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2025Apr26",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Human Gut Microbiome: A Connecting Organ Between Nutrition, Metabolism, and Health.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7749
+    },
+    {
+      "pmid": "30294792",
+      "title": "Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, synbiotics and antibiotics in irritable bowel syndrome.",
+      "abstract": "BACKGROUND: Irritable bowel syndrome (IBS) is a chronic functional bowel disorder. Disturbances in the gastrointestinal microbiome may be involved in its aetiology. AIM: To perform a systematic review and meta-analysis to examine the efficacy of prebiotics, probiotics, synbiotics and antibiotics in IBS. METHODS: MEDLINE, EMBASE, and the Cochrane Controlled Trials Register were searched (up to July 2017). Randomised controlled trials (RCTs) recruiting adults with IBS, comparing prebiotics, probiotics, synbiotics or antibiotics with placebo or no therapy were eligible. Dichotomous symptom data were pooled to obtain a relative risk (RR) of remaining symptomatic after therapy, with a 95% confidence interval (CI). Continuous data were pooled using a standardised mean difference with a 95% CI. RESULTS: The search identified 4017 citations. Data for prebiotics and synbiotics were sparse. Fifty-three RCTs of probiotics, involving 5545 patients, were eligible. Particular combinations of probiotics, or specific species and strains, appeared to have beneficial effects on global IBS symptoms and abdominal pain, but it was not possible to draw definitive conclusions about their efficacy. There were five trials of similar design that used rifaximin in non-constipated IBS patients, which was more effective than placebo (RR of symptoms persisting = 0.84; 95% CI 0.79-0.90). Adverse events were no more common with probiotics or antibiotics. CONCLUSIONS: Which particular combination, species or strains of probiotics are effective for IBS remains, for the most part, unclear. Rifaximin has modest efficacy in improving symptoms in non-constipated IBS.",
+      "doi": "10.1111/apt.15001",
+      "journal": "Alimentary pharmacology & therapeutics",
+      "pub_date": "2018Nov",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, synbiotics and antibiotics in irritable bowel syndrome.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7750
+    },
+    {
+      "pmid": "37446403",
+      "title": "Transforming Psoriasis Care: Probiotics and Prebiotics as Novel Therapeutic Approaches.",
+      "abstract": "Psoriasis is a chronic inflammatory skin disease with autoimmune pathological characteristics. Recent research has found a link between psoriasis, inflammation, and gut microbiota dysbiosis, and that probiotics and prebiotics provide benefits to patients. This 12-week open-label, single-center clinical trial evaluated the efficacy of probiotics (Bacillus indicus (HU36), Bacillus subtilis (HU58), Bacillus coagulans (SC208), Bacillus licheniformis (SL307), and Bacillus clausii (SC109)) and precision prebiotics (fructooligosaccharides, xylooligosaccharides, and galactooligosaccharides) in patients with psoriasis receiving topical therapy, with an emphasis on potential metabolic, immunological, and gut microbiota changes. In total, 63 patients were evaluated, with the first 42 enrolled patients assigned to the intervention group and the next 21 assigned to the control group (2:1 ratio; non-randomized). There were between-group differences in several patient characteristics at baseline, including age, psoriasis severity (the incidence of severe psoriasis was greater in the intervention group than in the control group), the presence of nail psoriasis, and psoriatic arthritis, though it is not clear whether or how these differences may have affected the study findings. Patients with psoriasis receiving anti-psoriatic local therapy and probiotic and prebiotic supplementation performed better in measures of disease activity, including Psoriasis Area and Severity Index, Dermatology Life Quality Index, inflammatory markers, and skin thickness compared with those not receiving supplementation. Furthermore, in the 15/42 patients in the intervention group who received gut microbiota analysis, the gut microbiota changed favorably following 12 weeks of probiotic and prebiotic supplementation, with a shift towards an anti-inflammatory profile.",
+      "doi": "10.3390/ijms241311225",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2023Jul07",
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Transforming Psoriasis Care: Probiotics and Prebiotics as Novel Therapeutic Approaches.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7751
+    },
+    {
+      "pmid": "38280441",
+      "title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
+      "abstract": "The use of probiotics, prebiotics, synbiotics or fermented foods can modulate the gut-brain axis and constitute a potentially therapeutic intervention in psychiatric disorders. This systematic review aims to identify current evidence regarding these interventions in the treatment of patients with DSM/ICD psychiatric diagnoses. Forty-seven articles from 42 studies met the inclusion criteria. Risk of bias was assessed in all included studies. Major depression was the most studied disorder (n = 19 studies). Studies frequently focused on schizophrenia (n = 11) and bipolar disorder (n = 5) and there were limited studies in anorexia nervosa (n = 4), ADHD (n = 3), Tourette (n = 1), insomnia (n = 1), PTSD (n = 1) and generalized anxiety disorder (n = 1). Except in MDD, current evidence does not clarify the role of probiotics and prebiotics in the treatment of mental illness. Several studies point to an improvement in the immune and inflammatory profile (e.g. CRP, IL6), which may be a relevant mechanism of action of the therapeutic response identified in these studies. Future research should consider lifestyle and dietary habits of patients as possible confounders that may influence inter-individual treatment response.",
+      "doi": "10.1016/j.neubiorev.2024.105561",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "pub_date": "2024Mar",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7752
+    },
+    {
+      "pmid": "37386630",
+      "title": "Effect of prebiotics, probiotics, synbiotics on depression: results from a meta-analysis.",
+      "abstract": "Accumulating studies have shown the effects of gut microbiota management tools in improving depression. We conducted a meta-analysis to evaluate the effects of prebiotics, probiotics, and synbiotics on patients with depression. We searched six databases up to July 2022. In total, 13 randomized controlled trials (RCTs) with 786 participants were included. The overall results demonstrated that patients who received prebiotics, probiotics or synbiotics had significantly improved symptoms of depression compared with those in the placebo group. However, subgroup analysis only confirmed the significant antidepressant effects of agents that contained probiotics. In addition, patients with mild or moderate depression could both benefit from the treatment. Studies with a lower proportion of females reported stronger effects for alleviating depressive symptoms. In conclusion, agents that manipulate gut microbiota might improve mild-to-moderate depression. It is necessary to further investigate the benefits of prebiotic, probiotic and synbiotic treatments relative to antidepressants and follow up with individuals over a longer time before these therapies are implemented in clinical practice.",
+      "doi": "10.1186/s12888-023-04963-x",
+      "journal": "BMC psychiatry",
+      "pub_date": "2023Jun29",
+      "publication_types": [
+        "Meta-Analysis",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effect of prebiotics, probiotics, synbiotics on depression: results from a meta-analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
       "wave": 7753
+    },
+    {
+      "pmid": "39643654",
+      "title": "Gut microbiome and bone health: update on mechanisms, clinical correlations, and possible treatment strategies.",
+      "abstract": "The intestinal microbiome is increasingly regarded as a relevant modulator of the pathophysiology of several age-related conditions, including frailty, sarcopenia, and cognitive decline. Aging is in fact associated with alteration of the equilibrium between symbiotic bacteria and opportunistic pathogens, leading to dysbiosis. The microbiome is able to regulate intestinal permeability and systemic inflammation, has a central role in intestinal amino acid metabolism, and produces a large number of metabolites and byproducts, with either beneficial or detrimental consequences for the host physiology. Recent evidence, from both preclinical animal models and clinical studies, suggests that these microbiome-centered pathways could contribute to bone homeostasis, regulating the balance between osteoblast and osteoclast function. In this systematic review, we provide an overview of the mechanisms involved in the gut-bone axis, with a particular focus on microbiome function and microbiome-derived mediators including short-chain fatty acids. We also review the current evidence linking gut microbiota dysbiosis with osteopenia and osteoporosis, and the results of the intervention studies on pre-, pro-, or post-biotics targeting bone mineral density loss in both animal models and human beings, indicating knowledge gaps and highlighting possible avenues for future research.",
+      "doi": "10.1007/s00198-024-07320-0",
+      "journal": "Osteoporosis international : a journal established as result of cooperation between the European Foundation for Osteoporosis and the National Osteoporosis Foundation of the USA",
+      "pub_date": "2025Feb",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Gut microbiome and bone health: update on mechanisms, clinical correlations, and possible treatment strategies.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7754
     },
     {
       "pmid": "38630015",
@@ -1184,7 +1205,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7754
+      "wave": 7755
     },
     {
       "pmid": "25692980",
@@ -1205,7 +1226,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7755
+      "wave": 7756
     },
     {
       "pmid": "34684633",
@@ -1226,7 +1247,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7756
+      "wave": 7757
     },
     {
       "pmid": "37870148",
@@ -1248,7 +1269,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7757
+      "wave": 7758
     },
     {
       "pmid": "32839200",
@@ -1270,7 +1291,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7758
+      "wave": 7759
     },
     {
       "pmid": "35010912",
@@ -1291,7 +1312,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7759
+      "wave": 7760
     },
     {
       "pmid": "39689011",
@@ -1313,7 +1334,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7760
+      "wave": 7761
     },
     {
       "pmid": "36372047",
@@ -1336,7 +1357,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7761
+      "wave": 7762
     },
     {
       "pmid": "31952249",
@@ -1357,7 +1378,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7762
+      "wave": 7763
     },
     {
       "pmid": "26792677",
@@ -1379,7 +1400,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7763
+      "wave": 7764
     },
     {
       "pmid": "35014601",
@@ -1400,50 +1421,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7764
-    },
-    {
-      "pmid": "36269141",
-      "title": "The probiotic Bacillus subtilis BS50 decreases gastrointestinal symptoms in healthy adults: a randomized, double-blind, placebo-controlled trial.",
-      "abstract": "ABSTRACT: Durable spore-forming probiotics are increasingly formulated into foods, beverages, and dietary supplements. To help meet this demand, the safety and efficacy of daily supplementation of Bacillus subtilis BS50 for 6 weeks was investigated in a randomized, double-blind, placebo-controlled, parallel clinical trial of 76 healthy adults. Before and during supplementation, gastrointestinal symptoms were recorded daily using a multi-symptom questionnaire. Clinical chemistry, hematology, plasma lipids, and intestinal permeability and inflammation markers were measured at baseline and end of study. Compared to placebo, 2 × 109 colony-forming units (CFU) BS50 per day increased the proportion of participants showing improvement from baseline to week 6 in the composite score for bloating, burping, and flatulence (47.4% vs. 22.2%), whereby the odds of detecting an improvement were higher with BS50 (OR [95% CI]: 3.2 [1.1, 8.7], p = .024). Analyses of individual gastrointestinal symptoms indicate that BS50 increased the proportion of participants showing an improvement at week 6 compared to placebo for burping (44.7% vs. 22.2%, p = .041) and bloating (31.6% vs. 13.9%, p = .071), without affecting other symptoms. There were no clinically meaningful changes in clinical chemistry, hematology, plasma lipids and intestinal permeability and other inflammation markers. In conclusion, the results suggest that dietary supplementation of 2 × 109 CFU Bacillus subtilis BS50 per day is a well-tolerated and safe strategy to alleviate gas-related gastrointestinal symptoms in healthy adults. ABBREVIATIONS: AE adverse event; BHD bowel habits diary; BMI body mass index; BSS Bristol Stool Scale; CFU colony-forming unit; CRP C-reactive protein; FGID functional gastrointestinal disorder; GI gastrointestinal; GITQ Gastrointestinal Tolerance Questionnaire; GLP-1 glucagon-like peptide 1; GSRS Gastrointestinal Symptom Rating Scale; HDL-C high-density lipoprotein-cholesterol; IBS irritable bowel syndrome; IL-10 interleukin-10; ITT intent-to-treat; LBP lipopolysaccharide binding protein; LDL-C low-density lipoprotein-cholesterol; PP per protocol; PYY peptide YY; TG triglyceride; total-C total cholesterol.",
-      "doi": "10.1080/19490976.2022.2122668",
-      "journal": "Gut microbes",
-      "pub_date": "2022Jan-Dec",
-      "publication_types": [
-        "Randomized Controlled Trial",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The probiotic Bacillus subtilis BS50 decreases gastrointestinal symptoms in healthy adults: a randomized, double-blind, placebo-controlled trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7765
-    },
-    {
-      "pmid": "24341035",
-      "title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
-      "abstract": "238 patients with atherosclerosis of carotid arteries after reconstructive operations under different types of anesthesia were enrolled in the study. Neuropsychological survey with Montreal cognitive assessment scale, frontal assessment battery and clock drawing test was performed in dynamics. Minimal cognitive dysfunction was mentioned in patients with symptomatic and asymptomatic stenosis after combined anesthesia with regional anesthesia. Postoperative cognitive dysfunction was developed after sevoflurane and propofol anesthesia in patients with asymptomatic stenosis. After inhalation anesthesia it was more severe. Prevention of postoperative cognitive dysfunction with ceraxon was clinically effective. This therapy can facilitate mental functions recovery and improve quality of life.",
-      "doi": "",
-      "journal": "Anesteziologiia i reanimatologiia",
-      "pub_date": "2013Jul-Aug",
-      "publication_types": [
-        "Clinical Trial",
-        "Journal Article"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7766
     },
     {
       "pmid": "28899506",
@@ -1461,6 +1439,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Green tea effects on cognition, mood and human brain function: A systematic review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7766
+    },
+    {
+      "pmid": "24341035",
+      "title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
+      "abstract": "238 patients with atherosclerosis of carotid arteries after reconstructive operations under different types of anesthesia were enrolled in the study. Neuropsychological survey with Montreal cognitive assessment scale, frontal assessment battery and clock drawing test was performed in dynamics. Minimal cognitive dysfunction was mentioned in patients with symptomatic and asymptomatic stenosis after combined anesthesia with regional anesthesia. Postoperative cognitive dysfunction was developed after sevoflurane and propofol anesthesia in patients with asymptomatic stenosis. After inhalation anesthesia it was more severe. Prevention of postoperative cognitive dysfunction with ceraxon was clinically effective. This therapy can facilitate mental functions recovery and improve quality of life.",
+      "doi": "",
+      "journal": "Anesteziologiia i reanimatologiia",
+      "pub_date": "2013Jul-Aug",
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1800,28 +1799,6 @@
       "wave": 7782
     },
     {
-      "pmid": "24098469",
-      "title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
-      "abstract": "PURPOSE: To assess the effects of creatine supplementation, associated or not with strength training, upon emotional and cognitive measures in older woman. METHODS: This is a 24-week, parallel-group, double-blind, randomized, placebo-controlled trial. The individuals were randomly allocated into one of the following groups (n=14 each): 1) placebo, 2) creatine supplementation, 3) placebo associated with strength training or 4) creatine supplementation associated with strength training. According to their allocation, the participants were given creatine (4 x 5 g/d for 5 days followed by 5 g/d) or placebo (dextrose at the same dosage) and were strength trained or not. Cognitive function, assessed by a comprehensive battery of tests involving memory, selective attention, and inhibitory control, and emotional measures, assessed by the Geriatric Depression Scale, were evaluated at baseline, after 12 and 24 weeks of the intervention. Muscle strength and food intake were evaluated at baseline and after 24 weeks. RESULTS: After the 24-week intervention, both training groups (ingesting creatine supplementation and placebo) had significant reductions on the Geriatric Depression Scale scores when compared with the non-trained placebo group (p = 0.001 and p = 0.01, respectively) and the non-trained creatine group (p < 0.001 for both comparison). However, no significant differences were observed between the non-trained placebo and creatine (p = 0.60) groups, or between the trained placebo and creatine groups (p = 0.83). Both trained groups, irrespective of creatine supplementation, had better muscle strength performance than the non-trained groups. Neither strength training nor creatine supplementation altered any parameter of cognitive performance. Food intake remained unchanged. CONCLUSION: Creatine supplementation did not promote any significant change in cognitive function and emotional parameters in apparently healthy older individuals. In addition, strength training per se improved emotional state and muscle strength, but not cognition, with no additive effects of creatine supplementation. TRIAL REGISTRATION: Clinicaltrials.gov NCT01164020.",
-      "doi": "10.1371/journal.pone.0076301",
-      "journal": "PloS one",
-      "pub_date": "2013",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7783
-    },
-    {
       "pmid": "41027417",
       "title": "Citicoline-Amantadine Trial in Traumatic Brain Injury: A Prospective Randomized Study.",
       "abstract": "Traumatic brain injury (TBI) is a global health problem. Amantadine and citicoline showed considerable effects on neurorecovery from TBI. In a randomized controlled trial, the effects of amantadine and citicoline and their combinations were compared on arousal and behavioral consequences in the early phase of moderate TBI. Patients were divided into three groups (15 patients each) with moderate TBI; group C (citicoline) received 1 g citicoline every 12 h for 7 days. Participants received 500 mg oral drops syrup twice a day or the same dose as oral drops syrup of citicoline through a nasogastric tube (NG) or percutaneous endoscopic gastrostomy (PEG) tube in a total dose of 1000 mg/day for a 30-day study period. Group A (amantadine) received 200 mg of amantadine sulfate in a 500 mL solution every 12 h for 7 days. Participants received two 100-mg tablets twice a day or through an NG or PEG tube as 400 mg for a 30-day study period. Group CA (Citicoline + Amantadine) received 1 g citicoline every 12 h and 200 mg of amantadine sulfate in a 500 mL solution every 12 h for 7 days, then 500 mg of citicoline syrup twice daily plus 200 tablets twice daily amantadine for a 30-day study period. Glasgow Coma Scale (GCS), Disability Rating Scale (DRS), and mini-mental state (MMS) were used to assess the patient's conditions on the 1st, 4th, and 7th days (acute phase) in the intensive care unit (ICU), then 30 days after injury. The endpoints of the study were either the death of the patient or the completion of the study period of 30 days. The number of mechanically ventilated patients, the number of ventilated days, mortality, total ICU, and hospital length of stay were measured. GCS on days 4, 7, and 30 were significantly higher in group A and group CA compared with group C, with no significant differences between groups A and CA. DRS in days 4 and 7 became significantly lower in groups A and CA compared with group C, with no significant differences between groups A and CA. MMS in days 4, 7, and 30 became significantly lower in group C, with no significant differences between groups A and CA. The duration of mechanical ventilation, ICU, and hospital stay was significantly longer in group C, with no significant differences between groups A and CA. This study showed that amantadine alone or in combination with citicoline has a favorable effect on the recovery of consciousness and cognitive behavior in patients with moderate TBI and reduces the mechanical ventilation days, hospital, and ICU length of stay.",
@@ -1840,28 +1817,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7784
-    },
-    {
-      "pmid": "21118604",
-      "title": "The influence of creatine supplementation on the cognitive functioning of vegetarians and omnivores.",
-      "abstract": "Creatine when combined with P forms phosphocreatine that acts as a reserve of high-energy phosphate. Creatine is found mostly in meat, fish and other animal products, and the levels of muscle creatine are known to be lower in vegetarians. Creatine supplementation influences brain functioning as indicated by imaging studies and the measurement of oxygenated Hb. Given the key role played by creatine in the provision of energy, the influence of its supplementation on cognitive functioning was examined, contrasting the effect in omnivores and vegetarians. Young adult females (n 128) were separated into those who were and were not vegetarian. Randomly and under a double-blind procedure, subjects consumed either a placebo or 20 g of creatine supplement for 5 d. Creatine supplementation did not influence measures of verbal fluency and vigilance. However, in vegetarians rather than in those who consume meat, creatine supplementation resulted in better memory. Irrespective of dietary style, the supplementation of creatine decreased the variability in the responses to a choice reaction-time task.",
-      "doi": "10.1017/s0007114510004733",
-      "journal": "The British journal of nutrition",
-      "pub_date": "2011Apr",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The influence of creatine supplementation on the cognitive functioning of vegetarians and omnivores.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7785
+      "wave": 7783
     },
     {
       "pmid": "25966264",
@@ -1883,7 +1839,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7786
+      "wave": 7784
     },
     {
       "pmid": "25259737",
@@ -1905,7 +1861,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7787
+      "wave": 7785
     },
     {
       "pmid": "28933745",
@@ -1926,7 +1882,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7788
+      "wave": 7786
     },
     {
       "pmid": "26293923",
@@ -1948,7 +1904,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7789
+      "wave": 7787
     },
     {
       "pmid": "28359749",
@@ -1970,7 +1926,29 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7790
+      "wave": 7788
+    },
+    {
+      "pmid": "24098469",
+      "title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
+      "abstract": "PURPOSE: To assess the effects of creatine supplementation, associated or not with strength training, upon emotional and cognitive measures in older woman. METHODS: This is a 24-week, parallel-group, double-blind, randomized, placebo-controlled trial. The individuals were randomly allocated into one of the following groups (n=14 each): 1) placebo, 2) creatine supplementation, 3) placebo associated with strength training or 4) creatine supplementation associated with strength training. According to their allocation, the participants were given creatine (4 x 5 g/d for 5 days followed by 5 g/d) or placebo (dextrose at the same dosage) and were strength trained or not. Cognitive function, assessed by a comprehensive battery of tests involving memory, selective attention, and inhibitory control, and emotional measures, assessed by the Geriatric Depression Scale, were evaluated at baseline, after 12 and 24 weeks of the intervention. Muscle strength and food intake were evaluated at baseline and after 24 weeks. RESULTS: After the 24-week intervention, both training groups (ingesting creatine supplementation and placebo) had significant reductions on the Geriatric Depression Scale scores when compared with the non-trained placebo group (p = 0.001 and p = 0.01, respectively) and the non-trained creatine group (p < 0.001 for both comparison). However, no significant differences were observed between the non-trained placebo and creatine (p = 0.60) groups, or between the trained placebo and creatine groups (p = 0.83). Both trained groups, irrespective of creatine supplementation, had better muscle strength performance than the non-trained groups. Neither strength training nor creatine supplementation altered any parameter of cognitive performance. Food intake remained unchanged. CONCLUSION: Creatine supplementation did not promote any significant change in cognitive function and emotional parameters in apparently healthy older individuals. In addition, strength training per se improved emotional state and muscle strength, but not cognition, with no additive effects of creatine supplementation. TRIAL REGISTRATION: Clinicaltrials.gov NCT01164020.",
+      "doi": "10.1371/journal.pone.0076301",
+      "journal": "PloS one",
+      "pub_date": "2013",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7789
     },
     {
       "pmid": "22840457",
@@ -1990,6 +1968,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effect of Western medicine therapy assisted by Ginkgo biloba tablet on vascular cognitive impairment of none dementia.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7790
+    },
+    {
+      "pmid": "21118604",
+      "title": "The influence of creatine supplementation on the cognitive functioning of vegetarians and omnivores.",
+      "abstract": "Creatine when combined with P forms phosphocreatine that acts as a reserve of high-energy phosphate. Creatine is found mostly in meat, fish and other animal products, and the levels of muscle creatine are known to be lower in vegetarians. Creatine supplementation influences brain functioning as indicated by imaging studies and the measurement of oxygenated Hb. Given the key role played by creatine in the provision of energy, the influence of its supplementation on cognitive functioning was examined, contrasting the effect in omnivores and vegetarians. Young adult females (n 128) were separated into those who were and were not vegetarian. Randomly and under a double-blind procedure, subjects consumed either a placebo or 20 g of creatine supplement for 5 d. Creatine supplementation did not influence measures of verbal fluency and vigilance. However, in vegetarians rather than in those who consume meat, creatine supplementation resulted in better memory. Irrespective of dietary style, the supplementation of creatine decreased the variability in the responses to a choice reaction-time task.",
+      "doi": "10.1017/s0007114510004733",
+      "journal": "The British journal of nutrition",
+      "pub_date": "2011Apr",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The influence of creatine supplementation on the cognitive functioning of vegetarians and omnivores.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,

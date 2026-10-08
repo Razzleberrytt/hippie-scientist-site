@@ -9,7 +9,7 @@
   "duplicate_pmids": 0,
   "duplicate_titles": 0,
   "duplicate_dois": 0,
-  "missing_dois": 16,
+  "missing_dois": 15,
   "category_counts": {
     "stress_anxiety": 40,
     "sleep": 40,
@@ -50,7 +50,7 @@
       "target": 25,
       "selected": 25,
       "esearch_ids": 1200,
-      "fetched": 155
+      "fetched": 154
     },
     {
       "category": "cardiometabolic",
@@ -99,7 +99,7 @@
       "target": 30,
       "selected": 30,
       "esearch_ids": 1200,
-      "fetched": 51
+      "fetched": 52
     },
     {
       "category": "mood",
@@ -120,28 +120,28 @@
       "target": 25,
       "selected": 25,
       "esearch_ids": 1200,
-      "fetched": 52
+      "fetched": 56
     },
     {
       "category": "botanicals_mushrooms",
       "target": 30,
       "selected": 30,
       "esearch_ids": 826,
-      "fetched": 48
+      "fetched": 47
     },
     {
       "category": "safety_interactions",
       "target": 30,
       "selected": 30,
       "esearch_ids": 472,
-      "fetched": 289
+      "fetched": 325
     },
     {
       "category": "cannabinoid_safety",
       "target": 25,
       "selected": 25,
       "esearch_ids": 1200,
-      "fetched": 117
+      "fetched": 116
     },
     {
       "category": "mitochondrial_energy",
@@ -155,13 +155,13 @@
       "target": 20,
       "selected": 20,
       "esearch_ids": 1200,
-      "fetched": 67
+      "fetched": 68
     }
   ],
-  "rejected_candidates": 1215,
+  "rejected_candidates": 1251,
   "rejection_reasons": {
-    "semantic_title_out_of_scope": 1178,
-    "off_domain_title": 30,
+    "semantic_title_out_of_scope": 1212,
+    "off_domain_title": 32,
     "missing_substantive_abstract_or_title": 4,
     "not_target_human_study_type": 1,
     "duplicate_identity": 2

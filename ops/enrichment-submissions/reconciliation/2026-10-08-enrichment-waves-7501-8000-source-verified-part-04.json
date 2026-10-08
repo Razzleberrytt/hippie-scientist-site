@@ -6,27 +6,6 @@
   "failures": [],
   "rows": [
     {
-      "pmid": "33171595",
-      "title": "PROVIT: Supplementary Probiotic Treatment and Vitamin B7 in Depression-A Randomized Controlled Trial.",
-      "abstract": "Gut microbiota are suspected to affect brain functions and behavior as well as lowering inflammation status. Therefore, an effect on depression has already been suggested by recent research. The aim of this randomized double-blind controlled trial was to evaluate the effect of probiotic treatment in depressed individuals. Within inpatient care, 82 currently depressed individuals were randomly assigned to either receive a multistrain probiotic plus biotin treatment or biotin plus placebo for 28 days. Clinical symptoms as well as gut microbiome were analyzed at the begin of the study, after one and after four weeks. After 16S rRNA analysis, microbiome samples were bioinformatically explored using QIIME, SPSS, R and Piphillin. Both groups improved significantly regarding psychiatric symptoms. Ruminococcus gauvreauii and Coprococcus 3 were more abundant and β-diversity was higher in the probiotics group after 28 days. KEGG-analysis showed elevated inflammation-regulatory and metabolic pathways in the intervention group. The elevated abundance of potentially beneficial bacteria after probiotic treatment allows speculations on the functionality of probiotic treatment in depressed individuals. Furthermore, the finding of upregulated vitamin B6 and B7 synthesis underlines the connection between the quality of diet, gut microbiota and mental health through the regulation of metabolic functions, anti-inflammatory and anti-apoptotic properties. Concluding, four-week probiotic plus biotin supplementation, in inpatient individuals with a major depressive disorder diagnosis, showed an overall beneficial effect of clinical treatment. However, probiotic intervention compared to placebo only differed in microbial diversity profile, not in clinical outcome measures.",
-      "doi": "10.3390/nu12113422",
-      "journal": "Nutrients",
-      "pub_date": "2020Nov08",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "mood",
-      "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "PROVIT: Supplementary Probiotic Treatment and Vitamin B7 in Depression-A Randomized Controlled Trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7801
-    },
-    {
       "pmid": "35654766",
       "title": "Clinical, gut microbial and neural effects of a probiotic add-on therapy in depressed patients: a randomized controlled trial.",
       "abstract": "A promising new treatment approach for major depressive disorder (MDD) targets the microbiota-gut-brain (MGB) axis, which is linked to physiological and behavioral functions affected in MDD. This is the first randomized controlled trial to determine whether short-term, high-dose probiotic supplementation reduces depressive symptoms along with gut microbial and neural changes in depressed patients. Patients with current depressive episodes took either a multi-strain probiotic supplement or placebo over 31 days additionally to treatment-as-usual. Assessments took place before, immediately after and again four weeks after the intervention. The Hamilton Depression Rating Sale (HAM-D) was assessed as primary outcome. Quantitative microbiome profiling and neuroimaging was used to detect changes along the MGB axis. In the sample that completed the intervention (probiotics N = 21, placebo N = 26), HAM-D scores decreased over time and interactions between time and group indicated a stronger decrease in the probiotics relative to the placebo group. Probiotics maintained microbial diversity and increased the abundance of the genus Lactobacillus, indicating the effectivity of the probiotics to increase specific taxa. The increase of the Lactobacillus was associated with decreased depressive symptoms in the probiotics group. Finally, putamen activation in response to neutral faces was significantly decreased after the probiotic intervention. Our data imply that an add-on probiotic treatment ameliorates depressive symptoms (HAM-D) along with changes in the gut microbiota and brain, which highlights the role of the MGB axis in MDD and emphasizes the potential of microbiota-related treatment approaches as accessible, pragmatic, and non-stigmatizing therapies in MDD. Trial Registration: www.clinicaltrials.gov , identifier: NCT02957591.",
@@ -46,7 +25,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7802
+      "wave": 7801
     },
     {
       "pmid": "35081993",
@@ -67,7 +46,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7803
+      "wave": 7802
     },
     {
       "pmid": "28064110",
@@ -89,7 +68,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7804
+      "wave": 7803
     },
     {
       "pmid": "31078831",
@@ -112,29 +91,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7805
-    },
-    {
-      "pmid": "38658619",
-      "title": "A randomized, double-blinded, placebo-controlled clinical trial on Lactobacillus-containing cultured milk drink as adjuvant therapy for depression in irritable bowel syndrome.",
-      "abstract": "Irritable bowel syndrome (IBS) is frequently linked with coexisting mental illnesses. Our previous study discovered that 32.1% of IBS patients had subthreshold depression (SD), placing them at higher risk of developing major depression. Gut microbiota modulation through psychobiotics was found to influence depression via the gut-brain axis. However, the efficacy of lessening depression among IBS patients remains ambiguous. The study's aim was to investigate the roles of cultured milk drinks containing 109 cfu Lactobacillus acidophilus LA-5 and Lactobacillus paracasei L. CASEI-01 on depression and related variables among IBS participants with SD. A total of 110 IBS participants with normal mood (NM) and SD, were randomly assigned to one of four intervention groups: IBS-NM with placebo, IBS-NM with probiotic, IBS-SD with placebo, and IBS-SD with probiotic. Each participant was required to consume two bottles of cultured milk every day for a duration of 12 weeks. The following outcomes were assessed: depression risk, quality of life, the severity of IBS, and hormonal changes. The depression scores were significantly reduced in IBS-SD with probiotic and placebo from baseline (p < 0.001). Only IBS-SD with probiotic showed a significant rise in serotonin serum levels (p < 0.05). A significantly higher life quality measures were seen in IBS-SD with probiotic, IBS-SD with placebo, and IBS-NM with placebo (p < 0.05). All groups, both placebo and probiotic, reported significant improvement in IBS severity post-intervention with a higher prevalence of remission and mild IBS (p < 0.05). Dual strains lactobacillus-containing cultured milk drink via its regulation of relevant biomarkers, is a potential anti-depressive prophylactic agent for IBS patients at risk.",
-      "doi": "10.1038/s41598-024-60029-2",
-      "journal": "Scientific reports",
-      "pub_date": "2024Apr25",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "mood",
-      "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "A randomized, double-blinded, placebo-controlled clinical trial on Lactobacillus-containing cultured milk drink as adjuvant therapy for depression in irritable bowel syndrome.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7806
+      "wave": 7804
     },
     {
       "pmid": "35861202",
@@ -156,7 +113,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7807
+      "wave": 7805
     },
     {
       "pmid": "30036891",
@@ -178,7 +135,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7808
+      "wave": 7806
     },
     {
       "pmid": "29731182",
@@ -201,7 +158,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7809
+      "wave": 7807
     },
     {
       "pmid": "29215971",
@@ -222,7 +179,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7810
+      "wave": 7808
     },
     {
       "pmid": "34444820",
@@ -243,7 +200,28 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7811
+      "wave": 7809
+    },
+    {
+      "pmid": "29575228",
+      "title": "Herbal medicines in the treatment of psychiatric disorders: 10-year updated review.",
+      "abstract": "This paper provides a 10-year update of the 2007 systematic review of herbal medicines studied in a broad range of psychiatric disorders, including depression, anxiety, obsessive-compulsive, seasonal affective, bipolar, psychotic, phobic, somatoform, and attention-deficit hyperactivity disorders. Ovid Medline, PubMed, and the Cochrane Library were searched for herbal medicines with both pharmacological and clinical evidence of psychotropic activity. This updated review now covers clinical trial evidence for 24 herbal medicines in 11 psychiatric disorders. High-quality evidence was found to exist for the use of Piper methysticum (Kava), Passiflora spp. (passionflower) and Galphimia glauca (galphimia) for anxiety disorders; and Hypericum perforatum (St John's wort) and Crocus sativus (saffron) for major depressive disorder. Other encouraging herbal medicines with preliminary evidence include Curcuma longa (turmeric) in depression, Withania somnifera (ashwagandha) in affective disorders, and Ginkgo biloba (ginkgo) as an adjunctive treatment in Schizophrenia. Although depression and anxiety are commonly researched, many other mental disorders still require further prospective investigation. Although the previous review suggested increasing the adjunctive study of select herbal medicines with pharmaceuticals, this was still only found to sparingly occur in research designs. Aside from this, future focus should involve the incorporation of more biomarker analysis, in particular pharmacogenomics, to determine genetic factors moderating response to herbal medicines.",
+      "doi": "10.1002/ptr.6055",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2018Jul",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "mood",
+      "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Herbal medicines in the treatment of psychiatric disorders: 10-year updated review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7810
     },
     {
       "pmid": "28483500",
@@ -262,6 +240,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Probiotic Bifidobacterium longum NCC3001 Reduces Depression Scores and Alters Brain Activity: A Pilot Study in Patients With Irritable Bowel Syndrome.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7811
+    },
+    {
+      "pmid": "38658619",
+      "title": "A randomized, double-blinded, placebo-controlled clinical trial on Lactobacillus-containing cultured milk drink as adjuvant therapy for depression in irritable bowel syndrome.",
+      "abstract": "Irritable bowel syndrome (IBS) is frequently linked with coexisting mental illnesses. Our previous study discovered that 32.1% of IBS patients had subthreshold depression (SD), placing them at higher risk of developing major depression. Gut microbiota modulation through psychobiotics was found to influence depression via the gut-brain axis. However, the efficacy of lessening depression among IBS patients remains ambiguous. The study's aim was to investigate the roles of cultured milk drinks containing 109 cfu Lactobacillus acidophilus LA-5 and Lactobacillus paracasei L. CASEI-01 on depression and related variables among IBS participants with SD. A total of 110 IBS participants with normal mood (NM) and SD, were randomly assigned to one of four intervention groups: IBS-NM with placebo, IBS-NM with probiotic, IBS-SD with placebo, and IBS-SD with probiotic. Each participant was required to consume two bottles of cultured milk every day for a duration of 12 weeks. The following outcomes were assessed: depression risk, quality of life, the severity of IBS, and hormonal changes. The depression scores were significantly reduced in IBS-SD with probiotic and placebo from baseline (p < 0.001). Only IBS-SD with probiotic showed a significant rise in serotonin serum levels (p < 0.05). A significantly higher life quality measures were seen in IBS-SD with probiotic, IBS-SD with placebo, and IBS-NM with placebo (p < 0.05). All groups, both placebo and probiotic, reported significant improvement in IBS severity post-intervention with a higher prevalence of remission and mild IBS (p < 0.05). Dual strains lactobacillus-containing cultured milk drink via its regulation of relevant biomarkers, is a potential anti-depressive prophylactic agent for IBS patients at risk.",
+      "doi": "10.1038/s41598-024-60029-2",
+      "journal": "Scientific reports",
+      "pub_date": "2024Apr25",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "mood",
+      "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A randomized, double-blinded, placebo-controlled clinical trial on Lactobacillus-containing cultured milk drink as adjuvant therapy for depression in irritable bowel syndrome.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -310,48 +310,25 @@
       "wave": 7814
     },
     {
-      "pmid": "29575228",
-      "title": "Herbal medicines in the treatment of psychiatric disorders: 10-year updated review.",
-      "abstract": "This paper provides a 10-year update of the 2007 systematic review of herbal medicines studied in a broad range of psychiatric disorders, including depression, anxiety, obsessive-compulsive, seasonal affective, bipolar, psychotic, phobic, somatoform, and attention-deficit hyperactivity disorders. Ovid Medline, PubMed, and the Cochrane Library were searched for herbal medicines with both pharmacological and clinical evidence of psychotropic activity. This updated review now covers clinical trial evidence for 24 herbal medicines in 11 psychiatric disorders. High-quality evidence was found to exist for the use of Piper methysticum (Kava), Passiflora spp. (passionflower) and Galphimia glauca (galphimia) for anxiety disorders; and Hypericum perforatum (St John's wort) and Crocus sativus (saffron) for major depressive disorder. Other encouraging herbal medicines with preliminary evidence include Curcuma longa (turmeric) in depression, Withania somnifera (ashwagandha) in affective disorders, and Ginkgo biloba (ginkgo) as an adjunctive treatment in Schizophrenia. Although depression and anxiety are commonly researched, many other mental disorders still require further prospective investigation. Although the previous review suggested increasing the adjunctive study of select herbal medicines with pharmaceuticals, this was still only found to sparingly occur in research designs. Aside from this, future focus should involve the incorporation of more biomarker analysis, in particular pharmacogenomics, to determine genetic factors moderating response to herbal medicines.",
-      "doi": "10.1002/ptr.6055",
-      "journal": "Phytotherapy research : PTR",
-      "pub_date": "2018Jul",
+      "pmid": "33171595",
+      "title": "PROVIT: Supplementary Probiotic Treatment and Vitamin B7 in Depression-A Randomized Controlled Trial.",
+      "abstract": "Gut microbiota are suspected to affect brain functions and behavior as well as lowering inflammation status. Therefore, an effect on depression has already been suggested by recent research. The aim of this randomized double-blind controlled trial was to evaluate the effect of probiotic treatment in depressed individuals. Within inpatient care, 82 currently depressed individuals were randomly assigned to either receive a multistrain probiotic plus biotin treatment or biotin plus placebo for 28 days. Clinical symptoms as well as gut microbiome were analyzed at the begin of the study, after one and after four weeks. After 16S rRNA analysis, microbiome samples were bioinformatically explored using QIIME, SPSS, R and Piphillin. Both groups improved significantly regarding psychiatric symptoms. Ruminococcus gauvreauii and Coprococcus 3 were more abundant and β-diversity was higher in the probiotics group after 28 days. KEGG-analysis showed elevated inflammation-regulatory and metabolic pathways in the intervention group. The elevated abundance of potentially beneficial bacteria after probiotic treatment allows speculations on the functionality of probiotic treatment in depressed individuals. Furthermore, the finding of upregulated vitamin B6 and B7 synthesis underlines the connection between the quality of diet, gut microbiota and mental health through the regulation of metabolic functions, anti-inflammatory and anti-apoptotic properties. Concluding, four-week probiotic plus biotin supplementation, in inpatient individuals with a major depressive disorder diagnosis, showed an overall beneficial effect of clinical treatment. However, probiotic intervention compared to placebo only differed in microbial diversity profile, not in clinical outcome measures.",
+      "doi": "10.3390/nu12113422",
+      "journal": "Nutrients",
+      "pub_date": "2020Nov08",
       "publication_types": [
         "Journal Article",
-        "Systematic Review"
+        "Randomized Controlled Trial"
       ],
       "category": "mood",
       "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Herbal medicines in the treatment of psychiatric disorders: 10-year updated review.",
+      "verified_title": "PROVIT: Supplementary Probiotic Treatment and Vitamin B7 in Depression-A Randomized Controlled Trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
       "wave": 7815
-    },
-    {
-      "pmid": "25726209",
-      "title": "The Mediterranean diet and micronutrient levels in depressive patients.",
-      "abstract": "INTRODUCTION: An inverse association between depression and some serum micronutrient levels (selenium, zinc, iron, magnesium, vitamin B and folic acid) has been reported. In addition, other studies reported that this micronutrient supplementation may improve depressed mood. The Mediterranean diet contains a sufficient amount of the micronutrients mentioned, although no study has reported an association between diet prescription and increased levels of them in depressive patients. OBJECTIVE: To examine the impact of dietary patterns recommendations on micronutrient levels in depressive patients. METHODS: 77 outpatients were randomly assigned either to the active (hygienic-dietary recommendations on diet, exercise, sleep, and sun exposure) or control group. Outcome measures were assessed before and after the six month intervention period. RESULTS: Serum selenium and zinc levels were slightly low at basal point and serum selenium was inversely correlated with severity of depression (r=-0.233; p=0.041). A better outcome of depressive symptoms was found in the active group. Nevertheless, no significant differences in micronutrient levels were observed after the Mediterranean diet pattern prescription, probably due to an insufficient adherence. CONCLUSION: Selenium, zinc, iron, magnesium, vitamin B12 and folic acid serum levels didn`t increase in depressed patients after six months of the Mediterranean diet pattern prescription.",
-      "doi": "10.3305/nh.2015.31.3.8124",
-      "journal": "Nutricion hospitalaria",
-      "pub_date": "2014Oct03",
-      "publication_types": [
-        "Comparative Study",
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "mood",
-      "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The Mediterranean diet and micronutrient levels in depressive patients.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7816
     },
     {
       "pmid": "28943228",
@@ -372,7 +349,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7817
+      "wave": 7816
     },
     {
       "pmid": "26706022",
@@ -394,7 +371,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7818
+      "wave": 7817
     },
     {
       "pmid": "26010860",
@@ -416,7 +393,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7819
+      "wave": 7818
     },
     {
       "pmid": "22848407",
@@ -438,7 +415,50 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
+      "wave": 7819
+    },
+    {
+      "pmid": "39924003",
+      "title": "Exploring the mechanisms of action of probiotics in depression: Results from a randomized controlled pilot trial.",
+      "abstract": "BACKGROUND: We previously reported greater reductions in depression and anxiety following probiotic supplementation in people with major depressive disorder (MDD) in a randomised double-blind placebo-controlled pilot trial (Nikolova et al., 2023). Here, we investigate the mechanisms underlying these effects. METHODS: 49 people with MDD received a multi-strain probiotic (n = 24) or placebo (n = 25) for 8 weeks in addition to their antidepressant. Stool and blood samples were collected to analyse gut microbiota composition and inflammatory cytokines. Stool samples from 25 matched healthy volunteers (HVs) were also obtained. RESULTS: Within the probiotic group, there was a significant increase in richness according to Chao1(bias-corrected) (w4 p = 0.04) and a trend for increased Total count (w4 p = 0.06, w8 p = 0.09) compared to baseline, but not to placebo. When compared to HVs post-treatment, only the placebo group had a significant decrease in Shannon' entropy (p = 0.03) and a trend for decreased Total count (p = 0.08) and Simpson's index (p = 0.09). Between-group differences in beta diversity were observed at week 4 (p = 0.04), but not week 8. Consistent between-group differences were seen in family Bacilleceae post-treatment (FDR p < 0.05), which correlated with decreases in anxiety (FDR p < 0.05). There were no differences in inflammatory markers. LIMITATIONS: This study was limited by data loss during the COVID-19 Pandemic. CONCLUSION: Probiotics may positively impact the microbiota by normalising diversity and increasing levels of health-related taxa, which may partially account for their benefits in MDD. Understanding how these changes relate to symptom improvement can inform their targeted use in clinical practice. Larger trials incorporating functional multi-omics are needed. TRIAL REGISTRATION: NCT03893162.",
+      "doi": "10.1016/j.jad.2025.01.153",
+      "journal": "Journal of affective disorders",
+      "pub_date": "2025May01",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "mood",
+      "discovery_query": "(saffron OR vitamin D OR omega-3 OR magnesium OR probiotic OR St Johns wort) AND (depression OR mood OR depressive)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Exploring the mechanisms of action of probiotics in depression: Results from a randomized controlled pilot trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
       "wave": 7820
+    },
+    {
+      "pmid": "34959772",
+      "title": "Effect of Anti-Inflammatory Diets on Pain in Rheumatoid Arthritis: A Systematic Review and Meta-Analysis.",
+      "abstract": "Various nutritional therapies have been proposed in rheumatoid arthritis, particularly diets rich in ω-3 fatty acids, which may lead to eicosanoid reduction. Our aim was to investigate the effect of potentially anti-inflammatory diets (Mediterranean, vegetarian, vegan, ketogenic) on pain. The primary outcome was pain on a 10 cm visual analogue scale. Secondary outcomes were C-reactive protein levels, erythrocyte sedimentation rate, health assessment questionnaire, disease activity score 28, tender/swollen joint counts, weight, and body mass index. We searched MEDLINE (OVID), Embase (Elsevier), and CINAHL for studies published from database inception to 12 November 2021. Two authors independently assessed studies for inclusion, extracted study data, and assessed the risk of bias. We performed a meta-analysis with all eligible randomized controlled trials using RevMan 5. We used mean differences or standardized mean differences and the inverse variance method of pooling using a random-effects model. The search retrieved 564 unique publications, of which we included 12 in the systematic review and 7 in the meta-analysis. All studies had a high risk of bias and the evidence was very low. The main conclusion is that anti-inflammatory diets resulted in significantly lower pain than ordinary diets (-9.22 mm; 95% CI -14.15 to -4.29; p = 0.0002; 7 RCTs, 326 participants).",
+      "doi": "10.3390/nu13124221",
+      "journal": "Nutrients",
+      "pub_date": "2021Nov24",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "category": "inflammation_pain",
+      "discovery_query": "(curcumin OR turmeric OR boswellia OR ginger OR omega-3 OR glucosamine) AND (pain OR inflammation OR arthritis)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effect of Anti-Inflammatory Diets on Pain in Rheumatoid Arthritis: A Systematic Review and Meta-Analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7821
     },
     {
       "pmid": "37325651",
@@ -458,28 +478,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effect of curcumin on rheumatoid arthritis: a systematic review and meta-analysis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7821
-    },
-    {
-      "pmid": "34959772",
-      "title": "Effect of Anti-Inflammatory Diets on Pain in Rheumatoid Arthritis: A Systematic Review and Meta-Analysis.",
-      "abstract": "Various nutritional therapies have been proposed in rheumatoid arthritis, particularly diets rich in ω-3 fatty acids, which may lead to eicosanoid reduction. Our aim was to investigate the effect of potentially anti-inflammatory diets (Mediterranean, vegetarian, vegan, ketogenic) on pain. The primary outcome was pain on a 10 cm visual analogue scale. Secondary outcomes were C-reactive protein levels, erythrocyte sedimentation rate, health assessment questionnaire, disease activity score 28, tender/swollen joint counts, weight, and body mass index. We searched MEDLINE (OVID), Embase (Elsevier), and CINAHL for studies published from database inception to 12 November 2021. Two authors independently assessed studies for inclusion, extracted study data, and assessed the risk of bias. We performed a meta-analysis with all eligible randomized controlled trials using RevMan 5. We used mean differences or standardized mean differences and the inverse variance method of pooling using a random-effects model. The search retrieved 564 unique publications, of which we included 12 in the systematic review and 7 in the meta-analysis. All studies had a high risk of bias and the evidence was very low. The main conclusion is that anti-inflammatory diets resulted in significantly lower pain than ordinary diets (-9.22 mm; 95% CI -14.15 to -4.29; p = 0.0002; 7 RCTs, 326 participants).",
-      "doi": "10.3390/nu13124221",
-      "journal": "Nutrients",
-      "pub_date": "2021Nov24",
-      "publication_types": [
-        "Journal Article",
-        "Meta-Analysis",
-        "Systematic Review"
-      ],
-      "category": "inflammation_pain",
-      "discovery_query": "(curcumin OR turmeric OR boswellia OR ginger OR omega-3 OR glucosamine) AND (pain OR inflammation OR arthritis)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effect of Anti-Inflammatory Diets on Pain in Rheumatoid Arthritis: A Systematic Review and Meta-Analysis.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -507,28 +505,6 @@
       "wave": 7823
     },
     {
-      "pmid": "21784145",
-      "title": "Omega-3 supplementation lowers inflammation and anxiety in medical students: a randomized controlled trial.",
-      "abstract": "Observational studies have linked lower omega-3 (n-3) polyunsaturated fatty acids (PUFAs) and higher omega-6 (n-6) PUFAs with inflammation and depression, but randomized controlled trial (RCT) data have been mixed. To determine whether n-3 decreases proinflammatory cytokine production and depressive and anxiety symptoms in healthy young adults, this parallel group, placebo-controlled, double-blind 12-week RCT compared n-3 supplementation with placebo. The participants, 68 medical students, provided serial blood samples during lower-stress periods as well as on days before an exam. The students received either n-3 (2.5 g/d, 2085 mg eicosapentaenoic acid and 348 mg docosahexanoic acid) or placebo capsules that mirrored the proportions of fatty acids in the typical American diet. Compared to controls, those students who received n-3 showed a 14% decrease in lipopolysaccharide (LPS) stimulated interleukin 6 (IL-6) production and a 20% reduction in anxiety symptoms, without significant change in depressive symptoms. Individuals differ in absorption and metabolism of n-3 PUFA supplements, as well as in adherence; accordingly, planned secondary analyses that used the plasma n-6:n-3 ratio in place of treatment group showed that decreasing n-6:n-3 ratios led to lower anxiety and reductions in stimulated IL-6 and tumor necrosis factor alpha (TNF-α) production, as well as marginal differences in serum TNF-α. These data suggest that n-3 supplementation can reduce inflammation and anxiety even among healthy young adults. The reduction in anxiety symptoms associated with n-3 supplementation provides the first evidence that n-3 may have potential anxiolytic benefits for individuals without an anxiety disorder diagnosis. ClinicalTrials.gov identifier: NCT00519779.",
-      "doi": "10.1016/j.bbi.2011.07.229",
-      "journal": "Brain, behavior, and immunity",
-      "pub_date": "2011Nov",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, N.I.H., Extramural"
-      ],
-      "category": "inflammation_pain",
-      "discovery_query": "(curcumin OR turmeric OR boswellia OR ginger OR omega-3 OR glucosamine) AND (pain OR inflammation OR arthritis)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Omega-3 supplementation lowers inflammation and anxiety in medical students: a randomized controlled trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7824
-    },
-    {
       "pmid": "24848732",
       "title": "Oral herbal therapies for treating osteoarthritis.",
       "abstract": "BACKGROUND: Medicinal plant products are used orally for treating osteoarthritis. Although their mechanisms of action have not yet been elucidated in full detail, interactions with common inflammatory mediators provide a rationale for using them to treat osteoarthritic complaints. OBJECTIVES: To update a previous Cochrane review to assess the benefits and harms of oral medicinal plant products in treating osteoarthritis. SEARCH METHODS: We searched electronic databases (CENTRAL, MEDLINE, EMBASE, AMED, CINAHL, ISI Web of Science, World Health Organization Clinical Trials Registry Platform) to 29 August 2013, unrestricted by language, and the reference lists from retrieved trials. SELECTION CRITERIA: Randomised controlled trials of orally consumed herbal interventions compared with placebo or active controls in people with osteoarthritis were included. Herbal interventions included any plant preparation but excluded homeopathy or aromatherapy products, or any preparation of synthetic origin. DATA COLLECTION AND ANALYSIS: Two authors used standard methods for trial selection and data extraction, and assessed the quality of the body of evidence using the GRADE approach for major outcomes (pain, function, radiographic joint changes, quality of life, withdrawals due to adverse events, total adverse events, and serious adverse events). MAIN RESULTS: Forty-nine randomised controlled studies (33 interventions, 5980 participants) were included. Seventeen studies of confirmatory design (sample and effect sizes pre-specified) were mostly at moderate risk of bias. The remaining 32 studies of exploratory design were at higher risk of bias. Due to differing interventions, meta-analyses were restricted to Boswellia serrata (monoherbal) and avocado-soyabean unsaponifiables (ASU) (two herb combination) products.Five studies of three different extracts from Boswellia serrata were included. High-quality evidence from two studies (85 participants) indicated that 90 days treatment with 100 mg of enriched Boswellia serrata extract improved symptoms compared to placebo. Mean pain was 40 points on a 0 to 100 point VAS scale (0 is no pain) with placebo, enriched Boswellia serrata reduced pain by a mean of 17 points (95% confidence interval (CI) 8 to 26); number needed to treat for an additional beneficial outcome (NNTB) 2; the 95% CIs did not exclude a clinically significant reduction of 15 points in pain. Physical function was 33 points on the Western Ontario and McMaster Universities Osteoarthritis Index (WOMAC) 0 to 100 point subscale (0 is no loss of function) with placebo, enriched Boswellia serrata improved function by 8 points (95% CI 2 to 14); NNTB 4. Assuming a minimal clinically important difference of 10 points, we cannot exclude a clinically important benefit in some people. Moderate-quality evidence (one study, 96 participants) indicated that adverse events were probably reduced with enriched Boswellia serrata (18/48 events versus 30/48 events with placebo; relative risk (RR) 0.60, 95% CI 0.39 to 0.92). Possible benefits of other Boswellia serrata extracts over placebo were confirmed in moderate-quality evidence from two studies (97 participants) of Boswellia serrata (enriched) 100 mg plus non-volatile oil, and low-quality evidence from small single studies of a 999 mg daily dose of Boswellia serrata extract and 250 mg daily dose of enrichedBoswellia serrata. It was uncertain if a 99 mg daily dose of Boswellia serrata offered benefits over valdecoxib due to the very low-quality evidence from a small single study. It was uncertain if there was an increased risk of adverse events or withdrawals with Boswellia serrata extract due to variable reporting of results across studies. The studies reported no serious adverse events. Quality of life and radiographic joint changes were not measured.Six studies examined the ASU product Piasclidine®. Moderate-quality evidence from four studies (651 participants) indicated that ASU 300 mg produced a small and clinically questionable improvement in symptoms, and probably no increased adverse events compared to placebo after three to 12 months treatment. Mean pain with placebo was 40.5 points on a VAS 0 to 100 scale (0 is no pain), ASU 300 mg reduced pain by a mean of 8.5 points (95% CI 1 to 16 points); NNTB 8. ASU 300 mg improved function (standardised mean difference (SMD) -0.42, 95% CI -0.73 to -0.11). Function was estimated as 47 mm (0 to 100 mm scale, where 0 is no loss of function) with placebo, ASU 300 mg improved function by a mean of 7 mm (95% CI 2 to 12 mm); NNTB 5 (3 to 19). There were no differences in adverse events (5 studies, 1050 participants) between ASU (53%) and placebo (51%) (RR 1.04, 95% CI 0.97 to 1.12); withdrawals due to adverse events (1 study, 398 participants) between ASU (17%) and placebo (15%) (RR 1.14, 95% CI 0.73 to 1.80); or serious adverse events (1 study, 398 participants) between ASU (40%) and placebo (33%) (RR 1.22, 95% CI 0.94 to 1.59). Radiographic joint changes, measured as change in joint space width (JSW) in two studies (453 participants) did not differ between ASU 300 mg treatment (-0.53 mm) and placebo (-0.65 mm); mean difference of -0.12 (95% CI -0.43 to 0.19). Moderate-quality evidence from a single study (156 participants) confirmed possible benefits of ASU 600 mg over placebo, with no increased adverse events. Low-quality evidence (1 study, 357 participants) indicated there may be no differences in symptoms or adverse events between ASU 300 mg and chondroitin sulphate. Quality of life was not measured.All other herbal interventions were investigated in single studies, limiting conclusions. No serious side effects related to any plant product were reported. AUTHORS' CONCLUSIONS: Evidence for the proprietary ASU product Piasclidine® in the treatment of osteoarthritis symptoms seems moderate to high for short term use, but studies over a longer term and against an apparently active control are less convincing. Several other medicinal plant products, including extracts of Boswellia serrata, show trends of benefits that warrant further investigation in light of the fact that the risk of adverse events appear low.There is no evidence that Piasclidine® significantly improves joint structure, and limited evidence that it prevents joint space narrowing. Structural changes were not tested for with any other herbal intervention.Further investigations are required to determine optimum daily doses producing clinical benefits without adverse events.",
@@ -549,7 +525,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7825
+      "wave": 7824
     },
     {
       "pmid": "41094562",
@@ -571,7 +547,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7826
+      "wave": 7825
     },
     {
       "pmid": "23975674",
@@ -591,6 +567,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Non-pharmacological interventions for fatigue in rheumatoid arthritis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7826
+    },
+    {
+      "pmid": "21784145",
+      "title": "Omega-3 supplementation lowers inflammation and anxiety in medical students: a randomized controlled trial.",
+      "abstract": "Observational studies have linked lower omega-3 (n-3) polyunsaturated fatty acids (PUFAs) and higher omega-6 (n-6) PUFAs with inflammation and depression, but randomized controlled trial (RCT) data have been mixed. To determine whether n-3 decreases proinflammatory cytokine production and depressive and anxiety symptoms in healthy young adults, this parallel group, placebo-controlled, double-blind 12-week RCT compared n-3 supplementation with placebo. The participants, 68 medical students, provided serial blood samples during lower-stress periods as well as on days before an exam. The students received either n-3 (2.5 g/d, 2085 mg eicosapentaenoic acid and 348 mg docosahexanoic acid) or placebo capsules that mirrored the proportions of fatty acids in the typical American diet. Compared to controls, those students who received n-3 showed a 14% decrease in lipopolysaccharide (LPS) stimulated interleukin 6 (IL-6) production and a 20% reduction in anxiety symptoms, without significant change in depressive symptoms. Individuals differ in absorption and metabolism of n-3 PUFA supplements, as well as in adherence; accordingly, planned secondary analyses that used the plasma n-6:n-3 ratio in place of treatment group showed that decreasing n-6:n-3 ratios led to lower anxiety and reductions in stimulated IL-6 and tumor necrosis factor alpha (TNF-α) production, as well as marginal differences in serum TNF-α. These data suggest that n-3 supplementation can reduce inflammation and anxiety even among healthy young adults. The reduction in anxiety symptoms associated with n-3 supplementation provides the first evidence that n-3 may have potential anxiolytic benefits for individuals without an anxiety disorder diagnosis. ClinicalTrials.gov identifier: NCT00519779.",
+      "doi": "10.1016/j.bbi.2011.07.229",
+      "journal": "Brain, behavior, and immunity",
+      "pub_date": "2011Nov",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "category": "inflammation_pain",
+      "discovery_query": "(curcumin OR turmeric OR boswellia OR ginger OR omega-3 OR glucosamine) AND (pain OR inflammation OR arthritis)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Omega-3 supplementation lowers inflammation and anxiety in medical students: a randomized controlled trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1012,6 +1010,27 @@
       "wave": 7846
     },
     {
+      "pmid": "29985775",
+      "title": "Adding omega-3 fatty acids to a protein-based supplement during pre-season training results in reduced muscle soreness and the better maintenance of explosive power in professional Rugby Union players.",
+      "abstract": "Evidence suggests that omega-3 fatty acid supplementation could reduce muscle soreness and maintain muscle function following eccentric exercise-induced muscle damage. The aim of this applied field study was to investigate the effectiveness of consuming a protein-based supplement containing 1546 mg of omega-3 polyunsaturated fatty acid (PUFA) (551 mg eicosapentaenoic acid (EPA) and 551 mg docosahexaenoic acid (DHA)) twice daily (FO) compared to a protein-based placebo (P) on muscle soreness, countermovement jump (CMJ) performance and psychological well-being in 20 professional Rugby Union players during 5 weeks of pre-season training. Players completed a 5-point-Likert soreness scale with 5 indicating \"no soreness\" and a questionnaire assessing fatigue, sleep, stress and mood each morning of training, plus they performed CMJ tests once or twice per week. Data were analysed using magnitude-based inferential statistics and are presented as percent beneficial/trivial/harmful. On day 35, there was a likely (% beneficial/trivial/harmful: 94/5/1) moderate (0.75, standardized mean difference (SMD)) beneficial effect of FO vs. P on the change in lower body muscle soreness compared with day 0 (FO: -3.8 ± 21.7%; P: -19.4 ± 11.2%). There was a likely (92/7/0) moderate (SMD: 0.60) beneficial effect of FO vs. P on CMJ performance (change from baseline to day 35, FO: +4.6 ± 5.9%; P: -3.4 ± 8.6%). From day 20, a moderate beneficial effect of FO on fatigue was observed. In terms of practical relevance, the moderate beneficial effect of adding fish oil to a protein-based supplement on muscle soreness translated into the better maintenance of explosive power in elite Rugby Union players during pre-season training.",
+      "doi": "10.1080/17461391.2018.1491626",
+      "journal": "European journal of sport science",
+      "pub_date": "2018Nov",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "inflammation_pain",
+      "discovery_query": "(curcumin OR turmeric OR boswellia OR ginger OR omega-3 OR glucosamine) AND (pain OR inflammation OR arthritis)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Adding omega-3 fatty acids to a protein-based supplement during pre-season training results in reduced muscle soreness and the better maintenance of explosive power in professional Rugby Union players.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7847
+    },
+    {
       "pmid": "42191934",
       "title": "Comparison of mediterranean and healthy eating guideline interventions on the dietary inflammatory index in rheumatoid arthritis: results from a dietary randomised controlled intervention trial.",
       "abstract": "PURPOSE: Anti-inflammatory diets, such as the Mediterranean Diet (MedDiet) have shown positive effects on disease activity in Rheumatoid Arthritis (RA). The Dietary Inflammatory Index (DII) has been associated with RA risk. However, the effect of improving diet quality with a MedDiet and impact on the DII and patient-reported outcome measures (PROMs) has not been investigated. OBJECTIVES: To assess the effects of a MedDiet and adherence to the Irish Healthy Eating Guidelines (HEG) on change in DII and to determine whether change in DII and energy-adjusted DII (e-DII) scores is associated with improvements in PROMs in adults with RA in Ireland. METHODS: 40 Participants were randomised to a MedDiet (n = 20) or a HEG intervention (n = 20) for 12 weeks. DII was calculated based on food diaries collected. Between and within group data was analysed in SPSS. RESULTS: Baseline e-DII was 0.99 ± 2.37, 0.79 ± 2.60, 1.20 ± 2.16 for total cohort (n = 40), MedDiet, and HEG groups, respectively (p = 0.588). e-DII significantly improved for the cohort following the MedDiet (p = 0.022) and HEG (p = 0.004) groups. Differences in PROMs across tertiles of e-DII change were not statistically significant, irrespective of diet assignment. Participants in the most anti-inflammatory e-DII tertile group had significantly greater intakes of omega-3 fatty acids, dietary fibre, vitamin A, vitamin E, folic acid, and beta-carotene compared to those in the pro-inflammatory tertile group (p < 0.05). CONCLUSIONS: Improving dietary quality with either a MedDiet or the Irish HEG improved e-DII scores in a cohort of people living with RA, however, no statistically significant change in PROMs were observed.",
@@ -1031,7 +1050,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7847
+      "wave": 7848
     },
     {
       "pmid": "41040018",
@@ -1052,7 +1071,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7848
+      "wave": 7849
     },
     {
       "pmid": "33452967",
@@ -1071,27 +1090,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Miconia albicans and Curcuma longa herbal medicines positively modulate joint pain, function and inflammation in patients with osteoarthritis: a clinical study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7849
-    },
-    {
-      "pmid": "33003645",
-      "title": "Do Interventions with Diet or Dietary Supplements Reduce the Disease Activity Score in Rheumatoid Arthritis? A Systematic Review of Randomized Controlled Trials.",
-      "abstract": "The aim was to compile the evidence from Randomized Controlled Trials (RCTs) of diet or dietary supplements used to reduce disease activity in adults with Rheumatoid Arthritis (RA). Searches were performed in the databases PubMed, Scopus and Cochrane. Only RCT studies of diets, foods or dietary supplements, looking at effects on the Disease Activity Score in 28 joints (DAS28) among adults with RA, published in peer-reviewed journals, were included. A total of 27 articles were included-three of whole diets (Mediterranean diet, raw food and anti-inflammatory diet), five of food items, five of n-3 fatty acids, five of single micronutrient supplements, four of single antioxidant supplements and five of pre-, pro- or synbiotics. Studies that showed moderate strength evidence for positive effects on disease activity in RA included interventions with a Mediterranean diet, spices (ginger powder, cinnamon powder, saffron), antioxidants (quercetin and ubiquinone), and probiotics containing Lactobacillus Casei. Other diets or supplements had either no effects or low to very low strength of evidence. In conclusion, RCT studies on diet or dietary supplements are limited in patients with RA, but based on the results in this review there is evidence that some interventions might have positive effects on DAS28.",
-      "doi": "10.3390/nu12102991",
-      "journal": "Nutrients",
-      "pub_date": "2020Sep29",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "inflammation_pain",
-      "discovery_query": "(curcumin OR turmeric OR boswellia OR ginger OR omega-3 OR glucosamine) AND (pain OR inflammation OR arthritis)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Do Interventions with Diet or Dietary Supplements Reduce the Disease Activity Score in Rheumatoid Arthritis? A Systematic Review of Randomized Controlled Trials.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1249,6 +1247,28 @@
       "wave": 7857
     },
     {
+      "pmid": "36099162",
+      "title": "Effects of nutrition on metabolic and endocrine outcomes in women with polycystic ovary syndrome: an umbrella review of meta-analyses of randomized controlled trials.",
+      "abstract": "CONTEXT: Numerous meta-analyses have been conducted on the effects of nutritional interventions on various health outcomes in women with polycystic ovary syndrome (PCOS). However, the strength of the evidence and its clinical significance are unclear. OBJECTIVE: This umbrella review aimed to summarize the effects of nutritional interventions on women with PCOS and assess the strength of the evidence. DATA SOURCES: PubMed, Scopus, and Web of Science were searched from inception until March 17, 2021. DATA EXTRACTION: Meta-analyses of randomized clinical trials (RCTs) that examined the impact of dietary modifications or supplementations on women with PCOS were selected. Data extraction, quality assessments of the meta-analyses, and evaluation of the strength of the evidence were conducted independently by 2 investigators and confirmed by a third. DATA ANALYSIS: Twenty-eight RCT meta-analyses were included, reporting 40 different outcomes. Lower carbohydrate, Dietary Approaches to Stop Hypertension, or lower glycemic index/load diets in women with PCOS significantly improved some anthropometric and metabolic characteristics (with very low to low certainty). Probiotics/synbiotics reduced fasting plasma glucose, fasting insulin (FI), and homeostasis model assessment-estimated insulin resistance (HOMA-IR) (with moderate to high certainty). Curcumin supplementation decreased fasting plasma glucose, FI, and HOMA-IR (with moderate certainty). Fish oil supplementation decreased FI and HOMA-IR, and omega-3 reduced triglycerides (with moderate certainty). There were also improvements in FI after taking vitamin D or inositol supplements (with moderate certainty). Supplementation with fish oil increased adiponectin (with high certainty), and probiotics/synbiotics reduced total testosterone (with moderate certainty). In subfertile women with PCOS, inositol increased the ovulation rates (with moderate certainty). CONCLUSION: There was no high-certainty evidence that diets alone in women with PCOS improved health or reproductive outcomes. Supplementation with vitamin D, probiotics/synbiotics, omega-3, inositol, and curcumin showed favorable effects on some metabolic outcomes. Probiotics/synbiotics possibly reduces total testosterone, and inositol stimulates ovulation in women with PCOS. REGISTRATION: PROSPERO registration no. CRD42021251496.",
+      "doi": "10.1093/nutrit/nuac075",
+      "journal": "Nutrition reviews",
+      "pub_date": "2023Apr11",
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "category": "metabolic",
+      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of nutrition on metabolic and endocrine outcomes in women with polycystic ovary syndrome: an umbrella review of meta-analyses of randomized controlled trials.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7858
+    },
+    {
       "pmid": "24146542",
       "title": "Leukocytes from diabetic patients kill retinal endothelial cells: effects of berberine.",
       "abstract": "PURPOSE: Accumulating evidence in animals suggests that leukocytes are involved in the pathogenesis of diabetic retinopathy. The present study was designed to investigate whether leukocytes from diabetic patients could kill retinal endothelial cells and whether that cytotoxicity could be inhibited in vivo by administration of berberine. METHODS: Human retinal endothelial cells (HRECs) were cocultured (24 h) with leukocytes freshly isolated from nondiabetic and diabetic patients, and leukocyte-mediated death of HRECs was analyzed with flow cytometry. HRECs or leukocytes were incubated with antibodies against intercellular adhesion molecule-1(ICAM-1) or integrin beta-2, or with various concentrations of berberine. The protein expression levels of inflammatory factors were investigated using western blots, and activities of antioxidant enzymes and malondialdehyde content were examined as markers of oxidative stress. In addition, leukocytes were isolated from 28 diabetic patients with retinopathy and nondiabetic patients before and after 1 month in vivo therapy with berberine. The effects of the berberine on leukocyte-mediated killing of endothelial cells was again assessed. RESULTS: Leukocytes from diabetic patients induced more apoptosis of HRECs in a coculture system than did cells from nondiabetic patients, and this killing occurred primarily via direct cell-cell contact. Berberine inhibited the leukocyte-mediated killing of HRECs in vitro, the decrease in antioxidant enzyme activities, the nuclear translocation of nuclear factor kappa B, and the increase in intercellular adhesion molecule-1 and inducible nitric oxide synthase expression and malondialdehyde content in HRECs cultured in high glucose. Berberine also decreased integrin beta-2 expression of leukocytes in vitro and in vivo. Oral consumption of berberine for 1 month likewise inhibited the diabetes-induced increase in leukocyte-mediated killing of HRECs. CONCLUSIONS: Our findings suggest that leukocytes from diabetic patients kill retinal endothelial cells, and that berberine can inhibit this leukocyte-mediated killing of vascular endothelium. Coculture of leukocytes with HRECs might serve as a biomarker to study the role of leukocytes in the development of diabetic retinopathy, and the data are consistent with berberine being a therapy against diabetic retinopathy.",
@@ -1269,7 +1289,29 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7858
+      "wave": 7859
+    },
+    {
+      "pmid": "32526091",
+      "title": "Interventions to prevent women from developing gestational diabetes mellitus: an overview of Cochrane Reviews.",
+      "abstract": "BACKGROUND: The prevalence of gestational diabetes mellitus (GDM) is increasing, with approximately 15% of pregnant women affected worldwide, varying by country, ethnicity and diagnostic thresholds. There are associated short- and long-term health risks for women and their babies. OBJECTIVES: We aimed to summarise the evidence from Cochrane systematic reviews on the effects of interventions for preventing GDM. METHODS: We searched the Cochrane Database of Systematic Reviews (6 August 2019) with key words 'gestational diabetes' OR 'GDM' to identify reviews pre-specifying GDM as an outcome. We included reviews of interventions in women who were pregnant or planning a pregnancy, irrespective of their GDM risk status. Two overview authors independently assessed eligibility, extracted data and assessed quality of evidence using ROBIS and GRADE tools. We assigned interventions to categories with graphic icons to classify the effectiveness of interventions as: clear evidence of benefit or harm (GRADE moderate- or high-quality evidence with a confidence interval (CI) that did not cross the line of no effect); clear evidence of no effect or equivalence (GRADE moderate- or high-quality evidence with a narrow CI crossing the line of no effect); possible benefit or harm (low-quality evidence with a CI that did not cross the line of no effect or GRADE moderate- or high-quality evidence with a wide CI); or unknown benefit or harm (GRADE low-quality evidence with a wide CI or very low-quality evidence). MAIN RESULTS: We included 11 Cochrane Reviews (71 trials, 23,154 women) with data on GDM. Nine additional reviews pre-specified GDM as an outcome, but did not identify GDM data in included trials. Ten of the 11 reviews were judged to be at low risk of bias and one review at unclear risk of bias. Interventions assessed included diet, exercise, a combination of diet and exercise, dietary supplements, pharmaceuticals, and management of other health problems in pregnancy. The quality of evidence ranged from high to very low. Diet Unknown benefit or harm: there was unknown benefit or harm of dietary advice versus standard care, on the risk of GDM: risk ratio (RR) 0.60, 95% CI 0.35 to 1.04; 5 trials; 1279 women; very low-quality evidence. There was unknown benefit or harm of a low glycaemic index diet versus a moderate-high glycaemic index diet on the risk of GDM: RR 0.91, 95% CI 0.63 to 1.31; 4 trials; 912 women; low-quality evidence. Exercise Unknown benefit or harm: there was unknown benefit or harm for exercise interventions versus standard antenatal care on the risk of GDM: RR 1.10, 95% CI 0.66 to 1.84; 3 trials; 826 women; low-quality evidence. Diet and exercise combined Possible benefit: combined diet and exercise interventions during pregnancy versus standard care possibly reduced the risk of GDM: RR 0.85, 95% CI 0.71 to 1.01; 19 trials; 6633 women; moderate-quality evidence. Dietary supplements Clear evidence of no effect: omega-3 fatty acid supplementation versus none in pregnancy had no effect on the risk of GDM: RR 1.02, 95% CI 0.83 to 1.26; 12 trials; 5235 women; high-quality evidence. Possible benefit: myo-inositol supplementation during pregnancy versus control possibly reduced the risk of GDM: RR 0.43, 95% CI 0.29 to 0.64; 3 trials; 502 women; low-quality evidence. Possible benefit: vitamin D supplementation versus placebo or control in pregnancy possibly reduced the risk of GDM: RR 0.51, 95% CI 0.27 to 0.97; 4 trials; 446 women; low-quality evidence. Unknown benefit or harm: there was unknown benefit or harm of probiotic with dietary intervention versus placebo with dietary intervention (RR 0.37, 95% CI 0.15 to 0.89; 1 trial; 114 women; very low-quality evidence), or probiotic with dietary intervention versus control (RR 0.38, 95% CI 0.16 to 0.92; 1 trial; 111 women; very low-quality evidence) on the risk of GDM. There was unknown benefit or harm of vitamin D + calcium supplementation versus placebo (RR 0.33, 95% CI 0.01 to 7.84; 1 trial; 54 women; very low-quality evidence) or vitamin D + calcium + other minerals versus calcium + other minerals (RR 0.42, 95% CI 0.10 to 1.73; 1 trial; 1298 women; very low-quality evidence) on the risk of GDM. Pharmaceutical Possible benefit: metformin versus placebo given to obese pregnant women possibly reduced the risk of GDM: RR 0.85, 95% CI 0.61 to 1.19; 3 trials; 892 women; moderate-quality evidence. Unknown benefit or harm:eight small trials with low- to very low-quality evidence showed unknown benefit or harm for heparin, aspirin, leukocyte immunisation or IgG given to women with a previous stillbirth on the risk of GDM. Management of other health issues Clear evidence of no effect: universal versus risk based screening of pregnant women for thyroid dysfunction had no effect on the risk of GDM: RR 0.93, 95% CI 0.70 to 1.25; 1 trial; 4516 women; moderate-quality evidence. Unknown benefit or harm: there was unknown benefit or harm of using fractional exhaled nitrogen oxide versus a clinical algorithm to adjust asthma therapy on the risk of GDM: RR 0.74, 95% CI 0.31 to 1.77; 1 trial; 210 women; low-quality evidence. There was unknown benefit or harm of pharmacist led multidisciplinary approach to management of maternal asthma versus standard care on the risk of GDM: RR 5.00, 95% CI 0.25 to 99.82; 1 trial; 58 women; low-quality evidence. AUTHORS' CONCLUSIONS: No interventions to prevent GDM in 11 systematic reviews were of clear benefit or harm. A combination of exercise and diet, supplementation with myo-inositol, supplementation with vitamin D and metformin were of possible benefit in reducing the risk of GDM, but further high-quality evidence is needed. Omega-3-fatty acid supplementation and universal screening for thyroid dysfunction did not alter the risk of GDM. There was insufficient high-quality evidence to establish the effect on the risk of GDM of diet or exercise alone, probiotics, vitamin D with calcium or other vitamins and minerals, interventions in pregnancy after a previous stillbirth, and different asthma management strategies in pregnancy. There is a lack of trials investigating the effect of interventions prior to or between pregnancies on risk of GDM.",
+      "doi": "10.1002/14651858.cd012394.pub3",
+      "journal": "The Cochrane database of systematic reviews",
+      "pub_date": "2020Jun11",
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "category": "metabolic",
+      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Interventions to prevent women from developing gestational diabetes mellitus: an overview of Cochrane Reviews.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7860
     },
     {
       "pmid": "22972104",
@@ -1291,7 +1333,28 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7859
+      "wave": 7861
+    },
+    {
+      "pmid": "27454855",
+      "title": "A single Mediterranean meal does not impair postprandial flow-mediated dilatation in healthy men with subclinical metabolic dysregulations.",
+      "abstract": "Cardiovascular risk factors are known to exacerbate high-saturated fatty acid meal (HSFAM)-induced endothelial dysfunction, but the influence of subclinical metabolic dysregulations and the acute impact of a single mixed Mediterranean-type meal (MMM) remains unknown. Thus, this study has the objective to evaluate the metabolic and vascular effect of such meals in healthy subjects with or without subclinical fasting metabolic dysregulations. Twenty-eight healthy males without overt cardiovascular risk factors randomly ingested 1 of 2 isocaloric meals on separate days. Plasma metabolic markers, fatty acid (FA) profile, and endothelial function (flow-mediated dilatation; FMD) were assessed at baseline and 2 and 4 h after meal ingestion. Unsupervised hierarchical clustering identified 2 subgroups of participants (n = 11 and 17) differing by their baseline metabolic profiles. The MMM did not significantly alter postprandial endothelial function in all subjects, irrespective of baseline metabolic parameters. In contrast, the HSFAM induced postprandial endothelial dysfunction (Δ%FMDabsolute = -5.28 ± 2.54, p < 0.01 vs. MMM) in a subgroup of individuals with significantly greater body mass index, fasting insulinemia, and lipid parameters (n = 11). Finally, the postprandial plasma FA profiles were differentially enriched by the HSFAM and MMM, notably with saturated FAs and omega-3 polyunsaturated FAs, respectively. Collectively, our results highlight the detrimental impact of a single HSFAM on endothelial function in healthy individuals displaying subclinical fasting metabolic dysregulations. Such individuals could benefit from MMM, demonstrated herein to be without any acute detriment to endothelial function.",
+      "doi": "10.1139/apnm-2015-0490",
+      "journal": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+      "pub_date": "2016Aug",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "metabolic",
+      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A single Mediterranean meal does not impair postprandial flow-mediated dilatation in healthy men with subclinical metabolic dysregulations.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7862
     },
     {
       "pmid": "23238663",
@@ -1313,7 +1376,29 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7860
+      "wave": 7863
+    },
+    {
+      "pmid": "22313793",
+      "title": "Blood pressure decrease with ingestion of a soya product (kinako) or fish oil in women with the metabolic syndrome: role of adiponectin and nitric oxide.",
+      "abstract": "The aim of the present study was to verify the effects of fish oil and a soya-based product on inflammatory markers and endothelial function measured by NO in women with the metabolic syndrome (MetS). A total of sixty-five women (mean age: 47·9 (SD 9·98) years) were studied in a 90-d parallel, randomised design. A control group maintained their usual diet; the second group received 29 g/d of soyabean (kinako); the third group received 3 g/d of fish oil n-3 fatty acids; and the fourth group received fish oil (3 g/d) and kinako (29 g/d). Anthropometric, blood pressure (BP), inflammatory markers, anti-inflammatory marker (adiponectin) and NO concentrations were evaluated. In relation to the baseline values, the group that received fish oil and kinako concomitantly presented a statistically significant decrease in systolic BP (SBP; P < 0·05), whereas there was a significant decrease in diastolic BP (DBP) in the control group (P < 0·05), kinako group (P < 0·01) and fish oil group (P < 0·01) after 90 d. There was a significant increase in adiponectin (P < 0·01) and NO values (P < 0·05) after 90 d in the kinako and fish oil groups. Differences between treatment groups verified a significant decrease (P < 0·05) in DBP in the kinako group after 90 d when compared to the results obtained from the fish oil and kinako groups. In conclusion, the findings of increased serum adiponectin and NO metabolite levels after 90 d, both in the fish oil and soya groups, reinforce the importance of the influence of adiponectin and NO levels on BP decrease in patients with the MetS.",
+      "doi": "10.1017/s0007114511006921",
+      "journal": "The British journal of nutrition",
+      "pub_date": "2012Oct28",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "metabolic",
+      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Blood pressure decrease with ingestion of a soya product (kinako) or fish oil in women with the metabolic syndrome: role of adiponectin and nitric oxide.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7864
     },
     {
       "pmid": "39672082",
@@ -1335,7 +1420,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7861
+      "wave": 7865
     },
     {
       "pmid": "26948394",
@@ -1357,7 +1442,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7862
+      "wave": 7866
     },
     {
       "pmid": "30146932",
@@ -1380,7 +1465,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7863
+      "wave": 7867
     },
     {
       "pmid": "40278260",
@@ -1401,7 +1486,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7864
+      "wave": 7868
     },
     {
       "pmid": "23275364",
@@ -1424,161 +1509,31 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7865
-    },
-    {
-      "pmid": "31538887",
-      "title": "Comparison of the Efficacy of Repaglinide Versus the Combination of Mitiglinide and Voglibose on Glycemic Variability in Japanese Patients with Type 2 Diabetes.",
-      "abstract": "BACKGROUND: Glycemic variability is a risk factor for total death and cardiovascular events. There are no obvious guidelines for the direct treatment of glycemic variability, but it can be improved with the treatment of postprandial hyperglycemia. OBJECTIVE: We compared the effect of repaglinide versus the combination of mitiglinide and voglibose, used to improve postprandial hyperglycemia, on glycemic variability in Japanese patients with type 2 diabetes. METHODS: We performed an open-label randomized cross-over trial between April 2016 and April 2018. Patients with type 2 diabetes who were admitted to our hospital were enrolled in our study (n = 12). Glycemic variability. was assessed using a continuous glucose monitoring system. RESULTS: The average glucose level of the repaglinide phase (146.1 ± 20.7 mg/dl) and the combination of mitiglinide and voglibose phase (132.3 ± 19.8 mg/dl) were similar (P = 0.10). The standard division (P = 0.0005), coefficient of variation (P = 0.006), and mean amplitude of glycemic excursion (P = 0.002) of glucose were lower in the combination of mitiglinide and voglibose phase than in the repaglinide phase. CONCLUSION: Treatment with the combination of mitiglinide and voglibose might be more effective than repaglinide for the improvement of glycemic variability.",
-      "doi": "10.2174/1381612825666190920124853",
-      "journal": "Current pharmaceutical design",
-      "pub_date": "2020",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "metabolic",
-      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Comparison of the Efficacy of Repaglinide Versus the Combination of Mitiglinide and Voglibose on Glycemic Variability in Japanese Patients with Type 2 Diabetes.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7866
-    },
-    {
-      "pmid": "26158794",
-      "title": "A Pharmacokinetic/Pharmacodynamic Drug-Drug Interaction Study of Tofogliflozin (a New SGLT2 Inhibitor) and Selected Anti-Type 2 Diabetes Mellitus Drugs.",
-      "abstract": "OBJECTIVE: Tofogliflozin is an oral hypoglycemic agent with a novel mechanism of action that reduces blood glucose levels by promoting glucose excretion in urine, achieved by selectively inhibiting sodium-glucose co-transporter 2 (SGLT2). We evaluated the effects of several selected anti-type 2 diabetes mellitus (T2DM) drugs-glimepiride, metformin, sitagliptin, pioglitazone, miglitol, nateglinide, and voglibose-on the pharmacokinetics and pharmacodynamics of tofogliflozin, and the effects of tofogliflozin on the pharmacokinetics of these anti-T2DM drugs in healthy male volunteers. METHODS: A single dose of either tofogliflozin alone, one of the anti-T2DM drugs alone, or co-administration of tofogliflozin and the anti-T2DM drug was administered to 108 healthy men. Cmax, AUCinf, and cumulative urine glucose excretion after co-administration of tofogliflozin and each of the anti-T2DM drugs was evaluated relative to the values of those parameters after administration of each drug alone. RESULTS: None of the anti-T2DM drugs had any effect on tofogliflozin exposure. Tofogliflozin had no or little effect on the exposure of any anti-T2DM drug. No anti-T2DM drug had any major effect on the cumulative urine glucose excretion induced by tofogliflozin. There were no safety concerns evident after administration of any drug alone or in co-administration. CONCLUSIONS: Neither the pharmacokinetics nor the pharmacodynamics of tofogliflozin was affected by any of the anti-T2DM drugs evaluated in this study, nor was the pharmacokinetics of any of the anti-T2DM drugs affected by tofogliflozin in healthy male volunteers.",
-      "doi": "10.1055/s-0035-1549967",
-      "journal": "Drug research",
-      "pub_date": "2016Feb",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "metabolic",
-      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "A Pharmacokinetic/Pharmacodynamic Drug-Drug Interaction Study of Tofogliflozin (a New SGLT2 Inhibitor) and Selected Anti-Type 2 Diabetes Mellitus Drugs.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7867
-    },
-    {
-      "pmid": "23494740",
-      "title": "The effect of chromium on inflammatory markers, 1st and 2nd phase insulin secretion in type 2 diabetes.",
-      "abstract": "OBJECTIVE: Impaired insulin sensitivity (SI) and β-cell function are the two main causes of type 2 diabetes (T2D) and are related to low-grade inflammation status. Trivalent chromium has shown to improve SI in our previous study. This might be due to the ability of decreasing interleukin-6 (IL-6) and tumor necrosis factor α (TNF-α) shown in animal studies. In the current study, we measured SI, β-cell function, and plasma levels of IL-6 and TNF-α after treatment of chromium chloride (GaCr) in T2D. RESEARCH DESIGN AND METHODS: Sixty-six patients were randomly assigned to the 20 g of GaCr milk powder studying group or the milk powder placebo group. Oral glucose tolerance test was performed before and after the treatment. The SI and the β-cell function were measured as well. RESULTS: The SI was significantly improved. At the same time, the static insulin responsivity index (Φs) was significantly higher after the treatment (p = 0.003). On the other hand, the dynamic insulin responsivity index (Φd) remained unchanged. Interestingly, a significant decrease in the IL-6 level after the treatment (p = 0.015) was noted. Although there was a trend of decreasing in TNF-α, it was not statistically significant. Finally, there was no significant correlation between the δ-IL-6, SI, and Φd after GaCr treatment. CONCLUSIONS: In conclusion, other than the improvement of SI, GaCr could also improve the second phase of insulin responsivity (Φs) and IL-6. However, δ-IL-6 was correlated with neither δ-SI nor δ-Φs which indicated that the improvement of SI and Φs might involve mechanisms other than lower inflammatory effect.",
-      "doi": "10.1007/s00394-013-0508-8",
-      "journal": "European journal of nutrition",
-      "pub_date": "2014Feb",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "metabolic",
-      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The effect of chromium on inflammatory markers, 1st and 2nd phase insulin secretion in type 2 diabetes.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7868
-    },
-    {
-      "pmid": "31257613",
-      "title": "Camelina sativa Oil, Fatty Fish, and Lean Fish Do Not Markedly Affect Urinary Prostanoids in Subjects with Impaired Glucose Metabolism.",
-      "abstract": "Dietary fatty acids are suggested to affect oxidative stress; however, results from interventions have been inconclusive. The aim was to examine if fatty fish, lean fish, and Camelina sativa oil (CSO) affect the urinary prostanoid levels in subjects with impaired glucose metabolism. Altogether 79 participants aged 43-72 years completed a randomized controlled study lasting 12 weeks. There were four parallel groups, fatty fish, lean fish (four fish meals/week in both), CSO providing 10 g/day alpha-linolenic acid (ALA), and control diet with limited fish and ALA containing oil consumption. Urinary prostanoids (prostaglandin F2α , 5-F2t -isoprostanes and 15-F2t -isoprostane metabolites, isofuran, 8-F3t -isoprostanes, and 4-(RS)-4-F4t -neuroprostane) of 72 participants (age: mean (±SD) 58.9 ± 6.5 years; body mass index: 29.3 ± 2.5 kg/m2 ) collected over 12-h were measured using liquid chromatography tandem-mass spectrometry. Plasma phospholipid fatty acids were determined using gas chromatography. Our study showed that the proportion of ALA in plasma phospholipids increased in the CSO group (overall difference among the groups p-value <0.001). In the fatty fish group, proportions of eicosapentaenoic and docosahexaenoic acids increased (overall p-value <0.001 for both). Prostaglandin F2α was higher in the CSO group than in the control group (p < 0.05), however, there were no other significant changes in urinary excretion of other prostanoids among the study groups. At baseline, arachidonic acid in plasma phospholipids was positively (r = 0.247, p < 0.05) and ALA negatively (r = -0.326, p < 0.05) associated with urinary total isoprostanes. In conclusion, CSO, fatty fish, and lean fish consumption do not cause major changes in oxidative stress markers in subjects with impaired glucose tolerance.",
-      "doi": "10.1002/lipd.12176",
-      "journal": "Lipids",
-      "pub_date": "2019Aug",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "metabolic",
-      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Camelina sativa Oil, Fatty Fish, and Lean Fish Do Not Markedly Affect Urinary Prostanoids in Subjects with Impaired Glucose Metabolism.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7869
     },
     {
-      "pmid": "32999269",
-      "title": "Gestational diabetes mellitus prediction? A unique fatty acid profile study.",
-      "abstract": "OBJECTIVE: To elucidate whether women at risk of gestational diabetes mellitus (GDM) have a unique fatty acid profile compared to women considered normal healthy controls (NHC). METHODS: Three hundred pregnant women were randomized to a control group (NHC) (n = 50) and to one of three high risk groups (n = 250), one of which was GDM (n = 50). At recruitment participants' booking bloods were taken and analyzed for lipid profiles. The GDM group's fatty acid profile is reported here. RESULTS: GDM women compared to NHC had elevated levels of omega 6 (n-6) fatty acids compared to omega 3 (n-3) fatty acids (p = 0.01), of linoleic acid (LA) to docosahexaenoic acid (DHA) p = 0.001, sequentially distorted levels of n-6 fatty acids LA and arachidonic acid (ArA) p = 0.035, as well as significantly depressed levels of n-3 DHA (p = 0.01). CONCLUSION: This paper shows that GDM women have a unique fatty acid profile with elevated levels of n-6 fats, depressed levels of n-3 fats and an abnormal pattern of sequential n-6 metabolism. This profile probably results from a combination of factors including underexpression and or poor utilization of desaturase enzymes, suboptimal dietary fatty acids intake, poor micronutrient status or dysbiosis of the microbiome. These results help inform development of a clinical predictive tool.",
-      "doi": "10.1038/s41387-020-00138-9",
-      "journal": "Nutrition & diabetes",
-      "pub_date": "2020Sep30",
+      "pmid": "21640360",
+      "title": "Metabolic and endocrine effects of long-chain versus essential omega-3 polyunsaturated fatty acids in polycystic ovary syndrome.",
+      "abstract": "The objective of the study was to compare the effects of essential vs long-chain omega (n)-3 polyunsaturated fatty acids (PUFAs) in polycystic ovary syndrome. In this 6-week, prospective, double-blinded, placebo (soybean oil)-controlled study, 51 completers received 3.5 g n-3 PUFA per day (essential PUFA from flaxseed oil or long-chain PUFA from fish oil). Anthropometric variables, cardiovascular risk factors, and androgens were measured; oral glucose tolerance test (OGTT) and frequently sampled intravenous GTT (IVGTT) were conducted at baseline and 6 weeks. Between-group comparisons showed significant differences in serum triglyceride response (P = .0368), whereas the changes in disposition index also tended to differ (P = .0621). When within-group changes (after vs before intervention) were considered, fish oil and flaxseed oil lowered serum triglyceride (P = .0154 and P = .0176, respectively). Fish oil increased glucose at 120 minutes of OGTT (P = .0355), decreased the Matsuda index (P = .0378), and tended to decrease acute insulin response during IVGTT (P = .0871). Soybean oil increased glucose at 30 (P = .0030) and 60 minutes (P = .0121) and AUC for glucose (P = .0122) during OGTT, tended to decrease acute insulin response during IVGTT (P = .0848), reduced testosterone (P = .0216), and tended to reduce sex hormone-binding globulin (P = .0858). Fasting glucose, insulin, adiponectin, leptin, or high-sensitivity C-reactive protein did not change with any intervention. Long-chain vs essential n-3 PUFA-rich oils have distinct metabolic and endocrine effects in polycystic ovary syndrome; and therefore, they should not be used interchangeably.",
+      "doi": "10.1016/j.metabol.2011.04.007",
+      "journal": "Metabolism: clinical and experimental",
+      "pub_date": "2011Dec",
       "publication_types": [
+        "Comparative Study",
         "Journal Article",
         "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural",
         "Research Support, Non-U.S. Gov't"
       ],
       "category": "metabolic",
       "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Gestational diabetes mellitus prediction? A unique fatty acid profile study.",
+      "verified_title": "Metabolic and endocrine effects of long-chain versus essential omega-3 polyunsaturated fatty acids in polycystic ovary syndrome.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
       "wave": 7870
-    },
-    {
-      "pmid": "24866329",
-      "title": "Effects of sitagliptin or mitiglinide as an add-on to acarbose on daily blood glucose fluctuations measured by 72 h subcutaneous continuous glucose monitoring in Japanese patients with type 2 diabetes: a prospective randomized study.",
-      "abstract": "OBJECTIVE: Postprandial hyperglycemia and blood glucose fluctuations increase the risk of macroangiopathy in patients with type 2 diabetes mellitus (T2DM). However, few studies have examined the effects of oral hypoglycemic drugs on blood glucose fluctuations in daily life. METHODS: Twenty-nine T2DM patients treated with acarbose were randomized to receive either sitagliptin (14 patients) or mitiglinide (15 patients) together with acarbose for 4 weeks. Patients were then switched to a combination of 10 mg mitiglinide and 0.2 mg voglibose for 4 weeks. All patients wore a continuous glucose monitoring (CGM) device for 5 - 7 days in week 3 of each treatment period. RESULTS: The percentage of blood glucose levels in the hyperglycemic range, blood glucose indices derived from 24-h CGM profiles and the glycemic parameters (HbA1c, glycated albumin and fasting plasma glucose) were significantly improved by adding sitagliptin or mitiglinide to ongoing acarbose therapy. These parameters also tended to improve in the mitiglinide/voglibose combination period. CONCLUSION: Daily blood glucose fluctuations were significantly improved by adding sitagliptin or mitiglinide to acarbose, and improved after switching to the mitiglinide/voglibose combination. Larger controlled studies are needed to verify the effects of adding sitagliptin or mitiglinide to acarbose on glucose fluctuations.",
-      "doi": "10.1517/14656566.2014.920323",
-      "journal": "Expert opinion on pharmacotherapy",
-      "pub_date": "2014Jul",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "metabolic",
-      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effects of sitagliptin or mitiglinide as an add-on to acarbose on daily blood glucose fluctuations measured by 72 h subcutaneous continuous glucose monitoring in Japanese patients with type 2 diabetes: a prospective randomized study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7871
-    },
-    {
-      "pmid": "22145698",
-      "title": "Linagliptin monotherapy provides superior glycaemic control versus placebo or voglibose with comparable safety in Japanese patients with type 2 diabetes: a randomized, placebo and active comparator-controlled, double-blind study.",
-      "abstract": "AIMS: To evaluate the efficacy and safety of linagliptin 5 and 10 mg vs. placebo and voglibose in Japanese patients with type 2 diabetes mellitus (T2DM). METHODS: This study enrolled patients with inadequately controlled T2DM who were previously treated with one or two oral antidiabetics or were drug naÏve. After a 2 to 4-week washout and placebo run-in, 561 patients were randomized (2 : 2 : 2 : 1) to double-blind treatment with linagliptin 5 or 10 mg qd, voglibose 0.2 mg tid or placebo. The primary endpoint was the change from baseline in haemoglobin A1c (HbA1c) with linagliptin vs. placebo after 12 weeks and vs. voglibose after 26 weeks. RESULTS: Baseline characteristics were well balanced across treatment groups (overall mean HbA1c was 8.01%). The adjusted mean (95% confidence interval) treatment differences at week 12 were -0.87% (-1.04, -0.70; p < 0.0001) and -0.88% (-1.05, -0.71; p < 0.0001) for linagliptin 5 and 10 mg vs. placebo and at week 26 were -0.32% (-0.49, -0.15; p = 0.0003) and -0.39% (-0.56, -0.21; p < 0.0001) for linagliptin 5 and 10 mg vs. voglibose. At week 12, mean HbA1c was 7.58, 7.48 and 8.34% in patients receiving linagliptin 5 mg, linagliptin 10 mg and placebo, respectively. At week 26, mean HbA1c was 7.63% with linagliptin 5 mg, 7.50% with linagliptin 10 mg and 7.91% with voglibose. Drug-related adverse event rates were comparable across treatment groups over 12 weeks (9.4% linagliptin 5 mg, 8.8% linagliptin 10 mg and 10.0% placebo) and 26 weeks (11.3% linagliptin 5 mg, 10.6% linagliptin 10 mg and 18.5% voglibose). There were no documented cases of hypoglycaemia. CONCLUSIONS: Linagliptin showed superior glucose-lowering efficacy and comparable safety and tolerability to both placebo and voglibose in Japanese patients with T2DM.",
-      "doi": "10.1111/j.1463-1326.2011.01545.x",
-      "journal": "Diabetes, obesity & metabolism",
-      "pub_date": "2012Apr",
-      "publication_types": [
-        "Clinical Trial, Phase II",
-        "Clinical Trial, Phase III",
-        "Comparative Study",
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "metabolic",
-      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Linagliptin monotherapy provides superior glycaemic control versus placebo or voglibose with comparable safety in Japanese patients with type 2 diabetes: a randomized, placebo and active comparator-controlled, double-blind study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7872
     },
     {
       "pmid": "40199888",
@@ -1601,47 +1556,87 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7873
+      "wave": 7871
     },
     {
-      "pmid": "26216648",
-      "title": "n-3 polyunsaturated fatty acid supplementation reduces insulin resistance in hepatitis C virus infected patients: a randomised controlled trial.",
-      "abstract": "BACKGROUND: Insulin resistance promotes liver disease progression and may be associated with a lower response rate in treated hepatitis C virus (HCV) infected patients. n-3 polyunsaturated fatty acid (PUFA) supplementation may reduce insulin resistance. The present study aimed to evaluate the effect of n-3 PUFA supplementation on insulin resistance in these patients. METHODS: In a randomised, double-blind clinical trial, 154 patients were screened. After applying inclusion criteria, 52 patients [homeostasis model assessment index of insulin resistance (HOMA-IR ≥2.5)] were randomly divided into two groups: n-3 PUFA (n = 25/6000 mg day(-1) of fish oil) or control (n = 27/6000 mg day(-1) of soybean oil). Both groups were supplemented for 12 weeks and underwent monthly nutritional consultation. Biochemical tests were performed at baseline and after intervention. Statistical analysis was performed using the Wilcoxon Mann-Whitney test for comparisons and the Wilcoxon test for paired data. Statistical package r, version 3.02 (The R Project for Statistical Computing) was used and P < 0.05 (two-tailed) was considered statistically significant. RESULTS: Comparisons between groups showed that n-3 PUFA supplementation was more effective than the control for reducing HOMA-IR (P = 0.015) and serum insulin (P = 0.016). The n-3 PUFA group not only showed a significant reduction in HOMA-IR 3.8 (3.2-5.0) versus 2.4 (1.8-3.3) (P = 0.002); serum insulin 17.1 (13.8-20.6) μIU mL(-1) versus 10.9 (8.6-14.6) μIU mL(-1) (P = 0.001); and glycated haemoglobin 5.4% (5.0-5.7%) versus 5.1% (4.8-5.6%) (P = 0.011), but also presented an increase in interleukin-1 97.5 (0.0-199.8) pg mL(-1) versus 192.4 (102.2-266.8) pg mL(-1) (P = 0.003) and tumour necrosis factor 121.2 (0.0-171.3) pg mL(-1) versus 185.7 (98.0-246.9) pg mL(-1) (P = 0.003). CONCLUSIONS: n-3 PUFA supplementation reduces insulin resistance in genotype 1 HCV infected patients.",
-      "doi": "10.1111/jhn.12327",
-      "journal": "Journal of human nutrition and dietetics : the official journal of the British Dietetic Association",
-      "pub_date": "2016Jun",
+      "pmid": "31538887",
+      "title": "Comparison of the Efficacy of Repaglinide Versus the Combination of Mitiglinide and Voglibose on Glycemic Variability in Japanese Patients with Type 2 Diabetes.",
+      "abstract": "BACKGROUND: Glycemic variability is a risk factor for total death and cardiovascular events. There are no obvious guidelines for the direct treatment of glycemic variability, but it can be improved with the treatment of postprandial hyperglycemia. OBJECTIVE: We compared the effect of repaglinide versus the combination of mitiglinide and voglibose, used to improve postprandial hyperglycemia, on glycemic variability in Japanese patients with type 2 diabetes. METHODS: We performed an open-label randomized cross-over trial between April 2016 and April 2018. Patients with type 2 diabetes who were admitted to our hospital were enrolled in our study (n = 12). Glycemic variability. was assessed using a continuous glucose monitoring system. RESULTS: The average glucose level of the repaglinide phase (146.1 ± 20.7 mg/dl) and the combination of mitiglinide and voglibose phase (132.3 ± 19.8 mg/dl) were similar (P = 0.10). The standard division (P = 0.0005), coefficient of variation (P = 0.006), and mean amplitude of glycemic excursion (P = 0.002) of glucose were lower in the combination of mitiglinide and voglibose phase than in the repaglinide phase. CONCLUSION: Treatment with the combination of mitiglinide and voglibose might be more effective than repaglinide for the improvement of glycemic variability.",
+      "doi": "10.2174/1381612825666190920124853",
+      "journal": "Current pharmaceutical design",
+      "pub_date": "2020",
       "publication_types": [
         "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
+        "Randomized Controlled Trial"
       ],
       "category": "metabolic",
       "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "n-3 polyunsaturated fatty acid supplementation reduces insulin resistance in hepatitis C virus infected patients: a randomised controlled trial.",
+      "verified_title": "Comparison of the Efficacy of Repaglinide Versus the Combination of Mitiglinide and Voglibose on Glycemic Variability in Japanese Patients with Type 2 Diabetes.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7872
+    },
+    {
+      "pmid": "26158794",
+      "title": "A Pharmacokinetic/Pharmacodynamic Drug-Drug Interaction Study of Tofogliflozin (a New SGLT2 Inhibitor) and Selected Anti-Type 2 Diabetes Mellitus Drugs.",
+      "abstract": "OBJECTIVE: Tofogliflozin is an oral hypoglycemic agent with a novel mechanism of action that reduces blood glucose levels by promoting glucose excretion in urine, achieved by selectively inhibiting sodium-glucose co-transporter 2 (SGLT2). We evaluated the effects of several selected anti-type 2 diabetes mellitus (T2DM) drugs-glimepiride, metformin, sitagliptin, pioglitazone, miglitol, nateglinide, and voglibose-on the pharmacokinetics and pharmacodynamics of tofogliflozin, and the effects of tofogliflozin on the pharmacokinetics of these anti-T2DM drugs in healthy male volunteers. METHODS: A single dose of either tofogliflozin alone, one of the anti-T2DM drugs alone, or co-administration of tofogliflozin and the anti-T2DM drug was administered to 108 healthy men. Cmax, AUCinf, and cumulative urine glucose excretion after co-administration of tofogliflozin and each of the anti-T2DM drugs was evaluated relative to the values of those parameters after administration of each drug alone. RESULTS: None of the anti-T2DM drugs had any effect on tofogliflozin exposure. Tofogliflozin had no or little effect on the exposure of any anti-T2DM drug. No anti-T2DM drug had any major effect on the cumulative urine glucose excretion induced by tofogliflozin. There were no safety concerns evident after administration of any drug alone or in co-administration. CONCLUSIONS: Neither the pharmacokinetics nor the pharmacodynamics of tofogliflozin was affected by any of the anti-T2DM drugs evaluated in this study, nor was the pharmacokinetics of any of the anti-T2DM drugs affected by tofogliflozin in healthy male volunteers.",
+      "doi": "10.1055/s-0035-1549967",
+      "journal": "Drug research",
+      "pub_date": "2016Feb",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "metabolic",
+      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A Pharmacokinetic/Pharmacodynamic Drug-Drug Interaction Study of Tofogliflozin (a New SGLT2 Inhibitor) and Selected Anti-Type 2 Diabetes Mellitus Drugs.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7873
+    },
+    {
+      "pmid": "28039583",
+      "title": "A pilot study of D-chiro-inositol plus folic acid in overweight patients with type 1 diabetes.",
+      "abstract": "AIMS: To improve insulin sensitivity, insulin-sensitizing drugs such as metformin are commonly used in overweight and obese T1D patients. Similarly to metformin, D-chiro-inositol (DCI), as putative mediator of intracellular insulin action, can act as insulin sensitizer. The aim of this pilot study was to evaluate the hypothesis that DCI plus folic acid may improve glucose control reducing insulin resistance in overweight or obese T1D patients. METHODS: A 24-week randomized control trial was carried out in 26 overweight or obese T1D patients, undergoing intensive insulin therapy. Patients were randomized to 1 g DCI plus 400 mcg folic acid once daily (treated group) or to 400 mcg folic acid only once daily (control group). The primary end point was to evaluate the efficacy of DCI on metabolic control as assessed by HbA1c. As secondary endpoints, BMI and insulin requirement (IR) were evaluated. Paired t test (two tailed) and analysis of variance were used to evaluate differences in HbA1c, BMI and IR at different time points. RESULTS: A significant reduction in HbA1c levels in treated group versus control group (7.5% ± 0.9 vs. 7.9% ± 1.7, respectively, p < 0.05) was observed. However, no significant reduction in BMI and IR was observed [(BMI 25.7 ± 2.8 vs. 26.7 ± 1.0, respectively, p NS); (IR 0.52 ± 0.26 vs. 0.52 ± 0.19, respectively, p NS)]. CONCLUSIONS: This trial demonstrated for the first time that DCI plus folic acid oral supplementation can improve metabolic control in overweight T1D patients. CLINICALTRIAL. GOV ID: NCT02730949.",
+      "doi": "10.1007/s00592-016-0954-x",
+      "journal": "Acta diabetologica",
+      "pub_date": "2017Apr",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "metabolic",
+      "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A pilot study of D-chiro-inositol plus folic acid in overweight patients with type 1 diabetes.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
       "wave": 7874
     },
     {
-      "pmid": "31478593",
-      "title": "Clinical outcomes of contemporary drug-eluting stents in patients with and without diabetes mellitus: Multigroup propensity-score analysis using data from stent-specific, multicenter, prospective registries.",
-      "abstract": "BACKGROUND: Whether the diabetic status differentially affects the clinical outcomes with different drug-eluting stents (DES) has been controversial. METHODS AND RESULTS: From stent-specific, prospective DES registries, we evaluated 17,184 patients (11,428 in non-diabetics and 5,756 in diabetics) who received several contemporary DES: 3570 sirolimus-eluting stents (SES), 5,023 cobalt-chromium everolimus-eluting stents (CoCr-EES), 2,985 platinum-chromium EES (PtCr-EES), 2,913 Resolute zotarolimus-eluting stents (Re-ZES), and 2,693 biodegradable-polymer biolimus-eluting stents (BP-BES). The primary outcome was patient-oriented composite endpoint (POCE, a composite of all-cause death, any myocardial infarction, and any revascularization) at 3-year follow-up and target-vessel failure (a composite of cardiac death, target-vessel myocardial infarction, and target-vessel revascularization) at 3 years was also evaluated. In non-diabetics, the rates of POCE were not significantly different (CoCr-EES 14.3%, PtCr-EES 13.0%, Re-ZES 14.3%, BP-BES 13.4%, and SES 14.6%; overall p = .39). In diabetics, similar results were revealed (CoCr-EES 18.4%, PtCr-EES 20.3%, Re-ZES 17.3%, BP-BES 17.7%, and SES 17.8%; overall p = .44). In multiple treatment propensity-score weighting analysis, regardless of the diabetic status, the hazard ratios for POCE between-individual comparison were similar. Target-vessel failure (a composite of cardiac death, target-vessel myocardial infarction, and target-vessel revascularization) was also comparable except the higher ratio of Re-ZES than PtCr-EES (hazard ratio 1.25, 1.26, 95% confidence interval 1.00-1.55, p = .048) in patients without diabetes. CONCLUSIONS: In this clinical-practice registry study, regardless the diabetic status, the 3-year rates of the primary outcome were similar among different types of DES, suggesting no differential clinical response between contemporary DES in patients with or without diabetes.",
-      "doi": "10.1002/ccd.28462",
-      "journal": "Catheterization and cardiovascular interventions : official journal of the Society for Cardiac Angiography & Interventions",
-      "pub_date": "2020Aug",
+      "pmid": "23494740",
+      "title": "The effect of chromium on inflammatory markers, 1st and 2nd phase insulin secretion in type 2 diabetes.",
+      "abstract": "OBJECTIVE: Impaired insulin sensitivity (SI) and β-cell function are the two main causes of type 2 diabetes (T2D) and are related to low-grade inflammation status. Trivalent chromium has shown to improve SI in our previous study. This might be due to the ability of decreasing interleukin-6 (IL-6) and tumor necrosis factor α (TNF-α) shown in animal studies. In the current study, we measured SI, β-cell function, and plasma levels of IL-6 and TNF-α after treatment of chromium chloride (GaCr) in T2D. RESEARCH DESIGN AND METHODS: Sixty-six patients were randomly assigned to the 20 g of GaCr milk powder studying group or the milk powder placebo group. Oral glucose tolerance test was performed before and after the treatment. The SI and the β-cell function were measured as well. RESULTS: The SI was significantly improved. At the same time, the static insulin responsivity index (Φs) was significantly higher after the treatment (p = 0.003). On the other hand, the dynamic insulin responsivity index (Φd) remained unchanged. Interestingly, a significant decrease in the IL-6 level after the treatment (p = 0.015) was noted. Although there was a trend of decreasing in TNF-α, it was not statistically significant. Finally, there was no significant correlation between the δ-IL-6, SI, and Φd after GaCr treatment. CONCLUSIONS: In conclusion, other than the improvement of SI, GaCr could also improve the second phase of insulin responsivity (Φs) and IL-6. However, δ-IL-6 was correlated with neither δ-SI nor δ-Φs which indicated that the improvement of SI and Φs might involve mechanisms other than lower inflammatory effect.",
+      "doi": "10.1007/s00394-013-0508-8",
+      "journal": "European journal of nutrition",
+      "pub_date": "2014Feb",
       "publication_types": [
         "Journal Article",
-        "Multicenter Study",
-        "Observational Study"
+        "Randomized Controlled Trial"
       ],
       "category": "metabolic",
       "discovery_query": "(berberine OR psyllium OR cinnamon OR inositol OR chromium OR omega-3) AND (glucose OR diabetes OR insulin OR metabolic syndrome)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Clinical outcomes of contemporary drug-eluting stents in patients with and without diabetes mellitus: Multigroup propensity-score analysis using data from stent-specific, multicenter, prospective registries.",
+      "verified_title": "The effect of chromium on inflammatory markers, 1st and 2nd phase insulin secretion in type 2 diabetes.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -2040,27 +2035,6 @@
       "wave": 7893
     },
     {
-      "pmid": "32487336",
-      "title": "Echinacea can help with Azithromycin in prevention of recurrent tonsillitis in children.",
-      "abstract": "PURPOSE: Recurrent tonsillitis in children is a common disease affecting children quality of life and extends to their families. The aim of this study was to assess the effect of combined use of oral Azithromycin (AZT) plus Echinacea compared to exclusive use of AZT in children with recurrent tonsillitis. MATERIAL AND METHODS: A prospective comparative study including three groups of children with recurrent tonsillitis. Group 1: (100 patients) had no prophylactic treatment. Group 2 (100 patients) received [60 mg/kg] prophylactic dose of AZT divided as (10 mg/kg/day) over 6 consecutive days every month for 6 consecutive months. Group 3 (100 patients) received AZT as in group 2 plus commercially available Echinacea in a dose of 5 ml oral suspension; 3 times daily for 10 consecutive days every month for 6 consecutive months. Number of tonsillitis attacks and severity of tonsillitis symptoms were assessed and compared in different groups. RESULTS: Group 2 and group 3 had significant less number of tonsillitis attacks and severity of assessed symptoms during 6 months of prophylactic treatment with significant better results in group 3 (i.e. AZT plus Echinacea) compared to group 2 (I.e. AZT alone). However; there was no significant difference in patients with any prophylaxis. CONCLUSION: The combined use of Echinacea with Azithromycin produced favorable outcome than Azithromycin alone in pediatric patients with recurrent tonsillitis.",
-      "doi": "10.1016/j.amjoto.2019.102344",
-      "journal": "American journal of otolaryngology",
-      "pub_date": "2020Jul-Aug",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "botanicals_mushrooms",
-      "discovery_query": "(ashwagandha OR rhodiola OR bacopa OR ginseng OR garlic OR \"lion mane\" OR echinacea) AND (clinical trial OR randomized OR efficacy OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Echinacea can help with Azithromycin in prevention of recurrent tonsillitis in children.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7894
-    },
-    {
       "pmid": "26502953",
       "title": "The Effects of Rhodiola rosea L. Extract on Anxiety, Stress, Cognition and Other Mood Symptoms.",
       "abstract": "This trial evaluated the impact of a Rhodiola rosea L. extract on self-reported anxiety, stress, cognition, and other mood symptoms. Eighty mildly anxious participants were randomized into two different groups of either Rhodiola rosea L (2 × 200 mg dose Vitano®, 1 tablet taken before breakfast and 1tablet before lunch) or a control condition (no treatment). Self-report measures and cognitive tests were completed at four testing sessions over a period of 14 days. Relative to the controls, the experimental group demonstrated a significant reduction in self-reported, anxiety, stress, anger, confusion and depression at 14 days and a significant improvements in total mood. No relevant differences in cognitive performance between the groups were observed. Rhodiola rosea L (Vitano®) presented a favourable safety tolerability profile. Although this was a non-placebo controlled trial, it is unlikely that the findings were the result of placebo effects as changes appeared gradual and were specific to certain psychological measures. However, we cannot determine a causal relationship; further investigations are recommended to support the effects of Rhodiola rosea L. extract on stress related symptoms.",
@@ -2080,7 +2054,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7895
+      "wave": 7894
     },
     {
       "pmid": "31511230",
@@ -2101,7 +2075,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7896
+      "wave": 7895
     },
     {
       "pmid": "20374035",
@@ -2123,7 +2097,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7897
+      "wave": 7896
     },
     {
       "pmid": "26300710",
@@ -2144,7 +2118,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7898
+      "wave": 7897
     },
     {
       "pmid": "33884767",
@@ -2166,7 +2140,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7899
+      "wave": 7898
     },
     {
       "pmid": "22780999",
@@ -2185,6 +2159,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Heat-processed ginseng enhances the cognitive function in patients with moderately severe Alzheimer's disease.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7899
+    },
+    {
+      "pmid": "37686723",
+      "title": "Antihypertensive Effects of an Optimized Aged Garlic Extract in Subjects with Grade I Hypertension and Antihypertensive Drug Therapy: A Randomized, Triple-Blind Controlled Trial.",
+      "abstract": "The use of garlic (Allium sativum) for treating arterial hypertension has been recognized as effective for several decades. However, tolerance to treatment is low, and several technological modifications have been developed to improve its tolerability, such as the aging process at controlled temperature and humidity. This study aims to validate the antihypertensive effects of an optimized extract of aged black garlic with low doses of s-allyl-cysteine (SAC) in a Grade I hypertensive population with drug treatment. A randomized, triple-blind, placebo-controlled parallel trial was developed, where a daily supplementation with 0.25 mg/day of SAC for 12 weeks was performed. A reduction in systolic and diastolic blood pressure of 1.8 mmHg (0.7 to 4.1 95% CI) and 1.5 mmHg (0.3 to 3.0 95% CI), respectively, was observed. Similarly, an increase in blood nitric oxide (10.3 µM, 1.1 to 19.5 95% CI) and antioxidant capacity (7 × 10-3 µM TE/min, (1.2 to 13 × 10-3 95% CI) and a reduction in uric acid levels (-0.3 mg/dL, -0.5 to -0.001 95% CI) and ACE activity (-9.3 U/L; -18.4 to -0.4 95% CI) were observed. No changes in endothelial function and inflammatory cytokines were observed. It was concluded that low-dose SAC supplementation in an optimized black-garlic extract allows for an extra-significant reduction in blood pressure in a Grade I hypertensive population receiving drug treatment.",
+      "doi": "10.3390/nu15173691",
+      "journal": "Nutrients",
+      "pub_date": "2023Aug23",
+      "publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article"
+      ],
+      "category": "botanicals_mushrooms",
+      "discovery_query": "(ashwagandha OR rhodiola OR bacopa OR ginseng OR garlic OR \"lion mane\" OR echinacea) AND (clinical trial OR randomized OR efficacy OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Antihypertensive Effects of an Optimized Aged Garlic Extract in Subjects with Grade I Hypertension and Antihypertensive Drug Therapy: A Randomized, Triple-Blind Controlled Trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
