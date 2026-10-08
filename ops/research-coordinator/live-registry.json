@@ -3454,6 +3454,82 @@
       "reservation_id": "761ec68c55188a94891f",
       "reserved_at": "2026-10-08T19:22:46.873Z",
       "source_branch": "research/intake/4/20261008-1519-41759785"
+    },
+    {
+      "pmid": "41116598",
+      "title": "Evaluation of the metabolites 5-aminoisotonitazene, 4'-hydroxy nitazene, N-desethyl isotonitazene, and N-desethyl metonitazene in authentic isotonitazene and metonitazene positive postmortem cases.",
+      "doi": "10.1111/1556-4029.70196",
+      "source_title": "Evaluation of the metabolites 5-aminoisotonitazene, 4'-hydroxy nitazene, N-desethyl isotonitazene, and N-desethyl metonitazene in authentic isotonitazene and metonitazene positive postmortem cases.",
+      "abstract": "Benzimidazole opioids, isotonitazene (ITZ), and metonitazene (MTZ) and their associated metabolites, 5-aminoisotonitazene (5-AI), 4'-hydroxy nitazene (4'-HN), N-desethyl isotonitazene (N-DI), and N-desethyl metonitazene (N-DM), were evaluated in human postmortem casework. A total of twenty-seven cases that previously tested positive for ITZ (n = 11) and MTZ (n = 16) in routine case analysis were retested for the presence of metabolites in blood and urine specimens by solid-phase extraction and LC/MS/MS. N-DI was the most prevalent metabolite detected in ITZ cases, present in six blood and four urine samples. N-DM was the most prevalent MTZ metabolite, primarily found in urine. 4'-HN was detected in both ITZ and MTZ cases. Fentanyl was the most prevalent co-finding, and all cases were classified as mixed drug intoxications except for two blunt force traumas. Due to the reported potency of N-DI and prevalence of metabolite detection in these cases, this study encourages the addition of nitazene metabolites to routine testing scopes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41116598/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41116598",
+        "doi": "10.1111/1556-4029.70196",
+        "journal": "Journal of forensic sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T19:23:19.189Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7b58b195e464bfc5cb90",
+      "reserved_at": "2026-10-08T19:23:27.823Z",
+      "source_branch": "research/intake/4/20261008-1519-41116598"
     }
   ],
   "batches": [
@@ -3467,22 +3543,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 44,
+    "total_reservations": 45,
     "by_lane": {
       "1": 5,
       "2": 1,
       "3": 7,
-      "4": 6,
+      "4": 7,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 44
+      "SOURCE_VERIFIED": 45
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 44,
+        "count": 45,
         "pr_number": null,
         "blocker": null
       }
