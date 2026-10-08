@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42683115",
+    "42019889",
+    "42406931",
+    "42184066",
+    "42468065"
+  ],
+  "relevance_reason": "Source-only botanical pharmacology and liver safety research; independent review required."
+}
