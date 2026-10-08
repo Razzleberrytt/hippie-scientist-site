@@ -26,7 +26,7 @@ export default function SourceRegisterClient({ records, previousCount, priorInde
   const [loadedNetwork, setLoadedNetwork] = useState<SemanticNetwork | null>(null)
   const [semanticLoading, setSemanticLoading] = useState(false)
   const [semanticError, setSemanticError] = useState('')
-  const network: SemanticNetwork = loadedNetwork || { ...networkSummary, entries: {} }
+  const network: SemanticNetwork = loadedNetwork || { ...networkSummary, entries: {}, typedEdges: [] }
   const [view, setView] = useState<'verified' | 'previous'>('verified')
   const [previousPmids, setPreviousPmids] = useState<string[]>([])
   const [historicalLoaded, setHistoricalLoaded] = useState(false)
@@ -57,6 +57,8 @@ export default function SourceRegisterClient({ records, previousCount, priorInde
           !Array.isArray(data.concepts) || data.concepts.length !== networkSummary.concepts.length ||
           data.summary?.activeConcepts !== networkSummary.summary.activeConcepts ||
           data.summary?.explainableEdges !== networkSummary.summary.explainableEdges ||
+          data.summary?.typedEvidenceEdges !== networkSummary.summary.typedEvidenceEdges ||
+          !Array.isArray(data.typedEdges) || data.typedEdges.length !== data.summary?.typedEvidenceEdges ||
           !records.every(record => data.entries[record.pmid]?.pmid === record.pmid)) {
         throw new Error('Semantic graph data integrity mismatch')
       }
