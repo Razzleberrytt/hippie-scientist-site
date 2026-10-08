@@ -2,8 +2,8 @@
   "schema_version": 1,
   "range": "7101-7200",
   "state": "verified_pending_semantic_final_review",
-  "exact_verified_rows": 99,
-  "unverified_rows": 1,
+  "exact_verified_rows": 100,
+  "unverified_rows": 0,
   "rows": [
     {
       "wave": 7101,
@@ -2526,6 +2526,37 @@
       "source": "NCBI PubMed EFetch XML, direct public API"
     },
     {
+      "wave": 7196,
+      "category": "gut",
+      "pmid": "38474715",
+      "title": "A Randomized, Double-Blind, Placebo-Controlled Trial: Efficacy of Opuntia ficus-indica Prebiotic Supplementation in Subjects with Gut Dysbiosis.",
+      "doi": "10.3390/nu16050586",
+      "pub_date": "2024-Feb-21",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "discovery_query": "Exact PMID discovery by PubMed NCBI study search for gut prebiotic randomized human trials",
+      "provenance_pool": "NCBI PubMed direct search and EFetch",
+      "selection_score": 12,
+      "state": "exact_source_verified_pending_semantic_final_review",
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "42644416",
+        "original_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
+        "reason": "Original PubMed record lacked substantive abstract; fail-closed one-for-one replacement"
+      },
+      "verified_title": "A Randomized, Double-Blind, Placebo-Controlled Trial: Efficacy of Opuntia ficus-indica Prebiotic Supplementation in Subjects with Gut Dysbiosis.",
+      "abstract": "Gut dysbiosis refers to an imbalance in gut microbiota composition and function. Opuntia ficus-indica extract has been shown to modulate gut microbiota by improving SCFA production in vivo and gastrointestinal discomfort (GD) in humans. The aim of this study was to demonstrate the efficacy of OdiliaTM on gastrointestinal health by changing the microbial diversity of species involved in inflammation, immunity, oxidation, and the brain-gut-muscle axis. A randomized, double-blind clinical trial was conducted in 80 adults with gut dysbiosis. The intervention consisted of a 300 mg daily intake of OdiliaTM (n = 40) or maltodextrin as a placebo (n = 40), administered for 8 weeks. Intervention effect was evaluated using 16S metagenomics and GIQLI/GSAS scores at baseline, at 4 and 8 weeks. Eight weeks of OdiliaTM supplementation positively modulates gut microbiota composition with a significant reduction in the Firmicutes to Bacteroidetes ratio (p = 0.0012). Relative abundances of beneficial bacteria (Bacteroides and Clostridium_XIVa) were significantly increased (p < 0.001), in contrast to a significant reduction in pro-inflammatory bacteria (p < 0.001). Accordingly, GIQLI and GSAS scores revealed successful improvement in GD. OdiliaTM may represent an effective and well-tolerated treatment in subjects with gut dysbiosis.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2024Feb21",
+      "verified_publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article"
+      ],
+      "source": "NCBI PubMed EFetch XML, direct public API"
+    },
+    {
       "wave": 7197,
       "category": "gut",
       "pmid": "42665338",
@@ -2632,15 +2663,5 @@
       "source": "NCBI PubMed EFetch XML, direct public API"
     }
   ],
-  "failures": [
-    {
-      "wave": 7196,
-      "pmid": "42644416",
-      "reason": "missing_substantive_abstract",
-      "candidate_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
-      "pubmed_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
-      "candidate_doi": "10.1080/19490976.2026.2719244",
-      "pubmed_doi": "10.1080/19490976.2026.2719244"
-    }
-  ]
+  "failures": []
 }
