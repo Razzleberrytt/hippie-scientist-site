@@ -18,12 +18,6 @@ export const metadata: Metadata = buildPageMetadata({
 
 const researchPaths = [
   {
-    eyebrow: 'Browse source intake',
-    title: 'Research source register',
-    href: '/research/source-register/',
-    description: 'Search verified PubMed source identities and the earlier PMID index. Research-only records stay separate from published evidence.',
-  },
-  {
     eyebrow: 'Find a paper',
     title: 'Search citations',
     href: '/learn/citation-explorer/',
@@ -211,7 +205,7 @@ export default async function ResearchPage() {
             Three jobs, three clear destinations.
           </h2>
         </div>
-        <div className='mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4'>
+        <div className='mt-6 grid gap-4 md:grid-cols-3'>
           {researchPaths.map((path) => (
             <Link
               key={path.href}
@@ -226,6 +220,10 @@ export default async function ResearchPage() {
           ))}
         </div>
 
+        <div className='mt-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-brand-900/10 bg-brand-50/50 px-4 py-3 text-sm'>
+          <p className='max-w-3xl text-muted'><strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()} unique research-only PubMed references</strong> are cataloged separately from the editorially reviewed evidence.</p>
+          <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source register →</Link>
+        </div>
         <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm'>
           <span className='font-semibold text-ink'>Trust & updates</span>
           {secondaryResearchLinks.map((link) => (
