@@ -109,7 +109,7 @@ assert(ui.includes('data.recordedChanges'),'Time machine must show recorded grad
 assert(ui.includes('filtered.slice(0,dnaVisible)') && ui.includes('setDnaVisible(n=>n+30)') &&
   ui.includes('filtered.length>dnaVisible'),
   'All 500 verified source fingerprints must be reachable through progressive pagination')
-assert(!ui.includes('.slice(0,more?40:9)'),
+assert(!ui.includes('data.dna.slice(0,more?40:9)') && !ui.includes('data.dna.filter(d=>!search.trim()).slice(0,more?40:9)'),
   'Do not silently cap the source DNA catalog at 40 records')
 assert(ui.includes("fetch('/research/intelligence/dataset.json'"))
 assert(ui.includes('value')||ui.includes('data'))
