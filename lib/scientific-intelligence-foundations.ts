@@ -5,6 +5,7 @@
 import type {ResearchStudio,ResearchDNA} from './research-intelligence-studio'
 import type {SemanticNetwork} from './research-semantic-network'
 import {buildResearchCaseFile,type ResearchCaseFile} from './research-intelligence-casefile'
+import curatedQuarantine from '../ops/audit/fabricated-source-quarantine-2026-09-06.json'
 
 export type CandidateClaimDNA={
   pmid:string;sourceSignature:string;interventions:string[];population:string[];
@@ -106,6 +107,21 @@ export function scanResearchIntegrity(s:ResearchStudio,g:SemanticNetwork,c:Resea
   if(lineage.identityConflictIds.length)add('identity-conflict','hold','Conflicting published citation identity is quarantined')
   if(lineage.duplicateCitationGroups.length)add('citation-aliases','review','Duplicate citation records must not be counted as independent publications')
   if(!d.doi)add('doi-unavailable','review','DOI unavailable in pinned snapshot; no DOI-based joins')
+  const normalizedDoi=String(d.doi||'').trim().toLowerCase()
+    .replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/,'').replace(/[.\s]+$/,'')
+  for(const flag of curatedQuarantine.retracted){
+    if(flag.pmid===c.pmid||('doi' in flag&&normalizedDoi&&
+      String(flag.doi||'').toLowerCase()===normalizedDoi))
+      add('curated-retraction','hold','Prior audited quarantine: '+flag.reason+
+        '. Verify the recorded notice and publisher status before interpreting.')
+  }
+  for(const flag of curatedQuarantine.fabricated){
+    if(normalizedDoi&&flag.doi.toLowerCase()===normalizedDoi)
+      add('curated-fabricated-doi','hold',
+        'Prior audited DOI-handle quarantine: '+flag.reason+
+        '. Not admissible as positive clinical evidence.')
+  }
+
   add('correction-status-unverified','review','No live retraction, expression-of-concern or correction check performed')
   return findings
 }
