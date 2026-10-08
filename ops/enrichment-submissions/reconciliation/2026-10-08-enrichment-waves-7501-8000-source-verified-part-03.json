@@ -159,27 +159,6 @@
       "wave": 7707
     },
     {
-      "pmid": "33570583",
-      "title": "Nutritional perspectives for the prevention and mitigation of COVID-19.",
-      "abstract": "Worldwide, there is an array of clinical trials under way to evaluate treatment options against coronavirus disease 2019 (COVID-19), caused by the severe acute respiratory syndrome coronavirus 2. Concurrently, several nutritional therapies and alternative supportive treatments are also being used and tested to reduce the mortality associated with acute respiratory distress in patients with COVID-19. In the context of COVID-19, improved nutrition that includes micronutrient supplementation to augment the immune system has been recognized as a viable approach to both prevent and alleviate the severity of the infection. The potential role of micronutrients as immune-boosting agents is particularly relevant for low- and middle-income countries, which already have an existing high burden of undernutrition and micronutrient deficiencies. A systematic literature review was performed to identify nutritional interventions that might prevent or aid in the recovery from COVID-19. The PubMed, ScienceDirect, Cochrane, Scopus, Web of Science, and Google Scholar databases were searched electronically from February to April 2020. All abstracts and full-text articles were examined for their relevance to this review. The information gathered was collated under various categories. Deficiencies of micronutrients, especially vitamins A, B complex, C, and D, zinc, iron, and selenium, are common among vulnerable populations in general and among COVID-19 patients in particular and could plausibly increase the risk of mortality. Judicious use of need-based micronutrient supplementation, alongside existing micronutrient fortification programs, is warranted in the current global pandemic, especially in low- and middle-income economies.",
-      "doi": "10.1093/nutrit/nuaa063",
-      "journal": "Nutrition reviews",
-      "pub_date": "2021Feb11",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Nutritional perspectives for the prevention and mitigation of COVID-19.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7708
-    },
-    {
       "pmid": "22552031",
       "title": "Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis.",
       "abstract": "BACKGROUND: Currently, there is a lack of clarity in the literature as to whether there is a definitive difference between the effects of vitamins D2 and D3 in the raising of serum 25-hydroxyvitamin D [25(OH)D]. OBJECTIVE: The objective of this article was to report a systematic review and meta-analysis of randomized controlled trials (RCTs) that have directly compared the effects of vitamin D2 and vitamin D3 on serum 25(OH)D concentrations in humans. DESIGN: The ISI Web of Knowledge (January 1966 to July 2011) database was searched electronically for all relevant studies in adults that directly compared vitamin D3 with vitamin D2. The Cochrane Clinical Trials Registry, International Standard Randomized Controlled Trials Number register, and clinicaltrials.gov were also searched for any unpublished trials. RESULTS: A meta-analysis of RCTs indicated that supplementation with vitamin D3 had a significant and positive effect in the raising of serum 25(OH)D concentrations compared with the effect of vitamin D2 (P = 0.001). When the frequency of dosage administration was compared, there was a significant response for vitamin D3 when given as a bolus dose (P = 0.0002) compared with administration of vitamin D2, but the effect was lost with daily supplementation. CONCLUSIONS: This meta-analysis indicates that vitamin D3 is more efficacious at raising serum 25(OH)D concentrations than is vitamin D2, and thus vitamin D3) could potentially become the preferred choice for supplementation. However, additional research is required to examine the metabolic pathways involved in oral and intramuscular administration of vitamin D and the effects across age, sex, and ethnicity, which this review was unable to verify.",
@@ -201,92 +180,30 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
+      "wave": 7708
+    },
+    {
+      "pmid": "24119980",
+      "title": "Effects of vitamin D supplements on bone mineral density: a systematic review and meta-analysis.",
+      "abstract": "BACKGROUND: Findings from recent meta-analyses of vitamin D supplementation without co-administration of calcium have not shown fracture prevention, possibly because of insufficient power or inappropriate doses, or because the intervention was not targeted to deficient populations. Despite these data, almost half of older adults (older than 50 years) continue to use these supplements. Bone mineral density can be used to detect biologically significant effects in much smaller cohorts. We investigated whether vitamin D supplementation affects bone mineral density. METHODS: We searched Web of Science, Embase, and the Cochrane Database, from inception to July 8, 2012, for trials assessing the effects of vitamin D (D3 or D2, but not vitamin D metabolites) on bone mineral density. We included all randomised trials comparing interventions that differed only in vitamin D content, and which included adults (average age >20 years) without other metabolic bone diseases. We pooled data with a random effects meta-analysis with weighted mean differences and 95% CIs reported. To assess heterogeneity in results of individual studies, we used Cochran's Q statistic and the I(2) statistic. The primary endpoint was the percentage change in bone mineral density from baseline. FINDINGS: Of 3930 citations identified by the search strategy, 23 studies (mean duration 23·5 months, comprising 4082 participants, 92% women, average age 59 years) met the inclusion criteria. 19 studies had mainly white populations. Mean baseline serum 25-hydroxyvitamin D concentration was less than 50 nmol/L in eight studies (n=1791). In ten studies (n=2294), individuals were given vitamin D doses less than 800 IU per day. Bone mineral density was measured at one to five sites (lumbar spine, femoral neck, total hip, trochanter, total body, or forearm) in each study, so 70 tests of statistical significance were done across the studies. There were six findings of significant benefit, two of significant detriment, and the rest were non-significant. Only one study showed benefit at more than one site. Results of our meta-analysis showed a small benefit at the femoral neck (weighted mean difference 0·8%, 95% CI 0·2-1·4) with heterogeneity among trials (I(2)=67%, p<0·00027). No effect at any other site was reported, including the total hip. We recorded a bias toward positive results at the femoral neck and total hip. INTERPRETATION: Continuing widespread use of vitamin D for osteoporosis prevention in community-dwelling adults without specific risk factors for vitamin D deficiency seems to be inappropriate. FUNDING: Health Research Council of New Zealand.",
+      "doi": "10.1016/s0140-6736(13)61647-5",
+      "journal": "Lancet (London, England)",
+      "pub_date": "2014Jan11",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of vitamin D supplements on bone mineral density: a systematic review and meta-analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
       "wave": 7709
-    },
-    {
-      "pmid": "23987917",
-      "title": "Hematologic and bone marrow changes in children with protein-energy malnutrition.",
-      "abstract": "BACKGROUND: All systems in an organism are affected by protein-energy malnutrition (PEM), but one of the worst affected is the hematopoietic system. Today PEM remains a very serious problem in developing countries. We examined the relationships between clinical features, hematological, and bone marrow changes with severe PEM from Turkey. METHOD: We evaluated 34 (11 females and 23 males) consecutive cases of severe PEM, with no underlying diseases aged 3-20 months. The clinical nutritional conditions of the patients were determined using the Wellcome-Trust PEM classification. Ten of the patients were in the Marasmic-Kwashiorkor (M-K) group, 10 were in the Kwashiorkor (KW) group, and 14 were in the Marasmic (M) group. Full blood count, protein, albumin, serum iron (SI), iron-binding capacity (TIBC), ferritin, vitamin B12, folic acid, complement-3 (C3), complement-4 (C4), and bone marrow were investigated in all groups. RESULTS: Anemia was detected in 97% of patients. We determined serum iron levels were low in 67.6% of the patients, TS levels were low in 76.4% of the patients and ferritin levels were low in 20.5%. The level of vitamin B12 was normal in all patients. Bone marrow analysis showed erythroid series hypoplasia in 28.5% of patients in the M group, 50% in the KW group, and 30% in the M-K group. Marrow iron was absent in 58.8% of patients. CONCLUSION: The most common hematologic change in the children with PEM was anemia and major cause of anemia was iron deficiency in this study. Patients with severe PEM have normal Vit B12 and serum folate levels. Most of the patients with severe PEM had normal cellularity with megaloblastic and dysplastic changes in bone marrow due to the inadequate and imbalanced intake of protein and energy.",
-      "doi": "10.3109/08880018.2013.813098",
-      "journal": "Pediatric hematology and oncology",
-      "pub_date": "2014May",
-      "publication_types": [
-        "Clinical Trial",
-        "Journal Article"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Hematologic and bone marrow changes in children with protein-energy malnutrition.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7710
-    },
-    {
-      "pmid": "37654090",
-      "title": "The role of diet and non-pharmacologic supplements in the treatment of chronic neuropathic pain: A systematic review.",
-      "abstract": "BACKGROUND/IMPORTANCE: Dietary interventions, vitamins, and nutritional supplementation are playing an increasingly important role in the management of neuropathic pain. Current pharmacological treatments are poorly tolerated and ineffective in many cases. OBJECTIVE: This systematic review aims to study the efficacy of dietary interventions, vitamins, and nutritional supplementation in the management of chronic neuropathic pain in adults. EVIDENCE REVIEW: The review followed PRISMA guidelines and was registered with PROSPERO (#CRD42022300312). Ten databases and gray literature, including Embase.com, MEDLINE and Web of Science, were systematically searched using a combination of keywords and controlled vocabulary related to chronic neuropathic pain and oral non-pharmacological supplements. Studies on adult humans published between 2000 and 2021 were considered for inclusion. The Cochrane Handbook was used to assess risk of bias, and Grading of Recommendations Assessment, Development, and Evaluation was used to determine overall quality of evidence. FINDINGS: Forty studies were included in the final review, and results were categorized according to pain type including pain related to chemotherapy-induced peripheral neuropathy (CIPN, 22 studies, including 3 prospective cohorts), diabetic peripheral neuropathy (DPN, 13 studies, including 2 prospective), complex regional pain syndrome (CRPS-I, 3 studies, including 1 prospective), and other (2 studies, both RCT). The CIPN studies used various interventions including goshajinkigan (4 studies), vitamin E (5), vitamin B12 (3), glutamine (3), N-acetyl-cysteine (2), acetyl-l-carnitine (2), guilongtonluofang (1), ninjin'yoeito (1), alpha-lipoic acid (1), l-carnosine (1), magnesium and calcium (1), crocin (1), and antioxidants (1), with some studies involving multiple interventions. All CIPN studies involved varying cancers and/or chemotherapies, advising caution for generalizability of results. Interventions for DPN included alpha-lipoic acid (5 studies), vitamin B12 (3), acetyl-l-carnitine (3), vitamin E (1), vitamin D (2), and a low-fat plant-based diet (1). Vitamin C was studied to treat CRPS-I (3 studies, including 1 prospective). Magnesium (1) and St. John's wort (1) were studied for other or mixed neuropathologies. CONCLUSIONS: Based on the review, we cannot recommend any supplement use for the management of CIPN, although further research into N-acetyl-cysteine, l-carnosine, crocin, and magnesium is warranted. Acetyl-l-carnitine was found to be likely ineffective or harmful. Alpha-lipoic acid was not found effective. Studies with goshajinkigan, vitamin B12, vitamin E, and glutamine had conflicting results regarding efficacy, with one goshajinkigan study finding it harmful. Guilongtonluofang, ninjin'yoeito, and antioxidants showed various degrees of potential effectiveness. Regarding DPN, our review supports the use of alpha-lipoic acid, acetyl-l-carnitine, and vitamin D. The early use of vitamin C prophylaxis for the development of CRPS-I also seems promising. Further research is warranted to confirm these findings.",
-      "doi": "10.1111/papr.13291",
-      "journal": "Pain practice : the official journal of World Institute of Pain",
-      "pub_date": "2024Jan",
-      "publication_types": [
-        "Systematic Review",
-        "Journal Article"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The role of diet and non-pharmacologic supplements in the treatment of chronic neuropathic pain: A systematic review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7711
-    },
-    {
-      "pmid": "26139153",
-      "title": "Characterisation of anaemia and associated factors among infants and pre-schoolers from rural India.",
-      "abstract": "OBJECTIVE: In India, national databases indicate anaemia prevalence of 80 % among 6-35-month-old children and 58 % among 36-59-month-old children. The present study aimed to characterise anaemia and the associated factors among infants and pre-schoolers living in rural India. DESIGN: Multivariate logistic regression analysis of data collected prior to an intervention trial. Fe-deficiency with anaemia (IDA), Fe deficiency with no anaemia (IDNA) and anaemia without Fe deficiency were defined. Serum ferritin, soluble transferrin receptor (sTfR) and sTfR/log ferritin index were used to indicate Fe status. SETTING: Twenty-six villages of Nalgonda district, Telangana, India. Data were collected in community sites. Participants Four hundred and seventy-six infants (aged 6-12 months), 316 pre-schoolers (aged 29-56 months) and their mothers. RESULTS: Prevalence of anaemia among infants and pre-schoolers was 66·4 and 47·8 %, prevalence of IDA was 52·2 and 42·1 %, prevalence of IDNA was 22·2 and 29·8 %, prevalence of anaemia without Fe deficiency was 14·2 and 5·7 %. Among infants, anaemia was positively associated with maternal anaemia (OR=3·31; 95 % CI 2·10, 5·23; P<0·001), and sTfR/log ferritin index (OR=2·21; 95 % CI 1·39, 3·54; P=0·001). Among pre-schoolers, anaemia was positively associated with maternal anaemia (OR=3·77; 95 % CI 1·94, 7·30; P<0·001), sTfR/log ferritin index (OR=5·29; 95 % CI 2·67, 10·50; P<0·001), high C-reactive protein (OR=4·39; 95 % CI 1·91, 10·06, P<0·001) and young age (29-35 months: OR=1·92; 05 % CI 1·18, 3·13, P=0·009). CONCLUSIONS: Anaemia prevalence continues to be high among infants and pre-schoolers in rural India. Based on sTfR/ferritin index, Fe deficiency is a major factor associated with anaemia. Anaemia is also associated with inflammation among pre-schoolers and with maternal anaemia among infants and pre-schoolers, illustrating the importance of understanding the aetiology of anaemia in designing effective control strategies.",
-      "doi": "10.1017/s1368980015002050",
-      "journal": "Public health nutrition",
-      "pub_date": "2016Apr",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Characterisation of anaemia and associated factors among infants and pre-schoolers from rural India.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7712
-    },
-    {
-      "pmid": "32585277",
-      "title": "Malnutrition in children with ichthyosis: Recommendations for monitoring from a multidisciplinary clinic experience.",
-      "abstract": "BACKGROUND: Short stature has been reported in congenital ichthyoses (CI), but few data exist on patients' nutritional status. OBJECTIVE: To describe the nutritional status at the first evaluation of children and young adults with CI. METHODS: Prospective observational study of patients assessed at a multidisciplinary clinic. Clinical variables and ichthyosis severity were collected. Anthropometric assessment was made by measuring weight and height, and nutritional status was classified based on the World Health Organization definitions for malnutrition. Analytical assessment included markers of nutritional status, fat-soluble vitamins, and micronutrients. RESULTS: We included 50 patients with a median age of 5 years (IQR, 1.6-10.3). Undernutrition was found in 32% of patients, and 75% of the undernourished children presented growth impairment. Younger children and those with severe ichthyoses were the most affected. Micronutrient deficiencies were found in 60% of patients. Deficiencies of selenium (34%), iron (28%), vitamin D (22%), and zinc (4%) were the most frequent findings. LIMITATIONS: Our small sample includes a heterogeneous group of ichthyoses. CONCLUSION: Children with CI appear to be at risk of undernutrition, especially at younger ages. Nutritional deficiencies are common and should be monitored. Growth failure in children with ichthyosis could be caused by undernutrition and aggravated by nutritional deficiencies.",
-      "doi": "10.1016/j.jaad.2020.06.064",
-      "journal": "Journal of the American Academy of Dermatology",
-      "pub_date": "2021Jul",
-      "publication_types": [
-        "Journal Article",
-        "Observational Study"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Malnutrition in children with ichthyosis: Recommendations for monitoring from a multidisciplinary clinic experience.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7713
     },
     {
       "pmid": "31504084",
@@ -307,7 +224,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7714
+      "wave": 7710
     },
     {
       "pmid": "30379930",
@@ -329,7 +246,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7715
+      "wave": 7711
     },
     {
       "pmid": "20861451",
@@ -351,7 +268,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7716
+      "wave": 7712
     },
     {
       "pmid": "37865222",
@@ -373,7 +290,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7717
+      "wave": 7713
     },
     {
       "pmid": "31910279",
@@ -396,7 +313,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7718
+      "wave": 7714
     },
     {
       "pmid": "26848570",
@@ -418,7 +335,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7719
+      "wave": 7715
     },
     {
       "pmid": "34101780",
@@ -439,7 +356,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7720
+      "wave": 7716
     },
     {
       "pmid": "30730785",
@@ -460,31 +377,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7721
-    },
-    {
-      "pmid": "22763155",
-      "title": "[Is daily supplementation with vitamin D2 equivalent to daily supplementation with vitamin D3 in the elderly?].",
-      "abstract": "The equivalence of cholecalciferol (D3) and ergocalciferol (D2) as well as their corresponding doses and administration route remain controversial to date. The aim of this study was to compare the effectiveness of daily supplementation with 800 IU of D2 (drops) and D3 (pills) on 25-hydroxivitamin D (25OHD) levels (= 30 ng/ml). Twenty-one ambulatory postmenopausal women from Buenos Aires City with a mean (X ± SD) age of 77.1 ± 6.8 years were included. The participants were randomly assigned to one of the following groups: GD2 (n = 13): 800 IU (drops) and GD3 (n = 8): 800 IU (pills). Serum 25OHD levels were measured (RIA-DIASORIN) at baseline, and at 7, 28 and 45 days. Nineteen out of twenty one women showed deficient levels of 25OHD at baseline (< 20 ng/ml): GD2: 14.0 ± 4.8 ng/ml and GD3: 13.2 ± 4.9 ng/ml (NS). Whereas only GD3 exhibited an increase (≈ 25%) at 7 days, both groups showed a significant increase at the end of the study. However, neither attained adequate 25OHD levels (GD2: 17.4 ± 5.5 vs. GD3:22.9 ± 4.6 ng/ml; p < 0.001). Administration of 800 IU of vitamin D3 during 45 days was more effective than D2 in increasing 25OHD, but both failed to achieve adequate levels of 25OHD (= 30 ng/ml). but neither succeeded in achieving adequate levels of 25OHD (= 30 ng/ml).",
-      "doi": "",
-      "journal": "Medicina",
-      "pub_date": "2012",
-      "publication_types": [
-        "Comparative Study",
-        "English Abstract",
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "[Is daily supplementation with vitamin D2 equivalent to daily supplementation with vitamin D3 in the elderly?].",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7722
+      "wave": 7717
     },
     {
       "pmid": "20488910",
@@ -507,54 +400,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7723
-    },
-    {
-      "pmid": "25589719",
-      "title": "A Phase II Randomized Clinical Trial of a Nutritional Formulation for Cognition and Mood in Alzheimer's Disease.",
-      "abstract": "BACKGROUND: Increasing evidence points toward the efficacy of nutritional modifications in delaying cognitive decline and mood/behavioral difficulties in Alzheimer's disease (AD). Nutritional supplementation with individual agents has shown varied results suggesting the need for combinatorial intervention. OBJECTIVE: We set out to determine whether nutritional intervention could positively impact cognitive performance and behavioral difficulties for individuals diagnosed with AD. METHODS: A double-blind, multi-site, phase II study (ClinicalTrials.gov NCT01320527; Alzheimer's Association Trialmatch) was conducted in which 106 individuals with AD were randomized to a nutraceutical formulation (NF; folate, alpha-tocopherol, B12, S-adenosyl methioinine, N-acetyl cysteine, acetyl-L-carnitine) or placebo for 3 or 6 months, followed by an open-label extension where participants received NF for 6 additional months. RESULTS: The NF cohort improved versus the placebo cohort within 3 months (Clox-1 p = 0.0083, 95%CI [0.4481, 2.9343]; Dementia Rating Scale p = 0.0266, 95%CI [0.1722, 2.7171]). Caregivers reported non-significant improvements in Neuropsychiatric Inventory. Both cohorts improved or maintained baseline performance during open-label extensions. Activities of Daily Living did not change for either cohort. CONCLUSIONS: These findings extend phase I studies where NF maintained or improved cognitive performance and mood/behavior.",
-      "doi": "10.3233/jad-142499",
-      "journal": "Journal of Alzheimer's disease : JAD",
-      "pub_date": "2015",
-      "publication_types": [
-        "Clinical Trial, Phase II",
-        "Journal Article",
-        "Multicenter Study",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "A Phase II Randomized Clinical Trial of a Nutritional Formulation for Cognition and Mood in Alzheimer's Disease.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7724
-    },
-    {
-      "pmid": "23218892",
-      "title": "Metanx in type 2 diabetes with peripheral neuropathy: a randomized trial.",
-      "abstract": "PURPOSE: To determine whether a combination of L-methylfolate, methylcobalamin, and pyridoxal-5'-phosphate (LMF-MC-PLP [Metanx; Pamlab LLC, Covington, La]) improves sensory neuropathy. RESEARCH DESIGN AND METHODS: This multicenter, randomized, double-blind, placebo-controlled trial involved 214 patients with type 2 diabetes and neuropathy (baseline vibration perception threshold [VPT]: 25-45 volts), who were randomly assigned to 24 weeks of treatment with either L-methylfolate calcium 3 mg, methylcobalamin 2 mg, and pyridoxal-5'-phosphate 35 mg or placebo. The primary end point was effect on VPT. Secondary end points included Neuropathy Total Symptom Score (NTSS-6) and Short Form 36 (SF-36), as well as plasma levels of folate, vitamins B(6) and B(12), methylmalonic acid (MMA), and homocysteine. RESULTS: There was no significant effect on VPT. However, patients receiving LMF-MC-PLP consistently reported symptomatic relief, with clinically significant improvement in NTSS-6 scores at week 16 (P=.013 vs placebo) and week 24 (P=.033). Improvement in NTSS scores was related to baseline MMA and inversely related to baseline PLP and metformin use. Quality-of-life measures also improved. Homocysteine decreased by 2.7±3.0 μmol/L with LMF-MC-PLP versus an increase of 0.5±2.4 μmol/L with placebo (P=.0001). Adverse events were infrequent, with no single event occurring in ≥2% of subjects. CONCLUSIONS: LMF-MC-PLP appears to be a safe and effective therapy for alleviation of peripheral neuropathy symptoms, at least in the short term. Additional long-term studies should be conducted, as the trial duration may have been too short to show an effect on VPT. In addition, further research on the effects in patients with cobalamin deficiency would be useful.",
-      "doi": "10.1016/j.amjmed.2012.06.022",
-      "journal": "The American journal of medicine",
-      "pub_date": "2013Feb",
-      "publication_types": [
-        "Journal Article",
-        "Multicenter Study",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Metanx in type 2 diabetes with peripheral neuropathy: a randomized trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7725
+      "wave": 7718
     },
     {
       "pmid": "29729235",
@@ -575,29 +421,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7726
-    },
-    {
-      "pmid": "27655442",
-      "title": "Prospective associations of maternal betaine status with offspring weight and body composition at birth: the Growing Up in Singapore Towards healthy Outcomes (GUSTO) cohort study.",
-      "abstract": "BACKGROUND: Betaine supplementation results in lower body weight and fat mass and higher lean mass in animals and adult humans. However, the relation between maternal betaine status and offspring birth weight and body composition is less known. OBJECTIVE: The aim was to examine the association between maternal betaine status and neonatal birth size and adiposity in an Asian mother-offspring cohort. DESIGN: We included 955 pregnant women whose plasma betaine concentrations were measured at 26-28 wk of gestation. Neonatal anthropometric values were measured at birth, and abdominal adipose tissue compartments were assessed by MRI in a subset of infants (n = 307) in the first 14 d after birth. Multivariate general linear models were used to adjust for gestational age; fetal sex; and maternal age, height, education, ethnicity, prepregnancy body mass index, and plasma folate, vitamin B-12, and choline concentrations. RESULTS: The mean ± SD plasma concentration of betaine was 13.2 ± 2.7 μmol/L (range: 5.3-25.0 μmol/L). After adjustment for covariates, higher maternal plasma betaine was associated with lower birth weight (β: -57.6 g; 95% CI: -109.9, -5.3 g), shorter birth length (β: -0.29 cm per 5-μmol/L increment; 95% CI: -0.55, -0.03 cm), smaller head circumference (-0.20 cm; 95% CI: -0.38, -0.02 cm), smaller midupper arm circumference (-0.16 cm; 95% CI: -0.30, -0.03 cm), lower volumes of abdominal superficial subcutaneous adipose tissue (-4.53 mL; 95% CI: -8.70, -0.36 mL), and a higher risk of small-for-gestational-age birth (OR: 1.57; 95% CI: 1.05, 2.35). CONCLUSIONS: Higher maternal betaine status was generally associated with smaller infant birth size and less abdominal fat mass. Further studies are needed to replicate these findings and to understand their biological mechanisms. This study was registered at clinicaltrials.gov as NCT01174875.",
-      "doi": "10.3945/ajcn.116.138818",
-      "journal": "The American journal of clinical nutrition",
-      "pub_date": "2016Nov",
-      "publication_types": [
-        "Journal Article",
-        "Observational Study",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Prospective associations of maternal betaine status with offspring weight and body composition at birth: the Growing Up in Singapore Towards healthy Outcomes (GUSTO) cohort study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7727
+      "wave": 7719
     },
     {
       "pmid": "20412605",
@@ -619,7 +443,28 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7728
+      "wave": 7720
+    },
+    {
+      "pmid": "25755079",
+      "title": "Zinc supplementation influences genomic stability biomarkers, antioxidant activity, and zinc transporter genes in an elderly Australian population with low zinc status.",
+      "abstract": "SCOPE: An increased intake of Zinc (Zn) may reduce the risk of degenerative diseases but may prove to be toxic if taken in excess. This study aimed to investigate whether zinc carnosine supplement can improve Zn status, genome stability events, and Zn transporter gene expression in an elderly (65-85 years) South Australian cohort with low plasma Zn levels. METHODS AND RESULTS: A 12-week placebo-controlled intervention trial was performed with 84 volunteers completing the study, (placebo, n = 42) and (Zn group, n = 42). Plasma Zn was significantly increased (p < 0.05) by 5.69% in the Zn supplemented group after 12 weeks. A significant (p < 0.05) decrease in the micronucleus frequency (-24.18%) was observed for the Zn supplemented cohort relative to baseline compared to the placebo group. Reductions of -7.09% for tail moment and -8.76% for tail intensity were observed for the Zn group (relative to baseline) (p < 0.05). Telomere base damage was found to be also significantly decreased in the Zn group (p < 0.05). Both MT1A and ZIP1 expression showed a significant increase in the Zn supplemented group (p < 0.05). CONCLUSION: Zn supplementation may have a beneficial effect in an elderly population with low Zn levels by improving Zn status, antioxidant profile, and lowering DNA damage.",
+      "doi": "10.1002/mnfr.201400784",
+      "journal": "Molecular nutrition & food research",
+      "pub_date": "2015Jun",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Zinc supplementation influences genomic stability biomarkers, antioxidant activity, and zinc transporter genes in an elderly Australian population with low zinc status.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7721
     },
     {
       "pmid": "27049031",
@@ -640,50 +485,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7729
-    },
-    {
-      "pmid": "28065190",
-      "title": "Cholecalciferol v. ergocalciferol for 25-hydroxyvitamin D (25(OH)D) repletion in chronic kidney disease: a randomised clinical trial.",
-      "abstract": "Patients with chronic kidney disease (CKD) demonstrate complex mineral metabolism derangements and a high prevalence of vitamin D deficiency. However, the optimal method of 25-hydroxyvitamin D (25(OH)D) repletion is unknown, and trials analysing the comparative efficacy of cholecalciferol and ergocalciferol in this population are lacking. We conducted a randomised clinical trial of cholecalciferol 1250μg (50 000 IU) weekly v. ergocalciferol 1250μg (50 000 IU) weekly for 12 weeks in forty-four non-dialysis-dependent patients with stage 3-5 CKD. The primary outcome was change in total 25(OH)D from baseline to week 12 (immediately after therapy). Secondary analyses included the change in 1,25-dihydroxyvitamin D (1,25(OH)2D), parathyroid hormone (PTH), D2 and D3 sub-fractions of 25(OH)D and 1,25(OH)2D and total 25(OH)D from baseline to week 18 (6 weeks after therapy). Cholecalciferol therapy yielded a greater change in total 25(OH)D (45·0 (sd 16·5) ng/ml) v. ergocalciferol (30·7 (sd 15·3) ng/ml) from baseline to week 12 (P<0·01); this observation partially resulted from a substantial reduction in the 25(OH)D3 sub-fraction with ergocalciferol. However, following cessation of therapy, no statistical difference was observed for total 25(OH)D change from baseline to week 18 between cholecalciferol and ergocalciferol groups (22·4 (sd 12·7) v. 17·6 (sd 8·9) ng/ml, respectively; P=0·17). We observed no significant difference between these therapies with regard to changes in serum PTH or 1,25(OH)2D. Therapy with cholecalciferol, compared with ergocalciferol, is more effective at raising serum 25(OH)D in non-dialysis-dependent CKD patients while active therapy is ongoing. However, levels of 25(OH)D declined substantially in both arms following cessation of therapy, suggesting the need for maintenance therapy to sustain levels.",
-      "doi": "10.1017/s000711451600427x",
-      "journal": "The British journal of nutrition",
-      "pub_date": "2016Dec",
-      "publication_types": [
-        "Comparative Study",
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Cholecalciferol v. ergocalciferol for 25-hydroxyvitamin D (25(OH)D) repletion in chronic kidney disease: a randomised clinical trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7730
-    },
-    {
-      "pmid": "36195747",
-      "title": "Modelling health and economic impact of nutrition interventions: a systematic review.",
-      "abstract": "Diet related non-communicable diseases (NCDs), as well as micronutrient deficiencies, are of widespread and growing importance to public health. Authorities are developing programs to improve nutrient intakes via foods. To estimate the potential health and economic impact of these programs there is a wide variety of models. The aim of this review is to evaluate existing models to estimate the health and/or economic impact of nutrition interventions with a focus on reducing salt and sugar intake and increasing vitamin D, iron, and folate/folic acid intake. The protocol of this systematic review has been registered with the International Prospective Register of Systematic Reviews (PROSPERO: CRD42016050873). The final search was conducted on PubMed and Scopus electronic databases and search strings were developed for salt/sodium, sugar, vitamin D, iron, and folic acid intake. Predefined criteria related to scientific quality, applicability, and funding/interest were used to evaluate the publications. In total 122 publications were included for a critical appraisal: 45 for salt/sodium, 61 for sugar, 4 for vitamin D, 9 for folic acid, and 3 for iron. The complexity of modelling the health and economic impact of nutrition interventions is dependent on the purpose and data availability. Although most of the models have the potential to provide projections of future impact, the methodological challenges are considerable. There is a substantial need for more guidance and standardization for future modelling, to compare results of different studies and draw conclusions about the health and economic impact of nutrition interventions.",
-      "doi": "10.1038/s41430-022-01199-y",
-      "journal": "European journal of clinical nutrition",
-      "pub_date": "2023Apr",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "micronutrients",
-      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Modelling health and economic impact of nutrition interventions: a systematic review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7731
+      "wave": 7722
     },
     {
       "pmid": "37464830",
@@ -704,7 +506,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7732
+      "wave": 7723
     },
     {
       "pmid": "26774115",
@@ -727,7 +529,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7733
+      "wave": 7724
     },
     {
       "pmid": "33935094",
@@ -749,7 +551,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7734
+      "wave": 7725
     },
     {
       "pmid": "29783689",
@@ -767,6 +569,204 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Cobalamin and Folate Status among Breastfed Infants in Bhaktapur, Nepal.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7726
+    },
+    {
+      "pmid": "30912673",
+      "title": "Micronutrients in Atopic Dermatitis: A Systematic Review.",
+      "abstract": "Objective: The pathophysiology of atopic dermatitis (AD) involves a complex interplay between immune system dysfunction, genetics, and environmental factors. It is well known that nutritional status is essential to a proper functioning immune system, leading to a highly debated question regarding the role of dietary factors in the pathogenesis of AD. Food allergies and elimination diets have been broadly studied in atopy; however, less consideration has been given to how vitamins, minerals, and other micronutrients influence the risk for AD and severity of symptoms. This systematic review discusses evidence on how various micronutrients, including vitamins (C, E, and D) and trace minerals (zinc, selenium, iron, copper, magnesium, and strontium) are associated with AD, and how supplementation influence disease severity. Design: A systematic search was conducted to identify the role that oral micronutrients have on AD. The authors reviewed 49 studies herein. Results: While there are weak associations between vitamins C or E and AD, there is sufficient evidence to suggest that vitamin D supplementation provides benefit in AD patients. Deficiency of selenium and zinc may exacerbate AD. Current reports are not sufficient to confidently discern the role of other vitamins and trace minerals on AD. Conclusions: Though oral micronutrients may play a role in AD, the current literature is limited, and there is a need for more comprehensive randomized controlled trials (RCTs) to truly decipher the role between oral micronutrients and AD.",
+      "doi": "10.1089/acm.2018.0363",
+      "journal": "Journal of alternative and complementary medicine (New York, N.Y.)",
+      "pub_date": "2019Jun",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Micronutrients in Atopic Dermatitis: A Systematic Review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7727
+    },
+    {
+      "pmid": "34422259",
+      "title": "Cobalamin and folate status in women during early pregnancy in Bhaktapur, Nepal.",
+      "abstract": "The demand for cobalamin (vitamin B12) and folate is increased during pregnancy, and deficiency during pregnancy may lead to complications and adverse outcomes. Yet, the status of these micronutrients is unknown in many populations. We assessed the concentration of cobalamin, folate and their functional biomarkers, total homocysteine (tHcy) and methylmalonic acid (MMA), in 561 pregnant women enrolled in a community-based randomised controlled trial in Bhaktapur, Nepal. Plasma concentrations of cobalamin, folate, tHcy and MMA were measured and a combined indicator of vitamin B12 status (3cB12) was calculated. We report mean or median concentrations and the prevalence of deficiency according to commonly used cut-offs, and assessed their association with indicators of socio-economic status, and maternal and dietary characteristics by linear regression. Among the women at gestational week less than 15, deficiencies of cobalamin and folate were seen in 24 and 1 %, respectively. Being a vegetarian was associated with lower plasma cobalamin, and a higher socio-economic status was associated with a better micronutrient status. We conclude that cobalamin deficiency defined by commonly used cut-offs was common in Nepalese women in early pregnancy. In contrast, folate deficiency was rare. As there is no consensus on cut-off points for vitamin B12 deficiency during pregnancy, future studies are needed to assess the potential functional consequences of these low values.",
+      "doi": "10.1017/jns.2021.53",
+      "journal": "Journal of nutritional science",
+      "pub_date": "2021",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Cobalamin and folate status in women during early pregnancy in Bhaktapur, Nepal.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7728
+    },
+    {
+      "pmid": "22385763",
+      "title": "[Homocysteine after a methionine load in healthy subjects with adequate B-vitamin status].",
+      "abstract": "BACKGROUND: Plasma homocysteine (Hcy) determination at 6-8 h after an oral methionine load (OML) allows for identification of some, but not all, individuals at risk to develop cardiovascular disease. It is probable that in some cases the Hcy increases occur later, or it elevates between normal ranges but in a sustained manner. However, the entire Hcy response curve has not been described. We undertook this study to determine Hcy concentrations from baseline to 24- and 48-h after an OML in non-B-vitamin deficient adult subjects with other risk factors for high levels of Hcy such as smoking and overweight. METHODS: In a cross-over, clinical design, Hcy concentrations were determined at 2-h intervals throughout 12 h and at 24 h and 48 h after an OML (0.1 g/kg). Hcy and vitamin B6 (VB6) concentrations were measured by high-performance liquid chromatography (HPLC). Folic acid (FA) and vitamin B12 (VB12) were measured by radioimmunoassay (RIA). Statistical analysis included delta values and areas under the curve. Student t-test and repeated measurement analyses were conducted to control for confounders. RESULTS: Twenty-nine subjects with adequate Hcy, FA, VB6 and VB12 status were included. The maximum Hcy concentration occurred 8 h after the load and returned to baseline concentrations after 24 h. All subjects presented Hcy after the load within normal ranges, but smoking and overweight synergistically influenced the response to the challenge, producing a sustained elevation after the dose. CONCLUSIONS: Hcy concentrations after an OML remained above baseline for at least 24 h. Smoking and overweight affected the response to the methionine challenge.",
+      "doi": "",
+      "journal": "Cirugia y cirujanos",
+      "pub_date": "2011Sep-Oct",
+      "publication_types": [
+        "Clinical Trial",
+        "English Abstract",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "[Homocysteine after a methionine load in healthy subjects with adequate B-vitamin status].",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7729
+    },
+    {
+      "pmid": "23536278",
+      "title": "A systematic review on micronutrient intake adequacy in adult minority populations residing in Europe: the need for action.",
+      "abstract": "This systematic review evaluated micronutrient intake inadequacy of ten micronutrients for adult ethnic minority populations residing in Europe. Pubmed was searched for studies, related references were checked and experts consulted. Ten studies were identified and six were included in the final analysis representing Albanian, Roma, Sub-Saharan African, South Asian and African-Caribbean minority groups. The Estimated Average Requirement cut point was applied to estimate inadequate intake. With the exception of a sub-Saharan African study, of seven micronutrients analysed, inadequate intakes were markedly elevated (>50 % of the population in most cases) in both genders for folate, vitamin B(12), calcium and iron (the latter in females only). A pressing need exists for intake adequacy studies with sound methodologies addressing ethnic minority groups in Europe. These populations constitute a vulnerable population for inadequate intakes and results substantiate the need for further investigation, interventions and policy measures to reduce their nutritional risk.",
+      "doi": "10.1007/s10903-013-9799-3",
+      "journal": "Journal of immigrant and minority health",
+      "pub_date": "2014Oct",
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A systematic review on micronutrient intake adequacy in adult minority populations residing in Europe: the need for action.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7730
+    },
+    {
+      "pmid": "31756911",
+      "title": "Multi-Micronutrient Fortified Rice Improved Serum Zinc and Folate Concentrations of Cambodian School Children. A Double-Blinded Cluster-Randomized Controlled Trial.",
+      "abstract": "BACKGROUND: Within Cambodia, micronutrient deficiencies continue to be prevalent in vulnerable groups, such as women and children. Fortification of staple foods such as rice could be a promising strategy for Cambodia to improve micronutrient status. OBJECTIVE: Our objective was to investigate the impact of multiple-micronutrient fortified rice (MMFR), distributed through a World Food Program school-meals program (WFP-SMP) on serum zinc concentrations and folate status in a double-blind, cluster-randomized, placebo-controlled trial. METHODS: Sixteen schools were randomly assigned to receive one of three different types of extruded-fortified rice (UltraRice Original (URO), UltraRice New (URN), or NutriRice) or unfortified rice (placebo) six days a week for six months. A total of 1950 schoolchildren (6-16 years old) participated in the study. Serum zinc (all groups) and folate (only in NutriRice and placebo group) concentrations were assessed from morning non-fasting antecubital blood samples and were measured at three time points (baseline and after three and six months). RESULTS: After six months of intervention, serum zinc concentrations were significantly increased in all fortified rice group compared to placebo and baseline (0.98, 0.85 and 1.40 µmol/L for URO, URN and NutriRice, respectively) (interaction effect: p < 0.001 for all). Children in the intervention groups had a risk of zinc deficiencies of around one third (0.35, 039, and 0.28 for URO, URN, and NutriRice, respectively) compared to the placebo (p < 0.001 for all). The children receiving NutriRice had higher serum folate concentrations at endline compared to children receiving normal rice (+ 2.25 ng/mL, p = 0.007). CONCLUSIONS: This study showed that the high prevalence of zinc and folate deficiency in Cambodia can be improved through the provision of MMFR. As rice is the staple diet for Cambodia, MMFR should be considered to be included in the school meal program and possibilities should be explored to introduce MMFR to the general population.",
+      "doi": "10.3390/nu11122843",
+      "journal": "Nutrients",
+      "pub_date": "2019Nov20",
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Multi-Micronutrient Fortified Rice Improved Serum Zinc and Folate Concentrations of Cambodian School Children. A Double-Blinded Cluster-Randomized Controlled Trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7731
+    },
+    {
+      "pmid": "26864127",
+      "title": "Effects of vitamin D2-fortified bread v. supplementation with vitamin D2 or D3 on serum 25-hydroxyvitamin D metabolites: an 8-week randomised-controlled trial in young adult Finnish women.",
+      "abstract": "There is a need for food-based solutions for preventing vitamin D deficiency. Vitamin D3 (D3) is mainly used in fortified food products, although the production of vitamin D2 (D2) is more cost-effective, and thus may hold opportunities. We investigated the bioavailability of D2 from UV-irradiated yeast present in bread in an 8-week randomised-controlled trial in healthy 20-37-year-old women (n 33) in Helsinki (60°N) during winter (February-April) 2014. Four study groups were given different study products (placebo pill and regular bread=0 µg D2 or D3/d; D2 supplement and regular bread=25 µg D2/d; D3 supplement and regular bread=25 µg D3/d; and placebo pill and D2-biofortified bread=25 µg D2/d). Serum 25-hydroxyvitamin D2 (S-25(OH)D2) and serum 25-hydroxyvitamin D3 (S-25(OH)D3) concentrations were measured at baseline, midpoint and end point. The mean baseline total serum 25-hydroxyvitamin D (S-25(OH)D=S-25(OH)D2+S-25(OH)D3) concentration was 65·1 nmol/l. In repeated-measures ANCOVA (adjusted for baseline S-25(OH)D as total/D2/D3), D2-bread did not affect total S-25(OH)D (P=0·707) or S-25(OH)D3 (P=0·490), but increased S-25(OH)D2 compared with placebo (P<0·001). However, the D2 supplement was more effective than bread in increasing S-25(OH)D2 (P<0·001). Both D2 and D3 supplementation increased total S-25(OH)D compared with placebo (P=0·030 and P=0·001, respectively), but D2 supplementation resulted in lower S-25(OH)D3 (P<0·001). Thus, D2 from UV-irradiated yeast in bread was not bioavailable in humans. Our results support the evidence that D2 is less potent in increasing total S-25(OH)D concentrations than D3, also indicating a decrease in the percentage contribution of S-25(OH)D3 to the total vitamin D pool.",
+      "doi": "10.1017/s0007114516000192",
+      "journal": "The British journal of nutrition",
+      "pub_date": "2016Apr14",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of vitamin D2-fortified bread v. supplementation with vitamin D2 or D3 on serum 25-hydroxyvitamin D metabolites: an 8-week randomised-controlled trial in young adult Finnish women.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7732
+    },
+    {
+      "pmid": "29635492",
+      "title": "Gene-specific DNA methylation in newborns in response to folic acid supplementation during the second and third trimesters of pregnancy: epigenetic analysis from a randomized controlled trial.",
+      "abstract": "BACKGROUND: Emerging evidence suggests that maternal folate status can impact cognitive development in childhood. Folate-dependent DNA methylation may provide a biological mechanism to link folate status during pregnancy with cognition in the offspring. OBJECTIVE: The objective was to investigate the effect of continued folic acid (FA) supplementation beyond the first trimester of pregnancy on DNA methylation in cord blood of epigenetically controlled genes related to brain development and function. DESIGN: Using available cord blood samples (n = 86) from the Folic Acid Supplementation in the Second and Third Trimesters (FASSTT) trial in pregnancy, we applied pyrosequencing techniques to analyze cord blood DNA at 9 candidate loci known to be regulated by methylation, including some previously implicated in observational studies: the widely dispersed retrotransposon long interspersed nuclear element-1 (LINE-1) and 8 single-copy loci (RBM46, PEG3, IGF2, GRB10, BDNF, GRIN3B, OPCML, and APC2). RESULTS: The newborns of mothers who received ongoing FA (400 µg/d) through the second and third trimesters, compared with placebo, had significantly lower overall DNA methylation levels at LINE-1 (56.3% ± 1.7% compared with 57.2% ± 2.1%; P = 0.024), IFG2 (48.9% ± 4.4% compared with 51.2% ± 5.1%; P = 0.021), and BDNF (2.7% ± 0.7% compared with 3.1% ± 0.8%; P = 0.003). The effect of FA treatment on DNA methylation was significant only in female offspring for IGF2 (P = 0.028) and only in males for BDNF (P = 0.012). For GRB10 and GRIN3B, we detected no effect on overall methylation; however, individual cytosine-phosphate-guanine sites showed significant DNA methylation changes in response to FA. CONCLUSIONS: Continued supplementation with FA through trimesters 2 and 3 of pregnancy results in significant changes in DNA methylation in cord blood of genes related to brain development. The findings offer a potential biological mechanism linking maternal folate status with neurodevelopment of the offspring, but this requires further investigation using a genome-wide approach. This trial was registered at www.isrctn.com as ISRCTN19917787.",
+      "doi": "10.1093/ajcn/nqx069",
+      "journal": "The American journal of clinical nutrition",
+      "pub_date": "2018Apr01",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Gene-specific DNA methylation in newborns in response to folic acid supplementation during the second and third trimesters of pregnancy: epigenetic analysis from a randomized controlled trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7733
+    },
+    {
+      "pmid": "33662489",
+      "title": "Vitamin D3 and B12 supplementation in pregnancy.",
+      "abstract": "AIM: To assess the efficacy of vitamin D3 or B12 supplementation during pregnancy. METHODS: Pregnant women at 6-14 weeks in the intervention arm received oral high dose intermittent vitamin D3 and/or low dose B12 supplementation if they had vitamin D or vitamin B12 deficiency. The control arm received prescribed dietary instruction only. An additional observational arm for those mothers at booking with normal vitamin D and vitamin B12 level was also recruited. All groups received standard care during pregnancy. RESULTS: The primary endpoint of either vitamin D or B12 at term was not met. At baseline 25% participants in both the interventional and control arms had severe D deficiency (<30 nmol/l), reducing to under 3.4% in both groups. No maternal differences in vitamin D or B12 levels were found at delivery between the intervention, control, or observational groups. No significant difference in any of the pregnancy or birth outcomes was observed between three groups. CONCLUSIONS: In this study, oral supplementation of high dose intermittent vitamin D or low dose vitamin B12 regime failed to correct the relevant nutritional deficiencies in Bangladeshi pregnant women as per protocol. Both dietary supplementation and high dose vitamin D corrected severe vitamin deficiency.",
+      "doi": "10.1016/j.diabres.2021.108728",
+      "journal": "Diabetes research and clinical practice",
+      "pub_date": "2021Apr",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Vitamin D3 and B12 supplementation in pregnancy.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7734
+    },
+    {
+      "pmid": "22244349",
+      "title": "Effect of long-term intermittent supplementation with multiple micronutrients compared with iron-and-folic acid supplementation on Hb and micronutrient status of non-anaemic adolescent schoolgirls in rural Bangladesh.",
+      "abstract": "The present study examined whether long-term supplementation with once- and twice-weekly multiple micronutrients (MMN-1 and MMN-2) can improve Hb and micronutrient status more than twice-weekly Fe-folic acid (IFA-2) supplementation in non-anaemic adolescent girls in Bangladesh. An equal number of 324 rural schoolgirls aged 11-17 years were given MMN-1 or MMN-2 or IFA-2 supplements for 52 weeks in a randomised, double-blind trial. Blood samples were collected at baseline, and at 26 and 52 weeks of supplementation. The girls receiving IFA-2 supplements were more likely to be anaemic than the girls receiving MMN-2 supplements for 26 weeks (OR 5·1, 95% CI 1·3, 19·5; P = 0·018). All three supplements reduced Fe deficiency effectively. Both the MMN-1 and MMN-2 groups showed significantly greater improvements in vitamins A, B(2) and C status than the girls in the IFA-2 group, as might be expected. Receiving a MMN-1 supplement was found to be less effective than MMN-2 supplement in improving Fe, vitamins A, B(2) and folic acid status. Receiving micronutrient supplements beyond 26 weeks showed little additional benefit in improving micronutrient status. In conclusion, given twice-weekly for 26 weeks, MMN supplements can improve micronutrient status effectively with no significant increase in Hb concentration compared with IFA supplements in non-anaemic Bangladeshi adolescent girls. However, it significantly reduces the risk of anaemia. Before any recommendations can be made, further research, including into cost-effectiveness, is needed to see whether MMN supplementation has any additional longer-term health benefits over that of IFA supplementation in this population.",
+      "doi": "10.1017/s0007114511006908",
+      "journal": "The British journal of nutrition",
+      "pub_date": "2012Oct28",
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "micronutrients",
+      "discovery_query": "(vitamin D OR vitamin B12 OR folate OR zinc OR selenium OR iron OR magnesium) AND (supplementation OR deficiency)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effect of long-term intermittent supplementation with multiple micronutrients compared with iron-and-folic acid supplementation on Hb and micronutrient status of non-anaemic adolescent schoolgirls in rural Bangladesh.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -882,6 +882,48 @@
       "wave": 7740
     },
     {
+      "pmid": "39242081",
+      "title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
+      "abstract": "The neuropsychiatric effects of probiotics, prebiotics, and synbiotics have been gaining attention since the rise of microbial-gut-brain axis research. Nevertheless, some of the findings are inconsistent, and few studies have analysed the similarities and differences in the neuropsychiatric effects of the three comprehensively. To reveal the respective neuropsychiatric effects of probiotics, prebiotics, and synbiotics and synthesise the similarities and differences among the three effects, 47 meta-analyses with 12 types of neuropsychiatric results were integrated under an umbrella review. Probiotics, prebiotics, and synbiotics intake might all be associated with improvements in some neuropsychiatric outcomes, including neuropsychological test outcomes (probiotic and prebiotic), hepatic encephalopathy outcomes (probiotic, prebiotic, and synbiotic), instant memory in patients with Alzheimer's disease (probiotic), depressive symptoms (probiotic, prebiotic and synbiotic), mood states and psychiatric distress (probiotic), overall mental health (probiotic), neurological function (probiotic), brain-derived neurotrophic factor (BDNF) concentration (probiotic and synbiotic), and Pittsburgh Sleep Quality Index (PSQI) score (probiotic). All three are similar in that the intake of probiotics, prebiotics, and synbiotics might be associated with improvements in hepatic encephalopathy outcomes and depressive symptoms, both probiotic and synbiotic intake might be associated with elevated BDNF concentrations, and both probiotic and prebiotic intake might be associated with improved neuropsychological test results. The difference between the three is that the neuropsychiatric effects of probiotics might be more widespread and be reflected in the fact that probiotic intake might also be associated with improvements in mood states and psychiatric distress, overall mental health, neurological function, Alzheimer's disease patients' instant memory, and PSQI score. Probiotics might be the best and most promising option for improving neuropsychiatric outcomes. In the future, in addition to requiring more high-quality meta-analyses, further preclinical studies are needed to explore specific relevant mechanisms and determine true causal relationships.",
+      "doi": "10.1163/18762891-bja00035",
+      "journal": "Beneficial microbes",
+      "pub_date": "2024Sep05",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7741
+    },
+    {
+      "pmid": "29168036",
+      "title": "The gut microbiome, symptoms, and targeted interventions in children with cancer: a systematic review.",
+      "abstract": "PURPOSE: The gut microbiome plays a critical role in maintaining children's health and in preventing and treating children's disease. Current application of the gut microbiome in childhood cancer is still lacking. This study aimed to systematically review the following: (1) alternations in the gut microbiome throughout cancer treatment trajectories in children, (2) the associations between the gut microbiome and gastrointestinal (GI) symptoms and psychoneurological symptoms (PNS), and (3) the efficacy of therapeutic interventions in the gut microbiome in children with cancer. METHODS: PubMed, EMBASE, the Cochrane Library, and the American Society of Clinical Oncology abstract were searched. Eligible studies included all study types in which the gut microbiome was primarily reported in children with cancer. The Mixed Methods Assessment Tool was used to evaluate the methodology quality of included studies. Seven studies met our eligibility criteria, including two cohort studies, two case-control studies, and three randomized controlled trails. RESULTS: The findings showed that the diversity estimates of the gut microbiome in children with cancer were lower than those of healthy controls both pre- and post-treatment. Children with cancer showed a significantly lower relative abundance of healthy gut microbiome (e.g., Clostridium XIVa and Bifidobacterium) during and after cancer treatment. No adequate literature was identified to support the associations between dysbiosis of the gut microbiome and GI symptoms/PNS. The use of prebiotics (fructooligosaccharides) and probiotics (Bifidobacterium or Lactobacilli) appears to improve the microenvironment of the gut around 1 month (4-5 weeks) during chemotherapy rather than at the beginning of treatment. Data also suggest that both prebiotic and probiotic interventions decrease clinical side effects (e.g., infection and morbidity risk) in children with cancer. CONCLUSIONS: This study adds to the evidence that dysbiosis of the gut microbiome can be improved using prebiotic and probiotic supplementations in children with cancer. More well-designed experimental studies are needed to confirm this conclusion. Further studies are needed to examine the associations between the gut microbiome and GI symptoms/PNS in childhood cancer.",
+      "doi": "10.1007/s00520-017-3982-3",
+      "journal": "Supportive care in cancer : official journal of the Multinational Association of Supportive Care in Cancer",
+      "pub_date": "2018Feb",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The gut microbiome, symptoms, and targeted interventions in children with cancer: a systematic review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7742
+    },
+    {
       "pmid": "35562885",
       "title": "The Gut Microbiome in Depression and Potential Benefit of Prebiotics, Probiotics and Synbiotics: A Systematic Review of Clinical Trials and Observational Studies.",
       "abstract": "An emerging body of literature demonstrates differences in the gut microbiome (GMB) of patients with major depressive disorder (MDD) compared to healthy controls (HC), as well as the potential benefits of prebiotic, probiotic, and synbiotic treatment. We conducted a systematic review of 24 observational studies (n = 2817), and 19 interventional trials (n = 1119). We assessed alpha diversity, beta diversity, and taxa abundance changes in patients with MDD relative to HC, as well as the effect of prebiotics, probiotics, and synbiotics on depressive symptoms in individuals with clinical or subclinical depression. We observed no significant differences in alpha diversity but a significant difference in beta diversity between patients with MDD and HC. There were fluctuations in the abundance of specific taxa in patients with MDD relative to HC. Probiotic and synbiotic, but not prebiotic, treatment showed a modest benefit in reducing depressive symptoms in patients with MDD over four to nine weeks. The GMB profiles of patients with MDD differ significantly from HC, but further studies are needed to elucidate the benefits of prebiotic, probiotic and synbiotic treatments relative to antidepressants and over longer follow-up before these therapies are implemented into clinical practice.",
@@ -900,7 +942,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7741
+      "wave": 7743
     },
     {
       "pmid": "38717445",
@@ -922,7 +964,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7742
+      "wave": 7744
     },
     {
       "pmid": "38623929",
@@ -944,28 +986,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7743
-    },
-    {
-      "pmid": "39242081",
-      "title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
-      "abstract": "The neuropsychiatric effects of probiotics, prebiotics, and synbiotics have been gaining attention since the rise of microbial-gut-brain axis research. Nevertheless, some of the findings are inconsistent, and few studies have analysed the similarities and differences in the neuropsychiatric effects of the three comprehensively. To reveal the respective neuropsychiatric effects of probiotics, prebiotics, and synbiotics and synthesise the similarities and differences among the three effects, 47 meta-analyses with 12 types of neuropsychiatric results were integrated under an umbrella review. Probiotics, prebiotics, and synbiotics intake might all be associated with improvements in some neuropsychiatric outcomes, including neuropsychological test outcomes (probiotic and prebiotic), hepatic encephalopathy outcomes (probiotic, prebiotic, and synbiotic), instant memory in patients with Alzheimer's disease (probiotic), depressive symptoms (probiotic, prebiotic and synbiotic), mood states and psychiatric distress (probiotic), overall mental health (probiotic), neurological function (probiotic), brain-derived neurotrophic factor (BDNF) concentration (probiotic and synbiotic), and Pittsburgh Sleep Quality Index (PSQI) score (probiotic). All three are similar in that the intake of probiotics, prebiotics, and synbiotics might be associated with improvements in hepatic encephalopathy outcomes and depressive symptoms, both probiotic and synbiotic intake might be associated with elevated BDNF concentrations, and both probiotic and prebiotic intake might be associated with improved neuropsychological test results. The difference between the three is that the neuropsychiatric effects of probiotics might be more widespread and be reflected in the fact that probiotic intake might also be associated with improvements in mood states and psychiatric distress, overall mental health, neurological function, Alzheimer's disease patients' instant memory, and PSQI score. Probiotics might be the best and most promising option for improving neuropsychiatric outcomes. In the future, in addition to requiring more high-quality meta-analyses, further preclinical studies are needed to explore specific relevant mechanisms and determine true causal relationships.",
-      "doi": "10.1163/18762891-bja00035",
-      "journal": "Beneficial microbes",
-      "pub_date": "2024Sep05",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Probiotics/prebiotics/synbiotics and human neuropsychiatric outcomes: an umbrella review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7744
+      "wave": 7745
     },
     {
       "pmid": "28213610",
@@ -987,7 +1008,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7745
+      "wave": 7746
     },
     {
       "pmid": "37992712",
@@ -1009,52 +1030,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7746
-    },
-    {
-      "pmid": "38280441",
-      "title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
-      "abstract": "The use of probiotics, prebiotics, synbiotics or fermented foods can modulate the gut-brain axis and constitute a potentially therapeutic intervention in psychiatric disorders. This systematic review aims to identify current evidence regarding these interventions in the treatment of patients with DSM/ICD psychiatric diagnoses. Forty-seven articles from 42 studies met the inclusion criteria. Risk of bias was assessed in all included studies. Major depression was the most studied disorder (n = 19 studies). Studies frequently focused on schizophrenia (n = 11) and bipolar disorder (n = 5) and there were limited studies in anorexia nervosa (n = 4), ADHD (n = 3), Tourette (n = 1), insomnia (n = 1), PTSD (n = 1) and generalized anxiety disorder (n = 1). Except in MDD, current evidence does not clarify the role of probiotics and prebiotics in the treatment of mental illness. Several studies point to an improvement in the immune and inflammatory profile (e.g. CRP, IL6), which may be a relevant mechanism of action of the therapeutic response identified in these studies. Future research should consider lifestyle and dietary habits of patients as possible confounders that may influence inter-individual treatment response.",
-      "doi": "10.1016/j.neubiorev.2024.105561",
-      "journal": "Neuroscience and biobehavioral reviews",
-      "pub_date": "2024Mar",
-      "publication_types": [
-        "Systematic Review",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7747
-    },
-    {
-      "pmid": "36228569",
-      "title": "The gut microbiome, mild cognitive impairment, and probiotics: A randomized clinical trial in middle-aged and older adults.",
-      "abstract": "BACKGROUND: Advancing age coincides with changes in the gut microbiome and a decline in cognitive ability. Psychobiotics are microbiota-targeted interventions that can result in mental health benefits and protect the aging brain. This study investigated the gut microbiome composition and predicted microbial functional pathways of middle-aged and older adults that met criteria for mild cognitive impairment (MCI), compared to neurologically healthy individuals, and investigated the impact of probiotic Lactobacillus rhamnosus GG (LGG) in a double-blind, placebo-controlled, randomized clinical trial. A total of 169 community-dwelling middle-aged (52-59 years) and older adults (60-75 years) received a three-month intervention and were randomized to probiotic and placebo groups. Participants were further subdivided based on cognitive status into groups with intact or impaired cognition and samples were collected at baseline and post supplementation. RESULTS: Microbiome analysis identified Prevotella ruminicola, Bacteroides thetaiotaomicron, and Bacteroides xylanisolvens as taxa correlated with MCI. Differential abundance analysis at baseline identified Prevotella as significantly more prevalent in MCI subjects compared to cognitively intact subjects (ALDEx2 P = 0.0017, ANCOM-BC P = 0.0004). A decrease in the relative abundance of the genus Prevotella and Dehalobacterium in response to LGG supplementation in the MCI group was correlated with an improved cognitive score. CONCLUSIONS: Our study points to specific members of the gut microbiota correlated with cognitive performance in middle-aged and older adults. Should findings be replicated, these taxa could be used as key early indicators of MCI and manipulated by probiotics, prebiotics, and symbiotics to promote successful cognitive aging. Registered under ClinicalTrials.gov Identifier no. NCT03080818.",
-      "doi": "10.1016/j.clnu.2022.09.012",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "pub_date": "2022Nov",
-      "publication_types": [
-        "Randomized Controlled Trial",
-        "Journal Article",
-        "Research Support, N.I.H., Extramural",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The gut microbiome, mild cognitive impairment, and probiotics: A randomized clinical trial in middle-aged and older adults.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7748
     },
     {
       "pmid": "40362352",
@@ -1075,7 +1051,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7749
+      "wave": 7748
     },
     {
       "pmid": "30294792",
@@ -1098,7 +1074,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7750
+      "wave": 7749
     },
     {
       "pmid": "37446403",
@@ -1116,6 +1092,28 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Transforming Psoriasis Care: Probiotics and Prebiotics as Novel Therapeutic Approaches.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7750
+    },
+    {
+      "pmid": "38280441",
+      "title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
+      "abstract": "The use of probiotics, prebiotics, synbiotics or fermented foods can modulate the gut-brain axis and constitute a potentially therapeutic intervention in psychiatric disorders. This systematic review aims to identify current evidence regarding these interventions in the treatment of patients with DSM/ICD psychiatric diagnoses. Forty-seven articles from 42 studies met the inclusion criteria. Risk of bias was assessed in all included studies. Major depression was the most studied disorder (n = 19 studies). Studies frequently focused on schizophrenia (n = 11) and bipolar disorder (n = 5) and there were limited studies in anorexia nervosa (n = 4), ADHD (n = 3), Tourette (n = 1), insomnia (n = 1), PTSD (n = 1) and generalized anxiety disorder (n = 1). Except in MDD, current evidence does not clarify the role of probiotics and prebiotics in the treatment of mental illness. Several studies point to an improvement in the immune and inflammatory profile (e.g. CRP, IL6), which may be a relevant mechanism of action of the therapeutic response identified in these studies. Future research should consider lifestyle and dietary habits of patients as possible confounders that may influence inter-individual treatment response.",
+      "doi": "10.1016/j.neubiorev.2024.105561",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "pub_date": "2024Mar",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Probiotic, prebiotic, synbiotic and fermented food supplementation in psychiatric disorders: A systematic review of clinical trials.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1187,6 +1185,29 @@
       "wave": 7754
     },
     {
+      "pmid": "36228569",
+      "title": "The gut microbiome, mild cognitive impairment, and probiotics: A randomized clinical trial in middle-aged and older adults.",
+      "abstract": "BACKGROUND: Advancing age coincides with changes in the gut microbiome and a decline in cognitive ability. Psychobiotics are microbiota-targeted interventions that can result in mental health benefits and protect the aging brain. This study investigated the gut microbiome composition and predicted microbial functional pathways of middle-aged and older adults that met criteria for mild cognitive impairment (MCI), compared to neurologically healthy individuals, and investigated the impact of probiotic Lactobacillus rhamnosus GG (LGG) in a double-blind, placebo-controlled, randomized clinical trial. A total of 169 community-dwelling middle-aged (52-59 years) and older adults (60-75 years) received a three-month intervention and were randomized to probiotic and placebo groups. Participants were further subdivided based on cognitive status into groups with intact or impaired cognition and samples were collected at baseline and post supplementation. RESULTS: Microbiome analysis identified Prevotella ruminicola, Bacteroides thetaiotaomicron, and Bacteroides xylanisolvens as taxa correlated with MCI. Differential abundance analysis at baseline identified Prevotella as significantly more prevalent in MCI subjects compared to cognitively intact subjects (ALDEx2 P = 0.0017, ANCOM-BC P = 0.0004). A decrease in the relative abundance of the genus Prevotella and Dehalobacterium in response to LGG supplementation in the MCI group was correlated with an improved cognitive score. CONCLUSIONS: Our study points to specific members of the gut microbiota correlated with cognitive performance in middle-aged and older adults. Should findings be replicated, these taxa could be used as key early indicators of MCI and manipulated by probiotics, prebiotics, and symbiotics to promote successful cognitive aging. Registered under ClinicalTrials.gov Identifier no. NCT03080818.",
+      "doi": "10.1016/j.clnu.2022.09.012",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_date": "2022Nov",
+      "publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "gut",
+      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The gut microbiome, mild cognitive impairment, and probiotics: A randomized clinical trial in middle-aged and older adults.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7755
+    },
+    {
       "pmid": "25692980",
       "title": "Yacon-Based Product in the Modulation of Intestinal Constipation.",
       "abstract": "This study aimed to assess the effects of a yacon-based product (YBP) on constipation in adults, including the elderly. Forty-eight individuals were recruited and divided into equal intervention groups named the test and control groups. The YBP (test) and the control (maltodextrin) were dissolved in commercial orange juice. The volunteers for the YBP/test group consumed, on a daily basis, orange juice containing 10 g fructooligosaccharide (FOS)/inulin per day. The control group consumed, on a daily basis, orange juice containing 25 g of maltodextrin. The study had a span of 30 days. We evaluated the participants' frequency of evacuation, consistency of the feces, constipation score, abdominal symptoms (flatulence, pain, and abdominal strain), and effects upon the microbiota, pH, lactate, and short-chain fatty acids (SCFAs) of the feces. The study showed an increased number of evacuations after the consumption of the YBP as well as an improvement in the consistency of the feces and a reduction in the constipation score. After 30 days of intervention, the group that consumed the YBP showed higher counts of Bifidobacterium, lower Clostridium and enterobacteria counts, and lower fecal pH. In relation to SCFAs, no significant change was found after the intervention. However, the lactate concentration was higher in the test group when compared to the post-treatment control group. The YBP was effective in improving constipation symptoms; not only was its functional characteristic in reducing constipation symptoms evident but it also demonstrated usefulness as a potential therapy.",
@@ -1205,7 +1226,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7755
+      "wave": 7756
     },
     {
       "pmid": "34684633",
@@ -1226,7 +1247,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7756
+      "wave": 7757
     },
     {
       "pmid": "37870148",
@@ -1248,7 +1269,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7757
+      "wave": 7758
     },
     {
       "pmid": "32839200",
@@ -1270,7 +1291,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7758
+      "wave": 7759
     },
     {
       "pmid": "35010912",
@@ -1291,7 +1312,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7759
+      "wave": 7760
     },
     {
       "pmid": "39689011",
@@ -1313,7 +1334,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7760
+      "wave": 7761
     },
     {
       "pmid": "36372047",
@@ -1336,7 +1357,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7761
+      "wave": 7762
     },
     {
       "pmid": "31952249",
@@ -1354,27 +1375,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effects of Synbiotic Supplement on Human Gut Microbiota, Body Composition and Weight Loss in Obesity.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7762
-    },
-    {
-      "pmid": "34061001",
-      "title": "Does Dysbiosis Increase the Risk of Developing Schizophrenia? - A Comprehensive Narrative Review.",
-      "abstract": "BACKGROUND: There is increasing evidence regarding the influence of the intestinal microbiota on the disease processes of various organs and systems. Dysbiosis, that is, alteration of the composition and function of the microbiota may constitute an important risk factor for the development of mental disorders, namely, schizophrenia. OBJECTIVE: This works aims to review current evidence regarding the pathological mechanisms leading from dysbiosis to schizophrenia and in particular the deficit syndrome in schizophrenia. METHODS: Scientific articles from PubMed, SCOPUS, EMBASE, and Web of Science Core Collection published between September 2017 and December 2020 were included in this review. RESULTS: The commensal intestinal flora plays an important role in neurodevelopment. In the presence of dysbiosis, this maturation gets disturbed, resulting in the modification of brain structures and inflammatory responses at the intestinal, systemic, and Central Nervous System (CNS) levels. These disturbances may be linked to the development of symptoms of the disease. The microbiota exerts its influence on the CNS through several pathways, however, in this paper we focused on the membrane hypothesis and the inflammatory hypothesis. We explored the evidence concerning the use of probiotics, prebiotics, and fecal transplants. CONCLUSION: Although there is no consensus regarding the alterations that could constitute a risk factor for schizophrenia, some of the species appear to be more frequently altered, and their relationship with the host is dysregulated in patients at risk and with established schizophrenia, particularly in deficit schizophrenia.",
-      "doi": "10.2174/1568026621666210521163555",
-      "journal": "Current topics in medicinal chemistry",
-      "pub_date": "2021",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "gut",
-      "discovery_query": "(prebiotic OR probiotic OR synbiotic OR fiber OR microbiome) AND (irritable bowel OR gut OR constipation OR microbiota)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Does Dysbiosis Increase the Risk of Developing Schizophrenia? - A Comprehensive Narrative Review.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1424,6 +1424,27 @@
       "wave": 7765
     },
     {
+      "pmid": "28899506",
+      "title": "Green tea effects on cognition, mood and human brain function: A systematic review.",
+      "abstract": "BACKGROUND: Green tea (Camellia sinensis) is a beverage consumed for thousands of years. Numerous claims about the benefits of its consumption were stated and investigated. As green tea is experiencing a surge in popularity in Western culture and as millions of people all over the world drink it every day, it is relevant to understand its effects on the human brain. PURPOSE: To assess the current state of knowledge in the literature regarding the effects of green tea or green tea extracts, l-theanine and epigallocatechin gallate both components of green tea-on general neuropsychology, on the sub-category cognition and on brain functions in humans. METHODS: We systematically searched on PubMed database and selected studies by predefined eligibility criteria. We then assessed their quality and extracted data. We structured our effort according to the PRISMA statement. OUTCOME: We reviewed and assessed 21 studies, 4 of which were randomised controlled trials, 12 cross-over studies (both assessed with an adapted version of the DELPHI-list), 4 were cross-sectional studies and one was a cohort study (both assessed with an adapted version of the Newcastle-Ottawa assessment scale). The average study quality as appraised by means of the DELPHI-list was good (8.06/9); the studies evaluated with the Newcastle-Ottawa-scale were also good (6.7/9). CONCLUSIONS: The reviewed studies presented evidence that green tea influences psychopathological symptoms (e.g. reduction of anxiety), cognition (e.g. benefits in memory and attention) and brain function (e.g. activation of working memory seen in functional MRI). The effects of green tea cannot be attributed to a single constituent of the beverage. This is exemplified in the finding that beneficial green tea effects on cognition are observed under the combined influence of both caffeine and l-theanine, whereas separate administration of either substance was found to have a lesser impact.",
+      "doi": "10.1016/j.phymed.2017.07.008",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2017Oct15",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Green tea effects on cognition, mood and human brain function: A systematic review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7766
+    },
+    {
       "pmid": "24341035",
       "title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
       "abstract": "238 patients with atherosclerosis of carotid arteries after reconstructive operations under different types of anesthesia were enrolled in the study. Neuropsychological survey with Montreal cognitive assessment scale, frontal assessment battery and clock drawing test was performed in dynamics. Minimal cognitive dysfunction was mentioned in patients with symptomatic and asymptomatic stenosis after combined anesthesia with regional anesthesia. Postoperative cognitive dysfunction was developed after sevoflurane and propofol anesthesia in patients with asymptomatic stenosis. After inhalation anesthesia it was more severe. Prevention of postoperative cognitive dysfunction with ceraxon was clinically effective. This therapy can facilitate mental functions recovery and improve quality of life.",
@@ -1442,71 +1463,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7766
-    },
-    {
-      "pmid": "25591513",
-      "title": "[The possibilities of increase of efficacy of rehabilitation of stroke patients with neglect syndrome].",
-      "abstract": "OBJECTIVE: To evaluate different treatment schemes for post stroke patients with neglect syndrome (NS). MATERIAL AND METHODS: We studied management rules for patients with NS and the effect of ceraxon (citicoline) on the functional rehabilitation and removal of the neglect syndrome. We analyzed treatment results of 120 stroke patients. The functional rehabilitation was followed up using Barthel, Lindmark and Merton and Sutton scales, cognitive functions were assessed with the MMSE scale and the battery of frontal dysfunction, psychoemotional condition with the Beck Depression Questionnaire. Moreover, treatment efficacy has been evaluated by the absence of NS signs. RESULTS AND CONCLUSION: Maintenance of management rules and use of ceraxon improved the functional rehabilitation of stroke patients with NS.",
-      "doi": "",
-      "journal": "Zhurnal nevrologii i psikhiatrii imeni S.S. Korsakova",
-      "pub_date": "2014",
-      "publication_types": [
-        "Controlled Clinical Trial",
-        "Journal Article"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "[The possibilities of increase of efficacy of rehabilitation of stroke patients with neglect syndrome].",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7767
-    },
-    {
-      "pmid": "33053828",
-      "title": "Application of Citicoline in Neurological Disorders: A Systematic Review.",
-      "abstract": "Citicoline is a chemical compound involved in the synthesis of cell membranes. It also has other, not yet explained functions. Research on the use of citicoline is conducted in neurology, ophthalmology, and psychiatry. Citicoline is widely available as a dietary supplement. It is often used to enhance cognitive functions. In our article, accessible databases were searched for articles regarding citicoline use in neurological diseases. This article has a systemic review form. After rejecting non-eligible reports, 47 remaining articles were reviewed. The review found that citicoline has been proven to be a useful compound in preventing dementia progression. It also enhances cognitive functions among healthy individuals and improves prognosis after stroke. In an animal model of nerve damage and neuropathy, citicoline stimulated regeneration and lessened pain. Among patients who underwent brain trauma, citicoline has an unclear clinical effect. Citicoline has a wide range of effects and could be an essential substance in the treatment of many neurological diseases. Its positive impact on learning and cognitive functions among the healthy population is also worth noting.",
-      "doi": "10.3390/nu12103113",
-      "journal": "Nutrients",
-      "pub_date": "2020Oct12",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Application of Citicoline in Neurological Disorders: A Systematic Review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7768
-    },
-    {
-      "pmid": "25163996",
-      "title": "Ginkgo biloba extract EGb 761® in children with ADHD.",
-      "abstract": "OBJECTIVES: The side effects, nonresponse, and prejudices against conventional pharmacological treatments call for complementary or alternative medical treatments (CAM) for ADHD. One possible treatment, at least for cognitive problems, might be the administration of Ginkgo biloba, though evidence is currently rare. This study tests the clinical efficacy of a Ginkgo biloba special extract (EGb 761®) and its correlation with brain electrical activity in children with ADHD combined type according to DSM-IV. METHOD: In this open clinical pilot study, EGb 761® was administered to 20 children with ADHD over 3 to 5 weeks. Dosage was increased to a maximum of 240 mg daily if attention problems persisted. Possible drug side effects were assessed using the Side Effect Rating Scale. Efficacy was assessed in a multilevel approach including clinical assessment, quality of life (QoL), as well as performance and preparatory brain-electrical activity evoked during a Continuous Performance Test (Cue-CNV in the CPT). RESULTS: A very low rate of mild adverse effects occurred during the observation period. Following EGb 761® administration, possible improvements in QoL, ADHD core symptoms as well as CPT performance were detected. Improved core symptoms were positively related to elevated CNV amplitude. CONCLUSION: This preliminary evidence suggests that EGb 761® at a maximal dosage of 240 mg daily might be a clinically useful alternative treatment for children with ADHD, but further evidence is required before firm conclusions can be made.",
-      "doi": "10.1024/1422-4917/a000309",
-      "journal": "Zeitschrift fur Kinder- und Jugendpsychiatrie und Psychotherapie",
-      "pub_date": "2014Sep",
-      "publication_types": [
-        "Clinical Trial",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Ginkgo biloba extract EGb 761® in children with ADHD.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7769
     },
     {
       "pmid": "35170723",
@@ -1528,29 +1485,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7770
-    },
-    {
-      "pmid": "30657186",
-      "title": "Caffeine affects children's ERPs and performance in an equiprobable go/no-go task: Testing a processing schema.",
-      "abstract": "Caffeine's stimulant properties were used to test a proposed processing schema for children's processing stages in the equiprobable auditory go/no-go task. Active control-related ERP components were hypothesized to be differentially enhanced by caffeine. Caffeine (80 mg) was administered in a counterbalanced, randomized, double-blind, placebo-controlled, cross-over study of 24 children, aged 8-12 years. Four blocks of an equiprobable auditory go/no-go task were completed on each of two occasions, while on or off caffeine. ERP data sets from each condition (caffeine/go, placebo/go, caffeine/no-go, placebo/no-go) were subjected to separate temporal PCAs with extraction and varimax rotation of all components. Caffeine significantly reduced reaction time and go omission errors, and enhanced go PN, N2c, and P3b, and no-go N1-1 and N2b. This selective enhancement of different go/no-go components by caffeine matched the predicted amplification of biomarkers of children's active control processing in this task. Some unexpected findings also support further refinements in the child processing schema.",
-      "doi": "10.1111/psyp.13330",
-      "journal": "Psychophysiology",
-      "pub_date": "2019May",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Caffeine affects children's ERPs and performance in an equiprobable go/no-go task: Testing a processing schema.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7771
+      "wave": 7768
     },
     {
       "pmid": "39068924",
@@ -1573,7 +1508,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7772
+      "wave": 7769
     },
     {
       "pmid": "26179181",
@@ -1595,7 +1530,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7773
+      "wave": 7770
     },
     {
       "pmid": "36678257",
@@ -1617,29 +1552,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7774
-    },
-    {
-      "pmid": "24512799",
-      "title": "The effects of caffeine ingestion on cortical areas: functional imaging study.",
-      "abstract": "The effect of caffeine as a cognitive enhancer is well known; however, caffeine-induced changes in the cortical regions are still not very clear. Therefore, in this study, we conducted an investigation of the activation and deactivation with blood-oxygenation-level-dependent (BOLD) functional magnetic resonance imaging (fMRI) and of metabolic activity change with positron emission tomography (PET) in the human brain. Fourteen healthy subjects performed a visuomotor task inducing attention with 3T MRI, and PET imaging was also carried out in seven subjects to determine the cerebral glucose metabolic changes of caffeine at rest. The result by fMRI showed increased BOLD activation in the left cerebellum, putamen, insula, thalamus and the right primary motor cortex, and decreased BOLD deactivation in the posterior medial and the left posterior lateral cortex. Also, the resting state PET data showed reduced metabolic activity in the putamen, caudate nucleus, insula, pallidum and posterior medial cortex. The common cortical regions between fMRI and PET, such as putamen, insula and posterior medial cortex, where significant changes occurred after caffeine ingestion, are well known to play an important role in cognitive function like attention. This result suggests that the effect of caffeine as a cognitive enhancer is derived by modulating the attentional areas.",
-      "doi": "10.1016/j.mri.2013.12.018",
-      "journal": "Magnetic resonance imaging",
-      "pub_date": "2014May",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The effects of caffeine ingestion on cortical areas: functional imaging study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7775
+      "wave": 7771
     },
     {
       "pmid": "20445638",
@@ -1661,7 +1574,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7776
+      "wave": 7772
     },
     {
       "pmid": "33557741",
@@ -1684,7 +1597,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7777
+      "wave": 7773
     },
     {
       "pmid": "32753637",
@@ -1706,7 +1619,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7778
+      "wave": 7774
     },
     {
       "pmid": "25700947",
@@ -1728,7 +1641,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7779
+      "wave": 7775
     },
     {
       "pmid": "25114079",
@@ -1751,7 +1664,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7780
+      "wave": 7776
     },
     {
       "pmid": "24874315",
@@ -1772,7 +1685,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7781
+      "wave": 7777
     },
     {
       "pmid": "24577471",
@@ -1794,7 +1707,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7782
+      "wave": 7778
     },
     {
       "pmid": "22728314",
@@ -1816,7 +1729,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7783
+      "wave": 7779
     },
     {
       "pmid": "23292640",
@@ -1837,28 +1750,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7784
-    },
-    {
-      "pmid": "32349356",
-      "title": "Benefits of Creatine Supplementation for Vegetarians Compared to Omnivorous Athletes: A Systematic Review.",
-      "abstract": "BACKGROUND: Creatine monohydrate is a nutritional supplement often consumed by athletes in anaerobic sports. Creatine is naturally found in most meat products; therefore, vegetarians have reduced creatine stores and may benefit from supplementation. OBJECTIVE: to determine the effects of creatine supplementation on vegetarians. DATA SOURCES: PubMed and SPORTDiscus. Eligibility criteria: Randomized controlled trials (parallel group, cross-over studies) or prospective studies. PARTICIPANTS: Vegetarians. INTERVENTION: Creatine supplementation. Study appraisal and synthesis: A total of 64 records were identified, and eleven full-text articles (covering nine studies) were included in this systematic review. RESULTS: Creatine supplementation in vegetarians increased total creatine, creatine, and phosphocreatine concentrations in vastus lateralis and gastrocnemius muscle, plasma, and red blood cells, often to levels greater than omnivores. Creatine supplementation had no effect on brain levels of phosphocreatine. Creatine supplementation increased lean tissue mass, type II fiber area, insulin-like growth factor-1, muscular strength, muscular endurance, Wingate mean power output, and brain function (memory and intelligence) in vegetarian participants. Studies were mixed on whether creatine supplementation improved exercise performance in vegetarians to a greater extent compared to omnivores. LIMITATIONS: Studies that were reviewed had moderate-high risk of bias. CONCLUSIONS: Overall, it appears vegetarian athletes are likely to benefit from creatine supplementation.",
-      "doi": "10.3390/ijerph17093041",
-      "journal": "International journal of environmental research and public health",
-      "pub_date": "2020Apr27",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Benefits of Creatine Supplementation for Vegetarians Compared to Omnivorous Athletes: A Systematic Review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7785
+      "wave": 7780
     },
     {
       "pmid": "29533686",
@@ -1879,7 +1771,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7786
+      "wave": 7781
     },
     {
       "pmid": "34093436",
@@ -1904,7 +1796,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7787
+      "wave": 7782
     },
     {
       "pmid": "41027417",
@@ -1925,7 +1817,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7788
+      "wave": 7783
     },
     {
       "pmid": "21118604",
@@ -1946,7 +1838,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7789
+      "wave": 7784
     },
     {
       "pmid": "25966264",
@@ -1968,7 +1860,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7790
+      "wave": 7785
     },
     {
       "pmid": "25259737",
@@ -1990,29 +1882,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7791
-    },
-    {
-      "pmid": "29338621",
-      "title": "Assessing the acute effects of CDP-choline on sensory gating in schizophrenia: A pilot study.",
-      "abstract": "Deficient sensory gating (SG) in schizophrenia is associated with functional outcome and offers a therapeutic target as it is linked to the altered function/expression of the α7 nicotinic acetylcholine receptors (nAChRs). This study analyzed the effects of citicoline (CDP-choline), a supplement with α7 nAChRs agonist properties, on SG in a sample of schizophrenia (SZ) patients. Using a randomized, placebo-controlled, double-blind design the dose-dependent (500 mg, 1000 mg, 2000 mg) and baseline-dependent (deficient versus normal suppressors) effects of CDP-choline on SG were examined using the P50 event-related potential (ERP) index of SG. Overall analysis failed to demonstrate treatment effects but CDP-choline improved SG (500 mg) in the deficient SZ subgroup by increasing suppression of the S2 P50 amplitude. These findings tentatively support α7 nAChR dysfunction in the expression of SG deficits and suggest further trials to assess the effects of sustained α7 nAChR activation on SG with low doses of CDP-choline.",
-      "doi": "10.1177/0269881117746903",
-      "journal": "Journal of psychopharmacology (Oxford, England)",
-      "pub_date": "2018May",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Assessing the acute effects of CDP-choline on sensory gating in schizophrenia: A pilot study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7792
+      "wave": 7786
     },
     {
       "pmid": "28933745",
@@ -2033,29 +1903,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7793
-    },
-    {
-      "pmid": "30790597",
-      "title": "Combining CDP-choline and galantamine, an optimized α7 nicotinic strategy, to ameliorate sensory gating to speech stimuli in schizophrenia.",
-      "abstract": "Neural α7 nicotinic acetylcholine receptor (nAChR) expression and functioning deficits have been extensively associated with cognitive and early sensory gating (SG) impairments in schizophrenia (SCZ) patients and their relatives. SG, the suppression of irrelevant and redundant stimuli, is measured in a conditioning-testing (S1-S2) paradigm eliciting electroencephalography-derived P50 event-related potentials (ERPs), the S2 amplitudes of which are typically suppressed relative to S1. Despite extensive reports of nicotine-related improvements and several decades of research, an efficient nicotinic treatment has yet to be approved for SCZ. Following reports of SG improvements in low P50 suppressing SCZ patients and healthy participants with the α7 agonist, CDP-choline, this pilot study examined the combined modulatory effect of CDP-choline (500 mg) and galantamine (16 mg), a nAChR positive allosteric modulator and acetylcholinesterase inhibitor, on SG to speech stimuli in twenty-four SCZ patients in a randomized, double-blind and placebo-controlled design. As expected, in low P50 suppressors CDP-choline/galantamine (vs. Placebo) improved rP50 and dP50 scores by increasing inhibitory mechanisms as reflected by S2P50 amplitude reductions. Results also suggest a moderating role for auditory verbal hallucinations in treatment response. These preliminary findings provide supportive evidence for the involvement of α7 nAChR activity in speech gating in SCZ and support additional trials, examining different dose combinations and repeated doses of this optimized and personalized targeted α7 cholinergic treatment for SG dysfunction in subgroups of SCZ patients.",
-      "doi": "10.1016/j.ijpsycho.2019.02.005",
-      "journal": "International journal of psychophysiology : official journal of the International Organization of Psychophysiology",
-      "pub_date": "2019Nov",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "cognition_focus",
-      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Combining CDP-choline and galantamine, an optimized α7 nicotinic strategy, to ameliorate sensory gating to speech stimuli in schizophrenia.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7794
+      "wave": 7787
     },
     {
       "pmid": "26293923",
@@ -2074,6 +1922,160 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Acute Traumatic Coagulopathy Accompanying Isolated Traumatic Brain Injury is Associated with Worse Long-Term Functional and Cognitive Outcomes.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7788
+    },
+    {
+      "pmid": "28359749",
+      "title": "Effect of long-term omega 3 polyunsaturated fatty acid supplementation with or without multidomain intervention on cognitive function in elderly adults with memory complaints (MAPT): a randomised, placebo-controlled trial.",
+      "abstract": "BACKGROUND: No large trials have been done to investigate the efficacy of an intervention combining a specific compound and several lifestyle interventions compared with placebo for the prevention of cognitive decline. We tested the effect of omega 3 polyunsaturated fatty acid supplementation and a multidomain intervention (physical activity, cognitive training, and nutritional advice), alone or in combination, compared with placebo, on cognitive decline. METHODS: The Multidomain Alzheimer Preventive Trial was a 3-year, multicentre, randomised, placebo-controlled superiority trial with four parallel groups at 13 memory centres in France and Monaco. Participants were non-demented, aged 70 years or older, and community-dwelling, and had either relayed a spontaneous memory complaint to their physician, limitations in one instrumental activity of daily living, or slow gait speed. They were randomly assigned (1:1:1:1) to either the multidomain intervention (43 group sessions integrating cognitive training, physical activity, and nutrition, and three preventive consultations) plus omega 3 polyunsaturated fatty acids (ie, two capsules a day providing a total daily dose of 800 mg docosahexaenoic acid and 225 mg eicosapentaenoic acid), the multidomain intervention plus placebo, omega 3 polyunsaturated fatty acids alone, or placebo alone. A computer-generated randomisation procedure was used to stratify patients by centre. All participants and study staff were blinded to polyunsaturated fatty acid or placebo assignment, but were unblinded to the multidomain intervention component. Assessment of cognitive outcomes was done by independent neuropsychologists blinded to group assignment. The primary outcome was change from baseline to 36 months on a composite Z score combining four cognitive tests (free and total recall of the Free and Cued Selective Reminding test, ten Mini-Mental State Examination orientation items, Digit Symbol Substitution Test, and Category Naming Test) in the modified intention-to-treat population. The trial was registered with ClinicalTrials.gov (NCT00672685). FINDINGS: 1680 participants were enrolled and randomly allocated between May 30, 2008, and Feb 24, 2011. In the modified intention-to-treat population (n=1525), there were no significant differences in 3-year cognitive decline between any of the three intervention groups and the placebo group. Between-group differences compared with placebo were 0·093 (95% CI 0·001 to 0·184; adjusted p=0·142) for the combined intervention group, 0·079 (-0·012 to 0·170; 0·179) for the multidomain intervention plus placebo group, and 0·011 (-0·081 to 0·103; 0·812) for the omega 3 polyunsaturated fatty acids group. 146 (36%) participants in the multidomain plus polyunsaturated fatty acids group, 142 (34%) in the multidomain plus placebo group, 134 (33%) in the polyunsaturated fatty acids group, and 133 (32%) in the placebo group had at least one serious emerging adverse event. Four treatment-related deaths were recorded (two in the multidomain plus placebo group and two in the placebo group). The interventions did not raise any safety concerns and there were no differences between groups in serious or other adverse events. INTERPRETATION: The multidomain intervention and polyunsaturated fatty acids, either alone or in combination, had no significant effects on cognitive decline over 3 years in elderly people with memory complaints. An effective multidomain intervention strategy to prevent or delay cognitive impairment and the target population remain to be determined, particularly in real-world settings. FUNDING: French Ministry of Health, Pierre Fabre Research Institute, Gerontopole, Exhonit Therapeutics, Avid Radiopharmaceuticals.",
+      "doi": "10.1016/s1474-4422(17)30040-6",
+      "journal": "The Lancet. Neurology",
+      "pub_date": "2017May",
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effect of long-term omega 3 polyunsaturated fatty acid supplementation with or without multidomain intervention on cognitive function in elderly adults with memory complaints (MAPT): a randomised, placebo-controlled trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7789
+    },
+    {
+      "pmid": "21512889",
+      "title": "Fish oil supplementation during lactation: effects on cognition and behavior at 7 years of age.",
+      "abstract": "Early accumulation of n-3 long-chain PUFA (LCPUFA) in the brain may contribute to differences in later cognitive abilities. In this study, our objective was to examine whether fish oil (FO) supplementation during lactation affects processing speed, working memory, inhibitory control, and socioemotional development at 7 years. Danish mothers (n = 122) were randomized to FO [1.5 g/d n-3 LCPUFA] or olive oil (OO) supplementation during the first 4 months of lactation. The trial also included a high-fish intake (HFI) reference group (n = 53). Ninety-eight children were followed-up with an assessment of processing speed, an age-appropriate Stroop task, and the Strength and Difficulties Questionnaire at 7 year. A group effect of the intervention (FO vs. OO) was found in prosocial behavior scores; this negative effect was carried by the boys. Exploratory analyses including all participants revealed the speed of processing scores were predicted by maternal n-3 LCPUFA intake during the intervention period (negative relation) and maternal education (positive relation). Stroop scores indicative of working memory and inhibitory control were predicted by infant erythrocyte DHA status at 4 months of age (negative relation). Early fish oil supplementation may have a negative effect on later cognitive abilities. Speed of processing and inhibitory control/working memory are differentially affected, with speed of processing showing effects of fish oil intake as a whole, whereas inhibitory control/working memory was related more specifically to DHA status.",
+      "doi": "10.1007/s11745-011-3557-x",
+      "journal": "Lipids",
+      "pub_date": "2011Jul",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Fish oil supplementation during lactation: effects on cognition and behavior at 7 years of age.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7790
+    },
+    {
+      "pmid": "24098469",
+      "title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
+      "abstract": "PURPOSE: To assess the effects of creatine supplementation, associated or not with strength training, upon emotional and cognitive measures in older woman. METHODS: This is a 24-week, parallel-group, double-blind, randomized, placebo-controlled trial. The individuals were randomly allocated into one of the following groups (n=14 each): 1) placebo, 2) creatine supplementation, 3) placebo associated with strength training or 4) creatine supplementation associated with strength training. According to their allocation, the participants were given creatine (4 x 5 g/d for 5 days followed by 5 g/d) or placebo (dextrose at the same dosage) and were strength trained or not. Cognitive function, assessed by a comprehensive battery of tests involving memory, selective attention, and inhibitory control, and emotional measures, assessed by the Geriatric Depression Scale, were evaluated at baseline, after 12 and 24 weeks of the intervention. Muscle strength and food intake were evaluated at baseline and after 24 weeks. RESULTS: After the 24-week intervention, both training groups (ingesting creatine supplementation and placebo) had significant reductions on the Geriatric Depression Scale scores when compared with the non-trained placebo group (p = 0.001 and p = 0.01, respectively) and the non-trained creatine group (p < 0.001 for both comparison). However, no significant differences were observed between the non-trained placebo and creatine (p = 0.60) groups, or between the trained placebo and creatine groups (p = 0.83). Both trained groups, irrespective of creatine supplementation, had better muscle strength performance than the non-trained groups. Neither strength training nor creatine supplementation altered any parameter of cognitive performance. Food intake remained unchanged. CONCLUSION: Creatine supplementation did not promote any significant change in cognitive function and emotional parameters in apparently healthy older individuals. In addition, strength training per se improved emotional state and muscle strength, but not cognition, with no additive effects of creatine supplementation. TRIAL REGISTRATION: Clinicaltrials.gov NCT01164020.",
+      "doi": "10.1371/journal.pone.0076301",
+      "journal": "PloS one",
+      "pub_date": "2013",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7791
+    },
+    {
+      "pmid": "22840457",
+      "title": "Effect of Western medicine therapy assisted by Ginkgo biloba tablet on vascular cognitive impairment of none dementia.",
+      "abstract": "OBJECTIVE: To discuss the clinical effects of Western medicine therapy assisted by Ginkgo biloba tablet (GBT) on patients with vascular cognitive impairment of none dementia (VCIND). METHODS: A total of 80 patients with VCIND were divided into two groups randomly: Conventional treatment group (control group) and combined treatment group. Conventional treatment group was given conventional treatment with anti-platelet aggregation. In this group, 75 mg aspirin was given three times a day for 3 months. While in combined treatment group, 19.2 mg GBT was given three times a day for 3 months together with conventional treatment (anti-platelet aggregation drugs). Montreal cognitive assessment (MoCA) and transcranial Doppler (TCD) were used to observe changes of cognitive ability and cerebral blood flow in VCIND patients before and after treatment in both groups. Then the clinical data were analyzed so as to compare the efficacy in two groups. RESULTS: After 3 month-treatment in combined treatment group, the scores of executive ability, attention, abstract, delayed memory, orientation in the MoCA were significantly increased compared with those before treatment and those in control group after treatment. Besides, blood flow velocity of anterior cerebral artery increased significantly than that before treatment and that in control group after treatment. CONCLUSIONS: GBT tablet can improve the therapeutic efficacy as well improve cognitive ability and cerebral blood flow supply of patients with VCIND.",
+      "doi": "10.1016/s1995-7645(12)60135-7",
+      "journal": "Asian Pacific journal of tropical medicine",
+      "pub_date": "2012Aug",
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effect of Western medicine therapy assisted by Ginkgo biloba tablet on vascular cognitive impairment of none dementia.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7792
+    },
+    {
+      "pmid": "26624212",
+      "title": "Analysing Time to Event Data in Dementia Prevention Trials: The Example of the GuidAge Study of EGb761.",
+      "abstract": "Time-to-event analysis is frequently used in medical research to investigate potential disease-modifying treatments in neurodegenerative diseases. Potential treatment effects are generally evaluated using the logrank test, which has optimal power and sensitivity when the treatment effect (hazard ratio) is constant over time. However, there is generally no prior information as to how the hazard ratio for the event of interest actually evolves. In these cases, the logrank test is not necessarily the most appropriate to use. When the hazard ratio is expected to decrease or increase over time, alternative statistical tests such as the Fleming-Harrington test, provide a better sensitivity. An example of this comes from a large, five-year randomised, placebo-controlled prevention trial (GuidAge) in 2854 community-based subjects making spontaneous memory complaints to their family physicians, which evaluated whether treatment with EGb761 can modify the risk of developing AD. The primary outcome measure was the time to conversion from memory complaint to Alzheimer's type dementia. Although there was no significant difference in the hazard function of conversion between the two treatment groups according to the preplanned logrank test, a significant treatment-by-time interaction for the incidence of AD was observed in a protocol-specified subgroup analysis, suggesting that the hazard ratio is not constant over time. For this reason, additional post hoc analyses were performed using the Fleming-Harrington test to evaluate whether there was a signal of a late effect of EGb761. Applying the Fleming-Harrington test, the hazard function for conversion to dementia in the placebo group was significantly different from that in the EGb761 treatment group (p = 0.0054), suggesting a late effect of EGb761. Since this was a post hoc analysis, no definitive conclusions can be drawn as to the effectiveness of the treatment. This post hoc analysis illustrates the interest of performing another randomised clinical trial of EGb761 explicitly testing the hypothesis of a late treatment effect, as well as of using of better adapted statistical approaches for long term preventive trials when it is expected that prevention cannot have an immediate effect but rather a delayed effect that increases over time.",
+      "doi": "10.1007/s12603-015-0661-2",
+      "journal": "The journal of nutrition, health & aging",
+      "pub_date": "2015Dec",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Analysing Time to Event Data in Dementia Prevention Trials: The Example of the GuidAge Study of EGb761.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7793
+    },
+    {
+      "pmid": "23866514",
+      "title": "Efficacy of rivastigmine in comparison to ginkgo for treating Alzheimer's dementia.",
+      "abstract": "OBJECTIVES: To assess the efficacy of the Ginkgo biloba in patients with dementia of the Alzheimer type in slowing down the disease's degenerative progression and the patients' cognitive impairment compared with rivastigmine. METHODS: Total 56 patients aged 50-75 years, suffering from dementia, were allocated into one of the two treatments: group 1) Ginkgo biloba (120 mg daily dose); group 2) rivastigmine (4.5 mg daily dose) in a 24-week randomized double blind study. The degree of severity of dementia was assessed by the Seven Minute test and the Mini-Mental State Examination. RESULTS: Our results confirm the clinical efficacy of rivastigmine in the dementia of the Alzheimer type, comparing to Ginkgo biloba. There are few published trials that have directly compared a cholinesterase inhibitor with Ginkgo for dementia. This study directly compares a cholinesterase inhibitor with Ginkgo biloba for dementia of the Alzheimer type. CONCLUSION: Our study suggests that there are differences in the efficacy of Ginkgo biloba and rivastigmine in the treatment of Alzheimer's dementia. In addition, this study suggested that cholinesterase inhibitors should be used in preference to Ginkgo biloba in patients with mild to moderate AD.",
+      "doi": "",
+      "journal": "JPMA. The Journal of the Pakistan Medical Association",
+      "pub_date": "2012Jul",
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Efficacy of rivastigmine in comparison to ginkgo for treating Alzheimer's dementia.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7794
+    },
+    {
+      "pmid": "35565948",
+      "title": "n-3 PUFA Improve Emotion and Cognition during Menopause: A Systematic Review.",
+      "abstract": "Women show an increased risk of cognitive impairment and emotional disorders, such as anxiety and depression, when approaching menopause. Data on risk and protection factors have yielded robust evidence on the effects of lifestyle factors, such as diet, in preserving emotional and cognitive functioning. This review focused on the effects of omega-3 polyunsaturated fatty acids (n-3 PUFA) on anxiety, depression, and cognition during the menopausal transition. This systematic review considered all articles published until 31 December 2021, and the search was performed on two databases, PubMed and Scopus. The fields of interest were \"menopause\", \"n-3 PUFA\" and \"emotional and cognitive aspects\". Out of the 361 articles found on PubMed and 283 on Scopus, 17 met inclusion criteria. They encompassed 11 human and 6 animal studies. Most studies reported relieved depressive symptoms in relation to n-3 PUFA intake. While controversial results were found on anxiety and cognition in humans, n-3 PUFA consistently reduced anxiety symptoms and improved cognition in animal studies. Taken together, n-3 PUFA intake shows beneficial effects on emotional and cognitive behaviours during menopause transition. However, further investigations could increase knowledge about the effectiveness of n-3 PUFA on psychological well-being in this delicate period of feminine life.",
+      "doi": "10.3390/nu14091982",
+      "journal": "Nutrients",
+      "pub_date": "2022May09",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "cognition_focus",
+      "discovery_query": "(omega-3 OR caffeine OR creatine OR theanine OR bacopa OR ginkgo OR citicoline) AND (cognition OR attention OR memory OR executive function)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "n-3 PUFA Improve Emotion and Cognition during Menopause: A Systematic Review.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
