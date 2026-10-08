@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
+import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
 import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
 import styles from './ResearchIntelligence.module.css'
 
@@ -58,7 +59,8 @@ const [data,setData]=useState<Payload|null>(null),[loading,setLoading]=useState(
 const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,setMore]=useState(false),[dnaVisible,setDnaVisible]=useState(9)
 const [from,setFrom]=useState(''),[to,setTo]=useState(''),[query,setQuery]=useState(''),[asked,setAsked]=useState(false)
 const [year,setYear]=useState('')
-const [focusPmid,setFocusPmid]=useState(''),[focusLookup,setFocusLookup]=useState('')
+const [focusPmid,setFocusPmid]=useState(''),[focusLookup,setFocusLookup]=useState(''),[lookupError,setLookupError]=useState('')
+const [handoffNote,setHandoffNote]=useState('')
 const caseRef=useRef<HTMLElement|null>(null)
 async function activate(){
  if(data||loading)return
@@ -82,7 +84,7 @@ async function activate(){
      !Array.isArray(published.studies) ||
      !published.studies.every(x=>typeof x.id==='string'&&Array.isArray(x.relationships)))
     throw new Error('Published evidence identity verification failed')
-  if(v.schemaVersion!==1||v.systemVersion!=='1.04'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
+  if(v.schemaVersion!==1||v.systemVersion!=='1.05'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
      v.metrics?.automaticallyPromotedClaims!==0||!Array.isArray(v.dna)||v.dna.length!==500||
      !v.graph||Object.keys(v.graph.entries||{}).length!==500||
      v.adjudication?.autoPublished!==false||
@@ -99,29 +101,45 @@ async function activate(){
  finally{setLoading(false)}
 }
 function navigate(next:Tab){setTab(next);setMore(false);setDnaVisible(9);if(!data)void activate()}
-const filtered=useMemo(()=>data?data.dna.filter(d=>!search.trim()||
+const filtered=useMemo(()=>data?data.dna.filter(d=>(!focusPmid||d.pmid===focusPmid)&&(!search.trim()||
  [d.title,d.pmid,d.category,d.method,d.comparator,...d.outcomeMentions,...d.populationMentions,...d.substancesMentioned,...d.concepts.map(m=>m.label)]
- .some(s=>s.toLowerCase().includes(search.trim().toLowerCase()))):[],[data,search])
+ .some(s=>s.toLowerCase().includes(search.trim().toLowerCase())))):[],[data,search,focusPmid])
 const concepts=useMemo(()=>data?.graph.concepts.filter(c=>c.kind!=='method')||[],[data])
-const voyage=useMemo(()=>data&&from&&to?explainSemanticVoyage(data.graph,from,to):[],[data,from,to])
-const answer=useMemo(()=>data&&asked?askResearchSources(query,data):null,[data,query,asked])
-const chrono=useMemo(()=>data?.timeline.filter(d=>d.sources>0)||[],[data])
+const voyage=useMemo(()=>data&&from&&to?(focusPmid?traceCaseConceptPair(data.graph,focusPmid,from,to):explainSemanticVoyage(data.graph,from,to)):[],[data,from,to,focusPmid])
+const answer=useMemo(()=>data&&asked?askResearchSources(query,data,focusPmid||undefined):null,[data,query,asked,focusPmid])
+const chrono=useMemo(()=>data?.timeline.filter(d=>d.sources>0&&(!focusPmid||d.pmids.includes(focusPmid)))||[],[data,focusPmid])
 const maxYear=Math.max(1,...chrono.map(x=>x.sources))
 const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
+const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
+const visibleDebates=caseScope?.debates??data?.debates??[]
+const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
+const visibleSafety=caseScope?.safety??data?.safety??[]
+const visibleInvestigations=caseScope?.investigations??data?.investigations??[]
+const visibleBriefs=caseScope?.briefs??data?.briefs??[]
+const visibleReviewEvents=caseScope&&data?data.adjudication.events.filter(e=>e.witnessId.split(':')[0]===caseScope.pmid):data?.adjudication.events??[]
+const visibleCitationDuplicates=caseScope&&data?data.publicationLineage.duplicateCitationGroups.filter(g=>g.studyIds.some(id=>caseFile?.reviewedCitationIds.includes(id))):data?.publicationLineage.duplicateCitationGroups??[]
 useEffect(()=>{if(focusPmid&&data)caseRef.current?.scrollIntoView({block:'start'})},[focusPmid,data])
-function inspectPmid(pmid:string){setFocusPmid(pmid);setFocusLookup(pmid)}
+function inspectPmid(pmid:string){
+ if(!data?.graph.entries[pmid]){setFocusPmid('');setFocusLookup(pmid);setLookupError('PMID '+pmid+' is not part of the 500-paper exact-verified snapshot. The full source register covers the wider intake.');return}
+ setLookupError('');setHandoffNote('');setFocusPmid(pmid);setFocusLookup(pmid);setSearch('');setAsked(false);setMore(false);setDnaVisible(9)
+}
+function clearSourceFocus(){setFocusPmid('');setFocusLookup('');setLookupError('');setHandoffNote('');setSearch('');setAsked(false);setMore(false);setFrom('');setTo('')}
 function openCaseInstrument(next:Tab){
  if(!caseFile||!data)return
- if(next==='dna'){setSearch(caseFile.pmid);setDnaVisible(9)}
- if(next==='time'&&caseFile.year)setYear(caseFile.year)
+ // Every instrument receives a validated source identity, not just a tab change.
+ const receipt=createResearchInstrumentHandoff(data,data.graph,caseFile,tab,next)
+ const verified=resolveResearchInstrumentHandoff(data,data.graph,receipt)
+ setHandoffNote('Verified research-only handoff: '+receipt.from+' → '+receipt.to+' · PMID '+verified.scope.pmid+' · original source retained')
+ if(next==='dna'){setSearch(verified.caseFile.pmid);setDnaVisible(9)}
+ if(next==='time'&&verified.caseFile.year)setYear(verified.caseFile.year)
  if(next==='ask'){
-  setQuery(data.graph.entries[caseFile.pmid].mentions.filter(m=>m.kind!=='method')
+  setQuery(data.graph.entries[verified.caseFile.pmid].mentions.filter(m=>m.kind!=='method')
     .slice(0,2).map(m=>m.matched).join(' '));setAsked(false)
  }
  if(next==='voyages'){
-  const ids=data.graph.entries[caseFile.pmid].mentions.filter(m=>m.kind!=='method').map(m=>m.id)
+  const ids=data.graph.entries[verified.caseFile.pmid].mentions.filter(m=>m.kind!=='method').map(m=>m.id)
   if(ids.length>1){setFrom(ids[0]);setTo(ids[1])}
  }
  navigate(next)
@@ -129,7 +147,7 @@ function openCaseInstrument(next:Tab){
 return <section className={styles.studio}>
   <header className={styles.hero}>
     <div className={styles.heroCopy}>
-      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.04 · 01—08</span></div>
+      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.05 · 01—08</span></div>
       <p className={styles.eyebrow}>Eight instruments. One knowledge system.</p>
       <h1>The science is a <em>landscape.</em> Learn to navigate it.</h1>
       <p className={styles.lead}>Explore the structure of knowledge—from study fingerprints and differing results to unknowns, source-witnessed connections, safety literature and questions worth investigating.</p>
@@ -154,7 +172,7 @@ return <section className={styles.studio}>
     <p>All eight use the same identifiers, graph and source-provenance boundaries.</p>
   </div>
   <div className={styles.stationGrid} role='group' aria-label='Research intelligence instruments'>
-    {stations.map(s=><button type='button' key={s.id} aria-pressed={tab===s.id} onClick={()=>navigate(s.id)} className={styles.station}>
+    {stations.map(s=><button type='button' key={s.id} aria-pressed={tab===s.id} onClick={()=>caseFile?openCaseInstrument(s.id):navigate(s.id)} className={styles.station}>
       <span>{s.number} / {tab===s.id?'ACTIVE':'EXPLORE'}</span><strong>{s.label}</strong>
       <small>{s.tagline}</small><i aria-hidden='true'>↗</i>
     </button>)}
@@ -171,8 +189,10 @@ return <section className={styles.studio}>
         </label>
         <button type='submit' className={styles.prime} disabled={!/^\d{5,10}$/.test(focusLookup.trim())}>Open case file ↗</button>
       </form>
-      {focusPmid&&!caseFile?<p role='status'>That PMID is not in this 500-paper source-verified semantic snapshot. Search the full source register for broader coverage.</p>:null}
+      {lookupError?<p role='status'>{lookupError} <button type='button' className={styles.caseTrace} onClick={clearSourceFocus}>Clear lookup</button></p>:null}
       {caseFile?<article className={styles.casePanel} aria-live='polite'>
+        <div className={styles.scopeBar}><span role='status'><strong>SOURCE FOCUS ACTIVE:</strong> All eight instruments are restricted to exact source-linked leads for PMID {caseFile.pmid}.{handoffNote?<small className={styles.handoffNote}> {handoffNote}</small>:null}</span>
+          <button type='button' onClick={clearSourceFocus}>Clear focus · explore all sources ↗</button></div>
         <div className={styles.paperTop}><Tag>RESEARCH-ONLY CASE FILE</Tag><span>PMID {caseFile.pmid}</span></div>
         <h3>{caseFile.title}</h3>
         <p>{caseFile.sourceWitnessCount} exact quotation anchors · {caseFile.conceptLabels.length} indexed concept labels · {caseFile.reviewedCitationIds.length} exact linked reviewed citation records.</p>
@@ -184,6 +204,15 @@ return <section className={styles.studio}>
           <span>{signal.linkedItems} indexed lead{signal.linkedItems===1?'':'s'}</span>
           <small>{signal.basis}. {signal.limit}.</small>
         </button>)}</div>
+        {caseFile.relatedPapers.length>0?<section className={styles.neighbors} aria-label='Semantically neighboring publications'>
+          <h4>Follow related source text</h4>
+          <p>These papers share indexed vocabulary with the current PMID. This does not establish a biological pathway, clinical effect or independent trial.</p>
+          <div className={styles.neighborLinks}>{caseFile.relatedPapers.map(link=>
+            <button type='button' key={link.pmid} onClick={()=>inspectPmid(link.pmid)}>
+              <strong>Inspect PMID {link.pmid} ↗</strong>
+              <small>Shared: {link.sharedConcepts.join(' · ')||'Concept overlap'}</small>
+            </button>)}</div>
+        </section>:null}
         <p className={styles.caseCaveat}>Counts describe only this limited, sometimes sampled index—not independent clinical findings, complete literature coverage or evidence of safety. No tool publishes medical conclusions.</p>
       </article>:null}
     </section>:null}
@@ -191,7 +220,7 @@ return <section className={styles.studio}>
       <button type='button' disabled={loading} onClick={()=>void activate()} className={styles.prime}>{loading?'Loading…':'Activate research instrument ↗'}</button></div>:null}
 
     {data&&tab==='dna'?<>
-      <Notice>Text-matched descriptors are research navigation, not validated design classifications, study eligibility, or efficacy grades. Unknown fields remain explicit.</Notice>
+      <Notice>Text-matched descriptors are research navigation, not validated design classifications, study eligibility, or efficacy grades. Unknown fields remain explicit. {caseScope?'Only this source fingerprint is displayed while source focus is active.':''}</Notice>
       <div className={styles.metrics}><div><strong>{data.metrics.fingerprints}</strong><span>Source fingerprints</span></div>
         <div><strong>{data.metrics.classifiedMethods}</strong><span>Classifiable method phrases</span></div>
         <div><strong>{data.metrics.quotedTextWitnesses}</strong><span>Verbatim source text anchors</span></div></div>
@@ -229,24 +258,26 @@ return <section className={styles.studio}>
         <div className={styles.caseActions}><button type='button' onClick={()=>inspectPmid(d.pmid)}>Trace through eight instruments ↗</button><a className={styles.paperLink} href={d.sourceUrl} target='_blank' rel='noopener noreferrer'>PubMed · {d.pmid} ↗</a></div>
       </article>)}</div>
       {filtered.length>dnaVisible?<button type='button' className={styles.more} onClick={()=>setDnaVisible(n=>n+30)}>Show next {Math.min(30,filtered.length-dnaVisible)} of {filtered.length} fingerprints →</button>:null}
-       {filtered.length===0?<p className={styles.placeholder}>No records match these terms within the 500-paper verified intake batch.</p>:null}
+       {filtered.length===0?<p className={styles.placeholder}>No matching fingerprint {caseScope?'for the selected source':'within the 500-paper verified intake batch'}. This does not imply a global evidence gap.</p>:null}
     </>:null}
 
     {data&&tab==='contradictions'?<>
-      <Notice>Only separately published citation-relationship labels qualify as directional signals. Differences require expert review of endpoints, populations, exposure, study independence and quality before calling them contradictions.</Notice>
-      <div className={styles.metrics}><div><strong>{data.debates.length}</strong><span>Candidate review groups</span></div>
-        <div><strong>{data.debates.filter(x=>x.populationComparable).length}</strong><span>Matching reported population strings</span></div>
+      <Notice>Only separately published citation-relationship labels qualify as directional signals. Differences require expert review of endpoints, populations, exposure, study independence and quality before calling them contradictions. {caseScope?'Only exact reviewed citation IDs linked to this PMID are used here.':''}</Notice>
+      <div className={styles.metrics}><div><strong>{visibleDebates.length}</strong><span>Candidate review groups</span></div>
+        <div><strong>{visibleDebates.filter(x=>x.populationComparable).length}</strong><span>Matching reported population strings</span></div>
         <div><strong>0</strong><span>Automatically adjudicated</span></div></div>
       <section className={styles.lineage} aria-label='Publication identity and independence'>
         <h3>Publication identity ≠ independent study</h3>
-        <p>The existing reviewed evidence dataset provides {data.publicationLineage.reviewedWithExactIdentity} of {data.publicationLineage.reviewedRecordCount} citations with exact PMID or DOI identifiers. {data.publicationLineage.duplicateCitationGroups.length} same-publication citation groups and {data.publicationLineage.identityConflicts.length} identity conflicts require careful interpretation. <strong>Underlying trial independence is unverified in this interface.</strong></p>
-        {data.publicationLineage.duplicateCitationGroups.slice(0,6).map(g=><p key={g.studyIds.join('|')}>
+        <p>{caseScope
+          ?'Selected PMID '+caseScope.pmid+' has '+(caseFile?.reviewedCitationIds.length||0)+' exactly cross-referenced reviewed citation ID(s) and '+visibleCitationDuplicates.length+' matching duplicate-citation group(s). Quarantined conflicts are never automatically linked to a source.'
+          :'The reviewed evidence dataset provides '+data.publicationLineage.reviewedWithExactIdentity+' of '+data.publicationLineage.reviewedRecordCount+' citations with exact PMID or DOI identifiers. '+visibleCitationDuplicates.length+' duplicate-citation groups and '+data.publicationLineage.identityConflicts.length+' identity conflicts require careful interpretation.'} <strong>Underlying trial independence is unverified in this interface.</strong></p>
+        {visibleCitationDuplicates.slice(0,6).map(g=><p key={g.studyIds.join('|')}>
           Repeated citation record: {g.studyIds.join(' · ')} ({g.witness}); these are not multiple independent publications.
         </p>)}
-        {data.publicationLineage.identityConflicts.length>0?<p role='status'>Some identifiers conflict; the system refuses to collapse those records without human verification.</p>:null}
+        {!caseScope&&data.publicationLineage.identityConflicts.length>0?<p role='status'>Some identifiers conflict; the system refuses to collapse those records without human verification.</p>:null}
       </section>
-      {!data.debates.length?<p className={styles.placeholder}>No candidate groups in this reviewed citation scope; this does not prove wider scientific agreement.</p>:null}
-      <div className={styles.paperGrid}>{data.debates.slice(0,more?35:10).map(d=><article key={d.id} className={styles.paper}>
+      {!visibleDebates.length?<p className={styles.placeholder}>No candidate groups {caseScope?'linked to the selected PMID in this reviewed citation index':'in this reviewed citation scope'}. This does not prove wider scientific agreement.</p>:null}
+      <div className={styles.paperGrid}>{visibleDebates.slice(0,more?35:10).map(d=><article key={d.id} className={styles.paper}>
         <div className={styles.paperTop}><Tag>REVIEW REQUIRED</Tag><span>{d.studies.length} source citations</span></div>
         <h3>{d.ingredient} / {d.outcome}</h3>
         <p>Published relationship descriptors differ: <strong>{d.directions.map(human).join(' · ')}</strong></p>
@@ -259,28 +290,29 @@ return <section className={styles.studio}>
             onClick={()=>inspectPmid(link.intakePmid)}>Trace exact PMID {link.intakePmid} across tools ↗</button>)}
         <Link className={styles.paperLink} href={d.ingredientPath}>Published ingredient profile ↗</Link>
       </article>)}</div>
-      {data.debates.length>10&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More candidate differences →</button>:null}
+      {visibleDebates.length>10&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More candidate differences →</button>:null}
     </>:null}
 
     {data&&tab==='frontier'?<>
       <Notice>These are thin title intersections among the 500 verified intake papers, not global absence-of-research conclusions. Search the wider literature before assessing a true gap.</Notice>
-      <div className={styles.metrics}><div><strong>{data.frontiers.length}</strong><span>Coverage questions</span></div>
+      <div className={styles.metrics}><div><strong>{visibleFrontiers.length}</strong><span>Coverage questions</span></div>
         <div><strong>{data.graph.concepts.length}</strong><span>Indexed research concepts</span></div>
         <div><strong>{data.graph.summary.metadataOnlyPapers}</strong><span>Outside controlled vocabulary</span></div></div>
-      <div className={styles.paperGrid}>{data.frontiers.slice(0,more?40:12).map(f=><article key={f.id} className={styles.paper}>
+      {caseScope&&visibleFrontiers.length===0?<p className={styles.placeholder}>No frontier work-order sample contains the selected PMID. This is limited-index membership, not proof that no research gaps exist.</p>:null}
+      <div className={styles.paperGrid}>{visibleFrontiers.slice(0,more?40:12).map(f=><article key={f.id} className={styles.paper}>
         <div className={styles.paperTop}><Tag>{f.togetherInBatch?'THIN COVERAGE':'UNMAPPED PAIR'}</Tag><span>THIS BATCH ONLY</span></div>
         <h3>{f.substance}<span className={styles.multiply}> × </span>{f.outcome}</h3>
         <p>{f.subjectPapers} source titles mention the substance, {f.outcomePapers} mention the outcome, and {f.togetherInBatch} mention both.</p>
         <Sources pmids={f.samplePmids} onSelect={inspectPmid}/>
       </article>)}</div>
-      {data.frontiers.length>12&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More knowledge-frontier questions →</button>:null}
+      {visibleFrontiers.length>12&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More knowledge-frontier questions →</button>:null}
     </>:null}
 
     {data&&tab==='time'?<>
-      <Notice>Publication chronology is not evidence-grade history. Reviewed citation publications are a separate dataset; counts must not be added together. Historic grade changes are shown only in their recorded change log.</Notice>
-      <div className={styles.metrics}><div><strong>{data.metrics.datedPublications}</strong><span>Dated research records</span></div>
+      <Notice>Publication chronology is not evidence-grade history. Reviewed citation publications are a separate dataset; counts must not be added together. {caseScope?'The timeline is restricted to the selected source publication year; publication-year totals still describe the full batch.':'Historic grade changes are shown only in their recorded change log.'}</Notice>
+      <div className={styles.metrics}><div><strong>{caseScope?Number(caseScope.sourceYear!==null):data.metrics.datedPublications}</strong><span>{caseScope?'Selected source with publication year':'Dated research records'}</span></div>
         <div><strong>{chrono.length}</strong><span>Years represented</span></div>
-        <div><strong>{selected?.sources||'—'}</strong><span>{year||'Select a year'} / source records</span></div></div>
+        <div><strong>{selected?(caseScope?Number(selected.pmids.includes(caseScope.pmid)):selected.sources):'—'}</strong><span>{year||'Select a year'} / {caseScope?'focused source':'source records'}</span></div></div>
       <div className={styles.timeline} role='group' aria-label='Choose a publication year'>
         {chrono.map(t=><button key={t.year} type='button' aria-pressed={year===String(t.year)}
           title={t.year+': '+t.sources+' source records'} onClick={()=>setYear(String(t.year))}>
@@ -291,8 +323,9 @@ return <section className={styles.studio}>
       {selected?<article className={styles.paper}><div className={styles.paperTop}><Tag>{year}</Tag><span>YEAR SELECTED</span></div>
         <h3>{selected.sources} source papers in this batch</h3>
         <p>{selected.reviewedCitations} separately reviewed citation publications carry this year; these two inventories are not additive.</p>
-        <Sources pmids={selected.pmids} onSelect={inspectPmid}/></article>:<p className={styles.placeholder}>Select a year in the publication timeline to inspect bibliographic sources.</p>}
-      <div className={styles.recordedChanges}>
+        {caseScope?<p>Selected PMID {caseScope.pmid} is among this year’s {selected.sources} source records in the batch; other papers are hidden during focus.</p>:null}
+        <Sources pmids={caseScope?[caseScope.pmid]:selected.pmids} onSelect={inspectPmid}/></article>:<p className={styles.placeholder}>Select a year in the publication timeline to inspect bibliographic sources.</p>}
+      {!caseScope?<><div className={styles.recordedChanges}>
         <h3>Recorded editorial evidence-grade changes</h3>
         <p>These events come from the separately maintained editorial grade-change log, not inferred historic scores.</p>
         {data.recordedChanges.length ? data.recordedChanges.slice(0,8).map(change => (
@@ -303,11 +336,11 @@ return <section className={styles.studio}>
           </article>
         )) : <p>No change entries passed the governed, dated editorial-log filter.</p>}
       </div>
-      <Link className={styles.related} href='/evidence/evidence-report/changes/'>Recorded evidence changes →</Link>
+      <Link className={styles.related} href='/evidence/evidence-report/changes/'>Recorded evidence changes →</Link></>:<p className={styles.placeholder}>The editorial grade-change log is ingredient-level and has no exact PMID join. Its entries are withheld while source focus is active. Clear focus to explore the full history.</p>}
     </>:null}
 
     {data&&tab==='voyages'?<>
-      <Notice>Every route step has an exact PMID witnessing concept co-mention. A text trail is not a biological pathway, a mechanistic finding, or therapeutic evidence.</Notice>
+      <Notice>Every route step has an exact PMID witnessing concept co-mention. A text trail is not a biological pathway, a mechanistic finding, or therapeutic evidence. {caseScope?'Source focus permits only a direct concept-pair co-mention within this PMID; no multi-paper shortcuts.':''}</Notice>
       <div className={styles.fieldGrid}>
         <label className={styles.field}>Departure concept<select value={from} onChange={e=>setFrom(e.target.value)}>
           <option value=''>Choose a concept</option>{concepts.map(c=><option key={c.id} value={c.id}>{c.label} ({c.papers})</option>)}
@@ -317,33 +350,33 @@ return <section className={styles.studio}>
         </select></label>
       </div>
       {from&&to?<div className={styles.journey}>
-        <h3>{voyage.length?voyage.length+' source-witnessed bibliographic hop'+(voyage.length===1?'':'s'):'No path within three source-witnessed hops'}</h3>
+        <h3>{voyage.length?voyage.length+' source-witnessed bibliographic hop'+(voyage.length===1?'':'s') :caseScope?'No qualifying one-paper concept co-mention':'No path within three source-witnessed hops'}</h3>
         {voyage.map((s,i)=><article key={s.pmid+':'+i} className={styles.journeyStep}>
           <span>{String(i+1).padStart(2,'0')} / HOP</span>
           <strong>{concepts.find(c=>c.id===s.from)?.label||s.from} ↗ {concepts.find(c=>c.id===s.to)?.label||s.to}</strong>
           <p>{s.explanation}</p><Tag>{s.provenance==='both-title'?'BOTH IN TITLE':'TITLE + ABSTRACT'}</Tag>
           <a href={pubmed(s.pmid)} target='_blank' rel='noopener noreferrer'>Inspect PMID {s.pmid} ↗</a><button className={styles.caseTrace} type='button' onClick={()=>inspectPmid(s.pmid)}>Open eight-instrument case ↗</button>
         </article>)}
-        {!voyage.length?<p>Unconnected in this batch. No inference about real-world relationship is possible.</p>:null}
+        {!voyage.length?<p>No {caseScope?'qualifying connection in this exact source':'path in this batch'}. No inference about any real-world relationship is possible.</p>:null}
       </div>:<p className={styles.placeholder}>Pick two concepts to reveal a bounded, source-witnessed path.</p>}
     </>:null}
 
     {data&&tab==='safety'?<>
       <Notice>These are references where safety vocabulary and substance names co-occur in source text. They are not verified interactions, confirmed adverse reactions, causal assessments or personalized safety advice.</Notice>
-      <div className={styles.metrics}><div><strong>{data.safety.length}</strong><span>Safety-text intersections</span></div>
-        <div><strong>{data.safety.filter(x=>x.titleWitnesses>0).length}</strong><span>Both terms in titles</span></div>
+      <div className={styles.metrics}><div><strong>{visibleSafety.length}</strong><span>Safety-text intersections</span></div>
+        <div><strong>{visibleSafety.filter(x=>x.titleWitnesses>0).length}</strong><span>Both terms in titles</span></div>
         <div><strong>0</strong><span>Automatically certified interactions</span></div></div>
-      {!data.safety.length?<p className={styles.placeholder}>No controlled safety co-mentions identified; this does not mean the substances are safe.</p>:null}
-      <div className={styles.paperGrid}>{data.safety.slice(0,more?40:12).map(s=><article key={s.id} className={styles.paper}>
-        <div className={styles.paperTop}><Tag>TEXT CO-MENTION ONLY</Tag><span>{s.count} paper{s.count===1?'':'s'}</span></div>
+      {!visibleSafety.length?<p className={styles.placeholder}>No {caseScope?'sampled source-linked':'controlled'} safety co-mentions identified in this local index; this does not mean the substance is safe.</p>:null}
+      <div className={styles.paperGrid}>{visibleSafety.slice(0,more?40:12).map(s=><article key={s.id} className={styles.paper}>
+        <div className={styles.paperTop}><Tag>TEXT CO-MENTION ONLY</Tag><span>{caseScope?'SELECTED PMID IN SAMPLE':s.count+' paper'+(s.count===1?'':'s')}</span></div>
         <h3>{s.substance}<span className={styles.multiply}> / </span>{s.topic}</h3>
-        <p>{s.titleWitnesses} title-level co-mentions; other matches may be from abstracts. No assessment of the finding is implied.</p>
+        <p>{caseScope?'The selected PMID appears in this limited topic sample. Topic-wide totals and title-level counts are not asserted for the selected paper.':s.titleWitnesses+' title-level co-mentions across the full batch; other matches may be from abstracts.'} No assessment of the finding is implied.</p>
         <Sources pmids={s.pmids} onSelect={inspectPmid}/></article>)}</div>
-      {data.safety.length>12&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More safety literature contexts →</button>:null}
+      {visibleSafety.length>12&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More safety literature contexts →</button>:null}
       <h3>Cross-instrument witness trails</h3>
       <p>These threads connect a substance, an outcome and a safety topic only when all three occur within the same source record. Their co-mention is not a causal or clinical claim.</p>
-      {!data.investigations.length?<p>No three-concept trails found in this snapshot; no broader research conclusion follows.</p>:null}
-      <div className={styles.paperGrid}>{data.investigations.slice(0,8).map(thread=><article className={styles.paper} key={thread.id}>
+      {!visibleInvestigations.length?<p>No {caseScope?'case-linked':'three-concept'} trails found in this sampled snapshot; no broader research conclusion follows.</p>:null}
+      <div className={styles.paperGrid}>{visibleInvestigations.slice(0,8).map(thread=><article className={styles.paper} key={thread.id}>
         <div className={styles.paperTop}><Tag>SAME-PAPER TEXT WITNESSES</Tag><span>{thread.pmids.length} shown</span></div>
         <h3>{thread.substance} / {thread.outcome} / {thread.safetyTopic}</h3>
         <p>{thread.titleTripleWitnesses} title-level triple mention(s). Full papers require scientific review.</p>
@@ -352,7 +385,7 @@ return <section className={styles.studio}>
     </>:null}
 
     {data&&tab==='ask'?<>
-      <Notice>Ask the Evidence is an explainable source finder—not a generative treatment adviser. Retrieval produces no efficacy, dose, drug-interaction or safety conclusion.</Notice>
+      <Notice>Ask the Evidence is an explainable source finder—not a generative treatment adviser. Retrieval produces no efficacy, dose, drug-interaction or safety conclusion. {caseScope?'Only the focused PMID is searched; clear source focus to search all 500 verified papers.':''}</Notice>
       <form className={styles.askForm} onSubmit={e=>{e.preventDefault();setAsked(true)}}>
         <label className={styles.field}>What would you like to investigate?
           <textarea rows={3} maxLength={300} value={query} onChange={e=>{setQuery(e.target.value);setAsked(false)}}
@@ -371,22 +404,23 @@ return <section className={styles.studio}>
 
     {data&&tab==='reactor'?<>
       <Notice>Proposals are draft-only editorial work orders with a mandatory scientific review checklist. The system does not write or publish claims, doses, recommendations or articles.</Notice>
-      <div className={styles.metrics}><div><strong>{data.briefs.length}</strong><span>Draft work orders</span></div>
-        <div><strong>{data.adjudication.reviewCount}</strong><span>Recorded source-mention reviews</span></div>
+      <div className={styles.metrics}><div><strong>{visibleBriefs.length}</strong><span>Draft work orders</span></div>
+        <div><strong>{caseScope?visibleReviewEvents.length:data.adjudication.reviewCount}</strong><span>{caseScope?'Source-linked review events':'Recorded source-mention reviews'}</span></div>
         <div><strong>0</strong><span>Automatically published</span></div></div>
       <p>Review ledger decisions concern source-text indexing only. They cannot certify safety, clinical conclusions or publication.</p>
       <section className={styles.reviewHistory} aria-label='Source indexing review history'>
         <h3>Source-indexing review history</h3>
         <p>Append-only editorial events are recorded against exact source quotes. Reviewer codes are recorded assertions, not independent certification of expertise.</p>
-        {data.adjudication.events.length===0?<p>No source-text indexing reviews have been recorded in this snapshot.</p>:null}
-        <ol>{data.adjudication.events.slice(-12).reverse().map(e=><li key={e.eventId}>
+        {visibleReviewEvents.length===0?<p>No {caseScope?'review events for this selected PMID':'source-text indexing reviews'} have been recorded in this snapshot.</p>:null}
+        <ol>{visibleReviewEvents.slice(-12).reverse().map(e=><li key={e.eventId}>
           <strong>{human(e.decision)}</strong> · {e.recordedAt.slice(0,10)} · reviewer {e.reviewerCode}
           <p>{e.rationale}</p>
           <a href={pubmed(e.witnessId.split(':')[0])} target='_blank' rel='noopener noreferrer'>Inspect original publication ↗</a>
         </li>)}</ol>
       </section>
-      <div className={styles.paperGrid}>{data.briefs.slice(0,more?40:9).map(v=><Brief brief={v} key={v.id} onSelect={inspectPmid}/>)}</div>
-      {data.briefs.length>9&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More editorial hypotheses →</button>:null}
+      {caseScope&&visibleBriefs.length===0?<p className={styles.placeholder}>No editorial work orders cite this exact PMID or its separately reviewed citation IDs. No inference about research importance follows.</p>:null}
+      <div className={styles.paperGrid}>{visibleBriefs.slice(0,more?40:9).map(v=><Brief brief={v} key={v.id} onSelect={inspectPmid}/>)}</div>
+      {visibleBriefs.length>9&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More editorial hypotheses →</button>:null}
     </>:null}
   </section>
   <footer className={styles.bottom}><span>THS / RESEARCH-ONLY KNOWLEDGE ENGINE</span>

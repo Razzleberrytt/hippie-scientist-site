@@ -1,5 +1,5 @@
 /**
- * Semantic System 1.04: a single PMID-centered, deterministic investigation
+ * Semantic System 1.05: a single PMID-centered, deterministic investigation
  * surface shared by all eight research instruments.
  *
  * This is an INDEX, not an adjudicator. Links are limited to explicit PMID
@@ -41,9 +41,9 @@ export type ResearchCaseFile = {
 export function buildResearchCaseFile(
   studio:ResearchStudio, network:SemanticNetwork, pmid:string,
 ):ResearchCaseFile|null {
-  if(studio.systemVersion!=='1.04'||studio.researchOnly!==true||
+  if(studio.systemVersion!=='1.05'||studio.researchOnly!==true||
      studio.metrics.automaticallyPromotedClaims!==0) {
-    throw new Error('Research case file requires the governed research-only 1.04 snapshot')
+    throw new Error('Research case file requires the governed research-only 1.05 snapshot')
   }
   const paper=studio.dna.find(d=>d.pmid===pmid)
   if(!paper)return null

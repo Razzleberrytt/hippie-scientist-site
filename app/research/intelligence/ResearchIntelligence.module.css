@@ -146,3 +146,21 @@
 .sourcePair button:hover{background:#dce8d5}
 @media(max-width:900px){.caseGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:590px){.caseGrid{grid-template-columns:1fr}.caseLookup .prime{width:100%}.casePanel{padding:.8rem}.caseGrid button{min-height:0}}
+
+/* Semantic 1.05: visible, reversible exact-source focus. */
+.scopeBar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.7rem;padding:.7rem .8rem;margin:-.15rem 0 .8rem;border:1px solid #97aa8a;background:#dce5d2;color:#26402d}
+.scopeBar span{font-size:.74rem;line-height:1.5}
+.scopeBar button{min-height:42px;padding:.55rem .7rem;background:#24553b;color:#fff8e3;border:1px solid #24553b;border-radius:3px;font-size:.73rem;font-weight:800}
+.scopeBar button:hover{background:#376d4d}
+@media(max-width:590px){.scopeBar button{width:100%}}
+
+.handoffNote{display:block;margin-top:.3rem;font-size:.69rem;font-weight:550;line-height:1.5;color:#48604a}
+
+.neighbors{margin-top:1rem;border-top:1px solid #aec6a3;padding-top:.85rem}
+.neighbors h4{font-size:.88rem;margin:0 0 .3rem;color:#21422d}
+.neighbors p{font-size:.72rem;line-height:1.5;margin:0 0 .65rem}
+.neighborLinks{display:flex;flex-wrap:wrap;gap:.45rem}
+.neighborLinks button{display:flex;flex-direction:column;gap:.2rem;min-width:160px;max-width:100%;padding:.55rem;background:#e2e9d8;border:1px solid #a2b89a;color:#244a36;text-align:left;min-height:48px;overflow-wrap:anywhere}
+.neighborLinks button:focus-visible,.neighborLinks button:hover{background:#d1e3c7}
+.neighborLinks button strong{font-size:.73rem}
+.neighborLinks button small{font-size:.64rem}

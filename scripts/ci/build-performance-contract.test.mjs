@@ -119,7 +119,7 @@ describe('CI build performance contracts', () => {
   it('bounds higher static-page concurrency to GitHub Actions only', () => {
     const config = read('next.config.mjs')
 
-    expect(config).toContain("staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 6 : 8")
+    expect(config).toContain("staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 2 : 8")
     expect(config).toContain('staticGenerationMaxConcurrency,')
   })
 
