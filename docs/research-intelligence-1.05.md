@@ -43,3 +43,17 @@ Deployment to Cloudflare is not established by merging alone; the canonical depl
 ## Integration with the rolling-research coordinator
 
 The October 8 rolling research coordinator on the newer main branch adds a separately governed, reviewed semantic overlay when constructing the research graph. Version 1.05 does **not** replace that graph construction or the review boundary: its source-focus projection consumes the resulting governed graph and publication-lineage crosswalk read-only. An unrelated rolling intake reservation or a pending 500-record research batch is not authorization to expand the 500-source Science Atlas snapshot. All exact-head checks must validate against the refreshed main branch before this upgrade is merged.
+
+## Eight-instrument interoperability contract
+
+An explicit `ResearchInstrumentHandoff` passes only: exact PMID, pinned semantic-source signature, controlled concept IDs, exact reviewed-citation IDs, origin instrument, destination instrument and a research-only status. The destination recreates the source case and scoped leads from the canonical snapshot before showing anything. **All 8 × 8 = 64 directions** are exercised in regression, including source-only cases. Fabricated PMIDs, stale signatures, synthetic citation IDs and foreign semantic concepts fail closed.
+
+Both the eight case-grid cards and the primary instrument selector use this same verified transition mechanism. The workbench provides a visible, reversible receipt of the selected source and a limited list of neighboring *bibliographic vocabulary* connections; following one changes the source case without conflating the two publications. No cross-instrument navigation creates new efficacy, safety or independent-trial findings.
+
+## Deployment blockers repaired
+
+- Seven `scripts/research/*.test.mjs` suites import `node:test`, not Vitest. The Vitest project excludes them and the existing repository-wide `npm run test:node` still discovers and runs them. These tests are **not removed or bypassed**.
+- The v1.04 main CI production build failed on three heavyweight static export routes exceeding Next's 60-second per-page deadline under concurrency. GitHub Actions now caps Next's static-generation concurrency to **two pages per worker** (four workers retained); other build hosts remain unchanged. No route, SEO, source or publication gate is skipped. The measured next production-build result, not speculation, determines release readiness.
+- An October 8 reviewed semantic overlay from the rolling research coordinator is retained on the refreshed main base. Source-specific views always derive from the returned governed graph rather than rebuilding a separate, inconsistent semantic authority.
+
+Production can be called current only when the deployed `/.well-known/deployment.json` commit matches the exact accepted merge SHA and the served intelligence JSON returns `systemVersion: "1.05"`. A green PR without a green main CI and production receipt is **not deployed**.
