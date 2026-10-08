@@ -3866,6 +3866,236 @@
       "reservation_id": "20c97948d8241ec1670a",
       "reserved_at": "2026-10-08T21:03:47.016Z",
       "source_branch": "research/intake/3/20261009-botanical-cyp-nutrikinetics-02"
+    },
+    {
+      "pmid": "41401348",
+      "title": "Randomized, placebo-controlled trial of gabapentin during outpatient buprenorphine-assisted taper and transition to injectable naltrexone.",
+      "doi": "10.1080/00952990.2025.2564757",
+      "source_title": "Randomized, placebo-controlled trial of gabapentin during outpatient buprenorphine-assisted taper and transition to injectable naltrexone.",
+      "abstract": "Background: Gabapentin may help manage opioid withdrawal symptoms, but its effectiveness during buprenorphine taper and transition to naltrexone is uncertain. Objectives: To assess gabapentin's efficacy in improving outcomes for lifetime prescription opioid use disorder (POUD) during outpatient buprenorphine taper and transition to extended-release naltrexone. Methods: This 12-week randomized, double-blind, placebo-controlled trial enrolled 117 (55% male) POUD participants. Weeks 1-3, participants attended clinic 5 days/week for medication, therapy, and assessments, including weekly craving and thrice-weekly opioid withdrawal and supervised urine screens. Participants were inducted onto buprenorphine (12 mg), randomized to receive either placebo or gabapentin (800 mg BID), and underwent a 10-day buprenorphine taper. In week 4, participants transitioned from oral to extended-release naltrexone. Chi-square and generalized estimating equation models assessed outcomes. A subset with baseline fentanyl tests was also examined for fentanyl's impact on outcomes. Results: Of 117 participants, 75 (64.1%) completed the buprenorphine taper (41 gabapentin, 34 placebo), and 24 (20.5%) transitioned to naltrexone (12 gabapentin, 12 placebo). No significant group differences were observed in taper completion, naltrexone transition, craving, withdrawal, or opioid use. Fentanyl-positive participants had lower taper completion (47.8% vs. 75.8%, OR = 0.286, p = .033) and more opioid-positive urines (z = -4.24, p < .0001). Fentanyl-positive participants on gabapentin had higher COWS (z = 3.70, p = .001) and SOWS (z = 3.73, p = .001) scores, while fentanyl-negative participants on gabapentin had lower SOWS scores than those on placebo (z = -3.52, p = .002). Conclusions: Fentanyl exposure impairs buprenorphine taper success and worsens withdrawal in the presence of gabapentin, underscoring the need to tailor OUD treatment in fentanyl-exposed patients. (Clinicialtrials.gov ID NCT02543944).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41401348/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Intramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Intramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41401348",
+        "doi": "10.1080/00952990.2025.2564757",
+        "journal": "The American journal of drug and alcohol abuse",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T21:26:43.136Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "be4f82086e2cf5f44389",
+      "reserved_at": "2026-10-08T21:26:50.802Z",
+      "source_branch": "research/intake/4/20261008-1725-seed-recovery"
+    },
+    {
+      "pmid": "41539921",
+      "title": "Transdermal Initiation of Buprenorphine Among Hospitalized Persons: A Retrospective Study.",
+      "doi": "10.1016/j.jaclp.2025.11.001",
+      "source_title": "Transdermal Initiation of Buprenorphine Among Hospitalized Persons: A Retrospective Study.",
+      "abstract": "Buprenorphine is an effective treatment for opioid use disorder but may be difficult to initiate among hospitalized patients due to concerns about acute pain and withdrawal risks. We sought to evaluate the safety and effectiveness of a novel approach for initiating buprenorphine treatment that did not require patients to first discontinue full-agonist opioids or experience an acute opioid withdrawal syndrome. This approach, referred to as low-dose initiation with opioid continuation (LDI), involved applying a transdermal patch which delivered microgram-level doses of buprenorphine for 24 h or longer, allowing for a gradual cross-titration of patients from full-agonist opioids to sublingual buprenorphine during their hospital stay. Individuals who attempted LDI between April 2021 and July 2022 at a large urban academic hospital and an affiliated community hospital were included in the analysis. A LDI was deemed successful for patients receiving nontransdermal buprenorphine at the date of their discharge. Precipitated opioid withdrawal was defined as a relative score increase of 5 or more from pretreatment baseline on the Clinical Opiate Withdrawal Scale assessment, as long as the score exceeded 8 and occurred within 48 h of the patient receiving buprenorphine as part of the LDI. Descriptive statistics were performed comparing the characteristics of persons who did complete the LDI protocol to those who did not, and those who did experience precipitated opioid withdrawal to those who did not. A total of 67 patients were assessed. 79.1% completed the LDI successfully. Precipitated withdrawal occurred in 16.4% of patients. Morphine-milligram equivalents of opioids administered pre-LDI did not predict LDI completion. Surprisingly, persons who experienced precipitated withdrawal were more likely to complete LDI. Persons who completed the LDI were more likely to attend an outpatient or bridge clinic follow-up visit within 30 days of discharge. LDI with transdermal buprenorphine was found to be generally safe and well-tolerated in these hospitalized patients. Compared to other published studies of LDI, rates of successful initiation of buprenorphine were largely equivalent. Further research is needed on predictors of unsuccessful and successful LDI.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41539921/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41539921",
+        "doi": "10.1016/j.jaclp.2025.11.001",
+        "journal": "Journal of the Academy of Consultation-Liaison Psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T21:26:43.137Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b7d4ab8d8005767a9bfa",
+      "reserved_at": "2026-10-08T21:26:50.802Z",
+      "source_branch": "research/intake/4/20261008-1725-seed-recovery"
+    },
+    {
+      "pmid": "40960872",
+      "title": "Transdermal buprenorphine patch-facilitated induction of sublingual buprenorphine in hospitalized patients receiving full agonist opioids: a retrospective cohort study.",
+      "doi": "10.1080/15563650.2025.2553811",
+      "source_title": "Transdermal buprenorphine patch-facilitated induction of sublingual buprenorphine in hospitalized patients receiving full agonist opioids: a retrospective cohort study.",
+      "abstract": "Treatment with buprenorphine is challenging to initiate in hospitalized patients receiving full agonist opioids because of the risk of precipitated opioid withdrawal. We describe clinical outcomes of precipitated withdrawal, incidence and rate of buprenorphine prescription at discharge in hospitalized patients undergoing transdermal buprenorphine patch-facilitated buprenorphine induction while receiving full agonist opioids. This is a retrospective chart review of hospitalized patients in a single academic healthcare system who were started on sublingual buprenorphine for opioid use disorder using a transdermal buprenorphine patch low-dose initiation strategy with overlapping full agonist opioids. The primary outcome was incidence of precipitated opioid withdrawal among those who received at least one dose of sublingual buprenorphine following low-dose initiation. Discharge with a prescription for sublingual buprenorphine was a secondary outcome. Of 288 unique patient encounters with inpatient buprenorphine patch use, 68 met eligibility criteria for inclusion and five of 68 (7.4%, 95% CI: 2.4-16.3%) experienced precipitated opioid withdrawal. Sixty-seven of 68 (99%) patients were discharged with a buprenorphine prescription including 100% of those with precipitated withdrawal. There were no significant associations between incidence of precipitated withdrawal and oral morphine equivalents received prior to sublingual buprenorphine induction, age, sex, history of liver disease, dose or duration of transdermal buprenorphine patch. This study supports growing evidence that a transdermal buprenorphine patch-facilitated buprenorphine initiation strategy in hospitalized patients receiving full agonist opioids is well-tolerated. Limitations include its retrospective chart review methodology and incomplete data available to fully characterize precipitated withdrawal. Transdermal buprenorphine-facilitated low dose buprenorphine initiation in hospitalized patients receiving full agonist opioids was well-tolerated in the majority of patients, with 7.4% (95% CI: 2.4-16.3%) developing precipitated withdrawal.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40960872/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40960872",
+        "doi": "10.1080/15563650.2025.2553811",
+        "journal": "Clinical toxicology (Philadelphia, Pa.)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T21:26:43.138Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "af6d685b9a6ca2acd57a",
+      "reserved_at": "2026-10-08T21:26:50.802Z",
+      "source_branch": "research/intake/4/20261008-1725-seed-recovery"
     }
   ],
   "batches": [
@@ -3879,22 +4109,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 50,
+    "total_reservations": 53,
     "by_lane": {
       "1": 5,
       "2": 1,
       "3": 10,
-      "4": 9,
+      "4": 12,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 50
+      "SOURCE_VERIFIED": 53
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 50,
+        "count": 53,
         "pr_number": null,
         "blocker": null
       }
