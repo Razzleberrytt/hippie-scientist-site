@@ -141,6 +141,23 @@ function validateIdentity(mediaPack, creativeSpec) {
     if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
+    if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+      const direction = creativeSpec?.creativeDirection
+      if (clean(direction?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(direction?.release) !== 'R8.06'
+          || clean(direction?.runtimeBaseRelease) !== 'R8.05'
+          || clean(direction?.status) !== 'approved') {
+        throw new Error('R8.06 methodology requires an approved native-attention creative-direction receipt before rendering')
+      }
+      if (direction?.openingConvergence !== true
+          || direction?.immediateFindingAfterHook !== true
+          || clean(direction?.nativeFeelCertifiedAt) !== 'exact-master-qa'
+          || direction?.deliveryPolicy?.metricoolOptional !== true
+          || direction?.deliveryPolicy?.manualFallbackRequired !== true
+          || direction?.deliveryPolicy?.providerMayMutateArtifact !== false) {
+        throw new Error('R8.06 creative-direction receipt is missing native-attention/delivery invariants')
+      }
+    }
   } else if (release === 'R8.04') {
     if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') {
       throw new Error('R8.04 vertical video creative spec must define the canonical 30-second 1080x1920 profile')
@@ -570,6 +587,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     schemaVersion: '1.1.0',
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
+    creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     timingAuthority: release === 'R8.05' ? 'exact-local-narration' : 'legacy-authored-30s',
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
@@ -618,7 +636,9 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     sourceUrl: mediaPack.source.url,
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
+    creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     creativeQuality: creativeSpec.creativeQuality ?? null,
+    creativeDirection: creativeSpec.creativeDirection ?? null,
     r805Bindings: bindings,
     durationSeconds,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
