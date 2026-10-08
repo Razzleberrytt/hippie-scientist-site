@@ -20,6 +20,14 @@ async function api(url,{method='GET',body}={}){
 }
 function b64(s){return Buffer.from(s,'utf8').toString('base64')}
 function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
+async function upsertBranchJson(branch,file,value,message){
+ const text=JSON.stringify(value,null,2)+'\n';let existing=null;
+ try{existing=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/')+'?ref='+encodeURIComponent(branch))}
+ catch(e){if(Number(e.status)!==404)throw e}
+ if(existing&&unb64(existing.content)===text)return {content:{sha:existing.sha},unchanged:true};
+ const body={message,content:b64(text),branch};if(existing?.sha)body.sha=existing.sha;
+ return api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/'),{method:'PUT',body});
+}
 function walk(value,out=[]){
  if(Array.isArray(value)){for(const x of value)walk(x,out);return out}
  if(!value||typeof value!=='object')return out;
@@ -63,7 +71,7 @@ export function reconcileBaseline(records){
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
  for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
- return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,title:p.title}))};
+ return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,head_ref:p.head.ref,title:p.title,draft:p.draft,state:p.state}))};
 }
 async function ensureRegistryBranch(){
  try{return await api('/repos/'+repo+'/git/ref/heads/'+encodeURIComponent(registryBranch))}
@@ -98,7 +106,7 @@ export function validateManifest(m){
  return m;
 }
 function reserveInto(reg,manifest,baseline){
- const global={baseline:reconcileBaseline([...baseline,...reg.reservations]),reservations:[]};validateSnapshot(global);
+ const global={baseline:reconcileBaseline([...baseline,...reg.reservations.filter(r=>r.state!=='RELEASED')]),reservations:[]};validateSnapshot(global);
  const candidate={baseline:global.baseline,reservations:manifest.records};validateSnapshot(candidate);
  const stamp=new Date().toISOString();const reserved=[];
  for(const original of manifest.records){
