@@ -46,9 +46,9 @@ export function validateResearchAdjudicationLedger(
     ids.add(event.eventId)
     if(!/^[a-z0-9][a-z0-9._-]{2,79}$/i.test(event.reviewerCode))
       throw Error('Adjudication missing attributable reviewer code')
-    if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(event.recordedAt)||
+    if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(event.recordedAt)||
       !Number.isFinite(Date.parse(event.recordedAt))||new Date(event.recordedAt).toISOString()!==
-      new Date(event.recordedAt).toISOString()||event.recordedAt<previousTimestamp)
+      event.recordedAt||event.recordedAt<previousTimestamp)
       throw Error('Adjudication timestamps must be valid, append-ordered UTC')
     previousTimestamp=event.recordedAt
     if(!['source-text-match-confirmed','false-positive','needs-full-text'].includes(event.decision)||
