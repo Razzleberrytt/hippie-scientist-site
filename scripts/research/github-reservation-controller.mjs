@@ -239,6 +239,26 @@ async function reconcileBatchPrStates(reg){
    }
  }
 }
+async function refreshPrLifecycle(reg){
+ for(const b of reg.batches.filter(x=>x.pr_number&&['DRAFT_PR','MERGE_TRAIN'].includes(x.state))){
+  try{
+   const pr=await api('/repos/'+repo+'/pulls/'+b.pr_number);
+   if(pr.merged===true){
+    b.state='MERGED';b.merged_at=pr.merged_at;b.blocker=null;b.head_sha=pr.head?.sha||b.head_sha;
+    for(const r of reg.reservations.filter(r=>r.batch_id===b.id))r.state='MERGED';
+   }else if(pr.state==='closed'){
+    b.state='ABANDONED';b.closed_at=pr.closed_at;b.blocker='PR closed without merge';
+    for(const r of reg.reservations.filter(r=>r.batch_id===b.id))r.state='RELEASED';
+   }else{
+    b.state=pr.draft?'DRAFT_PR':'MERGE_TRAIN';b.head_sha=pr.head?.sha||b.head_sha;
+    b.blocker=pr.draft?'independent semantic review or research gate pending':'exact-head autonomous merge train pending';
+   }
+  }catch(e){
+   b.blocker='PR lifecycle check: '+e.message;
+   (reg.incidents??=[]).push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)});
+  }
+ }
+}
 async function commitRegistryMutation(mutator,message){
  return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
 }
