@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { buildPageMetadata } from '@/lib/seo'
 import { getResearchSourceRegister } from '@/lib/research-source-register'
 import SourceRegisterClient from './SourceRegisterClient'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'PubMed Research Source Register | The Hippie Scientist',
   description: 'Browse research-only PubMed references, exact-verified source titles, research topics and primary-source links. Not a clinical evidence grade or recommendation.',
+  path: '/research/source-register/',
   robots: { index: false, follow: true },
-}
+})
 
 export default function SourceRegisterPage() {
   const data = getResearchSourceRegister()
