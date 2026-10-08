@@ -147,33 +147,111 @@ async function dispatchResearchGate(batch){
  await api('/repos/'+repo+'/actions/workflows/research-rolling-gate.yml/dispatches',{method:'POST',body:{ref:batch.branch}});
  batch.gate_dispatched_at=new Date().toISOString();delete batch.gate_dispatch_error;return true;
 }
+async function allocateFrozenRanges(){
+ const main=await findMainThroughWave(),pending=await listOpenPrRecords();
+ let cursor=Math.max(main.max,...pending.pulls.flatMap(p=>{const m=String(p.title).match(/waves\s+(\d+)[–-](\d+)/i);return m?[Number(m[2])]:[]}));
+ return commitRegistryMutation(async reg=>{
+   cursor=Math.max(cursor,...reg.batches.map(b=>Number(b.wave_end)||0));
+   for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING'&&!x.wave_start)){
+     const start=cursor+1,end=start+499;cursor=end;
+     const frozenDate=String(b.frozen_at||new Date().toISOString()).slice(0,10);
+     b.wave_start=start;b.wave_end=end;
+     b.branch='research/enrichment-waves-'+start+'-'+end+'-rolling';
+     b.artifact_prefix=frozenDate+'-enrichment-waves-'+start+'-'+end;
+     b.allocated_at=new Date().toISOString();
+   }
+ },'research: atomically allocate frozen batch wave ranges');
+}
 async function materializeBatch(reg,batch){
  if(batch.state!=='FREEZE_PENDING')return;
- const rows=reg.reservations.filter(r=>r.batch_id===batch.id);if(rows.length!==500)throw Error('freeze pending batch '+batch.id+' has '+rows.length+' records');
- const prInventory=await listOpenPrRecords();let maxPending=0;
- for(const p of prInventory.pulls){const m=String(p.title).match(/waves\s+(\d+)[–-](\d+)/i);if(m)maxPending=Math.max(maxPending,Number(m[2]))}
- const local=await findMainThroughWave();const start=Math.max(local.max,maxPending,...reg.batches.map(b=>Number(b.wave_end)||0))+1,end=start+499;
- const branch='research/enrichment-waves-'+start+'-'+end+'-rolling';const main=await api('/repos/'+repo+'/git/ref/heads/main');
- try{await api('/repos/'+repo+'/git/refs',{method:'POST',body:{ref:'refs/heads/'+branch,sha:main.object.sha}})}catch(e){if(Number(e.status)!==422)throw e}
- const prefix=new Date().toISOString().slice(0,10)+'-enrichment-waves-'+start+'-'+end;
+ const rows=reg.reservations.filter(r=>r.batch_id===batch.id&&r.state!=='RELEASED');
+ if(rows.length!==500)throw Error('freeze pending batch '+batch.id+' has '+rows.length+' active records');
+ const start=Number(batch.wave_start),end=Number(batch.wave_end),branch=String(batch.branch||''),prefix=String(batch.artifact_prefix||'');
+ if(!start||end!==start+499||!branch||!prefix)throw Error('batch '+batch.id+' has no atomic wave allocation');
+
+ const prInventory=await listOpenPrRecords(),local=await findMainThroughWave();
+ const owner=repo.split('/')[0];
+ let branchExists=true;
+ try{await api('/repos/'+repo+'/git/ref/heads/'+encodeURIComponent(branch))}
+ catch(e){if(Number(e.status)!==404)throw e;branchExists=false}
+ if(!branchExists){
+   const main=await api('/repos/'+repo+'/git/ref/heads/main');
+   await api('/repos/'+repo+'/git/refs',{method:'POST',body:{ref:'refs/heads/'+branch,sha:main.object.sha}});
+ }
+
  const assigned=rows.map((r,i)=>({...r,wave:start+i,state:'exact_source_verified_pending_semantic_final_review'}));
  const parts=[];
- for(let i=0;i<5;i++){const subset=assigned.slice(i*100,(i+1)*100),name=prefix+'-efetch-verified-part-0'+(i+1)+'.json',file='ops/enrichment-submissions/reconciliation/'+name;const payload={schema_version:1,range:(start+i*100)+'-'+(start+i*100+99),state:'verified_pending_semantic_final_review',exact_verified_rows:100,unverified_rows:0,rows:subset,failures:[]};const created=await api('/repos/'+repo+'/contents/'+file,{method:'PUT',body:{message:'research: freeze '+batch.id+' part '+(i+1),content:b64(JSON.stringify(payload,null,2)+'\n'),branch}});parts.push({path:file,blob_sha:created.content.sha,rows:100})}
+ for(let i=0;i<5;i++){
+   const subset=assigned.slice(i*100,(i+1)*100),name=prefix+'-efetch-verified-part-0'+(i+1)+'.json',file='ops/enrichment-submissions/reconciliation/'+name;
+   const payload={schema_version:1,range:(start+i*100)+'-'+(start+i*100+99),state:'verified_pending_semantic_final_review',exact_verified_rows:100,unverified_rows:0,rows:subset,failures:[]};
+   const created=await upsertBranchJson(branch,file,payload,'research: freeze '+batch.id+' part '+(i+1));
+   parts.push({path:file,blob_sha:created.content.sha,rows:100});
+ }
+
  const predecessorPrs=prInventory.pulls.flatMap(p=>{const m=String(p.title).match(/waves\s+(\d+)[–-](\d+)/i);if(!m)return[];const a=Number(m[1]),z=Number(m[2]);return a>local.max&&z<start?[{...p,wave_start:a,wave_end:z}]:[]});
- const predecessorPmids=predecessorPrs.flatMap(p=>prInventory.records.filter(r=>r.batch==='PR-'+p.number).map(r=>String(r.pmid)));
- const previousPmids=[...new Set([...local.pmids.map(String),...predecessorPmids])];const newPmids=assigned.map(r=>String(r.pmid));const index={schema_version:1,through_wave:end,total_unique_pmids:previousPmids.length+500,previous_unique_pmids:previousPmids.length,pmids:[...previousPmids,...newPmids]};
- const idxPath='ops/enrichment-submissions/reconciliation/'+prefix+'-pmid-index.json';await api('/repos/'+repo+'/contents/'+idxPath,{method:'PUT',body:{message:'research: freeze '+batch.id+' cumulative index',content:b64(JSON.stringify(index,null,2)+'\n'),branch}});
- const manifest={schema_version:1,batch_id:prefix+'-final',range:start+'-'+end,state:'source_verified_independent_semantic_review_pending',research_only:true,fail_closed:true,previous_unique_pmids:previousPmids.length,accepted_new_unique_pmids:500,cumulative_unique_pmids:index.total_unique_pmids,exact_title_verified:500,abstract_verified:500,admission_policy:{published_entities:false,recommendations:false,dosing_claims:false,runtime_admission:false,clinical_claims_require_separate_review:true},artifact_parts:parts,cumulative_index:idxPath,independent_semantic_review:false,batch_content_sha256:crypto.createHash('sha256').update(JSON.stringify(assigned)).digest('hex'),predecessor_snapshots:predecessorPrs.map(p=>({pr_number:p.number,head_sha:p.head_sha,wave_start:p.wave_start,wave_end:p.wave_end,pmid_sha256:crypto.createHash('sha256').update(JSON.stringify([...new Set(prInventory.records.filter(r=>r.batch==='PR-'+p.number).map(r=>String(r.pmid))).values()].sort())).digest('hex')}))};
- const manifestPath='ops/enrichment-submissions/reconciliation/'+prefix+'-final-manifest.json';await api('/repos/'+repo+'/contents/'+manifestPath,{method:'PUT',body:{message:'research: freeze '+batch.id+' manifest',content:b64(JSON.stringify(manifest,null,2)+'\n'),branch}});
- const status={schema_version:1,batch_id:prefix+'-final-status',range:start+'-'+end,state:'source_verified_independent_semantic_review_pending',verified_rows:500,exact_verified_rows:500,previous_unique_pmids:previousPmids.length,new_unique_pmids:500,total_unique_pmids:index.total_unique_pmids,duplicate_pmids:0,duplicate_normalized_dois:0,duplicate_normalized_titles:0,predecessor_pmid_collisions:0,research_only:true,published:false,admission:'fail_closed_no_recommendations',merge_gate:'Independent semantic review plus exact-head repository validation required',artifacts:{manifest:manifestPath,index:idxPath}};
- await api('/repos/'+repo+'/contents/ops/enrichment-submissions/reconciliation/'+prefix+'-final-status.json',{method:'PUT',body:{message:'research: freeze '+batch.id+' status',content:b64(JSON.stringify(status,null,2)+'\n'),branch}});
- const archive={schema_version:1,through_wave:start-1,inventory_only:true,prior_unique_pmids:previousPmids.length,pmids:previousPmids};await api('/repos/'+repo+'/contents/public/data/research/pmid-register-through-'+(start-1)+'.json',{method:'PUT',body:{message:'research: add historical PMID inventory through '+(start-1),content:b64(JSON.stringify(archive,null,2)+'\n'),branch}});
+ const predecessorRows=predecessorPrs.flatMap(p=>prInventory.records.filter(r=>r.batch==='PR-'+p.number));
+ const predictedBaseline=reconcileBaseline([...local.records,...predecessorRows]);
+ const previousPmids=[...new Set(predictedBaseline.map(r=>String(r.pmid)))],newPmids=assigned.map(r=>String(r.pmid));
+ if(new Set([...previousPmids,...newPmids]).size!==previousPmids.length+500)throw Error('predicted cumulative PMID collision');
+ const index={schema_version:1,through_wave:end,total_unique_pmids:previousPmids.length+500,previous_unique_pmids:previousPmids.length,pmids:[...previousPmids,...newPmids]};
+ const idxPath='ops/enrichment-submissions/reconciliation/'+prefix+'-pmid-index.json';
+ await upsertBranchJson(branch,idxPath,index,'research: freeze '+batch.id+' cumulative index');
+
+ const batchHash=crypto.createHash('sha256').update(JSON.stringify(assigned)).digest('hex');
+ const manifest={schema_version:1,batch_id:prefix+'-final',rolling_batch_id:batch.id,range:start+'-'+end,state:'source_verified_independent_semantic_review_pending',research_only:true,fail_closed:true,previous_unique_pmids:previousPmids.length,accepted_new_unique_pmids:500,cumulative_unique_pmids:index.total_unique_pmids,exact_title_verified:500,abstract_verified:500,admission_policy:{published_entities:false,recommendations:false,dosing_claims:false,runtime_admission:false,clinical_claims_require_separate_review:true},artifact_parts:parts,cumulative_index:idxPath,independent_semantic_review:false,batch_content_sha256:batchHash,predecessor_snapshots:predecessorPrs.map(p=>({pr_number:p.number,head_sha:p.head_sha,wave_start:p.wave_start,wave_end:p.wave_end,pmid_sha256:crypto.createHash('sha256').update(JSON.stringify([...new Set(prInventory.records.filter(r=>r.batch==='PR-'+p.number).map(r=>String(r.pmid)))].sort())).digest('hex')}))};
+ const manifestPath='ops/enrichment-submissions/reconciliation/'+prefix+'-final-manifest.json';
+ await upsertBranchJson(branch,manifestPath,manifest,'research: freeze '+batch.id+' manifest');
+
+ const status={schema_version:1,batch_id:prefix+'-final-status',rolling_batch_id:batch.id,range:start+'-'+end,state:'source_verified_independent_semantic_review_pending',verified_rows:500,exact_verified_rows:500,previous_unique_pmids:previousPmids.length,new_unique_pmids:500,total_unique_pmids:index.total_unique_pmids,duplicate_pmids:0,duplicate_normalized_dois:0,duplicate_normalized_titles:0,predecessor_pmid_collisions:0,research_only:true,published:false,admission:'fail_closed_no_recommendations',merge_gate:'Independent semantic review, predecessor continuity, and exact-head repository validation required',artifacts:{manifest:manifestPath,index:idxPath}};
+ await upsertBranchJson(branch,'ops/enrichment-submissions/reconciliation/'+prefix+'-final-status.json',status,'research: freeze '+batch.id+' status');
+
+ const archive={schema_version:1,through_wave:start-1,inventory_only:true,prior_unique_pmids:previousPmids.length,pmids:previousPmids};
+ await upsertBranchJson(branch,'public/data/research/pmid-register-through-'+(start-1)+'.json',archive,'research: add historical PMID inventory through '+(start-1));
+
  const reviewQueuePath='ops/research-coordinator/review-queues/'+prefix+'-review-queue.json';
- const reviewQueue={schema_version:1,batch_id:manifest.batch_id,batch_content_sha256:manifest.batch_content_sha256,research_only:true,required_checks:['source_identity','evidence_class','study_design','adverse_effects','interactions','limitations','uncertainty','overclaim','semantic_relationships','contradictions'],records:assigned.map((r,i)=>({pmid:String(r.pmid),wave:r.wave,priority_score:r.priority_score??0,evidence_class:r.evidence_class,study_design:r.study_design,signals:r.signals,source_artifact:parts[Math.floor(i/100)].path}))};
- await api('/repos/'+repo+'/contents/'+reviewQueuePath,{method:'PUT',body:{message:'research: add independent review queue for '+batch.id,content:b64(JSON.stringify(reviewQueue,null,2)+'\n'),branch}});
- const pr=await api('/repos/'+repo+'/pulls',{method:'POST',body:{title:'data: rolling enrichment waves '+start+'–'+end+' (500 source-verified; semantic review pending)',head:branch,base:'main',draft:true,body:'Rolling batch '+batch.id+'. 500 source-verified research-only records. Independent semantic review is REQUIRED before merge. No clinical/public evidence admission. Predecessor continuity and exact-head Research rolling gate must pass. Review queue: '+reviewQueuePath+'. Related #6411.'}});
- batch.state='DRAFT_PR';batch.wave_start=start;batch.wave_end=end;batch.pr_number=pr.number;batch.branch=branch;batch.review_queue=reviewQueuePath;batch.blocker='independent semantic review pending';
- try{await dispatchResearchGate(batch)}catch(e){batch.gate_dispatch_error=e.message;batch.blocker='research gate dispatch pending: '+e.message}
+ const reviewQueue={schema_version:1,batch_id:manifest.batch_id,rolling_batch_id:batch.id,batch_content_sha256:batchHash,research_only:true,required_checks:['source_identity','relevance','evidence_class','study_design','population','intervention','outcomes','conclusion_direction','adverse_effects','interactions','limitations','uncertainty','overclaim','semantic_relationships','contradictions'],records:assigned.map((r,i)=>({pmid:String(r.pmid),wave:r.wave,priority_score:r.priority_score??0,category:r.category,relevance_reason:r.relevance_reason,evidence_class:r.evidence_class,study_design:r.study_design,population:r.population,intervention:r.intervention,outcomes:r.outcomes,conclusion_direction:r.conclusion_direction,interaction_evidence_level:r.interaction_evidence_level,signals:r.signals,source_artifact:parts[Math.floor(i/100)].path}))};
+ await upsertBranchJson(branch,reviewQueuePath,reviewQueue,'research: add independent review queue for '+batch.id);
+
+ const history=await api('/repos/'+repo+'/pulls?state=all&head='+encodeURIComponent(owner+':'+branch)+'&per_page=10');
+ let pr=history.find(p=>p.head?.ref===branch&&p.state==='open');
+ const priorClosed=history.find(p=>p.head?.ref===branch&&p.state==='closed');
+ if(!pr&&priorClosed?.merged){
+   batch.state='MERGED';batch.pr_number=priorClosed.number;batch.merged_at=priorClosed.merged_at;batch.blocker=null;
+   for(const r of reg.reservations.filter(r=>r.batch_id===batch.id))r.state='MERGED';
+   return;
+ }
+ if(!pr&&priorClosed&&!priorClosed.merged){
+   batch.state='ABANDONED';batch.pr_number=priorClosed.number;batch.blocker='PR closed without merge';
+   for(const r of reg.reservations.filter(r=>r.batch_id===batch.id))r.state='RELEASED';
+   return;
+ }
+ if(!pr)pr=await api('/repos/'+repo+'/pulls',{method:'POST',body:{title:'data: rolling enrichment waves '+start+'–'+end+' (500 source-verified; semantic review pending)',head:branch,base:'main',draft:true,body:'Rolling batch '+batch.id+'. 500 source-verified research-only records. Independent semantic review is REQUIRED before merge. No clinical/public evidence admission. Predecessor continuity and exact-head Research rolling gate must pass. Review queue: '+reviewQueuePath+'. Related #6411.'}});
+ batch.state=pr.draft?'DRAFT_PR':'MERGE_TRAIN';batch.pr_number=pr.number;batch.branch=branch;batch.review_queue=reviewQueuePath;batch.blocker=pr.draft?'independent semantic review pending':'exact-head merge train pending';
+}
+async function reconcileBatchPrStates(reg){
+ for(const b of reg.batches.filter(x=>x.pr_number&&['DRAFT_PR','MERGE_TRAIN'].includes(x.state))){
+   try{
+     const pr=await api('/repos/'+repo+'/pulls/'+b.pr_number);
+     if(pr.merged){
+       b.state='MERGED';b.merged_at=pr.merged_at;b.blocker=null;
+       for(const r of reg.reservations.filter(r=>r.batch_id===b.id))r.state='MERGED';
+       continue;
+     }
+     if(pr.state==='closed'){
+       b.state='ABANDONED';b.closed_at=pr.closed_at;b.blocker='PR closed without merge';
+       for(const r of reg.reservations.filter(r=>r.batch_id===b.id))r.state='RELEASED';
+       continue;
+     }
+     const runs=await api('/repos/'+repo+'/actions/runs?head_sha='+encodeURIComponent(pr.head.sha)+'&per_page=100');
+     const gate=(runs.workflow_runs||[]).filter(r=>r.name==='Research rolling gate').sort((a,b)=>Number(b.run_number)-Number(a.run_number))[0];
+     b.state=pr.draft?'DRAFT_PR':'MERGE_TRAIN';
+     b.head_sha=pr.head.sha;b.gate_status=gate?gate.status+'/'+(gate.conclusion||'pending'):'not_seen';
+     b.blocker=pr.draft?(gate?.conclusion==='failure'?'research rolling gate failed':'independent semantic review or gate pending'):(gate?.conclusion==='success'?'autonomous merge controller pending':'exact-head research gate pending');
+   }catch(e){
+     b.blocker='lifecycle reconciliation: '+e.message;
+     reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)});
+   }
+ }
 }
 async function commitRegistryMutation(mutator,message){
  return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
