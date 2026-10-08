@@ -1,8 +1,9 @@
 {
   "schema": "ths.social.creative-quality.v1",
-  "release": "R8.06",
-  "name": "Hook Competition, Visual Teaching Objects & Native Delivery",
+  "release": "R8.07",
+  "name": "Visual Authorship, Pattern Interruption & Retention Rhythm",
   "inherits": [
+    "R8.06",
     "R8.05",
     "R8.04",
     "R8.03"
@@ -42,6 +43,12 @@
       "nativePlatformFeel",
       "visualTeachingObject",
       "textCardMonotonyRejected"
+    ],
+    "r807_rhythm_master_gates": [
+      "visualRhythm",
+      "motifContinuity",
+      "semanticPatternInterrupt",
+      "repetitionDebtRejected"
     ]
   },
   "recovery": {
@@ -76,5 +83,18 @@
     "manual_native_fallback_required": true,
     "provider_may_mutate_artifact": false,
     "provider_retry_policy": "one-provider-attempt-then-fallback"
+  },
+  "visual_rhythm": {
+    "visual_thesis_required": true,
+    "recurring_semantic_motif_required": true,
+    "motif_core_appearances_min": 2,
+    "motif_core_appearances_max": 3,
+    "core_composition_families_min_distinct": 3,
+    "max_consecutive_composition_family": 2,
+    "max_consecutive_visual_mode": 2,
+    "semantic_pattern_interrupt_required": true,
+    "pattern_interrupt_role": "limitation",
+    "pattern_interrupt_reason": "limitation-pivot",
+    "local_composition_primitives_required": true
   }
 }
