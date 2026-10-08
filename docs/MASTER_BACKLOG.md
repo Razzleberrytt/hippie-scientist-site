@@ -7,9 +7,9 @@
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync. The deep candidate feeder is [SWARM_BACKLOG.md](SWARM_BACKLOG.md); candidates there are not executable until revalidated and promoted here and into the sprint.
 
-### Current release-control blocker — #6448 / PR #6450 (P0, existing owner)
+### Release-control security continuation — #6445 (existing owner)
 
-**Observed 2026-10-08:** The controller's scheduled sweep passed technical exact-head checks for PR #6450 but GitHub rejected merge with HTTP 405 because the review conversation about missing authoritative project-control recording remained unresolved. **State: REPAIR / IN REVIEW, not merged.** Dependency: complete source-register `workflow_dispatch` recovery registration, resolve the scoped reviewer thread, then rerun required checks on the new exact head. Existing overlapping PR #6446 must be reconciled rather than merged blindly. Impact: protects reliable governed science-pipeline releases; effort: low for documentation remediation, unknown for external validation; confidence: high on GitHub blocker, unknown on production workflow recovery. No extra WIP slot or scientific authority granted. Measured performance/revenue ROI: **Unknown**.
+**Verified 2026-10-08:** #6448 / PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2` and Cloudflare deployment `37856454431` verified the production SHA. Remaining scoped gap: stale PR #6446 contains fail-closed exact PR/base/branch/head inputs and a pre-check absent from the merged minimal dispatch trigger. Preserve this distinct hardening through a clean current-main restage under #6445; do not merge a behind workflow-changing branch or bypass `NEEDS_CLEAN_RESTAGE`. A real zero-job recovery dispatch is still **Unknown**. Issue #6451 (review-related HTTP 405 sweep hold) remains a separate candidate pending admission. Business impact, CI savings and revenue **Unknown**.
 
 ## P0 — Cross-cutting generational engineering (#6431)
 
