@@ -143,7 +143,10 @@ function validateIdentity(mediaPack, creativeSpec) {
     if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
-    const methodRelease = clean(creativeSpec?.creativeMethodRelease)
+    const methodRelease = clean(creativeSpec?.creativeMethodRelease) || 'R8.05'
+    if (!['R8.05', 'R8.06', 'R8.07'].includes(methodRelease)) {
+      throw new Error(`unsupported R8.05 creative methodology: ${methodRelease}`)
+    }
     if (methodRelease === 'R8.06') {
       const direction = creativeSpec?.creativeDirection
       if (clean(direction?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
