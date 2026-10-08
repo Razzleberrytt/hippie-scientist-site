@@ -1,0 +1,51 @@
+{
+  "schema": "ths.social.creative-quality.v1",
+  "release": "R8.05",
+  "name": "Attention-First Story Architecture & Semantic AV Lock",
+  "inherits": [
+    "R8.04",
+    "R8.03"
+  ],
+  "premise": {
+    "interest_score_min": 4,
+    "cold_viewer_why_care_required": true,
+    "one_mental_job_required": true,
+    "payoff_before_method_required": true,
+    "methodology_hook_forbidden_unless_method_is_story": true,
+    "paper_summary_opening_forbidden": true
+  },
+  "cognitive_load": {
+    "default_max_primary_entities_per_beat": 1,
+    "comparison_exception_max_primary_entities_per_beat": 2,
+    "progressive_reveal_required": true
+  },
+  "timing": {
+    "duration_policy": "natural",
+    "fixed_runtime_target_forbidden": true,
+    "narration_is_timing_master": true,
+    "voice_first_semantic_beat_map_required": true,
+    "cut_on_meaning_required": true,
+    "semantic_clip_ownership_required": true,
+    "internal_motion_sync_required": true,
+    "exact_local_narration_timeline_required": true,
+    "visual_timeline_may_not_precede_voice_timeline": true
+  },
+  "final_cohesion": {
+    "whole_piece_review_required": true,
+    "reject_pasted_narration_feel": true,
+    "technical_sync_alone_is_insufficient": true,
+    "exact_mp4_hash_binding_required": true,
+    "publication_requires_master_qa_receipt": true
+  },
+  "recovery": {
+    "macro_rebuild_limit": 1,
+    "after_limit": "retire_angle_and_learn"
+  },
+  "failure_semantics": {
+    "premise": "fail_before_render",
+    "temporal_coherence": "fail_closed",
+    "sunk_cost": "never_waives_quality_floor",
+    "missing_voice_timeline": "fail_before_visual_render",
+    "missing_master_cohesion_receipt": "fail_before_staging"
+  }
+}
