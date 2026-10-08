@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "range": "7501-8000",
+  "row_count": 500,
+  "unique_pmids": 500,
+  "exact_title_verified": 500,
+  "substantive_abstracts_verified": 500,
+  "prior_pmid_collisions": 0,
+  "duplicate_pmids": 0,
+  "duplicate_titles": 0,
+  "duplicate_dois": 0,
+  "missing_dois": 16,
+  "category_counts": {
+    "stress_anxiety": 40,
+    "sleep": 40,
+    "withdrawal_nps": 25,
+    "cardiometabolic": 35,
+    "performance": 20,
+    "aging_sarcopenia": 20,
+    "women_health": 20,
+    "micronutrients": 35,
+    "gut": 30,
+    "cognition_focus": 30,
+    "mood": 25,
+    "inflammation_pain": 30,
+    "metabolic": 25,
+    "botanicals_mushrooms": 30,
+    "safety_interactions": 30,
+    "cannabinoid_safety": 25,
+    "mitochondrial_energy": 20,
+    "immune_respiratory": 20
+  },
+  "discovery_stats": [
+    {
+      "category": "stress_anxiety",
+      "target": 40,
+      "selected": 40,
+      "esearch_ids": 365,
+      "fetched": 182
+    },
+    {
+      "category": "sleep",
+      "target": 40,
+      "selected": 40,
+      "esearch_ids": 450,
+      "fetched": 74
+    },
+    {
+      "category": "withdrawal_nps",
+      "target": 25,
+      "selected": 25,
+      "esearch_ids": 450,
+      "fetched": 38
+    },
+    {
+      "category": "cardiometabolic",
+      "target": 35,
+      "selected": 35,
+      "esearch_ids": 450,
+      "fetched": 38
+    },
+    {
+      "category": "performance",
+      "target": 20,
+      "selected": 20,
+      "esearch_ids": 450,
+      "fetched": 35
+    },
+    {
+      "category": "aging_sarcopenia",
+      "target": 20,
+      "selected": 20,
+      "esearch_ids": 450,
+      "fetched": 30
+    },
+    {
+      "category": "women_health",
+      "target": 20,
+      "selected": 20,
+      "esearch_ids": 450,
+      "fetched": 28
+    },
+    {
+      "category": "micronutrients",
+      "target": 35,
+      "selected": 35,
+      "esearch_ids": 450,
+      "fetched": 36
+    },
+    {
+      "category": "gut",
+      "target": 30,
+      "selected": 30,
+      "esearch_ids": 450,
+      "fetched": 34
+    },
+    {
+      "category": "cognition_focus",
+      "target": 30,
+      "selected": 30,
+      "esearch_ids": 450,
+      "fetched": 50
+    },
+    {
+      "category": "mood",
+      "target": 25,
+      "selected": 25,
+      "esearch_ids": 450,
+      "fetched": 41
+    },
+    {
+      "category": "inflammation_pain",
+      "target": 30,
+      "selected": 30,
+      "esearch_ids": 450,
+      "fetched": 51
+    },
+    {
+      "category": "metabolic",
+      "target": 25,
+      "selected": 25,
+      "esearch_ids": 450,
+      "fetched": 51
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "target": 30,
+      "selected": 30,
+      "esearch_ids": 450,
+      "fetched": 49
+    },
+    {
+      "category": "safety_interactions",
+      "target": 30,
+      "selected": 30,
+      "esearch_ids": 450,
+      "fetched": 61
+    },
+    {
+      "category": "cannabinoid_safety",
+      "target": 25,
+      "selected": 25,
+      "esearch_ids": 450,
+      "fetched": 32
+    },
+    {
+      "category": "mitochondrial_energy",
+      "target": 20,
+      "selected": 20,
+      "esearch_ids": 450,
+      "fetched": 25
+    },
+    {
+      "category": "immune_respiratory",
+      "target": 20,
+      "selected": 20,
+      "esearch_ids": 450,
+      "fetched": 31
+    }
+  ],
+  "rejected_candidates": 13,
+  "rejection_reasons": {
+    "off_domain_title": 5,
+    "missing_substantive_abstract_or_title": 4,
+    "not_target_human_study_type": 1,
+    "duplicate_identity": 3
+  },
+  "semantic_review_complete": false,
+  "research_only": true
+}

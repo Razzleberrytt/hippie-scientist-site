@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-08-enrichment-waves-7501-8000",
+  "range": "7501-8000",
+  "state": "source_verified_pending_independent_semantic_and_repository_review",
+  "research_only": true,
+  "fail_closed": true,
+  "previous_unique_pmids": 7435,
+  "accepted_new_unique_pmids": 0,
+  "source_verified_candidates": 500,
+  "prospective_cumulative_unique_pmids": 7935,
+  "admission_policy": {
+    "published_entities": false,
+    "runtime_admission": false,
+    "recommendations": false,
+    "dosing_claims": false,
+    "clinical_claims_require_separate_review": true
+  },
+  "artifact_parts": [
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-source-verified-part-01.json",
+      "blob_sha": "222fbd765e171e2a34e0e95d4f2291eb6450d4b0",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-source-verified-part-02.json",
+      "blob_sha": "a2cdaf9477a72c7075a0c6be9e30903892ce1e8e",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-source-verified-part-03.json",
+      "blob_sha": "d96c8383ffc3f6c25e060a99764400d3ed4873e3",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-source-verified-part-04.json",
+      "blob_sha": "5638883f083a69f78862363697fdec2bfcccba8d",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-source-verified-part-05.json",
+      "blob_sha": "b7de8051c45e635d2cdadae8cb9dc7099579a9df",
+      "rows": 100
+    }
+  ],
+  "audit": "2026-10-08-enrichment-waves-7501-8000-final-audit.json",
+  "provisional_cumulative_index": "2026-10-08-enrichment-waves-7501-8000-pmid-index.json",
+  "predecessor_index": "2026-10-07-enrichment-waves-7001-7500-pmid-index.json",
+  "negative_index": "2026-10-07-enrichment-waves-7001-7500-negative-pmid-index.json"
+}
