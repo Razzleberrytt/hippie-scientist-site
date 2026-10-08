@@ -44,6 +44,19 @@ const P0_VISUAL_PROOF_PATTERNS = [
 
 const DOMAIN_REQUIRED_WORKFLOWS = [
   {
+    workflow: 'Research rolling gate',
+    patterns: [
+      /^scripts\/research\//,
+      /^ops\/research-intake\//,
+      /^ops\/research-coordinator\//,
+      /^ops\/enrichment-submissions\/reconciliation\//,
+      /^schemas\/research-lane-intake\.schema\.json$/,
+      /^lib\/research-source-register\.ts$/,
+      /^app\/research\/(?:source-register|intelligence)\//,
+      /^public\/data\/research\//,
+    ],
+  },
+  {
     workflow: 'Research Distribution',
     patterns: [
       /^scripts\/distribution\//,
