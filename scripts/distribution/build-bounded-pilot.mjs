@@ -234,6 +234,15 @@ export async function buildBoundedPilot({
               || clean(candidateSpec?.creativeDirection?.status) !== 'approved')) {
         throw new Error('R8.07 short-video pilot requires approved R8.06 foundation and R8.07 visual-rhythm receipts')
       }
+      if (creativeMethodRelease === 'R8.08'
+          && (clean(candidateSpec?.creativeFoundation?.status) !== 'approved'
+              || clean(candidateSpec?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+              || clean(candidateSpec?.creativeVisualFoundation?.status) !== 'approved'
+              || clean(candidateSpec?.creativeDirection?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
+              || clean(candidateSpec?.creativeDirection?.status) !== 'approved'
+              || clean(candidateSpec?.creativeDirection?.inheritedR807OverlaySha256) !== clean(candidateSpec?.creativeVisualFoundation?.overlaySha256))) {
+        throw new Error('R8.08 short-video pilot requires bound R8.06/R8.07 foundations and R8.08 silent-comprehension approval')
+      }
       const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
       const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
       if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {

@@ -11,6 +11,7 @@ import { buildCreativeHook } from './social-post-copy.mjs'
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 import { assertR806CreativeBrief, buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 import { assertR807CreativeBrief, buildR807CreativeReceipt } from './r807-creative-gate.mjs'
+import { assertR808CreativeBrief, buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -42,10 +43,10 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 export function buildLosslessCreativeSpec(input) {
   const systemRelease = clean(input?.systemRelease) || 'R8.04'
   const creativeMethodRelease = clean(input?.creativeMethodRelease) || (systemRelease === 'R8.05' ? 'R8.05' : systemRelease)
-  if (systemRelease === 'R8.05' && !['R8.05', 'R8.06', 'R8.07'].includes(creativeMethodRelease)) {
+  if (systemRelease === 'R8.05' && !['R8.05', 'R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease)) {
     throw new Error(`unsupported creative methodology on R8.05 runtime: ${creativeMethodRelease}`)
   }
-  if (['R8.06', 'R8.07'].includes(creativeMethodRelease) && systemRelease !== 'R8.05') {
+  if (['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease) && systemRelease !== 'R8.05') {
     throw new Error(`${creativeMethodRelease} creative methodology requires the R8.05 production runtime`)
   }
   const hasR805Brief = systemRelease === 'R8.05' && input?.creativeBrief && typeof input.creativeBrief === 'object'
@@ -60,7 +61,7 @@ export function buildLosslessCreativeSpec(input) {
           reason: 'Bulk/review generation is allowed, but R8.05 video rendering requires an approved creative brief and exact local narration timeline.',
         }
       : null
-  const r806Receipt = ['R8.06', 'R8.07'].includes(creativeMethodRelease)
+  const r806Receipt = ['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease)
     ? (r805Brief
         ? buildR806CreativeReceipt(assertR806CreativeBrief(input.creativeBrief))
         : {
@@ -71,7 +72,7 @@ export function buildLosslessCreativeSpec(input) {
             reason: 'Bulk/review generation is allowed, but R8.06+ release requires a three-candidate concept lab and native-visual overlay before rendering.',
           })
     : null
-  const r807Receipt = creativeMethodRelease === 'R8.07'
+  const r807Receipt = ['R8.07', 'R8.08'].includes(creativeMethodRelease)
     ? (r805Brief
         ? buildR807CreativeReceipt(assertR807CreativeBrief(input.creativeBrief))
         : {
@@ -81,6 +82,12 @@ export function buildLosslessCreativeSpec(input) {
             status: 'concept-required',
             reason: 'Bulk/review generation is allowed, but R8.07 release requires an authored visual-rhythm overlay before rendering.',
           })
+    : null
+  const r808Receipt = creativeMethodRelease === 'R8.08'
+    ? (r805Brief ? buildR808CreativeReceipt(assertR808CreativeBrief(input.creativeBrief)) : {
+        schemaVersion: 'ths-r808-creative-receipt-v1', release: 'R8.08', runtimeBaseRelease: 'R8.05', status: 'concept-required',
+        reason: 'R8.08 requires a silent-comprehension overlay and exact voice/master QA before rendering.',
+      })
     : null
   const base = buildCreativeSpec(input)
   const creativeHook = buildCreativeHook(input)
@@ -274,12 +281,13 @@ export function buildLosslessCreativeSpec(input) {
 
   return {
     ...base,
-    version: creativeMethodRelease === 'R8.07' ? 14 : 13,
+    version: creativeMethodRelease === 'R8.08' ? 15 : creativeMethodRelease === 'R8.07' ? 14 : 13,
     systemRelease: systemRelease || null,
     creativeMethodRelease,
     creativeQuality: r805Receipt,
-    creativeFoundation: creativeMethodRelease === 'R8.07' ? r806Receipt : null,
-    creativeDirection: r807Receipt ?? r806Receipt,
+    creativeFoundation: ['R8.07', 'R8.08'].includes(creativeMethodRelease) ? r806Receipt : null,
+    creativeVisualFoundation: creativeMethodRelease === 'R8.08' ? r807Receipt : null,
+    creativeDirection: r808Receipt ?? r807Receipt ?? r806Receipt,
     thumbnails,
     accessibilityDescription,
     visualRegression,
