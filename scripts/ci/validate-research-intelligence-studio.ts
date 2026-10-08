@@ -4,7 +4,7 @@ import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
 import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
 import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
-import {buildInstrumentRelay} from '../../lib/research-intelligence-relay'
+import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
@@ -379,6 +379,19 @@ for(const name of ['Study DNA','Contradiction Observatory','Knowledge Frontier',
 assert(readFileSync('app/research/source-register/page.tsx','utf8').includes("href='/research/intelligence/'"))
 assert(readFileSync('app/research/page.tsx','utf8').includes("href='/research/intelligence/'"))
 // Relay 1.06: actual cross-instrument join logic must stay source-bound.
+const titlePair=pickTraceableConceptPair(graph,sharedCase.pmid)
+assert(titlePair&&traceCaseConceptPair(graph,sharedCase.pmid,titlePair[0],titlePair[1]).length===1,
+ 'A Voyages link must open a real PMID-local title-backed concept pair')
+const nonTraceableReal=real.dna.find(d=>realGraph.entries[d.pmid].related.length>0&&
+  !pickTraceableConceptPair(realGraph,d.pmid))
+assert(nonTraceableReal,'Real 500 PMID snapshot should exercise nontraceable neighbors')
+const nonTraceableCase=buildResearchCaseFile(real,realGraph,nonTraceableReal.pmid)!
+const nonTraceableScope=buildResearchCaseScope(real,nonTraceableCase)
+const blockedVoyageRelay=buildInstrumentRelay(real,realGraph,nonTraceableCase,nonTraceableScope)
+assert(!blockedVoyageRelay.junctions.some(j=>j.to==='voyages'||j.from==='voyages'),
+ 'A neighbor alone cannot advertise a nonfunctional Voyages junction')
+assert(ui.includes('pickTraceableConceptPair('),
+ 'The source-focused user interface must select the same traceable pair as the relay')
 const relay=buildInstrumentRelay(s,graph,sharedCase,sourceScope)
 assert.equal(relay.pmid,sharedCase.pmid)
 assert.equal(relay.status,'source-bound-no-clinical-synthesis')
