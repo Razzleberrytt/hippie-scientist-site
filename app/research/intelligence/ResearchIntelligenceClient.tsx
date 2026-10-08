@@ -59,7 +59,7 @@ const [data,setData]=useState<Payload|null>(null),[loading,setLoading]=useState(
 const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,setMore]=useState(false),[dnaVisible,setDnaVisible]=useState(9)
 const [from,setFrom]=useState(''),[to,setTo]=useState(''),[query,setQuery]=useState(''),[asked,setAsked]=useState(false)
 const [year,setYear]=useState('')
-const [focusPmid,setFocusPmid]=useState(''),[focusLookup,setFocusLookup]=useState('')
+const [focusPmid,setFocusPmid]=useState(''),[focusLookup,setFocusLookup]=useState(''),[lookupError,setLookupError]=useState('')
 const caseRef=useRef<HTMLElement|null>(null)
 async function activate(){
  if(data||loading)return
@@ -119,8 +119,11 @@ const visibleInvestigations=caseScope?.investigations??data?.investigations??[]
 const visibleBriefs=caseScope?.briefs??data?.briefs??[]
 const visibleReviewEvents=caseScope&&data?data.adjudication.events.filter(e=>e.witnessId.split(':')[0]===caseScope.pmid):data?.adjudication.events??[]
 useEffect(()=>{if(focusPmid&&data)caseRef.current?.scrollIntoView({block:'start'})},[focusPmid,data])
-function inspectPmid(pmid:string){setFocusPmid(pmid);setFocusLookup(pmid);setSearch('');setAsked(false);setMore(false);setDnaVisible(9)}
-function clearSourceFocus(){setFocusPmid('');setFocusLookup('');setSearch('');setAsked(false);setMore(false);setFrom('');setTo('')}
+function inspectPmid(pmid:string){
+ if(!data?.graph.entries[pmid]){setFocusPmid('');setFocusLookup(pmid);setLookupError('PMID '+pmid+' is not part of the 500-paper exact-verified snapshot. The full source register covers the wider intake.');return}
+ setLookupError('');setFocusPmid(pmid);setFocusLookup(pmid);setSearch('');setAsked(false);setMore(false);setDnaVisible(9)
+}
+function clearSourceFocus(){setFocusPmid('');setFocusLookup('');setLookupError('');setSearch('');setAsked(false);setMore(false);setFrom('');setTo('')}
 function openCaseInstrument(next:Tab){
  if(!caseFile||!data)return
  if(next==='dna'){setSearch(caseFile.pmid);setDnaVisible(9)}
@@ -180,7 +183,7 @@ return <section className={styles.studio}>
         </label>
         <button type='submit' className={styles.prime} disabled={!/^\d{5,10}$/.test(focusLookup.trim())}>Open case file ↗</button>
       </form>
-      {focusPmid&&!caseFile?<p role='status'>That PMID is not in this 500-paper source-verified semantic snapshot. Search the full source register for broader coverage.</p>:null}
+      {lookupError?<p role='status'>{lookupError} <button type='button' className={styles.caseTrace} onClick={clearSourceFocus}>Clear lookup</button></p>:null}
       {caseFile?<article className={styles.casePanel} aria-live='polite'>
         <div className={styles.scopeBar}><span role='status'><strong>SOURCE FOCUS ACTIVE:</strong> All eight instruments are restricted to exact source-linked leads for PMID {caseFile.pmid}.</span>
           <button type='button' onClick={clearSourceFocus}>Clear focus · explore all sources ↗</button></div>
@@ -305,7 +308,7 @@ return <section className={styles.studio}>
         <p>{selected.reviewedCitations} separately reviewed citation publications carry this year; these two inventories are not additive.</p>
         {caseScope?<p>Selected PMID {caseScope.pmid} is among this year’s {selected.sources} source records in the batch; other papers are hidden during focus.</p>:null}
         <Sources pmids={caseScope?[caseScope.pmid]:selected.pmids} onSelect={inspectPmid}/></article>:<p className={styles.placeholder}>Select a year in the publication timeline to inspect bibliographic sources.</p>}
-      {!caseScope?<div className={styles.recordedChanges}>
+      {!caseScope?<><div className={styles.recordedChanges}>
         <h3>Recorded editorial evidence-grade changes</h3>
         <p>These events come from the separately maintained editorial grade-change log, not inferred historic scores.</p>
         {data.recordedChanges.length ? data.recordedChanges.slice(0,8).map(change => (
@@ -316,7 +319,7 @@ return <section className={styles.studio}>
           </article>
         )) : <p>No change entries passed the governed, dated editorial-log filter.</p>}
       </div>
-      <Link className={styles.related} href='/evidence/evidence-report/changes/'>Recorded evidence changes →</Link></div>:<p className={styles.placeholder}>The editorial grade-change log is ingredient-level and has no exact PMID join. Its entries are withheld while source focus is active. Clear focus to explore the full history.</p>}
+      <Link className={styles.related} href='/evidence/evidence-report/changes/'>Recorded evidence changes →</Link></>:<p className={styles.placeholder}>The editorial grade-change log is ingredient-level and has no exact PMID join. Its entries are withheld while source focus is active. Clear focus to explore the full history.</p>}
     </>:null}
 
     {data&&tab==='voyages'?<>
