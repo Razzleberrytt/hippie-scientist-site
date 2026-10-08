@@ -101,6 +101,9 @@ export function validateR807CreativeBrief(brief) {
   if (interrupt && clean(interrupt.role) !== 'limitation') {
     errors.push('R8.07 pattern interrupt must be earned by the limitation pivot')
   }
+  if (interrupt && limitation && clean(interrupt.id) !== clean(limitation.id)) {
+    errors.push('R8.07 pattern interrupt must occur on the first limitation pivot')
+  }
   if (interrupt && clean(interrupt?.r807?.patternInterruptReason) !== 'limitation-pivot') {
     errors.push('R8.07 pattern interrupt reason must be limitation-pivot')
   }
