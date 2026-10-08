@@ -11444,6 +11444,386 @@
       "reservation_id": "3079f2ba4f6b70c72432",
       "reserved_at": "2026-10-08T23:06:24.839Z",
       "source_branch": "research/intake/3/20261009-botanical-safety-primary-11-02"
+    },
+    {
+      "pmid": "42719850",
+      "title": "Bergenia ciliata Root Extract Attenuates Artesunate-Induced Hepatotoxicity via Dual Modulation of Oxidative Stress and Apoptotic Signaling: An In Vitro and In Vivo Study.",
+      "doi": "10.1021/acsptsci.6c00348",
+      "source_title": "Bergenia ciliata Root Extract Attenuates Artesunate-Induced Hepatotoxicity via Dual Modulation of Oxidative Stress and Apoptotic Signaling: An In Vitro and In Vivo Study.",
+      "abstract": "Artesunate (ART), a widely used antimalarial drug, has been associated with hepatotoxic effects when administered at supratherapeutic doses over prolonged durations. This study aimed to elucidate the biochemical and molecular mechanisms underlying ART-induced liver injury and to evaluate the hepatoprotective potential of Bergenia ciliata root extract (BCRE) as a cotreatment, using a combination of in vitro and in vivo approaches. B. ciliata was selected based on its well-documented antimalarial activity and hepatoprotective properties. In vitro cytotoxicity was assessed by determining the IC 50 value, while in vivo hepatotoxicity was induced in an experimental animal model through supratherapeutic ART administration. ART-treated animals exhibited a significant elevation in hepatic enzyme levels, increased oxidative stress markers, pronounced histopathological damage, upregulation of the pro-apoptotic marker Caspase-3, and downregulation of the antiapoptotic marker Bcl-2, collectively indicating activation of the apoptotic pathway. Coadministration of BCRE significantly attenuated all of these biochemical, histopathological, and apoptotic alterations in a dose-dependent manner, with the high-dose BCRE group demonstrating a level of hepatoprotection comparable to the standard positive control, silymarin. These findings suggest that BCRE confers hepatoprotection against ART-induced liver injury through dual mechanisms: attenuation of oxidative stress and inhibition of apoptosis, supporting its potential as a safe and effective adjunct to ART-based antimalarial therapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42719850/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical safety and toxicology source identification pending scientific interpretation.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42719850",
+        "doi": "10.1021/acsptsci.6c00348",
+        "journal": "ACS pharmacology & translational science",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:56.028Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4c0495538064ff3d2b80",
+      "reserved_at": "2026-10-08T23:07:03.523Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-04"
+    },
+    {
+      "pmid": "41970162",
+      "title": "Herbal and Dietary Supplement-Induced Liver Injury Compared With Conventional Drug-Induced Liver Injury: A Retrospective Cohort Study.",
+      "doi": "10.7759/cureus.106719",
+      "source_title": "Herbal and Dietary Supplement-Induced Liver Injury Compared With Conventional Drug-Induced Liver Injury: A Retrospective Cohort Study.",
+      "abstract": "Herbal and dietary supplements (HDS) are widely used globally and across the Middle East, yet their hepatotoxic potential remains underrecognized in this region. Comparable Bahrain-specific prevalence data are limited. This study aimed to quantify the proportion of drug-induced liver injury (DILI) attributable to HDS in a Bahraini cohort and to compare the clinical features and outcomes of HDS-related versus conventional medication-related liver injury, with severe liver injury as the primary outcome. We hypothesized that HDS-related DILI would be associated with more severe clinical outcomes than conventional medication-related DILI. We conducted a retrospective cohort study of adults admitted with suspected DILI to Bahrain Government Hospital in Manama, Bahrain, between January 2018 and December 2024. Cases underwent structured causality assessment using the updated Roussel Uclaf Causality Assessment Method (RUCAM), and patients with RUCAM scores ≥6 for at least one implicated agent were included. Patients were classified into HDS-related or conventional medication-related liver injury groups according to the agent with the highest RUCAM score; cases with equal scores or unresolved competing exposures were excluded. Alternative causes of liver injury, including viral hepatitis and autoimmune liver disease, were excluded through routine clinical evaluation and available laboratory and imaging data. The primary outcome was severe liver injury, defined as coagulopathy, hepatic encephalopathy, or liver transplantation. Multivariable logistic regression was performed to identify independent predictors of severe liver injury. A total of 712 patients met the inclusion criteria, of whom 168 (23.6%) were attributed to HDS and 544 (76.4%) to conventional medications. Patients with HDS-related liver injury were younger (median age 34 vs. 52 years, p = 0.002) and more commonly female (63.2% vs. 41.1%, p < 0.001). Hepatocellular injury was more frequent in the HDS group (68.5% vs. 45.2%, p = 0.02). Severe liver injury occurred in 49/168 (29.2%) of HDS cases versus 79/544 (14.5%) of medication-related cases, corresponding to an absolute risk difference of 14.7% (95% CI 7.2-22.2). On multivariable analysis, HDS exposure remained independently associated with severe liver injury (adjusted OR 2.3, 95% CI 1.1-5.1, p = 0.03). Liver transplantation (7.7% vs. 1.7%, p = 0.08) and mortality (10.7% vs. 4.8%, p = 0.21) were numerically higher in the HDS group, although these differences did not reach statistical significance. In this retrospective Bahraini cohort, HDS accounted for nearly one-quarter of RUCAM-confirmed DILI cases and was associated with a higher likelihood of severe liver injury than conventional medications. These findings support routine, structured inquiry about HDS exposure in patients presenting with liver injury and suggest that standardized medication and supplement history tools may improve early recognition. Larger prospective studies with product-level characterization are needed to better define the risks associated with HDS use in the region.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41970162/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical safety and toxicology source identification pending scientific interpretation.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41970162",
+        "doi": "10.7759/cureus.106719",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:56.029Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "76b54a2c98643a622e6e",
+      "reserved_at": "2026-10-08T23:07:03.523Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-04"
+    },
+    {
+      "pmid": "42229622",
+      "title": "Network toxicology and biolayer interferometry validation reveal the mechanism of Stelleropsis tianschanica Pobed.-induced hepatotoxicity.",
+      "doi": "10.1016/j.jep.2026.121950",
+      "source_title": "Network toxicology and biolayer interferometry validation reveal the mechanism of Stelleropsis tianschanica Pobed.-induced hepatotoxicity.",
+      "abstract": "Stelleropsis tianschanica Pobed. is a perennial herb belonging to the genus Stelleropsis in the family Thymelaeaceae of the order Myrtales, and possesses certain toxicity. In the Zhaosu region of Xinjiang, it is used medicinally as an expectorant and analgesic, and for the treatment of chronic bronchitis, cough, asthma, and skin diseases. However, beyond its therapeutic efficacy, the potential hepatotoxicity of Stelleropsis tianschanica Pobed. poses a threat to human health. Currently, research regarding its hepatotoxicity remains limited. This study aims to integrate network toxicology, Bio-Layer Interferometry (BLI), and in vitro experiments to systematically explore the toxicological material basis and potential molecular mechanisms underlying liver injury induced by Stelleropsis tianschanica Pobed. In vivo acute toxicity studies and in vitro cell experiments were employed to determine the hepatotoxic parts of Stelleropsis tianschanica Pobed. Combined with LC-MS/MS analysis, network toxicology prediction, and molecular docking technology, the material basis and potential targets of hepatotoxicity were preliminarily screened. LC-MS/MS combined with Bio-Layer Interferometry (BLI) was applied, using core targets as \"bait,\" to affinity-fish and identify active ingredients from the drug system. Finally, relevant signaling pathways were verified via in vitro cell experiments to reveal the molecular mechanism of hepatotoxicity. In vivo and in vitro evaluations demonstrated that the root parts of Stelleropsis tianschanica Pobed possessed significantly higher toxicity than the aerial parts, characterized by severe liver lesions and elevated transaminases. It may induce hepatotoxic effects by targeting the EGFR-PI3K/AKT-mitochondrial pathway. Daphnoretin, Umbelliferone, and Formononetin were identified as the potential toxic material basis responsible for its hepatotoxicity.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42229622/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical safety and toxicology source identification pending scientific interpretation.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42229622",
+        "doi": "10.1016/j.jep.2026.121950",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:56.029Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "301c3eb4ddf1d8d2bafd",
+      "reserved_at": "2026-10-08T23:07:03.523Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-04"
+    },
+    {
+      "pmid": "41890551",
+      "title": "Analysis of 386 alternative medicinal products implicated in liver injury reveal clinically relevant associations with potentially hepatotoxic botanicals, pharmaceutical adulteration, heavy metal contamination, and undisclosed animal content.",
+      "doi": "10.3389/fgstr.2026.1784785",
+      "source_title": "Analysis of 386 alternative medicinal products implicated in liver injury reveal clinically relevant associations with potentially hepatotoxic botanicals, pharmaceutical adulteration, heavy metal contamination, and undisclosed animal content.",
+      "abstract": "Complementary and alternative medicine (CAM)-related hepatotoxicity is a growing global concern. We utilized multi-modal analysis to characterize CAM product safety and identify predictors of severe liver injury. This retrospective study analyzed 386 CAM products from 91 consecutive patients (mean 4.2 products/patient) presenting with CAM-related adverse events at a tertiary center in South India (2021-2023). Product-level analyses characterize the CAM supply chain while patient-level analyses inform clinical outcome associations. Investigations included ingredient documentation, heavy metal quantification, and GC-MS compound profiling. The mean patient age was 48.2 years (75.8% male). ACLF occurred in 39.6% of all patients (36/91) and 41.9% of those with hepatic adverse events (36/86), with associated mortality of 38.9% (14/36) compared to 10.9% (6/55) in non-ACLF presentations (OR 5.20, P = 0.004). Heavy metals exceeded WHO limits in many products: mercury (34%), cadmium (25%), arsenic (21%), and lead (14%). Cadmium exposure exceeding WHO limits showed a strong association with ACLF (75.9% vs 22.6%, P<0.001, FDR q<0.001). The association with mortality did not reach statistical significance after correction for multiple comparisons (34.5% vs 16.1%, uncorrected P = 0.061, FDR q=0.24). Undeclared pharmaceutical adulteration (at least one adulterant found in 27.7% of products; exposure to at least one adulterated product in 46.2% of patients) and animal-derived content (31.3%) were prevalent. Notably, unlabeled product consumption significantly predicted mortality (P = 0.025). CAM-associated liver injury frequently manifests as ACLF with high mortality, driven by pervasive heavy metal contamination and adulteration. Unlabeled product exposure is a strong mortality predictor, highlighting the urgent need for mandatory product surveillance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41890551/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical safety and toxicology source identification pending scientific interpretation.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41890551",
+        "doi": "10.3389/fgstr.2026.1784785",
+        "journal": "Frontiers in gastroenterology (Lausanne, Switzerland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:56.029Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a1cf6b3d629b6c4938b1",
+      "reserved_at": "2026-10-08T23:07:03.523Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-04"
+    },
+    {
+      "pmid": "41966033",
+      "title": "Single-nucleus RNA Sequencing and multi-omics reveal Uncaria-derived indole alkaloids induce hepatocyte injury by mediating CAR/PPARα axis.",
+      "doi": "10.1016/j.phymed.2026.158162",
+      "source_title": "Single-nucleus RNA Sequencing and multi-omics reveal Uncaria-derived indole alkaloids induce hepatocyte injury by mediating CAR/PPARα axis.",
+      "abstract": "Risk assessment and management of endogenous potentially toxic components are critical for promoting the rational clinical use of herbal medicines. However, most herbal medicines lack sufficient safety data in clinical, especially for those with multiple botanical sources. As a commonly used multi-botanical source herbal medicine, Uncariae Ramulus Cum Uncis-derived indole alkaloids (IA-URCU) are primarily responsible for its potential hepatotoxicity in clinical practice. Nevertheless, the underlying mechanism of URCU-induced hepatocyte injury remains unclear. This study aimed to investigate the mechanism of IA-URCU-induced hepatocyte injury using a multidisciplinary approach, thereby providing a critical foundation for its safety assessment. In this study, we employed an \"Integrated Toxicology\" strategy-incorporating analyses of toxic effects, toxic substances, mechanisms, and compound interactions-combined with single-nucleus RNA sequencing (snRNA-seq) and multi-omics to characterize the cellular response heterogeneity to IA-URCU -induced liver injury at the single-cell level. IA-URCU could disrupt hepatic lipid homeostasis by activating CAR/NR1I3, which promoted their proliferation and transdifferentiation from the periportal hepatocyte region to the pericentral hepatocyte region. Concurrently, the activation of CAR could antagonize the expression of PPARα with binding to RXRA. This disruption leads to the accumulation of specific metabolites, including LysoPC (20:0) and PC (18:1/18:1), which in turn stimulated the release of IL-6 and IL-8 and ultimately provoked liver inflammation. This study advances the understanding of how IA-URCU induces hepatocyte injury at the single-cell level by promoting hepatocyte proliferation and differentiation, which subsequently disrupts lipid metabolism and triggers inflammatory responses. These findings not only provide the guidance for the rational clinical application of URCU but also offer new insights and methodologies for establishing a scientific supervision system based on risk assessment.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41966033/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical safety and toxicology source identification pending scientific interpretation.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41966033",
+        "doi": "10.1016/j.phymed.2026.158162",
+        "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:56.030Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "981c16059e7dd5da2e74",
+      "reserved_at": "2026-10-08T23:07:03.523Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-04"
     }
   ],
   "batches": [
@@ -11457,22 +11837,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 144,
+    "total_reservations": 149,
     "by_lane": {
       "1": 5,
       "2": 15,
-      "3": 41,
+      "3": 46,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 144
+      "SOURCE_VERIFIED": 149
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 144,
+        "count": 149,
         "pr_number": null,
         "blocker": null
       }
