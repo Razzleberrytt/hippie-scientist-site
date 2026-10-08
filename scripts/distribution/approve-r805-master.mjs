@@ -37,6 +37,10 @@ export function approveR805Master({
   internalMotionSync,
   cognitiveContinuity,
   hookPromiseDelivery,
+  openingScrollStop,
+  nativePlatformFeel,
+  visualTeachingObject,
+  textCardMonotonyRejected,
   notes = '',
   now = new Date().toISOString(),
 } = {}) {
@@ -71,12 +75,23 @@ export function approveR805Master({
     throw new Error('R8.05 master QA creative binding is stale')
   }
 
+  const creativeMethodRelease = clean(manifest?.creativeMethodRelease) || 'R8.05'
   const requiredPasses = {
     wholePieceCohesion,
     narrationVisualSync,
     internalMotionSync,
     cognitiveContinuity,
     hookPromiseDelivery,
+  }
+  if (creativeMethodRelease === 'R8.06') {
+    requiredPasses.openingScrollStop = openingScrollStop
+    requiredPasses.nativePlatformFeel = nativePlatformFeel
+    requiredPasses.visualTeachingObject = visualTeachingObject
+    requiredPasses.textCardMonotonyRejected = textCardMonotonyRejected
+    if (clean(manifest?.creativeDirection?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+        || clean(manifest?.creativeDirection?.status) !== 'approved') {
+      throw new Error('R8.06 exact-master QA requires the approved R8.06 creative-direction receipt')
+    }
   }
   for (const [name, value] of Object.entries(requiredPasses)) {
     if (value !== 'pass') throw new Error(`R8.05 exact master requires ${name}=pass; weak masters fail closed`)
@@ -86,6 +101,7 @@ export function approveR805Master({
   const receipt = {
     schemaVersion: 'ths-r805-master-qa-receipt-v1',
     release: 'R8.05',
+    creativeMethodRelease,
     reviewedAt: now,
     reviewer: clean(reviewer),
     exactArtifactReviewed: true,
@@ -108,6 +124,10 @@ export function approveR805Master({
       internalMotionSync: 'pass',
       cognitiveContinuity: 'pass',
       hookPromiseDelivery: 'pass',
+      openingScrollStop: creativeMethodRelease === 'R8.06' ? 'pass' : null,
+      nativePlatformFeel: creativeMethodRelease === 'R8.06' ? 'pass' : null,
+      visualTeachingObject: creativeMethodRelease === 'R8.06' ? 'pass' : null,
+      textCardMonotonyRejected: creativeMethodRelease === 'R8.06' ? 'pass' : null,
       pastedNarrationFeel: 'reject-if-present',
       notes: clean(notes),
     },
@@ -126,6 +146,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     internalMotionSync: args['internal-motion-sync'],
     cognitiveContinuity: args['cognitive-continuity'],
     hookPromiseDelivery: args['hook-promise-delivery'],
+    openingScrollStop: args['opening-scroll-stop'],
+    nativePlatformFeel: args['native-platform-feel'],
+    visualTeachingObject: args['visual-teaching-object'],
+    textCardMonotonyRejected: args['text-card-monotony-rejected'],
     notes: args.notes || '',
   })
   console.log(`[perceptual-qa] exact R8.05 master approved: ${receipt.artifact.sha256}`)
