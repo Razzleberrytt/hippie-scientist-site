@@ -149,6 +149,9 @@ function validateIdentity(mediaPack, creativeSpec) {
           || clean(direction?.status) !== 'approved') {
         throw new Error('R8.06 methodology requires an approved native-attention creative-direction receipt before rendering')
       }
+      if (!/^[a-f0-9]{64}$/i.test(clean(direction?.overlaySha256))) {
+        throw new Error('R8.06 creative-direction receipt must bind the exact overlay plan')
+      }
       if (direction?.openingConvergence !== true
           || direction?.immediateFindingAfterHook !== true
           || clean(direction?.nativeFeelCertifiedAt) !== 'exact-master-qa'
