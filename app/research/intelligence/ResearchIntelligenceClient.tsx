@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
-import {buildResearchCaseScope,traceCaseConceptPair} from '@/lib/research-intelligence-context'
+import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
 import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
 import styles from './ResearchIntelligence.module.css'
 
@@ -60,6 +60,7 @@ const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,se
 const [from,setFrom]=useState(''),[to,setTo]=useState(''),[query,setQuery]=useState(''),[asked,setAsked]=useState(false)
 const [year,setYear]=useState('')
 const [focusPmid,setFocusPmid]=useState(''),[focusLookup,setFocusLookup]=useState(''),[lookupError,setLookupError]=useState('')
+const [handoffNote,setHandoffNote]=useState('')
 const caseRef=useRef<HTMLElement|null>(null)
 async function activate(){
  if(data||loading)return
@@ -122,19 +123,23 @@ const visibleCitationDuplicates=caseScope&&data?data.publicationLineage.duplicat
 useEffect(()=>{if(focusPmid&&data)caseRef.current?.scrollIntoView({block:'start'})},[focusPmid,data])
 function inspectPmid(pmid:string){
  if(!data?.graph.entries[pmid]){setFocusPmid('');setFocusLookup(pmid);setLookupError('PMID '+pmid+' is not part of the 500-paper exact-verified snapshot. The full source register covers the wider intake.');return}
- setLookupError('');setFocusPmid(pmid);setFocusLookup(pmid);setSearch('');setAsked(false);setMore(false);setDnaVisible(9)
+ setLookupError('');setHandoffNote('');setFocusPmid(pmid);setFocusLookup(pmid);setSearch('');setAsked(false);setMore(false);setDnaVisible(9)
 }
-function clearSourceFocus(){setFocusPmid('');setFocusLookup('');setLookupError('');setSearch('');setAsked(false);setMore(false);setFrom('');setTo('')}
+function clearSourceFocus(){setFocusPmid('');setFocusLookup('');setLookupError('');setHandoffNote('');setSearch('');setAsked(false);setMore(false);setFrom('');setTo('')}
 function openCaseInstrument(next:Tab){
  if(!caseFile||!data)return
- if(next==='dna'){setSearch(caseFile.pmid);setDnaVisible(9)}
- if(next==='time'&&caseFile.year)setYear(caseFile.year)
+ // Every instrument receives a validated source identity, not just a tab change.
+ const receipt=createResearchInstrumentHandoff(data,data.graph,caseFile,tab,next)
+ const verified=resolveResearchInstrumentHandoff(data,data.graph,receipt)
+ setHandoffNote('Verified research-only handoff: '+receipt.from+' → '+receipt.to+' · PMID '+verified.scope.pmid+' · original source retained')
+ if(next==='dna'){setSearch(verified.caseFile.pmid);setDnaVisible(9)}
+ if(next==='time'&&verified.caseFile.year)setYear(verified.caseFile.year)
  if(next==='ask'){
-  setQuery(data.graph.entries[caseFile.pmid].mentions.filter(m=>m.kind!=='method')
+  setQuery(data.graph.entries[verified.caseFile.pmid].mentions.filter(m=>m.kind!=='method')
     .slice(0,2).map(m=>m.matched).join(' '));setAsked(false)
  }
  if(next==='voyages'){
-  const ids=data.graph.entries[caseFile.pmid].mentions.filter(m=>m.kind!=='method').map(m=>m.id)
+  const ids=data.graph.entries[verified.caseFile.pmid].mentions.filter(m=>m.kind!=='method').map(m=>m.id)
   if(ids.length>1){setFrom(ids[0]);setTo(ids[1])}
  }
  navigate(next)
@@ -186,7 +191,7 @@ return <section className={styles.studio}>
       </form>
       {lookupError?<p role='status'>{lookupError} <button type='button' className={styles.caseTrace} onClick={clearSourceFocus}>Clear lookup</button></p>:null}
       {caseFile?<article className={styles.casePanel} aria-live='polite'>
-        <div className={styles.scopeBar}><span role='status'><strong>SOURCE FOCUS ACTIVE:</strong> All eight instruments are restricted to exact source-linked leads for PMID {caseFile.pmid}.</span>
+        <div className={styles.scopeBar}><span role='status'><strong>SOURCE FOCUS ACTIVE:</strong> All eight instruments are restricted to exact source-linked leads for PMID {caseFile.pmid}.{handoffNote?<small className={styles.handoffNote}> {handoffNote}</small>:null}</span>
           <button type='button' onClick={clearSourceFocus}>Clear focus · explore all sources ↗</button></div>
         <div className={styles.paperTop}><Tag>RESEARCH-ONLY CASE FILE</Tag><span>PMID {caseFile.pmid}</span></div>
         <h3>{caseFile.title}</h3>
