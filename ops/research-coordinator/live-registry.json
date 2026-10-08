@@ -10988,6 +10988,234 @@
       "reservation_id": "cf6bfd9964f799a93537",
       "reserved_at": "2026-10-08T22:53:37.263Z",
       "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42353009",
+      "title": "Withanolides Are Detected in Human Urine Following Oral Administration of a Withania somnifera Product.",
+      "doi": "10.3390/ijms27125289",
+      "source_title": "Withanolides Are Detected in Human Urine Following Oral Administration of a Withania somnifera Product.",
+      "abstract": "Ashwagandha ( Withania somnifera (L.) Dunal; WS) is an adaptogenic herb, widely used in botanical dietary supplements. Plasma pharmacokinetics of selected withanolides, an important group of bioactive phytochemicals found in WS, have been described but no previous reports were found on their urinary excretion following WS ingestion. Healthy, older adults were administered oral doses of 240 or 480 mg of Shoden ® , a commercial extract of WS roots and leaves, and urine was collected over the subsequent 12 h. Using validated methods employing liquid chromatography coupled to multiple reaction monitoring mass spectrometry (LC-MRM-MS), we analyzed Shoden ® and participant urine samples for the presence of 11 withanolides for which standards were available. Only withaferin A (0.09 µmol/mg Shoden ® ), withanoside IV (0.03 µmol/mg Shoden ® ), and a mixture of 2,3-didehydrosomnifericin and 3 R -viscosalactone B (0.19 µmol/mg Shoden ® ) were present in Shoden ® powder in amounts greater than 0.01 µmol/mg Shoden ® . We detected four withanolides in participant urine: withaferin A; sominone, the aglycone of withanoside IV; 3 R -viscosalactone B; and an abundant unidentified metabolite (WFNX), isomeric with 4-oxo withaferin A, and not detected in Shoden ® . Urinary recovery of the other 3 detected compounds was generally low (<3% of the amount in Shoden ® ). These results provide new insights into the oral absorption, metabolism, and urinary excretion of withanolides found in WS and highlight additional withanolides to consider in future human pharmacokinetic and bioactivity studies of WS products.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42353009/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Primary botanical pharmacokinetic and enzyme research; interpretation and clinical claims pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42353009",
+        "doi": "10.3390/ijms27125289",
+        "journal": "International journal of molecular sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:05:19.887Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f8fd05b132f29c7971b5",
+      "reserved_at": "2026-10-08T23:05:28.574Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-25-01"
+    },
+    {
+      "pmid": "41811662",
+      "title": "The effect of salidroside, an active component of Rhodiola rosea, on the metabolic activity of rat and human cytochromes P450 in preclinical studies.",
+      "doi": "10.1007/s43440-026-00842-w",
+      "source_title": "The effect of salidroside, an active component of Rhodiola rosea, on the metabolic activity of rat and human cytochromes P450 in preclinical studies.",
+      "abstract": "BACKGROUND: Salidroside (SAL) is the active ingredient of the traditional adaptogenic herb Rhodiola rosea. Cytochromes P450 (P450), crucial enzymes in drug metabolism, are central to understanding drug–herb interactions. This study investigates the impact of SAL on the metabolic activity of selected P450 in both rat and human systems. METHODS: Wistar rats were administered intragastrically with SAL 5, 15, or 45 mg/kg/day for seven days. The metabolic activity of CYP1A2, CYP2C6, CYP2D, and CYP3A was measured in rat liver microsomes (RLMs). Amounts and gene expressions of CYP1A2 and CYP2C6 were assessed in RLMs using Western blot and two-step qRT-PCR. rPXR, hPXR, and CAR3 gene reporter assays were conducted. The in vitro inhibitory studies of SAL in both drug-naïve rat and human liver microsomes were performed. Interactions between SAL and human P450 were also studied by in silico methods. RESULTS: SAL at the dose of 5 mg/kg/day slightly increased the specific activity of the P450 studied. However, SAL did not change either the P450 protein levels or the expression of the corresponding genes in rat liver. It also did not cause direct inhibition of rat and human P450 in liver microsomes in vitro. Molecular docking with human P450 confirmed these findings. Moreover, SAL inhibited the agonist-mediated induction of both rat and human PXR. CONCLUSIONS: Based on our findings, SAL is unlikely to pose a significant risk of P450-mediated drug-herb interactions and rather preserves the constitutional CYP3A metabolic activity via interaction with PXR. CLINICAL TRIAL NUMBER: Not applicable.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41811662/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Primary botanical pharmacokinetic and enzyme research; interpretation and clinical claims pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41811662",
+        "doi": "10.1007/s43440-026-00842-w",
+        "journal": "Pharmacological reports : PR",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:05:19.888Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ac8adecb2416191e7dad",
+      "reserved_at": "2026-10-08T23:05:28.574Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-25-01"
+    },
+    {
+      "pmid": "42061548",
+      "title": "Inhibition of cytochrome P450 enzymes by cirsimaritin and its properties invitro.",
+      "doi": "10.1016/j.abb.2026.110834",
+      "source_title": "Inhibition of cytochrome P450 enzymes by cirsimaritin and its properties invitro.",
+      "abstract": "The flavonoid cirsimaritin has pharmacological activities that potentially modulate inflammatory responses, tumor progression, and glucolipid metabolism. However, its influence on cytochrome P450 (P450) enzyme activity remains unexplored. This study examines the influence of cirsimaritin on P450 activity, aiming to offer further guidance for its clinical use. The effect of cirsimaritin on key P450 isoform activities was investigated in pooled human liver microsomes (HLMs) using specific substrates. The half-maximal inhibitory concentrations (IC 50 ) for the inhibition of P450 isoforms were determined using different doses of cirsimaritin. The type of inhibition was further assessed using different concentrations of substrates. Furthermore, time-dependent experiments were performed to obtain the corresponding kinetic parameters. Cirsimaritin inhibited the activity of CYP1A2, CYP3A4, and CYP2C9 with significant concentration-dependent changes, and the IC 50 values were 18.4 ± 2.7, 15.3 ± 2.6, and 9.67 ± 1.9 μM, respectively. Cirsimaritin exhibited non-competitive inhibition of CYP3A4, with the inhibition constant (K i ) value of 7.81 ± 0.79 μM. Cirsimaritin was a competitive inhibitor of CYP1A2 and CYP2C9, with K i values of 9.33 ± 0.65 μM and 4.81 ± 0.51 μM, respectively. In addition, the inhibitory effect of cirsimaritin on CYP3A4 was further found to be time-dependent, with the maximal rate of enzyme inactivation (k inact ) value of 0.035 ± 0.005 min -1 and the concentration of cirsimaritin at half of the k inact (K I ) value of 6.52 ± 0.81 μM. The observed inhibition of CYP1A2, CYP3A4, and CYP2C9 by cirsimaritin indicates its potential to cause herb-drug interactions with drugs metabolized by these isoforms. Further in vivo studies are needed to confirm such interactions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42061548/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Primary botanical pharmacokinetic and enzyme research; interpretation and clinical claims pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42061548",
+        "doi": "10.1016/j.abb.2026.110834",
+        "journal": "Archives of biochemistry and biophysics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:05:19.889Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "319dbb733fde12b6157a",
+      "reserved_at": "2026-10-08T23:05:28.574Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-25-01"
     }
   ],
   "batches": [
@@ -11001,22 +11229,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 138,
+    "total_reservations": 141,
     "by_lane": {
       "1": 5,
       "2": 15,
-      "3": 35,
+      "3": 38,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 138
+      "SOURCE_VERIFIED": 141
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 138,
+        "count": 141,
         "pr_number": null,
         "blocker": null
       }
