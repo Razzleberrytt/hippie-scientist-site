@@ -34,12 +34,6 @@ function walk(value,out=[]){
  for(const v of Object.values(value))walk(v,out);
  return out;
 }
-function scanLocal(root){
- const out=[];const seen=new Set();
- function visit(p){if(!fs.existsSync(p))return;for(const d of fs.readdirSync(p,{withFileTypes:true})){const f=path.join(p,d.name);if(d.isDirectory())visit(f);else if(d.name.endsWith('.json')){try{for(const r of walk(JSON.parse(fs.readFileSync(f,'utf8')))){const k=identityKeys(r).join('|');if(!seen.has(k)){seen.add(k);out.push(r)}}}catch{}}}}
- for(const prefix of researchPrefixes)visit(path.join(root,prefix));return out;
-}
-
 export function reconcileBaseline(records){
  const byPmid=new Map(),byTitle=new Map(),byDoi=new Map(),out=[],position=new Map();
  const placeholder=(pmid,title)=>title===normalizeTitle('historical PMID '+pmid);
@@ -144,10 +138,34 @@ async function findMainThroughWave(){
      const part=JSON.parse(fs.readFileSync(a.path,'utf8'));
      for(const r of part.rows||[])if(r.pmid&&r.title&&authoritativePmids.has(String(r.pmid)))
        byPmid.set(String(r.pmid),{pmid:String(r.pmid),title:String(r.title),doi:r.doi?String(r.doi):''});
-   }catch{}
+   }catch(error){if(process.env.RESEARCH_DEBUG)console.warn('research artifact skipped:',error.message)}
  }
  return {max:latest.end,pmids:latest.index.pmids.map(String),records:[...byPmid.values()]};
 }
+async function allocateFrozenRanges(){
+ const main=await findMainThroughWave();
+ const pending=await listOpenPrRecords();
+ const pendingEnds=pending.pulls.flatMap(p=>{
+   const match=String(p.title||'').match(/waves\s+(\d+)[–-](\d+)/i);
+   return match?[Number(match[2])]:[];
+ });
+ return commitRegistryMutation(async reg=>{
+   let cursor=Math.max(main.max,0,...pendingEnds,...reg.batches.map(b=>Number(b.wave_end)||0));
+   const waiting=reg.batches
+     .filter(b=>b.state==='FREEZE_PENDING'&&!Number(b.wave_start))
+     .sort((a,b)=>String(a.frozen_at||a.created_at||'').localeCompare(String(b.frozen_at||b.created_at||''))||String(a.id).localeCompare(String(b.id)));
+   for(const batch of waiting){
+     const start=cursor+1,end=start+499;
+     batch.wave_start=start;
+     batch.wave_end=end;
+     batch.branch='research/enrichment-waves-'+start+'-'+end+'-rolling';
+     batch.artifact_prefix=new Date().toISOString().slice(0,10)+'-enrichment-waves-'+start+'-'+end;
+     batch.allocated_at=new Date().toISOString();
+     cursor=end;
+   }
+ },'research: allocate atomic rolling wave ranges');
+}
+
 async function materializeBatch(reg,batch){
  if(batch.state!=='FREEZE_PENDING')return;
  const rows=reg.reservations.filter(r=>r.batch_id===batch.id&&r.state!=='RELEASED');
