@@ -5,6 +5,7 @@ import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
+import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -142,7 +143,8 @@ function validateIdentity(mediaPack, creativeSpec) {
     if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
-    if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+    const methodRelease = clean(creativeSpec?.creativeMethodRelease)
+    if (methodRelease === 'R8.06') {
       const direction = creativeSpec?.creativeDirection
       if (clean(direction?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
           || clean(direction?.release) !== 'R8.06'
@@ -160,6 +162,23 @@ function validateIdentity(mediaPack, creativeSpec) {
           || direction?.deliveryPolicy?.manualFallbackRequired !== true
           || direction?.deliveryPolicy?.providerMayMutateArtifact !== false) {
         throw new Error('R8.06 creative-direction receipt is missing native-attention/delivery invariants')
+      }
+    } else if (methodRelease === 'R8.07') {
+      const foundation = creativeSpec?.creativeFoundation
+      const direction = creativeSpec?.creativeDirection
+      if (clean(foundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(foundation?.release) !== 'R8.06'
+          || clean(foundation?.status) !== 'approved') {
+        throw new Error('R8.07 methodology requires an approved R8.06 creative foundation')
+      }
+      if (clean(direction?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(direction?.release) !== 'R8.07'
+          || clean(direction?.runtimeBaseRelease) !== 'R8.05'
+          || clean(direction?.status) !== 'approved'
+          || clean(direction?.inheritedR806OverlaySha256) !== clean(foundation?.overlaySha256)
+          || !/^[a-f0-9]{64}$/i.test(clean(direction?.overlaySha256))
+          || clean(direction?.visualRhythmCertifiedAt) !== 'exact-master-qa') {
+        throw new Error('R8.07 methodology requires an artifact-bound visual-rhythm creative-direction receipt')
       }
     }
   } else if (release === 'R8.04') {
@@ -313,13 +332,26 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       || JSON.stringify(freshQuality.beatReceipts) !== JSON.stringify(quality.beatReceipts)) {
     throw new Error('R8.05 creative-quality receipt does not bind the exact creative brief')
   }
-  if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+  const methodRelease = clean(creativeSpec?.creativeMethodRelease)
+  if (methodRelease === 'R8.06') {
     const freshDirection = buildR806CreativeReceipt(brief)
     const direction = creativeSpec?.creativeDirection
     if (clean(freshDirection.overlaySha256) !== clean(direction?.overlaySha256)
         || clean(freshDirection.selectedConceptId) !== clean(direction?.selectedConceptId)
         || JSON.stringify(freshDirection.earlyVisualTeachingModes) !== JSON.stringify(direction?.earlyVisualTeachingModes)) {
       throw new Error('R8.06 creative-direction receipt does not bind the exact creative brief overlay')
+    }
+  } else if (methodRelease === 'R8.07') {
+    const freshFoundation = buildR806CreativeReceipt(brief)
+    const foundation = creativeSpec?.creativeFoundation
+    const freshDirection = buildR807CreativeReceipt(brief)
+    const direction = creativeSpec?.creativeDirection
+    if (clean(freshFoundation.overlaySha256) !== clean(foundation?.overlaySha256)
+        || clean(freshDirection.overlaySha256) !== clean(direction?.overlaySha256)
+        || clean(freshDirection.inheritedR806OverlaySha256) !== clean(foundation?.overlaySha256)
+        || JSON.stringify(freshDirection.compositionFamilies) !== JSON.stringify(direction?.compositionFamilies)
+        || clean(freshDirection.patternInterruptBeatId) !== clean(direction?.patternInterruptBeatId)) {
+      throw new Error('R8.07 visual-rhythm receipt does not bind the exact creative brief overlay')
     }
   }
   if (clean(brief.sourceIdentity?.id) !== clean(mediaPack.researchObjectIds?.[0])
@@ -422,6 +454,13 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       cutReason: clean(beat.cutReason),
       factualAuthority: clean(beat.factualAuthority) || 'creative-framing',
       colorTreatment: colorTreatmentForRole(clean(beat.role), beat.colorTreatment),
+      visualMode: clean(beat?.r806?.visualMode),
+      teachingObject: clean(beat?.r806?.teachingObject),
+      compositionFamily: clean(beat?.r807?.compositionFamily),
+      rhythmAction: clean(beat?.r807?.rhythmAction),
+      motifId: clean(beat?.r807?.motifId),
+      patternInterrupt: beat?.r807?.patternInterrupt === true,
+      patternInterruptReason: clean(beat?.r807?.patternInterruptReason),
       beatReceiptSha256: sha256(JSON.stringify(governed)),
       sourceLegibility: clean(beat.role) === 'source' ? creativeSpec.verticalVideo.sourceLegibility : undefined,
     }
