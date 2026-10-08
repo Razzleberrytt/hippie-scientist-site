@@ -1,7 +1,7 @@
 # Documentation Index
 
 **Status:** Authoritative documentation map
-**Updated:** 2026-09-27
+**Updated:** 2026-10-08
 **Inventory scope:** 277 live markdown files under `docs/` and at the repository root, after the 2026-08-29 documentation pass moved 88 documents into `docs/archive/2026-08/`. Classification stays rule-based so this index does not become a second per-file maintenance burden; the full per-file disposition is in [`generated/docs-disposition.md`](generated/docs-disposition.md).
 
 **Archive:** [`archive/`](archive/README.md) holds retained context. It must not be used to select work or quote status. `scripts/ci/validate-doc-links.mjs`, part of `npm run check`, fails on any broken relative link outside the archive and generated output.
@@ -17,6 +17,7 @@
 7. [`docs/DECISIONS.md`](DECISIONS.md) — durable choices and rationale
 8. [`docs/SCOREBOARD.md`](SCOREBOARD.md) — metric definitions and current values
 9. [`docs/SWARM-UPDATES.md`](SWARM-UPDATES.md) — durable merged-update history and Integration reconciliation contract
+10. [`docs/GENERATIONAL_ENGINEERING_P0.md`](GENERATIONAL_ENGINEERING_P0.md) — current P0 generation integration and validation execution methodology
 
 ## Authority levels
 
@@ -47,6 +48,8 @@ When documents conflict, current code/configuration/tests/deployment evidence es
 `AGENTS.md` is outside `docs/` but is the highest-priority operating rule set. Because its required operating sequence delegates reading order to this index, every fresh agent must discover `SWARM-UPDATES.md`; Integration must additionally follow that file's reconciliation/ownership contract.
 
 ## Supporting documents
+
+**Current cross-system execution methodology:** [Generational Engineering & Integration Readiness](GENERATIONAL_ENGINEERING_P0.md), governed by [P0 issue #6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431). This supplements, but does not override, the authoritative WIP, safety or release controls.
 
 These remain valuable but cannot override the control system.
 
