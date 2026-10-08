@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 4,
+  "lane_focus": "withdrawal-dependence-nps",
+  "research_only": true,
+  "pmids": [
+    "41355410",
+    "41442975",
+    "42258631",
+    "41314587",
+    "42664032",
+    "42206614",
+    "41943134",
+    "42009456",
+    "42647839",
+    "40810707"
+  ]
+}
