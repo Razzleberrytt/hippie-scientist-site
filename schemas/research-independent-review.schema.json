@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://thehippiescientist.net/schemas/research-independent-review.schema.json",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","independent_semantic_review","batch_content_sha256","reviewed_records","accepted_records","rejected_records","reviewer","reviewed_at","adverse_effects_reviewed","interactions_reviewed","limitations_reviewed","uncertainty_reviewed","overclaim_check"],
+  "properties":{
+    "schema_version":{"const":1},
+    "independent_semantic_review":{"const":true},
+    "batch_content_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "reviewed_records":{"const":500},
+    "accepted_records":{"const":500},
+    "rejected_records":{"const":0},
+    "reviewer":{"type":"string","minLength":3},
+    "reviewed_at":{"type":"string","format":"date-time"},
+    "adverse_effects_reviewed":{"const":true},
+    "interactions_reviewed":{"const":true},
+    "limitations_reviewed":{"const":true},
+    "uncertainty_reviewed":{"const":true},
+    "overclaim_check":{"const":true},
+    "notes":{"type":"string"}
+  }
+}
