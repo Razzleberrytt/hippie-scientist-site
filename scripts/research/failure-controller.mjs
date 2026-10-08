@@ -1,5 +1,6 @@
 export function classifyFailure(error){
  const status=Number(error?.status||0),message=String(error?.message||error||'');
+ if(/source unavailable|source verification|efetch|pubmed.*unavailable|invalid source response/i.test(message))return {kind:'source',retry:true,maxAttempts:3,action:'RETRY_SOURCE_THEN_HOLD_RECORD'};
  if(/collision|duplicate|stale PR head|source title mismatch|invalid state|missing .*field|incomplete/i.test(message))return {kind:'validation',retry:false,action:'BLOCK_AND_REVIEW'};
  if(status===401||status===403||/permission|forbidden|not authorized/i.test(message))return {kind:'permission',retry:false,action:'ESCALATE_PERMISSION'};
  if(status===409||status===422||/conflict|head moved|compare-and-swap|stale registry/i.test(message))return {kind:'concurrency',retry:true,maxAttempts:3,action:'REFETCH_REVALIDATE_RETRY'};
