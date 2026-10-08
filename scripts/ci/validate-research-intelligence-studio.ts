@@ -4,6 +4,8 @@ import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
 import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
 import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
+import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
+import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -376,6 +378,116 @@ for(const name of ['Study DNA','Contradiction Observatory','Knowledge Frontier',
 }
 assert(readFileSync('app/research/source-register/page.tsx','utf8').includes("href='/research/intelligence/'"))
 assert(readFileSync('app/research/page.tsx','utf8').includes("href='/research/intelligence/'"))
+// Relay 1.06: actual cross-instrument join logic must stay source-bound.
+const titlePair=pickTraceableConceptPair(graph,sharedCase.pmid)
+assert(titlePair&&traceCaseConceptPair(graph,sharedCase.pmid,titlePair[0],titlePair[1]).length===1,
+ 'A Voyages link must open a real PMID-local title-backed concept pair')
+const nonTraceableReal=real.dna.find(d=>realGraph.entries[d.pmid].related.length>0&&
+  !pickTraceableConceptPair(realGraph,d.pmid))
+assert(nonTraceableReal,'Real 500 PMID snapshot should exercise nontraceable neighbors')
+const nonTraceableCase=buildResearchCaseFile(real,realGraph,nonTraceableReal.pmid)!
+const nonTraceableScope=buildResearchCaseScope(real,nonTraceableCase)
+const blockedVoyageRelay=buildInstrumentRelay(real,realGraph,nonTraceableCase,nonTraceableScope)
+assert(!blockedVoyageRelay.junctions.some(j=>j.to==='voyages'||j.from==='voyages'),
+ 'A neighbor alone cannot advertise a nonfunctional Voyages junction')
+assert(ui.includes('pickTraceableConceptPair('),
+ 'The source-focused user interface must select the same traceable pair as the relay')
+const relay=buildInstrumentRelay(s,graph,sharedCase,sourceScope)
+assert.equal(relay.pmid,sharedCase.pmid)
+assert.equal(relay.status,'source-bound-no-clinical-synthesis')
+assert(relay.junctions.length>=2,'DNA, chronology and Ask must interoperate for a known source')
+assert(relay.junctions.some(x=>x.from==='dna'&&x.to==='time'&&x.basis==='source-year-membership'))
+assert(relay.junctions.some(x=>x.from==='dna'&&x.to==='ask'&&x.basis==='source-concept-index'))
+assert(relay.junctions.every(x=>x.pmid===sharedCase.pmid&&x.status==='research-navigation-only'))
+assert.equal(new Set(relay.junctions.map(x=>x.id)).size,relay.junctions.length)
+assert(!relay.junctions.some(x=>x.to==='contradictions'),
+ 'No auto joining an unrelated reviewed study by ingredient text alone')
+assert.throws(()=>buildInstrumentRelay(s,graph,
+ {...sharedCase,reviewedCitationIds:['fabricated-id']},sourceScope),
+ /conflicts|identity|verified|exact/, 'Forged citation IDs must fail closed')
+assert.throws(()=>buildInstrumentRelay(s,graph,sharedCase,{...sourceScope,pmid:'99999999'}),
+ /exact source-bound/, 'Incompatible source handoff must fail closed')
+assert.throws(()=>buildInstrumentRelay(s,{
+ ...graph, entries:{...graph.entries,[sharedCase.pmid]:{
+  ...graph.entries[sharedCase.pmid],sourceSignature:'forged-snapshot'}},
+},sharedCase,sourceScope),/exact source-bound/, 'An altered semantic source signature must fail closed')
+const reviewedNetwork={...graph,
+ reviewedEdges:[...graph.reviewedEdges,{
+  id:'reviewed:known',sourcePmid:sharedCase.pmid,subject:'magnesium',predicate:'mentions',object:'sleep',
+  context:'Independently reviewed index description',evidenceType:'bibliographic',
+  uncertainty:'not a treatment inference',reviewer:'test-reviewer',
+  reviewedAt:'2026-10-08',batchId:'test-batch',provenance:'independent-scientific-review' as const,
+ },{
+  id:'reviewed:unrelated',sourcePmid:'10000002',subject:'creatine',predicate:'mentions',object:'cognition',
+  context:'Another source',evidenceType:'bibliographic',uncertainty:'',
+  reviewer:'test-reviewer',reviewedAt:'2026-10-08',batchId:'test-batch',
+  provenance:'independent-scientific-review' as const,
+ }],
+ contradictions:[...graph.contradictions,{
+  sourcePmid:sharedCase.pmid,flag:'Needs interpretation',
+  reviewer:'test-reviewer',reviewedAt:'2026-10-08',batchId:'test-batch',
+  provenance:'independent-scientific-review' as const,
+ }],
+}
+const reviewedRelay=buildInstrumentRelay(s,reviewedNetwork,sharedCase,sourceScope)
+assert.deepEqual(reviewedRelay.independentlyReviewed.edges.map(x=>x.id),['reviewed:known'])
+assert.equal(reviewedRelay.independentlyReviewed.contradictionFlags.length,1)
+assert.deepEqual(reviewedRelay.junctions,relay.junctions,
+ 'Independent review annotations cannot silently promote source-text paths into new navigational clinical claims')
+assert(ui.includes('buildInstrumentRelay(')&&ui.includes('Cross-instrument source relay')&&
+ ui.includes('Independent semantic review')&&ui.includes('Continue into '),
+ 'UI must render and navigate the exact-source relay and keep reviewed annotations distinct')
+assert(!ui.includes('allowAutopublish: true'),'Relay must not authorize publishing')
+
+// Semantic Fabric 1.07: strict downstream identity matching, no social/claim promotion.
+const doiSources=sources.map(x=>({...x,doi:x.pmid==='10000001'?'10.5555/exact-synthetic-source':''}))
+const doiGraph=buildResearchSemanticNetwork(doiSources)
+const doiStudio=buildResearchIntelligenceStudio(doiSources,doiGraph,[])
+const doiCase=buildResearchCaseFile(doiStudio,doiGraph,'10000001')!
+const publisherObject={
+ id:'social-exact-1',sourceUrl:'https://thehippiescientist.net/herbs/magnesium/',
+ primarySourceUrl:'https://doi.org/10.5555/exact-synthetic-source',
+ findingClaimId:'clm_exact001',primarySourceId:'src_exact001',
+}
+const linkedFabric=planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ publisherObject,{...publisherObject,id:'unrelated-topic',primarySourceUrl:'https://doi.org/10.5555/other'},
+ {...publisherObject,id:'lookalike-only',primarySourceUrl:'',sourceUrl:'https://thehippiescientist.net/herbs/magnesium/'},
+])
+assert.equal(linkedFabric.systemCapability,'semantic-fabric-1.07')
+assert.equal(linkedFabric.sourcePmid,doiCase.pmid)
+assert.equal(linkedFabric.sourceDoi,'10.5555/exact-synthetic-source')
+assert.deepEqual(linkedFabric.distributionReviewTargets.map(x=>x.objectId),['social-exact-1'])
+assert.equal(linkedFabric.distributionReviewTargets[0].sourceClaimId,'clm_exact001')
+assert.equal(linkedFabric.distributionReviewTargets[0].status,'publication-matched-editorial-review-required')
+assert.equal(linkedFabric.distributionReviewTargets[0].limitation,
+ 'same-publication-identity-does-not-prove-claim-support-or-independence')
+assert.equal(linkedFabric.publicationAllowed,false)
+assert.equal(linkedFabric.mutationAllowed,false)
+assert(linkedFabric.instrumentHandoffs.length>=2)
+assert.equal(linkedFabric.unresolvedChannels.some(x=>x.channel==='social'),false)
+assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ {...publisherObject,primarySourceUrl:'https://doi.org/10.5555/not-exact'},
+]).distributionReviewTargets.length,0,'Theme and page overlap cannot bypass exact DOI')
+assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ {...publisherObject,findingClaimId:undefined},
+]).distributionReviewTargets.length,0,'Unlinked claim identity must not be filled in by guessing')
+assert.throws(()=>planResearchSemanticFabric(doiStudio,doiGraph,
+ {...doiCase,sourceSignature:'forged'},[publisherObject]),/exact canonical source case/)
+assert.throws(()=>planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ publisherObject,{...publisherObject,id:'social-exact-1',primarySourceUrl:'https://doi.org/10.5555/other'}
+]),/conflicting DOI identity/)
+assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,
+ buildResearchCaseFile(doiStudio,doiGraph,'10000002')!,[publisherObject])
+ .distributionReviewTargets.length,0,'No same-PMID or unrelated-paper cross-talk')
+const manifestObjects=JSON.parse(readFileSync('data/distribution/research-objects.json','utf8')) as Array<{
+ id:string;sourceUrl:string;primarySourceUrl?:string;findingClaimId?:string;primarySourceId?:string}>
+const realFabric=planResearchSemanticFabric(real,realGraph,liveCase!,manifestObjects)
+assert(realFabric.distributionReviewTargets.every(t=>
+ real.dna.some(d=>d.pmid===realFabric.sourcePmid&&d.doi.trim().toLowerCase()===t.matchingDoi)))
+assert.equal(realFabric.publicationAllowed,false)
+assert(ui.includes('planResearchSemanticFabric(')&&ui.includes('Distribution review targets'),
+ 'Existing distribution objects must be joined in the visitor-facing source case')
+
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
  exactVerifiedSources:500,allFingerprintPmidsUnique:true,coveredInstruments:8,
  sourceOnly:true,autoClinicalPromotions:0,autoPublications:0,

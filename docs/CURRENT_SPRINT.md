@@ -51,6 +51,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — implementation WIP 0/3
 
+**Research Intelligence #6420 / PR #6422 — In review (2026-10-08):** Source-verified Semantic Intelligence 1.06 adds exact-PMID navigation junctions between the eight original research instruments, a title-backed two-concept Voyages eligibility gate, and a separate independently reviewed annotation lane. The branch also carries the exact DOI publication-to-editorial/distribution review map from 1.07 (#6423/#6424). The 1.05 foundation has merged via #6419. These are read-only research-infrastructure changes; clinical promotions, automated publications, and proof of deployment are **not** authorized. The normal D/R/A WIP cap remains 3; this status entry does not silently change machine-managed reservations or grant another implementation slot. Merge requires latest-head CI, closed review threads and production verification.
+
+
+
 **Creative-quality control #6382:** Active — implement R8.05 Attention-First Story Architecture & Semantic AV Lock after a real TikTok field failure exposed that scientific correctness, clean visuals and a good local narrator can still produce weak social content. Scope is bounded to premise selection and audiovisual temporal coherence: premise-interest, one-mental-job, payoff-before-method, natural-duration, narration-first beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. R8.04 zero-credit sovereignty remains mandatory.
 
 
