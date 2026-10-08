@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "records": [
+    {
+      "pmid": "41343876",
+      "title": "Anti-neuroinflammatory polyprenylated acylphloroglucinols from Hypericum patulum: LC-MS/MS-guided isolation, semi-synthesis, and TLR4 inhibition",
+      "source_title": "Anti-neuroinflammatory polyprenylated acylphloroglucinols from Hypericum patulum: LC-MS/MS-guided isolation, semi-synthesis, and TLR4 inhibition",
+      "doi": "10.1016/j.bioorg.2025.109292",
+      "abstract": "Researchers isolated 45 polyprenylated acylphloroglucinol compounds, including 13 previously unreported analogs, from Hypericum patulum. Fourteen compounds reduced nitric oxide production in BV-2 cells. Further experiments implicated TLR4-associated signaling, and a compound was studied in a zebrafish model. These are preclinical findings and cannot establish human benefit.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41343876/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "hypericum_cellular_pharmacology",
+      "relevance_reason": "Primary botanical isolation and cell-signaling study with explicit preclinical relevance limits.",
+      "evidence_class": "mixed",
+      "study_design": "Chemical isolation, cell culture signaling assays and zebrafish model",
+      "study_details": {
+        "isolates": 45,
+        "new_analogs": 13,
+        "model": "BV-2 and zebrafish"
+      },
+      "population": "Cell cultures and zebrafish, no human clinical participants",
+      "intervention": "Isolated Hypericum patulum constituents",
+      "comparator": "Laboratory assay controls including minocycline",
+      "outcomes": [
+        "45 isolated analogs including 13 new ones",
+        "Fourteen compounds inhibited nitric oxide production in BV-2 cells",
+        "TLR4-associated signaling effects in preclinical models"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "mechanistic",
+      "uncertainty": "No human efficacy, dosing, or safety conclusions can be drawn.",
+      "adverse_effects": "No human adverse-event assessment; zebrafish model only.",
+      "interactions": "Cell signaling studied; no herb-drug interaction tested.",
+      "limitations": "Cellular and zebrafish outcomes do not establish human clinical relevance.",
+      "provenance": {
+        "pmid": "41343876",
+        "doi": "10.1016/j.bioorg.2025.109292",
+        "source": "PubMed primary abstract",
+        "verified_on": "2026-10-08"
+      },
+      "signals": {
+        "safety": 0.5,
+        "evidence_gap": 0.85,
+        "contradiction": 0.3,
+        "novelty": 0.9,
+        "graph_connectivity": 0.8
+      }
+    }
+  ]
+}
