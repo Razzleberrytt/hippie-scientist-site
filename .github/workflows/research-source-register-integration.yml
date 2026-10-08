@@ -5,21 +5,26 @@ on:
     branches:
       - feat/visible-research-source-register-20261008
       - feat/semantic-research-intelligence-20261008
+      - feat/semantic-science-intelligence-studio-20261008
     paths:
       - 'lib/research-source-register.ts'
       - 'lib/research-semantic-network.ts'
+      - 'lib/research-intelligence-studio.ts'
       - 'app/research/**'
       - 'components/homepage-v2.tsx'
       - 'app/library/page.tsx'
       - 'lib/primary-navigation.ts'
       - 'scripts/ci/validate-research-source-register.mjs'
       - 'scripts/ci/validate-research-semantic-network.ts'
+      - 'scripts/ci/validate-research-intelligence-studio.ts'
       - '.github/workflows/research-source-register-integration.yml'
   pull_request:
     paths:
       - 'lib/research-source-register.ts'
       - 'lib/research-semantic-network.ts'
+      - 'lib/research-intelligence-studio.ts'
       - 'scripts/ci/validate-research-semantic-network.ts'
+      - 'scripts/ci/validate-research-intelligence-studio.ts'
       - 'app/research/**'
       - 'components/homepage-v2.tsx'
       - 'app/library/page.tsx'
@@ -46,5 +51,7 @@ jobs:
         run: npm ci
       - name: Validate semantic edge provenance, collisions and false-link boundaries
         run: npx tsx scripts/ci/validate-research-semantic-network.ts
+      - name: Validate eight research intelligence instruments and editorial boundaries
+        run: npx tsx scripts/ci/validate-research-intelligence-studio.ts
       - name: Typecheck static Next.js research route
         run: npm run typecheck

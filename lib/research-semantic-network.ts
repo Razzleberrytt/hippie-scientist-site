@@ -52,6 +52,8 @@ export type SemanticRecord = {
 }
 export type SemanticGraphEntry = {
   pmid: string
+  /** Text-change detector; upstream SHA-pinned source receipts remain the integrity authority. */
+  sourceSignature: string
   mentions: SemanticMention[]
   profiles: SemanticProfileLink[]
   reviewedCitations: PublishedCitationCrossref[]
@@ -160,6 +162,23 @@ function methodFromPublicationType(pubType: string): string {
   return 'Method not classified'
 }
 
+/**
+ * Synchronous, runtime-neutral double-hash of the exact title/abstract and
+ * graph-driving metadata. This detects stale graph-source combinations; it is
+ * not a cryptographic substitute for the upstream SHA-pinned EFetch receipts.
+ */
+export function semanticSourceSignature(source:SemanticRecord):string {
+  const value=JSON.stringify([source.pmid,source.title,source.abstract,source.category,source.pubType])
+  let fnv=2166136261>>>0
+  let djb=5381>>>0
+  for(let i=0;i<value.length;i++){
+    const c=value.charCodeAt(i)
+    fnv=Math.imul(fnv^c,16777619)>>>0
+    djb=(Math.imul(djb,33)^c)>>>0
+  }
+  return value.length.toString(16)+'-'+fnv.toString(16).padStart(8,'0')+'-'+djb.toString(16).padStart(8,'0')
+}
+
 export function buildResearchSemanticNetwork(
   records:readonly SemanticRecord[],
   publishedProfiles:readonly {name:string;href:string}[]=[],
@@ -204,6 +223,7 @@ export function buildResearchSemanticNetwork(
     // Multiple aliases may point to the same canonical profile; stable dedup.
     entries[record.pmid]={
       pmid:record.pmid,
+      sourceSignature:semanticSourceSignature(record),
       mentions,
       profiles:[...new Map(profiles.map(p=>[p.href,p])).values()].slice(0,8),
       reviewedCitations:[...(citationIds.get(record.pmid)||[])].slice(0,6).map(studyId=>({

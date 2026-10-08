@@ -299,7 +299,7 @@ export default async function ResearchPage() {
           </Link>
         </div>
         <p className='mt-4 text-sm leading-7 text-muted'>
-          Separately, the research intake register tracks <strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()}</strong> distinct PubMed IDs through wave {sourceRegister.throughWave.toLocaleString()}. Those identities are not added to the published study counts below. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source intake →</Link>
+          Separately, the research intake register tracks <strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()}</strong> distinct PubMed IDs through wave {sourceRegister.throughWave.toLocaleString()}. Those identities are not added to the published study counts below. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source intake →</Link> <Link href='/research/intelligence/' className='font-semibold text-brand-700 hover:underline'>Explore the Research Intelligence Studio ↗</Link>
         </p>
         <div className='mt-6 grid gap-4 sm:grid-cols-3'>
           <div className='rounded-xl bg-white p-5'>
