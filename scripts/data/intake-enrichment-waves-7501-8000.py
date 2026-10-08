@@ -7,6 +7,7 @@ admission, site copy, dosing advice, or treatment recommendations.
 """
 from __future__ import annotations
 import hashlib
+import http.client
 import json
 import pathlib
 import re
@@ -119,7 +120,7 @@ def req(endpoint, params):
                 out = f.read()
             time.sleep(0.40)
             return ET.fromstring(out)
-        except (urllib.error.HTTPError,urllib.error.URLError,TimeoutError,ET.ParseError) as exc:
+        except (urllib.error.HTTPError,urllib.error.URLError,TimeoutError,ET.ParseError,http.client.HTTPException,OSError) as exc:
             last = exc
             time.sleep(min(2**attempt, 25))
     raise RuntimeError(f"NCBI request repeatedly failed ({endpoint}): {last}")
