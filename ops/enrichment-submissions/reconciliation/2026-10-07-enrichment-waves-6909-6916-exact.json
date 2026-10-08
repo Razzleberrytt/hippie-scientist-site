@@ -2,14 +2,9 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-6909-6916-exact",
   "range": "6909-6916",
-  "row_count": 6,
-  "exact_verified_rows": 6,
+  "row_count": 7,
+  "exact_verified_rows": 7,
   "failures": [
-    {
-      "wave": 6914,
-      "pmid": "31035044",
-      "error": "PubMed title/abstract verification failed"
-    },
     {
       "wave": 6915,
       "pmid": "25666427",
@@ -125,6 +120,28 @@
       "verified_pub_date": "2020-Mar",
       "pdf_link": "https://doi.org/10.1097/MD.0000000000019410",
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7220054/",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "safety_interactions",
+      "pmid": "31035044",
+      "title": "Efficacy and safety of Chinese herbal medicine Xiao Yao San in hypertension: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.phymed.2019.152849",
+      "pub_date": "2019 Aug",
+      "pub_type": "Systematic Review",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "discovery_query": "((dietary supplement[Title] OR herbal medicine[Title] OR herbal supplement[Title] OR botanical[Title] OR nutraceutical[Title]) AND (interaction[Title] OR adverse[Title] OR hepatotoxicity[Title] OR toxicity[Title] OR safety[Title] OR pharmacokinetic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 19,
+      "wave": 6914,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Efficacy and safety of Chinese herbal medicine Xiao Yao San in hypertension: A systematic review and meta-analysis.",
+      "abstract": "Xiao Yao San (XYS) is thought to be beneficial for the treatment of hypertension in China. A systematic review and meta-analysis was performed to evaluate the efficacy and safety of XYS in hypertension. A comprehensive literature search was conducted in 7 electronic databases for randomized controlled trials from their inception until January 7, 2019. Methodological quality was assessed independently using the Cochrane Handbook for Systematic Reviews of Interventions. A total of 17 trials including 1460 hypertensive patients met the selection criteria. Pooled analysis favored XYS plus antihypertensive drugs on blood pressure (BP), Hamilton anxiety scale, self-rating anxiety scale, self-rating depression scale, 9-item patient health questionnaire scale, total cholesterol, triglycerides, high-density lipoprotein cholesterol, low-density lipoprotein cholesterol, homocysteine, and C-reactive protein. No significant difference between XYS plus antihypertensive drugs and antihypertensive drugs on major cardiovascular and cerebrovascular events was identified. XYS was well tolerated in the treatment of hypertension. XYS adjuvant to antihypertensive drugs maybe beneficial for hypertensive patients in lowering BP, improving depression, regulating blood lipids, and inhibiting inflammation. However, the efficacy and safety of XYS are still uncertain due to methodological shortcomings. More long-term, randomized, double-blinded clinical trials are needed in future studies.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "verified_pub_date": "2019-Aug",
+      "pdf_link": "https://doi.org/10.1016/j.phymed.2019.152849",
+      "full_text_link": "",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
