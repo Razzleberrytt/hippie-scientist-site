@@ -92,10 +92,10 @@ export default async function SourceRegisterPage() {
         separately reviewed, indexable runtime evidence. Counts from these two systems must not be added together.
       </aside>
 
-      <SourceRegisterClient records={publicRecords} previousCount={data.priorPmidOnly} categories={data.categories} networkSummary={semanticSummary} />
+      <SourceRegisterClient records={publicRecords} previousCount={data.priorPmidOnly} priorIndexHref={data.priorIndexHref} throughWave={data.throughWave} categories={data.categories} networkSummary={semanticSummary} />
 
       <p className='text-xs leading-6 text-muted'>
-        Provenance: SHA-pinned NCBI EFetch receipts for waves 7001–7500 and the authoritative cumulative PMID index.
+        Provenance: SHA-pinned NCBI EFetch receipts for the latest merged 500-record batch through wave {data.throughWave.toLocaleString()} and the authoritative cumulative PMID index.
         Search results offer bibliographic metadata and provenance-labeled semantic discovery, never unreviewed clinical interpretations. This inventory is intentionally excluded from search indexing
         until the editorial and publication policy is separately reviewed.
       </p>
