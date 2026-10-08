@@ -2,15 +2,9 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-6981-6988-exact",
   "range": "6981-6988",
-  "row_count": 7,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6988,
-      "pmid": "35940187",
-      "error": "PubMed title/abstract verification failed"
-    }
-  ],
+  "row_count": 8,
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "immune_respiratory",
@@ -164,6 +158,28 @@
       "verified_pub_date": "2022-Oct",
       "pdf_link": "https://doi.org/10.1016/j.clnesp.2022.09.008",
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9461277/",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "35940187",
+      "title": "Vitamin D Deficiency and Comorbidities as Risk Factors of COVID-19 Infection: A Systematic Review and Meta-analysis.",
+      "doi": "10.3961/jpmph.21.640",
+      "pub_date": "2022 Jul",
+      "pub_type": "Journal Article",
+      "journal": "Journal of preventive medicine and public health = Yebang Uihakhoe chi",
+      "discovery_query": "((\"vitamin D\"[Title] OR \"vitamin C\"[Title] OR zinc[Title] OR echinacea[Title] OR elderberry[Title] OR probiotic[Title]) AND (immune[Title] OR respiratory[Title] OR infection[Title] OR influenza[Title] OR cold[Title] OR covid[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 19,
+      "wave": 6988,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Vitamin D Deficiency and Comorbidities as Risk Factors of COVID-19 Infection: A Systematic Review and Meta-analysis.",
+      "abstract": "Extensive evidence links low vitamin D status and comorbidities with coronavirus disease 2019 (COVID-19) outcomes, but the results of published studies are contradictory. Therefore, we investigated the association of lower levels of vitamin D and comorbidities with the risk of COVID-19 infection. We searched MEDLINE (via PubMed), Cochrane Central Register of Controlled Trials, and ClinicalTrials.gov for articles published until August 20, 2021. Sixteen eligible studies were identified (386 631 patients, of whom 181 114 were male). We included observational cohort and case-control studies that evaluated serum levels of vitamin D in COVID-19-positive and COVID-19-negative patients. Mean differences (MDs) with 95% confidence intervals (CIs) were calculated. Significantly lower vitamin D levels were found in COVID-19-positive patients (MD, -1.70; 95% CI, -2.74 to -0.66; p=0.001), but with variation by study design (case-control: -4.04; 95% CI, -5.98 to -2.10; p<0.001; cohort: -0.39; 95% CI, -1.62 to 0.84; p=0.538). This relationship was more prominent in female patients (MD, -2.18; 95% CI, -4.08 to -0.28; p=0.024) than in male patients (MD, -1.74; 95% CI, -3.79 to 0.31; p=0.096). Male patients showed higher odds of having low vitamin D levels (odds ratio [OR], 2.09; 95% CI, 1.38 to 3.17; p<0.001) than female patients (OR, 1.17; 95% CI, 0.74 to 1.86; p=0.477). Comorbidities showed inconsistent, but generally non-significant, associations with COVID-19 infection. Low serum vitamin-D levels were significantly associated with the risk of COVID-19 infection. This relationship was stronger in female than in male COVID-19 patients. Limited evidence was found for the relationships between comorbidities and COVID-19 infection, warranting large population-based studies to clarify these associations.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Journal of preventive medicine and public health = Yebang Uihakhoe chi",
+      "verified_pub_date": "2022-Jul",
+      "pdf_link": "https://doi.org/10.3961/jpmph.21.640",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9371781/",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     }
   ]
