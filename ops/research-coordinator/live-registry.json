@@ -176,6 +176,96 @@
       "reservation_id": "a01747a4ce8f67aa1830",
       "reserved_at": "2026-10-08T17:12:05.599Z",
       "source_branch": "research/intake/3/20261008-1308-botanical-safety"
+    },
+    {
+      "pmid": "41670966",
+      "title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Randomized Clinical Trial",
+      "doi": "10.1001/jama.2025.27019",
+      "source_title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Randomized Clinical Trial",
+      "abstract": "PubMed abstract verified against the primary record. In a multicenter randomized trial across 29 US emergency departments, 1994 unique adults with untreated opioid use disorder were analyzed after assignment to 7-day extended-release injectable buprenorphine or sublingual buprenorphine. Seven-day and 30-day treatment engagement were similar between groups. Precipitated withdrawal was uncommon in both groups despite frequent fentanyl exposure; overdose events through 30 days were equal between groups. Several secondary outcomes favored extended-release treatment, including craving, recent illicit opioid-use days, and satisfaction.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41670966/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "opioid_use_disorder",
+      "relevance_reason": "Direct human randomized evidence on emergency-department buprenorphine initiation, withdrawal safety, fentanyl-era applicability, overdose outcomes, and short-term treatment engagement.",
+      "evidence_class": "human",
+      "study_design": "multicenter randomized clinical trial",
+      "study_details": {
+        "sites": 29,
+        "randomized": 2000,
+        "analyzed_unique": 1994,
+        "follow_up_days": [
+          7,
+          30
+        ],
+        "trial_registration": "NCT04225598",
+        "primary_outcome": "engagement in opioid use disorder treatment at day 7"
+      },
+      "population": {
+        "description": "Adults presenting to US emergency departments with untreated opioid use disorder and Clinical Opiate Withdrawal Scale score of 4 or higher",
+        "median_age_years": 37,
+        "male_percent": 68,
+        "fentanyl_positive_percent": 76
+      },
+      "intervention": {
+        "experimental": "24 mg 7-day extended-release injectable buprenorphine",
+        "comparator": "sublingual buprenorphine with 7-day prescription for 16 mg/day"
+      },
+      "comparator": "sublingual buprenorphine",
+      "outcomes": [
+        "Day-7 treatment engagement: 40.5% extended-release vs 38.5% sublingual; adjusted difference 1.6 percentage points, 95% CI -2.8 to 6.0",
+        "Day-30 engagement was similar between groups",
+        "Precipitated withdrawal: 0.6% extended-release vs 0.8% sublingual",
+        "Overdose events within 30 days: 2.3% in each group",
+        "Secondary craving, illicit-opioid-use-day, and treatment-satisfaction measures favored extended-release treatment"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "primary_outcome": "No detected superiority for day-7 treatment engagement; confidence interval includes clinically meaningful benefit and harm",
+        "secondary_outcomes": "Some secondary outcomes favored extended-release treatment and should not be generalized beyond the studied emergency-department population and regimen"
+      },
+      "adverse_effects": {
+        "precipitated_withdrawal": "Rare in both groups",
+        "overdose_30_days": "Equal observed proportion in both groups"
+      },
+      "interactions": {
+        "drug_drug_interactions": "Not a primary objective of this trial"
+      },
+      "limitations": {
+        "setting": "Emergency departments only",
+        "duration": "Primary comparative follow-up was short term",
+        "generalizability": "Findings apply to the studied formulations, dosing protocols, eligibility criteria, and referral pathway"
+      },
+      "provenance": {
+        "source": "PubMed primary publication record",
+        "journal": "JAMA",
+        "publication_year": 2026,
+        "pmid": "41670966",
+        "pmcid": "PMC12895321",
+        "doi": "10.1001/jama.2025.27019",
+        "verified_on": "2026-10-08",
+        "verification_note": "Title, identifiers, design, participant counts, primary and secondary outcomes, safety outcomes, and abstract were checked against the PubMed record."
+      },
+      "signals": {
+        "safety": 0.9,
+        "evidence_gap": 0.4,
+        "contradiction": 0.3,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 7.9,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0b140d8d117dd0e3903b",
+      "reserved_at": "2026-10-08T17:28:01.400Z",
+      "source_branch": "research/intake/4/20261008-1316-41670966"
     }
   ],
   "batches": [
@@ -189,22 +279,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 2,
+    "total_reservations": 3,
     "by_lane": {
       "1": 1,
       "2": 0,
       "3": 1,
-      "4": 0,
+      "4": 1,
       "5": 0
     },
     "by_state": {
-      "SOURCE_VERIFIED": 2
+      "SOURCE_VERIFIED": 3
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 2,
+        "count": 3,
         "pr_number": null,
         "blocker": null
       }
