@@ -4,7 +4,7 @@
  */
 import type {ResearchStudio,ResearchDNA} from './research-intelligence-studio'
 import type {SemanticNetwork} from './research-semantic-network'
-import type {ResearchCaseFile} from './research-intelligence-casefile'
+import {buildResearchCaseFile,type ResearchCaseFile} from './research-intelligence-casefile'
 
 export type CandidateClaimDNA={
   pmid:string;sourceSignature:string;interventions:string[];population:string[];
@@ -29,6 +29,12 @@ function unique(a:readonly string[]){return [...new Set(a.filter(Boolean))].sort
 function check(s:ResearchStudio,g:SemanticNetwork,c:ResearchCaseFile):ResearchDNA{
   if(s.systemVersion!=='1.05'||s.researchOnly!==true||s.metrics.automaticallyPromotedClaims!==0)
     throw Error('Scientific analysis requires research-only source snapshot')
+  const canonical=buildResearchCaseFile(s,g,c.pmid)
+  if(!canonical||canonical.sourceSignature!==c.sourceSignature||
+    canonical.title!==c.title||canonical.pmid!==c.pmid||
+    JSON.stringify(canonical.reviewedCitationIds)!==JSON.stringify(c.reviewedCitationIds)||
+    JSON.stringify(canonical.relatedPapers)!==JSON.stringify(c.relatedPapers))
+    throw Error('Scientific analysis source identity mismatch')
   const d=s.dna.find(x=>x.pmid===c.pmid),e=g.entries[c.pmid]
   if(!d||!e||!c.sourceSignature||e.sourceSignature!==c.sourceSignature||
     d.grade!=='ungraded-research-intake'||d.sourceWitnesses.some(w=>
