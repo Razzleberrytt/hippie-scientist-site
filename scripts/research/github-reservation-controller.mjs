@@ -275,16 +275,12 @@ async function run(){
    const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: reconcile freeze/PR state')).reg;
    appendSummary(final);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
  }else if(mode==='recover'){
-   const {reg}=await commitRegistryMutation(async reg=>{
-     for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING')){
-       try{await materializeBatch(reg,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}
-     }
-     for(const b of reg.batches.filter(x=>x.state==='DRAFT_PR'&&!x.gate_dispatched_at)){
-       try{await dispatchResearchGate(b);b.blocker='independent semantic review pending'}
-       catch(e){b.gate_dispatch_error=e.message;b.blocker='research gate dispatch pending: '+e.message;reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}
-     }
-   },'research: recover rolling batch freezes and gate dispatches');
-   appendSummary(reg);
+   const allocated=(await allocateFrozenRanges()).reg;
+   for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){
+     try{await materializeBatch(allocated,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;allocated.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}
+   }
+   const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: recover rolling batch freezes')).reg;
+   appendSummary(final);
  }else throw Error('unknown mode');
 }
 if(process.argv[1]?.endsWith('github-reservation-controller.mjs'))run().catch(e=>{console.error('BLOCKED '+e.message);console.error(JSON.stringify(classifyFailure(e)));process.exitCode=1});
