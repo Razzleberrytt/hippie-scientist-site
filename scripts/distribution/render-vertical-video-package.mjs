@@ -6,6 +6,7 @@ import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
+import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -144,7 +145,7 @@ function validateIdentity(mediaPack, creativeSpec) {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
     const methodRelease = clean(creativeSpec?.creativeMethodRelease) || 'R8.05'
-    if (!['R8.05', 'R8.06', 'R8.07'].includes(methodRelease)) {
+    if (!['R8.05', 'R8.06', 'R8.07', 'R8.08'].includes(methodRelease)) {
       throw new Error(`unsupported R8.05 creative methodology: ${methodRelease}`)
     }
     if (methodRelease === 'R8.06') {
@@ -182,6 +183,23 @@ function validateIdentity(mediaPack, creativeSpec) {
           || !/^[a-f0-9]{64}$/i.test(clean(direction?.overlaySha256))
           || clean(direction?.visualRhythmCertifiedAt) !== 'exact-master-qa') {
         throw new Error('R8.07 methodology requires an artifact-bound visual-rhythm creative-direction receipt')
+      }
+    } else if (methodRelease === 'R8.08') {
+      const foundation = creativeSpec?.creativeFoundation
+      const visual = creativeSpec?.creativeVisualFoundation
+      const direction = creativeSpec?.creativeDirection
+      if (clean(foundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(foundation?.status) !== 'approved'
+          || clean(visual?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(visual?.status) !== 'approved'
+          || clean(visual?.inheritedR806OverlaySha256) !== clean(foundation?.overlaySha256)
+          || clean(direction?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
+          || clean(direction?.release) !== 'R8.08'
+          || clean(direction?.status) !== 'approved'
+          || clean(direction?.inheritedR807OverlaySha256) !== clean(visual?.overlaySha256)
+          || !/^[a-f0-9]{64}$/i.test(clean(direction?.overlaySha256))
+          || clean(direction?.silentComprehensionCertifiedAt) !== 'exact-master-qa') {
+        throw new Error('R8.08 requires hash-bound creative lineage and pre-render silent-comprehension approval')
       }
     }
   } else if (release === 'R8.04') {
@@ -357,6 +375,17 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       throw new Error('R8.07 visual-rhythm receipt does not bind the exact creative brief overlay')
     }
   }
+  if (methodRelease === 'R8.08') {
+    const freshFoundation = buildR806CreativeReceipt(brief)
+    const freshVisual = buildR807CreativeReceipt(brief)
+    const freshDirection = buildR808CreativeReceipt(brief)
+    if (clean(creativeSpec?.creativeFoundation?.overlaySha256) !== freshFoundation.overlaySha256
+        || clean(creativeSpec?.creativeVisualFoundation?.overlaySha256) !== freshVisual.overlaySha256
+        || clean(creativeSpec?.creativeDirection?.overlaySha256) !== freshDirection.overlaySha256
+        || clean(freshDirection.inheritedR807OverlaySha256) !== freshVisual.overlaySha256) {
+      throw new Error('R8.08 comprehension receipt is stale against the exact creative brief')
+    }
+  }
   if (clean(brief.sourceIdentity?.id) !== clean(mediaPack.researchObjectIds?.[0])
       || clean(brief.sourceIdentity?.sourceUrl) !== clean(mediaPack.source.url)) {
     throw new Error('R8.05 creative brief source identity does not match the governed media pack')
@@ -464,11 +493,24 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       motifId: clean(beat?.r807?.motifId),
       patternInterrupt: beat?.r807?.patternInterrupt === true,
       patternInterruptReason: clean(beat?.r807?.patternInterruptReason),
+      silentRole: clean(beat?.r808?.silentRole),
+      silentMeaning: clean(beat?.r808?.silentMeaning),
+      silentSafeArea: clean(beat?.r808?.safeArea),
       beatReceiptSha256: sha256(JSON.stringify(governed)),
       sourceLegibility: clean(beat.role) === 'source' ? creativeSpec.verticalVideo.sourceLegibility : undefined,
     }
   })
 
+  if (methodRelease === 'R8.08') {
+    for (const scene of scenes.filter(s => ['hook', 'finding', 'evidence', 'limitation'].includes(s.role))) {
+      const visibleSeconds = scene.motionType === 'reveal'
+        ? scene.end - scene.start - Number(scene.motionCueOffset)
+        : scene.end - scene.start
+      if (visibleSeconds < 0.85 - 0.0006) {
+        throw new Error(`R8.08 beat ${scene.beatId} has insufficient real readable claim dwell (<0.85 seconds); do not pad narration`)
+      }
+    }
+  }
   const durationSeconds = Number(beatTimeline.durationSeconds)
   if (!Number.isFinite(durationSeconds) || durationSeconds < 5 || durationSeconds > 60 || !timingMatches(expectedStart, durationSeconds)) {
     throw new Error('R8.05 exact narration duration is outside the governed natural-runtime envelope')
@@ -596,6 +638,13 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     ? `<rect x="${x}" y="${contentTop + (lines.length * lineHeight) + 16}" width="${Math.min(safeWidth, Math.max(180, safeWidth * 0.62))}" height="8" rx="4" fill="${foreground}"/>`
     : ''
   const disclosureY = canvas.height - safe.bottom - 70
+  const hasSilentClaim = Boolean(clean(scene.silentRole))
+  if (hasSilentClaim && (clean(scene.silentMeaning) !== clean(scene.onScreenText)
+      || clean(scene.silentSafeArea) !== 'platform-intersection'
+      || lines.length > 4
+      || (contentTop + lines.length * lineHeight + 72) >= disclosureY - 72)) {
+    throw new Error(`R8.08 ${scene.role} is unreadable in the actual mobile platform safe area`)
+  }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
   const compositionVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
   const composition = compositionVisible
@@ -633,11 +682,14 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     motifId: scene.motifId || null,
     patternInterrupt: scene.patternInterrupt === true,
     patternInterruptReason: scene.patternInterruptReason || null,
+    silentRole: scene.silentRole || null,
+    silentMeaning: scene.silentMeaning || null,
+    silentSafeArea: scene.silentSafeArea || null,
     start: scene.start,
     end: scene.end,
     safeArea: { x, right: safeRight, width: safeWidth, top: safe.top, bottom: canvas.height - safe.bottom },
   })
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${composition}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${composition}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
@@ -777,6 +829,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     creativeQuality: creativeSpec.creativeQuality ?? null,
     creativeFoundation: creativeSpec.creativeFoundation ?? null,
+    creativeVisualFoundation: creativeSpec.creativeVisualFoundation ?? null,
     creativeDirection: creativeSpec.creativeDirection ?? null,
     r805Bindings: bindings,
     durationSeconds,
