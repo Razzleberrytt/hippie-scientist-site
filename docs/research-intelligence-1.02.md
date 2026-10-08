@@ -27,3 +27,6 @@ Negative tests cover altered quotation offsets, stale source signatures, duplica
 ## Next experimental frontier
 
 Cross-PMID document cohort identity checks; source-segment representations for arms, dosage, population and outcomes, with human verification and explicit missingness before graph promotion.
+
+## Reader-visible adjudication history
+The Content Reactor presents an append-only, source-linked history when reviewers eventually record events. Until that point it displays the **truthful empty state**. Reviewer codes are not certifications of qualifications; the ledger remains distinct from clinical editorial approval.

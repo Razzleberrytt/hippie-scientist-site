@@ -190,6 +190,7 @@ assert(route.includes("export const dynamic = 'force-static'"))
 assert(route.includes('research-semantic-adjudications.json'),'Adjudications must come from governed local ledger')
 assert(ui.includes('Inspect verbatim evidence trail')&&ui.includes('Prepare an editorial review packet'))
 assert(ui.includes('Why this paper matched'),'Questions must expose original text witnesses')
+assert(ui.includes('Source-indexing review history'),'Review events must be inspectable and not just counted')
 assert(route.includes('getResearchSourceRegister()')&&!route.includes('getPublicEvidenceDataset()'),
  'Second full evidence hydration in a static worker must be forbidden')
 assert(route.includes('buildResearchIntelligenceStudio('))

@@ -312,6 +312,16 @@ return <section className={styles.studio}>
         <div><strong>{data.adjudication.reviewCount}</strong><span>Recorded source-mention reviews</span></div>
         <div><strong>0</strong><span>Automatically published</span></div></div>
       <p>Review ledger decisions concern source-text indexing only. They cannot certify safety, clinical conclusions or publication.</p>
+      <section className={styles.reviewHistory} aria-label='Source indexing review history'>
+        <h3>Source-indexing review history</h3>
+        <p>Append-only editorial events are recorded against exact source quotes. Reviewer codes are recorded assertions, not independent certification of expertise.</p>
+        {data.adjudication.events.length===0?<p>No source-text indexing reviews have been recorded in this snapshot.</p>:null}
+        <ol>{data.adjudication.events.slice(-12).reverse().map(e=><li key={e.eventId}>
+          <strong>{human(e.decision)}</strong> · {e.recordedAt.slice(0,10)} · reviewer {e.reviewerCode}
+          <p>{e.rationale}</p>
+          <a href={pubmed(e.witnessId.split(':')[0])} target='_blank' rel='noopener noreferrer'>Inspect original publication ↗</a>
+        </li>)}</ol>
+      </section>
       <div className={styles.paperGrid}>{data.briefs.slice(0,more?40:9).map(v=><Brief brief={v} key={v.id}/>)}</div>
       {data.briefs.length>9&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More editorial hypotheses →</button>:null}
     </>:null}
