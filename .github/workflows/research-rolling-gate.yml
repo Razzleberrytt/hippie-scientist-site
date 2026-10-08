@@ -9,6 +9,7 @@ on:
       - 'app/research/source-register/**'
       - 'app/research/intelligence/**'
       - 'schemas/research-lane-intake.schema.json'
+      - 'schemas/research-batch-independent-review.schema.json'
       - 'ops/research-intake/**'
       - 'ops/research-coordinator/**'
       - 'ops/enrichment-submissions/reconciliation/**'
