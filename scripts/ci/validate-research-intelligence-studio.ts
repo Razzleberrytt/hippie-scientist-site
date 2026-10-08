@@ -6,6 +6,10 @@ import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
+import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
+import {compileClaimDNA,detectTrialLineage,compareStudyContexts} from '../../lib/scientific-intelligence-foundations'
+import {forgeSourceHypotheses,simulateSourceRemoval,runBoundedInvestigation} from '../../lib/scientific-intelligence-discovery'
+import {calibrateIntelligenceCase,compileLivingReview} from '../../lib/scientific-intelligence-review'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -47,6 +51,47 @@ assert.equal(s.systemVersion,'1.05')
 const sharedCase=buildResearchCaseFile(s,graph,'10000001')
 assert(sharedCase,'Known source must open a shared case file')
 assert.equal(sharedCase.pmid,'10000001')
+const science=buildScientificIntelligenceCase(s,graph,sharedCase)
+assert.equal(SCIENCE_CAPABILITIES.length,12,'The complete scientific capability registry is mandatory')
+assert.equal(science.capabilities.length,12)
+assert.equal(science.version,'1.14')
+assert.equal(science.calibrationPassed,true,'The active review-only case must pass foundational calibration')
+assert.equal(science.calibrationChecks,13,'All source identity, evidence and release guards must run')
+assert.equal(science.clinicalPromotions,0)
+assert.equal(science.autopublished,0)
+assert(science.capabilities.every(x=>x.releaseApproved===false))
+assert.equal(compileClaimDNA(s,graph,sharedCase).effectDirection,null)
+assert.equal(compileClaimDNA(s,graph,sharedCase).dose,null)
+assert.equal(detectTrialLineage(s,graph,sharedCase).underlyingTrialIndependence,'unknown')
+assert.equal(forgeSourceHypotheses(s,graph,sharedCase).every(x=>
+  x.pmid===sharedCase.pmid&&x.status==='hypothesis-unverified'),true)
+assert.equal(simulateSourceRemoval(s,graph,sharedCase).changedScientificConclusion,false)
+assert(runBoundedInvestigation(s,graph,sharedCase).every(x=>
+  !x.automaticallyPublished&&x.pmid===sharedCase.pmid))
+assert.equal(compileLivingReview(s,graph,sharedCase).publicationAllowed,false)
+assert.equal(compileLivingReview(s,graph,sharedCase).revisionKey,
+  compileLivingReview(s,graph,sharedCase).revisionKey,'Review snapshots must be reproducible')
+assert.equal(calibrateIntelligenceCase(s,graph,sharedCase).failures,0)
+const otherCase=buildResearchCaseFile(s,graph,'10000002')!
+const comparison=compareStudyContexts(s,graph,sharedCase,otherCase)
+assert.equal(comparison.compatibleForEvidenceSynthesis,false,
+  'Similar abstracts may never automatically imply evidence comparability')
+const wrongCase={...sharedCase,sourceSignature:'forged-source-signature'}
+assert.throws(()=>buildScientificIntelligenceCase(s,graph,wrongCase),
+  /source identity mismatch|Source signature conflict/,
+  'All twelve capability receipts reject stale or forged source signatures')
+assert.throws(()=>compileClaimDNA(s,graph,{...sharedCase,pmid:'90000001'}),
+  /source identity mismatch/,
+  'Unknown PMIDs must fail closed')
+for(const source of sources){
+  const file=buildResearchCaseFile(s,graph,source.pmid)!
+  const result=buildScientificIntelligenceCase(s,graph,file)
+  assert.equal(result.capabilities.length,12)
+  assert.equal(result.calibrationFailures,0)
+  assert.equal(result.clinicalPromotions,0)
+  assert.equal(result.autopublished,0)
+}
+
 assert.equal(sharedCase.status,'source-discovery-only-no-clinical-adjudication')
 assert.equal(sharedCase.instruments.length,8,'All instruments must receive the same governed source identity')
 assert.deepEqual(sharedCase.instruments.map(x=>x.instrument),
