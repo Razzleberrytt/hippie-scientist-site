@@ -8,6 +8,14 @@
 **Planning rule:** A milestone is complete only when every exit condition has reproducible proof. Dates are intentionally omitted until dependencies and throughput are measured.
 **Scaling rule:** Once verified user or commercial outcomes exist, observed attributable behavior outranks speculative opportunity. Evidence, safety, disclosure, provenance, publication, accessibility, security, and release gates remain non-negotiable and cannot be overridden by traffic or revenue.
 
+## P0 methodology overlay — Generational Engineering (adopted 2026-10-08)
+
+**Active strategic priority:** [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) and [Generational Engineering & Integration Readiness](GENERATIONAL_ENGINEERING_P0.md); plan Oct 8–9, begin governed execution Oct 12–16.
+
+Prepare coherent *generations* of source-bound semantic intelligence, scientific review, editorial distribution, local-first media, measurement, accessible UX and release governance before implementing more isolated features. Build shared interfaces and dependency-aware short-lived tickets, apply rapid targeted contract checks during implementation, then mandatory exact-head/full risk-appropriate CI, governed merge and production verification at release boundaries. Baseline actual workflow cost before changing CI; never claim hypothetical exponential speedups as measured results. Existing M0–M6 completion/measurement gates, three-workstream WIP, single scoring rule and scientific integrity are unchanged. P0 is a cross-cutting execution **method**, not a fabricated completion of M1 or M2 or a new independent implementation lane.
+
+**First generation:** source identity → eight+12 intelligence case → reviewed editorial target → permissioned distribution → attributable observations, with explicit Unknowns and no unreviewed clinical promotion. See the playbook for owners, 14 package dependencies, validation tiers, risk register and release exits.
+
 ## Status summary
 
 | Milestone | Status | Current constraint |
