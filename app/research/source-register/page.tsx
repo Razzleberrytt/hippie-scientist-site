@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildPageMetadata } from '@/lib/seo'
 import { getResearchSourceRegister } from '@/lib/research-source-register'
+import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
+import { buildResearchSemanticNetwork } from '@/lib/research-semantic-network'
 import SourceRegisterClient from './SourceRegisterClient'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -11,8 +13,25 @@ export const metadata: Metadata = buildPageMetadata({
   robots: { index: false, follow: true },
 })
 
-export default function SourceRegisterPage() {
+export default async function SourceRegisterPage() {
   const data = getResearchSourceRegister()
+  const publicEvidence = await getPublicEvidenceDataset()
+  const semantic = buildResearchSemanticNetwork(
+    data.records,
+    publicEvidence.ingredients.map(item => ({ name: item.name, href: item.path })),
+    publicEvidence.studies.map(study => ({ pmid: study.pmid, id: study.id })),
+  )
+  const publicRecords = data.records.map(record => ({
+    wave: record.wave,
+    pmid: record.pmid,
+    title: record.title,
+    journal: record.journal,
+    year: record.year,
+    category: record.category,
+    doi: record.doi,
+  }))
+  // Show the conceptual map immediately; load the detailed paper graph separately.
+  const semanticSummary = { concepts: semantic.concepts, bridges: semantic.bridges, summary: semantic.summary }
 
   return (
     <div className='research-page-content mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
@@ -65,16 +84,16 @@ export default function SourceRegisterPage() {
 
       <aside className='rounded-2xl border border-amber-700/20 bg-amber-50 p-5 text-sm leading-7 text-amber-950' aria-label='Source review disclosure'>
         <strong>Important review boundary:</strong> The enrichment ledger does not establish clinical efficacy,
-        safety, human-study quality, or ingredient-specific conclusions. Source verification checks metadata, not
+        safety, human-study quality, or ingredient-specific conclusions. Semantic relationships here are text-matched, exploratory research-navigation links, not causal or clinical conclusions. Source verification checks metadata, not
         whether a study supports a particular claim. The <Link href='/learn/citation-explorer/' className='font-semibold underline'>Citation Explorer</Link> displays
         separately reviewed, indexable runtime evidence. Counts from these two systems must not be added together.
       </aside>
 
-      <SourceRegisterClient records={data.records} previousCount={data.priorPmidOnly} categories={data.categories} />
+      <SourceRegisterClient records={publicRecords} previousCount={data.priorPmidOnly} categories={data.categories} networkSummary={semanticSummary} />
 
       <p className='text-xs leading-6 text-muted'>
         Provenance: SHA-pinned NCBI EFetch receipts for waves 7001–7500 and the authoritative cumulative PMID index.
-        Search results are source bibliographic metadata only. This inventory is intentionally excluded from search indexing
+        Search results offer bibliographic metadata and provenance-labeled semantic discovery, never unreviewed clinical interpretations. This inventory is intentionally excluded from search indexing
         until the editorial and publication policy is separately reviewed.
       </p>
     </div>
