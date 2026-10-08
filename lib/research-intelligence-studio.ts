@@ -226,19 +226,31 @@ function debatesFromReviewed(studies:readonly ReviewedStudyInput[]):DebateCandid
   }
   const candidates:DebateCandidate[]=[]
   for(const [id,rows] of groups){
-    const direct=new Set(rows.filter(r=>r.relationship==='supports'||r.relationship==='contradicts'||r.relationship==='no_clear_effect').map(r=>r.relationship))
+    // Different runtime citation IDs can reference the SAME PubMed publication.
+    // Require distinct, valid PMIDs and fail closed when the same PMID has
+    // conflicting editorial relationship descriptors. Distinct publications
+    // still do not prove independent underlying trial cohorts.
+    const byPmid=new Map<string,typeof rows>()
+    for(const row of rows){
+      if(!/^\d{5,10}$/.test(row.pmid))continue
+      if(!byPmid.has(row.pmid))byPmid.set(row.pmid,[])
+      byPmid.get(row.pmid)!.push(row)
+    }
+    const uniqueRows=[...byPmid.values()].filter(items=>
+      new Set(items.map(row=>row.relationship)).size===1).map(items=>items[0])
+    const direct=new Set(uniqueRows.map(r=>r.relationship))
     // "No clear effect" vs "supports" is a DIFFERENCE IN REPORTED RELATIONSHIP,
     // not automatically a contradiction; must be editorially adjudicated.
-    if(rows.length<2||direct.size<2)continue
-    const sorted=rows.slice().sort((a,b)=>b.year.localeCompare(a.year)||a.studyId.localeCompare(b.studyId))
-    const populations=new Set(rows.map(r=>normalizeSemanticText(r.population)).filter(Boolean))
-    candidates.push({id,ingredient:rows[0].ingredientName,ingredientPath:rows[0].ingredientPath,
-      outcome:rows[0].outcome,
+    if(uniqueRows.length<2||direct.size<2)continue
+    const sorted=uniqueRows.slice().sort((a,b)=>b.year.localeCompare(a.year)||a.studyId.localeCompare(b.studyId))
+    const populations=new Set(uniqueRows.map(r=>normalizeSemanticText(r.population)).filter(Boolean))
+    candidates.push({id,ingredient:uniqueRows[0].ingredientName,ingredientPath:uniqueRows[0].ingredientPath,
+      outcome:uniqueRows[0].outcome,
       studies:sorted.slice(0,12).map(({studyId,pmid,year,relationship,population,duration,evidenceClass,href})=>({
         studyId,pmid,year,relationship,population,duration,evidenceClass,href,
       })),
       directions:[...direct].sort(),
-      populationComparable:populations.size===1 && rows.every(r=>r.population.length>0),
+      populationComparable:populations.size===1 && uniqueRows.every(r=>r.population.length>0),
       basis:'separately-reviewed-citation-relationships',
       status:'editorial-comparability-review-required'})
   }
