@@ -39,3 +39,7 @@ CI includes intentionally adversarial cases: unrelated-PMID questions, omitted i
 **Before → after measurement:** Before, global result lists were displayed despite an open case file. After target, 8/8 instrument contexts follow selected source identity with one explicit reset. Verified 500-paper cohort: 500 → 500. Automatic clinical promotions and article publications: 0 → 0. Audience, retention, conversion or CPU uplift: **unknown until production telemetry**.
 
 Deployment to Cloudflare is not established by merging alone; the canonical deployment receipt must match the exact merge commit before treating the change as publicly live.
+
+## Integration with the rolling-research coordinator
+
+The October 8 rolling research coordinator on the newer main branch adds a separately governed, reviewed semantic overlay when constructing the research graph. Version 1.05 does **not** replace that graph construction or the review boundary: its source-focus projection consumes the resulting governed graph and publication-lineage crosswalk read-only. An unrelated rolling intake reservation or a pending 500-record research batch is not authorization to expand the 500-source Science Atlas snapshot. All exact-head checks must validate against the refreshed main branch before this upgrade is merged.
