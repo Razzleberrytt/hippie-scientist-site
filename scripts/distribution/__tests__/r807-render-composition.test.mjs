@@ -56,3 +56,40 @@ test('R8.07 reveal composition respects the voice-derived pre/post motion state'
   expect(post.svg).toContain('data-r807-composition="hero-object"')
   expect(pre.hash).not.toBe(post.hash)
 })
+
+
+test('R8.07 reveal compositions stay hidden until the voice-derived post-cue frame',()=>{
+  const target=scene({
+    role:'hook',
+    beatId:'hook',
+    compositionFamily:'hero-object',
+    motifId:'result-thread',
+    motionType:'reveal',
+  })
+  const pre=renderVerticalVideoSceneSvg(target,{...options,motionPhase:'pre'})
+  const post=renderVerticalVideoSceneSvg(target,{...options,motionPhase:'post'})
+  expect(pre.svg).not.toContain('data-r807-composition="hero-object"')
+  expect(pre.svg).not.toContain('data-r807-motif="result-thread"')
+  expect(post.svg).toContain('data-r807-composition="hero-object"')
+  expect(post.svg).toContain('data-r807-motif="result-thread"')
+  expect(pre.hash).not.toBe(post.hash)
+})
+
+test('R8.07 limitation interrupt appears only on the semantic post-cue frame',()=>{
+  const target=scene({
+    role:'limitation',
+    beatId:'limitation',
+    compositionFamily:'diagram-flow',
+    motifId:'result-thread',
+    patternInterrupt:true,
+    patternInterruptReason:'limitation-pivot',
+    motionType:'highlight',
+  })
+  const pre=renderVerticalVideoSceneSvg(target,{...options,motionPhase:'pre'})
+  const post=renderVerticalVideoSceneSvg(target,{...options,motionPhase:'post'})
+  expect(pre.svg).toContain('data-r807-composition="diagram-flow"')
+  expect(pre.svg).not.toContain('data-r807-pattern-interrupt="true"')
+  expect(pre.svg).not.toContain('data-r807-motif="result-thread"')
+  expect(post.svg).toContain('data-r807-pattern-interrupt="true"')
+  expect(post.svg).toContain('data-r807-motif="result-thread"')
+})
