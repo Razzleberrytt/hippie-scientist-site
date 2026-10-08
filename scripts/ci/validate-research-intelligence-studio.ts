@@ -51,6 +51,11 @@ assert.deepEqual(sharedCase.instruments.map(x=>x.instrument),
 assert.equal(sharedCase.instruments.find(x=>x.instrument==='dna')?.linkedItems,1)
 assert.equal(sharedCase.instruments.find(x=>x.instrument==='contradictions')?.linkedItems,0,
  'Reviewed citations lacking exact publication identity cannot be inferred as matches')
+const exactJoined=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0],pmid:'10000001'}])
+const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
+assert.deepEqual(exactCase?.reviewedCitationIds,['study-a'],
+ 'Exact verified publication identities must be traceable in case files')
+assert.deepEqual(exactCase?.publicationIdentityBasis,['exact-pmid'])
 assert(sharedCase.sourceWitnessCount>0)
 assert(sharedCase.unresolvedFields.some(x=>x.includes('Population')))
 assert.equal(buildResearchCaseFile(s,graph,'99999999'),null,
