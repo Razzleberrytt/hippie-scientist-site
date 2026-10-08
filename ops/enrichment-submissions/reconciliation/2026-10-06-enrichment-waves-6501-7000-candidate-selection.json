@@ -6269,29 +6269,33 @@
     },
     {
       "category": "immune_respiratory",
-      "pmid": "36615717",
-      "title": "Comment on Hosseini et al. Effects of Vitamin D Supplementation on COVID-19 Related Outcomes: A Systematic Review and Meta-Analysis. Nutrients 2022, 14, 2134.",
-      "doi": "10.3390/nu15010059",
-      "pub_date": "2022 Dec 23",
-      "pub_type": "Journal Article",
-      "journal": "Nutrients",
+      "pmid": "38178229",
+      "title": "High-dose vitamin D3 supplementation shows no beneficial effects on white blood cell counts, acute phase reactants, or frequency of respiratory infections.",
+      "doi": "10.1186/s12931-023-02642-9",
+      "pub_date": "2024-Jan-04",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Respiratory research",
       "discovery_query": "((\"vitamin D\"[Title] OR \"vitamin C\"[Title] OR zinc[Title] OR echinacea[Title] OR elderberry[Title] OR probiotic[Title]) AND (immune[Title] OR respiratory[Title] OR infection[Title] OR influenza[Title] OR cold[Title] OR covid[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "selection_score": 20,
       "wave": 6978,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_exact_verified_research_only",
+      "replacement_of_pmid": "36615717",
+      "replacement_reason": "Editorial comment/reply excluded; human supplementation randomized trial substituted"
     },
     {
       "category": "immune_respiratory",
-      "pmid": "36615718",
-      "title": "Reply to Leong et al. Comment on \"Hosseini et al. Effects of Vitamin D Supplementation on COVID-19 Related Outcomes: A Systematic Review and Meta-Analysis. Nutrients 2022, 14, 2134\".",
-      "doi": "10.3390/nu15010060",
-      "pub_date": "2022 Dec 23",
-      "pub_type": "Journal Article",
-      "journal": "Nutrients",
+      "pmid": "38383361",
+      "title": "Impact of vitamin D supplementation on the clinical outcomes of COVID-19 pneumonia patients: a single-center randomized controlled trial.",
+      "doi": "10.1186/s12906-024-04393-6",
+      "pub_date": "2024-Feb-21",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "BMC complementary medicine and therapies",
       "discovery_query": "((\"vitamin D\"[Title] OR \"vitamin C\"[Title] OR zinc[Title] OR echinacea[Title] OR elderberry[Title] OR probiotic[Title]) AND (immune[Title] OR respiratory[Title] OR infection[Title] OR influenza[Title] OR cold[Title] OR covid[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "selection_score": 20,
       "wave": 6979,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_exact_verified_research_only",
+      "replacement_of_pmid": "36615718",
+      "replacement_reason": "Editorial comment/reply excluded; human supplementation randomized trial substituted"
     },
     {
       "category": "immune_respiratory",
@@ -6588,6 +6592,20 @@
       "new_pmid": "42481422",
       "old_title": "Global landscape and knowledge structure of research on pancreatitis and gut microbiota: a bibliometric analysis based on WoSCC and Scopus (2006 - 2025).",
       "new_title": "Oral microbiome dysbiosis and oral-gut microbial network disruption in hand osteoarthritis: data from the Xiangya Osteoarthritis Study."
+    }
+  ],
+  "semantic_replacements": [
+    {
+      "wave": 6978,
+      "old_pmid": "36615717",
+      "new_pmid": "38178229",
+      "new_title": "High-dose vitamin D3 supplementation shows no beneficial effects on white blood cell counts, acute phase reactants, or frequency of respiratory infections."
+    },
+    {
+      "wave": 6979,
+      "old_pmid": "36615718",
+      "new_pmid": "38383361",
+      "new_title": "Impact of vitamin D supplementation on the clinical outcomes of COVID-19 pneumonia patients: a single-center randomized controlled trial."
     }
   ]
 }
