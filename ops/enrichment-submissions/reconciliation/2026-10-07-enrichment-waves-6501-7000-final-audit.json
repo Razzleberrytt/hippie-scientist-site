@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-6501-7000-final-audit",
+  "range": "6501-7000",
+  "source_receipt_count": 64,
+  "exact_verified_rows": 500,
+  "integrity": {
+    "row_count": 500,
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "duplicate_normalized_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "missing_dois": 6,
+    "prior_pmid_collisions": 0,
+    "cumulative_unique_pmids": 6935
+  },
+  "repairs": {
+    "semantic_replacements": [
+      6501,
+      6742,
+      6743
+    ],
+    "identity_correction": [
+      6666
+    ],
+    "source_notation_normalizations": [
+      6692,
+      6696,
+      6868
+    ]
+  },
+  "quality_notes": {
+    "clinical_subgroup_and_non_oral_intervention_evidence_remains_research_context_only": true,
+    "independent_abstract_level_semantic_review": "pending",
+    "baseline_title_doi_cross_collision_check": "not independently available from PMID-only cumulative index"
+  },
+  "policy": {
+    "research_only": true,
+    "recommendation_promotion": false,
+    "dosing_inference": false,
+    "exact_pubmed_title_and_abstract_required": true,
+    "fail_closed": true
+  }
+}
