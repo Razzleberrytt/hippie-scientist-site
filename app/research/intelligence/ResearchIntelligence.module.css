@@ -112,3 +112,10 @@
 .recordedChanges article>a{font-weight:760}
 .recordedChanges article>small{grid-column:2;color:var(--m);font-size:.72rem;line-height:1.6}
 @media(max-width:590px){.recordedChanges article{grid-template-columns:1fr}.recordedChanges article>small{grid-column:1}}
+
+/* 1.02 source-exact evidence trail, high contrast and narrow-screen readable. */
+.witnessList{list-style:none;margin:.75rem 0;padding:0;display:grid;gap:.6rem}
+.witnessList li{padding:.7rem;border-left:3px solid #708c73;background:#e4e8d8;overflow-wrap:anywhere}
+.witnessList li strong{display:block;font-size:.68rem;letter-spacing:.05em;color:#1b4630}
+.witnessList li blockquote{margin:.4rem 0;color:#253a2c;line-height:1.65;font-size:.8rem;border:0;padding:0}
+.witnessList li small{color:#4b6657;display:block;font-size:.68rem}
