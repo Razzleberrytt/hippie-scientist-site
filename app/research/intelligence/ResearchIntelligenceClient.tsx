@@ -1,5 +1,5 @@
 'use client'
-import {useMemo,useState} from 'react'
+import {useEffect,useMemo,useRef,useState} from 'react'
 import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
@@ -59,6 +59,7 @@ const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,se
 const [from,setFrom]=useState(''),[to,setTo]=useState(''),[query,setQuery]=useState(''),[asked,setAsked]=useState(false)
 const [year,setYear]=useState('')
 const [focusPmid,setFocusPmid]=useState(''),[focusLookup,setFocusLookup]=useState('')
+const caseRef=useRef<HTMLElement|null>(null)
 async function activate(){
  if(data||loading)return
  setLoading(true);setError('')
@@ -109,6 +110,7 @@ const maxYear=Math.max(1,...chrono.map(x=>x.sources))
 const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
+useEffect(()=>{if(focusPmid&&data)caseRef.current?.scrollIntoView({block:'start'})},[focusPmid,data])
 function inspectPmid(pmid:string){setFocusPmid(pmid);setFocusLookup(pmid)}
 function openCaseInstrument(next:Tab){
  if(!caseFile||!data)return
@@ -161,7 +163,7 @@ return <section className={styles.studio}>
     <div className={styles.workspaceTitle}><div><span className={styles.micro}>INSTRUMENT / {active.number}</span><h2>{active.label}</h2></div>
       <span className={styles.status}>{data?'VERIFIED / READY':'PREVIEW / OPEN TO EXPLORE'}</span>
     </div>
-    {data?<section className={styles.caseWorkbench} aria-label='Shared eight-instrument source case file'>
+    {data?<section ref={caseRef} className={styles.caseWorkbench} aria-label='Shared eight-instrument source case file'>
       <form className={styles.caseLookup} onSubmit={e=>{e.preventDefault();inspectPmid(focusLookup.trim())}}>
         <label className={styles.field}>Trace a verified PubMed source through all eight instruments
           <input type='search' inputMode='numeric' value={focusLookup} maxLength={10}
@@ -170,7 +172,7 @@ return <section className={styles.studio}>
         <button type='submit' className={styles.prime} disabled={!/^\d{5,10}$/.test(focusLookup.trim())}>Open case file ↗</button>
       </form>
       {focusPmid&&!caseFile?<p role='status'>That PMID is not in this 500-paper source-verified semantic snapshot. Search the full source register for broader coverage.</p>:null}
-      {caseFile?<article className={styles.casePanel}>
+      {caseFile?<article className={styles.casePanel} aria-live='polite'>
         <div className={styles.paperTop}><Tag>RESEARCH-ONLY CASE FILE</Tag><span>PMID {caseFile.pmid}</span></div>
         <h3>{caseFile.title}</h3>
         <p>{caseFile.sourceWitnessCount} exact quotation anchors · {caseFile.conceptLabels.length} indexed concept labels · {caseFile.reviewedCitationIds.length} exact linked reviewed citation records.</p>
