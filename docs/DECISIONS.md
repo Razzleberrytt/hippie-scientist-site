@@ -4,6 +4,15 @@
 **Updated:** 2026-10-07
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-08 — Research Intelligence Studio uses two separate authorities and eight projections
+
+**Decision:** Scientific discovery features derive from the merged, SHA-pinned research-only PMID intake and controlled concept graph. Clinical directional assessments can only be compared where separately published citation relationships explicitly provide ingredient, endpoint, and relationship labels. The eight consumer instruments (Study DNA, Contradiction Observatory, Knowledge Frontier, Evidence Time Machine, Semantic Voyages, safety-literature matrix, Ask the Evidence, and editorial Content Reactor) are projections of those existing authorities; they are not eight new independent scientific datasets.
+
+**Safety and uncertainty boundary:** Textual co-mentions do not mean exposure, causal link, efficacy, risk, or contradiction. Candidate disagreements need expert review. Sparse local coverage is not absence of global evidence. Historic publication year is not historic grade-change proof; only explicit editorial grade-change receipts can appear as actual change events. Draft briefs must be source-witnessed, review-required, and never autopublished. Unreviewed intake remains nonindexable and cannot change public evidence grades, doses, recommendations, or safety decisions.
+
+**Delivery and provenance:** The visually experimental Science Atlas on `/research/intelligence/` ships as a static, noindex Next export. The 500 exact title/abstract receipts build a deterministic snapshot; the other 6,935 older PMID-only entries have no fabricated metadata. The source-rich JSON loads on user activation rather than every initial page visit. No recurring paid service, external AI credits, runtime API, or user-uploaded personal data is necessary. Frontend provides original PMIDs and reviewed citation links where the identities legitimately overlap. **Status:** In review under #6404 / PR #6407, dependent on the semantic base PR #6402; not proof of production deployment, clinical efficacy or measured engagement.
+
+
 
 ## 2026-09-28 — Curated index policy has one mutable authority
 
