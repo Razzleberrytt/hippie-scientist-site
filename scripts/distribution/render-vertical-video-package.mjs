@@ -506,6 +506,10 @@ function verticalPlatformIntersection() {
 function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase }) {
   const family = clean(scene.compositionFamily)
   if (!family) return ''
+  const phase = clean(motionPhase) || 'post'
+  const revealHidden = clean(scene.motionType) === 'reveal' && phase === 'pre'
+  if (revealHidden) return ''
+  const semanticAccentVisible = clean(scene.motionType) === 'hold' || phase === 'post'
   const available = bottom - top
   if (available < 140) throw new Error(`R8.07 composition ${family} lacks vertical space beneath governed copy`)
   const h = Math.min(420, available)
