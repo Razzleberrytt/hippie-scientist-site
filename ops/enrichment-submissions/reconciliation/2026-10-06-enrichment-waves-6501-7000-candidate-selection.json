@@ -27,7 +27,9 @@
     "unique_normalized_titles": 500,
     "unique_normalized_dois": 494,
     "duplicate_normalized_titles": 0,
-    "duplicate_normalized_dois": 6
+    "duplicate_normalized_dois": 0,
+    "nonempty_normalized_dois": 494,
+    "missing_dois": 6
   },
   "category_counts": {
     "stress_anxiety": 11,
@@ -2555,7 +2557,7 @@
     {
       "category": "women_health",
       "pmid": "40582869",
-      "title": "Relationship between Circulating Vitamin D Concentration and the Maternal Gut Microbiota during Early Pregnancy in Japanese Women: Results of a Pilot Study of Antenatal Vitamin D(3) Supplementation.",
+      "title": "Relationship between Circulating Vitamin D Concentration and the Maternal Gut Microbiota during Early Pregnancy in Japanese Women: Results of a Pilot Study of Antenatal Vitamin D3 Supplementation.",
       "doi": "10.3177/jnsv.71.185",
       "pub_date": "2025",
       "pub_type": "Randomized Controlled Trial",
@@ -2607,7 +2609,7 @@
     {
       "category": "women_health",
       "pmid": "39080634",
-      "title": "Effect of dairy products fortified with vitamin d(3) on restless legs syndrome in women with premenstrual syndrome, abdominal obesity and vitamin d deficiency: a pilot study.",
+      "title": "Effect of dairy products fortified with vitamin d3 on restless legs syndrome in women with premenstrual syndrome, abdominal obesity and vitamin d deficiency: a pilot study.",
       "doi": "10.1186/s12905-024-03159-z",
       "pub_date": "2024 Jul 30",
       "pub_type": "Randomized Controlled Trial",
@@ -4849,7 +4851,7 @@
     {
       "category": "botanicals_mushrooms",
       "pmid": "32316411",
-      "title": "Effects of Ashwagandha (Withania somnifera) on VO(2max): A Systematic Review and Meta-Analysis.",
+      "title": "Effects of Ashwagandha (Withania somnifera) on VO2max: A Systematic Review and Meta-Analysis.",
       "doi": "10.3390/nu12041119",
       "pub_date": "2020 Apr 17",
       "pub_type": "Systematic Review",
