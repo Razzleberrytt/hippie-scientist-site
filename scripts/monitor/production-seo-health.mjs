@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { CANONICAL_ORIGIN, evaluateHostNormalization } from './production-seo-health-lib.mjs'
+import { looksLikeSoft404Page } from './production-soft-404.mjs'
 
 const MAX_REDIRECTS = 6
 const SAMPLE_LIMIT = Number(process.argv.find((arg) => arg.startsWith('--sample='))?.split('=')[1] || 40)
@@ -23,11 +24,6 @@ function canonicalFromHtml(html) {
   return html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1]
     || html.match(/<link\b[^>]*href=["']([^"']+)["'][^>]*rel=["']canonical["'][^>]*>/i)?.[1]
     || ''
-}
-
-function soft404(html) {
-  const text = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').toLowerCase()
-  return [/\bpage not found\b/, /\bcontent not found\b/, /\bdoes not exist\b/, /\bwe couldn't find\b/].some((pattern) => pattern.test(text))
 }
 
 async function verifyHostNormalization(url, label) {
@@ -74,7 +70,7 @@ for (const url of urls.slice(0, Math.max(1, SAMPLE_LIMIT))) {
     continue
   }
   const html = await result.response.text()
-  if (soft404(html)) errors.push({ type: 'live-soft-404', url })
+  if (looksLikeSoft404Page(html)) errors.push({ type: 'live-soft-404', url })
   const canonical = canonicalFromHtml(html)
   if (!canonical) errors.push({ type: 'live-missing-canonical', url })
   else {
