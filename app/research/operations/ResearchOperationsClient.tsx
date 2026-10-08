@@ -100,7 +100,8 @@ export default function ResearchOperationsClient({mergedThroughWave,mergedIndexe
         </div>
         <div className='mt-5 overflow-x-auto'>
           <table className='w-full min-w-[620px] text-left text-sm'>
-            <thead><tr className='border-b border-brand-900/10 text-xs uppercase tracking-wider text-muted'><th className='py-2 pr-4'>Batch</th><th className='py-2 pr-4'>State</th><th className='py-2 pr-4'>Records</th><th className='py-2 pr-4'>PR</th><th className='py-2'>Blocker</th></tr></thead>
+            <caption className='sr-only'>Research batch status, record counts, pull requests, and blockers</caption>
+            <thead><tr className='border-b border-brand-900/10 text-xs uppercase tracking-wider text-muted'><th scope='col' className='py-2 pr-4'>Batch</th><th scope='col' className='py-2 pr-4'>State</th><th scope='col' className='py-2 pr-4'>Records</th><th scope='col' className='py-2 pr-4'>PR</th><th scope='col' className='py-2'>Blocker</th></tr></thead>
             <tbody>{(snapshot?.batches??[]).slice().reverse().slice(0,12).map(batch=><tr key={batch.id} className='border-b border-brand-900/5 align-top'>
               <td className='py-3 pr-4 font-semibold text-ink'>{batch.id}</td><td className='py-3 pr-4'>{batch.state}</td><td className='py-3 pr-4 tabular-nums'>{batch.count}</td><td className='py-3 pr-4'>{batch.pr_number??'—'}</td><td className='py-3 text-muted'>{batch.blocker??'—'}</td>
             </tr>)}</tbody>
