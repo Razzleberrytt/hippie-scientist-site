@@ -7013,6 +7013,769 @@
       "reservation_id": "6d4e6e0af131a09e7103",
       "reserved_at": "2026-10-08T22:18:43.396Z",
       "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "41152206",
+      "title": "A Case of Maternal and Neonatal Withdrawal After Exposure to Fentanyl Adulterated With Medetomidine.",
+      "doi": "10.1097/ADM.0000000000001605",
+      "source_title": "A Case of Maternal and Neonatal Withdrawal After Exposure to Fentanyl Adulterated With Medetomidine.",
+      "abstract": "The emergence of medetomidine, a potent veterinary alpha-2 adrenergic receptor agonist, as a common fentanyl adulterant in many areas of the United States poses new threats to pregnant women who use illicit opioids and their neonates. We present a case of severe withdrawal seen in a postpartum woman and her neonate after exposure to fentanyl adulterated with medetomidine up to the time of delivery. The case demonstrates the need for obstetric and pediatric providers to be aware of this emerging trend to allow for early recognition and prompt treatment of the potentially life-threatening symptoms of medetomidine withdrawal, which differs from traditional withdrawal patterns, and highlights the importance of communication and coordination between obstetric and pediatric teams caring for this population.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41152206/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41152206",
+        "doi": "10.1097/ADM.0000000000001605",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.443Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7146589e83c0efab5358",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "42236100",
+      "title": "Emergency Department-initiated standard versus high-dose buprenorphine induction (ENVISION): a randomised clinical trial protocol.",
+      "doi": "10.1136/bmjopen-2025-113762",
+      "source_title": "Emergency Department-initiated standard versus high-dose buprenorphine induction (ENVISION): a randomised clinical trial protocol.",
+      "abstract": "The initiation of buprenorphine for patients with opioid use disorder (OUD) in the emergency department (ED) has been associated with improved outcomes including reduced ED visits and increased treatment engagement. Though both standard-dose (8 mg buprenorphine equivalent) and high-dose (24 mg buprenorphine equivalent) strategies to initiate buprenorphine have been used in the ED, no prospective trials comparing outcomes among patients receiving these treatments have been reported. This multisite randomised clinical trial is a multisite double-blind, double-dummy, randomised clinical trial enrolling 360 emergency department patients with moderate-to-severe OUD. Enrolled patients will be randomised to one of two study arms: standard-dose induction or high-dose induction, both provided in the ED. This study will engage, train and provide resources to five EDs throughout the US to recruit patients with untreated OUD into a randomised clinical trial. The primary aim is to evaluate the effects of the standard-dose induction and high-dose induction on rates of OUD treatment participation within 10 days post-randomisation. The secondary aims are to evaluate differences between standard-dose induction and high-dose induction on the outcomes of opioid craving, opioid withdrawal symptoms and illicit drug use assessed during 10 days post randomisation and evaluate the effects between treatment arms on rates of OUD treatment participation within 30 days post randomisation. This study is funded by the National Institute on Drug Abuse and has been approved by the WCG Instutitional Review Board. It has been registered at clinicaltrials.gov. This study will inform the strategy for treatment initiation with buprenorphine among diverse ED settings and will provide ongoing evidence to support the safety and efficacy of initiating treatment for OUD in the ED. NCT06494904.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42236100/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42236100",
+        "doi": "10.1136/bmjopen-2025-113762",
+        "journal": "BMJ open",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.444Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "165d6e31a0bc01114b48",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "41578432",
+      "title": "Management of Opioid Withdrawal Syndrome and Commencement of Opioid Dependence Treatment Following Chronic Use of a Vaping Product Containing Protonitazene: Case Report.",
+      "doi": "10.1111/dar.70104",
+      "source_title": "Management of Opioid Withdrawal Syndrome and Commencement of Opioid Dependence Treatment Following Chronic Use of a Vaping Product Containing Protonitazene: Case Report.",
+      "abstract": "Nitazenes, benzimidazole synthetic potent opioid μ-receptor agonists, have been implicated in increased risk for opioid toxicity. Subtypes of nitazenes, including protonitazene, have been recently detected in multiple overdose cases in Australia. We describe a case report of protonitazene dependence, inpatient withdrawal management and induction onto opioid dependence treatment. A 22-year-old man with no significant medical history presented to a metropolitan emergency department in opioid withdrawal after regular vaping of a product sold as cannabinoids. He required higher than expected buprenorphine doses and other standard treatment including diazepam and olanzapine to manage opioid withdrawal. Blood and urine samples taken in the emergency department later tested positive for protonitazene. Analysis of the vaping liquid was only positive for protonitazene. He was discharged for outpatient follow-up to later receive a 300 mg subcutaneous buprenorphine monthly injection. This case describes the clinical presentation of dependence, withdrawal and buprenorphine induction for opioid dependence due to chronic protonitazene vaping. Future research may help guide optimal doses of buprenorphine to manage nitazene withdrawal. Vaping devices have increased in popularity, especially amongst youth, which poses public health risks to the community if adulterated with other substances. Detection of nitazenes currently requires specialised laboratories. Protonitazene withdrawal management was complex in this case report. Youth are at risk of harms in vaping products adulterated with other substances, including nitazenes. State-wide toxicosurveillance programs, such as the NSW PRISE program, are essential for coordinating detection, clinical management and community awareness of nitazenes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41578432/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41578432",
+        "doi": "10.1111/dar.70104",
+        "journal": "Drug and alcohol review",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.444Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c3428dfc7ce0617f79a7",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "42757529",
+      "title": "Insights About Nitazene Use From Self-reported Experiences on Reddit Obtained Using Natural Language Processing.",
+      "doi": "10.1097/ADM.0000000000001760",
+      "source_title": "Insights About Nitazene Use From Self-reported Experiences on Reddit Obtained Using Natural Language Processing.",
+      "abstract": "Nitazenes are an emerging class of highly potent synthetic opioids not approved for clinical use. Knowledge of nitazene-associated practices and clinical effects remains limited. Reddit contains nitazene-related discussions describing self-reported experiences. We analyzed nitazene mentions to characterize these experiences. Nitazene-mentioning posts between 01/2019 and 10/2025 were extracted via natural language processing-based lexical filters, and a random sample of 293 mentions was qualitatively reviewed and annotated for themes consolidated via consensus discussion. Repeated findings more specific than themes were synthesized as subthemes, and a validated GPT-4o-based pipeline was applied to all mentions to forecast the theme distribution. A total of 31,638 mentions were extracted; frequency increased between 2022 and 2024 (mean 584 mentions/month, P<0.01 increase compared with 2019-2021's mean of 197 mentions/month). Ten themes were curated, with source (31.3%), potency and dose (26.5%), and uncertainty (25.9%) most prevalent in the annotated sample. Across the full dataset, automated characterization predicted that general experience (44.7%), general comment (37.9%), and potency and dose (27.6%) were the most prevalent thematic labels. Nine subthemes included information about counterfeit pills, withdrawal management difficulties, motivating factors for use, benzodiazepine adulteration, and vascular injury associated with intravenous administration. Increasing nitazene mentions on Reddit may reflect increasing interest and use. Thematic characterization identified patterns in nitazene use, effects, and distribution relevant to clinical practice and public health. Insights provided by subthemes align with laboratory potency assessments and emerging evidence from case series and health alerts. These findings can inform public health monitoring, overdose prevention, and clinical characterizations of nitazene use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42757529/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42757529",
+        "doi": "10.1097/ADM.0000000000001760",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.444Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "649ef364474fa75e7381",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "42087295",
+      "title": "Presentation and management of acute medetomidine withdrawal.",
+      "doi": "10.1093/ajhp/zxag141",
+      "source_title": "Presentation and management of acute medetomidine withdrawal.",
+      "abstract": "Medetomidine, a potent α2-adrenergic agonist, is an emerging contaminant in the US illicit opioid supply. It is a racemic mixture that includes the sedative dexmedetomidine and can lead to severe and complicated withdrawal symptoms requiring novel management strategies. In this therapy update, we provide insights on the identification and management of medetomidine withdrawal based on our clinical experiences with it over the past year. Medetomidine withdrawal can occur precipitously, typically 4 to 6 hours after last use in regular users, and lead to severe symptoms and complications including agitation, tremors, and widespread sympathetic activation. Prompt identification of withdrawal is vital to initiate oral and transdermal α2-agonist therapy, often at doses higher than those required for labeled indications. Severe nausea and vomiting are typically present and may be refractory to standard treatments and prevent oral therapies from being administered. Intravenous dexmedetomidine is recommended for those for whom oral α2-agonist therapy is ineffective or who are unable to tolerate enteral therapies. This may require aggressive dose titration and infusion rates that are above those in typical sedation protocols. In addition to α2 withdrawal, patients may have withdrawal from concomitant opioids, benzodiazepines, or other substances that requires additional treatment. Medetomidine withdrawal can lead to severe hemodynamic and autonomic complications that require a multimodal treatment strategy. Clinicians should be familiar with the signs, symptoms, and timing of medetomidine withdrawal along with the complex management that is required.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42087295/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42087295",
+        "doi": "10.1093/ajhp/zxag141",
+        "journal": "American journal of health-system pharmacy : AJHP : official journal of the American Society of Health-System Pharmacists",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.445Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "74ab590d99d9a57549f9",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "41673924",
+      "title": "Buprenorphine initiation from fentanyl using low-dose intramuscular ketamine: a pilot study.",
+      "doi": "10.1186/s13722-026-00649-3",
+      "source_title": "Buprenorphine initiation from fentanyl using low-dose intramuscular ketamine: a pilot study.",
+      "abstract": "BACKGROUND: Buprenorphine is an effective medication for treating opioid use disorder but is underutilized partly due to patient apprehensiveness of the severe withdrawal symptoms it can induce when started, particularly by fentanyl-dependent individuals. An emerging facilitator to buprenorphine initiation is ketamine, a dissociative anesthetic shown to reverse opioid withdrawal symptoms in case reports and small series. A 24-hour behavioral health crisis center implemented a quality improvement protocol to address difficulties transitioning patients from fentanyl to buprenorphine using a high-dose buprenorphine initiation strategy premedicated with a low, sub-dissociative dose of intramuscular ketamine. METHODS: Crisis center personnel injected ketamine 10 mg intramuscularly at a cost of $0.44 per patient and 30 minutes later administered buprenorphine 8 mg sublingually to patients who self-reported recent use of fentanyl and were in at least moderate withdrawal. They assessed Clinical Opiate Withdrawal Scale (COWS) scores at baseline, 30 minutes after ketamine, and 30 minutes after buprenorphine. They compared length of stay (LOS) between patients initiating buprenorphine before and after implementing the protocol. They recorded pharmacy dispensing of buprenorphine prescriptions and follow-up visits within 30 days. RESULTS: In 50 patients treated over 13 months, average COWS score dropped from 13.6 (range 8–21, SD 2.9) at baseline to 6.2 (range 0–17, SD 3.6) 30 minutes after ketamine and 4.1 (range 0–18, SD 4.0) 30 minutes after buprenorphine. Both decreases were statistically significant (p < 0.001) with very large effect sizes. Of the 50 patients, 36 (72%) experienced a decrease in COWS score including 27/50 (54%) with COWS score 0–3 by 30 minutes after buprenorphine. After protocol implementation, median LOS decreased from 66.0 hours (range 20–135) in the pre-protocol comparison sample to 7.0 hours (range 2–148) in the post-protocol sample. Patients reported no adverse effects of ketamine. CONCLUSIONS: In this observational study, sub-dissociative dose intramuscular ketamine was a well-tolerated and inexpensive premedication for a high-dose buprenorphine initiation strategy. Most patients had rapid reduction in signs of fentanyl withdrawal after ketamine, and half had nearly complete resolution following buprenorphine. Ketamine may be a useful adjunct to increase buprenorphine uptake and reduce overdose deaths. Prospective research is warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41673924/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41673924",
+        "doi": "10.1186/s13722-026-00649-3",
+        "journal": "Addiction science & clinical practice",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.445Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "622e03b89b844fbdebb8",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "42748282",
+      "title": "Management of Patients with Medetomidine Withdrawal During Interfacility Transfer.",
+      "doi": "10.1080/10903127.2026.2728131",
+      "source_title": "Management of Patients with Medetomidine Withdrawal During Interfacility Transfer.",
+      "abstract": "Alpha-2 agonists including medetomidine are becoming increasingly prevalent as adulterants in the United States opioid supply. Complicated withdrawal following use of these agents is characterized by severe symptoms including agitation and nausea, often requiring treatment with high-dose dexmedetomidine infusion and transfer between community emergency departments and tertiary critical care units. We aimed to describe interventions and outcomes of patients undergoing interfacility transport while receiving a dexmedetomidine infusion for medetomidine withdrawal to inform safe transfer practices for this patient population. We performed a retrospective observational cohort study of consecutive non-intubated patients receiving dexmedetomidine infusion for management of suspected medetomidine withdrawal transported by a regional critical care transport agency between March 2024 and February 2026. We identified clinical characteristics, characterized withdrawal symptoms, and identified the incidence of and indications for supplemental medical therapy provided during transport. We also identified the prevalence of hemodynamic instability, hypoxia, or need for advanced airway interventions. Among the 100 patients receiving dexmedetomidine infusion for suspected medetomidine withdrawal, most experienced agitation (53%), nausea/vomiting (58%), tachycardia/bradycardia (62%), or hypertension (71%) upon or prior to crew arrival. During transport, 10% of patients received dexmedetomidine titration, 12% received additional antiemetics, 9% received sedatives, and 1% received vasoactive infusion for hypotension. No patients received additional sedative infusions. Many patients exhibited hypertension (systolic blood pressure [SBP] > 140 mmHg; 78%) or profound hypertension (SBP >180 mmHg or diastolic BP >110 mmHg; 39%). Patients also experienced tachycardia (heart rate [HR] > 120; 35%), bradycardia (HR <50; 6%), or hypotension (SBP <90 mmHg; 6%). Only 3% of patients experienced hypoxia (SpO2 < 90%), or were treated with supplemental oxygen, and no patients required advanced airway management. Patients undergoing transport while receiving dexmedetomidine infusion for suspected medetomidine withdrawal were commonly hypertensive and rarely hypoxic. While some patients required additional antiemetic or sedative medications, no patients required alternate sedative infusions, most remained stable on the dexmedetomidine infusion, and need for vasopressors was very rare. Early symptom recognition and pharmacologic alpha-2 agonism are likely key in prehospital management of this toxidrome, which can safely be continued during interfacility transport.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42748282/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42748282",
+        "doi": "10.1080/10903127.2026.2728131",
+        "journal": "Prehospital emergency care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:19:19.445Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fa1f51aaa6933c193166",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "39626454",
+      "title": "Buprenorphine initiation and rates of associated precipitated withdrawal in patients with fentanyl use in an urban emergency department.",
+      "doi": "10.1016/j.ajem.2024.11.079",
+      "source_title": "Buprenorphine initiation and rates of associated precipitated withdrawal in patients with fentanyl use in an urban emergency department.",
+      "abstract": "Fentanyl use has been linked with an increasing number of opioid-related deaths. The emergency department (ED) is a critical contact point for patients with opioid use disorder (OUD) to access basic healthcare. Little information is known about buprenorphine precipitated opioid withdrawal (BPOW). This study sought to examine the rates of BPOW in patients who used fentanyl and received buprenorphine in the ED. A retrospective cohort study was conducted in a single emergency department in an urban city and included patients who reported use of fentanyl and who received buprenorphine for opioid withdrawal. The primary outcome was occurrence of BPOW, in which we assessed for interrater reliability between data abstractors. Data extraction included patients' demographic characteristics, date of service, length of stay, Clinical Opiate Withdrawal Scale (COWS) score assessments, dosages of administered buprenorphine, occurrence of BPOW, and ED disposition. Over the course of 28 months, buprenorphine was administered 113 patients (12.5 %) who reported using fentanyl prior to their ED presentation. The majority of patients identified as White (49 %), and most patients presented with a chief complaint other than specific opioid related concerns. Fifty-one patients (45 %) had an initial COWS score documented, with a median score of 11. Three patients (2.6 %) had BPOW, two of whom required intensive care unit (ICU) admission. We demonstrate that the prevalence of BPOW is low in a cohort of patients who use fentanyl. When precipitated withdrawal does occur, however, it can be severe and require intensive treatment, ICU admission, and prolonged hospital stay.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39626454/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39626454",
+        "doi": "10.1016/j.ajem.2024.11.079",
+        "journal": "The American journal of emergency medicine",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:19:19.446Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d10745d240ea5e17e388",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "39319796",
+      "title": "Methadone Initiation in the Emergency Department for Opioid Use Disorder.",
+      "doi": "10.5811/westjem.18530",
+      "source_title": "Methadone Initiation in the Emergency Department for Opioid Use Disorder.",
+      "abstract": "Overdose deaths from high-potency synthetic opioids, including fentanyl and its analogs, continue to rise along with emergency department (ED) visits for complications of opioid use disorder (OUD). Fentanyl accumulates in adipose tissue; although rare, this increases the risk of precipitated withdrawal in patients upon buprenorphine initiation. Many EDs have implemented medication for opioid use disorder (MOUD) programs using buprenorphine. However, few offer methadone, a proven therapy without the risk of precipitated withdrawal associated with buprenorphine initiation. We describe the addition of an ED-initiated methadone treatment pathway and compared its 72-hour follow-up outpatient treatment engagement rates to our existing ED-initiated buprenorphine MOUD program. We expanded our ED MOUD program with a methadone treatment pathway. From February 20-September 19, 2023, we screened 20,504 ED arrivals; 5.1% had signs of OUD. We enrolled 61 patients: 28 in the methadone; and 33 in the buprenorphine pathways. For patients who screened positive for opioid use, shared decision-making was employed to determine whether buprenorphine or methadone therapy was more appropriate. Patients in the methadone pathway received their first dose of up to 30 milligrams (mg) of methadone in the ED. Two additional methadone doses of up to 40 mg were dispensed at the time of the ED visit and held in the department, allowing patients to return each day for observed dosing until intake at an opioid treatment program (OTP). We compared 72-hour rates of outpatient follow-up treatment engagement at the OTP (for those on methadone) or at the addiction treatment center (ATC) (for those on buprenorphine) for the two treatment pathways. Of the 28 patients enrolled in the methadone pathway, 12 (43%) successfully engaged in follow-up treatment at the OTP. Of the 33 patients enrolled in the buprenorphine pathway, 15 (45%) successfully engaged in follow-up treatment at the ATC (relative risk 1.06; 95% confidence interval 0.60-1.87). Methadone initiation in the ED to treat patients with OUD resulted in similar 72-hour follow-up outpatient treatment engagement rates compared to ED-buprenorphine initiation, providing another viable option for MOUD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39319796/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39319796",
+        "doi": "10.5811/westjem.18530",
+        "journal": "The western journal of emergency medicine",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-08T22:19:19.447Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c9ffa4154479693bccc0",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "39828943",
+      "title": "Clinical toxicity of nitazene detections in two Australian emergency department toxicosurveillance systems.",
+      "doi": "10.1111/dar.13998",
+      "source_title": "Clinical toxicity of nitazene detections in two Australian emergency department toxicosurveillance systems.",
+      "abstract": "Nitazenes are a group of potent synthetic opioids that have had increasing prominence as novel psychoactive drugs in the last 5 years. We describe emergency department nitazene-related presentations. This is a prospective series of patients with analytically confirmed nitazene presentations identified by the Emerging Drugs Network of Australia and Emerging Drugs Network of Australia Victoria. Both studies' databases were searched between July 2020 and February 2024 with clinical data and blood nitazene concentrations abstracted. There were 32 presentations, 23 (72%) males, with a median age of 31 years (range 18-63 years). Only five (16%) intentionally ingested a nitazene, with most (12, 38%) believing they had taken alternative opioids. Co-exposures occurred in 31 (97%), mostly metamfetamine. Naloxone was administered in 23 (72%) presentations, with a median total dose of intravenous naloxone within 1 h post hospital presentation of 400 μg (interquartile range [IQR] 160-450 μg). Four (13%) received a naloxone infusion. Thirteen (41%) were admitted to the intensive care unit. The median length of stay was 17 h (IQR 7-39 h). Protonitazene was the commonest nitazene detected in 23 (72%) presentations with a median concentration of 2.0 μg/L (range 0.7-15 μg/L). The lowest concentration of protonitazene in a patient that received naloxone was 0.7 μg/L. Most patients were unaware they were using nitazenes. Given their potency, this has important implications for harm, particularly in those not intentionally using opioids. Nitazene exposure was mostly unintentional. Naloxone use was common and standard dosing regimens appeared effective in most cases.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39828943/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39828943",
+        "doi": "10.1111/dar.13998",
+        "journal": "Drug and alcohol review",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:19:19.447Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "847545e01c247f830b43",
+      "reserved_at": "2026-10-08T22:19:28.504Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-b"
     }
   ],
   "batches": [
@@ -7026,22 +7789,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 91,
+    "total_reservations": 101,
     "by_lane": {
       "1": 5,
       "2": 4,
       "3": 35,
-      "4": 22,
+      "4": 32,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 91
+      "SOURCE_VERIFIED": 101
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 91,
+        "count": 101,
         "pr_number": null,
         "blocker": null
       }
