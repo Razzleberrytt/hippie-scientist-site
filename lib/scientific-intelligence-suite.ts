@@ -2,7 +2,8 @@
  * A single typed, source-bound read-only orchestration contract for all twelve
  * research capabilities. All outputs carry explicit uncertainty / stop rules.
  */
-import type {ResearchStudio} from './research-intelligence-studio'
+import type {ResearchStudio,ReviewedStudyInput} from './research-intelligence-studio'
+import {compileReviewedClaimFacets} from './scientific-intelligence-reviewed'
 import type {SemanticNetwork} from './research-semantic-network'
 import {buildResearchCaseFile,type ResearchCaseFile} from './research-intelligence-casefile'
 import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from './scientific-intelligence-foundations'
@@ -34,8 +35,9 @@ export const SCIENCE_CAPABILITIES=[
   {id:'calibration',version:'1.14',name:'Scientific Intelligence Calibration Lab'},
 ] as const
 const absent='No global absence or safety conclusion can be drawn from missing indexed leads.'
-export function buildScientificIntelligenceCase(s:ResearchStudio,g:SemanticNetwork,c:ResearchCaseFile):ScientificIntelligenceCase{
+export function buildScientificIntelligenceCase(s:ResearchStudio,g:SemanticNetwork,c:ResearchCaseFile,published:readonly ReviewedStudyInput[]=[]):ScientificIntelligenceCase{
   const claim=compileClaimDNA(s,g,c),lineage=detectTrialLineage(s,g,c)
+  const reviewedClaims=compileReviewedClaimFacets(s,g,c,published)
   const compared=c.relatedPapers.slice(0,3).flatMap(link=>{
     const other=buildResearchCaseFile(s,g,link.pmid)
     return other?[compareStudyContexts(s,g,c,other)]:[]
@@ -57,7 +59,11 @@ export function buildScientificIntelligenceCase(s:ResearchStudio,g:SemanticNetwo
       ['Interventions: '+(claim.interventions.join(', ')||'unknown'),
        'Outcomes: '+(claim.outcomes.join(', ')||'unknown'),
        'Population: '+(claim.population.join(', ')||'unknown'),
-       'Dose/duration/effect direction: unverified'],claim,
+       'Unreviewed intake effect direction: unknown',
+       reviewedClaims.length+' independently published exact-citation relationship descriptor(s)',
+       ...reviewedClaims.slice(0,3).map(r=>r.intervention+': '+(r.outcome||'outcome unspecified')+
+         ' · reviewed label '+r.reviewedRelationship+' · studied dose '+(r.studiedDose||'unknown'))],
+       {sourceOnly:claim,reviewedExactCitationFacets:reviewedClaims},
       'No efficacy, safety, sample-size, preparation or dose inference without independent full-text review.'),
     make(1,'Exact publication aliases; underlying cohort/trial independence remains unknown.',
       [lineage.publicationAliases.length+' matching reviewed citation IDs',
