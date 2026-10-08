@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow } from './autonomous-merge-controller.mjs'
+import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
 
 const baseSha = 'base'
 const headSha = 'head'
@@ -568,5 +568,41 @@ describe('P0 zero-job bot refresh recovery routing', () => {
   it('scopes to the exact workflow and ignores unrelated suppression records', () => {
     expect(shouldDispatchRegisteredWorkflow('CI',[{...zeroJob,name:'Site Health Check'}])).toBe(true)
     expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,{...zeroJob,id:55,name:'Site Health Check'}],confirmed)).toBe(true)
+  })
+})
+
+describe('P0 source-register exact-head workflow recovery', () => {
+  const recoveryPr={number:6437,base:{ref:'main'},head:{sha:'a'.repeat(40)}}
+  it('passes explicit PR, base and full head to the source-register recovery',()=>{
+    expect(recoveryInputsFor('Research Source Register Integration',recoveryPr)).toEqual({
+      recovery_pr_number:'6437',
+      recovery_base_ref:'main',
+      recovery_head_sha:'a'.repeat(40),
+    })
+  })
+  it('retains the original inputs and lack of implicit authority in unrelated jobs',()=>{
+    expect(recoveryInputsFor('CI',recoveryPr)).toEqual({recovery_pr_number:'6437'})
+    expect(recoveryInputsFor('Atomic upgrade gate',recoveryPr)).toEqual({
+      recovery_pr_number:'6437',recovery_base_ref:'main',
+    })
+    expect(recoveryInputsFor('Unexpected workflow',recoveryPr)).toBeNull()
+  })
+  it('only permits workflow dispatch through the original scientific validator path',()=>{
+    const yaml=fs.readFileSync(path.join(process.cwd(),
+      '.github/workflows/research-source-register-integration.yml'),'utf8')
+    const proof=yaml.indexOf('Prove exact pull-request head and base before recovery execution')
+    const checkout=yaml.indexOf('actions/checkout@v4')
+    expect(yaml).toContain('workflow_dispatch:')
+    expect(yaml).toContain('recovery_head_sha:')
+    expect(yaml).toContain('pull-requests: read')
+    expect(yaml).toContain('RECOVERY_HEAD_SHA')
+    expect(yaml).toContain('pr_repo')
+    expect(yaml).toContain('refs/heads/$pr_branch')
+    expect(proof).toBeGreaterThan(0)
+    expect(checkout).toBeGreaterThan(proof)
+    expect(yaml).toContain('validate-research-intelligence-studio.ts')
+    expect(yaml).toContain('validate-research-semantic-network.ts')
+    expect(yaml).toContain('validate-research-source-register.mjs')
+    expect(yaml).toContain('npm run typecheck')
   })
 })
