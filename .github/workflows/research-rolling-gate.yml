@@ -13,6 +13,7 @@ on:
       - 'app/research/source-register/**'
       - '.github/workflows/research-rolling-gate.yml'
       - '.github/workflows/research-lane-intake.yml'
+      - '.github/workflows/research-rolling-release.yml'
 
 permissions:
   contents: read
@@ -35,6 +36,11 @@ jobs:
         run: node --test scripts/research/*.test.mjs
       - name: Validate frozen rolling batch and independent review
         run: node scripts/research/validate-rolling-batch-pr.mjs
+      - name: Validate predecessor continuity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/research/validate-predecessor-continuity.mjs
       - name: Validate rolling source-register boundary
         run: node scripts/ci/validate-research-source-register.mjs
       - name: Research-only safety invariant
