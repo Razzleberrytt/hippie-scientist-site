@@ -26,7 +26,7 @@ for(const {name,m} of manifests){
  const reviewPath='ops/research-coordinator/reviews/'+name.replace(/-final-manifest\.json$/,'-independent-review.json');
  if(!fs.existsSync(reviewPath))throw Error(name+': independent semantic review receipt missing');
  const review=read(reviewPath);
- if(review.schema_version!==1||review.independent_semantic_review!==true||review.batch_content_sha256!==contentHash||review.reviewed_records!==500||review.accepted_records!==500||review.rejected_records!==0||!review.reviewer||!review.reviewed_at)throw Error(name+': invalid independent review receipt');
+ if(review.schema_version!==1||review.batch_id!==m.batch_id||review.independent_semantic_review!==true||review.batch_content_sha256!==contentHash||review.reviewed_records!==500||review.accepted_records!==500||review.rejected_records!==0||!review.reviewer||!review.reviewed_at)throw Error(name+': invalid independent review receipt');
  for(const k of ['adverse_effects_reviewed','interactions_reviewed','limitations_reviewed','uncertainty_reviewed','overclaim_check'])if(review[k]!==true)throw Error(name+': review control missing '+k);
  console.log('PASS rolling batch '+m.range+' with exact independent-review receipt');
 }
