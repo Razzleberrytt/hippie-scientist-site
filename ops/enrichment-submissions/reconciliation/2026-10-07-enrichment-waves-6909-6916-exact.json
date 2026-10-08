@@ -2,15 +2,9 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-6909-6916-exact",
   "range": "6909-6916",
-  "row_count": 7,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6915,
-      "pmid": "25666427",
-      "error": "PubMed title/abstract verification failed"
-    }
-  ],
+  "row_count": 8,
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "safety_interactions",
@@ -141,6 +135,28 @@
       "verified_journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
       "verified_pub_date": "2019-Aug",
       "pdf_link": "https://doi.org/10.1016/j.phymed.2019.152849",
+      "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "safety_interactions",
+      "pmid": "25666427",
+      "title": "The effectiveness and safety of a danshen-containing Chinese herbal medicine for diabetic retinopathy: a randomized, double-blind, placebo-controlled multicenter clinical trial.",
+      "doi": "10.1016/j.jep.2015.01.048",
+      "pub_date": "2015 Apr 22",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Journal of ethnopharmacology",
+      "discovery_query": "((dietary supplement[Title] OR herbal medicine[Title] OR herbal supplement[Title] OR botanical[Title] OR nutraceutical[Title]) AND (interaction[Title] OR adverse[Title] OR hepatotoxicity[Title] OR toxicity[Title] OR safety[Title] OR pharmacokinetic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 19,
+      "wave": 6915,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "The effectiveness and safety of a danshen-containing Chinese herbal medicine for diabetic retinopathy: a randomized, double-blind, placebo-controlled multicenter clinical trial.",
+      "abstract": "Salvia miltiorrhiza (Danshen in Chinese) is a common traditional Chinese herbal medicine often used to treat many medical conditions. The Compound Danshen Dripping Pill (CDDP) is a danshen-containing Chinese herbal product for the treatment of cardiovascular diseases. However, to date, no controlled clinical studies have been conducted to evaluate the effects of CDDP on diabetic retinopathy (DR). The present large-scale clinical trial was designed to assess the effectiveness and safety of CDDP in treating patients with non-proliferative diabetic retinopathy (NPDR). 223 NPDR patients were enrolled in this controlled trial. Subjects received oral study medications three times daily for 24 weeks. The four groups were placebo, low-dose (270 mg), mid-dose (540 mg) and high dose (810 mg herbal medicine). Primary endpoints were changes in fluorescence fundus angiography (FFA) and fundoscopic examination parameters. At 24 weeks, for the FFA, the percent of \"Excellent\" and \"Effective\" in the high-dose and mid-dose CDDP groups was 74% and 77%, respectively, very significantly higher than 28% in the placebo group (P<0.001). For fundoscopic examination, the percent of \"Excellent\" and \"Effective\" in the high-dose and mid-dose CDDP groups was 42% and 59%, respectively, very significantly higher than 11% in the placebo group (P<0.001). No adverse events with clinical significance were observed. DR is a severe microvascular complication of diabetes and a major cause of adult blindness worldwide. Our clinical trial data demonstrated the therapeutic value and safety of a danshen-containing Chinese herbal medicine in patients with diabetic retinopathy.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Journal of ethnopharmacology",
+      "verified_pub_date": "2015-Apr-22",
+      "pdf_link": "https://doi.org/10.1016/j.jep.2015.01.048",
       "full_text_link": "",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
