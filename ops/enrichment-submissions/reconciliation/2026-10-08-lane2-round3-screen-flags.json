@@ -1,0 +1,86 @@
+{
+  "lane": 2,
+  "flags": {
+    "7525": [
+      "RCT",
+      "population-limited"
+    ],
+    "7532": [
+      "RCT",
+      "multi-arm; subset effect"
+    ],
+    "7536": [
+      "quasi-RCT",
+      "anxiety endpoint null"
+    ],
+    "7540": [
+      "nonrandomized pilot",
+      "cointervention"
+    ],
+    "7544": [
+      "mechanistic review",
+      "not human clinical effectiveness"
+    ],
+    "7552": [
+      "RCT",
+      "objective alertness null"
+    ],
+    "7555": [
+      "RCT crossover",
+      "most sleep endpoints null"
+    ],
+    "7556": [
+      "RCT",
+      "small sample"
+    ],
+    "7558": [
+      "RCT crossover",
+      "adolescent small sample"
+    ],
+    "7560": [
+      "pilot crossover",
+      "EEG surrogate"
+    ],
+    "7561": [
+      "RCT",
+      "nonpharmacologic"
+    ],
+    "7565": [
+      "controlled trial",
+      "rehab endpoint null"
+    ],
+    "7566": [
+      "systematic review",
+      "heterogeneity"
+    ],
+    "7568": [
+      "RCT crossover",
+      "subgroup effects"
+    ],
+    "7572": [
+      "RCT",
+      "indirect sleep association"
+    ],
+    "7574": [
+      "RCT",
+      "small sample"
+    ],
+    "7575": [
+      "RCT",
+      "sleep effects limited"
+    ],
+    "7578": [
+      "controlled study",
+      "unusual exposure"
+    ],
+    "7579": [
+      "RCT",
+      "single blind"
+    ],
+    "7580": [
+      "RCT crossover",
+      "small subgroup"
+    ]
+  },
+  "admission": "BLOCKED_GLOBAL_DEDUP"
+}
