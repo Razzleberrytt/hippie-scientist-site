@@ -10137,6 +10137,857 @@
       "reservation_id": "d9fc5027c20b72d71104",
       "reserved_at": "2026-10-08T22:44:47.430Z",
       "source_branch": "research/intake/5/contradictions-replication-20261008-1833"
+    },
+    {
+      "pmid": "42696867",
+      "title": "Domain-specific effects of exercise types on cognitive function in healthy older adults: A systematic review with pairwise and Bayesian network meta-analysis.",
+      "doi": "10.1016/j.maturitas.2026.109109",
+      "source_title": "Domain-specific effects of exercise types on cognitive function in healthy older adults: A systematic review with pairwise and Bayesian network meta-analysis.",
+      "abstract": "Exercise is increasingly recognized as a promising non-pharmacological strategy for supporting cognitive function in older adults. However, it remains unclear which exercise types are most beneficial for specific cognitive domains. This study compared the effects of different exercise types on cognitive function in cognitively healthy older adults. From inception to March 23, 2025, we systematically searched the Web of Science, PubMed, Cochrane Library, SPORTDiscus, and PsycINFO databases, with an updated search performed on 26 June 2026. Eligible studies included healthy older adults without cognitive impairment (≥60 years). Risk of bias was assessed using the Risk of Bias 2 tool. Random-effects models were used to perform pairwise and Bayesian network meta-analyses. The network meta-analysis included 110 randomized controlled trials involving 8130 participants. Mind-body exercise was the most effective exercise type for executive function (SMD 0.54; 95% CrI 0.35, 0.73), processing speed (SMD 0.83; 95% CrI 0.45, 1.26), and attention (SMD 0.97; 95% CrI 0.40, 1.59). Aerobic exercise was most effective in improving global cognition (SMD 1.11; 95% CrI 0.58, 1.65) and language function (SMD 0.31; 95% CrI 0.10, 0.53). For memory function, high-intensity interval training ranked highest (SMD 0.58; 95% CrI 0.21, 0.96). The most effective exercise types varied across cognitive domains: aerobic exercise for global cognition and language function, mind-body exercise for executive function, processing speed, and attention, and high-intensity interval training for memory function. These findings may inform exercise-based strategies for cognitive health and healthy ageing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42696867/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42696867",
+        "doi": "10.1016/j.maturitas.2026.109109",
+        "journal": "Maturitas",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.305Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6e3e068c57b5a3ce0d2f",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42767813",
+      "title": "Exercise-only interventions and exercise-based multidomain lifestyle interventions to promote cognitive function in older adults without dementia: a systematic review and meta-analysis.",
+      "doi": "10.1136/bjsports-2026-111684",
+      "source_title": "Exercise-only interventions and exercise-based multidomain lifestyle interventions to promote cognitive function in older adults without dementia: a systematic review and meta-analysis.",
+      "abstract": "To assess the effect of exercise training as a single intervention (ie, Exercise-Only ) and exercise combined with other lifestyle interventions (ie, Exercise-Plus ) on executive functions, memory and processing speed of older adults living without dementia. We performed a systematic review with pairwise meta-analyses and network meta-analysis to examine the effects of: (1) Exercise-Only versus Control ; (2) Exercise-Plus versus Control ; and (3) Exercise-Plus versus Exercise-Only . We searched four databases (Medline, Embase, PsycINFO and CINAHL) between database inception and March 2026. We included randomised controlled trials that examined the effects of exercise training as a single domain or multidomain intervention on cognitive function of adults aged over 60 living without dementia. We included 227 studies in the pairwise meta-analyses ( Exercise-Only =178, Exercise- Plus=67) and 105 studies in the subset for the network meta-analysis ( Exercise-Only =76, Exercise-Plus= 36). Cognitive training and cognitively engaging activities were the most common Plus component in the included studies. Exercise-Only produced statistically significant improvements across all three cognitive domains compared with Control. Exercise-Plus was only significantly better than Control for memory. Exercise-Plus was also significantly better than Exercise-Only for executive functions and processing speed but not for memory. We recommend the promotion of exercise training to improve cognitive outcomes of older adults. Further research is needed to determine the added benefit of multidomain exercise interventions. CRD42022322199.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42767813/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42767813",
+        "doi": "10.1136/bjsports-2026-111684",
+        "journal": "British journal of sports medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.306Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "14e97bd8ffc98b08fa49",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "41790706",
+      "title": "The effects of structured aerobic exercise and mind-body exercise on cognitive function in older adults with MCI: Systematic review and meta-analysis.",
+      "doi": "10.1097/MD.0000000000047633",
+      "source_title": "The effects of structured aerobic exercise and mind-body exercise on cognitive function in older adults with MCI: Systematic review and meta-analysis.",
+      "abstract": "Global aging has increased the prevalence of dementia, with mild cognitive impairment (MCI) representing a critical window for intervention. While exercise is recognized for mitigating cognitive decline, the comparative effectiveness of mind-body versus structured aerobic exercise remains unclear. Search sources included PubMed, Web of Science, and the Cochrane Library. Randomized controlled trials (RCTs) assessing mind-body exercise (tai chi, yoga, and dance) or structured aerobic exercise (walking and cycling) in patients with MCI aged over 50 years were included. The Mini-Mental State Examination (MMSE), Montreal Cognitive Assessment (MoCA), and Alzheimer's Disease Assessment Scale-Cognitive Subscale (ADAS-Cog) were used as outcome measures. Random- or fixed-effects meta-analyses were conducted using RevMan 5.4.1. Heterogeneity was assessed using the I2 statistic. Subgroup analyses examined intervention parameters. Twenty-six randomized controlled trials (n = 2,555) were included. Mind-body exercise significantly improved MMSE (mean difference [MD] = 1.27, 95% confidence interval [CI]: 0.99-1.55, P < .01), MoCA (MD = 1.89, 95% CI: 0.78-3.00, P = .0008), and ADAS-Cog (MD = -2.09, 95% CI: -2.94 to -1.25, P < .00001) versus controls. Structured aerobic exercise showed non-significant effects on MMSE (MD = 0.37, P = .21) and MoCA (MD = -0.49, P = .26), with modest improvement on ADAS-Cog (MD = -1.41, P = .002). Optimal mind-body parameters include ≥20 weeks' duration, ≥60 minutes per session, and ≥3 times per week. Mind-body exercise demonstrates superior cognitive benefits compared with structured aerobic exercise in older adults with MCI. It is advised to prioritize mind-body exercise interventions at least 3 times per week, for 60 minutes per session, for at least 20 weeks. Limitations include heterogeneity and geographic bias; these findings warrant confirmation through multicenter trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41790706/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41790706",
+        "doi": "10.1097/MD.0000000000047633",
+        "journal": "Medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.306Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3f3f91a0b0d90b106a5f",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42196981",
+      "title": "Effects of Specific Carob ( Ceratonia siliqua L.) Liquid Concentrate on Glucose Metabolism in Subjects with Prediabetes: A Randomized Double-Blind Controlled Clinical Trial.",
+      "doi": "10.3390/nu18101521",
+      "source_title": "Effects of Specific Carob ( Ceratonia siliqua L.) Liquid Concentrate on Glucose Metabolism in Subjects with Prediabetes: A Randomized Double-Blind Controlled Clinical Trial.",
+      "abstract": "Background/Objectives : A 90-day randomized double-blind and placebo-controlled study was conducted to assess the effect of carob ( Ceratonia siliqua L.) on glucose metabolism in subjects with confirmed prediabetes. Methods : The carob liquid concentrate containing inositols of the carob fruit (D-pinitol, myo-inositol, D-chiro inositol) was administered at a daily dose of 6.66 g, divided into two doses of 3.33 g each. Study variables included glucose- and insulin-related parameters obtained at fasting conditions and during a standard 2 h oral glucose tolerance test (OGTT) at baseline and after 45 and 90 days of administration of the study products. Results : The study population included 52 subjects (25 in the experimental group, 27 in the placebo group), 27 men and 25 women, with a mean age of 45.6 ± 13.9 years. Subjects who consumed the active product showed improvements in glycated hemoglobin (HbA1c) and glucose levels as compared with placebo ( p < 0.001 of the time × group interaction). Fasting serum insulin showed within-group significant decreases in the experimental group, with insulin indexes (HOMA-IR and QUICKI) improving significantly in the experimental group only. In the OGTT, there were significant improvements in the AUC of glucose and insulin, as well as glucose peak in the experimental group only. The product was well tolerated and no adverse effects were recorded. Conclusions : The use of a specific carob-based liquid concentrate decreased HbA1c and glucose levels in subjects with prediabetes, which may suggest its potential clinical relevance in the prevention of the transition from prediabetes to overt type 2 diabetes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42196981/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42196981",
+        "doi": "10.3390/nu18101521",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.307Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d45123b4a3c03e71f344",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42318267",
+      "title": "Comparative Efficacy of Different Aquatic Exercise Modalities on Cognitive Function in The Elderly: A Systematic Review and Network Meta-Analysis.",
+      "doi": "10.52082/jssm.2026.381",
+      "source_title": "Comparative Efficacy of Different Aquatic Exercise Modalities on Cognitive Function in The Elderly: A Systematic Review and Network Meta-Analysis.",
+      "abstract": "Cognitive decline poses a major challenge in aging populations, and aquatic exercise may offer cognitive benefits while reduceding injury risk. This systematic review and network meta-analysis (NMA) evaluated the comparative effectiveness of different aquatic exercise modalities on cognitive function in older adults. Major electronic databases were searched from inception to January 2026 for randomized controlled trials (RCTs) examining aquatic exercise and cognitive outcomes in adults aged ≥60 years; studies were independently assessed by two reviewers. Interventions were categorized as aquatic cognitive-motor exercise, aquatic aerobic exercise, aquatic high-intensity interval training (HIIT), and aquatic strength training. A frequentist NMA was used to synthesize direct and indirect evidence, with effect sizes expressed as standardized mean differences (SMDs). Nine RCTs (involving 324 participants) met the inclusion criteria. Aquatic cognitive-motor exercise showed the highest probability of being the most effective intervention (SUCRA [surface under the cumulative ranking curve] = 85.36%), followed by aquatic aerobic exercise (61.44%) and aquatic strength training (51.80%). Aquatic HIIT (49.12%) and land-based exercise (48.34%) demonstrated moderate effects. Among all modalities only aquatic cognitive-motor exercise showed statistically significant improvements compared with non-exercising controls. Based on the currently available limited evidence, aquatic cognitive-motor exercise may be the most effective aquatic modality for improving cognitive function in older adults. All aquatic exercise modalities provided cognitive benefits at least comparable to those of land-based exercise. The findings suggest that cognitive engagement, rather than exercise intensity alone, may be crucial for maximizing the efficacy of the intervention. However, as only nine RCTs were included, these findings should be interpreted with caution given the limited size and density of the evidence network.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42318267/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Network Meta-Analysis; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Network Meta-Analysis",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42318267",
+        "doi": "10.52082/jssm.2026.381",
+        "journal": "Journal of sports science & medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.307Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3debdcca9c12bd08167f",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42483039",
+      "title": "Comparative efficacy and certainty of evidence of exercise interventions for cognitive outcomes in older adults with mild cognitive impairment: a systematic review and network meta-analysis of randomized controlled trials.",
+      "doi": "10.3389/fnagi.2026.1866613",
+      "source_title": "Comparative efficacy and certainty of evidence of exercise interventions for cognitive outcomes in older adults with mild cognitive impairment: a systematic review and network meta-analysis of randomized controlled trials.",
+      "abstract": "Mild cognitive impairment (MCI) is common in older adults and is linked to dementia, functional decline, and poorer quality of life. Exercise is recommended as a non-pharmacological strategy, but comparative effects of exercise modalities, alone or combined with cognitive training, remain uncertain. This systematic review and network meta-analysis compared exercise-based interventions for cognitive and psychological outcomes in older adults with MCI. Following a registered PROSPERO protocol (CRD420261372312), we searched PubMed, Embase, Cochrane Library, and Web of Science from inception to March 1, 2026. Eligible studies were randomized controlled trials in older adults with MCI. Intervention nodes included aerobic exercise, resistance training, mind-body exercise, multicomponent exercise, digital or virtual reality-based exercise, cognitive training, and combined exercise-cognitive training. Outcomes included global cognition, executive function, attention/working memory, depression-related assessments (DRA), and memory function assessments (MFA). Risk of bias, rankings, and certainty were assessed using RoB 2, SUCRA, and GRADE. Seventy-four RCTs involving 5,578 participants and 12 intervention nodes were included. Compared with wait-list control, mind-body exercise was associated with higher MoCA (MD = 3.94, 95% CI 2.28-5.59) and MMSE scores (MD = 4.52, 95% CI 2.34-6.70; moderate certainty). Resistance training was associated with lower ADAS-Cog scores (MD = -5.02, 95% CI -7.30 to -2.74; high certainty). Digital or virtual reality-based exercise was associated with faster TMT-B performance (MD = -48.40, 95% CI -77.22 to -19.58; moderate certainty). Multicomponent exercise was associated with lower DRA scores (SMD = -0.56, 95% CI -0.96 to -0.16; moderate certainty) and better DST performance (SMD = 1.70, 95% CI 0.71-2.69; high certainty). SCWT and MFA showed favorable but statistically uncertain trends. Exercise-based interventions may be associated with favorable cognitive and psychological outcomes in older adults with MCI, with effects varying by domain. Favorable estimates were observed for mind-body exercise in global cognition, resistance training in ADAS-Cog, digital or virtual reality-based exercise in executive function, and multicomponent exercise in DST and DRA. Findings should be interpreted cautiously given evidence certainty, network sparsity, and estimate precision. Further head-to-head trials with standardized protocols are warranted. https://www.crd.york.ac.uk/PROSPERO/view/CRD420261372312, identifier CRD420261372312.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42483039/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42483039",
+        "doi": "10.3389/fnagi.2026.1866613",
+        "journal": "Frontiers in aging neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.308Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "10480d6dadef0ec337f2",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42656342",
+      "title": "Orally administered scallop-derived plasmalogens improve cognitive function in healthy middle-aged and older adults: a randomized, double-blind, placebo-controlled trial.",
+      "doi": "10.3389/fnut.2026.1906996",
+      "source_title": "Orally administered scallop-derived plasmalogens improve cognitive function in healthy middle-aged and older adults: a randomized, double-blind, placebo-controlled trial.",
+      "abstract": "Plasmalogens (Pls) are ether phospholipids enriched in the brain that help maintain synaptic integrity and support cognitive function. However, evidence of their cognitive benefits in otherwise healthy individuals remains limited. This randomized, double-blind, placebo-controlled trial examined whether supplementation with scallop-derived Pls (sPls) improves cognitive performance in cognitively healthy Japanese adults aged ≥40 years with below-average verbal memory at baseline. Of 168 individuals screened, 68 eligible participants were randomly assigned (1:1) to receive either sPls (1 mg/day) or placebo for 12 weeks. Cognitive performance was assessed using the web-based Cognitrax battery (CNS Vital Signs), with the standardized verbal memory score as the primary outcome. Secondary outcomes included other cognitive domains and plasma brain-derived neurotrophic factor (BDNF) levels. Safety was evaluated through adverse event monitoring and clinical assessments. Sixty-six participants were included in the analysis. After 12 weeks, standardized verbal memory scores were significantly higher in the sPls group than in the placebo group (estimated marginal mean difference, 10.1; 95% confidence interval, 0.4-19.9; p = 0.042). The sPls group also showed significantly greater improvements in selected attention-related cognitive domains. Plasma BDNF levels increased in both groups, with no significant between-group differences; a modest negative correlation between BDNF levels and cognitive performance was observed in the sPls group at 12 weeks. No adverse events or clinically meaningful safety concerns were reported. In cognitively healthy middle-aged and older adults with below-average verbal memory, 12 weeks of sPls supplementation was associated with improved verbal memory compared with placebo. Exploratory analyses also suggested potential improvements in selected attention-related cognitive domains. Dietary sPls may have the potential to support cognitive function in this population; however, further studies are required to confirm these findings and evaluate long-term safety. https://center6.umin.ac.jp/cgi-open-bin/ctr/ctr_view.cgi?recptno=R000066286, identifier UMIN000057985.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42656342/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42656342",
+        "doi": "10.3389/fnut.2026.1906996",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.308Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1d93344711e63e5c3e28",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42654319",
+      "title": "Impact of N-PEP-12 Supplementation on Attentional Performance and Mental Wellbeing in Healthy Adults with Subjective Cognitive Complaints: A Randomized, Placebo-Controlled Trial.",
+      "doi": "10.3390/nu18162739",
+      "source_title": "Impact of N-PEP-12 Supplementation on Attentional Performance and Mental Wellbeing in Healthy Adults with Subjective Cognitive Complaints: A Randomized, Placebo-Controlled Trial.",
+      "abstract": "Background : Subjective cognitive complaints (SCCs) are common in middle-aged and older adults and may reflect early cognitive changes, alongside alterations in stress, mood, sleep, and quality of life. N-PEP-12 is a peptide-based nutritional supplement with potential neuroprotective effects, but evidence of its benefits in healthy adults with SCCs remains limited. Objective : To evaluate the effects of N-PEP-12 supplementation on attention, cognitive function, and mental wellbeing in healthy middle-aged and older adults with SCCs. Methods : In this prospective, randomized, double-blind, placebo-controlled trial, 276 participants aged 50-75 years with SCCs and no clinically significant cognitive impairment were randomized to placebo, N-PEP-12 45 mg, or N-PEP-12 90 mg. Assessments were performed at baseline and after 30, 90, and 180 days. Primary outcomes included Test of Attentional Performance measures. Secondary outcomes included WAIS-IV Digit Span Forward and Backward, perceived stress, mood, sleep quality, and EQ-5D-5L visual analog scale. Results : Across the three primary attention outcomes analyzed jointly in a multivariate repeated-measures model, there was a significant group-by-visit interaction ( p = 0.003) and a significant effect of visit ( p < 0.001), without a significant main effect of treatment arm ( p = 0.133), indicating a time-dependent treatment effect. This result was obtained in a sensitivity analysis population in which missing values were imputed under assumptions least favorable to the active arms. In exploratory endpoint-specific comparisons at 90 days, both N-PEP-12 groups showed greater improvements than placebo in alertness, attention omissions and memory omissions, and Digit Span Forward and Backward scores also improved. In a subsequent uncontrolled extension phase, in which all participants received active treatment, participants initially assigned to placebo showed comparable improvements after switching to N-PEP-12 90 mg. These observations are exploratory. Adverse events were infrequent and similarly distributed across groups. Conclusions : N-PEP-12 supplementation was associated with improvements in attention, working memory, and mental wellbeing in healthy middle-aged and older adults with subjective cognitive complaints. These findings support further investigation of N-PEP-12 as a nutritional intervention for early subjective cognitive changes associated with aging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42654319/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42654319",
+        "doi": "10.3390/nu18162739",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.308Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7ee43109e728ca68a2cb",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42343233",
+      "title": "Effect of pasteurized Akkermansia muciniphila MucT on insulin sensitivity, body composition, and GLP-1 production in subjects with metabolic syndrome: impact of low baseline gut Akkermansia levels.",
+      "doi": "10.1080/19490976.2026.2690689",
+      "source_title": "Effect of pasteurized Akkermansia muciniphila MucT on insulin sensitivity, body composition, and GLP-1 production in subjects with metabolic syndrome: impact of low baseline gut Akkermansia levels.",
+      "abstract": "Pasteurized Akkermansia muciniphila MucT was found to improve barrier function in preclinical models and a proof-of-concept study in obese and prediabetic adults. Here, we describe the results of a double-blind placebo-controlled multicenter (Ireland and Germany) trial in 142 adults with metabolic syndrome, with or without prediabetes. The primary endpoint of whole-body insulin sensitivity (Matsuda index) did not differ after 4-months of daily administration of capsules containing 30 billion cells of pasteurized A. muciniphila MucT compared to placebo in the intention-to-treat subjects. Subsequent exploratory analyses showed that 3-months intake of pasteurized A. muciniphila MucT already improved HOMA-based hepatic insulin sensitivity in prediabetic (12%; p = 0.05) and 63-y-or-older-age subgroups ( p = 0.05) while increasing post-OGTT excursion of the insulinotropic hormone glucagon-like peptide 1 (GLP-1) over placebo ( p < 0.01). Further analysis of the gut microbiota by deep metagenomic analysis showed minor effects of the intervention but revealed that the baseline microbial composition differed from that in matched healthy adults. We found that participants with low baseline Akkermansia gene counts experienced significant health improvements and GLP-1 excursion after 3-months of treatment with pasteurized A. muciniphila MucT over the placebo. These benefits included improved insulin sensitivity (as shown by Matsuda and HOMA-S indices) and GLP-1 excursion (post-OGTT) ( p < 0.05), reductions in body weight ( p = 0.06) and decreased trunk fat ( p < 0.05). In conclusion, daily supplementation with pasteurized A. muciniphila MucT has the potential to improve health markers in overweight or obese normo- or dysglycemic adults with the most significant improvements in subjects with low baseline intestinal Akkermansia levels, who are apparently truly in need of this intervention. Clinical trial registration no.: NCT05114018 clinicaltrials.gov.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42343233/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42343233",
+        "doi": "10.1080/19490976.2026.2690689",
+        "journal": "Gut microbes",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.309Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "50bca0f4ba3d74edee9b",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "41866316",
+      "title": "Bisphenol A decreases peripheral insulin sensitivity in normal weight adults: a double-blind randomized controlled trial.",
+      "doi": "10.1210/clinem/dgag124",
+      "source_title": "Bisphenol A decreases peripheral insulin sensitivity in normal weight adults: a double-blind randomized controlled trial.",
+      "abstract": "Bisphenol A (BPA) is a synthetic chemical used in consumer goods that has been linked to type 2 diabetes in observational studies. No human experimental studies have examined whether BPA reduces peripheral insulin sensitivity. To determine the effects of oral BPA administration on peripheral insulin sensitivity over 5 days. Forty sedentary, but otherwise healthy adults (22 F, 18 M; 21.3 ± 2.1 year; 22.1 ± 2.3 kg/m2; 85% non-Hispanic White) completed a 2-day baseline energy-balanced diet low in BPA during which urine, blood, and peripheral insulin sensitivity via 120 minutes euglycemic hyperinsulinemic clamp technique (40 mU/m2/min; 90 mg/dL) were assessed. In a double-blind fashion, participants were randomly assigned to receive 5 days of oral BPA administration at 50 µg/kg body weight (BPA-50) or placebo (PL). All participants were fed the same energy-balanced diet. Outcomes were assessed using a two-way repeated-measures ANOVA adjusted for baseline sex, BMI, physical activity, and ethnicity. After treatment, urine BPA levels were significantly higher in BPA-50 compared to PL (+ 268 700 ± 63 983 vs PL: + 8893 ± 6786 pg/mL, P = .009). After treatment, body weight and fasting glucose were not statistically different between PL and BPA-50 (P > .05). However, BPA significantly decreased peripheral insulin sensitivity by 0.02 ± 0.01 mg/kg/min/uU/mL compared with an increase observed following PL by 0.02 ± 0.01 mg/kg/min/uU/mL (P = .01). BPA administration decreased peripheral insulin sensitivity after 5 days. These data provide the first experimental evidence in humans that BPA administration may reduce insulin sensitivity.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41866316/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41866316",
+        "doi": "10.1210/clinem/dgag124",
+        "journal": "The Journal of clinical endocrinology and metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.309Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6682f1852de7afe26a09",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
+    },
+    {
+      "pmid": "42010597",
+      "title": "Effects of exercise on executive function in cognitively healthy older adults: a systematic review and three-level meta-analysis.",
+      "doi": "10.1186/s12889-026-27418-w",
+      "source_title": "Effects of exercise on executive function in cognitively healthy older adults: a systematic review and three-level meta-analysis.",
+      "abstract": "OBJECTIVE: To systematically evaluate the effect of exercise on the executive function of cognitively healthy older adults through a three-level Meta-analysis. METHODS: Randomized controlled trials (RCTs) related to the effects of exercise on the executive function of cognitively healthy older adults were retrieved from eight databases, including PubMed, Web of Science, The Cochrane Library, EBSCOhost, Embase, CNKI, Wanfang, and VIP, with a search period from the establishment of the databases to February 27, 2025. The quality of the literature was assessed using the PEDro scale and the evidence quality was evaluated using GRADE. Meta-analysis was performed using a three-level random effects model in R, and publication bias was tested. Hedges’ g value and its 95% confidence interval (CI) were used for assessment, and a 95% prediction interval (PI) was calculated to determine the expected range of effect sizes in future similar studies. Funnel plots and Egger’s regression were used to assess publication bias. RESULTS: A total of 50 RCTs were included, involving 4,826 cognitively healthy older adults. The PEDro scale scores ranged from 5 to 8, with an average of 6.4, indicating that the overall quality of the included literature was good. After excluding outliers, the meta-analysis revealed that exercise significantly improved overall executive function in older adults (g= 0.155, 95% CI 0.084, 0.226, p < 0.001). Significant improvements were also observed in the subdomains of working memory (g = 0.208, 95% CI 0.093, 0.322,P<0.001) and cognitive flexibility (g = 0.150, 95% CI 0.001, 0.299,P= 0.049). Regarding exercise parameters, significant benefits were found for a frequency of ≥3 times/week (g = 0.188, 95% CI 0.097, 0.280, p < 0.001), a duration of ≤26 weeks (g = 0.193, 95% CI 0.114, 0.272, p< 0.001), a session time of ≤60 minutes (g = 0.190, 95% CI 0.115, 0.264, p < 0.001), and moderate-intensity exercise (g = 0.254, 95% CI 0.117, 0.390, p < 0.001), with both aerobic (g = 0.130, 95% CI 0.043, 0.218, p = 0.003) and resistance training (g = 0.232, 95% CI 0.077, 0.388, p = 0.003) being effective. Furthermore, these improvements were consistent across all population subgroups, including those aged 60-69 years (g = 0.134, 95% CI 0.049, 0.218, p = 0.002), those ≥70 years (g = 0.203, 95% CI 0.075, 0.330, p = 0.002), those with ≤12 years of education (g = 0.322, 95% CI 0.135, 0.510, p < 0.001), those with >12 years of education (g = 0.149, 95% CI 0.016, 0.283, p = 0.028), studies with ≥50% female participants (g = 0.137, 95% CI 0.067, 0.206, p < 0.001), studies with <50% female participants (g = 0.359, 95% CI 0.083, 0.635, p = 0.010), and studies employing a usual care control design (g = 0.205, 95% CI 0.113, 0.296, p < 0.001). The Egger's test (t = 2.630，p= 0.009) indicates a potential publication bias. The GRADE evidence quality for the impact of exercise on executive function in cognitively healthy older adults is rated as moderate. CONCLUSION: Exercise is an effective way to enhance overall executive function, as well as working memory and cognitive flexibility in cognitively healthy older adults. Compared to the control group, moderate-intensity aerobic exercise and resistance training performed ≥3 times/week, each session lasting ≤60 minutes and with a duration of ≤26 weeks, can improve overall executive function, working memory, and cognitive flexibility, especially for older adults with higher age and lower education levels. However, future exercise programs should be tailored to the individual needs and physical conditions of older adults. TRIAL REGISTRATION: This study has been registered on PROSPERO with the registration number CRD420251000402. Registration platform: www.crd.york.ac.uk .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42010597/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized trials and systematic reviews of cognition, attention, insulin sensitivity, and metabolic health; exact PubMed source identity only, with outcomes and safety interpretation pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42010597",
+        "doi": "10.1186/s12889-026-27418-w",
+        "journal": "BMC public health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:53:28.310Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cf6bfd9964f799a93537",
+      "reserved_at": "2026-10-08T22:53:37.263Z",
+      "source_branch": "research/intake/2/20261008-1852-cognition-metabolic-11-r8"
     }
   ],
   "batches": [
@@ -10150,22 +11001,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 127,
+    "total_reservations": 138,
     "by_lane": {
       "1": 5,
-      "2": 4,
+      "2": 15,
       "3": 35,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 127
+      "SOURCE_VERIFIED": 138
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 127,
+        "count": 138,
         "pr_number": null,
         "blocker": null
       }
