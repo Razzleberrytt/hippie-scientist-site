@@ -6,15 +6,15 @@
 // Do not allow five independent jobs to write the snapshot concurrently.
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-const normalize = s => String(s??'').normalize('NFKC').toLowerCase().replace(/[^\\p{L}\\p{N}]+/gu,' ').trim().replace(/\\s+/g,' ');
-const doi = s => normalize(String(s??'').replace(/^https?:\\/\\/(dx\\.)?doi\\.org\\//i,'').replace(/^doi:\\s*/i,''));
+const normalize = s => String(s??'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
+const doi = s => normalize(String(s??'').replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').replace(/^doi:\s*/i,''));
 const keys = r => {
-  if(!/^\\d+$/.test(String(r.pmid??''))) throw Error('missing/invalid PMID');
+  if(!/^\d+$/.test(String(r.pmid??''))) throw Error('missing/invalid PMID');
   if(!normalize(r.title)) throw Error('missing title');
   return ['pmid:'+r.pmid,'title:'+normalize(r.title),...(r.doi?['doi:'+doi(r.doi)]:[])];
 };
 const read = p => JSON.parse(fs.readFileSync(p,'utf8'));
-const write = (p,v) => {const temp=p+'.tmp-'+process.pid;fs.writeFileSync(temp,JSON.stringify(v,null,2)+'\\n',{flag:'wx'});fs.renameSync(temp,p)};
+const write = (p,v) => {const temp=p+'.tmp-'+process.pid;fs.writeFileSync(temp,JSON.stringify(v,null,2)+'\n',{flag:'wx'});fs.renameSync(temp,p)};
 export function validateSnapshot(s) {
   if(!Array.isArray(s.baseline)||!Array.isArray(s.reservations))throw Error('invalid snapshot');
   const seen=new Map();
@@ -26,7 +26,8 @@ export function validateSnapshot(s) {
 export function reserve(s,lane,batch,records){
   if(!/^([1-5])$/.test(String(lane)))throw Error('lane must be 1..5');
   if(!batch)throw Error('batch required');
-  if(!Array.isArray(records)||records.length<1||records.length>25)throw Error('reserve 1..25 records');\n  if(s.reservations.filter(r=>r.batch===batch).length+records.length>500)throw Error('batch exceeds 500');
+  if(!Array.isArray(records)||records.length<1||records.length>25)throw Error('reserve 1..25 records');
+  if(s.reservations.filter(r=>r.batch===batch).length+records.length>500)throw Error('batch exceeds 500');
   const seen=validateSnapshot(s);
   for(const r of records)for(const k of keys(r)){if(seen.has(k))throw Error('collision '+k);seen.set(k,batch)}
   const stamp=new Date().toISOString();
