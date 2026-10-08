@@ -6,6 +6,7 @@ import { getResearchSourceRegister } from '@/lib/research-source-register'
 import { buildResearchSemanticNetwork } from '@/lib/research-semantic-network'
 import { getReviewedResearchSemanticOverlay } from '@/lib/research-reviewed-semantic'
 import { buildResearchIntelligenceStudio } from '@/lib/research-intelligence-studio'
+import reviewLog from '@/ops/research-semantic-adjudications.json'
 import { getEvidenceChangeUpdates } from '@/lib/research-updates'
 
 export const dynamic = 'force-static'
@@ -16,7 +17,8 @@ export async function GET() {
   // The reviewed study dataset is ALREADY exported at /evidence/evidence-report/dataset.json.
   // The client joins that independent published source after user activation.
   const graph = buildResearchSemanticNetwork(source.records, [], [], getReviewedResearchSemanticOverlay(source.records))
-  const studio = buildResearchIntelligenceStudio(source.records,graph,[],getEvidenceChangeUpdates(40))
+  if(reviewLog.version!==1||!Array.isArray(reviewLog.events))throw new Error('Invalid review ledger')
+  const studio = buildResearchIntelligenceStudio(source.records,graph,[],getEvidenceChangeUpdates(40),reviewLog.events)
   if(source.latestSourceVerified!==500||studio.sourceCount!==500||studio.metrics.automaticallyPromotedClaims!==0){
     throw new Error('Research intelligence source admission boundary mismatch')
   }
