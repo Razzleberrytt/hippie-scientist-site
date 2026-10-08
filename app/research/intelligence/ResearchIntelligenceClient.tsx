@@ -24,6 +24,12 @@ const stations: Array<{id:Tab;number:string;label:string;tagline:string}>=[
 {id:'ask',number:'07',label:'Ask the Evidence',tagline:'Transparent source retrieval'},
 {id:'reactor',number:'08',label:'Content Reactor',tagline:'Governed editorial proposals'},
 ]
+const scienceHandoffs:Record<string,Tab>={
+  'claim-dna':'dna','trial-lineage':'contradictions','comparability':'contradictions',
+  'integrity':'dna','hypotheses':'frontier','counterfactual':'voyages',
+  'missions':'reactor','citations':'voyages','mechanism':'safety',
+  'living':'reactor','adversarial':'contradictions','calibration':'ask',
+}
 function human(s:string){return s.replace(/_/g,' ').replace(/\bnps\b/gi,'NPS')}
 const pubmed=(s:string)=>'https://pubmed.ncbi.nlm.nih.gov/'+s+'/'
 function Notice({children}:{children:React.ReactNode}){return <p className={styles.notice}><span aria-hidden='true'>◈</span> {children}</p>}
@@ -278,6 +284,7 @@ return <section className={styles.studio}>
             <div className={styles.scienceDetail}>
               <ul>{cap.findings.map((finding,j)=><li key={j}>{finding}</li>)}</ul>
               <p><strong>Scientific boundary:</strong> {cap.limitation}</p>
+              <button type='button' className={styles.caseTrace} onClick={()=>openCaseInstrument(scienceHandoffs[cap.id])}>Continue in {stations.find(x=>x.id===scienceHandoffs[cap.id])?.label} · exact source ↗</button>
               <details><summary>Inspect structured, source-bound receipt</summary>
                 <textarea readOnly className={styles.export} rows={9} aria-label={cap.name+' structured scientific review receipt'}
                   value={JSON.stringify({capability:cap.id,pmid:scientific.pmid,
