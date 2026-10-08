@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thehippiescientist.net/schemas/research-lane-intake.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "lane",
+    "lane_focus",
+    "research_only",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "lane": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "research_only": {
+      "const": true
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "required": [
+          "pmid",
+          "title",
+          "source_title",
+          "abstract",
+          "source_url",
+          "research_domain",
+          "category",
+          "relevance_reason",
+          "evidence_class",
+          "study_design",
+          "study_details",
+          "population",
+          "intervention",
+          "outcomes",
+          "conclusion_direction",
+          "interaction_evidence_level",
+          "uncertainty",
+          "adverse_effects",
+          "interactions",
+          "limitations",
+          "provenance",
+          "signals"
+        ],
+        "properties": {
+          "pmid": {
+            "type": "string",
+            "pattern": "^[0-9]{5,10}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 8
+          },
+          "doi": {
+            "type": "string"
+          },
+          "source_title": {
+            "type": "string",
+            "minLength": 8
+          },
+          "abstract": {
+            "type": "string",
+            "minLength": 70
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "category": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "relevance_reason": {
+            "type": "string",
+            "minLength": 12
+          },
+          "evidence_class": {
+            "enum": [
+              "human",
+              "animal",
+              "in-vitro",
+              "mixed",
+              "review"
+            ]
+          },
+          "study_design": {
+            "type": "string",
+            "minLength": 2
+          },
+          "study_details": {
+            "type": "object"
+          },
+          "population": {},
+          "intervention": {},
+          "comparator": {},
+          "outcomes": {
+            "type": "array",
+            "minItems": 1
+          },
+          "conclusion_direction": {
+            "enum": [
+              "positive",
+              "negative",
+              "null",
+              "mixed",
+              "not_applicable"
+            ]
+          },
+          "interaction_evidence_level": {
+            "enum": [
+              "none",
+              "mechanistic",
+              "preclinical",
+              "human_pk",
+              "clinical_signal",
+              "clinical_outcome"
+            ]
+          },
+          "uncertainty": {},
+          "adverse_effects": {},
+          "interactions": {},
+          "limitations": {},
+          "provenance": {},
+          "signals": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "safety",
+              "evidence_gap",
+              "contradiction",
+              "novelty",
+              "graph_connectivity"
+            ],
+            "properties": {
+              "safety": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "evidence_gap": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "contradiction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "novelty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "graph_connectivity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "clinical_claim": {},
+          "causal_claim": {},
+          "positive_claim": {},
+          "single_ingredient_claim": {},
+          "interaction_claim": {},
+          "research_domain": {
+            "enum": [
+              "sleep-stress-mood",
+              "cognition-metabolic",
+              "botanical-pharmacology-safety",
+              "withdrawal-dependence-nps",
+              "contradictions-replication"
+            ]
+          }
+        }
+      }
+    },
+    "lane_focus": {
+      "enum": [
+        "sleep-stress-mood",
+        "cognition-metabolic",
+        "botanical-pharmacology-safety",
+        "withdrawal-dependence-nps",
+        "contradictions-replication"
+      ]
+    }
+  }
+}

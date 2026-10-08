@@ -1,0 +1,54 @@
+name: Research rolling gate
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/research/**'
+      - 'scripts/ci/validate-research-source-register.mjs'
+      - 'schemas/research-*.json'
+      - 'ops/research-intake/**'
+      - 'ops/research-coordinator/**'
+      - 'ops/enrichment-submissions/reconciliation/**'
+      - 'lib/research-source-register.ts'
+      - 'lib/research-reviewed-semantic.ts'
+      - 'lib/research-semantic-network.ts'
+      - 'app/research/source-register/**'
+      - 'app/research/intelligence/**'
+      - 'app/research/operations/**'
+      - '.github/workflows/research-rolling-gate.yml'
+      - '.github/workflows/research-lane-intake.yml'
+      - '.github/workflows/research-rolling-release.yml'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: research-rolling-gate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Research control-plane unit tests
+        run: node --test scripts/research/*.test.mjs
+      - name: Validate frozen rolling batch and independent review
+        run: node scripts/research/validate-rolling-batch-pr.mjs
+      - name: Validate predecessor continuity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/research/validate-predecessor-continuity.mjs
+      - name: Validate rolling source-register boundary
+        run: node scripts/ci/validate-research-source-register.mjs
+      - name: Research-only safety invariant
+        run: |
+          set -euo pipefail
+          ! grep -R --line-number --include='*.json' '"runtime_admission"[[:space:]]*:[[:space:]]*true' ops/research-coordinator ops/research-intake 2>/dev/null
+          echo "PASS: rolling research remains fail-closed from clinical/runtime admission."

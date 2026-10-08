@@ -1,0 +1,92 @@
+name: Research lane intake
+on:
+  push:
+    branches:
+      - 'research/intake/**'
+    paths:
+      - 'ops/research-intake/*.json'
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+    inputs:
+      candidate_path:
+        description: Optional exact intake manifest under ops/research-intake/
+        required: false
+        type: string
+
+concurrency:
+  group: research-reservation-global
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  reserve:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.candidate_path != '')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate research control plane
+        run: node --test scripts/research/*.test.mjs
+      - name: Resolve intake manifests
+        shell: bash
+        env:
+          INPUT_PATH: ${{ inputs.candidate_path }}
+          BEFORE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -n "${INPUT_PATH:-}" ]; then
+            case "$INPUT_PATH" in
+              ops/research-intake/*.json) printf '%s\n' "$INPUT_PATH" > /tmp/research-manifests.txt ;;
+              *) echo "Unsafe candidate_path: $INPUT_PATH" >&2; exit 1 ;;
+            esac
+          else
+            git diff --name-only "$BEFORE_SHA" "$HEAD_SHA" -- 'ops/research-intake/*.json'               | grep -E '^ops/research-intake/[^/]+\.json$'               | sort -u > /tmp/research-manifests.txt || true
+          fi
+          test -s /tmp/research-manifests.txt || { echo 'No research intake manifests found.' >&2; exit 1; }
+          count="$(wc -l < /tmp/research-manifests.txt | tr -d ' ')"
+          if [ "$count" -gt 5 ]; then
+            echo "Refusing more than five intake manifests in one serialized run: $count" >&2
+            exit 1
+          fi
+          cat /tmp/research-manifests.txt
+      - name: Reserve against main, open PRs, and live lanes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r manifest; do
+            CANDIDATE_PATH="$manifest" node scripts/research/github-reservation-controller.mjs reserve
+          done < /tmp/research-manifests.txt
+
+  recover:
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.candidate_path == '')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate research control plane
+        run: node --test scripts/research/*.test.mjs
+      - name: Recover pending freezes without bypassing gates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/research/github-reservation-controller.mjs recover

@@ -9,6 +9,8 @@ import SemanticResearchObservatory from './SemanticResearchObservatory'
 type Props = {
   records: PublicResearchSource[]
   previousCount: number
+  priorIndexHref: string
+  throughWave: number
   categories: Array<{ key: string; count: number }>
   networkSummary: Pick<SemanticNetwork, 'concepts' | 'bridges' | 'summary'>
 }
@@ -19,12 +21,12 @@ function humanize(value: string) {
   return value.split('_').map(word => word === 'nps' ? 'NPS' : word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 }
 
-export default function SourceRegisterClient({ records, previousCount, categories, networkSummary }: Props) {
+export default function SourceRegisterClient({ records, previousCount, priorIndexHref, throughWave, categories, networkSummary }: Props) {
   // Initial HTML contains only graph overview, not all paper-to-paper edges.
   const [loadedNetwork, setLoadedNetwork] = useState<SemanticNetwork | null>(null)
   const [semanticLoading, setSemanticLoading] = useState(false)
   const [semanticError, setSemanticError] = useState('')
-  const network: SemanticNetwork = loadedNetwork || { ...networkSummary, entries: {} }
+  const network: SemanticNetwork = loadedNetwork || { ...networkSummary, entries: {}, typedEdges: [], reviewedEdges: [], contradictions: [] }
   const [view, setView] = useState<'verified' | 'previous'>('verified')
   const [previousPmids, setPreviousPmids] = useState<string[]>([])
   const [historicalLoaded, setHistoricalLoaded] = useState(false)
@@ -49,12 +51,18 @@ export default function SourceRegisterClient({ records, previousCount, categorie
         through_wave?: number
         research_only?: boolean
       }
-      if (data.schema_version !== 1 || data.through_wave !== 7500 || data.research_only !== true ||
+      if (data.schema_version !== 1 || data.through_wave !== throughWave || data.research_only !== true ||
           data.summary?.sourcePapers !== records.length ||
           !data.entries || Object.keys(data.entries).length !== records.length ||
           !Array.isArray(data.concepts) || data.concepts.length !== networkSummary.concepts.length ||
           data.summary?.activeConcepts !== networkSummary.summary.activeConcepts ||
           data.summary?.explainableEdges !== networkSummary.summary.explainableEdges ||
+          data.summary?.typedEvidenceEdges !== networkSummary.summary.typedEvidenceEdges ||
+          data.summary?.reviewedSemanticEdges !== networkSummary.summary.reviewedSemanticEdges ||
+          data.summary?.contradictionFlags !== networkSummary.summary.contradictionFlags ||
+          !Array.isArray(data.typedEdges) || data.typedEdges.length !== data.summary?.typedEvidenceEdges ||
+          !Array.isArray(data.reviewedEdges) || data.reviewedEdges.length !== data.summary?.reviewedSemanticEdges ||
+          !Array.isArray(data.contradictions) || data.contradictions.length !== data.summary?.contradictionFlags ||
           !records.every(record => data.entries[record.pmid]?.pmid === record.pmid)) {
         throw new Error('Semantic graph data integrity mismatch')
       }
@@ -94,11 +102,11 @@ export default function SourceRegisterClient({ records, previousCount, categorie
     setHistoricalLoading(true)
     setHistoricalError('')
     try {
-      const response = await fetch('/data/research/pmid-register-through-7000.json', { cache: 'force-cache' })
+      const response = await fetch(priorIndexHref, { cache: 'force-cache' })
       if (!response.ok) throw new Error('Static research index unavailable')
       const payload: unknown = await response.json()
       const data = payload as { schema_version?: number; through_wave?: number; prior_unique_pmids?: number; inventory_only?: boolean; pmids?: unknown }
-      if (data.schema_version !== 1 || data.through_wave !== 7000 || data.inventory_only !== true ||
+      if (data.schema_version !== 1 || data.through_wave !== throughWave - 500 || data.inventory_only !== true ||
           data.prior_unique_pmids !== previousCount || !Array.isArray(data.pmids) ||
           data.pmids.length !== previousCount || new Set(data.pmids).size !== previousCount ||
           !data.pmids.every((pmid: unknown) => typeof pmid === 'string' && /^\d{5,10}$/.test(pmid))) {

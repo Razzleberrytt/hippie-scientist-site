@@ -44,6 +44,20 @@ const P0_VISUAL_PROOF_PATTERNS = [
 
 const DOMAIN_REQUIRED_WORKFLOWS = [
   {
+    workflow: 'Research rolling gate',
+    patterns: [
+      /^scripts\/research\//,
+      /^ops\/research-intake\//,
+      /^ops\/research-coordinator\//,
+      /^ops\/enrichment-submissions\/reconciliation\//,
+      /^schemas\/research-.*\.schema\.json$/,
+      /^lib\/research-reviewed-semantic\.ts$/,
+      /^lib\/research-source-register\.ts$/,
+      /^app\/research\/(?:source-register|intelligence|operations)\//,
+      /^public\/data\/research\//,
+    ],
+  },
+  {
     workflow: 'Research Distribution',
     patterns: [
       /^scripts\/distribution\//,
@@ -199,7 +213,12 @@ export function requiredWorkflowsFor(riskTier, changedFiles = []) {
     riskTier === 'high' ? HIGH_REQUIRED_WORKFLOWS : MEDIUM_CORE_REQUIRED_WORKFLOWS,
   )
   for (const { workflow, patterns } of DOMAIN_REQUIRED_WORKFLOWS) {
-    if (changedFiles.some((path) => patterns.some((pattern) => pattern.test(path)))) required.add(workflow)
+    const relevant=changedFiles.some((path) => patterns.some((pattern) => pattern.test(path)))
+    // A workflow cannot reliably be its own bootstrap gate before it exists on the default branch.
+    // Workflow-definition changes remain high-risk and are still held behind the existing CI/Atomic/Site/Content stack.
+    const selfBootstrappingResearchGate=workflow==='Research rolling gate' &&
+      changedFiles.includes('.github/workflows/research-rolling-gate.yml')
+    if (relevant&&!selfBootstrappingResearchGate) required.add(workflow)
   }
   return [...required]
 }
