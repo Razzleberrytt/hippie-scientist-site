@@ -3300,6 +3300,83 @@
       "reservation_id": "9443a0cd24286616d82a",
       "reserved_at": "2026-10-08T19:07:15.666Z",
       "source_branch": "research/intake/3/20261008-1846-botanical-safety-seven"
+    },
+    {
+      "pmid": "40747932",
+      "title": "Severe Fentanyl Withdrawal Associated With Medetomidine Adulteration: A Multicenter Study From Philadelphia, PA.",
+      "doi": "10.1097/ADM.0000000000001560",
+      "source_title": "Severe Fentanyl Withdrawal Associated With Medetomidine Adulteration: A Multicenter Study From Philadelphia, PA.",
+      "abstract": "Medetomidine, a potent veterinary α2-adrenergic agonist, has emerged as an adulterant in the illicit fentanyl supply in Philadelphia, PA. Accompanying this change, a severe withdrawal syndrome, distinct from opioid and more comparable to dexmedetomidine withdrawal, emerged. We describe it. A multicenter case series is described across 3 hospital systems in Philadelphia between September 2024 and April 2025. The cohort included patients who reported opioids as the primary drug of choice, who presented with opioid withdrawal complicated by severe sympathetic activation and required hospitalization. Data extraction from the electronic health record included demographics, clinical outcomes, and confirmatory toxicology in a subset. Two hundred nine patients met the inclusion criteria; the median age was 38 years and 29% were female. Intensive care unit (ICU) admission occurred in 77.5%, with 20.1% requiring intubation. Symptoms were often refractory to traditional opioid withdrawal management, and 73.7% received dexmedetomidine infusion. In the cohort subset with toxicology testing (n=43), 100% had fentanyl and medetomidine metabolites, while xylazine metabolites were not always present (24, 55.8%). Severe complications included encephalopathy (35.4%), myocardial injury (28.7%), and rarely seizures (5%). Patients suffered from severe withdrawal, with a median maximum recorded Clinical Opiate Withdrawal Score (COWS) score of 23. This study describes individuals experiencing severe withdrawal, temporally associated with medetomidine-adulterated fentanyl exposure. Clinicians should be alert to the limitations of standard withdrawal protocols for fentanyl or opioids and the need for aggressive α2-agonist therapies, such as dexmedetomidine. As medetomidine continues to spread in the illicit drug supply, adapting clinical and public health responses will be critical.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40747932/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40747932",
+        "doi": "10.1097/ADM.0000000000001560",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T19:21:41.481Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "111348ce91ad917af1fd",
+      "reserved_at": "2026-10-08T19:21:50.907Z",
+      "source_branch": "research/intake/4/20261008-1519-40747932"
     }
   ],
   "batches": [
@@ -3313,22 +3390,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 42,
+    "total_reservations": 43,
     "by_lane": {
       "1": 5,
       "2": 1,
       "3": 7,
-      "4": 4,
+      "4": 5,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 42
+      "SOURCE_VERIFIED": 43
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 42,
+        "count": 43,
         "pr_number": null,
         "blocker": null
       }
