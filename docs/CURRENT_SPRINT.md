@@ -9,6 +9,10 @@
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
+### Existing-owner P0 release recovery — #6448 / PR #6450
+
+**2026-10-08 actual-state correction (release review):** #6448 is the source-register workflow-dispatch recovery ticket under #6431; PR #6450 is its current restaged implementation, **open and review-blocked** by a project-control documentation omission identified in an unresolved review thread. Older PR #6446 overlaps the same recovery and must be reconciled/superseded before any independent merge. Owner: existing research/release controller; scope: add `workflow_dispatch` only to `.github/workflows/research-source-register-integration.yml` with read-only token scopes and regression validation. This records **existing-owner review remediation**, not a new scientific pipeline or another D/R/A implementation slot. Release acceptance: preserve science gate and existing triggers, pass exact-head workflow/CI requirements, resolve reviewer concerns, merge through governed controller, and verify a real exact-head recovery run. Until that receipt exists, recovered workflow behavior and production impact are **Unknown**.
+
 ## P0 program — Generational Engineering readiness (#6431)
 
 **New cross-cutting P0 operating priority (2026-10-08):** Prepare a coherent generation of THS intelligence and evidence-to-distribution capabilities before implementation. [Architecture and October 12–16 release stages](GENERATIONAL_ENGINEERING_P0.md) · [25-item integration readiness registry](GENERATIONAL_ENGINEERING_READINESS.md). This is **planning and contract-readiness work**, not authorization to add WIP or bypass the current admission/control plane.
