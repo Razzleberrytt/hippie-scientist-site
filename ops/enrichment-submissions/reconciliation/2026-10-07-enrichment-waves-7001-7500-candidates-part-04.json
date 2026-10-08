@@ -1005,17 +1005,22 @@
     {
       "wave": 7367,
       "category": "cannabinoid_safety",
-      "pmid": "36239014",
-      "title": "Cannabidiol in clinical and preclinical anxiety research. A systematic review into concentration-effect relations using the IB-de-risk tool.",
-      "doi": "10.1177/02698811221124792",
-      "pub_date": "2022 Dec",
-      "pub_type": "Research Support, Non-U.S. Gov't",
-      "journal": "Journal of psychopharmacology (Oxford, England)",
-      "discovery_query": "((cannabis[Title] OR cannabinoid[Title] OR THC[Title] OR cannabidiol[Title] OR CBD[Title]) AND (safety[Title] OR adverse[Title] OR interaction[Title] OR withdrawal[Title] OR cognition[Title] OR anxiety[Title] OR sleep[Title] OR dependence[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-c.json",
-      "selection_score": 10,
+      "pmid": "40450961",
+      "title": "A pilot randomized controlled trial of a digital cannabis harm reduction intervention for young adults with first-episode psychosis who use cannabis.",
+      "doi": "10.1016/j.psychres.2025.116553",
+      "pub_date": "",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "",
+      "discovery_query": "NCBI PubMed PMID/abstract direct lookup, one-for-one human evidence replacement",
+      "provenance_pool": "NCBI PubMed direct semantic repair",
+      "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "36239014",
+        "original_title": "Cannabidiol in clinical and preclinical anxiety research. A systematic review into concentration-effect relations using the IB-de-risk tool.",
+        "reason": "Mixed clinical and preclinical cannabinoid review replaced with human harm-reduction randomized pilot"
+      }
     },
     {
       "wave": 7368,
@@ -1035,17 +1040,22 @@
     {
       "wave": 7369,
       "category": "cannabinoid_safety",
-      "pmid": "37792394",
-      "title": "Effects of the Acute and Chronic Administration of Cannabidiol on Cognition in Humans and Animals: A Systematic Review.",
-      "doi": "10.1089/can.2023.0086",
-      "pub_date": "2023 Dec",
-      "pub_type": "Research Support, Non-U.S. Gov't",
-      "journal": "Cannabis and cannabinoid research",
-      "discovery_query": "((cannabis[Title] OR cannabinoid[Title] OR THC[Title] OR cannabidiol[Title] OR CBD[Title]) AND (safety[Title] OR adverse[Title] OR interaction[Title] OR withdrawal[Title] OR cognition[Title] OR anxiety[Title] OR sleep[Title] OR dependence[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-c.json",
-      "selection_score": 10,
+      "pmid": "41664079",
+      "title": "Prevalence of schizophrenia spectrum and bipolar disorder among patients with cannabis induced psychosis: a systematic review and meta-analysis.",
+      "doi": "10.1186/s12888-025-07382-2",
+      "pub_date": "",
+      "pub_type": "Systematic Review",
+      "journal": "",
+      "discovery_query": "NCBI PubMed PMID/abstract direct lookup, one-for-one human evidence replacement",
+      "provenance_pool": "NCBI PubMed direct semantic repair",
+      "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "37792394",
+        "original_title": "Effects of the Acute and Chronic Administration of Cannabidiol on Cognition in Humans and Animals: A Systematic Review.",
+        "reason": "Mixed humans-and-animals cognition review replaced with human psychosis-outcomes meta-analysis"
+      }
     },
     {
       "wave": 7370,

@@ -10,17 +10,22 @@
     {
       "wave": 7401,
       "category": "mitochondrial_energy",
-      "pmid": "38719205",
-      "title": "Effects of deficiency or supplementation of riboflavin on energy metabolism: a systematic review with preclinical studies.",
-      "doi": "10.1093/nutrit/nuae041",
-      "pub_date": "2025 Feb 1",
-      "pub_type": "Systematic Review",
-      "journal": "Nutrition reviews",
-      "discovery_query": "((\"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR creatine[Title] OR riboflavin[Title] OR \"alpha lipoic acid\"[Title]) AND (fatigue[Title] OR energy[Title] OR mitochondrial[Title] OR exercise[Title] OR migraine[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-c.json",
+      "pmid": "32797125",
+      "title": "Ubiquinol supplementation modulates energy metabolism and bone turnover during high intensity exercise.",
+      "doi": "10.1039/d0fo01147a",
+      "pub_date": "",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "",
+      "discovery_query": "NCBI PubMed PMID/abstract direct lookup, one-for-one human evidence replacement",
+      "provenance_pool": "NCBI PubMed direct semantic repair",
       "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "38719205",
+        "original_title": "Effects of deficiency or supplementation of riboflavin on energy metabolism: a systematic review with preclinical studies.",
+        "reason": "Preclinical riboflavin energy model review replaced with human ubiquinol energy-metabolism trial"
+      }
     },
     {
       "wave": 7402,
@@ -1135,17 +1140,22 @@
     {
       "wave": 7476,
       "category": "cannabinoid_safety",
-      "pmid": "38602558",
-      "title": "The Impact of Cannabis Use on Cognition in People with HIV: Evidence of Function-Dependent Effects and Mechanisms from Clinical and Preclinical Studies.",
-      "doi": "10.1007/s11904-024-00698-w",
-      "pub_date": "2024 Jun",
-      "pub_type": "Research Support, N.I.H., Extramural",
-      "journal": "Current HIV/AIDS reports",
-      "discovery_query": "((cannabis[Title] OR cannabinoid[Title] OR THC[Title] OR cannabidiol[Title] OR CBD[Title]) AND (safety[Title] OR adverse[Title] OR interaction[Title] OR withdrawal[Title] OR cognition[Title] OR anxiety[Title] OR sleep[Title] OR dependence[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-c.json",
-      "selection_score": 6,
+      "pmid": "41980405",
+      "title": "Multi-dimensional recovery trajectories in cannabis-induced psychosis: A systematic review examining symptomatic, functional, cognitive, and subjective outcomes.",
+      "doi": "10.1016/j.ajp.2026.104975",
+      "pub_date": "",
+      "pub_type": "Systematic Review",
+      "journal": "",
+      "discovery_query": "NCBI PubMed PMID/abstract direct lookup, one-for-one human evidence replacement",
+      "provenance_pool": "NCBI PubMed direct semantic repair",
+      "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "38602558",
+        "original_title": "The Impact of Cannabis Use on Cognition in People with HIV: Evidence of Function-Dependent Effects and Mechanisms from Clinical and Preclinical Studies.",
+        "reason": "Mixed clinical/preclinical HIV/cannabis review replaced with human cannabis-psychosis recovery synthesis"
+      }
     },
     {
       "wave": 7477,

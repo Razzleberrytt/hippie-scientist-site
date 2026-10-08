@@ -26,7 +26,7 @@ BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 HARD_REJECTION = re.compile(
     r"\b(?:retracted publication|retraction of|protocol for|study protocol|"
     r"bibliometric|scientometric|in vitro|in silico|murine|zebrafish|"
-    r"mouse model|rat model|network pharmacology)\b", re.I
+    r"mouse model|rat model|network pharmacology|preclinical practices|"\n    r"preclinical studies|humans and animals|human and animal|clinical and preclinical)\b", re.I
 )
 
 def read(name):

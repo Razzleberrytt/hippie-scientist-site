@@ -865,17 +865,22 @@
     {
       "wave": 7258,
       "category": "inflammation_pain",
-      "pmid": "41183689",
-      "title": "Refining capsaicin-induced pain models: A comprehensive analysis of preclinical practices and their translational potential.",
-      "doi": "10.1016/j.neubiorev.2025.106455",
-      "pub_date": "2026 Jan",
-      "pub_type": "Systematic Review",
-      "journal": "Neuroscience and biobehavioral reviews",
-      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-b.json",
-      "selection_score": 8,
+      "pmid": "35512759",
+      "title": "Efficacy and Safety of Aflapin®, a Novel Boswellia Serrata Extract, in the Treatment of Osteoarthritis of the Knee: A Short-Term 30-Day Randomized, Double-Blind, Placebo-Controlled Clinical Study.",
+      "doi": "10.1080/07315724.2021.2014370",
+      "pub_date": "",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "",
+      "discovery_query": "NCBI PubMed PMID/abstract direct lookup, one-for-one human evidence replacement",
+      "provenance_pool": "NCBI PubMed direct semantic repair",
+      "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "41183689",
+        "original_title": "Refining capsaicin-induced pain models: A comprehensive analysis of preclinical practices and their translational potential.",
+        "reason": "Preclinical capsaicin-pain-model methods paper cannot support human-pain evidence"
+      }
     },
     {
       "wave": 7259,

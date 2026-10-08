@@ -2,7 +2,7 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-7001-7500",
   "range": "7001-7500",
-  "state": "three_one_for_one_replacements_pending_native_efetch",
+  "state": "eight_one_for_one_replacements_pending_native_efetch",
   "replacements": [
     {
       "wave": 7196,
@@ -39,6 +39,61 @@
       "replacement_abstract_available": true,
       "replacement_substantive_abstract_length": 1518,
       "source": "NCBI PubMed EFetch"
+    },
+    {
+      "wave": 7258,
+      "original_pmid": "41183689",
+      "replacement_pmid": "35512759",
+      "original_title": "Refining capsaicin-induced pain models: A comprehensive analysis of preclinical practices and their translational potential.",
+      "replacement_title": "Efficacy and Safety of Aflapin®, a Novel Boswellia Serrata Extract, in the Treatment of Osteoarthritis of the Knee: A Short-Term 30-Day Randomized, Double-Blind, Placebo-Controlled Clinical Study.",
+      "reason": "Preclinical capsaicin-pain-model methods paper cannot support human-pain evidence",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "source": "NCBI PubMed work information (direct EFetch)"
+    },
+    {
+      "wave": 7367,
+      "original_pmid": "36239014",
+      "replacement_pmid": "40450961",
+      "original_title": "Cannabidiol in clinical and preclinical anxiety research. A systematic review into concentration-effect relations using the IB-de-risk tool.",
+      "replacement_title": "A pilot randomized controlled trial of a digital cannabis harm reduction intervention for young adults with first-episode psychosis who use cannabis.",
+      "reason": "Mixed clinical and preclinical cannabinoid review replaced with human harm-reduction randomized pilot",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "source": "NCBI PubMed work information (direct EFetch)"
+    },
+    {
+      "wave": 7369,
+      "original_pmid": "37792394",
+      "replacement_pmid": "41664079",
+      "original_title": "Effects of the Acute and Chronic Administration of Cannabidiol on Cognition in Humans and Animals: A Systematic Review.",
+      "replacement_title": "Prevalence of schizophrenia spectrum and bipolar disorder among patients with cannabis induced psychosis: a systematic review and meta-analysis.",
+      "reason": "Mixed humans-and-animals cognition review replaced with human psychosis-outcomes meta-analysis",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "source": "NCBI PubMed work information (direct EFetch)"
+    },
+    {
+      "wave": 7401,
+      "original_pmid": "38719205",
+      "replacement_pmid": "32797125",
+      "original_title": "Effects of deficiency or supplementation of riboflavin on energy metabolism: a systematic review with preclinical studies.",
+      "replacement_title": "Ubiquinol supplementation modulates energy metabolism and bone turnover during high intensity exercise.",
+      "reason": "Preclinical riboflavin energy model review replaced with human ubiquinol energy-metabolism trial",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "source": "NCBI PubMed work information (direct EFetch)"
+    },
+    {
+      "wave": 7476,
+      "original_pmid": "38602558",
+      "replacement_pmid": "41980405",
+      "original_title": "The Impact of Cannabis Use on Cognition in People with HIV: Evidence of Function-Dependent Effects and Mechanisms from Clinical and Preclinical Studies.",
+      "replacement_title": "Multi-dimensional recovery trajectories in cannabis-induced psychosis: A systematic review examining symptomatic, functional, cognitive, and subjective outcomes.",
+      "reason": "Mixed clinical/preclinical HIV/cannabis review replaced with human cannabis-psychosis recovery synthesis",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "source": "NCBI PubMed work information (direct EFetch)"
     }
   ],
   "research_only": true
