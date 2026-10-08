@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Link from 'next/link'
 import type { RegisteredResearchSource } from '@/lib/research-source-register'
 
 type Props = {
@@ -96,7 +97,7 @@ export default function SourceRegisterClient({ records, previousPmids, categorie
             <p className='eyebrow-label'>Searchable source trail</p>
             <h2 id='source-browse-heading' className='mt-2 text-2xl font-bold tracking-tight text-ink'>Browse the register</h2>
           </div>
-          <a href='/learn/citation-explorer/' className='text-sm font-semibold text-brand-700 hover:underline'>Reviewed runtime evidence →</a>
+          <Link href='/learn/citation-explorer/' className='text-sm font-semibold text-brand-700 hover:underline'>Reviewed runtime evidence →</Link>
         </div>
         <div className='mt-5 flex flex-wrap gap-2' aria-label='Select source collection'>
           <button
