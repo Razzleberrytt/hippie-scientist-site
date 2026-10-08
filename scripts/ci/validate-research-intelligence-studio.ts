@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
 import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
 import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
+import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -39,7 +40,30 @@ assert.equal(browserJoined.metrics.automaticallyPromotedClaims,0)
 assert.equal(browserJoined.dna,precomputed.dna,'No research intake mutation during reviewed client join')
 assert(browserJoined.briefs.every(x=>x.allowAutopublish===false))
 
-assert.equal(s.systemVersion,'1.03')
+assert.equal(s.systemVersion,'1.04')
+const sharedCase=buildResearchCaseFile(s,graph,'10000001')
+assert(sharedCase,'Known source must open a shared case file')
+assert.equal(sharedCase.pmid,'10000001')
+assert.equal(sharedCase.status,'source-discovery-only-no-clinical-adjudication')
+assert.equal(sharedCase.instruments.length,8,'All instruments must receive the same governed source identity')
+assert.deepEqual(sharedCase.instruments.map(x=>x.instrument),
+ ['dna','contradictions','frontier','time','voyages','safety','ask','reactor'])
+assert.equal(sharedCase.instruments.find(x=>x.instrument==='dna')?.linkedItems,1)
+assert.equal(sharedCase.instruments.find(x=>x.instrument==='contradictions')?.linkedItems,0,
+ 'Reviewed citations lacking exact publication identity cannot be inferred as matches')
+const exactJoined=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0],pmid:'10000001'}])
+const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
+assert.deepEqual(exactCase?.reviewedCitationIds,['study-a'],
+ 'Exact verified publication identities must be traceable in case files')
+assert.deepEqual(exactCase?.publicationIdentityBasis,['exact-pmid'])
+assert(sharedCase.sourceWitnessCount>0)
+assert(sharedCase.unresolvedFields.some(x=>x.includes('Population')))
+assert.equal(buildResearchCaseFile(s,graph,'99999999'),null,
+ 'Unknown PMID cannot silently route to an unrelated paper')
+const corruptedGraph={...graph,entries:{...graph.entries,
+ ['10000001']:{...graph.entries['10000001'],sourceSignature:'stale'}}}
+assert.throws(()=>buildResearchCaseFile(s,corruptedGraph,'10000001'),/does not match/,
+ 'Stale provenance must fail closed for cross-instrument case files')
 assert.equal(s.publicationLineage.scope,'exact-publication-identifiers-only')
 assert.equal(s.publicationLineage.independentlyVerifiedTrialUnits,null)
 assert.equal(s.publicationLineage.matchedIntakePmids,0)
@@ -206,7 +230,12 @@ const inputs=rows.map(r=>({pmid:String(r.pmid),title:r.title,abstract:r.abstract
  year:r.verified_pub_date?.match(/(?:19|20)\d{2}/)?.[0]||''}))
 const realGraph=buildResearchSemanticNetwork(inputs)
 const real=buildResearchIntelligenceStudio(inputs,realGraph,[])
-assert.equal(real.systemVersion,'1.03')
+assert.equal(real.systemVersion,'1.04')
+const liveCase=buildResearchCaseFile(real,realGraph,real.dna[0].pmid)
+assert(liveCase&&liveCase.sourceSignature===realGraph.entries[liveCase.pmid].sourceSignature)
+assert.equal(liveCase.instruments.length,8)
+assert.equal(liveCase.reviewedCitationIds.length,0,
+ 'Source-only verified intake must not invent reviewed publication identities')
 assert.equal(real.metrics.quotedTextWitnesses,real.dna.reduce((sum,d)=>sum+d.sourceWitnesses.length,0))
 assert.equal(real.adjudication.reviewCount,0)
 assert(real.dna.flatMap(d=>d.sourceWitnesses).every(w=>w.quote.length<=320))
@@ -232,7 +261,11 @@ assert(route.includes('research-semantic-adjudications.json'),'Adjudications mus
 assert(ui.includes('Inspect verbatim evidence trail')&&ui.includes('Prepare an editorial review packet'))
 assert(ui.includes('Why this paper matched'),'Questions must expose original text witnesses')
 assert(ui.includes('Publication identity ≠ independent study'))
-assert(ui.includes('v.systemVersion!==\'1.03\''))
+assert(ui.includes('v.systemVersion!==\'1.04\''))
+assert(ui.includes('buildResearchCaseFile(')&&ui.includes('openCaseInstrument(')&&
+ ui.includes('Trace through eight instruments')&&ui.includes('Trace source')&&
+ ui.includes('scrollIntoView')&&ui.includes("aria-live='polite'"),
+ 'All eight research instruments must share the PMID case-file workbench')
 assert(ui.includes('Source-indexing review history'),'Review events must be inspectable and not just counted')
 assert(route.includes('getResearchSourceRegister()')&&!route.includes('getPublicEvidenceDataset()'),
  'Second full evidence hydration in a static worker must be forbidden')

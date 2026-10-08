@@ -146,7 +146,7 @@ export type RecordedEvidenceChange = {
   basis: 'explicit-editorial-grade-change-log'
 }
 export type ResearchStudio = {
-  systemVersion: '1.03'
+  systemVersion: '1.04'
   recordedChanges: RecordedEvidenceChange[]
   adjudication: ResearchAdjudicationLedger
   publicationLineage: PublicationLineageReport
@@ -446,7 +446,7 @@ export function buildResearchIntelligenceStudio(
     .sort((a,b)=>b.occurredAt.localeCompare(a.occurredAt))
     .slice(0,40)
   return {
-    systemVersion:'1.03',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
+    systemVersion:'1.04',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
     dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,adjudication,publicationLineage,
     metrics:{fingerprints:dna.length,
       classifiedMethods:dna.filter(x=>x.methodBasis!=='unknown').length,
