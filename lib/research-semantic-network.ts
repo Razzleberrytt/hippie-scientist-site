@@ -60,9 +60,25 @@ export type SemanticGraphEntry = {
   methodTag: string
   related: SemanticRelatedPaper[]
 }
+export type SemanticTypedEdge = {
+  id: string
+  sourcePmid: string
+  from: string
+  predicate: `mentions_${SemanticKind}`
+  to: string
+  conceptId: string
+  label: string
+  kind: SemanticKind
+  basis: 'title' | 'abstract'
+  matched: string
+  sourceSignature: string
+  provenance: 'source-text-match'
+  interpretation: 'bibliographic-mention-only'
+}
 export type SemanticNetwork = {
   entries: Record<string, SemanticGraphEntry>
   concepts: Array<{ id: string; label: string; kind: SemanticKind; papers: number; titleMentions: number; href?: string }>
+  typedEdges: SemanticTypedEdge[]
   summary: {
     sourcePapers: number
     linkedPapers: number
@@ -71,6 +87,7 @@ export type SemanticNetwork = {
     linkedProfiles: number
     reviewedSourceOverlap: number
     activeConcepts: number
+    typedEvidenceEdges: number
     metadataOnlyPapers: number
   }
   bridges: Array<{ pmid: string; neighborPmid: string; sharedConcepts: string[]; categories: [string, string] }>
@@ -286,7 +303,25 @@ export function buildResearchSemanticNetwork(
     titleMentions:conceptTitleIndex.get(c.id)?.size||0,href:c.href,
   })).filter(c=>c.papers>0).sort((a,b)=>b.papers-a.papers||a.id.localeCompare(b.id))
   bridges.sort((a,b)=>a.pmid.localeCompare(b.pmid)||a.neighborPmid.localeCompare(b.neighborPmid))
-  return {entries,concepts,bridges:bridges.slice(0,40),
+  const typedEdges:SemanticTypedEdge[]=records.flatMap(record=>{
+    const entry=entries[record.pmid]
+    return entry.mentions.map(mention=>({
+      id:'paper:'+record.pmid+'->concept:'+mention.id+':'+mention.basis,
+      sourcePmid:record.pmid,
+      from:'paper:'+record.pmid,
+      predicate:('mentions_'+mention.kind) as `mentions_${SemanticKind}`,
+      to:'concept:'+mention.id,
+      conceptId:mention.id,
+      label:mention.label,
+      kind:mention.kind,
+      basis:mention.basis,
+      matched:mention.matched,
+      sourceSignature:entry.sourceSignature,
+      provenance:'source-text-match' as const,
+      interpretation:'bibliographic-mention-only' as const,
+    }))
+  })
+  return {entries,concepts,typedEdges,bridges:bridges.slice(0,40),
     summary:{
       sourcePapers:records.length,
       linkedPapers:records.filter(r=>entries[r.pmid].related.length>0).length,
@@ -295,6 +330,7 @@ export function buildResearchSemanticNetwork(
       linkedProfiles:records.reduce((n,r)=>n+entries[r.pmid].profiles.length,0),
       reviewedSourceOverlap:records.filter(r=>entries[r.pmid].reviewedCitations.length>0).length,
       activeConcepts:concepts.length,
+      typedEvidenceEdges:typedEdges.length,
       metadataOnlyPapers:records.filter(r=>entries[r.pmid].mentions.length===0).length,
     }}
 }
