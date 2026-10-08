@@ -8,7 +8,7 @@ import {buildInstrumentRelay} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
 import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
 import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
-import {compileClaimDNA,detectTrialLineage,compareStudyContexts} from '../../lib/scientific-intelligence-foundations'
+import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from '../../lib/scientific-intelligence-foundations'
 import {forgeSourceHypotheses,simulateSourceRemoval,runBoundedInvestigation} from '../../lib/scientific-intelligence-discovery'
 import {calibrateIntelligenceCase,compileLivingReview} from '../../lib/scientific-intelligence-review'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
@@ -127,6 +127,14 @@ assert.throws(()=>compileReviewedClaimFacets(
  buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
  [reviewedExample,reviewedExample]),/Duplicate exact reviewed citation/,
  'Duplicate citation IDs cannot double-count one reviewed source')
+const priorQuarantined=source('41461240','Omega 3 retracted study','2025')
+const knownBad={...priorQuarantined,doi:'10.1016/j.jad.2025.121055'}
+const quarantineGraph=buildResearchSemanticNetwork([knownBad])
+const quarantineStudio=buildResearchIntelligenceStudio([knownBad],quarantineGraph,[])
+const quarantineCase=buildResearchCaseFile(quarantineStudio,quarantineGraph,knownBad.pmid)!
+assert(scanResearchIntegrity(quarantineStudio,quarantineGraph,quarantineCase)
+ .some(x=>x.id==='curated-retraction'&&x.severity==='hold'),
+ 'Exact audited retractions must be flagged in the source-linked Integrity Radar')
 const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
 const sourceScope=buildResearchCaseScope(s,sharedCase)
 assert.equal(sourceScope.status,'exact-source-linked-leads-only')
