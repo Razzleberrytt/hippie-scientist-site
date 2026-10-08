@@ -1,0 +1,63 @@
+name: THS PubMed Deep Enrichment 7501-8000
+
+on:
+  push:
+    branches:
+      - research/enrichment-waves-7501-8000-20261008
+    paths:
+      - '.github/workflows/pubmed-source-verification-7501-8000.yml'
+      - 'scripts/data/intake-enrichment-waves-7501-8000.py'
+      - 'scripts/data/audit-enrichment-waves-7501-8000.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ths-native-ncbi-waves-7501-8000
+  cancel-in-progress: false
+
+jobs:
+  source-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Search and retrieve exact human-study PubMed metadata using native NCBI API
+        run: python3 scripts/data/intake-enrichment-waves-7501-8000.py
+      - name: Independently validate 500 sources, predecessor identity, and research-only constraints
+        run: node scripts/data/audit-enrichment-waves-7501-8000.mjs
+      - name: Preserve provisional source artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waves-7501-8000-ncbi-source-verification
+          path: |
+            ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-*.json
+          if-no-files-found: warn
+      - name: Commit source-verified research-only artifacts to the research branch
+        if: success() && github.ref_type == 'branch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-7501-8000-*.json
+          if git diff --cached --quiet; then
+            echo "No new receipts"
+          else
+            git commit -m "data(research): 500 exact NCBI source candidates waves 7501-8000"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+      - name: Summarize publication firewall
+        if: always()
+        run: |
+          echo "## THS research Waves 7501–8000" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source: direct NCBI PubMed ESearch and EFetch" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 500 candidates; only confirmed when verifier and audit are green" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Human semantic/relevance review required before batch finalization" >> "$GITHUB_STEP_SUMMARY"
+          echo "- No entities, efficacy claims, dosing guidance, recommendations published automatically" >> "$GITHUB_STEP_SUMMARY"
