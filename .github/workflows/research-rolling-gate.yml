@@ -3,25 +3,43 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'scripts/research/rolling-*.mjs'
+      - 'scripts/research/**'
+      - 'scripts/ci/validate-research-source-register.mjs'
+      - 'lib/research-source-register.ts'
+      - 'app/research/source-register/**'
+      - 'app/research/intelligence/**'
+      - 'schemas/research-lane-intake.schema.json'
+      - 'ops/research-intake/**'
+      - 'ops/research-coordinator/**'
+      - 'ops/enrichment-submissions/reconciliation/**'
+      - 'public/data/research/**'
       - '.github/workflows/research-rolling-gate.yml'
-      - 'ops/enrichment-submissions/**'
+      - '.github/workflows/research-lane-intake.yml'
 permissions:
   contents: read
   pull-requests: read
 concurrency:
-  group: research-rolling-global
+  group: research-rolling-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: false
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Unit tests
         run: node --test scripts/research/*.test.mjs
+      - name: Validate rolling batch review gate
+        run: node scripts/research/validate-rolling-batch-pr.mjs
+      - name: Validate canonical rolling source register
+        run: node scripts/ci/validate-research-source-register.mjs
       - name: Safety boundary
         run: |
-          echo "Read-only validation only. No merge, publish or cross-lane reservations are performed."
+          echo "Research gate is read-only."
+          echo "Source verification never implies clinical admission."
+          echo "Merges remain owned by the exact-head autonomous merge controller."
