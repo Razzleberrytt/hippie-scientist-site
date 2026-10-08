@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42353009",
+    "41811662",
+    "42061548"
+  ],
+  "relevance_reason": "Primary botanical pharmacokinetic and enzyme research; interpretation and clinical claims pending independent scientific review."
+}
