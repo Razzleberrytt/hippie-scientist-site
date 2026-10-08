@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "records": [
+    {
+      "research_domain": "botanical-pharmacology-safety",
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "pmid": "32581050",
+      "title": "Centella asiatica Water Extract Shows Low Potential for Cytochrome P450-Mediated Drug Interactions",
+      "source_title": "Centella asiatica Water Extract Shows Low Potential for Cytochrome P450-Mediated Drug Interactions",
+      "doi": "10.1124/dmd.120.090860",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32581050/",
+      "abstract": "Source-checked abstract summary: An aqueous Centella asiatica preparation was assessed using cultured human hepatocytes and human liver microsomes. The investigators reported no meaningful induction of the tested CYP enzymes and generally weak reversible inhibition; clinical relevance remains uncertain.",
+      "category": "botanical_cyp_in_vitro",
+      "relevance_reason": "Provides preparation-specific null and weak inhibition findings important to herb-drug interaction evidence grading.",
+      "evidence_class": "in-vitro",
+      "study_design": "In vitro human hepatocyte and liver microsome enzyme assays",
+      "study_details": {
+        "model": "Sandwich-cultured cryopreserved human hepatocytes and human liver microsomes",
+        "targets": [
+          "CYP1A2",
+          "CYP2B6",
+          "CYP3A4",
+          "CYP2C9"
+        ],
+        "source_year": 2020
+      },
+      "population": "Cultured human hepatocytes and liver microsomes; no clinical intervention population",
+      "intervention": "Standardized aqueous Centella asiatica extract CAW-R61J",
+      "outcomes": [
+        {
+          "measure": "CYP enzyme induction",
+          "result": "No induction observed within the evaluated concentration range"
+        },
+        {
+          "measure": "CYP inhibition",
+          "result": "Weak reversible inhibition overall; CYP2C9 had the strongest reported response"
+        }
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "preclinical",
+      "uncertainty": "Results concern one preparation and in vitro exposure; do not establish absence of interactions in humans.",
+      "adverse_effects": "No human adverse-event assessment; some cell-culture cytotoxicity noted at higher tested concentrations.",
+      "interactions": "In vitro CYP screening only; clinical interaction magnitude unestablished.",
+      "limitations": "Extract-specific assay; limited translation from experimental concentrations to clinical exposure.",
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "32581050",
+        "doi": "10.1124/dmd.120.090860",
+        "verification": "Exact PubMed title, identifier and source abstract manually checked; abstract field is a paraphrase",
+        "research_only": true,
+        "independent_scientific_review": false
+      },
+      "signals": {
+        "safety": 0.5,
+        "evidence_gap": 0.7,
+        "contradiction": 0.2,
+        "novelty": 0.3,
+        "graph_connectivity": 0.8
+      }
+    },
+    {
+      "research_domain": "botanical-pharmacology-safety",
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "pmid": "28774812",
+      "title": "Cytochrome P450 inhibition by three licorice species and fourteen licorice constituents",
+      "source_title": "Cytochrome P450 inhibition by three licorice species and fourteen licorice constituents",
+      "doi": "10.1016/j.ejps.2017.07.034",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28774812/",
+      "abstract": "Source-checked abstract summary: Extracts of three Glycyrrhiza species and fourteen purified constituents were screened against nine cytochrome P450 enzymes using analytical enzyme assays. Inhibition patterns differed by species and constituent, indicating possible metabolic interaction mechanisms without demonstrating clinical effects.",
+      "category": "botanical_cyp_in_vitro",
+      "relevance_reason": "Species-dependent enzyme inhibition profiles prevent treating all licorice preparations as pharmacologically interchangeable.",
+      "evidence_class": "in-vitro",
+      "study_design": "In vitro CYP enzyme inhibition profiling with UHPLC-MS/MS cocktail assay",
+      "study_details": {
+        "species": [
+          "Glycyrrhiza glabra",
+          "Glycyrrhiza uralensis",
+          "Glycyrrhiza inflata"
+        ],
+        "constituents_tested": 14,
+        "enzymes_tested": 9,
+        "source_year": 2017
+      },
+      "population": "Enzyme assay systems; no participants",
+      "intervention": "Botanically identified licorice extracts and isolated compounds",
+      "outcomes": [
+        {
+          "measure": "CYP inhibition",
+          "result": "Profiles varied by licorice species and constituent"
+        },
+        {
+          "measure": "CYP3A4 mechanism",
+          "result": "Licochalcone A showed mechanism-based inhibition in vitro"
+        }
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "preclinical",
+      "uncertainty": "Enzyme inhibition in an assay is not proof of a clinically relevant drug interaction.",
+      "adverse_effects": "Human adverse events were not measured in this enzyme-screening experiment.",
+      "interactions": "Mechanistic potential for CYP-mediated herb-drug interactions; no clinical interaction study.",
+      "limitations": "No human pharmacokinetic or clinical outcomes; extract composition and achievable exposure may differ.",
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "28774812",
+        "doi": "10.1016/j.ejps.2017.07.034",
+        "verification": "Exact PubMed title, identifier and source abstract manually checked; abstract field is a paraphrase",
+        "research_only": true,
+        "independent_scientific_review": false
+      },
+      "signals": {
+        "safety": 0.65,
+        "evidence_gap": 0.7,
+        "contradiction": 0.2,
+        "novelty": 0.35,
+        "graph_connectivity": 0.85
+      }
+    },
+    {
+      "research_domain": "botanical-pharmacology-safety",
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "pmid": "29466429",
+      "title": "Population nutrikinetics of green tea extract",
+      "source_title": "Population nutrikinetics of green tea extract",
+      "doi": "10.1371/journal.pone.0193074",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29466429/",
+      "abstract": "Source-checked abstract summary: Eighty-four healthy volunteers received a standardized green tea extract over five days. Investigators measured plasma catechins and modeled pharmacokinetics, finding substantial between-person variability. These exposure measurements do not establish supplement efficacy or clinical safety thresholds.",
+      "category": "botanical_human_pharmacokinetics",
+      "relevance_reason": "Human exposure variability is relevant to interpreting botanical extract safety and dose-comparability research.",
+      "evidence_class": "human",
+      "study_design": "Human five-day pharmacokinetic intervention study",
+      "study_details": {
+        "participants": 84,
+        "exposure_days": 5,
+        "trial_registration": "NCT01360320",
+        "source_year": 2018
+      },
+      "population": "84 healthy adult participants",
+      "intervention": "Standardized green tea extract capsules providing 150 mg EGCG twice daily for five days, per study protocol",
+      "outcomes": [
+        {
+          "measure": "Catechin plasma pharmacokinetics",
+          "result": "More than sixfold between-person variation in peak plasma concentrations reported"
+        },
+        {
+          "measure": "Potential transporter variation",
+          "result": "Genetic differences proposed as partial contributors to exposure variability"
+        }
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "human_pk",
+      "uncertainty": "Short-duration healthy-volunteer PK study cannot infer long-term liver risk or effectiveness.",
+      "adverse_effects": "No clinical safety inference from this pharmacokinetic endpoint; adverse-event conclusions not established here.",
+      "interactions": "No direct herb-drug interaction trial; transporter associations remain exploratory.",
+      "limitations": "Small healthy sample, five-day exposure, no clinical interaction or long-term outcome endpoints.",
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "29466429",
+        "doi": "10.1371/journal.pone.0193074",
+        "verification": "Exact PubMed title, identifier and source abstract manually checked; abstract field is a paraphrase",
+        "research_only": true,
+        "independent_scientific_review": false
+      },
+      "signals": {
+        "safety": 0.55,
+        "evidence_gap": 0.55,
+        "contradiction": 0.15,
+        "novelty": 0.3,
+        "graph_connectivity": 0.8
+      }
+    }
+  ]
+}
