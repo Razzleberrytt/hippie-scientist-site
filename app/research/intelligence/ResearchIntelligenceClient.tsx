@@ -106,7 +106,7 @@ const filtered=useMemo(()=>data?data.dna.filter(d=>(!focusPmid||d.pmid===focusPm
 const concepts=useMemo(()=>data?.graph.concepts.filter(c=>c.kind!=='method')||[],[data])
 const voyage=useMemo(()=>data&&from&&to?(focusPmid?traceCaseConceptPair(data.graph,focusPmid,from,to):explainSemanticVoyage(data.graph,from,to)):[],[data,from,to,focusPmid])
 const answer=useMemo(()=>data&&asked?askResearchSources(query,data,focusPmid||undefined):null,[data,query,asked,focusPmid])
-const chrono=useMemo(()=>data?.timeline.filter(d=>d.sources>0)||[],[data])
+const chrono=useMemo(()=>data?.timeline.filter(d=>d.sources>0&&(!focusPmid||d.pmids.includes(focusPmid)))||[],[data,focusPmid])
 const maxYear=Math.max(1,...chrono.map(x=>x.sources))
 const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
@@ -117,6 +117,7 @@ const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
 const visibleInvestigations=caseScope?.investigations??data?.investigations??[]
 const visibleBriefs=caseScope?.briefs??data?.briefs??[]
+const visibleReviewEvents=caseScope&&data?data.adjudication.events.filter(e=>e.witnessId.split(':')[0]===caseScope.pmid):data?.adjudication.events??[]
 useEffect(()=>{if(focusPmid&&data)caseRef.current?.scrollIntoView({block:'start'})},[focusPmid,data])
 function inspectPmid(pmid:string){setFocusPmid(pmid);setFocusLookup(pmid);setSearch('');setAsked(false);setMore(false);setDnaVisible(9)}
 function clearSourceFocus(){setFocusPmid('');setFocusLookup('');setSearch('');setAsked(false);setMore(false);setFrom('');setTo('')}
@@ -288,10 +289,10 @@ return <section className={styles.studio}>
     </>:null}
 
     {data&&tab==='time'?<>
-      <Notice>Publication chronology is not evidence-grade history. Reviewed citation publications are a separate dataset; counts must not be added together. Historic grade changes are shown only in their recorded change log.</Notice>
-      <div className={styles.metrics}><div><strong>{data.metrics.datedPublications}</strong><span>Dated research records</span></div>
+      <Notice>Publication chronology is not evidence-grade history. Reviewed citation publications are a separate dataset; counts must not be added together. {caseScope?'The timeline is restricted to the selected source publication year; publication-year totals still describe the full batch.':'Historic grade changes are shown only in their recorded change log.'}</Notice>
+      <div className={styles.metrics}><div><strong>{caseScope?Number(caseScope.sourceYear!==null):data.metrics.datedPublications}</strong><span>{caseScope?'Selected source with publication year':'Dated research records'}</span></div>
         <div><strong>{chrono.length}</strong><span>Years represented</span></div>
-        <div><strong>{selected?.sources||'—'}</strong><span>{year||'Select a year'} / source records</span></div></div>
+        <div><strong>{selected?(caseScope?Number(selected.pmids.includes(caseScope.pmid)):selected.sources):'—'}</strong><span>{year||'Select a year'} / {caseScope?'focused source':'source records'}</span></div></div>
       <div className={styles.timeline} role='group' aria-label='Choose a publication year'>
         {chrono.map(t=><button key={t.year} type='button' aria-pressed={year===String(t.year)}
           title={t.year+': '+t.sources+' source records'} onClick={()=>setYear(String(t.year))}>
@@ -302,7 +303,8 @@ return <section className={styles.studio}>
       {selected?<article className={styles.paper}><div className={styles.paperTop}><Tag>{year}</Tag><span>YEAR SELECTED</span></div>
         <h3>{selected.sources} source papers in this batch</h3>
         <p>{selected.reviewedCitations} separately reviewed citation publications carry this year; these two inventories are not additive.</p>
-        <Sources pmids={selected.pmids} onSelect={inspectPmid}/></article>:<p className={styles.placeholder}>Select a year in the publication timeline to inspect bibliographic sources.</p>}
+        {caseScope?<p>Selected PMID {caseScope.pmid} is among this year’s {selected.sources} source records in the batch; other papers are hidden during focus.</p>:null}
+        <Sources pmids={caseScope?[caseScope.pmid]:selected.pmids} onSelect={inspectPmid}/></article>:<p className={styles.placeholder}>Select a year in the publication timeline to inspect bibliographic sources.</p>}
       {!caseScope?<div className={styles.recordedChanges}>
         <h3>Recorded editorial evidence-grade changes</h3>
         <p>These events come from the separately maintained editorial grade-change log, not inferred historic scores.</p>
@@ -383,14 +385,14 @@ return <section className={styles.studio}>
     {data&&tab==='reactor'?<>
       <Notice>Proposals are draft-only editorial work orders with a mandatory scientific review checklist. The system does not write or publish claims, doses, recommendations or articles.</Notice>
       <div className={styles.metrics}><div><strong>{visibleBriefs.length}</strong><span>Draft work orders</span></div>
-        <div><strong>{data.adjudication.reviewCount}</strong><span>Recorded source-mention reviews</span></div>
+        <div><strong>{caseScope?visibleReviewEvents.length:data.adjudication.reviewCount}</strong><span>{caseScope?'Source-linked review events':'Recorded source-mention reviews'}</span></div>
         <div><strong>0</strong><span>Automatically published</span></div></div>
       <p>Review ledger decisions concern source-text indexing only. They cannot certify safety, clinical conclusions or publication.</p>
       <section className={styles.reviewHistory} aria-label='Source indexing review history'>
         <h3>Source-indexing review history</h3>
         <p>Append-only editorial events are recorded against exact source quotes. Reviewer codes are recorded assertions, not independent certification of expertise.</p>
-        {data.adjudication.events.length===0?<p>No source-text indexing reviews have been recorded in this snapshot.</p>:null}
-        <ol>{data.adjudication.events.slice(-12).reverse().map(e=><li key={e.eventId}>
+        {visibleReviewEvents.length===0?<p>No {caseScope?'review events for this selected PMID':'source-text indexing reviews'} have been recorded in this snapshot.</p>:null}
+        <ol>{visibleReviewEvents.slice(-12).reverse().map(e=><li key={e.eventId}>
           <strong>{human(e.decision)}</strong> · {e.recordedAt.slice(0,10)} · reviewer {e.reviewerCode}
           <p>{e.rationale}</p>
           <a href={pubmed(e.witnessId.split(':')[0])} target='_blank' rel='noopener noreferrer'>Inspect original publication ↗</a>
