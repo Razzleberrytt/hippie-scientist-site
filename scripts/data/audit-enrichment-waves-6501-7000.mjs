@@ -11,12 +11,12 @@ const directory = 'ops/enrichment-submissions/reconciliation';
 const prefix = '2026-10-07-enrichment-waves-6501-7000';
 const read = filename => JSON.parse(readFileSync(join(directory, filename), 'utf8'));
 const normalizeTitle = value => String(value ?? '')
-  .toLowerCase().replace(/\\((\\d+[a-z]*)\\)/g, '$1')
-  .normalize('NFKD').replace(/[\\u0300-\\u036f]/g, '')
+  .toLowerCase().replace(/\((\d+[a-z]*)\)/g, '$1')
+  .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
   .replace(/[^a-z0-9]+/g, ' ').trim();
 const normalizeDoi = value => String(value ?? '')
   .trim().toLowerCase()
-  .replace(/^(?:https?:\\/\\/(?:dx\\.)?doi\\.org\\/|doi:)/, '');
+  .replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:)/, '');
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
 };
@@ -26,7 +26,7 @@ const noDuplicates = (values, label) => {
 const blobSha = filename => {
   const data = readFileSync(join(directory, filename));
   return createHash('sha1')
-    .update('blob ' + data.length + '\\0')
+    .update('blob ' + data.length + '\0')
     .update(data)
     .digest('hex');
 };
