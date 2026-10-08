@@ -214,8 +214,15 @@ def main():
         "retrieval_batches_failed": len(retrieval_errors),
         "failures_first_20": failures[:20],
     }, indent=2))
-    # Fail closed at the data layer; the runner can still persist partial results
-    # for review without declaring 500/500 final acceptance.
+    # Receipts have been written and the workflow uploads them even on failure.
+    # A partial PubMed response must NEVER produce a green verification run.
+    # The commit step only executes after complete, error-free source verification.
+    if failures or retrieval_errors or len(verified) != len(candidates):
+        raise SystemExit(
+            f"PubMed verification incomplete: {len(failures)} rejected or missing "
+            f"records, {len(retrieval_errors)} failed EFetch batches, "
+            f"{len(verified)}/{len(candidates)} verified."
+        )
 
 if __name__ == "__main__":
     main()
