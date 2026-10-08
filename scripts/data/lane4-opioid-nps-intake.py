@@ -19,7 +19,7 @@ TOPICS=[
 def norm_title(v):
  v=unicodedata.normalize("NFKD",str(v or "").lower())
  return re.sub(r"[^a-z0-9]+"," ","".join(c for c in v if not unicodedata.combining(c))).strip()
-def norm_doi(v): return re.sub(r"^(https?://(dx\\.)?doi\\.org/|doi:)","",str(v or "").strip().lower())
+def norm_doi(v): return re.sub(r"^(https?://(dx\.)?doi\.org/|doi:)","",str(v or "").strip().lower())
 def text(n): return " ".join("".join(n.itertext()).split()) if n is not None else ""
 def get(endpoint,params):
  url=BASE+endpoint+"?"+urllib.parse.urlencode(params)
@@ -91,8 +91,8 @@ def main():
     elif title in titles:why="normalized_title_duplicate"
     elif len(rec["abstract"])<160:why="abstract_missing_or_short"
     elif len(rec["title"])<18:why="title_missing"
-    elif not any(k in " ".join(rec["publication_types"]).lower() for k in ("randomized controlled trial","clinical trial","observational study","systematic review","meta-analysis","cohort","comparative study")):why="study_design_not_sufficiently_characterized"
-    elif re.search(r"\\b(mouse|mice|rat|rodent|animal model|protocol|in vitro|retraction)\\b",rec["title"],re.I):why="nonhuman_protocol_or_retraction"
+    elif not any(k in " ".join(rec["publication_types"]).lower() for k in ("randomized controlled trial","clinical trial","observational study","systematic review","meta-analysis","cohort","comparative study","journal article")):why="study_design_not_sufficiently_characterized"
+    elif re.search(r"\b(mouse|mice|rat|rodent|animal model|protocol|in vitro|retraction)\b",rec["title"],re.I):why="nonhuman_protocol_or_retraction"
     if why:
      rejected.append({"pmid":pmid,"reason":why});continue
     rec.update({"lane":"4","category":category,"source":"NCBI PubMed ESearch + direct EFetch XML",
@@ -117,11 +117,11 @@ def main():
    "source_verified_count":len(rows),"integrated":0,"published":0,"research_only":True,
    "semantic_review":"PENDING","rows":rows,"rejected":rejected}
  OUT.parent.mkdir(parents=True,exist_ok=True)
- data=(json.dumps(obj,ensure_ascii=False,indent=2)+"\\n").encode()
+ data=(json.dumps(obj,ensure_ascii=False,indent=2)+"\n").encode()
  OUT.write_bytes(data)
  MANIFEST.write_text(json.dumps({"lane":4,"records":25,"file":OUT.name,"sha256":hashlib.sha256(data).hexdigest(),
   "bytes":len(data),"open_pr_head_checked":head,"semantic_review":"PENDING","research_only":True,
-  "runtime_admission":False,"publication":False},indent=2)+"\\n")
+  "runtime_admission":False,"publication":False},indent=2)+"\n")
  print(json.dumps({"source_verified":25,"integrated":0,"staged":25,"merged":0,
    "rejected_candidates":len(rejected),"open_pr_head":head}))
 if __name__=="__main__":main()
