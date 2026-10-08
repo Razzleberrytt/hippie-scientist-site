@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import { ArrowRight, Search } from 'lucide-react'
 import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
+import { getResearchSourceRegisterSummary } from '@/lib/research-source-register'
 
 
 export default async function HomepageV2() {
   const metrics = await getPublicSiteMetrics()
+  const researchSourceRegister = getResearchSourceRegisterSummary()
   const stats = [
     { value: metrics.publishedArticles, label: 'Published articles' },
     { value: metrics.publishedHerbs, label: 'Published herbs' },
@@ -81,6 +83,9 @@ export default async function HomepageV2() {
               ))}
             </dl>
           </div>
+          <p className='mt-5 max-w-4xl border-t border-brand-900/10 pt-4 text-sm leading-6 text-muted'>
+            Beyond the published evidence dataset, our source register tracks <strong className='text-ink'>{researchSourceRegister.totalIndexedPmids.toLocaleString()} unique PubMed references</strong> for further editorial review. Those are research-only identities, not an additional count of graded clinical studies. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Explore the source trail →</Link>
+          </p>
         </section>
       </div>
     </div>

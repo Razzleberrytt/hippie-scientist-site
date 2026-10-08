@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-7001-7500-final",
+  "range": "7001-7500",
+  "state": "finalized_pending_repository_ci_review",
+  "research_only": true,
+  "fail_closed": true,
+  "previous_unique_pmids": 6935,
+  "accepted_new_unique_pmids": 500,
+  "cumulative_unique_pmids": 7435,
+  "exact_title_verified": 500,
+  "abstract_verified": 500,
+  "admission_policy": {
+    "published_entities": false,
+    "recommendations": false,
+    "dosing_claims": false,
+    "runtime_admission": false,
+    "clinical_claims_require_separate_review": true
+  },
+  "artifact_parts": [
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-01.json",
+      "blob_sha": "7086c0661a87cb99f27da927f26ee86d5128b8a0",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-02.json",
+      "blob_sha": "55794c46a40a41b1b0b6e4ddaf4e6c2873369404",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-03.json",
+      "blob_sha": "1ff85217d5bbcaf1dfa98e45ab68c5afa6e2bd29",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-04.json",
+      "blob_sha": "ffa614c85ca6166002528a0732465695cb618bdf",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-05.json",
+      "blob_sha": "eca5f89d997487d2260d3b2058f5ba17253ac608",
+      "rows": 100
+    }
+  ],
+  "audit": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-final-audit.json",
+  "cumulative_index": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-pmid-index.json",
+  "semantic_replacements": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-replacement-receipt.json",
+  "negative_index": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-negative-pmid-index.json",
+  "category_counts": {
+    "stress_anxiety": 34,
+    "sleep": 22,
+    "withdrawal_nps": 8,
+    "cardiometabolic": 35,
+    "performance": 5,
+    "aging_sarcopenia": 30,
+    "women_health": 6,
+    "micronutrients": 62,
+    "gut": 18,
+    "cognition_focus": 28,
+    "mood": 15,
+    "inflammation_pain": 40,
+    "metabolic": 19,
+    "botanicals_mushrooms": 40,
+    "safety_interactions": 32,
+    "cannabinoid_safety": 45,
+    "mitochondrial_energy": 42,
+    "immune_respiratory": 19
+  }
+}
