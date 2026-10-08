@@ -16,6 +16,20 @@ describe('changed-file workflow reachability', () => {
     ])
   })
 
+  it('requires Research rolling gate for research intake, coordination, and source-register changes', () => {
+    for (const changedFile of [
+      'scripts/research/github-reservation-controller.mjs',
+      'ops/research-intake/lane-3-run.json',
+      'ops/research-coordinator/reviews/batch-independent-review.json',
+      'ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-8001-8500-final-manifest.json',
+      'schemas/research-lane-intake.schema.json',
+      'lib/research-source-register.ts',
+      'app/research/source-register/page.tsx',
+    ]) {
+      expect(requiredWorkflowsFor('high', [changedFile]), changedFile).toContain('Research rolling gate')
+    }
+  })
+
   it('requires Research Distribution for distribution schemas and docs', () => {
     for (const changedFile of [
       'schemas/distribution-pack-v1.schema.json',
