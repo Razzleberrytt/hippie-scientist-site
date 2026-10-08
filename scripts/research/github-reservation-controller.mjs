@@ -3,6 +3,7 @@ import {normalizeTitle,normalizeDoi,validateSnapshot} from './rolling-coordinato
 import {review,priority} from './evidence-pipeline.mjs';
 import {withRecovery,classifyFailure} from './failure-controller.mjs';
 import {summarizeRegistry,renderSummaryMarkdown} from './research-observatory.mjs';
+import {hydrateIntakeEnvelope} from './pubmed-intake-hydrator.mjs';
 
 const API=process.env.GITHUB_API_URL||'https://api.github.com';
 const repo=process.env.GITHUB_REPOSITORY||'';
@@ -292,7 +293,7 @@ async function run(){
  required(repo,'GITHUB_REPOSITORY');const mode=process.argv[2]||'reserve';
  if(mode==='reserve'){
    const p=required(process.env.CANDIDATE_PATH,'CANDIDATE_PATH');if(!p.startsWith(intakeRoot)||!p.endsWith('.json'))throw Error('unsafe candidate path');
-   const manifest=validateManifest(JSON.parse(fs.readFileSync(p,'utf8')));const main=await findMainThroughWave();const pending=await listOpenPrRecords();let reserved=[];
+   const raw=JSON.parse(fs.readFileSync(p,'utf8'));const manifest=validateManifest(await hydrateIntakeEnvelope(raw));const main=await findMainThroughWave();const pending=await listOpenPrRecords();let reserved=[];
    await commitRegistryMutation(async reg=>{reserved=reserveInto(reg,manifest,[...main.records,...pending.records])},'research: reserve lane '+manifest.lane+' intake');
    const allocated=(await allocateFrozenRanges()).reg;
    for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){try{await materializeBatch(allocated,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;allocated.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}}
