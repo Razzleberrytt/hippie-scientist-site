@@ -1,0 +1,60 @@
+{
+  "lane": 2,
+  "records": [
+    {
+      "wave": 7502,
+      "design": "review of GAD interventions",
+      "population": "patients across cited studies",
+      "intervention": "drug, behavioral and complementary approaches",
+      "outcomes": "mixed evidence",
+      "nullResults": "cannabinoid evidence insufficient",
+      "limitations": "secondary review; no independent trial",
+      "safety": "not detailed",
+      "admission": "RESEARCH_ONLY"
+    },
+    {
+      "wave": 7504,
+      "design": "narrative review",
+      "population": "patients with anxiety",
+      "intervention": "proprietary oral lavender preparation",
+      "outcomes": "sleep improvements tracked anxiety improvement",
+      "nullResults": "direct sleep effect marginal",
+      "limitations": "narrative pooled secondary analysis",
+      "safety": "not detailed",
+      "admission": "RESEARCH_ONLY"
+    },
+    {
+      "wave": 7515,
+      "design": "randomized trial",
+      "population": "patients undergoing trigger point injections",
+      "intervention": "inhaled lavender",
+      "outcomes": "less procedural anxiety and pain",
+      "nullResults": "salivary cortisol unchanged",
+      "limitations": "procedural context; limited abstract",
+      "safety": "not detailed",
+      "admission": "RESEARCH_ONLY"
+    },
+    {
+      "wave": 7517,
+      "design": "uncontrolled trial",
+      "population": "50 psychiatric inpatients",
+      "intervention": "aromatherapy massage",
+      "outcomes": "within-person anxiety measures improved",
+      "nullResults": "no comparator",
+      "limitations": "cannot infer efficacy without control",
+      "safety": "not detailed",
+      "admission": "RESEARCH_ONLY"
+    },
+    {
+      "wave": 7521,
+      "design": "open-label observational",
+      "population": "639 adults",
+      "intervention": "multi-component homeopathic product",
+      "outcomes": "anxiety and sleep scores improved over time",
+      "nullResults": "no controlled estimate",
+      "limitations": "confounding; manufacturer-affiliated study",
+      "safety": "not detailed",
+      "admission": "RESEARCH_ONLY"
+    }
+  ]
+}
