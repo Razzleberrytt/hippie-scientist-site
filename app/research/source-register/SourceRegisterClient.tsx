@@ -6,7 +6,7 @@ import type { RegisteredResearchSource } from '@/lib/research-source-register'
 
 type Props = {
   records: RegisteredResearchSource[]
-  previousPmids: string[]
+  previousCount: number
   categories: Array<{ key: string; count: number }>
 }
 
@@ -16,8 +16,12 @@ function humanize(value: string) {
   return value.split('_').map(word => word === 'nps' ? 'NPS' : word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 }
 
-export default function SourceRegisterClient({ records, previousPmids, categories }: Props) {
+export default function SourceRegisterClient({ records, previousCount, categories }: Props) {
   const [view, setView] = useState<'verified' | 'previous'>('verified')
+  const [previousPmids, setPreviousPmids] = useState<string[]>([])
+  const [historicalLoaded, setHistoricalLoaded] = useState(false)
+  const [historicalLoading, setHistoricalLoading] = useState(false)
+  const [historicalError, setHistoricalError] = useState('')
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('')
   const [year, setYear] = useState('')
@@ -44,8 +48,33 @@ export default function SourceRegisterClient({ records, previousPmids, categorie
   const count = view === 'verified' ? filtered.length : filteredPrevious.length
   const hasMore = visibleCount < count
 
+  async function loadHistoricalIndex() {
+    if (historicalLoading || historicalLoaded) return
+    setHistoricalLoading(true)
+    setHistoricalError('')
+    try {
+      const response = await fetch('/data/research/pmid-register-through-7000.json', { cache: 'force-cache' })
+      if (!response.ok) throw new Error('Static research index unavailable')
+      const payload: unknown = await response.json()
+      const data = payload as { schema_version?: number; through_wave?: number; prior_unique_pmids?: number; inventory_only?: boolean; pmids?: unknown }
+      if (data.schema_version !== 1 || data.through_wave !== 7000 || data.inventory_only !== true ||
+          data.prior_unique_pmids !== previousCount || !Array.isArray(data.pmids) ||
+          data.pmids.length !== previousCount || new Set(data.pmids).size !== previousCount ||
+          !data.pmids.every((pmid: unknown) => typeof pmid === 'string' && /^\d{5,10}$/.test(pmid))) {
+        throw new Error('Historical source-index integrity check failed')
+      }
+      setPreviousPmids(data.pmids)
+      setHistoricalLoaded(true)
+    } catch {
+      setHistoricalError('Historical PMID index could not be loaded or verified. The latest source records remain available.')
+    } finally {
+      setHistoricalLoading(false)
+    }
+  }
+
   function changeView(value: 'verified' | 'previous') {
     setView(value)
+    if (value === 'previous' && !historicalLoaded) void loadHistoricalIndex()
     setVisibleCount(PAGE_SIZE)
     setQuery('')
     setCategory('')
@@ -114,7 +143,7 @@ export default function SourceRegisterClient({ records, previousPmids, categorie
             onClick={() => changeView('previous')}
             className={'min-h-11 rounded-full border px-4 py-2 text-sm font-semibold ' + (view === 'previous' ? 'border-brand-700 bg-brand-700 text-white' : 'border-brand-900/15 text-ink hover:bg-brand-50')}
           >
-            Historical PMID index ({previousPmids.length.toLocaleString()})
+            Historical PMID index ({previousCount.toLocaleString()})
           </button>
         </div>
         <p className='mt-3 text-xs leading-6 text-muted'>
@@ -123,6 +152,11 @@ export default function SourceRegisterClient({ records, previousPmids, categorie
             : 'Earlier unique PubMed identifiers are available for direct source lookup. Titles and topic labels are intentionally not invented for entries without this batch’s exact-source metadata.'}
         </p>
 
+        {view === 'previous' && historicalLoading ? <p role='status' className='mt-4 text-sm text-muted'>Loading the historical source index on demand…</p> : null}
+        {view === 'previous' && historicalError ? <div role='alert' className='mt-4 flex flex-wrap items-center gap-3 rounded-xl border border-amber-700/20 bg-amber-50 p-3 text-sm text-amber-900'>
+          <span>{historicalError}</span>
+          <button type='button' onClick={() => void loadHistoricalIndex()} className='rounded-full border border-amber-700/30 bg-white px-4 py-2 font-semibold'>Try again</button>
+        </div> : null}
         <div className='mt-5 grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,13rem)_minmax(0,9rem)]'>
           <label className={view === 'previous' ? 'md:col-span-3' : ''}>
             <span className='block text-xs font-bold uppercase tracking-wider text-muted'>{view === 'verified' ? 'Search title, PMID, journal, or DOI' : 'Find a PMID'}</span>
