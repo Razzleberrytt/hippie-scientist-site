@@ -1,0 +1,1549 @@
+{
+  "schema_version": 1,
+  "chunk": 4,
+  "source_receipts": 16,
+  "row_count": 124,
+  "errors": [],
+  "receipts": [
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6877-6884-exact.json",
+      "range": [
+        6877,
+        6884
+      ],
+      "rows": [
+        {
+          "wave": 6877,
+          "pmid": "28183232",
+          "title": "Triterpenoids and polysaccharide peptides-enriched Ganoderma lucidum: a randomized, double-blind placebo-controlled crossover study of its antioxidation and hepatoprotective efficacy in healthy volunteers.",
+          "verified_title": "Triterpenoids and polysaccharide peptides-enriched Ganoderma lucidum: a randomized, double-blind placebo-controlled crossover study of its antioxidation and hepatoprotective efficacy in healthy volunteers.",
+          "doi": "10.1080/13880209.2017.1288750",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1729,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6878,
+          "pmid": "27511742",
+          "title": "A double-blind, randomised, placebo-controlled trial of Ganoderma lucidum for the treatment of cardiovascular risk factors of metabolic syndrome.",
+          "verified_title": "A double-blind, randomised, placebo-controlled trial of Ganoderma lucidum for the treatment of cardiovascular risk factors of metabolic syndrome.",
+          "doi": "10.1038/srep29540",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1550,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6879,
+          "pmid": "27515872",
+          "title": "Evaluation of the efficacy of Withania somnifera (Ashwagandha) root extract in patients with obsessive-compulsive disorder: A randomized double-blind placebo-controlled trial.",
+          "verified_title": "Evaluation of the efficacy of Withania somnifera (Ashwagandha) root extract in patients with obsessive-compulsive disorder: A randomized double-blind placebo-controlled trial.",
+          "doi": "10.1016/j.ctim.2016.03.018",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1639,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6880,
+          "pmid": "18097503",
+          "title": "Effect of an extract of Ganoderma lucidum in men with lower urinary tract symptoms: a double-blind, placebo-controlled randomized and dose-ranging study.",
+          "verified_title": "Effect of an extract of Ganoderma lucidum in men with lower urinary tract symptoms: a double-blind, placebo-controlled randomized and dose-ranging study.",
+          "doi": "10.1111/j.1745-7262.2008.00336.x",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1256,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6881,
+          "pmid": "40077714",
+          "title": "Clinical Evaluation of Ganoderma lucidum Spore Oil for Triglyceride Reduction: A Randomized, Double-Blind, Crossover Study.",
+          "verified_title": "Clinical Evaluation of Ganoderma lucidum Spore Oil for Triglyceride Reduction: A Randomized, Double-Blind, Crossover Study.",
+          "doi": "10.3390/nu17050844",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1525,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6882,
+          "pmid": "35041248",
+          "title": "Effects of Bacopa monnieri (CDRI 08®) in a population of males exhibiting inattention and hyperactivity aged 6 to 14 years: A randomized, double-blind, placebo-controlled trial.",
+          "verified_title": "Effects of Bacopa monnieri (CDRI 08®) in a population of males exhibiting inattention and hyperactivity aged 6 to 14 years: A randomized, double-blind, placebo-controlled trial.",
+          "doi": "10.1002/ptr.7372",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1292,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6883,
+          "pmid": "36374982",
+          "title": "Efficacy of Cordyceps cicadae (Ascomycota) Mycelium Supplementation for Amelioration of Dry Eye Symptoms: A Randomized, Double-Blind Clinical Pilot Study.",
+          "verified_title": "Efficacy of Cordyceps cicadae (Ascomycota) Mycelium Supplementation for Amelioration of Dry Eye Symptoms: A Randomized, Double-Blind Clinical Pilot Study.",
+          "doi": "10.1615/IntJMedMushrooms.2022045307",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2060,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6884,
+          "pmid": "33915962",
+          "title": "A Placebo-Controlled, Pseudo-Randomized, Crossover Trial of Botanical Agents for Gulf War Illness: Reishi Mushroom (Ganoderma lucidum), Stinging Nettle (Urtica dioica), and Epimedium (Epimedium sagittatum).",
+          "verified_title": "A Placebo-Controlled, Pseudo-Randomized, Crossover Trial of Botanical Agents for Gulf War Illness: Reishi Mushroom (Ganoderma lucidum), Stinging Nettle (Urtica dioica), and Epimedium (Epimedium sagittatum).",
+          "doi": "10.3390/ijerph18073671",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1851,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6885-6892-exact.json",
+      "range": [
+        6885,
+        6892
+      ],
+      "rows": [
+        {
+          "wave": 6885,
+          "pmid": "30854916",
+          "title": "A Randomized, Double-Blind, Placebo-Controlled, Crossover Study Examining the Hormonal and Vitality Effects of Ashwagandha ( Withania somnifera) in Aging, Overweight Males.",
+          "verified_title": "A Randomized, Double-Blind, Placebo-Controlled, Crossover Study Examining the Hormonal and Vitality Effects of Ashwagandha ( Withania somnifera) in Aging, Overweight Males.",
+          "doi": "10.1177/1557988319835985",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1611,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6886,
+          "pmid": "29995356",
+          "title": "Adjunctive Use of a Standardized Extract of Withania somnifera (Ashwagandha) to Treat Symptom Exacerbation in Schizophrenia: A Randomized, Double-Blind, Placebo-Controlled Study.",
+          "verified_title": "Adjunctive Use of a Standardized Extract of Withania somnifera (Ashwagandha) to Treat Symptom Exacerbation in Schizophrenia: A Randomized, Double-Blind, Placebo-Controlled Study.",
+          "doi": "10.4088/JCP.17m11826",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1946,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6887,
+          "pmid": "24176010",
+          "title": "Rhodiola crenulata extract for prevention of acute mountain sickness: a randomized, double-blind, placebo-controlled, crossover trial.",
+          "verified_title": "Rhodiola crenulata extract for prevention of acute mountain sickness: a randomized, double-blind, placebo-controlled, crossover trial.",
+          "doi": "10.1186/1472-6882-13-298",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1628,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6888,
+          "pmid": "18611150",
+          "title": "Effects of a standardized Bacopa monnieri extract on cognitive performance, anxiety, and depression in the elderly: a randomized, double-blind, placebo-controlled trial.",
+          "verified_title": "Effects of a standardized Bacopa monnieri extract on cognitive performance, anxiety, and depression in the elderly: a randomized, double-blind, placebo-controlled trial.",
+          "doi": "10.1089/acm.2008.0018",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2059,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6889,
+          "pmid": "18683852",
+          "title": "Examining the nootropic effects of a special extract of Bacopa monniera on human cognitive functioning: 90 day double-blind placebo-controlled randomized trial.",
+          "verified_title": "Examining the nootropic effects of a special extract of Bacopa monniera on human cognitive functioning: 90 day double-blind placebo-controlled randomized trial.",
+          "doi": "10.1002/ptr.2537",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1276,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6890,
+          "pmid": "25682973",
+          "title": "Use of Ophiocordyceps sinensis (syn. Cordyceps sinensis) combined with angiotensin-converting enzyme inhibitors (ACEI)/angiotensin receptor blockers (ARB) versus ACEI/ARB alone in the treatment of diabetic kidney disease: a meta-analysis.",
+          "verified_title": "Use of Ophiocordyceps sinensis (syn. Cordyceps sinensis) combined with angiotensin-converting enzyme inhibitors (ACEI)/angiotensin receptor blockers (ARB) versus ACEI/ARB alone in the treatment of diabetic kidney disease: a meta-analysis.",
+          "doi": "10.3109/0886022X.2015.1009820",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1791,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6891,
+          "pmid": "40005009",
+          "title": "Effects of the Combined Supplementation of Caffeine and Rhodiola Rosea with Resistance Training on Lower Limb Explosive Power in Male Volleyball Players.",
+          "verified_title": "Effects of the Combined Supplementation of Caffeine and Rhodiola Rosea with Resistance Training on Lower Limb Explosive Power in Male Volleyball Players.",
+          "doi": "10.3390/nu17040681",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1551,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6892,
+          "pmid": "40845216",
+          "title": "Effects of Ashwagandha ( Withania somnifera ) Supplementation on Special Endurance and Response Time of Elite Wrestlers.",
+          "verified_title": "Effects of Ashwagandha ( Withania somnifera ) Supplementation on Special Endurance and Response Time of Elite Wrestlers.",
+          "doi": "10.1519/JSC.0000000000005234",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1892,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6893-6900-exact.json",
+      "range": [
+        6893,
+        6900
+      ],
+      "rows": [
+        {
+          "wave": 6893,
+          "pmid": "39510481",
+          "title": "A systematic review on polysaccharides from fermented Cordyceps sinensis: Advances in the preparation, structural characterization, bioactivities, structure-activity relationships.",
+          "verified_title": "A systematic review on polysaccharides from fermented Cordyceps sinensis: Advances in the preparation, structural characterization, bioactivities, structure-activity relationships.",
+          "doi": "10.1016/j.ijbiomac.2024.137275",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2105,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6894,
+          "pmid": "22343092",
+          "title": "Comparison of effectiveness and safety between granules and decoction of Chinese herbal medicine: a systematic review of randomized clinical trials.",
+          "verified_title": "Comparison of effectiveness and safety between granules and decoction of Chinese herbal medicine: a systematic review of randomized clinical trials.",
+          "doi": "10.1016/j.jep.2012.01.031",
+          "category": "safety_interactions",
+          "abstract_length": 2394,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6895,
+          "pmid": "40184097",
+          "title": "Efficacy and safety of herbal medicine treatment on postsurgical recovery in gastric cancer patients: A systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of herbal medicine treatment on postsurgical recovery in gastric cancer patients: A systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000041034",
+          "category": "safety_interactions",
+          "abstract_length": 1732,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6896,
+          "pmid": "37917887",
+          "title": "Adjunctive Effect and Safety of Chinese Herbal Medicine in Patients with Coronary Artery Disease Undergoing Percutaneous Coronary Intervention: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Adjunctive Effect and Safety of Chinese Herbal Medicine in Patients with Coronary Artery Disease Undergoing Percutaneous Coronary Intervention: A Systematic Review and Meta-Analysis.",
+          "doi": "",
+          "category": "safety_interactions",
+          "abstract_length": 2435,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6897,
+          "pmid": "37844564",
+          "title": "Efficacy and Safety of Acupuncture Combined with Herbal Medicine for Children and Adolescents with Tourette Syndrome: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Efficacy and Safety of Acupuncture Combined with Herbal Medicine for Children and Adolescents with Tourette Syndrome: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1159/000534115",
+          "category": "safety_interactions",
+          "abstract_length": 4537,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6898,
+          "pmid": "35927782",
+          "title": "The effectiveness and safety of Chinese herbal medicine in infertile women with luteal phase deficiency: a systematic review and meta-analysis.",
+          "verified_title": "The effectiveness and safety of Chinese herbal medicine in infertile women with luteal phase deficiency: a systematic review and meta-analysis.",
+          "doi": "10.21037/apm-22-792",
+          "category": "safety_interactions",
+          "abstract_length": 1885,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6899,
+          "pmid": "32769922",
+          "title": "A systematic review and meta-analysis of the efficacy and safety of western medicine routine treatment combined with Chinese herbal medicine in the treatment of COVID-19.",
+          "verified_title": "A systematic review and meta-analysis of the efficacy and safety of western medicine routine treatment combined with Chinese herbal medicine in the treatment of COVID-19.",
+          "doi": "10.1097/MD.0000000000021616",
+          "category": "safety_interactions",
+          "abstract_length": 1814,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6900,
+          "pmid": "30639372",
+          "title": "Efficacy and safety of Chinese herbal medicine for patients with postmenopausal hypertension: A systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of Chinese herbal medicine for patients with postmenopausal hypertension: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.phrs.2019.01.018",
+          "category": "safety_interactions",
+          "abstract_length": 1081,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6901-6908-exact.json",
+      "range": [
+        6901,
+        6908
+      ],
+      "rows": [
+        {
+          "wave": 6901,
+          "pmid": "41447839",
+          "title": "Chinese herbal medicine in pediatric oncology: Effects on survival and toxicity - a meta-analysis.",
+          "verified_title": "Chinese herbal medicine in pediatric oncology: Effects on survival and toxicity - a meta-analysis.",
+          "doi": "10.1016/j.phymed.2025.157723",
+          "category": "safety_interactions",
+          "abstract_length": 2437,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6902,
+          "pmid": "40812557",
+          "title": "Safety and efficacy of traditional herbal medicine Yukgunja-tang for atrophic gastritis: a systematic review and meta-analysis.",
+          "verified_title": "Safety and efficacy of traditional herbal medicine Yukgunja-tang for atrophic gastritis: a systematic review and meta-analysis.",
+          "doi": "10.1016/j.jep.2025.120414",
+          "category": "safety_interactions",
+          "abstract_length": 1601,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6903,
+          "pmid": "38701312",
+          "title": "Efficacy and safety of Chinese herbal medicine in treating postcholecystectomy diarrhea: A systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of Chinese herbal medicine in treating postcholecystectomy diarrhea: A systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000038046",
+          "category": "safety_interactions",
+          "abstract_length": 1742,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6904,
+          "pmid": "38794691",
+          "title": "Safety and Efficacy of the Consumption of the Nutraceutical \"Red Yeast Rice Extract\" for the Reduction of Hypercholesterolemia in Humans: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Safety and Efficacy of the Consumption of the Nutraceutical \"Red Yeast Rice Extract\" for the Reduction of Hypercholesterolemia in Humans: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu16101453",
+          "category": "safety_interactions",
+          "abstract_length": 1485,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6905,
+          "pmid": "37562462",
+          "title": "The safety and efficacy of Chinese herbal medicine for pneumonia prevention in high-risk elder residents in the nursing home: A randomized, double-blind clinical trial.",
+          "verified_title": "The safety and efficacy of Chinese herbal medicine for pneumonia prevention in high-risk elder residents in the nursing home: A randomized, double-blind clinical trial.",
+          "doi": "10.1016/j.jep.2023.117017",
+          "category": "safety_interactions",
+          "abstract_length": 2093,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6906,
+          "pmid": "36971836",
+          "title": "Effectiveness and Safety of Pattern Identification-Based Herbal Medicine for Alzheimer's Disease: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Effectiveness and Safety of Pattern Identification-Based Herbal Medicine for Alzheimer's Disease: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1089/jicm.2022.0806",
+          "category": "safety_interactions",
+          "abstract_length": 1770,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6907,
+          "pmid": "37932986",
+          "title": "The effectiveness and safety of herbal medicine on suicidal behavior: A PRISMA-compliant systematic review and meta-analysis.",
+          "verified_title": "The effectiveness and safety of herbal medicine on suicidal behavior: A PRISMA-compliant systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000034796",
+          "category": "safety_interactions",
+          "abstract_length": 1773,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6908,
+          "pmid": "37955143",
+          "title": "An updated systematic review and meta-analysis of efficacy and safety of Chinese herbal medicine for treating atopic dermatitis.",
+          "verified_title": "An updated systematic review and meta-analysis of efficacy and safety of Chinese herbal medicine for treating atopic dermatitis.",
+          "doi": "10.1080/09546634.2023.2268766",
+          "category": "safety_interactions",
+          "abstract_length": 1329,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6909-6916-exact.json",
+      "range": [
+        6909,
+        6916
+      ],
+      "rows": [
+        {
+          "wave": 6909,
+          "pmid": "33877745",
+          "title": "Efficacy and safety of Chinese herbal medicine Jianpi formulas for atopic dermatitis: Evidence from 11 randomized controlled trials.",
+          "verified_title": "Efficacy and safety of Chinese herbal medicine Jianpi formulas for atopic dermatitis: Evidence from 11 randomized controlled trials.",
+          "doi": "10.1111/jocd.14165",
+          "category": "safety_interactions",
+          "abstract_length": 1726,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6910,
+          "pmid": "36550880",
+          "title": "Efficacy and safety of anti-obesity herbal medicine focused on pattern identification: A systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of anti-obesity herbal medicine focused on pattern identification: A systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000032087",
+          "category": "safety_interactions",
+          "abstract_length": 1651,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6911,
+          "pmid": "35551978",
+          "title": "Efficacy and safety of Chinese herbal medicine Qirui Weishu capsule in treating chronic non-atrophic gastritis: A multicentre, double-blind, randomized controlled clinical trial.",
+          "verified_title": "Efficacy and safety of Chinese herbal medicine Qirui Weishu capsule in treating chronic non-atrophic gastritis: A multicentre, double-blind, randomized controlled clinical trial.",
+          "doi": "10.1016/j.jep.2022.115341",
+          "category": "safety_interactions",
+          "abstract_length": 3097,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6912,
+          "pmid": "32929824",
+          "title": "Effectiveness and safety of herbal medicine for cancer-related fatigue in lung cancer survivors: A systematic review and meta-analysis.",
+          "verified_title": "Effectiveness and safety of herbal medicine for cancer-related fatigue in lung cancer survivors: A systematic review and meta-analysis.",
+          "doi": "10.1002/ptr.6860",
+          "category": "safety_interactions",
+          "abstract_length": 1386,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6913,
+          "pmid": "32176067",
+          "title": "Efficacy and safety of Chinese herbal medicine Long Dan Xie Gan Tang in insomnia: A systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of Chinese herbal medicine Long Dan Xie Gan Tang in insomnia: A systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000019410",
+          "category": "safety_interactions",
+          "abstract_length": 2406,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6914,
+          "pmid": "31035044",
+          "title": "Efficacy and safety of Chinese herbal medicine Xiao Yao San in hypertension: A systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of Chinese herbal medicine Xiao Yao San in hypertension: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.phymed.2019.152849",
+          "category": "safety_interactions",
+          "abstract_length": 1485,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6915,
+          "pmid": "25666427",
+          "title": "The effectiveness and safety of a danshen-containing Chinese herbal medicine for diabetic retinopathy: a randomized, double-blind, placebo-controlled multicenter clinical trial.",
+          "verified_title": "The effectiveness and safety of a danshen-containing Chinese herbal medicine for diabetic retinopathy: a randomized, double-blind, placebo-controlled multicenter clinical trial.",
+          "doi": "10.1016/j.jep.2015.01.048",
+          "category": "safety_interactions",
+          "abstract_length": 1661,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6916,
+          "pmid": "22500664",
+          "title": "Clinical efficacy and safety of Chinese herbal medicine for Wilson's disease: a systematic review of 9 randomized controlled trials.",
+          "verified_title": "Clinical efficacy and safety of Chinese herbal medicine for Wilson's disease: a systematic review of 9 randomized controlled trials.",
+          "doi": "10.1016/j.ctim.2011.12.004",
+          "category": "safety_interactions",
+          "abstract_length": 1666,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6917-6924-exact.json",
+      "range": [
+        6917,
+        6924
+      ],
+      "rows": [
+        {
+          "wave": 6917,
+          "pmid": "39757794",
+          "title": "A Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Safety and Efficacy of a Nutraceutical Supplement With Standardized Botanicals in Males With Thinning Hair.",
+          "verified_title": "A Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Safety and Efficacy of a Nutraceutical Supplement With Standardized Botanicals in Males With Thinning Hair.",
+          "doi": "10.1111/jocd.16778",
+          "category": "safety_interactions",
+          "abstract_length": 1645,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6918,
+          "pmid": "29742189",
+          "title": "A Six-Month, Randomized, Double-Blind, Placebo-Controlled Study Evaluating the Safety and Efficacy of a Nutraceutical Supplement for Promoting Hair Growth in Women With Self-Perceived Thinning Hair.",
+          "verified_title": "A Six-Month, Randomized, Double-Blind, Placebo-Controlled Study Evaluating the Safety and Efficacy of a Nutraceutical Supplement for Promoting Hair Growth in Women With Self-Perceived Thinning Hair.",
+          "doi": "",
+          "category": "safety_interactions",
+          "abstract_length": 2009,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6919,
+          "pmid": "34546363",
+          "title": "Medical cannabis and cannabinoids for impaired sleep: a systematic review and meta-analysis of randomized clinical trials.",
+          "verified_title": "Medical cannabis and cannabinoids for impaired sleep: a systematic review and meta-analysis of randomized clinical trials.",
+          "doi": "10.1093/sleep/zsab234",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1807,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6920,
+          "pmid": "35467781",
+          "title": "Long-term observational studies with cannabis-based medicines for chronic non-cancer pain: A systematic review and meta-analysis of effectiveness and safety.",
+          "verified_title": "Long-term observational studies with cannabis-based medicines for chronic non-cancer pain: A systematic review and meta-analysis of effectiveness and safety.",
+          "doi": "10.1002/ejp.1957",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2005,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6921,
+          "pmid": "40318070",
+          "title": "Effectiveness and safety of psychosocial interventions for the treatment of cannabis use disorder: A systematic review and meta-analysis.",
+          "verified_title": "Effectiveness and safety of psychosocial interventions for the treatment of cannabis use disorder: A systematic review and meta-analysis.",
+          "doi": "10.1111/add.70084",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2491,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6922,
+          "pmid": "38285048",
+          "title": "Cannabis use in adolescents and anxiety symptoms and disorders: a systematic review and meta-analysis.",
+          "verified_title": "Cannabis use in adolescents and anxiety symptoms and disorders: a systematic review and meta-analysis.",
+          "doi": "10.1080/00952990.2023.2299922",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1977,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6923,
+          "pmid": "35617670",
+          "title": "Evaluation of the efficacy and safety of cannabidiol-rich cannabis extract in children with autism spectrum disorder: randomized, double-blind, and placebo-controlled clinical trial.",
+          "verified_title": "Evaluation of the efficacy and safety of cannabidiol-rich cannabis extract in children with autism spectrum disorder: randomized, double-blind, and placebo-controlled clinical trial.",
+          "doi": "10.47626/2237-6089-2021-0396",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1621,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6924,
+          "pmid": "37079302",
+          "title": "Adverse Events of Cannabidiol Use in Patients With Epilepsy: A Systematic Review and Meta-analysis.",
+          "verified_title": "Adverse Events of Cannabidiol Use in Patients With Epilepsy: A Systematic Review and Meta-analysis.",
+          "doi": "10.1001/jamanetworkopen.2023.9126",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2268,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6925-6932-exact.json",
+      "range": [
+        6925,
+        6932
+      ],
+      "rows": [
+        {
+          "wave": 6925,
+          "pmid": "40956670",
+          "title": "Effects of Different Cannabinoid Formulations on Anxiety-Related Disorders, and Tourette Syndrome: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Effects of Different Cannabinoid Formulations on Anxiety-Related Disorders, and Tourette Syndrome: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1177/25785125251378242",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2880,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6926,
+          "pmid": "40967124",
+          "title": "Cannabis and sleep architecture: A systematic review and meta-analysis.",
+          "verified_title": "Cannabis and sleep architecture: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.smrv.2025.102164",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1445,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6927,
+          "pmid": "41187699",
+          "title": "Recreational cannabis use and sleep in the general population: a systematic review and meta-analysis.",
+          "verified_title": "Recreational cannabis use and sleep in the general population: a systematic review and meta-analysis.",
+          "doi": "10.1016/j.smrv.2025.102189",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1369,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6928,
+          "pmid": "38924898",
+          "title": "Therapeutic potential of cannabidiol (CBD) in anxiety disorders: A systematic review and meta-analysis.",
+          "verified_title": "Therapeutic potential of cannabidiol (CBD) in anxiety disorders: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.psychres.2024.116049",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1287,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6929,
+          "pmid": "39620474",
+          "title": "Associations of cannabis use, tobacco use, and incident anxiety, mood, and psychotic disorders: a systematic review and meta-analysis.",
+          "verified_title": "Associations of cannabis use, tobacco use, and incident anxiety, mood, and psychotic disorders: a systematic review and meta-analysis.",
+          "doi": "10.1017/S0033291724002587",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1776,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6930,
+          "pmid": "38430618",
+          "title": "Does medicinal cannabis affect depression, anxiety, and stress in people with cancer? A systematic review and meta-analysis of intervention studies.",
+          "verified_title": "Does medicinal cannabis affect depression, anxiety, and stress in people with cancer? A systematic review and meta-analysis of intervention studies.",
+          "doi": "10.1016/j.maturitas.2024.107941",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2914,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6931,
+          "pmid": "36206805",
+          "title": "Clinical efficacy and safety of cannabidiol for pediatric refractory epilepsy indications: A systematic review and meta-analysis.",
+          "verified_title": "Clinical efficacy and safety of cannabidiol for pediatric refractory epilepsy indications: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.expneurol.2022.114238",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2467,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6932,
+          "pmid": "35984927",
+          "title": "Effects of Δ(9)-THC and Type-1 Cannabinoid Receptor Agonists in the Elevated Plus Maze Test of Anxiety: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Effects of Δ9-THC and Type-1 Cannabinoid Receptor Agonists in the Elevated Plus Maze Test of Anxiety: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1089/can.2022.0078",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1355,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6933-6940-exact.json",
+      "range": [
+        6933,
+        6940
+      ],
+      "rows": [
+        {
+          "wave": 6933,
+          "pmid": "34264545",
+          "title": "Weeding out the truth: a systematic review and meta-analysis on the transition from cannabis use to opioid use and opioid use disorders, abuse or dependence.",
+          "verified_title": "Weeding out the truth: a systematic review and meta-analysis on the transition from cannabis use to opioid use and opioid use disorders, abuse or dependence.",
+          "doi": "10.1111/add.15581",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2051,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6934,
+          "pmid": "33360749",
+          "title": "Comorbid Cannabis Use Disorder with Major Depression and Generalized Anxiety Disorder: A Systematic Review with Meta-analysis of Nationally Representative Epidemiological Surveys.",
+          "verified_title": "Comorbid Cannabis Use Disorder with Major Depression and Generalized Anxiety Disorder: A Systematic Review with Meta-analysis of Nationally Representative Epidemiological Surveys.",
+          "doi": "10.1016/j.jad.2020.12.043",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1745,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6935,
+          "pmid": "41265235",
+          "title": "Effect of mobile-based ecological momentary motivational enhancement therapy on cannabis use temptation and dependence severity among Iranian young adults with cannabis use disorder: A randomized clinical trial.",
+          "verified_title": "Effect of mobile-based ecological momentary motivational enhancement therapy on cannabis use temptation and dependence severity among Iranian young adults with cannabis use disorder: A randomized clinical trial.",
+          "doi": "10.1016/j.drugalcdep.2025.112957",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1590,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6936,
+          "pmid": "35490744",
+          "title": "Safety and Efficacy of Lenabasum, a Cannabinoid Receptor Type 2 Agonist, in Patients with Dermatomyositis with Refractory Skin Disease: A Randomized Clinical Trial.",
+          "verified_title": "Safety and Efficacy of Lenabasum, a Cannabinoid Receptor Type 2 Agonist, in Patients with Dermatomyositis with Refractory Skin Disease: A Randomized Clinical Trial.",
+          "doi": "10.1016/j.jid.2022.03.029",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1759,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6937,
+          "pmid": "38797087",
+          "title": "Evaluation of the efficacy, safety, and pharmacokinetics of nanodispersible cannabidiol oral solution (150 mg/mL) versus placebo in mild to moderate anxiety subjects: A double blind multicenter randomized clinical trial.",
+          "verified_title": "Evaluation of the efficacy, safety, and pharmacokinetics of nanodispersible cannabidiol oral solution (150 mg/mL) versus placebo in mild to moderate anxiety subjects: A double blind multicenter randomized clinical trial.",
+          "doi": "10.1016/j.ajp.2024.104073",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1650,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6938,
+          "pmid": "35080588",
+          "title": "Driving Performance and Cannabis Users' Perception of Safety: A Randomized Clinical Trial.",
+          "verified_title": "Driving Performance and Cannabis Users' Perception of Safety: A Randomized Clinical Trial.",
+          "doi": "10.1001/jamapsychiatry.2021.4037",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2997,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6939,
+          "pmid": "40069983",
+          "title": "The appetite stimulating effect and safety of delta-9-tetrahydrocannabinol (THC) and cannabidiol (CBD) in older patients with poor appetite: A triple-blinded, randomized, placebo-controlled, cross-over trial.",
+          "verified_title": "The appetite stimulating effect and safety of delta-9-tetrahydrocannabinol (THC) and cannabidiol (CBD) in older patients with poor appetite: A triple-blinded, randomized, placebo-controlled, cross-over trial.",
+          "doi": "10.1016/j.clnu.2025.02.024",
+          "category": "cannabinoid_safety",
+          "abstract_length": 2107,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6940,
+          "pmid": "36539991",
+          "title": "Medicinal cannabis improves sleep in adults with insomnia: a randomised double-blind placebo-controlled crossover study.",
+          "verified_title": "Medicinal cannabis improves sleep in adults with insomnia: a randomised double-blind placebo-controlled crossover study.",
+          "doi": "10.1111/jsr.13793",
+          "category": "cannabinoid_safety",
+          "abstract_length": 1711,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6941-6948-exact.json",
+      "range": [
+        6941,
+        6948
+      ],
+      "rows": [
+        {
+          "wave": 6941,
+          "pmid": "30727862",
+          "title": "Effect of coenzyme Q10 supplementation on clinical features of migraine: a systematic review and dose-response meta-analysis of randomized controlled trials.",
+          "verified_title": "Effect of coenzyme Q10 supplementation on clinical features of migraine: a systematic review and dose-response meta-analysis of randomized controlled trials.",
+          "doi": "10.1080/1028415X.2019.1572940",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1768,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6942,
+          "pmid": "40367843",
+          "title": "Can coenzyme Q10 supplementation reduce exercise-induced muscle damage and oxidative stress in athletes? A systematic review and meta-analysis.",
+          "verified_title": "Can coenzyme Q10 supplementation reduce exercise-induced muscle damage and oxidative stress in athletes? A systematic review and meta-analysis.",
+          "doi": "10.1016/j.ctcp.2025.102001",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1574,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6943,
+          "pmid": "37892421",
+          "title": "Resistance Exercise and Creatine Supplementation on Fat Mass in Adults < 50 Years of Age: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Resistance Exercise and Creatine Supplementation on Fat Mass in Adults < 50 Years of Age: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu15204343",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1013,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6944,
+          "pmid": "34105866",
+          "title": "The efficacy of alpha-lipoic acid in improving oxidative, inflammatory, and mood status in women with episodic migraine in a randomised, double-blind, placebo-controlled clinical trial.",
+          "verified_title": "The efficacy of alpha-lipoic acid in improving oxidative, inflammatory, and mood status in women with episodic migraine in a randomised, double-blind, placebo-controlled clinical trial.",
+          "doi": "10.1111/ijcp.14455",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1927,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6945,
+          "pmid": "33631721",
+          "title": "The Effect of Creatine Supplementation on Markers of Exercise-Induced Muscle Damage: A Systematic Review and Meta-Analysis of Human Intervention Trials.",
+          "verified_title": "The Effect of Creatine Supplementation on Markers of Exercise-Induced Muscle Damage: A Systematic Review and Meta-Analysis of Human Intervention Trials.",
+          "doi": "10.1123/ijsnem.2020-0282",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1737,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6946,
+          "pmid": "33402403",
+          "title": "Coenzyme Q10 supplementation for prophylaxis in adult patients with migraine-a meta-analysis.",
+          "verified_title": "Coenzyme Q10 supplementation for prophylaxis in adult patients with migraine-a meta-analysis.",
+          "doi": "10.1136/bmjopen-2020-039358",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1891,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6947,
+          "pmid": "29933277",
+          "title": "Phototherapy on Management of Creatine Kinase Activity in General Versus Localized Exercise: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Phototherapy on Management of Creatine Kinase Activity in General Versus Localized Exercise: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1097/JSM.0000000000000606",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1686,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6948,
+          "pmid": "29112178",
+          "title": "Efficacy and Effectiveness of Carnitine Supplementation for Cancer-Related Fatigue: A Systematic Literature Review and Meta-Analysis.",
+          "verified_title": "Efficacy and Effectiveness of Carnitine Supplementation for Cancer-Related Fatigue: A Systematic Literature Review and Meta-Analysis.",
+          "doi": "10.3390/nu9111224",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1318,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6949-6956-exact.json",
+      "range": [
+        6949,
+        6956
+      ],
+      "rows": [
+        {
+          "wave": 6949,
+          "pmid": "23321261",
+          "title": "A systematic review and meta-analysis of propionyl-L-carnitine effects on exercise performance in patients with claudication.",
+          "verified_title": "A systematic review and meta-analysis of propionyl-L-carnitine effects on exercise performance in patients with claudication.",
+          "doi": "10.1177/1358863X12467491",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1563,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6950,
+          "pmid": "29870313",
+          "title": "Creatine kinase, neuromuscular fatigue, and the contact codes of football: A systematic review and meta-analysis of pre- and post-match differences.",
+          "verified_title": "Creatine kinase, neuromuscular fatigue, and the contact codes of football: A systematic review and meta-analysis of pre- and post-match differences.",
+          "doi": "10.1080/17461391.2018.1480661",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1474,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6951,
+          "pmid": "32777142",
+          "title": "l-carnitine supplementation vs cycle ergometer exercise for physical activity and muscle status in hemodialysis patients: A randomized clinical trial.",
+          "verified_title": "l-carnitine supplementation vs cycle ergometer exercise for physical activity and muscle status in hemodialysis patients: A randomized clinical trial.",
+          "doi": "10.1111/1744-9987.13576",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1149,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6952,
+          "pmid": "25603363",
+          "title": "Coenzyme Q10 as a treatment for fatigue and depression in multiple sclerosis patients: A double blind randomized clinical trial.",
+          "verified_title": "Coenzyme Q10 as a treatment for fatigue and depression in multiple sclerosis patients: A double blind randomized clinical trial.",
+          "doi": "10.1179/1476830515Y.0000000002",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1325,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6953,
+          "pmid": "40082970",
+          "title": "The effects of concurrent alpha-linolenic acid, L-carnitine supplementation on clinical symptoms, mental health, and quality of life in women with migraine: a randomized, triple-blind, placebo-controlled trial.",
+          "verified_title": "The effects of concurrent alpha-linolenic acid, L-carnitine supplementation on clinical symptoms, mental health, and quality of life in women with migraine: a randomized, triple-blind, placebo-controlled trial.",
+          "doi": "10.1186/s12937-025-01107-7",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1770,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6954,
+          "pmid": "31241007",
+          "title": "The synergistic effects of nano-curcumin and coenzyme Q10 supplementation in migraine prophylaxis: a randomized, placebo-controlled, double-blind trial.",
+          "verified_title": "The synergistic effects of nano-curcumin and coenzyme Q10 supplementation in migraine prophylaxis: a randomized, placebo-controlled, double-blind trial.",
+          "doi": "10.1080/1028415X.2019.1627770",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1737,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6955,
+          "pmid": "31861049",
+          "title": "A Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Effectiveness of a Food Supplement Containing Creatine and D-Ribose Combined with a Physical Exercise Program in Increasing Stress Tolerance in Patients with Ischemic Heart Disease.",
+          "verified_title": "A Randomized, Double-Blind, Placebo-Controlled Study to Evaluate the Effectiveness of a Food Supplement Containing Creatine and D-Ribose Combined with a Physical Exercise Program in Increasing Stress Tolerance in Patients with Ischemic Heart Disease.",
+          "doi": "10.3390/nu11123075",
+          "category": "mitochondrial_energy",
+          "abstract_length": 1228,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6956,
+          "pmid": "39225947",
+          "title": "The impact of vitamin D administration on mortality in COVID-19 patients: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "The impact of vitamin D administration on mortality in COVID-19 patients: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1007/s10787-024-01564-2",
+          "category": "immune_respiratory",
+          "abstract_length": 1472,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6957-6964-exact.json",
+      "range": [
+        6957,
+        6964
+      ],
+      "rows": [
+        {
+          "wave": 6957,
+          "pmid": "39506703",
+          "title": "The effect of probiotic, prebiotic, and synbiotic supplements on anthropometric measures and respiratory infections in malnourished children: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "The effect of probiotic, prebiotic, and synbiotic supplements on anthropometric measures and respiratory infections in malnourished children: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1186/s12887-024-05179-y",
+          "category": "immune_respiratory",
+          "abstract_length": 2324,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6958,
+          "pmid": "37071316",
+          "title": "The effect of vitamin C on the risk of mortality in patients with COVID-19: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "The effect of vitamin C on the risk of mortality in patients with COVID-19: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1007/s10787-023-01200-5",
+          "category": "immune_respiratory",
+          "abstract_length": 1032,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6959,
+          "pmid": "36508011",
+          "title": "Hospital and laboratory outcomes of patients with COVID-19 who received vitamin D supplementation: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "Hospital and laboratory outcomes of patients with COVID-19 who received vitamin D supplementation: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1007/s00210-022-02360-x",
+          "category": "immune_respiratory",
+          "abstract_length": 1488,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6960,
+          "pmid": "36389703",
+          "title": "Vitamin D supplementation for the treatment of COVID-19: A systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "Vitamin D supplementation for the treatment of COVID-19: A systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.3389/fimmu.2022.1023903",
+          "category": "immune_respiratory",
+          "abstract_length": 1824,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6961,
+          "pmid": "38686378",
+          "title": "The role of probiotic therapy on clinical parameters and human immune response in peri-implant diseases: a systematic review and meta-analysis of randomized clinical studies.",
+          "verified_title": "The role of probiotic therapy on clinical parameters and human immune response in peri-implant diseases: a systematic review and meta-analysis of randomized clinical studies.",
+          "doi": "10.3389/fimmu.2024.1371072",
+          "category": "immune_respiratory",
+          "abstract_length": 1911,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6962,
+          "pmid": "36143865",
+          "title": "Effects of Probiotic Supplementation on Immune and Inflammatory Markers in Athletes: A Meta-Analysis of Randomized Clinical Trials.",
+          "verified_title": "Effects of Probiotic Supplementation on Immune and Inflammatory Markers in Athletes: A Meta-Analysis of Randomized Clinical Trials.",
+          "doi": "10.3390/medicina58091188",
+          "category": "immune_respiratory",
+          "abstract_length": 2166,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6963,
+          "pmid": "41174501",
+          "title": "Efficacy of vitamin C in COVID-19 management: a systematic review and meta-analysis.",
+          "verified_title": "Efficacy of vitamin C in COVID-19 management: a systematic review and meta-analysis.",
+          "doi": "10.1186/s12879-025-11891-6",
+          "category": "immune_respiratory",
+          "abstract_length": 1886,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6964,
+          "pmid": "40311928",
+          "title": "Efficacy and safety of Echinacea purpurea in treating upper respiratory infections and complications of otitis media in children: Systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of Echinacea purpurea in treating upper respiratory infections and complications of otitis media in children: Systematic review and meta-analysis.",
+          "doi": "10.1016/j.clnesp.2025.04.025",
+          "category": "immune_respiratory",
+          "abstract_length": 2654,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6965-6972-exact.json",
+      "range": [
+        6965,
+        6972
+      ],
+      "rows": [
+        {
+          "wave": 6965,
+          "pmid": "39527016",
+          "title": "Effects of Vitamin C Supplements on Clinical Outcomes and Hospitalization Duration for Patients with Coronavirus Disease 2019 (COVID-19): A Systematic Review and Meta-Analysis.",
+          "verified_title": "Effects of Vitamin C Supplements on Clinical Outcomes and Hospitalization Duration for Patients with Coronavirus Disease 2019 (COVID-19): A Systematic Review and Meta-Analysis.",
+          "doi": "10.1093/nutrit/nuae154",
+          "category": "immune_respiratory",
+          "abstract_length": 2065,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6966,
+          "pmid": "40670323",
+          "title": "Clinical Use of Zinc in Treatment of Human Papillomavirus Cervical Infection and Viral Warts: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Clinical Use of Zinc in Treatment of Human Papillomavirus Cervical Infection and Viral Warts: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1002/rmv.70054",
+          "category": "immune_respiratory",
+          "abstract_length": 1552,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6967,
+          "pmid": "39465641",
+          "title": "Effect of vitamin D status and vitamin D supplementation on immune function and prevention of acute respiratory tract infections in dark-skinned individuals: a systematic review and meta-analysis.",
+          "verified_title": "Effect of vitamin D status and vitamin D supplementation on immune function and prevention of acute respiratory tract infections in dark-skinned individuals: a systematic review and meta-analysis.",
+          "doi": "10.1017/S1368980024001861",
+          "category": "immune_respiratory",
+          "abstract_length": 1626,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6968,
+          "pmid": "38474807",
+          "title": "Preventive Vitamin D Supplementation and Risk for COVID-19 Infection: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Preventive Vitamin D Supplementation and Risk for COVID-19 Infection: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu16050679",
+          "category": "immune_respiratory",
+          "abstract_length": 1648,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6969,
+          "pmid": "37848344",
+          "title": "Efficacy and safety of probiotic-supplemented bismuth quadruple therapy for the treatment of Helicobacter pylori infection: a systematic review and meta-analysis.",
+          "verified_title": "Efficacy and safety of probiotic-supplemented bismuth quadruple therapy for the treatment of Helicobacter pylori infection: a systematic review and meta-analysis.",
+          "doi": "10.1177/03000605231203841",
+          "category": "immune_respiratory",
+          "abstract_length": 1208,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6970,
+          "pmid": "37299555",
+          "title": "The Vitamin D Serum Levels in Pregnant Women Affected by COVID-19: A Systematic Review and Meta-Analysis.",
+          "verified_title": "The Vitamin D Serum Levels in Pregnant Women Affected by COVID-19: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu15112588",
+          "category": "immune_respiratory",
+          "abstract_length": 1404,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6971,
+          "pmid": "36913680",
+          "title": "Is the vitamin D status of patients with COVID-19 associated with reduced mortality? A systematic review and meta-analysis.",
+          "verified_title": "Is the vitamin D status of patients with COVID-19 associated with reduced mortality? A systematic review and meta-analysis.",
+          "doi": "10.20945/2359-3997000000588",
+          "category": "immune_respiratory",
+          "abstract_length": 1544,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6972,
+          "pmid": "37375601",
+          "title": "The Association between Serum Vitamin D Levels and Urinary Tract Infection Risk in Children: A Systematic Review and Meta-Analysis.",
+          "verified_title": "The Association between Serum Vitamin D Levels and Urinary Tract Infection Risk in Children: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu15122690",
+          "category": "immune_respiratory",
+          "abstract_length": 1214,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6973-6980-exact.json",
+      "range": [
+        6973,
+        6980
+      ],
+      "rows": [
+        {
+          "wave": 6973,
+          "pmid": "37571407",
+          "title": "The Effect of Vitamin D Supplementation on the Length of Hospitalisation, Intensive Care Unit Admission, and Mortality in COVID-19-A Systematic Review and Meta-Analysis.",
+          "verified_title": "The Effect of Vitamin D Supplementation on the Length of Hospitalisation, Intensive Care Unit Admission, and Mortality in COVID-19-A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu15153470",
+          "category": "immune_respiratory",
+          "abstract_length": 1414,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6974,
+          "pmid": "36634645",
+          "title": "Effect of a Multi-Strain Probiotic Supplementation to Manage Stress during the COVID-19 Pandemic: A Randomized, Double-Blind, Placebo-Controlled, Cross-Over Clinical Trial.",
+          "verified_title": "Effect of a Multi-Strain Probiotic Supplementation to Manage Stress during the COVID-19 Pandemic: A Randomized, Double-Blind, Placebo-Controlled, Cross-Over Clinical Trial.",
+          "doi": "10.1159/000527956",
+          "category": "immune_respiratory",
+          "abstract_length": 1037,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6975,
+          "pmid": "37000812",
+          "title": "Safety and efficacy of probiotic supplements as adjunctive therapies in patients with COVID-19: A systematic review and meta-analysis.",
+          "verified_title": "Safety and efficacy of probiotic supplements as adjunctive therapies in patients with COVID-19: A systematic review and meta-analysis.",
+          "doi": "10.1371/journal.pone.0278356",
+          "category": "immune_respiratory",
+          "abstract_length": 1681,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6976,
+          "pmid": "36235869",
+          "title": "Vitamin C Supplementation for the Treatment of COVID-19: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Vitamin C Supplementation for the Treatment of COVID-19: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu14194217",
+          "category": "immune_respiratory",
+          "abstract_length": 2171,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6977,
+          "pmid": "36583325",
+          "title": "The effect of zinc supplementation on the course of COVID-19 - A systematic review and meta-analysis.",
+          "verified_title": "The effect of zinc supplementation on the course of COVID-19 - A systematic review and meta-analysis.",
+          "doi": "10.26444/aaem/155846",
+          "category": "immune_respiratory",
+          "abstract_length": 1660,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6978,
+          "pmid": "38178229",
+          "title": "High-dose vitamin D3 supplementation shows no beneficial effects on white blood cell counts, acute phase reactants, or frequency of respiratory infections.",
+          "verified_title": "High-dose vitamin D3 supplementation shows no beneficial effects on white blood cell counts, acute phase reactants, or frequency of respiratory infections.",
+          "doi": "10.1186/s12931-023-02642-9",
+          "category": "immune_respiratory",
+          "abstract_length": 1847,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6979,
+          "pmid": "38383361",
+          "title": "Impact of vitamin D supplementation on the clinical outcomes of COVID-19 pneumonia patients: a single-center randomized controlled trial.",
+          "verified_title": "Impact of vitamin D supplementation on the clinical outcomes of COVID-19 pneumonia patients: a single-center randomized controlled trial.",
+          "doi": "10.1186/s12906-024-04393-6",
+          "category": "immune_respiratory",
+          "abstract_length": 1825,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6980,
+          "pmid": "41581709",
+          "title": "Evaluating probiotic monotherapy in Helicobacter pylori infection: A meta-analysis of randomized controlled trials with trial sequential analysis.",
+          "verified_title": "Evaluating probiotic monotherapy in Helicobacter pylori infection: A meta-analysis of randomized controlled trials with trial sequential analysis.",
+          "doi": "10.1016/j.micpath.2026.108316",
+          "category": "immune_respiratory",
+          "abstract_length": 1661,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6981-6988-exact.json",
+      "range": [
+        6981,
+        6988
+      ],
+      "rows": [
+        {
+          "wave": 6981,
+          "pmid": "39089954",
+          "title": "Evaluation of vitamin D in the diagnosis of infants with respiratory distress, the clinical value: A systematic review and meta-analysis.",
+          "verified_title": "Evaluation of vitamin D in the diagnosis of infants with respiratory distress, the clinical value: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.prrv.2024.06.005",
+          "category": "immune_respiratory",
+          "abstract_length": 3144,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6982,
+          "pmid": "38316264",
+          "title": "Single-nucleotide polymorphisms related to vitamin D metabolism and severity or mortality of COVID-19: A systematic review and meta-analysis.",
+          "verified_title": "Single-nucleotide polymorphisms related to vitamin D metabolism and severity or mortality of COVID-19: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.gene.2024.148236",
+          "category": "immune_respiratory",
+          "abstract_length": 1672,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6983,
+          "pmid": "36178362",
+          "title": "Benefits of probiotic use on COVID-19: A systematic review and meta-analysis.",
+          "verified_title": "Benefits of probiotic use on COVID-19: A systematic review and meta-analysis.",
+          "doi": "10.1080/10408398.2022.2128713",
+          "category": "immune_respiratory",
+          "abstract_length": 1373,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6984,
+          "pmid": "37277818",
+          "title": "Does vitamin D reduce the mortality rate of Plasmodium infection?: a systematic review and meta-analysis.",
+          "verified_title": "Does vitamin D reduce the mortality rate of Plasmodium infection?: a systematic review and meta-analysis.",
+          "doi": "10.1186/s12936-023-04612-4",
+          "category": "immune_respiratory",
+          "abstract_length": 2015,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6985,
+          "pmid": "37326413",
+          "title": "The Effect of a Fish Oil and/or Probiotic Intervention from Early Pregnancy Onwards on Colostrum Immune Mediators: A Randomized, Placebo-Controlled, Double-Blinded Clinical Trial in Overweight/Obese Mothers.",
+          "verified_title": "The Effect of a Fish Oil and/or Probiotic Intervention from Early Pregnancy Onwards on Colostrum Immune Mediators: A Randomized, Placebo-Controlled, Double-Blinded Clinical Trial in Overweight/Obese Mothers.",
+          "doi": "10.1002/mnfr.202200446",
+          "category": "immune_respiratory",
+          "abstract_length": 1507,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6986,
+          "pmid": "36701289",
+          "title": "Association between vitamin D level and respiratory distress syndrome: A systematic review and meta-analysis.",
+          "verified_title": "Association between vitamin D level and respiratory distress syndrome: A systematic review and meta-analysis.",
+          "doi": "10.1371/journal.pone.0279064",
+          "category": "immune_respiratory",
+          "abstract_length": 1760,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6987,
+          "pmid": "36184196",
+          "title": "Serum vitamin D levels and COVID-19 during pregnancy: A systematic review and meta-analysis.",
+          "verified_title": "Serum vitamin D levels and COVID-19 during pregnancy: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.clnesp.2022.09.008",
+          "category": "immune_respiratory",
+          "abstract_length": 1463,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6988,
+          "pmid": "35940187",
+          "title": "Vitamin D Deficiency and Comorbidities as Risk Factors of COVID-19 Infection: A Systematic Review and Meta-analysis.",
+          "verified_title": "Vitamin D Deficiency and Comorbidities as Risk Factors of COVID-19 Infection: A Systematic Review and Meta-analysis.",
+          "doi": "10.3961/jpmph.21.640",
+          "category": "immune_respiratory",
+          "abstract_length": 1816,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6989-6996-exact.json",
+      "range": [
+        6989,
+        6996
+      ],
+      "rows": [
+        {
+          "wave": 6989,
+          "pmid": "36982151",
+          "title": "Effects of l-Arginine Plus Vitamin C Supplementation on l-Arginine Metabolism in Adults with Long COVID: Secondary Analysis of a Randomized Clinical Trial.",
+          "verified_title": "Effects of l-Arginine Plus Vitamin C Supplementation on l-Arginine Metabolism in Adults with Long COVID: Secondary Analysis of a Randomized Clinical Trial.",
+          "doi": "10.3390/ijms24065078",
+          "category": "immune_respiratory",
+          "abstract_length": 1359,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6990,
+          "pmid": "36803273",
+          "title": "Effect of vitamin D supplementation versus placebo on recovery delay among COVID-19 Tunisian patients: a randomized-controlled clinical trial.",
+          "verified_title": "Effect of vitamin D supplementation versus placebo on recovery delay among COVID-19 Tunisian patients: a randomized-controlled clinical trial.",
+          "doi": "10.1186/s13063-023-07114-5",
+          "category": "immune_respiratory",
+          "abstract_length": 1575,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6991,
+          "pmid": "36295519",
+          "title": "Evidence for the Efficacy of a High Dose of Vitamin D on the Hyperinflammation State in Moderate-to-Severe COVID-19 Patients: A Randomized Clinical Trial.",
+          "verified_title": "Evidence for the Efficacy of a High Dose of Vitamin D on the Hyperinflammation State in Moderate-to-Severe COVID-19 Patients: A Randomized Clinical Trial.",
+          "doi": "10.3390/medicina58101358",
+          "category": "immune_respiratory",
+          "abstract_length": 1950,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6992,
+          "pmid": "41526312",
+          "title": "Oral Probiotic Containing Streptococcus salivarius K12 and Lactobacillus brevis CD2 for Preventing Bacterial Pneumonia in Severe COVID-19: Randomized Clinical Trial.",
+          "verified_title": "Oral Probiotic Containing Streptococcus salivarius K12 and Lactobacillus brevis CD2 for Preventing Bacterial Pneumonia in Severe COVID-19: Randomized Clinical Trial.",
+          "doi": "10.5005/jp-journals-10024-3954",
+          "category": "immune_respiratory",
+          "abstract_length": 1863,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6993,
+          "pmid": "41296071",
+          "title": "A probiotic containing L. plantarum and P. acidilactici strains for treating upper respiratory infection in children aged 6 months to 5 years: a randomized, double-blind trial.",
+          "verified_title": "A probiotic containing L. plantarum and P. acidilactici strains for treating upper respiratory infection in children aged 6 months to 5 years: a randomized, double-blind trial.",
+          "doi": "10.1007/s00431-025-06587-7",
+          "category": "immune_respiratory",
+          "abstract_length": 2718,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6994,
+          "pmid": "40508019",
+          "title": "A Plant-Based Dietary Supplement Exhibits Significant Effects on Markers of Oxidative Stress, Inflammation, and Immune Response in Subjects Recovering from Respiratory Viral Infection: A Randomized, Double-Blind Clinical Study Using Vitamin C as a Positive Control.",
+          "verified_title": "A Plant-Based Dietary Supplement Exhibits Significant Effects on Markers of Oxidative Stress, Inflammation, and Immune Response in Subjects Recovering from Respiratory Viral Infection: A Randomized, Double-Blind Clinical Study Using Vitamin C as a Positive Control.",
+          "doi": "10.3390/ijms26115209",
+          "category": "immune_respiratory",
+          "abstract_length": 3492,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6995,
+          "pmid": "38743584",
+          "title": "A randomized, double-blind, placebo-controlled study on immune improvement effects of ethanolic extract of Echinacea purpurea (L.) Moench in Korean adults.",
+          "verified_title": "A randomized, double-blind, placebo-controlled study on immune improvement effects of ethanolic extract of Echinacea purpurea (L.) Moench in Korean adults.",
+          "doi": "10.1002/ptr.8224",
+          "category": "immune_respiratory",
+          "abstract_length": 1613,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6996,
+          "pmid": "38103462",
+          "title": "Efficacy of probiotic treatment as post-exposure prophylaxis for COVID-19: A double-blind, Placebo-Controlled Randomized trial.",
+          "verified_title": "Efficacy of probiotic treatment as post-exposure prophylaxis for COVID-19: A double-blind, Placebo-Controlled Randomized trial.",
+          "doi": "10.1016/j.clnu.2023.11.043",
+          "category": "immune_respiratory",
+          "abstract_length": 1965,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6997-7000-exact.json",
+      "range": [
+        6997,
+        7000
+      ],
+      "rows": [
+        {
+          "wave": 6997,
+          "pmid": "37614081",
+          "title": "Probiotic containing Lactobacillus reuteri DSM 17648 as an adjunct treatment for Helicobacter pylori infection: A randomized, double-blind, placebo-controlled trial.",
+          "verified_title": "Probiotic containing Lactobacillus reuteri DSM 17648 as an adjunct treatment for Helicobacter pylori infection: A randomized, double-blind, placebo-controlled trial.",
+          "doi": "10.1111/hel.13017",
+          "category": "immune_respiratory",
+          "abstract_length": 1934,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6998,
+          "pmid": "35893907",
+          "title": "Positive Effects of Vitamin D Supplementation in Patients Hospitalized for COVID-19: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+          "verified_title": "Positive Effects of Vitamin D Supplementation in Patients Hospitalized for COVID-19: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+          "doi": "10.3390/nu14153048",
+          "category": "immune_respiratory",
+          "abstract_length": 1542,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6999,
+          "pmid": "39599756",
+          "title": "Probiotic Therapy of Gastrointestinal Symptoms During COVID-19 Infection: A Randomized, Double-Blind, Placebo-Controlled, Remote Study.",
+          "verified_title": "Probiotic Therapy of Gastrointestinal Symptoms During COVID-19 Infection: A Randomized, Double-Blind, Placebo-Controlled, Remote Study.",
+          "doi": "10.3390/nu16223970",
+          "category": "immune_respiratory",
+          "abstract_length": 1802,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 7000,
+          "pmid": "38563257",
+          "title": "Effect of the probiotic Weissella cibaria CMS1 on the immune response and the oral microbiome: a randomized, double-blind, placebo-controlled, parallel study.",
+          "verified_title": "Effect of the probiotic Weissella cibaria CMS1 on the immune response and the oral microbiome: a randomized, double-blind, placebo-controlled, parallel study.",
+          "doi": "10.1039/d4fo00195h",
+          "category": "immune_respiratory",
+          "abstract_length": 1481,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 4,
+      "errors": []
+    }
+  ]
+}
