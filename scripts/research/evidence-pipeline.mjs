@@ -23,7 +23,7 @@ export function transition(record,to,receipt){
  return {...record,state:to,history:[...(record.history??[]),{from,to,receipt}]};
 }
 export function semanticEdges(record){
- if(record.state!=='MERGED'&&!record.state!=='SEMANTIC_INTEGRATED')throw Error('not merged');
+ if(record.state!=='MERGED'&&record.state!=='SEMANTIC_INTEGRATED')throw Error('not merged');
  if(!record.compound||!Array.isArray(record.relationships))throw Error('missing semantic mapping');
  return record.relationships.map(r=>{
   if(!r.target||!r.predicate||!r.context||!r.evidence_type)throw Error('incomplete edge');
