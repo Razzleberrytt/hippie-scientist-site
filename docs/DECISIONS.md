@@ -355,3 +355,11 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Execution:** The local zero-credit SVG renderer now draws governed composition primitives (hero object, split comparison, evidence focus, diagram flow, macro detail, process flow, kinetic type), motif continuity, and the limitation interrupt state. The R8.07 overlay is hash-bound and recomputed from the exact creative brief before render. Exact-master QA must additionally pass visual rhythm, motif continuity, semantic pattern interruption, and repetition-debt rejection.
 
 **Measurement:** These are authorship/quality gates, not a claim that pattern interruption mechanically increases retention. Retention/completion/follow uplift remains Unknown until matched R8.07 field artifacts are published and observed. **Status:** Implementation tracked by #6386.
+
+## 2026-10-07 — R8.08 requires silent comprehension on the exact master
+
+**Decision:** Add R8.08 as a hash-bound methodology overlay on the R8.05 runtime. Hook text must be visible on frame zero. Core claims must be concise, displayed inside intersection safe areas, and readable for a measured >=0.85 s without extending narration. Require exact-MP4 human audio-off comprehension and scientific-qualifier visibility approvals, then stage only the same artifact hash.
+
+**Rationale:** Earlier releases protected voice synchronization and visual variety but did not fully prevent an audio-off viewer from missing the finding, qualifier or on-screen meaning. Device-safe visible text and real hold time are enforceable before release; semantic fidelity remains a reviewer judgment, not a word-count proxy.
+
+**Consequences:** R8.08 fails closed at brief, renderer, master QA and Publisher boundaries. Inherited R8.07/R8.06/R8.05/R8.04 protections remain mandatory, with no paid provider or credit prerequisite. **Status:** In review under PR #6388; audience uplift Unknown.

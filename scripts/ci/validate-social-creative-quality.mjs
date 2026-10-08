@@ -18,8 +18,8 @@ if (!fs.existsSync(cfgPath)) fail('missing config/social-creative-quality.json')
 else {
   const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'))
   if (cfg.release !== 'R8.08') fail('canonical creative methodology must be R8.08')
-  if (cfg.runtime_base_release !== 'R8.05') fail('R8.07 must run on the hardened R8.05 runtime')
-  if (!Array.isArray(cfg.inherits) || !cfg.inherits.includes('R8.07') || !cfg.inherits.includes('R8.06') || !cfg.inherits.includes('R8.05') || !cfg.inherits.includes('R8.04')) fail('R8.07 must inherit R8.06, R8.05 and R8.04')
+  if (cfg.runtime_base_release !== 'R8.05') fail('R8.08 must run on the hardened R8.05 runtime')
+  if (!Array.isArray(cfg.inherits) || !cfg.inherits.includes('R8.07') || !cfg.inherits.includes('R8.06') || !cfg.inherits.includes('R8.05') || !cfg.inherits.includes('R8.04')) fail('R8.08 must inherit R8.07, R8.06, R8.05 and R8.04')
   if (cfg.premise?.interest_score_min !== 4) fail('premise interest floor must remain 4/5')
   if (cfg.premise?.one_mental_job_required !== true) fail('one-mental-job gate must remain required')
   if (cfg.premise?.payoff_before_method_required !== true) fail('payoff-before-method gate must remain required')
@@ -53,7 +53,7 @@ else {
 }
 
 for (const [file, markers] of [
-  [policyPath, ['one mental job', 'Payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'One macro rebuild']],
+  [policyPath, ['R8.08 silent-first comprehension', 'one mental job', 'Payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'One macro rebuild']],
   [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'semanticBeatMapSha256', "requires exactly one ${role} beat", 'hook to be the first rendered beat', 'payoff-before-method requires the finding beat before the evidence/method beat', 'internalMotionPlanRequired', 'exact-master-qa', 'macroRebuildCount']],
   [r806GatePath, ['concept lab requires exactly three candidates', 'visualPotentialScore >= 4', 'opening beat 2 must be the finding/payoff', 'opening requires at least two distinct visual teaching modes', 'overlaySha256', 'Metricool as optional', 'manual native fallback']],
   [r808GatePath, ['viewerTakeaway', 'hookVisibleAtFrameZero', 'silentMeaning', 'silentRole', 'minReadableSeconds', 'overlaySha256', 'inheritedR807OverlaySha256']],
@@ -61,11 +61,11 @@ for (const [file, markers] of [
   [path.join(root, 'scripts', 'distribution', 'render-local-narration.py'), ['semantic-beat-timeline.json', 'exact-local-narration', 'parent_manifest_release', 'parent_release == "R8.04"', 'parent_release == "R8.05"']],
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-package.mjs'), ["|| 'R8.04'", 'unsupported R8.05 creative methodology', 'motionPhase', "motionPhase: 'pre'", 'motionCueOffset', 'voice-duration-proportional-text-anchor', 'renderAuthoredComposition', 'data-r807-composition', 'data-r807-motif', 'data-r807-pattern-interrupt']],
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-mp4.mjs'), ['verifyMotionVariant', 'cue.toFixed(4)', 'internalMotionRendered: true']],
-  [path.join(root, 'scripts', 'distribution', 'approve-r805-master.mjs'), ['ths-r805-master-qa-receipt-v1', 'wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync', 'openingScrollStop', 'nativePlatformFeel', 'visualTeachingObject', 'textCardMonotonyRejected', 'visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected']],
-  [path.join(root, 'scripts', 'distribution', 'stage-publication-media.mjs'), ['r805-master-qa.receipt.json', 'technical sync alone is insufficient', 'exact already-rendered/reviewed master', 'visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected', 'metricool-if-available', 'manual-native-upload', 'providerMayMutateArtifact']],
-  [path.join(root, 'scripts', 'distribution', 'build-bounded-pilot.mjs'), ['validateR805BriefCopyAgainstCanonical', 'requires exactly one governed', 'resolveShortVideoRelease', "|| 'R8.04'", 'assertResearchObjectMatchesMediaPack', 'STALE relative to the governed media-pack content hash', 'ths-r807-creative-receipt-v1', 'fresh lossless evidence-safety validation', 'vertical-video-r805-natural-v1']],
-  [path.join(root, 'scripts', 'distribution', 'build-research-distribution.mjs'), ["systemRelease: 'R8.05'", "creativeMethodRelease: 'R8.07'"]],
-  [path.join(root, 'scripts', 'distribution', 'creative-spec-lossless.mjs'), ["|| 'R8.04'", 'unsupported creative methodology on R8.05 runtime', 'ths-r807-creative-receipt-v1', 'creativeFoundation', 'concept-required']],
+  [path.join(root, 'scripts', 'distribution', 'approve-r805-master.mjs'), ['ths-r805-master-qa-receipt-v1', 'wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync', 'openingScrollStop', 'nativePlatformFeel', 'visualTeachingObject', 'textCardMonotonyRejected', 'visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected', 'audioOffComprehension', 'qualifierVisibility', 'mobileSafeArea', 'readableClaimDwell', 'r808OverlaySha256']],
+  [path.join(root, 'scripts', 'distribution', 'stage-publication-media.mjs'), ['r805-master-qa.receipt.json', 'technical sync alone is insufficient', 'exact already-rendered/reviewed master', 'visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected', 'metricool-if-available', 'manual-native-upload', 'providerMayMutateArtifact', 'ths-r808-creative-receipt-v1', 'r808OverlaySha256']],
+  [path.join(root, 'scripts', 'distribution', 'build-bounded-pilot.mjs'), ['validateR805BriefCopyAgainstCanonical', 'requires exactly one governed', 'resolveShortVideoRelease', "|| 'R8.04'", 'assertResearchObjectMatchesMediaPack', 'STALE relative to the governed media-pack content hash', 'ths-r807-creative-receipt-v1', 'ths-r808-creative-receipt-v1', 'fresh lossless evidence-safety validation', 'vertical-video-r805-natural-v1']],
+  [path.join(root, 'scripts', 'distribution', 'build-research-distribution.mjs'), ["systemRelease: 'R8.05'", "creativeMethodRelease: 'R8.08'"]],
+  [path.join(root, 'scripts', 'distribution', 'creative-spec-lossless.mjs'), ["|| 'R8.04'", 'unsupported creative methodology on R8.05 runtime', 'ths-r807-creative-receipt-v1', 'ths-r808-creative-receipt-v1', 'creativeVisualFoundation', 'creativeFoundation', 'concept-required']],
 ]) {
   if (!fs.existsSync(file)) {
     fail(`missing governed creative surface: ${path.relative(root, file)}`)

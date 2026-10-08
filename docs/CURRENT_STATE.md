@@ -6,6 +6,9 @@
 
 ## Executive summary
 
+**R8.08 silent-first comprehension implementation in review (2026-10-07, PR #6388):** The canonical creative method adds first-frame hook visibility, legible audio-off teaching claims, a bounded mobile reading budget, genuine natural-runtime claim dwell, exact canonical URL retention, hash-bound visual/source lineage and four exact-master human comprehension/qualifier/mobile/dwell approvals. These inherit R8.07 visual rhythm, R8.05 voice-first timing and R8.04 zero-credit sovereignty. **Audience effect is Unknown** until field telemetry; PR review and CI are required before declaring this merged.
+
+
 **R8.07 visual-authorship iteration in implementation (2026-10-07, #6386):** THS now extends R8.06 with whole-video visual rhythm: one visual thesis, a recurring semantic motif, at least three core composition families, bounded repetition debt, one meaning-earned limitation-pivot pattern interrupt, locally rendered composition primitives, and exact-master rhythm/motif/interruption QA. Runtime remains R8.05 and Metricool remains optional with immutable manual fallback. Audience-retention impact remains **Unknown** until field-tested.
 
 **R8.06 creative-methodology iteration in implementation (2026-10-07, #6384):** THS now layers Hook Competition, Visual Teaching Objects & Native Delivery over the proven R8.05 production runtime. New canonical work compares three materially different concept angles before production, requires cover→first-frame→first-line convergence, places the finding immediately after the hook and evidence after the finding, requires early visual teaching-object diversity, adds exact-master native-feel gates, and treats Metricool as an optional convenience adapter with manual native upload as mandatory fallback. Audience impact remains **Unknown** until field-tested.
