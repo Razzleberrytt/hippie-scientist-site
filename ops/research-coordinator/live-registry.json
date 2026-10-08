@@ -2834,6 +2834,72 @@
       "reservation_id": "7f4668e39330fc2cac79",
       "reserved_at": "2026-10-08T18:27:25.075Z",
       "source_branch": "research/intake/4/20261008-seed-canary"
+    },
+    {
+      "pmid": "28218661",
+      "doi": "10.3390/nu9020154",
+      "title": "Exploring the Effect of Lactium™ and Zizyphus Complex on Sleep Quality: A Double-Blind, Randomized Placebo-Controlled Trial",
+      "source_title": "Exploring the Effect of Lactium™ and Zizyphus Complex on Sleep Quality: A Double-Blind, Randomized Placebo-Controlled Trial",
+      "abstract": "In 171 otherwise healthy adults with mild insomnia, a randomized double-blind placebo-controlled study compared LZComplex3 against placebo after a 7-day single-blind placebo run-in. Over two weeks both arms improved on the Pittsburgh Sleep Quality Index, but the primary between-group comparison was not statistically significant. Most secondary measures similarly improved in both groups. Four treatment-related adverse events were reported in the active arm, two resulting in permanent discontinuation. The investigators could not conclude that LZComplex3 improves sleep quality after two weeks.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28218661/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep",
+      "relevance_reason": "Null primary outcome for a multi-ingredient sleep supplement in a randomized human trial",
+      "evidence_class": "human",
+      "study_design": "Randomized double-blind placebo-controlled trial",
+      "study_details": {
+        "sample_size": 171,
+        "duration_days": 14,
+        "run_in_days": 7,
+        "primary_endpoint": "Pittsburgh Sleep Quality Index change"
+      },
+      "population": "Otherwise healthy adults with mild insomnia",
+      "intervention": "LZComplex3 (lactium, Zizyphus, Humulus lupulus, magnesium and vitamin B6)",
+      "comparator": "Placebo",
+      "outcomes": [
+        {
+          "name": "Pittsburgh Sleep Quality Index",
+          "direction": "null_between_groups",
+          "finding": "Both groups improved, no statistically significant between-group difference on primary endpoint"
+        },
+        {
+          "name": "Secondary functioning, mood, anxiety and stress measures",
+          "direction": "mostly_null_between_groups"
+        }
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Two-week treatment, strong placebo response and limited generalizability; combination does not isolate effects of ingredients",
+      "adverse_effects": "Four treatment-related adverse events in active group, two leading to discontinuation",
+      "interactions": "Not established by this study",
+      "limitations": "Short trial, non-clinical mild insomnia, placebo response, sponsor involved in study design",
+      "provenance": {
+        "pmid": "28218661",
+        "doi": "10.3390/nu9020154",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28218661/",
+        "source_verified": "PubMed title and abstract, 2026-10-08",
+        "funding_conflicts": "Sponsor participated in study design; author disclosures in PubMed",
+        "journal": "Nutrients",
+        "source_identity_recheck": "PubMed PMID 28218661; DOI 10.3390/nu9020154; exact article title and abstract cross-checked 2026-10-08"
+      },
+      "signals": {
+        "safety": 0.7,
+        "evidence_gap": 0.5,
+        "contradiction": 0.2,
+        "novelty": 0.2,
+        "graph_connectivity": 0.7
+      },
+      "clinical_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "priority_score": 5.800000000000001,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ded2c37629edc0d7277f",
+      "reserved_at": "2026-10-08T18:38:18.986Z",
+      "source_branch": "research/intake/1/20261008-1338-lzcomplex-null-28218661"
     }
   ],
   "batches": [
@@ -2847,22 +2913,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 35,
+    "total_reservations": 36,
     "by_lane": {
-      "1": 1,
+      "1": 2,
       "2": 0,
       "3": 5,
       "4": 4,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 35
+      "SOURCE_VERIFIED": 36
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 35,
+        "count": 36,
         "pr_number": null,
         "blocker": null
       }
