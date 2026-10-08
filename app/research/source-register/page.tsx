@@ -52,6 +52,9 @@ export default async function SourceRegisterPage() {
           treatment claim, ingredient relationship, safety conclusion, or recommendation.
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
+          <Link href='/research/intelligence/' className='inline-flex min-h-11 items-center rounded-full border border-emerald-900/20 bg-emerald-950 px-5 py-2 text-sm font-semibold text-amber-100 hover:bg-emerald-800'>
+            Enter the Research Intelligence Lab ↗
+          </Link>
           <Link href='/learn/citation-explorer/' className='inline-flex min-h-11 items-center rounded-full bg-brand-800 px-5 py-2 text-sm font-semibold text-white hover:bg-brand-700'>
             Explore published evidence →
           </Link>

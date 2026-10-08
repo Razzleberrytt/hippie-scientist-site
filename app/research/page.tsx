@@ -224,6 +224,10 @@ export default async function ResearchPage() {
           <p className='max-w-3xl text-muted'><strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()} unique research-only PubMed references</strong> are cataloged separately from the editorially reviewed evidence.</p>
           <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source register →</Link>
         </div>
+        <Link href='/research/intelligence/' className='mt-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-900/20 bg-emerald-950 px-4 py-4 text-sm text-amber-50 hover:bg-emerald-900'>
+          <span><strong className='font-semibold'>Research Intelligence Lab</strong> · Eight source-grounded semantic discovery instruments</span>
+          <span className='font-semibold text-amber-200'>Explore ↗</span>
+        </Link>
         <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm'>
           <span className='font-semibold text-ink'>Trust & updates</span>
           {secondaryResearchLinks.map((link) => (
