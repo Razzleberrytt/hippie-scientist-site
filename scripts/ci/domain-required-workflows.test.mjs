@@ -33,6 +33,19 @@ describe('changed-file workflow reachability', () => {
     }
   })
 
+  it('uses existing high-risk CI to bootstrap the research gate workflow itself', () => {
+    const required=requiredWorkflowsFor('high', [
+      '.github/workflows/research-rolling-gate.yml',
+      'scripts/research/github-reservation-controller.mjs',
+    ])
+    expect(required).not.toContain('Research rolling gate')
+    expect(required).toContain('CI')
+    expect(required).toContain('Atomic upgrade gate')
+    expect(required).toContain('Build quality regression')
+    expect(required).toContain('Site Health Check')
+    expect(required).toContain('Production Content Lint')
+  })
+
   it('requires Research Distribution for distribution schemas and docs', () => {
     for (const changedFile of [
       'schemas/distribution-pack-v1.schema.json',
