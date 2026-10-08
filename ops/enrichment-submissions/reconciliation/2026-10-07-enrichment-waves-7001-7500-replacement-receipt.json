@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-7001-7500",
+  "range": "7001-7500",
+  "state": "one_for_one_replacement_pending_native_efetch",
+  "replacements": [
+    {
+      "wave": 7196,
+      "original_pmid": "42644416",
+      "replacement_pmid": "38474715",
+      "original_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
+      "replacement_title": "A Randomized, Double-Blind, Placebo-Controlled Trial: Efficacy of Opuntia ficus-indica Prebiotic Supplementation in Subjects with Gut Dysbiosis.",
+      "reason": "Missing source abstract in original candidate; replaced with on-domain human gut-prebiotic RCT",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "replacement_substantive_abstract_length": 1335,
+      "source": "NCBI PubMed EFetch"
+    }
+  ],
+  "research_only": true
+}
