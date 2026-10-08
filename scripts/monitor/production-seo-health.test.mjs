@@ -49,7 +49,7 @@ describe('live soft-404 document classifier',()=>{
   })
   it('does not mistake a missing interaction map for missing website content',()=>{
     expect(looksLikeSoft404Page(article('3-FPM (3-Fluorophenmetrazine): Complete Human Toxicology',
-      'A complete controlled interaction map does not exist.')).toBe(false)
+      'A complete controlled interaction map does not exist.'))).toBe(false)
   })
   it('finds a standard 404 title and heading',()=>{
     expect(looksLikeSoft404Page('<title>404: This page could not be found.</title><main><h1>404</h1></main>')).toBe(true)
@@ -60,7 +60,7 @@ describe('live soft-404 document classifier',()=>{
   })
   it('ignores irrelevant not-found words embedded in scripts and scientific content',()=>{
     expect(looksLikeSoft404Page(article('Forensic data and research limitations',
-      'Some studies discuss content not found in older clinical registries.')).toBe(false)
+      'Some studies discuss content not found in older clinical registries.'))).toBe(false)
     expect(looksLikeSoft404Page('<title>Research</title><script>Page not found</script><main><h1>Research article</h1><p>Evidence exists.</p></main>')).toBe(false)
   })
 })
