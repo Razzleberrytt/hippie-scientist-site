@@ -41,6 +41,10 @@ export function approveR805Master({
   nativePlatformFeel,
   visualTeachingObject,
   textCardMonotonyRejected,
+  visualRhythm,
+  motifContinuity,
+  semanticPatternInterrupt,
+  repetitionDebtRejected,
   notes = '',
   now = new Date().toISOString(),
 } = {}) {
@@ -83,14 +87,28 @@ export function approveR805Master({
     cognitiveContinuity,
     hookPromiseDelivery,
   }
-  if (creativeMethodRelease === 'R8.06') {
+  if (['R8.06', 'R8.07'].includes(creativeMethodRelease)) {
     requiredPasses.openingScrollStop = openingScrollStop
     requiredPasses.nativePlatformFeel = nativePlatformFeel
     requiredPasses.visualTeachingObject = visualTeachingObject
     requiredPasses.textCardMonotonyRejected = textCardMonotonyRejected
+  }
+  if (creativeMethodRelease === 'R8.06') {
     if (clean(manifest?.creativeDirection?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
         || clean(manifest?.creativeDirection?.status) !== 'approved') {
       throw new Error('R8.06 exact-master QA requires the approved R8.06 creative-direction receipt')
+    }
+  } else if (creativeMethodRelease === 'R8.07') {
+    requiredPasses.visualRhythm = visualRhythm
+    requiredPasses.motifContinuity = motifContinuity
+    requiredPasses.semanticPatternInterrupt = semanticPatternInterrupt
+    requiredPasses.repetitionDebtRejected = repetitionDebtRejected
+    if (clean(manifest?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+        || clean(manifest?.creativeFoundation?.status) !== 'approved'
+        || clean(manifest?.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+        || clean(manifest?.creativeDirection?.status) !== 'approved'
+        || clean(manifest?.creativeDirection?.inheritedR806OverlaySha256) !== clean(manifest?.creativeFoundation?.overlaySha256)) {
+      throw new Error('R8.07 exact-master QA requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
     }
   }
   for (const [name, value] of Object.entries(requiredPasses)) {
@@ -124,10 +142,14 @@ export function approveR805Master({
       internalMotionSync: 'pass',
       cognitiveContinuity: 'pass',
       hookPromiseDelivery: 'pass',
-      openingScrollStop: creativeMethodRelease === 'R8.06' ? 'pass' : null,
-      nativePlatformFeel: creativeMethodRelease === 'R8.06' ? 'pass' : null,
-      visualTeachingObject: creativeMethodRelease === 'R8.06' ? 'pass' : null,
-      textCardMonotonyRejected: creativeMethodRelease === 'R8.06' ? 'pass' : null,
+      openingScrollStop: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
+      nativePlatformFeel: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
+      visualTeachingObject: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
+      textCardMonotonyRejected: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
+      visualRhythm: creativeMethodRelease === 'R8.07' ? 'pass' : null,
+      motifContinuity: creativeMethodRelease === 'R8.07' ? 'pass' : null,
+      semanticPatternInterrupt: creativeMethodRelease === 'R8.07' ? 'pass' : null,
+      repetitionDebtRejected: creativeMethodRelease === 'R8.07' ? 'pass' : null,
       pastedNarrationFeel: 'reject-if-present',
       notes: clean(notes),
     },
@@ -150,6 +172,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     nativePlatformFeel: args['native-platform-feel'],
     visualTeachingObject: args['visual-teaching-object'],
     textCardMonotonyRejected: args['text-card-monotony-rejected'],
+    visualRhythm: args['visual-rhythm'],
+    motifContinuity: args['motif-continuity'],
+    semanticPatternInterrupt: args['semantic-pattern-interrupt'],
+    repetitionDebtRejected: args['repetition-debt-rejected'],
     notes: args.notes || '',
   })
   console.log(`[perceptual-qa] exact R8.05 master approved: ${receipt.artifact.sha256}`)
