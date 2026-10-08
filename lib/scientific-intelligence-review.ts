@@ -104,8 +104,8 @@ export function calibrateIntelligenceCase(s:ResearchStudio,g:SemanticNetwork,c:R
     'release','Review version is draft only')
   add('adversarial-release-veto',challengeLivingReview(s,g,c).every(x=>x.blockAutopublish),
     'release','Every independent critique blocks clinical publication pending human review')
-  add('integrity-flags-logged',integrity.every(x=>x.pmid===c.pmid),
-    'identity','Identity and corrections flags stay source-specific')
+  add('integrity-release-hold',integrity.every(x=>x.pmid===c.pmid&&x.severity!=='hold'),
+    'release','Quarantined, retracted, or conflicting source identities block an internal PASS status')
   return {
     version:'1.14',pmid:c.pmid,checks,failures:checks.filter(x=>!x.passed).length,
     publicationAllowed:false,independentlyVerifiedTrialCount:null,
