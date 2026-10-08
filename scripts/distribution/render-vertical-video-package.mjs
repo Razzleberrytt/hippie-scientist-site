@@ -509,7 +509,7 @@ function renderAuthoredComposition(scene, { x, width, top, bottom, foreground })
   const y = top + Math.max(0, (available - h) * 0.35)
   const cx = x + (width / 2)
   const cy = y + (h / 2)
-  const stroke = `stroke="${foreground}" stroke-width="6" fill="none"`
+  const stroke = `stroke="${foreground}" stroke-width="6"`
   const softStroke = `stroke="${foreground}" stroke-width="4" stroke-opacity="0.62" fill="none"`
   const softFill = `fill="${foreground}" fill-opacity="0.10"`
   let body = ''
