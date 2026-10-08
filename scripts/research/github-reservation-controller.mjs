@@ -1,5 +1,5 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
-import {identityKeys,validateSnapshot} from './rolling-coordinator.mjs';
+import {identityKeys,normalizeTitle,normalizeDoi,validateSnapshot} from './rolling-coordinator.mjs';
 import {review} from './evidence-pipeline.mjs';
 import {withRecovery,classifyFailure} from './failure-controller.mjs';
 import {summarizeRegistry,renderSummaryMarkdown} from './research-observatory.mjs';
@@ -32,6 +32,24 @@ function scanLocal(root){
  function visit(p){if(!fs.existsSync(p))return;for(const d of fs.readdirSync(p,{withFileTypes:true})){const f=path.join(p,d.name);if(d.isDirectory())visit(f);else if(d.name.endsWith('.json')){try{for(const r of walk(JSON.parse(fs.readFileSync(f,'utf8')))){const k=identityKeys(r).join('|');if(!seen.has(k)){seen.add(k);out.push(r)}}}catch{}}}}
  for(const prefix of researchPrefixes)visit(path.join(root,prefix));return out;
 }
+
+function reconcileBaseline(records){
+ const byPmid=new Map(),byTitle=new Map(),byDoi=new Map(),out=[];
+ for(const r of records){
+  const pmid=String(r.pmid||''),title=normalizeTitle(r.title),doi=normalizeDoi(r.doi||'');
+  const prior=byPmid.get(pmid);
+  if(prior){
+   const sameTitle=prior.title===title,sameDoi=!doi||!prior.doi||prior.doi===doi;
+   if(!sameTitle||!sameDoi)throw Error('conflicting existing PMID identity '+pmid);
+   continue;
+  }
+  if(byTitle.has(title)&&byTitle.get(title)!==pmid)throw Error('conflicting existing normalized title '+title);
+  if(doi&&byDoi.has(doi)&&byDoi.get(doi)!==pmid)throw Error('conflicting existing DOI '+doi);
+  byPmid.set(pmid,{title,doi});byTitle.set(title,pmid);if(doi)byDoi.set(doi,pmid);out.push(r);
+ }
+ return out;
+}
+
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
  for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!researchPrefixes.some(p=>file.filename.startsWith(p))||!file.filename.endsWith('.json'))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
@@ -63,7 +81,7 @@ function validateManifest(m){
  return m;
 }
 function reserveInto(reg,manifest,baseline){
- const global={baseline:[...baseline,...reg.reservations],reservations:[]};validateSnapshot(global);
+ const global={baseline:reconcileBaseline([...baseline,...reg.reservations]),reservations:[]};validateSnapshot(global);
  const candidate={baseline:global.baseline,reservations:manifest.records};validateSnapshot(candidate);
  const stamp=new Date().toISOString();const reserved=[];
  for(const original of manifest.records){
