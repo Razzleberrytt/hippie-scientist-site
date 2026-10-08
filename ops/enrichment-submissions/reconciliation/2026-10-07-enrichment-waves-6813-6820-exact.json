@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-6813-6820-exact",
+  "range": "6813-6820",
+  "row_count": 4,
+  "exact_verified_rows": 4,
+  "failures": [
+    {
+      "wave": 6815,
+      "pmid": "36235651",
+      "error": "source title mismatch or missing substantive abstract",
+      "source_title": ""
+    },
+    {
+      "wave": 6817,
+      "pmid": "36101515",
+      "error": "source title mismatch or missing substantive abstract",
+      "source_title": ""
+    },
+    {
+      "wave": 6818,
+      "pmid": "36453014",
+      "error": "source title mismatch or missing substantive abstract",
+      "source_title": ""
+    },
+    {
+      "wave": 6819,
+      "pmid": "37847317",
+      "error": "source title mismatch or missing substantive abstract",
+      "source_title": ""
+    }
+  ],
+  "rows": [
+    {
+      "category": "inflammation_pain",
+      "pmid": "37126739",
+      "title": "The effect of omega-3 fatty acids supplementation on inflammatory biomarkers in subjects with migraine: a randomized, double-blind, placebo-controlled trial.",
+      "doi": "10.1080/08923973.2023.2196600",
+      "pub_date": "2023 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Immunopharmacology and immunotoxicology",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 14,
+      "wave": 6813,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "The effect of omega-3 fatty acids supplementation on inflammatory biomarkers in subjects with migraine: a randomized, double-blind, placebo-controlled trial.",
+      "abstract": "Imbalances in immune regulation are important features of migraine pathophysiology. In line with this, the current study investigated the efficacy of omega-3 fatty acids supplementation on inflammatory and anti-inflammatory markers in patients with migraines. This randomized, double-blind, placebo-controlled trial consisted of 40 patients that were prone to experiencing episodic migraines. For two months, participants were randomized into one group that received omega-3 supplementation (n= 20), 600 mg of EPA and 300 mg of DHA, twice daily) or another group that received a placebo (n= 20). Transforming growth factor β (TGF-β), interleukin (IL)-4, interferon-gamma (IFN-γ), and interleukin (IL)-17 serum levels were assessed using enzyme-linked immunosorbent assay methods at baseline and following the intervention. The current study was registered on ClinicalTrials.gov with the registration number NCT02532023. After two months of intervention, the administration of omega-3 fatty acids resulted in a significant rise in the concentrations of anti-inflammatory cytokine IL-4 (p=0.010) as well as a significant reduction in concentrations of pro-inflammatory cytokine IFN-γ (p=0.001) compared with the placebo. However, no significant changes were observed in serum TGF-β and IL-17 levels. Our findings indicated consumption of omega-3 fatty acids may have a potentially beneficial response on the inflammatory immune response in patients with migraines. Larger trials are needed to corroborate these findings.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Immunopharmacology and immunotoxicology",
+      "verified_pub_date": "2023-Oct",
+      "pdf_link": "https://doi.org/10.1080/08923973.2023.2196600",
+      "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "37239916",
+      "title": "Potential Modulation of Inflammation and Physical Function by Combined Probiotics, Omega-3 Supplementation and Vitamin D Supplementation in Overweight/Obese Patients with Chronic Low-Grade Inflammation: A Randomized, Placebo-Controlled Trial.",
+      "doi": "10.3390/ijms24108567",
+      "pub_date": "2023 May 10",
+      "pub_type": "Journal Article",
+      "journal": "International journal of molecular sciences",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 14,
+      "wave": 6814,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Potential Modulation of Inflammation and Physical Function by Combined Probiotics, Omega-3 Supplementation and Vitamin D Supplementation in Overweight/Obese Patients with Chronic Low-Grade Inflammation: A Randomized, Placebo-Controlled Trial.",
+      "abstract": "Obesity is characterized by low-grade inflammation and increased gut permeability. Here, we aim to evaluate the effect of a nutritional supplement on these parameters in subjects with overweight and obesity. A double-blinded, randomized clinical trial was conducted in 76 adults with overweight or obesity (BMI 28 to 40) and low-grade inflammation (high-sensitivity C-reactive protein (hs-CRP) between 2 and 10 mg/L). The intervention consisted of a daily intake of a multi-strain probiotic of Lactobacillus and Bifidobacterium, 640 mg of omega-3 fatty acids (n-3 FAs), and 200 IU of vitamin D (n = 37) or placebo (n = 39), administered for 8 weeks. hs-CRP levels did not change post-intervention, other than an unexpected slight increase observed in the treatment group. Interleukin (IL)-6 levels decreased in the treatment group (p = 0.018). The plasma fatty acid (FA) levels of the arachidonic acid (AA)/eicosapentaenoic acid (EPA) ratio and n-6/n-3 ratio (p < 0.001) decreased, and physical function and mobility improved in the treatment group (p = 0.006). The results suggest that hs-CRP may not be the most useful inflammatory marker, but probiotics, n-3 FAs, and vitamin D, as non-pharmaceutical supplements, may exert modest effects on inflammation, plasma FA levels, and physical function in patients with overweight and obesity and associated low-grade inflammation.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "International journal of molecular sciences",
+      "verified_pub_date": "2023-May-10",
+      "pdf_link": "https://doi.org/10.3390/ijms24108567",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10217964/",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "36241872",
+      "title": "A randomized, double-blinded, placebo-controlled, crossover study of the HCN channel blocker ivabradine in a capsaicin-induced pain model in healthy volunteers.",
+      "doi": "10.1038/s41598-022-22309-7",
+      "pub_date": "2022 Oct 14",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Scientific reports",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 14,
+      "wave": 6816,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "A randomized, double-blinded, placebo-controlled, crossover study of the HCN channel blocker ivabradine in a capsaicin-induced pain model in healthy volunteers.",
+      "abstract": "Hyperpolarization-activated cyclic nucleotide-gated (HCN) channels have been focused on as a potential therapeutic target for inflammatory and neuropathic pain in rodent models. However, roles of HCN channels in human pain states have been scarcely investigated. We evaluated analgesic effects of 2-day administration of ivabradine, the only clinically available HCN channel blocker, on a capsaicin pain model in a randomized, double-blinded, placebo-controlled, crossover study. Twenty healthy adult subjects (18 males, 2 females) received ivabradine (5-7.5 mg) or a placebo 3 times in 2 days. Then capsaicin (0.5%) was topically applied on the volar forearm for 30 min. The primary outcome was capsaicin-induced spontaneous pain. The secondary outcomes included heat-pain threshold (HPT), flare size, and areas of secondary punctate mechanical hyperalgesia (PMH) and secondary dynamic mechanical allodynia (DMA). There was no significant difference in spontaneous pain (p = 0.7479), HPT (p = 0.7501), area of PMH (p = 0.1052) or flare size (p = 0.5650) at 30 min after capsaicin application between the groups. In contrast, the area of DMA in the ivabradine group was significantly smaller (p < 0.001) than that in the placebo group. HCN channels may be differentially involved in the various pain signal transmission pathways in humans.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Scientific reports",
+      "verified_pub_date": "2022-Oct-14",
+      "pdf_link": "https://doi.org/10.1038/s41598-022-22309-7",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9568658/",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "39798151",
+      "title": "Meta-Analysis of Palmitoylethanolamide in Pain Management: Addressing Literature Gaps and Enhancing Understanding.",
+      "doi": "10.1093/nutrit/nuae203",
+      "pub_date": "2025 Jul 1",
+      "pub_type": "Meta-Analysis",
+      "journal": "Nutrition reviews",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 11,
+      "wave": 6820,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Meta-Analysis of Palmitoylethanolamide in Pain Management: Addressing Literature Gaps and Enhancing Understanding.",
+      "abstract": "Chronic pain is a debilitating condition that affects a significant proportion of the population. Palmitoylethanolamide (PEA), a naturally occurring fatty acid amide derived from omega-7 fatty acids, has emerged as a safe and effective alternative for pain management and exerts its effects by interacting with the endocannabinoid system, modulating inflammation, and regulating immune responses. A comprehensive meta-analysis was conducted to evaluate the efficacy of PEA in alleviating pain across various pathologies, considering the nociceptive, neuropathic, or nociplastic nature of pain. A systematic search was conducted of 4 databases: PubMed, Embase, Scopus, and Cochrane Collaboration Library. Randomized clinical trials were selected for analysis. This meta-analysis included 18 studies involving 1196 patients. Continuous variables were assessed using a standard mean difference (SMD). Heterogeneity was evaluated using the χ2 test and I2 statistics. Pain was significantly reduced in the PEA group at 6 weeks (SMD, -0.9; 95% CI, -1.60 to -0.31), 8 weeks (SMD, -0.98; 95% CI, -1.61 to -0.36), and 24-26 weeks (SMD, -1.16; 95% CI, -2.15 to -0.17). Quality of life, including pain-related items, was significantly higher in the PEA group (SMD, -0.61; 95% CI, -0.93 to -0.30). Significant differences in favor of PEA were observed at 4 (SMD, -0.36; 95% CI, -0.65 to -0.07) and 8 weeks (SMD, -0.66; 95% CI, -1.15 to -0.17). Palmitoylethanolamide was effective for all pain types: nociceptive (SMD, -0.74; 95% CI, -1.42 to -0.06), neuropathic (SMD, -0.97; 95% CI, -1.54 to -0.39), and nociplastic (SMD, -0.59; 95% CI, -1.15 to -0.03). This meta-analysis confirmed that PEA effectively reduces pain and enhances quality of life, with significant benefits observed within 4-6 weeks of treatment. Palmitoylethanolamide is a promising alternative to chronic opioid analgesics, potentially reducing the risk of opioid abuse and dependency. PROSPERO registration no. CRD42024550546.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Nutrition reviews",
+      "verified_pub_date": "2025-Jul-01",
+      "pdf_link": "https://doi.org/10.1093/nutrit/nuae203",
+      "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    }
+  ]
+}
