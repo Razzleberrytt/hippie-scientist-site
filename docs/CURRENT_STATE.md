@@ -6,6 +6,10 @@
 
 ## Executive summary
 
+**Research Intelligence exact-source release status (2026-10-08):** v1.05 (#6419) is merged into main. Source-bound v1.06 (#6420 / PR #6422) is **in review**, including the separately governed review-only v1.07 fabric from #6423/#6424. The proposed flow shares one exact PMID and pinned source signature across eight research tools, permits only title-backed traceable two-concept Voyages, and constrains downstream targets to exact DOI/source/claim IDs. It does **not** prove clinical relationships, underlying independent trials, corrections status, production deployment, or business results. Release proof is still required; GitHub PR state outranks this date-scoped note.
+
+
+
 **R8.08 silent-first comprehension implementation in review (2026-10-07, PR #6388):** The canonical creative method adds first-frame hook visibility, legible audio-off teaching claims, a bounded mobile reading budget, genuine natural-runtime claim dwell, exact canonical URL retention, hash-bound visual/source lineage and four exact-master human comprehension/qualifier/mobile/dwell approvals. These inherit R8.07 visual rhythm, R8.05 voice-first timing and R8.04 zero-credit sovereignty. **Audience effect is Unknown** until field telemetry; PR review and CI are required before declaring this merged.
 
 

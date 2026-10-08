@@ -4,6 +4,14 @@
 **Updated:** 2026-10-07
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-08 — Source-exact instrument relays and publication-to-editorial review remain nonclinical
+
+**Decision:** Build v1.06 as a deterministic read-only projection over the already-pinned v1.05 PMID source graph, exact citation crosswalk and separately reviewed semantic annotation ledger. Source-focused Voyages require two distinct non-method indexed concepts with at least one title-backed witness, not merely a shared neighbor. v1.07 downstream content/distribution joins may use only exact DOI and already-existing source and claim identifiers; their status is human-review required.
+
+**Authority boundary:** No second corpus, inferred trial independence, forged graph path, automatic efficacy claim, evidence-grade promotion, auto-publishing, or paid runtime service. Reviewed annotations stay distinct from source text; a matched DOI is not proof that a specific claim is supported.
+
+**Governance/status:** #6419 v1.05 merged; #6420 / PR #6422 in review; #6423/#6424 work is stacked in its source branch and not independently established as a main-branch release. Tests, review threads and production receipts remain release gates. Engagement, search and business outcomes Unknown.
+
 ## 2026-10-08 — Research Intelligence Studio uses two separate authorities and eight projections
 
 **Decision:** Scientific discovery features derive from the merged, SHA-pinned research-only PMID intake and controlled concept graph. Clinical directional assessments can only be compared where separately published citation relationships explicitly provide ingredient, endpoint, and relationship labels. The eight consumer instruments (Study DNA, Contradiction Observatory, Knowledge Frontier, Evidence Time Machine, Semantic Voyages, safety-literature matrix, Ask the Evidence, and editorial Content Reactor) are projections of those existing authorities; they are not eight new independent scientific datasets.
