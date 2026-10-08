@@ -2603,6 +2603,237 @@
       "reservation_id": "056524383f18a6d5817f",
       "reserved_at": "2026-10-08T18:14:57.909Z",
       "source_branch": "research/intake/3/20261008-1400-hepatocyte-recovery"
+    },
+    {
+      "pmid": "42334848",
+      "title": "Adjunctive Psychosocial Interventions and Opioid Abstinence Among Patients Receiving Buprenorphine: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamanetworkopen.2026.19826",
+      "source_title": "Adjunctive Psychosocial Interventions and Opioid Abstinence Among Patients Receiving Buprenorphine: A Randomized Clinical Trial.",
+      "abstract": "Adjunctive psychosocial treatments are recommended for many using medications for opioid use disorder (MOUD), but it is unclear which approaches can best enhance treatment outcomes. To evaluate the comparative effectiveness of 2 psychosocial treatments, peer recovery support (PRS) and cognitive-behavioral therapy (CBT), on opioid abstinence when used as adjunctive therapies to office-based buprenorphine treatment in adults with opioid use disorder (OUD). This randomized clinical trial included US adults diagnosed with OUD referred for care at 5 federally qualified health centers with office-based addiction treatment programs by their clinicians from 2020 to 2024. Participants were followed up for 1 year postenrollment. Analyses were conducted September through November 2025. Participants were randomized to 1 of 4 conditions: MOUD treatment as usual, MOUD plus 12 weeks of CBT, MOUD plus 12 weeks of PRS, or MOUD plus 12 weeks of CBT and PRS. The CBT intervention consisted of 12 individual, manualized sessions over 12 weeks focused on goal setting, functional analysis, cognitive restructuring, skill building, and relapse prevention. The PRS intervention required at least once-weekly contact for 12 weeks and focused on shared lived experience, goal setting, and navigation assistance to meet immediate needs. In the CBT plus PRS condition, participants were assigned to 12 weeks of concurrent CBT and PRS. The primary outcome was urinalysis-confirmed opioid abstinence at 3, 6, 9, and 12 months. A total of 340 participants were included (mean [SD] age, 42.3 [10.9] years; 100 female [29.4%]). Neither CBT (odds ratio [OR], 1.16; 95% CI, 0.63-2.13), PRS (OR, 0.87; 95% CI, 0.48-1.59), nor their interaction (OR, 0.99; 95% CI, 0.30-3.27) was associated with urinalysis-confirmed opioid use. In this randomized clinical trial, CBT and PRS had no effect on rates of opioid abstinence in the year following the initiation of MOUD. ClinicalTrials.gov Identifier: NCT04257214.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42334848/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42334848",
+        "doi": "10.1001/jamanetworkopen.2026.19826",
+        "journal": "JAMA network open",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T18:27:16.561Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2400922c56174a97bb73",
+      "reserved_at": "2026-10-08T18:27:25.075Z",
+      "source_branch": "research/intake/4/20261008-seed-canary"
+    },
+    {
+      "pmid": "41622516",
+      "title": "Self-Reported History of Precipitated Withdrawal: A Cross-Sectional Study of People Who Use Unregulated Opioids.",
+      "doi": "10.1097/ADM.0000000000001660",
+      "source_title": "Self-Reported History of Precipitated Withdrawal: A Cross-Sectional Study of People Who Use Unregulated Opioids.",
+      "abstract": "In contrast to methadone, buprenorphine is susceptible to precipitated withdrawal complicated by fentanyl in the unregulated opioid supply. The objective of this study was to examine associations between drug supply characteristics and the prevalence of precipitated withdrawal. We conducted a cross-sectional analysis of a cohort study during 2023-2025 among people with a lifetime history of buprenorphine or methadone treatment currently using a drug checking program. Explanatory variables included drug supply, health care, and treatment characteristics. The primary outcome was a self-reported lifetime history of precipitated withdrawal during a buprenorphine induction. Binomial linear regression models were used to calculate prevalence ratios with 95% CIs. Among 234 people, 64% were men, 67% were non-Hispanic white, 41 was the median age, 94% reported a history of fentanyl use, 92% had a history of methadone treatment, and 68% had a history of buprenorphine treatment. Among those with a history of buprenorphine treatment, 29% reported precipitated withdrawal during buprenorphine inductions, of which 67% occurred when starting via outpatient pathways. Buprenorphine-associated precipitated withdrawal was slightly higher among those with recent xylazine use compared with those without (32% vs 22%, prevalence ratio: 2.10, 95% CI: 0.94, 4.67). People with recent buprenorphine inductions commonly started without clinical or social support (63%) or used standard dosing (53%). Buprenorphine-associated precipitated withdrawal was commonly reported. Improved guidance and treatment approaches should be prioritized to minimize these complications, particularly in outpatient settings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41622516/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41622516",
+        "doi": "10.1097/ADM.0000000000001660",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T18:27:16.561Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f92f2d94e7c01a4faa9a",
+      "reserved_at": "2026-10-08T18:27:25.075Z",
+      "source_branch": "research/intake/4/20261008-seed-canary"
+    },
+    {
+      "pmid": "41781809",
+      "title": "Interpreting Fentanyl and Norfentanyl Concentrations among Patients Seen in the Emergency Department after a Nonfatal Opioid Overdose: A Multicenter Study.",
+      "doi": "10.1007/s13181-026-01132-w",
+      "source_title": "Interpreting Fentanyl and Norfentanyl Concentrations among Patients Seen in the Emergency Department after a Nonfatal Opioid Overdose: A Multicenter Study.",
+      "abstract": "BACKGROUND: Fentanyl concentrations are typically interpreted in forensic contexts using postmortem and driving under the influence data, both of which have important limitations. This study describes fentanyl and norfentanyl concentrations measured in an acute, clinical setting among patients presenting to the emergency department with a suspected opioid overdose. METHODS: A prospective observational study was performed utilizing the Toxicology Investigators Consortium (ToxIC) Drug Overdose Toxico-Surveillance (DOTS) Reporting Program enrolling patients ≥ 13 years old from April 2023 to July 2024 following a life-threatening overdose treated at 17 EDs within the United States. Fentanyl and norfentanyl concentrations were determined by liquid chromatography tandem quadrupole mass spectrometry (lower limit of quantification (LLOQ) 1 ng/mL). Fentanyl and norfentanyl concentrations were summarized using descriptive statistics and stratified by time of ED presentation to blood collection. Fentanyl concentrations were also stratified by norfentanyl concentrations. RESULTS: Three hundred and thirty-one patients presented with a clinical presentation consistent with an opioid overdose and were included in the study. Of these, 248 (74.9%) had fentanyl concentrations above the LLOQ. The median concentration of fentanyl and norfentanyl was 4.5 ng/mL (IQR: 2.4, 8.8) and 2.7 ng/mL (IQR:1.6, 5.3), respectively. The median time to blood draw was 165 min. The median fentanyl/norfentanyl (F/NF) ratio was 0.5 (IQR: 0.4, 1.0). CONCLUSIONS: Quantitative fentanyl and norfentanyl concentrations in the acute emergency department setting among patients with a suspected opioid overdose were lower than those in the postmortem literature with significant toxicity observed at levels below the LLOQ. Use of an arbitrary F/NF ratio of 1 did not delineate acute exposure.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41781809/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41781809",
+        "doi": "10.1007/s13181-026-01132-w",
+        "journal": "Journal of medical toxicology : official journal of the American College of Medical Toxicology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T18:27:16.562Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7f4668e39330fc2cac79",
+      "reserved_at": "2026-10-08T18:27:25.075Z",
+      "source_branch": "research/intake/4/20261008-seed-canary"
     }
   ],
   "batches": [
@@ -2616,22 +2847,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 32,
+    "total_reservations": 35,
     "by_lane": {
       "1": 1,
       "2": 0,
       "3": 5,
-      "4": 1,
+      "4": 4,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 32
+      "SOURCE_VERIFIED": 35
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 32,
+        "count": 35,
         "pr_number": null,
         "blocker": null
       }
