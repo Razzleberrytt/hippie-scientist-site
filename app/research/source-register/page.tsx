@@ -4,6 +4,7 @@ import { buildPageMetadata } from '@/lib/seo'
 import { getResearchSourceRegister } from '@/lib/research-source-register'
 import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
 import { buildResearchSemanticNetwork } from '@/lib/research-semantic-network'
+import { getReviewedResearchSemanticOverlay } from '@/lib/research-reviewed-semantic'
 import SourceRegisterClient from './SourceRegisterClient'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -16,10 +17,12 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function SourceRegisterPage() {
   const data = getResearchSourceRegister()
   const publicEvidence = await getPublicEvidenceDataset()
+  const reviewedSemantic = getReviewedResearchSemanticOverlay(data.records)
   const semantic = buildResearchSemanticNetwork(
     data.records,
     publicEvidence.ingredients.map(item => ({ name: item.name, href: item.path })),
     publicEvidence.studies.map(study => ({ pmid: study.pmid, id: study.id })),
+    reviewedSemantic,
   )
   const publicRecords = data.records.map(record => ({
     wave: record.wave,
