@@ -264,8 +264,10 @@ async function commitRegistryMutation(mutator,message){
 }
 async function persistObservatory(reg){
  const snapshot={...summarizeRegistry(reg),generated_at:new Date().toISOString(),research_only:true};
- try{await upsertBranchJson(registryBranch,'ops/research-coordinator/observatory.json',snapshot,'research: update rolling observatory')}
- catch(e){console.error('OBSERVATORY_WARNING '+e.message)}
+ try{
+  await upsertBranchJson(registryBranch,'ops/research-coordinator/observatory.json',snapshot,'research: update rolling observatory');
+  await upsertBranchJson(registryBranch,'ops/research-coordinator/public-observatory.json',snapshot,'research: update sanitized public observatory');
+ }catch(e){console.error('OBSERVATORY_WARNING '+e.message)}
 }
 function appendSummary(reg){const file=process.env.GITHUB_STEP_SUMMARY;if(file)fs.appendFileSync(file,renderSummaryMarkdown(summarizeRegistry(reg)))}
 async function run(){
