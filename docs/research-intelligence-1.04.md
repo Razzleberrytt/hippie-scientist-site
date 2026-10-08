@@ -28,3 +28,7 @@ Every link is a **navigation lead**, not adjudicated scientific evidence:
 ## Validation and rollout
 
 Run `npx tsx scripts/ci/validate-research-intelligence-studio.ts`, `npm run typecheck`, `npm run check:fast`, and `npm run build`. CI must pass on the exact PR head before merging/deploying. After production deploy, inspect `/research/intelligence/` on mobile, exercise representative PMID handoffs across all eight tabs, and confirm noindex and publication-identity disclaimers remain visible. No performance or ROI uplift is asserted without field measurement.
+
+## Atomic ownership
+
+The scoped acceptance issue is [#6416](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6416) and its single implementation branch is [PR #6415](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6415). Subsequent expansions of the cohort, clinical interpretation, or autonomous review must be admitted as separate governed changes; they are explicitly excluded here.
