@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "through_wave": 7500,
+  "scope": "Known rejected/replaced candidate PMIDs in Waves 6501-7500; not an exhaustive historic rejection archive",
+  "rejected_count": 10,
+  "rejected_pmids": [
+    "31461801",
+    "35984927",
+    "36239014",
+    "36939049",
+    "37792394",
+    "38602558",
+    "38719205",
+    "41183689",
+    "42607433",
+    "42644416"
+  ],
+  "entries": [
+    {
+      "pmid": "31461801",
+      "original_wave": 6501,
+      "first_rejected_in": "6501-7000",
+      "reason": "Intrathecal anesthesia comparison is off-domain for oral/supplement anxiety evidence"
+    },
+    {
+      "pmid": "35984927",
+      "original_wave": 6932,
+      "first_rejected_in": "6501-7000",
+      "reason": "Elevated-plus-maze evidence was preclinical, not human cannabinoid safety evidence"
+    },
+    {
+      "pmid": "36239014",
+      "original_wave": 7367,
+      "first_rejected_in": "7001-7500",
+      "reason": "Mixed clinical and preclinical cannabinoid review replaced with human harm-reduction randomized pilot"
+    },
+    {
+      "pmid": "36939049",
+      "original_wave": 7323,
+      "first_rejected_in": "7001-7500",
+      "reason": "Human oral ginseng fatigue randomized trial replaces nanomaterial formulation review"
+    },
+    {
+      "pmid": "37792394",
+      "original_wave": 7369,
+      "first_rejected_in": "7001-7500",
+      "reason": "Mixed humans-and-animals cognition review replaced with human psychosis-outcomes meta-analysis"
+    },
+    {
+      "pmid": "38602558",
+      "original_wave": 7476,
+      "first_rejected_in": "7001-7500",
+      "reason": "Mixed clinical/preclinical HIV/cannabis review replaced with human cannabis-psychosis recovery synthesis"
+    },
+    {
+      "pmid": "38719205",
+      "original_wave": 7401,
+      "first_rejected_in": "7001-7500",
+      "reason": "Preclinical riboflavin energy model review replaced with human ubiquinol energy-metabolism trial"
+    },
+    {
+      "pmid": "41183689",
+      "original_wave": 6833,
+      "first_rejected_in": "6501-7000",
+      "reason": "Preclinical pain model overview fails human-intervention evidence scope"
+    },
+    {
+      "pmid": "42607433",
+      "original_wave": 7193,
+      "first_rejected_in": "7001-7500",
+      "reason": "Human IBS synbiotic randomized trial replaces unrelated endometrial-miscarriage microbiota study"
+    },
+    {
+      "pmid": "42644416",
+      "original_wave": 7196,
+      "first_rejected_in": "7001-7500",
+      "reason": "Missing source abstract in original candidate; replaced with on-domain human gut-prebiotic RCT"
+    }
+  ],
+  "require_explicit_re_review_before_reuse": true,
+  "source_receipts": [
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-semantic-repairs.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-replacement-receipt.json"
+  ]
+}
