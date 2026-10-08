@@ -17,7 +17,7 @@ function label(value: string) {
 export default function SemanticResearchObservatory({network,onFocusConcept,onFocusPaper}:Props) {
   const [first,setFirst]=useState('')
   const [second,setSecond]=useState('')
-  const [lens,setLens]=useState<'connections'|'bridges'|'gaps'>('connections')
+  const [lens,setLens]=useState<'connections'|'bridges'|'reviewed'|'gaps'>('connections')
 
   const grouped=useMemo(()=>{
     const ids=network.concepts.filter(c=>c.kind==='substance'||c.kind==='outcome')
@@ -69,7 +69,9 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
           {value:summary.activeConcepts,unit:'Concepts',detail:'controlled labels'},
           {value:summary.explainableEdges,unit:'Paper links',detail:'explainable overlap'},
           {value:summary.crossTopicEdges,unit:'Cross-topic',detail:'potential bridges'},
-          {value:summary.typedEvidenceEdges,unit:'Typed source edges',detail:'PMID → concept provenance'},
+          {value:summary.typedEvidenceEdges,unit:'Typed source edges',detail:'text-grounded PMID → concept'},
+          {value:summary.reviewedSemanticEdges,unit:'Reviewed relations',detail:'independent scientific mapping'},
+          {value:summary.contradictionFlags,unit:'Contradiction flags',detail:'reviewed disagreement signals'},
         ].map(item=><div key={item.unit} className={styles.metric}>
           <p className={styles.figure}>{item.value.toLocaleString()}</p>
           <p className={styles.metricLabel}>{item.unit}</p>
@@ -150,7 +152,7 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
             <span>paper{filteredIds.length===1?'':'s'} with selected mention{first&&second?'s (intersection)':''}</span>
           </div>
           <div className={styles.switches} aria-label='Semantic insight view'>
-            {([['connections','Adjacencies'],['bridges','Cross-topic'],['gaps','Blind spots']] as const).map(([id,title])=>
+            {([['connections','Adjacencies'],['bridges','Cross-topic'],['reviewed','Reviewed'],['gaps','Blind spots']] as const).map(([id,title])=>
               <button key={id} type='button' onClick={()=>setLens(id)} aria-pressed={lens===id}>{title}</button>)}
           </div>
           {lens==='connections'?<div className={styles.results}>
@@ -168,11 +170,27 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
               </button>)}
             {!network.bridges.length?<p className={styles.blank}>No explainable cross-topic edges in this batch.</p>:null}
           </div>:null}
+          {lens==='reviewed'?<div className={styles.results}>
+            {network.reviewedEdges.slice(0,8).map(edge=>
+              <button key={edge.id} type='button' onClick={()=>selectPaper(edge.sourcePmid)} className={styles.resultRow}>
+                <span>
+                  <strong>{edge.subject} → {edge.object}</strong>
+                  <small>{edge.predicate} · {edge.evidenceType} · {edge.uncertainty}</small>
+                </span>
+                <span>PMID {edge.sourcePmid} ↗</span>
+              </button>)}
+            {!network.reviewedEdges.length?<p className={styles.blank}>No independently reviewed semantic relationships are attached to this source batch yet. Bibliographic source-text edges remain available above.</p>:null}
+            {network.contradictions.slice(0,5).map((flag,i)=>
+              <button key={flag.sourcePmid+':'+i} type='button' onClick={()=>selectPaper(flag.sourcePmid)} className={styles.resultRow}>
+                <span><strong>Contradiction flag</strong><small>{flag.flag}</small></span>
+                <span>PMID {flag.sourcePmid} ↗</span>
+              </button>)}
+          </div>:null}
           {lens==='gaps'?<div className={styles.results}>
             <p className={styles.blank}>{summary.metadataOnlyPapers} source-verified papers have no controlled vocabulary match. That indicates a <strong>taxonomy coverage gap</strong>, not an absence of useful evidence.</p>
             {gaps.slice(0,5).map(g=><button type='button' key={g.pmid} onClick={()=>selectPaper(g.pmid)} className={styles.resultRow}><span><strong>Unmapped source</strong><small>PMID {g.pmid}</small></span><span>Inspect ↗</span></button>)}
           </div>:null}
-          <p className={styles.fineprint}>All views are experimental navigation aids. Validate population, design, results and conflicts directly from the primary sources.</p>
+          <p className={styles.fineprint}>Source-text views are experimental navigation aids. Reviewed relations preserve an independent-review receipt but still require the study context; none of these views is a treatment recommendation.</p>
         </div>
       </div>
     </section>
