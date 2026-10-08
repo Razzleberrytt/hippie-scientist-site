@@ -320,6 +320,8 @@ assert(ui.includes('Publication identity ≠ independent study'))
 assert(ui.includes('v.systemVersion!==\'1.05\''))
 assert(ui.includes('buildResearchCaseScope(')&&ui.includes('traceCaseConceptPair(')&&
  ui.includes('createResearchInstrumentHandoff(')&&ui.includes('resolveResearchInstrumentHandoff(')&&
+ ui.includes('caseFile?openCaseInstrument(s.id):navigate(s.id)')&&
+ ui.includes('Semantically neighboring publications')&&ui.includes('inspectPmid(link.pmid)')&&
  ui.includes('Clear focus · explore all sources')&&ui.includes('visibleFrontiers.slice')&&
  ui.includes('visibleSafety.slice')&&ui.includes('visibleBriefs.slice')&&
  ui.includes('visibleDebates.slice')&&ui.includes('visibleInvestigations.slice')&&
