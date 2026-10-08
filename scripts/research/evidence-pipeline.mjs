@@ -3,7 +3,7 @@ export const LANES={1:'sleep-stress-mood',2:'cognition-metabolic',3:'botanical-p
 export const STATES=['DISCOVERED','SOURCE_VERIFIED','SCIENTIFIC_REVIEWED','RESERVED','STAGED','MERGED','SEMANTIC_INTEGRATED','PUBLISHED'];
 const hash=x=>crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');
 export function review(record){
- const missing=['pmid','title','abstract','source_title','source_url','evidence_class','study_design','limitations','provenance'].filter(k=>!record[k]);
+ const missing=['pmid','title','abstract','source_title','source_url','evidence_class','study_design','study_details','limitations','provenance'].filter(k=>record[k]===undefined||record[k]===null||record[k]==='');
  if(missing.length)return {accepted:false,reason:'missing '+missing.join(', ')};
  if(!['human','animal','in-vitro','mixed','review'].includes(record.evidence_class))return {accepted:false,reason:'invalid evidence class'};
  if(record.source_title.trim().toLowerCase()!==record.title.trim().toLowerCase())return {accepted:false,reason:'source title mismatch'};
@@ -11,6 +11,7 @@ export function review(record){
  if(record.interaction_claim&&!record.interaction_evidence)flags.push('interaction lacks evidence');
  if(record.clinical_claim&&record.evidence_class!=='human')flags.push('non-human clinical extrapolation');
  if(record.adverse_effects===undefined)flags.push('adverse effects not assessed');
+ if(record.interactions===undefined)flags.push('interactions not assessed');
  if(record.uncertainty===undefined)flags.push('uncertainty not assessed');
  return {accepted:flags.length===0,flags,review_hash:hash(record)};
 }
