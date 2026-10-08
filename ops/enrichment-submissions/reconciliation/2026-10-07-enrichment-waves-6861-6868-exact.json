@@ -2,15 +2,9 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-6861-6868-exact",
   "range": "6861-6868",
-  "row_count": 7,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6868,
-      "pmid": "32316411",
-      "error": "PubMed title/abstract verification failed"
-    }
-  ],
+  "row_count": 8,
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "metabolic",
@@ -164,6 +158,28 @@
       "verified_pub_date": "2009-Mar",
       "pdf_link": "https://doi.org/10.1002/ptr.2634",
       "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "32316411",
+      "title": "Effects of Ashwagandha (Withania somnifera) on VO(2max): A Systematic Review and Meta-Analysis.",
+      "doi": "10.3390/nu12041119",
+      "pub_date": "2020 Apr 17",
+      "pub_type": "Systematic Review",
+      "journal": "Nutrients",
+      "discovery_query": "ashwagandha[Title] AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 19,
+      "wave": 6868,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Effects of Ashwagandha (Withania somnifera) on VO2max: A Systematic Review and Meta-Analysis.",
+      "abstract": "The purpose of this study was to systematically review the scientific literature about the effects of supplementation with Ashwagandha (Withania somnifera) on maximum oxygen consumption (VO2max), as well as to provide directions for clinical practice. A systematic search was conducted in three electronic databases following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses Guidelines (PRISMA). The inclusion criteria were: (a) VO2max data, with means ± standard deviation before and after the supplement intervention, (b) the study was randomized controlled trial (RCT), (c) the article was written in English. The quality of evidence was evaluated according to the Grading of Recommendations, Assessment, Development and Evaluation (GRADE) approach. A meta-analysis was performed to determine effect sizes. Five studies were selected in the systematic review (162 participants) and four were included in the meta-analysis (142 participants). Results showed a significant enhancement in VO2max in healthy adults and athletes (p = 0.04). The mean difference was 3.00 (95% CI from 0.18 to 5.82) with high heterogeneity. In conclusion, Ashwagandha supplementation might improve the VO2max in athlete and non-athlete people. However, further research is need to confirm this hypothesis since the number of studies is limited and the heterogeneity was high.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2020-Apr-17",
+      "pdf_link": "https://doi.org/10.3390/nu12041119",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7230697/",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     }
   ]
