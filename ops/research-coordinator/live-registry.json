@@ -4172,6 +4172,161 @@
       "reservation_id": "7db2643be5da4e1c3ab5",
       "reserved_at": "2026-10-08T21:55:19.268Z",
       "source_branch": "research/intake/2/20261008-1753-cognition-metabolic-3-r7"
+    },
+    {
+      "pmid": "42789586",
+      "title": "Nonlinear dose-response of mind-body exercise in older adults with mild cognitive impairment: A systematic review and meta-analysis.",
+      "doi": "10.1371/journal.pone.0350867",
+      "source_title": "Nonlinear dose-response of mind-body exercise in older adults with mild cognitive impairment: A systematic review and meta-analysis.",
+      "abstract": "This study aimed to quantify domain-specific dose-response relationships between mind-body exercise and cognitive function in older adults with mild cognitive impairment (MCI), and to derive actionable dosing recommendation. Eight major electronic databases were systematically searched up to September 15, 2025. Randomized controlled trials (RCTs) of mind-body exercise intervention in individuals aged ≥60 years with MCI that reported at least one cognitive domain outcome were included. Hedges'g effect sizes were calculated using random-effects models, and dose-response relationships were examined using restricted cubic spline regression. Twenty-seven RCTs (2034 participants) were included. Moderate-certainty evidence supported improvements in global cognition (Hedges' g: 0.67, 95% CI: [0.49, 0.78]) and processing speed (0.45 [0.3, 0.6]). Global cognition exhibited a U-shaped weekly dose-response, with 240 min/week as the relative nadir that still yielded a significant pooled effect (0.37; [0.19, 0.55]); longer intervention durations significantly amplified this overall response (β = 0.012, p < 0.05), and achieving significant benefit at this dose required ≥11 weeks intervention. Memory followed a similar pattern, but with very low certainty. Processing speed showed a U-shaped cumulative dose-response (nadir: 3400 minutes), and this effect was attenuated by weekly dose (β = -0.0011, p < 0.05), yet caution is warranted because the weekly doses in the included studies were heavily clustered. Mind-body exercise produces domain-specific dose-response patterns in older adults with MCI. For global cognition, the observed U-shaped pattern suggests that if 240 min/week dose is adopted clinically, extending intervention to at least 11 weeks is advisable. However, prospective validation of these findings is needed before clinical application.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42789586/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42789586",
+        "doi": "10.1371/journal.pone.0350867",
+        "journal": "PloS one",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T21:55:57.009Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d06da7c871b63709f2c8",
+      "reserved_at": "2026-10-08T21:56:07.455Z",
+      "source_branch": "research/intake/2/20261008-1753-cognition-metabolic-3-r7"
+    },
+    {
+      "pmid": "42815817",
+      "title": "Subjective and objective cognitive differences in adults in mid-life and older age with autism or high autistic traits: a systematic review and meta-analysis.",
+      "doi": "10.1016/j.neubiorev.2026.107011",
+      "source_title": "Subjective and objective cognitive differences in adults in mid-life and older age with autism or high autistic traits: a systematic review and meta-analysis.",
+      "abstract": "Research examining ageing in autistic populations, once largely neglected, has expanded in recent years. Cognitive decline and dementia are key public health concerns, and it remains unclear whether autism is related to atypical cognitive ageing. A synthesis of quantitative evidence on cognition in autistic adults in mid- to later-life is needed. This systematic review and meta-analysis is the first to do this. Studies comparing objective and subjective cognition in autistic and neurotypical adults aged 50+ were included. Given the underdiagnosis of autism in this age group, autistic samples defined using validated measures of autistic traits were included alongside formally diagnosed samples. Online databases (PubMed, Scopus, CINAHL, PsychINFO) were searched. Risk of bias was assessed using AXIS. Fifteen cross-sectional studies were included, examining 13 cognitive constructs. Additional analyses compared effect sizes between diagnosed and trait-defined populations. Autistic individuals reported significantly greater subjective cognitive difficulty (d = 0.90), although this was not reflected in objective performance. Small group differences were observed in processing speed, verbal fluency, and working memory (d = -0.28 - -0.38), across which autistic samples performed more poorly. Other cognitive domains did not significantly differ. Heterogeneity was high across several analyses. Results suggest broadly similar cognitive ageing in autistic and neurotypical adults. However, interpretation is limited by underrepresentation of participants over 65, and the absence of longitudinal studies. The discrepancy between objective and subjective cognition was a striking finding, with implications for clinical investigation of self-reported cognitive concerns amongst adults on the autism spectrum.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42815817/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42815817",
+        "doi": "10.1016/j.neubiorev.2026.107011",
+        "journal": "Neuroscience and biobehavioral reviews",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T21:55:57.010Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6fb35daea3d8ba65a2b0",
+      "reserved_at": "2026-10-08T21:56:07.455Z",
+      "source_branch": "research/intake/2/20261008-1753-cognition-metabolic-3-r7"
     }
   ],
   "batches": [
@@ -4185,22 +4340,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 54,
+    "total_reservations": 56,
     "by_lane": {
       "1": 5,
-      "2": 2,
+      "2": 4,
       "3": 10,
       "4": 12,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 54
+      "SOURCE_VERIFIED": 56
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 54,
+        "count": 56,
         "pr_number": null,
         "blocker": null
       }
