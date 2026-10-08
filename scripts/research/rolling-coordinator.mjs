@@ -25,8 +25,8 @@ export function validateSnapshot(s) {
 }
 export function reserve(s,lane,batch,records){
   if(!/^([1-5])$/.test(String(lane)))throw Error('lane must be 1..5');
-  if(!batch||s.reservations.some(r=>r.batch===batch))throw Error('batch already reserved');
-  if(!Array.isArray(records)||records.length<1||records.length>25)throw Error('reserve 1..25 records');
+  if(!batch)throw Error('batch required');
+  if(!Array.isArray(records)||records.length<1||records.length>25)throw Error('reserve 1..25 records');\n  if(s.reservations.filter(r=>r.batch===batch).length+records.length>500)throw Error('batch exceeds 500');
   const seen=validateSnapshot(s);
   for(const r of records)for(const k of keys(r)){if(seen.has(k))throw Error('collision '+k);seen.set(k,batch)}
   const stamp=new Date().toISOString();
