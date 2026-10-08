@@ -372,27 +372,6 @@
       "wave": 7517
     },
     {
-      "pmid": "29168225",
-      "title": "GABA-modulating phytomedicines for anxiety: A systematic review of preclinical and clinical evidence.",
-      "abstract": "Anxiety disorders are chronic and functionally disabling conditions with high psychological stress, characterised by cognitive symptoms of excessive worry and focus difficulties and physiological symptoms such as muscle tension and insomnia. Gamma-aminobutyric acid (GABA) is an inhibitory neurotransmitter within the central nervous system and is a key target of pharmacotherapies in the treatment of anxiety. Although current pharmaceutical treatments are often efficacious, they may cause undesirable side effects including cognitive decrements and withdrawal symptoms. Plant-based \"phytomedicines\" may provide novel treatment options, to act as an adjunctive or alternative to existing anxiolytic medications. As such, we conducted a systematic review to assess the current body of literature on anxiolytic phytomedicines and/or phytoconstituents. An open-ended search to 5 July 2017 was conducted using MEDLINE (PubMed), Scopus, and Cochrane library online databases and performed in a stepped format from preclinical to clinical investigations. Eligible studies must have had (a) in vitro evidence of GABA-modulating activity, (b) animal studies using anxiety models to test an anxiolytic effect, and (c) human clinical trials. Ten phytomedicines were identified as having preclinical investigations showing interaction with the GABA system, in addition to human clinical trials: kava, valerian, pennywort, hops, chamomile, Ginkgo biloba, passionflower, ashwagandha, skullcap, and lemon balm. Collectively, the literature reveals preclinical and clinical evidence for various phytomedicines modulating GABA-pathways, with comparative anxiolytic effect to the current array of pharmaceuticals, along with good safety and tolerability profiles.",
-      "doi": "10.1002/ptr.5940",
-      "journal": "Phytotherapy research : PTR",
-      "pub_date": "2018Jan",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "stress_anxiety",
-      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "GABA-modulating phytomedicines for anxiety: A systematic review of preclinical and clinical evidence.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7518
-    },
-    {
       "pmid": "28379882",
       "title": "Silexan in generalized anxiety disorder: investigation of the therapeutic dosage range in a pooled data set.",
       "abstract": "Silexan, a special active substance produced from Lavandula angustifolia, is efficacious in subsyndromal anxiety at a dose of 80 mg/day, but its effective dosage in generalized anxiety disorder (GAD) has yet to be defined. In two double-blind, placebo-controlled trials, daily doses of 10, 40, 80, and 160 mg silexan were administered for 10 weeks. A total of 925 adults with GAD according to Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria and a Hamilton Anxiety Scale (HAMA) total score of at least 18 points were analyzed for efficacy. We assessed the change versus baseline for the HAMA and the Covi Anxiety Scale, the Clinical Global Impressions scale, the Sheehan Disability Scale, and the SF-36 health status questionnaire using analysis of variance and covariance. Silexan 160 mg/day was superior to placebo for all efficacy outcomes investigated, with responder rates exceeding 60% on the basis of HAMA and Clinical Global Impressions criteria. For the 80 mg/day dosage, superiority over placebo could be shown in one trial as well as in the pooled analysis. The risk of adverse events under silexan was similar to placebo for all dosages investigated. In GAD silexan 160 mg/day is efficacious whereas 80 mg/day may represent the lower end of the therapeutic range. Daily doses up to 160 mg were well tolerated.",
@@ -412,7 +391,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7519
+      "wave": 7518
     },
     {
       "pmid": "30156654",
@@ -433,7 +412,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7520
+      "wave": 7519
     },
     {
       "pmid": "29547610",
@@ -455,7 +434,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7521
+      "wave": 7520
     },
     {
       "pmid": "26828002",
@@ -477,7 +456,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7522
+      "wave": 7521
     },
     {
       "pmid": "24782235",
@@ -498,7 +477,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7523
+      "wave": 7522
     },
     {
       "pmid": "30308973",
@@ -519,7 +498,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7524
+      "wave": 7523
     },
     {
       "pmid": "25828061",
@@ -542,7 +521,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7525
+      "wave": 7524
     },
     {
       "pmid": "28395396",
@@ -563,7 +542,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7526
+      "wave": 7525
     },
     {
       "pmid": "36966288",
@@ -584,7 +563,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7527
+      "wave": 7526
     },
     {
       "pmid": "31192834",
@@ -605,7 +584,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7528
+      "wave": 7527
     },
     {
       "pmid": "29508154",
@@ -626,7 +605,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7529
+      "wave": 7528
     },
     {
       "pmid": "20614803",
@@ -647,7 +626,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7530
+      "wave": 7529
     },
     {
       "pmid": "30320657",
@@ -668,7 +647,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7531
+      "wave": 7530
     },
     {
       "pmid": "29071755",
@@ -689,7 +668,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7532
+      "wave": 7531
     },
     {
       "pmid": "27575673",
@@ -711,28 +690,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7533
-    },
-    {
-      "pmid": "28917370",
-      "title": "Aromatherapies using Osmanthus fragrans oil and grapefruit oil are effective complementary treatments for anxious patients undergoing colonoscopy: A randomized controlled study.",
-      "abstract": "BACKGROUND AND AIMS: Colonoscopy can be painful and uncomfortable. Aromatherapy is often used for the relief of anxiety or discomfort. Recently, it has been reported that olfactory stimulation induces various physiological effects. We investigated the effects of aromatherapy on anxiety and abdominal discomfort during colonoscopy. METHODS: The investigation was carried out using a randomized controlled study. Aromatherapy was performed by vapor diffusion, and each patient was given one of the following treatments: no inhalation (control group), essential-oil-less vapor (vehicle group), lavender oil (lavender group), grapefruit oil (grapefruit group), or Osmanthus fragrans oil (Osmanthus fragrans group). Following total colonoscopy procedures, each patient estimated their anxiety and abdominal discomfort using the Numeric Rating Scale. RESULTS: Total colonoscopy was performed on 361 patients. No complications caused by colonoscopy or aromatherapy were experienced. In the Osmanthus fragrans group, anxiety was significantly attenuated. The abdominal discomfort of patients who reported strong anxiety during colonoscopy was significantly attenuated in the grapefruit group and the Osmanthus fragrans group. CONCLUSION: Aromatherapies using Osmanthus fragrans oil and grapefruit oil are effective complementary treatments for anxious patients undergoing colonoscopy.",
-      "doi": "10.1016/j.ctim.2017.08.012",
-      "journal": "Complementary therapies in medicine",
-      "pub_date": "2017Oct",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "stress_anxiety",
-      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Aromatherapies using Osmanthus fragrans oil and grapefruit oil are effective complementary treatments for anxious patients undergoing colonoscopy: A randomized controlled study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7534
+      "wave": 7532
     },
     {
       "pmid": "28526626",
@@ -754,7 +712,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7535
+      "wave": 7533
     },
     {
       "pmid": "34247027",
@@ -775,7 +733,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7536
+      "wave": 7534
     },
     {
       "pmid": "29433687",
@@ -796,7 +754,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7537
+      "wave": 7535
     },
     {
       "pmid": "29199999",
@@ -817,7 +775,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7538
+      "wave": 7536
     },
     {
       "pmid": "29458940",
@@ -838,7 +796,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7539
+      "wave": 7537
     },
     {
       "pmid": "30045422",
@@ -856,6 +814,50 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "The effects of Melissa officinalis (lemon balm) in chronic stable angina on serum biomarkers of oxidative stress, inflammation and lipid profile.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7538
+    },
+    {
+      "pmid": "22475718",
+      "title": "Phase II trial on the effects of Silexan in patients with neurasthenia, post-traumatic stress disorder or somatization disorder.",
+      "abstract": "Silexan, a novel lavender oil preparation for oral use, has been authorized in Germany for the treatment of states of restlessness during anxious mood. An open-label, exploratory trial was performed to assess the potential of the medicinal product in the treatment of restlessness caused by anxiety as related to several disorders. Outcome measures included the Symptom Checklist-90-Revised (SCL-90-R), von Zerssen's Depression Scale (D-S), the 36-item Short Form Health Survey Questionnaire (SF-36), and a sleep diary. 50 male and female patients with neurasthenia (ICD-10 F48.0), post-traumatic stress disorder (PSD; F43.1), or somatization disorder (F45.0, F45.1) were included to receive 1 × 80 mg/day Silexan over 6 weeks; 47 could be analyzed for efficacy as full analysis set. At baseline, patients suffered from restlessness (96%), depressed mood (98%), sleep disturbances (92%), or anxiety (72%). Of those, resp. 62%, resp. 57%, resp.51%, resp. 62% showed improvements during treatment (p < 0.001). For all patients, mean D-S score decreased by 32.7% and SCL-90-R Global Severity Index by 36.4% as compared to baseline, (p < 0.001), while the SF-36 Mental Health Score increased by 48.2% (p < 0.001). Waking-up frequency (p = 0.002), Waking-up duration (p < 0.001) and morning tiredness (p = 0.005) were reduced, while efficiency of sleep (p = 0.018) and mood (p = 0.03) improved. Patients suffering from neurasthenia or PSD showed comparable improvements with most outcomes. The results in this trial justify to further investigate Silexan in disorders with accompanying restlessness caused by sub-threshold anxiety. Adverse reactions, predominantly gastrointestinal complaints, were judged as mild or moderate.",
+      "doi": "10.1016/j.phymed.2012.02.020",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2012Jun15",
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "stress_anxiety",
+      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Phase II trial on the effects of Silexan in patients with neurasthenia, post-traumatic stress disorder or somatization disorder.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7539
+    },
+    {
+      "pmid": "22789792",
+      "title": "The effects of clinical aromatherapy for anxiety and depression in the high risk postpartum woman - a pilot study.",
+      "abstract": "OBJECTIVES: The aim of this study was to determine if aromatherapy improves anxiety and/or depression in the high risk postpartum woman and to provide a complementary therapy tool for healthcare practitioners. DESIGN: The pilot study was observational with repeated measures. SETTING: Private consultation room in a Women's center of a large Indianapolis hospital. SUBJECTS: 28 women, 0-18 months postpartum. INTERVENTIONS: The treatment groups were randomized to either the inhalation group or the aromatherapy hand m'technique. Treatment consisted of 15 min sessions, twice a week for four consecutive weeks. An essential oil blend of rose otto and lavandula angustifolia @ 2% dilution was used in all treatments. The non-randomized control group, comprised of volunteers, was instructed to avoid aromatherapy use during the 4 week study period. Allopathic medical treatment continued for all participants. OUTCOME MEASUREMENTS: All subjects completed the Edinburgh Postnatal Depression Scale (EPDS) and Generalized Anxiety Disorder Scale (GAD-7) at the beginning of the study. The scales were then repeated at the midway point (two weeks), and at the end of all treatments (four weeks). RESULTS: Analysis of Variance (ANOVA) was utilized to determine differences in EPDS and/or GAD-7 scores between the aromatherapy and control groups at baseline, midpoint and end of study. No significant differences were found between aromatherapy and control groups at baseline. The midpoint and final scores indicated that aromatherapy had significant improvements greater than the control group on both EPDS and GAD-7 scores. There were no adverse effects reported. CONCLUSION: The pilot study indicates positive findings with minimal risk for the use of aromatherapy as a complementary therapy in both anxiety and depression scales with the postpartum woman. Future large scale research in aromatherapy with this population is recommended.",
+      "doi": "10.1016/j.ctcp.2012.05.002",
+      "journal": "Complementary therapies in clinical practice",
+      "pub_date": "2012Aug",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "stress_anxiety",
+      "discovery_query": "(ashwagandha OR \"Withania somnifera\" OR \"Melissa officinalis\" OR \"lemon balm\" OR lavender OR saffron OR passiflora OR theanine) AND (anxiety OR stress)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The effects of clinical aromatherapy for anxiety and depression in the high risk postpartum woman - a pilot study.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -906,6 +908,27 @@
       "wave": 7542
     },
     {
+      "pmid": "33905827",
+      "title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
+      "abstract": "BACKGROUND: To evaluate the effect of Lavandula angustifolia essential oil inhalation on sleep and menopausal symptoms in postmenopausal women with insomnia. PARTICIPANTS: 35 postmenopausal women with a clinical diagnosis of insomnia were included, 17 in Aroma Group (AG) and 18 in Placebo Group (PG). METHODS: In this double-blind, randomized controlled trial, PG participants inhaled sunflower oil and AG participants inhaledLavandula angustifolia essential oil, for 29 days. Both groups received sleep hygiene guidelines before the intervention and weekly follow-up during it. Evaluations were performed before and after intervention. All statistical analyses and intention-to-treat test were performed in SPSS 22. Sleep quality (Primary outcome) was measured by Pittsburgh Sleep Quality Index. Secondary outcomes were polysomnography data, severity of insomnia, anxiety and depression symptoms, and postmenopausal symptoms. RESULTS: There were no significant differences between groups after intervention in the primary outcome (P = 0.22; effect size=0.69); however, a tendency of improvement in wake after sleep onset (WASO) was observed (P = 0.07; effect size=0.81; B = 42.2). Both groups presented better sleep quality over time (AG P < 0.001; PG P = 0.011). AG participants showed a significant decrease in sleep onset latency (P = 0.001), depression levels (P = 0.025), hot flashes (P < 0.001), postmenopausal symptoms (P < 0.001) and, in polysomnography data, increased sleep efficiency (P = 0.002) compared to baseline. CONCLUSION: Although no significant differences were observed between groups, our data presented a tendency of improvement in WASO. Moreover, AG participants had enhanced overall sleep pattern, quality and sleep efficiency. Weekly follow-up and sleep hygiene instructions were essential for both groups to show improvement in almost all outcomes. CLINICAL TRIAL REGISTRATION: Brazilian Registry of Clinical Trials, www.ensaiosclinicos.gov.br, RBR-5q5t5z.",
+      "doi": "10.1016/j.ctim.2021.102726",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2021Jun",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "sleep",
+      "discovery_query": "(magnesium OR melatonin OR valerian OR glycine OR chamomile OR lavender OR ashwagandha) AND (insomnia OR sleep)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7543
+    },
+    {
       "pmid": "24199972",
       "title": "Valerian/lemon balm use for sleep disorders during menopause.",
       "abstract": "UNLABELLED: The onset of Menopause in women is frequently associated with sleep disruption with hot flushes intensifying problems. Thus the use of supplementary drugs to ameliorate these symptoms is of significance. OBJECTIVES: The purpose of this research was to determine whether valerian/lemon balm could assist by enhancing sleep patterns in this client group. METHODS: 100 women aged 50-60 years who complained of sleep disorders were studied. Subjects were selected randomly in a sampling method utilizing two groups of 50 people (intervention group with valerian/lemon balm and placebo group). The Pittsburgh Sleep Quality Index (PSQI) was administered pre and post-intervention. RESULTS: A significant difference was observed with reduced levels of sleep disorders amongst the experimental group when compared to the placebo group. CONCLUSION: Valerian/lemon balm may assist in reducing symptoms of sleep disorder during the menopause.",
@@ -924,7 +947,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7543
+      "wave": 7544
     },
     {
       "pmid": "33561990",
@@ -945,7 +968,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7544
+      "wave": 7545
     },
     {
       "pmid": "22038497",
@@ -963,27 +986,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effect of tart cherry juice (Prunus cerasus) on melatonin levels and enhanced sleep quality.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7545
-    },
-    {
-      "pmid": "33905827",
-      "title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
-      "abstract": "BACKGROUND: To evaluate the effect of Lavandula angustifolia essential oil inhalation on sleep and menopausal symptoms in postmenopausal women with insomnia. PARTICIPANTS: 35 postmenopausal women with a clinical diagnosis of insomnia were included, 17 in Aroma Group (AG) and 18 in Placebo Group (PG). METHODS: In this double-blind, randomized controlled trial, PG participants inhaled sunflower oil and AG participants inhaledLavandula angustifolia essential oil, for 29 days. Both groups received sleep hygiene guidelines before the intervention and weekly follow-up during it. Evaluations were performed before and after intervention. All statistical analyses and intention-to-treat test were performed in SPSS 22. Sleep quality (Primary outcome) was measured by Pittsburgh Sleep Quality Index. Secondary outcomes were polysomnography data, severity of insomnia, anxiety and depression symptoms, and postmenopausal symptoms. RESULTS: There were no significant differences between groups after intervention in the primary outcome (P = 0.22; effect size=0.69); however, a tendency of improvement in wake after sleep onset (WASO) was observed (P = 0.07; effect size=0.81; B = 42.2). Both groups presented better sleep quality over time (AG P < 0.001; PG P = 0.011). AG participants showed a significant decrease in sleep onset latency (P = 0.001), depression levels (P = 0.025), hot flashes (P < 0.001), postmenopausal symptoms (P < 0.001) and, in polysomnography data, increased sleep efficiency (P = 0.002) compared to baseline. CONCLUSION: Although no significant differences were observed between groups, our data presented a tendency of improvement in WASO. Moreover, AG participants had enhanced overall sleep pattern, quality and sleep efficiency. Weekly follow-up and sleep hygiene instructions were essential for both groups to show improvement in almost all outcomes. CLINICAL TRIAL REGISTRATION: Brazilian Registry of Clinical Trials, www.ensaiosclinicos.gov.br, RBR-5q5t5z.",
-      "doi": "10.1016/j.ctim.2021.102726",
-      "journal": "Complementary therapies in medicine",
-      "pub_date": "2021Jun",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "sleep",
-      "discovery_query": "(magnesium OR melatonin OR valerian OR glycine OR chamomile OR lavender OR ashwagandha) AND (insomnia OR sleep)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Lavender essential oil on postmenopausal women with insomnia: Double-blind randomized trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,

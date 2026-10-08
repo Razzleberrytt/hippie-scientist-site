@@ -9,7 +9,7 @@
   "duplicate_pmids": 0,
   "duplicate_titles": 0,
   "duplicate_dois": 0,
-  "missing_dois": 15,
+  "missing_dois": 16,
   "category_counts": {
     "stress_anxiety": 40,
     "sleep": 40,
@@ -43,7 +43,7 @@
       "target": 40,
       "selected": 40,
       "esearch_ids": 1062,
-      "fetched": 567
+      "fetched": 605
     },
     {
       "category": "withdrawal_nps",
@@ -64,7 +64,7 @@
       "target": 20,
       "selected": 20,
       "esearch_ids": 1200,
-      "fetched": 34
+      "fetched": 36
     },
     {
       "category": "aging_sarcopenia",
@@ -78,14 +78,14 @@
       "target": 20,
       "selected": 20,
       "esearch_ids": 1200,
-      "fetched": 29
+      "fetched": 28
     },
     {
       "category": "micronutrients",
       "target": 35,
       "selected": 35,
       "esearch_ids": 1200,
-      "fetched": 76
+      "fetched": 77
     },
     {
       "category": "gut",
@@ -113,28 +113,28 @@
       "target": 30,
       "selected": 30,
       "esearch_ids": 1200,
-      "fetched": 54
+      "fetched": 53
     },
     {
       "category": "metabolic",
       "target": 25,
       "selected": 25,
       "esearch_ids": 1200,
-      "fetched": 54
+      "fetched": 52
     },
     {
       "category": "botanicals_mushrooms",
       "target": 30,
       "selected": 30,
       "esearch_ids": 826,
-      "fetched": 50
+      "fetched": 48
     },
     {
       "category": "safety_interactions",
       "target": 30,
       "selected": 30,
       "esearch_ids": 472,
-      "fetched": 326
+      "fetched": 289
     },
     {
       "category": "cannabinoid_safety",
@@ -155,13 +155,13 @@
       "target": 20,
       "selected": 20,
       "esearch_ids": 1200,
-      "fetched": 68
+      "fetched": 67
     }
   ],
-  "rejected_candidates": 1213,
+  "rejected_candidates": 1215,
   "rejection_reasons": {
-    "semantic_title_out_of_scope": 1177,
-    "off_domain_title": 29,
+    "semantic_title_out_of_scope": 1178,
+    "off_domain_title": 30,
     "missing_substantive_abstract_or_title": 4,
     "not_target_human_study_type": 1,
     "duplicate_identity": 2

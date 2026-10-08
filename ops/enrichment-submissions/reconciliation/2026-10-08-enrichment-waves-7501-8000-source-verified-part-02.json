@@ -461,27 +461,6 @@
       "wave": 7621
     },
     {
-      "pmid": "22554491",
-      "title": "Cholesterol metabolism differs after statin therapy according to the type of hyperlipemia.",
-      "abstract": "AIM: Non-cholesterol sterols reflect cholesterol metabolism. Statins reduce cholesterol synthesis usually with a rise in cholesterol absorption. Common hyperlipemias have shown different patterns of cholesterol metabolism. We evaluated whether cholesterol absorption and synthesis may differ after statin therapy in primary hyperlipemias. MAIN METHODS: We determined lipid profile, apoprotein B and serum sterols (lathosterol, sitosterol, campesterol by gas chromatography/mass spectrometry) before and after statins in 80 untreated hyperlipemic patients, 40 with polygenic hypercholesterolemia (PH) and 40 with familial combined hyperlipemia (FCH). KEY FINDINGS: At baseline in FCH lathosterol was significantly higher while campesterol and sitosterol were significantly lower than in PH. After statins, the reduction in LDL-C did not significantly differ between the two groups; in PH there was a significant decrease of lathosterol from 96.1 to 52.6 102 μmol/mmol cholesterol (p=0.0001) with no significant modifications in campesterol and sitosterol; on the opposite, in FCH lathosterol decreased from 117 to 43 102 μmol/mmol cholesterol (p=0.0001) and campesterol and sitosterol significantly increased from 38 to 48 102 μmol/mmol cholesterol (p=0.0001), and from 75 to 86 102 μmol/mmol cholesterol, (p=0.022), respectively. After statin therapy only in FCH Δ-LDL-C showed a significant inverse correlation with Δ-sitosterol and with Δ-campesterol. SIGNIFICANCE: Primary hyperlipemias show different patterns of response to statins: in PH LDL reduction appears completely \"synthesis inhibition\" dependent, while in FCH LDL decrease appears to be synthesis dependent, partially limited by absorption increase. Studying cholesterol metabolism before and after hypolipemic therapy might be useful in identifying the best tailored treatment.",
-      "doi": "10.1016/j.lfs.2012.03.038",
-      "journal": "Life sciences",
-      "pub_date": "2012Jun06",
-      "publication_types": [
-        "Controlled Clinical Trial",
-        "Journal Article"
-      ],
-      "category": "cardiometabolic",
-      "discovery_query": "(\"omega-3\" OR fish oil OR phytosterols OR berberine OR fiber OR magnesium OR flavonoids) AND (blood pressure OR cholesterol OR cardiovascular)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Cholesterol metabolism differs after statin therapy according to the type of hyperlipemia.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7622
-    },
-    {
       "pmid": "25773888",
       "title": "Lipidomic changes of LDL in overweight and moderately hypercholesterolemic subjects taking phytosterol- and omega-3-supplemented milk.",
       "abstract": "The benefits of dietary phytosterols (PhySs) and long-chain n-3 PUFA (ω3) have been linked to their effects as cholesterol- and triglyceride (TGL)-lowering agents. However, it remains unknown whether these compounds have further metabolic effects on LDL lipid composition. Here, we studied the effects of PhyS- or ω3-supplemented low-fat milk (milk) on the LDL-lipidome. Overweight and moderately hypercholesterolemic subjects (n = 32) were enrolled in a two-arm longitudinal crossover study. Milk (250 ml/day), enriched with either 1.57 g PhyS or 375 mg ω3 (EPA + DHA), was given to the participants during two sequential 28 day intervention periods. Compared with baseline, PhyS-milk induced a higher reduction in the LDL cholesterol (LDLc) level than ω3-milk. LDL resistance to oxidation was significantly increased after intervention with PhyS-milk. Changes in TGL and VLDL cholesterol were only evident after ω3-milk intake. Lipidomic analysis revealed a differential effect of the PhyS- and ω3-milk interventions on the LDL lipid metabolite pattern. Content in LDL-glycerophospholipids was reduced after PhyS-milk intake, with major changes in phosphatidylcholine (PC) and phosphatidylserine subclasses, whereas ω3-milk induced significant changes in the long-chain polyunsaturated cholesteryl esters and in the ratio PC36:5/lysoPC16:0, associated to a reduced inflammatory activity. In conclusion, daily intake of milk products containing PhyS or ω3 supplements induce changes in the LDL-lipidome that indicate reduced inflammatory and atherogenic effects, beyond their LDLc- and TGL-lowering effects.",
@@ -501,7 +480,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7623
+      "wave": 7622
     },
     {
       "pmid": "24061071",
@@ -522,7 +501,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7624
+      "wave": 7623
     },
     {
       "pmid": "20444957",
@@ -544,7 +523,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7625
+      "wave": 7624
     },
     {
       "pmid": "20884100",
@@ -566,7 +545,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7626
+      "wave": 7625
     },
     {
       "pmid": "21048770",
@@ -588,7 +567,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7627
+      "wave": 7626
     },
     {
       "pmid": "21489663",
@@ -610,7 +589,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7628
+      "wave": 7627
     },
     {
       "pmid": "27109860",
@@ -631,7 +610,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7629
+      "wave": 7628
     },
     {
       "pmid": "27602701",
@@ -654,29 +633,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7630
-    },
-    {
-      "pmid": "26817716",
-      "title": "Consumption of Fish Oil Providing Amounts of Eicosapentaenoic Acid and Docosahexaenoic Acid That Can Be Obtained from the Diet Reduces Blood Pressure in Adults with Systolic Hypertension: A Retrospective Analysis.",
-      "abstract": "BACKGROUND: Although many randomized controlled trials (RCTs) have examined the effects of the n-3 (ω-3) fatty acids eicosapentaenoic acid (EPA; 20:5n-3) and docosahexaenoic acid (DHA; 22:6n-3) on blood pressure (BP) and vascular function, the majority have used doses of EPA+DHA of >3 g/d, which are unlikely to be achieved by dietary manipulation. OBJECTIVE: The objective was to examine, by using a retrospective analysis from a multicenter RCT, the impact of recommended EPA+DHA intakes achievable through diet on systolic and diastolic BPs and microvascular function in adults in the United Kingdom. METHODS: In a double-blind, placebo-controlled RCT, healthy men and women (n = 312) consumed a control oil or fish oil (FO) providing 0.7 or 1.8 g EPA+DHA/d, in random order, each for 8 wk. Fasting BP and microvascular function (using laser Doppler iontophoresis) were assessed and plasma collected for the quantification of markers of vascular function. Participants were retrospectively genotyped for the endothelial nitric oxide synthase (eNOS) rs1799983 variant. RESULTS: No effects of n-3 fatty acid treatment or any treatment × eNOS genotype interactions were evident in the group as a whole for any of the clinical or biochemical outcomes. Assessment of response according to hypertension status at baseline indicated a significant (P = 0.046) FO-induced reduction (mean: 5 mm Hg) in systolic BP, specifically in those with isolated systolic hypertension (n = 31). No dose response was observed. CONCLUSIONS: These findings indicate that in adults with isolated systolic hypertension, daily doses of EPA+DHA as low as 0.7 g show clinically meaningful BP reductions, which, at a population level, could be associated with lower cardiovascular disease risk. Confirmation of findings in an RCT in which participants are prospectively recruited on the basis of BP status is required to draw definite conclusions.",
-      "doi": "10.3945/jn.115.220475",
-      "journal": "The Journal of nutrition",
-      "pub_date": "2016Mar",
-      "publication_types": [
-        "Journal Article",
-        "Multicenter Study",
-        "Randomized Controlled Trial"
-      ],
-      "category": "cardiometabolic",
-      "discovery_query": "(\"omega-3\" OR fish oil OR phytosterols OR berberine OR fiber OR magnesium OR flavonoids) AND (blood pressure OR cholesterol OR cardiovascular)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Consumption of Fish Oil Providing Amounts of Eicosapentaenoic Acid and Docosahexaenoic Acid That Can Be Obtained from the Diet Reduces Blood Pressure in Adults with Systolic Hypertension: A Retrospective Analysis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7631
+      "wave": 7629
     },
     {
       "pmid": "31491873",
@@ -697,7 +654,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7632
+      "wave": 7630
     },
     {
       "pmid": "22892323",
@@ -721,7 +678,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7633
+      "wave": 7631
     },
     {
       "pmid": "19748247",
@@ -743,7 +700,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7634
+      "wave": 7632
     },
     {
       "pmid": "32503160",
@@ -764,7 +721,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7635
+      "wave": 7633
     },
     {
       "pmid": "25759102",
@@ -786,7 +743,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7636
+      "wave": 7634
     },
     {
       "pmid": "31575059",
@@ -808,7 +765,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7637
+      "wave": 7635
     },
     {
       "pmid": "31136659",
@@ -830,7 +787,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7638
+      "wave": 7636
     },
     {
       "pmid": "34444711",
@@ -851,7 +808,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7639
+      "wave": 7637
     },
     {
       "pmid": "32611242",
@@ -873,28 +830,49 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7640
+      "wave": 7638
     },
     {
-      "pmid": "37462346",
-      "title": "Effects of dietary supplements on athletic performance in elite soccer players: a systematic review.",
-      "abstract": "Dietary supplements are widely used among athletes, and soccer players are no exception. Nevertheless, evidence supporting the use of dietary supplements aiming to enhance performance in soccer is somewhat contradictory, scarce, or even nonexistent. Thus, the present study aimed to systematically review and synthesize the effects of dietary supplements on athletic performance (e.g. distance covered, sprinting, jump performance) in elite soccer players. Studies enrolling highly trained, elite, and world-class soccer players using dietary supplements were searched in MEDLINE/PubMed, Web of Science, Scopus, and EBSCO databases in June 2022. In total, 1043 studies were identified, and 18 met the eligibility criteria. The studies evaluated the impacts on athletic performance of several dietary supplements, including caffeine, creatine, protein, beverages with carbohydrates and electrolytes, tart cherry juice, nitrate-rich beetroot juice, sodium bicarbonate with minerals, yohimbine, and a proprietary nutraceutical blend. Caffeine supplementation in doses between 3 and 6 mg/kg of body mass may improve jump height and sprint ability, particularly in female players, but individual response to caffeine must be considered. Creatine may improve sprint, agility, and in female players, jump performance. Protein supplementation can improve sprint and jump performance between matches, especially if protein ingested from food is not up to recommendations. Beverages containing carbohydrates and electrolytes can be used as part of the strategies to achieve carbohydrate intake during training and match-days but used alone do not benefit athletic performance. Tart cherry juice might be useful for maintaining athletic performance after matches that produce higher force loss and exercise-induced muscle damage, although polyphenols from the diet might attenuate the effects of tart cherry supplementation. Nitrate-rich beetroot concentrate can attenuate performance decrease in the days following matches. Further investigation with sodium bicarbonate alone is necessary, as supplementation protocols with elite players included other substances. Finally, the available data does not support yohimbine supplementation or the use of Resurgex Plus® to improve athletic performance in elite soccer players. Still, more well-designed research with elite soccer players is needed to improve support and advice regarding the use of dietary supplements for athletic performance enhancement.",
-      "doi": "10.1080/15502783.2023.2236060",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "pub_date": "2023Dec",
+      "pmid": "32438719",
+      "title": "Effect of a Combination of Citrus Flavones and Flavanones and Olive Polyphenols for the Reduction of Cardiovascular Disease Risk: An Exploratory Randomized, Double-Blind, Placebo-Controlled Study in Healthy Subjects.",
+      "abstract": "A single-center, randomized, double-blind controlled trial was conducted to assess the efficacy of a food supplement based on a combination of grapefruit, bitter orange, and olive extracts administered for eight weeks (n = 51) versus placebo (n = 45) on reduction of cardiovascular risk in healthy volunteers. Study variables included flow-mediated vasodilation (FMD), blood pressure (BP), lipid profile, thrombotic status, oxidative stress biomarkers, inflammation-related biomarkers, anthropometric variables, quality of life, and physical activity. The per-protocol data set was analyzed. In the active product group, there were statistically significant within-group differences at eight weeks as compared with baseline in FMD, systolic and diastolic BP, total cholesterol, LDL-C, LDL-oxidase, oxidized/reduced glutathione ratio, protein carbonyl, and IL-6. Significant between-group differences in these variables were also found. Significant changes in anthropometric variables and quality of life were not observed in the study groups. Changes in the level of physical activity were not recorded. Treatment with the active product was well tolerated. All these findings, taken together, support a beneficial effect of supplementation with a mixture of grapefruit, bitter orange fruits, and olive leaf extracts on underlying mechanisms that may interact each other to decrease the cardiovascular risk in healthy people.",
+      "doi": "10.3390/nu12051475",
+      "journal": "Nutrients",
+      "pub_date": "2020May19",
       "publication_types": [
-        "Systematic Review",
-        "Journal Article"
+        "Journal Article",
+        "Randomized Controlled Trial"
       ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "category": "cardiometabolic",
+      "discovery_query": "(\"omega-3\" OR fish oil OR phytosterols OR berberine OR fiber OR magnesium OR flavonoids) AND (blood pressure OR cholesterol OR cardiovascular)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Effects of dietary supplements on athletic performance in elite soccer players: a systematic review.",
+      "verified_title": "Effect of a Combination of Citrus Flavones and Flavanones and Olive Polyphenols for the Reduction of Cardiovascular Disease Risk: An Exploratory Randomized, Double-Blind, Placebo-Controlled Study in Healthy Subjects.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7641
+      "wave": 7639
+    },
+    {
+      "pmid": "26761031",
+      "title": "Systematic Review of Anthocyanins and Markers of Cardiovascular Disease.",
+      "abstract": "Anthocyanins are dietary flavonoids commonly consumed in the diet, which have been suggested to have a preventative effect on cardiovascular disease (CVD) development among epidemiological studies. We systematically reviewed randomized controlled trials (RCTs) testing the effects of purified anthocyanins and anthocyanin-rich extracts on markers of CVD (triglycerides, total cholesterol, low-density lipoprotein (LDL) cholesterol, high-density lipoprotein (HDL) cholesterol, and blood pressure) in both healthy and diseased populations. Eligible studies included RCTs of adults published in English. We searched PubMed, Web of Science Core Collection, and BIOSIS Previews for relevant articles from inception until 1 July 2014. Twelve RCTs representing 10 studies were included in this review. Supplementation with anthocyanins significantly improved LDL cholesterol among diseased individuals or those with elevated biomarkers. Supplementation did not significantly affect other markers of CVD in either healthy individuals or those with elevated markers. No adverse effects of anthocyanins were reported across studies at levels up to 640 mg/day. Limitations of trials in the qualitative analyses include short trial duration and large variability in the dose administered within the trials. Longer-duration trials assessing dose response are needed to adequately determine whether an effect of supplementation exists.",
+      "doi": "10.3390/nu8010032",
+      "journal": "Nutrients",
+      "pub_date": "2016Jan09",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "cardiometabolic",
+      "discovery_query": "(\"omega-3\" OR fish oil OR phytosterols OR berberine OR fiber OR magnesium OR flavonoids) AND (blood pressure OR cholesterol OR cardiovascular)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Systematic Review of Anthocyanins and Markers of Cardiovascular Disease.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7640
     },
     {
       "pmid": "37432300",
@@ -916,7 +894,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7642
+      "wave": 7641
     },
     {
       "pmid": "39519498",
@@ -938,25 +916,46 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7643
+      "wave": 7642
     },
     {
-      "pmid": "39972597",
-      "title": "Effects of different dietary supplements on athletic performance in soccer players: a systematic review and network meta-analysis.",
-      "abstract": "BACKGROUND: As dietary supplements play a crucial role in meeting the unique nutritional needs of soccer players, a growing body of studies are exploring the effects of dietary supplements on athletic performance in soccer players. The effectiveness of certain supplements, such as caffeine and creatine, remains debated due to inconsistent results across studies. Therefore, this systematic review and Bayesian network meta-analysis was conducted to tentatively identify the most effective dietary supplements for soccer players. METHODS: We searched PubMed, Web of Science, Cochrane, Embase, and SPORTDiscus from database establishment to 5 February 2024 to identify randomized controlled trials (RCTs) evaluating the effects of different dietary supplements on athletic performance in soccer players. The risk of bias was assessed using the revised Cochrane risk-of-bias tool for randomized trials. A Bayesian network meta-analysis was performed using the R software and Stata 18.0. A subgroup analysis was conducted based on the competitive level of the athletes. RESULTS: Eighty RCTs were included, with 1,425 soccer players randomly receiving 31 different dietary supplements or placebo. The network meta-analysis showed that compared with placebo, carbohydrate + protein (SMD: 2.2, very large), carbohydrate + electrolyte (SMD: 1.3, large), bovine colostrum (SMD: moderate) and caffeine (SMD: 0.29, small) were associated with a significant effect on increasing the distance covered. Kaempferia parviflora (SMD: 0.46, small) was associated with a significant effect on enhancing muscular strength. Beta-alanine (SMD: 0.83, moderate), melatonin (SMD: 0.75, moderate), caffeine (SMD: 0.37, small), and creatine (SMD: 0.33, small) were associated with a significant effect on enhancing jump height. Magnesium creatine chelate (SMD: -3.0, very large), melatonin (SMD: -1.9, large), creatine + sodium bicarbonate (SMD: -1.4, large), and arginine (SMD: -1.2, moderate) were associated with a significant effect on decreasing sprint time. Creatine + sodium bicarbonate (SMD: -2.3, very large) and caffeine (SMD: -0.38, small) were associated with a significant effect on improving agility. Sodium pyruvate (SMD: 0.50, small) was associated with a significant effect on increasing peak power. Magnesium creatine chelate (SMD: 1.3, large) and sodium pyruvate (SMD: 0.56, small) were associated with a significant effect on increasing mean power. Carbohydrate + electrolyte (SMD: -0.56, small) was associated with a significant effect on improving the rating of perceived exertion. CONCLUSIONS: This study suggests that a range of dietary supplements, including caffeine, creatine, creatine + sodium bicarbonate, magnesium creatine chelate, carbohydrate + electrolyte, carbohydrate + protein, arginine, beta-alanine, bovine colostrum, Kaempferia parviflora, melatonin, and sodium pyruvate, can improve athletic performance in soccer players. This review provides evidence-based guidance for soccer coaches and nutritionists on using dietary supplements to enhance specific performance measures.",
-      "doi": "10.1080/15502783.2025.2467890",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "pub_date": "2025Dec",
+      "pmid": "39074168",
+      "title": "The Effect of Creatine Supplementation on Resistance Training-Based Changes to Body Composition: A Systematic Review and Meta-analysis.",
+      "abstract": "Desai, I, Wewege, MA, Jones, MD, Clifford, BK, Pandit, A, Kaakoush, NO, Simar, D, and Hagstrom, AD. The effect of creatine supplementation on resistance training-based changes to body composition: A systematic review and meta-analysis. J Strength Cond Res 38(10): 1813-1821, 2024-The purpose of this review was to determine the added effect of creatine supplementation on changes in body composition with resistance training in adults younger than 50 years. The review protocol was preregistered on the Open Science Framework (osf.io/x48a6/). Our primary outcome was lean body mass (LBM); secondary outcomes were body fat percentage (%) and body fat mass (kg). We performed a random-effects meta-analysis in R using the metafor package. Subgroup analyses were conducted to examine the effects of training status and use of a carbohydrate drink with creatine. We conducted a meta-regression to examine the moderating effect of total training volume. Statistical significance was set at p < 0.05. One thousand six hundred ninety-four records were screened, and 67 full-text articles were assessed for eligibility. Twelve studies were included in the meta-analysis. Fifty-two percentages of the studies had low risk, 41% some concerns, and 7% high risk of bias. Compared with resistance training (RT) alone, creatine supplementation increased LBM by 1.14 kg (95% CI 0.69 to 1.59), and reduced body fat percentage by -0.88% (95% CI -1.66 to -0.11) and body fat mass by -0.73 kg (95% CI -1.34 to -0.11). There were no differences between training status or carbohydrate subgroups. Training volume was not associated with effect size in all outcomes; 7 g or 0.3 g/kg of body mass of creatine per day is likely to increase LBM by 1 kg and reduce fat mass by 0.7 kg more than RT alone. Concurrent carbohydrate ingestion did not enhance the hypertrophy benefits of creatine.",
+      "doi": "10.1519/jsc.0000000000004862",
+      "journal": "Journal of strength and conditioning research",
+      "pub_date": "2024Oct01",
       "publication_types": [
         "Journal Article",
         "Systematic Review",
-        "Network Meta-Analysis"
+        "Meta-Analysis"
       ],
       "category": "performance",
       "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Effects of different dietary supplements on athletic performance in soccer players: a systematic review and network meta-analysis.",
+      "verified_title": "The Effect of Creatine Supplementation on Resistance Training-Based Changes to Body Composition: A Systematic Review and Meta-analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7643
+    },
+    {
+      "pmid": "37462346",
+      "title": "Effects of dietary supplements on athletic performance in elite soccer players: a systematic review.",
+      "abstract": "Dietary supplements are widely used among athletes, and soccer players are no exception. Nevertheless, evidence supporting the use of dietary supplements aiming to enhance performance in soccer is somewhat contradictory, scarce, or even nonexistent. Thus, the present study aimed to systematically review and synthesize the effects of dietary supplements on athletic performance (e.g. distance covered, sprinting, jump performance) in elite soccer players. Studies enrolling highly trained, elite, and world-class soccer players using dietary supplements were searched in MEDLINE/PubMed, Web of Science, Scopus, and EBSCO databases in June 2022. In total, 1043 studies were identified, and 18 met the eligibility criteria. The studies evaluated the impacts on athletic performance of several dietary supplements, including caffeine, creatine, protein, beverages with carbohydrates and electrolytes, tart cherry juice, nitrate-rich beetroot juice, sodium bicarbonate with minerals, yohimbine, and a proprietary nutraceutical blend. Caffeine supplementation in doses between 3 and 6 mg/kg of body mass may improve jump height and sprint ability, particularly in female players, but individual response to caffeine must be considered. Creatine may improve sprint, agility, and in female players, jump performance. Protein supplementation can improve sprint and jump performance between matches, especially if protein ingested from food is not up to recommendations. Beverages containing carbohydrates and electrolytes can be used as part of the strategies to achieve carbohydrate intake during training and match-days but used alone do not benefit athletic performance. Tart cherry juice might be useful for maintaining athletic performance after matches that produce higher force loss and exercise-induced muscle damage, although polyphenols from the diet might attenuate the effects of tart cherry supplementation. Nitrate-rich beetroot concentrate can attenuate performance decrease in the days following matches. Further investigation with sodium bicarbonate alone is necessary, as supplementation protocols with elite players included other substances. Finally, the available data does not support yohimbine supplementation or the use of Resurgex Plus® to improve athletic performance in elite soccer players. Still, more well-designed research with elite soccer players is needed to improve support and advice regarding the use of dietary supplements for athletic performance enhancement.",
+      "doi": "10.1080/15502783.2023.2236060",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2023Dec",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of dietary supplements on athletic performance in elite soccer players: a systematic review.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -985,47 +984,26 @@
       "wave": 7645
     },
     {
-      "pmid": "32599716",
-      "title": "Effects of Creatine Supplementation during Resistance Training Sessions in Physically Active Young Adults.",
-      "abstract": "The purpose was to examine the effects of creatine supplementation during resistance training sessions on skeletal muscle mass and exercise performance in physically active young adults. Twenty-two participants were randomized to supplement with creatine (CR: n = 13, 26 ± 4 yrs; 0.0055 g·kg-1 post training set) or placebo (PLA: n = 9, 26 ± 5 yrs; 0.0055 g·kg-1 post training set) during six weeks of resistance training (18 sets per training session; five days per week). Prior to and following training and supplementation, measurements were made for muscle thickness (elbow and knee flexors/extensors, ankle plantarflexors), power (vertical jump and medicine ball throw), strength (leg press and chest press one-repetition maximum (1-RM)) and muscular endurance (one set of repetitions to volitional fatigue using 50% baseline 1-RM for leg press and chest press). The creatine group experienced a significant increase (p < 0.05) in leg press, chest press and total body strength and leg press endurance with no significant changes in the PLA group. Both groups improved total body endurance over time (p < 0.05), with greater gains observed in the creatine group. In conclusion, creatine ingestion during resistance training sessions is a viable strategy for improving muscle strength and some indices of muscle endurance in physically active young adults.",
-      "doi": "10.3390/nu12061880",
+      "pmid": "36615738",
+      "title": "Ergogenic Aids to Improve Physical Performance in Female Athletes: A Systematic Review with Meta-Analysis.",
+      "abstract": "Most intervention studies investigating the effects of ergogenic aids (EAs) on sports performance have been carried out in the male population. Thus, the aim of this systematic review and meta-analysis was to summarize the effects in the existing literature of EAs used by female athletes on performance. A literature research was conducted, and a descriptive analysis of the articles included in the systematic review was carried out. Meta-analyses could be performed on 32 of the included articles, evaluating performance in strength, sprint, and cardiovascular capacity. A random-effects model and the standardized mean differences (SMD) ± 95% confidence intervals (CI) were reported. The results showed that caffeine helped to improve jumping performance, isometric strength values, and the number of repetitions until failure. Caffeine and sodium phosphate helped to improve sprint performance. Aerobic tests could be improved with the use of taurine, caffeine, and beta-alanine. No conclusive effects of beetroot juice, polyphenols, or creatine in improving aerobic performance were shown. In terms of anaerobic variables, both caffeine and sodium phosphate could help to improve repeated sprint ability. More studies are needed in female athletes that measure the effects of different EAs on sports performance, such as beetroot juice, beta-alanine or sodium phosphate, as the studies to date are scarce and there are many types of EA that need to be further considered in this population, such as creatine and taurine.",
+      "doi": "10.3390/nu15010081",
       "journal": "Nutrients",
-      "pub_date": "2020Jun24",
+      "pub_date": "2022Dec24",
       "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article"
       ],
       "category": "performance",
       "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Effects of Creatine Supplementation during Resistance Training Sessions in Physically Active Young Adults.",
+      "verified_title": "Ergogenic Aids to Improve Physical Performance in Female Athletes: A Systematic Review with Meta-Analysis.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
       "wave": 7646
-    },
-    {
-      "pmid": "39074168",
-      "title": "The Effect of Creatine Supplementation on Resistance Training-Based Changes to Body Composition: A Systematic Review and Meta-analysis.",
-      "abstract": "Desai, I, Wewege, MA, Jones, MD, Clifford, BK, Pandit, A, Kaakoush, NO, Simar, D, and Hagstrom, AD. The effect of creatine supplementation on resistance training-based changes to body composition: A systematic review and meta-analysis. J Strength Cond Res 38(10): 1813-1821, 2024-The purpose of this review was to determine the added effect of creatine supplementation on changes in body composition with resistance training in adults younger than 50 years. The review protocol was preregistered on the Open Science Framework (osf.io/x48a6/). Our primary outcome was lean body mass (LBM); secondary outcomes were body fat percentage (%) and body fat mass (kg). We performed a random-effects meta-analysis in R using the metafor package. Subgroup analyses were conducted to examine the effects of training status and use of a carbohydrate drink with creatine. We conducted a meta-regression to examine the moderating effect of total training volume. Statistical significance was set at p < 0.05. One thousand six hundred ninety-four records were screened, and 67 full-text articles were assessed for eligibility. Twelve studies were included in the meta-analysis. Fifty-two percentages of the studies had low risk, 41% some concerns, and 7% high risk of bias. Compared with resistance training (RT) alone, creatine supplementation increased LBM by 1.14 kg (95% CI 0.69 to 1.59), and reduced body fat percentage by -0.88% (95% CI -1.66 to -0.11) and body fat mass by -0.73 kg (95% CI -1.34 to -0.11). There were no differences between training status or carbohydrate subgroups. Training volume was not associated with effect size in all outcomes; 7 g or 0.3 g/kg of body mass of creatine per day is likely to increase LBM by 1 kg and reduce fat mass by 0.7 kg more than RT alone. Concurrent carbohydrate ingestion did not enhance the hypertrophy benefits of creatine.",
-      "doi": "10.1519/jsc.0000000000004862",
-      "journal": "Journal of strength and conditioning research",
-      "pub_date": "2024Oct01",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review",
-        "Meta-Analysis"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The Effect of Creatine Supplementation on Resistance Training-Based Changes to Body Composition: A Systematic Review and Meta-analysis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7647
     },
     {
       "pmid": "34199420",
@@ -1047,7 +1025,91 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
+      "wave": 7647
+    },
+    {
+      "pmid": "32599716",
+      "title": "Effects of Creatine Supplementation during Resistance Training Sessions in Physically Active Young Adults.",
+      "abstract": "The purpose was to examine the effects of creatine supplementation during resistance training sessions on skeletal muscle mass and exercise performance in physically active young adults. Twenty-two participants were randomized to supplement with creatine (CR: n = 13, 26 ± 4 yrs; 0.0055 g·kg-1 post training set) or placebo (PLA: n = 9, 26 ± 5 yrs; 0.0055 g·kg-1 post training set) during six weeks of resistance training (18 sets per training session; five days per week). Prior to and following training and supplementation, measurements were made for muscle thickness (elbow and knee flexors/extensors, ankle plantarflexors), power (vertical jump and medicine ball throw), strength (leg press and chest press one-repetition maximum (1-RM)) and muscular endurance (one set of repetitions to volitional fatigue using 50% baseline 1-RM for leg press and chest press). The creatine group experienced a significant increase (p < 0.05) in leg press, chest press and total body strength and leg press endurance with no significant changes in the PLA group. Both groups improved total body endurance over time (p < 0.05), with greater gains observed in the creatine group. In conclusion, creatine ingestion during resistance training sessions is a viable strategy for improving muscle strength and some indices of muscle endurance in physically active young adults.",
+      "doi": "10.3390/nu12061880",
+      "journal": "Nutrients",
+      "pub_date": "2020Jun24",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of Creatine Supplementation during Resistance Training Sessions in Physically Active Young Adults.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
       "wave": 7648
+    },
+    {
+      "pmid": "30400221",
+      "title": "Effects of 4-Week Creatine Supplementation Combined with Complex Training on Muscle Damage and Sport Performance.",
+      "abstract": "Creatine supplementation has an ergogenic effect in an acute complex training bout, but the benefits of chronic creatine supplementation during long-term complex training remain unknown. The study aimed to evaluate the effects of 4-week complex training combined with creatine supplementation on sport performances and muscle damage biomarkers. Thirty explosive athletes were assigned to the creatine or placebo group, which consumed 20 g of creatine or carboxymethyl cellulose, respectively, per day for 6 days followed by 2 g of the supplements until the end of the study. After 6 days of supplementation, subjects performed tests of one repetition maximum (1-RM) strength of half squat and complex training bouts to determine the optimal individual post-activation potentiation time. Thereafter, all subjects performed a complex training programme consisting of six sets of 5-RM half squats and plyometric jumps 3 times per week for 4 weeks. Body composition, 30-m sprint and jump performances were assessed before and after the training period. Moreover, blood creatine kinase (CK) activity was analysed at the first and the last training bout. After the training, the 1-RM strength in the creatine group was significantly greater than in the placebo group (p < 0.05). CK activity after the complex training bout in the creatine group was significantly reduced compared with the placebo group (p < 0.05). No differences were noted for other variables. This study concluded that creatine supplementation combined with complex training improved maximal muscular strength and reduced muscle damage during training.",
+      "doi": "10.3390/nu10111640",
+      "journal": "Nutrients",
+      "pub_date": "2018Nov02",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of 4-Week Creatine Supplementation Combined with Complex Training on Muscle Damage and Sport Performance.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7649
+    },
+    {
+      "pmid": "32597619",
+      "title": "Creatine supplementation improves performance, but is it safe? Double-blind placebo-controlled study.",
+      "abstract": "BACKGROUND: Creatine represents a natural supplement and ergogenic aid for sport performance, but there are several concerns regarding its safety for health. The present double-blind placebo-controlled study evaluated the effect of creatine monohydrate supplementation on a panel of blood and urine health indicators in resistance training practitioners. METHODS: Eighteen males performing resistance training three times per week were supplemented with 0.3 g/kg per day creatine monohydrate for 7 days and compared with matched controls supplemented with dextrosol. Blood and urine samples were collected pre- and 30 days post-supplementation to evaluate 41 biochemical parameters and renal function. RESULTS: Creatine monohydrate supplementation did not cause adverse events and, as expected, promoted an increase of the performance and body weight. No modification of red blood cells parameters, white blood cells profile, blood lipid profile, metabolic and urine markers, hepatic and renal function were observed in the supplemented group. CONCLUSIONS: Despite the expected weight increase, the creatine monohydrate supplementation is safe for health and no detrimental effects on different organs and physiological systems were observed in our cohort of volunteers.",
+      "doi": "10.23736/s0022-4707.20.10437-7",
+      "journal": "The Journal of sports medicine and physical fitness",
+      "pub_date": "2020Jul",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Creatine supplementation improves performance, but is it safe? Double-blind placebo-controlled study.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7650
+    },
+    {
+      "pmid": "22270875",
+      "title": "Effects of β-alanine supplementation on exercise performance: a meta-analysis.",
+      "abstract": "Due to the well-defined role of β-alanine as a substrate of carnosine (a major contributor to H+ buffering during high-intensity exercise), β-alanine is fast becoming a popular ergogenic aid to sports performance. There have been several recent qualitative review articles published on the topic, and here we present a preliminary quantitative review of the literature through a meta-analysis. A comprehensive search of the literature was employed to identify all studies suitable for inclusion in the analysis; strict exclusion criteria were also applied. Fifteen published manuscripts were included in the analysis, which reported the results of 57 measures within 23 exercise tests, using 18 supplementation regimes and a total of 360 participants [174, β-alanine supplementation group (BA) and 186, placebo supplementation group (Pla)]. BA improved (P=0.002) the outcome of exercise measures to a greater extent than Pla [median effect size (IQR): BA 0.374 (0.140-0.747), Pla 0.108 (-0.019 to 0.487)]. Some of that effect might be explained by the improvement (P=0.013) in exercise capacity with BA compared to Pla; no improvement was seen for exercise performance (P=0.204). In line with the purported mechanisms for an ergogenic effect of β-alanine supplementation, exercise lasting 60-240 s was improved (P=0.001) in BA compared to Pla, as was exercise of >240 s (P=0.046). In contrast, there was no benefit of β-alanine on exercise lasting <60 s (P=0.312). The median effect of β-alanine supplementation is a 2.85% (-0.37 to 10.49%) improvement in the outcome of an exercise measure, when a median total of 179 g of β-alanine is supplemented.",
+      "doi": "10.1007/s00726-011-1200-z",
+      "journal": "Amino acids",
+      "pub_date": "2012Jul",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of β-alanine supplementation on exercise performance: a meta-analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7651
     },
     {
       "pmid": "24576864",
@@ -1069,37 +1131,15 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7649
+      "wave": 7652
     },
     {
-      "pmid": "32483625",
-      "title": "Nutritional interventions to improve muscle mass, muscle strength, and physical performance in older people: an umbrella review of systematic reviews and meta-analyses.",
-      "abstract": "CONTEXT: Sarcopenia is a progressive and generalized skeletal muscle disorder associated with an increased risk of adverse outcomes such as falls, disability, and death. The Belgian Society of Gerontology and Geriatrics has developed evidence-based guidelines for the prevention and treatment of sarcopenia. This umbrella review presents the results of the Working Group on Nutritional Interventions. OBJECTIVE: The aim of this umbrella review was to provide an evidence-based overview of nutritional interventions targeting sarcopenia or at least 1 of the 3 sarcopenia criteria (ie, muscle mass, muscle strength, or physical performance) in persons aged ≥ 65 years. DATA SOURCES: Following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines, the PubMed and Web of Science databases were searched for systematic reviews and meta-analyses reporting the effect of nutritional supplementation on sarcopenia or muscle mass, strength, or physical performance. DATA EXTRACTION: Two authors extracted data on the key characteristics of the reviews, including participants, treatment, and outcomes. Methodological quality of the reviews was assessed using the product A Measurement Tool to Assess Systematic Reviews. Three authors synthesized the extracted data and generated recommendations on the basis of an overall synthesis of the effects of each intervention. Quality of evidence was rated with the Grading of Recommendations Assessment, Development and Evaluation approach. DATA ANALYSIS: A total of 15 systematic reviews were included. The following supplements were examined: proteins, essential amino acids, leucine, β-hydroxy-β-methylbutyrate, creatine, and multinutrient supplementation (with or without physical exercise). Because of both the low amount and the low to moderate quality of the reviews, the level of evidence supporting most recommendations was low to moderate. CONCLUSIONS: Best evidence is available to recommend leucine, because it has a significant effect on muscle mass in elderly people with sarcopenia. Protein supplementation on top of resistance training is recommended to increase muscle mass and strength, in particular for obese persons and for ≥ 24 weeks. Effects on sarcopenia as a construct were not reported in the included reviews.",
-      "doi": "10.1093/nutrit/nuaa011",
-      "journal": "Nutrition reviews",
-      "pub_date": "2021Jan09",
-      "publication_types": [
-        "Journal Article",
-        "Meta-Analysis",
-        "Systematic Review"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Nutritional interventions to improve muscle mass, muscle strength, and physical performance in older people: an umbrella review of systematic reviews and meta-analyses.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7650
-    },
-    {
-      "pmid": "30400221",
-      "title": "Effects of 4-Week Creatine Supplementation Combined with Complex Training on Muscle Damage and Sport Performance.",
-      "abstract": "Creatine supplementation has an ergogenic effect in an acute complex training bout, but the benefits of chronic creatine supplementation during long-term complex training remain unknown. The study aimed to evaluate the effects of 4-week complex training combined with creatine supplementation on sport performances and muscle damage biomarkers. Thirty explosive athletes were assigned to the creatine or placebo group, which consumed 20 g of creatine or carboxymethyl cellulose, respectively, per day for 6 days followed by 2 g of the supplements until the end of the study. After 6 days of supplementation, subjects performed tests of one repetition maximum (1-RM) strength of half squat and complex training bouts to determine the optimal individual post-activation potentiation time. Thereafter, all subjects performed a complex training programme consisting of six sets of 5-RM half squats and plyometric jumps 3 times per week for 4 weeks. Body composition, 30-m sprint and jump performances were assessed before and after the training period. Moreover, blood creatine kinase (CK) activity was analysed at the first and the last training bout. After the training, the 1-RM strength in the creatine group was significantly greater than in the placebo group (p < 0.05). CK activity after the complex training bout in the creatine group was significantly reduced compared with the placebo group (p < 0.05). No differences were noted for other variables. This study concluded that creatine supplementation combined with complex training improved maximal muscular strength and reduced muscle damage during training.",
-      "doi": "10.3390/nu10111640",
-      "journal": "Nutrients",
-      "pub_date": "2018Nov02",
+      "pmid": "39246027",
+      "title": "Caffeine, but not paracetamol (acetaminophen), enhances muscular endurance, strength, and power.",
+      "abstract": "BACKGROUND: Caffeine is one of the most popular ergogenic aids consumed by athletes. Caffeine's ergogenic effect has been generally explained by its ability to bind to adenosine receptors, thus modulating pain and reducing perceived exertion. Another pharmacological agent that may improve performance due to its analgesic proprieties is paracetamol. This study aimed to explore the effects of caffeine, paracetamol, and caffeine + paracetamol consumption on muscular endurance, strength, power, anaerobic endurance, and jumping performance. METHODS: In this randomized, crossover, double-blind study, 29 resistance-trained participants (11 men and 18 women) ingested either a placebo, caffeine (3 mg/kg), paracetamol (1500 mg) or caffeine + paracetamol 45 min before the testing sessions. The testing sessions included performing the bench press exercise with 75% of one-repetition maximum to momentary muscular failure, isokinetic knee extension and flexion at angular velocities of 60°/sec and 180°/sec, Wingate, and countermovement jump (CMJ) tests. RESULTS: Compared to placebo, isolated caffeine ingestion increased the number of repetitions performed in the bench press (p = 0.005; d = 0.42). Compared to placebo, isolated caffeine ingestion and/or caffeine + paracetamol consumption was ergogenic for strength (torque), muscular endurance (total work), or power in the isokinetic assessment, particularly at slower angular velocities (p = 0.027 to 0.002; d = 0.16 to 0.26). No significant differences between the conditions were observed for outcomes related to the Wingate and CMJ tests. CONCLUSION: This study provided novel evidence into the effectiveness of caffeine, paracetamol, and their combination on exercise performance. We found improvements in muscular endurance, strength, or power only when caffeine was consumed in isolation, or in combination with paracetamol. Isolated paracetamol consumption did not improve performance for any of the analyzed outcomes, thus calling into question its ergogenic potential.",
+      "doi": "10.1080/15502783.2024.2400513",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2024Dec",
       "publication_types": [
         "Journal Article",
         "Randomized Controlled Trial"
@@ -1108,11 +1148,11 @@
       "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Effects of 4-Week Creatine Supplementation Combined with Complex Training on Muscle Damage and Sport Performance.",
+      "verified_title": "Caffeine, but not paracetamol (acetaminophen), enhances muscular endurance, strength, and power.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7651
+      "wave": 7653
     },
     {
       "pmid": "25993883",
@@ -1134,92 +1174,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7652
-    },
-    {
-      "pmid": "32597619",
-      "title": "Creatine supplementation improves performance, but is it safe? Double-blind placebo-controlled study.",
-      "abstract": "BACKGROUND: Creatine represents a natural supplement and ergogenic aid for sport performance, but there are several concerns regarding its safety for health. The present double-blind placebo-controlled study evaluated the effect of creatine monohydrate supplementation on a panel of blood and urine health indicators in resistance training practitioners. METHODS: Eighteen males performing resistance training three times per week were supplemented with 0.3 g/kg per day creatine monohydrate for 7 days and compared with matched controls supplemented with dextrosol. Blood and urine samples were collected pre- and 30 days post-supplementation to evaluate 41 biochemical parameters and renal function. RESULTS: Creatine monohydrate supplementation did not cause adverse events and, as expected, promoted an increase of the performance and body weight. No modification of red blood cells parameters, white blood cells profile, blood lipid profile, metabolic and urine markers, hepatic and renal function were observed in the supplemented group. CONCLUSIONS: Despite the expected weight increase, the creatine monohydrate supplementation is safe for health and no detrimental effects on different organs and physiological systems were observed in our cohort of volunteers.",
-      "doi": "10.23736/s0022-4707.20.10437-7",
-      "journal": "The Journal of sports medicine and physical fitness",
-      "pub_date": "2020Jul",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Creatine supplementation improves performance, but is it safe? Double-blind placebo-controlled study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7653
-    },
-    {
-      "pmid": "22270875",
-      "title": "Effects of β-alanine supplementation on exercise performance: a meta-analysis.",
-      "abstract": "Due to the well-defined role of β-alanine as a substrate of carnosine (a major contributor to H+ buffering during high-intensity exercise), β-alanine is fast becoming a popular ergogenic aid to sports performance. There have been several recent qualitative review articles published on the topic, and here we present a preliminary quantitative review of the literature through a meta-analysis. A comprehensive search of the literature was employed to identify all studies suitable for inclusion in the analysis; strict exclusion criteria were also applied. Fifteen published manuscripts were included in the analysis, which reported the results of 57 measures within 23 exercise tests, using 18 supplementation regimes and a total of 360 participants [174, β-alanine supplementation group (BA) and 186, placebo supplementation group (Pla)]. BA improved (P=0.002) the outcome of exercise measures to a greater extent than Pla [median effect size (IQR): BA 0.374 (0.140-0.747), Pla 0.108 (-0.019 to 0.487)]. Some of that effect might be explained by the improvement (P=0.013) in exercise capacity with BA compared to Pla; no improvement was seen for exercise performance (P=0.204). In line with the purported mechanisms for an ergogenic effect of β-alanine supplementation, exercise lasting 60-240 s was improved (P=0.001) in BA compared to Pla, as was exercise of >240 s (P=0.046). In contrast, there was no benefit of β-alanine on exercise lasting <60 s (P=0.312). The median effect of β-alanine supplementation is a 2.85% (-0.37 to 10.49%) improvement in the outcome of an exercise measure, when a median total of 179 g of β-alanine is supplemented.",
-      "doi": "10.1007/s00726-011-1200-z",
-      "journal": "Amino acids",
-      "pub_date": "2012Jul",
-      "publication_types": [
-        "Journal Article",
-        "Meta-Analysis"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effects of β-alanine supplementation on exercise performance: a meta-analysis.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7654
-    },
-    {
-      "pmid": "39246027",
-      "title": "Caffeine, but not paracetamol (acetaminophen), enhances muscular endurance, strength, and power.",
-      "abstract": "BACKGROUND: Caffeine is one of the most popular ergogenic aids consumed by athletes. Caffeine's ergogenic effect has been generally explained by its ability to bind to adenosine receptors, thus modulating pain and reducing perceived exertion. Another pharmacological agent that may improve performance due to its analgesic proprieties is paracetamol. This study aimed to explore the effects of caffeine, paracetamol, and caffeine + paracetamol consumption on muscular endurance, strength, power, anaerobic endurance, and jumping performance. METHODS: In this randomized, crossover, double-blind study, 29 resistance-trained participants (11 men and 18 women) ingested either a placebo, caffeine (3 mg/kg), paracetamol (1500 mg) or caffeine + paracetamol 45 min before the testing sessions. The testing sessions included performing the bench press exercise with 75% of one-repetition maximum to momentary muscular failure, isokinetic knee extension and flexion at angular velocities of 60°/sec and 180°/sec, Wingate, and countermovement jump (CMJ) tests. RESULTS: Compared to placebo, isolated caffeine ingestion increased the number of repetitions performed in the bench press (p = 0.005; d = 0.42). Compared to placebo, isolated caffeine ingestion and/or caffeine + paracetamol consumption was ergogenic for strength (torque), muscular endurance (total work), or power in the isokinetic assessment, particularly at slower angular velocities (p = 0.027 to 0.002; d = 0.16 to 0.26). No significant differences between the conditions were observed for outcomes related to the Wingate and CMJ tests. CONCLUSION: This study provided novel evidence into the effectiveness of caffeine, paracetamol, and their combination on exercise performance. We found improvements in muscular endurance, strength, or power only when caffeine was consumed in isolation, or in combination with paracetamol. Isolated paracetamol consumption did not improve performance for any of the analyzed outcomes, thus calling into question its ergogenic potential.",
-      "doi": "10.1080/15502783.2024.2400513",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "pub_date": "2024Dec",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Caffeine, but not paracetamol (acetaminophen), enhances muscular endurance, strength, and power.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7655
-    },
-    {
-      "pmid": "34176406",
-      "title": "Effects of Citrulline Malate Supplementation on Muscle Strength in Resistance-Trained Adults: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
-      "abstract": "Although the ergogenic mechanisms of supplementation with citrulline malate are well known, unclear findings regarding variables of muscle strength have been recorded. Such misleading findings in the literature illustrate the need for well-conducted meta-analysis research to elucidate the possible ergogenic impact, which could have major practical consequences for athletes and recreational practitioners seeking to optimize gains in muscle strength. The objective of this systematic review was to summarize the existing literature that evaluated the effects of citrulline malate supplementation on muscle strength outcomes from resistance exercise in resistance-trained individuals. A systematic electronic search in Medline and Scientific Electronic Library Online (SciELO) was completed in August 2020 identifying randomized controlled trials investigating the effect of citrulline malate supplementation on muscle strength in resistance-trained adults. A subsequent meta-analysis was performed. The meta-analysis involved four studies and 138 assessments (69 in citrulline-malate and 69 in placebo groups). We did not observe an overall effect favoring citrulline-malate supplementation (SMD95% = 0.13 [-0.21; 0.46]). Considering the lower (SMD95% = 0.06 [-0.47; 0.60]) and upper (SMD95% = 0.17 [-0.26; 0.60]) limbs, a non-significant overall effect was identified. The mean effects were similar for \"limbs\" (upper vs lower) [p = 0.763]. Accordingly, our findings suggest that citrulline malate supplementation does not improve muscle strength in healthy and resistance-trained individuals (PROSPERO registration number: CRD42020159338).",
-      "doi": "10.1080/19390211.2021.1939473",
-      "journal": "Journal of dietary supplements",
-      "pub_date": "2022",
-      "publication_types": [
-        "Meta-Analysis",
-        "Systematic Review",
-        "Journal Article"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effects of Citrulline Malate Supplementation on Muscle Strength in Resistance-Trained Adults: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7656
     },
     {
       "pmid": "32215272",
@@ -1240,7 +1195,71 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
+      "wave": 7655
+    },
+    {
+      "pmid": "37206869",
+      "title": "The role of resistance training and creatine supplementation on oxidative stress, antioxidant defense, muscle strength, and quality of life in older adults.",
+      "abstract": "BACKGROUND: The aim of this study was to evaluate the effect of resistance training (RT) with creatine monohydrate supplementation (CS) on serum levels of 8-hydroxydeoxyguanosine (8-OHdG), malondialdehyde (MDA), glutathione peroxidase (GPX), and total antioxidant capacity (TAC) in older adults. OBJECTIVES: This study evaluated the effect of resistance training with creatine monohydrate supplementation on oxidative stress and antioxidant defense, muscle strength and quality of life in older adults. METHODS: We examined 45 non-athlete volunteer older men and women (mean, 68.1 ± 7.2 years old), were randomly selected and divided into three groups of 15: RT with creatine supplementation (RT + CS), RT with placebo (RT + P) and control group. RT protocol was performed for 10 weeks, three sessions per week. Creatine supplement was taken daily at a dose of 0.1 g/kg of body weight, while the placebo group consumed the same amount of starch. Fasting blood samples were taken before the start of program and at the end of the RT period. RESULTS: In the training groups, after 10 weeks of RT, a significant decrease in MDA and 8 - OHDG as well as a significant increase in serum levels of GPX and TAC were observed (in all cases, p = 0.001). In addition, creatinine levels were enhanced in the RT + CS (p = 0.014). Training intervention also improved quality of life and muscle strength in the experimental groups (p = 0.001), although muscle strength changes were more visible in the RT + CS group than in the RT + P group (p < 0/05). CONCLUSION: Regular resistance training can be recommended as a very suitable non-pharmacological approach to strengthen the body's antioxidant system, muscle strength and quality of life in older adults. There are no definite findings on the role of creatine on the antioxidant system and quality of life in older adults, but the use of this supplement in addition to RT can double the amount of strength gained from resistance training.",
+      "doi": "10.3389/fpubh.2023.1062832",
+      "journal": "Frontiers in public health",
+      "pub_date": "2023",
+      "publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The role of resistance training and creatine supplementation on oxidative stress, antioxidant defense, muscle strength, and quality of life in older adults.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7656
+    },
+    {
+      "pmid": "34836013",
+      "title": "Efficacy of Creatine Supplementation Combined with Resistance Training on Muscle Strength and Muscle Mass in Older Females: A Systematic Review and Meta-Analysis.",
+      "abstract": "Sarcopenia refers to the age-related loss of muscle strength and muscle mass, which is associated with a reduced quality of life, particularly in older females. Resistance training (RT) is well established to be an effective intervention to counter indices of sarcopenia. Accumulating research indicates that the addition of creatine supplementation (Cr) to RT augments gains in muscle strength and muscle mass, compared to RT alone. However, some evidence indicates that sex differences may alter the effectiveness of Cr. Therefore, we systematically reviewed randomized controlled trials (RCTs) investigating the efficacy of Cr + RT on measures of upper- and lower-body strength and muscle mass in older females. A systematic literature search was performed in nine electronic databases. Ten RCTs (N = 211 participants) were included the review. Overall, Cr significantly increased measures of upper-body strength (7 studies, n = 142, p = 0.04), with no effect on lower-body strength or measures of muscle mass. Sub-analyses revealed that both upper-body (4 studies, n = 97, p = 0.05) and lower-body strength (4 studies, n = 100, p = 0.03) were increased by Cr, compared to placebo in studies ≥ 24 weeks in duration. In conclusion, older females supplementing with Cr experience significant gains in muscle strength, especially when RT lasts for at least 24 weeks in duration. However, given the level of evidence, future high-quality studies are needed to confirm these findings.",
+      "doi": "10.3390/nu13113757",
+      "journal": "Nutrients",
+      "pub_date": "2021Oct24",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Efficacy of Creatine Supplementation Combined with Resistance Training on Muscle Strength and Muscle Mass in Older Females: A Systematic Review and Meta-Analysis.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
       "wave": 7657
+    },
+    {
+      "pmid": "34579009",
+      "title": "L-Citrulline Supplementation and Exercise in the Management of Sarcopenia.",
+      "abstract": "Sarcopenia is a process associated to aging. Persistent inflammation and oxidative stress in muscle favour muscle wasting and decreased ability to perform physical activity. Controlled exercise can optimize blood flux and moderate the production of reactive oxygen species. Therefore, supplements that can work as a vasodilators and control oxidative stress, might be beneficial for active elders. In this context, we have tested citrulline supplementation in a group of 44 participants aged from 60-73 years that followed a physical activity program adapted to their age and capacities. Volunteers were divided in two groups: placebo (n = 22) and citrullline supplemented (n = 22). Different physical tests and blood extractions were performed at the beginning and at the end of intervention (six weeks). Strength and endurance showed a tendency to increase in the citrulline supplemented group, with no significant differences respect to placebo. However, walking speed in the citrulline supplemented group improved significantly compared to placebo. Markers of muscle damage as well as circulating levels of testosterone, cortisol and vitamin D showed no significant changes, but a tendency to improve at the end of intervention in the supplemented group compared to placebo. Additional studies are necessary to confirm the effect of citrulline supplementation in sarcopenia delay.",
+      "doi": "10.3390/nu13093133",
+      "journal": "Nutrients",
+      "pub_date": "2021Sep08",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "performance",
+      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "L-Citrulline Supplementation and Exercise in the Management of Sarcopenia.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7658
     },
     {
       "pmid": "39042054",
@@ -1262,36 +1281,15 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7658
-    },
-    {
-      "pmid": "37206869",
-      "title": "The role of resistance training and creatine supplementation on oxidative stress, antioxidant defense, muscle strength, and quality of life in older adults.",
-      "abstract": "BACKGROUND: The aim of this study was to evaluate the effect of resistance training (RT) with creatine monohydrate supplementation (CS) on serum levels of 8-hydroxydeoxyguanosine (8-OHdG), malondialdehyde (MDA), glutathione peroxidase (GPX), and total antioxidant capacity (TAC) in older adults. OBJECTIVES: This study evaluated the effect of resistance training with creatine monohydrate supplementation on oxidative stress and antioxidant defense, muscle strength and quality of life in older adults. METHODS: We examined 45 non-athlete volunteer older men and women (mean, 68.1 ± 7.2 years old), were randomly selected and divided into three groups of 15: RT with creatine supplementation (RT + CS), RT with placebo (RT + P) and control group. RT protocol was performed for 10 weeks, three sessions per week. Creatine supplement was taken daily at a dose of 0.1 g/kg of body weight, while the placebo group consumed the same amount of starch. Fasting blood samples were taken before the start of program and at the end of the RT period. RESULTS: In the training groups, after 10 weeks of RT, a significant decrease in MDA and 8 - OHDG as well as a significant increase in serum levels of GPX and TAC were observed (in all cases, p = 0.001). In addition, creatinine levels were enhanced in the RT + CS (p = 0.014). Training intervention also improved quality of life and muscle strength in the experimental groups (p = 0.001), although muscle strength changes were more visible in the RT + CS group than in the RT + P group (p < 0/05). CONCLUSION: Regular resistance training can be recommended as a very suitable non-pharmacological approach to strengthen the body's antioxidant system, muscle strength and quality of life in older adults. There are no definite findings on the role of creatine on the antioxidant system and quality of life in older adults, but the use of this supplement in addition to RT can double the amount of strength gained from resistance training.",
-      "doi": "10.3389/fpubh.2023.1062832",
-      "journal": "Frontiers in public health",
-      "pub_date": "2023",
-      "publication_types": [
-        "Randomized Controlled Trial",
-        "Journal Article"
-      ],
-      "category": "performance",
-      "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The role of resistance training and creatine supplementation on oxidative stress, antioxidant defense, muscle strength, and quality of life in older adults.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
       "wave": 7659
     },
     {
-      "pmid": "34836013",
-      "title": "Efficacy of Creatine Supplementation Combined with Resistance Training on Muscle Strength and Muscle Mass in Older Females: A Systematic Review and Meta-Analysis.",
-      "abstract": "Sarcopenia refers to the age-related loss of muscle strength and muscle mass, which is associated with a reduced quality of life, particularly in older females. Resistance training (RT) is well established to be an effective intervention to counter indices of sarcopenia. Accumulating research indicates that the addition of creatine supplementation (Cr) to RT augments gains in muscle strength and muscle mass, compared to RT alone. However, some evidence indicates that sex differences may alter the effectiveness of Cr. Therefore, we systematically reviewed randomized controlled trials (RCTs) investigating the efficacy of Cr + RT on measures of upper- and lower-body strength and muscle mass in older females. A systematic literature search was performed in nine electronic databases. Ten RCTs (N = 211 participants) were included the review. Overall, Cr significantly increased measures of upper-body strength (7 studies, n = 142, p = 0.04), with no effect on lower-body strength or measures of muscle mass. Sub-analyses revealed that both upper-body (4 studies, n = 97, p = 0.05) and lower-body strength (4 studies, n = 100, p = 0.03) were increased by Cr, compared to placebo in studies ≥ 24 weeks in duration. In conclusion, older females supplementing with Cr experience significant gains in muscle strength, especially when RT lasts for at least 24 weeks in duration. However, given the level of evidence, future high-quality studies are needed to confirm these findings.",
-      "doi": "10.3390/nu13113757",
-      "journal": "Nutrients",
-      "pub_date": "2021Oct24",
+      "pmid": "32483625",
+      "title": "Nutritional interventions to improve muscle mass, muscle strength, and physical performance in older people: an umbrella review of systematic reviews and meta-analyses.",
+      "abstract": "CONTEXT: Sarcopenia is a progressive and generalized skeletal muscle disorder associated with an increased risk of adverse outcomes such as falls, disability, and death. The Belgian Society of Gerontology and Geriatrics has developed evidence-based guidelines for the prevention and treatment of sarcopenia. This umbrella review presents the results of the Working Group on Nutritional Interventions. OBJECTIVE: The aim of this umbrella review was to provide an evidence-based overview of nutritional interventions targeting sarcopenia or at least 1 of the 3 sarcopenia criteria (ie, muscle mass, muscle strength, or physical performance) in persons aged ≥ 65 years. DATA SOURCES: Following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines, the PubMed and Web of Science databases were searched for systematic reviews and meta-analyses reporting the effect of nutritional supplementation on sarcopenia or muscle mass, strength, or physical performance. DATA EXTRACTION: Two authors extracted data on the key characteristics of the reviews, including participants, treatment, and outcomes. Methodological quality of the reviews was assessed using the product A Measurement Tool to Assess Systematic Reviews. Three authors synthesized the extracted data and generated recommendations on the basis of an overall synthesis of the effects of each intervention. Quality of evidence was rated with the Grading of Recommendations Assessment, Development and Evaluation approach. DATA ANALYSIS: A total of 15 systematic reviews were included. The following supplements were examined: proteins, essential amino acids, leucine, β-hydroxy-β-methylbutyrate, creatine, and multinutrient supplementation (with or without physical exercise). Because of both the low amount and the low to moderate quality of the reviews, the level of evidence supporting most recommendations was low to moderate. CONCLUSIONS: Best evidence is available to recommend leucine, because it has a significant effect on muscle mass in elderly people with sarcopenia. Protein supplementation on top of resistance training is recommended to increase muscle mass and strength, in particular for obese persons and for ≥ 24 weeks. Effects on sarcopenia as a construct were not reported in the included reviews.",
+      "doi": "10.1093/nutrit/nuaa011",
+      "journal": "Nutrition reviews",
+      "pub_date": "2021Jan09",
       "publication_types": [
         "Journal Article",
         "Meta-Analysis",
@@ -1301,7 +1299,7 @@
       "discovery_query": "(creatine OR caffeine OR beta-alanine OR citrulline OR protein OR beetroot) AND (exercise OR performance OR strength)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Efficacy of Creatine Supplementation Combined with Resistance Training on Muscle Strength and Muscle Mass in Older Females: A Systematic Review and Meta-Analysis.",
+      "verified_title": "Nutritional interventions to improve muscle mass, muscle strength, and physical performance in older people: an umbrella review of systematic reviews and meta-analyses.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1439,28 +1437,6 @@
       "wave": 7666
     },
     {
-      "pmid": "34358827",
-      "title": "Supplement-based nutritional strategies to tackle frailty: A multifactorial, double-blind, randomized placebo-controlled trial.",
-      "abstract": "BACKGROUND: Sarcopenia plays a central role in the development of frailty syndrome. Nutrition and exercise are cornerstone strategies to mitigate the transition to frailty; however, there is a paucity of evidence for which dietary and exercise strategies are effective. OBJECTIVE: This large, multifactorial trial investigated the efficacy of different dietary strategies to enhance the adaptations to resistance training in pre-frail and frail elderly. METHODS: This was a single-site 16-week, double-blind, randomized, placebo-controlled trial conducted at the Clinical Hospital, School of Medicine - University of São Paulo, Sao Paulo, Brazil. Four integrated, sub-investigations were conducted to compare: 1) leucine vs. placebo; 2) whey vs. soy vs. placebo; 3) creatine vs. whey vs. creatine plus whey vs. placebo; 4) women vs. men in response to whey. Sub-investigations 1 to 3 were conducted in women, only. Two-hundred participants (154 women/46 men, mean age 72 ± 6 years) underwent a twice-a-week, resistance training program. The main outcomes were muscle function (assessed by dynamic and isometric strength and functional tests) and lean mass (assessed by DXA). Muscle cross-sectional area, health-related quality of life, bone and fat mass, and biochemical markers were also assessed. RESULTS: We observed that leucine supplementation was ineffective to improve muscle mass and function. Supplementation with whey and soy failed to enhance resistance-training effects. Similarly, supplementation with neither whey nor creatine potentiated the adaptations to resistance training. Finally, no sex-based differences were found in response to whey supplementation. Resistance exercise per se increased muscle mass and function in all sub-investigations. There were no adverse effects. CONCLUSION: Neither protein (whey and soy), leucine, nor creatine supplementation enhanced resistance training-induced adaptations in pre-frail and frail elderly, regardless of sex. These findings do not support the notion that some widely used supplement-based interventions can add to the already potent effects of resistance exercise to counteract frailty-related muscle wasting and dynapenia. CLINICAL TRIAL REGISTRY: NCT01890382; https://clinicaltrials.gov/ct2/show/NCT01890382. DATA SHARING: Data described in the manuscript will be made available upon request pending application.",
-      "doi": "10.1016/j.clnu.2021.06.024",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "pub_date": "2021Aug",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "aging_sarcopenia",
-      "discovery_query": "(protein OR creatine OR leucine OR vitamin D OR omega-3) AND (sarcopenia OR frailty OR older adults OR muscle aging)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Supplement-based nutritional strategies to tackle frailty: A multifactorial, double-blind, randomized placebo-controlled trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7667
-    },
-    {
       "pmid": "28251287",
       "title": "Nutrition and physical activity in the prevention and treatment of sarcopenia: systematic review.",
       "abstract": "UNLABELLED: This systematic review summarizes the effect of combined exercise and nutrition intervention on muscle mass and muscle function. A total of 37 RCTs were identified. Results indicate that physical exercise has a positive impact on muscle mass and muscle function in subjects aged 65 years and older. However, any interactive effect of dietary supplementation appears to be limited. INTRODUCTION: In 2013, Denison et al. conducted a systematic review including 17 randomized controlled trials (RCTs) to explore the effect of combined exercise and nutrition intervention to improve muscle mass, muscle strength, or physical performance in older people. They concluded that further studies were needed to provide evidence upon which public health and clinical recommendations could be based. The purpose of the present work was to update the prior systematic review and include studies published up to October 2015. METHODS: Using the electronic databases MEDLINE and EMBASE, we identified RCTs which assessed the combined effect of exercise training and nutritional supplementation on muscle strength, muscle mass, or physical performance in subjects aged 60 years and over. Study selection and data extraction were performed by two independent reviewers. RESULTS: The search strategy identified 21 additional RCTs giving a total of 37 RCTs. Studies were heterogeneous in terms of protocols for physical exercise and dietary supplementation (proteins, essential amino acids, creatine, β-hydroxy-β-methylbuthyrate, vitamin D, multi-nutrients, or other). In 79% of the studies (27/34 RCTs), muscle mass increased with exercise but an additional effect of nutrition was only found in 8 RCTs (23.5%). Muscle strength increased in 82.8% of the studies (29/35 RCTs) following exercise intervention, and dietary supplementation showed additional benefits in only a small number of studies (8/35 RCTS, 22.8%). Finally, the majority of studies showed an increase of physical performance following exercise intervention (26/28 RCTs, 92.8%) but interaction with nutrition supplementation was only found in 14.3% of these studies (4/28 RCTs). CONCLUSION: Physical exercise has a positive impact on muscle mass and muscle function in healthy subjects aged 60 years and older. The biggest effect of exercise intervention, of any type, has been seen on physical performance (gait speed, chair rising test, balance, SPPB test, etc.). We observed huge variations in regard to the dietary supplementation protocols. Based on the included studies, mainly performed on well-nourished subjects, the interactive effect of dietary supplementation on muscle function appears limited.",
@@ -1479,7 +1455,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7668
+      "wave": 7667
     },
     {
       "pmid": "26170041",
@@ -1502,7 +1478,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7669
+      "wave": 7668
     },
     {
       "pmid": "33291698",
@@ -1524,7 +1500,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7670
+      "wave": 7669
     },
     {
       "pmid": "37686735",
@@ -1542,6 +1518,29 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "The Role of Nutrition in the Treatment of Sarcopenia in Old Patients: From Restoration of Mitochondrial Activity to Improvement of Muscle Performance, a Systematic Review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7670
+    },
+    {
+      "pmid": "38612975",
+      "title": "Comparative Efficacy of Different Protein Supplements on Muscle Mass, Strength, and Physical Indices of Sarcopenia among Community-Dwelling, Hospitalized or Institutionalized Older Adults Undergoing Resistance Training: A Network Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Aging-related sarcopenia exerts harmful impacts on muscle mass, strength, and physical mobility. Protein supplementation has been demonstrated to augment efficacy of resistance training (RT) in elderly. This study compared the relative effects of different protein supplements on muscle mass, strength, and mobility outcomes in middle-aged and older individuals undergoing RT. A comprehensive search of online databases was performed to identify randomized controlled trials (RCTs) examining the efficacy of protein supplement plus RT in untrained community-dwelling adults, hospitalized, or institutionalized residents who suffered acute or chronic health conditions. Network meta-analysis (NMA) was performed using a frequentist method for all analyses. Treatment effects for main outcomes were expressed as standard mean difference (SMD) with 95% confidence interval (CI). We used the surface-under-the cumulative-ranking (SUCRA) scores to rank probabilities of effect estimation among all identified treatments. Meta-regression analyses were performed to identify any relevant moderator of the treatment efficacy and results were expressed as β with 95% credible interval (CrI). We finally included 78 RCTs (5272 participants) for analyses. Among the six protein sources identified in this NMA, namely whey, milk, casein, meat, soy, and peanut, whey supplement yielded the most effective treatments augmenting efficacy of RT on muscle mass (SMD = 1.29, 95% CI: 0.96, 1.62; SUCRA = 0.86), handgrip strength (SMD = 1.46, 95% CI: 0.92, 2.00; SUCRA = 0.85), and walking speed (SMD = 0.73, 95% CI: 0.39, 1.07; SUCRA = 0.84). Participant's health condition, sex, and supplementation dose were significant factors moderating the treatment efficacy on muscle mass (β = 0.74; 95% CrI: 0.22, 1.25), handgrip strength (β = -1.72; 95% CrI: -2.68, -0.77), and leg strength (β = 0.76; 95% CrI: 0.06, 1.47), respectively. Our findings suggest whey protein yields the optimal supplements to counter sarcopenia in older individuals undergoing RT.",
+      "doi": "10.3390/nu16070941",
+      "journal": "Nutrients",
+      "pub_date": "2024Mar25",
+      "publication_types": [
+        "Journal Article",
+        "Comparative Study",
+        "Systematic Review",
+        "Network Meta-Analysis"
+      ],
+      "category": "aging_sarcopenia",
+      "discovery_query": "(protein OR creatine OR leucine OR vitamin D OR omega-3) AND (sarcopenia OR frailty OR older adults OR muscle aging)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Comparative Efficacy of Different Protein Supplements on Muscle Mass, Strength, and Physical Indices of Sarcopenia among Community-Dwelling, Hospitalized or Institutionalized Older Adults Undergoing Resistance Training: A Network Meta-Analysis of Randomized Controlled Trials.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1570,28 +1569,6 @@
       "wave": 7672
     },
     {
-      "pmid": "36437767",
-      "title": "De-Training Effects Following Leucine-Enriched Whey Protein Supplementation and Resistance Training in Older Adults with Sarcopenia: A Randomized Controlled Trial with 24 Weeks of Follow-Up.",
-      "abstract": "OBJECTIVES: This study aimed to evaluate the effectiveness of de-training after a combined intervention of leucine-enriched whey protein supplementation and resistance training on skeletal muscle mass and strength in older adults with sarcopenia. DESIGN: A randomized controlled trial. SETTING: A community in Hyogo, Japan. PARTICIPANTS: The study included older adults aged ≥ 65 years who were screened for sarcopenia at the Care Center from, a community in Hyogo, Japan. The participants were randomly allocated to one of three groups: whey protein supplementation after resistance training (RT + PRO; n = 27), resistance training only (RT; n = 27), and whey protein supplementation only (PRO; n = 27). INTERVENTIONS: An intervention program was conducted over a period of 24 weeks. The program included RT and/or PRO supplementation twice a week for 24 weeks, followed by a de-training period for another 24 weeks. PRO supplementation included 11.0 g of protein and 2,300 mg of leucine. The total energy and protein intake amounts for the participants in all groups were controlled to achieve at least 30 kcal/kg ideal body weight (IBW)/day and 1.2 g/kg IBW/day, respectively, during the intervention and de-training periods. MEASUREMENTS: The primary outcomes, such as mean change of appendicular skeletal muscle mass index (ΔASMI), and secondary outcomes, such as handgrip strength (ΔHGS), were measured at baseline, the end of intervention, and at 12 and 24 weeks of de-training. RESULTS: Compared to baseline, ASMI and HGS increased significantly at the end of the intervention period in the RT+PRO group (ASMI and HGS, p < 0.01); however, there were no significant differences in ΔASMI and ΔHGS between each group. At 24 weeks of the de-training period, ΔASMI and ΔHGS were higher in the RT + PRO group than in the RT group (p < 0.05 and p < 0.01, respectively). CONCLUSION: We demonstrated that combined intervention of RT and PRO showed long-term maintenance in treating sarcopenia than RT only at 24 weeks after de-training. Therefore, PRO intake after RT may be useful in the treatment of sarcopenia in older adults.",
-      "doi": "10.1007/s12603-022-1853-1",
-      "journal": "The journal of nutrition, health & aging",
-      "pub_date": "2022",
-      "publication_types": [
-        "Randomized Controlled Trial",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "aging_sarcopenia",
-      "discovery_query": "(protein OR creatine OR leucine OR vitamin D OR omega-3) AND (sarcopenia OR frailty OR older adults OR muscle aging)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "De-Training Effects Following Leucine-Enriched Whey Protein Supplementation and Resistance Training in Older Adults with Sarcopenia: A Randomized Controlled Trial with 24 Weeks of Follow-Up.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7673
-    },
-    {
       "pmid": "36434519",
       "title": "Sex differences in the association of physical activity levels and vitamin D with obesity, sarcopenia, and sarcopenic obesity: a cross-sectional study.",
       "abstract": "BACKGROUND: The relationship between vitamin D and sarcopenia was inconsistent between men and women. Physical activity (PA) may interact with vitamin D on sarcopenia. However, the sex-specific relationships of vitamin D, PA and sarcopenia have yet elucidated. We aimed to examine the sex differences in the relation between vitamin D status, PA levels, obesity and sarcopenia in community-dwelling middle-aged and older adults, as well as whether vitamin D status is a modifier in the relationship between PA and sarcopenia. METHODS: The current study was a cross-sectional study based on the baseline survey of the West China Health and Aging Trend (WCHAT) study. A total of 3713 participants aged ≥ 50y were included in our study. Sarcopenia was defined according to the Asian Working Group for Sarcopenia (AWGS) 2019 consensus. Obesity was defined by body mass index (BMI) (≥ 28 kg/m2) and body fat mass percentage (≥ 60th percentile in each sex group). 25-hydroxyvitamin D was measured by chemiluminescent microparticle immunoassay and PA was evaluated by a validated China Leisure Time Physical Activity Questionnaire (CLTPAQ). Multinomial logistic regression was performed to examine the relationship between PA, vitamin D and sarcopenia and obesity. RESULTS: Low PA was significantly associated with higher odds of sarcopenia in women only (OR = 1.70,95%CI:1.18,2.46, p < 0.01). Vitamin D deficiency was only associated with sarcopenia in men (OR = 1.85,95%CI: 1.27,2.69, p < 0.01). Low PA was significantly associated with obesity, sarcopenia, and sarcopenic obesity only in participants with serum 25(OH)D < 20 ng/ml. CONCLUSIONS: The role of vitamin D and PA in obesity and sarcopenia was different between men and women, and the relationship between PA and sarcopenia was modified by serum vitamin D status. These findings highlighted the need to supplement vitamin D in individuals with physical inactivity and provide different interventions strategies to sarcopenia in men and women. TRIAL REGISTRATION: Clinical trial number: ChiCTR1800018895.",
@@ -1611,28 +1588,29 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7674
+      "wave": 7673
     },
     {
-      "pmid": "36364828",
-      "title": "Effectiveness of a Novel Food Composed of Leucine, Omega-3 Fatty Acids and Probiotic Lactobacillus paracasei PS23 for the Treatment of Sarcopenia in Elderly Subjects: A 2-Month Randomized Double-Blind Placebo-Controlled Trial.",
-      "abstract": "Sarcopenia is a complex process characterized by a progressive decrease in muscle mass and strength. Various nutrients have been shown to be effective in supporting muscular performance. This randomized clinical trial aimed to evaluate the effectiveness of a 2-month administration of food for special medical purposes composed of omega-3 fatty acids (500 mg), leucine (2.5 g), and probiotic Lactobacillus paracasei PS23 (LPPS23), on appendicular lean mass (ALM), muscle performance, inflammatory status, and amino acid profile in sarcopenic patients. A total of 60 participants (aged 79.7 ± 4.8 years and a body mass index of 22.2 ± 2.1 kg/m2) were enrolled and randomly assigned to either intervention (n = 22) or placebo group (n = 28). Comparing the differences in effects between groups (intervention minus placebo effects), ALM increased significantly in the intervention group (p < 0.05), with no discernible change in the placebo group. Similarly, significant differences were also observed for the Tinetti scale (+2.39 points, p < 0.05), the SPPB total score (+2.22 points, p < 0.05), and the handgrip strength (4.09 kg, p < 0.05). Visceral adipose tissue significantly decreased in the intervention group compared to the placebo group at 60 days −0.69 g (95% CI: −1.09, 0.29) vs. 0.27 g (95% CI: −0.11, 0.65), groups difference −0.96 (95% CI: −1.52, 0.39, p = 0.001). A statistically significant increase in levels of valine, leucine, isoleucine, and total amino acid profiles was observed in the intervention group compared with the placebo group at 60 days (p = 0.001). When taken together, these beneficial effects may be attributed to the innovative composition of this special medical-purpose food which could be considered for the treatment of sarcopenia in the elderly.",
-      "doi": "10.3390/nu14214566",
-      "journal": "Nutrients",
-      "pub_date": "2022Oct30",
+      "pmid": "36437767",
+      "title": "De-Training Effects Following Leucine-Enriched Whey Protein Supplementation and Resistance Training in Older Adults with Sarcopenia: A Randomized Controlled Trial with 24 Weeks of Follow-Up.",
+      "abstract": "OBJECTIVES: This study aimed to evaluate the effectiveness of de-training after a combined intervention of leucine-enriched whey protein supplementation and resistance training on skeletal muscle mass and strength in older adults with sarcopenia. DESIGN: A randomized controlled trial. SETTING: A community in Hyogo, Japan. PARTICIPANTS: The study included older adults aged ≥ 65 years who were screened for sarcopenia at the Care Center from, a community in Hyogo, Japan. The participants were randomly allocated to one of three groups: whey protein supplementation after resistance training (RT + PRO; n = 27), resistance training only (RT; n = 27), and whey protein supplementation only (PRO; n = 27). INTERVENTIONS: An intervention program was conducted over a period of 24 weeks. The program included RT and/or PRO supplementation twice a week for 24 weeks, followed by a de-training period for another 24 weeks. PRO supplementation included 11.0 g of protein and 2,300 mg of leucine. The total energy and protein intake amounts for the participants in all groups were controlled to achieve at least 30 kcal/kg ideal body weight (IBW)/day and 1.2 g/kg IBW/day, respectively, during the intervention and de-training periods. MEASUREMENTS: The primary outcomes, such as mean change of appendicular skeletal muscle mass index (ΔASMI), and secondary outcomes, such as handgrip strength (ΔHGS), were measured at baseline, the end of intervention, and at 12 and 24 weeks of de-training. RESULTS: Compared to baseline, ASMI and HGS increased significantly at the end of the intervention period in the RT+PRO group (ASMI and HGS, p < 0.01); however, there were no significant differences in ΔASMI and ΔHGS between each group. At 24 weeks of the de-training period, ΔASMI and ΔHGS were higher in the RT + PRO group than in the RT group (p < 0.05 and p < 0.01, respectively). CONCLUSION: We demonstrated that combined intervention of RT and PRO showed long-term maintenance in treating sarcopenia than RT only at 24 weeks after de-training. Therefore, PRO intake after RT may be useful in the treatment of sarcopenia in older adults.",
+      "doi": "10.1007/s12603-022-1853-1",
+      "journal": "The journal of nutrition, health & aging",
+      "pub_date": "2022",
       "publication_types": [
         "Randomized Controlled Trial",
-        "Journal Article"
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
       ],
       "category": "aging_sarcopenia",
       "discovery_query": "(protein OR creatine OR leucine OR vitamin D OR omega-3) AND (sarcopenia OR frailty OR older adults OR muscle aging)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Effectiveness of a Novel Food Composed of Leucine, Omega-3 Fatty Acids and Probiotic Lactobacillus paracasei PS23 for the Treatment of Sarcopenia in Elderly Subjects: A 2-Month Randomized Double-Blind Placebo-Controlled Trial.",
+      "verified_title": "De-Training Effects Following Leucine-Enriched Whey Protein Supplementation and Resistance Training in Older Adults with Sarcopenia: A Randomized Controlled Trial with 24 Weeks of Follow-Up.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7675
+      "wave": 7674
     },
     {
       "pmid": "30475969",
@@ -1654,7 +1632,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7676
+      "wave": 7675
     },
     {
       "pmid": "26864356",
@@ -1676,7 +1654,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7677
+      "wave": 7676
     },
     {
       "pmid": "29395372",
@@ -1698,7 +1676,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7678
+      "wave": 7677
     },
     {
       "pmid": "24190049",
@@ -1720,7 +1698,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7679
+      "wave": 7678
     },
     {
       "pmid": "28229646",
@@ -1741,7 +1719,75 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
+      "wave": 7679
+    },
+    {
+      "pmid": "22763155",
+      "title": "[Is daily supplementation with vitamin D2 equivalent to daily supplementation with vitamin D3 in the elderly?].",
+      "abstract": "The equivalence of cholecalciferol (D3) and ergocalciferol (D2) as well as their corresponding doses and administration route remain controversial to date. The aim of this study was to compare the effectiveness of daily supplementation with 800 IU of D2 (drops) and D3 (pills) on 25-hydroxivitamin D (25OHD) levels (= 30 ng/ml). Twenty-one ambulatory postmenopausal women from Buenos Aires City with a mean (X ± SD) age of 77.1 ± 6.8 years were included. The participants were randomly assigned to one of the following groups: GD2 (n = 13): 800 IU (drops) and GD3 (n = 8): 800 IU (pills). Serum 25OHD levels were measured (RIA-DIASORIN) at baseline, and at 7, 28 and 45 days. Nineteen out of twenty one women showed deficient levels of 25OHD at baseline (< 20 ng/ml): GD2: 14.0 ± 4.8 ng/ml and GD3: 13.2 ± 4.9 ng/ml (NS). Whereas only GD3 exhibited an increase (≈ 25%) at 7 days, both groups showed a significant increase at the end of the study. However, neither attained adequate 25OHD levels (GD2: 17.4 ± 5.5 vs. GD3:22.9 ± 4.6 ng/ml; p < 0.001). Administration of 800 IU of vitamin D3 during 45 days was more effective than D2 in increasing 25OHD, but both failed to achieve adequate levels of 25OHD (= 30 ng/ml). but neither succeeded in achieving adequate levels of 25OHD (= 30 ng/ml).",
+      "doi": "",
+      "journal": "Medicina",
+      "pub_date": "2012",
+      "publication_types": [
+        "Comparative Study",
+        "English Abstract",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "aging_sarcopenia",
+      "discovery_query": "(protein OR creatine OR leucine OR vitamin D OR omega-3) AND (sarcopenia OR frailty OR older adults OR muscle aging)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "[Is daily supplementation with vitamin D2 equivalent to daily supplementation with vitamin D3 in the elderly?].",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
       "wave": 7680
+    },
+    {
+      "pmid": "25670222",
+      "title": "Myo-inositol vs. D-chiro inositol in PCOS treatment.",
+      "abstract": "AIM: Polycystic ovary syndrome (PCOS) is the most common endocrine disorder in women in fertile age. It is an endocrine and metabolic disorder characterized by oligo-anovulation, hyperandrogenism and insulin-resistance. Various therapeutic approaches have been attempted in PCOS, including diet and the use of pharmacological agents such as oral contraceptives (OCs) or anti-androgens. Recently, the introduction of inositol in the treatment plan has proved to be as reasonable as useful in countering the endocrine-metabolic disorders of this syndrome. METHODS: The aim of our study was to compare the clinical, endocrine and metabolic response after 6 months of therapy in 137 PCOS women characterized by oligomenorrhea and/or acne and/or mild hirsutism and insulin-resistance. The patients were treated with myo-inositol or with D-chiro-inositol or with placebo. RESULTS: Our study showed that both myo-inositol (MI-PG) and D-chiro inositol (DCI-PG) treatments are able to significantly improve the regularity of the menstrual cycle, the Acne Score, the endocrine and metabolic parameters and the insulin-resistence in young, overweight, PCOS patients. CONCLUSION: Definitely, we assumed that both treatments with myo-inositol and with D-chiro inositol could be proposed as a potential valid therapeutic approach for the treatment of patients with PCOS. Additionally, further examination and for a longer period of treatment are needed.",
+      "doi": "",
+      "journal": "Minerva ginecologica",
+      "pub_date": "2015Aug",
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Myo-inositol vs. D-chiro inositol in PCOS treatment.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7681
+    },
+    {
+      "pmid": "37265016",
+      "title": "A randomized controlled trial comparing myoinositol with metformin versus metformin monotherapy in polycystic ovary syndrome.",
+      "abstract": "OBJECTIVE: Insulin resistance and hyperinsulinemia plays an important role in pathogenesis of polycystic ovary syndrome (PCOS). Metformin, Myoinositol and d-chiro-inositol acts as insulin sensitizers and exerts a beneficial effects in PCOS. The objective is to compare the effect of metformin monotherapy versus a combination of metformin with Myoinositol and d-chiro-inositol in PCOS. DESIGN: This study is a randomized controlled trial conducted over a period of 6 months. All overweight and obese women with PCOS with the age group between 18 and 35 were included and randomized into two groups, 27 in the metformin monotherapy arm and 26 in the myoinositol combination arm. PATIENTS AND MEASUREMENTS: The variables assessed were duration of menstrual cycle, anthropometric parameters, modified Ferriman Gallwey score, global acne score, Fasting insulin, HOMA-IR, fasting lipid profile, serum testosterone, sex hormone binding globulin, luteinizing hormone, follicle stimulating hormone, anti-Mullerian hormone, and pelvic ultrasound to assess ovarian volume, PCOS Questionnaire score. Changes in the parameters from baseline at the end of 6 months of treatment were assessed and compared between the groups. RESULTS: Menstrual cycle regularity improved in both groups with significantly greater improvement in the group receiving myoinositol-based therapy (p < .001). Pregnancy rate was equal in both the arms. There was a significant improvement in PCOSQ score in myoinositol-based therapy group (p < .001). However, there was no statistically significant difference in other hormonal, metabolic parameters between two groups in spite of symptomatic benefits. CONCLUSIONS: The addition of myoinositol to metformin exerts additional benefits in improving menstrual cycle regularity, and quality of life in women with PCOS.",
+      "doi": "10.1111/cen.14931",
+      "journal": "Clinical endocrinology",
+      "pub_date": "2023Aug",
+      "publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "A randomized controlled trial comparing myoinositol with metformin versus metformin monotherapy in polycystic ovary syndrome.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7682
     },
     {
       "pmid": "27808588",
@@ -1763,7 +1809,71 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7681
+      "wave": 7683
+    },
+    {
+      "pmid": "36578019",
+      "title": "Effects of vitamin D supplementation in endometriosis: a systematic review.",
+      "abstract": "BACKGROUND: There is a growing body of human, animal and in vitro studies on vitamin D (vit D) substitution in endometriosis. The aim of this systematic review is to critically appraise and qualitatively synthesize the results of the available studies that examine the supplementation of vit D for endometriosis treatment. METHODS: A systematic search of the literature was conducted in four electronic databases (Medline, Cochrane, Scopus, Embase) and grey literature for original research articles on humans, animals and in vitro models published in any language. RESULTS: Four human studies, four animal studies and four in vitro studies were included. Quantitative synthesis of human studies showed no significant effect of vit D intake for dysmenorrhea (2 studies, 44 vit D vs 44 placebo, mean -0.71, 95% CI -1.94, 0.51) and non-cyclic pelvic pain (2 studies, 42 vit D vs 38 placebo, mean 0.34, 95% CI -0.02, 0.71). Regarding reproductive outcomes in women with endometriosis after in vitro fertilization, the only available study showed no differences between women taking vit D and women taking placebo. Three of the four included animal studies showed regression of endometriotic implants when treated with vit D. The in vitro studies demonstrated that vit D decreases invasion and proliferation of endometriotic lesions without affecting apoptosis. CONCLUSIONS: Although in vitro and animal studies suggest regression of the endometriotic implants and decrease of invasion and proliferation after vit D supplementation, this was not reflected in the results of the meta-analysis, which showed no benefit of vit D supplementation in patients with endometriosis and dysmenorrhea or non-cyclic pelvic pain as well as on the outcome of IVF treatment. However, given the heterogeneity and the diversity of the available studies, more research is required to shed light on the role of vit D supplementation in women with endometriosis.",
+      "doi": "10.1186/s12958-022-01051-9",
+      "journal": "Reproductive biology and endocrinology : RB&E",
+      "pub_date": "2022Dec28",
+      "publication_types": [
+        "Systematic Review",
+        "Meta-Analysis",
+        "Journal Article"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of vitamin D supplementation in endometriosis: a systematic review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7684
+    },
+    {
+      "pmid": "34383914",
+      "title": "Omega-3 Fatty Acid Dietary Supplements Consumed During Pregnancy and Lactation and Child Neurodevelopment: A Systematic Review.",
+      "abstract": "BACKGROUND: Maternal nutrition during pregnancy and lactation has profound effects on the development and lifelong health of the child. Long-chain PUFAs are particularly important for myelination and the development of vision during the perinatal period. OBJECTIVES: We conducted a systematic review to examine the relationship between supplementation with omega-3 fatty acids during pregnancy and/or lactation and neurodevelopment in children, to inform the Scientific Report of the 2020 Dietary Guidelines Advisory Committee. METHODS: We identified articles on omega-3 fatty acid supplementation in pregnant and lactating women that included measures of neurodevelopment in their children (0-18 y) by searching PubMed, CENTRAL, Embase, and CINAHL Plus. After dual screening articles for inclusion, we qualitatively synthesized and graded the strength of evidence using pre-established criteria for assessing risk of bias, consistency, directness, precision, and generalizability. RESULTS: We included 33 articles from 15 randomized controlled trials (RCTs) and 1 prospective cohort study. Of the 8 RCTs that delivered omega-3 fatty acid dietary supplements during pregnancy alone (200-2200 mg/d DHA and 0-1100 mg/d EPA for approximately 20 wk), 5 studies reported ≥1 finding that supplementation improved measures of cognitive development in the infant or child by 6%-11% (P < 0.05), but all 8 studies also reported ≥1 nonsignificant (P > 0.05) result. There was inconsistent or insufficient evidence for other outcomes (language, social-emotional, physical, motor, or visual development; academic performance; risks of attention deficit disorder, attention-deficit/hyperactivity disorder, autism spectrum disorder, anxiety, or depression) and for supplementation during lactation or both pregnancy and lactation. Populations with a lower socioeconomic status and adolescents were underrepresented and studies lacked racial and ethnic diversity. CONCLUSIONS: Limited evidence suggests that omega-3 fatty acid supplementation during pregnancy may result in favorable cognitive development in the child. There was insufficient evidence to evaluate the effects of omega-3 fatty acid supplementation during pregnancy and/or lactation on other developmental outcomes.",
+      "doi": "10.1093/jn/nxab238",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2021Nov02",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Omega-3 Fatty Acid Dietary Supplements Consumed During Pregnancy and Lactation and Child Neurodevelopment: A Systematic Review.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7685
+    },
+    {
+      "pmid": "39599701",
+      "title": "Effectiveness of Probiotics, Prebiotics, and Synbiotics in Managing Insulin Resistance and Hormonal Imbalance in Women with Polycystic Ovary Syndrome (PCOS): A Systematic Review of Randomized Clinical Trials.",
+      "abstract": "Background/Objectives: Polycystic ovary syndrome is a common endocrine disorder in women of reproductive age characterized by insulin resistance and hormonal imbalances. Recent research suggests that probiotics and synbiotics may improve these parameters by modulating the gut microbiota. This study systematically reviewed randomized clinical trials evaluating the impact of probiotic, prebiotic, and synbiotic supplementation on insulin resistance and hormonal parameters in women with PCOS. Methods: Exhaustive searches were conducted in PubMed, Cochrane CENTRAL, Scopus, Web of Science, and Embase, following PRISMA guidelines. Randomized trials assessing supplementation with probiotics, prebiotics, or synbiotics for at least 8 weeks in women diagnosed with PCOS according to the Rotterdam criteria were included. Data on participants, interventions, and outcomes related to insulin resistance and hormones were extracted. Results: Eleven studies from Iran involving overweight or obese women aged 15 to 48 were included. Probiotic and synbiotic supplementation showed significant improvements in insulin resistance (reductions in HOMA-IR, fasting glucose, and insulin), lipid profiles (decreased LDL and triglycerides; increased HDL), and hormonal balance (increased SHBG, decreased total testosterone). Synbiotics had more pronounced effects than probiotics or prebiotics alone. Adherence was high, and side effects were minimal. Conclusions: Despite promising results, limitations such as small sample sizes, homogeneous populations, and short intervention durations limit the generalization of the findings. Larger, longer, multicenter trials with diverse populations and standardized methodologies are needed to confirm the efficacy and safety of synbiotics in managing PCOS. Integrating these interventions could improve clinical management and quality of life for affected women, but additional evidence is required to support widespread use.",
+      "doi": "10.3390/nu16223916",
+      "journal": "Nutrients",
+      "pub_date": "2024Nov16",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effectiveness of Probiotics, Prebiotics, and Synbiotics in Managing Insulin Resistance and Hormonal Imbalance in Women with Polycystic Ovary Syndrome (PCOS): A Systematic Review of Randomized Clinical Trials.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7686
     },
     {
       "pmid": "35639552",
@@ -1786,71 +1896,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7682
-    },
-    {
-      "pmid": "36578019",
-      "title": "Effects of vitamin D supplementation in endometriosis: a systematic review.",
-      "abstract": "BACKGROUND: There is a growing body of human, animal and in vitro studies on vitamin D (vit D) substitution in endometriosis. The aim of this systematic review is to critically appraise and qualitatively synthesize the results of the available studies that examine the supplementation of vit D for endometriosis treatment. METHODS: A systematic search of the literature was conducted in four electronic databases (Medline, Cochrane, Scopus, Embase) and grey literature for original research articles on humans, animals and in vitro models published in any language. RESULTS: Four human studies, four animal studies and four in vitro studies were included. Quantitative synthesis of human studies showed no significant effect of vit D intake for dysmenorrhea (2 studies, 44 vit D vs 44 placebo, mean -0.71, 95% CI -1.94, 0.51) and non-cyclic pelvic pain (2 studies, 42 vit D vs 38 placebo, mean 0.34, 95% CI -0.02, 0.71). Regarding reproductive outcomes in women with endometriosis after in vitro fertilization, the only available study showed no differences between women taking vit D and women taking placebo. Three of the four included animal studies showed regression of endometriotic implants when treated with vit D. The in vitro studies demonstrated that vit D decreases invasion and proliferation of endometriotic lesions without affecting apoptosis. CONCLUSIONS: Although in vitro and animal studies suggest regression of the endometriotic implants and decrease of invasion and proliferation after vit D supplementation, this was not reflected in the results of the meta-analysis, which showed no benefit of vit D supplementation in patients with endometriosis and dysmenorrhea or non-cyclic pelvic pain as well as on the outcome of IVF treatment. However, given the heterogeneity and the diversity of the available studies, more research is required to shed light on the role of vit D supplementation in women with endometriosis.",
-      "doi": "10.1186/s12958-022-01051-9",
-      "journal": "Reproductive biology and endocrinology : RB&E",
-      "pub_date": "2022Dec28",
-      "publication_types": [
-        "Systematic Review",
-        "Meta-Analysis",
-        "Journal Article"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effects of vitamin D supplementation in endometriosis: a systematic review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7683
-    },
-    {
-      "pmid": "34383914",
-      "title": "Omega-3 Fatty Acid Dietary Supplements Consumed During Pregnancy and Lactation and Child Neurodevelopment: A Systematic Review.",
-      "abstract": "BACKGROUND: Maternal nutrition during pregnancy and lactation has profound effects on the development and lifelong health of the child. Long-chain PUFAs are particularly important for myelination and the development of vision during the perinatal period. OBJECTIVES: We conducted a systematic review to examine the relationship between supplementation with omega-3 fatty acids during pregnancy and/or lactation and neurodevelopment in children, to inform the Scientific Report of the 2020 Dietary Guidelines Advisory Committee. METHODS: We identified articles on omega-3 fatty acid supplementation in pregnant and lactating women that included measures of neurodevelopment in their children (0-18 y) by searching PubMed, CENTRAL, Embase, and CINAHL Plus. After dual screening articles for inclusion, we qualitatively synthesized and graded the strength of evidence using pre-established criteria for assessing risk of bias, consistency, directness, precision, and generalizability. RESULTS: We included 33 articles from 15 randomized controlled trials (RCTs) and 1 prospective cohort study. Of the 8 RCTs that delivered omega-3 fatty acid dietary supplements during pregnancy alone (200-2200 mg/d DHA and 0-1100 mg/d EPA for approximately 20 wk), 5 studies reported ≥1 finding that supplementation improved measures of cognitive development in the infant or child by 6%-11% (P < 0.05), but all 8 studies also reported ≥1 nonsignificant (P > 0.05) result. There was inconsistent or insufficient evidence for other outcomes (language, social-emotional, physical, motor, or visual development; academic performance; risks of attention deficit disorder, attention-deficit/hyperactivity disorder, autism spectrum disorder, anxiety, or depression) and for supplementation during lactation or both pregnancy and lactation. Populations with a lower socioeconomic status and adolescents were underrepresented and studies lacked racial and ethnic diversity. CONCLUSIONS: Limited evidence suggests that omega-3 fatty acid supplementation during pregnancy may result in favorable cognitive development in the child. There was insufficient evidence to evaluate the effects of omega-3 fatty acid supplementation during pregnancy and/or lactation on other developmental outcomes.",
-      "doi": "10.1093/jn/nxab238",
-      "journal": "The Journal of nutrition",
-      "pub_date": "2021Nov02",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Omega-3 Fatty Acid Dietary Supplements Consumed During Pregnancy and Lactation and Child Neurodevelopment: A Systematic Review.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7684
-    },
-    {
-      "pmid": "39599701",
-      "title": "Effectiveness of Probiotics, Prebiotics, and Synbiotics in Managing Insulin Resistance and Hormonal Imbalance in Women with Polycystic Ovary Syndrome (PCOS): A Systematic Review of Randomized Clinical Trials.",
-      "abstract": "Background/Objectives: Polycystic ovary syndrome is a common endocrine disorder in women of reproductive age characterized by insulin resistance and hormonal imbalances. Recent research suggests that probiotics and synbiotics may improve these parameters by modulating the gut microbiota. This study systematically reviewed randomized clinical trials evaluating the impact of probiotic, prebiotic, and synbiotic supplementation on insulin resistance and hormonal parameters in women with PCOS. Methods: Exhaustive searches were conducted in PubMed, Cochrane CENTRAL, Scopus, Web of Science, and Embase, following PRISMA guidelines. Randomized trials assessing supplementation with probiotics, prebiotics, or synbiotics for at least 8 weeks in women diagnosed with PCOS according to the Rotterdam criteria were included. Data on participants, interventions, and outcomes related to insulin resistance and hormones were extracted. Results: Eleven studies from Iran involving overweight or obese women aged 15 to 48 were included. Probiotic and synbiotic supplementation showed significant improvements in insulin resistance (reductions in HOMA-IR, fasting glucose, and insulin), lipid profiles (decreased LDL and triglycerides; increased HDL), and hormonal balance (increased SHBG, decreased total testosterone). Synbiotics had more pronounced effects than probiotics or prebiotics alone. Adherence was high, and side effects were minimal. Conclusions: Despite promising results, limitations such as small sample sizes, homogeneous populations, and short intervention durations limit the generalization of the findings. Larger, longer, multicenter trials with diverse populations and standardized methodologies are needed to confirm the efficacy and safety of synbiotics in managing PCOS. Integrating these interventions could improve clinical management and quality of life for affected women, but additional evidence is required to support widespread use.",
-      "doi": "10.3390/nu16223916",
-      "journal": "Nutrients",
-      "pub_date": "2024Nov16",
-      "publication_types": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Effectiveness of Probiotics, Prebiotics, and Synbiotics in Managing Insulin Resistance and Hormonal Imbalance in Women with Polycystic Ovary Syndrome (PCOS): A Systematic Review of Randomized Clinical Trials.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7685
+      "wave": 7687
     },
     {
       "pmid": "26663024",
@@ -1874,30 +1920,50 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7686
+      "wave": 7688
     },
     {
-      "pmid": "29183107",
-      "title": "Insulin-sensitising drugs (metformin, rosiglitazone, pioglitazone, D-chiro-inositol) for women with polycystic ovary syndrome, oligo amenorrhoea and subfertility.",
-      "abstract": "BACKGROUND: Polycystic ovary syndrome (PCOS) is characterised by infrequent or absent ovulation, and high levels of androgens and insulin (hyperinsulinaemia). Hyperinsulinaemia occurs secondary to insulin resistance and is associated with increased risk of cardiovascular disease and diabetes mellitus. Insulin-sensitising agents such as metformin may be effective in treating PCOS-related anovulation. OBJECTIVES: To evaluate the effectiveness and safety of insulin-sensitising drugs in improving reproductive and metabolic outcomes for women with PCOS undergoing ovulation induction. SEARCH METHODS: We searched the following databases from inception to January 2017: Cochrane Gynaecology and Fertility Group Specialised Register, CENTRAL, MEDLINE, Embase, PsycINFO and CINAHL. We searched registers of ongoing trials and reference lists from relevant studies. SELECTION CRITERIA: We included randomised controlled trials of insulin-sensitising drugs compared with placebo, no treatment, or an ovulation-induction agent for women with oligo and anovulatory PCOS. DATA COLLECTION AND ANALYSIS: Two review authors independently assessed studies for eligibility and bias. Primary outcomes were live birth rate and gastrointestinal adverse effects. Secondary outcomes included other pregnancy outcomes, menstrual frequency and metabolic effects. We combined data to calculate pooled odds ratios (ORs) and 95% confidence intervals (CIs). We assessed statistical heterogeneity using the I2 statistic and reported quality of the evidence for primary outcomes using GRADE methodology. MAIN RESULTS: We assessed the interventions metformin, clomiphene citrate, metformin plus clomiphene citrate, D-chiro-inositol, rosiglitazone and pioglitazone. We compared these with each other, placebo or no treatment. We included 48 studies (4451 women), 42 of which investigated metformin (4024 women). Evidence quality ranged from very low to moderate. Limitations were risk of bias (poor reporting of methodology and incomplete outcome data), imprecision and inconsistency. Metformin versus placebo or no treatmentThe evidence suggests that metformin may improve live birth rates compared with placebo (OR 1.59, 95% CI 1.00 to 2.51, 4 studies, 435 women, I2 = 0%, low-quality evidence). The metformin group experienced more gastrointestinal side effects (OR 4.76, 95% CI 3.06 to 7.41, 7 studies, 670 women, I2 = 61%, moderate-quality evidence) but had higher rates of clinical pregnancy (OR 1.93, 95% CI 1.42 to 2.64, 9 studies, 1027 women, I2 = 43%, moderate-quality evidence), ovulation (OR 2.55, 95% CI 1.81 to 3.59, 14 studies, 701 women, I2 = 58%, moderate-quality evidence) and menstrual frequency (OR 1.72, 95% CI 1.14 to 2.61, 7 studies, 427 women, I2 = 54%, low-quality evidence). There was no clear evidence of a difference in miscarriage rates (OR 1.08, 95% CI 0.50 to 2.35, 4 studies, 748 women, I2 = 0%, low-quality evidence). Metformin plus clomiphene citrate versus clomiphene citrate alone There was no conclusive evidence of a difference between the groups in live birth rates (OR 1.21, 95% CI 0.92 to 1.59, 9 studies, 1079 women, I2 = 20%, low-quality evidence), but gastrointestinal side effects were more common with combined therapy (OR 3.97, 95% CI 2.59 to 6.08, 3 studies, 591 women, I2 = 47%, moderate-quality evidence). However, the combined therapy group had higher rates of clinical pregnancy (OR 1.59, 95% CI 1.27 to 1.99, 16 studies, 1529 women, I2 = 33%, moderate-quality evidence) and ovulation (OR 1.57, 95% CI 1.28 to 1.92, 21 studies, 1624 women, I2 = 64%, moderate-quality evidence). There was a statistically significant difference in miscarriage rate per woman, with higher rates in the combined therapy group (OR 1.59, 95% CI 1.03 to 2.46, 9 studies, 1096 women, I2 = 0%, low-quality evidence) but this is of uncertain clinical significance due to low-quality evidence, and no clear difference between groups when we analysed miscarriage per pregnancy (OR 1.30, 95% CI 0.80 to 2.12, 8 studies; 400 pregnancies, I2 = 0%, low-quality evidence). Metformin versus clomiphene citrateWhen all studies were combined, findings for live birth were inconclusive and inconsistent (OR 0.71, 95% CI 0.49 to 1.01, 5 studies, 741 women, I2 = 86%, very low-quality evidence). In subgroup analysis by obesity status, obese women had a lower birth rate in the metformin group (OR 0.30, 95% CI 0.17 to 0.52, 2 studies, 500 women, I2 = 0%, very low-quality evidence), while data from the non-obese group showed a possible benefit from metformin, with high heterogeneity (OR 1.71, 95% CI 1.00 to 2.94, 3 studies, 241 women, I2 = 78%, very low-quality evidence). Similarly, among obese women taking metformin there were lower rates of clinical pregnancy (OR 0.34, 95% CI 0.21 to 0.55, 2 studies, 500 women, I2 = 0%, very low-quality evidence) and ovulation (OR 0.29, 95% CI 0.20 to 0.43 2 studies, 500 women, I2 = 0%, low-quality evidence) while among non-obese women, the metformin group had more pregnancies (OR 1.56, 95% CI 1.05 to 2.33, 5 studies, 490 women, I2 = 41%, very low-quality evidence) and no clear difference in ovulation rates (OR 0.81, 95% CI 0.51 to 1.28, 4 studies, 312 women, low-quality evidence, I2=0%). There was no clear evidence of a difference in miscarriage rates (overall: OR 0.92, 95% CI 0.50 to 1.67, 5 studies, 741 women, I2 = 52%, very low-quality evidence). D-chiro-inositol (2 studies), rosiglitazone (1 study) or pioglitazone (1 study) versus placebo or no treatmentWe were unable to draw conclusions regarding other insulin-sensitising drugs as no studies reported primary outcomes. AUTHORS' CONCLUSIONS: Our updated review suggests that metformin alone may be beneficial over placebo for live birth, although the evidence quality was low. When metformin was compared with clomiphene citrate, data for live birth were inconclusive, and our findings were limited by lack of evidence. Results differed by body mass index (BMI), emphasising the importance of stratifying results by BMI. An improvement in clinical pregnancy and ovulation suggests that clomiphene citrate remains preferable to metformin for ovulation induction in obese women with PCOS.An improved clinical pregnancy and ovulation rate with metformin and clomiphene citrate versus clomiphene citrate alone suggests that combined therapy may be useful although we do not know whether this translates into increased live births. Women taking metformin alone or with combined therapy should be advised that there is no evidence of increased miscarriages, but gastrointestinal side effects are more likely.",
-      "doi": "10.1002/14651858.cd003053.pub6",
-      "journal": "The Cochrane database of systematic reviews",
-      "pub_date": "2017Nov29",
+      "pmid": "31298405",
+      "title": "The 40:1 myo-inositol/D-chiro-inositol plasma ratio is able to restore ovulation in PCOS patients: comparison with other ratios.",
+      "abstract": "OBJECTIVE: The aim of this clinical trial was to evaluate the efficacy of seven different ratios between two inositols stereoisomers, myo-inositol (MI) and D-chiro-inositol (DCI), in the therapy of polycystic ovary syndrome (PCOS). PATIENTS AND METHODS: fifty-six PCOS patients (8 for each group) were treated by oral route using the following formulations: DCI alone, and 1:3.5; 2.5:1; 5:1; 20:1; 40:1, 80:1 MI/DCI ratio. They received 2 g of inositols twice a day for 3 months. The primary outcome was ovulation, the secondary outcome included the improvement of FSH, LH, Sex Hormone Binding Globulin (SHBG), 17-beta-Estradiol (E2), free testosterone, basal and postprandial insulin levels, as well as HOMA index, BMI and menses. RESULTS: We found that the 40:1 MI/DCI ratio is the best for PCOS therapy aimed at restoring ovulation and normalizing important parameters in these patients. The other formulations were less effective. In particular, a decreased activity was observed when the 40:1 ratio was modified in favour of DCI. CONCLUSIONS: Our data demonstrated that DCI activity is beneficial mainly at a specific ratio with MI, whereas the increase of DCI causes the loss of the beneficial effects at reproductive level. These results in humans validate a previous preclinical study with different MI/DCI ratios carried out in an experimental model of PCOS mice.",
+      "doi": "10.26355/eurrev_201906_18223",
+      "journal": "European review for medical and pharmacological sciences",
+      "pub_date": "2019Jun",
       "publication_types": [
+        "Comparative Study",
         "Journal Article",
-        "Meta-Analysis",
-        "Research Support, Non-U.S. Gov't",
-        "Systematic Review"
+        "Randomized Controlled Trial"
       ],
       "category": "women_health",
       "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Insulin-sensitising drugs (metformin, rosiglitazone, pioglitazone, D-chiro-inositol) for women with polycystic ovary syndrome, oligo amenorrhoea and subfertility.",
+      "verified_title": "The 40:1 myo-inositol/D-chiro-inositol plasma ratio is able to restore ovulation in PCOS patients: comparison with other ratios.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7687
+      "wave": 7689
+    },
+    {
+      "pmid": "35918728",
+      "title": "The effects of magnesium supplementation on abnormal uterine bleeding, alopecia, quality of life, and acne in women with polycystic ovary syndrome: a randomized clinical trial.",
+      "abstract": "BACKGROUND: Abnormal uterine bleeding (AUB), alopecia, low quality of life, and acne are considered as complications of polycystic ovary syndrome (PCOS). We hypothesized that magnesium supplementation would yield beneficial effects on PCOS related complications. OBJECTIVE: To examine the effects of magnesium supplementation on AUB, alopecia, quality of life, and acne. METHODS: In this parallel randomized clinical trial, we randomly assigned 64 women with PCOS to the magnesium group (n = 32) or placebo group (n = 32) for 10 weeks. AUB, alopecia, quality of life, and acne were assessed by the International Federation of Gynecology and Obstetrics criterion, the Sinclair Scale, the Health Survey Quality of Life Questionnaire, and the Global Acne Grading System, respectively. This randomized clinical trial was registered at IRCT.ir (IRCT20130903014551N9). RESULTS: Magnesium supplementation significantly improved the components of quality of life including physical functioning (p = 0.011), role limitations due to physical health (p = 0.012), role limitations due to emotional problems (p < 0.001), energy/fatigue (p = 0.005), emotional wellbeing (p < 0.001), social functioning (p = 0.002), general health (p = 0.013), and total quality of life (p < 0.001), compared with placebo. No significant effect was observed on acne, alopecia, and AUB. CONCLUSION: Magnesium supplementation in women with PCOS had a significant positive effect on improving total quality of life. TRIAL REGISTRATION: This randomized clinical trial was registered at IRCT.ir on 2020-10-18 (Registration Code: IRCT20130903014551N9 ).",
+      "doi": "10.1186/s12958-022-00982-7",
+      "journal": "Reproductive biology and endocrinology : RB&E",
+      "pub_date": "2022Aug02",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The effects of magnesium supplementation on abnormal uterine bleeding, alopecia, quality of life, and acne in women with polycystic ovary syndrome: a randomized clinical trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7690
     },
     {
       "pmid": "36841983",
@@ -1915,73 +1981,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Omega-3 Intake Improves Clinical Pregnancy Rate in Polycystic Ovary Syndrome Patients: A Double-Blind, Randomized Study.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7688
-    },
-    {
-      "pmid": "25670222",
-      "title": "Myo-inositol vs. D-chiro inositol in PCOS treatment.",
-      "abstract": "AIM: Polycystic ovary syndrome (PCOS) is the most common endocrine disorder in women in fertile age. It is an endocrine and metabolic disorder characterized by oligo-anovulation, hyperandrogenism and insulin-resistance. Various therapeutic approaches have been attempted in PCOS, including diet and the use of pharmacological agents such as oral contraceptives (OCs) or anti-androgens. Recently, the introduction of inositol in the treatment plan has proved to be as reasonable as useful in countering the endocrine-metabolic disorders of this syndrome. METHODS: The aim of our study was to compare the clinical, endocrine and metabolic response after 6 months of therapy in 137 PCOS women characterized by oligomenorrhea and/or acne and/or mild hirsutism and insulin-resistance. The patients were treated with myo-inositol or with D-chiro-inositol or with placebo. RESULTS: Our study showed that both myo-inositol (MI-PG) and D-chiro inositol (DCI-PG) treatments are able to significantly improve the regularity of the menstrual cycle, the Acne Score, the endocrine and metabolic parameters and the insulin-resistence in young, overweight, PCOS patients. CONCLUSION: Definitely, we assumed that both treatments with myo-inositol and with D-chiro inositol could be proposed as a potential valid therapeutic approach for the treatment of patients with PCOS. Additionally, further examination and for a longer period of treatment are needed.",
-      "doi": "",
-      "journal": "Minerva ginecologica",
-      "pub_date": "2015Aug",
-      "publication_types": [
-        "Comparative Study",
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Myo-inositol vs. D-chiro inositol in PCOS treatment.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7689
-    },
-    {
-      "pmid": "39143654",
-      "title": "The effects of time-restricted eating alone or in combination with probiotic supplementation in comparison with a calorie-restricted diet on endocrine and metabolic profiles in women with polycystic ovary syndrome: A randomized clinical trial.",
-      "abstract": "AIM: To assess the impact of intermittent fasting, with or without probiotic supplementation, versus a calorie-restricted diet on anthropometric measures, metabolic status and gonadal variables in women with polycystic ovary syndrome (PCOS). METHODS: This is a randomized, placebo-controlled, parallel-arm clinical trial. The effects of the 14:10 early time-restricted eating (eTRE) strategy alone or combined with probiotics, on obese women with PCOS, were investigated. Participants were divided into three groups: eTRE plus probiotics (n = 30), eTRE plus placebo (n = 30) and a control group following a standard three-meal-per-day diet with daily calorie restriction (DCR) (n = 30). Over 8 weeks, various anthropometric, metabolic, menstrual and gonadal variables were assessed. RESULTS: A total of 90 individuals were included in the study, with a mean body weight of 81.4 kg, and a mean age of 30 years. Mean (standard deviation) weight loss was not different between the groups at week 8 (TRE + probiotic: -2.2 [1.6] kg vs. TRE + placebo: -2.9 [2.7] kg vs. DCR: -2.5 [1.7] kg). Results revealed that, while all three regimes led to reductions in body weight, body mass index, vascular risk indicators, hirsutism and acne scores, there were no statistically significant differences between the eTRE groups and the control group in terms of weight loss, or improvements in metabolic, menstrual and gonadal variables (P > .05). Additionally, combining probiotics with eTRE did not benefit hormonal and cardiometabolic factors (P > .05). CONCLUSIONS: The eTRE alone or eTRE plus probiotics did not result in significantly greater weight loss or improvements in metabolic, menstrual and gonadal variables compared with the standard three-meal DCR diet.",
-      "doi": "10.1111/dom.15801",
-      "journal": "Diabetes, obesity & metabolism",
-      "pub_date": "2024Oct",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Comparative Study",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The effects of time-restricted eating alone or in combination with probiotic supplementation in comparison with a calorie-restricted diet on endocrine and metabolic profiles in women with polycystic ovary syndrome: A randomized clinical trial.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7690
-    },
-    {
-      "pmid": "37265016",
-      "title": "A randomized controlled trial comparing myoinositol with metformin versus metformin monotherapy in polycystic ovary syndrome.",
-      "abstract": "OBJECTIVE: Insulin resistance and hyperinsulinemia plays an important role in pathogenesis of polycystic ovary syndrome (PCOS). Metformin, Myoinositol and d-chiro-inositol acts as insulin sensitizers and exerts a beneficial effects in PCOS. The objective is to compare the effect of metformin monotherapy versus a combination of metformin with Myoinositol and d-chiro-inositol in PCOS. DESIGN: This study is a randomized controlled trial conducted over a period of 6 months. All overweight and obese women with PCOS with the age group between 18 and 35 were included and randomized into two groups, 27 in the metformin monotherapy arm and 26 in the myoinositol combination arm. PATIENTS AND MEASUREMENTS: The variables assessed were duration of menstrual cycle, anthropometric parameters, modified Ferriman Gallwey score, global acne score, Fasting insulin, HOMA-IR, fasting lipid profile, serum testosterone, sex hormone binding globulin, luteinizing hormone, follicle stimulating hormone, anti-Mullerian hormone, and pelvic ultrasound to assess ovarian volume, PCOS Questionnaire score. Changes in the parameters from baseline at the end of 6 months of treatment were assessed and compared between the groups. RESULTS: Menstrual cycle regularity improved in both groups with significantly greater improvement in the group receiving myoinositol-based therapy (p < .001). Pregnancy rate was equal in both the arms. There was a significant improvement in PCOSQ score in myoinositol-based therapy group (p < .001). However, there was no statistically significant difference in other hormonal, metabolic parameters between two groups in spite of symptomatic benefits. CONCLUSIONS: The addition of myoinositol to metformin exerts additional benefits in improving menstrual cycle regularity, and quality of life in women with PCOS.",
-      "doi": "10.1111/cen.14931",
-      "journal": "Clinical endocrinology",
-      "pub_date": "2023Aug",
-      "publication_types": [
-        "Randomized Controlled Trial",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "A randomized controlled trial comparing myoinositol with metformin versus metformin monotherapy in polycystic ovary syndrome.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -2009,28 +2008,6 @@
       "wave": 7692
     },
     {
-      "pmid": "31298405",
-      "title": "The 40:1 myo-inositol/D-chiro-inositol plasma ratio is able to restore ovulation in PCOS patients: comparison with other ratios.",
-      "abstract": "OBJECTIVE: The aim of this clinical trial was to evaluate the efficacy of seven different ratios between two inositols stereoisomers, myo-inositol (MI) and D-chiro-inositol (DCI), in the therapy of polycystic ovary syndrome (PCOS). PATIENTS AND METHODS: fifty-six PCOS patients (8 for each group) were treated by oral route using the following formulations: DCI alone, and 1:3.5; 2.5:1; 5:1; 20:1; 40:1, 80:1 MI/DCI ratio. They received 2 g of inositols twice a day for 3 months. The primary outcome was ovulation, the secondary outcome included the improvement of FSH, LH, Sex Hormone Binding Globulin (SHBG), 17-beta-Estradiol (E2), free testosterone, basal and postprandial insulin levels, as well as HOMA index, BMI and menses. RESULTS: We found that the 40:1 MI/DCI ratio is the best for PCOS therapy aimed at restoring ovulation and normalizing important parameters in these patients. The other formulations were less effective. In particular, a decreased activity was observed when the 40:1 ratio was modified in favour of DCI. CONCLUSIONS: Our data demonstrated that DCI activity is beneficial mainly at a specific ratio with MI, whereas the increase of DCI causes the loss of the beneficial effects at reproductive level. These results in humans validate a previous preclinical study with different MI/DCI ratios carried out in an experimental model of PCOS mice.",
-      "doi": "10.26355/eurrev_201906_18223",
-      "journal": "European review for medical and pharmacological sciences",
-      "pub_date": "2019Jun",
-      "publication_types": [
-        "Comparative Study",
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "The 40:1 myo-inositol/D-chiro-inositol plasma ratio is able to restore ovulation in PCOS patients: comparison with other ratios.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7693
-    },
-    {
       "pmid": "34371972",
       "title": "Effects of DHA-Rich n-3 Fatty Acid Supplementation and/or Resistance Training on Body Composition and Cardiometabolic Biomarkers in Overweight and Obese Post-Menopausal Women.",
       "abstract": "Resistance training (RT) and n-3 polyunsaturated fatty acids (n-3 PUFA) supplementation have emerged as strategies to improve muscle function in older adults. Overweight/obese postmenopausal women (55-70 years) were randomly allocated to one of four experimental groups, receiving placebo (olive oil) or docosahexaenoic acid (DHA)-rich n-3 PUFA supplementation alone or in combination with a supervised RT-program for 16 weeks. At baseline and at end of the trial, body composition, anthropometrical measures, blood pressure and serum glucose and lipid biomarkers were analyzed. Oral glucose tolerance tests (OGTT) and strength tests were also performed. All groups exhibit a similar moderate reduction in body weight and fat mass, but the RT-groups maintained bone mineral content, increased upper limbs lean mass, decreased lower limbs fat mass, and increased muscle strength and quality compared to untrained-groups. The RT-program also improved glucose tolerance (lowering the OGTT incremental area under the curve). The DHA-rich supplementation lowered diastolic blood pressure and circulating triglycerides and increased muscle quality in lower limbs. In conclusion, 16-week RT-program improved segmented body composition, bone mineral content, and glucose tolerance, while the DHA-rich supplement had beneficial effects on cardiovascular health markers in overweight/obese postmenopausal women. No synergistic effects were observed for DHA supplementation and RT-program combination.",
@@ -2049,7 +2026,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7694
+      "wave": 7693
     },
     {
       "pmid": "37447156",
@@ -2071,7 +2048,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7695
+      "wave": 7694
     },
     {
       "pmid": "33305822",
@@ -2094,28 +2071,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7696
-    },
-    {
-      "pmid": "40806137",
-      "title": "Myokine Circulating Levels in Postmenopausal Women with Overweight or Obesity: Effects of Resistance Training and/or DHA-Rich n-3 PUFA Supplementation.",
-      "abstract": "BACKGROUND: Menopause increases the risk of cardiovascular diseases (CVD) accompanied by a decline in muscle function. Myokines, released by skeletal muscle, could play a significant role in cardiovascular health. OBJECTIVES AND METHODS: This study aimed to investigate the changes induced by a 16-week resistance training (RT) program and/or the docosahexaenoic acid (DHA)-rich n-3 PUFA supplementation on myokine and cytokine circulating levels and to study their associations with parameters of body composition, muscle function, and glucose and lipid serum markers in postmenopausal women with overweight/obesity. RESULTS: At baseline, interleukin-6 (IL-6) levels were positively correlated with body fat and with tumor necrosis factor-alpha (TNF-α) levels and negatively associated with meterorin-like (METRNL) levels. Moreover, METRNL was inversely associated with insulin levels and with HOMA-IR. After the intervention, muscle quality improved with either treatment but more notably in response to RT. N-3 supplementation caused significant improvements in cardiometabolic health markers. TNF-α decreased in all experimental groups. Myostatin levels decreased in the RT and in the n-3 groups, and IL-6 increased in the n-3+RT group. Lastly, no interactions between treatments were observed. CONCLUSIONS: In postmenopausal women with overweight or obesity, RT could help improve skeletal muscle function, while DHA-rich n-3 supplementation might decrease CVD risk and might potentially improve muscle function. The modulation of myokine levels could be underlying some of the effects of DHA or RT; however, further research is necessary.",
-      "doi": "10.3390/nu17152553",
-      "journal": "Nutrients",
-      "pub_date": "2025Aug05",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "category": "women_health",
-      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Myokine Circulating Levels in Postmenopausal Women with Overweight or Obesity: Effects of Resistance Training and/or DHA-Rich n-3 PUFA Supplementation.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7697
+      "wave": 7695
     },
     {
       "pmid": "33562394",
@@ -2136,7 +2092,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7698
+      "wave": 7696
     },
     {
       "pmid": "35180821",
@@ -2157,7 +2113,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7699
+      "wave": 7697
     },
     {
       "pmid": "37062834",
@@ -2176,6 +2132,50 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Probiotic vs. placebo and metformin: probiotic dietary intervention in polycystic ovary syndrome - A randomized controlled trial.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7698
+    },
+    {
+      "pmid": "38154770",
+      "title": "Antimüllerian hormone level predicts ovulation in women with polycystic ovary syndrome treated with clomiphene and metformin.",
+      "abstract": "OBJECTIVE: To describe the serum anti-Müllerian hormone (AMH) concentrations in a large, well-phenotyped cohort of women with polycystic ovary syndrome (PCOS) and evaluate whether AMH predicts successful ovulation induction in women treated with clomiphene and metformin. DESIGN: Secondary analysis of randomized controlled trial. SETTING: Not applicable. PATIENT(S): A total of 333 women with anovulatory infertility attributed to PCOS who participated in the double-blind randomized trial entitled the Pregnancy in Polycystic Ovary Syndrome I (PPCOS I) study (registration number, NCT00068861) who had serum samples from baseline laboratory testing available for further serum analysis were studied. INTERVENTION(S): Not applicable. MAIN OUTCOME MEASURE(S): The association between the baseline AMH levels in each of the 3 treatment groups and ovulation, pregnancy, and live birth rates were assessed. RESULT(S): A total of 322 individuals had a baseline AMH concentration available, of which the mean AMH was 11.7 ± 8.3 ng/mL (range 0.1-43.0 ng/mL). With each unit (1 ng/mL) increase in baseline AMH, the odds of ovulation decreased by 10% (odds ratio, 0.90; 95% confidence interval, 0.86-0.93); this effect did not differ by treatment group. Women with a high baseline AMH concentration (>8 ng/mL) were significantly less likely to ovulate compared with those with a normal baseline AMH concentration (<4 ng/mL) (odds ratio, 0.23; 95% confidence interval, 0.05-0.68). This remained statistically significant when controlling for confounders, including age, body mass index, time in study, and Homeostatic Model Assessment for Insulin Resistance score. Ovulation occurred even at very high AMH concentrations; there was no maximum level noted at which no ovulation events occurred. Baseline AMH concentration was not associated with pregnancy or live birth rates when controlling for confounders. CONCLUSION(S): These AMH values in well-phenotyped individuals with PCOS add to the literature and will aid in identifying AMH criteria for the diagnosis of PCOS. In women with infertility and PCOS, a higher AMH concentration was associated with reduced odds of ovulation with ovulation induction with clomiphene, clomiphene + metformin, and metformin. CLINICAL TRIAL REGISTRATION NUMBER: The original trial from which this analysis is derived was entitled \"Pregnancy in Polycystic Ovary Syndrome: A 30 Week Double-Blind Randomized Trial of Clomiphene Citrate, Metformin XR, and Combined Clomiphene Citrate/Metformin XR For the Treatment of Infertility in Women With Polycystic Ovary Syndrome\" and was registered on ClinicalTrials.gov as number NCT00068861. The URL for the trial is https://clinicaltrials.gov/study/NCT00068861. The first subject was enrolled in November 2002.",
+      "doi": "10.1016/j.fertnstert.2023.12.031",
+      "journal": "Fertility and sterility",
+      "pub_date": "2024Apr",
+      "publication_types": [
+        "Randomized Controlled Trial",
+        "Journal Article"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Antimüllerian hormone level predicts ovulation in women with polycystic ovary syndrome treated with clomiphene and metformin.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7699
+    },
+    {
+      "pmid": "29183107",
+      "title": "Insulin-sensitising drugs (metformin, rosiglitazone, pioglitazone, D-chiro-inositol) for women with polycystic ovary syndrome, oligo amenorrhoea and subfertility.",
+      "abstract": "BACKGROUND: Polycystic ovary syndrome (PCOS) is characterised by infrequent or absent ovulation, and high levels of androgens and insulin (hyperinsulinaemia). Hyperinsulinaemia occurs secondary to insulin resistance and is associated with increased risk of cardiovascular disease and diabetes mellitus. Insulin-sensitising agents such as metformin may be effective in treating PCOS-related anovulation. OBJECTIVES: To evaluate the effectiveness and safety of insulin-sensitising drugs in improving reproductive and metabolic outcomes for women with PCOS undergoing ovulation induction. SEARCH METHODS: We searched the following databases from inception to January 2017: Cochrane Gynaecology and Fertility Group Specialised Register, CENTRAL, MEDLINE, Embase, PsycINFO and CINAHL. We searched registers of ongoing trials and reference lists from relevant studies. SELECTION CRITERIA: We included randomised controlled trials of insulin-sensitising drugs compared with placebo, no treatment, or an ovulation-induction agent for women with oligo and anovulatory PCOS. DATA COLLECTION AND ANALYSIS: Two review authors independently assessed studies for eligibility and bias. Primary outcomes were live birth rate and gastrointestinal adverse effects. Secondary outcomes included other pregnancy outcomes, menstrual frequency and metabolic effects. We combined data to calculate pooled odds ratios (ORs) and 95% confidence intervals (CIs). We assessed statistical heterogeneity using the I2 statistic and reported quality of the evidence for primary outcomes using GRADE methodology. MAIN RESULTS: We assessed the interventions metformin, clomiphene citrate, metformin plus clomiphene citrate, D-chiro-inositol, rosiglitazone and pioglitazone. We compared these with each other, placebo or no treatment. We included 48 studies (4451 women), 42 of which investigated metformin (4024 women). Evidence quality ranged from very low to moderate. Limitations were risk of bias (poor reporting of methodology and incomplete outcome data), imprecision and inconsistency. Metformin versus placebo or no treatmentThe evidence suggests that metformin may improve live birth rates compared with placebo (OR 1.59, 95% CI 1.00 to 2.51, 4 studies, 435 women, I2 = 0%, low-quality evidence). The metformin group experienced more gastrointestinal side effects (OR 4.76, 95% CI 3.06 to 7.41, 7 studies, 670 women, I2 = 61%, moderate-quality evidence) but had higher rates of clinical pregnancy (OR 1.93, 95% CI 1.42 to 2.64, 9 studies, 1027 women, I2 = 43%, moderate-quality evidence), ovulation (OR 2.55, 95% CI 1.81 to 3.59, 14 studies, 701 women, I2 = 58%, moderate-quality evidence) and menstrual frequency (OR 1.72, 95% CI 1.14 to 2.61, 7 studies, 427 women, I2 = 54%, low-quality evidence). There was no clear evidence of a difference in miscarriage rates (OR 1.08, 95% CI 0.50 to 2.35, 4 studies, 748 women, I2 = 0%, low-quality evidence). Metformin plus clomiphene citrate versus clomiphene citrate alone There was no conclusive evidence of a difference between the groups in live birth rates (OR 1.21, 95% CI 0.92 to 1.59, 9 studies, 1079 women, I2 = 20%, low-quality evidence), but gastrointestinal side effects were more common with combined therapy (OR 3.97, 95% CI 2.59 to 6.08, 3 studies, 591 women, I2 = 47%, moderate-quality evidence). However, the combined therapy group had higher rates of clinical pregnancy (OR 1.59, 95% CI 1.27 to 1.99, 16 studies, 1529 women, I2 = 33%, moderate-quality evidence) and ovulation (OR 1.57, 95% CI 1.28 to 1.92, 21 studies, 1624 women, I2 = 64%, moderate-quality evidence). There was a statistically significant difference in miscarriage rate per woman, with higher rates in the combined therapy group (OR 1.59, 95% CI 1.03 to 2.46, 9 studies, 1096 women, I2 = 0%, low-quality evidence) but this is of uncertain clinical significance due to low-quality evidence, and no clear difference between groups when we analysed miscarriage per pregnancy (OR 1.30, 95% CI 0.80 to 2.12, 8 studies; 400 pregnancies, I2 = 0%, low-quality evidence). Metformin versus clomiphene citrateWhen all studies were combined, findings for live birth were inconclusive and inconsistent (OR 0.71, 95% CI 0.49 to 1.01, 5 studies, 741 women, I2 = 86%, very low-quality evidence). In subgroup analysis by obesity status, obese women had a lower birth rate in the metformin group (OR 0.30, 95% CI 0.17 to 0.52, 2 studies, 500 women, I2 = 0%, very low-quality evidence), while data from the non-obese group showed a possible benefit from metformin, with high heterogeneity (OR 1.71, 95% CI 1.00 to 2.94, 3 studies, 241 women, I2 = 78%, very low-quality evidence). Similarly, among obese women taking metformin there were lower rates of clinical pregnancy (OR 0.34, 95% CI 0.21 to 0.55, 2 studies, 500 women, I2 = 0%, very low-quality evidence) and ovulation (OR 0.29, 95% CI 0.20 to 0.43 2 studies, 500 women, I2 = 0%, low-quality evidence) while among non-obese women, the metformin group had more pregnancies (OR 1.56, 95% CI 1.05 to 2.33, 5 studies, 490 women, I2 = 41%, very low-quality evidence) and no clear difference in ovulation rates (OR 0.81, 95% CI 0.51 to 1.28, 4 studies, 312 women, low-quality evidence, I2=0%). There was no clear evidence of a difference in miscarriage rates (overall: OR 0.92, 95% CI 0.50 to 1.67, 5 studies, 741 women, I2 = 52%, very low-quality evidence). D-chiro-inositol (2 studies), rosiglitazone (1 study) or pioglitazone (1 study) versus placebo or no treatmentWe were unable to draw conclusions regarding other insulin-sensitising drugs as no studies reported primary outcomes. AUTHORS' CONCLUSIONS: Our updated review suggests that metformin alone may be beneficial over placebo for live birth, although the evidence quality was low. When metformin was compared with clomiphene citrate, data for live birth were inconclusive, and our findings were limited by lack of evidence. Results differed by body mass index (BMI), emphasising the importance of stratifying results by BMI. An improvement in clinical pregnancy and ovulation suggests that clomiphene citrate remains preferable to metformin for ovulation induction in obese women with PCOS.An improved clinical pregnancy and ovulation rate with metformin and clomiphene citrate versus clomiphene citrate alone suggests that combined therapy may be useful although we do not know whether this translates into increased live births. Women taking metformin alone or with combined therapy should be advised that there is no evidence of increased miscarriages, but gastrointestinal side effects are more likely.",
+      "doi": "10.1002/14651858.cd003053.pub6",
+      "journal": "The Cochrane database of systematic reviews",
+      "pub_date": "2017Nov29",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "category": "women_health",
+      "discovery_query": "(iron OR vitamin D OR magnesium OR omega-3 OR probiotics OR inositol) AND (menopause OR polycystic ovary OR dysmenorrhea OR pregnancy)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Insulin-sensitising drugs (metformin, rosiglitazone, pioglitazone, D-chiro-inositol) for women with polycystic ovary syndrome, oligo amenorrhoea and subfertility.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,

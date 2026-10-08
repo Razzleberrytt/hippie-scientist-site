@@ -182,6 +182,28 @@
       "wave": 7908
     },
     {
+      "pmid": "24465156",
+      "title": "Effects of a pre-workout supplement on lean mass, muscular performance, subjective workout experience and biomarkers of safety.",
+      "abstract": "In this prospective, randomized, double-blind, trial conducted in two parts, we examined the effects of a multi-ingredient pre-exercise workout supplement blend of creatine, betaine and a dendrobium extract (MMP) on safety, performance, and body composition in healthy men and women undergoing a supervised program of resistance exercise. Part 1 was an acute hemodynamic safety study wherein forty young, healthy men and women (26.2 ± 5.3 years, 70.4 ± 3.3 inches, 83.7 ± 14.9 kg, 26.0 ± 3.2 kg●m(-2)) ingest one dose of either the MMP or comparator in a randomized, double-blind, comparator controlled, crossover fashion before having their resting heart rate, blood, ECG and comprehensive blood chemistry and blood counts completed. Systolic (SBP) and diastolic (DBP) blood pressures were generally raised (3.0-5.4 mm Hg, p<0.01) following supplementation with MPP whereas in the comparator group SBP was marginally reduced by 0.3 to 1.2 mm Hg, p>0.05 at all time points) and DBP was increased (3.0 - 3.9 mm Hg, p<0.05 at all time points). No changes in EKG-corrected QT interval were observed, and no serious adverse events were reported. Part 2 was a six-week training study wherein forty-three young, healthy men and women (24.3 ± 2.9 years, 70.5 ± 3.1 inches, 83.8 ± 9.6 kg, 26.1 ± 2.7 kg●m(-2)) supplemented with daily pre-workout doses of either the MPP or a comparator in a randomized, double-blind, comparator-controlled fashion while following a standardized resistance training program for six weeks. MPP and the comparator were isocaloric and delivered the same amount of caffeine. Significant improvements in visual analog scale (VAS) scores for energy (p<0.024) and concentration (p<0.041) were found along with consistently higher levels of focus accompanied by less fatigue when MPP was consumed in comparison to comparator during upper body muscular strength-endurance tests at weeks 3 and 6. MPP supplementation for 6 weeks did not improve dual-energy x-ray absorptiometry (DEXA) measures of body composition or objective assessments of exercise performance. Overall, MPP use and administration was well tolerated. Self-reported scores for energy and concentration were significantly greater. Over a six-week training and supplementation period, MPP use was not associated with improvements in performance or body composition. Future studies should confirm these effects over a more prolonged training period.",
+      "doi": "10.7150/ijms.7073",
+      "journal": "International journal of medical sciences",
+      "pub_date": "2014",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "safety_interactions",
+      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Effects of a pre-workout supplement on lean mass, muscular performance, subjective workout experience and biomarkers of safety.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7909
+    },
+    {
       "pmid": "24610312",
       "title": "Pharmacokinetics of the co-administration of boceprevir and St John's wort to male and female healthy volunteers.",
       "abstract": "BACKGROUND: St John's wort (SJW; Hypericum perforatum) induces CYP3A4 that is involved in the metabolism of the hepatitis C virus (HCV) protease inhibitor boceprevir. Reduced boceprevir exposure and efficacy would contribute to therapeutic failure and increase the risk for resistance development. Boceprevir is co-administered with interferon/ribavirin, and depression has been described frequently in patients undergoing HCV treatment. Patients may purchase over-the-counter herbals to manage depression, and knowing the interaction between SJW and boceprevir is desirable. METHODS: This Phase I, open-label, three-period, cross-over pharmacokinetic study enrolled healthy males and females who, following consent and screening procedures, were randomized to receive SJW on days 1-14, SJW plus boceprevir (SJW on days 22-35 and together on days 31-35) and boceprevir on days 52-56, separated by 7 day washout periods, or the same treatment in the opposite order. Pharmacokinetic sampling was performed at the end of each phase. RESULTS: Seventeen (11 female) subjects completed the study and no serious adverse events were reported. Geometric mean ratios (GMRs) and 90% CIs for boceprevir (with SJW versus alone) AUC(0-8), C(max) and C8 were 0.91 (0.87-0.96), 0.94 (0.82-1.07) and 1.00 (0.79-1.27), respectively. GMRs and 90% CIs for hypericin, the active component of SJW, (with boceprevir versus alone) AUC(0-8), C(max) and C(8) were 1.23 (1.10-1.38), 1.32 (1.16-1.52) and 1.37 (1.19-1.58), respectively. CONCLUSIONS: SJW did not have a clinically significant effect on boceprevir plasma concentrations (or those of its metabolite), suggesting that SJW and boceprevir can be safely co-administered.",
@@ -202,7 +224,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7909
+      "wave": 7910
     },
     {
       "pmid": "20089774",
@@ -220,28 +242,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Dietary supplementation with lactobacilli and bifidobacteria is well tolerated and not associated with adverse events during late pregnancy and early infancy.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7910
-    },
-    {
-      "pmid": "21078942",
-      "title": "Herb-drug interaction between Echinacea purpurea and darunavir-ritonavir in HIV-infected patients.",
-      "abstract": "The aim of this open-label, fixed-sequence study was to investigate the potential of Echinacea purpurea, a commonly used botanical supplement, to interact with the boosted protease inhibitor darunavir-ritonavir. Fifteen HIV-infected patients receiving antiretroviral therapy including darunavir-ritonavir (600/100 mg twice daily) for at least 4 weeks were included. E. purpurea root extract capsules were added to the antiretroviral treatment (500 mg every 6 h) from days 1 to 14. Darunavir concentrations in plasma were determined by high-performance liquid chromatography immediately before and 1, 2, 4, 6, 8, 10, and 12 h after a morning dose of darunavir-ritonavir on days 0 (darunavir-ritonavir) and 14 (darunavir-ritonavir plus echinacea). Individual darunavir pharmacokinetic parameters were calculated by noncompartmental analysis and compared between days 0 and 14 with the geometric mean ratio (GMR) and its 90% confidence interval (CI). The median age was 49 (range, 43 to 67) years, and the body mass index was 24.2 (range, 18.7 to 27.5) kg/m(2). Echinacea was well tolerated, and all participants completed the study. The GMR for darunavir coadministered with echinacea relative to that for darunavir alone was 0.84 (90% CI, 0.63-1.12) for the concentration at the end of the dosing interval, 0.90 (90% CI, 0.74-1.10) for the area under the concentration-time curve from 0 to 12 h, and 0.98 (90% CI, 0.82-1.16) for the maximum concentration. In summary, coadministration of E. purpurea with darunavir-ritonavir was safe and well tolerated. Individual patients did show a decrease in darunavir concentrations, although this did not affect the overall darunavir or ritonavir pharmacokinetics. Although no dose adjustment is required, monitoring darunavir concentrations on an individual basis may give reassurance in this setting.",
-      "doi": "10.1128/aac.01082-10",
-      "journal": "Antimicrobial agents and chemotherapy",
-      "pub_date": "2011Jan",
-      "publication_types": [
-        "Clinical Trial",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "safety_interactions",
-      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Herb-drug interaction between Echinacea purpurea and darunavir-ritonavir in HIV-infected patients.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -355,6 +355,28 @@
       "wave": 7916
     },
     {
+      "pmid": "40040421",
+      "title": "The Pharmacokinetics and Pharmacodynamics of a Hemp-Derived \"Full-Spectrum\" Oral Cannabinoid Product with a 1:1 Ratio of Cannabidiol to Cannabidiolic Acid and Delta-9-Tetrahydrocannabinol to Delta-9-Tetrahydrocannabinolic Acid: A Double-Blind, Placebo-Controlled, Within-Subjects Human Laboratory Study.",
+      "abstract": "Aim: To examine the acute pharmacokinetics (PK) and pharmacodynamics (PD) of a patented oral cannabinoid product containing a botanical hemp-derived \"full-spectrum\" extract with an approximate 1:1 ratio of cannabidiol (CBD) to cannabidiolic acid (CBDA) and delta-9-tetrahydrocannabinol (THC) to delta-9-tetrahydrocannabinolic acid (THCA). Methods: Healthy adults (n = 15) ingested soft gels containing 0 (placebo), and approximately 1, 2, and 4 mg/kg of total cannabinoids (combination of CBD, CBDA, THC, THCA, and other minor cannabinoids) in an ascending-dose order in four experimental sessions separated by ≥1 week (the placebo condition occurred randomly within the dose sequence). Mean doses (mg) of primary cannabinoids in the active drug conditions were: 1 mg/kg condition (CBD = 41.1, CBDA = 43.7, THC = 2.2, THCA = 1.6), 2 mg/kg condition (CBD = 73.4, CBDA = 77.9, THC = 3.9, THCA = 2.9), and 4 mg/kg condition (CBD = 134.5, CBDA = 142.8, THC = 7.2, THCA = 5.3). PD outcomes (subjective, cognitive, and physiological effects) were measured before and repeatedly for 8 h after dosing. Plasma specimens were collected throughout the 8-h sessions and at 24- and 48-h post-dosing. PK outcomes included peak plasma concentration (Cmax) and time to maximum concentration (Tmax). Results: For PD outcomes, few differences were observed between 1 mg/kg and placebo. However, relative to placebo, 2 mg/kg and 4 mg/kg produced small to moderate increases in subjective drug effects, including abuse liability items (e.g., \"like\"), and 4 mg/kg also impaired working memory performance. Generally, PD effects peaked 3-5 h post-dosing and returned to baseline by 8 h. Dose-orderly increases in Cmax were observed for CBD, CBDA, THC, THCA, and their respective metabolites (e.g., 7-COOH-CBD, THCCOOH), which were often detectable 48 h post-dosing. Across all doses, Cmax for CBDA and THCA was 19-25-fold higher and Tmax was up to 2-fold earlier compared with CBD and THC, respectively. Conclusions: Acute administration of a \"full-spectrum\" hemp-derived cannabinoid product produced dose-orderly effects; the highest dose elicited several adverse events and produced moderate cognitive impairment and subjective intoxication, despite containing a relatively low dose of THC (mean: 7.2 mg). Carboxylated cannabinoids (e.g., CBDA) exhibited substantially greater bioavailability and faster absorption compared with decarboxylated cannabinoids (e.g., CBD). Additional systematic research is needed to characterize how constituent profile impacts the effects of cannabinoid products, and more studies directly comparing carboxylated and decarboxylated compounds appear warranted.",
+      "doi": "10.1089/can.2024.0187",
+      "journal": "Cannabis and cannabinoid research",
+      "pub_date": "2025Apr",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "safety_interactions",
+      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "The Pharmacokinetics and Pharmacodynamics of a Hemp-Derived \"Full-Spectrum\" Oral Cannabinoid Product with a 1:1 Ratio of Cannabidiol to Cannabidiolic Acid and Delta-9-Tetrahydrocannabinol to Delta-9-Tetrahydrocannabinolic Acid: A Double-Blind, Placebo-Controlled, Within-Subjects Human Laboratory Study.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7917
+    },
+    {
       "pmid": "27081765",
       "title": "Adverse effects of herbal or dietary supplements in G6PD deficiency: a systematic review.",
       "abstract": "AIM: Glucose-6-phosphate dehydrogenase (G6PD) deficiency is a common genetic disorder, affecting nearly 400 million individuals worldwide. Whilst it is known that a number of drugs, foods and chemicals can trigger haemolysis in G6PD deficient individuals, the association between herbal and dietary supplements and haemolysis is less clear. The objective of this study was to evaluate the association between herbal or dietary supplements and adverse events in G6PD deficient individuals. METHODS: We searched 14 electronic databases from their inception until November 2015 for articles describing the use of herbal or dietary supplements in G6PD deficient individuals. Additional publications were identified from manually searching textbooks, conference abstracts and the grey literature. All study designs were included as long as they contained clinical information. These gathered findings were summarized narratively. RESULTS: Thirty-two publications met inclusion criteria. These reported on 10 herbal and dietary supplements. Overall evidence linking haemolysis to a herbal/dietary supplement was only found for henna. No evidence of harm was observed for vitamin C, vitamin E, vitamin K, Gingko biloba and α-lipoic acid. CONCLUSIONS: The review showed that there was insufficient evidence to contravene the use of most herbal or dietary products at therapeutic doses in G6PD deficient subjects.",
@@ -373,7 +395,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7917
+      "wave": 7918
     },
     {
       "pmid": "33166629",
@@ -394,7 +416,29 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7918
+      "wave": 7919
+    },
+    {
+      "pmid": "21078942",
+      "title": "Herb-drug interaction between Echinacea purpurea and darunavir-ritonavir in HIV-infected patients.",
+      "abstract": "The aim of this open-label, fixed-sequence study was to investigate the potential of Echinacea purpurea, a commonly used botanical supplement, to interact with the boosted protease inhibitor darunavir-ritonavir. Fifteen HIV-infected patients receiving antiretroviral therapy including darunavir-ritonavir (600/100 mg twice daily) for at least 4 weeks were included. E. purpurea root extract capsules were added to the antiretroviral treatment (500 mg every 6 h) from days 1 to 14. Darunavir concentrations in plasma were determined by high-performance liquid chromatography immediately before and 1, 2, 4, 6, 8, 10, and 12 h after a morning dose of darunavir-ritonavir on days 0 (darunavir-ritonavir) and 14 (darunavir-ritonavir plus echinacea). Individual darunavir pharmacokinetic parameters were calculated by noncompartmental analysis and compared between days 0 and 14 with the geometric mean ratio (GMR) and its 90% confidence interval (CI). The median age was 49 (range, 43 to 67) years, and the body mass index was 24.2 (range, 18.7 to 27.5) kg/m(2). Echinacea was well tolerated, and all participants completed the study. The GMR for darunavir coadministered with echinacea relative to that for darunavir alone was 0.84 (90% CI, 0.63-1.12) for the concentration at the end of the dosing interval, 0.90 (90% CI, 0.74-1.10) for the area under the concentration-time curve from 0 to 12 h, and 0.98 (90% CI, 0.82-1.16) for the maximum concentration. In summary, coadministration of E. purpurea with darunavir-ritonavir was safe and well tolerated. Individual patients did show a decrease in darunavir concentrations, although this did not affect the overall darunavir or ritonavir pharmacokinetics. Although no dose adjustment is required, monitoring darunavir concentrations on an individual basis may give reassurance in this setting.",
+      "doi": "10.1128/aac.01082-10",
+      "journal": "Antimicrobial agents and chemotherapy",
+      "pub_date": "2011Jan",
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "category": "safety_interactions",
+      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Herb-drug interaction between Echinacea purpurea and darunavir-ritonavir in HIV-infected patients.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7920
     },
     {
       "pmid": "41837407",
@@ -415,7 +459,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7919
+      "wave": 7921
     },
     {
       "pmid": "32285669",
@@ -436,7 +480,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7920
+      "wave": 7922
     },
     {
       "pmid": "28797065",
@@ -457,7 +501,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7921
+      "wave": 7923
     },
     {
       "pmid": "26887532",
@@ -479,30 +523,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7922
-    },
-    {
-      "pmid": "29315079",
-      "title": "Safety and tolerability of spermidine supplementation in mice and older adults with subjective cognitive decline.",
-      "abstract": "Supplementation of spermidine, an autophagy-inducing agent, has been shown to protect against neurodegeneration and cognitive decline in aged animal models. The present translational study aimed to determine safety and tolerability of a wheat germ extract containing enhanced spermidine concentrations. In a preclinical toxicity study, supplementation of spermidine using this extract did not result in morbidities or changes in behavior in BALBc/Rj mice during the 28-days repeated-dose tolerance study. Post mortem examination of the mice organs showed no increase in tumorigenic and fibrotic events. In the human cohort (participants with subjective cognitive decline, n=30, 60 to 80 years of age), a 3-month randomized, placebo-controlled, double-blind Phase II trial was conducted with supplementation of the spermidine-rich plant extract (dosage: 1.2 mg/day). No differences were observed between spermidine and placebo-treated groups in vital signs, weight, clinical chemistry and hematological parameters of safety, as well as in self-reported health status at the end of intervention. Compliance rates above 85% indicated excellent tolerability. The data demonstrate that spermidine supplementation using a spermidine-rich plant extract is safe and well-tolerated in mice and older adults. These findings allow for longer-term intervention studies in humans to investigate the impact of spermidine treatment on cognition and brain integrity.",
-      "doi": "10.18632/aging.101354",
-      "journal": "Aging",
-      "pub_date": "2018Jan08",
-      "publication_types": [
-        "Clinical Trial, Phase II",
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "safety_interactions",
-      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Safety and tolerability of spermidine supplementation in mice and older adults with subjective cognitive decline.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7923
+      "wave": 7924
     },
     {
       "pmid": "22855269",
@@ -523,7 +544,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7924
+      "wave": 7925
     },
     {
       "pmid": "30844537",
@@ -545,7 +566,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7925
+      "wave": 7926
     },
     {
       "pmid": "21058968",
@@ -566,7 +587,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7926
+      "wave": 7927
     },
     {
       "pmid": "29954374",
@@ -587,7 +608,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7927
+      "wave": 7928
     },
     {
       "pmid": "23067030",
@@ -609,7 +630,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7928
+      "wave": 7929
     },
     {
       "pmid": "41031780",
@@ -630,7 +651,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7929
+      "wave": 7930
     },
     {
       "pmid": "30626212",
@@ -651,7 +672,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7930
+      "wave": 7931
     },
     {
       "pmid": "34379025",
@@ -673,7 +694,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7931
+      "wave": 7932
     },
     {
       "pmid": "28301092",
@@ -694,7 +715,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7932
+      "wave": 7933
     },
     {
       "pmid": "21827215",
@@ -716,7 +737,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7933
+      "wave": 7934
     },
     {
       "pmid": "31450563",
@@ -734,28 +755,6 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Tolerability and Safety of a Nutritional Supplement with Potential as Adjuvant in Colorectal Cancer Therapy: A Randomized Trial in Healthy Volunteers.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7934
-    },
-    {
-      "pmid": "38904899",
-      "title": "Clinical Evaluation of Effectiveness and Safety of Combined Use of Dietary Supplements Amberen® and Smart B® in Women with Climacteric Syndrome in Perimenopause.",
-      "abstract": "INTRODUCTION: Perimenopause is a time of transition in a woman's life that links her reproductive years to the cessation of ovulation, or menopause. For many women, this time is characterized by a variety of physiological and lifestyle changes, including increasing irregularity in menstrual bleeding, frequency and severity of vasomotor symptoms, etc. Therapies evaluated specifically for the perimenopausal women are very limited. This study aimed to evaluate the effectiveness and safety of Amberen® (a succinate-based non-hormonal supplement) combined with a Smart B® (vitamin B) complex in women with typical (without complications) mild to moderate climacteric syndrome during perimenopause. METHODS: Women up to 50 years of age, in perimenopause, with vasomotor and psychosomatic symptoms of the climacteric syndrome were enrolled for the study. The trial was randomized, double-blinded, placebo-controlled, comparative, and prospective. RESULTS: A total of 106 participants were enrolled in the trial and, per protocol, 105 completed the trial. We observed statistically significant improvements in most of the Greene Climacteric Scale symptoms, State-Trait Anxiety Inventory (STAI), Hospital Anxiety and Depression Scale (HADS), and Well-being, Activity, and Mood (WAM) scores. The intervention was well tolerated with few adverse effects reported to be mild and transient. CONCLUSION: The use of this dietary supplement is safe and eliminates or improves vasomotor and psychosomatic symptoms of climacteric symptoms in perimenopausal women: it improves sleep and cognitive abilities, lowers depression and anxiety, improves mood and well-being, and positively affects quality of life. GOV IDENTIFIER: NCT03897738.",
-      "doi": "10.1007/s12325-024-02910-0",
-      "journal": "Advances in therapy",
-      "pub_date": "2024Aug",
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
-      ],
-      "category": "safety_interactions",
-      "discovery_query": "(\"herbal supplement\" OR \"dietary supplement\" OR \"botanical\" OR \"St Johns wort\") AND (adverse event OR interactions OR toxicity OR safety)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Clinical Evaluation of Effectiveness and Safety of Combined Use of Dietary Supplements Amberen® and Smart B® in Women with Climacteric Syndrome in Perimenopause.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -872,22 +871,22 @@
       "wave": 7940
     },
     {
-      "pmid": "30390221",
-      "title": "Efficacy and Safety of Cannabidiol in Epilepsy: A Systematic Review and Meta-Analysis.",
-      "abstract": "BACKGROUND: Approximately one-third of patients with epilepsy presents seizures despite adequate treatment. Hence, there is the need to search for new therapeutic options. Cannabidiol (CBD) is a major chemical component of the resin of Cannabis sativa plant, most commonly known as marijuana. The anti-seizure properties of CBD do not relate to the direct action on cannabinoid receptors, but are mediated by a multitude of mechanisms that include the agonist and antagonist effects on ionic channels, neurotransmitter transporters, and multiple 7-transmembrane receptors. In contrast to tetra-hydrocannabinol, CBD lacks psychoactive properties, does not produce euphoric or intrusive side effects, and is largely devoid of abuse liability. OBJECTIVE: The aim of the study was to estimate the efficacy and safety of CBD as adjunctive treatment in patients with epilepsy using meta-analytical techniques. METHODS: Randomized, placebo-controlled, single- or double-blinded add-on trials of oral CBD in patients with uncontrolled epilepsy were identified. Main outcomes included the percentage change and the proportion of patients with ≥ 50% reduction in monthly seizure frequency during the treatment period and the incidence of treatment withdrawal and adverse events (AEs). RESULTS: Four trials involving 550 patients with Lennox-Gastaut syndrome (LGS) and Dravet syndrome (DS) were included. The pooled average difference in change in seizure frequency during the treatment period resulted 19.5 [95% confidence interval (CI) 8.1-31.0; p = 0.001] percentage points between the CBD 10 mg and placebo groups and 19.9 (95% CI 11.8-28.1; p < 0.001) percentage points between the CBD 20 mg and placebo arms, in favor of CBD. The reduction in all-types seizure frequency by at least 50% occurred in 37.2% of the patients in the CBD 20 mg group and 21.2% of the placebo-treated participants [risk ratio (RR) 1.76, 95% CI 1.07-2.88; p = 0.025]. Across the trials, drug withdrawal for any reason occurred in 11.1% and 2.6% of participants receiving CBD and placebo, respectively (RR 3.54, 95% CI 1.55-8.12; p = 0.003) [Chi squared = 2.53, degrees of freedom (df) = 3, p = 0.506; I2 = 0.0%]. The RRs to discontinue treatment were 1.45 (95% CI 0.28-7.41; p = 0.657) and 4.20 (95% CI 1.82-9.68; p = 0.001) for CBD at the doses of 10 and 20 mg/kg/day, respectively, in comparison to placebo. Treatment was discontinued due to AEs in 8.9% and 1.8% of patients in the active and control arms, respectively (RR 5.59, 95% CI 1.87-16.73; p = 0.002). The corresponding RRs for CBD at the doses of 10 and 20 mg/kg/day were 1.66 (95% CI 0.22-12.86; p = 0.626) and 6.89 (95% CI 2.28-20.80; p = 0.001). AEs occurred in 87.9% and 72.2% of patients treated with CBD and placebo (RR 1.22, 95% CI 1.11-1.33; p < 0.001). AEs significantly associated with CBD were somnolence, decreased appetite, diarrhea, and increased serum aminotransferases. CONCLUSIONS: Adjunctive CBD in patients with LGS or DS experiencing seizures uncontrolled by concomitant anti-epileptic treatment regimens is associated with a greater reduction in seizure frequency and a higher rate of AEs than placebo.",
-      "doi": "10.1007/s40265-018-0992-5",
-      "journal": "Drugs",
-      "pub_date": "2018Nov",
+      "pmid": "32036242",
+      "title": "Abrupt withdrawal of cannabidiol (CBD): A randomized trial.",
+      "abstract": "RATIONALE: The rationale of this study was to assess occurrence of withdrawal symptoms induced by abrupt cessation of cannabidiol (CBD) after prolonged administration in healthy volunteers. METHODS: Thirty volunteers were randomized to receive 750 mg of a plant-derived pharmaceutical formulation of highly purified CBD in oral solution (100 mg/mL; Epidiolex® in the United States and Epidyolex® in Europe) twice daily (b.i.d.) for 4 weeks (Part 1) followed by 2 weeks of 750 mg b.i.d. CBD (Part 2, Arm 1) or matched placebo (Part 2, Arm 2). All volunteers completed the Cannabis Withdrawal Scale (CWS) and the 20-item Penn Physician Withdrawal Checklist (PWC-20) on days -1, 21, 28, 31, 35, 42, and at follow-up. RESULTS: Median CWS and PWC-20 scores slightly decreased from Part 1 to Part 2. Median CWS scores ranged from 0.0 to 4.0 (out of a possible 190) in Arm 1 and 0.0 to 0.5 in Arm 2. Median PWC-20 scores were 0.0 (out of a possible 60) in both arms. Twenty-nine (97%) volunteers in Part 1 reported all-causality treatment-emergent adverse events (AEs); the most commonly reported was diarrhea (63%). In Part 2, Arm 1, 6 (67%) volunteers reported all-causality AEs; the most commonly reported was diarrhea (44%). In Part 2, Arm 2, 9 (75%) volunteers reported all-causality AEs; the most commonly reported was headache (58%). Nine volunteers withdrew because of AEs in Part 1; 1 withdrew in Part 2, Arm 2, because of an AE that began in Part 1. Four severe AEs were reported in Part 1; the remainder were mild or moderate. No serious AEs were reported. CONCLUSION: In healthy volunteers, no evidence of withdrawal syndrome was found with abrupt discontinuation of short-term treatment with CBD.",
+      "doi": "10.1016/j.yebeh.2020.106938",
+      "journal": "Epilepsy & behavior : E&B",
+      "pub_date": "2020Mar",
       "publication_types": [
         "Journal Article",
-        "Meta-Analysis",
-        "Systematic Review"
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ],
       "category": "cannabinoid_safety",
       "discovery_query": "(cannabis OR cannabinoid OR cannabidiol OR THC) AND (psychosis OR cognition OR driving OR adverse OR dependence)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "Efficacy and Safety of Cannabidiol in Epilepsy: A Systematic Review and Meta-Analysis.",
+      "verified_title": "Abrupt withdrawal of cannabidiol (CBD): A randomized trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1285,22 +1284,21 @@
       "wave": 7959
     },
     {
-      "pmid": "29619533",
-      "title": "The effects of cannabidiol (CBD) on cognition and symptoms in outpatients with chronic schizophrenia a randomized placebo controlled trial.",
-      "abstract": "RATIONALE: Preliminary evidence suggests that cannabidiol (CBD) may be effective in the treatment of neurodegenerative disorders; however, CBD has never been evaluated for the treatment of cognitive impairments associated with schizophrenia (CIAS). OBJECTIVE: This study compared the cognitive, symptomatic, and side effects of CBD versus placebo in a clinical trial. METHODS: This study was a 6-week, randomized, placebo-controlled, parallel group, fixed-dose study of oral CBD (600 mg/day) or placebo augmentation in 36 stable antipsychotic-treated patients diagnosed with chronic schizophrenia. All subjects completed the MATRICS Consensus Cognitive Battery (MCCB) at baseline and at end of 6 weeks of treatment. Psychotic symptoms were assessed using the Positive and Negative Syndrome Scale (PANSS) at baseline and biweekly. RESULTS: There was no main effect of time or drug on MCCB Composite score, but a significant drug × time effect was observed (p = 0.02). Post hoc analyses revealed that only placebo-treated subjects improved over time (p = 0.03). There was a significant decrease in PANSS Total scores over time (p < 0. 0001) but there was no significant drug × time interaction (p = 0.18). Side effects were similar between CBD and placebo, with the one exception being sedation, which was more prevalent in the CBD group. CONCLUSIONS: At the dose studied, CBD augmentation was not associated with an improvement in MCCB or PANSS scores in stable antipsychotic-treated outpatients with schizophrenia. Overall, CBD was well tolerated with no worsening of mood, suicidality, or movement side effects. TRIAL REGISTRATION: https://clinicaltrials.gov/ct2/show/NCT00588731.",
-      "doi": "10.1007/s00213-018-4885-9",
-      "journal": "Psychopharmacology",
-      "pub_date": "2018Jul",
+      "pmid": "39760163",
+      "title": "Visual function and vehicle driving performance under the effects of cannabidiol: A randomized cross-over experiment.",
+      "abstract": "AIMS: This study aimed to determine the effect of vaporized cannabidiol (CBD) on visual function and vehicle driving performance, given the growing popularity of CBD use worldwide. DESIGN: Randomized, double-blind, placebo-controlled cross-over experimental study. SETTING: Laboratory of Vision Sciences and Applications, University of Granada, Spain. PARTICIPANTS: Thirty participants were recruited through advertisements placed in the local newspaper and distributed among the university community. They had a mean age of 26.2 (6.2) years, and 70% were male. All of them were occasional users of CBD or cannabis, and held valid driving licenses. INTERVENTIONS: Three experimental sessions, conducted one week apart, in which a placebo, 15% CBD (16 mg) or 30% CBD (32 mg) was vaporized. MEASUREMENTS: The primary endpoint for driving performance was the overall driving performance score (ODPS). Secondary outcomes included visual function variables such as static and dynamic visual acuity, stereoacuity, contrast sensitivity, motion detection and other driving performance parameters such as mean speed, lateral vehicle control or reaction time. FINDINGS: Comparisons revealed no statistically significant changes in ODPS after vaporizing CBD at 15% or 30% compared with the placebo (χ2 = 0.479; P = 0.787). Visual function remained largely unchanged, with only a statistically significant decrease in motion detection (χ2 = 7.980; P = 0.018). Similarly, no statistically significant differences were found in driving performance secondary outcomes, such as the standard deviation of lateral lane position (χ2 = 0.068; P = 0.966), distance travelled outside the lane (χ2 = 2.530; P = 0.282), reaction time (χ2 = 1.000; P = 0.607), or collisions (χ2 = 0.987; P = 0.610). Additionally, correlations between ODPS and visual function did not yield statistically significant results. CONCLUSIONS: Consumption of vaporized cannabidiol in 16 mg and 32 mg doses does not appear to affect simulated vehicle driving performance and visual function.",
+      "doi": "10.1111/add.16746",
+      "journal": "Addiction (Abingdon, England)",
+      "pub_date": "2025May",
       "publication_types": [
         "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
+        "Randomized Controlled Trial"
       ],
       "category": "cannabinoid_safety",
       "discovery_query": "(cannabis OR cannabinoid OR cannabidiol OR THC) AND (psychosis OR cognition OR driving OR adverse OR dependence)",
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
-      "verified_title": "The effects of cannabidiol (CBD) on cognition and symptoms in outpatients with chronic schizophrenia a randomized placebo controlled trial.",
+      "verified_title": "Visual function and vehicle driving performance under the effects of cannabidiol: A randomized cross-over experiment.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
@@ -1896,28 +1894,6 @@
       "wave": 7987
     },
     {
-      "pmid": "28518221",
-      "title": "Micronutrient supplementation in adults with HIV infection.",
-      "abstract": "BACKGROUND: Micronutrient deficiencies are common among adults living with HIV disease, particularly in low-income settings where the diet may be low in essential vitamins and minerals. Some micronutrients play critical roles in maintenance of the immune system, and routine supplementation could therefore be beneficial. This is an update of a Cochrane Review previously published in 2010. OBJECTIVES: To assess whether micronutrient supplements are effective and safe in reducing mortality and HIV-related morbidity of HIV-positive adults (excluding pregnant women). SEARCH METHODS: We performed literature searches from January 2010 to 18 November 2016 for new randomized controlled trials (RCTs) of micronutrient supplements since the previous review included all trials identified from searches prior to 2010. We searched the CENTRAL (the Cochrane Library), Embase, and PubMed databases. Also we checked the World Health Organization (WHO) International Clinical Trials Registry Platform (ICTRP) and the ClinicalTrials.gov trials registers. We also checked the reference lists of all new included trials. SELECTION CRITERIA: We included RCTs that compared supplements that contained either single, dual, or multiple micronutrients with placebo, no treatment, or other supplements. We excluded studies that were primarily designed to investigate the role of micronutrients for the treatment of HIV-positive participants with metabolic morbidity related to highly active antiretroviral therapy (HAART). Primary outcomes included all-cause mortality, morbidity, and disease progression. DATA COLLECTION AND ANALYSIS: Two review authors independently selected trials for inclusion, and appraised trial quality for risk of bias. Where possible, we presented results as risk ratios (RR) for dichotomous variables, as hazard ratios (HRs) for time-to-event data, and as mean differences (MD) for continuous variables, each with 95% confidence intervals (CIs). Since we were often unable to pool the outcome data, we tabulated it for each comparison. We assessed the certainty of the evidence using the GRADE approach. MAIN RESULTS: We included 33 trials with 10,325 participants, of which 17 trials were new trials. Ten trials compared a daily multiple micronutrient supplement to placebo in doses up to 20 times the dietary reference intake, and one trial compared a daily standard dose with a high daily dose of multivitamins. Nineteen trials compared supplementation with single or dual micronutrients (such as vitamins A and D, zinc, and selenium) to placebo, and three trials compared different dosages or combinations of micronutrients. Multiple micronutrientsWe conducted analyses across antiretroviral therapy (ART)-naive adults (3 trials, 1448 participants), adults on antiretroviral therapy (ART) (1 trial, 400 participants), and ART-naive adults with concurrent active tuberculosis (3 trials, 1429 participants). Routine multiple micronutrient supplementation may have little or no effect on mortality in adults living with HIV (RR 0.91, 95% CI 0.72 to 1.15; 7 trials, 2897 participants, low certainty evidence).Routine supplementation for up to two years may have little or no effect on the average of mean CD4+ cell count (MD 26.40 cells/mm³, 95% CI -22.91 to 75.70; 6 trials, 1581 participants, low certainty evidence), or the average of mean viral load (MD -0.1 log10viral copies, 95% CI -0.26 to 0.06; 4 trials, 840 participants, moderate certainty evidence). One additional trial in ART-naïve adults did report an increase in the time to reach a CD4+ cell count < 250 cells/mm³ after two years of high dose supplementation in Botswana (HR 0.48, 95% CI 0.26 to 0.88; 1 trial, 439 participants). However, the trial authors reported this effect only in the trial arm that received multiple micronutrients plus selenium (not either supplementation alone), which is inconsistent with the findings of other trials that used similar combinations of micronutrients and selenium.In one additional trial that compared high-dose multiple micronutrient supplementation with standard doses in people on ART, peripheral neuropathy was lower with high dose supplements compared to standard dose (incidence rate ratio (IRR) 0.81, 95% CI 0.7 to 0.94; 1 trial, 3418 participants), but the trial was stopped early due to increased adverse events (elevated alanine transaminase (ALT) levels) in the high dose group. Single or dual micronutrientsNone of the trials of single or dual micronutrient supplements were adequately powered to assess for effects on mortality or morbidity outcomes. No clinically significant changes in CD4 cell count (data not pooled, 14 trials, 2370 participants, very low or low certainty evidence) or viral load (data not pooled, seven studies, 1334 participants, very low or low certainty evidence), were reported. Supplementation probably does increase blood concentrations of vitamin D and zinc (data not pooled, vitamin D: 4 trials, 299 participants, zinc: 4 trials, 484 participants, moderate certainty evidence) and may also increase blood concentrations of vitamin A (data not pooled, 3 trials, 495 participants, low certainty evidence), especially in those who are deficient. AUTHORS' CONCLUSIONS: The analyses of the available trials have not revealed consistent clinically important benefits with routine multiple micronutrient supplementation in people living with HIV. Larger trials might reveal small but important effects.These findings should not be interpreted as a reason to deny micronutrient supplements for people living with HIV where specific deficiencies are found or where the person's diet is insufficient to meet the recommended daily allowance of vitamins and minerals.",
-      "doi": "10.1002/14651858.cd003650.pub4",
-      "journal": "The Cochrane database of systematic reviews",
-      "pub_date": "2017May18",
-      "publication_types": [
-        "Journal Article",
-        "Meta-Analysis",
-        "Systematic Review"
-      ],
-      "category": "immune_respiratory",
-      "discovery_query": "(vitamin C OR vitamin D OR zinc OR elderberry OR echinacea OR probiotic) AND (respiratory OR influenza OR common cold OR infection)",
-      "source": "NCBI PubMed ESearch + direct EFetch XML",
-      "title_verified": true,
-      "verified_title": "Micronutrient supplementation in adults with HIV infection.",
-      "abstract_verified": true,
-      "state": "exact_source_verified_pending_independent_semantic_review",
-      "research_only": true,
-      "wave": 7988
-    },
-    {
       "pmid": "26281160",
       "title": "[PROBIOTICS, NUTRITIONAL STATUS AND RESISTANCE TO RESPIRATORY INFECTIONS IN INFANTS].",
       "abstract": "Aim of this study was to investigate the efficacy of prophylactic use of a liquid probiotic form based on Enterococcus faecium L3 in children first year of life to increase resistance to acute respiratory infections (ARI) in the winter-spring period and improve nutritional status. In a specialized (psychoneurologic) orphanage of St. Petersburg within three months of winter-spring period in 2014 observed 29 children in the first year of life. Observed children were randomly divided into two groups. The main group (n = 14) within three months received daily per os liquid probiotic form based on E.faecium L3 in a daily dose of 1.5 x 10(9) CFU. A control group of children (n = 15) was comparable with the main group by gender and age. The children observed groups studied the incidence of ARI; number of vaccinated children; the number of children who received two or more vaccinations at the same time; the number of children with acute infectious diseases within 1 month after vaccination; dynamics of Chulitskaya index, body mass index, body weight and length. The data obtained are subjected to statistical analysis, the results were considered significant at p < 0.05. The results showed that the use of probiotic forms E.faecium L3 in infants helped to reduce the average number of ARI cases per child (0.29 ± 0.13 vs. 0.73 ± 0.12 in the control group; p < 0.05) only in the first month of the observation that combined with a significantly higher BMI values increase this month (0.54 ± 0.25 vs. 0.07 ± 0.22 kg/m2 in the control group; p < 0.05). Use the liquid probiotic form E.faecium L3 in infants had a positive impact on overall health, which is reflected in the implementation of routine vaccination activities--in the main group, the number of children who received two or more vaccinations at the same time was 18.1% more.",
@@ -1937,7 +1913,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7989
+      "wave": 7988
     },
     {
       "pmid": "25362524",
@@ -1958,7 +1934,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7990
+      "wave": 7989
     },
     {
       "pmid": "29048352",
@@ -1979,7 +1955,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7991
+      "wave": 7990
     },
     {
       "pmid": "31573637",
@@ -2002,7 +1978,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7992
+      "wave": 7991
     },
     {
       "pmid": "39058300",
@@ -2023,7 +1999,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7993
+      "wave": 7992
     },
     {
       "pmid": "35807801",
@@ -2044,7 +2020,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7994
+      "wave": 7993
     },
     {
       "pmid": "21637031",
@@ -2065,7 +2041,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7995
+      "wave": 7994
     },
     {
       "pmid": "36401501",
@@ -2087,7 +2063,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7996
+      "wave": 7995
     },
     {
       "pmid": "32842513",
@@ -2108,7 +2084,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7997
+      "wave": 7996
     },
     {
       "pmid": "32981933",
@@ -2130,7 +2106,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7998
+      "wave": 7997
     },
     {
       "pmid": "23180952",
@@ -2152,7 +2128,7 @@
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
-      "wave": 7999
+      "wave": 7998
     },
     {
       "pmid": "31210557",
@@ -2171,6 +2147,27 @@
       "source": "NCBI PubMed ESearch + direct EFetch XML",
       "title_verified": true,
       "verified_title": "Effects of probiotic administration on immune responses of children and adolescents with type 1 diabetes to a quadrivalent inactivated influenza vaccine.",
+      "abstract_verified": true,
+      "state": "exact_source_verified_pending_independent_semantic_review",
+      "research_only": true,
+      "wave": 7999
+    },
+    {
+      "pmid": "27363733",
+      "title": "Lactobacillus helveticus Lafti L10 supplementation reduces respiratory infection duration in a cohort of elite athletes: a randomized, double-blind, placebo-controlled trial.",
+      "abstract": "A randomized, double-blind, placebo-controlled study was conducted to evaluate if Lactobacillus helveticus Lafti L10 (Lallemand Health Solutions, Montreal, Que., Canada) supplementation during 14 weeks in winter can influence the duration, severity, and incidence of upper respiratory tract illness (URTI), as well as to monitor different immune parameters in the population of elite athletes. Before and after the treatment, cardiopulmonary testing and self-rated state of moods evaluation (by Profile of Mood States questionnaire) were performed and blood samples were collected. Thirty-nine elite athletes were randomized either to the placebo (n = 19) or the probiotic (n = 20) group. The probiotic group received L. helveticus Lafti L10, 2 × 10(10) Colony Forming Units. Lafti L10 significantly shortened the URTI episode duration (7.25 ± 2.90 vs. 10.64 ± 4.67 days, p = 0.047) and decreased the number of symptoms in the probiotic group (4.92 ± 1.96 vs. 6.91 ± 1.22, p = 0.035). Severity and incidence of URTI did not differ between the treatments. There were no significant changes in leukocyte subpopulation abundance, transforming growth factor-β serum levels, level of interleukin-10 secreted from peptidoglican stimulated peripheral blood mononuclear cells (PBMCs), interferon-γ level secreted from concanavalin A-stimulated PBMCs or viability/proliferation of PBMCs upon antigen stimulation. Group effect for CD4+/CD8+ ratio was significant (F[1,37] = 6.99, p = 0.020, η(2) = 0.350); this difference was not significant at baseline, but was evident after 14 weeks (p = 0.02). A significant interaction effect was noted for self-rated sense of vigor (F[1,37] = 11.76, p = 0.009, η(2) = 0.595). Self-rated sense of vigor increased in the probiotic group (18.5 ± 4.1 vs. 21.0 ± 2.6, p = 0.012). Probiotic strain Lafti L10 can be a beneficial nutritional supplement for the reduction of URTI length in elite athletes.",
+      "doi": "10.1139/apnm-2015-0541",
+      "journal": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+      "pub_date": "2016Jul",
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "category": "immune_respiratory",
+      "discovery_query": "(vitamin C OR vitamin D OR zinc OR elderberry OR echinacea OR probiotic) AND (respiratory OR influenza OR common cold OR infection)",
+      "source": "NCBI PubMed ESearch + direct EFetch XML",
+      "title_verified": true,
+      "verified_title": "Lactobacillus helveticus Lafti L10 supplementation reduces respiratory infection duration in a cohort of elite athletes: a randomized, double-blind, placebo-controlled trial.",
       "abstract_verified": true,
       "state": "exact_source_verified_pending_independent_semantic_review",
       "research_only": true,
