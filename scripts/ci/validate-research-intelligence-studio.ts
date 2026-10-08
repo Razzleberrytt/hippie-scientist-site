@@ -37,6 +37,18 @@ assert.equal(s.debates[0].status,'editorial-comparability-review-required')
 assert.equal(s.debates[0].populationComparable,false)
 assert(s.debates[0].directions.includes('supports')&&s.debates[0].directions.includes('no_clear_effect'))
 assert.equal(s.debates[0].studies.length,2)
+const samePublicationDifferentRecord={
+ ...reviewed[0],id:'study-duplicate-record',
+ relationships:[{...reviewed[0].relationships[0],relationship:'no_clear_effect' as const}],
+}
+const samePmid=buildResearchIntelligenceStudio(sources,graph,[reviewed[0],samePublicationDifferentRecord])
+assert.equal(samePmid.debates.length,0,'Conflicting citation records with the same PMID cannot become an independent-study disagreement')
+const unidentifiedPublication={
+ ...reviewed[1],id:'study-unidentifiable',pmid:undefined,
+}
+const missingPmid=buildResearchIntelligenceStudio(sources,graph,[reviewed[0],unidentifiedPublication])
+assert.equal(missingPmid.debates.length,0,'A missing identifier cannot prove a distinct publication')
+
 assert.equal(s.safety.length,0,'Do not invent interactions from no evidence')
 assert(s.timeline.some(x=>x.year===2023 && x.sources===1))
 assert(s.timeline.some(x=>x.year===2023 && x.reviewedCitations===1))
