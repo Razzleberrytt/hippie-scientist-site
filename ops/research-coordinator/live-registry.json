@@ -12128,6 +12128,386 @@
       "reservation_id": "4daf2e0a858397272dfe",
       "reserved_at": "2026-10-08T23:07:43.995Z",
       "source_branch": "research/intake/3/20261009-botanical-safety-primary-04-06"
+    },
+    {
+      "pmid": "42335642",
+      "title": "Metapath-guided transfer learning with clinical validation for identifying herb-drug interactions.",
+      "doi": "10.1016/j.phymed.2026.158421",
+      "source_title": "Metapath-guided transfer learning with clinical validation for identifying herb-drug interactions.",
+      "abstract": "Drug co-administration can alter metabolism and cause clinically important pharmacokinetic interactions. Herb-drug interactions (HDIs) are particularly hard to identify because validated cases are scarce and herbal products are chemically complex. We aimed to develop Meta-HDI, a metapath-guided transfer-learning framework that utilizes large drug-drug interaction graphs to improve HDI prediction and interpretability, and to prospectively confirm its predictions at the clinical pharmacokinetics level. This study integrates the development of a computational deep learning framework with a prospective clinical crossover trial involving 18 participants and in vitro human liver microsome assays. Meta-HDI combines a GCN encoder and shortest-path LSTM with hierarchical attention mechanisms to generate interpretable mechanistic chains. We benchmarked the model against baselines across three in vivo HDI classes and clinical cases. The predicted interaction between donepezil and the herbal formulas Gami-soyosan and Ojeok-san was evaluated in the crossover study, followed by mechanistic validation using microsome assays. Meta-HDI improved the micro-averaged AUROC to 0.95 (from ≤0.60) and correctly classified all eight clinical cases. Ablation studies highlighted the essential role of protein-protein and drug-protein edges. In the clinical trial, co-administration increased donepezil exposure (1.6-fold C max,ss ; 1.5-fold AUC tau,ss ) without serious adverse events. Attention weights and microsome assays identified falcarinol and glabranin as CYP2D6 inhibitors (IC 50 45 µM and 4.5 µM). Meta-HDI mitigates HDI data scarcity while providing mechanistic, clinically interpretable predictions. Our framework demonstrated its potential for decision support in herb-drug co-administration, though broader validation across diverse drugs and herbal products is needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42335642/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical pharmacology and interaction literature awaiting independent scientific review and source verification.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42335642",
+        "doi": "10.1016/j.phymed.2026.158421",
+        "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:08:44.196Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fee809012eef9b16f62d",
+      "reserved_at": "2026-10-08T23:08:52.065Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-03"
+    },
+    {
+      "pmid": "42093756",
+      "title": "In silico evaluation of soursop ( Annona muricata ) leaf compound interactions with CYP450 and their potential impact on systemic cancer therapies.",
+      "doi": "10.1016/j.toxrep.2026.102258",
+      "source_title": "In silico evaluation of soursop ( Annona muricata ) leaf compound interactions with CYP450 and their potential impact on systemic cancer therapies.",
+      "abstract": "Annona muricata (soursop, graviola) is a tropical plant widely used in traditional medicine for the management of various ailments, including cancer. Its leaf and fruit extracts are frequently consumed as complementary therapies by oncology patients, yet their potential to interfere with CYP450-mediated drug metabolism remains poorly characterized. This study employed two complementary in silico platforms, SuperCYPsPred for CYP450 interaction probability predictions and SwissADME for ADME/pharmacokinetic profiling, to evaluate 12 representative leaf compounds, as leaves constitute the most used plant part in traditional medicinal preparations of A. muricata . SuperCYPsPred analysis identified aporphine alkaloids as having the highest predicted interaction probabilities: isolaureline (mean 61.5%), xylopine (59.9%), and anonaine (55.9%), with particularly high CYP2D6-specific probabilities (94.9%, 88.8%, and 85.7%, respectively). SwissADME analysis revealed that these same compounds exhibit high gastrointestinal absorption, blood-brain barrier permeability, favorable drug-likeness, and predicted CYP2D6 inhibition. Integrated risk assessment combining both platforms identified four high-risk compounds (isolaureline, xylopine, anonaine, stepharine) and two moderate-risk compounds (coclaurine, reticuline) that may warrant clinical monitoring during concurrent chemotherapy. Conversely, acetogenins showed low oral bioavailability and minimal CYP interaction potential, suggesting limited systemic exposure. These findings suggest that specific alkaloid classes in soursop preparations may pose a greater pharmacokinetic interaction risk than previously recognized, particularly for drugs metabolized by CYP2D6. Further experimental validation is warranted to ensure the safe use of A. muricata preparations in oncology care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42093756/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical pharmacology and interaction literature awaiting independent scientific review and source verification.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42093756",
+        "doi": "10.1016/j.toxrep.2026.102258",
+        "journal": "Toxicology reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:08:44.197Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "403b00b9b8f2a31440c6",
+      "reserved_at": "2026-10-08T23:08:52.065Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-03"
+    },
+    {
+      "pmid": "42264256",
+      "title": "Nanoparticle-based delivery of corn silk extract for the treatment of CCl₄-induced hepatotoxicity.",
+      "doi": "10.1016/j.ijbiomac.2026.152961",
+      "source_title": "Nanoparticle-based delivery of corn silk extract for the treatment of CCl₄-induced hepatotoxicity.",
+      "abstract": "Liver injury is a significant global health concern that requires effective therapeutic strategies. Corn silk is traditionally recognized for its health-promoting properties due to its rich content of bioactive compounds. This study aimed to develop corn silk extract-loaded chitosan nanoparticles (CSE-CSNPs) via ionic gelation and evaluate their hepatoprotective efficacy against CCl₄-induced liver injury in rats. CSE-CSNPs exhibited favorable physicochemical properties, including a mean size of 59.03 nm and a positive zeta potential of 45.61 mV, with encapsulation efficiency of 73.2% for total phenolics. In vitro assays confirmed the biocompatibility and enhanced antioxidant activity of the nanoformulation. In vivo, treatment with CSE-CSNPs (100 mg/kg/day) for four weeks significantly ameliorated CCl₄-induced liver injury. Serum ALT levels decreased from 84.2 U/L in untreated CCl₄ rats to 49.2 U/L in CSE-CSNPs-treated rats, approaching the control value of 50.6 U/L. Similarly, AST and ALP were reduced from 101.0 U/L and 149.6 U/L to 70.6 U/L and 109.6 U/L, respectively. Oxidative stress markers showed comparable restoration, with hepatic MDA decreasing from 24.0 to 10.6 ng/mg protein, while GSH, SOD, and CAT increased from 55.4 μg/mg protein, 31.2 U/mg protein, and 22.2 U/mg protein to 97.6 μg/mg protein, 55.2 U/mg protein, and 63.4 U/mg protein, respectively- all values comparable to healthy controls. Notably, the nanoformulation achieved superior hepatoprotection at half the dose of free corn silk extract, demonstrating enhanced bioavailability and therapeutic efficacy. These findings highlight the potential of chitosan nanoparticle-mediated delivery as a promising strategy to improve the hepatoprotective activity of corn silk extract.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42264256/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical pharmacology and interaction literature awaiting independent scientific review and source verification.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42264256",
+        "doi": "10.1016/j.ijbiomac.2026.152961",
+        "journal": "International journal of biological macromolecules",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:08:44.197Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5ed49c0bec52bf04ca3c",
+      "reserved_at": "2026-10-08T23:08:52.065Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-03"
+    },
+    {
+      "pmid": "42461003",
+      "title": "An LC-MS/MS method for simultaneous quantification of six components of Angelicae pubescentis radix and systematic evaluation of Angelicae pubescentis radix as a potential inhibitor of multiple cytochrome P450 enzymes.",
+      "doi": "10.1080/00498254.2026.2704711",
+      "source_title": "An LC-MS/MS method for simultaneous quantification of six components of Angelicae pubescentis radix and systematic evaluation of Angelicae pubescentis radix as a potential inhibitor of multiple cytochrome P450 enzymes.",
+      "abstract": "Quantitative analytical method was developed for six coumarin constituents in Angelicae pubescentis radix (APR), and the inhibitory effect of the herb's extract on cytochrome P450 enzymes was investigated.A liquid chromatography-tandem mass spectrometry (LC-MS/MS) method was developed and validated for the simultaneous quantification of six coumarins (imperatorin, 8-methoxypsoralen, isopimpinellin, isoimperatorin, bergapten, and cnidilin) in APR. Concurrently, the inhibitory effects of its aqueous extract on multiple P450s were evaluated in rat liver microsomes using a 'Pittsburgh cocktail' approach.The method demonstrated excellent linearity (R 2 > 0.999), precision, stability, repeatability (RSD < 3.0%), and recovery (95.15-102.36%). The extract exhibited significant time-dependent inhibition of CYP1A2 (residual activity 58.2%), with weaker effects on other P450s.A robust LC-MS/MS method was successfully established. The extract of APR was identified as a potent time-dependent inhibitor of CYP1A2 in rat liver microsomes (RLMs), suggesting a potential risk for metabolism-based drug interactions in rats that warrants further investigation in human systems.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42461003/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical pharmacology and interaction literature awaiting independent scientific review and source verification.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42461003",
+        "doi": "10.1080/00498254.2026.2704711",
+        "journal": "Xenobiotica; the fate of foreign compounds in biological systems",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:08:44.197Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "98eac417350ff4eeacbe",
+      "reserved_at": "2026-10-08T23:08:52.065Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-03"
+    },
+    {
+      "pmid": "39718445",
+      "title": "The impact of Paullinia cupana extract on pharmacokinetics of phenytoin in rats.",
+      "doi": "10.1080/14786419.2024.2440932",
+      "source_title": "The impact of Paullinia cupana extract on pharmacokinetics of phenytoin in rats.",
+      "abstract": "Epilepsy patients are at a higher risk of developing overweight and obesity. Given the thermogenic properties of Paullinia cupana (Guarana), this study aimed to evaluate a potential pharmacokinetic interaction between P. cupana extract and phenytoin in rats. Two pharmacokinetic studies were developed with P. cupana and phenytoin: a coadministration and a pre-treatment study. Plasma concentrations of phenytoin and its primary metabolite (5-(4-hydroxyphenyl)-5-phenylhydantoin) were determined by HPLC-DAD, and data were analysed by non-compartmental pharmacokinetic methods. Both studies demonstrated a significant delay in the time to reach peak plasma concentration of phenytoin and its primary metabolite. Furthermore, a lower extent of systemic exposure of its primary metabolite was found in the coadministration study. In addition, the pre-treatment study indicated weight loss in the experimental group. These results suggest that concurrent administration of P. cupana extract with phenytoin may compromise the drug's therapeutic efficacy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39718445/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Research-only botanical pharmacology and interaction literature awaiting independent scientific review and source verification.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39718445",
+        "doi": "10.1080/14786419.2024.2440932",
+        "journal": "Natural product research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:08:44.198Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "21c0963020467491da81",
+      "reserved_at": "2026-10-08T23:08:52.065Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-03"
     }
   ],
   "batches": [
@@ -12141,22 +12521,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 153,
+    "total_reservations": 158,
     "by_lane": {
       "1": 5,
       "2": 15,
-      "3": 50,
+      "3": 55,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 153
+      "SOURCE_VERIFIED": 158
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 153,
+        "count": 158,
         "pr_number": null,
         "blocker": null
       }
