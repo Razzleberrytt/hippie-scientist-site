@@ -79,10 +79,12 @@ async function activate(){
      !Array.isArray(published.studies) ||
      !published.studies.every(x=>typeof x.id==='string'&&Array.isArray(x.relationships)))
     throw new Error('Published evidence identity verification failed')
-  if(v.schemaVersion!==1||v.systemVersion!=='1.02'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
+  if(v.schemaVersion!==1||v.systemVersion!=='1.03'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
      v.metrics?.automaticallyPromotedClaims!==0||!Array.isArray(v.dna)||v.dna.length!==500||
      !v.graph||Object.keys(v.graph.entries||{}).length!==500||
      v.adjudication?.autoPublished!==false||
+     v.publicationLineage?.independentlyVerifiedTrialUnits!==null||
+     v.publicationLineage?.sourceCount!==500||
      v.dna.some(x=>x.grade!=='ungraded-research-intake'||!v.graph.entries[x.pmid]||
        !Array.isArray(x.sourceWitnesses)||x.sourceWitnesses.some(w=>w.pmid!==x.pmid||
        w.sourceSignature!==v.graph.entries[x.pmid].sourceSignature)))throw new Error('Integrity')
@@ -107,7 +109,7 @@ const active=stations.find(x=>x.id===tab)!
 return <section className={styles.studio}>
   <header className={styles.hero}>
     <div className={styles.heroCopy}>
-      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.02 · 01—08</span></div>
+      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.03 · 01—08</span></div>
       <p className={styles.eyebrow}>Eight instruments. One knowledge system.</p>
       <h1>The science is a <em>landscape.</em> Learn to navigate it.</h1>
       <p className={styles.lead}>Explore the structure of knowledge—from study fingerprints and differing results to unknowns, source-witnessed connections, safety literature and questions worth investigating.</p>
@@ -149,6 +151,7 @@ return <section className={styles.studio}>
       <div className={styles.metrics}><div><strong>{data.metrics.fingerprints}</strong><span>Source fingerprints</span></div>
         <div><strong>{data.metrics.classifiedMethods}</strong><span>Classifiable method phrases</span></div>
         <div><strong>{data.metrics.quotedTextWitnesses}</strong><span>Verbatim source text anchors</span></div></div>
+      <Notice>Publication Identity Observatory: {data.publicationLineage.matchedIntakePmids} source PMIDs cross-referenced to separately reviewed citations by exact PMID/DOI. This establishes citation identity, <strong>not independence of underlying trials</strong>.</Notice>
       <label className={styles.field}>Find a source fingerprint<input type='search' value={search}
         onChange={e=>{setSearch(e.target.value);setDnaVisible(9)}} placeholder='Search a substance, outcome or PMID'/></label>
       <p role='status' className={styles.micro}>{filtered.length} source fingerprints match · showing {Math.min(dnaVisible,filtered.length)}</p>
@@ -174,6 +177,11 @@ return <section className={styles.studio}>
         </details>
         <details><summary className={styles.detail}>Missingness audit ({d.missing.length})</summary>
           <p>{d.missing.length?d.missing.join(' · '):'No missing controlled categories found; full quality review still required.'}</p></details>
+        {data.publicationLineage.crossReferences.filter(link=>link.intakePmid===d.pmid).map(link=>
+          <details key={link.intakePmid}><summary className={styles.detail}>Exact publication identity · {link.reviewedStudyIds.length} reviewed citation reference(s)</summary>
+            <p>Matched using {link.evidence==='exact-pmid'?'the same PMID':'the same DOI'}; underlying trial independence and evidence direction are not inferred.</p>
+            {link.reviewedStudyIds.slice(0,8).map(id=><p key={id}><Link href={'/learn/citation-explorer/#study-'+id.toLowerCase().replace(/[^a-z0-9]+/g,'-')}>Reviewed citation {id} ↗</Link></p>)}
+          </details>)}
         <a className={styles.paperLink} href={d.sourceUrl} target='_blank' rel='noopener noreferrer'>PubMed · {d.pmid} ↗</a>
       </article>)}</div>
       {filtered.length>dnaVisible?<button type='button' className={styles.more} onClick={()=>setDnaVisible(n=>n+30)}>Show next {Math.min(30,filtered.length-dnaVisible)} of {filtered.length} fingerprints →</button>:null}
@@ -185,12 +193,20 @@ return <section className={styles.studio}>
       <div className={styles.metrics}><div><strong>{data.debates.length}</strong><span>Candidate review groups</span></div>
         <div><strong>{data.debates.filter(x=>x.populationComparable).length}</strong><span>Matching reported population strings</span></div>
         <div><strong>0</strong><span>Automatically adjudicated</span></div></div>
+      <section className={styles.lineage} aria-label='Publication identity and independence'>
+        <h3>Publication identity ≠ independent study</h3>
+        <p>The existing reviewed evidence dataset provides {data.publicationLineage.reviewedWithExactIdentity} of {data.publicationLineage.reviewedRecordCount} citations with exact PMID or DOI identifiers. {data.publicationLineage.duplicateCitationGroups.length} same-publication citation groups and {data.publicationLineage.identityConflicts.length} identity conflicts require careful interpretation. <strong>Underlying trial independence is unverified in this interface.</strong></p>
+        {data.publicationLineage.duplicateCitationGroups.slice(0,6).map(g=><p key={g.studyIds.join('|')}>
+          Repeated citation record: {g.studyIds.join(' · ')} ({g.witness}); these are not multiple independent publications.
+        </p>)}
+        {data.publicationLineage.identityConflicts.length>0?<p role='status'>Some identifiers conflict; the system refuses to collapse those records without human verification.</p>:null}
+      </section>
       {!data.debates.length?<p className={styles.placeholder}>No candidate groups in this reviewed citation scope; this does not prove wider scientific agreement.</p>:null}
       <div className={styles.paperGrid}>{data.debates.slice(0,more?35:10).map(d=><article key={d.id} className={styles.paper}>
         <div className={styles.paperTop}><Tag>REVIEW REQUIRED</Tag><span>{d.studies.length} source citations</span></div>
         <h3>{d.ingredient} / {d.outcome}</h3>
         <p>Published relationship descriptors differ: <strong>{d.directions.map(human).join(' · ')}</strong></p>
-        <p>{d.populationComparable?'Matching nonempty population descriptions':'Population comparability unresolved or different'}</p>
+        <p>{d.populationComparable?'Matching nonempty population descriptions':'Population comparability unresolved or different'}. <strong>Independent underlying trials: unverified.</strong></p>
         <ul className={styles.studyRows}>{d.studies.slice(0,5).map(s=><li key={s.studyId}>
           <span>{human(s.relationship)} · {s.year||'year unknown'} · {human(s.evidenceClass)}</span>
           <Link href={s.href}>Citation ↗</Link></li>)}</ul>

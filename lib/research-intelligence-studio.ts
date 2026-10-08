@@ -10,6 +10,7 @@
  * output retains IDs, a precise basis, and visible missingness.
  * All algorithms are deterministic, local, bounded, and static-export friendly.
  */
+import {buildPublicationLineageReport,type PublicationLineageReport} from './research-publication-lineage'
 import {buildResearchSourceWitnesses,type ResearchSourceWitness} from './research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent,type ResearchAdjudicationLedger} from './research-semantic-adjudication'
 import {
@@ -25,10 +26,12 @@ export type StudioSource = {
   year: string
   category: string
   pubType: string
+  doi?: string
 }
 export type ReviewedStudyInput = {
   id: string
   pmid?: string
+  doi?: string
   title: string
   year?: string | number
   evidenceClass: string
@@ -45,6 +48,7 @@ export type ReviewedStudyInput = {
 }
 export type ResearchDNA = {
   pmid: string
+  doi: string
   title: string
   year: string
   category: string
@@ -79,6 +83,7 @@ export type DebateCandidate = {
   }>
   directions: string[]
   populationComparable: boolean
+  underlyingTrialIndependence: 'unknown-until-validated-registration-or-cohort-lineage'
   basis: 'separately-reviewed-citation-relationships'
   status: 'editorial-comparability-review-required'
 }
@@ -141,9 +146,10 @@ export type RecordedEvidenceChange = {
   basis: 'explicit-editorial-grade-change-log'
 }
 export type ResearchStudio = {
-  systemVersion: '1.02'
+  systemVersion: '1.03'
   recordedChanges: RecordedEvidenceChange[]
   adjudication: ResearchAdjudicationLedger
+  publicationLineage: PublicationLineageReport
   schemaVersion: 1
   sourceWave: 7500
   sourceCount: number
@@ -160,6 +166,9 @@ export type ResearchStudio = {
     classifiedMethods: number
     populationTagged: number
     reviewedDirectionalCandidates: number
+    exactPublicationCrosslinks: number
+    duplicatedCitationGroups: number
+    publicationIdentityConflicts: number
     catalogCoverageQuestions: number
     safetyCoMentions: number
     sameSourceInvestigationThreads: number
@@ -210,7 +219,7 @@ function fingerprint(s:StudioSource,network:SemanticNetwork):ResearchDNA {
     ...(kind('outcome').length?[]:['Outcome concept not indexed']),
   ]
   return {
-    pmid:s.pmid,title:s.title,year:s.year,category:s.category,
+    pmid:s.pmid,doi:s.doi||'',title:s.title,year:s.year,category:s.category,
     method:type||titleMethod||'Unclassified',
     methodBasis:type?'pubmed-publication-type':titleMethod?'title-phrase':'unknown',
     comparator:titleComparator||abstractComparator||'Not identified',
@@ -271,6 +280,7 @@ function debatesFromReviewed(studies:readonly ReviewedStudyInput[]):DebateCandid
       })),
       directions:[...direct].sort(),
       populationComparable:populations.size===1 && uniqueRows.every(r=>r.population.length>0),
+      underlyingTrialIndependence:'unknown-until-validated-registration-or-cohort-lineage',
       basis:'separately-reviewed-citation-relationships',
       status:'editorial-comparability-review-required'})
   }
@@ -417,6 +427,7 @@ export function buildResearchIntelligenceStudio(
     throw new Error('Study DNA semantic witnesses are stale or inconsistent with source text')
   }
   const dna=sources.map(s=>fingerprint(s,network))
+  const publicationLineage=buildPublicationLineageReport(sources,reviewedStudies)
   const adjudication=validateResearchAdjudicationLedger({version:1,events:reviewEvents},
     dna.flatMap(d=>d.sourceWitnesses))
   const debates=debatesFromReviewed(reviewedStudies)
@@ -435,12 +446,15 @@ export function buildResearchIntelligenceStudio(
     .sort((a,b)=>b.occurredAt.localeCompare(a.occurredAt))
     .slice(0,40)
   return {
-    systemVersion:'1.02',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
-    dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,adjudication,
+    systemVersion:'1.03',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
+    dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,adjudication,publicationLineage,
     metrics:{fingerprints:dna.length,
       classifiedMethods:dna.filter(x=>x.methodBasis!=='unknown').length,
       populationTagged:dna.filter(x=>x.populationMentions.length>0).length,
       reviewedDirectionalCandidates:debates.length,
+      exactPublicationCrosslinks:publicationLineage.matchedIntakePmids,
+      duplicatedCitationGroups:publicationLineage.duplicateCitationGroups.length,
+      publicationIdentityConflicts:publicationLineage.identityConflicts.length,
       catalogCoverageQuestions:frontiers.length,
       safetyCoMentions:safety.length,
       sameSourceInvestigationThreads:investigations.length,
@@ -557,6 +571,7 @@ export function hydrateResearchStudioWithPublishedEvidence(
   published:readonly ReviewedStudyInput[],
 ):ResearchStudio {
   const debates=debatesFromReviewed(published)
+  const publicationLineage=buildPublicationLineageReport(studio.dna,published)
   const timeline=new Map<number,PublicationTimeline>(
     studio.timeline.map(t=>[t.year,{...t,pmids:[...t.pmids],reviewedCitations:0}]),
   )
@@ -573,12 +588,15 @@ export function hydrateResearchStudioWithPublishedEvidence(
   const briefs=briefsFromSignals(studio.frontiers,debates,studio.safety,studio.investigations)
   return {
     ...studio,
-    debates,
+    debates,publicationLineage,
     timeline:[...timeline.values()].sort((a,b)=>a.year-b.year),
     briefs,
     metrics:{
       ...studio.metrics,
       reviewedDirectionalCandidates:debates.length,
+      exactPublicationCrosslinks:publicationLineage.matchedIntakePmids,
+      duplicatedCitationGroups:publicationLineage.duplicateCitationGroups.length,
+      publicationIdentityConflicts:publicationLineage.identityConflicts.length,
       preparedDrafts:briefs.length,
       automaticallyPromotedClaims:0,
     },

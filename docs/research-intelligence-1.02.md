@@ -34,3 +34,7 @@ The Content Reactor presents an append-only, source-linked history when reviewer
 ## CI resource-contention repair (2026-10-08)
 
 Exact-head PR #6408 invariant build experienced Next 15 static-worker 60-second timeouts on `/evidence/evidence-report/dataset.json`, `dataset.csv`, and `/research/source-register/semantic-network.json`, despite TypeScript, controlled-vocabulary and pinned-source validation passing. The existing GitHub runner configuration used 4 workers × 12 concurrent pages. The scoped change reduces the known GitHub-runner per-worker concurrency from 12 to 6, preserves worker count and unknown-host defaults, and updates the explicit build-performance contract. This is a *candidate* contention fix, **not a verified performance improvement**, until full exact-head production/export checks pass.
+
+## Successor: 1.03
+
+Semantic 1.03 adds a separate publication-identity observatory, reusing the site's existing approved-claim research-quality independence authority rather than superseding it. Exact DOI/PMID matches can prove *citation publication identity*, **never clinical trial independence** without verified registry/cohort lineage. See docs/research-intelligence-1.03.md.

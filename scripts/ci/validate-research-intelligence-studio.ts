@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
 import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
+import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -38,7 +39,47 @@ assert.equal(browserJoined.metrics.automaticallyPromotedClaims,0)
 assert.equal(browserJoined.dna,precomputed.dna,'No research intake mutation during reviewed client join')
 assert(browserJoined.briefs.every(x=>x.allowAutopublish===false))
 
-assert.equal(s.systemVersion,'1.02')
+assert.equal(s.systemVersion,'1.03')
+assert.equal(s.publicationLineage.scope,'exact-publication-identifiers-only')
+assert.equal(s.publicationLineage.independentlyVerifiedTrialUnits,null)
+assert.equal(s.publicationLineage.matchedIntakePmids,0)
+assert(s.debates.every(d=>d.underlyingTrialIndependence==='unknown-until-validated-registration-or-cohort-lineage'))
+const identityCase=buildPublicationLineageReport(
+ [{pmid:'10000001',doi:'10.1000/one'},{pmid:'10000002',doi:'10.1000/two'}],
+ [
+ {id:'citation-a',pmid:'10000001',doi:'https://doi.org/10.1000/one'},
+ {id:'citation-alias',pmid:'10000001',doi:'doi:10.1000/one'},
+ {id:'citation-review',doi:'10.1000/two'},
+ {id:'citation-unrelated',pmid:'30000001',doi:'10.1000/other'},
+ ])
+assert.equal(identityCase.matchedIntakePmids,2)
+assert.equal(identityCase.duplicateCitationGroups.length,1)
+assert.deepEqual(identityCase.duplicateCitationGroups[0].studyIds,['citation-a','citation-alias'])
+assert.equal(identityCase.reviewedRecordCount,4)
+assert.equal(identityCase.unknownUnderlyingStudyIndependence,4)
+assert.equal(identityCase.independentlyVerifiedTrialUnits,null)
+assert.equal(identityCase.crossReferences.find(x=>x.intakePmid==='10000002')?.evidence,'exact-doi')
+const conflicting=buildPublicationLineageReport(
+ [{pmid:'10000001',doi:'10.1000/one'},{pmid:'10000002',doi:'10.1000/two'}],
+ [{id:'conflicted-intake',pmid:'10000001',doi:'10.1000/two'},
+  {id:'conflicted-citations-a',pmid:'40000001',doi:'10.1000/delta'},
+  {id:'conflicted-citations-b',pmid:'40000001',doi:'10.1000/epsilon'}])
+assert.equal(conflicting.matchedIntakePmids,0)
+assert.equal(conflicting.duplicateCitationGroups.length,0)
+assert(conflicting.identityConflicts.length>=2)
+// A bad DOI on the same PMID must quarantine BOTH referenced citation IDs
+// when the source DOI is unknown, rather than silently linking them both.
+const quarantined=buildPublicationLineageReport(
+ [{pmid:'10000001'}],
+ [{id:'alias-one',pmid:'10000001',doi:'10.1000/one'},
+  {id:'alias-two',pmid:'10000001',doi:'10.1000/two'}])
+assert.equal(quarantined.identityConflicts.length,1)
+assert.equal(quarantined.matchedIntakePmids,0)
+assert.equal(quarantined.duplicateCitationGroups.length,0)
+assert.throws(()=>buildPublicationLineageReport([{pmid:'10000001',doi:'10.1000/one'},
+ {pmid:'10000002',doi:'10.1000/one'}],[]),/Duplicate DOI/)
+assert.throws(()=>buildPublicationLineageReport([],[{id:'same',pmid:'10000001'},
+ {id:'same',pmid:'20000001'}]),/conflicting source metadata/)
 assert.equal(s.adjudication.reviewCount,0)
 assert.equal(s.adjudication.autoPublished,false)
 assert(s.dna.some(d=>d.sourceWitnesses.length>0),'Study DNA needs exact title/source anchors')
@@ -165,7 +206,7 @@ const inputs=rows.map(r=>({pmid:String(r.pmid),title:r.title,abstract:r.abstract
  year:r.verified_pub_date?.match(/(?:19|20)\d{2}/)?.[0]||''}))
 const realGraph=buildResearchSemanticNetwork(inputs)
 const real=buildResearchIntelligenceStudio(inputs,realGraph,[])
-assert.equal(real.systemVersion,'1.02')
+assert.equal(real.systemVersion,'1.03')
 assert.equal(real.metrics.quotedTextWitnesses,real.dna.reduce((sum,d)=>sum+d.sourceWitnesses.length,0))
 assert.equal(real.adjudication.reviewCount,0)
 assert(real.dna.flatMap(d=>d.sourceWitnesses).every(w=>w.quote.length<=320))
@@ -190,6 +231,8 @@ assert(route.includes("export const dynamic = 'force-static'"))
 assert(route.includes('research-semantic-adjudications.json'),'Adjudications must come from governed local ledger')
 assert(ui.includes('Inspect verbatim evidence trail')&&ui.includes('Prepare an editorial review packet'))
 assert(ui.includes('Why this paper matched'),'Questions must expose original text witnesses')
+assert(ui.includes('Publication identity ≠ independent study'))
+assert(ui.includes('v.systemVersion!==\'1.03\''))
 assert(ui.includes('Source-indexing review history'),'Review events must be inspectable and not just counted')
 assert(route.includes('getResearchSourceRegister()')&&!route.includes('getPublicEvidenceDataset()'),
  'Second full evidence hydration in a static worker must be forbidden')
@@ -219,4 +262,6 @@ console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirect
  measuredBibliographicTimelinePoints:real.timeline.length,
  localCatalogFrontierSignals:real.frontiers.length,
  sourceSafetyCoMentions:real.safety.length,
+ exactPublicationCrosslinks:real.publicationLineage.matchedIntakePmids,
+ observedDuplicateCitationGroups:real.publicationLineage.duplicateCitationGroups.length,
  preparedNonPublishingDrafts:real.briefs.length},null,2))
