@@ -4327,6 +4327,1933 @@
       "reservation_id": "6fb35daea3d8ba65a2b0",
       "reserved_at": "2026-10-08T21:56:07.455Z",
       "source_branch": "research/intake/2/20261008-1753-cognition-metabolic-3-r7"
+    },
+    {
+      "pmid": "41199315",
+      "title": "Berberine and berberrubine promote the expression of CYP3A4 via enhancing the binding of nuclear receptor PXR.",
+      "doi": "10.1186/s40360-025-01026-7",
+      "source_title": "Berberine and berberrubine promote the expression of CYP3A4 via enhancing the binding of nuclear receptor PXR.",
+      "abstract": "BACKGROUND: Berberine is currently co-administered with statins in clinical practice for hyperlipidemia management. This study aimed to investigate the effects of berberine and berberrubine on CYP3A4 expression and the regulatory mechanism. METHODS: Using rifampicin as a positive control group, HepG2 cells were treated with different concentrations of berberine and berberrubine. Q-PCR was employed to detect the expression levels of CYP3A4 mRNA in response to the drugs, and Western blot was utilized to determine the expression of CYP3A4 and PXR proteins. Dual luciferase reporter gene assay and RNA interference technology were used to silence PXR to explore the mechanism of berberine and berberrubine regulation of CYP3A4. RESULTS: Compared with the blank control group, both berberine and berberrubine could induce CYP3A4 mRNA expression in a concentration-dependent manner (P < 0.05). After treatment with 50 µM berberine and 60 µM berbamine for 48 h, the expression of CYP3A4 in HepG 2 cells was increased by 2.5 and 2.7 times, respectively. Berberine (10 ~ 50 µM) and berberrubine (15 ~ 60 µM) could upregulate the expression of PXR nuclear protein in a dose-dependent manner. Berberine and berbamine at different concentrations significantly upregulated the activity of the dual luciferase constructed based on PXR (P < 0.05), while silencing PXR reduced the inductive effects of berberine and berbamine on CYP3A4. Berberine and berbamine at different concentrations significantly upregulated the activity of the dual luciferase constructed based on PXR (P < 0.05), while silencing PXR reduced the inductive effects of berberine and berbamine on CYP3A4. CONCLUSION: Berberine and berberrubine can promote the expression of CYP3A4 protein in HepG2 cells by inducing the nuclear receptor PXR to bind to the promoter of CYP3A4.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41199315/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41199315",
+        "doi": "10.1186/s40360-025-01026-7",
+        "journal": "BMC pharmacology & toxicology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:04:56.096Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "605f24edfcec5ba0b80c",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "41141266",
+      "title": "Investigation of the regulatory effects of tea polyphenols on CYP450s in HepG2 cells.",
+      "doi": "10.3389/fnut.2025.1663800",
+      "source_title": "Investigation of the regulatory effects of tea polyphenols on CYP450s in HepG2 cells.",
+      "abstract": "Tea, one of the world's three major beverages, exhibits antioxidant, antitumour, and cardiovascular benefits, primarily due to its polyphenolic components. However, the roles of tea polyphenols on the modulation of cytochrome P450 enzymes (CYP450s) are not well documented. Therefore, this study investigates the regulatory effects of tea polyphenols on CYP450s in HepG2 cells. High-performance liquid chromatography (HPLC) was used to analyse the compositions of tea polyphenol extracts from Longjing green tea (unfermented), Tieguanyin oolong tea (semifermented) and Dianhong black tea (fully fermented). HepG2 cells were treated with these extracts and their major polyphenolic constituents (EGCG, EGC, ECG, TF, TF-3-G, and TF-3'-G), and the mRNA and protein expression levels of CYP3A4, CYP2E1, CYP2C9 and CYP1A2 were measured using real-time RT-PCR and Western blotting. Significant regulation of CYP450 mRNA and protein expression by the three tea polyphenol extracts was observed, and enzyme inhibition was more prevalent than induction, with large contributions from the major monomers, including EGCG, EGC, and ECG. These findings indicate that interactions based on metabolism might occur when tea polyphenols are combined with medications. This study provides evidence that tea polyphenols significantly affect CYP450 enzyme expression, offering insights into the potential interactions between tea consumption and drug metabolism.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41141266/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41141266",
+        "doi": "10.3389/fnut.2025.1663800",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:04:56.097Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "613d2f0e2ab90d58ff1d",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "39943692",
+      "title": "The Pharmacokinetic Interaction Between Metformin and the Natural Product Goldenseal Is Metformin Dose-Dependent: A Three-Arm Crossover Study in Adults With Type 2 Diabetes.",
+      "doi": "10.1111/cts.70120",
+      "source_title": "The Pharmacokinetic Interaction Between Metformin and the Natural Product Goldenseal Is Metformin Dose-Dependent: A Three-Arm Crossover Study in Adults With Type 2 Diabetes.",
+      "abstract": "Pharmacokinetic drug interactions can lead to unexpected changes in plasma concentrations of the object drug, potentially increasing the risk for adverse effects and/or decreasing therapeutic efficacy. The botanical product goldenseal was previously shown to decrease metformin systemic exposure in healthy adults. This three-arm, open-label, crossover clinical study assessed the pharmacokinetic goldenseal-metformin interaction in adults with type 2 diabetes stabilized on therapeutic doses of metformin (500-2550 mg daily). The aggregate pharmacokinetic data indicated no clinically meaningful interaction as determined by the metformin area under the plasma concentration-time curve (AUC) geometric mean ratio [90% confidence interval] of 0.93 [0.86-1.01] laying within the predefined no-effect range (0.80-1.25). However, metformin AUC decreased by ~20%, 14%, and 0% after goldenseal coadministration at low (500-750 mg), moderate (1000-1500 mg), and high (2000-2550 mg) metformin doses, respectively; renal clearance and half-life remained unchanged throughout. The exploratory pharmacodynamic endpoint, HbA1c, decreased on average from 6.8% to 6.5%, regardless of the effects of goldenseal on metformin pharmacokinetics. The decreasing effect of goldenseal on metformin systemic exposure with increasing metformin dose, coupled with no changes in renal excretion and elimination half-life, indicated that both the pharmacokinetic goldenseal-metformin interaction and the nonlinear absorption of metformin are governed by saturable, intestinal transport mechanism(s). The disconnect between changes in metformin systemic exposure and therapeutic effects emphasizes the need to evaluate clinical biomarkers to comprehensively assess drug interaction risks, particularly those involving natural products. Healthcare providers may consider cautioning patients about supplementing metformin pharmacotherapy with goldenseal to avoid risks for undesired changes in glycemic control. Trial Registration: ClinicalTrials.gov identifier: NCT05081583.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39943692/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial, Phase I",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39943692",
+        "doi": "10.1111/cts.70120",
+        "journal": "Clinical and translational science",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:04:56.097Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "794296237438af5691ec",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "40403579",
+      "title": "A gut response: Application of human enteroid monolayers to probe the mechanism of the goldenseal-mediated inhibition of metformin intestinal absorption.",
+      "doi": "10.1016/j.jpet.2025.103597",
+      "source_title": "A gut response: Application of human enteroid monolayers to probe the mechanism of the goldenseal-mediated inhibition of metformin intestinal absorption.",
+      "abstract": "Continued growth in global sales of natural products has led to an increased risk of natural product-drug interactions that can compromise drug efficacy and safety. One such natural product, goldenseal, was shown to decrease systemic exposure to a subtherapeutic dose of oral metformin in healthy adults. A follow-up study involving therapeutic metformin doses and adults with type II diabetes demonstrated a metformin dose-dependent pharmacokinetic interaction with goldenseal. These results, along with no change in metformin half-life or renal clearance in both studies, suggested that the goldenseal-metformin interaction occurred in the gut via inhibition of an unidentified saturable intestinal transport process. We used enteroid monolayers derived from the duodenum of 4 healthy human adult donors to recapitulate the goldenseal-metformin interaction in vitro and identify the transporters involved in the observed in vivo interaction. Our results implicate thiamine transporter (ThTr) 2 as the predominant transporter involved in metformin uptake through the apical membrane, accounting for approximately 45% of total metformin intracellular accumulation. Additionally, goldenseal inhibited ThTr-2, but only under subsaturating metformin dosing concentrations. The goldenseal-metformin interaction mediated under therapeutic metformin dose conditions involves a low-affinity basolateral transporter, ThTr-1, which accounts for approximately 50% of inhibitable metformin apical to basolateral flux. However, a substantial fraction of metformin flux appears to involve paracellular transport. These results further elucidate the mechanism underlying the goldenseal-metformin interaction and suggest that enteroid monolayers are a promising model to study intestinal natural product-drug interactions. SIGNIFICANCE STATEMENT: The research presented in this article demonstrates the utility of enteroid monolayers to predict and ascertain the mechanisms of drug-drug and natural product-drug interactions. Using this model, the study was able to identify the transporters (thiamine transporter-1 and thiamine transporter-2) involved in metformin absorption that are inhibited by the natural product, goldenseal, which were previously unidentified.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40403579/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40403579",
+        "doi": "10.1016/j.jpet.2025.103597",
+        "journal": "The Journal of pharmacology and experimental therapeutics",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:04:56.098Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4af8178d1716918a78ea",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "38176912",
+      "title": "Effect of Tacrolimus Formulation (Prolonged-Release vs Immediate-Release) on Its Susceptibility to Drug-Drug Interactions with St. John's Wort.",
+      "doi": "10.1002/cpdd.1364",
+      "source_title": "Effect of Tacrolimus Formulation (Prolonged-Release vs Immediate-Release) on Its Susceptibility to Drug-Drug Interactions with St. John's Wort.",
+      "abstract": "Tacrolimus is metabolized by cytochrome P450 3A (CYP3A) and is susceptible to interactions with the CYP3A and P-glycoprotein inducer St. John's Wort (SJW). CYP3A isozymes are predominantly expressed in the small intestine and liver. Prolonged-release tacrolimus (PR-Tac) is largely absorbed in distal intestinal segments and is less susceptible to CYP3A inhibition. The effect of induction by SJW is unknown. In this randomized, crossover trial, 18 healthy volunteers received single oral tacrolimus doses (immediate-release [IR]-Tac or PR-Tac, 5 mg each) alone and during induction by SJW. Concentrations were quantified using ultra-high performance liquid chromatography coupled with tandem mass spectrometry and non-compartmental pharmacokinetics were evaluated. SJW decreased IR-Tac exposure (area under the concentration-time curve) to 73% (95% confidence interval 60%-88%) and maximum concentration (C max ) to 61% (52%-73%), and PR-Tac exposure to 67% (55%-81%) and C max to 69% (58%-82%), with no statistical difference between the 2 formulations. The extent of interaction appeared to be less pronounced in volunteers with higher baseline CYP3A4 activity and in CYP3A5 expressors. In contrast to CYP3A inhibition, CYP3A induction by SJW showed a similar extent of interaction with both tacrolimus formulations. A higher metabolic baseline capacity appeared to attenuate the extent of induction by SJW.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38176912/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Comparative Study",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "38176912",
+        "doi": "10.1002/cpdd.1364",
+        "journal": "Clinical pharmacology in drug development",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-08T22:04:56.098Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d9d573a1372bde75f23c",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "41926333",
+      "title": "Increase in Poison Center Reports Linked to Kratom-Containing Kava Products - National Poison Data System, United States, 2000-2025.",
+      "doi": "10.15585/mmwr.mm7512a1",
+      "source_title": "Increase in Poison Center Reports Linked to Kratom-Containing Kava Products - National Poison Data System, United States, 2000-2025.",
+      "abstract": "Kava (Piper methysticum), a central nervous system depressant derived from a plant in the pepper family native to the Pacific Islands, is traditionally consumed in religious, cultural, political, and social ceremonies. In the United States, kava emerged in the late 1990s and has experienced renewed growth and product diversification since the 2010s, with increasing availability of concentrated extracts and ready-to-drink beverages. These commercial products are commonly marketed as healthy alternatives to alcohol, sold near college campuses, and increasingly being combined with kratom, a psychoactive botanical with opioid-like effects, raising safety concerns. Data on kava-related use during January 2000-December 2025 that resulted in a report to the National Poison Data System (i.e., kava exposure report) were analyzed to assess trends by users' demographic characteristics, exposure type, and outcomes. Kava-related exposure reports declined sharply after a 2002 Food and Drug Administration advisory on kava-associated severe liver injury but have risen steadily since 2011, reaching 203 reported exposures in 2025. Reports primarily involved adults aged ≥20 years, but demographic characteristics have changed over time. During 2000-2001, reports primarily involved females and included more children aged ≤12 years, whereas exposure reports since 2013 have predominantly involved men; reports involving children have been rare. Since 2017, reports involving combined use of kava and kratom have increased, reaching 30% (61) of all kava reports in 2025. These increases have coincided with higher rates of serious reported clinical outcomes in recent years (32% in 2025 compared with 12% in 2000). These data indicate a resurgence of overall kava exposure reports to poison centers, as well as an increase in kratom-related kava reports, which has coincided with higher rates of serious clinical outcomes. The findings in this report suggest the need for enhanced surveillance for, clinical awareness of, and public education regarding commercial products containing kava.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41926333/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41926333",
+        "doi": "10.15585/mmwr.mm7512a1",
+        "journal": "MMWR. Morbidity and mortality weekly report",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:04:56.099Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9d7f5ce8a4bffcec0e71",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "40880678",
+      "title": "A Case of Turmeric-Induced Hepatotoxicity with Hyperferritinemia.",
+      "doi": "10.1159/000543842",
+      "source_title": "A Case of Turmeric-Induced Hepatotoxicity with Hyperferritinemia.",
+      "abstract": "We present the first published case of turmeric-associated drug-induced liver injury (DILI) accompanied by significant ferritin elevation. Our patient, a 59-year-old female with DILI caused by long-term ingestion of oral turmeric supplements, presented with painless jaundice on an annual exam. The patient's liver function tests exhibited a hepatocellular pattern and hyperferritinemia (>2,000 ng/dL). Additional testing was negative except for heterozygosity for the H63D allele associated with hemochromatosis. A liver biopsy indicated acute hepatitis without fibrosis or stainable iron. Upon discontinuation of the supplement, liver enzymes normalized within a month. This case highlights the potential for hepatotoxicity and hyperferritinemia from curcumin toxicity, particularly when combined with additives like black pepper that enhance its bioavailability. Awareness of this phenomenon, particularly in heterozygous carriers of hemochromatosis, is crucial for diagnosis and optimal management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40880678/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40880678",
+        "doi": "10.1159/000543842",
+        "journal": "Case reports in gastroenterology",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:04:56.099Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "75404afba4e98fcd4cda",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "36252717",
+      "title": "Liver Injury Associated with Turmeric-A Growing Problem: Ten Cases from the Drug-Induced Liver Injury Network [DILIN].",
+      "doi": "10.1016/j.amjmed.2022.09.026",
+      "source_title": "Liver Injury Associated with Turmeric-A Growing Problem: Ten Cases from the Drug-Induced Liver Injury Network [DILIN].",
+      "abstract": "Turmeric is a commonly used herbal product that has been implicated in causing liver injury. The aim of this case series is to describe the clinical, histologic, and human leukocyte antigen (HLA) associations of turmeric-associated liver injury cases enrolled the in US Drug-Induced Liver Injury Network (DILIN). All adjudicated cases enrolled in DILIN between 2004 and 2022 in which turmeric was an implicated product were reviewed. Causality was assessed using a 5-point expert opinion score. Available products were analyzed for the presence of turmeric using ultra-high-performance liquid chromatography. Genetic analyses included HLA sequencing. Ten cases of turmeric-associated liver injury were found, all enrolled since 2011, and 6 since 2017. Of the 10 cases, 8 were women, 9 were White, and median age was 56 years (range 35-71). Liver injury was hepatocellular in 9 patients and mixed in 1. Liver biopsies in 4 patients showed acute hepatitis or mixed cholestatic-hepatic injury with eosinophils. Five patients were hospitalized, and 1 patient died of acute liver failure. Chemical analysis confirmed the presence of turmeric in all 7 products tested; 3 also contained piperine (black pepper). HLA typing demonstrated that 7 patients carried HLA-B*35:01, 2 of whom were homozygous, yielding an allele frequency of 0.450 compared with population controls of 0.056-0.069. Liver injury due to turmeric appears to be increasing in the United States, perhaps reflecting usage patterns or increased combination with black pepper. Turmeric causes potentially severe liver injury that is typically hepatocellular, with a latency of 1 to 4 months and strong linkage to HLA-B*35:01.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36252717/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "36252717",
+        "doi": "10.1016/j.amjmed.2022.09.026",
+        "journal": "The American journal of medicine",
+        "publication_year": 2023,
+        "hydrated_at": "2026-10-08T22:04:56.100Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5470f97164264d30cdc1",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "32591416",
+      "title": "Modulation of Major Human Liver Microsomal Cytochromes P450 by Component Alkaloids of Goldenseal: Time-Dependent Inhibition and Allosteric Effects.",
+      "doi": "10.1124/dmd.120.091041",
+      "source_title": "Modulation of Major Human Liver Microsomal Cytochromes P450 by Component Alkaloids of Goldenseal: Time-Dependent Inhibition and Allosteric Effects.",
+      "abstract": "Botanical and other natural products (NPs) are often coconsumed with prescription medications, presenting a risk for cytochrome P450 (P450)-mediated NP-drug interactions. The NP goldenseal ( Hydrastis canadensis ) has exhibited antimicrobial activities in vitro attributed to isoquinoline alkaloids contained in the plant, primarily berberine, (-)- β -hydrastine, and to a lesser extent, hydrastinine. These alkaloids contain methylenedioxyphenyl rings, structural alerts with potential to inactivate P450s through formation of metabolic intermediate complexes. Time-dependent inhibition experiments were conducted to evaluate their ability to inhibit major P450 activities in human liver microsomes by using a cocktail of isozyme-specific substrate probes. Berberine inhibited CYP2D6 (dextromethorphan O -demethylation; K I = 2.7 μM, k inact = 0.065 minute -1 ) and CYP3A4/5 (midazolam 1'-hydroxylation; K I = 14.8 μM, k inact = 0.019 minute -1 ); (-)- β -hydrastine inhibited CYP2C9 (diclofenac 4'-hydroxylation; K I = 49 μM, k inact = 0.036 minute -1 ), CYP2D6 ( K I > 250 μM, k inact > 0.06 minute -1 ), and CYP3A4/5 ( K I = 28 μM, k inact = 0.056 minute -1 ); and hydrastinine inhibited CYP2D6 ( K I = 37 μM, k inact = 0.049 minute -1 ) activity. Berberine additionally exhibited allosteric effects on midazolam hydroxylation, showing both positive and negative heterotropic cooperativity. Experiments with recombinant isozymes showed that berberine activated midazolam 1'-hydroxylation by CYP3A5, lowering K m(app) , but showed mixed inhibition and negative cooperativity toward this reaction when catalyzed by CYP3A4. Berberine inactivated CYP3A4 at a much faster rate than CYP3A5 and was a noncompetitive inhibitor of midazolam 4-hydroxylation by CYP3A4 but a strong mixed inhibitor of the CYP3A5 catalyzed reaction. These complex kinetics should be considered when extrapolating the risk for NP-drug interactions involving goldenseal. SIGNIFICANCE STATEMENT: Robust kinetic parameters were determined for the reversible and time-dependent inhibition of CYP2C9, CYP2D6, and CYP3A4/5 activities in human liver microsomes by major component isoquinoline alkaloids contained in the botanical natural product goldenseal. The alkaloid berberine also exhibited opposing, isozyme-specific allosteric effects on midazolam hydroxylation mediated by recombinant CYP3A4 (inhibition) and CYP3A5 (activation). These data will inform the development of a physiologically based pharmacokinetic model that can be used to predict potential clinically relevant goldenseal-drug interactions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32591416/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "32591416",
+        "doi": "10.1124/dmd.120.091041",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-08T22:04:56.100Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5331406b75aa370205f1",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "21870106",
+      "title": "Repeated administration of berberine inhibits cytochromes P450 in humans.",
+      "doi": "10.1007/s00228-011-1108-2",
+      "source_title": "Repeated administration of berberine inhibits cytochromes P450 in humans.",
+      "abstract": "Berberine is a plant alkaloid that is widely used to treat gastrointestinal infections, diabetes, hypertension, and hypercholesterolemia. Many studies have reported interactions between berberine-containing products and cytochromes P450 (CYPs), but little is known about whether berberine alters CYP activities in humans, especially after repeated doses. A two-phase randomized-crossover clinical study in healthy male subjects was performed. After 2 weeks of berberine (300 mg, t.i.d., p.o.) administration, midazolam, omeprazole, dextromethorphan, losartan, and caffeine were used to evaluate enzyme activities of CYP3A4, 2C19, 2D6, 2C9, and CYP1A2, respectively. A decrease in CYP2D6 activity was observed as the 0-8 h urinary dextromethorphan/dextrorphan increased ninefold (P < 0.01). In addition, losartan/E-3174 ratio doubled (P < 0.01) after BBR administration, indicating a decrease in CYP2C9 activity. CYP3A4 activity was also inhibited, as the C(max), AUC(0-∞), and AUC(0-12) of midazolam were increased 38% (P < 0.05), 40% (P < 0.01), and 37% (P < 0.05) after BBR treatment, respectively. Compared with the placebo period, the T(max) and T(1/2) of midazolam during BBR administration were prolonged from 3.03 ± 0.27 to 3.66 ± 0.37 h and 0.66 ± 0.08 to 0.99 ± 0.09 h, respectively; the oral clearance of midazolam was decreased 27% (P < 0.05); and the phenotypic indices of 1 h midazolam/1'-hydroxymidazolam increased 59% (P < 0.01). There were no statistically significant differences in the pharmacokinetic parameters of the other probe drugs between placebo and the BBR-treated group. Repeated administration of berberine (300 mg, t.i.d., p.o.) decreased CYP2D6, 2C9, and CYP3A4 activities. Drug-drug interactions should be considered when berberine is administered.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21870106/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "21870106",
+        "doi": "10.1007/s00228-011-1108-2",
+        "journal": "European journal of clinical pharmacology",
+        "publication_year": 2012,
+        "hydrated_at": "2026-10-08T22:04:56.101Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cf2d9ca7f1c5ee8427a0",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "30739325",
+      "title": "No Clinically Relevant Interactions of St. John's Wort Extract Ze 117 Low in Hyperforin With Cytochrome P450 Enzymes and P-glycoprotein.",
+      "doi": "10.1002/cpt.1392",
+      "source_title": "No Clinically Relevant Interactions of St. John's Wort Extract Ze 117 Low in Hyperforin With Cytochrome P450 Enzymes and P-glycoprotein.",
+      "abstract": "Hypericum perforatum L. (St. John's wort) is used to treat mild-to-moderate depression. Its potential safety risks are pharmacokinetic drug interactions via cytochrome P450 (CYP) enzymes and P-glycoprotein, presumably caused by hyperforin. In a phase I, open-label, nonrandomized, single-sequence study, the low-hyperforin Hypericum extract Ze 117 was investigated using a drug cocktail in 20 healthy volunteers. No pharmacokinetic interactions of Ze 117 were observed for CYP1A2, CYP2B6, CYP2C9, CYP2C19, CYP3A4, and P-glycoprotein. Area under the curve (AUC) and peak plasma concentration (C max ) of the used probe drugs showed 90% confidence intervals (CIs) of the geometric mean ratios of the drugs taken together with Ze 117 vs. probe drug alone, well within the predefined bioequivalence range of 80-125%. Though Ze 117 did not induce dextromethorphan metabolism by CYP2D6, it weakly increased dextromethorphan AUC ratio (mean 147.99, 95% CI 126.32-173.39) but not the corresponding metabolic ratio. Ze 117 does not show clinically relevant pharmacokinetic interactions with important CYPs and P-glycoprotein.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30739325/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial, Phase I; Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial, Phase I",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "30739325",
+        "doi": "10.1002/cpt.1392",
+        "journal": "Clinical pharmacology and therapeutics",
+        "publication_year": 2020,
+        "hydrated_at": "2026-10-08T22:04:56.101Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "49ac3d808f0c5207a41c",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "33174626",
+      "title": "Assessing Transporter-Mediated Natural Product-Drug Interactions Via In vitro-In Vivo Extrapolation: Clinical Evaluation With a Probe Cocktail.",
+      "doi": "10.1002/cpt.2107",
+      "source_title": "Assessing Transporter-Mediated Natural Product-Drug Interactions Via In vitro-In Vivo Extrapolation: Clinical Evaluation With a Probe Cocktail.",
+      "abstract": "The botanical natural product goldenseal can precipitate clinical drug interactions by inhibiting cytochrome P450 (CYP) 3A and CYP2D6. Besides P-glycoprotein, effects of goldenseal on other clinically relevant transporters remain unknown. Established transporter-expressing cell systems were used to determine the inhibitory effects of a goldenseal extract, standardized to the major alkaloid berberine, on transporter activity. Using recommended basic models, the extract was predicted to inhibit the efflux transporter BCRP and uptake transporters OATP1B1/3. Using a cocktail approach, effects of the goldenseal product on BCRP, OATP1B1/3, OATs, OCTs, MATEs, and CYP3A were next evaluated in 16 healthy volunteers. As expected, goldenseal increased the area under the plasma concentration-time curve (AUC 0-inf ) of midazolam (CYP3A; positive control), with a geometric mean ratio (GMR) (90% confidence interval (CI)) of 1.43 (1.35-1.53). However, goldenseal had no effects on the pharmacokinetics of rosuvastatin (BCRP and OATP1B1/3) and furosemide (OAT1/3); decreased metformin (OCT1/2, MATE1/2-K) AUC 0-inf (GMR, 0.77 (0.71-0.83)); and had no effect on metformin half-life and renal clearance. Results indicated that goldenseal altered intestinal permeability, transport, and/or other processes involved in metformin absorption, which may have unfavorable effects on glucose control. Inconsistencies between model predictions and pharmacokinetic outcomes prompt further refinement of current basic models to include differential transporter expression in relevant organs and intestinal degradation/metabolism of the precipitant(s). Such refinement should improve in vitro-in vivo prediction accuracy, contributing to a standard approach for studying transporter-mediated natural product-drug interactions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33174626/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "33174626",
+        "doi": "10.1002/cpt.2107",
+        "journal": "Clinical pharmacology and therapeutics",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-08T22:04:56.102Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "418fd25917c6c97e53a1",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "25043597",
+      "title": "Liver injury from herbals and dietary supplements in the U.S. Drug-Induced Liver Injury Network.",
+      "doi": "10.1002/hep.27317",
+      "source_title": "Liver injury from herbals and dietary supplements in the U.S. Drug-Induced Liver Injury Network.",
+      "abstract": "The Drug-Induced Liver Injury Network (DILIN) studies hepatotoxicity caused by conventional medications as well as herbals and dietary supplements (HDS). To characterize hepatotoxicity and its outcomes from HDS versus medications, patients with hepatotoxicity attributed to medications or HDS were enrolled prospectively between 2004 and 2013. The study took place among eight U.S. referral centers that are part of the DILIN. Consecutive patients with liver injury referred to a DILIN center were eligible. The final sample comprised 130 (15.5%) of all subjects enrolled (839) who were judged to have experienced liver injury caused by HDS. Hepatotoxicity caused by HDS was evaluated by expert opinion. Demographic and clinical characteristics and outcome assessments, including death and liver transplantation (LT), were ascertained. Cases were stratified and compared according to the type of agent implicated in liver injury; 45 had injury caused by bodybuilding HDS, 85 by nonbodybuilding HDS, and 709 by medications. Liver injury caused by HDS increased from 7% to 20% (P < 0.001) during the study period. Bodybuilding HDS caused prolonged jaundice (median, 91 days) in young men, but did not result in any fatalities or LT. The remaining HDS cases presented as hepatocellular injury, predominantly in middle-aged women, and, more frequently, led to death or transplantation, compared to injury from medications (13% vs. 3%; P < 0.05). The proportion of liver injury cases attributed to HDS in DILIN has increased significantly. Liver injury from nonbodybuilding HDS is more severe than from bodybuilding HDS or medications, as evidenced by differences in unfavorable outcomes (death and transplantation). (Hepatology 2014;60:1399-1408).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25043597/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "25043597",
+        "doi": "10.1002/hep.27317",
+        "journal": "Hepatology (Baltimore, Md.)",
+        "publication_year": 2015,
+        "hydrated_at": "2026-10-08T22:04:56.102Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4bb3907fff5ef4d55ebb",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "23268924",
+      "title": "Effects of green tea catechins on cytochrome P450 2B6, 2C8, 2C19, 2D6 and 3A activities in human liver and intestinal microsomes.",
+      "doi": "10.2133/dmpk.dmpk-12-rg-101",
+      "source_title": "Effects of green tea catechins on cytochrome P450 2B6, 2C8, 2C19, 2D6 and 3A activities in human liver and intestinal microsomes.",
+      "abstract": "The effects of green tea catechins on the main drug-metabolizing enzymatic system, cytochrome P450 (CYP), have not been fully elucidated. The objective of the present study was to evaluate the effects of green tea extract (GTE, total catechins 86.5%, w/w) and (-)-epigallocatechin-3-gallate (EGCG) on the activities of CYP2B6, CYP2C8, CYP2C19, CYP2D6 and CYP3A in vitro, using pooled human liver and intestinal microsomes. Bupropion hydroxylation, amodiaquine N-deethylation, (S)-mephenytoin 4'-hydroxylation, dextromethorphan O-demethylation and midazolam 1'-hydroxylation were assessed in the presence or absence of various concentrations of GTE and EGCG to test their effects on CYP2B6, CYP2C8, CYP2C19, CYP2D6 and CYP3A activities, respectively. Each metabolite was quantified using UPLC/ESI-MS, and the inhibition kinetics of GTE and EGCG on CYP enzymes was analyzed. In human liver microsomes, IC50 values of GTE were 5.9, 4.5, 48.7, 25.1 and 13.8 µg/mL, for CYP2B6, CYP2C8, CYP2C19, CYP2D6 and CYP3A, respectively. ECGC also inhibited these CYP isoforms with properties similar to those of GTE, and produced competitive inhibitions against CYP2B6 and CYP2C8, and noncompetitive inhibition against CYP3A. In human intestinal microsomes, IC50 values of GTE and EGCG for CYP3A were 18.4 µg/mL and 31.1 µM, respectively. EGCG moderately inhibited CYP3A activity in a noncompetitive manner. These results suggest that green tea catechins cause clinically relevant interactions with substrates for CYP2B6 and CYP2C8 in addition to CYP3A.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23268924/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "23268924",
+        "doi": "10.2133/dmpk.dmpk-12-rg-101",
+        "journal": "Drug metabolism and pharmacokinetics",
+        "publication_year": 2014,
+        "hydrated_at": "2026-10-08T22:04:56.103Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6f95aa7dd4b5c49c2820",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "17495878",
+      "title": "Supplementation with goldenseal (Hydrastis canadensis), but not kava kava (Piper methysticum), inhibits human CYP3A activity in vivo.",
+      "doi": "10.1038/sj.clpt.6100222",
+      "source_title": "Supplementation with goldenseal (Hydrastis canadensis), but not kava kava (Piper methysticum), inhibits human CYP3A activity in vivo.",
+      "abstract": "The effects of goldenseal (Hydrastis canadensis) and kava kava (Piper methysticum) supplementation on human CYP3A activity were evaluated using midazolam (MDZ) as a phenotypic probe. Sixteen healthy volunteers were randomly assigned to receive either goldenseal or kava kava for 14 days. Each supplementation phase was followed by a 30-day washout period. MDZ (8 mg, per os) was administered before and after each phase, and pharmacokinetic parameters were determined using standard non-compartmental methods. Comparisons of pre- and post-supplementation MDZ pharmacokinetic parameters revealed significant inhibition of CYP3A by goldenseal (AUC(0-infinity), 107.9+/-43.3 vs 175.3+/-74.8 ng x h/ml; Cl/F/kg, 1.26+/-0.59 vs 0.81+/-0.45 l/h/kg; T(1/2), 2.01+/-0.42 vs 3.15+/-1.12 h; Cmax, 50.6+/-26.9 vs 71.2+/-50.5 ng/ml). MDZ disposition was not affected by kava kava supplementation. These findings suggest that significant herb-drug interactions may result from the concomitant ingestion of goldenseal and CYP3A substrates.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17495878/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "17495878",
+        "doi": "10.1038/sj.clpt.6100222",
+        "journal": "Clinical pharmacology and therapeutics",
+        "publication_year": 2008,
+        "hydrated_at": "2026-10-08T22:04:56.103Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "80f3600438ed4c0f986d",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "11849198",
+      "title": "St Johns wort increases expression of P-glycoprotein: implications for drug interactions.",
+      "doi": "10.1046/j.0306-5251.2001.01516.x",
+      "source_title": "St Johns wort increases expression of P-glycoprotein: implications for drug interactions.",
+      "abstract": "St John's Wort (SJW) is widely used in the treatment of depression but concerns have been raised about its potential to interact with other drugs. Co-administration with SJW has resulted in significant reductions in trough plasma concentrations of indinavir and cyclosporin [1, 2]. Induction of cytochrome P450 3A4 (CYP3A4) has been implicated as the most likely interaction mechanism. However, the magnitude of the interaction seen in clinical practice is greater than that predicted by in vitro studies suggesting additional interaction mechanisms may exist. As indinavir and cyclosporin are substrates for both CYP3A4 and the multi drug transporter P-glycoprotein we hypothesized that modulation of P-glycoprotein expression and function by SJW may contribute to the development of potentially harmful drug-drug interactions. Healthy volunteers were randomized to either SJW (0.15%) 600 mg three times daily for 16 days (n = 15) or placebo (n = 7). Blood samples were obtained for P-glycoprotein expression and function at baseline, 16 and 32 days post treatment. Peripheral blood lymphocytes (PBMCs) were isolated by Ficoll density gradient centrifugation, fixed and permeabilized. Cells were stained with a P-glycoprotein specific antibody, quantified by flow cytometry and median fluorescence intensity (MFI) values obtained. Vimentin and IE (nonsense antibody) were used as controls. The presence of the MDR 1 gene product was confirmed by RT-PCR. P-glycoprotein mediated drug efflux was determined as a function of rhodamine efflux in the absence and presence of ritonavir. Data are expressed as mean +/- s.d. and were subjected to nonparametric analysis. P-glycoprotein expression increased 4.2 fold from baseline in subjects treated with SJW (7.0 +/- 1.9 vs 29.5 +/- 14.3 (MFI); P < 0.05). There was no effect with placebo (5.1 +/- 1.3 vs 6.0 +/- 1.9 MFI). SJW increased P-glycoprotein mediated rhodamine efflux (reduced ratio) compared with baseline (0.12 +/- 0.04 vs 0.24 +/- 0.18 P < 0.05). There was no change with placebo. Ritonavir (5 microm) inhibited P-glycoprotein mediated efflux in both groups producing greater intracellular accumulation of rhodamine. However, this effect was attenuated following treatment with SJW (23.9 +/- 15.3% vs 75.4 +/- 16.4% P < 0.05). SJW increased expression and enhanced the drug efflux function of the multi drug transporter P-glycoprotein in PBMCs of healthy volunteers. This may represent a second mechanism for the drug-herb interactions seen in clinical practice and account for the discrepancies between in vitro and in vivo data. Since P-glycoprotein and CYP3A4 have distinct though overlapping substrates, patients receiving drugs, which are P-glycoprotein substrates should be warned against self-medication with SJW as clinically significant drug interactions may occur.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11849198/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "11849198",
+        "doi": "10.1046/j.0306-5251.2001.01516.x",
+        "journal": "British journal of clinical pharmacology",
+        "publication_year": 2002,
+        "hydrated_at": "2026-10-08T22:04:56.103Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "50e691c3c3b0ae18c9d4",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "38682076",
+      "title": "A Yellow Flower With Jaundice Power: Liver Injury Attributed to Greater Celandine.",
+      "doi": "10.14309/crj.0000000000001347",
+      "source_title": "A Yellow Flower With Jaundice Power: Liver Injury Attributed to Greater Celandine.",
+      "abstract": "Greater celandine ( Chelidonium majus ) leaf extracts have been used for centuries as a natural remedy for various gastrointestinal symptoms. Greater celandine is associated with several case reports of hepatotoxicity, mainly from Europe. No cases from the United States have been identified. We present a case of acute hepatitis from greater celandine in the United States in a 72-year-old man taking this herbal supplement for nausea. In patients presenting with acute liver injury, gastroenterologists should be aware of this herb and reminded to assess for herbal and dietary supplement hepatotoxicity, especially in those remedies used to treat common gastrointestinal symptoms.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38682076/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "38682076",
+        "doi": "10.14309/crj.0000000000001347",
+        "journal": "ACG case reports journal",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-08T22:04:56.104Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9ae2bbb9878f61e41e75",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "35048143",
+      "title": "Physiologically based pharmacokinetic model predictions of natural product-drug interactions between goldenseal, berberine, imatinib and bosutinib.",
+      "doi": "10.1007/s00228-021-03266-y",
+      "source_title": "Physiologically based pharmacokinetic model predictions of natural product-drug interactions between goldenseal, berberine, imatinib and bosutinib.",
+      "abstract": "This study implements a physiologically based pharmacokinetic (PBPK) modelling approach to predict the effect of hydrastine and berberine, two major alkaloids present in goldenseal extract, on pharmacokinetics of imatinib and bosutinib. PBPK models of hydrastine and berberine were developed in the Simcyp Simulator (version 17), integrating prior in vitro knowledge and published clinical pharmacokinetic data. The models account for reversible and irreversible (mechanism-based) inhibition of CYP3A enzymes as well as inhibition of the P-glycoprotein transporter. Inhibitory potencies of hydrastine and berberine on imatinib and bosutinib were estimated based on in vitro inhibition of metabolite formation. The PBPK models provided reliable estimates on the magnitude of interactions due to co-administration of goldenseal extract or high-dose berberine on substrates of CYP3A enzymes (midazolam, indinavir and cyclosporine) and P-glycoprotein (digoxin). PBPK simulations predicted a moderate twofold increase (5 th to 95 th percentiles of prediction of 1.4-3.1) in systemic exposure (AUC) of bosutinib when co-administered with clinically relevant doses of goldenseal extract. A high dose of berberine (300 mg thrice daily) was also expected to affect bosutinib exposure, albeit to a lesser extent than that predicted with goldenseal (AUC ratio of 1.3, 5 th to 95 th percentile: 1.1-1.6). Conversely, the corresponding effects on imatinib exposure are unlikely to be of clinical importance (predicted AUC ratios of 1.0-1.2). PBPK model-based predictions highlighted potential clinically significant interactions between goldenseal extract and bosutinib, but not imatinib. Dose adjustment may need to be considered if co-administration is desirable. These findings should be confirmed with optimally designed controlled drug interaction studies.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35048143/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35048143",
+        "doi": "10.1007/s00228-021-03266-y",
+        "journal": "European journal of clinical pharmacology",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-08T22:04:56.104Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b497e3712f08f97eb132",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "16773535",
+      "title": "Induction of CYP1A by green tea extract in human intestinal cell lines.",
+      "doi": "10.1055/s-2006-931537",
+      "source_title": "Induction of CYP1A by green tea extract in human intestinal cell lines.",
+      "abstract": "In this study the influence of green tea extract (GTE) or its component epigallocatechin gallate (EGCG) on the expression of different cytochrome P450 (CYP) isoenzymes was investigated in the human gastrointestinal epithelial cell lines LS-180 and Caco-2. Additionally, the effect of GTE or EGCG on functional activity of different CYP isoenzymes was investigated in vitro. mRNA expression levels were determined by quantitative RT-PCR and compared with protein levels. In LS-180 cells GTE, but not EGCG, significantly induced CYP1A2 mRNA expression, whereas neither CYP1A1 nor CYP3A4 mRNA expression was modulated by GTE or EGCG. In Caco-2 cells CYP1A1 as well as CYP1A2 mRNA expression was significantly increased in a dose-dependent manner by GTE and EGCG. However, EGCG alone was about 3-5-fold less effective than GTE. mRNA expression of CYP1A1 or CYP1A2 induced by the promutagen benzo[a]pyrene was significantly down-regulated by EGCG but not by GTE. CYP1A protein levels in response to GTE in Caco-2 and LS-180 cells confirmed the mRNA expression results. CYP activity was measured with CYP1A2 or CYP3A4 expressed in insect cell membranes using a luminescent method. GTE or EGCG significantly inhibited CYP1A2 and CYP3A4 function in a dose-dependent manner. Therefore, it appears that green tea moderately modulates the expression of drug-metabolizing enzymes but non-specifically inhibits the function of human CYPs. Since CYP enzymes play an important role in detoxification processes, these results might be of relevance for the prediction of the outcome of future clinical studies.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16773535/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "16773535",
+        "doi": "10.1055/s-2006-931537",
+        "journal": "Planta medica",
+        "publication_year": 2006,
+        "hydrated_at": "2026-10-08T22:04:56.105Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4f5818997418c420fe39",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "17164372",
+      "title": "Effects of repeated green tea catechin administration on human cytochrome P450 activity.",
+      "doi": "10.1158/1055-9965.EPI-06-0365",
+      "source_title": "Effects of repeated green tea catechin administration on human cytochrome P450 activity.",
+      "abstract": "Preclinical studies suggested that green tea or green tea catechins can modulate the activities of drug-metabolizing enzymes. We conducted this clinical study to determine the effect of repeated green tea catechin administration on human cytochrome P450 (CYP) enzyme activities. Forty-two healthy volunteers underwent a 4-week washout period by refraining from tea or tea-related products. At the end of the washout period, study participants received a cocktail of CYP metabolic probe drugs, including caffeine, dextromethorphan, losartan, and buspirone for assessing the activity of CYP1A2, CYP2D6, CYP2C9, and CYP3A4, respectively. Blood and urine samples before and 8 h after probe drug administration were collected to determine parent drug and metabolite concentrations for measurements of baseline CYP enzyme activities. Following the baseline evaluation, study participants underwent 4 weeks of green tea catechin intervention at a dose that contains 800 mg epigallocatechin gallate (EGCG) daily. The green tea catechin product was taken on an empty stomach to optimize the p.o. bioavailability of EGCG. The EGCG dose given in this study exceeded the amounts provided by average green tea consumption. Upon completion of the green tea catechin intervention, the postintervention CYP enzyme activities were evaluated as described above. There are large between-subject variations in CYP enzyme activities in healthy individuals. Four weeks of green tea catechin intervention did not alter the phenotypic indices of CYP1A2, CYP12D6, and CYP12C9, but resulted in a 20% increase (P = 0.01) in the area under the plasma buspirone concentration-time profile, suggesting a small reduction in CYP3A4 activity. We conclude that repeated green tea catechin administration is not likely to result in clinically significant effects on the disposition of drugs metabolized by CYP enzymes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17164372/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "17164372",
+        "doi": "10.1158/1055-9965.EPI-06-0365",
+        "journal": "Cancer epidemiology, biomarkers & prevention : a publication of the American Association for Cancer Research, cosponsored by the American Society of Preventive Oncology",
+        "publication_year": 2007,
+        "hydrated_at": "2026-10-08T22:04:56.105Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d2adb75f97c62a43d23c",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "14570772",
+      "title": "Human cytochrome p450 inhibition and metabolic-intermediate complex formation by goldenseal extract and its methylenedioxyphenyl components.",
+      "doi": "10.1124/dmd.31.11.1391",
+      "source_title": "Human cytochrome p450 inhibition and metabolic-intermediate complex formation by goldenseal extract and its methylenedioxyphenyl components.",
+      "abstract": "The concurrent use of herbal medicinals with prescription and over-the-counter drugs carries a risk for unanticipated adverse drug-botanical pharmacokinetic interactions, particularly as a result of cytochrome P450 (P450) inhibition. Extracts of goldenseal (Hydrastis canadensis) containing approximately equal concentrations ( approximately 17 mM) of two methylenedioxyphenyl alkaloids, berberine and hydrastine, inhibited with increasing potency (CYP2C9) diclofenac 4'-hydroxylation, (CYP2D6) bufuralol 1'-hydroxylation, and (CYP3A4) testosterone 6beta-hydroxylation activities in human hepatic microsomes. The inhibition of testosterone 6beta-hydroxylation activity was noncompetitive with an apparent Ki of 0.11% extract. Of the methylenedioxyphenyl alkaloids, berberine (IC50 = 45 microM) was the more inhibitory toward bufuralol 1'-hydroxylation and hydrastine (IC50 approximately 350 microM for both isomers), toward diclofenac 4'-hydroxylation. For testosterone 6beta-hydroxylation, berberine was the least inhibitory component (IC50 approximately 400 microM). Hydrastine inhibited testosterone 6beta-hydroxylation with IC50 values for the (+)- and (-)-isomers of 25 and 30 microM, respectively. For (-)-hydrastine, an apparent Ki value of 18 microM without preincubation and an NADPH-dependent mechanism-based inhibition with a kinactivation of 0.23 min(-1) and a KI of approximately 110 microM were determined. Cytochrome P450 metabolic-intermediate (MI) complex formation could be demonstrated for both hydrastine isomers. With expressed P450 isoforms, hydrastine formed a P450 MI complex with CYP2C9, CYP2D6, and CYP3A4. Coexpression of cytochrome b5 with the P450 isoforms enhanced the rate but not the extent of P450 MI complex formation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14570772/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "14570772",
+        "doi": "10.1124/dmd.31.11.1391",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2004,
+        "hydrated_at": "2026-10-08T22:04:56.105Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a7c55f3d94019f0f02c2",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "14551183",
+      "title": "Influence of goldenseal root on the pharmacokinetics of indinavir.",
+      "doi": "10.1177/0091270003258660",
+      "source_title": "Influence of goldenseal root on the pharmacokinetics of indinavir.",
+      "abstract": "Goldenseal root was identified as the most potent inhibitor of CYP3A4 in a study that tested 21 popular herbal products for in vitro inhibitory activity. The purpose of this investigation was to examine the influence of goldenseal root on the disposition of the CYP3A4 substrate indinavir in humans. Using a crossover study design, the pharmacokinetics of indinavir were characterized in 10 healthy volunteers before and after 14 days of treatment with goldenseal root (1140 mg twice daily). Indinavir was given as a single 800-mg oral dose, and blood samples were collected for 8 hours following the dose. No statistically significant differences in peak concentration (11.6 vs. 11.9 mg/L) or oral clearance (26.8 vs. 23.9 mg*h/L) were observed following treatment with goldenseal root. Half-life and time to reach peak concentration were also unchanged by goldenseal. These results suggest that patients being treated with indinavir can safely take goldenseal root and that interactions with other drugs metabolized by CYP3A4 in the liver are unlikely.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14551183/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Comparative Study; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Comparative Study",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "14551183",
+        "doi": "10.1177/0091270003258660",
+        "journal": "Journal of clinical pharmacology",
+        "publication_year": 2004,
+        "hydrated_at": "2026-10-08T22:04:56.106Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1553c0ab1873c5353989",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "15499196",
+      "title": "Effects of continuous ingestion of green tea or grape seed extracts on the pharmacokinetics of midazolam.",
+      "doi": "10.2133/dmpk.19.280",
+      "source_title": "Effects of continuous ingestion of green tea or grape seed extracts on the pharmacokinetics of midazolam.",
+      "abstract": "Limited systematic data on herb-drug interaction are available, despite many opportunities to concomitant use of herb with prescribed drugs. We investigated the effects of 15 herbal extracts in dietary supplements on CYP2C9, CYP2D6 and CYP3A4 activities in human liver microsomes. Strong inhibition of these CYP activities was found by the addition of green tea extracts (GTE) or grape seed extracts (GSE) in vitro. To examine the effects of these extracts on CYP3A activities in vivo, the pharmacokinetics of midazolam (MDZ) was analyzed in rats. Although single treatments with these extracts had negligible effects, 1 week of treatment with them resulted in a significant increase in the ke of intravenously administered MDZ, indicating the induction of CYP3A in the liver. In contrast, 1 week of treatment with GTE, but not GSE, caused a significant increase in the C(max) and AUC(0-infinity) of orally administered MDZ without change in the t(1/2), suggesting a reduction in CYP3A activity in the small intestines. These studies indicate that subchronic ingestion of GTE or GSE may alter the pharmacokinetics of MDZ, and the effects of GTE on CYP3A activity appear opposite between liver and small intestine, which could not be predicted from in vitro experiments.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15499196/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "human",
+      "study_design": "Comparative Study; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Comparative Study",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "15499196",
+        "doi": "10.2133/dmpk.19.280",
+        "journal": "Drug metabolism and pharmacokinetics",
+        "publication_year": 2005,
+        "hydrated_at": "2026-10-08T22:04:56.106Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c7f91ba1634898ec3bee",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "40733088",
+      "title": "Novel Micellar Formulation of Silymarin (Milk Thistle) with Enhanced Bioavailability in a Double-Blind, Randomized, Crossover Human Trial.",
+      "doi": "10.3390/pharmaceutics17070880",
+      "source_title": "Novel Micellar Formulation of Silymarin (Milk Thistle) with Enhanced Bioavailability in a Double-Blind, Randomized, Crossover Human Trial.",
+      "abstract": "Background: Silymarin, a flavonoid complex, and the main bioactive component of milk thistle ( Silybum marianum ), is known for its hepatoprotective properties but suffers from poor bioavailability due to its low solubility and extensive first-pass metabolism. Method: This study aimed to evaluate the pharmacokinetics and tolerability of a novel micellar milk thistle formulation designed to enhance silymarin absorption, compared to an unformulated/standard milk thistle product, in a small-scale human bioavailability trial. In a randomized, double-blinded, crossover study, 16 healthy participants received a single dose of either the micellar formulation (LipoMicel Milk Thistle; LMM) or the standard formulation (STD) at a total daily dose of 130 mg silymarin. Blood concentrations were measured over 24 h, and key pharmacokinetic parameters-maximum plasma concentration (C max ), time to reach maximum concentration (T max ), and area under the curve (AUC)-were calculated. Tolerability and safety were assessed through adverse event monitoring during the study period. Results: Results demonstrated a significant increase in bioavailability with the micellar formulation, with 18.9-fold higher C max (95% CI: 1.9-30.7 ng/mL vs. 74.4-288.3 ng/mL; p = 0.007) and 11.4-fold higher AUC 0-24 (95% CI: 7.40-113.5 ng·h/mL vs. 178-612.5 ng·h/mL; p = 0.015). T max was 0.5 (95% CI: 0.5-4.0) hours for the micellar formulation versus 2.5 (95% CI: 0.5-8.0) hours for the standard product ( p = 0.015) indicating faster absorption of LMM. The standard formulation exhibited a significantly longer mean residence time compared to the LMM formulation (95% CI: 4.4-7.5 h vs. 2.8-4.2 h; p = 0.015). Conclusions: No adverse events or significant safety concerns were observed in either group. Compared to the standard, the micellar formulation showed superior pharmacokinetic outcomes, suggesting it may enhance silymarin's clinical efficacy in liver health.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40733088/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40733088",
+        "doi": "10.3390/pharmaceutics17070880",
+        "journal": "Pharmaceutics",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:04:56.107Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0c9cc0b6a5967c606157",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "33706132",
+      "title": "Interaction of silymarin components and their sulfate metabolites with human serum albumin and cytochrome P450 (2C9, 2C19, 2D6, and 3A4) enzymes.",
+      "doi": "10.1016/j.biopha.2021.111459",
+      "source_title": "Interaction of silymarin components and their sulfate metabolites with human serum albumin and cytochrome P450 (2C9, 2C19, 2D6, and 3A4) enzymes.",
+      "abstract": "Silymarin is a mixture of flavonolignans isolated from the fruit of milk thistle (Silybum marianum (L.) Gaertner). Milk thistle extract is the active ingredient of several medications and dietary supplements to treat liver injury/diseases. After the oral administration, flavonolignans are extensively biotransformed, resulting in the formation of sulfate and/or glucuronide metabolites. Previous studies demonstrated that silymarin components form stable complexes with serum albumin and can inhibit certain cytochrome P450 (CYP) enzymes. Nevertheless, in most of these investigations, silybin was tested; while no or only limited information is available regarding other silymarin components and metabolites. In this study, the interactions of five silymarin components (silybin A, silybin B, isosilybin A, silychristin, and 2,3-dehydrosilychristin) and their sulfate metabolites were examined with human serum albumin and CYP (2C9, 2C19, 2D6, and 3A4) enzymes. Our results demonstrate that each compound tested forms stable complexes with albumin, and certain silymarin components/metabolites can inhibit CYP enzymes. Most of the sulfate conjugates were less potent inhibitors of CYP enzymes, but 2,3-dehydrosilychristin-19-O-sulfate showed the strongest inhibitory effect on CYP3A4. Based on these observations, the simultaneous administration of high dose silymarin with medications should be carefully considered, because milk thistle flavonolignans and/or their sulfate metabolites may interfere with drug therapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33706132/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical pharmacokinetics, enzyme and transporter interactions, herbal hepatotoxicity and human safety signals; source identity verified via PubMed; clinical interpretation and independent review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "33706132",
+        "doi": "10.1016/j.biopha.2021.111459",
+        "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-08T22:04:56.107Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4f56157459bc31e7113c",
+      "reserved_at": "2026-10-08T22:05:04.310Z",
+      "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
     }
   ],
   "batches": [
@@ -4340,22 +6267,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 56,
+    "total_reservations": 81,
     "by_lane": {
       "1": 5,
       "2": 4,
-      "3": 10,
+      "3": 35,
       "4": 12,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 56
+      "SOURCE_VERIFIED": 81
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 56,
+        "count": 81,
         "pr_number": null,
         "blocker": null
       }
