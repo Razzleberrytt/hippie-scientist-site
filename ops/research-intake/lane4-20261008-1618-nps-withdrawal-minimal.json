@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "lane": 4,
+  "lane_focus": "withdrawal-dependence-nps",
+  "research_only": true,
+  "records": [
+    {
+      "pmid": "40334325",
+      "title": "Manifestations of potential xylazine withdrawal: A retrospective cohort study with nested case series.",
+      "source_title": "Manifestations of potential xylazine withdrawal: A retrospective cohort study with nested case series.",
+      "doi": "10.1016/j.drugalcdep.2025.112681",
+      "abstract": "Source-verified synopsis: A retrospective cohort of 121 hospitalized patients compared vital signs and intensive-care outcomes by urine xylazine detection. Seventy-three tested positive. There was no observed association with higher peak blood pressure or heart rate. Chart review found only two possible withdrawal presentations with otherwise unexplained cardiovascular signs. Co-occurring withdrawal syndromes and retrospective ascertainment limit conclusions; no distinct syndrome was established.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40334325/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_observational",
+      "relevance_reason": "Human negative findings and uncertainty about a potential withdrawal syndrome.",
+      "evidence_class": "human",
+      "study_design": "retrospective cohort and nested case series",
+      "study_details": {
+        "n": 121,
+        "exposed": 73
+      },
+      "population": "Hospitalized patients with urine xylazine testing",
+      "intervention": "Observed exposure classification, not an assigned treatment",
+      "outcomes": [
+        "No higher peak vital-sign measurements associated with detection",
+        "Two possible withdrawal presentations among 73 exposed patients"
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Retrospective confounding and overlapping withdrawal syndromes; no causal inference",
+      "adverse_effects": "No distinct withdrawal syndrome demonstrated in this sample",
+      "interactions": "Concurrent withdrawal from other substances was common",
+      "limitations": "Nonrandomized single-city hospital sample",
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "40334325",
+        "doi": "10.1016/j.drugalcdep.2025.112681",
+        "verified_on": "2026-10-08",
+        "abstract": "Source abstract checked; synopsis not verbatim"
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.9,
+        "contradiction": 0.8,
+        "novelty": 0.6,
+        "graph_connectivity": 0.8
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false
+    }
+  ]
+}
