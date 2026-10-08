@@ -83,7 +83,7 @@ export default function SourceRegisterClient({ records, previousPmids, categorie
                 <span className='tabular-nums'>{item.count}</span>
               </span>
               <span className='mt-2 block h-1.5 overflow-hidden rounded-full bg-brand-900/10' aria-hidden='true'>
-                <span className='block h-full rounded-full bg-brand-700' style={{ width: (100 * item.count / records.length) + '%' }} />
+                <span className='block h-full rounded-full bg-brand-700' style={{ width: (100 * item.count / Math.max(1, ...categories.map(topic => topic.count))) + '%' }} />
               </span>
             </button>
           ))}
