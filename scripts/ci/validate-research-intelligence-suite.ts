@@ -80,6 +80,7 @@ assert(ui.includes('Activate the eight instruments') && ui.includes('askSourceIn
 for(const id of ['dna','contradictions','frontier','timeline','voyages','safety','ask','reactor']) assert(ui.includes("id:'"+id+"'"),'Missing navigation: '+id)
 assert(page.includes("robots:{index:false,follow:true}"))
 assert(page.includes('totalIndexedPmids={source.totalIndexedPmids}'))
+assert(readFileSync('lib/primary-navigation.ts','utf8').includes("href: '/research/intelligence'"), 'Research Lab missing from Research navigation')
 assert(!file.includes('recommendations: true'))
 // Regression: every copied editorial source must actually mention the named angle.
 // A generic same-substance list was previously misrepresented as supporting both
