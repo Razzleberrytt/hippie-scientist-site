@@ -2,14 +2,9 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-6861-6868-exact",
   "range": "6861-6868",
-  "row_count": 6,
-  "exact_verified_rows": 6,
+  "row_count": 7,
+  "exact_verified_rows": 7,
   "failures": [
-    {
-      "wave": 6861,
-      "pmid": "32971450",
-      "error": "PubMed title/abstract verification failed"
-    },
     {
       "wave": 6868,
       "pmid": "32316411",
@@ -17,6 +12,28 @@
     }
   ],
   "rows": [
+    {
+      "category": "metabolic",
+      "pmid": "32971450",
+      "title": "Improving the endothelial dysfunction in type 2 diabetes with chromium and vitamin D(3) byreducing homocysteine and oxidative stress: A randomized placebo-controlled trial.",
+      "doi": "10.1016/j.jtemb.2020.126639",
+      "pub_date": "2020 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of trace elements in medicine and biology : organ of the Society for Minerals and Trace Elements (GMS)",
+      "discovery_query": "((berberine[Title] OR cinnamon[Title] OR chromium[Title] OR inositol[Title] OR \"alpha lipoic acid\"[Title] OR psyllium[Title]) AND (glucose[Title] OR insulin[Title] OR diabetes[Title] OR metabolic[Title] OR glycemic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 13,
+      "wave": 6861,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Improving the endothelial dysfunction in type 2 diabetes with chromium and vitamin D3 byreducing homocysteine and oxidative stress: A randomized placebo-controlled trial.",
+      "abstract": "Chromium picolinate (CrPic) and vitamin D3 are known as two antioxidant micronutrients. Through inducing endothelial dysfunction, oxidants such as homocysteine (Hct) and malondialdehyde (MDA) lead to cardiovascular disease in type 2 diabetes mellitus (T2DM). No published data has directly examined the effects of these two antioxidants on improving the endothelial dysfunction in T2DM throughreducing homocysteine and oxidative stress. Subjects (n = 92) in this randomized, double blind, placebo-control study were randomly assigned to receive oral placebo (group I), D3 (group II: 50,000 IU/ week), chromium picolinate (CrPic) (group III: 500 μg/day), and both vitamin D3 and CrPic (group IV) for four months. Fasting blood samples were drawn at study baseline and following intervention to determine Hct, MDA, total antioxidant capacity (TAC), total thiol groups (SHs), vascular cell adhesion molecule- 1 (VCAM-1), and plasminogen activator inhibitor-1 (PAI-1). After intervention, MDA significantly decreased in groups II and IV; TAC significantly increased in group IV, and SHs significantly augmented in group III; Hct was significantly reduced in groups II, III, and IV; and VCAM-1 significantly decreased in groups III and IV and PAI-1 was significantly reduced in groups II, III, and IV. Our findings suggest that through reducing homocysteine and oxidative stress and improving endothelial dysfunction, chromium and vitamin D3 co-supplementation might be predictive and preventive of cardiovascular diseasesassociated with T2DM. IRCT, IRCT20190610043852N1, registered 21 October 2019, https://fa.irct.ir/user/trial/42293/view.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Journal of trace elements in medicine and biology : organ of the Society for Minerals and Trace Elements (GMS)",
+      "verified_pub_date": "2020-Dec",
+      "pdf_link": "https://doi.org/10.1016/j.jtemb.2020.126639",
+      "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
     {
       "category": "metabolic",
       "pmid": "31453617",
