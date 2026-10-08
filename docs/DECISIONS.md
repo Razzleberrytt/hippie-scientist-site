@@ -1,9 +1,16 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-08 — Generational System Engineering is P0 execution methodology
+
+**Decision:** Plan architecture, interoperability, versioned source/claim/review identity, dependency graph and validation scopes as a *generation* before expanding isolated feature branches. Implement through bounded per-ticket PRs and normal WIP/admission limits, using T0 cheap fixtures, T1 cross-system contracts, T2 mandatory exact-head CI/build/scientific/security/a11y/SEO/review gates, and T3 main deployment plus user-facing proof. Optimize total safely deployed capability throughput and avoidance of redundant verifications, not source count, PR count or unmeasured velocity.
+
+**No override:** Existing AGENTS, one backlog scoring formula, evidence firewall, sole merge controller, static export, published-asset consent/identity, peer review, platform permissions, and release gates remain authoritative. CI reuse is allowed only where existing classifier and exact head/base/tree proof demonstrate equivalence; high-risk work remains fully gated. No paid services, new broad autonomous publication, source-only clinical recommendation, phantom WIP slot, or invented ROI.
+
+**Execution authority:** [P0 #6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) is architecture/planning. [Operating program](GENERATIONAL_ENGINEERING_P0.md) and [candidate register](GENERATIONAL_ENGINEERING_READINESS.md) define October 12–16 stages; tickets are admitted through CURRENT_SPRINT and MASTER_BACKLOG only after current GitHub state is reconciled. M0–M6 milestone exit conditions unchanged. Success claims require exact SHA, tests, production receipts and observed outcomes or Unknown.
 ## 2026-10-08 — Scientific intelligence tools are source projections, not new medical authority
 
 **Decision:** v1.08–1.14 integrates twelve deterministic scientific investigation tools on each v1.05 exact PMID case, shares the v1.06 eight-instrument source handoff and the v1.07 editorial/distribution review firewall, and makes source signatures and calibration visible in the existing studio. Separately reviewed citation relationship metadata may only join by already governed exact publication identity. No second evidence database, paid inference runtime, automatic clinical claim, or publication authorization is created.
