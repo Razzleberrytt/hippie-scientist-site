@@ -5,6 +5,7 @@ import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublis
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
 import {buildInstrumentRelay} from '@/lib/research-intelligence-relay'
+import {buildScientificIntelligenceCase} from '@/lib/scientific-intelligence-suite'
 import {planResearchSemanticFabric} from '@/lib/research-semantic-fabric'
 import reviewedDistributionObjects from '@/data/distribution/research-objects.json'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
@@ -116,6 +117,7 @@ const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
 const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
+const scientific=useMemo(()=>data&&caseFile?buildScientificIntelligenceCase(data,data.graph,caseFile):null,[data,caseFile])
  const relay=useMemo(()=>data&&caseFile&&caseScope?buildInstrumentRelay(data,data.graph,caseFile,caseScope):null,[data,caseFile,caseScope])
  const fabric=useMemo(()=>data&&caseFile&&caseScope?planResearchSemanticFabric(data,data.graph,caseFile,reviewedDistributionObjects):null,[data,caseFile,caseScope])
 const visibleDebates=caseScope?.debates??data?.debates??[]
@@ -260,6 +262,29 @@ return <section className={styles.studio}>
             </div>
           </div>
           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
+        </section>:null}
+
+        {scientific?<section className={styles.scienceWorkbench} aria-label='Twelve scientific intelligence capabilities'>
+          <div className={styles.scienceHeading}>
+            <div><span className={styles.micro}>SCIENTIFIC REASONING / 1.08—1.14</span>
+              <h4>Twelve connected research capabilities</h4>
+              <p>One source identity. Twelve distinct investigations. All source-bounded and inspectable.</p></div>
+            <span role='status'>{scientific.calibrationPassed?'INTERNAL GUARDS PASS':'CALIBRATION REVIEW REQUIRED'} · {scientific.calibrationChecks} checks</span>
+          </div>
+          <div className={styles.scienceGrid}>{scientific.capabilities.map((cap,i)=><details key={cap.id} className={styles.scienceCard}>
+            <summary><span className={styles.scienceCardTop}>CAPABILITY {String(i+1).padStart(2,'0')} · v{cap.version}</span>
+              <strong>{cap.name}</strong><span className={styles.scienceSummary}>{cap.summary}</span>
+              <small>Inspect findings and provenance ↗</small></summary>
+            <div className={styles.scienceDetail}>
+              <ul>{cap.findings.map((finding,j)=><li key={j}>{finding}</li>)}</ul>
+              <p><strong>Scientific boundary:</strong> {cap.limitation}</p>
+              <details><summary>Inspect structured, source-bound receipt</summary>
+                <textarea readOnly className={styles.export} rows={9} aria-label={cap.name+' structured scientific review receipt'}
+                  value={JSON.stringify({capability:cap.id,pmid:scientific.pmid,
+                    sourceSignature:scientific.sourceSignature,releaseApproved:false,receipt:cap.receipt},null,2)}/></details>
+            </div>
+          </details>)}</div>
+          <p className={styles.scienceGuard}>No treatment recommendation, evidence grade promotion or automatic publication. Passing internal guards is not proof of scientific validity. Independent review is mandatory.</p>
         </section>:null}
         <p className={styles.caseCaveat}>Counts describe only this limited, sometimes sampled index—not independent clinical findings, complete literature coverage or evidence of safety. No tool publishes medical conclusions.</p>
       </article>:null}
