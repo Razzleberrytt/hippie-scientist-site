@@ -12,7 +12,7 @@ import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHand
 import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
 import styles from './ResearchIntelligence.module.css'
 
-type Payload=ResearchStudio&{graph:SemanticNetwork}
+type Payload=ResearchStudio&{graph:SemanticNetwork;reviewedStudies?:ReviewedStudyInput[]}
 type Tab='dna'|'contradictions'|'frontier'|'time'|'voyages'|'safety'|'ask'|'reactor'
 const stations: Array<{id:Tab;number:string;label:string;tagline:string}>=[
 {id:'dna',number:'01',label:'Study DNA',tagline:'Source fingerprints'},
@@ -106,6 +106,7 @@ async function activate(){
   setData({
     ...hydrateResearchStudioWithPublishedEvidence(v,published.studies),
     graph:v.graph,
+    reviewedStudies:published.studies,
   })
  }catch{setError('Unable to load or verify this source snapshot. The original source register remains available.')}
  finally{setLoading(false)}
@@ -123,7 +124,7 @@ const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
 const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
-const scientific=useMemo(()=>data&&caseFile?buildScientificIntelligenceCase(data,data.graph,caseFile):null,[data,caseFile])
+const scientific=useMemo(()=>data&&caseFile?buildScientificIntelligenceCase(data,data.graph,caseFile,data.reviewedStudies||[]):null,[data,caseFile])
  const relay=useMemo(()=>data&&caseFile&&caseScope?buildInstrumentRelay(data,data.graph,caseFile,caseScope):null,[data,caseFile,caseScope])
  const fabric=useMemo(()=>data&&caseFile&&caseScope?planResearchSemanticFabric(data,data.graph,caseFile,reviewedDistributionObjects):null,[data,caseFile,caseScope])
 const visibleDebates=caseScope?.debates??data?.debates??[]
