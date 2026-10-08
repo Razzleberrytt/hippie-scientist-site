@@ -80,6 +80,12 @@ const wrongCase={...sharedCase,sourceSignature:'forged-source-signature'}
 assert.throws(()=>buildScientificIntelligenceCase(s,graph,wrongCase),
   /source identity mismatch|Source signature conflict/,
   'All twelve capability receipts reject stale or forged source signatures')
+assert.throws(()=>buildScientificIntelligenceCase(s,graph,
+  {...sharedCase,reviewedCitationIds:['forged-reviewed-citation']}),
+  /source identity mismatch/, 'Forged reviewed citation identity must fail closed')
+assert.throws(()=>buildScientificIntelligenceCase(s,graph,
+  {...sharedCase,relatedPapers:[{pmid:'99999999',sharedConcepts:[],explanation:'fake'}]}),
+  /source identity mismatch/, 'Fabricated semantic neighbor must fail closed')
 assert.throws(()=>compileClaimDNA(s,graph,{...sharedCase,pmid:'90000001'}),
   /source identity mismatch/,
   'Unknown PMIDs must fail closed')
