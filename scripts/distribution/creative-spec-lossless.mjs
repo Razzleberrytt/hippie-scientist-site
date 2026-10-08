@@ -41,6 +41,9 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 export function buildLosslessCreativeSpec(input) {
   const systemRelease = clean(input?.systemRelease) || 'R8.04'
   const creativeMethodRelease = clean(input?.creativeMethodRelease) || (systemRelease === 'R8.05' ? 'R8.05' : systemRelease)
+  if (creativeMethodRelease === 'R8.06' && systemRelease !== 'R8.05') {
+    throw new Error('R8.06 creative methodology requires the R8.05 production runtime')
+  }
   const hasR805Brief = systemRelease === 'R8.05' && input?.creativeBrief && typeof input.creativeBrief === 'object'
   const r805Brief = hasR805Brief ? assertR805CreativeBrief(input.creativeBrief) : null
   const r805Receipt = r805Brief
