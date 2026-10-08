@@ -3200,6 +3200,106 @@
       "reservation_id": "905bc66db6a32acd15ce",
       "reserved_at": "2026-10-08T18:57:43.153Z",
       "source_branch": "research/intake/2/20261008-cognition-metabolic-primary4-r3"
+    },
+    {
+      "pmid": "42759205",
+      "title": "Inhibition of cytochrome P450 2B6 activity by kava extracts.",
+      "doi": "10.1016/j.dmd.2026.100395",
+      "abstract": "Two independent kava extracts inhibited CYP2B6 in recombinant systems and human liver microsomes. Experiments implicated (+)-dihydromethysticin in a mechanism-based inhibition process. These are laboratory findings, and the authors called for controlled human interaction studies rather than assuming clinical effects.",
+      "category": "botanical_drug_metabolism",
+      "evidence_class": "in-vitro",
+      "study_design": "Recombinant CYP2B6 and human liver microsome enzyme inhibition experiment",
+      "study_details": {
+        "models": "Recombinant CYP2B6 and human liver microsomes"
+      },
+      "population": "Enzyme preparations, no recruited humans",
+      "intervention": "Kava extracts and isolated dihydromethysticin",
+      "outcomes": [
+        "Concentration-dependent CYP2B6 inhibition",
+        "Mechanism-based inhibitor signal"
+      ],
+      "conclusion_direction": "positive",
+      "interaction_evidence_level": "mechanistic",
+      "adverse_effects": "Not measured in human participants.",
+      "interactions": "CYP2B6 inhibition in vitro; clinical interaction untested.",
+      "limitations": "No direct human pharmacokinetic interaction study.",
+      "uncertainty": "Potential clinical relevance remains uncertain.",
+      "source_title": "Inhibition of cytochrome P450 2B6 activity by kava extracts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42759205/",
+      "research_domain": "botanical-pharmacology-safety",
+      "relevance_reason": "Primary botanical pharmacology research relevant to drug metabolism and safety.",
+      "provenance": {
+        "pmid": "42759205",
+        "doi": "10.1016/j.dmd.2026.100395",
+        "source": "PubMed primary abstract",
+        "verified_on": "2026-10-08",
+        "independent_review": false
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.8,
+        "contradiction": 0.4,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "priority_score": 8.9,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0d3bc453e92a832af08a",
+      "reserved_at": "2026-10-08T19:07:15.666Z",
+      "source_branch": "research/intake/3/20261008-1846-botanical-safety-seven"
+    },
+    {
+      "pmid": "41641519",
+      "title": "Evaluation of in Vitro Cytotoxicity and Induction Potential of Açaí (Euterpe oleracea) Extracts in Human Hepatocytes.",
+      "doi": "10.1080/19390211.2026.2615924",
+      "abstract": "Açaí solvent extracts were tested in cultured human hepatocytes and a complementary cell-line model. Some extracts reduced cell viability, while none significantly induced the selected CYP or transporter genes. Preliminary transporter activity changes were minimal. These mixed and null findings do not establish human supplement safety or absence of interactions.",
+      "category": "botanical_transporters",
+      "evidence_class": "in-vitro",
+      "study_design": "Hepatocyte viability and gene-induction screening",
+      "study_details": {
+        "models": "Sandwich-cultured human hepatocytes and LS174T cells"
+      },
+      "population": "Human-derived cells, no participants",
+      "intervention": "Açaí berry extracts from powder and commercial capsules",
+      "outcomes": [
+        "Extract-specific cytotoxicity",
+        "No significant tested CYP or transporter induction"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "preclinical",
+      "adverse_effects": "Cell viability effects in culture, not clinical events.",
+      "interactions": "No significant induction in selected assays; other mechanisms not excluded.",
+      "limitations": "Culture assays and extract variability limit generalization.",
+      "uncertainty": "Clinical relevance and effects of other preparations remain uncertain.",
+      "source_title": "Evaluation of in Vitro Cytotoxicity and Induction Potential of Açaí (Euterpe oleracea) Extracts in Human Hepatocytes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41641519/",
+      "research_domain": "botanical-pharmacology-safety",
+      "relevance_reason": "Primary botanical pharmacology research relevant to drug metabolism and safety.",
+      "provenance": {
+        "pmid": "41641519",
+        "doi": "10.1080/19390211.2026.2615924",
+        "source": "PubMed primary abstract",
+        "verified_on": "2026-10-08",
+        "independent_review": false
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.8,
+        "contradiction": 0.4,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "priority_score": 8.9,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9443a0cd24286616d82a",
+      "reserved_at": "2026-10-08T19:07:15.666Z",
+      "source_branch": "research/intake/3/20261008-1846-botanical-safety-seven"
     }
   ],
   "batches": [
@@ -3213,22 +3313,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 40,
+    "total_reservations": 42,
     "by_lane": {
       "1": 5,
       "2": 1,
-      "3": 5,
+      "3": 7,
       "4": 4,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 40
+      "SOURCE_VERIFIED": 42
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 40,
+        "count": 42,
         "pr_number": null,
         "blocker": null
       }
