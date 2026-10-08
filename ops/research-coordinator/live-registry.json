@@ -3125,6 +3125,81 @@
       "reservation_id": "396867a20387973a901a",
       "reserved_at": "2026-10-08T18:39:40.983Z",
       "source_branch": "research/intake/1/20261008-1436-valerian-null-trials"
+    },
+    {
+      "pmid": "42224104",
+      "title": "Effects of Transcranial Random Noise Stimulation On Cognitive Functions in Healthy Adults: Evidence From A Systematic Review And Meta-analysis",
+      "source_title": "Effects of Transcranial Random Noise Stimulation On Cognitive Functions in Healthy Adults: Evidence From A Systematic Review And Meta-analysis",
+      "doi": "10.3791/70542",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42224104/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_systematic_review",
+      "relevance_reason": "Human randomized-trial synthesis with nonsignificant pooled cognition outcome and uncertain subgroups.",
+      "evidence_class": "review",
+      "study_design": "Systematic review and random-effects meta-analysis of randomized controlled trials",
+      "study_details": {
+        "included_trials": 13,
+        "participants": 403,
+        "search_through": "2025-09-15",
+        "primary_data": false
+      },
+      "population": "403 healthy adults across 13 randomized controlled trials",
+      "intervention": "Transcranial random noise stimulation in included studies",
+      "comparator": "Control or sham conditions",
+      "outcomes": [
+        {
+          "endpoint": "Pooled cognitive function",
+          "result": "Hedges g 0.17, 95% CI -0.06 to 0.40; p=0.145",
+          "direction": "null"
+        },
+        {
+          "endpoint": "Online stimulation subgroup",
+          "result": "g 0.37, 95% CI 0.04 to 0.70; p=0.026, but between-subgroup difference not significant",
+          "direction": "mixed"
+        }
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Small heterogeneous evidence base; no statistically significant overall effect or between-subgroup difference; exploratory subgroup findings do not establish efficacy.",
+      "adverse_effects": "Adverse events not characterized in the PubMed abstract.",
+      "interactions": "Medication interactions not evaluated in the reported abstract.",
+      "limitations": [
+        "13 studies and 403 participants",
+        "Stimulation protocols vary",
+        "Subgroup differences not statistically established",
+        "Safety reporting unavailable in abstract"
+      ],
+      "provenance": {
+        "pmid": "42224104",
+        "doi": "10.3791/70542",
+        "source": "PubMed original indexed meta-analysis abstract",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/42224104/",
+        "verified_on": "2026-10-08",
+        "abstract_representation": "Source-checked paraphrase, not verbatim",
+        "independent_scientific_review": false,
+        "clinical_admission": false
+      },
+      "abstract": "A systematic review and meta-analysis identified 13 randomized trials involving 403 healthy adults, evaluating transcranial random noise stimulation and cognitive outcomes. The pooled effect was small and not statistically significant (Hedges g 0.17; 95% CI -0.06 to 0.40; p=0.145). Online-stimulation subgroup estimates were positive, but the between-subgroup difference was not statistically significant. Other tested cognitive domains and stimulation parameters showed no clear significant differences. The authors concluded that current evidence remains limited and uncertain and called for larger standardized trials.",
+      "signals": {
+        "safety": 0.3,
+        "evidence_gap": 0.9,
+        "contradiction": 0.7,
+        "novelty": 0.5,
+        "graph_connectivity": 0.7
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 7.000000000000001,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "905bc66db6a32acd15ce",
+      "reserved_at": "2026-10-08T18:57:43.153Z",
+      "source_branch": "research/intake/2/20261008-cognition-metabolic-primary4-r3"
     }
   ],
   "batches": [
@@ -3138,22 +3213,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 39,
+    "total_reservations": 40,
     "by_lane": {
       "1": 5,
-      "2": 0,
+      "2": 1,
       "3": 5,
       "4": 4,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 39
+      "SOURCE_VERIFIED": 40
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 39,
+        "count": 40,
         "pr_number": null,
         "blocker": null
       }
