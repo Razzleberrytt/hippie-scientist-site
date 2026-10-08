@@ -56,6 +56,14 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
       throw new Error(`R8.05 semantic beat metadata mismatch: ${asset.file}`)
     }
   }
+  for (const field of ['visualMode', 'teachingObject', 'compositionFamily', 'rhythmAction', 'motifId', 'patternInterruptReason']) {
+    if (clean(metadata[field]) !== clean(asset[field])) {
+      throw new Error(`video scene creative metadata mismatch for ${field}: ${asset.file}`)
+    }
+  }
+  if (Boolean(metadata.patternInterrupt) !== Boolean(asset.patternInterrupt)) {
+    throw new Error(`video scene creative metadata mismatch for patternInterrupt: ${asset.file}`)
+  }
   return { file, bytes }
 }
 
@@ -114,6 +122,20 @@ function verifyPackage(packageDir) {
   if (release === 'R8.05') {
     if (clean(timeline.systemRelease) !== 'R8.05' || clean(timeline.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 video timeline must be authored from exact local narration')
+    }
+    const methodRelease = clean(manifest.creativeMethodRelease) || 'R8.05'
+    if (clean(timeline.creativeMethodRelease) !== methodRelease) {
+      throw new Error('video timeline creative methodology does not match parent manifest')
+    }
+    if (methodRelease === 'R8.07') {
+      if (clean(manifest.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(manifest.creativeFoundation?.status) !== 'approved'
+          || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(manifest.creativeDirection?.status) !== 'approved'
+          || clean(manifest.creativeDirection?.inheritedR806OverlaySha256) !== clean(manifest.creativeFoundation?.overlaySha256)
+          || !/^[a-f0-9]{64}$/i.test(clean(manifest.creativeDirection?.overlaySha256))) {
+        throw new Error('R8.07 MP4 render requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
+      }
     }
     if (!clean(timeline.semanticBeatMapSha256) || clean(timeline.semanticBeatMapSha256) !== clean(manifest.creativeQuality?.semanticBeatMapSha256)) {
       throw new Error('R8.05 video timeline is not bound to the approved semantic beat map')
