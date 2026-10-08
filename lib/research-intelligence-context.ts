@@ -28,7 +28,13 @@ export function buildResearchCaseScope(studio:ResearchStudio,caseFile:ResearchCa
     throw Error('Case-scoped research context requires an exact governed source')
   }
   const pmid=caseFile.pmid
-  const reviewed=new Set(caseFile.reviewedCitationIds)
+  const exactIdentifiers=[...new Set(studio.publicationLineage.crossReferences
+    .filter(x=>x.intakePmid===pmid).flatMap(x=>x.reviewedStudyIds))].sort()
+  if(caseFile.sourceUrl!==studio.dna.find(x=>x.pmid===pmid)?.sourceUrl||
+     JSON.stringify(exactIdentifiers)!==JSON.stringify([...caseFile.reviewedCitationIds].sort())){
+    throw Error('Case-scoped source identity conflicts with independently verified publication crosslinks')
+  }
+  const reviewed=new Set(exactIdentifiers)
   const paper=studio.dna.find(x=>x.pmid===pmid)!
   const year=Number(paper.year)
   return {
