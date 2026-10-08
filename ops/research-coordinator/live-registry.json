@@ -2900,6 +2900,231 @@
       "reservation_id": "ded2c37629edc0d7277f",
       "reserved_at": "2026-10-08T18:38:18.986Z",
       "source_branch": "research/intake/1/20261008-1338-lzcomplex-null-28218661"
+    },
+    {
+      "pmid": "17940604",
+      "doi": "10.1371/journal.pone.0001040",
+      "title": "A televised, web-based randomised trial of an herbal remedy (valerian) for insomnia",
+      "source_title": "A televised, web-based randomised trial of an herbal remedy (valerian) for insomnia",
+      "abstract": "In a double-blind randomized trial, 405 adults with insomnia recruited through a Norwegian televised program received valerian or placebo for two weeks after a diary run-in. The primary proportion reporting a minimally important improvement in sleep quality was 29% with valerian versus 21% with placebo (difference 7.5%, 95% CI -0.9 to 15.9, p=0.08), not statistically significant. A global self-assessment favored valerian slightly (p=0.04), while other sleep outcomes were not conclusive. No serious adverse events or important differences in minor adverse events were reported.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17940604/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep",
+      "relevance_reason": "Null primary trial evidence for valerian sleep claims and secondary outcome discordance",
+      "evidence_class": "human",
+      "study_design": "Double-blind randomized placebo-controlled parallel-group trial",
+      "study_details": {
+        "n_randomized": 405,
+        "duration_days": 14,
+        "run_in_days": 14,
+        "trial_registration": "ISRCTN72748991",
+        "primary_endpoint": "minimally important improvement in self-reported sleep quality"
+      },
+      "population": "Adults aged 18-75 with insomnia, recruited through television and online",
+      "intervention": "Valerian tablets for 2 weeks",
+      "comparator": "Placebo tablets",
+      "outcomes": [
+        {
+          "name": "Primary self-reported sleep improvement",
+          "finding": "29% versus 21%; p=0.08; not statistically significant",
+          "direction": "null"
+        },
+        {
+          "name": "Global self-assessed sleep improvement",
+          "finding": "5.5 percentage points favoring valerian; p=0.04; secondary finding",
+          "direction": "positive_secondary"
+        }
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Null primary outcome; isolated significant secondary result does not establish robust benefit",
+      "adverse_effects": "No serious adverse events; no important or statistically significant differences in minor adverse events during two-week trial",
+      "interactions": "Not evaluated in this trial",
+      "limitations": "Self-selected TV/internet cohort, subjective outcomes, brief two-week intervention, secondary signal despite null primary endpoint",
+      "provenance": {
+        "pmid": "17940604",
+        "doi": "10.1371/journal.pone.0001040",
+        "journal": "PLoS One",
+        "source": "PubMed indexed primary clinical trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/17940604/",
+        "verified_at": "2026-10-08",
+        "abstract_representation": "faithful evidence summary checked against primary PubMed abstract; not a verbatim abstract",
+        "scientific_review": "pending independent review",
+        "research_only": true
+      },
+      "signals": {
+        "safety": 0.6,
+        "evidence_gap": 0.7,
+        "contradiction": 0.5,
+        "novelty": 0.4,
+        "graph_connectivity": 0.8
+      },
+      "clinical_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 7.1,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "874865cc957d66ee83cc",
+      "reserved_at": "2026-10-08T18:39:40.983Z",
+      "source_branch": "research/intake/1/20261008-1436-valerian-null-trials"
+    },
+    {
+      "pmid": "16010204",
+      "doi": "10.1097/01.md.0000172299.72364.95",
+      "title": "An internet-based randomized, placebo-controlled trial of kava and valerian for anxiety and insomnia",
+      "source_title": "An internet-based randomized, placebo-controlled trial of kava and valerian for anxiety and insomnia",
+      "abstract": "A randomized, double-blind internet-based trial allocated 391 adults with anxiety symptoms and insomnia to kava plus valerian placebo (n=121), valerian plus kava placebo (n=135), or double placebo (n=135) for 28 days. Anxiety scores improved in all groups but kava did not outperform placebo; insomnia severity improved in all groups but valerian did not outperform placebo. Per-protocol analyses among adherent participants gave similar results. This study does not support clinical efficacy for either intervention in the studied population. The PubMed abstract does not provide detailed adverse-event counts or a dedicated drug-interaction assessment.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16010204/",
+      "research_domain": "sleep-stress-mood",
+      "category": "anxiety",
+      "relevance_reason": "Direct null RCT for kava anxiety and valerian insomnia, important for balanced efficacy and safety assessment",
+      "evidence_class": "human",
+      "study_design": "Randomized double-blind placebo-controlled three-arm internet-based trial",
+      "study_details": {
+        "n_randomized": 391,
+        "duration_days": 28,
+        "arms": {
+          "kava": 121,
+          "valerian": 135,
+          "double_placebo": 135
+        },
+        "primary_endpoints": [
+          "State-Trait Anxiety Inventory state score",
+          "Insomnia Severity Index"
+        ]
+      },
+      "population": "US adults with elevated state anxiety scores on two occasions and insomnia complaints",
+      "intervention": "Kava for anxiety or valerian for insomnia, each compared with matching double placebo",
+      "comparator": "Double placebo",
+      "outcomes": [
+        {
+          "name": "Anxiety (STAI-State)",
+          "finding": "No superiority of kava versus placebo",
+          "direction": "null"
+        },
+        {
+          "name": "Insomnia Severity Index",
+          "finding": "No superiority of valerian versus placebo",
+          "direction": "null"
+        }
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Efficacy null in studied setting; do not infer general safety or lack of interaction risks",
+      "adverse_effects": "Not quantified in PubMed abstract; safety, including kava-related liver risk, cannot be established from this study alone",
+      "interactions": "Not evaluated; kava interaction and hepatotoxicity concerns require separate evidence",
+      "limitations": "Internet-recruited self-selected sample, short duration, separate arms for different interventions, safety details absent from abstract",
+      "provenance": {
+        "pmid": "16010204",
+        "doi": "10.1097/01.md.0000172299.72364.95",
+        "journal": "Medicine (Baltimore)",
+        "source": "PubMed indexed primary clinical trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/16010204/",
+        "verified_at": "2026-10-08",
+        "abstract_representation": "faithful evidence summary checked against primary PubMed abstract; not a verbatim abstract",
+        "scientific_review": "pending independent review",
+        "research_only": true
+      },
+      "signals": {
+        "safety": 0.6,
+        "evidence_gap": 0.7,
+        "contradiction": 0.5,
+        "novelty": 0.4,
+        "graph_connectivity": 0.8
+      },
+      "clinical_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 7.1,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cf5a21f3341b312a2a70",
+      "reserved_at": "2026-10-08T18:39:40.983Z",
+      "source_branch": "research/intake/1/20261008-1436-valerian-null-trials"
+    },
+    {
+      "pmid": "18482867",
+      "doi": "10.1016/j.sleep.2008.02.001",
+      "title": "A randomized clinical trial of valerian fails to improve self-reported, polysomnographic, and actigraphic sleep in older women with insomnia",
+      "source_title": "A randomized clinical trial of valerian fails to improve self-reported, polysomnographic, and actigraphic sleep in older women with insomnia",
+      "abstract": "A phase 2 randomized double-blind crossover trial in 16 older women with insomnia tested 300 mg concentrated valerian extract nightly versus placebo for two weeks. Subjective sleep ratings, laboratory polysomnography, home sleep logs, and actigraphy showed no statistically significant differences between valerian and placebo for sleep latency, wake after sleep onset, sleep efficiency, or sleep quality. Within-group wake after sleep onset increased after two weeks of valerian relative to baseline, which is not a between-group treatment effect. Reported side effects were minor and similar between conditions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18482867/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep",
+      "relevance_reason": "Objective polysomnography and actigraphy null evidence for valerian in older women",
+      "evidence_class": "human",
+      "study_design": "Phase 2 randomized double-blind crossover placebo-controlled trial",
+      "study_details": {
+        "n_randomized": 16,
+        "mean_age_years": 69.4,
+        "duration_per_treatment_days": 14,
+        "objective_measures": [
+          "polysomnography",
+          "actigraphy"
+        ],
+        "subjective_measures": [
+          "sleep logs",
+          "self-report"
+        ]
+      },
+      "population": "16 older women with insomnia, mean age approximately 69 years",
+      "intervention": "300 mg concentrated Valeriana officinalis extract nightly 30 minutes before bedtime",
+      "comparator": "Placebo",
+      "outcomes": [
+        {
+          "name": "Objective and subjective sleep latency, WASO, sleep efficiency, sleep quality",
+          "finding": "No significant between-group improvements",
+          "direction": "null"
+        },
+        {
+          "name": "Within-treatment wake after sleep onset",
+          "finding": "Increased after valerian relative to baseline; within-arm comparison, not proof of harm versus placebo",
+          "direction": "uncertain"
+        }
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Null results in a small study; insufficient power to rule out small effects or uncommon harms",
+      "adverse_effects": "Minor side effects without statistically significant difference from placebo",
+      "interactions": "Not evaluated",
+      "limitations": "Very small pilot sample, older women only, short exposure, crossover design, limited power for efficacy and safety",
+      "provenance": {
+        "pmid": "18482867",
+        "doi": "10.1016/j.sleep.2008.02.001",
+        "journal": "Sleep Medicine",
+        "source": "PubMed indexed primary clinical trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/18482867/",
+        "verified_at": "2026-10-08",
+        "abstract_representation": "faithful evidence summary checked against primary PubMed abstract; not a verbatim abstract",
+        "scientific_review": "pending independent review",
+        "research_only": true
+      },
+      "signals": {
+        "safety": 0.6,
+        "evidence_gap": 0.7,
+        "contradiction": 0.5,
+        "novelty": 0.4,
+        "graph_connectivity": 0.8
+      },
+      "clinical_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 7.1,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "396867a20387973a901a",
+      "reserved_at": "2026-10-08T18:39:40.983Z",
+      "source_branch": "research/intake/1/20261008-1436-valerian-null-trials"
     }
   ],
   "batches": [
@@ -2913,22 +3138,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 36,
+    "total_reservations": 39,
     "by_lane": {
-      "1": 2,
+      "1": 5,
       "2": 0,
       "3": 5,
       "4": 4,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 36
+      "SOURCE_VERIFIED": 39
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 36,
+        "count": 39,
         "pr_number": null,
         "blocker": null
       }
