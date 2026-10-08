@@ -81,7 +81,7 @@ export function summarizeGenerationSample(reports){
   return {
     schemaVersion:1,runCount:sorted.length,completedMeasuredRuns:values.length,
     wallMinutesP50:percentile(.5),wallMinutesP95:percentile(.95),
-    runnerMinutesMeasured:sorted.every(r=>r.runnerJobMinutes!==null)
+    runnerMinutesMeasured:sorted.length>0&&sorted.every(r=>r.runnerJobMinutes!==null)
       ?Math.round(sorted.reduce((a,r)=>a+r.runnerJobMinutes,0)*100)/100:null,
     reports:sorted,
     interpretation:'Only comparable code-path/workflow/run conditions support before-versus-after efficiency conclusions. Never treat Unknown as zero.',
