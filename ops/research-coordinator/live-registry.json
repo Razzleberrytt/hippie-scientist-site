@@ -4096,6 +4096,82 @@
       "reservation_id": "af6d685b9a6ca2acd57a",
       "reserved_at": "2026-10-08T21:26:50.802Z",
       "source_branch": "research/intake/4/20261008-1725-seed-recovery"
+    },
+    {
+      "pmid": "42796049",
+      "title": "Effects of High-Intensity Interval Versus Moderate-Intensity Continuous Training in Adults with Prediabetes: A Single-Blind Randomized Controlled Trial.",
+      "doi": "10.3390/jcm15187277",
+      "source_title": "Effects of High-Intensity Interval Versus Moderate-Intensity Continuous Training in Adults with Prediabetes: A Single-Blind Randomized Controlled Trial.",
+      "abstract": "Background: Prediabetes is associated with impaired glycemic regulation and increased cardiometabolic risk, making effective lifestyle management important for preventing progression to type 2 diabetes. Exercise is a key component of prediabetes management, but the comparative effects of high-intensity interval training (HIIT) and moderate-intensity continuous training (MICT) remain unclear. Methods: This single-blind randomized controlled trial included 24 sedentary adults with prediabetes (HbA1c 5.7-6.4%; BMI > 24.9 kg/m 2 ), randomized to HIIT ( n = 12) or MICT ( n = 12). Participants completed supervised treadmill-based aerobic exercise three times weekly for 12 weeks. The primary outcome was HbA1c, while secondary outcomes included anthropometric measures, lipid parameters, and inflammatory and metabolic biomarkers. Outcomes were evaluated using two-way repeated-measures ANOVA. Results: For the primary outcome, HbA1c decreased significantly over time in both groups ( p = 0.001), with no significant group × time interaction ( p > 0.05). Among the secondary outcomes, both interventions significantly improved body mass index, waist circumference, hip circumference, and waist-to-height ratio (all p ≤ 0.001), while lipid parameters remained unchanged ( p > 0.05). Exploratory biomarker analyses showed within-group decreases in TNF-α in the HIIT group and resistin in the MICT group, an increase in osteocalcin in the MICT group, and increases in IL-6 in both groups ( p < 0.05); however, no significant group × time interactions were observed for these biomarkers. CRP, irisin, adiponectin, and chemerin remained unchanged. Conclusions: Both HIIT and MICT were associated with improvements in glycemic control and anthropometric outcomes in this sample of adults with prediabetes, with no evidence of superiority of either exercise protocol. Given the small sample size and the absence of significant group × time interactions, the exploratory biomarker findings should be interpreted cautiously. These findings suggest that both exercise modalities may represent feasible options within individualized lifestyle management for adults with prediabetes. Larger studies with longer intervention periods and post-intervention follow-up are needed to clarify the comparative and longer-term effects of these exercise modalities.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42796049/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42796049",
+        "doi": "10.3390/jcm15187277",
+        "journal": "Journal of clinical medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T21:55:09.963Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7db2643be5da4e1c3ab5",
+      "reserved_at": "2026-10-08T21:55:19.268Z",
+      "source_branch": "research/intake/2/20261008-1753-cognition-metabolic-3-r7"
     }
   ],
   "batches": [
@@ -4109,22 +4185,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 53,
+    "total_reservations": 54,
     "by_lane": {
       "1": 5,
-      "2": 1,
+      "2": 2,
       "3": 10,
       "4": 12,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 53
+      "SOURCE_VERIFIED": 54
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 53,
+        "count": 54,
         "pr_number": null,
         "blocker": null
       }
