@@ -340,17 +340,22 @@
     {
       "wave": 7323,
       "category": "botanicals_mushrooms",
-      "pmid": "36939049",
-      "title": "A comprehensive and systemic review of ginseng-based nanomaterials: Synthesis, targeted delivery, and biomedical applications.",
-      "doi": "10.1002/med.21953",
-      "pub_date": "2023 Sep",
-      "pub_type": "Systematic Review",
-      "journal": "Medicinal research reviews",
-      "discovery_query": "ginseng[Title] AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-c.json",
-      "selection_score": 6,
+      "pmid": "27754709",
+      "title": "Anti-Fatigue Effects of Enzyme-Modified Ginseng Extract: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "doi": "10.1089/acm.2016.0057",
+      "pub_date": "2016-Nov",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of alternative and complementary medicine (New York, N.Y.)",
+      "discovery_query": "NCBI PubMed exact retrieval of human intervention study during batch semantic QA",
+      "provenance_pool": "NCBI PubMed EFetch direct semantic repair",
+      "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "36939049",
+        "original_title": "A comprehensive and systemic review of ginseng-based nanomaterials: Synthesis, targeted delivery, and biomedical applications.",
+        "reason": "Human oral ginseng fatigue randomized trial replaces nanomaterial formulation review"
+      }
     },
     {
       "wave": 7324,

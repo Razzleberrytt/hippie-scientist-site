@@ -2,7 +2,7 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-7001-7500",
   "range": "7001-7500",
-  "state": "one_for_one_replacement_pending_native_efetch",
+  "state": "three_one_for_one_replacements_pending_native_efetch",
   "replacements": [
     {
       "wave": 7196,
@@ -14,6 +14,30 @@
       "replacement_exact_title_checked": true,
       "replacement_abstract_available": true,
       "replacement_substantive_abstract_length": 1335,
+      "source": "NCBI PubMed EFetch"
+    },
+    {
+      "wave": 7193,
+      "original_pmid": "42607433",
+      "replacement_pmid": "38794741",
+      "original_title": "Endometrial microbiota composition, but not chronic endometritis or hysteroscopy, predicts euploid miscarriage in unexplained RPL: associations with live birth and miscarriage outcomes.",
+      "replacement_title": "Effectiveness of a Balanced Nine-Strain Synbiotic in Primary-Care Irritable Bowel Syndrome Patients-A Multi-Center, Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "reason": "Human IBS synbiotic randomized trial replaces unrelated endometrial-miscarriage microbiota study",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "replacement_substantive_abstract_length": 1382,
+      "source": "NCBI PubMed EFetch"
+    },
+    {
+      "wave": 7323,
+      "original_pmid": "36939049",
+      "replacement_pmid": "27754709",
+      "original_title": "A comprehensive and systemic review of ginseng-based nanomaterials: Synthesis, targeted delivery, and biomedical applications.",
+      "replacement_title": "Anti-Fatigue Effects of Enzyme-Modified Ginseng Extract: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "reason": "Human oral ginseng fatigue randomized trial replaces nanomaterial formulation review",
+      "replacement_exact_title_checked": true,
+      "replacement_abstract_available": true,
+      "replacement_substantive_abstract_length": 1518,
       "source": "NCBI PubMed EFetch"
     }
   ],
