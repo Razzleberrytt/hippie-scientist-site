@@ -67,6 +67,7 @@ async function getRegistry(){
  catch(e){if(Number(e.status)!==404)throw e;return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}}}
 }
 async function putRegistry(current,value,message){
+ value.observatory=summarizeRegistry(value);
  const body={message,content:b64(JSON.stringify(value,null,2)+'\n'),branch:registryBranch};if(current.sha)body.sha=current.sha;
  return api('/repos/'+repo+'/contents/'+registryPath,{method:'PUT',body});
 }
@@ -77,7 +78,10 @@ function validateManifest(m){
  if(m?.schema_version!==1||!Number.isInteger(Number(m.lane))||Number(m.lane)<1||Number(m.lane)>5)throw Error('invalid lane manifest');
  if(m.research_only!==true)throw Error('research_only must be true');
  if(!Array.isArray(m.records)||m.records.length<1||m.records.length>25)throw Error('manifest must contain 1..25 records');
- for(const r of m.records){const x=review(r);if(!x.accepted)throw Error('record '+(r.pmid??'?')+' review failed: '+(x.reason||x.flags.join('; ')))}
+ for(const r of m.records){
+  const x=review(r);if(!x.accepted)throw Error('record '+(r.pmid??'?')+' review failed: '+(x.reason||x.flags.join('; ')));
+  const sig=r.signals;if(!sig||['safety','evidence_gap','contradiction','novelty','graph_connectivity'].some(k=>typeof sig[k]!=='number'||sig[k]<0||sig[k]>1))throw Error('record '+(r.pmid??'?')+' missing valid priority signals');
+ }
  return m;
 }
 function reserveInto(reg,manifest,baseline){
@@ -94,9 +98,20 @@ function reserveInto(reg,manifest,baseline){
  return reserved;
 }
 async function findMainThroughWave(){
- const tree=scanLocal(process.cwd());let max=0;
- for(const p of fs.readdirSync('ops/enrichment-submissions/reconciliation',{withFileTypes:true})){if(!p.isFile()||!p.name.endsWith('-final-manifest.json'))continue;try{const m=JSON.parse(fs.readFileSync(path.join('ops/enrichment-submissions/reconciliation',p.name),'utf8'));const n=Number(String(m.range||'').split('-')[1]);if(Number.isFinite(n))max=Math.max(max,n)}catch{}}
- return {max,records:tree};
+ const tree=scanLocal(process.cwd());let best={max:0,pmids:[]};
+ for(const p of fs.readdirSync('ops/enrichment-submissions/reconciliation',{withFileTypes:true})){
+  if(!p.isFile()||!p.name.endsWith('-final-manifest.json'))continue;
+  try{
+   const m=JSON.parse(fs.readFileSync(path.join('ops/enrichment-submissions/reconciliation',p.name),'utf8')),n=Number(String(m.range||'').split('-')[1]);
+   if(!Number.isFinite(n)||n<=best.max)continue;
+   const indexPath=m.cumulative_index||path.join('ops/enrichment-submissions/reconciliation',p.name.replace(/-final-manifest\.json$/,'-pmid-index.json'));
+   const idx=JSON.parse(fs.readFileSync(indexPath,'utf8'));
+   if(idx.through_wave!==n||!Array.isArray(idx.pmids)||idx.pmids.length!==idx.total_unique_pmids)continue;
+   best={max:n,pmids:idx.pmids.map(String)};
+  }catch{}
+ }
+ if(!best.max||!best.pmids.length)throw Error('authoritative main research PMID index unavailable');
+ return {max:best.max,pmids:best.pmids,records:tree};
 }
 async function materializeBatch(reg,batch){
  if(batch.state!=='FREEZE_PENDING')return;
@@ -110,7 +125,7 @@ async function materializeBatch(reg,batch){
  const assigned=rows.map((r,i)=>({...r,wave:start+i,state:'exact_source_verified_pending_semantic_final_review'}));
  const parts=[];
  for(let i=0;i<5;i++){const subset=assigned.slice(i*100,(i+1)*100),name=prefix+'-efetch-verified-part-0'+(i+1)+'.json',file='ops/enrichment-submissions/reconciliation/'+name;const payload={schema_version:1,range:(start+i*100)+'-'+(start+i*100+99),state:'verified_pending_semantic_final_review',exact_verified_rows:100,unverified_rows:0,rows:subset,failures:[]};const created=await api('/repos/'+repo+'/contents/'+file,{method:'PUT',body:{message:'research: freeze '+batch.id+' part '+(i+1),content:b64(JSON.stringify(payload,null,2)+'\n'),branch}});parts.push({path:file,blob_sha:created.content.sha,rows:100})}
- const previousPmids=[...new Set(local.records.map(r=>String(r.pmid)))];const newPmids=assigned.map(r=>String(r.pmid));const index={schema_version:1,through_wave:end,total_unique_pmids:previousPmids.length+500,previous_unique_pmids:previousPmids.length,pmids:[...previousPmids,...newPmids]};
+ const previousPmids=[...new Set(local.pmids.map(String))];const newPmids=assigned.map(r=>String(r.pmid));const index={schema_version:1,through_wave:end,total_unique_pmids:previousPmids.length+500,previous_unique_pmids:previousPmids.length,pmids:[...previousPmids,...newPmids]};
  const idxPath='ops/enrichment-submissions/reconciliation/'+prefix+'-pmid-index.json';await api('/repos/'+repo+'/contents/'+idxPath,{method:'PUT',body:{message:'research: freeze '+batch.id+' cumulative index',content:b64(JSON.stringify(index,null,2)+'\n'),branch}});
  const manifest={schema_version:1,batch_id:prefix+'-final',range:start+'-'+end,state:'source_verified_independent_semantic_review_pending',research_only:true,fail_closed:true,previous_unique_pmids:previousPmids.length,accepted_new_unique_pmids:500,cumulative_unique_pmids:index.total_unique_pmids,exact_title_verified:500,abstract_verified:500,admission_policy:{published_entities:false,recommendations:false,dosing_claims:false,runtime_admission:false,clinical_claims_require_separate_review:true},artifact_parts:parts,cumulative_index:idxPath,independent_semantic_review:false,batch_content_sha256:crypto.createHash('sha256').update(JSON.stringify(assigned)).digest('hex')};
  const manifestPath='ops/enrichment-submissions/reconciliation/'+prefix+'-final-manifest.json';await api('/repos/'+repo+'/contents/'+manifestPath,{method:'PUT',body:{message:'research: freeze '+batch.id+' manifest',content:b64(JSON.stringify(manifest,null,2)+'\n'),branch}});
