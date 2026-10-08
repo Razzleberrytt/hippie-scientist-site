@@ -153,3 +153,5 @@
 .scopeBar button{min-height:42px;padding:.55rem .7rem;background:#24553b;color:#fff8e3;border:1px solid #24553b;border-radius:3px;font-size:.73rem;font-weight:800}
 .scopeBar button:hover{background:#376d4d}
 @media(max-width:590px){.scopeBar button{width:100%}}
+
+.handoffNote{display:block;margin-top:.3rem;font-size:.69rem;font-weight:550;line-height:1.5;color:#48604a}
