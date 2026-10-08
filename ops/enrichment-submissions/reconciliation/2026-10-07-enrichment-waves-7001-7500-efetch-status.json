@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-7001-7500",
+  "stage": "efetch_source_verification",
+  "status": "partial_unverified_fail_closed",
+  "candidate_rows": 500,
+  "verified_rows": 499,
+  "unverified_rows": 1,
+  "failure_details": [
+    {
+      "wave": 7196,
+      "pmid": "42644416",
+      "reason": "missing_substantive_abstract",
+      "candidate_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
+      "pubmed_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
+      "candidate_doi": "10.1080/19490976.2026.2719244",
+      "pubmed_doi": "10.1080/19490976.2026.2719244"
+    }
+  ],
+  "retrieval_errors": [],
+  "previous_pmids": 6935,
+  "prospective_cumulative_pmids": 7434,
+  "research_only": true,
+  "recommendation_promotion": false,
+  "dosing_inference": false,
+  "public_content_published": false,
+  "independent_semantic_review_still_required": true
+}
