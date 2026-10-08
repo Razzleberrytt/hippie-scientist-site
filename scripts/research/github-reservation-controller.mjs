@@ -1,5 +1,5 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
-import {identityKeys,normalizeTitle,normalizeDoi,validateSnapshot} from './rolling-coordinator.mjs';
+import {normalizeTitle,normalizeDoi,validateSnapshot} from './rolling-coordinator.mjs';
 import {review,priority} from './evidence-pipeline.mjs';
 import {withRecovery,classifyFailure} from './failure-controller.mjs';
 import {summarizeRegistry,renderSummaryMarkdown} from './research-observatory.mjs';
@@ -10,7 +10,6 @@ const token=process.env.GITHUB_TOKEN||'';
 const registryBranch='research-coordination-registry';
 const registryPath='ops/research-coordinator/live-registry.json';
 const intakeRoot='ops/research-intake/';
-const researchPrefixes=['ops/enrichment-submissions/reconciliation/','ops/research-coordinator/batches/'];
 
 function required(v,n){if(!v)throw Error('missing '+n);return v}
 async function api(url,{method='GET',body}={}){
@@ -148,26 +147,6 @@ async function findMainThroughWave(){
    }catch{}
  }
  return {max:latest.end,pmids:latest.index.pmids.map(String),records:[...byPmid.values()]};
-}
-async function dispatchResearchGate(batch){
- if(!batch?.branch)return false;
- await api('/repos/'+repo+'/actions/workflows/research-rolling-gate.yml/dispatches',{method:'POST',body:{ref:batch.branch}});
- batch.gate_dispatched_at=new Date().toISOString();delete batch.gate_dispatch_error;return true;
-}
-async function allocateFrozenRanges(){
- const main=await findMainThroughWave(),pending=await listOpenPrRecords();
- let cursor=Math.max(main.max,...pending.pulls.flatMap(p=>{const m=String(p.title).match(/waves\s+(\d+)[–-](\d+)/i);return m?[Number(m[2])]:[]}));
- return commitRegistryMutation(async reg=>{
-   cursor=Math.max(cursor,...reg.batches.map(b=>Number(b.wave_end)||0));
-   for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING'&&!x.wave_start)){
-     const start=cursor+1,end=start+499;cursor=end;
-     const frozenDate=String(b.frozen_at||new Date().toISOString()).slice(0,10);
-     b.wave_start=start;b.wave_end=end;
-     b.branch='research/enrichment-waves-'+start+'-'+end+'-rolling';
-     b.artifact_prefix=frozenDate+'-enrichment-waves-'+start+'-'+end;
-     b.allocated_at=new Date().toISOString();
-   }
- },'research: atomically allocate frozen batch wave ranges');
 }
 async function materializeBatch(reg,batch){
  if(batch.state!=='FREEZE_PENDING')return;
