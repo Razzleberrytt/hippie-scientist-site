@@ -482,9 +482,19 @@ assert(!blockedVoyageRelay.junctions.some(j=>j.to==='voyages'||j.from==='voyages
  'A neighbor alone cannot advertise a nonfunctional Voyages junction')
 assert(ui.includes('pickTraceableConceptPair('),
  'The source-focused user interface must select the same traceable pair as the relay')
-assert(ui.includes('scienceTarget(cap.id,data.graph,scientific.pmid)')&&
- ui.includes("target==='voyages'&&!pickTraceableConceptPair(graph,pmid)?'dna':target"),
- 'Scientific research card handoffs must also avoid untraceable Voyages destinations')
+const sciencePanel=readFileSync('app/research/intelligence/ScientificIntelligencePanel.tsx','utf8')
+const researchPrimitives=readFileSync('app/research/intelligence/ResearchIntelligencePrimitives.tsx','utf8')
+assert(ui.includes('scienceTarget(id,data.graph,scientific.pmid)')&&
+ ui.includes("target==='voyages'&&!pickTraceableConceptPair(graph,pmid)?'dna':target")&&
+ sciencePanel.includes('onOpenCapability(cap.id)')&&
+ sciencePanel.includes('Twelve connected research capabilities'),
+ 'Scientific capability handoffs must preserve identity and avoid untraceable Voyages destinations')
+assert(ui.includes('ScientificIntelligencePanel')&&ui.includes('ResearchIntelligencePrimitives')&&
+ researchPrimitives.includes('export function WitnessPanel')&&
+ researchPrimitives.includes('export function Brief'),
+ 'Split client components must preserve scientific receipts and original editorial controls')
+assert(Buffer.byteLength(ui,'utf8')<45*1024,
+ 'Research intelligence client entry must remain below hard 45KB source boundary')
 const relay=buildInstrumentRelay(s,graph,sharedCase,sourceScope)
 assert.equal(relay.pmid,sharedCase.pmid)
 assert.equal(relay.status,'source-bound-no-clinical-synthesis')
