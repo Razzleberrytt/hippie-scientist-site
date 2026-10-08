@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
 import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
-import {buildResearchIntelligenceStudio,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
+import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
 
 function source(pmid:string,title:string,year:string,abstract='An unreviewed source text with no clinical conclusions.',category='sleep'){
  return {pmid,title,year,abstract,category,journal:'Test journal',pubType:'Journal Article'}
@@ -24,6 +24,18 @@ const reviewed=[
 ]
 const graph=buildResearchSemanticNetwork(sources)
 const s=buildResearchIntelligenceStudio(sources,graph,reviewed)
+
+// The source-only asset must be fast to build. Browser-side enrichment restores
+// only separately reviewed directional candidates and chronology.
+const precomputed=buildResearchIntelligenceStudio(sources,graph,[])
+assert.equal(precomputed.debates.length,0,'No published directions in source-only build')
+const browserJoined=hydrateResearchStudioWithPublishedEvidence(precomputed,reviewed)
+assert.equal(browserJoined.debates.length,s.debates.length)
+assert.equal(browserJoined.timeline.find(x=>x.year===2023)?.reviewedCitations,1)
+assert.equal(browserJoined.metrics.automaticallyPromotedClaims,0)
+assert.equal(browserJoined.dna,precomputed.dna,'No research intake mutation during reviewed client join')
+assert(browserJoined.briefs.every(x=>x.allowAutopublish===false))
+
 assert.equal(s.sourceCount,6)
 assert.equal(s.metrics.automaticallyPromotedClaims,0)
 assert.equal(s.dna.length,6)
@@ -102,9 +114,13 @@ const route=readFileSync('app/research/intelligence/dataset.json/route.ts','utf8
 const ui=readFileSync('app/research/intelligence/ResearchIntelligenceClient.tsx','utf8')
 assert(page.includes("robots:{index:false,follow:true}"))
 assert(route.includes("export const dynamic = 'force-static'"))
-assert(route.includes('getResearchSourceRegister()')&&route.includes('getPublicEvidenceDataset()'))
+assert(route.includes('getResearchSourceRegister()')&&!route.includes('getPublicEvidenceDataset()'),
+ 'Second full evidence hydration in a static worker must be forbidden')
 assert(route.includes('buildResearchIntelligenceStudio('))
 assert(route.includes('getEvidenceChangeUpdates(40)'),'Use actual editorial grade-change receipts')
+assert(ui.includes("fetch('/evidence/evidence-report/dataset.json'") &&
+       ui.includes('hydrateResearchStudioWithPublishedEvidence('),
+ 'Use the existing static published evidence export for reviewed directions')
 assert(ui.includes('data.recordedChanges'),'Time machine must show recorded grade events')
 assert(ui.includes('filtered.slice(0,dnaVisible)') && ui.includes('setDnaVisible(n=>n+30)') &&
   ui.includes('filtered.length>dnaVisible'),
