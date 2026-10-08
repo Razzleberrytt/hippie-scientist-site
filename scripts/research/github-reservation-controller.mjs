@@ -7,7 +7,7 @@ import {summarizeRegistry,renderSummaryMarkdown} from './research-observatory.mj
 const API=process.env.GITHUB_API_URL||'https://api.github.com';
 const repo=process.env.GITHUB_REPOSITORY||'';
 const token=process.env.GITHUB_TOKEN||'';
-const registryBranch='research/coordination-registry';
+const registryBranch='research-coordination-registry';
 const registryPath='ops/research-coordinator/live-registry.json';
 const intakeRoot='ops/research-intake/';
 const researchPrefixes=['ops/enrichment-submissions/reconciliation/','ops/research-coordinator/batches/'];
@@ -87,7 +87,14 @@ async function getRegistry(){
 async function putRegistry(current,value,message){
  value.observatory=summarizeRegistry(value);
  const body={message,content:b64(JSON.stringify(value,null,2)+'\n'),branch:registryBranch};if(current.sha)body.sha=current.sha;
- return api('/repos/'+repo+'/contents/'+registryPath,{method:'PUT',body});
+ const result=await api('/repos/'+repo+'/contents/'+registryPath,{method:'PUT',body});
+ const publicPath='ops/research-coordinator/public-observatory.json';
+ let publicSha=null;
+ try{publicSha=(await api('/repos/'+repo+'/contents/'+publicPath+'?ref='+encodeURIComponent(registryBranch))).sha}catch(e){if(Number(e.status)!==404)throw e}
+ const publicBody={message:'research: update sanitized operations observatory',content:b64(JSON.stringify(value.observatory,null,2)+'\n'),branch:registryBranch};
+ if(publicSha)publicBody.sha=publicSha;
+ await api('/repos/'+repo+'/contents/'+publicPath,{method:'PUT',body:publicBody});
+ return result;
 }
 function nextBatch(reg){
  reg.active_batch_counter=(reg.active_batch_counter??1)+1;reg.active_batch_id='rolling-'+String(reg.active_batch_counter).padStart(4,'0');reg.batches.push({id:reg.active_batch_id,state:'ACTIVE',created_at:new Date().toISOString()});return reg.active_batch_id;
