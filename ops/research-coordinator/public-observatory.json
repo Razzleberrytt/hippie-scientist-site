@@ -21,5 +21,7 @@
       "blocker": null
     }
   ],
-  "incidents": []
+  "incidents": [],
+  "generated_at": "2026-10-08T20:22:29.688Z",
+  "research_only": true
 }
