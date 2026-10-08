@@ -135,6 +135,10 @@ const quarantineCase=buildResearchCaseFile(quarantineStudio,quarantineGraph,know
 assert(scanResearchIntegrity(quarantineStudio,quarantineGraph,quarantineCase)
  .some(x=>x.id==='curated-retraction'&&x.severity==='hold'),
  'Exact audited retractions must be flagged in the source-linked Integrity Radar')
+const quarantinedCalibration=calibrateIntelligenceCase(quarantineStudio,quarantineGraph,quarantineCase)
+assert(quarantinedCalibration.failures>0,'Audited retractions must never display passing calibration')
+assert(quarantinedCalibration.checks.some(x=>x.code==='integrity-release-hold'&&!x.passed))
+assert.equal(quarantinedCalibration.publicationAllowed,false)
 const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
 const sourceScope=buildResearchCaseScope(s,sharedCase)
 assert.equal(sourceScope.status,'exact-source-linked-leads-only')
