@@ -67,6 +67,15 @@ const conflicting=buildPublicationLineageReport(
 assert.equal(conflicting.matchedIntakePmids,0)
 assert.equal(conflicting.duplicateCitationGroups.length,0)
 assert(conflicting.identityConflicts.length>=2)
+// A bad DOI on the same PMID must quarantine BOTH referenced citation IDs
+// when the source DOI is unknown, rather than silently linking them both.
+const quarantined=buildPublicationLineageReport(
+ [{pmid:'10000001'}],
+ [{id:'alias-one',pmid:'10000001',doi:'10.1000/one'},
+  {id:'alias-two',pmid:'10000001',doi:'10.1000/two'}])
+assert.equal(quarantined.identityConflicts.length,1)
+assert.equal(quarantined.matchedIntakePmids,0)
+assert.equal(quarantined.duplicateCitationGroups.length,0)
 assert.throws(()=>buildPublicationLineageReport([{pmid:'10000001',doi:'10.1000/one'},
  {pmid:'10000002',doi:'10.1000/one'}],[]),/Duplicate DOI/)
 assert.throws(()=>buildPublicationLineageReport([],[{id:'same',pmid:'10000001'},

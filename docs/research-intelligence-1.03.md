@@ -33,3 +33,7 @@ Synthetic regression tests cover valid exact-PMID, DOI-only overlap, duplicate c
 ## Next layer
 
 Governed trial-registry/protocol/participant-cohort citations should attach to the existing approval-quality evidence topology, then surface separately as independently reviewed trial/lineage units in the Atlas. No auto-parsing from arbitrary text into approved clinical independence.
+
+### Citation-conflict quarantine
+
+When the same known PMID is attached to different known DOIs (or vice versa), all citation IDs participating in that conflict are withheld from automatic intake cross-references, including if the intake has a PMID but no DOI. This is a metadata conflict, not evidence of a second trial; human resolution is required. Regression tests cover the under-specified-intake-DOI case.

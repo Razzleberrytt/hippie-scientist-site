@@ -129,8 +129,13 @@ export function buildPublicationLineageReport(
       witness:key.startsWith('pmid:')?'exact-pmid':'exact-doi',
       status:'duplicate-citation-records-not-multiple-publications'})
   }
+  // A citation in a known PMID↔DOI collision is quarantined. Even an exact
+  // PMID match must not present conflicting citation metadata as a confirmed
+  // cross-reference while that source identity dispute is unresolved.
+  const quarantinedIds=new Set(identityConflicts.flatMap(conflict=>conflict.studyIds))
   const references=new Map<string,{studyIds:Set<string>;basis:Set<'exact-pmid'|'exact-doi'>}>()
   for(const row of reviewed){
+    if(quarantinedIds.has(row.id))continue
     const p=row.pmid?uniqueIntake.get(row.pmid):undefined
     const d=row.doi?uniqueIntake.get(byIntakeDoi.get(row.doi)||''):undefined
     if(p&&d&&p.pmid!==d.pmid){
