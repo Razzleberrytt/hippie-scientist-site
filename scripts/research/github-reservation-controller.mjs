@@ -118,12 +118,23 @@ async function findMainThroughWave(){
    return[{m,index,end:Number(range[2])}]
   }catch{return[]}}).sort((a,b)=>b.end-a.end);
  if(!batches.length)throw Error('authoritative main research PMID index unavailable');
- const latest=batches[0],byPmid=new Map(latest.index.pmids.map(pmid=>[String(pmid),{pmid:String(pmid),title:'historical PMID '+String(pmid),doi:''}]));
- for(const a of latest.m.artifact_parts||[]){
+ const latest=batches[0],authoritativePmids=new Set(latest.index.pmids.map(String));
+ const byPmid=new Map(latest.index.pmids.map(pmid=>[String(pmid),{pmid:String(pmid),title:'historical PMID '+String(pmid),doi:''}]));
+ // Recover real title/DOI identities only from finalized canonical batch artifacts, never scratch selections.
+ for(const batch of batches)for(const a of batch.m.artifact_parts||[]){
    if(!a.path?.startsWith(dir+'/'))continue;
-   try{const part=JSON.parse(fs.readFileSync(a.path,'utf8'));for(const r of part.rows||[])if(r.pmid&&r.title)byPmid.set(String(r.pmid),{pmid:String(r.pmid),title:String(r.title),doi:r.doi?String(r.doi):''})}catch{}
+   try{
+     const part=JSON.parse(fs.readFileSync(a.path,'utf8'));
+     for(const r of part.rows||[])if(r.pmid&&r.title&&authoritativePmids.has(String(r.pmid)))
+       byPmid.set(String(r.pmid),{pmid:String(r.pmid),title:String(r.title),doi:r.doi?String(r.doi):''});
+   }catch{}
  }
  return {max:latest.end,pmids:latest.index.pmids.map(String),records:[...byPmid.values()]};
+}
+async function dispatchResearchGate(batch){
+ if(!batch?.branch)return false;
+ await api('/repos/'+repo+'/actions/workflows/research-rolling-gate.yml/dispatches',{method:'POST',body:{ref:batch.branch}});
+ batch.gate_dispatched_at=new Date().toISOString();delete batch.gate_dispatch_error;return true;
 }
 async function materializeBatch(reg,batch){
  if(batch.state!=='FREEZE_PENDING')return;
@@ -146,8 +157,12 @@ async function materializeBatch(reg,batch){
  const status={schema_version:1,batch_id:prefix+'-final-status',range:start+'-'+end,state:'source_verified_independent_semantic_review_pending',verified_rows:500,exact_verified_rows:500,previous_unique_pmids:previousPmids.length,new_unique_pmids:500,total_unique_pmids:index.total_unique_pmids,duplicate_pmids:0,duplicate_normalized_dois:0,duplicate_normalized_titles:0,predecessor_pmid_collisions:0,research_only:true,published:false,admission:'fail_closed_no_recommendations',merge_gate:'Independent semantic review plus exact-head repository validation required',artifacts:{manifest:manifestPath,index:idxPath}};
  await api('/repos/'+repo+'/contents/ops/enrichment-submissions/reconciliation/'+prefix+'-final-status.json',{method:'PUT',body:{message:'research: freeze '+batch.id+' status',content:b64(JSON.stringify(status,null,2)+'\n'),branch}});
  const archive={schema_version:1,through_wave:start-1,inventory_only:true,prior_unique_pmids:previousPmids.length,pmids:previousPmids};await api('/repos/'+repo+'/contents/public/data/research/pmid-register-through-'+(start-1)+'.json',{method:'PUT',body:{message:'research: add historical PMID inventory through '+(start-1),content:b64(JSON.stringify(archive,null,2)+'\n'),branch}});
- const pr=await api('/repos/'+repo+'/pulls',{method:'POST',body:{title:'data: rolling enrichment waves '+start+'–'+end+' (500 source-verified; semantic review pending)',head:branch,base:'main',draft:true,body:'Rolling batch '+batch.id+'. 500 source-verified research-only records. Independent semantic review is REQUIRED before merge. No clinical/public evidence admission. Predecessor continuity and exact-head Research rolling gate must pass. Related #6411.'}});
- batch.state='DRAFT_PR';batch.wave_start=start;batch.wave_end=end;batch.pr_number=pr.number;batch.branch=branch;batch.blocker='independent semantic review pending';
+ const reviewQueuePath='ops/research-coordinator/review-queues/'+prefix+'-review-queue.json';
+ const reviewQueue={schema_version:1,batch_id:manifest.batch_id,batch_content_sha256:manifest.batch_content_sha256,research_only:true,required_checks:['source_identity','evidence_class','study_design','adverse_effects','interactions','limitations','uncertainty','overclaim','semantic_relationships','contradictions'],records:assigned.map((r,i)=>({pmid:String(r.pmid),wave:r.wave,priority_score:r.priority_score??0,evidence_class:r.evidence_class,study_design:r.study_design,signals:r.signals,source_artifact:parts[Math.floor(i/100)].path}))};
+ await api('/repos/'+repo+'/contents/'+reviewQueuePath,{method:'PUT',body:{message:'research: add independent review queue for '+batch.id,content:b64(JSON.stringify(reviewQueue,null,2)+'\n'),branch}});
+ const pr=await api('/repos/'+repo+'/pulls',{method:'POST',body:{title:'data: rolling enrichment waves '+start+'–'+end+' (500 source-verified; semantic review pending)',head:branch,base:'main',draft:true,body:'Rolling batch '+batch.id+'. 500 source-verified research-only records. Independent semantic review is REQUIRED before merge. No clinical/public evidence admission. Predecessor continuity and exact-head Research rolling gate must pass. Review queue: '+reviewQueuePath+'. Related #6411.'}});
+ batch.state='DRAFT_PR';batch.wave_start=start;batch.wave_end=end;batch.pr_number=pr.number;batch.branch=branch;batch.review_queue=reviewQueuePath;batch.blocker='independent semantic review pending';
+ try{await dispatchResearchGate(batch)}catch(e){batch.gate_dispatch_error=e.message;batch.blocker='research gate dispatch pending: '+e.message}
 }
 async function commitRegistryMutation(mutator,message){
  return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
@@ -163,7 +178,15 @@ async function run(){
    await commitRegistryMutation(async latest=>{for(const b of reg.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)};latest.incidents=[...(latest.incidents||[]),...(reg.incidents||[]).slice(-(reg.incidents?.length||0))]},'research: reconcile freeze/PR state');
    appendSummary(reg);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
  }else if(mode==='recover'){
-   const {reg}=await commitRegistryMutation(async reg=>{for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING')){try{await materializeBatch(reg,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}}},'research: recover rolling batch freezes');
+   const {reg}=await commitRegistryMutation(async reg=>{
+     for(const b of reg.batches.filter(x=>x.state==='FREEZE_PENDING')){
+       try{await materializeBatch(reg,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}
+     }
+     for(const b of reg.batches.filter(x=>x.state==='DRAFT_PR'&&!x.gate_dispatched_at)){
+       try{await dispatchResearchGate(b);b.blocker='independent semantic review pending'}
+       catch(e){b.gate_dispatch_error=e.message;b.blocker='research gate dispatch pending: '+e.message;reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}
+     }
+   },'research: recover rolling batch freezes and gate dispatches');
    appendSummary(reg);
  }else throw Error('unknown mode');
 }
