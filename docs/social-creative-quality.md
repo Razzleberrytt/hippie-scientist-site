@@ -222,3 +222,23 @@ A plan that looks diverse in JSON but still feels visually repetitive in the fin
 R8.07 changes visual authorship, not scientific authority or provider dependence. It continues to use the R8.05 runtime artifact schemas and the R8.06 optional-Metricool/manual-native fallback contract.
 
 Audience-retention improvement remains Unknown until canonical R8.07 artifacts are published and measured.
+
+## R8.08 silent-first comprehension & mobile claim legibility
+
+R8.08 inherits R8.07, R8.06 and R8.05 without altering the R8.04 zero-credit path. A visual that only makes sense with audio on is not release-ready. Every core beat (hook, finding, evidence, limitation) must provide a concise, exact on-screen statement readable on a phone and inside the intersection of platform safe areas. The opening hook is **visible from the first frame**: use the highlight primitive rather than hiding the promise until a later reveal.
+
+### Pre-render enforceable rules
+
+- The one viewer takeaway equals the evidence-safe early payoff.
+- Every core beat carries a role-bound silent summary equal to the actual rendered text. This prevents the receipt approving words the viewer never sees.
+- Core text must contain 2–14 words and at most 96 characters. It must use the existing safe-area intersection.
+- Hook text must already be visible at time zero. Finding/limitation must have at least 0.85 seconds of actual readable time in the voice-authored timeline (no padding).
+- The canonical source URL must remain complete and literal; no truncated URLs or invented scientific claims.
+
+These are *mechanical* gates, not a claim that word counts validate scientific meaning. The exact MP4 additionally needs normal-speed human approval for audio-off comprehension, qualification/limitation visibility, mobile safe area and readable claim dwell. Rebuilding after failure is subject to the inherited one-macro-rebuild limit.
+
+### Publication and evidence
+
+The R8.08 overlay hash binds the exact creative brief and the inherited R8.07 receipt. The exact-master receipt binds the R8.08 overlay to the same MP4 SHA-256 as the render and publication bundle. An R8.08 video with an R8.07-only approval, stale text, or missing silent-review receipt must fail closed. Manual native upload remains available without provider credits.
+
+Retention, saves, or conversion improvement is **Unknown** until real R8.08 videos are published and measured.
