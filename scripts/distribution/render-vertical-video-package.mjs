@@ -550,7 +550,7 @@ function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, m
     body = `<rect x="${x}" y="${cy - 82}" width="${width}" height="20" rx="10" fill="${foreground}" fill-opacity="0.18"/><rect x="${x}" y="${cy - 22}" width="${width * 0.74}" height="20" rx="10" fill="${foreground}" fill-opacity="0.42"/><rect x="${x}" y="${cy + 38}" width="${width * 0.46}" height="20" rx="10" fill="${foreground}" fill-opacity="0.72"/>`
   }
 
-  const motif = clean(scene.motifId)
+  const motif = semanticAccentVisible && clean(scene.motifId)
     ? `<g data-r807-motif="${escapeXml(scene.motifId)}"><path d="M ${x + width - 112} ${y + 18} L ${x + width - 72} ${y + 54} L ${x + width - 30} ${y + 18}" ${softStroke}/><circle cx="${x + width - 112}" cy="${y + 18}" r="10" fill="${foreground}"/><circle cx="${x + width - 72}" cy="${y + 54}" r="10" fill="${foreground}"/><circle cx="${x + width - 30}" cy="${y + 18}" r="10" fill="${foreground}"/></g>`
     : ''
   const interrupt = scene.patternInterrupt === true && motionPhase === 'post'
