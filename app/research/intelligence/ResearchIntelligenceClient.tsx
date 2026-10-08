@@ -30,6 +30,10 @@ const scienceHandoffs:Record<string,Tab>={
   'missions':'reactor','citations':'voyages','mechanism':'safety',
   'living':'reactor','adversarial':'contradictions','calibration':'ask',
 }
+function scienceTarget(id:string,graph:SemanticNetwork,pmid:string):Tab{
+  const target=scienceHandoffs[id]
+  return target==='voyages'&&!pickTraceableConceptPair(graph,pmid)?'dna':target
+}
 function human(s:string){return s.replace(/_/g,' ').replace(/\bnps\b/gi,'NPS')}
 const pubmed=(s:string)=>'https://pubmed.ncbi.nlm.nih.gov/'+s+'/'
 function Notice({children}:{children:React.ReactNode}){return <p className={styles.notice}><span aria-hidden='true'>◈</span> {children}</p>}
@@ -285,7 +289,7 @@ return <section className={styles.studio}>
             <div className={styles.scienceDetail}>
               <ul>{cap.findings.map((finding,j)=><li key={j}>{finding}</li>)}</ul>
               <p><strong>Scientific boundary:</strong> {cap.limitation}</p>
-              <button type='button' className={styles.caseTrace} onClick={()=>openCaseInstrument(scienceHandoffs[cap.id])}>Continue in {stations.find(x=>x.id===scienceHandoffs[cap.id])?.label} · exact source ↗</button>
+              <button type='button' className={styles.caseTrace} onClick={()=>openCaseInstrument(scienceTarget(cap.id,data.graph,scientific.pmid))}>Continue in {stations.find(x=>x.id===scienceTarget(cap.id,data.graph,scientific.pmid))?.label} · exact source ↗</button>
               <details><summary>Inspect structured, source-bound receipt</summary>
                 <textarea readOnly className={styles.export} rows={9} aria-label={cap.name+' structured scientific review receipt'}
                   value={JSON.stringify({capability:cap.id,pmid:scientific.pmid,
