@@ -6254,6 +6254,765 @@
       "reservation_id": "4f56157459bc31e7113c",
       "reserved_at": "2026-10-08T22:05:04.310Z",
       "source_branch": "research/intake/3/20261009-goldenseal-cyp-herbal-safety-seed25"
+    },
+    {
+      "pmid": "41355410",
+      "title": "Pathways to 7-day Extended-release Buprenorphine (CAM2038) Administration in Emergency Department and Hospitalized Patients.",
+      "doi": "10.1097/ADM.0000000000001620",
+      "source_title": "Pathways to 7-day Extended-release Buprenorphine (CAM2038) Administration in Emergency Department and Hospitalized Patients.",
+      "abstract": "To describe the clinical contexts, population characteristics, and outcomes of extended-release buprenorphine (CAM2038 7-day depot formulation) administration in emergency department and hospitalized patients with opioid use disorder primarily using fentanyl. We conducted a retrospective case series of patients who received CAM2038 at an urban safety-net hospital between June 2024 and June 2025. We collected data from electronic health records, including demographics, clinical characteristics, and outcomes. Outcomes included opioid withdrawal severity, buprenorphine-precipitated withdrawal, patient-directed discharge, and 30-day linkage to care within our health care system. Thirty-seven patients received CAM2038, with 33 utilizing CAM2038 to initiate buprenorphine and 4 transitioning from another formulation of therapeutic buprenorphine. Most patients (91.9%) primarily used fentanyl. Among patients using CAM2038 to initiate buprenorphine, 25 patients (75.8%) received pretreatment of opioid withdrawal with short-acting full agonist opioids. Two patients (6%) had suspected precipitated withdrawal. Among patients with documented Clinical Opiate Withdrawal Scale scores post-injection (n=24), 91.7% experienced minimal-to-mild withdrawal (score <12). Patient-directed discharge was uncommon (10.8%), and 47% of patients linked to buprenorphine treatment within 30 days. CAM2038 administration, including for the initiation of therapeutic buprenorphine, seems to be feasible and well-tolerated in inpatient and emergency department settings, with low rates of precipitated withdrawal and patient-directed discharge. The use of short-acting opioids for initial withdrawal management may contribute to successful outcomes. These findings support CAM2038 as a valuable option for treating opioid use disorder in the emergency department and hospital settings, particularly among patients who use fentanyl.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41355410/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41355410",
+        "doi": "10.1097/ADM.0000000000001620",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:18:35.609Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c1eff8a493153b5294a0",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "41442975",
+      "title": "Outpatient initiation of direct-to-inject buprenorphine.",
+      "doi": "10.1016/j.drugalcdep.2025.113011",
+      "source_title": "Outpatient initiation of direct-to-inject buprenorphine.",
+      "abstract": "Fentanyl-involved overdose deaths have surged, yet buprenorphine remains underutilized for opioid use disorder (OUD) treatment, partly due to the risk of precipitated withdrawal during buprenorphine initiation. Direct-to-inject (DTI) buprenorphine using weekly long-acting injectable formulations may reduce this risk with a gradual and sustained rise in serum buprenorphine levels. To evaluate 90-day treatment retention, withdrawal tolerability, and associated factors following DTI buprenorphine initiation across multiple outpatient safety-net settings. We conducted a retrospective cohort study of 131 DTI initiations among 114 patients with OUD across San Francisco and Oakland safety-net clinics from March 2024 to May 2025. Patients were initiated on weekly long-acting buprenorphine. We assessed withdrawal severity in the first 24h and calculated continuous treatment retention at 7, 30, and 90 days using pharmacy and chart data. Mean age was 42 years; 79 % reported fentanyl use, and 67 % were unstably housed or unhoused. In the 24h after injection, 37 % experienced no withdrawal, 31 % experienced mild-moderate withdrawal, and 11 % experienced severe withdrawal, with 21 % missing data. Overall, 72 % continued buprenorphine beyond initial injection, with most transitioning to monthly formulations. Retention rates were 69 % at 7 days, 68 % at 30 days, and 43 % at 90 days. No demographic or clinical factors predicted 90-day retention. In this retrospective study, DTI buprenorphine initiation demonstrated favorable tolerability and retention in a high-risk population across diverse outpatient settings. This approach may offer a viable pathway to long-acting buprenorphine treatment for individuals using fentanyl who may not tolerate traditional initiation methods.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41442975/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41442975",
+        "doi": "10.1016/j.drugalcdep.2025.113011",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.609Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "18bdbde9253b99e43e6d",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "42258631",
+      "title": "Trends in Tranq: prevalence of xylazine and medetomidine in oral fluid toxicology among Great Lakes States.",
+      "doi": "10.1080/00952990.2026.2672929",
+      "source_title": "Trends in Tranq: prevalence of xylazine and medetomidine in oral fluid toxicology among Great Lakes States.",
+      "abstract": "Background: Xylazine and medetomidine (each sometimes referred to as \"Tranq\") are animal tranquilizers commonly and sometimes unknowingly used with illegal drugs, primarily fentanyl. In the United States, xylazine appeared in the Northeast beginning in the late 2010s, preceding medetomidine beginning in 2022. Current trends in the Great Lakes region west of this origin have not been thoroughly investigated. Objectives: Identify drug use trends associated with xylazine and medetomidine specific to five states comprising the Great Lakes region. Methods: From March 2023 through May 2025, 86,093 oral fluid specimens were analyzed using liquid chromatography-tandem mass spectrometry (LC-MS-MS) following a presumptive positive screen for illegal substances using enzyme-linked immunosorbent assays (ELISA). Samples primarily originated from child protective, court, and probation services. Results and geospatial metadata from samples were used for analysis and discrete heatmap generation. Results: In xylazine- or medetomidine-positive cases, fentanyl was present over 95% of the time. Multiple drug classes were frequently detected in these cases. Each adulterant increased in prevalence among fentanyl-positive cases over their respective periods of study, converging to around 32%. Heatmaps of xylazine and medetomidine positivity rates showed that the prevalence of xylazine diminished in most states, while all states increased in prevalence for medetomidine. Conclusions: Medetomidine has been rapidly adopted as an adulterant in drug markets among Great Lakes states and is now frequently used alongside xylazine. Understanding regional trends regarding these adulterants can inform health-care professionals and policymakers of the spread and adoption of emergent drug use practices to improve public health.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42258631/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42258631",
+        "doi": "10.1080/00952990.2026.2672929",
+        "journal": "The American journal of drug and alcohol abuse",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.609Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7db019c3b3ae6e1a84b6",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "41314587",
+      "title": "Liquid chromatography-mass spectrometry quantitation and prevalence of medetomidine and xylazine in New Haven, Connecticut.",
+      "doi": "10.1016/j.cca.2025.120741",
+      "source_title": "Liquid chromatography-mass spectrometry quantitation and prevalence of medetomidine and xylazine in New Haven, Connecticut.",
+      "abstract": "The emergence of veterinary sedatives such as xylazine and medetomidine as adulterants in the illicit drug supply poses increasing challenges to clinical toxicology and public health. Medetomidine, a potent alpha-2 adrenergic receptor agonist not approved for human use, has recently been detected in overdose cases, particularly in fentanyl-positive individuals. To address this, we developed and validated a liquid chromatography-tandem mass spectrometry (LC-MS/MS) assay capable of detecting xylazine and medetomidine in urine with minimal sample preparation, a 60-min hydrolysis incubation, and a 7-min chromatographic run time. Analytical validation demonstrated acceptable precision, accuracy, linearity, and minimal matrix effects. We then analyzed 100 retrospective urine samples from a polydrug-using population. Xylazine was detected in 20 % and 3-hydroxymedetomidine (medetomidine's primary metabolite in urine) in 12 % of samples, with both compounds most frequently co-occurring with fentanyl. A subset of medetomidine-positive cases also tested positive for xylazine, indicating potential co-adulteration. This study highlights the value of expanded toxicological testing in identifying emerging adulterants that may otherwise go undetected by routine screening.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41314587/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41314587",
+        "doi": "10.1016/j.cca.2025.120741",
+        "journal": "Clinica chimica acta; international journal of clinical chemistry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.610Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "637fea71e0582ebc2cd9",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "42664032",
+      "title": "A retrospective cohort study of a novel short-acting opioid protocol for opioid withdrawal.",
+      "doi": "10.1080/10550887.2026.2719586",
+      "source_title": "A retrospective cohort study of a novel short-acting opioid protocol for opioid withdrawal.",
+      "abstract": "Hospitalized patients with opioid use disorder commonly experience undertreated withdrawal, leading to increases in patient-directed discharge and readmission. Short-acting opioids can mitigate withdrawal in patients who are unwilling to trial buprenorphine or methadone, or need additional symptom control during up-titration. This study assessed the safety and efficacy of a short-acting opioid protocol for opioid withdrawal. A retrospective cohort study was conducted on hospitalized patients with opioid use disorder who received a short-acting opioid protocol for withdrawal with intravenous hydromorphone or oral oxycodone. The primary endpoint was the incidence of severe withdrawal. Secondary endpoints included naloxone use, patient-directed discharge, and length of stay. A paired cohort was analyzed where patients' hospital outcomes were compared pre- versus post-protocol. Naloxone use after protocol initiation was 0% and severe withdrawal occurred in one patient (1%). The patient-directed discharge and 30-day readmission rates were 38% and 30%, respectively. Fifty-one percent of patients had a prior hospitalization within two years without use of the short-acting opioid protocol and were included in the paired cohort analysis. The pre- versus post-protocol patient-directed discharge rate was 47% vs. 43% ( p = 0.774) and length of stay was 3 vs. 5 days ( p = 0.180). Our findings provide preliminary evidence for the safety of a short-acting opioid protocol for opioid withdrawal. There was no significant difference in patient-directed discharge rate or length of stay in the paired cohort of patients' encounters with or without short-acting opioid protocol use. Larger studies are necessary to draw conclusions regarding safety and efficacy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42664032/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42664032",
+        "doi": "10.1080/10550887.2026.2719586",
+        "journal": "Journal of addictive diseases",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.610Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "45d2d88bff262f01268f",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "42206614",
+      "title": "Association of Emergency Department Buprenorphine Initiation With Subsequent Pharmacotherapy and Outcomes Among Patients With Opioid Use Disorder.",
+      "doi": "10.1097/ADM.0000000000001722",
+      "source_title": "Association of Emergency Department Buprenorphine Initiation With Subsequent Pharmacotherapy and Outcomes Among Patients With Opioid Use Disorder.",
+      "abstract": "To examine trends in emergency department (ED) buprenorphine initiation and evaluate its association with outcomes in the 180 days following discharge. This observational cohort study used 2018-2022 New Jersey Medicaid claims data from patients presenting to EDs for opioid-related causes, excluding visits that resulted in inpatient admission. We used prescription and encounter data to identify patients with opioid use disorder (OUD) or opioid overdose who initiated buprenorphine in the ED and propensity score matching to compare outcomes of initiators and noninitiators. Outcomes measured during 180-day follow-up were the proportion of days covered (PDC) with medication for OUD (MOUD) and the number of drug overdoses, opioid overdoses, and all-cause ED/inpatient visits within 180 days. Buprenorphine was initiated in 978 of 24,732 (4.0%) opioid-related ED visits, with this proportion increasing from 0.8% in 2018 to 7.1% in 2022. Buprenorphine initiation was associated with greater MOUD PDC (β=0.10, 95% CI: 0.08-0.13) and fewer all-cause ED/inpatient visits (IRR=0.87, 95% CI: 0.77-0.98) during follow-up. We did not find a statistically significant association between ED buprenorphine initiation and postdischarge overdose; however, greater PDC in the 180-day follow-up period was associated with fewer drug overdoses (IRR=0.80, 95% CI: 0.68-0.94), opioid overdoses (IRR=0.78, 95% CI: 0.67-0.91), and all-cause ED/inpatient visits (IRR=0.89, 95% CI: 0.82-0.96). EDs play a central role in initiating patients on MOUD, but longer-term outcomes likely depend on multiple factors that may go beyond the scope of ED practice. Further efforts are needed to support MOUD retention and reduce the risk of adverse outcomes following opioid-related ED visits.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42206614/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42206614",
+        "doi": "10.1097/ADM.0000000000001722",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.610Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3308f668d6a813cce15e",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "41943134",
+      "title": "Implementation of low-dose buprenorphine induction at a syringe services program.",
+      "doi": "10.1186/s13722-026-00661-7",
+      "source_title": "Implementation of low-dose buprenorphine induction at a syringe services program.",
+      "abstract": "Fentanyl's penetration into the unregulated drug supply has complicated the treatment of opioid use disorder (OUD), particularly by increasing the risk of buprenorphine-precipitated opioid withdrawal (BPOW). Buprenorphine, a partial opioid agonist, remains a first-line treatment for OUD, but traditional induction methods can be intolerable for people using fentanyl. Low-dose induction (LDI), a strategy characterized by gradual buprenorphine titration without prior withdrawal, has emerged as a promising alternative to mitigate BPOW. However, the feasibility and acceptability of LDI in low-barrier, real-world settings such as syringe services programs (SSPs) remain underexplored. We conducted a mixed-methods prospective cohort study from June 2023-2024 at an SSP in Miami, Florida, offering a 4-day LDI protocol to patients with OUD who were interested in starting buprenorphine. Follow-up, conducted on a walk-in basis within four weeks, included urine drug screens (UDS), symptom surveys and semi-structured qualitative interviews. The primary outcome was successful buprenorphine initiation, defined by a positive UDS for buprenorphine at follow-up. Of the 30 participants enrolled in the 4-day LDI protocol, most (n = 29) had prior buprenorphine experience and nearly 90% (n = 26) reported past BPOW. Only 16 (53%) returned for follow-up. Nine (56%) of those followed up tested positive for buprenorphine, 11 (68.8%) reported that LDI worked for them, and 12 (75%) said they would use the method again. Qualitative interviews revealed six key themes: (1) LDI mitigates withdrawal symptoms; (2) instructions were helpful but could be improved; (3) fear of BPOW motivated LDI use; (4) LDI enabled autonomy in recovery; (5) unstable living environments hindered adherence; and (6) LDI allowed participants to maintain social roles. While only 30% of the cohort had objective evidence of buprenorphine induction, most reported successful attempts and found LDI acceptable and empowering. High loss to follow-up and environmental instability limited our conclusions in this outpatient harm reduction setting. Further research is needed to refine LDI protocols and address the structural determinants affecting treatment success among people who use fentanyl.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41943134/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41943134",
+        "doi": "10.1186/s13722-026-00661-7",
+        "journal": "Addiction science & clinical practice",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.611Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "191619b9baafda7e5cf3",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "42009456",
+      "title": "Low-Dose Buprenorphine Induction in Pregnant and Postpartum Patients: A Retrospective Analysis of Protocol Implementation.",
+      "doi": "10.1002/jac5.70173",
+      "source_title": "Low-Dose Buprenorphine Induction in Pregnant and Postpartum Patients: A Retrospective Analysis of Protocol Implementation.",
+      "abstract": "Low-dose buprenorphine induction (LDBI) is a method using low doses of buprenorphine titrated to maintenance dosing. Literature on LDBI in pregnant and postpartum patients is limited to case series. The purpose of this study was to evaluate the implementation of an LDBI protocol, describe treatment outcomes of pregnant and postpartum patients with OUD who were treated with the protocol, and identify opportunities to improve this protocol. An interdisciplinary team, including a clinical pharmacist, at a level IV maternity academic medical center developed and implemented an LDBI protocol. We performed a retrospective descriptive chart review of hospitalized pregnant and postpartum patients with opioid use disorder (OUD) at our institution. The primary outcome was successful LDBI, defined as reaching and discharging on goal dose buprenorphine without serious adverse effects. Secondary outcomes included adverse effects, protocol deviations, and characteristics that may predict success. Outpatient follow-up was also described. Of the 78 patients included for analysis, 59 (75.6%) successfully completed LDBI. Of the 19 (24.4%) patients that did not, 8 (10.3%) left before achieving goal dose without documented reason, 6 (7.6%) had intolerable withdrawal symptoms, and 5 (5.1%) were discharged with plans to attempt LDBI at a later time. Of these 19 patients, 10 (52.6%) had successful LDBI at subsequent encounters with an overall success rate on serial inductions of 69 (88.5%). There were no recorded serious adverse medication events from the protocol that caused patient harm. Tobacco use disorder without nicotine replacement therapy was associated with unsuccessful LDBI. Flexible protocol deviations or modifications may increase LDBI success. Inpatient LDBI at this level IV maternity care center resulted in high success rates and was well tolerated. Several opportunities for improvement in the implementation of inpatient LDBI were identified. Further research is needed on improving transitions of care to the outpatient setting.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42009456/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42009456",
+        "doi": "10.1002/jac5.70173",
+        "journal": "Journal of the American College of Clinical Pharmacy : JACCP",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.611Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ae74f6f5fc23e6e4b7b1",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "42647839",
+      "title": "The Storm After the Calm: A Case of Medetomidine Withdrawal.",
+      "source_title": "The Storm After the Calm: A Case of Medetomidine Withdrawal.",
+      "abstract": "We report a case of a 30-year-old woman with a history of intravenous drug use, who presented to the emergency department with nausea, vomiting, agitation, and delirium. In order to protect her airway and to facilitate further evaluation, she received endotracheal intubation, but despite maximum pharmacologic sedation, she became increasingly tachycardic and hypertensive. A comprehensive blood toxicology panel revealed medetomidine, a sedative used in veterinary medicine and a known adulterant used in illicit fentanyl. While medetomidine has permeated the fentanyl supply in the middle Atlantic states, to our knowledge this is the first case reported in Rhode Island.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42647839/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42647839",
+        "journal": "Rhode Island medical journal (2013)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T22:18:35.611Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8ba71119aabfcf482d4b",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
+    },
+    {
+      "pmid": "40810707",
+      "title": "Clinical Experiences With the Nitazene Class of Synthetic Opioids: A Cohort Study.",
+      "doi": "10.1016/j.annemergmed.2025.06.619",
+      "source_title": "Clinical Experiences With the Nitazene Class of Synthetic Opioids: A Cohort Study.",
+      "abstract": "Nitazenes are illicit novel opioid agonists, and data describing the clinical course, management, and outcome of nitazene opioid poisoning are limited. The aim of this study is to describe our clinical experiences with analytically confirmed nitazene opioid exposures. We extracted data on analytically confirmed nitazene opioid exposures in a cohort of prospectively identified cases in a state-based comprehensive surveillance program in New South Wales, Australia. We identified 27 laboratory-confirmed nitazene opioid exposures from June 2018 to March 2025. We observed 20 unintentional acute opioid poisonings and 7 acute withdrawals in predominantly younger men. Protonitazene, protonitazepyne (N-pyrrolidino-protonitazene), and isotonitazene were the most detected nitazene opioid compounds. The most common route of exposure was vaping; other exposures included injection, ingestion, and nasal insufflation. Nitazene opioids were sought in 8/21 (38%) of cases where intent was known. Acute poisoning typically presented with sedation and hypoventilation, necessitating endotracheal intubation in severe cases due to cardiac arrest and/or hypoxemia. Naloxone was effective, with a median parenteral reversal dose of 400 μg (interquartile range 400 to 800 μg) and repeat dosing was given in 45% of the 11/16 cases receiving naloxone. This case series highlights that standard parenteral naloxone doses are typically effective, but ongoing monitoring is necessary to detect renarcotization. Nitazene opioids display novel consumption patterns, including exposure by vaping and unintentional use in products sold as containing another drug. The risk of opioid withdrawal from regular nitazene opioid use is a novel observation. Monitoring trends through active drug surveillance, public education, and community access to naloxone are crucial to mitigate the harm posed by nitazene opioid opioids.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40810707/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40810707",
+        "doi": "10.1016/j.annemergmed.2025.06.619",
+        "journal": "Annals of emergency medicine",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:18:35.611Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6d4e6e0af131a09e7103",
+      "reserved_at": "2026-10-08T22:18:43.396Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-a"
     }
   ],
   "batches": [
@@ -6267,22 +7026,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 81,
+    "total_reservations": 91,
     "by_lane": {
       "1": 5,
       "2": 4,
       "3": 35,
-      "4": 12,
+      "4": 22,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 81
+      "SOURCE_VERIFIED": 91
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 81,
+        "count": 91,
         "pr_number": null,
         "blocker": null
       }
