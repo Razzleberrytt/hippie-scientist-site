@@ -117,7 +117,7 @@ def main():
     candidates = []
     for part in range(1, 6):
         doc = read(f"{PREFIX}-candidates-part-0{part}.json")
-        assert doc["state"] == "CANDIDATE_ONLY_UNVERIFIED"
+        assert doc["stage"] == "CANDIDATE_ONLY_UNVERIFIED"
         candidates.extend(doc["rows"])
     assert len(candidates) == 500
     assert all(int(row["wave"]) == 7001 + i for i, row in enumerate(candidates))
