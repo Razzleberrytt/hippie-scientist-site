@@ -164,3 +164,41 @@
 .neighborLinks button:focus-visible,.neighborLinks button:hover{background:#d1e3c7}
 .neighborLinks button strong{font-size:.73rem}
 .neighborLinks button small{font-size:.64rem}
+
+/* Semantic relay 1.06: visually joined, explicitly bounded instrument handoffs. */
+.relayWorkbench{margin:1.2rem 0;padding:1rem;border:1px solid #9caf98;background:#f8f7eb;color:#263d2c}
+.relayTitle{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.7rem;align-items:start}
+.relayTitle h4{font-family:var(--font-display),Georgia,serif;font-size:1.25rem;line-height:1.3}
+.relayTitle span{font-size:.67rem;font-weight:850;padding:.35rem .5rem;background:#d4e6ca;color:#254e38}
+.relayWorkbench>p{font-size:.76rem;line-height:1.65;margin:.6rem 0;color:#435948}
+.relayList{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0;padding:0}
+.relayList li{padding:.85rem;border-left:3px solid #487550;background:#e7eddd;display:flex;flex-direction:column;gap:.48rem;overflow-wrap:anywhere}
+.relayConnection{display:flex;justify-content:space-between;align-items:start;gap:.5rem;flex-wrap:wrap}
+.relayConnection strong{font-size:.78rem;line-height:1.4;color:#1c452c}
+.relayConnection span{font-size:.6rem;letter-spacing:.02em;color:#546d57}
+.relayList p{font-size:.75rem;line-height:1.6}
+.relayList small{font-size:.65rem;line-height:1.5;color:#4c6050}
+.relayList button{align-self:start;border:1px solid #356044;color:#fff8e3;background:#27593c;font-size:.72rem;font-weight:780;padding:.6rem .7rem;min-height:44px;margin-top:auto}
+.relayList button:hover{background:#3b7150}
+.relayEmpty{font-style:italic}
+.relayReviewed{margin-top:1rem;padding:1rem;background:#e5e8db;border:1px solid #9ea995}
+.relayReviewed>strong{font-size:.79rem;color:#244a34}
+.relayReviewed>p{font-size:.7rem;line-height:1.7;margin-top:.65rem;overflow-wrap:anywhere}
+@media(max-width:700px){.relayList{grid-template-columns:1fr}.relayWorkbench{padding:.75rem}}
+
+
+/* Semantic Fabric 1.07: content propagation remains review-only. */
+.fabricWorkbench{background:#eef0e3;color:#1c3b2b;padding:1rem;border:1px solid #a2af95;margin:1rem 0}
+.fabricHeading{display:flex;justify-content:space-between;flex-wrap:wrap;align-items:baseline;gap:.5rem}
+.fabricHeading h4{font:800 clamp(1.05rem,2vw,1.3rem)/1.35 var(--font-display),Georgia,serif}
+.fabricHeading span{font-size:.62rem;color:#48624d;letter-spacing:.04em}
+.fabricWorkbench>p{font-size:.74rem;line-height:1.7;margin:.65rem 0}
+.fabricColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.fabricColumns>div{border:1px solid #a7b69d;background:#fbf9ef;padding:.85rem;min-width:0}
+.fabricColumns strong{font-size:.8rem;color:#214934}
+.fabricColumns p{font-size:.72rem;line-height:1.65;margin:.6rem 0}
+.fabricColumns p:not(:first-of-type){padding-top:.65rem;border-top:1px solid #a7b69d}
+.fabricColumns p span,.fabricColumns p a{font-weight:770;color:#1f5436}
+.fabricColumns small{font-size:.66rem;color:#536453;line-height:1.6;display:block;margin-top:.25rem;overflow-wrap:anywhere}
+.fabricWorkbench .fabricGuard{border-left:3px solid #34674b;background:#dce8d5;padding:.7rem .8rem;font-weight:760}
+@media(max-width:700px){.fabricWorkbench{padding:.75rem}.fabricColumns{grid-template-columns:1fr}}
