@@ -243,8 +243,9 @@ return <section className={styles.studio}>
             placeholder='For example: Which studies mention creatine and cognition?'/></label>
         <button type='submit' className={styles.prime} disabled={!query.trim()}>Inspect the source trail ↗</button>
       </form>
-      {answer?<div className={styles.askAnswer} role='status'><h3>{answer.matches.length} matching sources in the current research batch</h3>
+      {answer?<div className={styles.askAnswer} role='status'><h3>{answer.matches.length} {answer.matchMode==='all-concepts'?'full concept matches':'source candidates'} in the current research batch</h3>
         <p>Recognized: {answer.understoodConcepts.length?answer.understoodConcepts.join(' · '):'No matching controlled concepts'}</p>
+        <p><strong>{answer.matchMode==='all-concepts'?'All-concept match':answer.matchMode==='partial-concepts'?'Partial-only retrieval':'No recognized concept'}:</strong> {answer.retrievalNote}</p>
         <p>{answer.warning}</p>
         <div className={styles.paperGrid}>{answer.matches.map(m=><article className={styles.paper} key={m.pmid}>
           <h3>{m.title}</h3><p>{m.reason}</p><a className={styles.paperLink} href={m.url} target='_blank' rel='noopener noreferrer'>Original PMID {m.pmid} ↗</a>
