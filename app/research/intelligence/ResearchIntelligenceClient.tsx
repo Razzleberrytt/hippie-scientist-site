@@ -172,7 +172,7 @@ return <section className={styles.studio}>
     <p>All eight use the same identifiers, graph and source-provenance boundaries.</p>
   </div>
   <div className={styles.stationGrid} role='group' aria-label='Research intelligence instruments'>
-    {stations.map(s=><button type='button' key={s.id} aria-pressed={tab===s.id} onClick={()=>navigate(s.id)} className={styles.station}>
+    {stations.map(s=><button type='button' key={s.id} aria-pressed={tab===s.id} onClick={()=>caseFile?openCaseInstrument(s.id):navigate(s.id)} className={styles.station}>
       <span>{s.number} / {tab===s.id?'ACTIVE':'EXPLORE'}</span><strong>{s.label}</strong>
       <small>{s.tagline}</small><i aria-hidden='true'>↗</i>
     </button>)}
