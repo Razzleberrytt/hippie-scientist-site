@@ -262,6 +262,11 @@ async function refreshPrLifecycle(reg){
 async function commitRegistryMutation(mutator,message){
  return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
 }
+async function persistObservatory(reg){
+ const snapshot={...summarizeRegistry(reg),generated_at:new Date().toISOString(),research_only:true};
+ try{await upsertBranchJson(registryBranch,'ops/research-coordinator/observatory.json',snapshot,'research: update rolling observatory')}
+ catch(e){console.error('OBSERVATORY_WARNING '+e.message)}
+}
 function appendSummary(reg){const file=process.env.GITHUB_STEP_SUMMARY;if(file)fs.appendFileSync(file,renderSummaryMarkdown(summarizeRegistry(reg)))}
 async function run(){
  required(repo,'GITHUB_REPOSITORY');const mode=process.argv[2]||'reserve';
@@ -273,7 +278,7 @@ async function run(){
    for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){try{await materializeBatch(allocated,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;allocated.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}}
    await refreshPrLifecycle(allocated);
    const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: reconcile freeze/PR state')).reg;
-   appendSummary(final);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
+   await persistObservatory(final);appendSummary(final);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
  }else if(mode==='recover'){
    const allocated=(await allocateFrozenRanges()).reg;
    for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){
@@ -281,7 +286,7 @@ async function run(){
    }
    await refreshPrLifecycle(allocated);
    const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: recover rolling batch freezes')).reg;
-   appendSummary(final);
+   await persistObservatory(final);appendSummary(final);
  }else throw Error('unknown mode');
 }
 if(process.argv[1]?.endsWith('github-reservation-controller.mjs'))run().catch(e=>{console.error('BLOCKED '+e.message);console.error(JSON.stringify(classifyFailure(e)));process.exitCode=1});
