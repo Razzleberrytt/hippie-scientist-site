@@ -431,3 +431,46 @@ export function askResearchSources(question:string,studio:ResearchStudio):Studio
 export function explainSemanticVoyage(network:SemanticNetwork,from:string,to:string){
   return findExplainableConceptPath(network,from,to,3)
 }
+
+
+/**
+ * Reuse the already-published, independently reviewed evidence-report JSON
+ * in the user's browser, rather than rebuilding it in a second Next.js
+ * static-page-generation worker (which previously timed out).
+ *
+ * The precomputed research-only fingerprints, safety co-mentions, and frontiers
+ * remain untouched. Only the explicitly reviewed direction/time context
+ * and resulting DRAFT editorial queue are added.
+ */
+export function hydrateResearchStudioWithPublishedEvidence(
+  studio:ResearchStudio,
+  published:readonly ReviewedStudyInput[],
+):ResearchStudio {
+  const debates=debatesFromReviewed(published)
+  const timeline=new Map<number,PublicationTimeline>(
+    studio.timeline.map(t=>[t.year,{...t,pmids:[...t.pmids],reviewedCitations:0}]),
+  )
+  const seen=new Set<string>()
+  for(const study of published){
+    if(!study.id||seen.has(study.id))continue
+    seen.add(study.id)
+    const y=safeYear(study.year)
+    if(y===null)continue
+    const bucket=timeline.get(y)||{year:y,sources:0,reviewedCitations:0,pmids:[]}
+    bucket.reviewedCitations++
+    timeline.set(y,bucket)
+  }
+  const briefs=briefsFromSignals(studio.frontiers,debates,studio.safety)
+  return {
+    ...studio,
+    debates,
+    timeline:[...timeline.values()].sort((a,b)=>a.year-b.year),
+    briefs,
+    metrics:{
+      ...studio.metrics,
+      reviewedDirectionalCandidates:debates.length,
+      preparedDrafts:briefs.length,
+      automaticallyPromotedClaims:0,
+    },
+  }
+}
