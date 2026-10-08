@@ -266,6 +266,2133 @@
       "reservation_id": "0b140d8d117dd0e3903b",
       "reserved_at": "2026-10-08T17:28:01.400Z",
       "source_branch": "research/intake/4/20261008-1316-41670966"
+    },
+    {
+      "pmid": "41758197",
+      "title": "Serum vitamin D and lean non-alcoholic fatty liver disease: a nonlinear 'L-shaped' association in a national cross-sectional study.",
+      "doi": "10.1080/07853890.2026.2634463",
+      "source_title": "Serum vitamin D and lean non-alcoholic fatty liver disease: a nonlinear 'L-shaped' association in a national cross-sectional study.",
+      "abstract": "BACKGROUND: While the association between vitamin D and non-alcoholic fatty liver disease (NAFLD) is well-established in obese populations, its role in lean NAFLD remains controversial. OBJECTIVE: This study aimed to investigate the potential nonlinear dose-response relationship between serum 25-hydroxyvitamin D [25(OH)D] concentrations and lean NAFLD by leveraging large-scale data from the National Health and Nutrition Examination Survey (NHANES). METHODS: We conducted a cross-sectional analysis of 4,201 adults with BMI < 25 kg/m2. Lean NAFLD was defined using the US Fatty Liver Index (USFLI). The association between serum vitamin D and lean NAFLD was assessed employing multivariable logistic regression models, alongside more advanced techniques including restricted cubic splines (RCS) and generalized additive models (GAM) to capture potential nonlinearity. RESULTS: Initial linear models revealed no significant association. However, subsequent nonlinear analyses uncovered a pronounced 'L-shaped' curve relationship (P-nonlinear < 0.05). A segmented regression approach identified an inflection point at 60.3 nmol/L. Notably, at serum vitamin D levels below this threshold, concentrations were significantly inversely associated with lean NAFLD risk (Odds Ratio [OR] = 0.71, 95% Confidence Interval [CI]: 0.57-0.89). Conversely, above this inflection point, the inverse association attenuated and plateaued. The robustness of this nonlinear association was corroborated by the GAM analysis. CONCLUSION: This large-scale study is the first to identify a significant 'L-shaped' nonlinear association between serum vitamin D and lean NAFLD, wherein the association is most potent at concentrations below approximately 60 nmol/L. This finding highlights an epidemiological inflection point and underscores the need for nonlinear approaches in future research.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41758197/",
+      "research_domain": "contradictions-replication",
+      "category": "nonlinear_association_reanalysis",
+      "relevance_reason": "Shows how a null linear result and a positive nonlinear result can coexist, making model specification central to interpretation.",
+      "evidence_class": "human",
+      "study_design": "Cross-sectional NHANES analysis with nonlinear modeling",
+      "study_details": {
+        "n": 4201,
+        "bmi": "<25 kg/m2"
+      },
+      "population": "US adults with BMI below 25 kg/m²",
+      "intervention": "Observed serum 25-hydroxyvitamin D concentration",
+      "comparator": "Vitamin-D concentrations across the observed range",
+      "outcomes": [
+        "Initial linear model found no significant association",
+        "Nonlinear models found an L-shaped association below about 60.3 nmol/L",
+        "Association plateaued above the estimated inflection point"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Cross-sectional observational analysis; modeled inflection point requires replication; lean NAFLD was index-defined; no supplementation intervention.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Annals of medicine",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "abstract_sha256": "54912e443b5709bcf7efebe990e23345e0a352c6ba478189799dbfa9fd4817c2"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Shows how a null linear result and a positive nonlinear result can coexist, making model specification central to interpretation.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "serum vitamin D",
+          "predicate": "result_depends_on_nonlinear_model",
+          "object": "lean NAFLD association",
+          "context": "US adults with BMI below 25 kg/m²; Cross-sectional NHANES analysis with nonlinear modeling",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.000000000000001,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "62d78aef5e20e809e359",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42015544",
+      "title": "Individual responses to pomegranate juice on recovery from exercise-induced muscle damage in collegiate male volleyball players.",
+      "doi": "10.1080/15502783.2026.2642149",
+      "source_title": "Individual responses to pomegranate juice on recovery from exercise-induced muscle damage in collegiate male volleyball players.",
+      "abstract": "BACKGROUND: Volleyball demands frequent explosive, stretch-shortening muscle actions that elevate the risk for exercise-induced muscle damage (EIMD) and delayed-onset muscle soreness (DOMS). Polyphenol-rich pomegranate juice (POMj) has been proposed to aid recovery, yet evidence in highly trained team-sport athletes is limited. This study investigated whether short-term POMj enhances functional and isokinetic recovery following an EIMD protocol in collegiate male volleyball players and identified individual responders using the smallest worthwhile change (SWC) method. METHODS: Fourteen Tier-3 male collegiate volleyball players completed testing in a randomized, double-blind, placebo-controlled crossover design. The supplementation was 1000 mL of natural POMj (500 mL evening prior; 500 mL 2 h pre-EIMD protocol) or flavor-matched placebo (PLA). The EIMD protocol consisted of 200 weighted (10% body mass) maximal vertical jumps. The outcomes at baseline (BL) and 48 h post-EIMD included functional tests (vertical jump height, handgrip, medicine-ball throw, flexibility, wall-squat) and knee isokinetic/isometric contraction indices (extension/flexion at 30° s-1 and 180° s-1; MVIC at 45°). DOMS (VAS) was assessed at BL, 0, 12, 24, and 48 h. Repeated-measures ANOVA was used to test condition effects. The SWC was set to 0.2 × SD at BL to classify individual responders. RESULTS: ANOVA revealed a significant main effect of time for most variables (p < 0.05), indicating recovery or changes across 48 h; however, no significant between-condition differences (POMj vs. PLA) were observed for any functional or isokinetic parameter. Although the knee extensor peak torque at 180° s-1 significantly improved from baseline within the POMj (p = 0.002), this recovery was not statistically superior to that of the PLA (p = 1.000). Similarly, DOMS increased significantly over time (p = 0.001), with no significant difference between conditions. SWC analysis revealed higher responder proportions with POMj for selected 180° s-1 indices (e.g. knee extensor relative peak torque (RPT): ~86% POMj vs. ~64% PLA; absolute peak torque (APT): ~79% vs. ~71%), indicating practically meaningful individual benefits despite null mean differences. CONCLUSIONS: In highly trained male volleyball athletes, short-term POMj did not outperform placebo on group-mean recovery outcomes at 48 h post-EIMD; however, SWC-based analyses showed a higher proportion of meaningful responders with POMj in selected high-velocity isokinetic measures, supporting responder-focused evaluations of recovery nutraceuticals in sport-specific settings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42015544/",
+      "research_domain": "contradictions-replication",
+      "category": "pomegranate_responder_mean_conflict",
+      "relevance_reason": "Highlights conflict between null prespecified group means and favorable responder proportions, a common source of overinterpretation.",
+      "evidence_class": "human",
+      "study_design": "Randomized double-blind placebo-controlled crossover trial",
+      "study_details": {
+        "n": 14,
+        "population_level": "Tier-3 athletes",
+        "follow_up": "48 hours"
+      },
+      "population": "Male collegiate volleyball players",
+      "intervention": "1,000 mL natural pomegranate juice around an exercise-induced muscle-damage protocol",
+      "comparator": "Flavor-matched placebo",
+      "outcomes": [
+        "No significant between-condition difference for any group-mean functional or isokinetic outcome",
+        "No difference in delayed-onset muscle soreness",
+        "Responder analysis favored pomegranate for selected high-velocity measures"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Only 14 participants; crossover in highly trained men; responder analysis based on smallest worthwhile change is exploratory and does not overturn null mean comparisons.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_date": "2026Dec31",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "234f1e09d7511514c06666cb93d2966d03025dee2de797948da0afd27c7debba"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.8,
+        "contradiction": 1,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Highlights conflict between null prespecified group means and favorable responder proportions, a common source of overinterpretation.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "pomegranate juice",
+          "predicate": "null_group_mean_with_exploratory_responder_signal",
+          "object": "exercise-recovery performance",
+          "context": "Male collegiate volleyball players; Randomized double-blind placebo-controlled crossover trial",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.300000000000001,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "fcc14e454902e90b5662",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42035405",
+      "title": "Assessment of vitamin D levels in patients with alopecia areata: a case-control study in a Tertiary Care Hospital in North India.",
+      "doi": "10.1080/07853890.2026.2662780",
+      "source_title": "Assessment of vitamin D levels in patients with alopecia areata: a case-control study in a Tertiary Care Hospital in North India.",
+      "abstract": "INTRODUCTION: Alopecia Areata (AA) is a T-cell-mediated autoimmune disorder. Vitamin D acts as an immunomodulator potentially relevant to pathogenesis. Since data from North India remains limited, this study aimed to assess serum 25-hydroxyvitamin D [25(OH)D] levels in AA patients compared to matched controls and evaluate correlations with disease severity. METHODS: This hospital-based case-control study included 44 AA patients and 44 matched healthy controls. Disease severity was assessed using the Severity of Alopecia Tool (SALT) score. Serum 25(OH)D was measured using Chemiluminescence Immunoassay (CLIA). RESULTS: Median serum 25- hydroxyvitamin D was significantly lower in cases (17.10 ng/mL) versus controls (22.60 ng/mL; p = 0.015). Deficiency (<20 ng/mL) was observed in 54.55% of cases versus 38.64% of controls. Vitamin D deficiency increased the odds of AA by 3.22 times (OR: 3.22; 95% CI: 1.18-8.79; p = 0.022). Stratified analysis revealed a significant difference only among urban residents (p = 0.041). No significant correlation was found between Vitamin D levels and SALT scores (p = 0.442). CONCLUSIONS: Serum 25- hydroxyvitamin D deficiency is significantly associated with Alopecia Areata in this North Indian cohort, particularly among urban residents. Screening for deficiency may be a valuable addition to management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42035405/",
+      "research_domain": "contradictions-replication",
+      "category": "biomarker_outcome_discordance",
+      "relevance_reason": "Captures biomarker discordance: case-control association did not extend to within-disease severity.",
+      "evidence_class": "human",
+      "study_design": "Matched hospital case-control study",
+      "study_details": {
+        "cases": 44,
+        "controls": 44
+      },
+      "population": "North Indian patients with alopecia areata and matched controls",
+      "intervention": "Observed serum 25-hydroxyvitamin D status",
+      "comparator": "Alopecia areata cases versus healthy controls",
+      "outcomes": [
+        "Median vitamin D was lower in cases",
+        "Deficiency was associated with case status",
+        "Vitamin D level did not correlate with disease severity"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Small single-center observational study; reverse causation and confounding remain possible; association cannot support vitamin-D treatment claims.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Annals of medicine",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "abstract_sha256": "58da2a80c2f46fec5d0ba0ad3c2bbfe54f131e0ce2ba19c99e96904053cec719"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.7,
+        "contradiction": 0.8,
+        "novelty": 0.6,
+        "graph_connectivity": 0.7
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Captures biomarker discordance: case-control association did not extend to within-disease severity.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "serum vitamin D",
+          "predicate": "associated_with_presence_but_not_severity",
+          "object": "alopecia areata presence and severity",
+          "context": "North Indian patients with alopecia areata and matched controls; Matched hospital case-control study",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "b3336026b68342aec050",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42152771",
+      "title": "Effects of carbohydrate-electrolyte solutions with and without L-menthol on hydration and performance recovery following simulated firefighting exercise.",
+      "doi": "10.1080/15502783.2026.2676193",
+      "source_title": "Effects of carbohydrate-electrolyte solutions with and without L-menthol on hydration and performance recovery following simulated firefighting exercise.",
+      "abstract": "BACKGROUND: Firefighting tasks performed in full protective equipment (PPE) impose extreme thermal and physical strain, providing a model of high-intensity exercise with substantial fluid and electrolyte loss. This study compared the effects of plain water (W), a carbohydrate-electrolyte solution (CES), and a menthol-supplemented carbohydrate-electrolyte solution (MCES) on hydration and performance recovery during the first hour of post-exercise recovery. METHODS: Twenty-four male firefighters completed a standardized simulated firefighting protocol in protective clothing. Participants were randomly assigned to W, CES, or MCES (n = 8 each) and consumed 1.0 L of fluid during 60 minutes of recovery. Hydration status was evaluated using body-mass restoration, salivary osmolality, urine specific gravity, urine color, and urinary electrolytes. Renal markers, lactate clearance, cardiovascular and thermal responses, thirst ratings, and lower-limb explosive power were also assessed. RESULTS: Body mass restoration showed significant group effects, with MCES greater than W and CES at 60 min (p < 0.05). Rehydration rate was higher for both CES and MCES than W (p < 0.05). Salivary osmolality and urinary sodium favored electrolyte solutions over water (p < 0.05), while urine specific gravity was lower in MCES compared with W and CES (p < 0.05). Blood urea nitrogen and BUN/creatinine ratios were higher in W than both electrolyte conditions at 30 and 60 min (p < 0.05). Lactate clearance was reduced in W compared with CES and MCES (p < 0.05). Jump height declined from pre- to post-recovery in the W and CES groups but was maintained within the MCES group. CONCLUSIONS: Carbohydrate-electrolyte solutions improved hydration compared with water. L-menthol did not enhance rehydration but maintained explosive performance, supporting its role as a perceptual adjunct to electrolyte strategies for recovery after exercise in protective clothing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42152771/",
+      "research_domain": "contradictions-replication",
+      "category": "rehydration_adjunct_endpoint_discordance",
+      "relevance_reason": "Separates a null menthol rehydration effect from a possible performance-maintenance signal.",
+      "evidence_class": "human",
+      "study_design": "Randomized parallel-group controlled trial",
+      "study_details": {
+        "n": 24,
+        "groups": 3,
+        "duration": "60-minute recovery"
+      },
+      "population": "Male firefighters after simulated firefighting in protective equipment",
+      "intervention": "Carbohydrate-electrolyte solution with L-menthol",
+      "comparator": "Carbohydrate-electrolyte solution without menthol and plain water",
+      "outcomes": [
+        "Electrolyte solutions improved several hydration measures versus water",
+        "L-menthol did not further improve rehydration",
+        "Menthol condition maintained jump height"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Eight participants per group; male occupational sample; short recovery window; multiple hydration and performance endpoints; no long-term safety assessment.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_date": "2026Dec31",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "64ebdad9890e12934cce15373726bc9d18d44c7cbffad30201134088dc315f6b"
+      },
+      "signals": {
+        "safety": 0.2,
+        "evidence_gap": 0.7,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Separates a null menthol rehydration effect from a possible performance-maintenance signal.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "L-menthol added to electrolyte solution",
+          "predicate": "null_for_rehydration_but_signal_for_performance",
+          "object": "rehydration and explosive-performance recovery",
+          "context": "Male firefighters after simulated firefighting in protective equipment; Randomized parallel-group controlled trial",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.099999999999999,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "272cc57c52f419039776",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42281243",
+      "title": "Contrasting dietary patterns remodel gut microbial function and generate multi-omic signatures associated with cardiometabolic markers.",
+      "doi": "10.1080/19490976.2026.2685381",
+      "source_title": "Contrasting dietary patterns remodel gut microbial function and generate multi-omic signatures associated with cardiometabolic markers.",
+      "abstract": "Diet is a modifiable determinant of gut microbiome composition, yet the impact of contrasting whole-dietary patterns on microbial metabolic capacity and coordinated host metabolic signatures remains incompletely characterized. In a randomized crossover feeding trial, 34 Australian adults were provided with a Healthy Australian Diet (HAD), aligned with national dietary guidelines, and a Typical Australian Diet (TAD), reflecting average population intake for two weeks each, separated by a two-week washout. Fecal microbiome composition and function were assessed using shotgun metagenomics, plasma and urine metabolites by untargeted metabolomics, with cardiometabolic markers including blood pressure, plasma lipids, and glucose quantified. HAD was associated with reduced taxonomic and functional alpha diversity relative to baseline, with no change following TAD. Species-level responses were modest, 105 functional pathways differed between diets, with 99 increasing following HAD, predominantly related to amino acid and nucleotide biosynthesis and vitamin/cofactor metabolism. Multi-omic integration using DIABLO achieved strong discrimination of dietary responses (held-out accuracy 91.7%; permutation p = 0.005). In total, 77 individual omic feature-cardiometabolic outcome associations survived FDR correction (q < 0.05), spanning microbial gene functions, plasma metabolites, and urinary metabolites linked to cholesterol, blood pressure, and triglyceride responses. These exploratory findings suggest that integrated microbiome-metabolome profiling may capture inter-individual variation in dietary cardiometabolic responses, though replication in larger, independent, robustly designed studies is needed before translational personalized nutrition strategies can be assessed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42281243/",
+      "research_domain": "contradictions-replication",
+      "category": "diet_microbiome_replication",
+      "relevance_reason": "Challenges the assumption that a healthier diet must increase microbiome diversity and explicitly requires independent replication of exploratory multi-omic signatures.",
+      "evidence_class": "human",
+      "study_design": "Randomized crossover controlled feeding trial",
+      "study_details": {
+        "n": 34,
+        "duration": "2 weeks per diet with 2-week washout"
+      },
+      "population": "34 Australian adults",
+      "intervention": "Healthy Australian Diet versus Typical Australian Diet",
+      "comparator": "Each participant received both diets in crossover order",
+      "outcomes": [
+        "Healthy diet reduced alpha diversity despite increasing 99 of 105 diet-differing functional pathways",
+        "Species-level responses were modest",
+        "Seventy-seven multi-omic feature–cardiometabolic associations survived FDR correction"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Small short-duration feeding study; exploratory high-dimensional analyses; no independent replication; biomarkers are not clinical outcomes.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Gut microbes",
+        "publication_date": "2026Dec31",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "16172aa9d57b3b17e4f48ae23d692e01d4924c4d021e004014b5597d9e171884"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.7,
+        "contradiction": 0.8,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Challenges the assumption that a healthier diet must increase microbiome diversity and explicitly requires independent replication of exploratory multi-omic signatures.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "whole-diet pattern",
+          "predicate": "reports_mixed_effects_on",
+          "object": "gut microbiome diversity and cardiometabolic multi-omics",
+          "context": "34 Australian adults; Randomized crossover controlled feeding trial",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.6,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "adaf1983da3679c2e828",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42351362",
+      "title": "Transdermal versus oral hormone replacement therapy and bone mass density in Turner syndrome patients: a pilot study.",
+      "doi": "10.1080/09513590.2026.2692740",
+      "source_title": "Transdermal versus oral hormone replacement therapy and bone mass density in Turner syndrome patients: a pilot study.",
+      "abstract": "OBJECTIVE: Women with Turner syndrome (TS) are at increased risk of reduced bone mineral density (BMD) due to primary ovarian insufficiency. This study aimed to assess longitudinal changes in BMD in TS patients receiving oral or transdermal hormone replacement therapy (HRT) and to identify factors associated with bone density decline. METHODS: This retrospective pilot study included 40 TS patients treated with oral or transdermal estradiol. The median age was 22 years in both the transdermal (20-30) and oral (20-27) groups. Median BMI was 23.1 (21.1-25.5) and 25.4 (22.1-29.1), respectively. Dual-energy X-ray absorptiometry (DEXA) of the lumbar spine and femoral neck was performed at baseline and follow-up. The primary outcome was the t-score at both sites. Univariable and multivariable logistic regression analyses were used to identify factors associated with declining t-scores. RESULTS: At baseline, 38.3% of patients had osteopenia, and 3.3% had osteoporosis. During follow-up, a decline in t-scores at at-least one skeletal site was observed in 47.5% of patients. No significant differences were found between oral and transdermal estradiol therapy regarding absolute t-scores, t-score changes, or the proportion of patients with declining t-scores (all p > 0.05). In multivariable analysis, lower vitamin D levels at follow-up were independently associated with declining t-scores. CONCLUSIONS: In TS patients, the route of estradiol administration did not significantly affect long-term BMD outcomes. Despite HRT, a substantial proportion of patients experienced bone loss. Vitamin D status has emerged as the most relevant modifiable factor associated with declining BMD, highlighting the need for bone health management beyond HRT.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42351362/",
+      "research_domain": "contradictions-replication",
+      "category": "route_comparison_null",
+      "relevance_reason": "Tests a plausible route-of-administration difference and reports no comparative bone-density advantage, while identifying an observational vitamin-D association.",
+      "evidence_class": "human",
+      "study_design": "Retrospective longitudinal comparative pilot study",
+      "study_details": {
+        "n": 40
+      },
+      "population": "Young women with Turner syndrome receiving hormone replacement therapy",
+      "intervention": "Transdermal estradiol",
+      "comparator": "Oral estradiol",
+      "outcomes": [
+        "No significant route difference in absolute bone-density scores",
+        "No route difference in score changes or declining-score proportion",
+        "Lower follow-up vitamin D was associated with declining scores"
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Small retrospective pilot; nonrandomized treatment selection; residual confounding; vitamin-D association does not establish supplementation benefit.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Gynecological endocrinology : the official journal of the International Society of Gynecological Endocrinology",
+        "publication_date": "2026Dec31",
+        "publication_types": [
+          "Journal Article",
+          "Comparative Study"
+        ],
+        "abstract_sha256": "bcebe0a129762f06340b047817d1192dfe0a546a4462f69b589c726e1f180b11"
+      },
+      "signals": {
+        "safety": 0.2,
+        "evidence_gap": 0.6,
+        "contradiction": 0.8,
+        "novelty": 0.6,
+        "graph_connectivity": 0.6
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Tests a plausible route-of-administration difference and reports no comparative bone-density advantage, while identifying an observational vitamin-D association.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "estradiol administration route",
+          "predicate": "reports_no_route_difference_for",
+          "object": "bone mineral density in Turner syndrome",
+          "context": "Young women with Turner syndrome receiving hormone replacement therapy; Retrospective longitudinal comparative pilot study",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 5.999999999999999,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "493d101fc369643f565e",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42364383",
+      "title": "Does future-oriented imagery rescripting increase willingness to carry out a social anxiety-related behavioral experiment? An extended replication.",
+      "doi": "10.1016/j.jbtep.2026.102124",
+      "source_title": "Does future-oriented imagery rescripting increase willingness to carry out a social anxiety-related behavioral experiment? An extended replication.",
+      "abstract": "BACKGROUND AND OBJECTIVES: Mental images of threat are common in social anxiety disorder and could impede exposure to fear-relevant situations. Landkroon et al. (2022) found that imagery rescripting of anticipated future threat, compared to no-task, increases willingness of non-clinical individuals to conduct a social anxiety-related behavioral experiment. The aim of this two-day preregistered extended replication study was to examine whether the effects persist beyond the intervention session by scheduling the behavioral experiment 1-7 days after the intervention. METHODS: On Day 1, 60 pre-screened participants were asked to design a behavioral experiment to test an idiosyncratic negative belief about a feared social situation. They were then randomly assigned to imagery rescripting (focused on their worst feared outcome of the behavioral experiment) or no-task. Participants' willingness to do the behavioral experiment and their threat beliefs was measured. On Day 2, they were asked to carry out the behavioral experiment. RESULTS: The imagery rescripting group, compared to the control group, did not show increased willingness or compliance to do the behavioral experiment on Day 1 or 2. Furthermore, the imagery rescripting did not lead to greater reductions in threat beliefs on either day. LIMITATIONS: The quality of the imagery rescripting intervention was not assessed, and given the brief nature of the intervention, any effects may have dissipated before participants decided whether to carry out the behavioral experiment. CONCLUSIONS: There was no evidence that imagery rescripting leads to changes in willingness or compliance to do a fear-relevant behavioral experiment. More research is needed to examine interventions that can enhance exposure in socially anxious people.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42364383/",
+      "research_domain": "contradictions-replication",
+      "category": "imagery_rescripting_nonreplication",
+      "relevance_reason": "Extended replication failed to reproduce the earlier increase in willingness to perform a social-anxiety behavioral experiment.",
+      "evidence_class": "human",
+      "study_design": "Preregistered randomized extended replication",
+      "study_details": {
+        "n": 60,
+        "duration": "2 days with behavior scheduled 1-7 days later"
+      },
+      "population": "Pre-screened nonclinical participants with feared social situations",
+      "intervention": "Future-oriented imagery rescripting",
+      "comparator": "No-task control",
+      "outcomes": [
+        "No increase in willingness on either day",
+        "No increase in behavioral-experiment compliance",
+        "No greater reduction in threat beliefs"
+      ],
+      "conclusion_direction": "null",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Nonclinical sample; intervention fidelity was not assessed; brief intervention and delayed behavior may have attenuated effects.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of behavior therapy and experimental psychiatry",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "ddbd875c07fd8d62d2319c91daa5dd677fe3608032d6b555e4d8502e922b2a44"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 0.8,
+        "contradiction": 1,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Extended replication failed to reproduce the earlier increase in willingness to perform a social-anxiety behavioral experiment.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "future-oriented imagery rescripting",
+          "predicate": "does_not_replicate_prior_effect",
+          "object": "willingness and compliance with social exposure",
+          "context": "Pre-screened nonclinical participants with feared social situations; Preregistered randomized extended replication",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.8,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "1b293ef65869b005249d",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42435864",
+      "title": "Is everyone looking at me? The perception of direct gaze as a potential cognitive marker in social anxiety and its moderation by emotional expression.",
+      "doi": "10.1016/j.jad.2026.122242",
+      "source_title": "Is everyone looking at me? The perception of direct gaze as a potential cognitive marker in social anxiety and its moderation by emotional expression.",
+      "abstract": "The \"Cone of Gaze\" (CoG), a measure of the range of gaze angles that one perceives to be looking at them, has been proposed as a biobehavioural marker of psychiatric disorders characterised by symptoms in the social domain, such as social anxiety disorder. However, the evidence remains inconsistent and its mechanisms unclear. Here, we combine meta-analysis and well-powered experimental replications to investigate: 1) individual differences in the CoG between those with and without social anxiety; 2) within-subjects differences in the CoG in response to faces with angry versus neutral expressions; and 3) the interaction between these factors. The meta-analyses revealed significantly wider CoG for socially anxious versus non-anxious individuals (representing 10 studies and 403 participants), and wider CoG for angry versus neutral expressions (9 studies, 523 participants). However, the existing evidence was sparse, highly heterogeneous and often involved small samples. Our experiments (N = 514) did not replicate the effect of social anxiety or emotional expression on CoG. Our integrated approach, combining meta-analyses with experimental replications and extensions, provides a rigorous framework for assessing the robustness and clinical relevance of gaze perception effects. We highlight the need for larger, more transparent datasets to accurately estimate CoG effects and other putative markers to assess their translational potential.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42435864/",
+      "research_domain": "contradictions-replication",
+      "category": "social_anxiety_marker_nonreplication",
+      "relevance_reason": "High-value nonreplication: pooled historical effects were not reproduced in larger experiments using the same proposed cognitive marker.",
+      "evidence_class": "review",
+      "study_design": "Meta-analysis plus preregistered well-powered experimental replications",
+      "study_details": {
+        "meta_social_anxiety_n": 403,
+        "meta_expression_n": 523,
+        "replication_n": 514
+      },
+      "population": "Participants with varying social-anxiety levels in gaze-perception studies",
+      "intervention": "Cone-of-gaze tasks using angry and neutral faces",
+      "comparator": "Socially anxious versus non-anxious participants; angry versus neutral expressions",
+      "outcomes": [
+        "Meta-analysis suggested wider cone of gaze with social anxiety and angry faces",
+        "New experiments did not replicate either effect",
+        "Prior evidence was sparse, heterogeneous, and often underpowered"
+      ],
+      "conclusion_direction": "negative",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Task and sampling differences may explain discordance; marker validity does not equal treatment evidence; full protocol comparability needs independent audit.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of affective disorders",
+        "publication_date": "2026Dec01",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis"
+        ],
+        "abstract_sha256": "7556da800cf4d5fad9e109597dd0e4e95c498b23aa23def92075618a99409673"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 0.8,
+        "contradiction": 1,
+        "novelty": 0.9,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "High-value nonreplication: pooled historical effects were not reproduced in larger experiments using the same proposed cognitive marker.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "cone-of-gaze marker",
+          "predicate": "fails_to_replicate_prior_meta_analytic_effect",
+          "object": "social anxiety",
+          "context": "Participants with varying social-anxiety levels in gaze-perception studies; Meta-analysis plus preregistered well-powered experimental replications",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.1000000000000005,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "8c450e749d02593f086c",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42496042",
+      "title": "Differential linguistic patterns across Rorschach, TAT, and SCT in individuals with PTSD.",
+      "doi": "10.1080/20008066.2026.2700825",
+      "source_title": "Differential linguistic patterns across Rorschach, TAT, and SCT in individuals with PTSD.",
+      "abstract": "Background: While prior studies have examined linguistic markers of PTSD using everyday discourse or autobiographical narratives, comparative studies identifying specific markers across different projective personality tests remain limited.Objective: To investigate whether language features in projective personality tests differentiate individuals with PTSD from non-PTSD controls and assess their predictive value for symptom severity.Method: Verbatim transcripts from 283 participants (183 PTSD, 100 controls) across the Rorschach, TAT, and SCT were analysed using NLP across six categories: negative emotion, positive emotion, insight, causation, body-related, and self-focus. ANCOVAs with Bonferroni correction compared linguistic indicators between groups controlling for age and sex. Hierarchical regression analyses assessed predictive validity for symptom severity.Results: Following Bonferroni correction (α = .0028), four indicators showed significant group differences (ηp² = .036-.092): Rorschach Negative Emotion, SCT Positive Emotion, SCT Insight, and TAT Negative Emotion. In the PTSD group, TAT Negative Emotion was the strongest cross-symptom predictor of PTSD, depressive, and anxiety severity. Reduced Rorschach Body-related language and elevated SCT Insight were associated with greater symptom burden. TAT Positive Emotion negatively predicted symptom severity. In the non-PTSD group, SCT Self-Focus was the strongest predictor of PTSD-related severity, and SCT Positive Emotion negatively predicted anxiety. A sensitivity analysis revealed that SCT Positive Emotion and TAT Negative Emotion did not replicate under a more conservative Core Lexicon and should be treated as exploratory; only Rorschach Negative Emotion and SCT Insight were robust across lexicon configurations.Conclusions: Individuals meeting PTSD criteria showed reduced somatic language and elevated negative emotional expression, while self-referential processing and positive emotional expression emerged as salient markers in non-clinical individuals, though these differences should be interpreted cautiously given substantial demographic imbalances. These preliminary findings suggest that projective linguistic analysis may have potential as a supplementary approach in trauma-related research, pending external validation and replication in independent datasets.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42496042/",
+      "research_domain": "contradictions-replication",
+      "category": "ptsd_marker_replication",
+      "relevance_reason": "Directly distinguishes robust from non-replicating linguistic markers under an alternate analytic specification.",
+      "evidence_class": "human",
+      "study_design": "Cross-sectional comparative linguistic analysis with sensitivity analysis",
+      "study_details": {
+        "n": 283,
+        "ptsd": 183,
+        "controls": 100
+      },
+      "population": "Adults with PTSD and non-PTSD controls",
+      "intervention": "Rorschach, Thematic Apperception Test, and Sentence Completion Test language analysis",
+      "comparator": "PTSD versus non-PTSD groups and alternate lexicon specifications",
+      "outcomes": [
+        "Some linguistic markers differentiated groups",
+        "SCT positive emotion and TAT negative emotion did not replicate under a conservative lexicon",
+        "Only Rorschach negative emotion and SCT insight were robust across lexicon configurations"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Cross-sectional design; demographic imbalance; projective-test context; internal sensitivity analysis is not external replication.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "European journal of psychotraumatology",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "abstract_sha256": "d046f42a9ab2f34b28048eac358e48a1936542d08f66946e5aae63df44de943e"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 0.7,
+        "contradiction": 0.9,
+        "novelty": 0.7,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Directly distinguishes robust from non-replicating linguistic markers under an alternate analytic specification.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "projective-test linguistic markers",
+          "predicate": "partially_replicates_across_lexicons",
+          "object": "PTSD symptom classification",
+          "context": "Adults with PTSD and non-PTSD controls; Cross-sectional comparative linguistic analysis with sensitivity analysis",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.099999999999999,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "28ff32f14ae20e48f2ef",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42617247",
+      "title": "Effects of community-based daytime napping on cognitive performance and daytime functioning in adolescents with insufficient sleep - A field-based experimental study.",
+      "doi": "10.1016/j.sleep.2026.109210",
+      "source_title": "Effects of community-based daytime napping on cognitive performance and daytime functioning in adolescents with insufficient sleep - A field-based experimental study.",
+      "abstract": "STUDY OBJECTIVES: Insufficient sleep among adolescents is common and linked to adverse cognitive, emotional and functional outcomes. While daytime napping has been proposed as a compensatory strategy, evidence from real-world settings remains limited and mixed. We conducted a field-based experimental study to investigate the impact of a 30-min lunchtime nap opportunity in a community setting on cognitive performance and daytime functioning in adolescents with insufficient sleep. METHODS: Secondary school students aged 12 to 18 with insufficient sleep (average nocturnal sleep <7 h over the past month and scoring ≥15 on the Pediatric Daytime Sleepiness Scale) were recruited. Participants (N = 111, 54% female, mean age 15.7 years) were randomly assigned to a Nap-group (30-min lunchtime nap opportunity at a youth centre nearby their schools, N = 56) or a Wake-group (30-min quiet wake-resting in the same setting, N = 55). Assessments of sleepiness, mood, and cognitive performance were conducted on the same day at baseline, immediately after the nap/wake period, and in the afternoon. Nap sleep was monitored by actigraph. RESULTS: Compared with the Wake group, the Nap-group reported significantly lower sleepiness, maintained positive affect, and demonstrated improved sustained attention. No significant between-group differences were observed for negative affect, inhibitory control, or emotional conflict control. Daytime nap did not negatively affect subsequent nocturnal sleep. CONCLUSIONS: A brief, community-based lunchtime nap can alleviate daytime impairments associated with insufficient sleep, without disrupting nocturnal sleep. Incorporating well-timed nap opportunities into school and community settings may represent a feasible, scalable strategy to support cognitive and emotional functioning in sleep-deprived youth.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42617247/",
+      "research_domain": "contradictions-replication",
+      "category": "nap_cognitive_domain_discordance",
+      "relevance_reason": "Shows endpoint specificity: benefits for sleepiness and sustained attention did not generalize to inhibitory or emotional control.",
+      "evidence_class": "human",
+      "study_design": "Randomized field-based controlled experiment",
+      "study_details": {
+        "n": 111,
+        "nap": "30 minutes",
+        "age": "12-18 years"
+      },
+      "population": "Adolescents with insufficient sleep and daytime sleepiness",
+      "intervention": "Community-based lunchtime nap opportunity",
+      "comparator": "Quiet wake-rest",
+      "outcomes": [
+        "Nap reduced subjective sleepiness",
+        "Nap improved sustained attention and maintained positive affect",
+        "No significant benefit for inhibitory control, emotional conflict control, or negative affect",
+        "No adverse effect on subsequent nocturnal sleep"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Single-day field experiment; nap opportunity rather than guaranteed sleep dose; sleepy adolescents only; no long-term academic outcome.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Sleep medicine",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "387e0309f929f524af668aadd823ee9df6f83fef716f8c3ec15ac7f9a247472c"
+      },
+      "signals": {
+        "safety": 0.2,
+        "evidence_gap": 0.7,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Shows endpoint specificity: benefits for sleepiness and sustained attention did not generalize to inhibitory or emotional control.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "brief daytime nap",
+          "predicate": "benefit_varies_by_cognitive_domain",
+          "object": "adolescent cognitive and emotional functioning",
+          "context": "Adolescents with insufficient sleep and daytime sleepiness; Randomized field-based controlled experiment",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.099999999999999,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "e9ce763c49fcdea7f3e2",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42648054",
+      "title": "Functional neuroimaging subtypes of obsessive-compulsive disorder: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.pscychresns.2026.112312",
+      "source_title": "Functional neuroimaging subtypes of obsessive-compulsive disorder: A systematic review and meta-analysis.",
+      "abstract": "Obsessive-compulsive disorder (OCD) exhibits substantial clinical heterogeneity that may reflect underlying neurobiological diversity. Neuroimaging-based subtyping may advance precision psychiatry by identifying biologically distinct subgroups with differential treatment responses. This study systematically synthesized evidence from functional neuroimaging subtyping studies in OCD to identify reproducible neurobiological subtypes, characterize their clinical profiles, and establish a consensus-based classification framework. We reviewed 40 original studies employing machine learning, clustering, normative modeling, or classification approaches, encompassing approximately 8,150 patients. Consensus clustering identified three reproducible neurobiological subtypes. The Limbic-Hyperactive subtype, comprising approximately 40% of patients, exhibited amygdala and insula hyperconnectivity, elevated anxiety levels, predominant contamination and washing symptoms, and favorable response to cognitive-behavioral therapy. The Fronto-Striatal-Hypoconnected subtype, comprising approximately 35% of patients, demonstrated reduced orbitofrontal-striatal connectivity, cognitive inflexibility, predominant checking and ordering symptoms, and a favorable response to selective serotonin reuptake inhibitors. The Global-Disrupted subtype, comprising approximately 25% of patients, exhibited widespread connectivity disruption, greater symptom severity, and poor treatment response. Support vector machine classification achieved 81.5% accuracy for subtype assignment, though classification of OCD versus healthy controls showed limited generalizability in multisite settings (AUC 0.567-0.673). These findings support a neuroimaging-based framework for personalized treatment selection but require prospective validation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42648054/",
+      "research_domain": "contradictions-replication",
+      "category": "neuroimaging_generalizability_gap",
+      "relevance_reason": "Contrasts high internal subtype assignment with weak multisite diagnostic generalizability.",
+      "evidence_class": "review",
+      "study_design": "Systematic review and meta-analysis of neuroimaging subtyping studies",
+      "study_details": {
+        "studies": 40,
+        "patients": "approximately 8,150"
+      },
+      "population": "Patients with obsessive-compulsive disorder",
+      "intervention": "Functional-neuroimaging subtyping and machine-learning classification",
+      "comparator": "Subtype assignment versus multisite OCD-control classification",
+      "outcomes": [
+        "Three consensus subtypes were reported",
+        "Subtype assignment accuracy was 81.5%",
+        "OCD-versus-control generalizability was limited in multisite settings with AUC 0.567-0.673",
+        "Prospective validation is required"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Heterogeneous imaging pipelines; consensus subtypes are not prospectively validated; treatment-response associations may be confounded or retrospective.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Psychiatry research. Neuroimaging",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "abstract_sha256": "e7e53575d8066e192d55e0d68c769747f6e14339fffbae586ebf914c3b1cc784"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Contrasts high internal subtype assignment with weak multisite diagnostic generalizability.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "functional-neuroimaging subtypes",
+          "predicate": "internal_accuracy_exceeds_multisite_generalizability",
+          "object": "OCD classification and treatment stratification",
+          "context": "Patients with obsessive-compulsive disorder; Systematic review and meta-analysis of neuroimaging subtyping studies",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.700000000000001,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "ea02151e7d1319654ed7",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42648555",
+      "title": "Baseline emotional distress predicts psychological response to a social media reduction intervention in distressed youth: a precision mental health approach.",
+      "doi": "10.1016/j.jad.2026.122426",
+      "source_title": "Baseline emotional distress predicts psychological response to a social media reduction intervention in distressed youth: a precision mental health approach.",
+      "abstract": "Reducing social media use (SMU) leads to small reductions in anxiety and depressive symptoms. However, most studies have been conducted with healthy populations, which may limit observed effects due to floor effects rather than indicating a weak causal link. Youth with elevated anxiety and depression symptoms may be more vulnerable to social media harms and benefit more from reduction, but experimental evidence remains limited for symptomatic samples. The present study examined whether youth with elevated symptoms of anxiety and depression show greater psychological benefits from reducing SMU compared to those with sub-threshold symptoms. A total of 218 out of 260 participants who were randomized to an intervention (reduce SMU to 1 h/day) or control group (no SMU restriction) for three weeks were analysed. Depressive and anxiety symptoms were assessed using CES-D and GAD-7 scales, respectively. At baseline, 75% and 46% of the sample scored above the clinical thresholds for elevated depressive and anxiety symptoms, respectively. Mixed models indicated that baseline anxiety levels moderated the intervention response. Participants above the clinical threshold exhibited significantly greater and clinically meaningful reductions in anxiety symptoms relative to controls compared to those below the threshold. Baseline depressive symptoms severity did not moderate intervention response. Results underscore the strong causal relationship between SMU and anxiety symptoms and suggest that reducing SMU may represent a potential component in the management of anxiety disorders in youth. The intervention reduced depressive symptoms overall, but findings on baseline symptom severity as a moderator of response were inconclusive and require replication.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42648555/",
+      "research_domain": "contradictions-replication",
+      "category": "digital_intervention_effect_heterogeneity",
+      "relevance_reason": "Tests whether small average social-media effects conceal clinically relevant subgroup response heterogeneity; depression moderation requires replication.",
+      "evidence_class": "human",
+      "study_design": "Randomized controlled intervention with moderator analysis",
+      "study_details": {
+        "randomized": 260,
+        "analyzed": 218,
+        "duration": "3 weeks"
+      },
+      "population": "Youth with a range of baseline anxiety and depressive symptoms",
+      "intervention": "Reduce social-media use to 1 hour per day",
+      "comparator": "No social-media restriction",
+      "outcomes": [
+        "Baseline anxiety moderated response",
+        "Above-threshold anxiety subgroup had larger anxiety reduction relative to controls",
+        "Depressive-symptom moderation was inconclusive"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Short intervention; 42 randomized participants excluded from analysis; symptom thresholds are not diagnoses; moderator result may not generalize.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of affective disorders",
+        "publication_date": "2026Dec15",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "efc39d11cbd2bf44ae8631959a95ec2d57e1703cb8a115de769579ca9b73b246"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.7,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Tests whether small average social-media effects conceal clinically relevant subgroup response heterogeneity; depression moderation requires replication.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "social-media reduction",
+          "predicate": "effect_modified_by_baseline_distress",
+          "object": "anxiety and depressive symptoms",
+          "context": "Youth with a range of baseline anxiety and depressive symptoms; Randomized controlled intervention with moderator analysis",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.7,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "e67b393041fa1a169273",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42655960",
+      "title": "What do we know about redox status? A review in neonates of mothers with preeclampsia.",
+      "doi": "10.1080/07853890.2026.2688414",
+      "source_title": "What do we know about redox status? A review in neonates of mothers with preeclampsia.",
+      "abstract": "BACKGROUND: Preeclampsia (PE) is a leading cause of maternal and perinatal morbimortality worldwide, driven by oxidative stress from an imbalance between reactive oxygen and nitrogen species and antioxidant defenses. Neonates born to mothers with PE face an oxidized intrauterine environment, yet their antioxidant response and potential therapeutic strategies remain insufficiently characterized. METHODS: A literature review was conducted searching PubMed, Redalyc, CORE, and Google Scholar for English-language papers using keywords including oxidative stress, preeclampsia, neonatal outcomes, antioxidant defence, NRF2, polysulfides, and antioxidant supplementation. RESULT: Neonates from mothers with PE exhibit elevated lipid peroxidation markers (conjugated dienes, lipohydroperoxides, malondialdehyde) yet show compensatory increases in total antioxidant capacity. The neonate's antioxidant defense system is summarized, including its enzymatic components superoxide dismutase (SOD), glutathione peroxidase (GPx), catalase (CAT), and non-enzymatic factors, with a particular focus on novel reducing molecules known as polysulfides. Investigation into persulfides and polysulfides is not merely supplementary but essential, as these emerging redox species represent a promising and potentially superior therapeutic frontier for mitigating oxidative damage. The article also discusses contradictory findings on the impact of antioxidant interventions for PE, highlighting the inherent challenges of clinical trials in this population. We examine the potential therapeutic role of the transcription factor NRF2, alongside concerns about possible side effects. CONCLUSIONS: Current antioxidant supplementation for PE has proven largely ineffective or harmful. Persulfides and polysulfides emerge as a potentially superior antioxidant frontier for neonatal protection, warranting dedicated investigation. Well-designed clinical trials are urgently needed to evaluate the safety and efficacy of novel antioxidant strategies for improving neonatal outcomes in PE.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42655960/",
+      "research_domain": "contradictions-replication",
+      "category": "antioxidant_intervention_conflict",
+      "relevance_reason": "Preserves the conflict between mechanistic antioxidant rationale and largely ineffective or harmful clinical supplementation findings.",
+      "evidence_class": "review",
+      "study_design": "Narrative literature review",
+      "study_details": {
+        "population_focus": "Neonates born to mothers with preeclampsia"
+      },
+      "population": "Neonates of mothers with preeclampsia",
+      "intervention": "Antioxidant supplementation and proposed redox-targeted strategies",
+      "comparator": "Heterogeneous clinical and mechanistic evidence",
+      "outcomes": [
+        "Existing antioxidant supplementation was characterized as largely ineffective or harmful",
+        "Neonatal oxidative markers and compensatory antioxidant responses varied",
+        "Persulfides and polysulfides remain untested therapeutic hypotheses"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Narrative rather than systematic review; heterogeneous maternal and neonatal evidence; proposed alternatives lack dedicated clinical trials.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Annals of medicine",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Review",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "abstract_sha256": "1be16b58842fcc0e245770701d8f20f1d7f794579c075db3444487b065d46467"
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.7,
+        "graph_connectivity": 0.7
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Preserves the conflict between mechanistic antioxidant rationale and largely ineffective or harmful clinical supplementation findings.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "antioxidant supplementation",
+          "predicate": "mechanistic_rationale_conflicts_with_clinical_results",
+          "object": "preeclampsia-associated neonatal outcomes",
+          "context": "Neonates of mothers with preeclampsia; Narrative literature review",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 9.5,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "d5449b51209c3480a243",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42659814",
+      "title": "Effectiveness of a novel microprocessor-controlled prosthetic ankle compared with conventional and microprocessor-controlled prosthetic ankles in individuals with unilateral transtibial amputation: A multicentre randomised crossover study.",
+      "doi": "10.1016/j.gaitpost.2026.110625",
+      "source_title": "Effectiveness of a novel microprocessor-controlled prosthetic ankle compared with conventional and microprocessor-controlled prosthetic ankles in individuals with unilateral transtibial amputation: A multicentre randomised crossover study.",
+      "abstract": "BACKGROUND: Microprocessor-controlled prosthetic ankles have been developed to improve gait biomechanics in individuals with transtibial amputation; however, comparative biomechanical evidence across devices with different functional mechanisms remains limited. This study evaluated the biomechanical and metabolic effects of a newly developed motor-driven microprocessor-controlled ankle, RoFT® (MPA-2), compared with each participant's everyday conventional prosthetic ankle (CPA) and a commercially available microprocessor-controlled ankle, Meridium® (MPA-1). METHODS: Eighteen individuals with unilateral transtibial amputation participated in this multicentre study. Each participant's everyday CPA was assessed as the baseline condition, after which MPA-1 and MPA-2 were evaluated in a randomised crossover sequence. Each MPA was used for a two-week adaptation period, with a two-week washout period between MPA conditions. Three-dimensional gait analysis was performed to evaluate spatiotemporal, kinematic, kinetic, ground reaction force and symmetry index parameters. Cardiopulmonary exercise testing during treadmill walking assessed metabolic energy expenditure. RESULTS: MPA-2 produced greater amputated-limb ankle range of motion and peak positive ankle power, the primary outcome, than CPA and MPA-1. Propulsion-related anterior-posterior ground reaction force parameters were higher with MPA-2 than with MPA-1 but did not differ significantly from CPA. Intact-limb first peak vertical ground reaction force was lower with MPA-2 than with CPA. MPA-2 improved ankle power-generation symmetry, whereas propulsion impulse symmetry was poorer with MPA-1. Metabolic energy expenditure did not differ significantly among prosthetic conditions. SIGNIFICANCE: The RoFT® MPA showed favourable biomechanical effects on ankle power, propulsion-related mechanics, and selected measures of interlimb symmetry, although these biomechanical changes were not accompanied by reduced metabolic energy expenditure.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42659814/",
+      "research_domain": "contradictions-replication",
+      "category": "biomechanical_metabolic_endpoint_discordance",
+      "relevance_reason": "Biomechanical improvements did not replicate as a metabolic-efficiency benefit, illustrating noninterchangeable endpoints.",
+      "evidence_class": "human",
+      "study_design": "Multicenter randomized crossover comparative study",
+      "study_details": {
+        "n": 18,
+        "adaptation": "2 weeks per microprocessor ankle",
+        "washout": "2 weeks"
+      },
+      "population": "Adults with unilateral transtibial amputation",
+      "intervention": "Motor-driven microprocessor-controlled prosthetic ankle",
+      "comparator": "Conventional ankle and a different microprocessor-controlled ankle",
+      "outcomes": [
+        "Selected ankle-power and symmetry measures improved",
+        "Propulsion effects were comparator-dependent",
+        "Metabolic energy expenditure did not differ among conditions"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Very small sample; short adaptation; device-specific findings; laboratory gait and energy measures may not predict daily function.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Gait & posture",
+        "publication_date": "2027Jan",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "abstract_sha256": "7285eff7e6e5a853b0b6e7102809352e919905496874928a3064bbb71d72b05f"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.7,
+        "contradiction": 0.8,
+        "novelty": 0.7,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Biomechanical improvements did not replicate as a metabolic-efficiency benefit, illustrating noninterchangeable endpoints.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "microprocessor-controlled prosthetic ankle",
+          "predicate": "improves_biomechanics_without_metabolic_benefit",
+          "object": "biomechanics versus metabolic expenditure",
+          "context": "Adults with unilateral transtibial amputation; Multicenter randomized crossover comparative study",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.3,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "339df481454717b760b5",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42666511",
+      "title": "Association between fear of hypoglycemia and quality of life and sleep quality among individuals with diabetes: a systematic review and meta-analysis of observational studies.",
+      "doi": "10.1007/s40200-026-02057-5",
+      "source_title": "Association between fear of hypoglycemia and quality of life and sleep quality among individuals with diabetes: a systematic review and meta-analysis of observational studies.",
+      "abstract": "BACKGROUND: Fear of hypoglycemia (FoH) is a prevalent psychological concern among individuals with diabetes and may adversely affect self-care behaviors, glycemic control, and emotional well-being. This systematic review and meta-analysis aimed to quantitatively evaluate the associations between FoH and both quality of life (QoL) and sleep quality among individuals with diabetes. METHODS: In accordance with the PRISMA 2020 guidelines, a comprehensive literature search was conducted in PubMed, Embase, PsycINFO, CINAHL and Web of Science from database inception through June 26, 2026. Eligible studies were identified using the PECO-S framework (Population, Exposure, Comparison, Outcome, and Study Design). Two independent reviewers screened titles, abstracts, and full texts, with disagreements resolved through consultation with a third reviewer. Methodological quality was assessed using the Newcastle-Ottawa Scale (NOS). Pooled effect sizes were synthesized primarily from unadjusted (crude) correlation coefficients. RESULTS: After screening 4,446 records, 20 studies were included in the systematic review, and 13 were included in the meta-analysis. Five studies assessed sleep quality, all of which were included in the meta-analysis, whereas eight studies assessed QoL, of which only four were eligible for quantitative synthesis. The pooled analysis showed a negative association between FoH and QoL (r = -0.49; 95% CI: -0.58 to -0.40; I² = 90.8%) and a positive association between FoH and poorer sleep quality (r = 0.36; 95% CI: 0.28 to 0.44; I² = 70.4%). CONCLUSION: Fear of hypoglycemia was significantly associated with poorer quality of life and impaired sleep quality among individuals with diabetes. However, the very high heterogeneity observed in the quality-of-life analysis, together with the predominance of cross-sectional observational studies, limits confidence in the pooled estimates and precludes causal inference. Further well-designed longitudinal studies are warranted to clarify the temporal relationships. SUPPLEMENTARY INFORMATION: The online version contains supplementary material available at https://doi.org/10.1007/s40200-026-02057-5.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42666511/",
+      "research_domain": "contradictions-replication",
+      "category": "sleep_association_heterogeneity",
+      "relevance_reason": "Quantifies an association while explicitly preserving heterogeneity and the inability to infer whether fear causes sleep impairment.",
+      "evidence_class": "review",
+      "study_design": "Systematic review and meta-analysis of observational studies",
+      "study_details": {
+        "review_studies": 15,
+        "meta_sleep_studies": 5,
+        "meta_qol_studies": 4
+      },
+      "population": "People with diabetes",
+      "intervention": "Observed fear of hypoglycemia",
+      "comparator": "Variation in fear scores across observational cohorts",
+      "outcomes": [
+        "Fear was associated with poorer quality of life",
+        "Fear was associated with poorer sleep quality",
+        "Heterogeneity was high and causal direction could not be established"
+      ],
+      "conclusion_direction": "positive",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Predominantly cross-sectional observational evidence; few studies per pooled outcome; high heterogeneity; causal and temporal direction unknown.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of diabetes and metabolic disorders",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "abstract_sha256": "448dc9ea2c99522166b011e24703fde93fdcac3f8567fb2af3c0db45c972a75a"
+      },
+      "signals": {
+        "safety": 0.2,
+        "evidence_gap": 0.7,
+        "contradiction": 0.7,
+        "novelty": 0.6,
+        "graph_connectivity": 0.7
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Quantifies an association while explicitly preserving heterogeneity and the inability to infer whether fear causes sleep impairment.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "fear of hypoglycemia",
+          "predicate": "associated_with_without_causal_inference",
+          "object": "sleep quality in diabetes",
+          "context": "People with diabetes; Systematic review and meta-analysis of observational studies",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.199999999999999,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "905ab057b5f853f22628",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42677822",
+      "title": "Effects of carbohydrate mouth rinse on psychophysiological responses, kinematic variables and technical actions during small-sided soccer games.",
+      "doi": "10.1080/15502783.2026.2726524",
+      "source_title": "Effects of carbohydrate mouth rinse on psychophysiological responses, kinematic variables and technical actions during small-sided soccer games.",
+      "abstract": "BACKGROUND: This study investigated the effects of carbohydrate mouth rinsing (CHOMR) on various psychophysiological, kinematic, and technical actions during 4-a-side small-sided soccer games (SSGs). METHODS: In a randomized, crossover, double-blind design, 16 young male soccer players (age: 15 ± 1 years; height: 172.6 ± 7.0 cm; body mass: 57.8 ± 7.9 kg) participated in two 4-a-side SSGs separated by one week following either CHOMR or placebo (PLA). During each SSGs, heart rate (HRmean, %HR, and HRmax), rating of perceived exertion (RPE), enjoyment, visual analogue scale (VAS) to perceived mental fatigue, mood states, total distance (TD), high-speed running distance (HSRD), average metabolic power (AMP), high metabolic load distance (HMLD), sprint distance (SD), acceleration (ACC), deceleration (DEC), and technical actions (e.g. passing, tackling, shooting, and interceptions) were assessed. RESULTS: Compared with PLA, CHOMR resulted in significantly higher RPE (p = 0.025, g = 0.86) and significantly lower VAS scores (p = 0.010, g = -0.71). In addition, the CHOMR condition showed significantly higher values for interceptions, successful tackles, unsuccessful tackles, unsuccessful shots, and goals (p < 0.05, g = 0.96-2.02), whereas block values were significantly higher in the PLA condition. There were no statistically significant differences in HRmean, %HR, HRmax, enjoyment, TD, HSRD, AMP, HMLD, SD, ACC, DEC, successful passes, unsuccessful passes, successful shots, or mood states between the conditions (p > 0.05). CONCLUSION: The current study findings suggest that CHOMR may enhance selected technical actions and lower VAS scores during 4-a-side SSGs, although it was also associated with higher RPE and did not alter the kinematic responses. In conclusion, CHOMR was associated with higher RPE, lower mental fatigue, and selective improvements in technical actions, with no significant effects on kinematic variables or HR.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42677822/",
+      "research_domain": "contradictions-replication",
+      "category": "carbohydrate_mouth_rinse_endpoint_discordance",
+      "relevance_reason": "Selective technical and fatigue signals coexist with higher exertion and broad null kinematic, cardiovascular, and mood outcomes.",
+      "evidence_class": "human",
+      "study_design": "Randomized double-blind crossover trial",
+      "study_details": {
+        "n": 16,
+        "washout": "1 week"
+      },
+      "population": "Young male soccer players in 4-a-side small-sided games",
+      "intervention": "Carbohydrate mouth rinse",
+      "comparator": "Placebo mouth rinse",
+      "outcomes": [
+        "Lower perceived mental fatigue with carbohydrate rinse",
+        "Higher perceived exertion with carbohydrate rinse",
+        "Selected technical actions differed",
+        "No significant change in heart rate, running kinematics, most technical actions, or mood"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Small adolescent male sample; many outcomes; small-sided simulation rather than match performance; acute effects only.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_date": "2026Dec30",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "96c3fcef40a7652675cd564b5e73a023c4e6f7dd1270033ec03192f82dbbeedb"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Selective technical and fatigue signals coexist with higher exertion and broad null kinematic, cardiovascular, and mood outcomes.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "carbohydrate mouth rinse",
+          "predicate": "selective_effects_with_broad_null_endpoints",
+          "object": "soccer psychophysiology and performance",
+          "context": "Young male soccer players in 4-a-side small-sided games; Randomized double-blind crossover trial",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.000000000000001,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "e8e1123fc3ed9ed0eae7",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42678360",
+      "title": "Effects of continuous isomaltulose-containing gummy intake on interstitial glucose and salivary hormones during an 18-hole golf round: a randomized, double-blind controlled pilot study.",
+      "doi": "10.1080/15502783.2026.2723225",
+      "source_title": "Effects of continuous isomaltulose-containing gummy intake on interstitial glucose and salivary hormones during an 18-hole golf round: a randomized, double-blind controlled pilot study.",
+      "abstract": "BACKGROUND: Golf is a prolonged, moderate-intensity sport requiring sustained physiological stability to manage cumulative stress and maintain performance. Although carbohydrate intake is commonly used to reduce fatigue, rapidly absorbed sugar-induced rapid blood glucose fluctuations may induce volatile arousal and latent metabolic stress. Isomaltulose, a slow-digesting disaccharide, provides a steadier glucose supply compared with sucrose. This exploratory pilot study examined the effects of isomaltulose intake on physiological stress markers, glycemic dynamics, and subjective responses during a competitive 18-hole golf round. METHODS: Twenty-three male collegiate golfers were randomized to either the isomaltulose group (ISO; n = 12) or the sucrose group (CON; n = 11) in a double-blind controlled trial. Participants consumed gummies containing isomaltulose or sucrose immediately after each hole (12.1 g carbohydrate per hole; total carbohydrate intake: 217.5 g). Primary outcomes were salivary stress markers [cortisol, testosterone, and dehydroepiandrosterone sulfate (DHEAS)] levels. Secondary outcomes included interstitial glucose concentration measured via continuous glucose monitoring, subjective assessments (i.e. sleepiness, relaxation, and concentration), and golf performance (18-hole score). Between-group comparisons at each time point were conducted using planned Welch's t-tests. RESULTS: No significant between-group differences were observed for 18-hole score (p = 0.38) or mean interstitial glucose concentration (p = 0.20). However, exploratory analyses revealed distinct hormonal variations; salivary DHEAS and testosterone levels were higher in the ISO group during the latter half of the round (p < 0.05), whereas both declined in the CON group. Regarding glycemic variability, the ISO group demonstrated a more stable glucose profile with a medium effect size for lower standard deviation (ISO: 14.7 ± 1.9 vs. CON: 16.7 ± 4.6 mg/dL; d = 0.58), although this difference was not significant. Conversely, subjective outcomes diverged; the CON group reported significantly greater subjective arousal (wakefulness and relaxation) (p < 0.01) relative to the ISO group. CONCLUSIONS: In conclusion, continuous intake of isomaltulose-containing gummies during an 18-hole golf round was associated with differences in selected physiological markers, including DHEAS and testosterone concentrations. However, these findings were not accompanied by improvements in objective golf performance outcomes compared with sucrose-containing gummies. Isomaltulose may influence glycemic dynamics and hormonal responses during prolonged golf play; however, the practical significance of these effects remains exploratory. Further studies with larger sample sizes and appropriate repeated-measures frameworks are needed to determine whether such physiological changes translate into meaningful performance or recovery benefits.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42678360/",
+      "research_domain": "contradictions-replication",
+      "category": "isomaltulose_biomarker_performance_discordance",
+      "relevance_reason": "Physiological and hormonal signals did not translate into objective performance or mean-glucose benefits and subjective findings pointed in the opposite direction.",
+      "evidence_class": "human",
+      "study_design": "Randomized double-blind controlled pilot study",
+      "study_details": {
+        "n": 23,
+        "iso": 12,
+        "sucrose": 11,
+        "carbohydrate_total": "217.5 g during 18 holes"
+      },
+      "population": "Male collegiate golfers during a competitive 18-hole round",
+      "intervention": "Continuous isomaltulose-containing gummy intake",
+      "comparator": "Sucrose-containing gummies",
+      "outcomes": [
+        "No significant difference in golf score",
+        "No significant difference in mean interstitial glucose",
+        "Exploratory hormonal differences favored isomaltulose",
+        "Subjective arousal favored sucrose"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Small male-only pilot; very high carbohydrate exposure; planned time-point tests and exploratory biomarkers; no multiplicity-robust performance benefit.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_date": "2026Dec30",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "e2eeed6a1cd386b7ca4f2649c5498481a0f4c6f804863aee2e20deba48445921"
+      },
+      "signals": {
+        "safety": 0.2,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Physiological and hormonal signals did not translate into objective performance or mean-glucose benefits and subjective findings pointed in the opposite direction.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "isomaltulose versus sucrose",
+          "predicate": "biomarker_changes_without_performance_benefit",
+          "object": "golf performance, glycemia, and stress hormones",
+          "context": "Male collegiate golfers during a competitive 18-hole round; Randomized double-blind controlled pilot study",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.3999999999999995,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "e5f4604814af3c6e249d",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42680119",
+      "title": "The effect of vortioxetine on cognitive function in older adults with major depressive disorder: A systematic review.",
+      "doi": "10.1016/j.jad.2026.122421",
+      "source_title": "The effect of vortioxetine on cognitive function in older adults with major depressive disorder: A systematic review.",
+      "abstract": "BACKGROUND: Cognitive impairment is a persistent feature of late-life depression, contributing to functional decline and complicating differentiation from early neurocognitive disorders. Conventional antidepressants often demonstrate limited direct procognitive effects. Vortioxetine, a multimodal antidepressant, has been proposed to improve depressive symptoms and cognitive functioning, but its effects in older adults remain unclear. AIM: To evaluate the impact of vortioxetine on cognitive function and depressive symptoms in older adults with depression. METHODS: A systematic review was conducted in accordance with PRISMA guidelines. MEDLINE, EMBASE, CINAHL, and Cochrane CENTRAL were searched for studies published between January 2010 and January 2025. Eligible studies included randomized and observational studies involving adults aged ≥65 years with major depressive disorder treated with vortioxetine reporting cognitive outcomes. Studies with fewer than 10 participants, non-human studies, and non-English publications were excluded. Twelve studies met the inclusion criteria. OUTCOMES: Primary outcomes included changes in cognitive function assessed using validated neuropsychological measures. Secondary outcomes included depressive symptom severity and functional outcomes. RESULTS: Vortioxetine was consistently associated with improvements in depressive symptoms. Cognitive findings were heterogeneous: observational studies demonstrated improvements in domain-specific measures, including processing speed, attention, and executive function, whereas randomized and comparative studies showed inconsistent effects on global cognition and no clear superiority over placebo or other antidepressants. Functional outcomes were limited but suggested a modest benefit. CONCLUSION: Vortioxetine was associated with consistent reductions in depressive symptoms and with neutral-to-positive, predominantly domain-specific cognitive effects in late-life depression. Its effect on global cognition, and whether any cognitive benefit is independent of mood improvement, remain uncertain. Further longitudinal randomized studies are needed to clarify its clinical role.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42680119/",
+      "research_domain": "contradictions-replication",
+      "category": "antidepressant_cognition_evidence_conflict",
+      "relevance_reason": "Preserves design-dependent discordance between positive observational cognition findings and inconsistent comparative evidence.",
+      "evidence_class": "review",
+      "study_design": "Systematic review of randomized, comparative, and observational studies",
+      "study_details": {
+        "studies": 12,
+        "age": "65 years or older"
+      },
+      "population": "Older adults with major depressive disorder",
+      "intervention": "Vortioxetine",
+      "comparator": "Placebo, other antidepressants, or observational baseline",
+      "outcomes": [
+        "Depressive symptoms improved consistently",
+        "Observational studies suggested domain-specific cognitive gains",
+        "Randomized and comparative studies showed inconsistent global-cognition effects and no clear superiority",
+        "Independence from mood improvement remains uncertain"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Mixed study designs; limited functional outcomes; cognition may improve secondary to mood; no clear global-cognition superiority.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of affective disorders",
+        "publication_date": "2026Dec15",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "abstract_sha256": "6c9fd946f330a41d16ed2f0b5e97693ac76a734610b2bb05795d4bb53e849e3c"
+      },
+      "signals": {
+        "safety": 0.3,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.7,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Preserves design-dependent discordance between positive observational cognition findings and inconsistent comparative evidence.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "vortioxetine",
+          "predicate": "evidence_differs_by_study_design",
+          "object": "cognition in late-life depression",
+          "context": "Older adults with major depressive disorder; Systematic review of randomized, comparative, and observational studies",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.6000000000000005,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "23a4473a8fdcfbe322bd",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42697250",
+      "title": "Comparative effectiveness of different acupuncture courses for chronic insomnia disorder: a randomized controlled trial.",
+      "doi": "10.1016/j.jad.2026.122469",
+      "source_title": "Comparative effectiveness of different acupuncture courses for chronic insomnia disorder: a randomized controlled trial.",
+      "abstract": "BACKGROUND: Acupuncture is effective for chronic insomnia disorder (CID), but the favorable treatment duration remains uncertain, and direct evidence comparing different treatment courses is limited. This study compared the effectiveness of 4-, 6-, and 8-week acupuncture courses to determine whether extending treatment provides additional clinical benefit. METHODS: In this three-arm randomized controlled trial, 201 patients with CID were randomly assigned (1:1:1) to receive 4, 6, or 8 weeks of acupuncture (n = 67 per group), administered three times weekly using the same acupoints. The primary outcome was the the Insomnia Severity Index (ISI) score at treatment completion. Secondary outcomes included clinical remission (ISI < 8), and a minimal clinically important difference (ISI-MCID reduction ≥6), as well as scores on the Pittsburgh Sleep Quality Index (PSQI), Self-rating Depression Scale (SDS), Self-rating Anxiety Scale (SAS), and Fatigue Severity Scale (FSS), hypnotic medication use, and safety. Outcomes were assessed at baseline, treatment completion, and 1 and 3 months after treatment. Longitudinal continuous outcomes were analyzed using linear mixed-effects models under the intention-to-treat principle. RESULTS: A total of 201 patients (157 women [78.1%], 44 men [21.9%]) were included in the intention-to-treat analysis. ISI scores decreased from baseline to post-treatment in the 4-, 6-, and 8-week groups, with mean changes of -7.4 points (95% CI, -9.0 to -5.8; P < .001), -9.7 points (95% CI, -11.4 to -8.0; P < .001), and -10.0 points (95% CI, -11.7 to -8.3; P < .001), respectively. Compared with the 4-week group, the 6- and 8-week groups showed greater improvements in ISI scores, with adjusted mean differences of -2.7 points (95% CI, -4.8 to -0.6; P = .008) and -2.8 points (95% CI, -4.9 to -0.6; P = .006), respectively. The additional improvement with the 8-week course versus the 6-week course was limited, with an adjusted mean difference of 0.0 points (95% CI, -2.2 to 2.1; P > .99). Clinical remission and MCID were more frequent in the 6-week group than in the 4-week group (P = .003 and P = .010, respectively). Sleep quality also generally favored the 6-week course over the 4-week course, with an adjusted mean difference of -1.9 points (95% CI, -3.6 to -0.2; P = .02). Between-group differences in depressive and anxiety symptoms were observed mainly between the 8- and 4-week groups. However, these secondary findings should be interpreted cautiously. No significant between-group differences were observed in fatigue or hypnotic medication use. No serious adverse events were reported. CONCLUSION: Six- and 8-week acupuncture courses produced greater improvements in insomnia severity than a 4-week course in patients with CID. Extending treatment from 6 to 8 weeks provided limited additional benefit for core sleep outcomes. These findings may inform clinical decisions regarding acupuncture treatment duration for CID. TRIAL REGISTRATION: https://www.chictr.org.cn [ChiCTR2300073711].",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42697250/",
+      "research_domain": "contradictions-replication",
+      "category": "acupuncture_duration_plateau",
+      "relevance_reason": "Supports a duration plateau: extending treatment beyond six weeks did not reproduce further improvement in core sleep outcomes.",
+      "evidence_class": "human",
+      "study_design": "Three-arm randomized comparative trial",
+      "study_details": {
+        "n": 201,
+        "groups": "4, 6, or 8 weeks",
+        "frequency": "3 sessions weekly"
+      },
+      "population": "Adults with chronic insomnia disorder",
+      "intervention": "Six- or eight-week acupuncture course",
+      "comparator": "Four-week course and six-versus-eight-week comparison",
+      "outcomes": [
+        "Six and eight weeks improved insomnia severity more than four weeks",
+        "Eight weeks provided no additional core-sleep benefit over six weeks",
+        "No significant duration difference in fatigue or hypnotic use",
+        "No serious adverse events reported"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "No sham or usual-care control; treatment-frequency burden differs by arm; secondary mood findings require caution; results are acupuncture-protocol specific.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of affective disorders",
+        "publication_date": "2026Dec15",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "abstract_sha256": "e6ce2b1363e223063054f0e811b294e4be71c2d080d760b6beccceac40e5951d"
+      },
+      "signals": {
+        "safety": 0.3,
+        "evidence_gap": 0.7,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Supports a duration plateau: extending treatment beyond six weeks did not reproduce further improvement in core sleep outcomes.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "acupuncture treatment duration",
+          "predicate": "benefit_plateaus_after_six_weeks",
+          "object": "chronic insomnia outcomes",
+          "context": "Adults with chronic insomnia disorder; Three-arm randomized comparative trial",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.499999999999999,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "01a84f6031956be070cf",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42720010",
+      "title": "Why probiotics fail: gut niche tension as the missing variable?",
+      "doi": "10.1080/19490976.2026.2728333",
+      "source_title": "Why probiotics fail: gut niche tension as the missing variable?",
+      "abstract": "Probiotic and live biotherapeutic interventions frequently yield inconsistent clinical benefits despite strong mechanistic rationale and widespread use. We propose that this heterogeneity reflects the ecological state of the gut at the time of dosing, in which an introduced strain must invade an already occupied ecosystem shaped by host physicochemical filters and resident community interactions. We introduce microbial niche tension as a trial-operational state variable capturing the net impedance to engraftment imposed by exclusionary forces (resource competition, antagonism, spatial crowding, and host immune and chemical barriers) and facilitative forces (niche vacancy, cross-feeding, and transient permissive windows). We further define a niche tension index (NTI) as a quantitative framework to estimate engraftment permissiveness across space, time, and host contexts. We synthesize evidence showing that niche tension is structured by gut transit, pH, oxygen gradients, diet, antibiotics, and host factors, including sex and hormonal state. Finally, we outline design rules for precision probiotics, including niche preconditioning, cooperative guild construction, sex-aware stratification, and data-driven prediction tools, to improve reproducibility and clinical efficacy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42720010/",
+      "research_domain": "contradictions-replication",
+      "category": "probiotic_effect_heterogeneity_framework",
+      "relevance_reason": "Offers a testable explanation for inconsistent probiotic trial results without claiming the proposed index is validated.",
+      "evidence_class": "review",
+      "study_design": "Mechanistic narrative review and hypothesis framework",
+      "study_details": {
+        "framework": "microbial niche tension index"
+      },
+      "population": "Human probiotic and live-biotherapeutic intervention literature",
+      "intervention": "Probiotic or live-biotherapeutic dosing",
+      "comparator": "Variable gut ecological states and host contexts",
+      "outcomes": [
+        "Clinical benefits are described as inconsistent despite mechanistic rationale",
+        "Engraftment may vary with diet, antibiotics, transit, pH, oxygen, sex, and hormonal state",
+        "Niche tension index is proposed but not prospectively validated"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Hypothesis-generating narrative framework; no prospective validation of the index; does not establish efficacy for any product or indication.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Gut microbes",
+        "publication_date": "2026Dec31",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "abstract_sha256": "03dd63cf71341925dbe70ca5872dbea42c192e5f0b049b26e7dff6e050041b96"
+      },
+      "signals": {
+        "safety": 0.3,
+        "evidence_gap": 0.9,
+        "contradiction": 0.9,
+        "novelty": 0.9,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Offers a testable explanation for inconsistent probiotic trial results without claiming the proposed index is validated.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "probiotic engraftment",
+          "predicate": "proposes_unvalidated_moderator_of",
+          "object": "clinical response heterogeneity",
+          "context": "Human probiotic and live-biotherapeutic intervention literature; Mechanistic narrative review and hypothesis framework",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 8.4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "46d4ae4697d5665326b4",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42753449",
+      "title": "Effects of ketogenic diet on cognitive impairment in older adults: a systematic review and meta-analysis.",
+      "doi": "10.1016/j.archger.2026.106409",
+      "source_title": "Effects of ketogenic diet on cognitive impairment in older adults: a systematic review and meta-analysis.",
+      "abstract": "BACKGROUND: Cognitive impairment in older adults is associated with substantial functional decline and care burden. The ketogenic diet (KD) may improve cognition, but evidence in older adults with cognitive impairment remains inconsistent. This study evaluated the effects of KD, including related ketogenic dietary strategies, on cognitive outcomes and metabolic markers. METHODS: PubMed, Web of Science, Embase, the Cochrane Library, CNKI, Wanfang, and VIP were searched from inception to July 2025 for randomized controlled trials of KD or related ketogenic dietary strategies in older adults with cognitive impairment. Two reviewers independently screened studies, extracted data, and assessed risk of bias. Meta-analysis was performed using Review Manager 5.4. RESULTS: Twelve randomized controlled trials involving 707 participants were included. Compared with control interventions, KD-related dietary strategies improved overall cognitive function [SMD = 0.34, 95% CI (0.16 to 0.52), p < 0.01]. Domain-specific analyses showed significant improvements in memory [SMD = 0.53, 95% CI (0.10 to 0.96), p = 0.01] and language function [SMD = 0.43, 95% CI (0.16 to 0.70), p = 0.002], whereas no significant effects were observed for attention or executive function. KD-related strategies increased acetoacetate and β-hydroxybutyrate concentrations, indicating effective ketone production. Regarding metabolic safety, KD-related interventions increased total cholesterol and LDL-C, while triglycerides and HDL-C remained unchanged. CONCLUSIONS: KD and related ketogenic dietary strategies may improve cognitive performance and enhance ketone body production in older adults with mild cognitive impairment or Alzheimer's disease. The potential metabolic implications associated with lipid changes should be considered alongside cognitive benefits.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42753449/",
+      "research_domain": "contradictions-replication",
+      "category": "ketogenic_cognition_endpoint_conflict",
+      "relevance_reason": "Preserves benefit–null–safety discordance across cognitive domains and lipid outcomes rather than collapsing to a single positive verdict.",
+      "evidence_class": "review",
+      "study_design": "Systematic review and meta-analysis of randomized controlled trials",
+      "study_details": {
+        "trials": 12,
+        "n": 707
+      },
+      "population": "Older adults with mild cognitive impairment or Alzheimer disease",
+      "intervention": "Ketogenic diet or related ketogenic dietary strategies",
+      "comparator": "Control diets or trial-specific controls",
+      "outcomes": [
+        "Overall cognition, memory, and language favored ketogenic strategies",
+        "Attention and executive function showed no significant effect",
+        "Total cholesterol and LDL cholesterol increased",
+        "Triglycerides and HDL cholesterol were unchanged"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Related but nonidentical ketogenic strategies were pooled; trial size and duration vary; clinical importance and durability remain uncertain.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Archives of gerontology and geriatrics",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "abstract_sha256": "301673f6e5e0d1597b9c3e7e6ef6c5d4aada6e46a061b6971a758efe4d4ac73d"
+      },
+      "signals": {
+        "safety": 0.7,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Preserves benefit–null–safety discordance across cognitive domains and lipid outcomes rather than collapsing to a single positive verdict.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "ketogenic dietary strategies",
+          "predicate": "benefit_and_risk_vary_by_endpoint",
+          "object": "cognition and metabolic safety in older adults",
+          "context": "Older adults with mild cognitive impairment or Alzheimer disease; Systematic review and meta-analysis of randomized controlled trials",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 9.5,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "f9349f87aebb3357d4b5",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42790251",
+      "title": "Pooled prevalence of sleep paralysis in South Asian countries: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.sleep.2026.109279",
+      "source_title": "Pooled prevalence of sleep paralysis in South Asian countries: A systematic review and meta-analysis.",
+      "abstract": "BACKGROUND: Sleep paralysis (SP) is a rapid eye movement parasomnia often accompanied by intense psychological distress and hallucinations. The epidemiological landscape within the South Asian nations remains highly variable and poorly synthesized, compounded by deep-seated cultural stigmas. This systematic review and meta-analysis aims to establish the pooled prevalence of SP within the South Asian region. METHODS: A systematic literature search of PubMed, IMSEAR, PsycNet, and Google Scholar was conducted through February 2026 (PROSPERO: CRD420261301875). Primary studies in English reporting SP prevalence in SAARC countries were included. Methodological quality was assessed via the Newcastle-Ottawa Scale (NOS). Publication bias was evaluated using Egger's test and corrected via the trim-and-fill method. A meta-analysis of pooled prevalence was conducted using a random-effects model. RESULTS: The final analysis incorporated 23 constituent studies involving 5520 participants, synthesizing empirical data across the full spectrum of available South Asian cohorts, including community, university, and clinical populations. While the unadjusted pooled prevalence of SP was found to be 29% (95% CI (18%, 43%)), statistical evaluation revealed significant publication bias (p < 0.05). Across student, general, and clinical populations, sleep paralysis prevalence remains comparable by population subtype (32%, 25%, and 25%, respectively). Substantial inter-study heterogeneity (I2 = 95.7%) was identified as systemic: small cohorts reported 39% prevalence versus 21% in large-scale studies, and studies using SP-specific questionnaires reported a 46% prevalence, compared to 7% in non-specific questionnaires. Additionally, pooling only methodologically rigorous \"Low Risk\" studies yielded a conservative prevalence of 17%. CONCLUSIONS: The pooled prevalence of sleep paralysis was identified as 29%, comparable even with population variance. Significant variance was observed, primarily attributed to the use of varied diagnostic tools and non-specific methodologies.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42790251/",
+      "research_domain": "contradictions-replication",
+      "category": "sleep_paralysis_measurement_conflict",
+      "relevance_reason": "A strong measurement contradiction: estimated prevalence ranged sharply by questionnaire specificity and study quality.",
+      "evidence_class": "review",
+      "study_design": "Systematic review and random-effects meta-analysis",
+      "study_details": {
+        "studies": 36,
+        "n": 148457
+      },
+      "population": "Community, university, and clinical populations in South Asian countries",
+      "intervention": "Sleep-paralysis prevalence measurement",
+      "comparator": "Study size, population subtype, questionnaire specificity, and risk-of-bias strata",
+      "outcomes": [
+        "Unadjusted pooled prevalence was 29%",
+        "Low-risk studies yielded 17%",
+        "Specific questionnaires yielded 46% versus 7% with nonspecific tools",
+        "Heterogeneity was 95.7% with publication bias"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Prevalence rather than intervention evidence; extreme heterogeneity and publication bias; pooled average is not transportable to every setting.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Sleep medicine",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "abstract_sha256": "52afe1d6dc671623e5ea92c6d91f710a148653f9cf32a70f1e1c7e94249a8e39"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "A strong measurement contradiction: estimated prevalence ranged sharply by questionnaire specificity and study quality.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "sleep-paralysis measurement method",
+          "predicate": "produces_highly_divergent_estimates",
+          "object": "estimated prevalence",
+          "context": "Community, university, and clinical populations in South Asian countries; Systematic review and random-effects meta-analysis",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.6000000000000005,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "c62a29f2888efb8e6757",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42831259",
+      "title": "Systematic review and meta-analysis: the effectiveness of cognitive behavioral therapy and eye movement desensitization and reprocessing in children and adolescents.",
+      "doi": "10.1080/20008066.2026.2731855",
+      "source_title": "Systematic review and meta-analysis: the effectiveness of cognitive behavioral therapy and eye movement desensitization and reprocessing in children and adolescents.",
+      "abstract": "Background: Post-traumatic stress disorder (PTSD) is prevalent among children and adolescents, with cognitive behavioral therapy (CBT) and eye movement desensitization and reprocessing (EMDR) widely used treatment options. This study compared the effects of CBT and EMDR in children and adolescents using a meta-analysis approach.Methods: PubMed, EMBASE, CENTRAL, CINAHL, ProQuest Dissertations & Theses, and PsycInfo were searched in March 2025. Randomized controlled trials that compared the effectiveness of CBT and EMDR on PTSD symptoms in children and adolescents aged 6-18 years who had been exposed to traumatic events were included. The Cochrane Risk of Bias version 2 was used to assess the methodological quality of the included studies. A random-effects model was applied to calculate the standardized mean difference (SMD) along with 95% confidence interval (CI), and the I2 statistic was used to quantify statistical heterogeneity.Results: Five trials (248 participants) were included. There was no statistically significant difference in PTSD symptoms between the CBT and EMDR groups, whether reported by children (SMD: 0.18; 95% CI: -0.07-0.43; I2 = 0%) or by parents (SMD: 0.23; 95% CI: -0.02-0.48; I2 = 0%). For anxiety, the pooled estimate did not reach statistical significance (SMD: 0.44; 95% CI: -0.19-1.07; I2 = 69%). Depression symptoms were higher in the CBT group than in the EMDR group (SMD: 0.44; 95% CI: 0.13-0.76; I2 = 0%).Conclusion: The comparative effects of CBT and EMDR in reducing PTSD and anxiety symptoms remain inconclusive. Although CBT was associated with higher depression symptoms compared with EMDR, the current evidence is based on a small number of trials, and the pooled estimates should be interpreted with caution.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42831259/",
+      "research_domain": "contradictions-replication",
+      "category": "psychotherapy_comparative_inconclusiveness",
+      "relevance_reason": "Finds no clear comparative winner for PTSD or anxiety despite a depression-domain difference based on only five trials.",
+      "evidence_class": "review",
+      "study_design": "Systematic review and random-effects meta-analysis of randomized trials",
+      "study_details": {
+        "trials": 5,
+        "n": 248
+      },
+      "population": "Children and adolescents aged 6-18 years exposed to traumatic events",
+      "intervention": "Cognitive behavioral therapy",
+      "comparator": "Eye movement desensitization and reprocessing",
+      "outcomes": [
+        "No significant difference in child- or parent-reported PTSD symptoms",
+        "Anxiety comparison was nonsignificant and heterogeneous",
+        "Depression symptoms were higher in CBT group in pooled comparison"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Only five small trials; anxiety heterogeneity was high; therapy protocols and reporting may differ; comparative null does not imply either treatment is ineffective.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "European journal of psychotraumatology",
+        "publication_date": "2026Dec",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review",
+          "Review"
+        ],
+        "abstract_sha256": "956a2907a26f8c43473316788b898046c133a5bc288c741e03a06ad1b58e9a5f"
+      },
+      "signals": {
+        "safety": 0.1,
+        "evidence_gap": 0.8,
+        "contradiction": 0.9,
+        "novelty": 0.7,
+        "graph_connectivity": 0.7
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Finds no clear comparative winner for PTSD or anxiety despite a depression-domain difference based on only five trials.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "CBT versus EMDR",
+          "predicate": "comparative_effect_varies_by_endpoint",
+          "object": "pediatric PTSD, anxiety, and depression outcomes",
+          "context": "Children and adolescents aged 6-18 years exposed to traumatic events; Systematic review and random-effects meta-analysis of randomized trials",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 6.7,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "5078c2323b082d239728",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42841357",
+      "title": "Acute effects of 3 and 6 mg·Kg-1 caffeine on strength-power performance and isokinetic peak torque in competitive male boxers: a randomized, double-blind, placebo-controlled crossover trial.",
+      "doi": "10.1080/15502783.2026.2743368",
+      "source_title": "Acute effects of 3 and 6 mg·Kg-1 caffeine on strength-power performance and isokinetic peak torque in competitive male boxers: a randomized, double-blind, placebo-controlled crossover trial.",
+      "abstract": "BACKGROUND: Evidence on the dose, timing, and task specificity of caffeine ingestion in combat-sport athletes remains limited. This study examined the acute effects of 3 and 6 mg·kg-1 caffeine on strength-power performance and isokinetic peak torque in male boxers. METHODS: Fifteen male boxers who met the Chinese national second-class athlete standard or higher completed a randomized, double-blind, placebo-controlled crossover trial. Each participant completed placebo (PLA), 3 mg·kg-1 caffeine (CAF3), and 6 mg·kg-1 caffeine (CAF6) conditions in randomized order, separated by a 1-week washout. Countermovement jump (CMJ), ballistic push-up (BPU), and dominant-side shoulder and knee isokinetic peak torque (PT) were assessed at baseline and during testing blocks beginning at 30 and 60 min post-ingestion. Data were analyzed using two-way repeated-measures ANOVA, with Holm adjustment applied across the 10 planned condition × time interaction tests. Reliability analyzes were supportive, and threshold-based individual classifications were exploratory. RESULTS: Significant condition × time interactions were observed for CMJ, BPU, and isokinetic PT outcomes. During the scheduled 60-min assessment, CAF3 and CAF6 produced higher CMJ jump height, peak power, and relative peak power than PLA, with no significant difference between caffeine doses. For BPU, CAF6 produced higher concentric impulse, concentric mean power, and concentric peak power than PLA during the scheduled 60-min assessment, whereas CAF3 did not differ from PLA. Shoulder flexion and extension PT increased under caffeine conditions at selected time points, without a consistent dose advantage. Knee extension PT showed the clearest dose-specific response, with CAF6 exceeding both PLA and CAF3 during the scheduled 60-min assessment. CONCLUSIONS: Acute ingestion of 3 and 6 mg·kg-1 caffeine was associated with improvements in selected laboratory-based strength-power and isokinetic PT outcomes in male boxers, particularly during the scheduled 60-min assessment. The pattern of responses varied across doses and testing tasks, and 6 mg·kg-1 was not consistently superior to 3 mg·kg-1. These findings should be interpreted as evidence for selected neuromuscular outcomes rather than as direct evidence of improved punching or competitive boxing performance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42841357/",
+      "research_domain": "contradictions-replication",
+      "category": "caffeine_dose_task_discordance",
+      "relevance_reason": "Tests the common dose-more-is-better assumption and finds task-specific benefits without a consistent higher-dose advantage.",
+      "evidence_class": "human",
+      "study_design": "Randomized double-blind placebo-controlled crossover trial",
+      "study_details": {
+        "n": 15,
+        "washout": "1 week"
+      },
+      "population": "Competitive male boxers",
+      "intervention": "Caffeine 3 or 6 mg/kg",
+      "comparator": "Placebo and between-dose comparison",
+      "outcomes": [
+        "Both doses improved selected outcomes at 60 minutes",
+        "6 mg/kg was not consistently superior to 3 mg/kg",
+        "Effects varied by task and time point",
+        "No direct boxing-performance endpoint was tested"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "No decision-grade adverse-effect conclusion is available from the abstract; no safety inference is admitted.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Very small male-only sample; many laboratory endpoints; acute exposure only; no punching or competition outcome; adverse effects not detailed in abstract.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_date": "2026Dec30",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "abstract_sha256": "940773d2c6d82addac9344d62785c6038cea7bfcec7c8c674cbee3c77238926c"
+      },
+      "signals": {
+        "safety": 0.4,
+        "evidence_gap": 0.6,
+        "contradiction": 0.8,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Tests the common dose-more-is-better assumption and finds task-specific benefits without a consistent higher-dose advantage.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "caffeine dose",
+          "predicate": "higher_dose_not_consistently_superior",
+          "object": "strength-power performance in boxers",
+          "context": "Competitive male boxers; Randomized double-blind placebo-controlled crossover trial",
+          "evidence_type": "human",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.3999999999999995,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "49112c61bc3d10690bda",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
+    },
+    {
+      "pmid": "42841975",
+      "title": "Dietary intake of vitamins B1, B2, B3, and B6, and the risk of gastric cancer: pooled analyses within the Stomach cancer Pooling (Stop) project.",
+      "doi": "10.1007/s00394-026-04112-6",
+      "source_title": "Dietary intake of vitamins B1, B2, B3, and B6, and the risk of gastric cancer: pooled analyses within the Stomach cancer Pooling (Stop) project.",
+      "abstract": "BACKGROUND: Disentangling the role of micronutrients in gastric cancer (GC) is challenging and results are inconsistent to date. We investigated associations of dietary intake of B vitamins with GC in a pooled analysis of international studies. METHODS: We included orifinal data from 13 case-control studies of GC from the Stomach Cancer Pooling Project. Data were harmonized and study-specific quartiles of dietary intake of the B1 (thiamine), B2 (riboflavin), B3 (niacin) and B6 (pyridoxine) were created. We calculated odds ratios (OR) of associations between each B vitamin with GC and the corresponding 95% confidence intervals (CI) through logistic regression models adjusted for major risk factors. We then pooled study-specific ORs using random effect meta-analysis. Stratified analyses were conducted by sex, histologic type and anatomical site. Secondary analyses were further adjusted for Helicobacter pylori (Hp) infection, alcohol, meat and vegetables and fruit intake. RESULTS: The study population included 5252 GC cases and 11,397 controls. We observed the following associations for one-quartile increase of dietary vitamin intake: B1, OR = 0.93 (95% CI = 0.88-0.97); B2, OR=0.97 (95% CI = 0.93-1.02); B3, OR = 0.95 (95% CI = 0.90-1.00); B6, OR = 0.86 (95% CI = 0.82-0.91); we observed an interaction between B1 and sex, with beneficil effect in men for the highest quartile of intake (p = 0.009). Main results were confirmed when further adjusting for Hp. When accounting for alcohol, meat and vegetables and fruit intakes, the associations were weakened or no more apparent. No heterogeneity was found between cardia and non-cardia GC; B2 was directly associated with diffuse but not intestinal GC (p = 0.03). CONCLUSIONS: Dietary intake of B1 and B6 vitamins might reduce the risk of GC. Studies with homogeneous method of micronutrients assessment and adjustments are needed to confirm our results.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42841975/",
+      "research_domain": "contradictions-replication",
+      "category": "b_vitamin_confounding_and_subgroup_conflict",
+      "relevance_reason": "Apparent protective associations weakened with dietary adjustment and varied by vitamin, sex, and cancer subtype, indicating confounding and subgroup instability.",
+      "evidence_class": "review",
+      "study_design": "Pooled analysis and random-effects meta-analysis of case-control studies",
+      "study_details": {
+        "studies": 13,
+        "cases": 5252,
+        "controls": 11397
+      },
+      "population": "International gastric-cancer case-control datasets",
+      "intervention": "Observed dietary intake of vitamins B1, B2, B3, and B6",
+      "comparator": "Study-specific intake quartiles",
+      "outcomes": [
+        "B1 and B6 intake were inversely associated with gastric-cancer odds in primary models",
+        "Associations weakened or disappeared after adjusting for alcohol, meat, fruit, and vegetable intake",
+        "B2 was directly associated with diffuse but not intestinal gastric cancer",
+        "Sex interaction was observed for B1"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Contradiction or replication relationship is a research hypothesis pending independent semantic/scientific review; endpoint, population, formulation, comparator, and analytic differences may explain discordance.",
+      "adverse_effects": "Safety information extracted only where reported in the PubMed abstract; absence of a listed event is not evidence of safety.",
+      "interactions": "No clinical interaction conclusion is admitted from this record.",
+      "limitations": "Case-control dietary recall; residual confounding; multiple subgroup analyses; observational association cannot support supplementation or cancer-prevention claims.",
+      "provenance": {
+        "source": "NCBI PubMed ESearch discovery plus direct EFetch XML verification",
+        "retrieved_at": "2026-10-08T18:34:00Z",
+        "journal": "European journal of nutrition",
+        "publication_date": "2026Oct07",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "abstract_sha256": "7bbb3c3d5a1a93f10423593ebfea6e3485c0c2802fb8de0c906acd74e89019a8"
+      },
+      "signals": {
+        "safety": 0.2,
+        "evidence_gap": 0.8,
+        "contradiction": 1,
+        "novelty": 0.8,
+        "graph_connectivity": 0.9
+      },
+      "contradiction_hypothesis": {
+        "state": "PENDING_INDEPENDENT_REVIEW",
+        "rationale": "Apparent protective associations weakened with dietary adjustment and varied by vitamin, sex, and cancer subtype, indicating confounding and subgroup instability.",
+        "alternative_explanations": [
+          "population differences",
+          "endpoint differences",
+          "intervention or formulation differences",
+          "duration or timing differences",
+          "analytic-model differences"
+        ]
+      },
+      "semantic_relationships": [
+        {
+          "subject": "dietary B-vitamin intake",
+          "predicate": "association_weakens_after_dietary_adjustment",
+          "object": "gastric cancer risk",
+          "context": "International gastric-cancer case-control datasets; Pooled analysis and random-effects meta-analysis of case-control studies",
+          "evidence_type": "review",
+          "state": "PROPOSED_RESEARCH_ONLY"
+        }
+      ],
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "research_only": true,
+      "independent_review": false,
+      "priority_score": 7.700000000000001,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "reservation_id": "160f2849db0a904a032d",
+      "reserved_at": "2026-10-08T17:40:55.339Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261008-1330"
     }
   ],
   "batches": [
@@ -279,22 +2406,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 3,
+    "total_reservations": 28,
     "by_lane": {
       "1": 1,
       "2": 0,
       "3": 1,
       "4": 1,
-      "5": 0
+      "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 3
+      "SOURCE_VERIFIED": 28
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 3,
+        "count": 28,
         "pr_number": null,
         "blocker": null
       }
