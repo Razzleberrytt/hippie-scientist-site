@@ -33,7 +33,7 @@ function scanLocal(root){
  for(const prefix of researchPrefixes)visit(path.join(root,prefix));return out;
 }
 
-function reconcileBaseline(records){
+export function reconcileBaseline(records){
  const byPmid=new Map(),byTitle=new Map(),byDoi=new Map(),out=[],position=new Map();
  const placeholder=(pmid,title)=>title===normalizeTitle('historical PMID '+pmid);
  for(const r of records){
@@ -85,7 +85,7 @@ function nextBatch(reg){
  reg.active_batch_counter=(reg.active_batch_counter??1)+1;reg.active_batch_id='rolling-'+String(reg.active_batch_counter).padStart(4,'0');reg.batches.push({id:reg.active_batch_id,state:'ACTIVE',created_at:new Date().toISOString()});return reg.active_batch_id;
 }
 const laneFocus={1:'sleep-stress-mood',2:'cognition-metabolic',3:'botanical-pharmacology-safety',4:'withdrawal-dependence-nps',5:'contradictions-replication'};
-function validateManifest(m){
+export function validateManifest(m){
  if(m?.schema_version!==1||!Number.isInteger(Number(m.lane))||Number(m.lane)<1||Number(m.lane)>5)throw Error('invalid lane manifest');
  if(m.research_only!==true)throw Error('research_only must be true');
  if(m.lane_focus!==laneFocus[Number(m.lane)])throw Error('lane_focus does not match lane '+m.lane);
@@ -193,4 +193,4 @@ async function run(){
    appendSummary(reg);
  }else throw Error('unknown mode');
 }
-run().catch(e=>{console.error('BLOCKED '+e.message);console.error(JSON.stringify(classifyFailure(e)));process.exitCode=1});
+if(process.argv[1]?.endsWith('github-reservation-controller.mjs'))run().catch(e=>{console.error('BLOCKED '+e.message);console.error(JSON.stringify(classifyFailure(e)));process.exitCode=1});
