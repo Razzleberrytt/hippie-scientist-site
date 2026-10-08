@@ -21,7 +21,15 @@ export default async function SourceRegisterPage() {
     publicEvidence.ingredients.map(item => ({ name: item.name, href: item.path })),
     publicEvidence.studies.map(study => ({ pmid: study.pmid, id: study.id })),
   )
-  const publicRecords = data.records.map(({ abstract, pubType, ...record }) => record)
+  const publicRecords = data.records.map(record => ({
+    wave: record.wave,
+    pmid: record.pmid,
+    title: record.title,
+    journal: record.journal,
+    year: record.year,
+    category: record.category,
+    doi: record.doi,
+  }))
   // Show the conceptual map immediately; load the detailed paper graph separately.
   const semanticSummary = { concepts: semantic.concepts, bridges: semantic.bridges, summary: semantic.summary }
 
