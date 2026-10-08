@@ -11824,6 +11824,310 @@
       "reservation_id": "981c16059e7dd5da2e74",
       "reserved_at": "2026-10-08T23:07:03.523Z",
       "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-04"
+    },
+    {
+      "pmid": "42303053",
+      "title": "Highly efficient discovery of CYP1B1 inhibitors from licorice as novel anti-fibrotic agents via integrating interdisciplinary methodologies.",
+      "doi": "10.1016/j.taap.2026.117910",
+      "source_title": "Highly efficient discovery of CYP1B1 inhibitors from licorice as novel anti-fibrotic agents via integrating interdisciplinary methodologies.",
+      "abstract": "Aberrant CYP1B1 activity has been implicated in various metabolic disorders, while targeted inhibition on CYP1B1 has been validated as an emerging therapeutic strategy for hepatic fibrosis. Although a range of edible herbs including Licorice (the root of Glycyrrhiza glabra) have been widely used for treating liver diseases, identifying the key anti-CYP1B1 constituents in these herbs and elucidating their mechanisms of action remain challenging. This study presents a comprehensive interdisciplinary framework for discovering CYP1B1 inhibitors from herbal medicines (HMs) via integrating interdisciplinary methodologies. An initial fluorescence-based screening of 65 herbal extracts revealed that licorice aqueous extract (LAE) exhibited potent CYP1B1 inhibitory activity. Docking-based virtual screening predicted 23 phytochemicals in LAE as potential CYP1B1 inhibitors, 18 of which were experimentally confirmed as potent CYP1B1 inhibitors (IC 50 < 1 μM). Further investigations showed that the nine most potent phytochemicals in LAE (IC 50 < 260 nM) inhibited CYP1B1 in a competitive manner, with the K i values below 560 nM. Cellular assays further demonstrated that three of these phytochemicals (glycyrol, licoflavonol, and licochalcone C) effectively blocked intracellular CYP1B1 activity in living cells (IC 50 < 3 μM). Anti-fibrotic assays showed that glycyrol significantly reduced cell migration and downregulated the expression of key fibrotic genes in TGF-β1-stimulated JS-1 cells. Collectively, this work establishes a practical and efficient strategy for discovering potent anti-CYP1B1 agents from HMs against liver fibrosis, while glycyrol emerges as a promising anti-fibrotic therapeutic.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42303053/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical interaction and toxicology records for exact PubMed identity verification; no clinical promotion.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42303053",
+        "doi": "10.1016/j.taap.2026.117910",
+        "journal": "Toxicology and applied pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:07:36.039Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0d662ae329b99b4f7d71",
+      "reserved_at": "2026-10-08T23:07:43.995Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-04-06"
+    },
+    {
+      "pmid": "42224857",
+      "title": "Potential herb-drug interaction risk of Sedum sarmentosum Bunge extract and cyclosporine A.",
+      "doi": "10.1016/j.dmd.2026.100321",
+      "source_title": "Potential herb-drug interaction risk of Sedum sarmentosum Bunge extract and cyclosporine A.",
+      "abstract": "Sedum sarmentosum Bunge extract (SSBE) is widely used in clinical practice to treat various liver diseases. Cyclosporine A (CsA) is a potent immunosuppressant known to cause hepatotoxicity. However, it is unclear whether combining SSBE and CsA is effective or increases the risk of adverse reactions. This study explored the potential herb-drug interaction between SSBE and CsA. Male rats were given an oral dose of CsA (2.5 mg/kg) 1 hour after a single dose of SSBE (600 mg/kg) or vehicle. Blood CsA concentrations measured by ultrahigh-performance liquid chromatography-tandem mass spectrometry revealed that SSBE dramatically increased the CsA exposure; the C max and area under the curve from 0 to 48 hours (AUC 0→48h ) values were significantly increased by 150% and 220% (from 222.89 to 567.06 ng/mL and from 2089.37 to 6615.08 ng/mL·h), respectively. In parallel, the exposure of the CsA metabolite AM1 was significantly reduced, with C max and AUC 0→48h decreased by 68% and 70%, respectively. In vitro study demonstrated that SSBE and its active constituents inhibited CYP3A activity and suppressed CsA metabolism to AM1. In conclusion, SSBE significantly increased the systemic exposure of CsA, and the effect might be related to inhibition of CYP3A activity. Additional caution should be exercised when treating CsA and SSBE together, as it may cause unexpected potential herb-drug interaction. SIGNIFICANCE STATEMENT: Sedum sarmentosum Bunge extract significantly increased cyclosporine A blood levels, and the effect might be related to inhibition of CYP3A activity. Therefore, coadministration of Sedumsarmentosum Bunge extract and cyclosporine A requires additional caution due to the risk of herb-drug interaction.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42224857/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical interaction and toxicology records for exact PubMed identity verification; no clinical promotion.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42224857",
+        "doi": "10.1016/j.dmd.2026.100321",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:07:36.040Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fe0b4c69113d25b54f0d",
+      "reserved_at": "2026-10-08T23:07:43.995Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-04-06"
+    },
+    {
+      "pmid": "42295375",
+      "title": "Ellagic acid and montelukast mitigate arsenic trioxide-induced hepatotoxicity via modulation of oxidative stress, inflammatory pathways, and mitochondrial apoptosis.",
+      "doi": "10.1007/s00210-026-05536-x",
+      "source_title": "Ellagic acid and montelukast mitigate arsenic trioxide-induced hepatotoxicity via modulation of oxidative stress, inflammatory pathways, and mitochondrial apoptosis.",
+      "abstract": "Arsenic trioxide (As 2 O 3 ) is an effective therapeutic agent for acute promyelocytic leukemia. However, its clinical application is limited by hepatotoxicity, mainly linked to oxidative stress, inflammatory activation, and mitochondrial dysfunction. This study investigated whether ellagic acid (EA) and montelukast (MK), alone or together, protect against As 2 O 3 -induced liver injury in mice. Male NMRI mice were treated with As 2 O 3 in the presence or absence of EA and MK for 10 days. After treatment, we performed biochemical, molecular, mitochondrial, and histopathological evaluations. As 2 O 3 exposure led to pronounced hepatic injury, which was evident from elevated liver enzyme levels, increased lipid peroxidation, raised pro-inflammatory cytokines, reduced mitochondrial membrane potential, and increased apoptosis indices. Administration of EA or MK alone partly reduced several of these parameters. In contrast, concurrent use of EA and MK produced more marked improvements, including normalization of liver enzymes, enhanced antioxidant enzyme activity, lower pro-inflammatory and apoptotic markers, and preserved mitochondrial function. These protective effects were supported by consistently improved liver histopathology. In conclusion, combined EA and MK administration reduces As 2 O 3 -induced hepatotoxicity. This protection occurs by modulating oxidative stress, inflammation, and mitochondrial-dependent apoptosis. These findings indicate that targeting several processes could help reduce liver side effects from arsenic-based chemotherapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42295375/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical interaction and toxicology records for exact PubMed identity verification; no clinical promotion.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42295375",
+        "doi": "10.1007/s00210-026-05536-x",
+        "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:07:36.041Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b9fc96e07da1c3d27abe",
+      "reserved_at": "2026-10-08T23:07:43.995Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-04-06"
+    },
+    {
+      "pmid": "40425598",
+      "title": "Effects of mallotus furetianus extract on CYP3A activities in rats.",
+      "doi": "10.1038/s41598-025-02193-7",
+      "source_title": "Effects of mallotus furetianus extract on CYP3A activities in rats.",
+      "abstract": "Mallotus furetianus is traditionally used as folk medicine on Hainan Island, China. Given the significance of the pharmacokinetic interaction between herbs and drugs, we investigated the effects of Mallotus furetianus ethanol extract (MFE) on CYP3A activity in rats. The major bioactive constituents of MFE, gallic acid (GA) and epigallocatechin gallate (EGCG), were analyzed by Reverse Phase High-Performance Liquid Chromatography (RP-HPLC) for MFE standardization. Rats were orally administered 320 mg/10mL/kg MFE or water (control) once a day for 7 days. Two hours after the last MFE treatment, the rats were euthanized, and the livers and small intestines were excised. The activity of CYP3A was measured in hepatic and intestinal microsomes, and the expression in hepatic and intestinal tissues was assessed by qRT-PCR and western blot. In the pharmacokinetics experiment, rats were administered MFE as described above. Two hours after the final dose of MFE, a 15 mg/kg midazolam solution was orally administered. Blood samples were collected before and after midazolam administration. Midazolam plasma concentration and 1-hydroxymidazolam formation in microsomes were measured by LC-MS/MS methods.CYP3A activity in hepatic microsomes exhibited a significant decrease in MFE treatment group, while no change was observed in intestinal microsomes. MFE treatment significantly increased CYP3A1 activity, as well as mRNA and protein expression in the small intestine but reduced these parameters in the liver. However, CYP3A2 remained unaffected by MFE treatment. Pharmacokinetics study showed that administration of MFE for 7 days significantly reduced the Cmax of midazolam from 919 ± 70 ng / mL to 708 ± 91 ng /mL. Conversely, t1/2 was increased from 0.45 ± 0.08 h in the control group to 0.69 ± 0.15 h in the MFE group.Collectively, our study indicated that MFE could modulate CYP3A1 activity and expression of CYP3A1, subsequently changing the metabolism of midazolam in rats.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40425598/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical interaction and toxicology records for exact PubMed identity verification; no clinical promotion.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40425598",
+        "doi": "10.1038/s41598-025-02193-7",
+        "journal": "Scientific reports",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T23:07:36.041Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4daf2e0a858397272dfe",
+      "reserved_at": "2026-10-08T23:07:43.995Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-04-06"
     }
   ],
   "batches": [
@@ -11837,22 +12141,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 149,
+    "total_reservations": 153,
     "by_lane": {
       "1": 5,
       "2": 15,
-      "3": 46,
+      "3": 50,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 149
+      "SOURCE_VERIFIED": 153
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 149,
+        "count": 153,
         "pr_number": null,
         "blocker": null
       }
