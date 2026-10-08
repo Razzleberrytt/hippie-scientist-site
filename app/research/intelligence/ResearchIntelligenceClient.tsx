@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
+import {buildInstrumentRelay} from '@/lib/research-intelligence-relay'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
 import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
 import styles from './ResearchIntelligence.module.css'
@@ -113,6 +114,7 @@ const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
 const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
+ const relay=useMemo(()=>data&&caseFile&&caseScope?buildInstrumentRelay(data,data.graph,caseFile,caseScope):null,[data,caseFile,caseScope])
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
@@ -204,6 +206,24 @@ return <section className={styles.studio}>
           <span>{signal.linkedItems} indexed lead{signal.linkedItems===1?'':'s'}</span>
           <small>{signal.basis}. {signal.limit}.</small>
         </button>)}</div>
+        {relay?<section className={styles.relayWorkbench} aria-label='Cross-instrument source relay'>
+          <div className={styles.relayTitle}><h4>Semantic relay · one source, eight instruments</h4>
+            <span>{relay.junctions.length} source-bound handoff{relay.junctions.length===1?'':'s'}</span></div>
+          <p>Follow verified provenance from one research tool to another without losing PMID {relay.pmid}. Every connection is a research-navigation lead, not a scientific conclusion.</p>
+          {relay.junctions.length?<ol className={styles.relayList}>{relay.junctions.slice(0,12).map(j=><li key={j.id}>
+            <div className={styles.relayConnection}><strong>{stations.find(s=>s.id===j.from)?.label} → {stations.find(s=>s.id===j.to)?.label}</strong>
+              <span>{j.basis.replaceAll('-',' ')}</span></div>
+            <p>{j.reason}</p><small>{j.limitation}</small>
+            <button type='button' onClick={()=>openCaseInstrument(j.to)}>Continue into {stations.find(s=>s.id===j.to)?.label} ↗</button>
+          </li>)}</ol>:<p className={styles.relayEmpty}>No cross-instrument signal beyond this source identity is indexed yet. This is not evidence that no relationship exists.</p>}
+          <div className={styles.relayReviewed}>
+            <strong>Independent semantic review · separate evidence lane</strong>
+            <p>{relay.independentlyReviewed.edges.length} independently reviewed semantic annotation{relay.independentlyReviewed.edges.length===1?'':'s'} and {relay.independentlyReviewed.contradictionFlags.length} reviewer flag{relay.independentlyReviewed.contradictionFlags.length===1?'':'s'} attached to this exact PMID.</p>
+            {relay.independentlyReviewed.edges.slice(0,3).map(e=><p key={e.id}><strong>{e.subject} · {e.predicate} · {e.object}</strong> — {e.context}. Uncertainty: {e.uncertainty||'not specified'}. This is an annotation, not clinical synthesis.</p>)}
+            {relay.independentlyReviewed.contradictionFlags.slice(0,2).map((flag,i)=><p key={flag.batchId+':'+i}>Review flag: {flag.flag}. Requires independent interpretation before any claim.</p>)}
+            {!relay.independentlyReviewed.edges.length&&!relay.independentlyReviewed.contradictionFlags.length?<p>No independently reviewed semantic annotations are attached to this PMID in the active reviewed overlay. This does not measure the wider literature.</p>:null}
+          </div>
+        </section>:null}
         <p className={styles.caseCaveat}>Counts describe only this limited, sometimes sampled index—not independent clinical findings, complete literature coverage or evidence of safety. No tool publishes medical conclusions.</p>
       </article>:null}
     </section>:null}
