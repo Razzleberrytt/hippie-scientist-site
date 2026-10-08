@@ -118,6 +118,7 @@ const visibleSafety=caseScope?.safety??data?.safety??[]
 const visibleInvestigations=caseScope?.investigations??data?.investigations??[]
 const visibleBriefs=caseScope?.briefs??data?.briefs??[]
 const visibleReviewEvents=caseScope&&data?data.adjudication.events.filter(e=>e.witnessId.split(':')[0]===caseScope.pmid):data?.adjudication.events??[]
+const visibleCitationDuplicates=caseScope&&data?data.publicationLineage.duplicateCitationGroups.filter(g=>g.studyIds.some(id=>caseFile?.reviewedCitationIds.includes(id))):data?.publicationLineage.duplicateCitationGroups??[]
 useEffect(()=>{if(focusPmid&&data)caseRef.current?.scrollIntoView({block:'start'})},[focusPmid,data])
 function inspectPmid(pmid:string){
  if(!data?.graph.entries[pmid]){setFocusPmid('');setFocusLookup(pmid);setLookupError('PMID '+pmid+' is not part of the 500-paper exact-verified snapshot. The full source register covers the wider intake.');return}
@@ -253,11 +254,13 @@ return <section className={styles.studio}>
         <div><strong>0</strong><span>Automatically adjudicated</span></div></div>
       <section className={styles.lineage} aria-label='Publication identity and independence'>
         <h3>Publication identity ≠ independent study</h3>
-        <p>The existing reviewed evidence dataset provides {data.publicationLineage.reviewedWithExactIdentity} of {data.publicationLineage.reviewedRecordCount} citations with exact PMID or DOI identifiers. {data.publicationLineage.duplicateCitationGroups.length} same-publication citation groups and {data.publicationLineage.identityConflicts.length} identity conflicts require careful interpretation. <strong>Underlying trial independence is unverified in this interface.</strong></p>
-        {data.publicationLineage.duplicateCitationGroups.slice(0,6).map(g=><p key={g.studyIds.join('|')}>
+        <p>{caseScope
+          ?'Selected PMID '+caseScope.pmid+' has '+(caseFile?.reviewedCitationIds.length||0)+' exactly cross-referenced reviewed citation ID(s) and '+visibleCitationDuplicates.length+' matching duplicate-citation group(s). Quarantined conflicts are never automatically linked to a source.'
+          :'The reviewed evidence dataset provides '+data.publicationLineage.reviewedWithExactIdentity+' of '+data.publicationLineage.reviewedRecordCount+' citations with exact PMID or DOI identifiers. '+visibleCitationDuplicates.length+' duplicate-citation groups and '+data.publicationLineage.identityConflicts.length+' identity conflicts require careful interpretation.'} <strong>Underlying trial independence is unverified in this interface.</strong></p>
+        {visibleCitationDuplicates.slice(0,6).map(g=><p key={g.studyIds.join('|')}>
           Repeated citation record: {g.studyIds.join(' · ')} ({g.witness}); these are not multiple independent publications.
         </p>)}
-        {data.publicationLineage.identityConflicts.length>0?<p role='status'>Some identifiers conflict; the system refuses to collapse those records without human verification.</p>:null}
+        {!caseScope&&data.publicationLineage.identityConflicts.length>0?<p role='status'>Some identifiers conflict; the system refuses to collapse those records without human verification.</p>:null}
       </section>
       {!visibleDebates.length?<p className={styles.placeholder}>No candidate groups {caseScope?'linked to the selected PMID in this reviewed citation index':'in this reviewed citation scope'}. This does not prove wider scientific agreement.</p>:null}
       <div className={styles.paperGrid}>{visibleDebates.slice(0,more?35:10).map(d=><article key={d.id} className={styles.paper}>
@@ -351,9 +354,9 @@ return <section className={styles.studio}>
         <div><strong>0</strong><span>Automatically certified interactions</span></div></div>
       {!visibleSafety.length?<p className={styles.placeholder}>No {caseScope?'sampled source-linked':'controlled'} safety co-mentions identified in this local index; this does not mean the substance is safe.</p>:null}
       <div className={styles.paperGrid}>{visibleSafety.slice(0,more?40:12).map(s=><article key={s.id} className={styles.paper}>
-        <div className={styles.paperTop}><Tag>TEXT CO-MENTION ONLY</Tag><span>{s.count} paper{s.count===1?'':'s'}</span></div>
+        <div className={styles.paperTop}><Tag>TEXT CO-MENTION ONLY</Tag><span>{caseScope?'SELECTED PMID IN SAMPLE':s.count+' paper'+(s.count===1?'':'s')}</span></div>
         <h3>{s.substance}<span className={styles.multiply}> / </span>{s.topic}</h3>
-        <p>{s.titleWitnesses} title-level co-mentions; other matches may be from abstracts. No assessment of the finding is implied.</p>
+        <p>{caseScope?'The selected PMID appears in this limited topic sample. Topic-wide totals and title-level counts are not asserted for the selected paper.':s.titleWitnesses+' title-level co-mentions across the full batch; other matches may be from abstracts.'} No assessment of the finding is implied.</p>
         <Sources pmids={s.pmids} onSelect={inspectPmid}/></article>)}</div>
       {visibleSafety.length>12&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More safety literature contexts →</button>:null}
       <h3>Cross-instrument witness trails</h3>
