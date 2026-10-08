@@ -2,7 +2,7 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
 **Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
@@ -49,11 +49,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
+## P0 — Generational Engineering readiness (Oct 8–9; first execution week Oct 12–16)
+
+**Highest-priority cross-cutting operating methodology:** [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431); [P0 release playbook](GENERATIONAL_ENGINEERING_P0.md); machine-readable generation readiness under `ops/generational-engineering/p0-release-train-2026-10-12.json`.
+
+**Now (readiness/planning only):** Reconcile live merged/in-flight PR state, exact science/publication authority, 8+12 instrument-to-editorial integration ownership, existing CI classifier/build durations, idempotent source events, dry-run distribution, failure paths, external blockers, and week-one scoped proof. This is the controlling planning priority before further broad capability invention. The new methodology changes sequencing and batch architecture, **not** the normal 3-workstream WIP cap or a required check; it does not independently admit any implementation ticket. At Oct 12 admission, score unblocked atomic implementation work via the existing formula and reserve only eligible D/R/A tickets.
+
+**Status correction (2026-10-08):** Scientific Intelligence #6427 / PR #6428 and Research Intelligence #6420 / PR #6422 are merged in GitHub and no longer represent active implementation WIP. Exact Cloudflare deployment/production receipt and field outcomes require separate proof. PRs #6429/#6426 (intake), #6397 (research review), #6399 (social narration) must be rechecked at start of any execution run.
+
 ## Active / in review — implementation WIP 0/3
-
-**Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
-
-**Research Intelligence #6420 / PR #6422 — In review (2026-10-08):** Source-verified Semantic Intelligence 1.06 adds exact-PMID navigation junctions between the eight original research instruments, a title-backed two-concept Voyages eligibility gate, and a separate independently reviewed annotation lane. The branch also carries the exact DOI publication-to-editorial/distribution review map from 1.07 (#6423/#6424). The 1.05 foundation has merged via #6419. These are read-only research-infrastructure changes; clinical promotions, automated publications, and proof of deployment are **not** authorized. The normal D/R/A WIP cap remains 3; this status entry does not silently change machine-managed reservations or grant another implementation slot. Merge requires latest-head CI, closed review threads and production verification.
 
 
 
