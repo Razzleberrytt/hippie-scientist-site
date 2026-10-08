@@ -4,6 +4,7 @@ import path from 'node:path'
 import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
+import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -311,6 +312,15 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
   if (freshQuality.semanticBeatMapSha256 !== quality.semanticBeatMapSha256
       || JSON.stringify(freshQuality.beatReceipts) !== JSON.stringify(quality.beatReceipts)) {
     throw new Error('R8.05 creative-quality receipt does not bind the exact creative brief')
+  }
+  if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+    const freshDirection = buildR806CreativeReceipt(brief)
+    const direction = creativeSpec?.creativeDirection
+    if (clean(freshDirection.overlaySha256) !== clean(direction?.overlaySha256)
+        || clean(freshDirection.selectedConceptId) !== clean(direction?.selectedConceptId)
+        || JSON.stringify(freshDirection.earlyVisualTeachingModes) !== JSON.stringify(direction?.earlyVisualTeachingModes)) {
+      throw new Error('R8.06 creative-direction receipt does not bind the exact creative brief overlay')
+    }
   }
   if (clean(brief.sourceIdentity?.id) !== clean(mediaPack.researchObjectIds?.[0])
       || clean(brief.sourceIdentity?.sourceUrl) !== clean(mediaPack.source.url)) {
