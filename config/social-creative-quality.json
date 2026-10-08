@@ -1,8 +1,9 @@
 {
   "schema": "ths.social.creative-quality.v1",
-  "release": "R8.07",
-  "name": "Visual Authorship, Pattern Interruption & Retention Rhythm",
+  "release": "R8.08",
+  "name": "Silent-First Comprehension & Mobile Claim Legibility",
   "inherits": [
+    "R8.07",
     "R8.06",
     "R8.05",
     "R8.04",
@@ -49,6 +50,12 @@
       "motifContinuity",
       "semanticPatternInterrupt",
       "repetitionDebtRejected"
+    ],
+    "r808_comprehension_master_gates": [
+      "audioOffComprehension",
+      "qualifierVisibility",
+      "mobileSafeArea",
+      "readableClaimDwell"
     ]
   },
   "recovery": {
@@ -96,5 +103,21 @@
     "pattern_interrupt_role": "limitation",
     "pattern_interrupt_reason": "limitation-pivot",
     "local_composition_primitives_required": true
+  },
+  "silent_comprehension": {
+    "first_frame_hook_visible": true,
+    "core_roles": [
+      "hook",
+      "finding",
+      "evidence",
+      "limitation"
+    ],
+    "max_core_words": 14,
+    "max_core_chars": 96,
+    "min_readable_seconds": 0.85,
+    "spoken_scientific_qualifiers_preserved": true,
+    "mobile_safe_area": "platform-intersection",
+    "source_url_lossless": true,
+    "exact_master_audio_off_review": true
   }
 }
