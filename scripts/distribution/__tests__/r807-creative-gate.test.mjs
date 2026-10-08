@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { validateR807CreativeBrief, buildR807CreativeReceipt } from '../r807-creative-gate.mjs'
+import { buildLosslessCreativeSpec } from '../creative-spec-lossless.mjs'
 
 function brief() {
   const source='https://thehippiescientist.net/example/'
@@ -78,4 +79,9 @@ describe('R8.07 visual authorship gate',()=>{
     b.beats[3].r807.motifId=''
     expect(validateR807CreativeBrief(b).join('\n')).toMatch(/motif must return/)
   })
+})
+
+
+it('fails closed on unknown creative methodology labels',()=>{
+  expect(()=>buildLosslessCreativeSpec({systemRelease:'R8.05',creativeMethodRelease:'R8.99'})).toThrow(/unsupported creative methodology/)
 })
