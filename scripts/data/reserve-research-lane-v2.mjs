@@ -22,6 +22,7 @@ for(let attempt=0;attempt<5;attempt++){
  const current=await request('GET',base+'?ref='+encodeURIComponent(branch));
  if(!current.ok&&current.status!==404)throw Error('Registry read failed '+current.status);
  const registry=current.ok?JSON.parse(Buffer.from(current.data.content.replace(/\s/g,''),'base64').toString('utf8')):{schemaVersion:'2.0.0',reservations:[]};
+ if(!current.ok || registry.bootstrapComplete!==true)throw Error('Reservation registry not reconciled/bootstrapComplete; refusing write');
  const candidate={...registry,reservations:[...registry.reservations,...proposal.reservations]};
  const errors=validate(candidate,{records:[]});
  if(errors.length)throw Error('Reservation rejected: '+errors.join('; '));
