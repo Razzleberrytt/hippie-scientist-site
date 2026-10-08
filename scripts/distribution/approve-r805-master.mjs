@@ -45,6 +45,10 @@ export function approveR805Master({
   motifContinuity,
   semanticPatternInterrupt,
   repetitionDebtRejected,
+  audioOffComprehension,
+  qualifierVisibility,
+  mobileSafeArea,
+  readableClaimDwell,
   notes = '',
   now = new Date().toISOString(),
 } = {}) {
@@ -87,7 +91,7 @@ export function approveR805Master({
     cognitiveContinuity,
     hookPromiseDelivery,
   }
-  if (['R8.06', 'R8.07'].includes(creativeMethodRelease)) {
+  if (['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease)) {
     requiredPasses.openingScrollStop = openingScrollStop
     requiredPasses.nativePlatformFeel = nativePlatformFeel
     requiredPasses.visualTeachingObject = visualTeachingObject
@@ -98,17 +102,34 @@ export function approveR805Master({
         || clean(manifest?.creativeDirection?.status) !== 'approved') {
       throw new Error('R8.06 exact-master QA requires the approved R8.06 creative-direction receipt')
     }
-  } else if (creativeMethodRelease === 'R8.07') {
+  } else if (['R8.07', 'R8.08'].includes(creativeMethodRelease)) {
     requiredPasses.visualRhythm = visualRhythm
     requiredPasses.motifContinuity = motifContinuity
     requiredPasses.semanticPatternInterrupt = semanticPatternInterrupt
     requiredPasses.repetitionDebtRejected = repetitionDebtRejected
-    if (clean(manifest?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
-        || clean(manifest?.creativeFoundation?.status) !== 'approved'
-        || clean(manifest?.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
-        || clean(manifest?.creativeDirection?.status) !== 'approved'
-        || clean(manifest?.creativeDirection?.inheritedR806OverlaySha256) !== clean(manifest?.creativeFoundation?.overlaySha256)) {
-      throw new Error('R8.07 exact-master QA requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
+    if (creativeMethodRelease === 'R8.07') {
+      if (clean(manifest?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(manifest?.creativeFoundation?.status) !== 'approved'
+          || clean(manifest?.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(manifest?.creativeDirection?.status) !== 'approved'
+          || clean(manifest?.creativeDirection?.inheritedR806OverlaySha256) !== clean(manifest?.creativeFoundation?.overlaySha256)) {
+        throw new Error('R8.07 exact-master QA requires hash-bound visual-rhythm receipts')
+      }
+    } else {
+      requiredPasses.audioOffComprehension = audioOffComprehension
+      requiredPasses.qualifierVisibility = qualifierVisibility
+      requiredPasses.mobileSafeArea = mobileSafeArea
+      requiredPasses.readableClaimDwell = readableClaimDwell
+      if (clean(manifest?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(manifest?.creativeFoundation?.status) !== 'approved'
+          || clean(manifest?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(manifest?.creativeVisualFoundation?.status) !== 'approved'
+          || clean(manifest?.creativeVisualFoundation?.inheritedR806OverlaySha256) !== clean(manifest?.creativeFoundation?.overlaySha256)
+          || clean(manifest?.creativeDirection?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
+          || clean(manifest?.creativeDirection?.status) !== 'approved'
+          || clean(manifest?.creativeDirection?.inheritedR807OverlaySha256) !== clean(manifest?.creativeVisualFoundation?.overlaySha256)) {
+        throw new Error('R8.08 exact-master QA requires hash-bound R8.06/R8.07/R8.08 creative receipts')
+      }
     }
   }
   for (const [name, value] of Object.entries(requiredPasses)) {
@@ -137,12 +158,14 @@ export function approveR805Master({
       semanticBeatTimelineSha256: clean(manifest.r805Bindings?.semanticBeatTimeline?.sha256),
       r806OverlaySha256: creativeMethodRelease === 'R8.06'
         ? clean(manifest.creativeDirection?.overlaySha256)
-        : creativeMethodRelease === 'R8.07'
+        : ['R8.07', 'R8.08'].includes(creativeMethodRelease)
           ? clean(manifest.creativeFoundation?.overlaySha256)
           : null,
       r807OverlaySha256: creativeMethodRelease === 'R8.07'
         ? clean(manifest.creativeDirection?.overlaySha256)
-        : null,
+        : creativeMethodRelease === 'R8.08' ? clean(manifest.creativeVisualFoundation?.overlaySha256) : null,
+      r808OverlaySha256: creativeMethodRelease === 'R8.08'
+        ? clean(manifest.creativeDirection?.overlaySha256) : null,
     },
     qa: {
       wholePieceCohesion: 'pass',
@@ -150,14 +173,18 @@ export function approveR805Master({
       internalMotionSync: 'pass',
       cognitiveContinuity: 'pass',
       hookPromiseDelivery: 'pass',
-      openingScrollStop: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
-      nativePlatformFeel: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
-      visualTeachingObject: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
-      textCardMonotonyRejected: ['R8.06', 'R8.07'].includes(creativeMethodRelease) ? 'pass' : null,
-      visualRhythm: creativeMethodRelease === 'R8.07' ? 'pass' : null,
-      motifContinuity: creativeMethodRelease === 'R8.07' ? 'pass' : null,
-      semanticPatternInterrupt: creativeMethodRelease === 'R8.07' ? 'pass' : null,
-      repetitionDebtRejected: creativeMethodRelease === 'R8.07' ? 'pass' : null,
+      openingScrollStop: ['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      nativePlatformFeel: ['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      visualTeachingObject: ['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      textCardMonotonyRejected: ['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      visualRhythm: ['R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      motifContinuity: ['R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      semanticPatternInterrupt: ['R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      repetitionDebtRejected: ['R8.07', 'R8.08'].includes(creativeMethodRelease) ? 'pass' : null,
+      audioOffComprehension: creativeMethodRelease === 'R8.08' ? 'pass' : null,
+      qualifierVisibility: creativeMethodRelease === 'R8.08' ? 'pass' : null,
+      mobileSafeArea: creativeMethodRelease === 'R8.08' ? 'pass' : null,
+      readableClaimDwell: creativeMethodRelease === 'R8.08' ? 'pass' : null,
       pastedNarrationFeel: 'reject-if-present',
       notes: clean(notes),
     },
@@ -184,6 +211,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     motifContinuity: args['motif-continuity'],
     semanticPatternInterrupt: args['semantic-pattern-interrupt'],
     repetitionDebtRejected: args['repetition-debt-rejected'],
+    audioOffComprehension: args['audio-off-comprehension'],
+    qualifierVisibility: args['qualifier-visibility'],
+    mobileSafeArea: args['mobile-safe-area'],
+    readableClaimDwell: args['readable-claim-dwell'],
     notes: args.notes || '',
   })
   console.log(`[perceptual-qa] exact R8.05 master approved: ${receipt.artifact.sha256}`)
