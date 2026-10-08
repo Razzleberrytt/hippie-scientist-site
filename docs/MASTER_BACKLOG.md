@@ -1,12 +1,17 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08 (P0 planning priority)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync. The deep candidate feeder is [SWARM_BACKLOG.md](SWARM_BACKLOG.md); candidates there are not executable until revalidated and promoted here and into the sprint.
 
+## P0 — Cross-cutting generational engineering (#6431)
+
+**Priority decision (2026-10-08):** first define the next generation's connected capability topology, shared provenance contracts, dependency DAG, verification tiers, release proof and October 12–16 execution sequence. [P0 operating plan](GENERATIONAL_ENGINEERING_P0.md) · [candidate/readiness register](GENERATIONAL_ENGINEERING_READINESS.md). The 25 candidates are **not 25 admitted tickets**. Normal execution continues to require an authoritative sprint entry, one scored admission through the existing formula, owner, dependency proof and WIP slot; P0 planning does not fabricate an extra Operations slot.
+
+**Next gated candidates, not yet admitted:** P0.1 GitHub/CI/current production truth; P0.2 source/claim/handoff contract; P0.3 bounded exact-source → 8+12 case → editorial review-only trace; P0.4 risk-preserving duplicated-CI analysis; P0.5 release proof/retrospective. Repair/close existing owner PRs before considering replacement implementations. Outcome and time-saving ROI **Unknown** until measured.
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
