@@ -3,6 +3,7 @@ import {useMemo,useState} from 'react'
 import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
+import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
 import styles from './ResearchIntelligence.module.css'
 
 type Payload=ResearchStudio&{graph:SemanticNetwork}
@@ -22,6 +23,14 @@ const pubmed=(s:string)=>'https://pubmed.ncbi.nlm.nih.gov/'+s+'/'
 function Notice({children}:{children:React.ReactNode}){return <p className={styles.notice}><span aria-hidden='true'>◈</span> {children}</p>}
 function Tag({children}:{children:React.ReactNode}){return <span className={styles.tag}>{children}</span>}
 function Sources({pmids}:{pmids:string[]}){return <div className={styles.sources}>{pmids.slice(0,6).map(x=><a href={pubmed(x)} target='_blank' rel='noopener noreferrer' key={x}>PMID {x} ↗</a>)}</div>}
+function WitnessPanel({items}:{items:ResearchSourceWitness[]}){
+  if(!items.length)return <p>No bounded title/abstract quotation is available for these matched concepts.</p>
+  return <ul className={styles.witnessList}>{items.map(w=><li key={w.id}>
+    <strong>{w.conceptLabel} · {w.basis==='title'?'TITLE':'ABSTRACT SENTENCE '+(w.sentenceIndex+1)}</strong>
+    <blockquote>{w.quote}</blockquote>
+    <small>Verbatim source-text match · not a scientific result interpretation</small>
+  </li>)}</ul>
+}
 function Brief({brief}:{brief:DraftBrief}){
 const [show,setShow]=useState(false),[status,setStatus]=useState('')
 const payload=JSON.stringify({title:brief.title,mode:brief.mode,rationale:brief.rationale,
@@ -70,10 +79,13 @@ async function activate(){
      !Array.isArray(published.studies) ||
      !published.studies.every(x=>typeof x.id==='string'&&Array.isArray(x.relationships)))
     throw new Error('Published evidence identity verification failed')
-  if(v.schemaVersion!==1||v.systemVersion!=='1.01'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
+  if(v.schemaVersion!==1||v.systemVersion!=='1.02'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
      v.metrics?.automaticallyPromotedClaims!==0||!Array.isArray(v.dna)||v.dna.length!==500||
      !v.graph||Object.keys(v.graph.entries||{}).length!==500||
-     v.dna.some(x=>x.grade!=='ungraded-research-intake'||!v.graph.entries[x.pmid]))throw new Error('Integrity')
+     v.adjudication?.autoPublished!==false||
+     v.dna.some(x=>x.grade!=='ungraded-research-intake'||!v.graph.entries[x.pmid]||
+       !Array.isArray(x.sourceWitnesses)||x.sourceWitnesses.some(w=>w.pmid!==x.pmid||
+       w.sourceSignature!==v.graph.entries[x.pmid].sourceSignature)))throw new Error('Integrity')
   setData({
     ...hydrateResearchStudioWithPublishedEvidence(v,published.studies),
     graph:v.graph,
@@ -95,7 +107,7 @@ const active=stations.find(x=>x.id===tab)!
 return <section className={styles.studio}>
   <header className={styles.hero}>
     <div className={styles.heroCopy}>
-      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.01 · 01—08</span></div>
+      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.02 · 01—08</span></div>
       <p className={styles.eyebrow}>Eight instruments. One knowledge system.</p>
       <h1>The science is a <em>landscape.</em> Learn to navigate it.</h1>
       <p className={styles.lead}>Explore the structure of knowledge—from study fingerprints and differing results to unknowns, source-witnessed connections, safety literature and questions worth investigating.</p>
@@ -136,7 +148,7 @@ return <section className={styles.studio}>
       <Notice>Text-matched descriptors are research navigation, not validated design classifications, study eligibility, or efficacy grades. Unknown fields remain explicit.</Notice>
       <div className={styles.metrics}><div><strong>{data.metrics.fingerprints}</strong><span>Source fingerprints</span></div>
         <div><strong>{data.metrics.classifiedMethods}</strong><span>Classifiable method phrases</span></div>
-        <div><strong>{data.metrics.populationTagged}</strong><span>Population concepts detected</span></div></div>
+        <div><strong>{data.metrics.quotedTextWitnesses}</strong><span>Verbatim source text anchors</span></div></div>
       <label className={styles.field}>Find a source fingerprint<input type='search' value={search}
         onChange={e=>{setSearch(e.target.value);setDnaVisible(9)}} placeholder='Search a substance, outcome or PMID'/></label>
       <p role='status' className={styles.micro}>{filtered.length} source fingerprints match · showing {Math.min(dnaVisible,filtered.length)}</p>
@@ -148,6 +160,18 @@ return <section className={styles.studio}>
           <div><dt>Population words</dt><dd>{d.populationMentions.join(' · ')||'Not classified'}</dd></div>
           <div><dt>Outcome words</dt><dd>{d.outcomeMentions.join(' · ')||'Not classified'}</dd></div>
           <div><dt>Substances named</dt><dd>{d.substancesMentioned.join(' · ')||'Not classified'}</dd></div></dl>
+        <details><summary className={styles.detail}>Inspect verbatim evidence trail ({d.sourceWitnesses.length})</summary>
+          <WitnessPanel items={d.sourceWitnesses}/>
+          <p>These extracted quotations are title/abstract snippets only. Check the full publication and editorial evidence before interpreting findings.</p>
+          {d.sourceWitnesses.length>0?<details><summary className={styles.detail}>Prepare an editorial review packet</summary>
+            <textarea className={styles.export} rows={10} readOnly aria-label={'Review packet for PMID '+d.pmid}
+              value={JSON.stringify({status:'draft-only',publication:d.sourceUrl,sourcePmid:d.pmid,
+              reviewEvents:d.sourceWitnesses.map(w=>({witnessId:w.id,sourceSignature:w.sourceSignature,
+                eventId:'REPLACE_WITH_UNIQUE_EVENT_ID',priorEventId:null,reviewerCode:'REPLACE',
+                recordedAt:'REPLACE_WITH_UTC_TIMESTAMP',decision:'needs-full-text',
+                inspected:'bibliographic-title-or-abstract',rationale:'REPLACE: describe your source verification in at least 24 characters.'})),
+              noClinicalPromotion:true,noAutopublish:true},null,2)}/></details>:null}
+        </details>
         <details><summary className={styles.detail}>Missingness audit ({d.missing.length})</summary>
           <p>{d.missing.length?d.missing.join(' · '):'No missing controlled categories found; full quality review still required.'}</p></details>
         <a className={styles.paperLink} href={d.sourceUrl} target='_blank' rel='noopener noreferrer'>PubMed · {d.pmid} ↗</a>
@@ -278,15 +302,16 @@ return <section className={styles.studio}>
         <p><strong>{answer.matchMode==='all-concepts'?'All-concept match':answer.matchMode==='partial-concepts'?'Partial-only retrieval':'No recognized concept'}:</strong> {answer.retrievalNote}</p>
         <p>{answer.warning}</p>
         <div className={styles.paperGrid}>{answer.matches.map(m=><article className={styles.paper} key={m.pmid}>
-          <h3>{m.title}</h3><p>{m.reason}</p><a className={styles.paperLink} href={m.url} target='_blank' rel='noopener noreferrer'>Original PMID {m.pmid} ↗</a>
+          <h3>{m.title}</h3><p>{m.reason}</p><details><summary className={styles.detail}>Why this paper matched</summary><WitnessPanel items={m.witnesses}/></details><a className={styles.paperLink} href={m.url} target='_blank' rel='noopener noreferrer'>Original PMID {m.pmid} ↗</a>
         </article>)}</div></div>:null}
     </>:null}
 
     {data&&tab==='reactor'?<>
       <Notice>Proposals are draft-only editorial work orders with a mandatory scientific review checklist. The system does not write or publish claims, doses, recommendations or articles.</Notice>
       <div className={styles.metrics}><div><strong>{data.briefs.length}</strong><span>Draft work orders</span></div>
-        <div><strong>0</strong><span>Automatically published</span></div>
-        <div><strong>100%</strong><span>Editorial review required</span></div></div>
+        <div><strong>{data.adjudication.reviewCount}</strong><span>Recorded source-mention reviews</span></div>
+        <div><strong>0</strong><span>Automatically published</span></div></div>
+      <p>Review ledger decisions concern source-text indexing only. They cannot certify safety, clinical conclusions or publication.</p>
       <div className={styles.paperGrid}>{data.briefs.slice(0,more?40:9).map(v=><Brief brief={v} key={v.id}/>)}</div>
       {data.briefs.length>9&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More editorial hypotheses →</button>:null}
     </>:null}

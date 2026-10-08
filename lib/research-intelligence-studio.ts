@@ -10,6 +10,8 @@
  * output retains IDs, a precise basis, and visible missingness.
  * All algorithms are deterministic, local, bounded, and static-export friendly.
  */
+import {buildResearchSourceWitnesses,type ResearchSourceWitness} from './research-semantic-provenance'
+import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent,type ResearchAdjudicationLedger} from './research-semantic-adjudication'
 import {
   extractSemanticMentions, findExplainableConceptPath, RESEARCH_CONCEPTS,
   normalizeSemanticText, semanticSourceSignature, type SemanticNetwork, type SemanticMention,
@@ -51,6 +53,7 @@ export type ResearchDNA = {
   comparator: string
   comparatorBasis: 'title-phrase' | 'abstract-phrase' | 'unknown'
   concepts: SemanticMention[]
+  sourceWitnesses: ResearchSourceWitness[]
   populationMentions: string[]
   outcomeMentions: string[]
   substancesMentioned: string[]
@@ -138,8 +141,9 @@ export type RecordedEvidenceChange = {
   basis: 'explicit-editorial-grade-change-log'
 }
 export type ResearchStudio = {
-  systemVersion: '1.01'
+  systemVersion: '1.02'
   recordedChanges: RecordedEvidenceChange[]
+  adjudication: ResearchAdjudicationLedger
   schemaVersion: 1
   sourceWave: 7500
   sourceCount: number
@@ -159,6 +163,8 @@ export type ResearchStudio = {
     catalogCoverageQuestions: number
     safetyCoMentions: number
     sameSourceInvestigationThreads: number
+    quotedTextWitnesses: number
+    reviewedSourceMentions: number
     datedPublications: number
     preparedDrafts: number
     automaticallyPromotedClaims: 0
@@ -209,7 +215,8 @@ function fingerprint(s:StudioSource,network:SemanticNetwork):ResearchDNA {
     methodBasis:type?'pubmed-publication-type':titleMethod?'title-phrase':'unknown',
     comparator:titleComparator||abstractComparator||'Not identified',
     comparatorBasis:titleComparator?'title-phrase':abstractComparator?'abstract-phrase':'unknown',
-    concepts:mentions,populationMentions:kind('population'),outcomeMentions:kind('outcome'),
+    concepts:mentions,sourceWitnesses:buildResearchSourceWitnesses(s,mentions),
+    populationMentions:kind('population'),outcomeMentions:kind('outcome'),
     substancesMentioned:kind('substance'),safetyMentions:kind('safety'),
     missing,sourceUrl:pubmed(s.pmid),grade:'ungraded-research-intake',
   }
@@ -398,6 +405,7 @@ function briefsFromSignals(
 export function buildResearchIntelligenceStudio(
   sources:readonly StudioSource[],network:SemanticNetwork,reviewedStudies:readonly ReviewedStudyInput[],
   changeHistory:readonly {id:string;title:string;path:string;occurredAt:string;summary:string}[]=[],
+  reviewEvents:readonly ResearchAdjudicationEvent[]=[],
 ):ResearchStudio {
   if(sources.length!==Object.keys(network.entries).length ||
      new Set(sources.map(s=>s.pmid)).size!==sources.length ||
@@ -409,6 +417,8 @@ export function buildResearchIntelligenceStudio(
     throw new Error('Study DNA semantic witnesses are stale or inconsistent with source text')
   }
   const dna=sources.map(s=>fingerprint(s,network))
+  const adjudication=validateResearchAdjudicationLedger({version:1,events:reviewEvents},
+    dna.flatMap(d=>d.sourceWitnesses))
   const debates=debatesFromReviewed(reviewedStudies)
   const frontiers=frontierFromDna(dna)
   const safety=safetyFromDna(dna)
@@ -425,8 +435,8 @@ export function buildResearchIntelligenceStudio(
     .sort((a,b)=>b.occurredAt.localeCompare(a.occurredAt))
     .slice(0,40)
   return {
-    systemVersion:'1.01',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
-    dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,
+    systemVersion:'1.02',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
+    dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,adjudication,
     metrics:{fingerprints:dna.length,
       classifiedMethods:dna.filter(x=>x.methodBasis!=='unknown').length,
       populationTagged:dna.filter(x=>x.populationMentions.length>0).length,
@@ -434,6 +444,8 @@ export function buildResearchIntelligenceStudio(
       catalogCoverageQuestions:frontiers.length,
       safetyCoMentions:safety.length,
       sameSourceInvestigationThreads:investigations.length,
+      quotedTextWitnesses:dna.reduce((n,x)=>n+x.sourceWitnesses.length,0),
+      reviewedSourceMentions:adjudication.reviewCount,
       datedPublications:dna.filter(x=>safeYear(x.year)!==null).length,
       preparedDrafts:briefs.length,automaticallyPromotedClaims:0,
     },
@@ -444,7 +456,7 @@ export type StudioQueryResult = {
   unresolvedTerms: string[]
   matchMode: 'all-concepts' | 'partial-concepts' | 'no-concepts'
   retrievalNote: string
-  matches: Array<{pmid:string;title:string;year:string;reason:string;url:string}>
+  matches: Array<{pmid:string;title:string;year:string;reason:string;url:string;witnesses:ResearchSourceWitness[]}>
   warning: string
 }
 /**
@@ -521,6 +533,7 @@ export function askResearchSources(question:string,studio:ResearchStudio):Studio
       pmid:d.pmid,title:d.title,year:d.year,
       reason:'Title/abstract concept matches: '+hits.map(h=>h.label+' ('+h.basis+')').join(', '),
       url:d.sourceUrl,
+      witnesses:d.sourceWitnesses.filter(w=>hits.some(h=>h.id===w.conceptId)).slice(0,2),
     })),
     warning:'Source discovery only. A text match does not establish efficacy, safety, study comparability or a treatment recommendation. Consult linked original papers and the separately reviewed Citation Explorer.',
   }

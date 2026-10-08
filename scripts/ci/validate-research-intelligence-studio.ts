@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
 import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
+import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
+import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
 
 function source(pmid:string,title:string,year:string,abstract='An unreviewed source text with no clinical conclusions.',category='sleep'){
@@ -36,7 +38,44 @@ assert.equal(browserJoined.metrics.automaticallyPromotedClaims,0)
 assert.equal(browserJoined.dna,precomputed.dna,'No research intake mutation during reviewed client join')
 assert(browserJoined.briefs.every(x=>x.allowAutopublish===false))
 
-assert.equal(s.systemVersion,'1.01')
+assert.equal(s.systemVersion,'1.02')
+assert.equal(s.adjudication.reviewCount,0)
+assert.equal(s.adjudication.autoPublished,false)
+assert(s.dna.some(d=>d.sourceWitnesses.length>0),'Study DNA needs exact title/source anchors')
+for(const d of s.dna){
+ const original=sources.find(x=>x.pmid===d.pmid)!
+ for(const w of d.sourceWitnesses){
+   assert(verifyResearchSourceWitness(original,w),'Verbatim evidence must match title or abstract character offsets')
+   assert(w.quote.length<=320)
+   assert.equal(w.status,'unreviewed-verbatim-source-text')
+ }
+}
+const sampleWitness=s.dna[0].sourceWitnesses[0]
+assert(sampleWitness)
+const reviewedEvent:ResearchAdjudicationEvent={
+ eventId:'review-event-0001',witnessId:sampleWitness.id,
+ sourceSignature:sampleWitness.sourceSignature,reviewerCode:'editor-test',
+ recordedAt:'2026-10-08T14:00:00.000Z',priorEventId:null,
+ decision:'needs-full-text',inspected:'bibliographic-title-or-abstract',
+ rationale:'Source-text mention noted; full source inspection still required.'
+}
+const witnessList=s.dna.flatMap(d=>d.sourceWitnesses)
+const ledger=validateResearchAdjudicationLedger({version:1,events:[reviewedEvent]},witnessList)
+assert.equal(ledger.reviewCount,1)
+assert.equal(ledger.autoPublished,false)
+assert.throws(()=>validateResearchAdjudicationLedger({version:1,
+  events:[{...reviewedEvent,sourceSignature:'stale-source'}]},witnessList),/stale or unknown/)
+assert.throws(()=>validateResearchAdjudicationLedger({version:1,
+  events:[reviewedEvent,{...reviewedEvent,eventId:'review-event-0002',
+    recordedAt:'2026-10-08T14:01:00.000Z'}]},witnessList),/extend the prior/)
+const replay=validateResearchAdjudicationLedger({version:1,events:[
+  reviewedEvent,{...reviewedEvent,eventId:'review-event-0002',
+    recordedAt:'2026-10-08T14:01:00.000Z',priorEventId:reviewedEvent.eventId,
+    decision:'false-positive',rationale:'Second reviewer found this matched expression misleading.'}
+]},witnessList)
+assert.equal(replay.reviewCount,1)
+assert.equal(replay.events.length,2)
+assert.equal(replay.currentDecisions[0].decision,'false-positive')
 assert.equal(s.sourceCount,6)
 assert.equal(s.metrics.automaticallyPromotedClaims,0)
 assert.equal(s.dna.length,6)
@@ -126,7 +165,14 @@ const inputs=rows.map(r=>({pmid:String(r.pmid),title:r.title,abstract:r.abstract
  year:r.verified_pub_date?.match(/(?:19|20)\d{2}/)?.[0]||''}))
 const realGraph=buildResearchSemanticNetwork(inputs)
 const real=buildResearchIntelligenceStudio(inputs,realGraph,[])
-assert.equal(real.systemVersion,'1.01')
+assert.equal(real.systemVersion,'1.02')
+assert.equal(real.metrics.quotedTextWitnesses,real.dna.reduce((sum,d)=>sum+d.sourceWitnesses.length,0))
+assert.equal(real.adjudication.reviewCount,0)
+assert(real.dna.flatMap(d=>d.sourceWitnesses).every(w=>w.quote.length<=320))
+for(const d of real.dna){
+ const source=inputs.find(x=>x.pmid===d.pmid)!
+ assert(d.sourceWitnesses.every(w=>verifyResearchSourceWitness(source,w)))
+}
 assert.equal(real.metrics.fingerprints,500)
 assert.equal(new Set(real.dna.map(x=>x.pmid)).size,500)
 assert.equal(real.debates.length,0,'Ungraded intake alone cannot produce directional contradictions')
@@ -141,6 +187,9 @@ const route=readFileSync('app/research/intelligence/dataset.json/route.ts','utf8
 const ui=readFileSync('app/research/intelligence/ResearchIntelligenceClient.tsx','utf8')
 assert(page.includes("robots:{index:false,follow:true}"))
 assert(route.includes("export const dynamic = 'force-static'"))
+assert(route.includes('research-semantic-adjudications.json'),'Adjudications must come from governed local ledger')
+assert(ui.includes('Inspect verbatim evidence trail')&&ui.includes('Prepare an editorial review packet'))
+assert(ui.includes('Why this paper matched'),'Questions must expose original text witnesses')
 assert(route.includes('getResearchSourceRegister()')&&!route.includes('getPublicEvidenceDataset()'),
  'Second full evidence hydration in a static worker must be forbidden')
 assert(route.includes('buildResearchIntelligenceStudio('))
