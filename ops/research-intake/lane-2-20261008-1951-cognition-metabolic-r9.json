@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42641106",
+    "42251202",
+    "42141362",
+    "42811187"
+  ],
+  "relevance_reason": "Human randomized trials and systematic review covering cognitive outcomes, insulin sensitivity, time-restricted eating, and glycemic control; retain null results and safety uncertainty pending independent review."
+}
