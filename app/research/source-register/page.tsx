@@ -15,7 +15,7 @@ export default function SourceRegisterPage() {
   const data = getResearchSourceRegister()
 
   return (
-    <main className='research-page-content mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
+    <div className='research-page-content mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
       <nav aria-label='Breadcrumb' className='text-sm text-muted'>
         <Link href='/research/' className='font-semibold text-brand-700 hover:underline'>Research</Link>
         <span aria-hidden='true' className='mx-2'>/</span>
@@ -77,6 +77,6 @@ export default function SourceRegisterPage() {
         Search results are source bibliographic metadata only. This inventory is intentionally excluded from search indexing
         until the editorial and publication policy is separately reviewed.
       </p>
-    </main>
+    </div>
   )
 }
