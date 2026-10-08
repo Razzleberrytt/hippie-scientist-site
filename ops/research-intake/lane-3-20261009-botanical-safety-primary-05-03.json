@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42335642",
+    "42093756",
+    "42264256",
+    "42461003",
+    "39718445"
+  ],
+  "relevance_reason": "Research-only botanical pharmacology and interaction literature awaiting independent review."
+}
