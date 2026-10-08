@@ -24,7 +24,10 @@
     "unique_pmids": 500,
     "duplicate_pmids": 0,
     "prior_pmid_collisions": 0,
-    "unique_normalized_titles": 500
+    "unique_normalized_titles": 500,
+    "unique_normalized_dois": 494,
+    "duplicate_normalized_titles": 0,
+    "duplicate_normalized_dois": 6
   },
   "category_counts": {
     "stress_anxiety": 11,
@@ -56,16 +59,18 @@
   "rows": [
     {
       "category": "stress_anxiety",
-      "pmid": "31461801",
-      "title": "Intrathecal dexmedetomidine versus magnesium sulphate for postoperative analgesia and stress response after caesarean delivery; randomized controlled double-blind study.",
-      "doi": "10.1002/ejp.1476",
-      "pub_date": "2020 Jan",
-      "pub_type": "Research Support, Non-U.S. Gov't",
-      "journal": "European journal of pain (London, England)",
-      "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "pmid": "37131158",
+      "title": "The effects of melissa officinalis on depression and anxiety in type 2 diabetes patients with depression: a randomized double-blinded placebo-controlled clinical trial.",
+      "doi": "10.1186/s12906-023-03978-x",
+      "pub_date": "2023-May-02",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "BMC complementary medicine and therapies",
+      "discovery_query": "Targeted PubMed human randomized trial semantic repair",
       "selection_score": 13,
       "wave": 6501,
-      "state": "candidate_pending_exact_verification"
+      "state": "exact_source_verified",
+      "replaces_pmid": "31461801",
+      "repair_reason": "replace intrathecal perioperative stress study with human botanical anxiety trial"
     },
     {
       "category": "stress_anxiety",
@@ -2202,16 +2207,18 @@
     {
       "category": "micronutrients",
       "target": 30,
-      "pmid": "42185813",
-      "title": "Roxadustat for CKD-related anemia in patients undergoing peritoneal dialysis: a systematic review and meta-analysis.",
-      "doi": "10.1186/s12882-025-04723-x",
-      "pub_date": "2026 May 25",
-      "pub_type": "Meta-Analysis",
-      "journal": "BMC nephrology",
-      "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract] OR folate[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract]) AND (deficiency[Title] OR supplementation[Title] OR status[Title] OR intake[Title] OR anemia[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "pmid": "42156552",
+      "title": "Circannual prevalence of vitamin D insufficiency in older and minoritized ethnic adults in Northern Britain: screening outcomes from a clinical trial.",
+      "doi": "10.1038/s41430-026-01760-z",
+      "pub_date": "2026 Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "European journal of clinical nutrition",
+      "discovery_query": "((folate[Title] OR \"vitamin B12\"[Title] OR cobalamin[Title] OR \"vitamin D\"[Title]) AND (deficiency[Title] OR supplementation[Title] OR status[Title] OR intake[Title] OR insufficiency[Title])) AND 2005:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6666,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 19
+      "state": "exact_source_verified",
+      "selection_score": 19,
+      "replaces_pmid": "42185813",
+      "repair_reason": "source verification identity correction"
     },
     {
       "category": "micronutrients",
@@ -3198,30 +3205,34 @@
     {
       "category": "gut",
       "target": 35,
-      "pmid": "42688076",
-      "title": "IBD-related inflammatory memory and colorectal cancer: epigenetic mechanisms and microbiome interventions.",
-      "doi": "10.3389/fimmu.2026.1912351",
-      "pub_date": "2026",
-      "pub_type": "Systematic Review",
-      "journal": "Frontiers in immunology",
-      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "pmid": "40598275",
+      "title": "Differential effects of inulin and fructooligosaccharides on gut microbiota composition and glycemic metabolism in overweight/obese and healthy individuals: a randomized, double-blind clinical trial.",
+      "doi": "10.1186/s12916-025-04189-6",
+      "pub_date": "2025-Jul-01",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "BMC medicine",
+      "discovery_query": "Targeted PubMed human randomized trial semantic repair",
       "wave": 6742,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 9
+      "state": "exact_source_verified",
+      "selection_score": 9,
+      "replaces_pmid": "42688076",
+      "repair_reason": "replace bibliometric gut narrative with human inulin/FOS randomized trial"
     },
     {
       "category": "gut",
       "target": 35,
-      "pmid": "42481422",
-      "title": "Oral microbiome dysbiosis and oral-gut microbial network disruption in hand osteoarthritis: data from the Xiangya Osteoarthritis Study.",
-      "doi": "10.1136/rmdopen-2026-006962",
-      "pub_date": "2026 Jul 21",
-      "pub_type": "Observational Study",
-      "journal": "RMD open",
-      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "pmid": "41011400",
+      "title": "Effects of Dietary Fiber Supplementation on Gut Microbiota and Bowel Function in Healthy Adults: A Randomized Controlled Trial.",
+      "doi": "10.3390/microorganisms13092068",
+      "pub_date": "2025-Sep-05",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Microorganisms",
+      "discovery_query": "Targeted PubMed human randomized trial semantic repair",
       "wave": 6743,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 4
+      "state": "exact_source_verified",
+      "selection_score": 4,
+      "replaces_pmid": "42481422",
+      "repair_reason": "replace bibliometric gut narrative with human dietary-fiber randomized trial"
     },
     {
       "category": "cognition_focus",
@@ -6606,6 +6617,28 @@
       "old_pmid": "36615718",
       "new_pmid": "38383361",
       "new_title": "Impact of vitamin D supplementation on the clinical outcomes of COVID-19 pneumonia patients: a single-center randomized controlled trial."
+    }
+  ],
+  "staged_repairs": [
+    {
+      "wave": 6501,
+      "prior": "31461801",
+      "verified": "37131158"
+    },
+    {
+      "wave": 6666,
+      "prior": "42185813",
+      "verified": "42156552"
+    },
+    {
+      "wave": 6742,
+      "prior": "42688076",
+      "verified": "40598275"
+    },
+    {
+      "wave": 6743,
+      "prior": "42481422",
+      "verified": "41011400"
     }
   ]
 }
