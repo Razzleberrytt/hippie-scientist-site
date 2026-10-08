@@ -70,10 +70,10 @@ async function activate(){
      !Array.isArray(published.studies) ||
      !published.studies.every(x=>typeof x.id==='string'&&Array.isArray(x.relationships)))
     throw new Error('Published evidence identity verification failed')
-  if(v.schemaVersion!==1||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
+  if(v.schemaVersion!==1||v.systemVersion!=='1.01'||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
      v.metrics?.automaticallyPromotedClaims!==0||!Array.isArray(v.dna)||v.dna.length!==500||
      !v.graph||Object.keys(v.graph.entries||{}).length!==500||
-     v.dna.some(x=>x.grade!=='ungraded-research-intake'))throw new Error('Integrity')
+     v.dna.some(x=>x.grade!=='ungraded-research-intake'||!v.graph.entries[x.pmid]))throw new Error('Integrity')
   setData({
     ...hydrateResearchStudioWithPublishedEvidence(v,published.studies),
     graph:v.graph,
@@ -95,7 +95,7 @@ const active=stations.find(x=>x.id===tab)!
 return <section className={styles.studio}>
   <header className={styles.hero}>
     <div className={styles.heroCopy}>
-      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE 01—08</span></div>
+      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.01 · 01—08</span></div>
       <p className={styles.eyebrow}>Eight instruments. One knowledge system.</p>
       <h1>The science is a <em>landscape.</em> Learn to navigate it.</h1>
       <p className={styles.lead}>Explore the structure of knowledge—from study fingerprints and differing results to unknowns, source-witnessed connections, safety literature and questions worth investigating.</p>
@@ -253,6 +253,15 @@ return <section className={styles.studio}>
         <p>{s.titleWitnesses} title-level co-mentions; other matches may be from abstracts. No assessment of the finding is implied.</p>
         <Sources pmids={s.pmids}/></article>)}</div>
       {data.safety.length>12&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More safety literature contexts →</button>:null}
+      <h3>Cross-instrument witness trails</h3>
+      <p>These threads connect a substance, an outcome and a safety topic only when all three occur within the same source record. Their co-mention is not a causal or clinical claim.</p>
+      {!data.investigations.length?<p>No three-concept trails found in this snapshot; no broader research conclusion follows.</p>:null}
+      <div className={styles.paperGrid}>{data.investigations.slice(0,8).map(thread=><article className={styles.paper} key={thread.id}>
+        <div className={styles.paperTop}><Tag>SAME-PAPER TEXT WITNESSES</Tag><span>{thread.pmids.length} shown</span></div>
+        <h3>{thread.substance} / {thread.outcome} / {thread.safetyTopic}</h3>
+        <p>{thread.titleTripleWitnesses} title-level triple mention(s). Full papers require scientific review.</p>
+        <Sources pmids={thread.pmids}/>
+      </article>)}</div>
     </>:null}
 
     {data&&tab==='ask'?<>
@@ -263,8 +272,9 @@ return <section className={styles.studio}>
             placeholder='For example: Which studies mention creatine and cognition?'/></label>
         <button type='submit' className={styles.prime} disabled={!query.trim()}>Inspect the source trail ↗</button>
       </form>
-      {answer?<div className={styles.askAnswer} role='status'><h3>{answer.matches.length} {answer.matchMode==='all-concepts'?'full concept matches':'source candidates'} in the current research batch</h3>
+      {answer?<div className={styles.askAnswer} role='status'><h3>{answer.matches.length} {answer.matchMode==='all-concepts'?'indexed-concept matches':'source candidates'} in the current research batch</h3>
         <p>Recognized: {answer.understoodConcepts.length?answer.understoodConcepts.join(' · '):'No matching controlled concepts'}</p>
+        {answer.unresolvedTerms.length?<p><strong>Question terms not indexed:</strong> {answer.unresolvedTerms.join(' · ')}. Check these against full papers before drawing conclusions.</p>:null}
         <p><strong>{answer.matchMode==='all-concepts'?'All-concept match':answer.matchMode==='partial-concepts'?'Partial-only retrieval':'No recognized concept'}:</strong> {answer.retrievalNote}</p>
         <p>{answer.warning}</p>
         <div className={styles.paperGrid}>{answer.matches.map(m=><article className={styles.paper} key={m.pmid}>

@@ -102,6 +102,16 @@ export type SafetyMention = {
   basis: 'source-text-co-mention'
   status: 'not-an-established-interaction-or-risk-assessment'
 }
+export type SemanticInvestigationThread = {
+  id: string
+  substance: string
+  outcome: string
+  safetyTopic: string
+  pmids: string[]
+  titleTripleWitnesses: number
+  basis: 'same-source-text-triple-mention'
+  status: 'review-only-no-efficacy-or-interaction-inference'
+}
 export type PublicationTimeline = {
   year: number
   sources: number
@@ -111,7 +121,7 @@ export type PublicationTimeline = {
 export type DraftBrief = {
   id: string
   title: string
-  mode: 'research-gap-brief' | 'evidence-divergence-review' | 'safety-literature-map'
+  mode: 'research-gap-brief' | 'evidence-divergence-review' | 'safety-literature-map' | 'cross-instrument-review'
   rationale: string
   pmids: string[]
   sourceStudyIds: string[]
@@ -128,6 +138,7 @@ export type RecordedEvidenceChange = {
   basis: 'explicit-editorial-grade-change-log'
 }
 export type ResearchStudio = {
+  systemVersion: '1.01'
   recordedChanges: RecordedEvidenceChange[]
   schemaVersion: 1
   sourceWave: 7500
@@ -137,6 +148,7 @@ export type ResearchStudio = {
   debates: DebateCandidate[]
   frontiers: FrontierSignal[]
   safety: SafetyMention[]
+  investigations: SemanticInvestigationThread[]
   timeline: PublicationTimeline[]
   briefs: DraftBrief[]
   metrics: {
@@ -146,6 +158,7 @@ export type ResearchStudio = {
     reviewedDirectionalCandidates: number
     catalogCoverageQuestions: number
     safetyCoMentions: number
+    sameSourceInvestigationThreads: number
     datedPublications: number
     preparedDrafts: number
     automaticallyPromotedClaims: 0
@@ -300,6 +313,31 @@ function safetyFromDna(dna:readonly ResearchDNA[]):SafetyMention[]{
   return [...grouped.values()].sort((a,b)=>b.titleWitnesses-a.titleWitnesses||
     b.count-a.count||a.id.localeCompare(b.id)).slice(0,70)
 }
+function investigationsFromDna(dna:readonly ResearchDNA[]):SemanticInvestigationThread[]{
+  const threads=new Map<string,SemanticInvestigationThread>()
+  for(const paper of dna){
+    const substances=paper.concepts.filter(m=>m.kind==='substance'&&m.basis==='title')
+    const outcomes=paper.concepts.filter(m=>m.kind==='outcome')
+    const safety=paper.concepts.filter(m=>m.kind==='safety')
+    for(const substance of substances)for(const outcome of outcomes)for(const topic of safety){
+      const id=substance.id+':'+outcome.id+':'+topic.id
+      const row=threads.get(id)||{
+        id,substance:substance.label,outcome:outcome.label,safetyTopic:topic.label,
+        pmids:[],titleTripleWitnesses:0,
+        basis:'same-source-text-triple-mention' as const,
+        status:'review-only-no-efficacy-or-interaction-inference' as const,
+      }
+      // A witness must contain all three literal concepts in the SAME PMID.
+      if(!row.pmids.includes(paper.pmid))row.pmids.push(paper.pmid)
+      if(outcome.basis==='title'&&topic.basis==='title')row.titleTripleWitnesses++
+      threads.set(id,row)
+    }
+  }
+  return [...threads.values()]
+    .sort((a,b)=>b.titleTripleWitnesses-a.titleTripleWitnesses||
+      b.pmids.length-a.pmids.length||a.id.localeCompare(b.id))
+    .slice(0,24).map(row=>({...row,pmids:row.pmids.slice(0,8)}))
+}
 function timelineFromSources(dna:readonly ResearchDNA[],reviewed:readonly ReviewedStudyInput[]):PublicationTimeline[]{
   const byYear=new Map<number,PublicationTimeline>()
   const get=(year:number)=>{if(!byYear.has(year))byYear.set(year,{year,sources:0,reviewedCitations:0,pmids:[]});return byYear.get(year)!}
@@ -319,6 +357,7 @@ function timelineFromSources(dna:readonly ResearchDNA[],reviewed:readonly Review
 }
 function briefsFromSignals(
   frontier:readonly FrontierSignal[],debates:readonly DebateCandidate[],safety:readonly SafetyMention[],
+  investigations:readonly SemanticInvestigationThread[],
 ):DraftBrief[]{
   const drafts:DraftBrief[]=[]
   for(const d of debates.slice(0,6)){
@@ -346,6 +385,14 @@ function briefsFromSignals(
       pmids:s.pmids,sourceStudyIds:[],destination:'/research/intelligence/',
       status:'draft-requires-qualified-editorial-review',allowAutopublish:false})
   }
+  for(const thread of investigations.slice(0,4)){
+    drafts.push({id:'cross-instrument:'+thread.id,
+      title:'Audit same-source concept triad: '+thread.substance+' / '+thread.outcome+' / '+thread.safetyTopic,
+      mode:'cross-instrument-review',
+      rationale:'One or more verified bibliographic sources name all three concepts. Confirm relevance, endpoints and limitations in the full studies; co-mention implies neither effectiveness nor an adverse interaction.',
+      pmids:thread.pmids,sourceStudyIds:[],destination:'/research/intelligence/',
+      status:'draft-requires-qualified-editorial-review',allowAutopublish:false})
+  }
   return drafts
 }
 export function buildResearchIntelligenceStudio(
@@ -355,12 +402,18 @@ export function buildResearchIntelligenceStudio(
   if(sources.length!==Object.keys(network.entries).length ||
      new Set(sources.map(s=>s.pmid)).size!==sources.length ||
      sources.some(s=>!network.entries[s.pmid]))throw new Error('Study DNA sources must exactly match graph PMIDs')
+  if(network.summary.sourcePapers!==sources.length||sources.some(s=>
+    JSON.stringify(network.entries[s.pmid]?.mentions)!==
+    JSON.stringify(extractSemanticMentions(s.title,s.abstract)))) {
+    throw new Error('Study DNA semantic witnesses are stale or inconsistent with source text')
+  }
   const dna=sources.map(s=>fingerprint(s,network))
   const debates=debatesFromReviewed(reviewedStudies)
   const frontiers=frontierFromDna(dna)
   const safety=safetyFromDna(dna)
+  const investigations=investigationsFromDna(dna)
   const timeline=timelineFromSources(dna,reviewedStudies)
-  const briefs=briefsFromSignals(frontiers,debates,safety)
+  const briefs=briefsFromSignals(frontiers,debates,safety,investigations)
   const recordedChanges=changeHistory.filter(c=>
     Boolean(c.id&&c.title&&/^\/(herbs|compounds)\/[a-z0-9/-]+\/?$/.test(c.path)) &&
     Number.isFinite(Date.parse(c.occurredAt)) &&
@@ -371,14 +424,15 @@ export function buildResearchIntelligenceStudio(
     .sort((a,b)=>b.occurredAt.localeCompare(a.occurredAt))
     .slice(0,40)
   return {
-    schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
-    dna,debates,frontiers,safety,timeline,briefs,recordedChanges,
+    systemVersion:'1.01',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
+    dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,
     metrics:{fingerprints:dna.length,
       classifiedMethods:dna.filter(x=>x.methodBasis!=='unknown').length,
       populationTagged:dna.filter(x=>x.populationMentions.length>0).length,
       reviewedDirectionalCandidates:debates.length,
       catalogCoverageQuestions:frontiers.length,
       safetyCoMentions:safety.length,
+      sameSourceInvestigationThreads:investigations.length,
       datedPublications:dna.filter(x=>safeYear(x.year)!==null).length,
       preparedDrafts:briefs.length,automaticallyPromotedClaims:0,
     },
@@ -386,10 +440,45 @@ export function buildResearchIntelligenceStudio(
 }
 export type StudioQueryResult = {
   understoodConcepts: string[]
+  unresolvedTerms: string[]
   matchMode: 'all-concepts' | 'partial-concepts' | 'no-concepts'
   retrievalNote: string
   matches: Array<{pmid:string;title:string;year:string;reason:string;url:string}>
   warning: string
+}
+/**
+ * Return tokens the controlled vocabulary could not interpret. This is
+ * deliberately conservative: study populations, comparators, dates, doses,
+ * negations and other modifiers may NEVER silently disappear from a question.
+ */
+function unresolvedQuestionTerms(input:string,mentions:readonly SemanticMention[]):string[]{
+  const words=normalizeSemanticText(input).split(' ').filter(Boolean)
+  const covered=new Array<boolean>(words.length).fill(false)
+  for(const mention of mentions){
+    const phrase=normalizeSemanticText(mention.matched).split(' ')
+    for(let i=0;i<=words.length-phrase.length;i++){
+      if(phrase.every((word,j)=>words[i+j]===word)){
+        for(let j=0;j<phrase.length;j++)covered[i+j]=true
+      }
+    }
+  }
+  const scaffolding=new Set([
+    'what','which','who','where','how','is','are','was','were','do','does','did',
+    'can','could','would','may','might','i','we','me','us','find','show','list',
+    'studies','study','papers','paper','publications','sources','source',
+    'mention','mentions','mentioning','about','regarding','on','in','of','for',
+    'a','an','the','and','with','to','that','there','any','please','research',
+    'look','at','related','relate','which','into','literature',
+  ])
+  const fragments:string[]=[]
+  let pending:string[]=[]
+  const flush=()=>{if(pending.length){fragments.push(pending.join(' '));pending=[]}}
+  for(let i=0;i<words.length;i++){
+    if(covered[i]||scaffolding.has(words[i]))flush()
+    else pending.push(words[i])
+  }
+  flush()
+  return fragments.slice(0,10)
 }
 /**
  * Deterministic evidence SOURCE FINDER, not generated clinical Q&A.
@@ -399,6 +488,7 @@ export function askResearchSources(question:string,studio:ResearchStudio):Studio
   const input=clip(question,300)
   const mentions=extractSemanticMentions(input,'')
   const names=[...new Set(mentions.map(m=>m.id))]
+  const unresolvedTerms=unresolvedQuestionTerms(input,mentions)
   const ranked=studio.dna.map(d=>{
     const hits=d.concepts.filter(m=>names.includes(m.id))
     const inTitle=hits.filter(x=>x.basis==='title').length
@@ -408,18 +498,24 @@ export function askResearchSources(question:string,studio:ResearchStudio):Studio
   // Multiple concepts represent an AND inquiry. An OR fallback is never presented
   // as answering that narrower research question.
   const conjunctive=ranked.filter(({hits})=>new Set(hits.map(h=>h.id)).size===names.length)
-  const exact=names.length>0 && conjunctive.length>0
+  const conjunctiveMatches=names.length>0 && conjunctive.length>0
+  const exact=conjunctiveMatches && unresolvedTerms.length===0
   const matchMode:StudioQueryResult['matchMode']=!names.length?'no-concepts':
     exact?'all-concepts':'partial-concepts'
-  const results=exact?conjunctive:ranked
+  // If every indexed concept matches, retain those same-paper witnesses
+  // even when additional question qualifiers are unindexed.
+  const results=conjunctiveMatches?conjunctive:ranked
   return {
     understoodConcepts:names.map(id=>RESEARCH_CONCEPTS.find(c=>c.id===id)?.label||id),
+    unresolvedTerms,
     matchMode,
     retrievalNote:!names.length
       ? 'No controlled vocabulary concept matched this question. The source finder cannot answer it.'
-      : exact
-        ? 'These sources mention every recognized concept in the question; co-mention does not establish a relationship.'
-        : 'No single source in this batch mentions every recognized concept. Showing individually related sources only, NOT matches to the full question.',
+      : unresolvedTerms.length
+        ? 'Unindexed question terms ('+unresolvedTerms.join(', ')+') were NOT verified. Displayed papers match indexed concepts only, NOT the full question.'
+        : exact
+          ? 'These sources mention every recognized concept in the question; co-mention does not establish a relationship.'
+          : 'No single source in this batch mentions every recognized concept. Showing individually related sources only, NOT matches to the full question.',
     matches:results.slice(0,12).map(({d,hits})=>({
       pmid:d.pmid,title:d.title,year:d.year,
       reason:'Title/abstract concept matches: '+hits.map(h=>h.label+' ('+h.basis+')').join(', '),
@@ -460,7 +556,7 @@ export function hydrateResearchStudioWithPublishedEvidence(
     bucket.reviewedCitations++
     timeline.set(y,bucket)
   }
-  const briefs=briefsFromSignals(studio.frontiers,debates,studio.safety)
+  const briefs=briefsFromSignals(studio.frontiers,debates,studio.safety,studio.investigations)
   return {
     ...studio,
     debates,
