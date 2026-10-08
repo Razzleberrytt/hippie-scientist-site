@@ -8,7 +8,7 @@
       "pmid": "28218661",
       "doi": "10.3390/nu9020154",
       "title": "Exploring the Effect of Lactium™ and Zizyphus Complex on Sleep Quality: A Double-Blind, Randomized Placebo-Controlled Trial",
-      "source_title": "Nutrients",
+      "source_title": "Exploring the Effect of Lactium™ and Zizyphus Complex on Sleep Quality: A Double-Blind, Randomized Placebo-Controlled Trial",
       "abstract": "In 171 otherwise healthy adults with mild insomnia, a randomized double-blind placebo-controlled study compared LZComplex3 against placebo after a 7-day single-blind placebo run-in. Over two weeks both arms improved on the Pittsburgh Sleep Quality Index, but the primary between-group comparison was not statistically significant. Most secondary measures similarly improved in both groups. Four treatment-related adverse events were reported in the active arm, two resulting in permanent discontinuation. The investigators could not conclude that LZComplex3 improves sleep quality after two weeks.",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/28218661/",
       "research_domain": "sleep-stress-mood",
@@ -47,7 +47,9 @@
         "doi": "10.3390/nu9020154",
         "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28218661/",
         "source_verified": "PubMed title and abstract, 2026-10-08",
-        "funding_conflicts": "Sponsor participated in study design; author disclosures in PubMed"
+        "funding_conflicts": "Sponsor participated in study design; author disclosures in PubMed",
+        "journal": "Nutrients",
+        "source_identity_recheck": "PubMed PMID 28218661; DOI 10.3390/nu9020154; exact article title and abstract cross-checked 2026-10-08"
       },
       "signals": {
         "safety": 0.7,
