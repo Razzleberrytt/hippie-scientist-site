@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs'
 import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
 import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
 import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
+import {buildResearchCaseScope,traceCaseConceptPair} from '../../lib/research-intelligence-context'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -40,7 +41,7 @@ assert.equal(browserJoined.metrics.automaticallyPromotedClaims,0)
 assert.equal(browserJoined.dna,precomputed.dna,'No research intake mutation during reviewed client join')
 assert(browserJoined.briefs.every(x=>x.allowAutopublish===false))
 
-assert.equal(s.systemVersion,'1.04')
+assert.equal(s.systemVersion,'1.05')
 const sharedCase=buildResearchCaseFile(s,graph,'10000001')
 assert(sharedCase,'Known source must open a shared case file')
 assert.equal(sharedCase.pmid,'10000001')
@@ -53,6 +54,27 @@ assert.equal(sharedCase.instruments.find(x=>x.instrument==='contradictions')?.li
  'Reviewed citations lacking exact publication identity cannot be inferred as matches')
 const exactJoined=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0],pmid:'10000001'}])
 const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
+const sourceScope=buildResearchCaseScope(s,sharedCase)
+assert.equal(sourceScope.status,'exact-source-linked-leads-only')
+assert.equal(sourceScope.pmid,'10000001')
+assert.equal(sourceScope.debates.length,0,'Unlinked reviewed studies must stay outside source focus')
+assert.equal(sourceScope.sourceYear,2023)
+assert(sourceScope.frontiers.every(f=>f.samplePmids.includes('10000001')))
+assert(sourceScope.safety.every(f=>f.pmids.includes('10000001')))
+assert(sourceScope.investigations.every(f=>f.pmids.includes('10000001')))
+assert(sourceScope.briefs.every(b=>b.pmids.includes('10000001')))
+assert.deepEqual(traceCaseConceptPair(graph,'10000001','magnesium','sleep').map(x=>x.pmid),['10000001'])
+assert.deepEqual(traceCaseConceptPair(graph,'10000001','magnesium','cognition'),[],
+ 'A source-scoped voyage must not import a remote PMID')
+assert.deepEqual(traceCaseConceptPair(graph,'10000001','randomized','sleep'),[],
+ 'Method words cannot create a navigable clinical concept path')
+const exactDebateStudio=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0],pmid:'10000001'},reviewed[1]])
+const exactDebateCase=buildResearchCaseFile(exactDebateStudio,graph,'10000001')!
+const exactDebateScope=buildResearchCaseScope(exactDebateStudio,exactDebateCase)
+assert.equal(exactDebateScope.debates.length,1,
+ 'Only the exactly linked citation may connect a source to an editorial difference review')
+assert.throws(()=>buildResearchCaseScope(exactDebateStudio,{...exactDebateCase,reviewedCitationIds:['study-b']}),/identity conflicts/,
+ 'A stale or fabricated citation ID must never silently contaminate the case context')
 assert.deepEqual(exactCase?.reviewedCitationIds,['study-a'],
  'Exact verified publication identities must be traceable in case files')
 assert.deepEqual(exactCase?.publicationIdentityBasis,['exact-pmid'])
@@ -188,6 +210,13 @@ const actualEvents=buildResearchIntelligenceStudio(sources,graph,reviewed,[
 assert(actualEvents.recordedChanges.length===1,'Only actual canonical editorial-grade-change events may enter time machine')
 assert.equal(actualEvents.recordedChanges[0].basis,'explicit-editorial-grade-change-log')
 assert(!s.recordedChanges.length,'No invented grade events without an authoritative log')
+const narrowed=askResearchSources('magnesium',s,'10000001')
+assert.deepEqual(narrowed.matches.map(m=>m.pmid),['10000001'])
+assert(narrowed.retrievalNote.includes('Only selected PMID 10000001'))
+assert.equal(askResearchSources('creatine',s,'10000001').matches.length,0,
+ 'A scoped query cannot return a stronger-looking match from another source')
+const scopedOther=askResearchSources('creatine',s,'10000002')
+assert.deepEqual(scopedOther.matches.map(m=>m.pmid),['10000002'])
 const found=askResearchSources('magnesium sleep',s)
 assert(found.understoodConcepts.includes('Magnesium'))
 assert(found.matches.every(x=>s.dna.some(d=>d.pmid===x.pmid)))
@@ -230,7 +259,13 @@ const inputs=rows.map(r=>({pmid:String(r.pmid),title:r.title,abstract:r.abstract
  year:r.verified_pub_date?.match(/(?:19|20)\d{2}/)?.[0]||''}))
 const realGraph=buildResearchSemanticNetwork(inputs)
 const real=buildResearchIntelligenceStudio(inputs,realGraph,[])
-assert.equal(real.systemVersion,'1.04')
+assert.equal(real.systemVersion,'1.05')
+const realScopeCase=buildResearchCaseFile(real,realGraph,real.dna[0].pmid)!
+const realScope=buildResearchCaseScope(real,realScopeCase)
+assert.equal(realScope.pmid,real.dna[0].pmid)
+assert.deepEqual(realScope.debates,[],'Research-only 500-PMID corpus cannot invent clinical disagreements')
+assert(realScope.frontiers.every(f=>f.samplePmids.includes(realScope.pmid)))
+assert(realScope.safety.every(f=>f.pmids.includes(realScope.pmid)))
 const liveCase=buildResearchCaseFile(real,realGraph,real.dna[0].pmid)
 assert(liveCase&&liveCase.sourceSignature===realGraph.entries[liveCase.pmid].sourceSignature)
 assert.equal(liveCase.instruments.length,8)
@@ -261,7 +296,14 @@ assert(route.includes('research-semantic-adjudications.json'),'Adjudications mus
 assert(ui.includes('Inspect verbatim evidence trail')&&ui.includes('Prepare an editorial review packet'))
 assert(ui.includes('Why this paper matched'),'Questions must expose original text witnesses')
 assert(ui.includes('Publication identity ≠ independent study'))
-assert(ui.includes('v.systemVersion!==\'1.04\''))
+assert(ui.includes('v.systemVersion!==\'1.05\''))
+assert(ui.includes('buildResearchCaseScope(')&&ui.includes('traceCaseConceptPair(')&&
+ ui.includes('Clear focus · explore all sources')&&ui.includes('visibleFrontiers.slice')&&
+ ui.includes('visibleSafety.slice')&&ui.includes('visibleBriefs.slice')&&
+ ui.includes('visibleDebates.slice')&&ui.includes('visibleInvestigations.slice')&&
+ ui.includes('askResearchSources(query,data,focusPmid||undefined)')&&
+ ui.includes("filter(d=>d.sources>0&&(!focusPmid||d.pmids.includes(focusPmid)))"),
+ 'All eight research instruments must actually respect the source focus and allow clearing it')
 assert(ui.includes('buildResearchCaseFile(')&&ui.includes('openCaseInstrument(')&&
  ui.includes('Trace through eight instruments')&&ui.includes('Trace source')&&
  ui.includes('scrollIntoView')&&ui.includes("aria-live='polite'"),
