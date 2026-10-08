@@ -353,14 +353,45 @@ async function dispatchWorkflowRun(repo, run, pr) {
   console.log(`Dispatched exact-head recovery workflow: ${run.name} on ${pr.head.sha}`)
 }
 
+/**
+ * A GitHub-bot branch refresh can emit action_required PR workflow records
+ * that contain ZERO jobs. They are NOT proof that CI ran.
+ * Recovery is permitted only if every same-name record has been independently
+ * confirmed jobless. A real failure, pending job or already-dispatched
+ * workflow remains authoritative and must not be replaced.
+ */
+export function shouldDispatchRegisteredWorkflow(name, observedRuns, verifiedZeroJobIds = new Set()) {
+  const matching = observedRuns.filter((run) => run.name === name)
+  if (!matching.length) return true
+  return matching.every((run) =>
+    run.event === 'pull_request' &&
+    run.status === 'completed' &&
+    run.conclusion === 'action_required' &&
+    verifiedZeroJobIds.has(run.id)
+  )
+}
+
 async function dispatchRegisteredWorkflows(repo, sourceRuns, pr) {
   await sleep(3000)
   const existingRuns = await getWorkflowRuns(repo, pr.head.sha)
-  const existingNames = new Set(existingRuns.map((run) => run.name))
   const registered = newestBy(sourceRuns, (run) => run.name, runScore)
   let dispatched = 0
   for (const run of registered) {
-    if (existingNames.has(run.name)) continue
+    const matching = existingRuns.filter((candidate) => candidate.name === run.name)
+    // Preserve all real completions, failures, in-flight work and existing
+    // workflow_dispatch recoveries. Only jobless bot-suppressed stubs qualify.
+    if (matching.length && !matching.every((candidate) =>
+      candidate.event === 'pull_request' &&
+      candidate.status === 'completed' &&
+      candidate.conclusion === 'action_required'
+    )) continue
+    const verifiedZeroJobIds = new Set()
+    for (const candidate of matching) {
+      if ((await getRunJobs(repo, candidate.id)).length === 0) {
+        verifiedZeroJobIds.add(candidate.id)
+      }
+    }
+    if (!shouldDispatchRegisteredWorkflow(run.name, existingRuns, verifiedZeroJobIds)) continue
     await dispatchWorkflowRun(repo, run, pr)
     dispatched += 1
   }
