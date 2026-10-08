@@ -95,6 +95,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     ],
     children: [
       { section: 'Start here', label: 'Research library', href: '/research', description: 'Choose the research task you are trying to complete' },
+      { section: 'Find evidence', label: 'Research source register', href: '/research/source-register', description: 'Source-verified papers and the research-only PubMed index' },
       { section: 'Find evidence', label: 'Citation explorer', href: '/learn/citation-explorer', description: 'Find study-level source records' },
       { section: 'Find evidence', label: 'Evidence Database', href: '/evidence/evidence-checker', description: 'Look up ingredient-level evidence' },
       { section: 'Find evidence', label: 'Botanical Activity Atlas', href: '/tools/botanical-activity-atlas', description: 'Explore evidence and mechanism relationships' },

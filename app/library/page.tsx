@@ -82,6 +82,7 @@ const destinationGroups: Array<{ id: SiteDestinationId; links: DirectoryLink[] }
     id: 'research',
     links: [
       { label: 'Research library', href: '/research/', detail: 'Choose a research task: source lookup, evidence check, report, or methodology' },
+      { label: 'PubMed source register', href: '/research/source-register/', detail: 'Browse verified research-intake titles and the historical unique PMID index; not evidence grades' },
       { label: 'Evidence lookup', href: '/evidence/evidence-checker/', detail: 'Inspect ingredient-level evidence grades and source coverage' },
       { label: 'Evidence report', href: '/evidence/evidence-report/', detail: 'Library-wide evidence metrics, grade distribution, and public data' },
       { label: 'Evidence digest', href: '/evidence/evidence-digest/', detail: 'Recent human-trial highlights and research summaries' },

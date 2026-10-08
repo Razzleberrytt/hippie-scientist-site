@@ -1,0 +1,43 @@
+name: Research Source Register Integration
+
+on:
+  push:
+    branches:
+      - feat/visible-research-source-register-20261008
+    paths:
+      - 'lib/research-source-register.ts'
+      - 'app/research/**'
+      - 'components/homepage-v2.tsx'
+      - 'app/library/page.tsx'
+      - 'lib/primary-navigation.ts'
+      - 'scripts/ci/validate-research-source-register.mjs'
+      - '.github/workflows/research-source-register-integration.yml'
+  pull_request:
+    paths:
+      - 'lib/research-source-register.ts'
+      - 'app/research/**'
+      - 'components/homepage-v2.tsx'
+      - 'app/library/page.tsx'
+      - 'lib/primary-navigation.ts'
+      - 'scripts/ci/validate-research-source-register.mjs'
+      - '.github/workflows/research-source-register-integration.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  source-register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Validate pinned source records and UI linkage (fail closed)
+        run: node scripts/ci/validate-research-source-register.mjs
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck static Next.js research route
+        run: npm run typecheck
