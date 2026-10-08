@@ -69,7 +69,7 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
           {value:summary.activeConcepts,unit:'Concepts',detail:'controlled labels'},
           {value:summary.explainableEdges,unit:'Paper links',detail:'explainable overlap'},
           {value:summary.crossTopicEdges,unit:'Cross-topic',detail:'potential bridges'},
-          {value:summary.linkedProfiles,unit:'Profile mentions',detail:'exact titles'},
+          {value:summary.typedEvidenceEdges,unit:'Typed source edges',detail:'PMID → concept provenance'},
         ].map(item=><div key={item.unit} className={styles.metric}>
           <p className={styles.figure}>{item.value.toLocaleString()}</p>
           <p className={styles.metricLabel}>{item.unit}</p>
