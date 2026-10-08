@@ -1,6 +1,20 @@
 name: Research Source Register Integration
 
 on:
+  workflow_dispatch:
+    inputs:
+      recovery_pr_number:
+        description: Exact PR number for same-repository bot-refresh recovery
+        required: true
+        type: string
+      recovery_base_ref:
+        description: Exact PR base branch
+        required: true
+        type: string
+      recovery_head_sha:
+        description: Expected full PR head commit SHA
+        required: true
+        type: string
   push:
     branches:
       - feat/visible-research-source-register-20261008
@@ -34,12 +48,40 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   source-register:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # workflow_dispatch is ONLY an exact-head recovery of this PR workflow,
+      # never an alternate trust path or a way to green an unrelated commit.
+      - name: Prove exact pull-request head and base before recovery execution
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RECOVERY_PR_NUMBER: ${{ inputs.recovery_pr_number }}
+          RECOVERY_BASE_REF: ${{ inputs.recovery_base_ref }}
+          RECOVERY_HEAD_SHA: ${{ inputs.recovery_head_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$RECOVERY_PR_NUMBER" =~ ^[0-9]+$ ]] || { echo 'Invalid recovery PR'; exit 1; }
+          [[ "$RECOVERY_BASE_REF" == 'main' ]] || { echo 'Recovery targets main only'; exit 1; }
+          [[ "$RECOVERY_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo 'Missing exact recovery head SHA'; exit 1; }
+          pr_json="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$RECOVERY_PR_NUMBER")"
+          pr_head="$(jq -r '.head.sha' <<< "$pr_json")"
+          pr_branch="$(jq -r '.head.ref' <<< "$pr_json")"
+          pr_repo="$(jq -r '.head.repo.full_name' <<< "$pr_json")"
+          pr_base="$(jq -r '.base.ref' <<< "$pr_json")"
+          pr_state="$(jq -r '.state' <<< "$pr_json")"
+          if [ "$pr_state" != 'open' ] || [ "$pr_repo" != "$GITHUB_REPOSITORY" ] ||
+             [ "$pr_base" != "$RECOVERY_BASE_REF" ] || [ "$pr_head" != "$RECOVERY_HEAD_SHA" ] ||
+             [ "$GITHUB_SHA" != "$RECOVERY_HEAD_SHA" ] || [ "$GITHUB_REF" != "refs/heads/$pr_branch" ]; then
+            echo 'Recovery refused: exact PR/base/branch/head proof failed'
+            exit 1
+          fi
+          echo "Verified exact same-repository source-register recovery for PR #$RECOVERY_PR_NUMBER on $RECOVERY_HEAD_SHA"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
