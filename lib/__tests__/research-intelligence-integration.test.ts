@@ -66,6 +66,20 @@ describe('P0 integrated twenty-tool exact-source case',()=>{
     expect(other?.pmid).toBe('10000002')
   })
 
+  it('refuses source-only cases carrying an audited retraction release hold',()=>{
+    const retractedSource={
+      pmid:'41461240',
+      title:'Omega 3 retracted study',
+      abstract:'Source-only abstract metadata is not an approved finding.',
+      journal:'Test',year:'2025',category:'sleep',pubType:'Journal Article',
+      doi:'10.1016/j.jad.2025.121055',
+    }
+    const retractedGraph=buildResearchSemanticNetwork([retractedSource])
+    const retractedStudio=buildResearchIntelligenceStudio([retractedSource],retractedGraph,[])
+    expect(()=>buildIntegratedResearchCase(retractedStudio,retractedGraph,retractedSource.pmid,[]))
+      .toThrow(/Integrated research case failed/)
+  })
+
   it('quarantines conflicting publication metadata rather than guessing',()=>{
     expect(()=>buildIntegratedResearchCase(studio,graph,'10000001',[
       matching,{...matching,primarySourceUrl:'https://doi.org/10.5555/unrelated-test'},
