@@ -7,6 +7,7 @@ import {
   type PublicStudyEntity,
 } from '@/lib/public-evidence-dataset'
 import { buildPageMetadata } from '@/lib/seo'
+import { getResearchSourceRegisterSummary } from '@/lib/research-source-register'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Research Library | Studies, Trials & Evidence Sources',
@@ -16,6 +17,12 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 const researchPaths = [
+  {
+    eyebrow: 'Browse source intake',
+    title: 'Research source register',
+    href: '/research/source-register/',
+    description: 'Search verified PubMed source identities and the earlier PMID index. Research-only records stay separate from published evidence.',
+  },
   {
     eyebrow: 'Find a paper',
     title: 'Search citations',
@@ -169,6 +176,7 @@ function firstStudy(studies: PublicStudyEntity[], classes: Set<string>) {
 
 export default async function ResearchPage() {
   const dataset = await getPublicEvidenceDataset()
+  const sourceRegister = getResearchSourceRegisterSummary()
   const directlyLinkedStudies = rankStudies(dataset.studies.filter((study) => Boolean(sourceHref(study))))
 
   const seeded = [
@@ -203,7 +211,7 @@ export default async function ResearchPage() {
             Three jobs, three clear destinations.
           </h2>
         </div>
-        <div className='mt-6 grid gap-4 md:grid-cols-3'>
+        <div className='mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4'>
           {researchPaths.map((path) => (
             <Link
               key={path.href}
@@ -292,6 +300,9 @@ export default async function ResearchPage() {
             Full Evidence Report →
           </Link>
         </div>
+        <p className='mt-4 text-sm leading-7 text-muted'>
+          Separately, the research intake register tracks <strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()}</strong> distinct PubMed IDs through wave {sourceRegister.throughWave.toLocaleString()}. Those identities are not added to the published study counts below. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source intake →</Link>
+        </p>
         <div className='mt-6 grid gap-4 sm:grid-cols-3'>
           <div className='rounded-xl bg-white p-5'>
             <p className='text-3xl font-bold text-ink'>{dataset.metrics.studyCount.toLocaleString()}</p>
