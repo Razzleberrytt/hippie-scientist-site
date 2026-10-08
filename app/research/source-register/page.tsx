@@ -70,7 +70,7 @@ export default function SourceRegisterPage() {
         separately reviewed, indexable runtime evidence. Counts from these two systems must not be added together.
       </aside>
 
-      <SourceRegisterClient records={data.records} previousPmids={data.previousPmids} categories={data.categories} />
+      <SourceRegisterClient records={data.records} previousCount={data.priorPmidOnly} categories={data.categories} />
 
       <p className='text-xs leading-6 text-muted'>
         Provenance: SHA-pinned NCBI EFetch receipts for waves 7001–7500 and the authoritative cumulative PMID index.
