@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -44,11 +44,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | M5 | Not started |
 | M6 | Not started |
 
+## P0 — Generational engineering and integration readiness (planning, not extra WIP)
+
+**Controlling cross-cutting priority:** [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) and [Generational Engineering P0](GENERATIONAL_ENGINEERING_P0.md), with a machine-readable dependency graph at `ops/generational-engineering/p0-release-train-2026-10-12.json`. Readiness Oct 8–9; first implementation week Oct 12–16.
+
+P0 is **architecture, status reconciliation, shared interfaces, integration-proof design and CI-economics preparation**. It replaces serial feature discovery with whole-generation planning and strategically batched validation, while preserving scoped acceptance PRs, one canonical priority formula, the normal D/R/A WIP limit, publication/evidence gates, and the autonomous merge controller. The planning task itself reserves **no** normal implementation slot. Each executable G0–G13 package must still be scored, admitted in CURRENT_SPRINT, owned and gated before coding. Unmeasured gains remain Unknown.
+
+**GitHub recheck:** #6428 and #6422 merged; remove them from active implementation entries. #6429, #6426, #6397 and #6399 are in-flight as of planning and should be fixed/reused before opening duplicative tickets. No independent clinical approval or deployment implied by merge.
+
 ## Now — active exact work
-
-**#6427 / PR #6428 — Scientific Intelligence 1.08–1.14, in review (2026-10-08):** Build twelve source-bound analysis/review instruments on the existing exact PMID research graph and eight-instrument relay after #6420. Acceptance: 12 distinct inspectable receipts, valid source identity, 13 calibration invariants on 500 verified intake PMIDs, 0 automatic medical promotions/publications, stable route, static export and UI/CI gates. Available source data cannot prove underlying trial independence, live correction status or full-text efficacy. Consumer/scientific performance impact and revenue ROI remain **Unknown**. This in-review entry does not grant another WIP slot or override machine-managed admission.
-
-**#6420 / PR #6422 — Research Intelligence 1.06/1.07, in review (2026-10-08):** Exact source identity is preserved across all eight existing instruments; explicit semantic handoffs require real title-backed traceable concept pairs. The 1.07 downstream review fabric uses exact DOI and claim/source IDs and cannot publish. Prerequisite #6419 (1.05) merged. #6423/#6424's review-only fabric is included on #6422's head, not yet a separate main-branch release. Continue required PR checks and resolve P1/P2 review threads before merge. Value: safer source navigation/editorial audit; business ROI, retention and time savings **Unknown**. No additional normal D/R/A WIP admission implied.
 
 
 
