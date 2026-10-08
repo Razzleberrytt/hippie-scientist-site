@@ -1,8 +1,16 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
+
+## 2026-10-08 — Generational Engineering is the P0 operating methodology
+
+**Decision:** Adopt [#6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) and [the P0 generation playbook](GENERATIONAL_ENGINEERING_P0.md). Plan interconnected capability generations, shared provenance/authority contracts, explicit dependencies, thin vertical proofs, fast focused check tiers and one governed release train instead of rediscovering each system separately. Prepare Oct 8–9; schedule first scoped implementation generation for Oct 12–16 subject to ticket admission and blockers.
+
+**Unchanged hard constraints:** AGENTS.md and three-workstream WIP, singular backlog score, one implementation ticket per workstream, independent scientific review, no unsupported human-effects/dose claims, current static export, explicit secrets/provider permissions, required exact-head CI, security/SEO/a11y/production gates and autonomous merge control. No unreviewed auto-publication or silent rule weakening. Larger architecture planning must *reduce rework* without creating giant unchecked PRs. Scope and actual savings must be measured; business ROI remains Unknown.
+
+**Status:** P0 adopted as planning priority; generated JSON readiness graph is a proposal, not authorization or deployed runtime integration. Existing mobile-first usability remains a mandatory component of every release.
 
 ## 2026-10-08 — Scientific intelligence tools are source projections, not new medical authority
 
