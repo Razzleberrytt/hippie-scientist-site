@@ -7776,6 +7776,82 @@
       "reservation_id": "847545e01c247f830b43",
       "reserved_at": "2026-10-08T22:19:28.504Z",
       "source_branch": "research/intake/4/20261008-1816-source-seed-b"
+    },
+    {
+      "pmid": "40852960",
+      "title": "Duration of monitoring for withdrawal in neonates exposed to in-utero opioids.",
+      "doi": "10.1177/19345798251365202",
+      "source_title": "Duration of monitoring for withdrawal in neonates exposed to in-utero opioids.",
+      "abstract": "ObjectiveThis study aims to determine the duration of NOWS symptom onset that leads to pharmacologic intervention in order to inform hospital discharge protocols and provide better guidance for patients.Patients and methodsA retrospective chart review was conducted evaluating neonates with documented NOWS monitoring at the University of Maryland Medical Center from January 2017 to November 2022. Infants at 36 weeks gestation and above who were exposed to opioids in-utero were included. Paired maternal and neonatal charts were reviewed. Medical history, drug screen results, and time lapse from day of birth to the day of initiation of treatment were documented.ResultsOf 357 neonates monitored for NOWS, 215 (60.5%) received pharmacologic treatment. All neonates requiring treatment were identified by day of life (DOL) 5. Neonates exposed to multiple opioids were at the highest risk of requiring treatment. When compared to buprenorphine exposure, those exposed to oxycodone and multiple opioids were more likely to need treatment on DOL 0, while methadone-exposed neonates were more likely to require treatment on DOL 1 and 2.ConclusionsThis study provides valuable information for risk-stratification and safe discharge planning for neonates at risk for NOWS. The findings suggest that a 5-day monitoring period may be sufficient to identify neonates requiring pharmacologic treatment for NOWS, potentially allowing for earlier discharge in some cases. However, the timing of symptom onset varies based on the type of opioid exposure, highlighting the need for individualized care and anticipatory guidance for families.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40852960/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified candidate selected for withdrawal, dependence, NPS, overdose, recovery, or harm-reduction relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40852960",
+        "doi": "10.1177/19345798251365202",
+        "journal": "Journal of neonatal-perinatal medicine",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-08T22:20:58.461Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5b49de09290afd873ca9",
+      "reserved_at": "2026-10-08T22:21:08.699Z",
+      "source_branch": "research/intake/4/20261008-1816-source-seed-c"
     }
   ],
   "batches": [
@@ -7789,22 +7865,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 101,
+    "total_reservations": 102,
     "by_lane": {
       "1": 5,
       "2": 4,
       "3": 35,
-      "4": 32,
+      "4": 33,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 101
+      "SOURCE_VERIFIED": 102
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 101,
+        "count": 102,
         "pr_number": null,
         "blocker": null
       }
