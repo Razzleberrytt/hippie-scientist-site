@@ -99,7 +99,17 @@ for(const token of ['previousPmids','records','categories','https://pubmed.ncbi.
   assert(client.includes(token), 'Source-register visual missing: '+token)
 }
 assert(loader.includes('artifact.blob_sha') && loader.includes('gitBlobSha(content)'), 'Receipt hash gate missing')
-assert(!page.includes('getPublicEvidenceDataset()'), 'Register mixed with public graded dataset')
+// Read-only lookup of already-public profile identities is allowed for discovery links.
+// Raw research entries must NEVER enter the public evidence dataset or its graded metrics.
+assert(page.includes('buildResearchSemanticNetwork(') &&
+  page.includes('publicEvidence.ingredients.map(item => ({ name: item.name, href: item.path }))'),
+  'Semantic connections must link only to already-published profile identities')
+assert(page.includes('publicEvidence.studies.map(study => ({ pmid: study.pmid, id: study.id }))'),
+  'Public citation crossrefs must use exact PMIDs and study IDs only')
+assert(!page.includes('publicEvidence.metrics') && !page.includes('study.result') &&
+  !page.includes('study.relationships') && !page.includes('study.evidenceClass') &&
+  !page.includes('buildPublicEvidenceDatasetFromRecords('),
+  'Research intake must not promote records or clinical interpretation into graded evidence')
 console.log(JSON.stringify({
   passed:true,indexedPmids:7435,sourceVerifiedTitles:500,earlierPmidLookup:6935,
   topics:topicCount.size,doiRecords:dois.length,
