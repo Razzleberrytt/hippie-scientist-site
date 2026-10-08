@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 const normalize = s => String(s??'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
-const doi = s => normalize(String(s??'').replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').replace(/^doi:\s*/i,''));
+const doi = s => String(s??'').trim().toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').replace(/^doi:\s*/i,'').replace(/\s+/g,'');
 const keys = r => {
   if(!/^\d+$/.test(String(r.pmid??''))) throw Error('missing/invalid PMID');
   if(!normalize(r.title)) throw Error('missing title');
