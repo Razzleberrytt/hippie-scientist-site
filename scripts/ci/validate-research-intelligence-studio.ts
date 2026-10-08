@@ -432,7 +432,7 @@ assert(ui.includes('Inspect verbatim evidence trail')&&ui.includes('Prepare an e
 assert(ui.includes('Why this paper matched'),'Questions must expose original text witnesses')
 assert(ui.includes('Publication identity ≠ independent study'))
 assert(ui.includes('v.systemVersion!==\'1.05\''))
-assert(ui.includes('buildResearchCaseScope(')&&ui.includes('traceCaseConceptPair(')&&
+assert(ui.includes('buildIntegratedResearchCase(')&&ui.includes('traceCaseConceptPair(')&&
  ui.includes('createResearchInstrumentHandoff(')&&ui.includes('resolveResearchInstrumentHandoff(')&&
  ui.includes('caseFile?openCaseInstrument(s.id):navigate(s.id)')&&
  ui.includes('Semantically neighboring publications')&&ui.includes('inspectPmid(link.pmid)')&&
@@ -442,7 +442,7 @@ assert(ui.includes('buildResearchCaseScope(')&&ui.includes('traceCaseConceptPair
  ui.includes('askResearchSources(query,data,focusPmid||undefined)')&&
  ui.includes("filter(d=>d.sources>0&&(!focusPmid||d.pmids.includes(focusPmid)))"),
  'All eight research instruments must actually respect the source focus and allow clearing it')
-assert(ui.includes('buildResearchCaseFile(')&&ui.includes('openCaseInstrument(')&&
+assert(ui.includes('integratedCase?.caseFile')&&ui.includes('openCaseInstrument(')&&
  ui.includes('Trace through eight instruments')&&ui.includes('Trace source')&&
  ui.includes('scrollIntoView')&&ui.includes("aria-live='polite'"),
  'All eight research instruments must share the PMID case-file workbench')
@@ -537,7 +537,7 @@ assert.deepEqual(reviewedRelay.independentlyReviewed.edges.map(x=>x.id),['review
 assert.equal(reviewedRelay.independentlyReviewed.contradictionFlags.length,1)
 assert.deepEqual(reviewedRelay.junctions,relay.junctions,
  'Independent review annotations cannot silently promote source-text paths into new navigational clinical claims')
-assert(ui.includes('buildInstrumentRelay(')&&ui.includes('Cross-instrument source relay')&&
+assert(ui.includes('integratedCase?.relay')&&ui.includes('Cross-instrument source relay')&&
  ui.includes('Independent semantic review')&&ui.includes('Continue into '),
  'UI must render and navigate the exact-source relay and keep reviewed annotations distinct')
 assert(!ui.includes('allowAutopublish: true'),'Relay must not authorize publishing')
@@ -588,7 +588,7 @@ const realFabric=planResearchSemanticFabric(real,realGraph,liveCase!,manifestObj
 assert(realFabric.distributionReviewTargets.every(t=>
  real.dna.some(d=>d.pmid===realFabric.sourcePmid&&d.doi.trim().toLowerCase()===t.matchingDoi)))
 assert.equal(realFabric.publicationAllowed,false)
-assert(ui.includes('planResearchSemanticFabric(')&&ui.includes('Distribution review targets'),
+assert(ui.includes('integratedCase?.fabric')&&ui.includes('Distribution review targets'),
  'Existing distribution objects must be joined in the visitor-facing source case')
 
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
