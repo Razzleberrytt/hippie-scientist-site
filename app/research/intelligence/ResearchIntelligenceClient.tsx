@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
-import {buildInstrumentRelay} from '@/lib/research-intelligence-relay'
+import {buildInstrumentRelay,pickTraceableConceptPair} from '@/lib/research-intelligence-relay'
 import {buildScientificIntelligenceCase} from '@/lib/scientific-intelligence-suite'
 import {planResearchSemanticFabric} from '@/lib/research-semantic-fabric'
 import reviewedDistributionObjects from '@/data/distribution/research-objects.json'
@@ -153,8 +153,8 @@ function openCaseInstrument(next:Tab){
     .slice(0,2).map(m=>m.matched).join(' '));setAsked(false)
  }
  if(next==='voyages'){
-  const ids=data.graph.entries[verified.caseFile.pmid].mentions.filter(m=>m.kind!=='method').map(m=>m.id)
-  if(ids.length>1){setFrom(ids[0]);setTo(ids[1])}
+  const pair=pickTraceableConceptPair(data.graph,verified.caseFile.pmid)
+  setFrom(pair?.[0]||'');setTo(pair?.[1]||'')
  }
  navigate(next)
 }
