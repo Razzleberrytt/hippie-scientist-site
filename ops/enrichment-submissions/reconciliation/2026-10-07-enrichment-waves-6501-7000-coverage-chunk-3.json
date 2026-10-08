@@ -1,0 +1,1505 @@
+{
+  "schema_version": 1,
+  "chunk": 3,
+  "source_receipts": 16,
+  "row_count": 120,
+  "errors": [],
+  "receipts": [
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6757-6764-exact.json",
+      "range": [
+        6757,
+        6764
+      ],
+      "rows": [
+        {
+          "wave": 6757,
+          "pmid": "35805647",
+          "title": "Effects of Four Weeks of Beta-Alanine Supplementation Combined with One Week of Creatine Loading on Physical and Cognitive Performance in Military Personnel.",
+          "verified_title": "Effects of Four Weeks of Beta-Alanine Supplementation Combined with One Week of Creatine Loading on Physical and Cognitive Performance in Military Personnel.",
+          "doi": "10.3390/ijerph19137992",
+          "category": "cognition_focus",
+          "abstract_length": 1529,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6758,
+          "pmid": "35815739",
+          "title": "The effect of omega-3 fatty acid supplementation on weight loss and cognitive function in overweight or obese individuals on weight-loss diet.",
+          "verified_title": "The effect of omega-3 fatty acid supplementation on weight loss and cognitive function in overweight or obese individuals on weight-loss diet.",
+          "doi": "10.20960/nh.03992",
+          "category": "cognition_focus",
+          "abstract_length": 1732,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6759,
+          "pmid": "34072293",
+          "title": "Impact of Fatty Acid Supplementation on Cognitive Performance among United States (US) Military Officers: The Ranger Resilience and Improved Performance on Phospholipid-Bound Omega-3's (RRIPP-3) Study.",
+          "verified_title": "Impact of Fatty Acid Supplementation on Cognitive Performance among United States (US) Military Officers: The Ranger Resilience and Improved Performance on Phospholipid-Bound Omega-3's (RRIPP-3) Study.",
+          "doi": "10.3390/nu13061854",
+          "category": "cognition_focus",
+          "abstract_length": 1453,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6760,
+          "pmid": "33078480",
+          "title": "The effect of crocin (the main active saffron constituent) on the cognitive functions, craving, and withdrawal syndrome in opioid patients under methadone maintenance treatment.",
+          "verified_title": "The effect of crocin (the main active saffron constituent) on the cognitive functions, craving, and withdrawal syndrome in opioid patients under methadone maintenance treatment.",
+          "doi": "10.1002/ptr.6913",
+          "category": "cognition_focus",
+          "abstract_length": 1283,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6761,
+          "pmid": "33201262",
+          "title": "Cognitive enhancement effects of stimulants: a randomized controlled trial testing methylphenidate, modafinil, and caffeine.",
+          "verified_title": "Cognitive enhancement effects of stimulants: a randomized controlled trial testing methylphenidate, modafinil, and caffeine.",
+          "doi": "10.1007/s00213-020-05691-w",
+          "category": "cognition_focus",
+          "abstract_length": 1629,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6762,
+          "pmid": "33053843",
+          "title": "Effect of Omega-3 Long Chain Polyunsaturated Fatty Acids (n-3 LCPUFA) Supplementation on Cognition in Children and Adolescents: A Systematic Literature Review with a Focus on n-3 LCPUFA Blood Values and Dose of DHA and EPA.",
+          "verified_title": "Effect of Omega-3 Long Chain Polyunsaturated Fatty Acids (n-3 LCPUFA) Supplementation on Cognition in Children and Adolescents: A Systematic Literature Review with a Focus on n-3 LCPUFA Blood Values and Dose of DHA and EPA.",
+          "doi": "10.3390/nu12103115",
+          "category": "cognition_focus",
+          "abstract_length": 1330,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6763,
+          "pmid": "32070694",
+          "title": "Omega-3 and its domain-specific effects on cognitive test performance in youths: A meta-analysis.",
+          "verified_title": "Omega-3 and its domain-specific effects on cognitive test performance in youths: A meta-analysis.",
+          "doi": "10.1016/j.neubiorev.2020.02.016",
+          "category": "cognition_focus",
+          "abstract_length": 1235,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6764,
+          "pmid": "31991898",
+          "title": "The Effects of a 6-Month High Dose Omega-3 and Omega-6 Polyunsaturated Fatty Acids and Antioxidant Vitamins Supplementation on Cognitive Function and Functional Capacity in Older Adults with Mild Cognitive Impairment.",
+          "verified_title": "The Effects of a 6-Month High Dose Omega-3 and Omega-6 Polyunsaturated Fatty Acids and Antioxidant Vitamins Supplementation on Cognitive Function and Functional Capacity in Older Adults with Mild Cognitive Impairment.",
+          "doi": "10.3390/nu12020325",
+          "category": "cognition_focus",
+          "abstract_length": 1722,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6765-6772-exact.json",
+      "range": [
+        6765,
+        6772
+      ],
+      "rows": [
+        {
+          "wave": 6765,
+          "pmid": "33375429",
+          "title": "Improvement of Executive Function after Short-Term Administration of an Antioxidants Mix Containing Bacopa, Lycopene, Astaxanthin and Vitamin B12: The BLAtwelve Study.",
+          "verified_title": "Improvement of Executive Function after Short-Term Administration of an Antioxidants Mix Containing Bacopa, Lycopene, Astaxanthin and Vitamin B12: The BLAtwelve Study.",
+          "doi": "10.3390/nu13010056",
+          "category": "cognition_focus",
+          "abstract_length": 1693,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6766,
+          "pmid": "33612644",
+          "title": "Supplementation of Catfish (Clarias gariepinus) Oil Enriched with Omega-3 Soft Capsule Improves Oxidative Stress and Cognitive Function in Elderly.",
+          "verified_title": "Supplementation of Catfish (Clarias gariepinus) Oil Enriched with Omega-3 Soft Capsule Improves Oxidative Stress and Cognitive Function in Elderly.",
+          "doi": "10.3177/jnsv.66.S47",
+          "category": "cognition_focus",
+          "abstract_length": 1367,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6767,
+          "pmid": "29579102",
+          "title": "Association between cognitive function and supplementation with omega-3 PUFAs and other nutrients in ≥ 75 years old patients: A randomized multicenter study.",
+          "verified_title": "Association between cognitive function and supplementation with omega-3 PUFAs and other nutrients in ≥ 75 years old patients: A randomized multicenter study.",
+          "doi": "10.1371/journal.pone.0193568",
+          "category": "cognition_focus",
+          "abstract_length": 1806,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6768,
+          "pmid": "40693646",
+          "title": "A caffeine and theacrine combination improves cognitive performance in tactical personnel under physically fatiguing conditions.",
+          "verified_title": "A caffeine and theacrine combination improves cognitive performance in tactical personnel under physically fatiguing conditions.",
+          "doi": "10.1080/15502783.2025.2536146",
+          "category": "cognition_focus",
+          "abstract_length": 3547,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6769,
+          "pmid": "33734725",
+          "title": "Expectation for stimulant type modifies caffeine's effects on mood and cognition among college students.",
+          "verified_title": "Expectation for stimulant type modifies caffeine's effects on mood and cognition among college students.",
+          "doi": "10.1037/pha0000448",
+          "category": "cognition_focus",
+          "abstract_length": 1874,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6770,
+          "pmid": "35684105",
+          "title": "The Matrix Matters: Beverage Carbonation Impacts the Timing of Caffeine Effects on Sustained Attention.",
+          "verified_title": "The Matrix Matters: Beverage Carbonation Impacts the Timing of Caffeine Effects on Sustained Attention.",
+          "doi": "10.3390/nu14112305",
+          "category": "cognition_focus",
+          "abstract_length": 1477,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6771,
+          "pmid": "36014906",
+          "title": "Effects of Caffeine on Performances of Simulated Match, Wingate Anaerobic Test, and Cognitive Function Test of Elite Taekwondo Athletes in Hong Kong.",
+          "verified_title": "Effects of Caffeine on Performances of Simulated Match, Wingate Anaerobic Test, and Cognitive Function Test of Elite Taekwondo Athletes in Hong Kong.",
+          "doi": "10.3390/nu14163398",
+          "category": "cognition_focus",
+          "abstract_length": 1487,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6772,
+          "pmid": "34014758",
+          "title": "Caffeine selectively mitigates cognitive deficits caused by sleep deprivation.",
+          "verified_title": "Caffeine selectively mitigates cognitive deficits caused by sleep deprivation.",
+          "doi": "10.1037/xlm0001023",
+          "category": "cognition_focus",
+          "abstract_length": 1710,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6773-6780-exact.json",
+      "range": [
+        6773,
+        6780
+      ],
+      "rows": [
+        {
+          "wave": 6773,
+          "pmid": "33640376",
+          "title": "Italian breakfast in mind: The effect of caffeine, carbohydrate and protein on physiological state, mood and cognitive performance.",
+          "verified_title": "Italian breakfast in mind: The effect of caffeine, carbohydrate and protein on physiological state, mood and cognitive performance.",
+          "doi": "10.1016/j.physbeh.2021.113371",
+          "category": "cognition_focus",
+          "abstract_length": 1779,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6774,
+          "pmid": "32555188",
+          "title": "The efficacy and safety of omega-3 fatty acids on depressive symptoms in perinatal women: a meta-analysis of randomized placebo-controlled trials.",
+          "verified_title": "The efficacy and safety of omega-3 fatty acids on depressive symptoms in perinatal women: a meta-analysis of randomized placebo-controlled trials.",
+          "doi": "10.1038/s41398-020-00886-3",
+          "category": "mood",
+          "abstract_length": 1911,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6775,
+          "pmid": "38812090",
+          "title": "Dietary Magnesium Intake in Relation to Depression in Adults: A GRADE-Assessed Systematic Review and Dose-Response Meta-analysis of Epidemiologic Studies.",
+          "verified_title": "Dietary Magnesium Intake in Relation to Depression in Adults: A GRADE-Assessed Systematic Review and Dose-Response Meta-analysis of Epidemiologic Studies.",
+          "doi": "10.1093/nutrit/nuae056",
+          "category": "mood",
+          "abstract_length": 1790,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6776,
+          "pmid": "39519482",
+          "title": "Is Serum Vitamin D Associated with Depression or Anxiety in Ante- and Postnatal Adult Women? A Systematic Review with Meta-Analysis.",
+          "verified_title": "Is Serum Vitamin D Associated with Depression or Anxiety in Ante- and Postnatal Adult Women? A Systematic Review with Meta-Analysis.",
+          "doi": "10.3390/nu16213648",
+          "category": "mood",
+          "abstract_length": 1895,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6777,
+          "pmid": "38013351",
+          "title": "Effect of probiotic supplementation on cognition and depressive symptoms in patients with depression: A systematic review and meta-analysis.",
+          "verified_title": "Effect of probiotic supplementation on cognition and depressive symptoms in patients with depression: A systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000036005",
+          "category": "mood",
+          "abstract_length": 1934,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6778,
+          "pmid": "37218177",
+          "title": "Impact of probiotic on anxiety and depression symptoms in pregnant and lactating women and microbiota of infants: A systematic review and meta-analysis.",
+          "verified_title": "Impact of probiotic on anxiety and depression symptoms in pregnant and lactating women and microbiota of infants: A systematic review and meta-analysis.",
+          "doi": "10.7189/jogh.13.04038",
+          "category": "mood",
+          "abstract_length": 2174,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6779,
+          "pmid": "31900080",
+          "title": "The effect of vitamin D and calcium supplementation on inflammatory biomarkers, estradiol levels and severity of symptoms in women with postpartum depression: a randomized double-blind clinical trial.",
+          "verified_title": "The effect of vitamin D and calcium supplementation on inflammatory biomarkers, estradiol levels and severity of symptoms in women with postpartum depression: a randomized double-blind clinical trial.",
+          "doi": "10.1080/1028415X.2019.1707396",
+          "category": "mood",
+          "abstract_length": 1575,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6780,
+          "pmid": "31379269",
+          "title": "Effect of synbiotic and probiotic supplementation on serum brain-derived neurotrophic factor level, depression and anxiety symptoms in hemodialysis patients: a randomized, double-blinded, clinical trial.",
+          "verified_title": "Effect of synbiotic and probiotic supplementation on serum brain-derived neurotrophic factor level, depression and anxiety symptoms in hemodialysis patients: a randomized, double-blinded, clinical trial.",
+          "doi": "10.1080/1028415X.2019.1646975",
+          "category": "mood",
+          "abstract_length": 1786,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6781-6788-exact.json",
+      "range": [
+        6781,
+        6788
+      ],
+      "rows": [
+        {
+          "wave": 6781,
+          "pmid": "33533015",
+          "title": "Efficacy of vitamin D in the treatment of depression: a systematic review and meta-analysis.",
+          "verified_title": "Efficacy of vitamin D in the treatment of depression: a systematic review and meta-analysis.",
+          "doi": "",
+          "category": "mood",
+          "abstract_length": 368,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6782,
+          "pmid": "31405646",
+          "title": "Effects of vitamin D supplementation on depressive symptoms in type 2 diabetes mellitus patients: Randomized placebo-controlled double-blind clinical trial.",
+          "verified_title": "Effects of vitamin D supplementation on depressive symptoms in type 2 diabetes mellitus patients: Randomized placebo-controlled double-blind clinical trial.",
+          "doi": "10.1016/j.dsx.2019.06.011",
+          "category": "mood",
+          "abstract_length": 1693,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6783,
+          "pmid": "30317101",
+          "title": "Influence of adjuvant omega-3-polyunsaturated fatty acids on depression, sleep, and emotion regulation among outpatients with major depressive disorders - Results from a double-blind, randomized and placebo-controlled clinical trial.",
+          "verified_title": "Influence of adjuvant omega-3-polyunsaturated fatty acids on depression, sleep, and emotion regulation among outpatients with major depressive disorders - Results from a double-blind, randomized and placebo-controlled clinical trial.",
+          "doi": "10.1016/j.jpsychires.2018.09.016",
+          "category": "mood",
+          "abstract_length": 1740,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6784,
+          "pmid": "39179523",
+          "title": "Vitamin D Deficiency in the Acute Phase of Stroke May Predict Post-stroke Depression: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Vitamin D Deficiency in the Acute Phase of Stroke May Predict Post-stroke Depression: A Systematic Review and Meta-Analysis.",
+          "doi": "10.1177/08919887241275044",
+          "category": "mood",
+          "abstract_length": 1511,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6785,
+          "pmid": "34757208",
+          "title": "Saffron, as an adjunct therapy, contributes to relieve depression symptoms: An umbrella meta-analysis.",
+          "verified_title": "Saffron, as an adjunct therapy, contributes to relieve depression symptoms: An umbrella meta-analysis.",
+          "doi": "10.1016/j.phrs.2021.105963",
+          "category": "mood",
+          "abstract_length": 1358,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6786,
+          "pmid": "30444158",
+          "title": "Decreased serum magnesium levels in depression: a systematic review and meta-analysis.",
+          "verified_title": "Decreased serum magnesium levels in depression: a systematic review and meta-analysis.",
+          "doi": "10.1080/08039488.2018.1538388",
+          "category": "mood",
+          "abstract_length": 1475,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6787,
+          "pmid": "31338923",
+          "title": "Effect of probiotic and prebiotic versus placebo on appetite in patients with major depressive disorder: post hoc analysis of a randomised clinical trial.",
+          "verified_title": "Effect of probiotic and prebiotic versus placebo on appetite in patients with major depressive disorder: post hoc analysis of a randomised clinical trial.",
+          "doi": "10.1111/jhn.12675",
+          "category": "mood",
+          "abstract_length": 1775,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6788,
+          "pmid": "31340012",
+          "title": "Vitamin D supplementation for the prevention of depression and poor physical function in older persons: the D-Vitaal study, a randomized clinical trial.",
+          "verified_title": "Vitamin D supplementation for the prevention of depression and poor physical function in older persons: the D-Vitaal study, a randomized clinical trial.",
+          "doi": "10.1093/ajcn/nqz141",
+          "category": "mood",
+          "abstract_length": 1854,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6789-6792-exact.json",
+      "range": [
+        6789,
+        6792
+      ],
+      "rows": [
+        {
+          "wave": 6789,
+          "pmid": "39912390",
+          "title": "Omega-3 polyunsaturated fatty acids in depression: insights from recent clinical trials.",
+          "verified_title": "Omega-3 polyunsaturated fatty acids in depression: insights from recent clinical trials.",
+          "doi": "10.1097/MCO.0000000000001077",
+          "category": "mood",
+          "abstract_length": 1452,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6790,
+          "pmid": "35843459",
+          "title": "A randomized, double-blind, placebo-controlled, 12-week trial of vitamin D augmentation in major depressive disorder associated with vitamin D deficiency.",
+          "verified_title": "A randomized, double-blind, placebo-controlled, 12-week trial of vitamin D augmentation in major depressive disorder associated with vitamin D deficiency.",
+          "doi": "10.1016/j.jad.2022.07.014",
+          "category": "mood",
+          "abstract_length": 1668,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6791,
+          "pmid": "33336636",
+          "title": "Poor vitamin D status and the risk of maternal depression: a dose-response meta-analysis of observational studies.",
+          "verified_title": "Poor vitamin D status and the risk of maternal depression: a dose-response meta-analysis of observational studies.",
+          "doi": "10.1017/S1368980019004919",
+          "category": "mood",
+          "abstract_length": 1528,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6792,
+          "pmid": "32300799",
+          "title": "Probiotic Supplementation Improves Cognitive Function and Mood with Changes in Gut Microbiota in Community-Dwelling Older Adults: A Randomized, Double-Blind, Placebo-Controlled, Multicenter Trial.",
+          "verified_title": "Probiotic Supplementation Improves Cognitive Function and Mood with Changes in Gut Microbiota in Community-Dwelling Older Adults: A Randomized, Double-Blind, Placebo-Controlled, Multicenter Trial.",
+          "doi": "10.1093/gerona/glaa090",
+          "category": "mood",
+          "abstract_length": 1857,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 4,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6793-6796-exact.json",
+      "range": [
+        6793,
+        6796
+      ],
+      "rows": [
+        {
+          "wave": 6793,
+          "pmid": "33050072",
+          "title": "Lipid Profile, Lipoprotein Subfractions, and Fluidity of Membranes in Children and Adolescents with Depressive Disorder: Effect of Omega-3 Fatty Acids in a Double-Blind Randomized Controlled Study.",
+          "verified_title": "Lipid Profile, Lipoprotein Subfractions, and Fluidity of Membranes in Children and Adolescents with Depressive Disorder: Effect of Omega-3 Fatty Acids in a Double-Blind Randomized Controlled Study.",
+          "doi": "10.3390/biom10101427",
+          "category": "mood",
+          "abstract_length": 1919,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6794,
+          "pmid": "32823218",
+          "title": "Effect of adjunctive single dose parenteral Vitamin D supplementation in major depressive disorder with concurrent vitamin D deficiency: A double-blind randomized placebo-controlled trial.",
+          "verified_title": "Effect of adjunctive single dose parenteral Vitamin D supplementation in major depressive disorder with concurrent vitamin D deficiency: A double-blind randomized placebo-controlled trial.",
+          "doi": "10.1016/j.jpsychires.2020.07.037",
+          "category": "mood",
+          "abstract_length": 1495,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6795,
+          "pmid": "32179212",
+          "title": "Omega-3 fatty-acids modulate symptoms of depressive disorder, serum levels of omega-3 fatty acids and omega-6/omega-3 ratio in children. A randomized, double-blind and controlled trial.",
+          "verified_title": "Omega-3 fatty-acids modulate symptoms of depressive disorder, serum levels of omega-3 fatty acids and omega-6/omega-3 ratio in children. A randomized, double-blind and controlled trial.",
+          "doi": "10.1016/j.psychres.2020.112911",
+          "category": "mood",
+          "abstract_length": 1264,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6796,
+          "pmid": "31837640",
+          "title": "Effects of zinc, vitamin D, and their co-supplementation on mood, serum cortisol, and brain-derived neurotrophic factor in patients with obesity and mild to moderate depressive symptoms: A phase II, 12-wk, 2 × 2 factorial design, double-blind, randomized, placebo-controlled trial.",
+          "verified_title": "Effects of zinc, vitamin D, and their co-supplementation on mood, serum cortisol, and brain-derived neurotrophic factor in patients with obesity and mild to moderate depressive symptoms: A phase II, 12-wk, 2 × 2 factorial design, double-blind, randomized, placebo-controlled trial.",
+          "doi": "10.1016/j.nut.2019.110601",
+          "category": "mood",
+          "abstract_length": 1777,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 4,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-6797-6804-exact.json",
+      "range": [
+        6797,
+        6804
+      ],
+      "rows": [
+        {
+          "wave": 6797,
+          "pmid": "33339304",
+          "title": "The Effects of Vitamin D-Enriched Mushrooms and Vitamin D3 on Cognitive Performance and Mood in Healthy Elderly Adults: A Randomised, Double-Blinded, Placebo-Controlled Trial.",
+          "verified_title": "The Effects of Vitamin D-Enriched Mushrooms and Vitamin D3 on Cognitive Performance and Mood in Healthy Elderly Adults: A Randomised, Double-Blinded, Placebo-Controlled Trial.",
+          "doi": "10.3390/nu12123847",
+          "category": "mood",
+          "abstract_length": 1313,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6798,
+          "pmid": "31475623",
+          "title": "Efficacy of a standardised saffron extract (affron®) as an add-on to antidepressant medication for the treatment of persistent depressive symptoms in adults: A randomised, double-blind, placebo-controlled study.",
+          "verified_title": "Efficacy of a standardised saffron extract (affron®) as an add-on to antidepressant medication for the treatment of persistent depressive symptoms in adults: A randomised, double-blind, placebo-controlled study.",
+          "doi": "10.1177/0269881119867703",
+          "category": "mood",
+          "abstract_length": 1827,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6799,
+          "pmid": "30388595",
+          "title": "Probiotic Lactobacillus Plantarum 299v decreases kynurenine concentration and improves cognitive functions in patients with major depression: A double-blind, randomized, placebo controlled study.",
+          "verified_title": "Probiotic Lactobacillus Plantarum 299v decreases kynurenine concentration and improves cognitive functions in patients with major depression: A double-blind, randomized, placebo controlled study.",
+          "doi": "10.1016/j.psyneuen.2018.10.010",
+          "category": "mood",
+          "abstract_length": 3108,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6800,
+          "pmid": "38068763",
+          "title": "Analysis of the Efficacy of Diet and Short-Term Probiotic Intervention on Depressive Symptoms in Patients after Bariatric Surgery: A Randomized Double-Blind Placebo Controlled Pilot Study.",
+          "verified_title": "Analysis of the Efficacy of Diet and Short-Term Probiotic Intervention on Depressive Symptoms in Patients after Bariatric Surgery: A Randomized Double-Blind Placebo Controlled Pilot Study.",
+          "doi": "10.3390/nu15234905",
+          "category": "mood",
+          "abstract_length": 1393,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6801,
+          "pmid": "35129111",
+          "title": "Multispecies probiotic administration reduces emotional salience and improves mood in subjects with moderate depression: a randomised, double-blind, placebo-controlled study.",
+          "verified_title": "Multispecies probiotic administration reduces emotional salience and improves mood in subjects with moderate depression: a randomised, double-blind, placebo-controlled study.",
+          "doi": "10.1017/S003329172100550X",
+          "category": "mood",
+          "abstract_length": 1765,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6802,
+          "pmid": "30423463",
+          "title": "Omega-3 polyunsaturated fatty acids and psychological intervention for workers with mild to moderate depression: A double-blind randomized controlled trial.",
+          "verified_title": "Omega-3 polyunsaturated fatty acids and psychological intervention for workers with mild to moderate depression: A double-blind randomized controlled trial.",
+          "doi": "10.1016/j.jad.2018.11.039",
+          "category": "mood",
+          "abstract_length": 1565,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6803,
+          "pmid": "31669837",
+          "title": "Crocus Sativus L. (saffron) versus sertraline on symptoms of depression among older people with major depressive disorders-a double-blind, randomized intervention study.",
+          "verified_title": "Crocus Sativus L. (saffron) versus sertraline on symptoms of depression among older people with major depressive disorders-a double-blind, randomized intervention study.",
+          "doi": "10.1016/j.psychres.2019.112613",
+          "category": "mood",
+          "abstract_length": 1247,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6804,
+          "pmid": "36804260",
+          "title": "Antioxidant and anti-inflammatory effects of curcumin/turmeric supplementation in adults: A GRADE-assessed systematic review and dose-response meta-analysis of randomized controlled trials.",
+          "verified_title": "Antioxidant and anti-inflammatory effects of curcumin/turmeric supplementation in adults: A GRADE-assessed systematic review and dose-response meta-analysis of randomized controlled trials.",
+          "doi": "10.1016/j.cyto.2023.156144",
+          "category": "inflammation_pain",
+          "abstract_length": 1757,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6805-6812-exact.json",
+      "range": [
+        6805,
+        6812
+      ],
+      "rows": [
+        {
+          "wave": 6805,
+          "pmid": "37522129",
+          "title": "Effects of dietary polyphenol curcumin supplementation on metabolic, inflammatory, and oxidative stress indices in patients with metabolic syndrome: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "Effects of dietary polyphenol curcumin supplementation on metabolic, inflammatory, and oxidative stress indices in patients with metabolic syndrome: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.3389/fendo.2023.1216708",
+          "category": "inflammation_pain",
+          "abstract_length": 2627,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6806,
+          "pmid": "38892586",
+          "title": "Extended Treatment with Micron-Size Oral Palmitoylethanolamide (PEA) in Chronic Pain: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Extended Treatment with Micron-Size Oral Palmitoylethanolamide (PEA) in Chronic Pain: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu16111653",
+          "category": "inflammation_pain",
+          "abstract_length": 1398,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6807,
+          "pmid": "37340115",
+          "title": "Does omega-3 supplementation improve the inflammatory profile of patients with heart failure? a systematic review and meta-analysis.",
+          "verified_title": "Does omega-3 supplementation improve the inflammatory profile of patients with heart failure? a systematic review and meta-analysis.",
+          "doi": "10.1007/s10741-023-10327-0",
+          "category": "inflammation_pain",
+          "abstract_length": 1612,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6808,
+          "pmid": "36370961",
+          "title": "Turmeric supplementation with piperine is more effective than turmeric alone in attenuating oxidative stress and inflammation in hemodialysis patients: A randomized, double-blind clinical trial.",
+          "verified_title": "Turmeric supplementation with piperine is more effective than turmeric alone in attenuating oxidative stress and inflammation in hemodialysis patients: A randomized, double-blind clinical trial.",
+          "doi": "10.1016/j.freeradbiomed.2022.11.008",
+          "category": "inflammation_pain",
+          "abstract_length": 1711,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6809,
+          "pmid": "36205586",
+          "title": "The effects of curcumin-containing supplements on inflammatory biomarkers in hemodialysis patients: A systematic review and meta-analysis.",
+          "verified_title": "The effects of curcumin-containing supplements on inflammatory biomarkers in hemodialysis patients: A systematic review and meta-analysis.",
+          "doi": "10.1002/ptr.7642",
+          "category": "inflammation_pain",
+          "abstract_length": 2024,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6810,
+          "pmid": "37571352",
+          "title": "Effects of Omega-3 Fatty Acids on Postoperative Inflammatory Response: A Systematic Review and Meta-Analysis.",
+          "verified_title": "Effects of Omega-3 Fatty Acids on Postoperative Inflammatory Response: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu15153414",
+          "category": "inflammation_pain",
+          "abstract_length": 1915,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6811,
+          "pmid": "35958557",
+          "title": "Dysregulation of Subcutaneous White Adipose Tissue Inflammatory Environment Modelling in Non-Insulin Resistant Obesity and Responses to Omega-3 Fatty Acids - A Double Blind, Randomised Clinical Trial.",
+          "verified_title": "Dysregulation of Subcutaneous White Adipose Tissue Inflammatory Environment Modelling in Non-Insulin Resistant Obesity and Responses to Omega-3 Fatty Acids - A Double Blind, Randomised Clinical Trial.",
+          "doi": "10.3389/fimmu.2022.922654",
+          "category": "inflammation_pain",
+          "abstract_length": 2373,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6812,
+          "pmid": "39910730",
+          "title": "Palmitoylethanolamide (Levagen+) for acute menstrual pain: a randomized, crossover, double-blind, placebo-controlled trial.",
+          "verified_title": "Palmitoylethanolamide (Levagen+) for acute menstrual pain: a randomized, crossover, double-blind, placebo-controlled trial.",
+          "doi": "10.1080/03630242.2025.2458243",
+          "category": "inflammation_pain",
+          "abstract_length": 1306,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6813-6820-exact.json",
+      "range": [
+        6813,
+        6820
+      ],
+      "rows": [
+        {
+          "wave": 6813,
+          "pmid": "37126739",
+          "title": "The effect of omega-3 fatty acids supplementation on inflammatory biomarkers in subjects with migraine: a randomized, double-blind, placebo-controlled trial.",
+          "verified_title": "The effect of omega-3 fatty acids supplementation on inflammatory biomarkers in subjects with migraine: a randomized, double-blind, placebo-controlled trial.",
+          "doi": "10.1080/08923973.2023.2196600",
+          "category": "inflammation_pain",
+          "abstract_length": 1518,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6814,
+          "pmid": "37239916",
+          "title": "Potential Modulation of Inflammation and Physical Function by Combined Probiotics, Omega-3 Supplementation and Vitamin D Supplementation in Overweight/Obese Patients with Chronic Low-Grade Inflammation: A Randomized, Placebo-Controlled Trial.",
+          "verified_title": "Potential Modulation of Inflammation and Physical Function by Combined Probiotics, Omega-3 Supplementation and Vitamin D Supplementation in Overweight/Obese Patients with Chronic Low-Grade Inflammation: A Randomized, Placebo-Controlled Trial.",
+          "doi": "10.3390/ijms24108567",
+          "category": "inflammation_pain",
+          "abstract_length": 1377,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6815,
+          "pmid": "36235651",
+          "title": "Potential Modulation of Inflammation by Probiotic and Omega-3 Supplementation in Elderly with Chronic Low-Grade Inflammation-A Randomized, Placebo-Controlled Trial.",
+          "verified_title": "Potential Modulation of Inflammation by Probiotic and Omega-3 Supplementation in Elderly with Chronic Low-Grade Inflammation-A Randomized, Placebo-Controlled Trial.",
+          "doi": "10.3390/nu14193998",
+          "category": "inflammation_pain",
+          "abstract_length": 1473,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6816,
+          "pmid": "36241872",
+          "title": "A randomized, double-blinded, placebo-controlled, crossover study of the HCN channel blocker ivabradine in a capsaicin-induced pain model in healthy volunteers.",
+          "verified_title": "A randomized, double-blinded, placebo-controlled, crossover study of the HCN channel blocker ivabradine in a capsaicin-induced pain model in healthy volunteers.",
+          "doi": "10.1038/s41598-022-22309-7",
+          "category": "inflammation_pain",
+          "abstract_length": 1339,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6817,
+          "pmid": "36101515",
+          "title": "Micellar Curcumin: Pharmacokinetics and Effects on Inflammation Markers and PCSK-9 Concentrations in Healthy Subjects in a Double-Blind, Randomized, Active-Controlled, Crossover Trial.",
+          "verified_title": "Micellar Curcumin: Pharmacokinetics and Effects on Inflammation Markers and PCSK-9 Concentrations in Healthy Subjects in a Double-Blind, Randomized, Active-Controlled, Crossover Trial.",
+          "doi": "10.1002/mnfr.202200139",
+          "category": "inflammation_pain",
+          "abstract_length": 1579,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6818,
+          "pmid": "36453014",
+          "title": "A randomized, double-blind placebo-controlled phase I clinical study on safety and efficacy of the G-Rup® syrup (a mixture of ginger extract and honey) in symptomatic treatment of knee osteoarthritis.",
+          "verified_title": "A randomized, double-blind placebo-controlled phase I clinical study on safety and efficacy of the G-Rup® syrup (a mixture of ginger extract and honey) in symptomatic treatment of knee osteoarthritis.",
+          "doi": "10.1111/jcpt.13812",
+          "category": "inflammation_pain",
+          "abstract_length": 1214,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6819,
+          "pmid": "37847317",
+          "title": "A pilot randomized, placebo-controlled, double-blind study of omega-3 fatty acids to prevent paclitaxel-associated acute pain syndrome in breast cancer patients: Alliance A22_Pilot2.",
+          "verified_title": "A pilot randomized, placebo-controlled, double-blind study of omega-3 fatty acids to prevent paclitaxel-associated acute pain syndrome in breast cancer patients: Alliance A22_Pilot2.",
+          "doi": "10.1007/s00520-023-08082-x",
+          "category": "inflammation_pain",
+          "abstract_length": 1620,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6820,
+          "pmid": "39798151",
+          "title": "Meta-Analysis of Palmitoylethanolamide in Pain Management: Addressing Literature Gaps and Enhancing Understanding.",
+          "verified_title": "Meta-Analysis of Palmitoylethanolamide in Pain Management: Addressing Literature Gaps and Enhancing Understanding.",
+          "doi": "10.1093/nutrit/nuae203",
+          "category": "inflammation_pain",
+          "abstract_length": 1983,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6821-6828-exact.json",
+      "range": [
+        6821,
+        6828
+      ],
+      "rows": [
+        {
+          "wave": 6821,
+          "pmid": "37545015",
+          "title": "Omega-3 long chain polyunsaturated fatty acids as a potential treatment for reducing dysmenorrhoea pain: Systematic literature review and meta-analysis.",
+          "verified_title": "Omega-3 long chain polyunsaturated fatty acids as a potential treatment for reducing dysmenorrhoea pain: Systematic literature review and meta-analysis.",
+          "doi": "10.1111/1747-0080.12835",
+          "category": "inflammation_pain",
+          "abstract_length": 1775,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6822,
+          "pmid": "37226250",
+          "title": "Effect of omega-3 polyunsaturated fatty acids supplementation for patients with osteoarthritis: a meta-analysis.",
+          "verified_title": "Effect of omega-3 polyunsaturated fatty acids supplementation for patients with osteoarthritis: a meta-analysis.",
+          "doi": "10.1186/s13018-023-03855-w",
+          "category": "inflammation_pain",
+          "abstract_length": 1643,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6823,
+          "pmid": "35914448",
+          "title": "Efficacy of the omega-3 fatty acids supplementation on inflammatory biomarkers: An umbrella meta-analysis.",
+          "verified_title": "Efficacy of the omega-3 fatty acids supplementation on inflammatory biomarkers: An umbrella meta-analysis.",
+          "doi": "10.1016/j.intimp.2022.109104",
+          "category": "inflammation_pain",
+          "abstract_length": 1362,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6824,
+          "pmid": "40981167",
+          "title": "Evaluation of the Clinical Efficacy of a Novel Palmitoylethanolamide-Equisetum arvense Supplement for the Management of Chronic Pain: Findings from a Prospective Clinical Trial.",
+          "verified_title": "Evaluation of the Clinical Efficacy of a Novel Palmitoylethanolamide-Equisetum arvense Supplement for the Management of Chronic Pain: Findings from a Prospective Clinical Trial.",
+          "doi": "10.3390/medsci13030169",
+          "category": "inflammation_pain",
+          "abstract_length": 1786,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6825,
+          "pmid": "39165011",
+          "title": "The effect of curcumin-piperine supplementation on lipid profile, glycemic index, inflammation, and blood pressure in patients with type 2 diabetes mellitus and hypertriglyceridemia.",
+          "verified_title": "The effect of curcumin-piperine supplementation on lipid profile, glycemic index, inflammation, and blood pressure in patients with type 2 diabetes mellitus and hypertriglyceridemia.",
+          "doi": "10.1002/ptr.8304",
+          "category": "inflammation_pain",
+          "abstract_length": 1748,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6826,
+          "pmid": "36927282",
+          "title": "Effects of Highly Bioavailable Curcumin Supplementation on Common Cold Symptoms and Immune and Inflammatory Functions in Healthy Japanese Subjects: A Randomized Controlled Study.",
+          "verified_title": "Effects of Highly Bioavailable Curcumin Supplementation on Common Cold Symptoms and Immune and Inflammatory Functions in Healthy Japanese Subjects: A Randomized Controlled Study.",
+          "doi": "10.1080/19390211.2023.2185723",
+          "category": "inflammation_pain",
+          "abstract_length": 1444,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6827,
+          "pmid": "37161852",
+          "title": "Topical application of isolated menthol and combined menthol-capsaicin creams: Exercise tolerance, thermal perception, pain, attentional focus and thermoregulation in the heat.",
+          "verified_title": "Topical application of isolated menthol and combined menthol-capsaicin creams: Exercise tolerance, thermal perception, pain, attentional focus and thermoregulation in the heat.",
+          "doi": "10.1080/17461391.2023.2211966",
+          "category": "inflammation_pain",
+          "abstract_length": 2566,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6828,
+          "pmid": "36999528",
+          "title": "No effect of omega-3 polyunsaturated fatty acid supplementation on inflammatory markers in familial hypercholesterolemia: a randomized crossover trial.",
+          "verified_title": "No effect of omega-3 polyunsaturated fatty acid supplementation on inflammatory markers in familial hypercholesterolemia: a randomized crossover trial.",
+          "doi": "10.1080/00365513.2023.2178499",
+          "category": "inflammation_pain",
+          "abstract_length": 2247,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6829-6836-exact.json",
+      "range": [
+        6829,
+        6836
+      ],
+      "rows": [
+        {
+          "wave": 6829,
+          "pmid": "37049389",
+          "title": "Curcumin Confers Anti-Inflammatory Effects in Adults Who Recovered from COVID-19 and Were Subsequently Vaccinated: A Randomized Controlled Trial.",
+          "verified_title": "Curcumin Confers Anti-Inflammatory Effects in Adults Who Recovered from COVID-19 and Were Subsequently Vaccinated: A Randomized Controlled Trial.",
+          "doi": "10.3390/nu15071548",
+          "category": "inflammation_pain",
+          "abstract_length": 1554,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6830,
+          "pmid": "37182400",
+          "title": "Oral ω-3 PUFA supplementation modulates inflammation in adipose tissue depots in morbidly obese women: A randomized trial.",
+          "verified_title": "Oral ω-3 PUFA supplementation modulates inflammation in adipose tissue depots in morbidly obese women: A randomized trial.",
+          "doi": "10.1016/j.nut.2023.112055",
+          "category": "inflammation_pain",
+          "abstract_length": 2090,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6831,
+          "pmid": "37394650",
+          "title": "Effect of curcumin on inflammatory biomarkers and iron profile in patients with premenstrual syndrome and dysmenorrhea: A randomized controlled trial.",
+          "verified_title": "Effect of curcumin on inflammatory biomarkers and iron profile in patients with premenstrual syndrome and dysmenorrhea: A randomized controlled trial.",
+          "doi": "10.14814/phy2.15763",
+          "category": "inflammation_pain",
+          "abstract_length": 1754,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6832,
+          "pmid": "36558465",
+          "title": "Effects of Vitamin D(3) and Marine Omega-3 Fatty Acids Supplementation on Biomarkers of Systemic Inflammation: 4-Year Findings from the VITAL Randomized Trial.",
+          "verified_title": "Effects of Vitamin D3 and Marine Omega-3 Fatty Acids Supplementation on Biomarkers of Systemic Inflammation: 4-Year Findings from the VITAL Randomized Trial.",
+          "doi": "10.3390/nu14245307",
+          "category": "inflammation_pain",
+          "abstract_length": 2018,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6833,
+          "pmid": "41183689",
+          "title": "Refining capsaicin-induced pain models: A comprehensive analysis of preclinical practices and their translational potential.",
+          "verified_title": "Refining capsaicin-induced pain models: A comprehensive analysis of preclinical practices and their translational potential.",
+          "doi": "10.1016/j.neubiorev.2025.106455",
+          "category": "inflammation_pain",
+          "abstract_length": 1727,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6834,
+          "pmid": "29523006",
+          "title": "The Effects of Supplementation with Chromium on Insulin Resistance Indices in Women with Polycystic Ovarian Syndrome: A Systematic Review and Meta-Analysis of Randomized Clinical Trials.",
+          "verified_title": "The Effects of Supplementation with Chromium on Insulin Resistance Indices in Women with Polycystic Ovarian Syndrome: A Systematic Review and Meta-Analysis of Randomized Clinical Trials.",
+          "doi": "10.1055/s-0044-101835",
+          "category": "metabolic",
+          "abstract_length": 2830,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6835,
+          "pmid": "31919936",
+          "title": "The effect of psyllium consumption on weight, body mass index, lipid profile, and glucose metabolism in diabetic patients: A systematic review and dose-response meta-analysis of randomized controlled trials.",
+          "verified_title": "The effect of psyllium consumption on weight, body mass index, lipid profile, and glucose metabolism in diabetic patients: A systematic review and dose-response meta-analysis of randomized controlled trials.",
+          "doi": "10.1002/ptr.6609",
+          "category": "metabolic",
+          "abstract_length": 1583,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6836,
+          "pmid": "29990473",
+          "title": "The effects of alpha-lipoic acid supplementation on glucose control and lipid profiles among patients with metabolic diseases: A systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "The effects of alpha-lipoic acid supplementation on glucose control and lipid profiles among patients with metabolic diseases: A systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1016/j.metabol.2018.07.002",
+          "category": "metabolic",
+          "abstract_length": 1738,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6837-6844-exact.json",
+      "range": [
+        6837,
+        6844
+      ],
+      "rows": [
+        {
+          "wave": 6837,
+          "pmid": "29793496",
+          "title": "The effects of inositol supplementation on lipid profiles among patients with metabolic diseases: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "The effects of inositol supplementation on lipid profiles among patients with metabolic diseases: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1186/s12944-018-0779-4",
+          "category": "metabolic",
+          "abstract_length": 1645,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6838,
+          "pmid": "29980312",
+          "title": "Effects of inositol on glucose homeostasis: Systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "Effects of inositol on glucose homeostasis: Systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1016/j.clnu.2018.06.957",
+          "category": "metabolic",
+          "abstract_length": 1631,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6839,
+          "pmid": "30564926",
+          "title": "Inositol for the prevention of gestational diabetes: a systematic review and meta-analysis of randomized controlled trials.",
+          "verified_title": "Inositol for the prevention of gestational diabetes: a systematic review and meta-analysis of randomized controlled trials.",
+          "doi": "10.1007/s00404-018-5005-0",
+          "category": "metabolic",
+          "abstract_length": 1528,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6840,
+          "pmid": "37933068",
+          "title": "Effectiveness of alpha-lipoic acid in patients with neuropathic pain associated with type I and type II diabetes mellitus: A systematic review and meta-analysis.",
+          "verified_title": "Effectiveness of alpha-lipoic acid in patients with neuropathic pain associated with type I and type II diabetes mellitus: A systematic review and meta-analysis.",
+          "doi": "10.1097/MD.0000000000035368",
+          "category": "metabolic",
+          "abstract_length": 1646,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6841,
+          "pmid": "38045667",
+          "title": "The Efficacy and Safety of Myo-inositol Supplementation for the Prevention of Gestational Diabetes Mellitus in Overweight and Obese Pregnant Women: A Systematic Review and Meta-Analysis.",
+          "verified_title": "The Efficacy and Safety of Myo-inositol Supplementation for the Prevention of Gestational Diabetes Mellitus in Overweight and Obese Pregnant Women: A Systematic Review and Meta-Analysis.",
+          "doi": "10.15605/jafes.038.02.11",
+          "category": "metabolic",
+          "abstract_length": 2099,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6842,
+          "pmid": "35803022",
+          "title": "Effects of cinnamon supplementation on lipid profiles among patients with metabolic syndrome and related disorders: A systematic review and meta-analysis.",
+          "verified_title": "Effects of cinnamon supplementation on lipid profiles among patients with metabolic syndrome and related disorders: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.ctcp.2022.101625",
+          "category": "metabolic",
+          "abstract_length": 1727,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6843,
+          "pmid": "33111340",
+          "title": "The effect of cinnamon supplementation on glycemic control in women with polycystic ovary syndrome: A systematic review and meta-analysis.",
+          "verified_title": "The effect of cinnamon supplementation on glycemic control in women with polycystic ovary syndrome: A systematic review and meta-analysis.",
+          "doi": "10.1111/jfbc.13543",
+          "category": "metabolic",
+          "abstract_length": 1730,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6844,
+          "pmid": "33199187",
+          "title": "An updated systematic review and dose-response meta-analysis of the effects of α-lipoic acid supplementation on glycemic markers in adults.",
+          "verified_title": "An updated systematic review and dose-response meta-analysis of the effects of α-lipoic acid supplementation on glycemic markers in adults.",
+          "doi": "10.1016/j.nut.2020.111041",
+          "category": "metabolic",
+          "abstract_length": 1847,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6845-6852-exact.json",
+      "range": [
+        6845,
+        6852
+      ],
+      "rows": [
+        {
+          "wave": 6845,
+          "pmid": "33238798",
+          "title": "Myo-inositol supplementation to prevent gestational diabetes in overweight non-obese women: bioelectrical impedance analysis, metabolic aspects, obstetric and neonatal outcomes - a randomized and open-label, placebo-controlled clinical trial.",
+          "verified_title": "Myo-inositol supplementation to prevent gestational diabetes in overweight non-obese women: bioelectrical impedance analysis, metabolic aspects, obstetric and neonatal outcomes - a randomized and open-label, placebo-controlled clinical trial.",
+          "doi": "10.1080/09637486.2020.1852191",
+          "category": "metabolic",
+          "abstract_length": 992,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6846,
+          "pmid": "31425768",
+          "title": "Efficacy and safety of cinnamon in type 2 diabetes mellitus and pre-diabetes patients: A meta-analysis and meta-regression.",
+          "verified_title": "Efficacy and safety of cinnamon in type 2 diabetes mellitus and pre-diabetes patients: A meta-analysis and meta-regression.",
+          "doi": "10.1016/j.diabres.2019.107815",
+          "category": "metabolic",
+          "abstract_length": 1328,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6847,
+          "pmid": "29343138",
+          "title": "The efficacy of myo-inositol supplementation to prevent gestational diabetes onset: a meta-analysis of randomized controlled trials.",
+          "verified_title": "The efficacy of myo-inositol supplementation to prevent gestational diabetes onset: a meta-analysis of randomized controlled trials.",
+          "doi": "10.1080/14767058.2018.1428303",
+          "category": "metabolic",
+          "abstract_length": 1356,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6848,
+          "pmid": "30393248",
+          "title": "Effects of berberine on blood glucose in patients with type 2 diabetes mellitus: a systematic literature review and a meta-analysis.",
+          "verified_title": "Effects of berberine on blood glucose in patients with type 2 diabetes mellitus: a systematic literature review and a meta-analysis.",
+          "doi": "10.1507/endocrj.EJ18-0109",
+          "category": "metabolic",
+          "abstract_length": 1378,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6849,
+          "pmid": "29250843",
+          "title": "Insulin resistance improvement by cinnamon powder in polycystic ovary syndrome: A randomized double-blind placebo controlled clinical trial.",
+          "verified_title": "Insulin resistance improvement by cinnamon powder in polycystic ovary syndrome: A randomized double-blind placebo controlled clinical trial.",
+          "doi": "10.1002/ptr.5970",
+          "category": "metabolic",
+          "abstract_length": 1706,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6850,
+          "pmid": "32151755",
+          "title": "Effects of cinnamon on controlling metabolic parameters of polycystic ovary syndrome: A systematic review and meta-analysis.",
+          "verified_title": "Effects of cinnamon on controlling metabolic parameters of polycystic ovary syndrome: A systematic review and meta-analysis.",
+          "doi": "10.1016/j.jep.2020.112741",
+          "category": "metabolic",
+          "abstract_length": 2031,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6851,
+          "pmid": "29605574",
+          "title": "Efficacy of cinnamon in patients with type II diabetes mellitus: A randomized controlled clinical trial.",
+          "verified_title": "Efficacy of cinnamon in patients with type II diabetes mellitus: A randomized controlled clinical trial.",
+          "doi": "10.1016/j.clnu.2018.03.003",
+          "category": "metabolic",
+          "abstract_length": 1746,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6852,
+          "pmid": "28485095",
+          "title": "Comparison of myo-inositol and metformin on clinical, metabolic and genetic parameters in polycystic ovary syndrome: A randomized controlled clinical trial.",
+          "verified_title": "Comparison of myo-inositol and metformin on clinical, metabolic and genetic parameters in polycystic ovary syndrome: A randomized controlled clinical trial.",
+          "doi": "10.1111/cen.13366",
+          "category": "metabolic",
+          "abstract_length": 1680,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6853-6860-exact.json",
+      "range": [
+        6853,
+        6860
+      ],
+      "rows": [
+        {
+          "wave": 6853,
+          "pmid": "32579549",
+          "title": "A novel nutritional supplement containing amino acids and chromium decreases postprandial glucose response in a randomized, double-blind, placebo-controlled study.",
+          "verified_title": "A novel nutritional supplement containing amino acids and chromium decreases postprandial glucose response in a randomized, double-blind, placebo-controlled study.",
+          "doi": "10.1371/journal.pone.0234237",
+          "category": "metabolic",
+          "abstract_length": 2165,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6854,
+          "pmid": "29773176",
+          "title": "Effects of zinc, magnesium, and chromium supplementation on cardiometabolic risk in adults with metabolic syndrome: A double-blind, placebo-controlled randomised trial.",
+          "verified_title": "Effects of zinc, magnesium, and chromium supplementation on cardiometabolic risk in adults with metabolic syndrome: A double-blind, placebo-controlled randomised trial.",
+          "doi": "10.1016/j.jtemb.2018.03.022",
+          "category": "metabolic",
+          "abstract_length": 1208,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6855,
+          "pmid": "30311825",
+          "title": "Effects of α-Lipoic Acid, Carnosine, and Thiamine Supplementation in Obese Patients with Type 2 Diabetes Mellitus: A Randomized, Double-Blind Study.",
+          "verified_title": "Effects of α-Lipoic Acid, Carnosine, and Thiamine Supplementation in Obese Patients with Type 2 Diabetes Mellitus: A Randomized, Double-Blind Study.",
+          "doi": "10.1089/jmf.2018.0007",
+          "category": "metabolic",
+          "abstract_length": 2023,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6856,
+          "pmid": "37679692",
+          "title": "Efficacy and safety of HIMABERB® Berberine on glycemic control in patients with prediabetes: double-blind, placebo-controlled, and randomized pilot trial.",
+          "verified_title": "Efficacy and safety of HIMABERB® Berberine on glycemic control in patients with prediabetes: double-blind, placebo-controlled, and randomized pilot trial.",
+          "doi": "10.1186/s12902-023-01442-y",
+          "category": "metabolic",
+          "abstract_length": 2589,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6857,
+          "pmid": "35277398",
+          "title": "Myo-inositol nutritional supplement for prevention of gestational diabetes (EMmY): a randomised, placebo-controlled, double-blind pilot trial with nested qualitative study.",
+          "verified_title": "Myo-inositol nutritional supplement for prevention of gestational diabetes (EMmY): a randomised, placebo-controlled, double-blind pilot trial with nested qualitative study.",
+          "doi": "10.1136/bmjopen-2021-050110",
+          "category": "metabolic",
+          "abstract_length": 1987,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6858,
+          "pmid": "35442486",
+          "title": "Alpha-lipoic acid improved anemia, erythropoietin resistance, maintained glycemic control, and reduced cardiovascular risk in diabetic patients on hemodialysis: a multi-center prospective randomized controlled study.",
+          "verified_title": "Alpha-lipoic acid improved anemia, erythropoietin resistance, maintained glycemic control, and reduced cardiovascular risk in diabetic patients on hemodialysis: a multi-center prospective randomized controlled study.",
+          "doi": "10.26355/eurrev_202204_28461",
+          "category": "metabolic",
+          "abstract_length": 2032,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6859,
+          "pmid": "32804855",
+          "title": "Chromium picolinate balances the metabolic and clinical markers in nonalcoholic fatty liver disease: a randomized, double-blind, placebo-controlled trial.",
+          "verified_title": "Chromium picolinate balances the metabolic and clinical markers in nonalcoholic fatty liver disease: a randomized, double-blind, placebo-controlled trial.",
+          "doi": "10.1097/MEG.0000000000001830",
+          "category": "metabolic",
+          "abstract_length": 1782,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6860,
+          "pmid": "33045675",
+          "title": "A pilot study of the effects of chromium picolinate supplementation on serum fetuin-A, metabolic and inflammatory factors in patients with nonalcoholic fatty liver disease: A double-blind, placebo-controlled trial.",
+          "verified_title": "A pilot study of the effects of chromium picolinate supplementation on serum fetuin-A, metabolic and inflammatory factors in patients with nonalcoholic fatty liver disease: A double-blind, placebo-controlled trial.",
+          "doi": "10.1016/j.jtemb.2020.126659",
+          "category": "metabolic",
+          "abstract_length": 1550,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6861-6868-exact.json",
+      "range": [
+        6861,
+        6868
+      ],
+      "rows": [
+        {
+          "wave": 6861,
+          "pmid": "32971450",
+          "title": "Improving the endothelial dysfunction in type 2 diabetes with chromium and vitamin D(3) byreducing homocysteine and oxidative stress: A randomized placebo-controlled trial.",
+          "verified_title": "Improving the endothelial dysfunction in type 2 diabetes with chromium and vitamin D3 byreducing homocysteine and oxidative stress: A randomized placebo-controlled trial.",
+          "doi": "10.1016/j.jtemb.2020.126639",
+          "category": "metabolic",
+          "abstract_length": 1636,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6862,
+          "pmid": "31453617",
+          "title": "Metabolic effects of α-lipoic acid supplementation in pre-diabetics: a randomized, placebo-controlled pilot study.",
+          "verified_title": "Metabolic effects of α-lipoic acid supplementation in pre-diabetics: a randomized, placebo-controlled pilot study.",
+          "doi": "10.1039/c9fo00390h",
+          "category": "metabolic",
+          "abstract_length": 1402,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6863,
+          "pmid": "27835050",
+          "title": "A Double-Blind, Randomized Pilot Trial of Chromium Picolinate for Overweight Individuals with Binge-Eating Disorder: Effects on Glucose Regulation.",
+          "verified_title": "A Double-Blind, Randomized Pilot Trial of Chromium Picolinate for Overweight Individuals with Binge-Eating Disorder: Effects on Glucose Regulation.",
+          "doi": "10.1080/19390211.2016.1207124",
+          "category": "metabolic",
+          "abstract_length": 1580,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6864,
+          "pmid": "21036578",
+          "title": "The effectiveness and efficacy of Rhodiola rosea L.: a systematic review of randomized clinical trials.",
+          "verified_title": "The effectiveness and efficacy of Rhodiola rosea L.: a systematic review of randomized clinical trials.",
+          "doi": "10.1016/j.phymed.2010.08.014",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1566,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6865,
+          "pmid": "32186018",
+          "title": "Efficacy of Cordyceps sinensis as an adjunctive treatment in hemodialysis patients: a systematic review and Meta-analysis.",
+          "verified_title": "Efficacy of Cordyceps sinensis as an adjunctive treatment in hemodialysis patients: a systematic review and Meta-analysis.",
+          "doi": "",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1723,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6866,
+          "pmid": "28137532",
+          "title": "Efficacy of Cordyceps sinensis as an adjunctive treatment in kidney transplant patients: A systematic-review and meta-analysis.",
+          "verified_title": "Efficacy of Cordyceps sinensis as an adjunctive treatment in kidney transplant patients: A systematic-review and meta-analysis.",
+          "doi": "10.1016/j.ctim.2016.12.007",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1981,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6867,
+          "pmid": "18844328",
+          "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial.",
+          "verified_title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial.",
+          "doi": "10.1002/ptr.2634",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1287,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6868,
+          "pmid": "32316411",
+          "title": "Effects of Ashwagandha (Withania somnifera) on VO(2max): A Systematic Review and Meta-Analysis.",
+          "verified_title": "Effects of Ashwagandha (Withania somnifera) on VO2max: A Systematic Review and Meta-Analysis.",
+          "doi": "10.3390/nu12041119",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1376,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    },
+    {
+      "file": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6869-6876-exact.json",
+      "range": [
+        6869,
+        6876
+      ],
+      "rows": [
+        {
+          "wave": 6869,
+          "pmid": "40590148",
+          "title": "Effect of a New Skin-Lightening Cosmetic Containing Cordyceps Extract in the Treatment of Melasma: A Clinical Trial.",
+          "verified_title": "Effect of a New Skin-Lightening Cosmetic Containing Cordyceps Extract in the Treatment of Melasma: A Clinical Trial.",
+          "doi": "10.1111/jocd.70329",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2336,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6870,
+          "pmid": "18097505",
+          "title": "Randomized clinical trial of an ethanol extract of Ganoderma lucidum in men with lower urinary tract symptoms.",
+          "verified_title": "Randomized clinical trial of an ethanol extract of Ganoderma lucidum in men with lower urinary tract symptoms.",
+          "doi": "10.1111/j.1745-7262.2008.00361.x",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1468,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6871,
+          "pmid": "34144529",
+          "title": "Analysis of Clinical Trial Registry of India for Evidence of Anti-Arthritic Properties of Withania somnifera (Ashwagandha).",
+          "verified_title": "Analysis of Clinical Trial Registry of India for Evidence of Anti-Arthritic Properties of Withania somnifera (Ashwagandha).",
+          "doi": "",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1641,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6872,
+          "pmid": "25271984",
+          "title": "Control of oral human papillomavirus (HPV) by medicinal mushrooms, Trametes versicolor and Ganoderma lucidum: a preliminary clinical trial.",
+          "verified_title": "Control of oral human papillomavirus (HPV) by medicinal mushrooms, Trametes versicolor and Ganoderma lucidum: a preliminary clinical trial.",
+          "doi": "10.1615/intjmedmushrooms.v16.i5.80",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 896,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6873,
+          "pmid": "33600918",
+          "title": "A double-blind, randomized, placebo-controlled trial on the effect of Ashwagandha (Withania somnifera dunal.) root extract in improving cardiorespiratory endurance and recovery in healthy athletic adults.",
+          "verified_title": "A double-blind, randomized, placebo-controlled trial on the effect of Ashwagandha (Withania somnifera dunal.) root extract in improving cardiorespiratory endurance and recovery in healthy athletic adults.",
+          "doi": "10.1016/j.jep.2021.113929",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2113,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6874,
+          "pmid": "33338583",
+          "title": "Safety of Ashwagandha Root Extract: A Randomized, Placebo-Controlled, study in Healthy Volunteers.",
+          "verified_title": "Safety of Ashwagandha Root Extract: A Randomized, Placebo-Controlled, study in Healthy Volunteers.",
+          "doi": "10.1016/j.ctim.2020.102642",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2423,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6875,
+          "pmid": "32818573",
+          "title": "Clinical evaluation of the pharmacological impact of ashwagandha root extract on sleep in healthy volunteers and insomnia patients: A double-blind, randomized, parallel-group, placebo-controlled study.",
+          "verified_title": "Clinical evaluation of the pharmacological impact of ashwagandha root extract on sleep in healthy volunteers and insomnia patients: A double-blind, randomized, parallel-group, placebo-controlled study.",
+          "doi": "10.1016/j.jep.2020.113276",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 2433,
+          "title_verified": true,
+          "abstract_verified": true
+        },
+        {
+          "wave": 6876,
+          "pmid": "34553463",
+          "title": "Effect of an ashwagandha (Withania Somnifera) root extract on climacteric symptoms in women during perimenopause: A randomized, double-blind, placebo-controlled study.",
+          "verified_title": "Effect of an ashwagandha (Withania Somnifera) root extract on climacteric symptoms in women during perimenopause: A randomized, double-blind, placebo-controlled study.",
+          "doi": "10.1111/jog.15030",
+          "category": "botanicals_mushrooms",
+          "abstract_length": 1740,
+          "title_verified": true,
+          "abstract_verified": true
+        }
+      ],
+      "declared": 8,
+      "errors": []
+    }
+  ]
+}
