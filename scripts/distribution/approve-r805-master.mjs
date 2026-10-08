@@ -135,6 +135,14 @@ export function approveR805Master({
       semanticBeatMapSha256: clean(manifest.creativeQuality?.semanticBeatMapSha256),
       creativeBriefSha256: clean(manifest.r805Bindings?.creativeBrief?.sha256),
       semanticBeatTimelineSha256: clean(manifest.r805Bindings?.semanticBeatTimeline?.sha256),
+      r806OverlaySha256: creativeMethodRelease === 'R8.06'
+        ? clean(manifest.creativeDirection?.overlaySha256)
+        : creativeMethodRelease === 'R8.07'
+          ? clean(manifest.creativeFoundation?.overlaySha256)
+          : null,
+      r807OverlaySha256: creativeMethodRelease === 'R8.07'
+        ? clean(manifest.creativeDirection?.overlaySha256)
+        : null,
     },
     qa: {
       wholePieceCohesion: 'pass',
