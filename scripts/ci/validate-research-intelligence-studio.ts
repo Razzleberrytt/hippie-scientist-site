@@ -5,6 +5,7 @@ import {buildPublicationLineageReport} from '../../lib/research-publication-line
 import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay} from '../../lib/research-intelligence-relay'
+import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -424,6 +425,55 @@ assert(ui.includes('buildInstrumentRelay(')&&ui.includes('Cross-instrument sourc
  ui.includes('Independent semantic review')&&ui.includes('Continue into '),
  'UI must render and navigate the exact-source relay and keep reviewed annotations distinct')
 assert(!ui.includes('allowAutopublish: true'),'Relay must not authorize publishing')
+
+// Semantic Fabric 1.07: strict downstream identity matching, no social/claim promotion.
+const doiSources=sources.map(x=>({...x,doi:x.pmid==='10000001'?'10.5555/exact-synthetic-source':''}))
+const doiGraph=buildResearchSemanticNetwork(doiSources)
+const doiStudio=buildResearchIntelligenceStudio(doiSources,doiGraph,[])
+const doiCase=buildResearchCaseFile(doiStudio,doiGraph,'10000001')!
+const publisherObject={
+ id:'social-exact-1',sourceUrl:'https://thehippiescientist.net/herbs/magnesium/',
+ primarySourceUrl:'https://doi.org/10.5555/exact-synthetic-source',
+ findingClaimId:'clm_exact001',primarySourceId:'src_exact001',
+}
+const linkedFabric=planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ publisherObject,{...publisherObject,id:'unrelated-topic',primarySourceUrl:'https://doi.org/10.5555/other'},
+ {...publisherObject,id:'lookalike-only',primarySourceUrl:'',sourceUrl:'https://thehippiescientist.net/herbs/magnesium/'},
+])
+assert.equal(linkedFabric.systemCapability,'semantic-fabric-1.07')
+assert.equal(linkedFabric.sourcePmid,doiCase.pmid)
+assert.equal(linkedFabric.sourceDoi,'10.5555/exact-synthetic-source')
+assert.deepEqual(linkedFabric.distributionReviewTargets.map(x=>x.objectId),['social-exact-1'])
+assert.equal(linkedFabric.distributionReviewTargets[0].sourceClaimId,'clm_exact001')
+assert.equal(linkedFabric.distributionReviewTargets[0].status,'publication-matched-editorial-review-required')
+assert.equal(linkedFabric.distributionReviewTargets[0].limitation,
+ 'same-publication-identity-does-not-prove-claim-support-or-independence')
+assert.equal(linkedFabric.publicationAllowed,false)
+assert.equal(linkedFabric.mutationAllowed,false)
+assert(linkedFabric.instrumentHandoffs.length>=2)
+assert.equal(linkedFabric.unresolvedChannels.some(x=>x.channel==='social'),false)
+assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ {...publisherObject,primarySourceUrl:'https://doi.org/10.5555/not-exact'},
+]).distributionReviewTargets.length,0,'Theme and page overlap cannot bypass exact DOI')
+assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ {...publisherObject,findingClaimId:undefined},
+]).distributionReviewTargets.length,0,'Unlinked claim identity must not be filled in by guessing')
+assert.throws(()=>planResearchSemanticFabric(doiStudio,doiGraph,
+ {...doiCase,sourceSignature:'forged'},[publisherObject]),/exact canonical source case/)
+assert.throws(()=>planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
+ publisherObject,{...publisherObject,id:'social-exact-1',primarySourceUrl:'https://doi.org/10.5555/other'}
+]),/conflicting DOI identity/)
+assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,
+ buildResearchCaseFile(doiStudio,doiGraph,'10000002')!,[publisherObject])
+ .distributionReviewTargets.length,0,'No same-PMID or unrelated-paper cross-talk')
+const manifestObjects=JSON.parse(readFileSync('data/distribution/research-objects.json','utf8')) as Array<{
+ id:string;sourceUrl:string;primarySourceUrl?:string;findingClaimId?:string;primarySourceId?:string}>
+const realFabric=planResearchSemanticFabric(real,realGraph,liveCase!,manifestObjects)
+assert(realFabric.distributionReviewTargets.every(t=>
+ real.dna.some(d=>d.pmid===realFabric.sourcePmid&&d.doi.trim().toLowerCase()===t.matchingDoi)))
+assert.equal(realFabric.publicationAllowed,false)
+assert(ui.includes('planResearchSemanticFabric(')&&ui.includes('Distribution review targets'),
+ 'Existing distribution objects must be joined in the visitor-facing source case')
 
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
  exactVerifiedSources:500,allFingerprintPmidsUnique:true,coveredInstruments:8,

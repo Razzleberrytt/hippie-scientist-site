@@ -185,3 +185,20 @@
 .relayReviewed>strong{font-size:.79rem;color:#244a34}
 .relayReviewed>p{font-size:.7rem;line-height:1.7;margin-top:.65rem;overflow-wrap:anywhere}
 @media(max-width:700px){.relayList{grid-template-columns:1fr}.relayWorkbench{padding:.75rem}}
+
+
+/* Semantic Fabric 1.07: content propagation remains review-only. */
+.fabricWorkbench{background:#eef0e3;color:#1c3b2b;padding:1rem;border:1px solid #a2af95;margin:1rem 0}
+.fabricHeading{display:flex;justify-content:space-between;flex-wrap:wrap;align-items:baseline;gap:.5rem}
+.fabricHeading h4{font:800 clamp(1.05rem,2vw,1.3rem)/1.35 var(--font-display),Georgia,serif}
+.fabricHeading span{font-size:.62rem;color:#48624d;letter-spacing:.04em}
+.fabricWorkbench>p{font-size:.74rem;line-height:1.7;margin:.65rem 0}
+.fabricColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.fabricColumns>div{border:1px solid #a7b69d;background:#fbf9ef;padding:.85rem;min-width:0}
+.fabricColumns strong{font-size:.8rem;color:#214934}
+.fabricColumns p{font-size:.72rem;line-height:1.65;margin:.6rem 0}
+.fabricColumns p:not(:first-of-type){padding-top:.65rem;border-top:1px solid #a7b69d}
+.fabricColumns p span,.fabricColumns p a{font-weight:770;color:#1f5436}
+.fabricColumns small{font-size:.66rem;color:#536453;line-height:1.6;display:block;margin-top:.25rem;overflow-wrap:anywhere}
+.fabricWorkbench .fabricGuard{border-left:3px solid #34674b;background:#dce8d5;padding:.7rem .8rem;font-weight:760}
+@media(max-width:700px){.fabricWorkbench{padding:.75rem}.fabricColumns{grid-template-columns:1fr}}
