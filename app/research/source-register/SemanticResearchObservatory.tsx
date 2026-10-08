@@ -43,6 +43,7 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
   },[first,filteredIds,network.concepts])
   const gaps=useMemo(()=>Object.values(network.entries).filter(x=>x.mentions.length===0),[network.entries])
   const summary=network.summary
+  const detailedGraphReady = Object.keys(network.entries).length === summary.sourcePapers
   const top=grouped.slice(0,8)
   const step=2*Math.PI/Math.max(1,top.length)
 
@@ -130,7 +131,7 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
           </div>
           {first && second ? (
             <div className={styles.pathPanel} aria-live='polite'>
-              <strong>Semantic pathway / {semanticPath.length ? semanticPath.length + ' bibliographic hop' + (semanticPath.length === 1 ? '' : 's') : 'No linked path within 3 hops'}</strong>
+              <strong>Semantic pathway / {!detailedGraphReady ? 'Loading source witnesses' : semanticPath.length ? semanticPath.length + ' bibliographic hop' + (semanticPath.length === 1 ? '' : 's') : 'No linked path within 3 hops'}</strong>
               {semanticPath.length ? (
                 <ol>
                   {semanticPath.map((step, i) => (
@@ -141,13 +142,13 @@ export default function SemanticResearchObservatory({network,onFocusConcept,onFo
                     </li>
                   ))}
                 </ol>
-              ) : <p>No witness path found in this source batch. That is not evidence that the topics are unrelated.</p>}
+              ) : <p>{detailedGraphReady ? 'No witness path found in this source batch. That is not evidence that the topics are unrelated.' : 'Open the source graph to inspect exact PMID witnesses.'}</p>}
               <p>Co-occurrence path only, with direct source IDs. No biological or treatment inference.</p>
             </div>
           ) : null}
           <div className={styles.lensReadout}>
-            <strong>{filteredIds.length.toLocaleString()}</strong>
-            <span>paper{filteredIds.length===1?'':'s'} with selected mention{first&&second?'s (intersection)':''}</span>
+            <strong>{(detailedGraphReady ? filteredIds.length : summary.sourcePapers).toLocaleString()}</strong>
+            <span>{detailedGraphReady ? 'papers with selected mention' + (first&&second?'s (intersection)':'') : 'source papers in the overview · activate the graph to filter'}</span>
           </div>
           <div className={styles.switches} aria-label='Semantic insight view'>
             {([['connections','Adjacencies'],['bridges','Cross-topic'],['gaps','Blind spots']] as const).map(([id,title])=>
