@@ -12508,6 +12508,386 @@
       "reservation_id": "21c0963020467491da81",
       "reserved_at": "2026-10-08T23:08:52.065Z",
       "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-03"
+    },
+    {
+      "pmid": "42683115",
+      "title": "Upcycling golden Cili ( Rosa sterilis ) pomace into a value-added functional extract via homogenization-assisted low-temperature pulsed ultrasound extraction with hepatoprotective effect.",
+      "doi": "10.1039/d6ra01741j",
+      "source_title": "Upcycling golden Cili ( Rosa sterilis ) pomace into a value-added functional extract via homogenization-assisted low-temperature pulsed ultrasound extraction with hepatoprotective effect.",
+      "abstract": "Golden Cili ( Rosa sterilis ), a seedless species related to R. roxburghii , is mainly processed for juice production, generating substantial amounts of pomace that remain underutilized despite retaining bioactive phytochemicals. In this study, homogenization-assisted low-temperature pulsed ultrasound (HLTPU) extraction was developed to efficiently recover bioactive-rich fractions from golden Cili pomace. Compared with conventional hot-water and continuous ultrasound extraction, HLTPU improved preservation of thermolabile constituents, yielding higher levels of total polyphenols, proanthocyanidins, flavonoids, and superoxide dismutase activity under shorter processing time and lower temperature. The resulting golden Cili pomace extract (GCPE) exhibited hepatoprotective effects in vitro and in vivo . In H 2 O 2 -induced LO2 hepatocytes, GCPE restored cell viability, reduced ALT and AST leakage, suppressed lipid peroxidation, and enhanced intracellular antioxidant defenses. In an acute alcohol-induced mouse model, GCPE attenuated liver injury by lowering serum ALT and AST, improving hepatic antioxidant enzyme activities, reducing malondialdehyde levels, alleviating steatosis, and suppressing inflammatory cytokines. Untargeted metabolomics further revealed that GCPE partially reversed alcohol-induced metabolic disturbances with differential metabolites enriched in pathways associated with amino acid and lipid metabolism. These findings demonstrate that GCPE mitigated alcohol-induced liver injury, potentially through modulation of oxidative stress, inflammation, and metabolic homeostasis. This study highlights the sustainable upcycling of golden Cili pomace as a value-added functional ingredient with potential applications in liver protection.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42683115/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-only botanical pharmacology and liver safety research; independent scientific review and publication firewall required.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42683115",
+        "doi": "10.1039/d6ra01741j",
+        "journal": "RSC advances",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:09:43.273Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6752b41440f8dfee2f36",
+      "reserved_at": "2026-10-08T23:09:50.814Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-05"
+    },
+    {
+      "pmid": "42019889",
+      "title": "Translating in vitro mechanistic findings to in vivo toxicity outcomes: A case study of Usnic acid hepatotoxicity.",
+      "doi": "10.1016/j.taap.2026.117832",
+      "source_title": "Translating in vitro mechanistic findings to in vivo toxicity outcomes: A case study of Usnic acid hepatotoxicity.",
+      "abstract": "New Approach Methodologies (NAMs) utilizing cellular models provide mechanistic insight into chemical hazards, but their utility in human health risk assessment depends on demonstrating how effectively in vitro findings translate to real-world outcomes. Quantitative in-vitro-to-in-vivo extrapolation (QIVIVE), supported by physiologically based pharmacokinetic (PBPK) modeling, enables this translation by linking in vitro concentration-response data to in vivo dose-response relationships. Here, we evaluated QIVIVE performance using usnic acid as a model compound. Usnic acid was selected because in vitro data and clinical case reports are available, enabling direct assessment of translational accuracy. Bayesian Benchmark Doses (BBMDs) were derived from in vitro toxicity data spanning thirteen endpoints in three hepatic cell models. Freely dissolved concentrations were estimated using a mass balance distribution model and incorporated into QIVIVE to predict equivalent administered doses (EADs), the in vivo doses expected to reproduce observed in vitro effects. Three PBPK platforms (GastroPlus, Berkeley Madonna, and httk R package) were applied. Predicted EADs aligned with reported exposure levels associated with hepatotoxicity, supporting the translational relevance of QIVIVE. Results indicated activation of multiple hepatotoxicity pathways, including redox disturbance, stress response, and DNA damage, across 1-384 mg oral doses. At human relevant intake levels, these mechanisms may explain the progression to liver injury in consumers of usnic acid. This study demonstrates that QIVIVE has the potential to translate in vitro mechanisms into possible human health outcomes, offering more mechanistically informed evidence for safety assessments of botanical constituents.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42019889/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-only botanical pharmacology and liver safety research; independent scientific review and publication firewall required.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42019889",
+        "doi": "10.1016/j.taap.2026.117832",
+        "journal": "Toxicology and applied pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:09:43.274Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b6b252d603a028228e01",
+      "reserved_at": "2026-10-08T23:09:50.814Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-05"
+    },
+    {
+      "pmid": "42406931",
+      "title": "Hepatoprotective Effects of Baccaurea motleyana Fruit Extract Against CCl 4 -Induced Liver Injury in Rats: In Vivo Evaluation and GC-MS Phytochemical Profiling.",
+      "doi": "10.1002/cbdv.71464",
+      "source_title": "Hepatoprotective Effects of Baccaurea motleyana Fruit Extract Against CCl 4 -Induced Liver Injury in Rats: In Vivo Evaluation and GC-MS Phytochemical Profiling.",
+      "abstract": "Over 25% of people worldwide have liver illnesses, which kill nearly 2 million. This study assessed the hepatoprotective potential of Baccaurea motleyana fruit acetone extract (BMF-AE) against CCl 4 -induced liver injury. GC-MS phytochemical profiling identified nine metabolites, with linoleic acid ethyl ester, quercetin, and gallic acid as predominant bioactives known for hepatoprotective activity. The antioxidant activity of BMF-AE was significant in DPPH and ABTS assays, with IC 50 values of 112.55 and 127 µg/mL, respectively. In vivo hepatoprotective efficacy was assessed in five groups (n = 5) that received oral BMF-AE (200 or 400 mg/kg) for 14 days. Positive control was 100 mg/kg silymarin. The CCl4-induced increase in serum ALT, AST, ALP, and bilirubin was dramatically reduced, while BMF-AE restored albumin levels (p < 0.05). Treatment reduced hepatic TBARS and restored glutathione and catalase activity, reducing oxidative stress. Histopathological investigation demonstrated maintained liver architecture in treated rats. Molecular docking analysis revealed that quercetin and linoleic acid ethyl ester bind strongly to targets of oxidative stress and inflammation, including xanthine oxidoreductase, interleukin-6, tumor necrosis factor-α, and PARP-1, suggesting potential hepatoprotective effects. BMF-AE may be a promising natural therapy for oxidative stress-mediated liver injury, according to this study, due to its antioxidant phytoconstituents.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42406931/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-only botanical pharmacology and liver safety research; independent scientific review and publication firewall required.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42406931",
+        "doi": "10.1002/cbdv.71464",
+        "journal": "Chemistry & biodiversity",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:09:43.274Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f19677edef0a3d7ded61",
+      "reserved_at": "2026-10-08T23:09:50.814Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-05"
+    },
+    {
+      "pmid": "42184066",
+      "title": "Green tea polyphenol-iron oxide chitosan nanoparticles modulate gut microbiota and regulate metabolic pathways.",
+      "doi": "10.1007/s11274-026-05033-6",
+      "source_title": "Green tea polyphenol-iron oxide chitosan nanoparticles modulate gut microbiota and regulate metabolic pathways.",
+      "abstract": "Green tea polyphenols (GTPP) exhibit antioxidants, anti-inflammatory, and anticancer properties; however, their poor bioavailability limits clinical translation. Nanoparticle-based formulations may enhance absorption and therapeutic potential. This study investigates the therapeutic effects of GTPP encapsulated in iron oxide chitosan nanoparticles (GTPP-IOCHNP) on gut microbiota and hepatic proteome, with particular attention to pathways relevant to inflammation, drug metabolism, and tumorigenesis. Male Sprague Dawley rats were administered a single oral dose of GTPP or GTPP-IOCHNP (200 mg/kg). Cecal microbiota composition was analyzed by metagenomic sequencing, while liver proteome alterations were assessed using liquid chromatography-tandem mass spectrometry (LC-MS/MS). Metagenomic analysis revealed that GTPP-IOCHNP promoted Actinobacteriota and Collinsella, both linked to reduced inflammation and improved gut health, while inhibiting Bacteroides and Ruminococcus genera associated with intestinal barrier dysfunction, inflammation, and nephropathy. Blautia was significantly enriched (p < 0.05), supporting short chain fatty acid production, modulation of lipid and carbohydrate metabolism, and transformation of polyphenols into bioactive antioxidant metabolites. Proteomics profiling identified 20 differentially expressed hepatic proteins (p < 0.05). GTPP-IOCHNP significantly downregulated cytochrome P4502D26 (CYP2D6), indicating modulation of CYP2D6 mediated drug metabolism, and suppressed glutamate dehydrogenase 1, implicating inhibition of glutamine-driven energy metabolism linked to cancer and hyperinsulinism. Conversely, significant upregulation of elongation factor 1-alpha-1 (eEF1A1), albumin, and adenosine kinase (ADK) highlighted improved GTPP absorption, systemic transport, and regulation of hepatic energy metabolism. The integrative metagenomic and proteomic analyses reveal that GTPP-IOCHNP improves polyphenol bioavailability by modulating gut microbial ecology and hepatic metabolic pathways, offering a mechanistically driven platform for therapeutic advancement.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42184066/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-only botanical pharmacology and liver safety research; independent scientific review and publication firewall required.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42184066",
+        "doi": "10.1007/s11274-026-05033-6",
+        "journal": "World journal of microbiology & biotechnology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:09:43.275Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2e27c2f1e0194359840b",
+      "reserved_at": "2026-10-08T23:09:50.814Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-05"
+    },
+    {
+      "pmid": "42468065",
+      "title": "Cytochrome P450 3A-mediated metabolic activation of fibleucin from Tinospora sagittata initiates liver injury in mice.",
+      "doi": "10.1016/j.dmd.2026.100345",
+      "source_title": "Cytochrome P450 3A-mediated metabolic activation of fibleucin from Tinospora sagittata initiates liver injury in mice.",
+      "abstract": "TINOSPORA: sagittata is a widely used medicinal herb whose safety has raised increasing concerns in recent years. Fibleucin (FBL), a furanoditerpenoid isolated from T sagittata, has not been systematically evaluated for its safety and toxicological mechanisms despite its presence as a major bioactive constituent in this medicinal plant. To address this toxicological knowledge gap, we comprehensively investigated the hepatotoxicity and/or metabolic activation of FBL in vivo (mice) and in vitro (mouse and human liver microsomal incubations as well as primary mouse hepatocytes). Oral administration of FBL (single intragastric dose) dose-dependently elevated serum alanine transaminase, aspartate transaminase, alkaline phosphatase, blood ammonia, and total bile acid levels in mice, accompanied by hepatocellular degeneration, necrosis, and inflammatory infiltration. Pretreatment with the cytochrome P450 3A inhibitor ketoconazole (100 mg/kg) markedly alleviated the liver injury induced by FBL. Liquid chromatography-tandem mass spectrometry analysis of mouse liver microsomal incubations and primary hepatocyte exposure (1.0-50 μM FBL) revealed that FBL was bioactivated to an electrophilic intermediate reactive to thiols and amines. Similar observation was obtained in human liver microsomal incubations. The reactive intermediate was found to react with nucleophilic sites of hepatic glutathione and proteins to form the corresponding conjugates and adducts. The observed adduction correlated with the liver injury and cytotoxicity induced by FBL. Chemical synthesis was carried out to probe the mechanism of toxic action. The mechanistic investigation suggests that FBL was metabolized to the corresponding cis-2-butene-1,4-dial intermediate responsible for the glutathione depletion and protein adduction. SIGNIFICANCE STATEMENT: Tinospora sagittata is widely used, however, its hepatotoxic principles remain undefined. This study identifies fibleucin as a previously unrecognized hepatotoxic constituent and demonstrates that it undergoes cytochrome P450 3A-mediated metabolic activation to generate a reactive intermediate consistent with cis-2-butene-1,4-dial, leading to glutathione depletion and hepatic protein adduction. These findings establish a mechanistic link between bioactivation of a herbal constituent and liver injury, highlighting metabolic risk in furanoditerpenoid-containing traditional medicines.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42468065/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-only botanical pharmacology and liver safety research; independent scientific review and publication firewall required.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42468065",
+        "doi": "10.1016/j.dmd.2026.100345",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:09:43.276Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0d7cb111a2f7c27466de",
+      "reserved_at": "2026-10-08T23:09:50.814Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-05-05"
     }
   ],
   "batches": [
@@ -12521,22 +12901,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 158,
+    "total_reservations": 163,
     "by_lane": {
       "1": 5,
       "2": 15,
-      "3": 55,
+      "3": 60,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 158
+      "SOURCE_VERIFIED": 163
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 158,
+        "count": 163,
         "pr_number": null,
         "blocker": null
       }
