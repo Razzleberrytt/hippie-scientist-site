@@ -106,6 +106,11 @@ assert(route.includes('getResearchSourceRegister()')&&route.includes('getPublicE
 assert(route.includes('buildResearchIntelligenceStudio('))
 assert(route.includes('getEvidenceChangeUpdates(40)'),'Use actual editorial grade-change receipts')
 assert(ui.includes('data.recordedChanges'),'Time machine must show recorded grade events')
+assert(ui.includes('filtered.slice(0,dnaVisible)') && ui.includes('setDnaVisible(n=>n+30)') &&
+  ui.includes('filtered.length>dnaVisible'),
+  'All 500 verified source fingerprints must be reachable through progressive pagination')
+assert(!ui.includes('.slice(0,more?40:9)'),
+  'Do not silently cap the source DNA catalog at 40 records')
 assert(ui.includes("fetch('/research/intelligence/dataset.json'"))
 assert(ui.includes('value')||ui.includes('data'))
 for(const name of ['Study DNA','Contradiction Observatory','Knowledge Frontier','Evidence Time Machine',
