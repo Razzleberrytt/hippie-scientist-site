@@ -122,6 +122,60 @@
       "reservation_id": "73ae5ca435eb27b9f457",
       "reserved_at": "2026-10-08T16:39:11.476Z",
       "source_branch": "research/intake/1/20261008-saffron-40698027"
+    },
+    {
+      "pmid": "42730220",
+      "title": "Pyrrolizidine Alkaloids in Tea and Dietary Exposure Assessment of Tea Intake",
+      "source_title": "Pyrrolizidine Alkaloids in Tea and Dietary Exposure Assessment of Tea Intake",
+      "doi": "10.1021/acsomega.6c06636",
+      "abstract": "Investigators used HPLC-MS/MS to measure pyrrolizidine alkaloids and their N-oxides in 63 tea samples from several processing categories. They detected at least one monitored compound in 77.78 percent of samples, with a mean reported level of 17.67 micrograms per kilogram. A margin-of-exposure and Monte Carlo analysis modeled possible dietary risk under assumptions about consumption. These are product-level analytical and simulated exposure findings, not observed liver injury or direct evidence about individual consumers.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42730220/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_tea_contaminant_exposure",
+      "relevance_reason": "Direct primary analytical evidence of botanical product contaminants with clear limits on risk interpretation.",
+      "evidence_class": "mixed",
+      "study_design": "Cross-sectional product sampling and modeled dietary exposure",
+      "study_details": {
+        "sample_count": 63,
+        "method": "HPLC-MS/MS and Monte Carlo exposure modeling",
+        "publication_date": "2026-08-24"
+      },
+      "population": "63 commercial tea samples; simulated consumer exposures",
+      "intervention": "Analytical screening of tea for pyrrolizidine alkaloids and N-oxides",
+      "comparator": "Tea-processing categories and simulated consumption scenarios",
+      "outcomes": [
+        "77.78 percent of samples had a detected analyte",
+        "Mean detected concentration reported as 17.67 micrograms per kilogram",
+        "Margin-of-exposure modeling quantified scenario-dependent uncertainty"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Sampling and modeled intake assumptions limit extrapolation to real-world individual health outcomes.",
+      "adverse_effects": "Potential toxicological exposure hazard, without clinical adverse events observed in this study.",
+      "interactions": "No botanical-drug interactions were tested.",
+      "limitations": "Small product sample; modeled exposure instead of prospective human health outcomes.",
+      "provenance": {
+        "pmid": "42730220",
+        "doi": "10.1021/acsomega.6c06636",
+        "source": "PubMed indexed original study",
+        "verified_on": "2026-10-08",
+        "review_status": "source_verified_only"
+      },
+      "signals": {
+        "safety": 0.94,
+        "evidence_gap": 0.7,
+        "contradiction": 0.2,
+        "novelty": 0.8,
+        "graph_connectivity": 0.75
+      },
+      "priority_score": 8.61,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a01747a4ce8f67aa1830",
+      "reserved_at": "2026-10-08T17:12:05.599Z",
+      "source_branch": "research/intake/3/20261008-1308-botanical-safety"
     }
   ],
   "batches": [
@@ -135,22 +189,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 1,
+    "total_reservations": 2,
     "by_lane": {
       "1": 1,
       "2": 0,
-      "3": 0,
+      "3": 1,
       "4": 0,
       "5": 0
     },
     "by_state": {
-      "SOURCE_VERIFIED": 1
+      "SOURCE_VERIFIED": 2
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 1,
+        "count": 2,
         "pr_number": null,
         "blocker": null
       }
