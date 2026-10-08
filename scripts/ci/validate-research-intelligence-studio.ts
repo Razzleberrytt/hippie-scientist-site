@@ -7,6 +7,7 @@ import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHand
 import {buildInstrumentRelay} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
 import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
+import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
 import {compileClaimDNA,detectTrialLineage,compareStudyContexts} from '../../lib/scientific-intelligence-foundations'
 import {forgeSourceHypotheses,simulateSourceRemoval,runBoundedInvestigation} from '../../lib/scientific-intelligence-discovery'
 import {calibrateIntelligenceCase,compileLivingReview} from '../../lib/scientific-intelligence-review'
@@ -106,6 +107,26 @@ assert.equal(sharedCase.instruments.find(x=>x.instrument==='dna')?.linkedItems,1
 assert.equal(sharedCase.instruments.find(x=>x.instrument==='contradictions')?.linkedItems,0,
  'Reviewed citations lacking exact publication identity cannot be inferred as matches')
 const exactJoined=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0],pmid:'10000001'}])
+const reviewedExample={...reviewed[0],pmid:'10000001',relationships:[
+ {...reviewed[0].relationships[0],dose:'400 mg experimental exposure',duration:'6 weeks',
+  result:'Reviewed directional descriptor remains subject to editorial policy'}]}
+const reviewedCase=buildResearchCaseFile(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,'10000001')!
+const claimsWithReviewed=compileReviewedClaimFacets(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
+ [reviewedExample,reviewed[1]])
+assert.equal(claimsWithReviewed.length,1,'Only exact-PMID reviewed evidence can enrich Claim DNA')
+assert.equal(claimsWithReviewed[0].citationId,'study-a')
+assert.equal(claimsWithReviewed[0].studiedDose,'400 mg experimental exposure')
+assert.equal(claimsWithReviewed[0].isClinicalPublicationApproved,false)
+assert.throws(()=>compileReviewedClaimFacets(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
+ [{...reviewedExample,pmid:'10000002'}]),/conflicts with exact source/,
+ 'A forged reviewed citation ID with the wrong source must fail closed')
+assert.throws(()=>compileReviewedClaimFacets(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
+ [reviewedExample,reviewedExample]),/Duplicate exact reviewed citation/,
+ 'Duplicate citation IDs cannot double-count one reviewed source')
 const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
 const sourceScope=buildResearchCaseScope(s,sharedCase)
 assert.equal(sourceScope.status,'exact-source-linked-leads-only')
