@@ -258,7 +258,8 @@ assert(ui.includes('Why this paper matched'),'Questions must expose original tex
 assert(ui.includes('Publication identity ≠ independent study'))
 assert(ui.includes('v.systemVersion!==\'1.04\''))
 assert(ui.includes('buildResearchCaseFile(')&&ui.includes('openCaseInstrument(')&&
- ui.includes('Trace through eight instruments')&&ui.includes('Trace source'),
+ ui.includes('Trace through eight instruments')&&ui.includes('Trace source')&&
+ ui.includes('scrollIntoView')&&ui.includes("aria-live='polite'"),
  'All eight research instruments must share the PMID case-file workbench')
 assert(ui.includes('Source-indexing review history'),'Review events must be inspectable and not just counted')
 assert(route.includes('getResearchSourceRegister()')&&!route.includes('getPublicEvidenceDataset()'),
