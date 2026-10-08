@@ -1,0 +1,38 @@
+{
+  "review": "2026-10-08-lane2",
+  "researchOnly": true,
+  "rows": [
+    {
+      "wave": 7514,
+      "pmid": "31121394",
+      "finding": "Sleep change mainly associated with anxiety improvement; direct sleep effect not detected.",
+      "caution": "Secondary mediation analysis, not an independent clinical trial."
+    },
+    {
+      "wave": 7518,
+      "pmid": "28379882",
+      "finding": "Pooled anxiety trial analysis; outcomes varied across treatment arms.",
+      "caution": "Do not generalize proprietary preparation to all lavender."
+    },
+    {
+      "wave": 7527,
+      "pmid": "29508154",
+      "finding": "Mixed CAM anxiety review; kava adjusted estimate crossed null.",
+      "caution": "Safety reporting limited."
+    },
+    {
+      "wave": 7535,
+      "pmid": "29433687",
+      "finding": "Self-rated stress response improved; cortisol response did not.",
+      "caution": "Combination formula; small experimental study."
+    },
+    {
+      "wave": 7539,
+      "pmid": "22475718",
+      "finding": "Within-group improvement in uncontrolled phase II study.",
+      "caution": "No efficacy inference without comparator."
+    }
+  ],
+  "status": "research_only",
+  "entityLinks": "proposed_only"
+}
