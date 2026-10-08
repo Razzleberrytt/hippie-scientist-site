@@ -8,11 +8,13 @@ on:
       - '.github/workflows/audit-enrichment-waves-7001-7500.yml'
       - 'scripts/data/audit-enrichment-waves-7001-7500.mjs'
       - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-*.json'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-pmid-index.json'
   pull_request:
     paths:
       - '.github/workflows/audit-enrichment-waves-7001-7500.yml'
       - 'scripts/data/audit-enrichment-waves-7001-7500.mjs'
       - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-*.json'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-pmid-index.json'
   workflow_dispatch:
 
 permissions:
