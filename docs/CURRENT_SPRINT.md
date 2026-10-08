@@ -2,13 +2,20 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
 **Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
+## P0 program — Generational Engineering readiness (#6431)
+
+**New cross-cutting P0 operating priority (2026-10-08):** Prepare a coherent generation of THS intelligence and evidence-to-distribution capabilities before implementation. [Architecture and October 12–16 release stages](GENERATIONAL_ENGINEERING_P0.md) · [25-item integration readiness registry](GENERATIONAL_ENGINEERING_READINESS.md). This is **planning and contract-readiness work**, not authorization to add WIP or bypass the current admission/control plane.
+
+**This week's immediate preparation:** reconcile existing open research/intake/social PRs, freeze canonical source/claim/handoff boundaries, map dependencies, write negative fixtures and risk-tiered validation gates, baseline actual CI durations and specify one review-only source-to-editorial vertical slice. **Next week's proposed order:** P0.1 actual-state/CI baseline → P0.2 shared provenance contracts → P0.3 human-review-only integration → P0.4 exact-head release proof/targeted CI optimization → P0.5 retrospective. Reconcile GitHub state and existing WIP reservations before any start.
+
+**Guardrail:** 3 total allowed workstreams, one admitted ticket each; one scoring formula, one merge controller, one science authority. No new clinical, content or social publishing permissions, no duplicate evidence datasets, no paid critical-path dependencies, no skipped security/science/CI/deployment proofs. This P0 supersedes *methodological priority*, not the existing sprint's evidence-first business objective or milestone exit criteria.
 ## Sprint objective
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
