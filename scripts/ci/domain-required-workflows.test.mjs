@@ -24,7 +24,10 @@ describe('changed-file workflow reachability', () => {
       'ops/enrichment-submissions/reconciliation/2026-10-08-enrichment-waves-8001-8500-final-manifest.json',
       'schemas/research-lane-intake.schema.json',
       'lib/research-source-register.ts',
+      'lib/research-reviewed-semantic.ts',
       'app/research/source-register/page.tsx',
+      'app/research/intelligence/dataset.json/route.ts',
+      'app/research/operations/page.tsx',
     ]) {
       expect(requiredWorkflowsFor('high', [changedFile]), changedFile).toContain('Research rolling gate')
     }
