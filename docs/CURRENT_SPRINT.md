@@ -242,3 +242,5 @@ The sprint exits only when all of the following are true or have a precise exter
 - **SEO-005 / PR #4331:** merged; monitor remains file-fed until a supported Bing AI Performance acquisition path exists.
 - **I18N-001 / PR #4332:** merged; Japanese/Korean core locale expansion is live while detailed scientific profiles remain fail-closed.
 - **REV-005 / PR #4358:** merged; the validated media-pack foundation is now upstream infrastructure for this sprint.
+
+- **#6384 / PR #6385 — R8.06 Hook Competition, Visual Teaching Objects & Native Delivery:** Active. Preserve R8.05 runtime/semantic AV lock and R8.04 sovereignty while adding three-angle concept selection, opening convergence, immediate finding/payoff, early visual teaching-object diversity, exact-master native-feel rejection, and opportunistic Metricool→manual fallback. Audience uplift remains Unknown until field-tested.
