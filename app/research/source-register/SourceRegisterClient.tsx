@@ -2,12 +2,15 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import type { RegisteredResearchSource } from '@/lib/research-source-register'
+import type { PublicResearchSource } from '@/lib/research-source-register'
+import type { SemanticNetwork } from '@/lib/research-semantic-network'
+import SemanticResearchObservatory from './SemanticResearchObservatory'
 
 type Props = {
-  records: RegisteredResearchSource[]
+  records: PublicResearchSource[]
   previousCount: number
   categories: Array<{ key: string; count: number }>
+  network: SemanticNetwork
 }
 
 const PAGE_SIZE = 30
@@ -16,13 +19,14 @@ function humanize(value: string) {
   return value.split('_').map(word => word === 'nps' ? 'NPS' : word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 }
 
-export default function SourceRegisterClient({ records, previousCount, categories }: Props) {
+export default function SourceRegisterClient({ records, previousCount, categories, network }: Props) {
   const [view, setView] = useState<'verified' | 'previous'>('verified')
   const [previousPmids, setPreviousPmids] = useState<string[]>([])
   const [historicalLoaded, setHistoricalLoaded] = useState(false)
   const [historicalLoading, setHistoricalLoading] = useState(false)
   const [historicalError, setHistoricalError] = useState('')
   const [query, setQuery] = useState('')
+  const [semanticConcept, setSemanticConcept] = useState('')
   const [category, setCategory] = useState('')
   const [year, setYear] = useState('')
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
@@ -35,10 +39,12 @@ export default function SourceRegisterClient({ records, previousCount, categorie
     return records.filter(item =>
       (!category || item.category === category) &&
       (!year || item.year === year) &&
-      (!needle || [item.title, item.journal, item.pmid, item.doi, humanize(item.category)]
+      (!semanticConcept || network.entries[item.pmid]?.mentions.some(m => m.id === semanticConcept)) &&
+      (!needle || [item.title, item.journal, item.pmid, item.doi, humanize(item.category),
+        ...(network.entries[item.pmid]?.mentions.map(m => m.label) || [])]
         .some(value => value.toLowerCase().includes(needle))))
       .sort((a, b) => b.wave - a.wave)
-  }, [records, query, category, year])
+  }, [records, query, category, year, semanticConcept, network.entries])
 
   const filteredPrevious = useMemo(() => {
     const needle = query.trim()
@@ -79,10 +85,30 @@ export default function SourceRegisterClient({ records, previousCount, categorie
     setQuery('')
     setCategory('')
     setYear('')
+    setSemanticConcept('')
   }
 
   function resetFilters() {
     setQuery('')
+    setCategory('')
+    setYear('')
+    setSemanticConcept('')
+    setVisibleCount(PAGE_SIZE)
+  }
+
+  function focusConcept(id: string) {
+    setView('verified')
+    setSemanticConcept(id)
+    setQuery('')
+    setCategory('')
+    setYear('')
+    setVisibleCount(PAGE_SIZE)
+  }
+
+  function focusPaper(pmid: string) {
+    setView('verified')
+    setQuery(pmid)
+    setSemanticConcept('')
     setCategory('')
     setYear('')
     setVisibleCount(PAGE_SIZE)
@@ -187,9 +213,16 @@ export default function SourceRegisterClient({ records, previousCount, categorie
             </>
           ) : null}
         </div>
+        {semanticConcept && view === 'verified' ? (
+          <div className='mt-4 flex flex-wrap items-center gap-3 rounded-xl border border-brand-900/15 bg-brand-50 p-3 text-sm'>
+            <span className='text-muted'>Active semantic lens:</span>
+            <strong className='text-ink'>{network.concepts.find(c => c.id === semanticConcept)?.label || semanticConcept}</strong>
+            <button type='button' onClick={() => { setSemanticConcept(''); setVisibleCount(PAGE_SIZE) }} className='ml-auto rounded-full border border-brand-900/20 bg-white px-3 py-2 text-xs font-semibold text-brand-700'>Remove lens ×</button>
+          </div>
+        ) : null}
         <div className='mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-brand-900/10 pt-4'>
           <p className='text-sm text-muted' role='status' aria-live='polite'><strong className='text-ink'>{count.toLocaleString()}</strong> identifiers match</p>
-          {(query || category || year) ? <button type='button' onClick={resetFilters} className='min-h-10 rounded-full border border-brand-900/15 px-4 text-xs font-bold text-ink hover:bg-brand-50'>Clear filters</button> : null}
+          {(query || category || year || semanticConcept) ? <button type='button' onClick={resetFilters} className='min-h-10 rounded-full border border-brand-900/15 px-4 text-xs font-bold text-ink hover:bg-brand-50'>Clear filters</button> : null}
         </div>
       </section>
 
@@ -207,6 +240,57 @@ export default function SourceRegisterClient({ records, previousCount, categorie
                 <h3 className='mt-3 text-base font-semibold leading-6 text-ink'>{item.title}</h3>
                 {item.journal ? <p className='mt-2 text-xs leading-5 text-muted'>{item.journal}</p> : null}
                 <p className='mt-3 text-xs leading-5 text-muted'>Source identity verified · Research-only · Not evidence-graded</p>
+                {(network.entries[item.pmid]?.reviewedCitations.length || 0) > 0 ? (
+                  <div className='mt-3 rounded-xl border border-brand-700/20 bg-brand-50 p-3'>
+                    <p className='text-xs font-semibold text-brand-800'>Exact PMID also appears in the separately published Citation Explorer</p>
+                    <div className='mt-2 flex flex-wrap gap-3 text-xs'>
+                      {network.entries[item.pmid].reviewedCitations.map(citation => (
+                        <Link key={citation.studyId} href={citation.href} className='font-semibold text-brand-700 hover:underline'>
+                          View indexed citation ↗
+                        </Link>
+                      ))}
+                    </div>
+                    <p className='mt-2 text-xs leading-5 text-muted'>Identity match only. Review the linked evidence record for interpretation; this source register assigns no efficacy or safety grade.</p>
+                  </div>
+                ) : null}
+                {network.entries[item.pmid] ? (
+                  <div className='mt-3 space-y-3 border-t border-brand-900/10 pt-3'>
+                    <div className='flex flex-wrap items-center gap-2 text-xs'>
+                      <span className='font-semibold text-muted'>{network.entries[item.pmid].methodTag}</span>
+                      {network.entries[item.pmid].mentions.slice(0, 5).map(m => (
+                        <button key={m.id} type='button' onClick={() => focusConcept(m.id)}
+                          title={m.basis === 'title' ? 'Exact controlled phrase in title' : 'Exact controlled phrase in abstract (exploratory)'}
+                          className='rounded-full border border-brand-900/15 bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-800 hover:border-brand-700'>
+                          {m.label} · {m.basis}
+                        </button>
+                      ))}
+                    </div>
+                    {network.entries[item.pmid].profiles.length > 0 ? (
+                      <div className='text-xs leading-6 text-muted'>
+                        <strong className='text-ink'>Named in title · related published profiles: </strong>
+                        {network.entries[item.pmid].profiles.slice(0, 3).map((p, i) => (
+                          <span key={p.href}>{i ? ' · ' : ''}
+                            <Link href={p.href} className='font-semibold text-brand-700 hover:underline'>{p.name} ↗</Link>
+                          </span>
+                        ))}
+                        <p className='mt-1'>Name match only—not an evidence-grade link or clinical endorsement.</p>
+                      </div>
+                    ) : null}
+                    {network.entries[item.pmid].related.length > 0 ? (
+                      <details className='rounded-xl border border-brand-900/10 bg-brand-50/50 px-3 py-2 text-xs'>
+                        <summary className='cursor-pointer font-semibold text-brand-800'>Explore {network.entries[item.pmid].related.length} explainable paper connections</summary>
+                        <div className='mt-2 space-y-2'>
+                          {network.entries[item.pmid].related.map(rel => (
+                            <div key={rel.pmid} className='border-t border-brand-900/10 pt-2'>
+                              <button type='button' onClick={() => focusPaper(rel.pmid)} className='font-bold text-brand-800 hover:underline'>PMID {rel.pmid} →</button>
+                              <p className='mt-1 leading-5 text-muted'>{rel.explanation}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    ) : null}
+                  </div>
+                ) : null}
                 <div className='mt-auto flex flex-wrap gap-x-5 gap-y-2 pt-4 text-sm font-semibold'>
                   <a href={'https://pubmed.ncbi.nlm.nih.gov/' + item.pmid + '/'} target='_blank' rel='noopener noreferrer' className='text-brand-700 hover:underline'>PubMed · {item.pmid} ↗</a>
                   {item.doi ? <a href={'https://doi.org/' + encodeURIComponent(item.doi)} target='_blank' rel='noopener noreferrer' className='text-brand-700 hover:underline'>DOI ↗</a> : null}
