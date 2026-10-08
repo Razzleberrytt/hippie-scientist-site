@@ -292,6 +292,28 @@ assert(liveCase&&liveCase.sourceSignature===realGraph.entries[liveCase.pmid].sou
 assert.equal(liveCase.instruments.length,8)
 assert.equal(liveCase.reviewedCitationIds.length,0,
  'Source-only verified intake must not invent reviewed publication identities')
+// Every admitted source—not merely the fixture PMIDs—must be reachable in
+// every instrument through the same source-verified read-only handoff contract.
+let fullyReachable=0
+for(const record of real.dna){
+ const caseFile=buildResearchCaseFile(real,realGraph,record.pmid)
+ assert(caseFile,'Every exact-verified PMID must have an eight-instrument case')
+ const scope=buildResearchCaseScope(real,caseFile)
+ assert.equal(caseFile.instruments.length,8)
+ assert.equal(scope.pmid,record.pmid)
+ assert(scope.frontiers.every(x=>x.samplePmids.includes(record.pmid)))
+ assert(scope.safety.every(x=>x.pmids.includes(record.pmid)))
+ assert(scope.investigations.every(x=>x.pmids.includes(record.pmid)))
+ assert(scope.briefs.every(x=>x.pmids.includes(record.pmid)))
+ const handoff=createResearchInstrumentHandoff(real,realGraph,caseFile,'dna','reactor')
+ const received=resolveResearchInstrumentHandoff(real,realGraph,handoff)
+ assert.equal(received.caseFile.pmid,record.pmid)
+ assert.equal(received.caseFile.sourceSignature,realGraph.entries[record.pmid].sourceSignature)
+ assert.equal(received.scope.pmid,record.pmid)
+ assert.deepEqual(received.caseFile.reviewedCitationIds,[])
+ fullyReachable++
+}
+assert.equal(fullyReachable,500,'All 500 exact verified sources must share the same instrument identity contract')
 assert.equal(real.metrics.quotedTextWitnesses,real.dna.reduce((sum,d)=>sum+d.sourceWitnesses.length,0))
 assert.equal(real.adjudication.reviewCount,0)
 assert(real.dna.flatMap(d=>d.sourceWitnesses).every(w=>w.quote.length<=320))
