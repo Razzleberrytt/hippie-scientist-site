@@ -482,6 +482,9 @@ assert(!blockedVoyageRelay.junctions.some(j=>j.to==='voyages'||j.from==='voyages
  'A neighbor alone cannot advertise a nonfunctional Voyages junction')
 assert(ui.includes('pickTraceableConceptPair('),
  'The source-focused user interface must select the same traceable pair as the relay')
+assert(ui.includes('scienceTarget(cap.id,data.graph,scientific.pmid)')&&
+ ui.includes("target==='voyages'&&!pickTraceableConceptPair(graph,pmid)?'dna':target"),
+ 'Scientific research card handoffs must also avoid untraceable Voyages destinations')
 const relay=buildInstrumentRelay(s,graph,sharedCase,sourceScope)
 assert.equal(relay.pmid,sharedCase.pmid)
 assert.equal(relay.status,'source-bound-no-clinical-synthesis')
