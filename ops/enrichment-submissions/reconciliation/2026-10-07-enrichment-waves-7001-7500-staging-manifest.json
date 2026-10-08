@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-7001-7500-staging",
+  "state": "candidate_staged_not_verified",
+  "wave_start": 7001,
+  "wave_end": 7500,
+  "predecessor_index": "2026-10-07-enrichment-waves-6501-7000-pmid-index.json",
+  "predecessor_unique_pmids": 6935,
+  "staged_candidate_pmids": 500,
+  "admitted_new_verified_pmids": 0,
+  "target_cumulative_pmids": 7435,
+  "counts": {
+    "stress_anxiety": 34,
+    "sleep": 22,
+    "withdrawal_nps": 8,
+    "cardiometabolic": 35,
+    "performance": 5,
+    "aging_sarcopenia": 30,
+    "women_health": 6,
+    "micronutrients": 62,
+    "gut": 18,
+    "cognition_focus": 28,
+    "mood": 15,
+    "inflammation_pain": 40,
+    "metabolic": 19,
+    "botanicals_mushrooms": 40,
+    "safety_interactions": 32,
+    "cannabinoid_safety": 45,
+    "mitochondrial_energy": 42,
+    "immune_respiratory": 19
+  },
+  "source_pools": [
+    "2026-10-06-enrichment-6501-7000-pool-a.json",
+    "2026-10-06-enrichment-6501-7000-pool-c.json",
+    "2026-10-06-enrichment-waves-6501-7000-pool-a.json",
+    "2026-10-06-enrichment-waves-6501-7000-pool-b.json",
+    "2026-10-06-enrichment-waves-6501-7000-pool-c.json",
+    "2026-10-06-enrichment-waves-6501-7000-pool-d.json",
+    "2026-10-06-enrichment-waves-6501-7000-pool-e.json"
+  ],
+  "selection_policy": {
+    "reject_title_hard_offdomain": true,
+    "global_pmid_dedupe_against_existing_index": true,
+    "dedupe_normalized_title_and_doi_within_candidates": true,
+    "exact_pubmed_abstract_and_title_required_before_finalization": true,
+    "original_pools_are_preverification_metadata": true,
+    "research_only": true,
+    "promotion_allowed": false
+  },
+  "parts": [
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-candidates-part-01.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-candidates-part-02.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-candidates-part-03.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-candidates-part-04.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-candidates-part-05.json"
+  ]
+}

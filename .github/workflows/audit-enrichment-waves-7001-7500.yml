@@ -1,0 +1,31 @@
+name: Research Wave 7001-7500 Integrity Gate
+
+on:
+  push:
+    branches:
+      - research/enrichment-waves-7001-7500-20261007
+    paths:
+      - '.github/workflows/audit-enrichment-waves-7001-7500.yml'
+      - 'scripts/data/audit-enrichment-waves-7001-7500.mjs'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-*.json'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-pmid-index.json'
+  pull_request:
+    paths:
+      - '.github/workflows/audit-enrichment-waves-7001-7500.yml'
+      - 'scripts/data/audit-enrichment-waves-7001-7500.mjs'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-*.json'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-pmid-index.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Validate PubMed ledger identity and immutable source receipts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run fail-closed 500-source validator
+        run: node scripts/data/audit-enrichment-waves-7001-7500.mjs
