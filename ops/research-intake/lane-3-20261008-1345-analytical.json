@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "records": [
+    {
+      "pmid": "42725529",
+      "title": "Chemical standardization of kava (Piper methysticum) extract using UHPLC-MS/MS and the method of standard addition.",
+      "doi": "10.1080/13880209.2026.2727761",
+      "source_title": "Chemical standardization of kava (Piper methysticum) extract using UHPLC-MS/MS and the method of standard addition.",
+      "abstract": "This primary analytical investigation compared external calibration with standard addition for quantitative kava constituent assays. The authors reported matrix-induced ion suppression for desmethoxyyangonin and signal enhancement for dihydrokavain and flavokavain A. These results concern analytical method reliability rather than human efficacy or safety.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42725529/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_analytical_methods",
+      "relevance_reason": "Primary botanical chemical assay standardization informs product identity and research reproducibility.",
+      "evidence_class": "in-vitro",
+      "study_design": "UHPLC-MS/MS quantitative analytical method comparison",
+      "study_details": {
+        "source": "Pharmaceutical Biology 2026",
+        "methods": "external calibration and standard addition"
+      },
+      "population": "Authenticated botanical extract; no participants",
+      "intervention": "Quantitative profiling of extract constituents",
+      "comparator": "External calibration versus standard addition",
+      "outcomes": [
+        "Desmethoxyyangonin ion suppression 23.2%",
+        "Dihydrokavain signal enhancement 30.1%",
+        "Flavokavain A signal enhancement 43.2%"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "none",
+      "uncertainty": "Analytical method results do not establish human effects.",
+      "adverse_effects": "Not evaluated in this laboratory method study.",
+      "interactions": "Not evaluated in this laboratory method study.",
+      "limitations": "Single botanical extract and instrument-specific matrix effects.",
+      "provenance": {
+        "pmid": "42725529",
+        "doi": "10.1080/13880209.2026.2727761",
+        "verified_on": "2026-10-08",
+        "source": "PubMed primary abstract"
+      },
+      "signals": {
+        "safety": 0.7,
+        "evidence_gap": 0.6,
+        "contradiction": 0.2,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      }
+    }
+  ]
+}
