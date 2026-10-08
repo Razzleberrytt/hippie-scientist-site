@@ -224,3 +224,5 @@ These are capability proofs, not claims of business impact.
 ## Legacy backlog disposition
 
 Historical `backlog/`, `ops/backlog/`, old sprint tickets, and old open issues are discovery inputs, not execution queues. Revalidate the underlying problem against current `main`, current production, current analytics, current experiment history where applicable, and current PR overlap before promoting anything here. A large backlog is useful only if the top is trustworthy.
+
+**#6384 — R8.06 creative-methodology control, active:** Require three materially different concept candidates, selected-angle visual-potential/confusion thresholds, cover→first-frame→first-line convergence, hook→finding→evidence opening order, early teaching-object diversity, exact-master native-feel QA, and optional Metricool with immutable manual fallback. Runtime remains R8.05; audience impact Unknown until measured.
