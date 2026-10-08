@@ -204,6 +204,15 @@ return <section className={styles.studio}>
           <span>{signal.linkedItems} indexed lead{signal.linkedItems===1?'':'s'}</span>
           <small>{signal.basis}. {signal.limit}.</small>
         </button>)}</div>
+        {caseFile.relatedPapers.length>0?<section className={styles.neighbors} aria-label='Semantically neighboring publications'>
+          <h4>Follow related source text</h4>
+          <p>These papers share indexed vocabulary with the current PMID. This does not establish a biological pathway, clinical effect or independent trial.</p>
+          <div className={styles.neighborLinks}>{caseFile.relatedPapers.map(link=>
+            <button type='button' key={link.pmid} onClick={()=>inspectPmid(link.pmid)}>
+              <strong>Inspect PMID {link.pmid} ↗</strong>
+              <small>Shared: {link.sharedConcepts.join(' · ')||'Concept overlap'}</small>
+            </button>)}</div>
+        </section>:null}
         <p className={styles.caseCaveat}>Counts describe only this limited, sometimes sampled index—not independent clinical findings, complete literature coverage or evidence of safety. No tool publishes medical conclusions.</p>
       </article>:null}
     </section>:null}
