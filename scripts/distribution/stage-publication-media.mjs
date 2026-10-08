@@ -181,6 +181,15 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
         throw new Error('R8.07 staging requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
       }
     }
+    if (creativeMethodRelease === 'R8.06'
+        && clean(masterQa.creativeBindings?.r806OverlaySha256) !== clean(pilot.assets?.creativeDirection?.overlaySha256)) {
+      throw new Error('R8.06 master QA creative-direction binding is stale')
+    }
+    if (creativeMethodRelease === 'R8.07'
+        && (clean(masterQa.creativeBindings?.r806OverlaySha256) !== clean(pilot.assets?.creativeFoundation?.overlaySha256)
+            || clean(masterQa.creativeBindings?.r807OverlaySha256) !== clean(pilot.assets?.creativeDirection?.overlaySha256))) {
+      throw new Error('R8.07 master QA visual-rhythm binding is stale')
+    }
     if (clean(masterQa.creativeBindings?.semanticBeatMapSha256) !== clean(pilot.assets?.creativeQuality?.semanticBeatMapSha256)
         || clean(masterQa.creativeBindings?.creativeBriefSha256) !== clean(pilot.assets?.r805Bindings?.creativeBrief?.sha256)
         || clean(masterQa.creativeBindings?.semanticBeatTimelineSha256) !== clean(pilot.assets?.r805Bindings?.semanticBeatTimeline?.sha256)) {
