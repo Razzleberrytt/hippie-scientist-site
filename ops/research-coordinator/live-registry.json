@@ -2498,6 +2498,59 @@
       "reservation_id": "ccb726dddc9d7b7313ca",
       "reserved_at": "2026-10-08T18:12:47.015Z",
       "source_branch": "research/intake/3/20261008-1345-botanical-seven"
+    },
+    {
+      "pmid": "42431523",
+      "title": "Kavalactone profiling of Piper methysticum root and rhizome extracts and the modulation of CYP450 activity in vitro.",
+      "source_title": "Kavalactone profiling of Piper methysticum root and rhizome extracts and the modulation of CYP450 activity in vitro.",
+      "doi": "10.1016/j.cbi.2026.112219",
+      "abstract": "Investigators profiled aqueous and ethanol kava extracts and evaluated cytochrome P450 enzyme activity and cell viability in laboratory assays. Extract profiles differed; both extracts inhibited CYP1A2 and CYP3A4 under tested conditions. Flavokavain B was cytotoxic in the tested cells, whereas the whole extracts were not. No human interaction outcome was studied.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42431523/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "kava_cyp_assays",
+      "relevance_reason": "Primary botanical pharmacology evidence requiring study-design-aware scientific review.",
+      "evidence_class": "in-vitro",
+      "study_design": "Extract profiling and in vitro enzyme and cell viability assays",
+      "study_details": {
+        "source": "PubMed indexed primary study",
+        "verified_on": "2026-10-08"
+      },
+      "population": "Cultured human hepatocytes and enzyme assay preparations",
+      "intervention": "Botanical extract and purified constituent experimental comparison",
+      "comparator": "Extracts, constituent fractions, or assay controls",
+      "outcomes": [
+        "Different constituent profiles by extraction solvent",
+        "In vitro CYP1A2 and CYP3A4 inhibition",
+        "Flavokavain B cytotoxicity in a laboratory model"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "preclinical",
+      "uncertainty": "Laboratory results are not evidence of clinical effectiveness or clinically meaningful interaction.",
+      "adverse_effects": "No clinical adverse events measured; laboratory outcomes only.",
+      "interactions": "Preclinical mechanistic effects only; no human drug-interaction trial.",
+      "limitations": "In vitro models and extract-dependent chemistry limit translation to humans.",
+      "provenance": {
+        "pmid": "42431523",
+        "doi": "10.1016/j.cbi.2026.112219",
+        "source": "PubMed primary abstract",
+        "verified_on": "2026-10-08",
+        "review_status": "source_verified_only"
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.75,
+        "contradiction": 0.3,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "priority_score": 8.450000000000001,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "90b821210a625d8108eb",
+      "reserved_at": "2026-10-08T18:14:01.525Z",
+      "source_branch": "research/intake/3/20261008-1355-recovery-extracts"
     }
   ],
   "batches": [
@@ -2511,22 +2564,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 30,
+    "total_reservations": 31,
     "by_lane": {
       "1": 1,
       "2": 0,
-      "3": 3,
+      "3": 4,
       "4": 1,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 30
+      "SOURCE_VERIFIED": 31
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 30,
+        "count": 31,
         "pr_number": null,
         "blocker": null
       }
