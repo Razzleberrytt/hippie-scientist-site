@@ -1,6 +1,9 @@
 name: Research Source Register Integration
 
 on:
+  # Exact-head recovery when GitHub suppresses PR checks on bot-authored refreshes.
+  # Read-only research validation; no source or publication mutations.
+  workflow_dispatch:
   push:
     branches:
       - feat/visible-research-source-register-20261008
