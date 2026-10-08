@@ -374,6 +374,8 @@ export function buildResearchIntelligenceStudio(
 }
 export type StudioQueryResult = {
   understoodConcepts: string[]
+  matchMode: 'all-concepts' | 'partial-concepts' | 'no-concepts'
+  retrievalNote: string
   matches: Array<{pmid:string;title:string;year:string;reason:string;url:string}>
   warning: string
 }
@@ -391,8 +393,22 @@ export function askResearchSources(question:string,studio:ResearchStudio):Studio
     return {d,hits,score:inTitle*5+(hits.length-inTitle)*2}
   }).filter(row=>names.length?row.hits.length>0:false)
     .sort((a,b)=>b.hits.length-a.hits.length||b.score-a.score||a.d.pmid.localeCompare(b.d.pmid))
-  return {understoodConcepts:names.map(id=>RESEARCH_CONCEPTS.find(c=>c.id===id)?.label||id),
-    matches:ranked.slice(0,12).map(({d,hits})=>({
+  // Multiple concepts represent an AND inquiry. An OR fallback is never presented
+  // as answering that narrower research question.
+  const conjunctive=ranked.filter(({hits})=>new Set(hits.map(h=>h.id)).size===names.length)
+  const exact=names.length>0 && conjunctive.length>0
+  const matchMode:StudioQueryResult['matchMode']=!names.length?'no-concepts':
+    exact?'all-concepts':'partial-concepts'
+  const results=exact?conjunctive:ranked
+  return {
+    understoodConcepts:names.map(id=>RESEARCH_CONCEPTS.find(c=>c.id===id)?.label||id),
+    matchMode,
+    retrievalNote:!names.length
+      ? 'No controlled vocabulary concept matched this question. The source finder cannot answer it.'
+      : exact
+        ? 'These sources mention every recognized concept in the question; co-mention does not establish a relationship.'
+        : 'No single source in this batch mentions every recognized concept. Showing individually related sources only, NOT matches to the full question.',
+    matches:results.slice(0,12).map(({d,hits})=>({
       pmid:d.pmid,title:d.title,year:d.year,
       reason:'Title/abstract concept matches: '+hits.map(h=>h.label+' ('+h.basis+')').join(', '),
       url:d.sourceUrl,
