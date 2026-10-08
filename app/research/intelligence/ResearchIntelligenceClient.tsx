@@ -3,12 +3,10 @@ import {useEffect,useMemo,useRef,useState} from 'react'
 import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
-import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
-import {buildInstrumentRelay,pickTraceableConceptPair} from '@/lib/research-intelligence-relay'
-import {buildScientificIntelligenceCase} from '@/lib/scientific-intelligence-suite'
-import {planResearchSemanticFabric} from '@/lib/research-semantic-fabric'
+import {buildIntegratedResearchCase} from '@/lib/research-intelligence-integration'
+import {pickTraceableConceptPair} from '@/lib/research-intelligence-relay'
 import reviewedDistributionObjects from '@/data/distribution/research-objects.json'
-import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
+import {traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
 import {Brief,Notice,Tag,Sources,WitnessPanel} from './ResearchIntelligencePrimitives'
 import ScientificIntelligencePanel from './ScientificIntelligencePanel'
 import styles from './ResearchIntelligence.module.css'
@@ -95,11 +93,14 @@ const chrono=useMemo(()=>data?.timeline.filter(d=>d.sources>0&&(!focusPmid||d.pm
 const maxYear=Math.max(1,...chrono.map(x=>x.sources))
 const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
-const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
-const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
-const scientific=useMemo(()=>data&&caseFile?buildScientificIntelligenceCase(data,data.graph,caseFile,data.reviewedStudies||[]):null,[data,caseFile])
- const relay=useMemo(()=>data&&caseFile&&caseScope?buildInstrumentRelay(data,data.graph,caseFile,caseScope):null,[data,caseFile,caseScope])
- const fabric=useMemo(()=>data&&caseFile&&caseScope?planResearchSemanticFabric(data,data.graph,caseFile,reviewedDistributionObjects):null,[data,caseFile,caseScope])
+const integratedCase=useMemo(()=>data&&focusPmid
+  ?buildIntegratedResearchCase(data,data.graph,focusPmid,reviewedDistributionObjects,data.reviewedStudies||[])
+  :null,[data,focusPmid])
+const caseFile=integratedCase?.caseFile??null
+const caseScope=integratedCase?.scope??null
+const scientific=integratedCase?.scientific??null
+const relay=integratedCase?.relay??null
+const fabric=integratedCase?.fabric??null
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
