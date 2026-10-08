@@ -25,7 +25,13 @@ export type RegisteredResearchSource = {
   year: string
   category: string
   doi: string
+  /** Build-only source abstract: excluded from the client-facing bibliographic list. */
+  abstract: string
+  pubType: string
 }
+
+/** Browser-facing source identity omits full unreviewed abstract text. */
+export type PublicResearchSource = Omit<RegisteredResearchSource, 'abstract' | 'pubType'>
 
 export type ResearchSourceRegister = {
   throughWave: number
@@ -49,6 +55,7 @@ type SourceRecord = {
   pub_date?: string
   verified_pub_date?: string
   category: string
+  pub_type?: string
   title_verified: boolean
   abstract_verified: boolean
   research_only: boolean
@@ -171,6 +178,8 @@ export function getResearchSourceRegister(): ResearchSourceRegister {
       year: date.match(/(?:19|20)\d{2}/)?.[0] || '',
       category: row.category,
       doi,
+      abstract: row.abstract,
+      pubType: row.pub_type || '',
     }
   })
 
