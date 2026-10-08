@@ -1435,17 +1435,22 @@
     {
       "wave": 7196,
       "category": "gut",
-      "pmid": "42644416",
-      "title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
-      "doi": "10.1080/19490976.2026.2719244",
-      "pub_date": "2026 Dec 31",
-      "pub_type": "Observational Study",
-      "journal": "Gut microbes",
-      "discovery_query": "((probiotic[Title] OR prebiotic[Title] OR microbiome[Title] OR microbiota[Title] OR fiber[Title] OR fibre[Title] OR psyllium[Title]) AND (gut[Title] OR gastrointestinal[Title] OR bowel[Title] OR microbiome[Title] OR microbiota[Title] OR constipation[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "provenance_pool": "2026-10-06-enrichment-waves-6501-7000-pool-b.json",
-      "selection_score": 4,
+      "pmid": "38474715",
+      "title": "A Randomized, Double-Blind, Placebo-Controlled Trial: Efficacy of Opuntia ficus-indica Prebiotic Supplementation in Subjects with Gut Dysbiosis.",
+      "doi": "10.3390/nu16050586",
+      "pub_date": "2024-Feb-21",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "discovery_query": "Exact PMID discovery by PubMed NCBI study search for gut prebiotic randomized human trials",
+      "provenance_pool": "NCBI PubMed direct search and EFetch",
+      "selection_score": 12,
       "state": "candidate_pending_exact_source_verification",
-      "research_only": true
+      "research_only": true,
+      "semantic_replacement_for": {
+        "original_pmid": "42644416",
+        "original_title": "Nationwide cohort study reveals low bifidobacteria and distinct microbiota composition and function in Swedish newborns.",
+        "reason": "Original PubMed record lacked substantive abstract; fail-closed one-for-one replacement"
+      }
     },
     {
       "wave": 7197,
