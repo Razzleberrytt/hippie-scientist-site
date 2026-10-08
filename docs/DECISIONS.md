@@ -4,6 +4,14 @@
 **Updated:** 2026-10-07
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-08 — Scientific intelligence tools are source projections, not new medical authority
+
+**Decision:** v1.08–1.14 integrates twelve deterministic scientific investigation tools on each v1.05 exact PMID case, shares the v1.06 eight-instrument source handoff and the v1.07 editorial/distribution review firewall, and makes source signatures and calibration visible in the existing studio. Separately reviewed citation relationship metadata may only join by already governed exact publication identity. No second evidence database, paid inference runtime, automatic clinical claim, or publication authorization is created.
+
+**Boundaries:** Trial/participant independence, complete study comparability, full-text claims, live correction/retraction feeds, real third-party autonomous research, and independent peer review remain unverified without appropriate approved source material and reviewers. Rule-based adversarial checks and internal calibration do not demonstrate scientific truth.
+
+**Status:** Accepted scoped architecture; #6427 / PR #6428 remains in review until latest-head validation, release governance, mobile UI checks and production receipt. Unknown business and scientific outcome ROI must not be scored as observed.
+
 ## 2026-10-08 — Source-exact instrument relays and publication-to-editorial review remain nonclinical
 
 **Decision:** Build v1.06 as a deterministic read-only projection over the already-pinned v1.05 PMID source graph, exact citation crosswalk and separately reviewed semantic annotation ledger. Source-focused Voyages require two distinct non-method indexed concepts with at least one title-backed witness, not merely a shared neighbor. v1.07 downstream content/distribution joins may use only exact DOI and already-existing source and claim identifiers; their status is human-review required.

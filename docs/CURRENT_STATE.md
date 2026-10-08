@@ -6,6 +6,8 @@
 
 ## Executive summary
 
+**Scientific Intelligence 1.08–1.14 in review (2026-10-08, #6427 / PR #6428):** Twelve deterministic source-case tools are implemented in an isolated PR atop the 1.06/1.07 research branch. The integrated UI exposes structured claim descriptors and separately reviewed exact-citation metadata, publication identity/unknown trial independence, comparisons, audited quarantine flags, hypotheses, local investigations, citation navigation, a mechanism/human evidence firewall, review snapshots, rule-based adversarial checks and 13 calibration invariants. **In review does not mean merged or deployed**; actual full-text/registry/live correction and external autonomous retrieval remain unimplemented. No inferred clinical benefit, consumer dose, business lift or publication authorization is claimed. GitHub head, required tests and production receipt remain authoritative.
+
 **Research Intelligence exact-source release status (2026-10-08):** v1.05 (#6419) is merged into main. Source-bound v1.06 (#6420 / PR #6422) is **in review**, including the separately governed review-only v1.07 fabric from #6423/#6424. The proposed flow shares one exact PMID and pinned source signature across eight research tools, permits only title-backed traceable two-concept Voyages, and constrains downstream targets to exact DOI/source/claim IDs. It does **not** prove clinical relationships, underlying independent trials, corrections status, production deployment, or business results. Release proof is still required; GitHub PR state outranks this date-scoped note.
 
 

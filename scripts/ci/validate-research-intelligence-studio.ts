@@ -6,6 +6,11 @@ import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
+import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
+import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
+import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from '../../lib/scientific-intelligence-foundations'
+import {forgeSourceHypotheses,simulateSourceRemoval,runBoundedInvestigation} from '../../lib/scientific-intelligence-discovery'
+import {calibrateIntelligenceCase,compileLivingReview} from '../../lib/scientific-intelligence-review'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -47,6 +52,53 @@ assert.equal(s.systemVersion,'1.05')
 const sharedCase=buildResearchCaseFile(s,graph,'10000001')
 assert(sharedCase,'Known source must open a shared case file')
 assert.equal(sharedCase.pmid,'10000001')
+const science=buildScientificIntelligenceCase(s,graph,sharedCase)
+assert.equal(SCIENCE_CAPABILITIES.length,12,'The complete scientific capability registry is mandatory')
+assert.equal(science.capabilities.length,12)
+assert.equal(science.version,'1.14')
+assert.equal(science.calibrationPassed,true,'The active review-only case must pass foundational calibration')
+assert.equal(science.calibrationChecks,13,'All source identity, evidence and release guards must run')
+assert.equal(science.clinicalPromotions,0)
+assert.equal(science.autopublished,0)
+assert(science.capabilities.every(x=>x.releaseApproved===false))
+assert.equal(compileClaimDNA(s,graph,sharedCase).effectDirection,null)
+assert.equal(compileClaimDNA(s,graph,sharedCase).dose,null)
+assert.equal(detectTrialLineage(s,graph,sharedCase).underlyingTrialIndependence,'unknown')
+assert.equal(forgeSourceHypotheses(s,graph,sharedCase).every(x=>
+  x.pmid===sharedCase.pmid&&x.status==='hypothesis-unverified'),true)
+assert.equal(simulateSourceRemoval(s,graph,sharedCase).changedScientificConclusion,false)
+assert(runBoundedInvestigation(s,graph,sharedCase).every(x=>
+  !x.automaticallyPublished&&x.pmid===sharedCase.pmid))
+assert.equal(compileLivingReview(s,graph,sharedCase).publicationAllowed,false)
+assert.equal(compileLivingReview(s,graph,sharedCase).revisionKey,
+  compileLivingReview(s,graph,sharedCase).revisionKey,'Review snapshots must be reproducible')
+assert.equal(calibrateIntelligenceCase(s,graph,sharedCase).failures,0)
+const otherCase=buildResearchCaseFile(s,graph,'10000002')!
+const comparison=compareStudyContexts(s,graph,sharedCase,otherCase)
+assert.equal(comparison.compatibleForEvidenceSynthesis,false,
+  'Similar abstracts may never automatically imply evidence comparability')
+const wrongCase={...sharedCase,sourceSignature:'forged-source-signature'}
+assert.throws(()=>buildScientificIntelligenceCase(s,graph,wrongCase),
+  /source identity mismatch|Source signature conflict/,
+  'All twelve capability receipts reject stale or forged source signatures')
+assert.throws(()=>buildScientificIntelligenceCase(s,graph,
+  {...sharedCase,reviewedCitationIds:['forged-reviewed-citation']}),
+  /source identity mismatch/, 'Forged reviewed citation identity must fail closed')
+assert.throws(()=>buildScientificIntelligenceCase(s,graph,
+  {...sharedCase,relatedPapers:[{pmid:'99999999',sharedConcepts:[],explanation:'fake'}]}),
+  /source identity mismatch/, 'Fabricated semantic neighbor must fail closed')
+assert.throws(()=>compileClaimDNA(s,graph,{...sharedCase,pmid:'90000001'}),
+  /source identity mismatch/,
+  'Unknown PMIDs must fail closed')
+for(const source of sources){
+  const file=buildResearchCaseFile(s,graph,source.pmid)!
+  const result=buildScientificIntelligenceCase(s,graph,file)
+  assert.equal(result.capabilities.length,12)
+  assert.equal(result.calibrationFailures,0)
+  assert.equal(result.clinicalPromotions,0)
+  assert.equal(result.autopublished,0)
+}
+
 assert.equal(sharedCase.status,'source-discovery-only-no-clinical-adjudication')
 assert.equal(sharedCase.instruments.length,8,'All instruments must receive the same governed source identity')
 assert.deepEqual(sharedCase.instruments.map(x=>x.instrument),
@@ -55,6 +107,38 @@ assert.equal(sharedCase.instruments.find(x=>x.instrument==='dna')?.linkedItems,1
 assert.equal(sharedCase.instruments.find(x=>x.instrument==='contradictions')?.linkedItems,0,
  'Reviewed citations lacking exact publication identity cannot be inferred as matches')
 const exactJoined=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0],pmid:'10000001'}])
+const reviewedExample={...reviewed[0],pmid:'10000001',relationships:[
+ {...reviewed[0].relationships[0],dose:'400 mg experimental exposure',duration:'6 weeks',
+  result:'Reviewed directional descriptor remains subject to editorial policy'}]}
+const reviewedCase=buildResearchCaseFile(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,'10000001')!
+const claimsWithReviewed=compileReviewedClaimFacets(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
+ [reviewedExample,reviewed[1]])
+assert.equal(claimsWithReviewed.length,1,'Only exact-PMID reviewed evidence can enrich Claim DNA')
+assert.equal(claimsWithReviewed[0].citationId,'study-a')
+assert.equal(claimsWithReviewed[0].studiedDose,'400 mg experimental exposure')
+assert.equal(claimsWithReviewed[0].isClinicalPublicationApproved,false)
+assert.throws(()=>compileReviewedClaimFacets(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
+ [{...reviewedExample,pmid:'10000002'}]),/conflicts with exact source/,
+ 'A forged reviewed citation ID with the wrong source must fail closed')
+assert.throws(()=>compileReviewedClaimFacets(
+ buildResearchIntelligenceStudio(sources,graph,[reviewedExample]),graph,reviewedCase,
+ [reviewedExample,reviewedExample]),/Duplicate exact reviewed citation/,
+ 'Duplicate citation IDs cannot double-count one reviewed source')
+const priorQuarantined=source('41461240','Omega 3 retracted study','2025')
+const knownBad={...priorQuarantined,doi:'10.1016/j.jad.2025.121055'}
+const quarantineGraph=buildResearchSemanticNetwork([knownBad])
+const quarantineStudio=buildResearchIntelligenceStudio([knownBad],quarantineGraph,[])
+const quarantineCase=buildResearchCaseFile(quarantineStudio,quarantineGraph,knownBad.pmid)!
+assert(scanResearchIntegrity(quarantineStudio,quarantineGraph,quarantineCase)
+ .some(x=>x.id==='curated-retraction'&&x.severity==='hold'),
+ 'Exact audited retractions must be flagged in the source-linked Integrity Radar')
+const quarantinedCalibration=calibrateIntelligenceCase(quarantineStudio,quarantineGraph,quarantineCase)
+assert(quarantinedCalibration.failures>0,'Audited retractions must never display passing calibration')
+assert(quarantinedCalibration.checks.some(x=>x.code==='integrity-release-hold'&&!x.passed))
+assert.equal(quarantinedCalibration.publicationAllowed,false)
 const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
 const sourceScope=buildResearchCaseScope(s,sharedCase)
 assert.equal(sourceScope.status,'exact-source-linked-leads-only')
@@ -313,6 +397,12 @@ for(const record of real.dna){
  assert.equal(received.caseFile.sourceSignature,realGraph.entries[record.pmid].sourceSignature)
  assert.equal(received.scope.pmid,record.pmid)
  assert.deepEqual(received.caseFile.reviewedCitationIds,[])
+ const scienceCase=buildScientificIntelligenceCase(real,realGraph,caseFile)
+ assert.equal(scienceCase.pmid,record.pmid)
+ assert.equal(scienceCase.capabilities.length,12)
+ assert.equal(scienceCase.calibrationChecks,13)
+ assert.equal(scienceCase.calibrationFailures,0)
+ assert.equal(scienceCase.autopublished,0)
  fullyReachable++
 }
 assert.equal(fullyReachable,500,'All 500 exact verified sources must share the same instrument identity contract')
@@ -392,6 +482,19 @@ assert(!blockedVoyageRelay.junctions.some(j=>j.to==='voyages'||j.from==='voyages
  'A neighbor alone cannot advertise a nonfunctional Voyages junction')
 assert(ui.includes('pickTraceableConceptPair('),
  'The source-focused user interface must select the same traceable pair as the relay')
+const sciencePanel=readFileSync('app/research/intelligence/ScientificIntelligencePanel.tsx','utf8')
+const researchPrimitives=readFileSync('app/research/intelligence/ResearchIntelligencePrimitives.tsx','utf8')
+assert(ui.includes('scienceTarget(id,data.graph,scientific.pmid)')&&
+ ui.includes("target==='voyages'&&!pickTraceableConceptPair(graph,pmid)?'dna':target")&&
+ sciencePanel.includes('onOpenCapability(cap.id)')&&
+ sciencePanel.includes('Twelve connected research capabilities'),
+ 'Scientific capability handoffs must preserve identity and avoid untraceable Voyages destinations')
+assert(ui.includes('ScientificIntelligencePanel')&&ui.includes('ResearchIntelligencePrimitives')&&
+ researchPrimitives.includes('export function WitnessPanel')&&
+ researchPrimitives.includes('export function Brief'),
+ 'Split client components must preserve scientific receipts and original editorial controls')
+assert(Buffer.byteLength(ui,'utf8')<45*1024,
+ 'Research intelligence client entry must remain below hard 45KB source boundary')
 const relay=buildInstrumentRelay(s,graph,sharedCase,sourceScope)
 assert.equal(relay.pmid,sharedCase.pmid)
 assert.equal(relay.status,'source-bound-no-clinical-synthesis')

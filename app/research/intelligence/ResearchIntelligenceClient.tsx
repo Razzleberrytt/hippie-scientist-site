@@ -1,17 +1,19 @@
 'use client'
 import {useEffect,useMemo,useRef,useState} from 'react'
 import Link from 'next/link'
-import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
+import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
 import {buildInstrumentRelay,pickTraceableConceptPair} from '@/lib/research-intelligence-relay'
+import {buildScientificIntelligenceCase} from '@/lib/scientific-intelligence-suite'
 import {planResearchSemanticFabric} from '@/lib/research-semantic-fabric'
 import reviewedDistributionObjects from '@/data/distribution/research-objects.json'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
-import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
+import {Brief,Notice,Tag,Sources,WitnessPanel} from './ResearchIntelligencePrimitives'
+import ScientificIntelligencePanel from './ScientificIntelligencePanel'
 import styles from './ResearchIntelligence.module.css'
 
-type Payload=ResearchStudio&{graph:SemanticNetwork}
+type Payload=ResearchStudio&{graph:SemanticNetwork;reviewedStudies?:ReviewedStudyInput[]}
 type Tab='dna'|'contradictions'|'frontier'|'time'|'voyages'|'safety'|'ask'|'reactor'
 const stations: Array<{id:Tab;number:string;label:string;tagline:string}>=[
 {id:'dna',number:'01',label:'Study DNA',tagline:'Source fingerprints'},
@@ -23,40 +25,18 @@ const stations: Array<{id:Tab;number:string;label:string;tagline:string}>=[
 {id:'ask',number:'07',label:'Ask the Evidence',tagline:'Transparent source retrieval'},
 {id:'reactor',number:'08',label:'Content Reactor',tagline:'Governed editorial proposals'},
 ]
+const scienceHandoffs:Record<string,Tab>={
+  'claim-dna':'dna','trial-lineage':'contradictions','comparability':'contradictions',
+  'integrity':'dna','hypotheses':'frontier','counterfactual':'voyages',
+  'missions':'reactor','citations':'voyages','mechanism':'safety',
+  'living':'reactor','adversarial':'contradictions','calibration':'ask',
+}
+function scienceTarget(id:string,graph:SemanticNetwork,pmid:string):Tab{
+  const target=scienceHandoffs[id]
+  return target==='voyages'&&!pickTraceableConceptPair(graph,pmid)?'dna':target
+}
 function human(s:string){return s.replace(/_/g,' ').replace(/\bnps\b/gi,'NPS')}
 const pubmed=(s:string)=>'https://pubmed.ncbi.nlm.nih.gov/'+s+'/'
-function Notice({children}:{children:React.ReactNode}){return <p className={styles.notice}><span aria-hidden='true'>◈</span> {children}</p>}
-function Tag({children}:{children:React.ReactNode}){return <span className={styles.tag}>{children}</span>}
-function Sources({pmids,onSelect}:{pmids:string[];onSelect?:(pmid:string)=>void}){return <div className={styles.sources}>{pmids.slice(0,6).map(x=><span className={styles.sourcePair} key={x}><a href={pubmed(x)} target='_blank' rel='noopener noreferrer'>PMID {x} ↗</a>{onSelect?<button type='button' onClick={()=>onSelect(x)} aria-label={'Trace PMID '+x+' across instruments'}>Trace</button>:null}</span>)}</div>}
-function WitnessPanel({items}:{items:ResearchSourceWitness[]}){
-  if(!items.length)return <p>No bounded title/abstract quotation is available for these matched concepts.</p>
-  return <ul className={styles.witnessList}>{items.map(w=><li key={w.id}>
-    <strong>{w.conceptLabel} · {w.basis==='title'?'TITLE':'ABSTRACT SENTENCE '+(w.sentenceIndex+1)}</strong>
-    <blockquote>{w.quote}</blockquote>
-    <small>Verbatim source-text match · not a scientific result interpretation</small>
-  </li>)}</ul>
-}
-function Brief({brief,onSelect}:{brief:DraftBrief;onSelect:(pmid:string)=>void}){
-const [show,setShow]=useState(false),[status,setStatus]=useState('')
-const payload=JSON.stringify({title:brief.title,mode:brief.mode,rationale:brief.rationale,
-  pmids:brief.pmids,sourceStudyIds:brief.sourceStudyIds,reviewStatus:brief.status,autopublish:false,
-  checklist:['Verify source IDs','Compare populations and outcomes','Check independent studies',
-  'Review null and adverse findings','Approve wording with qualified editorial review']},null,2)
-function copy(){
-  if(typeof navigator==='undefined'||!navigator.clipboard){setShow(true);setStatus('Copy the displayed text manually.');return}
-  void navigator.clipboard.writeText(payload).then(()=>setStatus('Copied; nothing published.'))
-    .catch(()=>{setShow(true);setStatus('Clipboard blocked; copy the displayed text manually.')})
-}
-return <article className={styles.paper}>
-  <div className={styles.paperTop}><Tag>{human(brief.mode)}</Tag><span>REVIEW REQUIRED</span></div>
-  <h3>{brief.title}</h3><p>{brief.rationale}</p><Sources pmids={brief.pmids} onSelect={onSelect}/>
-  <div className={styles.controls}><button type='button' onClick={copy}>Copy work order ↗</button>
-    <button type='button' aria-expanded={show} onClick={()=>setShow(x=>!x)}>{show?'Hide JSON':'Inspect JSON'}</button></div>
-  {status?<p role='status'>{status}</p>:null}
-  {show?<textarea readOnly rows={11} className={styles.export} aria-label='Copyable source-grounded editorial work order' value={payload}/>:null}
-</article>
-}
-
 export default function ResearchIntelligenceClient(){
 const [data,setData]=useState<Payload|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState('')
 const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,setMore]=useState(false),[dnaVisible,setDnaVisible]=useState(9)
@@ -99,6 +79,7 @@ async function activate(){
   setData({
     ...hydrateResearchStudioWithPublishedEvidence(v,published.studies),
     graph:v.graph,
+    reviewedStudies:published.studies,
   })
  }catch{setError('Unable to load or verify this source snapshot. The original source register remains available.')}
  finally{setLoading(false)}
@@ -116,6 +97,7 @@ const selected=chrono.find(x=>String(x.year)===year)
 const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
 const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
+const scientific=useMemo(()=>data&&caseFile?buildScientificIntelligenceCase(data,data.graph,caseFile,data.reviewedStudies||[]):null,[data,caseFile])
  const relay=useMemo(()=>data&&caseFile&&caseScope?buildInstrumentRelay(data,data.graph,caseFile,caseScope):null,[data,caseFile,caseScope])
  const fabric=useMemo(()=>data&&caseFile&&caseScope?planResearchSemanticFabric(data,data.graph,caseFile,reviewedDistributionObjects):null,[data,caseFile,caseScope])
 const visibleDebates=caseScope?.debates??data?.debates??[]
@@ -152,7 +134,7 @@ function openCaseInstrument(next:Tab){
 return <section className={styles.studio}>
   <header className={styles.hero}>
     <div className={styles.heroCopy}>
-      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.05 · 01—08</span></div>
+      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH ATLAS 1.05 · SCIENTIFIC INTELLIGENCE 1.14</span></div>
       <p className={styles.eyebrow}>Eight instruments. One knowledge system.</p>
       <h1>The science is a <em>landscape.</em> Learn to navigate it.</h1>
       <p className={styles.lead}>Explore the structure of knowledge—from study fingerprints and differing results to unknowns, source-witnessed connections, safety literature and questions worth investigating.</p>
@@ -162,7 +144,7 @@ return <section className={styles.studio}>
         </button>
         <Link href='/research/source-register/'>Original source register →</Link>
       </div>
-      <p className={styles.heroCaveat}>Scientific discovery ≠ clinical evidence. Research intake and graded evidence remain separate.</p>
+      <p className={styles.heroCaveat}>Scientific discovery ≠ clinical evidence. Research intake and graded evidence remain separate. Select a verified PMID to open all twelve scientific reasoning capabilities and their calibration receipts.</p>
     </div>
     <div className={styles.heroArt} aria-hidden='true'>
       <div className={styles.orbitA}/><div className={styles.orbitB}/><div className={styles.orbitC}/>
@@ -261,6 +243,10 @@ return <section className={styles.studio}>
           </div>
           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
+
+        {scientific?<ScientificIntelligencePanel science={scientific}
+          onOpenCapability={id=>openCaseInstrument(scienceTarget(id,data.graph,scientific.pmid))}
+          getCapabilityLabel={id=>stations.find(x=>x.id===scienceTarget(id,data.graph,scientific.pmid))?.label||'Study DNA'}/>:null}
         <p className={styles.caseCaveat}>Counts describe only this limited, sometimes sampled index—not independent clinical findings, complete literature coverage or evidence of safety. No tool publishes medical conclusions.</p>
       </article>:null}
     </section>:null}
