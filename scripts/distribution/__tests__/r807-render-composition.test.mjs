@@ -46,3 +46,13 @@ test('R8.07 semantic pattern interrupt renders an explicit visual state',()=>{
   expect(rendered.svg).toContain('&quot;patternInterrupt&quot;:true')
   expect(rendered.svg).toContain('&quot;patternInterruptReason&quot;:&quot;limitation-pivot&quot;')
 })
+
+
+test('R8.07 reveal composition respects the voice-derived pre/post motion state',()=>{
+  const target=scene({compositionFamily:'hero-object',motifId:'result-thread',motionType:'reveal'})
+  const pre=renderVerticalVideoSceneSvg(target,{...options,motionPhase:'pre'})
+  const post=renderVerticalVideoSceneSvg(target,{...options,motionPhase:'post'})
+  expect(pre.svg).not.toContain('data-r807-composition="hero-object"')
+  expect(post.svg).toContain('data-r807-composition="hero-object"')
+  expect(pre.hash).not.toBe(post.hash)
+})
