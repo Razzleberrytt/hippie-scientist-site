@@ -95,6 +95,17 @@ test('preserves governed finding and limitation text losslessly in caption paylo
     const manifest = renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir: dir })
     const captions = fs.readFileSync(path.join(dir, manifest.captions.file), 'utf8')
     expect(manifest.captions.lossless).toBe(true)
+    expect(manifest.narrationScript).toMatchObject({
+      file: 'narration-script.json',
+      schemaVersion: 'ths-local-narration-script-v1',
+      localVoiceRequired: true,
+      premiumProviderFallbackAllowed: false,
+    })
+    const narration = JSON.parse(fs.readFileSync(path.join(dir, manifest.narrationScript.file), 'utf8'))
+    expect(narration.durationSeconds).toBe(30)
+    expect(narration.scenes).toHaveLength(manifest.assets.length)
+    expect(narration.scenes.some((scene) => scene.text)).toBe(true)
+    expect(narration.scenes.find((scene) => scene.role === 'source')?.text).toBe('')
     expect(manifest.captions.sha256).toBe(digest(captions))
 
     const payloads = parseSrtPayloads(captions)

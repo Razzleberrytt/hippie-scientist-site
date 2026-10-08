@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-06
+**Updated:** 2026-10-07
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -45,6 +45,9 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | M6 | Not started |
 
 ## Now — active exact work
+
+**#6382 — R8.05 creative-quality control, active:** make attention and audiovisual coherence release gates rather than optional polish. Acceptance requires pre-render premise-interest and one-mental-job gates, payoff-before-method, natural-duration editing, narration-first semantic beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. Preserve all R8.04 zero-credit sovereignty and R8.03 evidence/trust invariants.
+
 
 **Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
 
@@ -221,3 +224,7 @@ These are capability proofs, not claims of business impact.
 ## Legacy backlog disposition
 
 Historical `backlog/`, `ops/backlog/`, old sprint tickets, and old open issues are discovery inputs, not execution queues. Revalidate the underlying problem against current `main`, current production, current analytics, current experiment history where applicable, and current PR overlap before promoting anything here. A large backlog is useful only if the top is trustworthy.
+
+**#6384 — R8.06 creative-methodology control, active:** Require three materially different concept candidates, selected-angle visual-potential/confusion thresholds, cover→first-frame→first-line convergence, hook→finding→evidence opening order, early teaching-object diversity, exact-master native-feel QA, and optional Metricool with immutable manual fallback. Runtime remains R8.05; audience impact Unknown until measured.
+
+**#6386 — R8.07 visual-authorship control, active:** Add one whole-piece visual thesis, a semantic recurring motif, >=3 core composition families, max-two consecutive family/mode repetition, an earned limitation-pivot pattern interrupt, deterministic local SVG composition primitives, and exact-master passes for visual rhythm, motif continuity, semantic interruption, and repetition-debt rejection. Runtime stays R8.05; R8.06 delivery remains inherited; audience impact Unknown until measured.

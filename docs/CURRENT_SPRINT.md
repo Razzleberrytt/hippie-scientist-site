@@ -2,7 +2,7 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-06
+**Updated:** 2026-10-07
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
 **Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
@@ -50,6 +50,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M6 | Not started |
 
 ## Active / in review — implementation WIP 0/3
+
+**Creative-quality control #6382:** Active — implement R8.05 Attention-First Story Architecture & Semantic AV Lock after a real TikTok field failure exposed that scientific correctness, clean visuals and a good local narrator can still produce weak social content. Scope is bounded to premise selection and audiovisual temporal coherence: premise-interest, one-mental-job, payoff-before-method, natural-duration, narration-first beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. R8.04 zero-credit sovereignty remains mandatory.
+
 
 **Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
 
@@ -239,3 +242,7 @@ The sprint exits only when all of the following are true or have a precise exter
 - **SEO-005 / PR #4331:** merged; monitor remains file-fed until a supported Bing AI Performance acquisition path exists.
 - **I18N-001 / PR #4332:** merged; Japanese/Korean core locale expansion is live while detailed scientific profiles remain fail-closed.
 - **REV-005 / PR #4358:** merged; the validated media-pack foundation is now upstream infrastructure for this sprint.
+
+- **#6384 / PR #6385 — R8.06 Hook Competition, Visual Teaching Objects & Native Delivery:** Merged foundation. Preserve R8.05 runtime/semantic AV lock and R8.04 sovereignty while adding three-angle concept selection, opening convergence, immediate finding/payoff, early visual teaching-object diversity, exact-master native-feel rejection, and opportunistic Metricool→manual fallback. Audience uplift remains Unknown until field-tested.
+
+- **#6386 — R8.07 Visual Authorship, Pattern Interruption & Retention Rhythm:** Active. Preserve R8.06 concept/native-delivery gates and R8.05 runtime while adding recurring semantic motif continuity, composition-family diversity, local authored SVG primitives, a limitation-pivot pattern interrupt, repetition-debt ceilings, and exact-master rhythm QA. Audience uplift remains Unknown until field-tested.
