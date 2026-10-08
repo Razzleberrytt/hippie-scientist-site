@@ -9,9 +9,9 @@
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
-### Existing-owner P0 release recovery — #6448 / PR #6450
+### Existing-owner P0 source-register recovery — #6448 merged, #6445 security follow-up
 
-**2026-10-08 actual-state correction (release review):** #6448 is the source-register workflow-dispatch recovery ticket under #6431; PR #6450 is its current restaged implementation, **open and review-blocked** by a project-control documentation omission identified in an unresolved review thread. Older PR #6446 overlaps the same recovery and must be reconciled/superseded before any independent merge. Owner: existing research/release controller; scope: add `workflow_dispatch` only to `.github/workflows/research-source-register-integration.yml` with read-only token scopes and regression validation. This records **existing-owner review remediation**, not a new scientific pipeline or another D/R/A implementation slot. Release acceptance: preserve science gate and existing triggers, pass exact-head workflow/CI requirements, resolve reviewer concerns, merge through governed controller, and verify a real exact-head recovery run. Until that receipt exists, recovered workflow behavior and production impact are **Unknown**.
+**2026-10-08 verified:** PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2`; Cloudflare run `37856454431` passed and verified the exact production receipt. The workflow now has read-only dispatch and preserves original scientific checks. A real zero-job bot-recovery execution remains **Unknown** until observed. Distinct existing-owner ticket #6445 / superseded older PR #6446 requires stronger explicit PR/base/head recovery preflight and matching merge-controller input routing. Restage security improvements on current main rather than merging the stale workflow-changing PR or relaxing the `NEEDS_CLEAN_RESTAGE` guard. This is a scoped release-control correction, not an added scientific/publishing authority or normal D/R/A slot. Acceptance: exact same-repository open PR, branch, base, and full head proof before checkout; targeted and full exact-head CI; sole-controller merge; actual recovery and production evidence separately.
 
 ## P0 program — Generational Engineering readiness (#6431)
 
