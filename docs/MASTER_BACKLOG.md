@@ -224,3 +224,7 @@ These are capability proofs, not claims of business impact.
 ## Legacy backlog disposition
 
 Historical `backlog/`, `ops/backlog/`, old sprint tickets, and old open issues are discovery inputs, not execution queues. Revalidate the underlying problem against current `main`, current production, current analytics, current experiment history where applicable, and current PR overlap before promoting anything here. A large backlog is useful only if the top is trustworthy.
+
+**#6384 — R8.06 creative-methodology control, active:** Require three materially different concept candidates, selected-angle visual-potential/confusion thresholds, cover→first-frame→first-line convergence, hook→finding→evidence opening order, early teaching-object diversity, exact-master native-feel QA, and optional Metricool with immutable manual fallback. Runtime remains R8.05; audience impact Unknown until measured.
+
+**#6386 — R8.07 visual-authorship control, active:** Add one whole-piece visual thesis, a semantic recurring motif, >=3 core composition families, max-two consecutive family/mode repetition, an earned limitation-pivot pattern interrupt, deterministic local SVG composition primitives, and exact-master passes for visual rhythm, motif continuity, semantic interruption, and repetition-debt rejection. Runtime stays R8.05; R8.06 delivery remains inherited; audience impact Unknown until measured.

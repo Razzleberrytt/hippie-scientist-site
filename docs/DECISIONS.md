@@ -335,3 +335,31 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** The 2026-10-07 TikTok field test showed two distinct failures. First, a study-summary concept required too much setup and too many simultaneous entities before the payoff. Second, a good local narrator and individually clean visuals still felt disconnected because the visual timeline and internal clip motion had been authored independently of the spoken semantic beats. Repeated cut-point repairs did not solve the deeper composition problem.
 
 **Consequences:** New R8.05 work must state why a cold viewer should care, answer one viewer question, deliver a partial payoff before methodology, use natural rather than template-driven duration, and build the visual timeline from an approved voice-first semantic beat map. Every clip owns an exact spoken idea; cuts occur on meaning; internal motion lands on spoken anchors; PerceptualQA judges the exact master as one audiovisual object. One macro rebuild is allowed. If the concept still needs rescue after that, FieldLab records the creative loss and the angle is retired/reframed rather than polished indefinitely. Audience impact remains Unknown until observed. **Status:** Accepted; implementation tracked by #6382.
+
+## 2026-10-07 — R8.06 adds hook competition and native-feel release gates
+
+**Decision:** Adopt R8.06 “Hook Competition, Visual Teaching Objects & Native Delivery” as the next THS creative methodology, running on the unchanged R8.05 production runtime. R8.06 does not rename the renderer/voice artifact formats; it adds a fail-closed creative-direction overlay before render and additional exact-master perceptual gates after render.
+
+**Rationale:** R8.05 solved concept viability, voice-first timing, semantic clip ownership, visible motion, and exact-master audiovisual cohesion, but it can still select the first acceptable angle and produce an opening that is synchronized yet visually sterile. R8.06 forces comparison among three materially different angles, makes visual potential/confusion part of selection, requires immediate finding/payoff and opening convergence, and creates a native-feel rejection gate for generic text-card execution.
+
+**Delivery consequence:** Metricool is permitted only as an optional post-QA convenience adapter. Manual native upload remains the mandatory fallback. Provider limits, plan state, or format errors may not trigger creative regeneration or artifact mutation; after one provider failure the same approved artifact falls back to manual upload.
+
+**Measurement:** Internal selection scores and structural gates are pre-render filters, not predictions of virality. Audience impact remains Unknown until matched R8.06 artifacts are published and FieldLab observes retention, completion, saves/shares, profile depth, follows, and return behavior. **Status:** Implementation tracked by #6384.
+
+## 2026-10-07 — R8.07 adds authored visual rhythm and semantic pattern interruption
+
+**Decision:** Adopt R8.07 “Visual Authorship, Pattern Interruption & Retention Rhythm” as the next THS creative methodology over R8.06, while retaining the R8.05 artifact/runtime schemas. R8.07 adds executable local composition primitives plus a whole-piece rhythm contract; it does not alter scientific authority, narration timing authority, or provider sovereignty.
+
+**Rationale:** R8.06 improves concept selection, opening convergence and native-feel rejection, but a video can still decay into repetitive composition after the opening. R8.07 makes repetition and visual continuity explicit: one visual thesis, a recurring motif that returns at the limitation pivot, at least three composition families in the core story, no more than two consecutive identical families/modes, and exactly one semantic pattern interrupt earned by the limitation pivot.
+
+**Execution:** The local zero-credit SVG renderer now draws governed composition primitives (hero object, split comparison, evidence focus, diagram flow, macro detail, process flow, kinetic type), motif continuity, and the limitation interrupt state. The R8.07 overlay is hash-bound and recomputed from the exact creative brief before render. Exact-master QA must additionally pass visual rhythm, motif continuity, semantic pattern interruption, and repetition-debt rejection.
+
+**Measurement:** These are authorship/quality gates, not a claim that pattern interruption mechanically increases retention. Retention/completion/follow uplift remains Unknown until matched R8.07 field artifacts are published and observed. **Status:** Implementation tracked by #6386.
+
+## 2026-10-07 — R8.08 requires silent comprehension on the exact master
+
+**Decision:** Add R8.08 as a hash-bound methodology overlay on the R8.05 runtime. Hook text must be visible on frame zero. Core claims must be concise, displayed inside intersection safe areas, and readable for a measured >=0.85 s without extending narration. Require exact-MP4 human audio-off comprehension and scientific-qualifier visibility approvals, then stage only the same artifact hash.
+
+**Rationale:** Earlier releases protected voice synchronization and visual variety but did not fully prevent an audio-off viewer from missing the finding, qualifier or on-screen meaning. Device-safe visible text and real hold time are enforceable before release; semantic fidelity remains a reviewer judgment, not a word-count proxy.
+
+**Consequences:** R8.08 fails closed at brief, renderer, master QA and Publisher boundaries. Inherited R8.07/R8.06/R8.05/R8.04 protections remain mandatory, with no paid provider or credit prerequisite. **Status:** In review under PR #6388; audience uplift Unknown.

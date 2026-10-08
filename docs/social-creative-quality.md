@@ -1,8 +1,8 @@
-# THS R8.05 — Attention-First Story Architecture & Semantic AV Lock
+# THS R8.07 — Visual Authorship, Pattern Interruption & Retention Rhythm
 
 ## Status
 
-R8.05 is the canonical creative-production rule for new THS social video. It inherits R8.04 sovereign zero-credit production and all R8.03 evidence, uncertainty, continuity, trust, and artifact-bound QA rules.
+R8.07 is the canonical creative methodology for new THS social video. It inherits the complete R8.06 concept/native-delivery layer, runs on the proven R8.05 voice-first/semantic-AV production runtime, and preserves R8.04 sovereign zero-credit production plus all R8.03 evidence, uncertainty, continuity, trust, and artifact-bound QA rules.
 
 R8.05 exists because a video can be scientifically accurate, technically valid, visually clean, and still be bad social content.
 
@@ -124,3 +124,121 @@ R8.05 passes only when all inherited R8.04 sovereignty and R8.03 evidence/trust 
 - the exact master passes whole-piece cohesion.
 
 If any of those fail, reframe, rebuild once, or kill the angle. Do not publish a technically correct video that still sucks.
+
+
+## R8.06 concept competition
+
+R8.05 answers “is this concept good enough to produce?” R8.06 first asks “which of three materially different angles deserves production?”
+
+Every release-ready brief carries exactly three concept candidates with distinct angle types. Each candidate states why a cold viewer should care, the one mental job, and the visual promise. The selected candidate must clear the interest floor, clear the visual-potential floor, and stay below the confusion ceiling. This is not a claim that internal scores predict virality; it is a fail-fast mechanism for obviously weak or visually dead angles.
+
+## Opening convergence and immediate payoff
+
+The cover, first frame, and first spoken line must make the same promise. R8.06 then requires the governed finding/payoff immediately after the hook and the evidence/method beat after that payoff. A viewer should not need to survive methodology before learning why the video matters.
+
+Audio-off viewing must still communicate the opening promise.
+
+## Visual teaching-object floor
+
+The first three beats each declare a visual teaching mode and an explicit teaching object. Supported planning modes are kinetic type, comparison, diagram, object, process, and source-evidence. The opening must use at least two distinct modes and may not be three consecutive kinetic-type/text-led beats.
+
+These fields are planning constraints, not permission to invent scientific graphics. EvidenceBridge remains factual authority. PerceptualQA must still reject a master whose “teaching objects” are merely decorative or whose execution collapses back into generic text cards.
+
+## R8.06 exact-master native-feel gate
+
+In addition to every R8.05 exact-master requirement, a canonical R8.06 master must explicitly pass:
+
+- opening scroll-stop;
+- native platform feel;
+- visible teaching-object execution;
+- rejection of text-card monotony.
+
+Those checks bind to the exact encoded MP4. A synchronized but sterile video fails closed.
+
+## Provider-agnostic delivery
+
+Metricool is allowed only as an optional convenience adapter after the exact master is approved. Manual native upload remains the required fallback.
+
+R8.06 delivery rules:
+
+- try Metricool only when available and useful;
+- never rebuild or alter the approved MP4 to satisfy a Metricool plan/account limitation;
+- a provider may not mutate the approved artifact;
+- after one provider failure, fall back to manual native upload rather than entering a repair loop;
+- publisher choice never affects EvidenceBridge, Voice Engine, EvidenceMotion, or PerceptualQA.
+
+## R8.06 release floor
+
+R8.06 passes only when every inherited R8.05/R8.04/R8.03 gate passes **and** concept competition, opening convergence, immediate finding/payoff, early visual teaching-object diversity, native-feel exact-master QA, and provider-agnostic delivery all pass.
+
+Audience-performance uplift remains Unknown until matched R8.06 field artifacts are published and measured.
+
+
+## R8.07 authored visual rhythm
+
+R8.06 prevents a weak angle and a sterile opening from reaching release. R8.07 governs what happens after the opening so the rest of the video does not collapse into repetitive cards.
+
+Every R8.07 brief states one visual thesis for the whole piece. Core narrative beats — hook, finding, evidence, and limitation — use an authored composition family and rhythm action. The core story must use at least three distinct composition families, and neither composition family nor inherited R8.06 visual mode may repeat more than twice consecutively.
+
+## Recurring semantic motif
+
+A visual motif is allowed only when it carries meaning rather than decoration. The same motif must appear in the hook and return at the limitation pivot, with only two or three core appearances total. This creates continuity without turning a motif into wallpaper.
+
+The exact motif plan is included in the R8.07 overlay hash and is recomputed from the exact creative brief before rendering.
+
+## Meaning-earned pattern interruption
+
+R8.07 requires exactly one core pattern interrupt. It occurs at the limitation beat, uses reason `limitation-pivot`, and must change composition family from the preceding evidence beat.
+
+This is deliberately not a timer-based “flash every N seconds” rule. A pattern interrupt is earned by a change in meaning.
+
+## Local authored composition primitives
+
+R8.07 extends the zero-credit SVG renderer with deterministic local composition primitives:
+
+- hero object;
+- split comparison;
+- evidence focus;
+- diagram flow;
+- macro detail;
+- process flow;
+- kinetic type.
+
+These primitives change the rendered SVG pixels. They may structure attention but may not invent scientific facts. EvidenceBridge remains scientific authority. The local renderer also draws the recurring motif and the limitation-pivot interrupt state when governed by the exact brief.
+
+## R8.07 exact-master rhythm gate
+
+The exact encoded MP4 must pass every R8.05 and R8.06 master check plus:
+
+- visual rhythm;
+- motif continuity;
+- semantic pattern interruption;
+- repetition-debt rejection.
+
+A plan that looks diverse in JSON but still feels visually repetitive in the final MP4 fails closed.
+
+## Release boundary
+
+R8.07 changes visual authorship, not scientific authority or provider dependence. It continues to use the R8.05 runtime artifact schemas and the R8.06 optional-Metricool/manual-native fallback contract.
+
+Audience-retention improvement remains Unknown until canonical R8.07 artifacts are published and measured.
+
+## R8.08 silent-first comprehension & mobile claim legibility
+
+R8.08 inherits R8.07, R8.06 and R8.05 without altering the R8.04 zero-credit path. A visual that only makes sense with audio on is not release-ready. Every core beat (hook, finding, evidence, limitation) must provide a concise, exact on-screen statement readable on a phone and inside the intersection of platform safe areas. The opening hook is **visible from the first frame**: use the highlight primitive rather than hiding the promise until a later reveal.
+
+### Pre-render enforceable rules
+
+- The one viewer takeaway equals the evidence-safe early payoff.
+- Every core beat carries a role-bound silent summary equal to the actual rendered text. This prevents the receipt approving words the viewer never sees.
+- Core text must contain 2–14 words and at most 96 characters. It must use the existing safe-area intersection.
+- Hook text must already be visible at time zero. Finding/limitation must have at least 0.85 seconds of actual readable time in the voice-authored timeline (no padding).
+- The canonical source URL must remain complete and literal; no truncated URLs or invented scientific claims.
+
+These are *mechanical* gates, not a claim that word counts validate scientific meaning. The exact MP4 additionally needs normal-speed human approval for audio-off comprehension, qualification/limitation visibility, mobile safe area and readable claim dwell. Rebuilding after failure is subject to the inherited one-macro-rebuild limit.
+
+### Publication and evidence
+
+The R8.08 overlay hash binds the exact creative brief and the inherited R8.07 receipt. The exact-master receipt binds the R8.08 overlay to the same MP4 SHA-256 as the render and publication bundle. An R8.08 video with an R8.07-only approval, stale text, or missing silent-review receipt must fail closed. Manual native upload remains available without provider credits.
+
+Retention, saves, or conversion improvement is **Unknown** until real R8.08 videos are published and measured.
