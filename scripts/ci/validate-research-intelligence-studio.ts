@@ -4,6 +4,7 @@ import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
 import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
 import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
+import {buildInstrumentRelay} from '../../lib/research-intelligence-relay'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -376,6 +377,54 @@ for(const name of ['Study DNA','Contradiction Observatory','Knowledge Frontier',
 }
 assert(readFileSync('app/research/source-register/page.tsx','utf8').includes("href='/research/intelligence/'"))
 assert(readFileSync('app/research/page.tsx','utf8').includes("href='/research/intelligence/'"))
+// Relay 1.06: actual cross-instrument join logic must stay source-bound.
+const relay=buildInstrumentRelay(s,graph,sharedCase,sourceScope)
+assert.equal(relay.pmid,sharedCase.pmid)
+assert.equal(relay.status,'source-bound-no-clinical-synthesis')
+assert(relay.junctions.length>=2,'DNA, chronology and Ask must interoperate for a known source')
+assert(relay.junctions.some(x=>x.from==='dna'&&x.to==='time'&&x.basis==='source-year-membership'))
+assert(relay.junctions.some(x=>x.from==='dna'&&x.to==='ask'&&x.basis==='source-concept-index'))
+assert(relay.junctions.every(x=>x.pmid===sharedCase.pmid&&x.status==='research-navigation-only'))
+assert.equal(new Set(relay.junctions.map(x=>x.id)).size,relay.junctions.length)
+assert(!relay.junctions.some(x=>x.to==='contradictions'),
+ 'No auto joining an unrelated reviewed study by ingredient text alone')
+assert.throws(()=>buildInstrumentRelay(s,graph,
+ {...sharedCase,reviewedCitationIds:['fabricated-id']},sourceScope),
+ /conflicts|identity|verified|exact/, 'Forged citation IDs must fail closed')
+assert.throws(()=>buildInstrumentRelay(s,graph,sharedCase,{...sourceScope,pmid:'99999999'}),
+ /exact source-bound/, 'Incompatible source handoff must fail closed')
+assert.throws(()=>buildInstrumentRelay(s,{
+ ...graph, entries:{...graph.entries,[sharedCase.pmid]:{
+  ...graph.entries[sharedCase.pmid],sourceSignature:'forged-snapshot'}},
+},sharedCase,sourceScope),/exact source-bound/, 'An altered semantic source signature must fail closed')
+const reviewedNetwork={...graph,
+ reviewedEdges:[...graph.reviewedEdges,{
+  id:'reviewed:known',sourcePmid:sharedCase.pmid,subject:'magnesium',predicate:'mentions',object:'sleep',
+  context:'Independently reviewed index description',evidenceType:'bibliographic',
+  uncertainty:'not a treatment inference',reviewer:'test-reviewer',
+  reviewedAt:'2026-10-08',batchId:'test-batch',provenance:'independent-scientific-review' as const,
+ },{
+  id:'reviewed:unrelated',sourcePmid:'10000002',subject:'creatine',predicate:'mentions',object:'cognition',
+  context:'Another source',evidenceType:'bibliographic',uncertainty:'',
+  reviewer:'test-reviewer',reviewedAt:'2026-10-08',batchId:'test-batch',
+  provenance:'independent-scientific-review' as const,
+ }],
+ contradictions:[...graph.contradictions,{
+  sourcePmid:sharedCase.pmid,flag:'Needs interpretation',
+  reviewer:'test-reviewer',reviewedAt:'2026-10-08',batchId:'test-batch',
+  provenance:'independent-scientific-review' as const,
+ }],
+}
+const reviewedRelay=buildInstrumentRelay(s,reviewedNetwork,sharedCase,sourceScope)
+assert.deepEqual(reviewedRelay.independentlyReviewed.edges.map(x=>x.id),['reviewed:known'])
+assert.equal(reviewedRelay.independentlyReviewed.contradictionFlags.length,1)
+assert.deepEqual(reviewedRelay.junctions,relay.junctions,
+ 'Independent review annotations cannot silently promote source-text paths into new navigational clinical claims')
+assert(ui.includes('buildInstrumentRelay(')&&ui.includes('Cross-instrument source relay')&&
+ ui.includes('Independent semantic review')&&ui.includes('Continue into '),
+ 'UI must render and navigate the exact-source relay and keep reviewed annotations distinct')
+assert(!ui.includes('allowAutopublish: true'),'Relay must not authorize publishing')
+
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
  exactVerifiedSources:500,allFingerprintPmidsUnique:true,coveredInstruments:8,
  sourceOnly:true,autoClinicalPromotions:0,autoPublications:0,
