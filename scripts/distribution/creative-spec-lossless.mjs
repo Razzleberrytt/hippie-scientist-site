@@ -274,7 +274,7 @@ export function buildLosslessCreativeSpec(input) {
 
   return {
     ...base,
-    version: 14,
+    version: creativeMethodRelease === 'R8.07' ? 14 : 13,
     systemRelease: systemRelease || null,
     creativeMethodRelease,
     creativeQuality: r805Receipt,
