@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs'
 import {buildResearchSemanticNetwork} from '../../lib/research-semantic-network'
 import {buildPublicationLineageReport} from '../../lib/research-publication-lineage'
 import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
-import {buildResearchCaseScope,traceCaseConceptPair} from '../../lib/research-intelligence-context'
+import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
@@ -56,6 +56,27 @@ const exactJoined=buildResearchIntelligenceStudio(sources,graph,[{...reviewed[0]
 const exactCase=buildResearchCaseFile(exactJoined,graph,'10000001')
 const sourceScope=buildResearchCaseScope(s,sharedCase)
 assert.equal(sourceScope.status,'exact-source-linked-leads-only')
+const allInstruments=['dna','contradictions','frontier','time','voyages','safety','ask','reactor'] as const
+let transitions=0
+for(const from of allInstruments)for(const to of allInstruments){
+ const handoff=createResearchInstrumentHandoff(s,graph,sharedCase,from,to)
+ const resolved=resolveResearchInstrumentHandoff(s,graph,handoff)
+ assert.equal(resolved.scope.pmid,'10000001')
+ assert.equal(resolved.caseFile.sourceSignature,sharedCase.sourceSignature)
+ assert.deepEqual(resolved.caseFile.reviewedCitationIds,sharedCase.reviewedCitationIds)
+ assert.equal(resolved.scope.status,'exact-source-linked-leads-only')
+ transitions++
+}
+assert.equal(transitions,64,'All eight instruments must be able to exchange governed source context')
+const validHandoff=createResearchInstrumentHandoff(s,graph,sharedCase,'dna','reactor')
+assert.throws(()=>resolveResearchInstrumentHandoff(s,graph,{...validHandoff,pmid:'10000002'}),/cannot be verified/,
+ 'A source from another case must not be silently substituted')
+assert.throws(()=>resolveResearchInstrumentHandoff(s,graph,{...validHandoff,sourceSignature:'forged'}),/cannot be verified/,
+ 'Source identity signatures must remain tamper-evident')
+assert.throws(()=>resolveResearchInstrumentHandoff(s,graph,{...validHandoff,reviewedCitationIds:['unreviewed-test']}),/cannot be verified/,
+ 'Source navigation cannot manufacture reviewed citation identities')
+assert.throws(()=>resolveResearchInstrumentHandoff(s,graph,{...validHandoff,conceptIds:['foreign-controlled-term']}),/cannot be verified/,
+ 'Source navigation cannot manufacture semantic concept membership')
 assert.equal(sourceScope.pmid,'10000001')
 assert.equal(sourceScope.debates.length,0,'Unlinked reviewed studies must stay outside source focus')
 assert.equal(sourceScope.sourceYear,2023)
@@ -298,6 +319,7 @@ assert(ui.includes('Why this paper matched'),'Questions must expose original tex
 assert(ui.includes('Publication identity ≠ independent study'))
 assert(ui.includes('v.systemVersion!==\'1.05\''))
 assert(ui.includes('buildResearchCaseScope(')&&ui.includes('traceCaseConceptPair(')&&
+ ui.includes('createResearchInstrumentHandoff(')&&ui.includes('resolveResearchInstrumentHandoff(')&&
  ui.includes('Clear focus · explore all sources')&&ui.includes('visibleFrontiers.slice')&&
  ui.includes('visibleSafety.slice')&&ui.includes('visibleBriefs.slice')&&
  ui.includes('visibleDebates.slice')&&ui.includes('visibleInvestigations.slice')&&
