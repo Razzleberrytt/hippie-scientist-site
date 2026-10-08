@@ -1,8 +1,8 @@
-# THS R8.06 — Hook Competition, Visual Teaching Objects & Native Delivery
+# THS R8.07 — Visual Authorship, Pattern Interruption & Retention Rhythm
 
 ## Status
 
-R8.06 is the canonical creative methodology for new THS social video. It runs on the proven R8.05 voice-first/semantic-AV production runtime and inherits R8.04 sovereign zero-credit production plus all R8.03 evidence, uncertainty, continuity, trust, and artifact-bound QA rules.
+R8.07 is the canonical creative methodology for new THS social video. It inherits the complete R8.06 concept/native-delivery layer, runs on the proven R8.05 voice-first/semantic-AV production runtime, and preserves R8.04 sovereign zero-credit production plus all R8.03 evidence, uncertainty, continuity, trust, and artifact-bound QA rules.
 
 R8.05 exists because a video can be scientifically accurate, technically valid, visually clean, and still be bad social content.
 
@@ -172,3 +172,53 @@ R8.06 delivery rules:
 R8.06 passes only when every inherited R8.05/R8.04/R8.03 gate passes **and** concept competition, opening convergence, immediate finding/payoff, early visual teaching-object diversity, native-feel exact-master QA, and provider-agnostic delivery all pass.
 
 Audience-performance uplift remains Unknown until matched R8.06 field artifacts are published and measured.
+
+
+## R8.07 authored visual rhythm
+
+R8.06 prevents a weak angle and a sterile opening from reaching release. R8.07 governs what happens after the opening so the rest of the video does not collapse into repetitive cards.
+
+Every R8.07 brief states one visual thesis for the whole piece. Core narrative beats — hook, finding, evidence, and limitation — use an authored composition family and rhythm action. The core story must use at least three distinct composition families, and neither composition family nor inherited R8.06 visual mode may repeat more than twice consecutively.
+
+## Recurring semantic motif
+
+A visual motif is allowed only when it carries meaning rather than decoration. The same motif must appear in the hook and return at the limitation pivot, with only two or three core appearances total. This creates continuity without turning a motif into wallpaper.
+
+The exact motif plan is included in the R8.07 overlay hash and is recomputed from the exact creative brief before rendering.
+
+## Meaning-earned pattern interruption
+
+R8.07 requires exactly one core pattern interrupt. It occurs at the limitation beat, uses reason `limitation-pivot`, and must change composition family from the preceding evidence beat.
+
+This is deliberately not a timer-based “flash every N seconds” rule. A pattern interrupt is earned by a change in meaning.
+
+## Local authored composition primitives
+
+R8.07 extends the zero-credit SVG renderer with deterministic local composition primitives:
+
+- hero object;
+- split comparison;
+- evidence focus;
+- diagram flow;
+- macro detail;
+- process flow;
+- kinetic type.
+
+These primitives change the rendered SVG pixels. They may structure attention but may not invent scientific facts. EvidenceBridge remains scientific authority. The local renderer also draws the recurring motif and the limitation-pivot interrupt state when governed by the exact brief.
+
+## R8.07 exact-master rhythm gate
+
+The exact encoded MP4 must pass every R8.05 and R8.06 master check plus:
+
+- visual rhythm;
+- motif continuity;
+- semantic pattern interruption;
+- repetition-debt rejection.
+
+A plan that looks diverse in JSON but still feels visually repetitive in the final MP4 fails closed.
+
+## Release boundary
+
+R8.07 changes visual authorship, not scientific authority or provider dependence. It continues to use the R8.05 runtime artifact schemas and the R8.06 optional-Metricool/manual-native fallback contract.
+
+Audience-retention improvement remains Unknown until canonical R8.07 artifacts are published and measured.

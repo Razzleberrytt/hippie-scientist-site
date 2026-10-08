@@ -162,11 +162,33 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
     for (const field of ['wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync', 'cognitiveContinuity', 'hookPromiseDelivery']) {
       if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.05 master QA requires ${field}=pass`)
     }
-    if (clean(pilot.assets?.creativeMethodRelease) === 'R8.06') {
-      if (clean(masterQa.creativeMethodRelease) !== 'R8.06') throw new Error('R8.06 staging requires an R8.06 exact-master QA receipt')
-      for (const field of ['openingScrollStop', 'nativePlatformFeel', 'visualTeachingObject', 'textCardMonotonyRejected']) {
-        if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.06 master QA requires ${field}=pass`)
+    const creativeMethodRelease = clean(pilot.assets?.creativeMethodRelease)
+    if (['R8.06', 'R8.07'].includes(creativeMethodRelease)) {
+      if (clean(masterQa.creativeMethodRelease) !== creativeMethodRelease) {
+        throw new Error(`${creativeMethodRelease} staging requires a matching exact-master QA receipt`)
       }
+      for (const field of ['openingScrollStop', 'nativePlatformFeel', 'visualTeachingObject', 'textCardMonotonyRejected']) {
+        if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`${creativeMethodRelease} master QA requires ${field}=pass`)
+      }
+    }
+    if (creativeMethodRelease === 'R8.07') {
+      for (const field of ['visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected']) {
+        if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.07 master QA requires ${field}=pass`)
+      }
+      if (clean(pilot.assets?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(pilot.assets?.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(pilot.assets?.creativeDirection?.inheritedR806OverlaySha256) !== clean(pilot.assets?.creativeFoundation?.overlaySha256)) {
+        throw new Error('R8.07 staging requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
+      }
+    }
+    if (creativeMethodRelease === 'R8.06'
+        && clean(masterQa.creativeBindings?.r806OverlaySha256) !== clean(pilot.assets?.creativeDirection?.overlaySha256)) {
+      throw new Error('R8.06 master QA creative-direction binding is stale')
+    }
+    if (creativeMethodRelease === 'R8.07'
+        && (clean(masterQa.creativeBindings?.r806OverlaySha256) !== clean(pilot.assets?.creativeFoundation?.overlaySha256)
+            || clean(masterQa.creativeBindings?.r807OverlaySha256) !== clean(pilot.assets?.creativeDirection?.overlaySha256))) {
+      throw new Error('R8.07 master QA visual-rhythm binding is stale')
     }
     if (clean(masterQa.creativeBindings?.semanticBeatMapSha256) !== clean(pilot.assets?.creativeQuality?.semanticBeatMapSha256)
         || clean(masterQa.creativeBindings?.creativeBriefSha256) !== clean(pilot.assets?.r805Bindings?.creativeBrief?.sha256)
@@ -258,7 +280,7 @@ export function stagePublicationMedia({
     title: clean(packageData.sharedFacts?.title),
     text,
     media: staged.media,
-    transportPolicy: clean(packageData?.creativeSpec?.creativeMethodRelease) === 'R8.06'
+    transportPolicy: ['R8.06', 'R8.07'].includes(clean(packageData?.creativeSpec?.creativeMethodRelease))
       ? {
           preferredConvenienceAdapter: 'metricool-if-available',
           fallback: 'manual-native-upload',

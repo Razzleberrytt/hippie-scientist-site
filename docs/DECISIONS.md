@@ -345,3 +345,13 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Delivery consequence:** Metricool is permitted only as an optional post-QA convenience adapter. Manual native upload remains the mandatory fallback. Provider limits, plan state, or format errors may not trigger creative regeneration or artifact mutation; after one provider failure the same approved artifact falls back to manual upload.
 
 **Measurement:** Internal selection scores and structural gates are pre-render filters, not predictions of virality. Audience impact remains Unknown until matched R8.06 artifacts are published and FieldLab observes retention, completion, saves/shares, profile depth, follows, and return behavior. **Status:** Implementation tracked by #6384.
+
+## 2026-10-07 — R8.07 adds authored visual rhythm and semantic pattern interruption
+
+**Decision:** Adopt R8.07 “Visual Authorship, Pattern Interruption & Retention Rhythm” as the next THS creative methodology over R8.06, while retaining the R8.05 artifact/runtime schemas. R8.07 adds executable local composition primitives plus a whole-piece rhythm contract; it does not alter scientific authority, narration timing authority, or provider sovereignty.
+
+**Rationale:** R8.06 improves concept selection, opening convergence and native-feel rejection, but a video can still decay into repetitive composition after the opening. R8.07 makes repetition and visual continuity explicit: one visual thesis, a recurring motif that returns at the limitation pivot, at least three composition families in the core story, no more than two consecutive identical families/modes, and exactly one semantic pattern interrupt earned by the limitation pivot.
+
+**Execution:** The local zero-credit SVG renderer now draws governed composition primitives (hero object, split comparison, evidence focus, diagram flow, macro detail, process flow, kinetic type), motif continuity, and the limitation interrupt state. The R8.07 overlay is hash-bound and recomputed from the exact creative brief before render. Exact-master QA must additionally pass visual rhythm, motif continuity, semantic pattern interruption, and repetition-debt rejection.
+
+**Measurement:** These are authorship/quality gates, not a claim that pattern interruption mechanically increases retention. Retention/completion/follow uplift remains Unknown until matched R8.07 field artifacts are published and observed. **Status:** Implementation tracked by #6386.

@@ -5,6 +5,7 @@ import { assertValidDistributionPack } from './distribution-pack-contract.mjs'
 import { CREATIVE_BRAND_TOKENS, validateCreativeContrast } from './creative-spec.mjs'
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
+import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -142,7 +143,11 @@ function validateIdentity(mediaPack, creativeSpec) {
     if (!video || clean(video.format) !== '1080x1920' || clean(video.timingAuthority) !== 'exact-local-narration') {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
-    if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+    const methodRelease = clean(creativeSpec?.creativeMethodRelease) || 'R8.05'
+    if (!['R8.05', 'R8.06', 'R8.07'].includes(methodRelease)) {
+      throw new Error(`unsupported R8.05 creative methodology: ${methodRelease}`)
+    }
+    if (methodRelease === 'R8.06') {
       const direction = creativeSpec?.creativeDirection
       if (clean(direction?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
           || clean(direction?.release) !== 'R8.06'
@@ -160,6 +165,23 @@ function validateIdentity(mediaPack, creativeSpec) {
           || direction?.deliveryPolicy?.manualFallbackRequired !== true
           || direction?.deliveryPolicy?.providerMayMutateArtifact !== false) {
         throw new Error('R8.06 creative-direction receipt is missing native-attention/delivery invariants')
+      }
+    } else if (methodRelease === 'R8.07') {
+      const foundation = creativeSpec?.creativeFoundation
+      const direction = creativeSpec?.creativeDirection
+      if (clean(foundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(foundation?.release) !== 'R8.06'
+          || clean(foundation?.status) !== 'approved') {
+        throw new Error('R8.07 methodology requires an approved R8.06 creative foundation')
+      }
+      if (clean(direction?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(direction?.release) !== 'R8.07'
+          || clean(direction?.runtimeBaseRelease) !== 'R8.05'
+          || clean(direction?.status) !== 'approved'
+          || clean(direction?.inheritedR806OverlaySha256) !== clean(foundation?.overlaySha256)
+          || !/^[a-f0-9]{64}$/i.test(clean(direction?.overlaySha256))
+          || clean(direction?.visualRhythmCertifiedAt) !== 'exact-master-qa') {
+        throw new Error('R8.07 methodology requires an artifact-bound visual-rhythm creative-direction receipt')
       }
     }
   } else if (release === 'R8.04') {
@@ -313,13 +335,26 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       || JSON.stringify(freshQuality.beatReceipts) !== JSON.stringify(quality.beatReceipts)) {
     throw new Error('R8.05 creative-quality receipt does not bind the exact creative brief')
   }
-  if (clean(creativeSpec?.creativeMethodRelease) === 'R8.06') {
+  const methodRelease = clean(creativeSpec?.creativeMethodRelease)
+  if (methodRelease === 'R8.06') {
     const freshDirection = buildR806CreativeReceipt(brief)
     const direction = creativeSpec?.creativeDirection
     if (clean(freshDirection.overlaySha256) !== clean(direction?.overlaySha256)
         || clean(freshDirection.selectedConceptId) !== clean(direction?.selectedConceptId)
         || JSON.stringify(freshDirection.earlyVisualTeachingModes) !== JSON.stringify(direction?.earlyVisualTeachingModes)) {
       throw new Error('R8.06 creative-direction receipt does not bind the exact creative brief overlay')
+    }
+  } else if (methodRelease === 'R8.07') {
+    const freshFoundation = buildR806CreativeReceipt(brief)
+    const foundation = creativeSpec?.creativeFoundation
+    const freshDirection = buildR807CreativeReceipt(brief)
+    const direction = creativeSpec?.creativeDirection
+    if (clean(freshFoundation.overlaySha256) !== clean(foundation?.overlaySha256)
+        || clean(freshDirection.overlaySha256) !== clean(direction?.overlaySha256)
+        || clean(freshDirection.inheritedR806OverlaySha256) !== clean(foundation?.overlaySha256)
+        || JSON.stringify(freshDirection.compositionFamilies) !== JSON.stringify(direction?.compositionFamilies)
+        || clean(freshDirection.patternInterruptBeatId) !== clean(direction?.patternInterruptBeatId)) {
+      throw new Error('R8.07 visual-rhythm receipt does not bind the exact creative brief overlay')
     }
   }
   if (clean(brief.sourceIdentity?.id) !== clean(mediaPack.researchObjectIds?.[0])
@@ -422,6 +457,13 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       cutReason: clean(beat.cutReason),
       factualAuthority: clean(beat.factualAuthority) || 'creative-framing',
       colorTreatment: colorTreatmentForRole(clean(beat.role), beat.colorTreatment),
+      visualMode: clean(beat?.r806?.visualMode),
+      teachingObject: clean(beat?.r806?.teachingObject),
+      compositionFamily: clean(beat?.r807?.compositionFamily),
+      rhythmAction: clean(beat?.r807?.rhythmAction),
+      motifId: clean(beat?.r807?.motifId),
+      patternInterrupt: beat?.r807?.patternInterrupt === true,
+      patternInterruptReason: clean(beat?.r807?.patternInterruptReason),
       beatReceiptSha256: sha256(JSON.stringify(governed)),
       sourceLegibility: clean(beat.role) === 'source' ? creativeSpec.verticalVideo.sourceLegibility : undefined,
     }
@@ -461,6 +503,62 @@ function verticalPlatformIntersection() {
   }
 }
 
+function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase }) {
+  const family = clean(scene.compositionFamily)
+  if (!family) return ''
+  const phase = clean(motionPhase) || 'post'
+  const revealHidden = clean(scene.motionType) === 'reveal' && phase === 'pre'
+  if (revealHidden) return ''
+  const semanticAccentVisible = clean(scene.motionType) === 'hold' || phase === 'post'
+  const available = bottom - top
+  if (available < 140) throw new Error(`R8.07 composition ${family} lacks vertical space beneath governed copy`)
+  const h = Math.min(420, available)
+  const y = top + Math.max(0, (available - h) * 0.35)
+  const cx = x + (width / 2)
+  const cy = y + (h / 2)
+  const stroke = `stroke="${foreground}" stroke-width="6"`
+  const softStroke = `stroke="${foreground}" stroke-width="4" stroke-opacity="0.62" fill="none"`
+  const softFill = `fill="${foreground}" fill-opacity="0.10"`
+  let body = ''
+
+  if (family === 'hero-object') {
+    body = `<circle cx="${cx}" cy="${cy}" r="${Math.min(120, h * 0.28)}" ${softFill} ${stroke}/><circle cx="${cx - 170}" cy="${cy - 60}" r="24" fill="${foreground}" fill-opacity="0.68"/><circle cx="${cx + 170}" cy="${cy - 70}" r="18" fill="${foreground}" fill-opacity="0.52"/><circle cx="${cx + 140}" cy="${cy + 105}" r="28" fill="${foreground}" fill-opacity="0.78"/><path d="M ${cx - 145} ${cy - 50} L ${cx - 90} ${cy - 25} M ${cx + 145} ${cy - 60} L ${cx + 88} ${cy - 25} M ${cx + 115} ${cy + 90} L ${cx + 78} ${cy + 55}" ${softStroke}/>`
+  } else if (family === 'split-compare') {
+    const gap = 42
+    const boxW = (width - gap) / 2
+    body = `<rect x="${x}" y="${y + 45}" width="${boxW}" height="${Math.min(250, h - 90)}" rx="34" ${softFill} ${stroke}/><rect x="${x + boxW + gap}" y="${y + 45}" width="${boxW}" height="${Math.min(250, h - 90)}" rx="34" ${softFill} ${stroke}/><path d="M ${cx - 28} ${cy} L ${cx + 28} ${cy} M ${cx + 10} ${cy - 18} L ${cx + 28} ${cy} L ${cx + 10} ${cy + 18}" ${stroke}/>`
+  } else if (family === 'evidence-focus') {
+    const cardW = Math.min(520, width * 0.72)
+    const cardX = cx - cardW / 2
+    body = `<rect x="${cardX}" y="${y + 20}" width="${cardW}" height="${Math.min(320, h - 40)}" rx="28" ${softFill} ${stroke}/><circle cx="${cardX + 54}" cy="${y + 86}" r="14" fill="${foreground}"/><path d="M ${cardX + 92} ${y + 86} H ${cardX + cardW - 48} M ${cardX + 48} ${y + 150} H ${cardX + cardW - 48} M ${cardX + 48} ${y + 214} H ${cardX + cardW - 130}" ${softStroke}/>`
+  } else if (family === 'diagram-flow') {
+    const left = x + width * 0.18
+    const mid = x + width * 0.5
+    const right = x + width * 0.82
+    body = `<path d="M ${left + 46} ${cy} H ${mid - 46} M ${mid + 46} ${cy} H ${right - 46}" ${softStroke}/><circle cx="${left}" cy="${cy}" r="44" ${softFill} ${stroke}/><circle cx="${mid}" cy="${cy}" r="44" ${softFill} ${stroke}/><circle cx="${right}" cy="${cy}" r="44" ${softFill} ${stroke}/>`
+  } else if (family === 'macro-detail') {
+    const r = Math.min(120, h * 0.27)
+    body = `<circle cx="${cx - 28}" cy="${cy - 20}" r="${r}" ${softFill} ${stroke}/><path d="M ${cx + r * 0.52} ${cy + r * 0.48} L ${cx + r * 1.18} ${cy + r * 1.16}" ${stroke}/><circle cx="${cx - 62}" cy="${cy - 58}" r="18" fill="${foreground}" fill-opacity="0.72"/><circle cx="${cx + 12}" cy="${cy - 8}" r="24" fill="${foreground}" fill-opacity="0.46"/><circle cx="${cx - 42}" cy="${cy + 42}" r="13" fill="${foreground}" fill-opacity="0.56"/>`
+  } else if (family === 'process-flow') {
+    const segment = width / 3
+    body = [0,1,2].map((index) => {
+      const bx = x + (segment * index) + 8
+      const bw = segment - 28
+      return `<rect x="${bx}" y="${cy - 62}" width="${bw}" height="124" rx="28" ${softFill} ${stroke}/>`
+    }).join('') + `<path d="M ${x + segment - 12} ${cy} H ${x + segment + 10} M ${x + (segment * 2) - 12} ${cy} H ${x + (segment * 2) + 10}" ${stroke}/>`
+  } else if (family === 'kinetic-type') {
+    body = `<rect x="${x}" y="${cy - 82}" width="${width}" height="20" rx="10" fill="${foreground}" fill-opacity="0.18"/><rect x="${x}" y="${cy - 22}" width="${width * 0.74}" height="20" rx="10" fill="${foreground}" fill-opacity="0.42"/><rect x="${x}" y="${cy + 38}" width="${width * 0.46}" height="20" rx="10" fill="${foreground}" fill-opacity="0.72"/>`
+  }
+
+  const motif = semanticAccentVisible && clean(scene.motifId)
+    ? `<g data-r807-motif="${escapeXml(scene.motifId)}"><path d="M ${x + width - 112} ${y + 18} L ${x + width - 72} ${y + 54} L ${x + width - 30} ${y + 18}" ${softStroke}/><circle cx="${x + width - 112}" cy="${y + 18}" r="10" fill="${foreground}"/><circle cx="${x + width - 72}" cy="${y + 54}" r="10" fill="${foreground}"/><circle cx="${x + width - 30}" cy="${y + 18}" r="10" fill="${foreground}"/></g>`
+    : ''
+  const interrupt = scene.patternInterrupt === true && motionPhase === 'post'
+    ? `<rect data-r807-pattern-interrupt="true" x="${x - 16}" y="${y - 18}" width="${width + 32}" height="${h + 36}" rx="42" fill="none" stroke="${foreground}" stroke-width="7" stroke-dasharray="22 16" stroke-opacity="0.82"/>`
+    : ''
+  return `<g data-r807-composition="${escapeXml(family)}">${interrupt}${body}${motif}</g>`
+}
+
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const canvas = CREATIVE_BRAND_TOKENS.canvas.vertical
   const motionPhase = clean(options.motionPhase) || 'post'
@@ -498,6 +596,18 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     ? `<rect x="${x}" y="${contentTop + (lines.length * lineHeight) + 16}" width="${Math.min(safeWidth, Math.max(180, safeWidth * 0.62))}" height="8" rx="4" fill="${foreground}"/>`
     : ''
   const disclosureY = canvas.height - safe.bottom - 70
+  const compositionTop = contentTop + (lines.length * lineHeight) + 72
+  const compositionVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
+  const composition = compositionVisible
+    ? renderAuthoredComposition(scene, {
+        x,
+        width: safeWidth,
+        top: compositionTop,
+        bottom: disclosureY - 72,
+        foreground,
+        motionPhase,
+      })
+    : ''
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
     sourceUrl,
@@ -516,11 +626,18 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     motionPhase,
     motionCueOffset: scene.motionCueOffset ?? null,
     motionCueMethod: scene.motionCueMethod || null,
+    visualMode: scene.visualMode || null,
+    teachingObject: scene.teachingObject || null,
+    compositionFamily: scene.compositionFamily || null,
+    rhythmAction: scene.rhythmAction || null,
+    motifId: scene.motifId || null,
+    patternInterrupt: scene.patternInterrupt === true,
+    patternInterruptReason: scene.patternInterruptReason || null,
     start: scene.start,
     end: scene.end,
     safeArea: { x, right: safeRight, width: safeWidth, top: safe.top, bottom: canvas.height - safe.bottom },
   })
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${composition}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
@@ -591,6 +708,13 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       duration: release === 'R8.05' ? roundTenThousandth(scene.end - scene.start) : roundMillis(scene.end - scene.start),
       role: scene.role,
       factualAuthority: scene.factualAuthority,
+      visualMode: scene.visualMode || null,
+      teachingObject: scene.teachingObject || null,
+      compositionFamily: scene.compositionFamily || null,
+      rhythmAction: scene.rhythmAction || null,
+      motifId: scene.motifId || null,
+      patternInterrupt: scene.patternInterrupt === true,
+      patternInterruptReason: scene.patternInterruptReason || null,
       sourceContentHash: mediaPack.source.contentHash,
       sourceUrl: mediaPack.source.url,
     }
@@ -610,8 +734,9 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fps: 30,
     durationSeconds,
     semanticBeatMapSha256: bindings?.semanticBeatMapSha256 ?? null,
-    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority }) => ({
+    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
       id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority,
+      visualMode, teachingObject, compositionFamily, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
     })),
   }
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
@@ -651,6 +776,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     creativeQuality: creativeSpec.creativeQuality ?? null,
+    creativeFoundation: creativeSpec.creativeFoundation ?? null,
     creativeDirection: creativeSpec.creativeDirection ?? null,
     r805Bindings: bindings,
     durationSeconds,

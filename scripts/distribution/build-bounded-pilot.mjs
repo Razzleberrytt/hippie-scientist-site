@@ -228,6 +228,12 @@ export async function buildBoundedPilot({
       if (creativeMethodRelease === 'R8.06' && clean(candidateSpec?.creativeDirection?.status) !== 'approved') {
         throw new Error('R8.06 short-video pilot requires an approved hook-competition/native-visual creative-direction receipt')
       }
+      if (creativeMethodRelease === 'R8.07'
+          && (clean(candidateSpec?.creativeFoundation?.status) !== 'approved'
+              || clean(candidateSpec?.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+              || clean(candidateSpec?.creativeDirection?.status) !== 'approved')) {
+        throw new Error('R8.07 short-video pilot requires approved R8.06 foundation and R8.07 visual-rhythm receipts')
+      }
       const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
       const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
       if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
