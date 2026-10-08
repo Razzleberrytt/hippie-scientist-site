@@ -146,7 +146,7 @@ export type RecordedEvidenceChange = {
   basis: 'explicit-editorial-grade-change-log'
 }
 export type ResearchStudio = {
-  systemVersion: '1.04'
+  systemVersion: '1.05'
   recordedChanges: RecordedEvidenceChange[]
   adjudication: ResearchAdjudicationLedger
   publicationLineage: PublicationLineageReport
@@ -446,7 +446,7 @@ export function buildResearchIntelligenceStudio(
     .sort((a,b)=>b.occurredAt.localeCompare(a.occurredAt))
     .slice(0,40)
   return {
-    systemVersion:'1.04',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
+    systemVersion:'1.05',schemaVersion:1,sourceWave:7500,sourceCount:sources.length,researchOnly:true,
     dna,debates,frontiers,safety,investigations,timeline,briefs,recordedChanges,adjudication,publicationLineage,
     metrics:{fingerprints:dna.length,
       classifiedMethods:dna.filter(x=>x.methodBasis!=='unknown').length,
@@ -511,12 +511,12 @@ function unresolvedQuestionTerms(input:string,mentions:readonly SemanticMention[
  * Deterministic evidence SOURCE FINDER, not generated clinical Q&A.
  * Never produces treatment advice, synthesizes results, or invents citations.
  */
-export function askResearchSources(question:string,studio:ResearchStudio):StudioQueryResult {
+export function askResearchSources(question:string,studio:ResearchStudio,focusPmid?:string):StudioQueryResult {
   const input=clip(question,300)
   const mentions=extractSemanticMentions(input,'')
   const names=[...new Set(mentions.map(m=>m.id))]
   const unresolvedTerms=unresolvedQuestionTerms(input,mentions)
-  const ranked=studio.dna.map(d=>{
+  const ranked=studio.dna.filter(d=>!focusPmid||d.pmid===focusPmid).map(d=>{
     const hits=d.concepts.filter(m=>names.includes(m.id))
     const inTitle=hits.filter(x=>x.basis==='title').length
     return {d,hits,score:inTitle*5+(hits.length-inTitle)*2}
@@ -536,13 +536,13 @@ export function askResearchSources(question:string,studio:ResearchStudio):Studio
     understoodConcepts:names.map(id=>RESEARCH_CONCEPTS.find(c=>c.id===id)?.label||id),
     unresolvedTerms,
     matchMode,
-    retrievalNote:!names.length
+    retrievalNote:(focusPmid?'Only selected PMID '+focusPmid+' is searched. ':'')+(!names.length
       ? 'No controlled vocabulary concept matched this question. The source finder cannot answer it.'
       : unresolvedTerms.length
         ? 'Unindexed question terms ('+unresolvedTerms.join(', ')+') were NOT verified. Displayed papers match indexed concepts only, NOT the full question.'
         : exact
           ? 'These sources mention every recognized concept in the question; co-mention does not establish a relationship.'
-          : 'No single source in this batch mentions every recognized concept. Showing individually related sources only, NOT matches to the full question.',
+          : 'No single source in this batch mentions every recognized concept. Showing individually related sources only, NOT matches to the full question.'),
     matches:results.slice(0,12).map(({d,hits})=>({
       pmid:d.pmid,title:d.title,year:d.year,
       reason:'Title/abstract concept matches: '+hits.map(h=>h.label+' ('+h.basis+')').join(', '),
