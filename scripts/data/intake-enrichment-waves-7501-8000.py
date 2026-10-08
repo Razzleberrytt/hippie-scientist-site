@@ -60,11 +60,47 @@ HARD_TITLE = re.compile(
   r"bibliometric|scientometric|in vitro|in silico|murine|zebrafish|"
   r"mouse model|rat model|network pharmacology|preclinical practices|"
   r"preclinical studies|humans and animals|human and animal|"
-  r"clinical and preclinical)\b", re.I
+  r"clinical and preclinical|animal models|animal studies|anxiolytic-like|studies in animals|animal experiment)\b", re.I
 )
 GOOD_TYPE = ("randomized controlled trial","controlled clinical trial","clinical trial",
              "meta-analysis","systematic review","observational study")
 UA = {"User-Agent": "THSHumanResearchEnrichment/1.0 (source-verification; no commercial use)"}
+
+# Independent clinical evidence assessment remains required; this narrower title
+# gate rejects obvious semantic drift caused by broad abstract/MeSH ESearch matches.
+DOMAIN_TITLE = {
+  "stress_anxiety":r"\b(?:anxiety|anxious|anxiolytic|stress|stress-related)\b",
+  "sleep":r"\b(?:sleep|insomnia|circadian|sleepiness)\b",
+  "withdrawal_nps":r"\b(?:withdrawal|dependen(?:ce|cy|t)|addiction|addictive|abuse|misuse|opioid use disorder|substance use disorder|kratom|mitragynine|benzodiazepine)\b",
+  "cardiometabolic":r"\b(?:cardio\w*|cholesterol|hypertension|blood pressure|blood lipid\w*|lipid profile|triglyceride\w*|vascular|atherosclerosis|arterial|endothelial|blood flow|phytosterol\w*|plant sterol\w*)\b",
+  "performance":r"\b(?:exercis\w*|muscle|athlet\w*|strength|perform\w*|training|sprint\w*|endurance|recovery|ergogenic)\b",
+  "aging_sarcopenia":r"\b(?:old(?:er)? adult\w*|elder\w*|ageing|aging|sarcopen\w*|frailt\w*|muscle mass|muscle strength|muscle function|physical function)\b",
+  "women_health":r"\b(?:women|female\w*|menopaus\w*|pregnan\w*|ovarian|ovary|polycystic|dysmenorrhea|endometriosis|pcos|menstrual|postpartum|lactation|breastfed)\b",
+  "micronutrients":r"\b(?:vitamin\w*|zinc|selenium|iron|folate|folic|magnesium|micronutrient\w*|b12|b6|riboflavin|thiamin|niacin|calcium|trace element\w*)\b",
+  "gut":r"\b(?:gut|microbiome|microbiota|intestinal|bowel|probiotic\w*|prebiotic\w*|constipation|fiber|fibre|synbiotic\w*|ibs|digestive)\b",
+  "cognition_focus":r"\b(?:cogniti\w*|brain|memory|attention|executive|focus|neurocogniti\w*|dementia|mental perform\w*|learning)\b",
+  "mood":r"\b(?:depress\w*|mood|affectiv\w*|anhedoni\w*|mental health|psychiatric)\b",
+  "inflammation_pain":r"\b(?:inflamm\w*|pain|arthrit\w*|analges\w*|soreness|arthralgia|osteoarthritis|muscle damage)\b",
+  "metabolic":r"\b(?:glucos\w*|diabet\w*|insulin|metaboli\w*|glycem\w*|hba1c|blood sugar|body weight|obesity)\b",
+  "botanicals_mushrooms":r"\b(?:ashwagandha|withania|rhodiola|bacopa|ginseng|garlic|lion.s mane|echinacea|salidroside|ginsenoside|herbal|botanical|phytotherap\w*|adaptogen\w*|saffron|crocus sativus)\b",
+  "safety_interactions":r"\b(?:supplement\w*|herbal|botanical|herb.drug|phytochem\w*|nutraceut\w*|hepatotoxic\w*|kratom|kava|cannabidiol|st john.s wort)\b",
+  "cannabinoid_safety":r"\b(?:cannabi\w*|marijuana|tetrahydrocannabinol|THC|CBD|dronabinol|nabilone|sativex)\b",
+  "mitochondrial_energy":r"\b(?:mitochondri\w*|coenzyme q10|coq10|ubiquinol|ubiquinone|carnitine|nicotinamide riboside|creatine|fatigue|atp)\b",
+  "immune_respiratory":r"\b(?:respiratory|immune|immunity|influenza|common cold|viral infection|covid|pneumonia|infection\w*)\b"
+}
+SECOND_REQUIRED = {
+  "sleep": r"\b(?:supplement\w*|melatonin|magnesium|valerian|glycine|chamomile|lavender|ashwagandha|herbal|botanical|nutrient\w*|tryptophan|vitamin)\b",
+  "aging_sarcopenia":r"\b(?:protein|creatine|leucine|vitamin|omega.3|supplement\w*|nutrient\w*|nutrition\w*|intervention\w*|exercise|training|resistance)\b",
+  "withdrawal_nps":r"\b(?:opioid\w*|opiat\w*|heroin|cannabi\w*|marijuana|benzodiazepine\w*|kratom|mitragynine|kava|substance|drug use)\b",
+  "safety_interactions":r"\b(?:safet\w*|risk\w*|adverse|toxicit\w*|interaction\w*|side effect\w*|overdos\w*|hepatotoxic\w*|poison\w*|harm\w*|contaminat\w*|contraindic\w*|pharmacokinetic\w*)\b",
+  "cannabinoid_safety":r"\b(?:risk\w*|safet\w*|harm\w*|adverse|toxicit\w*|psychos\w*|cogniti\w*|memory|withdrawal|dependen\w*|driving|psychiatric|misuse|addict\w*|interaction\w*|impairment)\b",
+  "immune_respiratory":r"\b(?:supplement\w*|vitamin\w*|zinc|elderberry|echinacea|probiotic\w*|nutrient\w*|nutrition\w*|ascorbic acid)\b"
+}
+def title_in_scope(category,title):
+    if not re.search(DOMAIN_TITLE[category],title,re.I):
+        return False
+    return category not in SECOND_REQUIRED or bool(re.search(SECOND_REQUIRED[category],title,re.I))
+
 
 def read(name):
     return json.loads((DIR / name).read_text(encoding="utf-8"))
@@ -100,7 +136,7 @@ def node_text(node):
 
 def esearch(query):
     root = req("esearch.fcgi",{"db":"pubmed","term":f"({query}) AND ({BASE_FILTER})",
-                               "retmax":"450","retmode":"xml","sort":"relevance","tool":"THSResearch"})
+                               "retmax":"1200","retmode":"xml","sort":"relevance","tool":"THSResearch"})
     return [n.text.strip() for n in root.findall("./IdList/Id") if n.text and n.text.strip().isdigit()]
 
 def efetch(ids):
@@ -134,10 +170,11 @@ def efetch(ids):
                      "publication_types":types}
     return ret
 
-def valid(rec, previous, rejected):
+def valid(rec, previous, rejected, category):
     if rec["pmid"] in previous or rec["pmid"] in rejected: return "prior_or_rejected_pmid"
     if len(rec["abstract"]) < 160 or len(rec["title"]) < 18: return "missing_substantive_abstract_or_title"
     if HARD_TITLE.search(rec["title"]): return "off_domain_title"
+    if not title_in_scope(category,rec["title"]): return "semantic_title_out_of_scope"
     types = {x.lower() for x in rec["publication_types"]}
     if "retracted publication" in types: return "retracted"
     if not any(any(kind in t for kind in GOOD_TYPE) for t in types): return "not_target_human_study_type"
@@ -171,7 +208,7 @@ def main():
                 if not rec:
                     failures.append({"pmid":pmid,"category":category,"reason":"missing_efetch_record"})
                     continue
-                why = valid(rec,prev,rejected)
+                why = valid(rec,prev,rejected,category)
                 title, doi = norm_title(rec["title"]),norm_doi(rec["doi"])
                 if not why and (pmid in seen_pmids or title in seen_titles or (doi and doi in seen_dois)):
                     why = "duplicate_identity"
