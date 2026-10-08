@@ -1,0 +1,69 @@
+name: Research lane intake
+on:
+  push:
+    branches:
+      - 'research/intake/**'
+    paths:
+      - 'ops/research-intake/**.json'
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: research-reservation-global
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  reserve:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate research control plane
+        run: node --test scripts/research/*.test.mjs
+      - name: Resolve exactly one intake manifest
+        id: intake
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^ops/research-intake/.*\.json$' || true)
+          if [ "${#files[@]}" -ne 1 ]; then
+            echo "Expected exactly one intake JSON in the triggering commit; got ${#files[@]}" >&2
+            printf '%s\n' "${files[@]}" >&2
+            exit 1
+          fi
+          echo "candidate_path=${files[0]}" >> "$GITHUB_OUTPUT"
+      - name: Reserve against main, open PRs, and live lanes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CANDIDATE_PATH: ${{ steps.intake.outputs.candidate_path }}
+        run: node scripts/research/github-reservation-controller.mjs reserve
+
+  recover:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate research control plane
+        run: node --test scripts/research/*.test.mjs
+      - name: Recover pending freezes without bypassing gates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/research/github-reservation-controller.mjs recover
