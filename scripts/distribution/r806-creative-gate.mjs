@@ -1,6 +1,8 @@
+import crypto from 'node:crypto'
 import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
+const sha256 = (value) => crypto.createHash('sha256').update(String(value ?? '')).digest('hex')
 const ANGLES = new Set(['contradiction','consequence','mechanism','myth-break','comparison','risk','utility','mystery'])
 const VISUAL_MODES = new Set(['kinetic-type','comparison','diagram','object','process','source-evidence'])
 
@@ -93,12 +95,23 @@ export function buildR806CreativeReceipt(brief) {
   assertR806CreativeBrief(brief)
   const inherited = buildR805CreativeReceipt(brief)
   const selected = brief.r806.conceptLab.candidates.find((candidate) => clean(candidate.id) === clean(brief.r806.conceptLab.selectedId))
+  const overlayIdentity = {
+    conceptLab: brief.r806.conceptLab,
+    opening: brief.r806.opening,
+    earlyTeachingPlan: brief.beats.slice(0,3).map((beat) => ({
+      id: clean(beat.id),
+      visualMode: clean(beat?.r806?.visualMode),
+      teachingObject: clean(beat?.r806?.teachingObject),
+    })),
+    delivery: brief.r806.delivery,
+  }
   return {
     schemaVersion: 'ths-r806-creative-receipt-v1',
     release: 'R8.06',
     runtimeBaseRelease: 'R8.05',
     status: 'approved',
     inheritedR805SemanticBeatMapSha256: inherited.semanticBeatMapSha256,
+    overlaySha256: sha256(JSON.stringify(overlayIdentity)),
     selectedConceptId: clean(selected.id),
     selectedAngle: clean(selected.angle),
     interestScore: Number(selected.interestScore),
