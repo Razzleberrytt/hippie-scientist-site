@@ -160,7 +160,7 @@ function openCaseInstrument(next:Tab){
 return <section className={styles.studio}>
   <header className={styles.hero}>
     <div className={styles.heroCopy}>
-      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH INTELLIGENCE v1.05 · 01—08</span></div>
+      <div className={styles.indexline}><span>THS / THE ATLAS</span><span>RESEARCH ATLAS 1.05 · SCIENTIFIC INTELLIGENCE 1.14</span></div>
       <p className={styles.eyebrow}>Eight instruments. One knowledge system.</p>
       <h1>The science is a <em>landscape.</em> Learn to navigate it.</h1>
       <p className={styles.lead}>Explore the structure of knowledge—from study fingerprints and differing results to unknowns, source-witnessed connections, safety literature and questions worth investigating.</p>
@@ -170,7 +170,7 @@ return <section className={styles.studio}>
         </button>
         <Link href='/research/source-register/'>Original source register →</Link>
       </div>
-      <p className={styles.heroCaveat}>Scientific discovery ≠ clinical evidence. Research intake and graded evidence remain separate.</p>
+      <p className={styles.heroCaveat}>Scientific discovery ≠ clinical evidence. Research intake and graded evidence remain separate. Select a verified PMID to open all twelve scientific reasoning capabilities and their calibration receipts.</p>
     </div>
     <div className={styles.heroArt} aria-hidden='true'>
       <div className={styles.orbitA}/><div className={styles.orbitB}/><div className={styles.orbitC}/>
