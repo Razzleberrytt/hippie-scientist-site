@@ -2,28 +2,9 @@
   "schema_version": 1,
   "batch_id": "2026-10-07-enrichment-waves-6805-6812-exact",
   "range": "6805-6812",
-  "row_count": 5,
-  "exact_verified_rows": 5,
-  "failures": [
-    {
-      "wave": 6807,
-      "pmid": "37340115",
-      "error": "source title mismatch or missing substantive abstract",
-      "source_title": ""
-    },
-    {
-      "wave": 6808,
-      "pmid": "36370961",
-      "error": "source title mismatch or missing substantive abstract",
-      "source_title": ""
-    },
-    {
-      "wave": 6810,
-      "pmid": "37571352",
-      "error": "source title mismatch or missing substantive abstract",
-      "source_title": ""
-    }
-  ],
+  "row_count": 8,
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "inflammation_pain",
@@ -71,6 +52,50 @@
     },
     {
       "category": "inflammation_pain",
+      "pmid": "37340115",
+      "title": "Does omega-3 supplementation improve the inflammatory profile of patients with heart failure? a systematic review and meta-analysis.",
+      "doi": "10.1007/s10741-023-10327-0",
+      "pub_date": "2023 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Heart failure reviews",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 20,
+      "wave": 6807,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Does omega-3 supplementation improve the inflammatory profile of patients with heart failure? a systematic review and meta-analysis.",
+      "abstract": "Omega-3 fatty acids are potential anti-inflammatory agents that may exert beneficial outcomes in diseases characterised by increased inflammatory profile. The purpose of this study was to comprehensively evaluate the existing research on the effectiveness of n-3 fatty acid supplementation in lowering levels of circulating inflammatory cytokines in patients with heart failure (HF). From the beginning until October 2022, randomised controlled trials (RCTs) were the subject of PubMed, Scopus, Web of Science, and Cochrane Library literature search. Omega-3 fatty acid supplementation vs. placebo were compared in eligible RCTs to see how they affected patients with HF in terms of inflammation, primarily of tumour necrosis factor-alpha (TNF-a), interleukin-6 (IL-6), and c-reactive protein (CRP). A meta-analysis employing the random effects inverse-variance model and standardised mean differences was performed to assess group differences. Ten studies were included in this systematic review and meta-analysis. Our main analysis (k = 5) revealed a beneficial response of n-3 fatty acid supplementation on serum TNF-a (SMD: - 1.13, 95% CI: - 1.75- - 0.50, I2 = 81%, P = 0.0004) and IL-6 levels (k = 4; SMD: - 1.27, 95% CI: - 1.88- - 0.66, I2 = 81%, P < 0.0001) compared to placebo; however, no changes were observed in relation to CRP (k = 6; SMD: - 0.14, 95% CI: - 0.35-0.07, I2 = 0%, P = 0.20). Omega-3 fatty acid supplementation may be a useful strategy for reducing inflammation in patients with HF, but given the paucity of current studies, future studies may increase the reliability of these findings.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Heart failure reviews",
+      "verified_pub_date": "2023-Nov",
+      "pdf_link": "https://doi.org/10.1007/s10741-023-10327-0",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10575807/",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "36370961",
+      "title": "Turmeric supplementation with piperine is more effective than turmeric alone in attenuating oxidative stress and inflammation in hemodialysis patients: A randomized, double-blind clinical trial.",
+      "doi": "10.1016/j.freeradbiomed.2022.11.008",
+      "pub_date": "2022 Nov 20",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Free radical biology & medicine",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 20,
+      "wave": 6808,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Turmeric supplementation with piperine is more effective than turmeric alone in attenuating oxidative stress and inflammation in hemodialysis patients: A randomized, double-blind clinical trial.",
+      "abstract": "Turmeric has renop rotective effects that can act to reduce oxidative stress and inflammation in hemodialysis (HD) patients. Piperine has been indicated as a bioavailability enhancer of turmeric and consequently of its biological effects. However, data on the efficacy of the turmeric/piperine combination in HD patients are limited. We aimed to verify whether turmeric supplementation in combination with piperine has a superior effect to turmeric alone in increasing antioxidant capacity and reducing oxidative stress and inflammation in HD patients. This randomized, double-blind clinical trial was conducted in HD patients (age 20-75 years). Patients were supplemented with turmeric (3 g/day) or turmeric/piperine (3 g turmeric + 2 mg piperine/day) for 12 weeks. Malondialdehyde (MDA), antioxidant enzymes catalase (CAT), glutathione peroxidase (GPx), glutathione reductase (GR), high-sensitivity C-reactive protein (hs-CRP), and ferritin were evaluated at baseline and the end of the study. There was a reduction in the MDA and ferritin levels in the turmeric/piperine group and in the comparison between groups at the end of the study [MDA: -0.08(-0.14/0.01) nmol/mL versus -0.003(-0.10/0.26) nmol/mL, p = 0.003; ferritin: -193.80 ± 157.29 mg/mL versus 51.99 ± 293.25 mg/mL, p = 0.018]. In addition, GPx activity reduced in the turmeric group (p = 0.029). No changes were observed for CAT, GR, and hs-CRP. Turmeric plus piperine was superior to turmeric alone in decreasing MDA and ferritin levels. The use of a combination of turmeric and piperine as a dietary intervention may be beneficial for modulating the status oxidative and inflammation in HD patients. RBR-2t5zpd; Registration Date: May 2, 2018.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Free radical biology & medicine",
+      "verified_pub_date": "2022-Nov-20",
+      "pdf_link": "https://doi.org/10.1016/j.freeradbiomed.2022.11.008",
+      "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "inflammation_pain",
       "pmid": "36205586",
       "title": "The effects of curcumin-containing supplements on inflammatory biomarkers in hemodialysis patients: A systematic review and meta-analysis.",
       "doi": "10.1002/ptr.7642",
@@ -89,6 +114,28 @@
       "verified_pub_date": "2022-Dec",
       "pdf_link": "https://doi.org/10.1002/ptr.7642",
       "full_text_link": "",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "category": "inflammation_pain",
+      "pmid": "37571352",
+      "title": "Effects of Omega-3 Fatty Acids on Postoperative Inflammatory Response: A Systematic Review and Meta-Analysis.",
+      "doi": "10.3390/nu15153414",
+      "pub_date": "2023 Jul 31",
+      "pub_type": "Journal Article",
+      "journal": "Nutrients",
+      "discovery_query": "((curcumin[Title] OR turmeric[Title] OR ginger[Title] OR omega-3[Title] OR boswellia[Title] OR capsaicin[Title] OR palmitoylethanolamide[Title]) AND (pain[Title] OR inflammation[Title] OR inflammatory[Title] OR osteoarthritis[Title] OR neuropathic[Title])) AND 2008:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
+      "selection_score": 19,
+      "wave": 6810,
+      "state": "candidate_pending_exact_verification",
+      "verified_title": "Effects of Omega-3 Fatty Acids on Postoperative Inflammatory Response: A Systematic Review and Meta-Analysis.",
+      "abstract": "Initial evidence indicates that preoperatively initiated administration of omega-3 fatty acids (FAs) attenuates the postoperative inflammatory reaction. The effects of immunonutrition containing omega-3 FAs, such as eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA), on the inflammatory response to abdominal surgery continues to be unclear, although improved outcomes have been reported. Therefore, we determined the effectiveness of preoperatively initiated omega-3 FAs administration on postoperative inflammation defined as CRP (C-Reactive Protein), IL-6 (Interleukin 6), and WBC (White Blood Count) and potential effects on postoperative length of hospital stay (LOS) due to an improved inflammatory response. a literature search of Cochrane Library was conducted to identify all randomized controlled trials (RCTs) investigating the effects of preoperatively initiated omega-3 to standard care, placebo, or other immunonutrients excluding omega-3 FAs in patients undergoing abdominal surgery until the end of December 2022. a total of 296 articles were found during the initial search. Thirteen RCTs involving 950 patients were identified that met the search criteria. These were successively analyzed and included in this meta-analysis. There was no significant difference between the groups with respect to inflammatory markers IL-6: -0.55 [-1.22; 0.12] p = 0.10, CRP: -0.14 [-0.67; 0.40] p = 0.55, WBC: -0.58 [-3.05; 1.89] p = 0.42, or hospital stay -0.5 [-1.43; 0.41] p = 0.2. although reduced inflammatory markers were observed, preoperative administration of omega-3 FAs immunonutrients had no significant effect on the postoperative inflammatory response in patients undergoing abdominal surgeries. Yet, results obtained from this study are inconclusive, likely attributed to the limited number of trials and patients included. Further studies are required to obtain a better educated verdict.",
+      "title_verified": true,
+      "abstract_verified": true,
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2023-Jul-31",
+      "pdf_link": "https://doi.org/10.3390/nu15153414",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10421202/",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
