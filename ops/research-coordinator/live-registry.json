@@ -11216,6 +11216,234 @@
       "reservation_id": "319dbb733fde12b6157a",
       "reserved_at": "2026-10-08T23:05:28.574Z",
       "source_branch": "research/intake/3/20261009-botanical-safety-primary-25-01"
+    },
+    {
+      "pmid": "41690381",
+      "title": "Gut-liver axis dysregulation in colitis underlies structure-dependent pharmacokinetics of a traditional Chinese medicine.",
+      "doi": "10.1016/j.phrs.2026.108135",
+      "source_title": "Gut-liver axis dysregulation in colitis underlies structure-dependent pharmacokinetics of a traditional Chinese medicine.",
+      "abstract": "Pharmacokinetic (PK) variability under pathological conditions poses challenges for drug efficacy and safety. Although clinical data comparing PK in healthy individuals and patients is limited, evidence suggests that disease-induced variability is common and clinically significant. The liver and gut microbiota are key contributors to this variability, yet their individual and combined roles-particularly via the gut-liver axis-remain unclear, especially for complex herbal medicines. Ulcerative colitis (UC), characterized by immune dysregulation, gut microbiota dysbiosis, and hepatic inflammation, provides a relevant model to study these interactions. In this study, we investigated how UC-induced alterations in liver metabolism and gut microbiota affect the PK profiles of a multi-component herbal formula. Comparative analysis between healthy and colitis mice revealed structure-dependent PK shifts: iridoids and flavonoids exhibited reduced systemic exposure (e.g., 0.8-fold change in AUC for loganin), while saponins and polyphenols demonstrated altered colonic availability. Additionally, alkaloids showed delayed systemic elimination (e.g., 5.8-fold change in T 1/2 for berberine). Multi-omics profiling identified disruptions along the gut-liver axis, including downregulated hepatic enzymes (CYPs, UGTs) and microbial changes such as 125% increased glycoside hydrolases (GHs). Specific compounds-berberine, liquiritin, and glycyrrhizic acid-were influenced by both hepatic and microbial metabolism, while loganin and curcumin were primarily affected by gut processes. Dysfunction of GHs, particularly β-glucosidase and β-glucuronidase, was confirmed using human microbiome datasets and clinical samples, linking PK variability to disease activity. This study establishes a baseline of colitis-induced PK variability across various natural compounds, identifies key determinants, and proposes hypotheses for biomarker development.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41690381/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical research source verification, without clinical claims.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41690381",
+        "doi": "10.1016/j.phrs.2026.108135",
+        "journal": "Pharmacological research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:16.203Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "60b43df4dc0de6d86f44",
+      "reserved_at": "2026-10-08T23:06:24.839Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-11-02"
+    },
+    {
+      "pmid": "41641289",
+      "title": "Synergistic hepatoprotection mediated by Tangeretin in Naregamia alata : in vivo and in vitro evidences.",
+      "doi": "10.1007/s10616-026-00902-2",
+      "source_title": "Synergistic hepatoprotection mediated by Tangeretin in Naregamia alata : in vivo and in vitro evidences.",
+      "abstract": "Our study focuses mainly on identifying the hepatoprotective activity of Naregamia alata ethyl acetate (NAEA) extract on Wistar rats. In addition, tangeretin was isolated, characterized and studied for in vivo and in silico approaches. D-GalN-induced hepatotoxicity rats were treated with 200 and 400 mg/kg of NAEA and its antioxidant and hepatoprotective activity was determined. The active constituent in the extract was isolated and spectral characterization was carried out. Cytoprotective, antioxidant and hepatoprotective activity of tangeretin was analyzed using MTT assay, DCFA-ROS assay and D-GalN induced toxicity in HepG2 cells. The anti-inflammatory activity of tangeretin in D-GalN treated cells was assessed by measuring the level of IL-6 and TNF-α via qRT-PCR. Molecular docking of tangeretin with the TACE enzyme was performed using AutoDock tools. Acute toxicity study in rats shows that NAEA exhibits no toxicity up to 4000 mg/kg. Hepatoprotective activity of the extract was confirmed by histopathological analysis and liver enzymes in d-galactosamine-induced hepatotoxicity rats treated with 200 and 400 mg/kg of NAEA . Spectral characterization reveals that the active constituent is tangeretin and MTT assay reveals IC 50 of 44.14 µM. 21.25 and 42.5 µM of tangeretin show antioxidant activity in DCFH-DA staining. The level of IL-6 and TNF-α were downregulated by tangeretin in HepG2 cells pretreated with D-Galactosamine. Molecular docking studies show that tangeretin binds to TACE with the binding energy of -9.13 kcal/mol and exhibits a low inhibition constant of 204.12 nM. Our findings show that the antioxidant, anti-inflammatory and hepatoprotective activity of Naregemia alata is due to the presence of tangeretin. The online version contains supplementary material available at 10.1007/s10616-026-00902-2.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41641289/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical research source verification, without clinical claims.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41641289",
+        "doi": "10.1007/s10616-026-00902-2",
+        "journal": "Cytotechnology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:16.204Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e40067f32869531cb204",
+      "reserved_at": "2026-10-08T23:06:24.839Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-11-02"
+    },
+    {
+      "pmid": "42190414",
+      "title": "Picrorhiza scrophulariiflora ethanol extract ameliorates CCl 4 -induced acute liver injury by blocking the TSP1/TNF/NF-κB axis.",
+      "doi": "10.1016/j.intimp.2026.116926",
+      "source_title": "Picrorhiza scrophulariiflora ethanol extract ameliorates CCl 4 -induced acute liver injury by blocking the TSP1/TNF/NF-κB axis.",
+      "abstract": "This study aimed to investigate the effects and potential mechanisms of Picrorhiza scrophulariiflora ethanol extract (PSE) in ameliorating carbon tetrachloride (CCl 4 )-induced acute liver injury. Mouse models of CCl 4 -induced acute liver injury and HepG2 cell models were established to assess the pharmacodynamic effects of PSE. The viability of HepG2 cells treated with PSE and CCl 4 was determined using CCK-8 assays. H&E staining, liver index, and serum liver function markers were analyzed to evaluate the protective effect of PSE. The levels of superoxide dismutase (SOD), malondialdehyde (MDA), tumor necrosis factor-α (TNF-α), interleukin-1β (IL-1β), and interleukin-6 (IL-6) were assessed both in vivo and in vitro. Using transcriptomics, we identified key pathways and potential target of PSE. To validate the efficacy of these targets within relevant pathways, we conducted cellular thermal shift assays (CETSA), molecular docking, Western blotting, and quantitative real-time PCR analyses. Compared with the model group, PSE treatment significantly increased the survival rate of HepG2 cells. PSE markedly improved the general condition of mice, including reduced liver index, decreased levels of alanine aminotransferase (ALT) and aspartate aminotransferase (AST), and ameliorated histopathological damage in liver tissues. Furthermore, PSE significantly increased SOD activity while reducing MDA levels both in vivo and in vitro. Transcriptomics and cellular thermal shift assays indicated that the effects of PSE were mediated through the TSP1/TNF/NF-κB signaling pathway. In addition, PSE treatment decreased both the protein and mRNA levels of NF-κB, TNF-α, IL-6, and IL-1β. PSE exerts anti-inflammatory effects via the TSP1/TNF/NF-κB axis, thereby ameliorating CCl 4 -induced acute liver injury.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42190414/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Botanical research source verification, without clinical claims.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42190414",
+        "doi": "10.1016/j.intimp.2026.116926",
+        "journal": "International immunopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-08T23:06:16.204Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3079f2ba4f6b70c72432",
+      "reserved_at": "2026-10-08T23:06:24.839Z",
+      "source_branch": "research/intake/3/20261009-botanical-safety-primary-11-02"
     }
   ],
   "batches": [
@@ -11229,22 +11457,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 141,
+    "total_reservations": 144,
     "by_lane": {
       "1": 5,
       "2": 15,
-      "3": 38,
+      "3": 41,
       "4": 33,
       "5": 50
     },
     "by_state": {
-      "SOURCE_VERIFIED": 141
+      "SOURCE_VERIFIED": 144
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 141,
+        "count": 144,
         "pr_number": null,
         "blocker": null
       }
