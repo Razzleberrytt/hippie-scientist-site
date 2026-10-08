@@ -26,7 +26,7 @@ export default function SourceRegisterClient({ records, previousCount, priorInde
   const [loadedNetwork, setLoadedNetwork] = useState<SemanticNetwork | null>(null)
   const [semanticLoading, setSemanticLoading] = useState(false)
   const [semanticError, setSemanticError] = useState('')
-  const network: SemanticNetwork = loadedNetwork || { ...networkSummary, entries: {}, typedEdges: [] }
+  const network: SemanticNetwork = loadedNetwork || { ...networkSummary, entries: {}, typedEdges: [], reviewedEdges: [], contradictions: [] }
   const [view, setView] = useState<'verified' | 'previous'>('verified')
   const [previousPmids, setPreviousPmids] = useState<string[]>([])
   const [historicalLoaded, setHistoricalLoaded] = useState(false)
@@ -58,7 +58,11 @@ export default function SourceRegisterClient({ records, previousCount, priorInde
           data.summary?.activeConcepts !== networkSummary.summary.activeConcepts ||
           data.summary?.explainableEdges !== networkSummary.summary.explainableEdges ||
           data.summary?.typedEvidenceEdges !== networkSummary.summary.typedEvidenceEdges ||
+          data.summary?.reviewedSemanticEdges !== networkSummary.summary.reviewedSemanticEdges ||
+          data.summary?.contradictionFlags !== networkSummary.summary.contradictionFlags ||
           !Array.isArray(data.typedEdges) || data.typedEdges.length !== data.summary?.typedEvidenceEdges ||
+          !Array.isArray(data.reviewedEdges) || data.reviewedEdges.length !== data.summary?.reviewedSemanticEdges ||
+          !Array.isArray(data.contradictions) || data.contradictions.length !== data.summary?.contradictionFlags ||
           !records.every(record => data.entries[record.pmid]?.pmid === record.pmid)) {
         throw new Error('Semantic graph data integrity mismatch')
       }
