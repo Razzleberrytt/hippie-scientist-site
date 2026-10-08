@@ -2551,6 +2551,58 @@
       "reservation_id": "90b821210a625d8108eb",
       "reserved_at": "2026-10-08T18:14:01.525Z",
       "source_branch": "research/intake/3/20261008-1355-recovery-extracts"
+    },
+    {
+      "pmid": "40551718",
+      "title": "Ashwagandha (Withania somnifera) Plant Extracts Affect the Cytochrome P450 System and Cytotoxicity of Primary Human Hepatocytes",
+      "source_title": "Ashwagandha (Withania somnifera) Plant Extracts Affect the Cytochrome P450 System and Cytotoxicity of Primary Human Hepatocytes",
+      "doi": "10.1080/19390211.2025.2514458",
+      "abstract": "Primary human hepatocyte cultures were exposed to root and leaf ashwagandha extracts prepared with water or ethanol. An ethanol root extract altered CYP3A4 expression and activity, and a high-concentration ethanol leaf extract affected cell viability across time and concentration. These are laboratory observations rather than clinical interaction findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40551718/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "ashwagandha_hepatocyte_assays",
+      "relevance_reason": "Primary botanical pharmacology evidence requiring study-design-aware scientific review.",
+      "evidence_class": "in-vitro",
+      "study_design": "Primary human hepatocyte CYP expression and viability assays",
+      "study_details": {
+        "source": "PubMed indexed primary study",
+        "verified_on": "2026-10-08"
+      },
+      "population": "Primary human hepatocyte cultures",
+      "intervention": "Botanical extract and purified constituent experimental comparison",
+      "comparator": "Extracts, constituent fractions, or assay controls",
+      "outcomes": [
+        "Ethanol root extract modulated CYP3A4 expression and activity",
+        "High-concentration ethanol leaf extract reduced viability with time and concentration"
+      ],
+      "conclusion_direction": "mixed",
+      "interaction_evidence_level": "preclinical",
+      "uncertainty": "Laboratory results are not evidence of clinical effectiveness or clinically meaningful interaction.",
+      "adverse_effects": "No clinical adverse events measured; laboratory outcomes only.",
+      "interactions": "Preclinical mechanistic effects only; no human drug-interaction trial.",
+      "limitations": "In vitro models and extract-dependent chemistry limit translation to humans.",
+      "provenance": {
+        "pmid": "40551718",
+        "doi": "10.1080/19390211.2025.2514458",
+        "source": "PubMed primary abstract",
+        "verified_on": "2026-10-08",
+        "review_status": "source_verified_only"
+      },
+      "signals": {
+        "safety": 0.8,
+        "evidence_gap": 0.75,
+        "contradiction": 0.3,
+        "novelty": 0.8,
+        "graph_connectivity": 0.8
+      },
+      "priority_score": 8.450000000000001,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "056524383f18a6d5817f",
+      "reserved_at": "2026-10-08T18:14:57.909Z",
+      "source_branch": "research/intake/3/20261008-1400-hepatocyte-recovery"
     }
   ],
   "batches": [
@@ -2564,22 +2616,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 31,
+    "total_reservations": 32,
     "by_lane": {
       "1": 1,
       "2": 0,
-      "3": 4,
+      "3": 5,
       "4": 1,
       "5": 25
     },
     "by_state": {
-      "SOURCE_VERIFIED": 31
+      "SOURCE_VERIFIED": 32
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 31,
+        "count": 32,
         "pr_number": null,
         "blocker": null
       }
