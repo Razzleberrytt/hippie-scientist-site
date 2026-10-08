@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42719850",
+    "41970162",
+    "42229622",
+    "41890551",
+    "41966033"
+  ],
+  "relevance_reason": "Research-only botanical safety and toxicology source identification pending scientific interpretation."
+}
