@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '22'
       - name: Unit tests
-        run: node --test scripts/research/rolling-coordinator.test.mjs scripts/research/rolling-gate.test.mjs
+        run: node --test scripts/research/*.test.mjs
       - name: Safety boundary
         run: |
           echo "Read-only validation only. No merge, publish or cross-lane reservations are performed."
