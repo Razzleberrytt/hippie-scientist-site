@@ -45,7 +45,7 @@ return <article className={styles.paper}>
 
 export default function ResearchIntelligenceClient(){
 const [data,setData]=useState<Payload|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState('')
-const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,setMore]=useState(false)
+const [tab,setTab]=useState<Tab>('dna'),[search,setSearch]=useState(''),[more,setMore]=useState(false),[dnaVisible,setDnaVisible]=useState(9)
 const [from,setFrom]=useState(''),[to,setTo]=useState(''),[query,setQuery]=useState(''),[asked,setAsked]=useState(false)
 const [year,setYear]=useState('')
 async function activate(){
@@ -63,10 +63,10 @@ async function activate(){
  }catch{setError('Unable to load or verify this source snapshot. The original source register remains available.')}
  finally{setLoading(false)}
 }
-function navigate(next:Tab){setTab(next);setMore(false);if(!data)void activate()}
+function navigate(next:Tab){setTab(next);setMore(false);setDnaVisible(9);if(!data)void activate()}
 const filtered=useMemo(()=>data?data.dna.filter(d=>!search.trim()||
- [d.title,d.pmid,d.category,...d.outcomeMentions,...d.substancesMentioned]
- .some(s=>s.toLowerCase().includes(search.trim().toLowerCase()))).slice(0,more?40:9):[],[data,search,more])
+ [d.title,d.pmid,d.category,d.method,d.comparator,...d.outcomeMentions,...d.populationMentions,...d.substancesMentioned,...d.concepts.map(m=>m.label)]
+ .some(s=>s.toLowerCase().includes(search.trim().toLowerCase()))):[],[data,search])
 const concepts=useMemo(()=>data?.graph.concepts.filter(c=>c.kind!=='method')||[],[data])
 const voyage=useMemo(()=>data&&from&&to?explainSemanticVoyage(data.graph,from,to):[],[data,from,to])
 const answer=useMemo(()=>data&&asked?askResearchSources(query,data):null,[data,query,asked])
@@ -120,8 +120,9 @@ return <section className={styles.studio}>
         <div><strong>{data.metrics.classifiedMethods}</strong><span>Classifiable method phrases</span></div>
         <div><strong>{data.metrics.populationTagged}</strong><span>Population concepts detected</span></div></div>
       <label className={styles.field}>Find a source fingerprint<input type='search' value={search}
-        onChange={e=>{setSearch(e.target.value);setMore(false)}} placeholder='Search a substance, outcome or PMID'/></label>
-      <div className={styles.paperGrid}>{filtered.map(d=><article className={styles.paper} key={d.pmid}>
+        onChange={e=>{setSearch(e.target.value);setDnaVisible(9)}} placeholder='Search a substance, outcome or PMID'/></label>
+      <p role='status' className={styles.micro}>{filtered.length} source fingerprints match · showing {Math.min(dnaVisible,filtered.length)}</p>
+       <div className={styles.paperGrid}>{filtered.slice(0,dnaVisible).map(d=><article className={styles.paper} key={d.pmid}>
         <div className={styles.paperTop}><Tag>{human(d.category)}</Tag><span>{d.year||'Year unknown'}</span></div>
         <h3>{d.title}</h3><dl className={styles.fingerprint}>
           <div><dt>Study method signal</dt><dd>{d.method} <small>({human(d.methodBasis)})</small></dd></div>
@@ -133,7 +134,8 @@ return <section className={styles.studio}>
           <p>{d.missing.length?d.missing.join(' · '):'No missing controlled categories found; full quality review still required.'}</p></details>
         <a className={styles.paperLink} href={d.sourceUrl} target='_blank' rel='noopener noreferrer'>PubMed · {d.pmid} ↗</a>
       </article>)}</div>
-      {filtered.length===9&&!more?<button type='button' className={styles.more} onClick={()=>setMore(true)}>More fingerprints →</button>:null}
+      {filtered.length>dnaVisible?<button type='button' className={styles.more} onClick={()=>setDnaVisible(n=>n+30)}>Show next {Math.min(30,filtered.length-dnaVisible)} of {filtered.length} fingerprints →</button>:null}
+       {filtered.length===0?<p className={styles.placeholder}>No records match these terms within the 500-paper verified intake batch.</p>:null}
     </>:null}
 
     {data&&tab==='contradictions'?<>
