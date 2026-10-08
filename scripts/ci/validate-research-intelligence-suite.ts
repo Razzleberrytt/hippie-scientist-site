@@ -81,6 +81,24 @@ for(const id of ['dna','contradictions','frontier','timeline','voyages','safety'
 assert(page.includes("robots:{index:false,follow:true}"))
 assert(page.includes('<IntelligenceLab />'))
 assert(!file.includes('recommendations: true'))
+// Regression: every copied editorial source must actually mention the named angle.
+// A generic same-substance list was previously misrepresented as supporting both
+// Vitamin D × Mood and Vitamin D / Children, despite zero matching angle terms.
+for(const idea of suite.opportunities){
+  assert(idea.pmids.length>0,'Every review brief must carry source receipts')
+  const [kind,substance]=idea.id.split(':')
+  if(!['context','population','safety'].includes(kind))continue
+  const row=suite.coverage.find(x=>x.id===substance)!
+  const facet=kind==='context'?row.outcomes[0]:kind==='population'?row.populations[0]:row.safetyContext[0]
+  const facetKind=kind==='context'?'outcome':kind
+  for(const pmid of idea.pmids){
+    const src=suite.studies.find(x=>x.pmid===pmid)!
+    assert(src.concepts.some(m=>m.kind==='substance'&&m.id===substance),
+      'Brief witness must mention source substance: '+idea.id+' / '+pmid)
+    assert(src.concepts.some(m=>m.kind===(facetKind==='safety'?'safety':facetKind)&&m.id===facet.id),
+      'Brief witness must mention exact editorial facet: '+idea.id+' / '+pmid)
+  }
+}
 console.log(JSON.stringify({
  passed:true,verifiedRecords:500,
  activeConcepts:suite.summary.conceptCount,coverageSubstances:suite.coverage.length,
