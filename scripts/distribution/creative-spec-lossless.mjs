@@ -42,6 +42,9 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 export function buildLosslessCreativeSpec(input) {
   const systemRelease = clean(input?.systemRelease) || 'R8.04'
   const creativeMethodRelease = clean(input?.creativeMethodRelease) || (systemRelease === 'R8.05' ? 'R8.05' : systemRelease)
+  if (systemRelease === 'R8.05' && !['R8.05', 'R8.06', 'R8.07'].includes(creativeMethodRelease)) {
+    throw new Error(`unsupported creative methodology on R8.05 runtime: ${creativeMethodRelease}`)
+  }
   if (['R8.06', 'R8.07'].includes(creativeMethodRelease) && systemRelease !== 'R8.05') {
     throw new Error(`${creativeMethodRelease} creative methodology requires the R8.05 production runtime`)
   }
