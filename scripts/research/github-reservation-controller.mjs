@@ -34,18 +34,28 @@ function scanLocal(root){
 }
 
 function reconcileBaseline(records){
- const byPmid=new Map(),byTitle=new Map(),byDoi=new Map(),out=[];
+ const byPmid=new Map(),byTitle=new Map(),byDoi=new Map(),out=[],position=new Map();
+ const placeholder=(pmid,title)=>title===normalizeTitle('historical PMID '+pmid);
  for(const r of records){
   const pmid=String(r.pmid||''),title=normalizeTitle(r.title),doi=normalizeDoi(r.doi||'');
   const prior=byPmid.get(pmid);
   if(prior){
+   const priorPlaceholder=placeholder(pmid,prior.title),currentPlaceholder=placeholder(pmid,title);
+   if(priorPlaceholder&&!currentPlaceholder){
+     byTitle.delete(prior.title);if(prior.doi)byDoi.delete(prior.doi);
+     if(byTitle.has(title)&&byTitle.get(title)!==pmid)throw Error('conflicting existing normalized title '+title);
+     if(doi&&byDoi.has(doi)&&byDoi.get(doi)!==pmid)throw Error('conflicting existing DOI '+doi);
+     byPmid.set(pmid,{title,doi});byTitle.set(title,pmid);if(doi)byDoi.set(doi,pmid);
+     out[position.get(pmid)]={...r};continue;
+   }
+   if(currentPlaceholder)continue;
    const sameTitle=prior.title===title,sameDoi=!doi||!prior.doi||prior.doi===doi;
    if(!sameTitle||!sameDoi)throw Error('conflicting existing PMID identity '+pmid);
    continue;
   }
   if(byTitle.has(title)&&byTitle.get(title)!==pmid)throw Error('conflicting existing normalized title '+title);
   if(doi&&byDoi.has(doi)&&byDoi.get(doi)!==pmid)throw Error('conflicting existing DOI '+doi);
-  byPmid.set(pmid,{title,doi});byTitle.set(title,pmid);if(doi)byDoi.set(doi,pmid);out.push(r);
+  byPmid.set(pmid,{title,doi});byTitle.set(title,pmid);if(doi)byDoi.set(doi,pmid);position.set(pmid,out.length);out.push(r);
  }
  return out;
 }
