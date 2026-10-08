@@ -43,6 +43,10 @@ const secondaryResearchLinks = [
     href: '/info/methodology/',
   },
   {
+    label: 'Research operations',
+    href: '/research/operations/',
+  },
+  {
     label: 'Recent evidence changes',
     href: '/updates/',
   },

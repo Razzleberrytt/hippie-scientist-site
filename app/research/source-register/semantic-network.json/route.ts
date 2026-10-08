@@ -5,16 +5,19 @@
 import { getResearchSourceRegister } from '@/lib/research-source-register'
 import { getPublicEvidenceDataset } from '@/lib/public-evidence-dataset'
 import { buildResearchSemanticNetwork } from '@/lib/research-semantic-network'
+import { getReviewedResearchSemanticOverlay } from '@/lib/research-reviewed-semantic'
 
 export const dynamic = 'force-static'
 
 export async function GET() {
   const data = getResearchSourceRegister()
   const published = await getPublicEvidenceDataset()
+  const reviewedSemantic = getReviewedResearchSemanticOverlay(data.records)
   const network = buildResearchSemanticNetwork(
     data.records,
     published.ingredients.map(item => ({ name: item.name, href: item.path })),
     published.studies.map(study => ({ pmid: study.pmid, id: study.id })),
+    reviewedSemantic,
   )
   if (network.summary.sourcePapers !== data.latestSourceVerified ||
       Object.keys(network.entries).length !== data.latestSourceVerified) {

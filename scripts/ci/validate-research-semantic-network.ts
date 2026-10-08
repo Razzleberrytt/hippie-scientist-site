@@ -19,6 +19,29 @@ const network=buildResearchSemanticNetwork(
   [{pmid:'10000001',id:'pub-studY-1'},{pmid:'10000099',id:'unrelated'}],
 )
 assert.equal(network.summary.sourcePapers,6)
+const reviewedNetwork=buildResearchSemanticNetwork(
+  corpus,[],[],
+  {
+    edges:[{
+      id:'reviewed:test-edge',sourcePmid:'10000001',subject:'Passiflora incarnata',predicate:'studied_for',
+      object:'anxiety',context:'synthetic validation context',evidenceType:'human randomized trial',
+      uncertainty:'synthetic-test-only',reviewer:'independent-test-reviewer',reviewedAt:'2026-10-08T12:00:00Z',
+      batchId:'synthetic-batch',provenance:'independent-scientific-review',
+    }],
+    contradictions:[{
+      sourcePmid:'10000002',flag:'Synthetic disagreement flag',reviewer:'independent-test-reviewer',
+      reviewedAt:'2026-10-08T12:00:00Z',batchId:'synthetic-batch',provenance:'independent-scientific-review',
+    }],
+  },
+)
+assert.equal(reviewedNetwork.summary.reviewedSemanticEdges,1)
+assert.equal(reviewedNetwork.summary.contradictionFlags,1)
+assert.equal(reviewedNetwork.reviewedEdges[0].sourcePmid,'10000001')
+assert.throws(()=>buildResearchSemanticNetwork(corpus,[],[],{
+  edges:[{...reviewedNetwork.reviewedEdges[0],id:'reviewed:outside',sourcePmid:'99999999'}],
+  contradictions:[],
+}),/outside the active source batch/)
+
 assert.equal(network.summary.activeConcepts>3,true)
 const a=network.entries['10000001']
 assert(a.mentions.some(m=>m.id==='passionflower'&&m.basis==='title'))
