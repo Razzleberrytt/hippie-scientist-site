@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor } from './autonomous-merge-controller.mjs'
+import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow } from './autonomous-merge-controller.mjs'
 
 const baseSha = 'base'
 const headSha = 'head'
@@ -533,4 +533,40 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(failed.reason).toContain('known check failure')
   })
 
+})
+
+describe('P0 zero-job bot refresh recovery routing', () => {
+  const zeroJob={id:42,name:'CI',event:'pull_request',status:'completed',conclusion:'action_required'}
+  const confirmed=new Set([42])
+  it('dispatches a missing workflow but never assumes a zero-job stub is validated', () => {
+    expect(shouldDispatchRegisteredWorkflow('CI',[])).toBe(true)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob])).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob],confirmed)).toBe(true)
+  })
+  it('refuses to replace real failed, successful or pending workflow results', () => {
+    for(const state of [
+      {...zeroJob,conclusion:'failure'},
+      {...zeroJob,conclusion:'success'},
+      {...zeroJob,status:'in_progress',conclusion:null},
+      {...zeroJob,event:'workflow_dispatch',conclusion:'success'},
+    ]){
+      expect(shouldDispatchRegisteredWorkflow('CI',[state],confirmed)).toBe(false)
+    }
+  })
+  it('fails closed for a mixed zero-job and real workflow, including a prior recovery', () => {
+    const another={...zeroJob,id:43,conclusion:'success'}
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,another],new Set([42,43]))).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',[
+      zeroJob,{...zeroJob,id:44,event:'workflow_dispatch',status:'in_progress',conclusion:null},
+    ],new Set([42,44]))).toBe(false)
+  })
+  it('requires zero-job proof for EVERY bot-suppressed same-name run', () => {
+    const both=[zeroJob,{...zeroJob,id:43}]
+    expect(shouldDispatchRegisteredWorkflow('CI',both,new Set([42]))).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',both,new Set([42,43]))).toBe(true)
+  })
+  it('scopes to the exact workflow and ignores unrelated suppression records', () => {
+    expect(shouldDispatchRegisteredWorkflow('CI',[{...zeroJob,name:'Site Health Check'}])).toBe(true)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,{...zeroJob,id:55,name:'Site Health Check'}],confirmed)).toBe(true)
+  })
 })
