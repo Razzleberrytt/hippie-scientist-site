@@ -12,7 +12,7 @@ on:
       - 'lib/research-source-register.ts'
       - 'app/research/source-register/**'
       - '.github/workflows/research-rolling-gate.yml'
-      - '.github/workflows/research-rolling-intake.yml'
+      - '.github/workflows/research-lane-intake.yml'
 
 permissions:
   contents: read
