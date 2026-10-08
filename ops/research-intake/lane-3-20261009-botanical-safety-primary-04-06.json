@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42303053",
+    "42224857",
+    "42295375",
+    "40425598"
+  ],
+  "relevance_reason": "Botanical interaction and toxicology records for exact PubMed identity verification; no clinical promotion."
+}
