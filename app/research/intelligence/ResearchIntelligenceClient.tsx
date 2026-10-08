@@ -1,7 +1,7 @@
 'use client'
 import {useMemo,useState} from 'react'
 import Link from 'next/link'
-import {askResearchSources,explainSemanticVoyage,type ResearchStudio,type DraftBrief} from '@/lib/research-intelligence-studio'
+import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type DraftBrief,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import styles from './ResearchIntelligence.module.css'
 
@@ -52,14 +52,32 @@ async function activate(){
  if(data||loading)return
  setLoading(true);setError('')
  try{
-  const response=await fetch('/research/intelligence/dataset.json',{cache:'force-cache'})
-  if(!response.ok)throw new Error('Unavailable')
+  // Reuse the established published evidence dataset instead of hydrating
+  // another duplicate copy during Next.js static-page generation.
+  const [response,evidenceResponse]=await Promise.all([
+    fetch('/research/intelligence/dataset.json',{cache:'force-cache'}),
+    fetch('/evidence/evidence-report/dataset.json',{cache:'force-cache'}),
+  ])
+  if(!response.ok||!evidenceResponse.ok)throw new Error('Required static source missing')
   const v=(await response.json()) as Payload
+  const published=(await evidenceResponse.json()) as {
+    schemaVersion?:number
+    generatedFrom?:string
+    studies?:ReviewedStudyInput[]
+  }
+  if(published.schemaVersion!==1 ||
+     published.generatedFrom!=='current indexable runtime records' ||
+     !Array.isArray(published.studies) ||
+     !published.studies.every(x=>typeof x.id==='string'&&Array.isArray(x.relationships)))
+    throw new Error('Published evidence identity verification failed')
   if(v.schemaVersion!==1||v.sourceWave!==7500||v.researchOnly!==true||v.sourceCount!==500||
      v.metrics?.automaticallyPromotedClaims!==0||!Array.isArray(v.dna)||v.dna.length!==500||
      !v.graph||Object.keys(v.graph.entries||{}).length!==500||
      v.dna.some(x=>x.grade!=='ungraded-research-intake'))throw new Error('Integrity')
-  setData(v)
+  setData({
+    ...hydrateResearchStudioWithPublishedEvidence(v,published.studies),
+    graph:v.graph,
+  })
  }catch{setError('Unable to load or verify this source snapshot. The original source register remains available.')}
  finally{setLoading(false)}
 }
