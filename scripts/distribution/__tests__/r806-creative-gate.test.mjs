@@ -55,7 +55,9 @@ describe('R8.06 creative overlay',()=>{
   it('accepts a native-feeling concept plan over R8.05 runtime',()=>{
     const b=brief()
     expect(validateR806CreativeBrief(b)).toEqual([])
-    const receipt=buildR806CreativeReceipt(b)\n    expect(receipt).toMatchObject({release:'R8.06',runtimeBaseRelease:'R8.05',status:'approved',selectedConceptId:'c2',openingConvergence:true})\n    expect(receipt.overlaySha256).toMatch(/^[a-f0-9]{64}$/)
+    const receipt=buildR806CreativeReceipt(b)
+    expect(receipt).toMatchObject({release:'R8.06',runtimeBaseRelease:'R8.05',status:'approved',selectedConceptId:'c2',openingConvergence:true})
+    expect(receipt.overlaySha256).toMatch(/^[a-f0-9]{64}$/)
   })
   it('rejects sterile opening and Metricool dependency',()=>{
     const b=brief()
