@@ -162,6 +162,12 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
     for (const field of ['wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync', 'cognitiveContinuity', 'hookPromiseDelivery']) {
       if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.05 master QA requires ${field}=pass`)
     }
+    if (clean(pilot.assets?.creativeMethodRelease) === 'R8.06') {
+      if (clean(masterQa.creativeMethodRelease) !== 'R8.06') throw new Error('R8.06 staging requires an R8.06 exact-master QA receipt')
+      for (const field of ['openingScrollStop', 'nativePlatformFeel', 'visualTeachingObject', 'textCardMonotonyRejected']) {
+        if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.06 master QA requires ${field}=pass`)
+      }
+    }
     if (clean(masterQa.creativeBindings?.semanticBeatMapSha256) !== clean(pilot.assets?.creativeQuality?.semanticBeatMapSha256)
         || clean(masterQa.creativeBindings?.creativeBriefSha256) !== clean(pilot.assets?.r805Bindings?.creativeBrief?.sha256)
         || clean(masterQa.creativeBindings?.semanticBeatTimelineSha256) !== clean(pilot.assets?.r805Bindings?.semanticBeatTimeline?.sha256)) {
@@ -252,6 +258,14 @@ export function stagePublicationMedia({
     title: clean(packageData.sharedFacts?.title),
     text,
     media: staged.media,
+    transportPolicy: clean(packageData?.creativeSpec?.creativeMethodRelease) === 'R8.06'
+      ? {
+          preferredConvenienceAdapter: 'metricool-if-available',
+          fallback: 'manual-native-upload',
+          providerMayMutateArtifact: false,
+          retryPolicy: 'one-provider-attempt-then-fallback',
+        }
+      : null,
   }
   fs.writeFileSync(path.join(bundleDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
   fs.writeFileSync(path.join(root, 'latest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
