@@ -1,0 +1,392 @@
+{
+  "schemaVersion": "ths.generational.release-train.v1",
+  "planId": "p0-generation-2026-10-12",
+  "status": "readiness-planning-only",
+  "createdDate": "2026-10-08",
+  "timezone": "America/New_York",
+  "planningWindow": [
+    "2026-10-08",
+    "2026-10-09"
+  ],
+  "executionWindow": [
+    "2026-10-12",
+    "2026-10-16"
+  ],
+  "owner": "project-control",
+  "issue": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431",
+  "canonicalDocument": "docs/GENERATIONAL_ENGINEERING_P0.md",
+  "authoritativeControls": [
+    "AGENTS.md",
+    "docs/CURRENT_SPRINT.md",
+    "docs/MASTER_BACKLOG.md",
+    "docs/ROADMAP.md",
+    "docs/DECISIONS.md"
+  ],
+  "normalWipCap": 3,
+  "ticketAdmission": "existing single ranked score + one ticket per D/R/A workstream; planning does not reserve a slot",
+  "releaseController": ".github/workflows/autonomous-merge-controller.yml",
+  "classifier": "scripts/ci/classify-release-impact.mjs",
+  "tiers": [
+    {
+      "id": "T0",
+      "purpose": "cheap focused local tests and immutable identity/schema",
+      "mandatoryFor": "every coding pass"
+    },
+    {
+      "id": "T1",
+      "purpose": "cross-module integration and adversarial fixtures",
+      "mandatoryFor": "every affected integration boundary"
+    },
+    {
+      "id": "T2",
+      "purpose": "required exact-head CI, risk-relevant security/build/SEO/a11y/science review",
+      "mandatoryFor": "each applicable governed PR"
+    },
+    {
+      "id": "T3",
+      "purpose": "main/deployment receipt + real mobile and desktop smoke",
+      "mandatoryFor": "deployment assertions"
+    }
+  ],
+  "hardStops": [
+    "source-or-signature-mismatch",
+    "unreviewed-clinical-promotion",
+    "unauthorized-publication",
+    "failed-required-gate",
+    "stale-head-or-base",
+    "nonrecoverable-provenance-loss",
+    "unknown-deployment-declared-deployed",
+    "workstream-wip-overflow"
+  ],
+  "referencePullRequests": [
+    {
+      "id": 6428,
+      "description": "12 scientific intelligence capabilities",
+      "observedStatus": "merged-at-planning",
+      "recheck": true
+    },
+    {
+      "id": 6429,
+      "description": "PMID seed hydration",
+      "observedStatus": "open-at-planning",
+      "recheck": true
+    },
+    {
+      "id": 6426,
+      "description": "failed lane quarantine",
+      "observedStatus": "open-at-planning",
+      "recheck": true
+    },
+    {
+      "id": 6397,
+      "description": "waves 7501-8000 pending independent review",
+      "observedStatus": "open-at-planning",
+      "recheck": true
+    },
+    {
+      "id": 6399,
+      "description": "Kokoro narration artifact",
+      "observedStatus": "open-at-planning",
+      "recheck": true
+    }
+  ],
+  "packages": [
+    {
+      "id": "G0",
+      "name": "Canonical state and governance",
+      "owner": "Operations",
+      "status": "readiness",
+      "dependsOn": [],
+      "acceptance": "Reconcile GitHub PRs, admitted tickets, build/deploy and review receipts.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G1",
+      "name": "Exact publication and claim identity",
+      "owner": "Authority/Content",
+      "status": "proposed",
+      "dependsOn": [
+        "G0"
+      ],
+      "acceptance": "Invalid PMID/DOI/signature/reviewed-claim crosswalk fails closed.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G2",
+      "name": "Versioned source and editorial event contract",
+      "owner": "Authority/Content",
+      "status": "proposed",
+      "dependsOn": [
+        "G1"
+      ],
+      "acceptance": "Idempotent read-only replay to human editorial review target; no automatic clinical promotion.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G3",
+      "name": "Eight plus twelve intelligence context",
+      "owner": "Authority/Content",
+      "status": "existing-needs-integration-proof",
+      "dependsOn": [
+        "G1",
+        "G2"
+      ],
+      "acceptance": "One exact PMID persists through case projections and editorial candidates; no invented efficacy.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G4",
+      "name": "Evidence comparability and uncertainty",
+      "owner": "Authority/Content",
+      "status": "existing-bounded",
+      "dependsOn": [
+        "G3"
+      ],
+      "acceptance": "Unknown design/comparator/effect facts remain Unknown, no automatic pooling.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G5",
+      "name": "Corrections registry ingestion boundary",
+      "owner": "Authority/Content",
+      "status": "blocked-external",
+      "dependsOn": [
+        "G1"
+      ],
+      "acceptance": "Only exact dated authorized source receipts may populate review queue.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G6",
+      "name": "Scientific review and impact map",
+      "owner": "Authority/Content",
+      "status": "proposed",
+      "dependsOn": [
+        "G2",
+        "G3"
+      ],
+      "acceptance": "Reviewer-approved exact claim revisions trace dependent targets without mutation.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G7",
+      "name": "Entity search and scientific UX",
+      "owner": "Discovery/SEO",
+      "status": "proposed",
+      "dependsOn": [
+        "G3"
+      ],
+      "acceptance": "Accessible source-exact browse, aliases and semantic navigation, no index/route regressions.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G8",
+      "name": "Reviewed editorial-to-distribution handoff",
+      "owner": "Revenue/Conversion",
+      "status": "existing-review-only",
+      "dependsOn": [
+        "G2",
+        "G6"
+      ],
+      "acceptance": "Approved IDs and version/hash verified; dry-run and no autopublish.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G9",
+      "name": "Local voice/video/publisher exact artifact",
+      "owner": "Revenue/Conversion",
+      "status": "existing-needs-integration-proof",
+      "dependsOn": [
+        "G8"
+      ],
+      "acceptance": "Hash-bound narration, video, manual/native receipt and safe provider failure.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G10",
+      "name": "Attributable field telemetry and feedback",
+      "owner": "Revenue/Conversion",
+      "status": "blocked-analytics-access",
+      "dependsOn": [
+        "G9"
+      ],
+      "acceptance": "Consent-bounded attribution only; unverifiable metrics remain Unknown.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G11",
+      "name": "CI time and check economics",
+      "owner": "Operations",
+      "status": "proposed",
+      "dependsOn": [
+        "G0"
+      ],
+      "acceptance": "Measured durations, false-negative-free impact classification, required gates preserved.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G12",
+      "name": "Accessibility, safety and mobile smoke",
+      "owner": "Discovery/SEO",
+      "status": "proposed",
+      "dependsOn": [
+        "G3",
+        "G7"
+      ],
+      "acceptance": "Mobile and desktop prove source/limitation visibility and accessibility.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    },
+    {
+      "id": "G13",
+      "name": "Release, security and rollback verification",
+      "owner": "Operations",
+      "status": "existing-needs-receipt-proof",
+      "dependsOn": [
+        "G2",
+        "G8",
+        "G11"
+      ],
+      "acceptance": "Exact head/base and governed main/deployment receipt; tested rollback.",
+      "ticket": null,
+      "pr": null,
+      "headSha": null,
+      "requiredCheckResult": "Unknown",
+      "deploymentReceipt": "Unknown",
+      "businessRoi": "Unknown",
+      "confidence": "unscored-pending-admission"
+    }
+  ],
+  "week": [
+    {
+      "date": "2026-10-12",
+      "focus": [
+        "G0",
+        "G11"
+      ],
+      "deliverable": "current state + CI baseline + first authorized tickets"
+    },
+    {
+      "date": "2026-10-13",
+      "focus": [
+        "G1",
+        "G2"
+      ],
+      "deliverable": "exact identity + review-only versioned envelope negative fixtures"
+    },
+    {
+      "date": "2026-10-14",
+      "focus": [
+        "G3",
+        "G6",
+        "G8"
+      ],
+      "deliverable": "source-to-editorial review-only vertical integration proof"
+    },
+    {
+      "date": "2026-10-15",
+      "focus": [
+        "G9",
+        "G10",
+        "G11"
+      ],
+      "deliverable": "existing manual publisher + attributable measurement feasibility, no provider promises"
+    },
+    {
+      "date": "2026-10-16",
+      "focus": [
+        "G13",
+        "G12"
+      ],
+      "deliverable": "required gates, deployment receipts, mobile smoke and bounded retrospective"
+    }
+  ],
+  "measurements": {
+    "baselineStatus": "Unknown",
+    "avgFullCIMinutes": null,
+    "fullChecksPerShippedCapability": null,
+    "cycleLeadMinutes": null,
+    "avoidedDuplicateRuns": null,
+    "reopenedIntegrationFailures": null,
+    "sourcePromotionViolations": null,
+    "fieldQualifiedOutcomeDelta": null,
+    "rule": "null means not yet observed, never interpret as zero or claim a percentage"
+  }
+}
