@@ -5,6 +5,8 @@ import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublis
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
 import {buildResearchCaseFile} from '@/lib/research-intelligence-casefile'
 import {buildInstrumentRelay} from '@/lib/research-intelligence-relay'
+import {planResearchSemanticFabric} from '@/lib/research-semantic-fabric'
+import reviewedDistributionObjects from '@/data/distribution/research-objects.json'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
 import type {ResearchSourceWitness} from '@/lib/research-semantic-provenance'
 import styles from './ResearchIntelligence.module.css'
@@ -115,6 +117,7 @@ const active=stations.find(x=>x.id===tab)!
 const caseFile=useMemo(()=>data&&focusPmid?buildResearchCaseFile(data,data.graph,focusPmid):null,[data,focusPmid])
 const caseScope=useMemo(()=>data&&caseFile?buildResearchCaseScope(data,caseFile):null,[data,caseFile])
  const relay=useMemo(()=>data&&caseFile&&caseScope?buildInstrumentRelay(data,data.graph,caseFile,caseScope):null,[data,caseFile,caseScope])
+ const fabric=useMemo(()=>data&&caseFile&&caseScope?planResearchSemanticFabric(data,data.graph,caseFile,reviewedDistributionObjects):null,[data,caseFile,caseScope])
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
@@ -232,6 +235,31 @@ return <section className={styles.studio}>
             {relay.independentlyReviewed.contradictionFlags.slice(0,2).map((flag,i)=><p key={flag.batchId+':'+i}>Review flag: {flag.flag}. Requires independent interpretation before any claim.</p>)}
             {!relay.independentlyReviewed.edges.length&&!relay.independentlyReviewed.contradictionFlags.length?<p>No independently reviewed semantic annotations are attached to this PMID in the active reviewed overlay. This does not measure the wider literature.</p>:null}
           </div>
+        </section>:null}
+        {fabric?<section className={styles.fabricWorkbench} aria-label='Downstream semantic impact map'>
+          <div className={styles.fabricHeading}>
+            <h4>Semantic Fabric · downstream review map</h4>
+            <span>{fabric.systemCapability}</span>
+          </div>
+          <p>This exact research publication can be traced to editorial drafts and distribution records only when their source identifiers match. This board queues no changes and publishes nothing.</p>
+          <div className={styles.fabricColumns}>
+            <div>
+              <strong>Editorial review candidates</strong>
+              <p>{fabric.editorialQueue.length} exact-source-linked draft{fabric.editorialQueue.length===1?'':'s'}.</p>
+              {fabric.editorialQueue.slice(0,5).map(t=><p key={t.briefId}><span>{t.title}</span><small> Review required · PMID {t.sourcePmid}</small></p>)}
+              {!fabric.editorialQueue.length?<small>No PMID-linked editorial brief in this bounded snapshot—not a global research gap.</small>:null}
+            </div>
+            <div>
+              <strong>Distribution review targets</strong>
+              <p>{fabric.distributionReviewTargets.length} existing content record{fabric.distributionReviewTargets.length===1?'':'s'} matched by exact primary citation DOI.</p>
+              {fabric.distributionReviewTargets.map(t=><p key={t.objectId+':'+t.citationId}>
+                <Link href={t.targetPage}>Inspect {t.objectId} ↗</Link>
+                <small> DOI {t.matchingDoi} · source {t.citationId} · claim {t.sourceClaimId}; {t.limitation.replaceAll('-',' ')}</small>
+              </p>)}
+              {!fabric.distributionReviewTargets.length?<small>No exact DOI + claim/source identity match is registered. Similar ingredients or topics are intentionally not linked.</small>:null}
+            </div>
+          </div>
+          <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
         <p className={styles.caseCaveat}>Counts describe only this limited, sometimes sampled index—not independent clinical findings, complete literature coverage or evidence of safety. No tool publishes medical conclusions.</p>
       </article>:null}
