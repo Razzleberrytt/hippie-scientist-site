@@ -105,7 +105,8 @@ export async function fetchTimingRun(repo,id,token){
   if(!token)throw Error('GH_TOKEN is required for read-only Actions metadata')
   const base='https://api.github.com/repos/'+repo+'/actions/runs/'+id
   const run=await githubJson(base,token)
-  let jobs=[],page=1,total=0
+  const jobs=[]
+  let page=1,total=0
   do{
     const batch=await githubJson(base+'/jobs?per_page=100&page='+page,token)
     if(!Array.isArray(batch.jobs))throw Error('GitHub jobs payload is unavailable')
