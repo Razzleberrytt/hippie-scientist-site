@@ -112,6 +112,9 @@ export default async function HomepageV2() {
               ))}
             </dl>
           </div>
+          <p className='mt-4 max-w-4xl text-xs leading-6 text-muted'>
+            <strong className='text-ink'>What these counts include:</strong> Published articles and herbs are public content or profile counts. Compounds tracked includes canonical research records that may not have a published profile. Structured studies counts deduplicated study/source records, not independently confirmed clinical trials. These populations differ from the indexable ingredient profiles counted in the <Link href='/evidence/evidence-report/' className='font-semibold text-brand-700 hover:underline'>evidence report</Link>.
+          </p>
           <p className='mt-5 max-w-4xl border-t border-brand-900/10 pt-4 text-sm leading-6 text-muted'>
             Beyond the published evidence dataset, our source register tracks <strong className='text-ink'>{researchSourceRegister.totalIndexedPmids.toLocaleString()} unique PubMed references</strong> for further editorial review. Those are research-only identities, not an additional count of graded clinical studies. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Explore the source trail →</Link>
           </p>
