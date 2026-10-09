@@ -1,5 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import {readFileSync} from 'node:fs'
 import {selectReplaySeed,parseReservationReceipt} from './replay-committed-intakes.mjs'
 
 const seed={schema_version:1,seed_only:true,lane:4,pmids:['12345678','22345678']}
@@ -27,4 +28,12 @@ test('reservation receipts must match the full requested manifest exactly',()=>{
   assert.throws(()=>parseReservationReceipt('INFO source check\n',2))
   assert.throws(()=>parseReservationReceipt('{"reserved":2,"lane":4}',2))
   assert.throws(()=>parseReservationReceipt('{"reserved":0,"lane":4,"batches":[]}',2))
+})
+
+test('keeps frozen-batch recovery ahead of optional replay',()=>{
+  const workflow=readFileSync('.github/workflows/research-lane-intake.yml','utf8')
+  const frozen=workflow.indexOf('name: Recover pending freezes without bypassing gates')
+  const replay=workflow.indexOf('name: Replay exact committed PMID seeds missed by push events')
+  assert.ok(frozen>=0 && replay>frozen,'frozen batches must recover even if seed replay blocks')
+  assert.match(workflow, /RESEARCH_REPLAY_MAX_FILES: '1'/)
 })
