@@ -5,13 +5,13 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-08):** Normal implementation WIP is **1/3**: Discovery/SEO (D) owns #6451 after fresh, scored exact-base admission; Revenue/Conversion and Authority/Content are free. This is not a fourth Operations slot. Current runtime/release outcome remains Unknown until validation and deployment.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; no ticket is newly admitted by vacancy. #6451 / PR #6455 are merged and closed, with Cloudflare origin receipt verified; a real unresolved-review 405 runtime canary remains **Unknown**.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
-### P0 source-register release verified; #6451 next admitted governance fix
+### P0 source-register and controller review-hold releases verified
 
-**2026-10-08 release:** #6445 / PR #6452 merged on exact main `c71a60cdf2511e6a777659568beeeed3a2e51e51`; deploy run `37861839685` verified the matching production receipt. Real zero-job recovery execution remains **Unknown**. **Now admitted (D, 1/3):** #6451 corrects the narrower GitHub HTTP 405 review-conversation exception path; no review bypass, merge shortcut or workflow change allowed.
+**2026-10-08 release:** #6445 / PR #6452 merged on exact main `c71a60cdf2511e6a777659568beeeed3a2e51e51`; deploy run `37861839685` verified the matching production receipt. Real zero-job recovery execution remains **Unknown**. **Completed:** #6451 / PR #6455 implemented the narrow HTTP 405 review-conversation exception path and was verified deployed as `9e192934cfa1e1c285075307455b9622f4e88ef4` via run `37865211337`; real 405 runtime canary remains **Unknown**.
 
 ### Existing-owner P0 source-register recovery — #6448 merged, #6445 security follow-up
 
@@ -35,6 +35,9 @@ This sprint is an **acceleration track inside M1**, not a declaration that the R
 The sprint does **not** authorize broad/high-volume auto-posting, scientific rewriting, evidence-grade mutation, invented safety language, consumer-dose directives, a second factual dataset, speculative content volume, a second prioritization formula, or milestone completion without proof.
 
 ## Execution rules
+
+**Execution efficiency:** Batch multiple dependent acceptance criteria inside one reviewable ticket/PR when source ownership, safety, and rollback are coherent. Perform T0/T1 tests before opening the PR; reuse immutable same-head CI artifact receipts for T2 consumers; preserve every existing triggered exact-head check, controller merge authority, and T3 deployment evidence. Never invent checklist credit or measured CI savings.
+
 
 - Start only tickets listed under `Active` or `Ready next` below, and only when a real WIP slot exists. Merged control-hardening implementations are history, not admission candidates.
 - GitHub issue/PR state outranks stale document wording.
@@ -64,7 +67,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -79,7 +82,6 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6451 / PR #6455 | Treat unresolved-review merge 405 as a PR-local governance hold | In review — admitted | P0 | 80.0 | 2026-10-08 |
 
 
 

@@ -7,13 +7,13 @@
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync. The deep candidate feeder is [SWARM_BACKLOG.md](SWARM_BACKLOG.md); candidates there are not executable until revalidated and promoted here and into the sprint.
 
-### P0 control-plane review-hold reliability — #6451 (admitted, D lane)
+### P0 control-plane review-hold reliability — #6451 (completed)
 
-**Dependency satisfied 2026-10-08:** PR #6452 deployed at `c71a60cdf2511e6a777659568beeeed3a2e51e51` and Cloudflare run `37861839685` verified the production receipt. #6451 has a fresh exact-base admission with score 80.0 and WIP 1/3. Restrict implementation to the known GitHub 405 unresolved-review conversation blocker; unrelated HTTP/auth/transport failures stay fatal and no controller merge gates change. Runtime review-hold canary still **Unknown**.
+**Dependency satisfied 2026-10-08:** PR #6452 deployed at `c71a60cdf2511e6a777659568beeeed3a2e51e51` and Cloudflare run `37861839685` verified the production receipt. #6451 / PR #6455 is now merged and production receipt verified for `9e192934cfa1e1c285075307455b9622f4e88ef4` (run `37865211337`); WIP now 0/3. Restrict implementation to the known GitHub 405 unresolved-review conversation blocker; unrelated HTTP/auth/transport failures stay fatal and no controller merge gates change. Runtime review-hold canary still **Unknown**.
 
 ### Release-control security continuation — #6445 (existing owner)
 
-**Verified 2026-10-08:** #6448 / PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2` and Cloudflare deployment `37856454431` verified the production SHA. Remaining scoped gap: stale PR #6446 contains fail-closed exact PR/base/branch/head inputs and a pre-check absent from the merged minimal dispatch trigger. Preserve this distinct hardening through a clean current-main restage under #6445; do not merge a behind workflow-changing branch or bypass `NEEDS_CLEAN_RESTAGE`. A real zero-job recovery dispatch is still **Unknown**. Issue #6451 (review-related HTTP 405 sweep hold) remains a separate candidate pending admission. Business impact, CI savings and revenue **Unknown**.
+**Verified 2026-10-08:** #6448 / PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2` and Cloudflare deployment `37856454431` verified the production SHA. Remaining scoped gap: stale PR #6446 contains fail-closed exact PR/base/branch/head inputs and a pre-check absent from the merged minimal dispatch trigger. Preserve this distinct hardening through a clean current-main restage under #6445; do not merge a behind workflow-changing branch or bypass `NEEDS_CLEAN_RESTAGE`. A real zero-job recovery dispatch is still **Unknown**. Issue #6451 has since been implemented and deployed; natural production 405 review-hold canary still Unknown. Business impact, CI savings and revenue **Unknown**.
 
 ## P0 — Cross-cutting generational engineering (#6431)
 
@@ -31,6 +31,9 @@ The formula remains singular. **Strategic Leverage explicitly includes dependenc
 Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conversion, and **A** Authority/Content, with one active ticket per workstream. **O** Operations remains a classification, not a fourth normal workstream. The Evidence → Distribution surfaces—**L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**—describe ownership, not permission for concurrent Revenue/Conversion tickets.
 
 ### Backlog hygiene rules
+
+**Execution efficiency:** Batch multiple dependent acceptance criteria inside one reviewable ticket/PR when source ownership, safety, and rollback are coherent. Perform T0/T1 tests before opening the PR; reuse immutable same-head CI artifact receipts for T2 consumers; preserve every existing triggered exact-head check, controller merge authority, and T3 deployment evidence. Never invent checklist credit or measured CI savings.
+
 
 - GitHub issue/PR state outranks stale prose in this file.
 - A merged/closed item may remain only in a completed/history section, never in `Now`.
@@ -72,11 +75,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6451 / PR #6455 | Treat unresolved-review merge 405 as a PR-local governance hold | D | In review — admitted | P0 | 4/4/2/5/1.00/2 | 80.0 | 2026-10-08 |
 
 
 
-**Current admission (verified 2026-10-08):** Normal implementation WIP is **1/3**: Discovery/SEO (D) owns #6451 after fresh, scored exact-base admission; Revenue/Conversion and Authority/Content are free. This is not a fourth Operations slot. Current runtime/release outcome remains Unknown until validation and deployment.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; no ticket is newly admitted by vacancy. #6451 / PR #6455 are merged and closed, with Cloudflare origin receipt verified; a real unresolved-review 405 runtime canary remains **Unknown**.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
