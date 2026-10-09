@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "40815898",
+    "39571700",
+    "40023576",
+    "41029673",
+    "40834765"
+  ],
+  "relevance_reason": "Primary botanical pharmacology, hepatic toxicity, CYP/CES1 metabolism and herb-drug interaction investigations; all interpretations require independent scientific review."
+}
