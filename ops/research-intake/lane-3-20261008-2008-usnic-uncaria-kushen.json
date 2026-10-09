@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42019889",
+    "41966033",
+    "41327810"
+  ],
+  "relevance_reason": "Primary toxicology and pharmacokinetic studies: usnic acid hepatotoxicity translation, Uncaria alkaloid liver injury mechanisms, and compound Kushen–fluoxetine pharmacokinetics in rats. All findings remain research-only; animal and in-vitro findings do not establish human clinical interaction risk."
+}
