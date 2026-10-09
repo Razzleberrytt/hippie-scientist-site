@@ -142,9 +142,24 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain("run.conclusion === 'action_required'")
     expect(controller).toContain('getRunJobs')
     expect(controller).toContain('jobs.length !== 0')
-    expect(controller).toContain("CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof'])")
+    // The one canonical producer now owns every existing governed static-export
+    // consumer. A string assertion on the old four-name list went stale.
+    for (const consumer of [
+      'Build Check',
+      'Lighthouse CI',
+      'Production Content Lint',
+      'P0 Visual Proof',
+      'Production Content Invariants',
+      'Crawl Governance',
+      'Schema and Media Governance',
+      'Technical SEO Monitor',
+    ]) expect(controller).toContain(`'${consumer}'`)
+    expect(controller).toContain('export const CI_OWNED_RECOVERY_CONSUMERS = new Set([')
     expect(controller).toContain("failedRuns.some((run) => run.name === 'CI')")
-    expect(controller).toContain('CI recovery owns governed consumer fan-out')
+    expect(controller).toContain('Same-head CI producer owns governed consumer fan-out')
+    expect(controller).toContain('getWorkflowRuns(repo, pr.head.sha, { preserveAll: true })')
+    expect(controller).toContain('shouldDispatchRegisteredWorkflow')
+    expect(controller).toContain('planRecoveryDispatch(registered, existingRuns, verifiedZeroJobIds, pr.head.sha)')
     expect(controller).toContain('zero-job control-plane failure recovered through canonical workflow dispatch')
   })
 

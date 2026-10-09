@@ -1,8 +1,40 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
+
+## 2026-10-08 — Generational System Engineering is P0 execution methodology
+
+**Decision:** Plan architecture, interoperability, versioned source/claim/review identity, dependency graph and validation scopes as a *generation* before expanding isolated feature branches. Implement through bounded per-ticket PRs and normal WIP/admission limits, using T0 cheap fixtures, T1 cross-system contracts, T2 mandatory exact-head CI/build/scientific/security/a11y/SEO/review gates, and T3 main deployment plus user-facing proof. Optimize total safely deployed capability throughput and avoidance of redundant verifications, not source count, PR count or unmeasured velocity.
+
+**No override:** Existing AGENTS, one backlog scoring formula, evidence firewall, sole merge controller, static export, published-asset consent/identity, peer review, platform permissions, and release gates remain authoritative. CI reuse is allowed only where existing classifier and exact head/base/tree proof demonstrate equivalence; high-risk work remains fully gated. No paid services, new broad autonomous publication, source-only clinical recommendation, phantom WIP slot, or invented ROI.
+
+**Execution authority:** [P0 #6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) is architecture/planning. [Operating program](GENERATIONAL_ENGINEERING_P0.md) and [candidate register](GENERATIONAL_ENGINEERING_READINESS.md) define October 12–16 stages; tickets are admitted through CURRENT_SPRINT and MASTER_BACKLOG only after current GitHub state is reconciled. M0–M6 milestone exit conditions unchanged. Success claims require exact SHA, tests, production receipts and observed outcomes or Unknown.
+## 2026-10-08 — Scientific intelligence tools are source projections, not new medical authority
+
+**Decision:** v1.08–1.14 integrates twelve deterministic scientific investigation tools on each v1.05 exact PMID case, shares the v1.06 eight-instrument source handoff and the v1.07 editorial/distribution review firewall, and makes source signatures and calibration visible in the existing studio. Separately reviewed citation relationship metadata may only join by already governed exact publication identity. No second evidence database, paid inference runtime, automatic clinical claim, or publication authorization is created.
+
+**Boundaries:** Trial/participant independence, complete study comparability, full-text claims, live correction/retraction feeds, real third-party autonomous research, and independent peer review remain unverified without appropriate approved source material and reviewers. Rule-based adversarial checks and internal calibration do not demonstrate scientific truth.
+
+**Status:** Accepted scoped architecture; #6427 / PR #6428 remains in review until latest-head validation, release governance, mobile UI checks and production receipt. Unknown business and scientific outcome ROI must not be scored as observed.
+
+## 2026-10-08 — Source-exact instrument relays and publication-to-editorial review remain nonclinical
+
+**Decision:** Build v1.06 as a deterministic read-only projection over the already-pinned v1.05 PMID source graph, exact citation crosswalk and separately reviewed semantic annotation ledger. Source-focused Voyages require two distinct non-method indexed concepts with at least one title-backed witness, not merely a shared neighbor. v1.07 downstream content/distribution joins may use only exact DOI and already-existing source and claim identifiers; their status is human-review required.
+
+**Authority boundary:** No second corpus, inferred trial independence, forged graph path, automatic efficacy claim, evidence-grade promotion, auto-publishing, or paid runtime service. Reviewed annotations stay distinct from source text; a matched DOI is not proof that a specific claim is supported.
+
+**Governance/status:** #6419 v1.05 merged; #6420 / PR #6422 in review; #6423/#6424 work is stacked in its source branch and not independently established as a main-branch release. Tests, review threads and production receipts remain release gates. Engagement, search and business outcomes Unknown.
+
+## 2026-10-08 — Research Intelligence Studio uses two separate authorities and eight projections
+
+**Decision:** Scientific discovery features derive from the merged, SHA-pinned research-only PMID intake and controlled concept graph. Clinical directional assessments can only be compared where separately published citation relationships explicitly provide ingredient, endpoint, and relationship labels. The eight consumer instruments (Study DNA, Contradiction Observatory, Knowledge Frontier, Evidence Time Machine, Semantic Voyages, safety-literature matrix, Ask the Evidence, and editorial Content Reactor) are projections of those existing authorities; they are not eight new independent scientific datasets.
+
+**Safety and uncertainty boundary:** Textual co-mentions do not mean exposure, causal link, efficacy, risk, or contradiction. Candidate disagreements need expert review. Sparse local coverage is not absence of global evidence. Historic publication year is not historic grade-change proof; only explicit editorial grade-change receipts can appear as actual change events. Draft briefs must be source-witnessed, review-required, and never autopublished. Unreviewed intake remains nonindexable and cannot change public evidence grades, doses, recommendations, or safety decisions.
+
+**Delivery and provenance:** The visually experimental Science Atlas on `/research/intelligence/` ships as a static, noindex Next export. The 500 exact title/abstract receipts build a deterministic snapshot; the other 6,935 older PMID-only entries have no fabricated metadata. The source-rich JSON loads on user activation rather than every initial page visit. No recurring paid service, external AI credits, runtime API, or user-uploaded personal data is necessary. Frontend provides original PMIDs and reviewed citation links where the identities legitimately overlap. **Status:** In review under #6404 / PR #6407, dependent on the semantic base PR #6402; not proof of production deployment, clinical efficacy or measured engagement.
+
 
 
 ## 2026-09-28 — Curated index policy has one mutable authority

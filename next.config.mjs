@@ -14,11 +14,13 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 // runner for static generation in CI, while keeping the conservative 2-worker
 // ceiling on Cloudflare and local/unknown build hosts.
 const staticGenerationCpus = process.env.GITHUB_ACTIONS === 'true' ? 4 : 2
-// Next 15 defaults to 8 pages per static-generation worker. The measured GitHub
-// build is dominated by 1,570-page static generation, so trial a bounded 12-page
-// concurrency only on the known 4-vCPU/16-GB hosted runner. Other hosts retain
-// Next's default 8-page setting.
-const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8
+// Next 15 defaults to 8 pages per static-generation worker. Running 12 concurrent
+// pages per worker on 4-vCPU GitHub CI repeatedly exceeded Next's 60s per-page
+// timeout for three heavyweight *independent* evidence/semantic static routes.
+// Bound CI to 2 concurrent pages per worker to reduce contention while preserving
+// four workers and full static export. Other hosts retain 8, as before.
+// Scope: failed main export after Semantic 1.04 (three 60s route retries), not a speed claim.
+const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 2 : 8
 // The authoritative CI build lane runs `npm run typecheck` in its parallel
 // validation job. Only that producer opts out of Next's duplicate ~30s check;
 // every other GitHub/Cloudflare/local build keeps Next typechecking on.

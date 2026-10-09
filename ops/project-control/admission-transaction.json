@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6356,
-  "lane": "R",
-  "title": "Add first-party TikTok draft-upload provider",
+  "ticket": 6466,
+  "lane": "D",
+  "title": "Typed source-to-editorial review-only handoff and identity guards",
   "priority": "P0",
-  "base_revision": "1c123a71b488b44aae61d33deccd00ad7942e1e8",
-  "last_verified": "2026-10-06",
+  "base_revision": "7dd7603bfd878506f9c212abd103b8981dabbeec",
+  "last_verified": "2026-10-09",
   "score_inputs": {
-    "businessImpact": 5,
-    "userValue": 5,
+    "businessImpact": 4,
+    "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
-    "confidence": 1,
-    "effort": 4
+    "confidence": 0.75,
+    "effort": 3
   },
-  "score": 93.8,
-  "note": "Admit the bounded first-party TikTok draft-upload provider after a live Metricool account-limit failure. Direct Post remains out of scope because TikTok's current Direct Post intended-use rules reject private/internal managed-account uploader utilities."
+  "score": 60,
+  "note": "Exact-base single D-lane admission after #6447 retirement. Extend existing case/fabric/provenance systems with typed research-only editorial REVIEW request and adversarial identity refusal. No clinical approval, publisher authority or extra WIP."
 }

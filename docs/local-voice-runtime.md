@@ -104,3 +104,18 @@ The old package-first exact-30-second narration mode remains available only for 
 Quality may fail closed. Dependencies may not fail open.
 
 If local narration, semantic timing, visual cohesion, or the final master is weak, repair locally or retire/reframe the angle. Never silently switch to a paid provider, robotic system TTS, fixed-duration padding, or an unreviewed master.
+
+
+## R8.08+ required Kokoro recovery path
+
+**A short video must never be presented as the completed narrated THS master when it does not contain actual Kokoro synthesis.** The fallback for a chat/container without Kokoro, espeak-ng, or Hugging Face model-weight access is *not* a silent-first deliverable or a different voice service.
+
+A zero-premium-cost build runner is available as `.github/workflows/kokoro-voice-production.yml`. This runs the existing `render-local-narration.py` on an ephemeral first-party project GitHub Actions runner. It uses exactly **Kokoro-82M / am_michael**: no Descript, ElevenLabs, hosted TTS inference, or synthetic system voice.
+
+1. Begin from `main`, make a working branch named `voice/<topic>`, and place an approved canonical beat brief in `scripts/distribution/voice-briefs/active.json` (R8.05 renderer schema, even for a release whose creative methodology is R8.08+).
+2. Push the voice branch. The workflow installs `espeak-ng` and `scripts/distribution/requirements-local-voice.txt`, renders the exact `narration.wav` and beat-timing JSON, verifies its actual Kokoro model/voice provenance, then uploads `ths-kokoro-narration`.
+3. Retrieve the artifact, verify the SHA-256 bindings, then build visuals *against the exact waveform's scene timeline*. Do not squeeze narration into independently timed visual scenes. Run technical and perceptual QA on the actual output.
+4. **If the Kokoro workflow fails, the narrated video remains blocked.** Report the dependency as a blocker and repair it. Do not silently substitute a different TTS model or remove the narration requirement.
+5. Never mark final master QA or publication as passed merely because the workflow completed. Master approval requires listening to and watching the exact output.
+
+The audio waveform, WAV receipt, semantic beat timeline, and canonical brief are all required for provenance. The renderer does not require a per-voice credit balance. GitHub runner use may still count against the repository's ordinary Actions minutes.

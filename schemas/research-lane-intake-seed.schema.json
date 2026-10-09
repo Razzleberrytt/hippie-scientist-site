@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thehippiescientist.net/schemas/research-lane-intake-seed.schema.json",
+  "title": "THS research intake PMID seed envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "seed_only", "lane", "lane_focus", "research_only", "pmids"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "seed_only": {"const": true},
+    "lane": {"type": "integer", "minimum": 1, "maximum": 5},
+    "lane_focus": {
+      "enum": [
+        "sleep-stress-mood",
+        "cognition-metabolic",
+        "botanical-pharmacology-safety",
+        "withdrawal-dependence-nps",
+        "contradictions-replication"
+      ]
+    },
+    "research_only": {"const": true},
+    "pmids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 25,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[0-9]{5,10}$"}
+    },
+    "relevance_reason": {"type": "string", "minLength": 12}
+  }
+}

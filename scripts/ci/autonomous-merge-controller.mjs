@@ -7,7 +7,16 @@ const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'start
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 const DISPATCH_EVENTS = new Set(['pull_request', 'workflow_dispatch'])
 const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
-const CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof'])
+export const CI_OWNED_RECOVERY_CONSUMERS = new Set([
+  'Build Check',
+  'Lighthouse CI',
+  'Production Content Lint',
+  'P0 Visual Proof',
+  'Production Content Invariants',
+  'Crawl Governance',
+  'Schema and Media Governance',
+  'Technical SEO Monitor',
+])
 
 const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
@@ -43,6 +52,20 @@ const P0_VISUAL_PROOF_PATTERNS = [
 ]
 
 const DOMAIN_REQUIRED_WORKFLOWS = [
+  {
+    workflow: 'Research rolling gate',
+    patterns: [
+      /^scripts\/research\//,
+      /^ops\/research-intake\//,
+      /^ops\/research-coordinator\//,
+      /^ops\/enrichment-submissions\/reconciliation\//,
+      /^schemas\/research-.*\.schema\.json$/,
+      /^lib\/research-reviewed-semantic\.ts$/,
+      /^lib\/research-source-register\.ts$/,
+      /^app\/research\/(?:source-register|intelligence|operations)\//,
+      /^public\/data\/research\//,
+    ],
+  },
   {
     workflow: 'Research Distribution',
     patterns: [
@@ -199,7 +222,12 @@ export function requiredWorkflowsFor(riskTier, changedFiles = []) {
     riskTier === 'high' ? HIGH_REQUIRED_WORKFLOWS : MEDIUM_CORE_REQUIRED_WORKFLOWS,
   )
   for (const { workflow, patterns } of DOMAIN_REQUIRED_WORKFLOWS) {
-    if (changedFiles.some((path) => patterns.some((pattern) => pattern.test(path)))) required.add(workflow)
+    const relevant=changedFiles.some((path) => patterns.some((pattern) => pattern.test(path)))
+    // A workflow cannot reliably be its own bootstrap gate before it exists on the default branch.
+    // Workflow-definition changes remain high-risk and are still held behind the existing CI/Atomic/Site/Content stack.
+    const selfBootstrappingResearchGate=workflow==='Research rolling gate' &&
+      changedFiles.includes('.github/workflows/research-rolling-gate.yml')
+    if (relevant&&!selfBootstrappingResearchGate) required.add(workflow)
   }
   return [...required]
 }
@@ -213,6 +241,34 @@ export function canAutoRefreshPr(changedFiles = []) {
 }
 
 export class PrRefreshBlockedError extends Error {}
+export class PrReviewConversationBlockedError extends PrRefreshBlockedError {}
+
+const UNRESOLVED_REVIEW_MESSAGE = 'A conversation must be resolved before this pull request can be merged.'
+
+// GitHub's actual merge rejection includes "Repository rule violations found"
+// and blank lines ahead of the review sentence. Require the complete, exact
+// message shape: other 405 rule failures must remain fatal controller errors.
+export function classifyMergeRejection(error, number) {
+  if (error?.status !== 405 || typeof error.responseBody !== 'string') return error
+  let response
+  try {
+    response = JSON.parse(error.responseBody)
+  } catch {
+    return error
+  }
+  if (response?.status !== undefined && String(response.status) !== '405') return error
+  if (typeof response?.message !== 'string') return error
+  const lines = response.message.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean)
+  const reviewOnly = lines.length === 1 && lines[0] === UNRESOLVED_REVIEW_MESSAGE
+  const reviewWithHeader = lines.length === 2 &&
+    lines[0] === 'Repository rule violations found' &&
+    lines[1] === UNRESOLVED_REVIEW_MESSAGE
+  if (!reviewOnly && !reviewWithHeader) return error
+  return new PrReviewConversationBlockedError(
+    `[PR #${number}] BLOCKED: unresolved review conversation; resolve the review before merging (GitHub 405)`,
+    { cause: error },
+  )
+}
 
 // Isolate only known PR-local blockers. Authentication, transport, and service
 // failures must still fail the controller heartbeat instead of looking healthy.
@@ -268,10 +324,16 @@ async function getBranchSha(repo, branch) {
   return payload?.commit?.sha || null
 }
 
-async function getWorkflowRuns(repo, sha) {
+// Recovery must see every matching same-head run, including older real jobs;
+// readiness keeps its existing newest-per-workflow view and semantics.
+export function workflowRunView(exact, preserveAll = false) {
+  return preserveAll ? exact : newestBy(exact, (run) => run.name, runScore)
+}
+
+async function getWorkflowRuns(repo, sha, { preserveAll = false } = {}) {
   const payload = await github(`/repos/${repo}/actions/runs?head_sha=${encodeURIComponent(sha)}&per_page=100`)
   const exact = (payload.workflow_runs || []).filter((run) => run.head_sha === sha && DISPATCH_EVENTS.has(run.event))
-  return newestBy(exact, (run) => run.name, runScore)
+  return workflowRunView(exact, preserveAll)
 }
 
 async function getCheckRuns(repo, sha) {
@@ -312,7 +374,14 @@ async function syncPrBranch(repo, number, expectedHeadSha) {
   return result
 }
 
-function recoveryInputsFor(runName, pr) {
+export function recoveryInputsFor(runName, pr) {
+  if (runName === 'Research Source Register Integration') {
+    return {
+      recovery_pr_number: String(pr.number),
+      recovery_base_ref: pr.base.ref,
+      recovery_head_sha: pr.head.sha,
+    }
+  }
   if (runName === 'Atomic upgrade gate' || runName === 'Build quality regression') {
     return {
       recovery_pr_number: String(pr.number),
@@ -334,19 +403,78 @@ async function dispatchWorkflowRun(repo, run, pr) {
   console.log(`Dispatched exact-head recovery workflow: ${run.name} on ${pr.head.sha}`)
 }
 
+/**
+ * A GitHub-bot branch refresh can emit action_required PR workflow records
+ * that contain ZERO jobs. They are NOT proof that CI ran.
+ * Recovery is permitted only if every same-name record has been independently
+ * confirmed jobless. A real failure, pending job or already-dispatched
+ * workflow remains authoritative and must not be replaced.
+ */
+export function shouldDispatchRegisteredWorkflow(name, observedRuns, verifiedZeroJobIds = new Set()) {
+  const matching = observedRuns.filter((run) => run.name === name)
+  if (!matching.length) return true
+  return matching.every((run) =>
+    run.event === 'pull_request' &&
+    run.status === 'completed' &&
+    run.conclusion === 'action_required' &&
+    verifiedZeroJobIds.has(run.id)
+  )
+}
+
+// Plan dispatches only from exact-head observations. A real or recoverable
+// same-head CI producer owns its artifact consumers; a missing/failed CI does
+// not silently make its consumers successful or suppress their fallback paths.
+export function planRecoveryDispatch(registeredRuns, observedRuns, verifiedZeroJobIds, headSha) {
+  const sameHeadRuns = observedRuns.filter((run) => run.head_sha === headSha)
+  const eligible = registeredRuns.filter((run) =>
+    shouldDispatchRegisteredWorkflow(run.name, sameHeadRuns, verifiedZeroJobIds)
+  )
+  const ciToDispatch = eligible.some((run) => run.name === 'CI')
+  const realCiOnHead = sameHeadRuns.some((run) =>
+    run.name === 'CI' &&
+    DISPATCH_EVENTS.has(run.event) &&
+    (run.status !== 'completed' || run.conclusion === 'success')
+  )
+  const ciOwnsFanout = ciToDispatch || realCiOnHead
+  const direct = eligible
+    .filter((run) => !(ciOwnsFanout && CI_OWNED_RECOVERY_CONSUMERS.has(run.name)))
+    .sort((a, b) => Number(b.name === 'CI') - Number(a.name === 'CI'))
+  const deferred = eligible.filter((run) =>
+    ciOwnsFanout && CI_OWNED_RECOVERY_CONSUMERS.has(run.name)
+  )
+  return { direct, deferred, ciOwnsFanout }
+}
+
 async function dispatchRegisteredWorkflows(repo, sourceRuns, pr) {
   await sleep(3000)
-  const existingRuns = await getWorkflowRuns(repo, pr.head.sha)
-  const existingNames = new Set(existingRuns.map((run) => run.name))
+  // Do not collapse multiple same-name runs before verifying every jobless stub.
+  const existingRuns = await getWorkflowRuns(repo, pr.head.sha, { preserveAll: true })
   const registered = newestBy(sourceRuns, (run) => run.name, runScore)
-  let dispatched = 0
+  const verifiedZeroJobIds = new Set()
   for (const run of registered) {
-    if (existingNames.has(run.name)) continue
-    await dispatchWorkflowRun(repo, run, pr)
-    dispatched += 1
+    const matching = existingRuns.filter((candidate) =>
+      candidate.name === run.name && candidate.head_sha === pr.head.sha
+    )
+    // Preserve real completed, failing, in-flight or previously dispatched
+    // runs. Only proved jobless action_required stubs qualify for recovery.
+    for (const candidate of matching) {
+      if (candidate.event !== 'pull_request' ||
+          candidate.status !== 'completed' ||
+          candidate.conclusion !== 'action_required') continue
+      if ((await getRunJobs(repo, candidate.id)).length === 0) {
+        verifiedZeroJobIds.add(candidate.id)
+      }
+    }
   }
-  console.log(`Recovery dispatch complete for PR #${pr.number}; dispatched ${dispatched}/${registered.length} registered workflow(s)`)
-  return dispatched
+  const plan = planRecoveryDispatch(registered, existingRuns, verifiedZeroJobIds, pr.head.sha)
+  // Dispatch the producer before any independent checks. Every consumer
+  // still requires a real terminal-green exact-head result before merge.
+  for (const run of plan.direct) await dispatchWorkflowRun(repo, run, pr)
+  if (plan.deferred.length) {
+    console.log(`CI owns same-head governed fan-out; deferred direct recovery of: ${plan.deferred.map(run => run.name).join(', ')}`)
+  }
+  console.log(`Recovery dispatch complete for PR #${pr.number}; dispatched ${plan.direct.length}/${registered.length} registered workflow(s); deferred ${plan.deferred.length} CI-owned consumer(s)`)
+  return plan.direct.length
 }
 
 async function waitForHeadMove(repo, number, previousHeadSha) {
@@ -394,19 +522,34 @@ async function recoverZeroJobActionRequired(repo, pr, failedRuns) {
     if (jobs.length !== 0) return false
   }
   console.log(`Classified ${failedRuns.length} action_required workflow(s) on ${pr.head.sha} as zero-job control-plane failures`)
-  const ciRecovery = failedRuns.some((run) => run.name === 'CI')
-  const directRuns = ciRecovery
+  const ciInFailedRuns = failedRuns.some((run) => run.name === 'CI')
+  // CI may already be real/in flight, while only its zero-job consumers
+  // appear among failedRuns. Never self-build those consumers in that race.
+  const otherRuns = !ciInFailedRuns && failedRuns.some((run) => CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
+    ? await getWorkflowRuns(repo, pr.head.sha)
+    : []
+  const realCiOnHead = otherRuns.some((run) =>
+    run.head_sha === pr.head.sha &&
+    run.name === 'CI' &&
+    DISPATCH_EVENTS.has(run.event) &&
+    (run.status !== 'completed' || run.conclusion === 'success')
+  )
+  const ciOwnsFanout = ciInFailedRuns || realCiOnHead
+  const directRuns = (ciOwnsFanout
     ? failedRuns.filter((run) => !CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
     : failedRuns
+  ).sort((a, b) => Number(b.name === 'CI') - Number(a.name === 'CI'))
 
-  if (ciRecovery) {
+  if (ciOwnsFanout) {
     const deferred = failedRuns
       .filter((run) => CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
       .map((run) => run.name)
-    console.log(`CI recovery owns governed consumer fan-out; deferring direct recovery for: ${deferred.join(', ') || 'none'}`)
+    console.log(`Same-head CI producer owns governed consumer fan-out; deferring direct recovery for: ${deferred.join(', ') || 'none'}`)
   }
 
   for (const run of directRuns) await dispatchWorkflowRun(repo, run, pr)
+  // No fabricated successful consumers: the existing exact-head merge gate
+  // independently requires their actual terminal-green workflow records.
   return true
 }
 
@@ -492,11 +635,16 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   }
 }
 
-async function mergePr(repo, number, expectedHeadSha) {
-  const result = await github(`/repos/${repo}/pulls/${number}/merge`, {
-    method: 'PUT',
-    body: { sha: expectedHeadSha, merge_method: 'merge' },
-  })
+export async function mergePr(repo, number, expectedHeadSha, request = github) {
+  let result
+  try {
+    result = await request(`/repos/${repo}/pulls/${number}/merge`, {
+      method: 'PUT',
+      body: { sha: expectedHeadSha, merge_method: 'merge' },
+    })
+  } catch (error) {
+    throw classifyMergeRejection(error, number)
+  }
   if (!result?.merged) throw new Error(`GitHub refused merge for PR #${number}: ${result?.message || 'unknown reason'}`)
   console.log(`Merged PR #${number} as ${result.sha}`)
   return result
@@ -650,7 +798,14 @@ async function followOnePr() {
         writeOutput('risk_tier', verdict.riskTier)
         return
       }
-      await mergeIfStillCurrent({ repo, number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
+      try {
+        await mergeIfStillCurrent({ repo, number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
+      } catch (error) {
+        if (!(error instanceof PrReviewConversationBlockedError)) throw error
+        // Only this merge-endpoint review rejection is terminal PR-local BLOCKED.
+        // Never report a merge, make a retry, or convert it to a green outcome.
+        console.log(error.message)
+      }
       return
     }
     if (verdict.action === 'stop') return

@@ -1,12 +1,25 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08 (P0 planning priority)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync. The deep candidate feeder is [SWARM_BACKLOG.md](SWARM_BACKLOG.md); candidates there are not executable until revalidated and promoted here and into the sprint.
 
+### P0 control-plane review-hold reliability — #6451 (completed)
+
+**Dependency satisfied 2026-10-08:** PR #6452 deployed at `c71a60cdf2511e6a777659568beeeed3a2e51e51` and Cloudflare run `37861839685` verified the production receipt. #6451 / PR #6455 is now merged and production receipt verified for `9e192934cfa1e1c285075307455b9622f4e88ef4` (run `37865211337`); WIP now 0/3. Restrict implementation to the known GitHub 405 unresolved-review conversation blocker; unrelated HTTP/auth/transport failures stay fatal and no controller merge gates change. Runtime review-hold canary still **Unknown**.
+
+### Release-control security continuation — #6445 (existing owner)
+
+**Verified 2026-10-08:** #6448 / PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2` and Cloudflare deployment `37856454431` verified the production SHA. Remaining scoped gap: stale PR #6446 contains fail-closed exact PR/base/branch/head inputs and a pre-check absent from the merged minimal dispatch trigger. Preserve this distinct hardening through a clean current-main restage under #6445; do not merge a behind workflow-changing branch or bypass `NEEDS_CLEAN_RESTAGE`. A real zero-job recovery dispatch is still **Unknown**. Issue #6451 has since been implemented and deployed; natural production 405 review-hold canary still Unknown. Business impact, CI savings and revenue **Unknown**.
+
+## P0 — Cross-cutting generational engineering (#6431)
+
+**Priority decision (2026-10-08):** first define the next generation's connected capability topology, shared provenance contracts, dependency DAG, verification tiers, release proof and October 12–16 execution sequence. [P0 operating plan](GENERATIONAL_ENGINEERING_P0.md) · [candidate/readiness register](GENERATIONAL_ENGINEERING_READINESS.md). The 25 candidates are **not 25 admitted tickets**. Normal execution continues to require an authoritative sprint entry, one scored admission through the existing formula, owner, dependency proof and WIP slot; P0 planning does not fabricate an extra Operations slot.
+
+**Next gated candidates, not yet admitted:** P0.1 GitHub/CI/current production truth; P0.2 source/claim/handoff contract; P0.3 bounded exact-source → 8+12 case → editorial review-only trace; P0.4 risk-preserving duplicated-CI analysis; P0.5 release proof/retrospective. Repair/close existing owner PRs before considering replacement implementations. Outcome and time-saving ROI **Unknown** until measured.
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
@@ -18,6 +31,9 @@ The formula remains singular. **Strategic Leverage explicitly includes dependenc
 Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conversion, and **A** Authority/Content, with one active ticket per workstream. **O** Operations remains a classification, not a fourth normal workstream. The Evidence → Distribution surfaces—**L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**—describe ownership, not permission for concurrent Revenue/Conversion tickets.
 
 ### Backlog hygiene rules
+
+**Execution efficiency:** Batch multiple dependent acceptance criteria inside one reviewable ticket/PR when source ownership, safety, and rollback are coherent. Perform T0/T1 tests before opening the PR; reuse immutable same-head CI artifact receipts for T2 consumers; preserve every existing triggered exact-head check, controller merge authority, and T3 deployment evidence. Never invent checklist credit or measured CI savings.
+
 
 - GitHub issue/PR state outranks stale prose in this file.
 - A merged/closed item may remain only in a completed/history section, never in `Now`.
@@ -46,6 +62,12 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+**#6427 / PR #6428 — Scientific Intelligence 1.08–1.14, in review (2026-10-08):** Build twelve source-bound analysis/review instruments on the existing exact PMID research graph and eight-instrument relay after #6420. Acceptance: 12 distinct inspectable receipts, valid source identity, 13 calibration invariants on 500 verified intake PMIDs, 0 automatic medical promotions/publications, stable route, static export and UI/CI gates. Available source data cannot prove underlying trial independence, live correction status or full-text efficacy. Consumer/scientific performance impact and revenue ROI remain **Unknown**. This in-review entry does not grant another WIP slot or override machine-managed admission.
+
+**#6420 / PR #6422 — Research Intelligence 1.06/1.07, in review (2026-10-08):** Exact source identity is preserved across all eight existing instruments; explicit semantic handoffs require real title-backed traceable concept pairs. The 1.07 downstream review fabric uses exact DOI and claim/source IDs and cannot publish. Prerequisite #6419 (1.05) merged. #6423/#6424's review-only fabric is included on #6422's head, not yet a separate main-branch release. Continue required PR checks and resolve P1/P2 review threads before merge. Value: safer source navigation/editorial audit; business ROI, retention and time savings **Unknown**. No additional normal D/R/A WIP admission implied.
+
+
+
 **#6382 — R8.05 creative-quality control, active:** make attention and audiovisual coherence release gates rather than optional polish. Acceptance requires pre-render premise-interest and one-mental-job gates, payoff-before-method, natural-duration editing, narration-first semantic beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. Preserve all R8.04 zero-credit sovereignty and R8.03 evidence/trust invariants.
 
 
@@ -56,7 +78,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 
 
-**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Issue #6466 / PR #6471 was merged as `bfbfeea3c15acfa5cc171bffd38714a1e1228c4c` through the authorized controller and no longer occupies Discovery/SEO; R/A remain free. This does not authorize an unadmitted successor. Source/claim review stays human-only; Cloudflare workflow `37875021598` requires an independent exact production receipt, and research usage/ROI remain Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 

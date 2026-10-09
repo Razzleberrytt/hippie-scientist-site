@@ -2,13 +2,28 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-07
+**Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Issue #6466 / PR #6471 was merged as `bfbfeea3c15acfa5cc171bffd38714a1e1228c4c` through the authorized controller and no longer occupies Discovery/SEO; R/A remain free. This does not authorize an unadmitted successor. Source/claim review stays human-only; Cloudflare workflow `37875021598` requires an independent exact production receipt, and research usage/ROI remain Unknown.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
+### P0 source-register and controller review-hold releases verified
+
+**2026-10-08 release:** #6445 / PR #6452 merged on exact main `c71a60cdf2511e6a777659568beeeed3a2e51e51`; deploy run `37861839685` verified the matching production receipt. Real zero-job recovery execution remains **Unknown**. **Completed:** #6451 / PR #6455 implemented the narrow HTTP 405 review-conversation exception path and was verified deployed as `9e192934cfa1e1c285075307455b9622f4e88ef4` via run `37865211337`; real 405 runtime canary remains **Unknown**.
+
+### Existing-owner P0 source-register recovery — #6448 merged, #6445 security follow-up
+
+**2026-10-08 verified:** PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2`; Cloudflare run `37856454431` passed and verified the exact production receipt. The workflow now has read-only dispatch and preserves original scientific checks. A real zero-job bot-recovery execution remains **Unknown** until observed. Distinct existing-owner ticket #6445 / superseded older PR #6446 requires stronger explicit PR/base/head recovery preflight and matching merge-controller input routing. Restage security improvements on current main rather than merging the stale workflow-changing PR or relaxing the `NEEDS_CLEAN_RESTAGE` guard. This is a scoped release-control correction, not an added scientific/publishing authority or normal D/R/A slot. Acceptance: exact same-repository open PR, branch, base, and full head proof before checkout; targeted and full exact-head CI; sole-controller merge; actual recovery and production evidence separately.
+
+## P0 program — Generational Engineering readiness (#6431)
+
+**New cross-cutting P0 operating priority (2026-10-08):** Prepare a coherent generation of THS intelligence and evidence-to-distribution capabilities before implementation. [Architecture and October 12–16 release stages](GENERATIONAL_ENGINEERING_P0.md) · [25-item integration readiness registry](GENERATIONAL_ENGINEERING_READINESS.md). This is **planning and contract-readiness work**, not authorization to add WIP or bypass the current admission/control plane.
+
+**This week's immediate preparation:** reconcile existing open research/intake/social PRs, freeze canonical source/claim/handoff boundaries, map dependencies, write negative fixtures and risk-tiered validation gates, baseline actual CI durations and specify one review-only source-to-editorial vertical slice. **Next week's proposed order:** P0.1 actual-state/CI baseline → P0.2 shared provenance contracts → P0.3 human-review-only integration → P0.4 exact-head release proof/targeted CI optimization → P0.5 retrospective. Reconcile GitHub state and existing WIP reservations before any start.
+
+**Guardrail:** 3 total allowed workstreams, one admitted ticket each; one scoring formula, one merge controller, one science authority. No new clinical, content or social publishing permissions, no duplicate evidence datasets, no paid critical-path dependencies, no skipped security/science/CI/deployment proofs. This P0 supersedes *methodological priority*, not the existing sprint's evidence-first business objective or milestone exit criteria.
 ## Sprint objective
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
@@ -20,6 +35,9 @@ This sprint is an **acceleration track inside M1**, not a declaration that the R
 The sprint does **not** authorize broad/high-volume auto-posting, scientific rewriting, evidence-grade mutation, invented safety language, consumer-dose directives, a second factual dataset, speculative content volume, a second prioritization formula, or milestone completion without proof.
 
 ## Execution rules
+
+**Execution efficiency:** Batch multiple dependent acceptance criteria inside one reviewable ticket/PR when source ownership, safety, and rollback are coherent. Perform T0/T1 tests before opening the PR; reuse immutable same-head CI artifact receipts for T2 consumers; preserve every existing triggered exact-head check, controller merge authority, and T3 deployment evidence. Never invent checklist credit or measured CI savings.
+
 
 - Start only tickets listed under `Active` or `Ready next` below, and only when a real WIP slot exists. Merged control-hardening implementations are history, not admission candidates.
 - GitHub issue/PR state outranks stale document wording.
@@ -50,6 +68,12 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M6 | Not started |
 
 ## Active / in review — implementation WIP 0/3
+
+**Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
+
+**Research Intelligence #6420 / PR #6422 — In review (2026-10-08):** Source-verified Semantic Intelligence 1.06 adds exact-PMID navigation junctions between the eight original research instruments, a title-backed two-concept Voyages eligibility gate, and a separate independently reviewed annotation lane. The branch also carries the exact DOI publication-to-editorial/distribution review map from 1.07 (#6423/#6424). The 1.05 foundation has merged via #6419. These are read-only research-infrastructure changes; clinical promotions, automated publications, and proof of deployment are **not** authorized. The normal D/R/A WIP cap remains 3; this status entry does not silently change machine-managed reservations or grant another implementation slot. Merge requires latest-head CI, closed review threads and production verification.
+
+
 
 **Creative-quality control #6382:** Active — implement R8.05 Attention-First Story Architecture & Semantic AV Lock after a real TikTok field failure exposed that scientific correctness, clean visuals and a good local narrator can still produce weak social content. Scope is bounded to premise selection and audiovisual temporal coherence: premise-interest, one-mental-job, payoff-before-method, natural-duration, narration-first beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. R8.04 zero-credit sovereignty remains mandatory.
 
