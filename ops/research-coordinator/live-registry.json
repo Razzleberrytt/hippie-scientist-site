@@ -34624,6 +34624,545 @@
       "reservation_id": "e9cf1286857c0164ef05",
       "reserved_at": "2026-10-09T11:33:06.118Z",
       "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "41523285",
+      "title": "Probiotic Supplementation With Bifidobacterium longum Subsp. Longum BL21 Improves Glycemic Control and Modulates Gut Microbiota in Type 2 Diabetes: A Randomized Controlled Trial.",
+      "doi": "10.1002/fsn3.71437",
+      "source_title": "Probiotic Supplementation With Bifidobacterium longum Subsp. Longum BL21 Improves Glycemic Control and Modulates Gut Microbiota in Type 2 Diabetes: A Randomized Controlled Trial.",
+      "abstract": "Type 2 diabetes mellitus (T2DM) remains a major global health challenge, with emerging evidence highlighting the therapeutic potential of gut microbiota modulation. This study aimed to evaluate the efficacy and safety of Bifidobacterium longum subsp. longum BL21 as an adjunctive therapy to metformin in patients with T2DM. In this 12-week, randomized, double-blind, placebo-controlled trial, patients with T2DM received either metformin plus BL21 or metformin plus placebo. The primary endpoint was the change in hemoglobin A1c (HbA1c), while secondary endpoints included changes in fasting blood glucose (FBG), insulin resistance, lipid profiles, and gut microbiota composition. Supplementation with BL21 led to a significant reduction in HbA1c levels ( p = 0.026) compared with placebo. Non-significant trends toward reduction were also observed for FBG and insulin resistance. The intervention was well tolerated, with a safety profile comparable to placebo. Gut microbiota analysis revealed an increase in beneficial genera, including Bifidobacterium and Faecalibacterium , alongside a reduction in pathogenic taxa in the BL21 group. As an adjunct to metformin, BL21 supplementation improved glycemic control and modulated gut microbiota in patients with T2DM. These findings support the potential of BL21 as a novel adjunctive strategy for T2DM management, warranting further validation in larger and longer-term studies. Clinical Trial Registration Number : ChiCTR2300073299.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41523285/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41523285",
+        "doi": "10.1002/fsn3.71437",
+        "journal": "Food science & nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.738Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cc1d937008888a6514a7",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "41673260",
+      "title": "Integrated cognitive-motor exercise for core symptoms and executive functions in children with attention deficit hyperactivity disorder: a randomized clinical trial.",
+      "doi": "10.1007/s12519-026-01019-4",
+      "source_title": "Integrated cognitive-motor exercise for core symptoms and executive functions in children with attention deficit hyperactivity disorder: a randomized clinical trial.",
+      "abstract": "Attention deficit hyperactivity disorder (ADHD) is a prevalent neurodevelopmental disorder. While physical exercise is a promising non-pharmacological intervention, the efficacy of integrating cognitive demands with physical activity remains underexplored. This trial compared the effects of integrated cognitive-motor exercise, aerobic exercise, and a minimal intervention on core symptoms and executive functions (EFs) in children with ADHD. In this randomized, controlled, multicenter trial, 107 children with ADHD (aged 6-10 years) were allocated to one of three groups for 12 weeks: (1) integrated cognitive-motor exercise (EG1, n = 36); (2) aerobic exercise (EG2, n = 35); or (3) wait-list control (CG, n = 36). Both EG1 and EG2 performed their respective interventions three times per week in 45-minute sessions. The primary outcomes were inattention and hyperactivity-impulsivity symptoms and EFs (inhibitory control, working memory, and cognitive flexibility). The analysis followed the intention-to-treat principle with linear mixed models. Compared with the CG, both exercise groups presented significant, comparable reductions in inattention and hyperactivity-impulsivity symptoms (all P ≤ 0.01). However, EG1 demonstrated superior improvements in specific EFs. For inhibitory control (Stroop color-word interference), EG1 resulted in a significantly greater reduction in color-word interference time than both EG2 [β = - 6.24, 95% confidence interval (CI) = - 12.28 to - 0.20, P = 0.045] and CG (β = - 13.97, 95% CI = - 19.97 to - 7.97, P < 0.001). For immediate working memory, the improvement in EG1 was greater than that in both EG2 (β = 2.09, 95% CI = 0.33-3.85, P = 0.032) and CG (β = 3.57, 95% CI = 1.83-5.31, P < 0.001). Both exercise groups improved similarly in cognitive flexibility compared with the CG. Parental satisfaction was significantly greater in EG1 than in EG2 (P < 0.001). No adverse events were reported. A structured integrated cognitive-motor exercise intervention is an effective and safe non-pharmacological treatment for children with ADHD. Compared with aerobic exercise alone, it not only alleviates core symptoms but also yields superior benefits for key EFs, specifically inhibitory control and immediate working memory.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41673260/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41673260",
+        "doi": "10.1007/s12519-026-01019-4",
+        "journal": "World journal of pediatrics : WJP",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.739Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "752bce855f0123bc25eb",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "41524705",
+      "title": "Polyphenol consumption and neurodegeneration risk: a systematic meta-analysis of randomized controlled trials bridging nutrition and cognitive health.",
+      "doi": "10.1039/d5fo05135e",
+      "source_title": "Polyphenol consumption and neurodegeneration risk: a systematic meta-analysis of randomized controlled trials bridging nutrition and cognitive health.",
+      "abstract": "Given the potential of polyphenols to mitigate neurodegenerative diseases (NDDs), this meta-analysis investigated whether clinical evidence supports the use of polyphenols for neuroprotection and as nutritional strategies in NDDs. We analyzed different polyphenol types across seven NDDs, 13 studies involving 849 participants were included. Prespecified outcomes comprised global cognition (Mini-Mental State Examination, MMSE), domain-specific cognition (Alzheimer's Disease Cooperative Study-Cognitive Subscale, ADCS-Cog), activities of daily living (Alzheimer's Disease Cooperative Study-Activities of Daily Living, ADCS-ADL), neuropsychiatric symptoms (Neuropsychiatric Inventory, NPI), and selected biomarkers (plasma amyloid-β40 and brain-derived neurotrophic factor, BDNF). Reporting followed PRISMA 2020 guidelines, methods conformed to the Cochrane Handbook, and certainty of evidence was assessed using GRADE. Overall, polyphenol supplementation was associated with improved global cognition (pooled MD in MMSE = 2.06; 95% CI 0.62-3.49). In subgroup analyses, flavonoids were associated with a modest but significant improvement in MMSE scores, whereas stilbenes produced a significant benefit in daily functioning (ADCS-ADL) without clear gains in MMSE or ADCS-Cog and no consistent effects on NPI. Anthocyanidins, phenolic acids, and lignans did not significantly affect cognitive outcomes (MMSE or ADCS-Cog), and polyphenol subclasses did not yield robust or consistent changes in NPI or biomarker endpoints (Aβ40 and BDNF). Specific polyphenol subclasses therefore appear to confer selective cognitive and functional benefits, with stilbenes primarily supporting functional outcomes and flavonoids potentially enhancing global cognition.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41524705/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41524705",
+        "doi": "10.1039/d5fo05135e",
+        "journal": "Food & function",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.739Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ecab617db3b8ecd6341a",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "42437494",
+      "title": "Effects of Low, Moderate, and High Intensity Exercise on Functional Impairment and ADHD Symptoms: A Randomized Pilot Study.",
+      "doi": "10.1177/01939459261458869",
+      "source_title": "Effects of Low, Moderate, and High Intensity Exercise on Functional Impairment and ADHD Symptoms: A Randomized Pilot Study.",
+      "abstract": "Exercise improves cognitive functions impaired in attention deficit/hyperactivity disorder (ADHD); however, most research involves children or animal models. Effects on adult ADHD symptoms and optimal exercise intensity remain unclear. Moderate and high intensity cycling show benefits. We evaluated the feasibility of an exercise intervention and compared 3 levels of exercise intensity in college students with ADHD symptoms. In a randomized controlled trial, 33 participants were assigned to low, moderate, or high intensity exercise. All groups cycled for 20 minutes. The low and moderate intensity groups cycled at low or moderate intensity, respectively. The high intensity group alternated 20-second maximal effort bursts with 120 seconds of low-intensity cycling. The exercise occurred over 1 week. Outcomes were evaluated before and after the intervention. There was a decrease in functional impairment ( F = 7.98, P = .009, partial η 2 = 0.222) and symptom severity ( F = 13.43, P = .001, partial η 2 = 0.324). There was no difference between groups. Inattentive symptoms responded to low intensity ( t = 2.62, P = .015, d = 0.874) and moderate intensity exercise ( t = 2.61, P = .013, d = 0.786). Impulsive symptoms benefited from low ( t = 4.06, P = .002, d = 1.35) and moderate intensity exercise ( t = 1.99, P = .037, d = 0.600). Hyperactive symptoms were reduced in the moderate intensity group ( t = 2.6, P = .013, d = 0.783). Feasibility was demonstrated. Moderate intensity exercise appears to be the most universally effective intensity for reducing ADHD symptoms. ClinicalTrials.gov, NCT06753253.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42437494/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42437494",
+        "doi": "10.1177/01939459261458869",
+        "journal": "Western journal of nursing research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.739Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f66f14ab73618e041c53",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "41825740",
+      "title": "Effects of Soluble Corn Fiber Consumption on Executive Functions and Gut Microbiota in Middle to Older Age Adults: A Randomized Controlled Crossover Trial.",
+      "doi": "10.1016/j.tjnut.2026.101473",
+      "source_title": "Effects of Soluble Corn Fiber Consumption on Executive Functions and Gut Microbiota in Middle to Older Age Adults: A Randomized Controlled Crossover Trial.",
+      "abstract": "Dietary fiber may support cognition through gastrointestinal-microbiota mechanisms, but clinical evidence is limited. We aimed to determine whether soluble corn fiber (SCF) improved cognition and altered fecal microbiota and fermentation end products in adults. In a randomized, double-blind, crossover trial, 42 healthy adults (45-75 y) consumed SCF (18 g/d) or a maltodextrin placebo control (CON: 22 g/d) for 4 wk, separated by a washout. Cognitive outcomes included executive function with event-related potentials, relational memory, neuropsychological performance, and mood. Secondary outcomes included fecal microbiota, metabolomics, and gastrointestinal tolerance. Tertiary analyses related microbial and metabolite changes to cognitive improvements using correlation, mediation, and moderation models, and explored SCF fermentation pathways with 16S-predicted functional profiling, shotgun metagenomics, and in vitro culturing. SCF improved reaction times (RT) during congruent (β = -9.8 ms, 95% confidence interval (CI): -18.4, -1.2, false discovery rate (FDR) P = 0.01) and incongruent (β = -14.2 ms, 95% CI: -22.8, -5.6, FDR P = 0.003) flanker trials and increased Parabacteroides (∼4-fold, β = 1.44 log, 95% CI: 1.01, 1.88, FDR P < 0.001). At the SCF endpoint, congruent RT tended to be inversely associated with fecal acetate (ρ = -0.33) and propionate (ρ = -0.36), whereas Parabacteroides was marginally positively associated with acetate (ρ = 0.34) (all FDR P < 0.1). Moderation analyses indicated that SCF-RT relation varied by Parabacteroides magnitude change. At endpoint, SCF increased the predicted functional potential of carbohydrate-related KEGG Orthologs and pathways (FDR P < 0.05). In vitro culturing confirmed Parabacteroides distasonis ferments SCF. SCF consumption improved attentional inhibition, altered the gut microbiota, and selectively enriched Parabacteroides. Although mediation analyses did not support a direct microbiota-to-cognition pathway, moderation analyses suggested that SCF-related cognitive effects may depend in part on Parabacteroides abundance. Collectively, these findings suggest that certain cognitive benefits of SCF consumption may be partly underpinned by the gut microbiota. This study was registered at clinicaltrials.gov as NCT05066425 (https://clinicaltrials.gov/study/NCT05066425).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41825740/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41825740",
+        "doi": "10.1016/j.tjnut.2026.101473",
+        "journal": "The Journal of nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.740Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e22f8a7b29de826f0028",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "42145502",
+      "title": "Influence of rhythmic music game intervention on executive function and sensorimotor ability of children with attention deficit hyperactivity disorder.",
+      "doi": "10.3389/fpubh.2026.1808386",
+      "source_title": "Influence of rhythmic music game intervention on executive function and sensorimotor ability of children with attention deficit hyperactivity disorder.",
+      "abstract": "To investigate the effectiveness of rhythmic music game-based intervention in improving executive functions and sensorimotor abilities among children with Attention-Deficit/Hyperactivity Disorder (ADHD), thereby providing evidence-based support for non-pharmacological interventions and promoting children's health. A randomized controlled trial was conducted with 64 children diagnosed with ADHD, who were randomly assigned to either an intervention group ( n = 32) or a control group ( n = 32). The control group received routine health education, while the intervention group additionally participated in an 8-week rhythmic music game program delivered via tablet devices, consisting of three 40-min sessions per week that included tasks such as beat synchronization and rhythm creation. Executive function and sensorimotor abilities were assessed before and after the intervention using the Stroop Color Word Test (SCWT), Trail Making Test (TMT), and the Test of Gross Motor Development, Third Edition (TGMD-3). At the same time, the attention deficit hyperactivity disorder rating scale (ARS-5) was used to evaluate the severity of the core symptoms of ADHD in children. In the intervention group, post-intervention assessments showed significant reductions in SCWT word-meaning interference errors ( p < 0.001) and shorter completion times on TMT Part B ( p < 0.001). The total score of ARS-5 scale and the scores of each dimension decreased significantly ( p < 0.001). TGMD-3 total scores also significantly improved ( p < 0.001), particularly in the locomotor and object-control subdomains reflecting coordination ability ( p < 0.001). No significant changes were observed in the control group across any measures ( p > 0.05). Between-group comparisons of pre-post differences revealed statistically significant effects favoring the intervention group ( p < 0.01). Rhythmic music game intervention effectively enhances inhibitory control, cognitive flexibility, and sensorimotor coordination in children with ADHD. Given its engaging nature and accessibility, it holds promise as a valuable component within multidisciplinary intervention strategies, offering a practical approach to supporting the healthy development of children with ADHD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42145502/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42145502",
+        "doi": "10.3389/fpubh.2026.1808386",
+        "journal": "Frontiers in public health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.740Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "68b3f7cfb4eced179e03",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "42459802",
+      "title": "The effects of 12-weeks resveratrol supplementation on cognition, gastrointestinal microbiota, and systemic inflammation, in an overweight and obese human population: a randomized, double-blind, placebo controlled, parallel groups trial.",
+      "doi": "10.3389/fnut.2026.1839709",
+      "source_title": "The effects of 12-weeks resveratrol supplementation on cognition, gastrointestinal microbiota, and systemic inflammation, in an overweight and obese human population: a randomized, double-blind, placebo controlled, parallel groups trial.",
+      "abstract": "Resveratrol appears to offer greater cognitive benefit to compromised models, such as in type II diabetes mellitus, menopause, and high body mass index (BMI), relative to healthy cohorts. With regards high BMI, hypertension, insulin resistance, oxidative stress, and inflammation have been posited as mechanisms underpinning cognitive decrements, and recent advancements in gut-brain-axis research have linked high BMI with inflammation via gut dysbiosis. Polyphenols have been evidenced to act prebiotically in the gut, to mediate anti-inflammatory effects in animal models, and this presents a mechanism by which resveratrol could bolster cognition in high BMI individuals. The current study investigates whether resveratrol can confer cognitive benefit to individuals with a high BMI, and whether these effects coincide with changes in the gut microbiome, urinary metabolome and biological markers of adiposity (anthropomorphic and blood biomarkers) and inflammation/oxidation. N = 99 male and females (35-60 years, mean age 47.51 years), with a BMI between 25 and 42 kg/m 2 , received either 500 mg Veri-te™ resveratrol, or placebo, daily for 12 weeks. This supplementation period was bookended by visits to the laboratory for urine, blood, and stool sampling, and cognitive testing, which was assessed pre-and post-dose during both the acute and chronic testing visit. Participants in the placebo control group presented with existing differences on cognitive outcomes at baseline, which makes interpretation of apparent improvements in this group relative to resveratrol, problematic. No significant differences were observed within or between groups on any microbiome, urinary metabolome, biological markers of adiposity or inflammation/oxidation markers. The absence of effects on the underlying biological mechanisms rationalized to underpin cognitive improvements in high BMI individuals likely explains the null results in the resveratrol intervention group. Effects attributed to the placebo control condition are explained as the persistence of pre-existing effects in this group of participants, and this may underlie the need to factor pre-enrolment aptitude into randomization in nutritional intervention trials. The lack of change in the gut microbiome of a healthy human cohort, following 12 weeks of resveratrol supplementation, is a positive indication, showing no deleterious disruption within this environment. Future studies may wish to investigate these effects in those with a disrupted gut microbiome. The study was pre-registered on clinicaltrials.gov (identifier: NCT03448094).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42459802/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42459802",
+        "doi": "10.3389/fnut.2026.1839709",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:58:49.740Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "57e7665d0cdabc09910a",
+      "reserved_at": "2026-10-09T11:58:59.692Z",
+      "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
     }
   ],
   "batches": [
@@ -34637,22 +35176,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 435,
+    "total_reservations": 442,
     "by_lane": {
       "1": 5,
-      "2": 62,
+      "2": 69,
       "3": 60,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 435
+      "SOURCE_VERIFIED": 442
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 435,
+        "count": 442,
         "pr_number": null,
         "blocker": null
       }
