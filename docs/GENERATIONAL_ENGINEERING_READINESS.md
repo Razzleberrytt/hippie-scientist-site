@@ -6,6 +6,8 @@ This is the **candidate and dependency register**, not a second execution queue.
 
 **Package interface:** [14-package machine-readable dependency and acceptance manifest](GENERATIONAL_ENGINEERING_14_PACKAGES.json), with all statuses explicitly **unadmitted / Unknown until verified**. The 25 capability candidates below remain distinct from the 14 integration work packages and the authoritative execution backlog.
 
+**Verified historical prerequisites (GitHub, not deployment proof):** semantic relay PR [#6422](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6422) merged as `a18dfcfc2f17c67f5470d801f7e151107790958f`; twelve bounded reasoning projections PR [#6428](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6428) merged as `b5e2c7a0a85247a3d016a48aa998fac88885fea4`. Neither remains an active *unmerged* implementation prerequisite. Current main deployment, user-facing usability and scientific review still require their own receipts.
+
 ## Definitions
 
 - **Existing:** an inspected implementation; not necessarily live or complete.
