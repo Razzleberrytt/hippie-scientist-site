@@ -47,3 +47,16 @@ The regression suite checks exact DOI joins, unrelated DOI lookalikes, topic/pag
 2. Exact claim-lineage graph crossing articles, evidence blocks, review ledger, social scripts and published artifacts.
 3. Authenticated stale-source detection, human-approved correction queues, and public explanations of evidence changes.
 4. Telemetry and reviewer feedback loops that prioritize investigation without upgrading unreviewed observations to scientific authority.
+
+
+## P0.2 typed research-to-editorial request (issue #6466)
+
+The existing `buildIntegratedResearchCase` now produces `reviewRequest: ResearchReviewRequested.v1` **from the same validated source**, eight-instrument case, twelve bounded scientific projections and existing Semantic Fabric distribution review targets. No second source store, content editor, ledger, scientific claim approval or publication tool is introduced.
+
+- **Exact identity:** source PMID + pinned source signature, exact primary DOI where available, sorted separately reviewed citation identity references, original eight instrument IDs and twelve local projection IDs. Review candidates retain only existing brief IDs or exact DOI + original claim/source record IDs. These are *references for inspection*, not proofs that a clinical effect is supported.
+- **States:** `human-review-required` when at least one source-linked editorial brief or DOI-bound distribution target exists; otherwise `held-no-exact-target`. Both states have `independentClaimApproved=false`, `mutationAllowed=false` and `publicationAllowed=false` and explicitly preserve missing channels.
+- **Replay:** `validateResearchReviewRequest` recomputes the full integrated case from the same local source graph, case PMID and distribution records; a packet from another PMID, stale source signature, changed DOI/claim/source reference, changed schema, extra claimed permission or fabricated approval is rejected. A new source signature makes any previous request obsolete.
+- **Visibility:** the existing Research Intelligence source-focused Fabric panel shows packet version/status, eight+12 linked capabilities, exact review-target count and the hard no-publication boundary. It is informational and provides no submit, publish or approve control.
+- **Verification:** existing `scripts/ci/validate-research-intelligence-studio.ts` includes positive exact publication identity, forged/stale/foreign IDs, unknown version, fake approvals and missing-candidate checks. Full T2 exact-head CI/research/visual/static export gates and T3 main production verification remain mandatory.
+
+A research-source match or DOI alone never establishes human clinical efficacy, a causal interaction, underlying trial independence, permission to monetize or authority to publish; human review and source-of-truth release approval remain separate.
