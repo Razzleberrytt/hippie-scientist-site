@@ -16,7 +16,13 @@ function required(v,n){if(!v)throw Error('missing '+n);return v}
 async function api(url,{method='GET',body}={}){
  const r=await fetch(API+url,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
  if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
- if(r.status===204)return null;const t=await r.text();return t?JSON.parse(t):null;
+ if(r.status===204)return null;
+ const t=await r.text();
+ if(!t.trim()){const e=new Error('GitHub API empty JSON response: '+method+' '+url+' status='+r.status);e.status=r.status;throw e}
+ try{return JSON.parse(t)}catch(cause){
+  const e=new Error('GitHub API invalid/truncated JSON: '+method+' '+url+' status='+r.status+' bytes='+Buffer.byteLength(t)+' content-length='+(r.headers.get('content-length')||'unknown')+' cause='+cause.message);
+  e.status=r.status;e.cause=cause;throw e;
+ }
 }
 function b64(s){return Buffer.from(s,'utf8').toString('base64')}
 function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
