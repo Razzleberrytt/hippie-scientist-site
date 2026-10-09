@@ -79,7 +79,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6451 | Treat unresolved-review merge 405 as a PR-local governance hold | Active — admitted | P0 | 80.0 | 2026-10-08 |
+| D | #6451 / PR #6455 | Treat unresolved-review merge 405 as a PR-local governance hold | In review — admitted | P0 | 80.0 | 2026-10-08 |
 
 
 
