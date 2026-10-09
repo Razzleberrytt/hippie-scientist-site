@@ -5,7 +5,9 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: write
+  pull-requests: write
 
 concurrency:
   group: research-reservation-global
@@ -50,6 +52,13 @@ jobs:
           git commit -m "research(intake): source-identity-only lane 4 PMID seeds"
           git push origin "HEAD:refs/heads/$branch"
           echo "SUBMITTED branch=$branch seed=$SEED"
-      # The push to research/intake/** invokes research-lane-intake.yml, which
-      # exclusively owns reservation in research-reservation-global. Do NOT also
-      # call the controller here: a second reservation would duplicate and fail.
+      # GITHUB_TOKEN pushes do not trigger other GitHub Actions push workflows.
+      # The branch survives a transient reservation failure for the existing
+      # hourly replay handler, but this job must reserve it exactly once itself.
+      - name: Reserve with the existing globally serialized controller
+        if: steps.discover.outputs.seed != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CANDIDATE_PATH: ${{ steps.discover.outputs.seed }}
+        run: node scripts/research/github-reservation-controller.mjs reserve
