@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6466,
+  "ticket": 6368,
   "lane": "D",
-  "title": "Typed source-to-editorial review-only handoff and identity guards",
+  "title": "TikTok app-review Terms of Service page, first-party canonical route and discoverability",
   "priority": "P0",
-  "base_revision": "7dd7603bfd878506f9c212abd103b8981dabbeec",
+  "base_revision": "2a8a5f9294e0a4a40d9b28f299388a31859f6961",
   "last_verified": "2026-10-09",
   "score_inputs": {
     "businessImpact": 4,
-    "userValue": 4,
+    "userValue": 5,
     "trafficPotential": 3,
-    "strategicLeverage": 5,
+    "strategicLeverage": 4,
     "confidence": 0.75,
-    "effort": 3
+    "effort": 2
   },
-  "score": 60,
-  "note": "Exact-base single D-lane admission after #6447 retirement. Extend existing case/fabric/provenance systems with typed research-only editorial REVIEW request and adversarial identity refusal. No clinical approval, publisher authority or extra WIP."
+  "score": 90,
+  "note": "Exactly one user-visible TikTok app-review prerequisite ticket, preserve static export, existing privacy/disclaimer, no provider configuration or publication authority; separately verify item against original 150-task checklist."
 }
