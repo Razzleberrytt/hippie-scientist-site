@@ -41136,6 +41136,159 @@
       "reservation_id": "c843dacadfb4d8adbc29",
       "reserved_at": "2026-10-09T22:11:45.479Z",
       "source_branch": "research/intake/3/20261009-1807-danshen-kava-sijunzi-3"
+    },
+    {
+      "pmid": "42392847",
+      "title": "Are high doses of naloxone required for nitazene overdoses?",
+      "doi": "10.1136/emermed-2026-216211",
+      "source_title": "Are high doses of naloxone required for nitazene overdoses?",
+      "abstract": "A review was undertaken to assess whether high doses of naloxone are required to treat nitazene overdoses. MEDLINE and EMBASE databases were searched. A Google Scholar search was also conducted. After title and abstract screening, five eligible papers were included. The study details, such as authorship, study country and year of publication, patient group, study type, outcome measures, key results and weaknesses were extracted. Our results suggest that a range of 0.4-4.40 mg of naloxone is required to treat nitazene overdoses. This does not support using higher doses. Further research is needed to validate these findings and explore the impact of dose frequency.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42392847/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed source-verified nitazene overdose review and xylazine/fentanyl withdrawal case report; safety interpretation requires independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42392847",
+        "doi": "10.1136/emermed-2026-216211",
+        "journal": "Emergency medicine journal : EMJ",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T22:22:10.664Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0ea3f498fae4b9d53d3b",
+      "reserved_at": "2026-10-09T22:22:16.438Z",
+      "source_branch": "research/intake/4/20261009-1818-nitazene-xylazine"
+    },
+    {
+      "pmid": "41329184",
+      "title": "The XYZs of xylazine: Management of withdrawal and complications.",
+      "doi": "10.1093/ajhp/zxaf325",
+      "source_title": "The XYZs of xylazine: Management of withdrawal and complications.",
+      "abstract": "We describe the case of a 33-year-old female patient with a past medical history of substance use disorder admitted for bilateral lower extremity infections characteristic of intravenous xylazine use. The patient's medical management was complicated by co-occurring xylazine and fentanyl withdrawal, for which there is little evidence-based guidance. Utilizing evidence from local guidance and case reports, the patient was treated using a multipronged approach. A wound care protocol from the Philadelphia Department of Public Health was added to systemic antibiotics to manage leg wounds. The patient's history of complicated opioid withdrawal requiring intensive care unit admission prompted the use of a 5-day buprenorphine microinduction protocol. The protocol lasted longer than anticipated due to difficulties with veinous access and management of withdrawal symptoms. A variety of α2-adrenergic receptor agonists were administered to mitigate xylazine-specific withdrawal symptoms, with varying levels of tolerance and effectiveness. Lastly, the patient's underlying history of depression and anxiety was addressed using a combination of pharmacotherapy and psychiatry, with plans for outpatient follow-up. By harnessing the principles behind the various α-adrenergic receptor agonists, medication management of co-occurring xylazine and fentanyl withdrawal may be tailored to patient-specific factors.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41329184/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed source-verified nitazene overdose review and xylazine/fentanyl withdrawal case report; safety interpretation requires independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41329184",
+        "doi": "10.1093/ajhp/zxaf325",
+        "journal": "American journal of health-system pharmacy : AJHP : official journal of the American Society of Health-System Pharmacists",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T22:22:10.665Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2469d9a1304cb8b18fb3",
+      "reserved_at": "2026-10-09T22:22:16.438Z",
+      "source_branch": "research/intake/4/20261009-1818-nitazene-xylazine"
     }
   ],
   "batches": [
@@ -41164,16 +41317,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 520,
+    "total_reservations": 522,
     "by_lane": {
       "1": 19,
       "2": 92,
       "3": 90,
-      "4": 44,
+      "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 520
+      "SOURCE_VERIFIED": 522
     },
     "batches": [
       {
@@ -41186,7 +41339,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 20,
+        "count": 22,
         "pr_number": null,
         "blocker": null
       }
