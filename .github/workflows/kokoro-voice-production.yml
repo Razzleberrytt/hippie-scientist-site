@@ -1,0 +1,96 @@
+name: THS Kokoro required voice render
+on:
+  push:
+    branches:
+      - 'voice/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: kokoro-voice-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  kokoro-narration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Require canonical R8.05 creative gate before voice synthesis
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, existsSync } from 'node:fs'
+          import { assertR805CreativeBrief } from './scripts/distribution/r805-creative-gate.mjs'
+          const file = 'scripts/distribution/voice-briefs/active.json'
+          if (!existsSync(file)) throw Error('Kokoro required: active voice brief missing')
+          const brief = JSON.parse(readFileSync(file, 'utf8'))
+          assertR805CreativeBrief(brief)
+          const spoken = brief.beats.filter(beat => String(beat.narration || '').trim()).length
+          if (spoken < 2) throw Error('Kokoro requires at least two narrated semantic beats')
+          console.log('Canonical creative and narration gates verified:', brief.beats.length, 'beats')
+          NODE
+      - name: Install required no-credit voice dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          python -m pip install --upgrade pip
+          python -m pip install -r scripts/distribution/requirements-local-voice.txt
+      - name: Render exact Kokoro narration and timing
+        env:
+          HF_HUB_DISABLE_XET: '1'
+        run: |
+          python scripts/distribution/render-local-narration.py \
+            --package-dir artifacts/narration/active \
+            --brief scripts/distribution/voice-briefs/active.json \
+            --voice am_michael
+      - name: Fail closed unless exact Kokoro-82M voice and hashes verify
+        run: |
+          python - <<'PY'
+          import pathlib, json, hashlib, wave, math
+          import numpy as np
+          p=pathlib.Path('artifacts/narration/active')
+          obj=json.loads((p/'narration.wav.receipt.json').read_text())
+          timeline=json.loads((p/'semantic-beat-timeline.json').read_text())
+          def sha(f): return hashlib.sha256((p/f).read_bytes()).hexdigest()
+          assert obj['engine']['name']=='kokoro'
+          assert obj['engine']['model']=='Kokoro-82M'
+          assert obj['engine']['voice']=='am_michael'
+          assert obj['accountRequired'] is False
+          assert obj['meteredCreditsRequired'] is False
+          assert sha('narration.wav')==obj['output']['sha256']==timeline['audioSha256']
+          assert sha('semantic-beat-timeline.json')==obj['source']['beatTimelineSha256']
+          assert sha('r805-creative-brief.json')==obj['source']['creativeBriefSha256']
+          with wave.open(str(p/'narration.wav')) as wav:
+              assert wav.getframerate()==24000 and wav.getnchannels()==1 and wav.getsampwidth()==2
+              assert 5 <= wav.getnframes()/24000 <= 60
+              samples=np.frombuffer(wav.readframes(wav.getnframes()),dtype='<i2').astype(np.float32)/32768
+          assert samples.size>0 and np.all(np.isfinite(samples)), 'Invalid voice waveform'
+          peak=float(np.max(np.abs(samples)))
+          rms=float(np.sqrt(np.mean(samples*samples)))
+          active=float(np.mean(np.abs(samples)>0.0025))
+          assert peak>=0.03 and rms>=0.005 and active>=0.01, 'Silent/near-silent Kokoro audio blocked'
+          metrics=obj.get('signal',{})
+          source_peak=float(metrics.get('peak',float('nan')))
+          source_rms=float(metrics.get('rms',float('nan')))
+          source_active=float(metrics.get('activeRatio',float('nan')))
+          assert all(math.isfinite(x) for x in (source_peak,source_rms,source_active))
+          assert source_peak>=0.03 and source_rms>=0.005 and source_active>=0.01
+          # The canonical WAV writer limits peaks above 0.98 and scales RMS
+          # proportionally; its receipt describes the PRE-normalized waveform.
+          gain=min(1.0,0.98/source_peak)
+          assert abs(peak-source_peak*gain)<0.003, 'Voice receipt signal mismatch: peak'
+          assert abs(rms-source_rms*gain)<0.003, 'Voice receipt signal mismatch: rms'
+          print('Verified audible Kokoro-82M / am_michael PCM voice and bound timeline.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ths-kokoro-narration
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            artifacts/narration/active/narration.wav
+            artifacts/narration/active/narration.wav.receipt.json
+            artifacts/narration/active/semantic-beat-timeline.json
+            artifacts/narration/active/r805-creative-brief.json
