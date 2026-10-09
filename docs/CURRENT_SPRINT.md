@@ -86,7 +86,7 @@ Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6491 | First-visit homepage Find ingredient / Compare options / Check safety paths | Active — admitted; first-owner PR in scope | P0 | 90.7 | 2026-10-09 |
+| D | #6491 / PR #6492 | First-visit homepage Find ingredient / Compare options / Check safety paths | Active — admitted; first-owner PR in scope | P0 | 90.7 | 2026-10-09 |
 
 
 
