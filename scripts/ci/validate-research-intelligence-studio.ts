@@ -6,6 +6,7 @@ import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
+import {buildIntegratedResearchCase,validateResearchEditorialReviewRequest} from '../../lib/research-intelligence-integration'
 import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
 import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
 import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from '../../lib/scientific-intelligence-foundations'
@@ -582,6 +583,89 @@ assert.throws(()=>planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
 assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,
  buildResearchCaseFile(doiStudio,doiGraph,'10000002')!,[publisherObject])
  .distributionReviewTargets.length,0,'No same-PMID or unrelated-paper cross-talk')
+// P0 review handoff: the already integrated eight + twelve instruments and
+// Semantic Fabric must agree on a single source, never a clinical or
+// publication authority. This is a synthesized exact-DOI *review* fixture.
+const handoffObject={
+ ...publisherObject,
+}
+const integratedReview=buildIntegratedResearchCase(doiStudio,doiGraph,'10000001',[
+ handoffObject,{...publisherObject,id:'other',primarySourceUrl:'https://doi.org/10.5555/unrelated'},
+])
+assert(integratedReview,'Known exact PMID must produce integrated review-only case')
+assert.equal(integratedReview.caseFile.instruments.length,8)
+assert.equal(integratedReview.scientific.capabilities.length,12)
+const packet=integratedReview.reviewRequest
+assert.equal(packet.schemaVersion,1)
+assert.equal(packet.kind,'research-editorial-review-request')
+assert.equal(packet.source.pmid,'10000001')
+assert.equal(packet.source.sourceSignature,doiGraph.entries['10000001'].sourceSignature)
+assert.equal(packet.source.exactDoi,'10.5555/exact-synthetic-source')
+assert.deepEqual(packet.reviewTargets.map(t=>t.objectId),['social-exact-1'])
+assert.equal(packet.reviewTargets[0].existingClaimId,'clm_exact001')
+assert.equal(packet.reviewTargets[0].existingCitationId,'src_exact001')
+assert.equal(packet.reviewTargets[0].joinBasis,'exact-primary-doi-identity-only')
+assert.equal(packet.reviewTargets[0].claimAdjudication,'not-established-by-this-envelope')
+assert.equal(packet.reviewTargets[0].disposition,'qualified-human-editorial-review-required')
+assert.equal(packet.status,'qualified-human-review-required')
+assert.equal(packet.approvalAuthority,'not-provided')
+assert.equal(packet.evidenceAuthority,'research-source-identity-only')
+assert.equal(packet.underlyingTrialIndependence,'unknown')
+assert.equal(packet.clinicalPromotions,0)
+assert.equal(packet.publicationAllowed,false)
+assert.equal(packet.mutationAllowed,false)
+assert.deepEqual(packet.scientificCapabilityIds,SCIENCE_CAPABILITIES.map(x=>x.id))
+assert.equal(packet.instrumentIds.length,8)
+const approvedPacket=validateResearchEditorialReviewRequest(
+ doiStudio,doiGraph,'10000001',[handoffObject],packet)
+assert.deepEqual(approvedPacket,packet,'Consumer must reconstruct governed exact-source packet')
+assert.deepEqual(buildIntegratedResearchCase(doiStudio,doiGraph,'10000001',
+ [{...handoffObject,id:'social-exact-1'}])!.reviewRequest,packet,
+ 'Identical source, DOI and target identity must produce deterministic packets')
+const tamper=(changes:Record<string,unknown>)=>({...packet,...changes})
+for(const invalid of [
+ tamper({schemaVersion:2}),
+ tamper({source:{...packet.source,pmid:'10000002'}}),
+ tamper({source:{...packet.source,sourceSignature:'forged'}}),
+ tamper({source:{...packet.source,exactDoi:'10.5555/other'}}),
+ tamper({source:{...packet.source,witnessIds:['forged-witness']}}),
+ tamper({reviewTargets:[{...packet.reviewTargets[0],existingClaimId:'clm_other'}]}),
+ tamper({reviewTargets:[{...packet.reviewTargets[0],existingCitationId:'src_other'}]}),
+ tamper({reviewTargets:[{...packet.reviewTargets[0],exactPublicationDoi:'10.5555/other'}]}),
+ tamper({reviewTargets:[{...packet.reviewTargets[0],claimAdjudication:'approved'}]}),
+ tamper({status:'approved'}),
+ tamper({approvalAuthority:'independently-reviewed'}),
+ tamper({publicationAllowed:true}),
+ tamper({mutationAllowed:true}),
+ tamper({clinicalPromotions:1}),
+ tamper({underlyingTrialIndependence:'yes'}),
+ {...packet,approveForPublishing:true},
+ ])assert.throws(()=>validateResearchEditorialReviewRequest(
+ doiStudio,doiGraph,'10000001',[handoffObject],invalid),
+ /packet source, version, target or permissions/,
+ 'A different source, claim, signature, DOI or permission must fail closed')
+const packetWithoutClaim=buildIntegratedResearchCase(doiStudio,doiGraph,'10000001',[
+ {...handoffObject,findingClaimId:undefined},
+])!.reviewRequest
+assert.equal(packetWithoutClaim.status,'held-no-exact-review-target')
+assert.deepEqual(packetWithoutClaim.reviewTargets,[])
+assert(packetWithoutClaim.heldReasons.length>0)
+const wrongSource=buildIntegratedResearchCase(doiStudio,doiGraph,'10000002',[handoffObject])!.reviewRequest
+assert.equal(wrongSource.status,'held-no-exact-review-target')
+assert.deepEqual(wrongSource.reviewTargets,[])
+assert.throws(()=>validateResearchEditorialReviewRequest(
+ doiStudio,doiGraph,'10000002',[handoffObject],packet),
+ /packet source, version, target or permissions/,
+ 'Cross-paper DOI/topic borrowing must fail closed')
+const replacedSource=doiSources.map(x=>x.pmid==='10000001'
+ ?{...x,abstract:x.abstract+' Corrected source text.'}:x)
+const revisedGraph=buildResearchSemanticNetwork(replacedSource)
+const revisedStudio=buildResearchIntelligenceStudio(replacedSource,revisedGraph,[])
+assert.throws(()=>validateResearchEditorialReviewRequest(
+ revisedStudio,revisedGraph,'10000001',[handoffObject],packet),
+ /packet source, version, target or permissions/,
+ 'Changing source text invalidates a prior review packet even if DOI and target remain equal')
+
 const manifestObjects=JSON.parse(readFileSync('data/distribution/research-objects.json','utf8')) as Array<{
  id:string;sourceUrl:string;primarySourceUrl?:string;findingClaimId?:string;primarySourceId?:string}>
 const realFabric=planResearchSemanticFabric(real,realGraph,liveCase!,manifestObjects)
