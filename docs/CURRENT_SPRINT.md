@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (2026-10-09, #6503):** Normal implementation WIP is **1/3**: A #6500 owns evidence grade/count clarity; D and R remain free after the retirement-only control #6501. Previous D owner #6491 was closed via governed PR #6492 (merge `06fd528135a4dbe5d286b45d898825e69179f1de`), and Cloudflare run 37935390084 successfully deployed. The independent scored A admission allows presentation-only integration, not clinical, editorial or commercial claim promotion. Analytics transport #6143 and all business outcomes remain Unknown. Reconstructed 25/150 proof differs from unmapped legacy 10/150.
+**Current admission (2026-10-09, control #6526):** Normal implementation WIP is **1/3**: Authority/Content ticket #6259 / PR #6260 is the sole A owner, admitted for *review and validation only* after #6500 closed and PR #6505 merged (`fec4d381a80a57036c50cb2d14aa31d3f26a1e7f`). D and R lanes remain free. Admission score: BI=3, UV=4, TP=3, SL=4, confidence=0.75, effort=4, result=27.0 (subjective priority, no measured ROI). This control transaction does **not** authorize live medical publication: resolve #6260's review threads, exact-head scientific checks, production build, editorial source verification and merge/deploy receipts independently. Legacy completion counters and analytics remain Unknown.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -90,6 +90,10 @@ Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a
 
 GitHub #6491 CLOSED, PR #6492 MERGED on exact main `06fd528135a4dbe5d286b45d898825e69179f1de`, and Cloudflare run `37935390084` succeeded. The previous D row remained incorrectly active after its release, so project-control checks blocked a proposed A admission. This transaction **only** retires that D owner and records WIP 0/3; subsequent A #6500 must pass its own fresh scored admission from the corrected main base. No code, payment, source grade or commercial outcome changed.
 
+### 2026-10-09 — Retire completed Authority/Content owner #6500; scoped admission #6259
+
+GitHub #6500 is CLOSED and PR #6505 MERGED as `fec4d381a80a57036c50cb2d14aa31d3f26a1e7f`. The outdated A row is retired. Control #6526 scores and admits only existing medical-content ticket #6259 / draft #6260 into the single free A slot; no parallel A owner and no expansion of WIP. Scientific accuracy, independent editorial review, corrected unresolved review comments, required CI/production build and final publication approval remain hard gates. This admission itself changes no public content or clinical recommendation. Outcomes and deploy status remain Unknown.
+
 ## Active / in review — implementation WIP 1/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
@@ -105,7 +109,7 @@ GitHub #6491 CLOSED, PR #6492 MERGED on exact main `06fd528135a4dbe5d286b45d8988
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | Active — admitted | P0 | 80.0 | 2026-10-09 |
+| A | #6259 / PR #6260 | Gabapentinoid withdrawal and recovery Masterclass — scientific/technical review before publication | In review — admitted | P1 | 27.0 | 2026-10-09 |
 
 
 
