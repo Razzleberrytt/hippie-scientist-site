@@ -40908,6 +40908,234 @@
       "reservation_id": "e69c876f8aa525163ff6",
       "reserved_at": "2026-10-09T21:53:21.949Z",
       "source_branch": "research/intake/2/20261009-1751-cognition-metabolic-r31"
+    },
+    {
+      "pmid": "42805149",
+      "title": "A herb-drug interaction: The role of transporters in the modulation of atorvastatin absorption by Compound Danshen Tablets.",
+      "doi": "10.1016/j.dmd.2026.100380",
+      "source_title": "A herb-drug interaction: The role of transporters in the modulation of atorvastatin absorption by Compound Danshen Tablets.",
+      "abstract": "This study characterized the pharmacokinetic interaction between Compound Danshen Tablets (CDT) and atorvastatin (ATV) and investigated absorption- and transporter-related mechanisms underlying this interaction. ATV pharmacokinetics were evaluated after oral and intravenous administration in normal and hyperlipidemic/diabetic rats, with or without repeated CDT treatment. Mechanistic studies included single-pass intestinal perfusion, Caco-2 bidirectional transport assays, human multidrug resistance protein 1 inside-out vesicle transport assays, ileal P-glycoprotein (P-gp) immunoblotting, an in vivo digoxin probe-substrate experiment, and molecular docking. Repeated CDT administration increased oral ATV exposure in both normal and model rats, with the area under the plasma concentration-time curve from 0 to 24 hours and maximum plasma concentration increasing by up to 85.83% and 306.53%, respectively, whereas intravenous ATV pharmacokinetics were not significantly altered. In Caco-2 monolayers, ATV exhibited marked directional efflux, with an efflux ratio of 39.32, which was reduced to 10.99 by verapamil. CDT increased the apical-to-basolateral apparent permeability coefficient of ATV from 0.41 to 1.31 × 10 -6 cm/s and reduced the efflux ratio to 9.82, whereas the basolateral-to-apical apparent permeability coefficient decreased from 16.27 to 12.90 × 10 -6 cm/s. In human multidrug resistance protein 1 inside-out vesicles, CDT concentration dependently reduced ATP-dependent N-methylquinidine transport, with inhibition rates ranging from 24.97% to 80.45% at 50-800 μg/mL. Together with the ileal P-gp protein data and the digoxin probe-substrate experiment, these findings indicate that CDT enhances intestinal absorption of ATV primarily by attenuating intestinal P-gp-mediated efflux through reducing both P-gp transport activity and protein abundance. These results provide mechanistic evidence that modulation of intestinal efflux transport contributes to the increased systemic exposure of ATV after repeated CDT administration. SIGNIFICANT STATEMENT: This study identifies a clinically relevant herb-drug interaction in which repeated administration of compound Danshen tablets increases oral atorvastatin exposure in normal and hyperlipidemic/diabetic rats without materially altering intravenous atorvastatin pharmacokinetics. Integrated pharmacokinetic, single-pass intestinal perfusion, Caco-2 transport, human multidrug resistance protein 1 vesicle, ileal P-glycoprotein, and digoxin probe-substrate data support attenuation of intestinal P-glycoprotein-mediated efflux, through reduced transporter activity and protein abundance, as a mechanism enhancing atorvastatin absorption.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42805149/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "PubMed-verified botanical interaction and safety evidence: Danshen-atorvastatin transporter pharmacokinetics in rats, kava-associated liver injury case report, and Sijunzi-cyclophosphamide pharmacokinetics in rats; research-only pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42805149",
+        "doi": "10.1016/j.dmd.2026.100380",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T22:11:38.621Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c8d5de517bea03c4b4db",
+      "reserved_at": "2026-10-09T22:11:45.479Z",
+      "source_branch": "research/intake/3/20261009-1807-danshen-kava-sijunzi-3"
+    },
+    {
+      "pmid": "41477654",
+      "title": "Kava Herb-Induced Liver Injury as Verified by the Updated RUCAM.",
+      "doi": "10.1155/crgm/3914876",
+      "source_title": "Kava Herb-Induced Liver Injury as Verified by the Updated RUCAM.",
+      "abstract": "A temporal relationship between liver enzyme derangement and an herbal remedy warrants further assessment for herb-induced liver injury (HILI). Here, we describe the use of kava, a drink traditionally consumed in Pacific Island cultures, causing acute ALT and AST elevation as assessed by an updated RUCAM score of 7. The increasing use of kava in Western society should prompt clinicians to be more aware of this rare cause of HILI. A 46-year-old man was referred to the emergency department with a 3-week history of fatigue, right upper quadrant pain, and profound transaminitis. He commenced kava 10 g daily 5 weeks prior to aid sleep, which was ceased 2 weeks prior due to his biochemical derangement. Blood tests revealed an ALT of 1546 U/L and an AST of 920 U/L. An autoimmune screen, viral serology, and liver ultrasound showed no abnormalities. A liver biopsy revealed foci of hepatocellular necrosis with scattered ballooning degeneration and apoptotic bodies in the parenchyma, but normal underlying hepatic parenchyma without steatosis. Following cessation of kava, the liver enzymes improved without any other intervention. He was monitored as an outpatient and had no recurrence. The incidence of kava HILI may increase with its marketing; its exact mechanism is unknown. Ultimately, further research is needed to identify the pathogenesis of kava HILI. HILI is a significant cause of transaminitis, and clinicians should remain vigilant in patients presenting with nonspecific symptoms and a negative liver screen.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41477654/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "PubMed-verified botanical interaction and safety evidence: Danshen-atorvastatin transporter pharmacokinetics in rats, kava-associated liver injury case report, and Sijunzi-cyclophosphamide pharmacokinetics in rats; research-only pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41477654",
+        "doi": "10.1155/crgm/3914876",
+        "journal": "Case reports in gastrointestinal medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T22:11:38.622Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4c041d75e19d941281b4",
+      "reserved_at": "2026-10-09T22:11:45.479Z",
+      "source_branch": "research/intake/3/20261009-1807-danshen-kava-sijunzi-3"
+    },
+    {
+      "pmid": "41762480",
+      "title": "Pharmacokinetic profiling of the bioactive components of Sijunzi Decoction in a rat model of breast cancer: Insights into herb-drug interactions with cyclophosphamide.",
+      "doi": "10.1016/j.jpba.2026.117413",
+      "source_title": "Pharmacokinetic profiling of the bioactive components of Sijunzi Decoction in a rat model of breast cancer: Insights into herb-drug interactions with cyclophosphamide.",
+      "abstract": "This study investigated the pharmacokinetics of Sijunzi Decoction (SJZD) components and their interactions with cyclophosphamide (CTX) in breast cancer (BC) rats. The BC model was induced using 7,12-dimethylbenz[a]anthracene (DMBA). Using UPLC-Orbitrap-MS/MS, we identified 23 SJZD-derived compounds in rat plasma. Subsequently, a validated UPLC-TQ-MS/MS method was developed to quantify seven bioactive analytes. Compared with normal rats, BC model rats exhibited significantly altered pharmacokinetics: ginsenosides Rb1 and Rc showed enhanced systemic exposure and prolonged elimination, whereas the clearance of glycyrrhetinic acid was accelerated. Co-administration with CTX further increased the absorption of ginsenosides but markedly reduced the exposure and accelerated the clearance of licorice-derived compounds (liquiritin, isoliquiritigenin, formononetin, and glycyrrhetinic acid). These findings indicate that breast cancer pathology significantly alters the in vivo disposition of SJZD components, and that CTX induces complex herb-drug interactions. This study provides a critical pharmacokinetic basis for the rational clinical application of SJZD as an adjuvant therapy in breast cancer patients, particularly when combined with chemotherapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41762480/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "PubMed-verified botanical interaction and safety evidence: Danshen-atorvastatin transporter pharmacokinetics in rats, kava-associated liver injury case report, and Sijunzi-cyclophosphamide pharmacokinetics in rats; research-only pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41762480",
+        "doi": "10.1016/j.jpba.2026.117413",
+        "journal": "Journal of pharmaceutical and biomedical analysis",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T22:11:38.622Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c843dacadfb4d8adbc29",
+      "reserved_at": "2026-10-09T22:11:45.479Z",
+      "source_branch": "research/intake/3/20261009-1807-danshen-kava-sijunzi-3"
     }
   ],
   "batches": [
@@ -40936,16 +41164,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 517,
+    "total_reservations": 520,
     "by_lane": {
       "1": 19,
       "2": 92,
-      "3": 87,
+      "3": 90,
       "4": 44,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 517
+      "SOURCE_VERIFIED": 520
     },
     "batches": [
       {
@@ -40958,7 +41186,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 17,
+        "count": 20,
         "pr_number": null,
         "blocker": null
       }
