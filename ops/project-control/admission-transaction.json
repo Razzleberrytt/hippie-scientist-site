@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6447,
+  "ticket": 6461,
   "lane": "D",
-  "title": "Reuse CI producer for governed zero-job recovery fan-out",
+  "title": "P0.1 evidence-linked inventory and exact-CI throughput baseline",
   "priority": "P0",
-  "base_revision": "208b13b35800fac3d4472ff0c8a4e7b0dd150b49",
+  "base_revision": "0d7635a6918ccacc391f5ead8832ffbc6de86368",
   "last_verified": "2026-10-09",
   "score_inputs": {
-    "businessImpact": 5,
+    "businessImpact": 4,
     "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
-    "confidence": 0.75,
+    "confidence": 1,
     "effort": 3
   },
-  "score": 75,
-  "note": "Bounded single D-lane admission for existing #6447, after #6451 retirement and exact-base production proof. Reuse existing CI producer, never reduce exact-head source/artifact/release gates."
+  "score": 80,
+  "note": "Retire closed deployed #6447/PR #6460 and admit the single D-lane evidence/CI baseline ticket #6461 on exact live main, without adding a slot. No clinical authority, publication or validation shortcuts; outcomes Unknown until measured."
 }
