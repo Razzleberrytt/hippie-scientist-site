@@ -30280,6 +30280,1948 @@
       "reservation_id": "6ff7fe09faa2484432fc",
       "reserved_at": "2026-10-09T09:56:15.019Z",
       "source_branch": "research/intake/2/20261009-0554-cognition-metabolic-5-r19"
+    },
+    {
+      "pmid": "42585798",
+      "title": "Glucocorticoid receptor antagonism in major depressive disorder with childhood trauma: a randomized controlled trial.",
+      "doi": "10.1016/j.psychres.2026.117354",
+      "source_title": "Glucocorticoid receptor antagonism in major depressive disorder with childhood trauma: a randomized controlled trial.",
+      "abstract": "Childhood trauma (CT) is a key risk factor for major depressive disorder (MDD) onset and persistence. Hypothalamic-pituitary-adrenal (HPA) axis dysregulation may underlie this link, and preclinical studies suggest glucocorticoid receptor (GR) antagonism can reverse early life stress effects. This study tested whether the GR antagonist mifepristone reduces depressive symptoms in adults with MDD and CT. The RESET-medication study was a randomized, double-blind, placebo-controlled trial evaluating a 7-day course of mifepristone (1200 mg/day) or placebo in 158 adults with MDD and CT, assessed at baseline, 1 week, 6 weeks (primary endpoint), 3 months, and 6 months. The primary outcome was depressive symptom severity (IDS-SR) at week 6; secondary outcomes included symptom severity at other timepoints, clinical response, remission, anxiety, sleep, stress, disability, and salivary cortisol. At week 6, depressive symptoms declined in both groups, with no significant difference between mifepristone and placebo (b=-0.25, d=-0.03, 95% CI [-0.42, 0.36], p nom =0.887), and no group differences were found for secondary outcomes. Morning and evening cortisol were significantly higher with mifepristone at week 1, consistent with GR antagonism, but not at week 6. Adverse events were more frequent with mifepristone; mild and severe events occurred significantly more often, while the proportion reporting at least one adverse event was numerically higher but not statistically significant (93.6%vs. 82.5%, χ²(1)=3.60, p=0.058). Mifepristone produced the expected endocrine response but did not lead to clinical improvements in individuals with MDD and CT compared to placebo.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42585798/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42585798",
+        "doi": "10.1016/j.psychres.2026.117354",
+        "journal": "Psychiatry research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.486Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "823ca06db371653e9213",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42520760",
+      "title": "The safety and validity of remote ischemic preconditioning training on sleep disorder after stroke: a randomized controlled trial.",
+      "doi": "10.1016/j.sleep.2026.109164",
+      "source_title": "The safety and validity of remote ischemic preconditioning training on sleep disorder after stroke: a randomized controlled trial.",
+      "abstract": "To explore the safety and validity of remote ischemic preconditioning (RIPC) training in improving sleep quality, quality of life, and anxiety levels in individuals with post-stroke insomnia (PSI). A total of 86 stroke patients were randomly assigned to an intervention or control group. The control group received Routine nursing, while the intervention group received additional RIPC training twice a day for 10 days. Outcomes were assessed at baseline (T 1 ), 1 week post-intervention (T 2 ), and 3 months post-intervention (T 3 ) using the Pittsburgh Sleep Quality Index (PSQI), Stroke-Specific Quality of Life Scale (SS-QOL), and Generalized Anxiety Disorder 7-item scale (GAD-7). Generalized estimating equations (GEE) were used to analyze the between-group differences across the three time points, with baseline as the reference. Adverse events during the intervention period were recorded, and compared between groups using Fisher's exact test or the chi-square test, as appropriate. There was no statistically significant incidence of Adverse events between the two groups(p = 0.494). Compared to baseline, the intervention group showed significantly greater improvement in sleep quality (PSQI) than the control group at both T 2 (β [95%CI]:-1.30[-1.83,-0.78], p < 0.001, Cohen's d = -0.51) and T 3 (β [95%CI]:-1.81[-2.57, -1.06], p < 0.001, Cohen's d = -0.76). The SS-QOL also improved significantly in the intervention group at T 2 (β[95%CI]:7.63[3.02,12.23], p = 0.001, Cohen's d = 0.49) and T 3 (β[95%CI]: 8.12 [3.95,12.29], p < 0.001, Cohen's d = 0.55). Although the GAD-7 scores in the intervention group decreased, no significant between-group differences were observed at T 2 (p = 0.056, d = -0.22) or T 3 (p = 0.152, d = -0.31). The 10-day RIPC intervention was well tolerated and significantly improved sleep quality and stroke-specific quality of life at 3-month follow-up, but did not significantly reduce anxiety symptoms. Larger sample sizes and longer follow-up periods are required to confirm these findings. This study was registered with the Chinese Clinical Trial Registry on July 26, 2024 (registration number: ChiCTR2400087429).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42520760/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42520760",
+        "doi": "10.1016/j.sleep.2026.109164",
+        "journal": "Sleep medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.487Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5e7e8b6ee6b82b7c8205",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "40832803",
+      "title": "Group cognitive behavioral therapy for reducing procrastination in college students: a randomized controlled trial.",
+      "doi": "10.1080/16506073.2025.2543893",
+      "source_title": "Group cognitive behavioral therapy for reducing procrastination in college students: a randomized controlled trial.",
+      "abstract": "Procrastination is highly prevalent among students and associated with impaired academical performance and adverse psychological consequences. This study evaluates an existing cognitive-behavioral therapy (CBT) intervention in a modified format targeting procrastination, by focusing on factors of the Temporal Motivation Theory (i.e. Value, Expectancy, and Impulsivity). A randomized controlled trial was conducted with university students ( N = 71) with self-reported procrastination issues, comparing an online intervention group with a wait-list control group. Results indicated a significant reduction in procrastination for the intervention group (Cohen's d = 1.09), replicating previous research. Improvements were noted in Value and Impulsivity, though Expectancy showed no significant change. Our findings suggest that factors of the TMT are impacted by the intervention, although the intervention might be mostly focused on changing behavioral strategies as compared to cognitive restructuring. Additionally, self-efficacy improved. No notable changes in overall well-being were observed. The findings further underscore the potential of CBT in mitigating procrastination for students and provide indications about potential working mechanisms of change. Further research is needed to isolate effective treatment components and their long-term impacts on academic and psychological outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40832803/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40832803",
+        "doi": "10.1080/16506073.2025.2543893",
+        "journal": "Cognitive behaviour therapy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.488Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f76d01862b5e2b8bdbff",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42836912",
+      "title": "Cardiovascular safety in middle-aged and older men under testosterone replacement therapy: a systematic review and meta-analysis.",
+      "doi": "10.1007/s12020-026-04773-7",
+      "source_title": "Cardiovascular safety in middle-aged and older men under testosterone replacement therapy: a systematic review and meta-analysis.",
+      "abstract": "Testosterone replacement therapy (TRT) is a standard treatment for men with hypogonadism, offering potential benefits including improvements in sexual function, body composition, bone mineral density, mood, and metabolic health. However, its cardiovascular safety remains uncertain due to conflicting evidence. To assess the cardiovascular safety of testosterone replacement therapy in middle-aged and older men. PubMed, Web of Science, EMBASE and the Cochrane Library databases were searched for randomized-controlled trials (RCTs) published up to July 25, 2024. The Cochrane Handbook for Systematic Reviews of Interventions, version 6.0, guided our meta-analysis. PROSPERO registration number 42,023,421,479. This meta-analysis included 31 RCTs with a total of 9,437 participants, and treatment durations ranged from 40 days to 36 months. TRT was associated with significant reductions in total cholesterol (WMD: -10.20; 95% CI: -14.52, -5.88 mg/dL; P = 0.005), triglyceride (WMD: -7.03; 95% CI: -12.25, -1.81 mg/dL; P = 0.008), and low-density lipoprotein (WMD: -6.64; 95% CI: -8.65, -4.63 mg/dL; P < 0.00001), whereas no significant change was observed in high-density lipoprotein cholesterol (WMD: -1.39; 95% CI: -3.12, 0.35 mg/dL; P = 0.12), compared with placebo. Additionally, TRT significantly prolonged the exercise time to the onset of 1-mm ST-segment depression during treadmill exercise testing (single-dose to 14 weeks; WMD: 67.37; 95% CI: 55.05, 79.69 s; P < 0.00001), and reduced carotid intima-media thickness (12-36 months; WMD: -0.03; 95% CI: -0.05, -0.02 mm; P = 0.0003). Among nonfatal cardiovascular events, a potential arrhythmia safety signal was observed (6598 participants, OR: 1.58; 95% CI: 1.21, 2.05; P = 0.0007). TRT appears to reduce overall cardiovascular risk factors in middle-aged and older men with low or low-normal testosterone levels, but the clinical significance of the observed arrhythmia signal remains uncertain.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42836912/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42836912",
+        "doi": "10.1007/s12020-026-04773-7",
+        "journal": "Endocrine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.489Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7afb11627aa84b19c77e",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42831989",
+      "title": "Sodium oxybate for excessive daytime sleepiness in narcolepsy: a systematic review and meta-analysis of randomized placebo-controlled trials.",
+      "doi": "10.1007/s40199-026-00670-6",
+      "source_title": "Sodium oxybate for excessive daytime sleepiness in narcolepsy: a systematic review and meta-analysis of randomized placebo-controlled trials.",
+      "abstract": "Excessive daytime sleepiness (EDS) is a debilitating symptom in narcolepsy. Sodium oxybate (SO) is approved for narcolepsy and has shown consistent efficacy across multiple formulations. This systematic review and meta-analysis aimed to evaluate the efficacy and safety of SO compared to placebo in reducing EDS in patients with narcolepsy. A systematic search was conducted in PubMed, Cochrane Library, and ClinicalTrials.gov from inception to March 2024. Randomized, double-blind, placebo-controlled trials of SO in narcolepsy reporting Epworth Sleepiness Scale (ESS) scores were included. Primary outcome was change in ESS from baseline. Mean difference (MD) with 95% confidence intervals (CI) was pooled using a random-effects model. Heterogeneity was assessed using I² statistic. Subgroup analyses were performed by formulation and dose. Risk of bias was assessed using Cochrane RoB 2.0 tool. The review followed PRISMA guidelines and was registered with PROSPERO (CRD42024604014). Five randomized controlled trials (n = 1,066 patients) met inclusion criteria. SO significantly reduced ESS scores compared to placebo (pooled MD: -4.8 points; 95% CI: -5.8 to -3.8; P < 0.001; I²=44%). Subgroup analysis showed comparable effects across formulations: once-nightly extended-release FT218 (MD: -4.9; 95% CI: -6.2 to -3.6), low-sodium oxybate JZP-258 (MD: -4.7; 95% CI: -5.8 to -3.6), and standard twice-nightly (MD: -4.7; 95% CI: -5.7 to -3.7). Objective sleep latency improved by 3.5 min. Cataplexy frequency reduced by 3.3 attacks/week (P < 0.001). Safety outcomes included mild-to-moderate adverse events (nausea 9-18%, dizziness 8-11%, headache 7-11%), with discontinuation rates of 3-11%. Sodium oxybate significantly reduces EDS in narcolepsy with consistent effects across formulations. Once-nightly and low-sodium formulations offer additional benefits in terms of dosing convenience and reduced sodium burden. Safety profiles were acceptable, with mild-to-moderate adverse events being most common. Larger trials with longer durations are warranted for validation. PROSPERO (CRD42024604014).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42831989/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42831989",
+        "doi": "10.1007/s40199-026-00670-6",
+        "journal": "Daru : journal of Faculty of Pharmacy, Tehran University of Medical Sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.490Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "71d8e8074730cf2e8174",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42669382",
+      "title": "Antidepressant effects of facial botulinum toxin a injections: Insights from randomized controlled trials.",
+      "doi": "10.1016/j.jad.2026.122443",
+      "source_title": "Antidepressant effects of facial botulinum toxin a injections: Insights from randomized controlled trials.",
+      "abstract": "Depressive disorders cause significant global disability, yet oral antidepressants often have systemic side effects and delayed onset. This systematic review and meta-analysis evaluated the efficacy and safety of facial injections of Botulinum toxin A (BoNT/A) compared with placebo and the active antidepressant sertraline. We searched PubMed, Embase, Cochrane CENTRAL, Web of Science, and PsycINFO for randomized controlled trials (RCTs) from inception to December 2025. Eight RCTs comprising 636 participants were included. Facial BoNT/A injection was associated with a significant reduction in depressive symptoms compared with control conditions (SMD = -0.81; 95% CI, -1.23 to -0.38; p < 0.001). Subgroup analysis revealed that BoNT/A was superior to placebo (SMD = -1.04) and demonstrated efficacy comparable to sertraline (SMD = -0.23). Regarding injection strategies, while standard glabellar protocols demonstrated significant antidepressant efficacy, the high-dose pan-facial subgroup showed no statistically significant difference compared to controls. Anxiety scores did not differ significantly between groups. While overall adverse event rates were similar to controls (RR = 1.04), BoNT/A was associated with transient local reactions, avoiding the systemic side effects observed with sertraline. Facial BoNT/A injection represent an effective, safe treatment for depression. These findings provide valuable insights into a non-systemic therapeutic alternative, particularly for patients intolerant to oral antidepressants or those with polypharmacy burdens. PROSPERO REGISTRATION NUMBER: CRD420261277524.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42669382/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42669382",
+        "doi": "10.1016/j.jad.2026.122443",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.490Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e8bf178d1a0954bc0ac6",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42485904",
+      "title": "Efficacy of Lactobacillus reuteri DSM 17938 in preterm newborns and infants with colic: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1016/j.nut.2026.113327",
+      "source_title": "Efficacy of Lactobacillus reuteri DSM 17938 in preterm newborns and infants with colic: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "Early-life gut microbiota is crucial for gastrointestinal and immune development. Dysbiosis has been implicated in infantile colic and in complications of prematurity, including feeding intolerance and necrotizing enterocolitis (NEC). Lactobacillus reuteri DSM-17938 has been proposed as a strategy to modulate gut homeostasis during early infancy. We conducted a systematic review and meta-analysis of randomized, placebo-controlled trials evaluating single-strain L. reuteri DSM-17938 in newborns and infants (0-12 mo). PubMed, Scopus, Web of Science, and the Cochrane Library were searched from 2008 to October 2025. Two separate meta-analyses were conducted for colicky infants and preterm newborns. Primary outcomes were treatment response in colic (≥50% reduction in crying time) and feeding intolerance in preterms. Secondary outcomes for preterms included daily crying time, NEC, sepsis, time to full enteral feeding, and length of hospital stay. About 11 randomized, placebo-controlled trials involving infants with colic (n = 555), and eight involving preterms (n = 1704) were included. In colicky infants, L. reuteri DSM-17938 significantly increased treatment response compared with placebo (OR 6.98;95% CI 2.26-21.59) and significantly reduced daily crying time (SD -2.61;95% CI -3.98 to-1.24). In preterms, probiotic supplementation reduced the incidence of feeding intolerance (OR 0.57; 95% CI 0.42-0.79) and NEC (OR 0.49; 95% CI 0.31-0.77), with earlier achievement of full enteral feeding and shorter hospitalization. No significant effect on sepsis was observed, and no safety concerns emerged. L. reuteri DSM-17938 may be associated with benefits in infantile colic and selected gastrointestinal outcomes in preterm newborns. Further well-designed trials are needed to confirm these findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42485904/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42485904",
+        "doi": "10.1016/j.nut.2026.113327",
+        "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.491Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "986ec25af43a33f7028b",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42442664",
+      "title": "Pharmacologic and expectancy effects in depression: Associations with inter-network resting-state connectivity.",
+      "doi": "10.1016/j.jad.2026.122252",
+      "source_title": "Pharmacologic and expectancy effects in depression: Associations with inter-network resting-state connectivity.",
+      "abstract": "Depression involves dysregulation across large-scale neural networks, yet substantial heterogeneity in resting-state functional connectivity (rsFC) across patients limits our understanding of treatment mechanisms. A key unresolved question is whether baseline network architecture differentially predicts response to pharmacological versus expectancy-driven treatment effects. In this mechanistic, hypothesis-generating study, 60 depressed participants completed resting-state fMRI at baseline and after 8 weeks of double-blind randomization to an SSRI or placebo. We tested whether connectivity between three networks - the dorsal attention (DAN), salience (SN), and default mode (DMN) networks - predicted treatment response as a function of drug assignment and treatment beliefs. We identified dissociable neural pathways for pharmacological and expectancy effects. Baseline connectivity between attention and salience networks, circuits involved in contextual processing, predicted response specifically among participants who developed placebo beliefs. Baseline connectivity between salience and default mode networks, circuits involved in mood regulation and internal state prediction, showed a double dissociation by drug assignment: higher connectivity predicted better outcomes with the SSRI, while lower connectivity predicted better outcomes with placebo. Network reorganization over treatment followed rather than predicted mood improvement and occurred only when drug assignment and belief aligned. These findings suggest that baseline connectivity patterns serve as trait-like neural markers differentiating pharmacological from expectancy-driven response pathways, and that network reorganization reflects a consequence of aligned pharmacological and psychological treatment effects. Replication in larger samples is warranted, but these results offer a novel framework for understanding and ultimately resolving heterogeneity in antidepressant treatment response.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42442664/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42442664",
+        "doi": "10.1016/j.jad.2026.122252",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.491Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c3e3af5b9d320f4615d1",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42080480",
+      "title": "Effect of photobiomodulation on pain relief and functional improvement in fractures: a systematic review and meta-analysis.",
+      "doi": "10.1080/07853890.2026.2667061",
+      "source_title": "Effect of photobiomodulation on pain relief and functional improvement in fractures: a systematic review and meta-analysis.",
+      "abstract": "Fractures, the most common type of trauma, can cause considerable distress to patients. Pain can not only affect the comfort of fracture patients but also delay their participation in rehabilitation training. Photobiomodulation (PBM) has been associated with pain reduction and the promotion of tissue healing. This systematic review and meta-analysis aimed to evaluate the efficacy of PBM in reducing pain and promoting rehabilitation in patients with fractures. This study was registered on PROSPERO (CRD42024591373). We systematically searched PubMed, EMBASE, the Cochrane Library and Web of Science for RCTs that investigated PBM in fractures as of August 2025. The primary outcome was the pain score. The secondary outcomes included functional and healing. Finally, 12 and 9 studies were ultimately included in the systematic review and meta-analysis, respectively. The pooled analysis showed that the one-week pain score was lower in the PBM group than in the placebo group (MD -0.74, 95% CI -1.00, -0.47, p < 0.0001, I 2 = 0%). Subgroup analysis showed that the difference between the two groups was statistically significant regardless of fracture site or acupoint irradiation. Changes in pain scores were statistically significant in both groups at different wavelength combinations. The improvement in grip strength at 4 weeks was significantly greater in PBM than in placebo (MD 5.03, 95% CI 4.29, 5.78; p < 0.0001; I 2 = 0%). There were no significant differences in pain and functional scores at 4-26 weeks. Bone healing did not show differences between the two groups. No side effects reported. PBM appears to relieve short-term pain in fractures and improve grip strength in patients with upper limb fractures, but does not show significant long-term benefits. Evidence for mandibular functional recovery and bone healing remains inconsistent. Future studies should determine therapeutic parameters and their impact on bone healing and long-term functional outcomes across fracture types. Photobiomodulation can reduce short-term pain in patients with fractures (one week after injury), but the current evidence shows no significant long-term effects.Photobiomodulation is helpful for grip strength improvement at four weeks in patients with upper limb fractures, and the function of mandibular fractures is still controversial.In the future, it is necessary to study the influence of parameters and irradiation on the pain and function of different types of fractures.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42080480/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Systematic Review; Journal Article; Meta-Analysis; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Systematic Review",
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42080480",
+        "doi": "10.1080/07853890.2026.2667061",
+        "journal": "Annals of medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.492Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a486551fdf61f28590f1",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42056760",
+      "title": "Mineralocorticoid receptor antagonists in dialysis patients after ACHIEVE and ALCHEMIST: updated systematic review and meta-analysis of 14 randomized trials.",
+      "doi": "10.1080/0886022X.2026.2656561",
+      "source_title": "Mineralocorticoid receptor antagonists in dialysis patients after ACHIEVE and ALCHEMIST: updated systematic review and meta-analysis of 14 randomized trials.",
+      "abstract": "End-stage kidney disease (ESKD) patients receiving dialysis bear a heavy burden of cardiovascular disease (CVD), the leading cause of mortality. Mineralocorticoid receptor antagonists (MRAs) have cardiovascular protective effects in non-dialysis patients, but their efficacy and safety in dialysis-dependent individuals remain controversial. This study aimed to clarify their clinical value via an updated systematic review and meta-analysis. Following preferred reporting items for systematic reviews and meta-analyses (PRISMA) guidelines, we systematically searched PubMed, EMBASE, and The Cochrane Library up to 25 August 2025. Eligible studies were parallel-design randomized controlled trials (RCTs) enrolling adults (≥18 years) on maintenance dialysis, comparing MRAs with placebo or no intervention. Two reviewers independently screened studies, extracted data, and assessed quality using the Cochrane Risk of Bias Tool 2.0. Meta-analysis was performed with Cochrane Review Manager 5.4. The results showed that a total of 14 RCTs involving 4,525 patients were included (13 used spironolactone, one used eplerenone; follow-up: 3-40.8 months). MRAs significantly reduced nonfatal CVD events (RR 0.68, p = 0.04) but had no significant effect on cardiovascular mortality (RR 0.75, p = 0.14) or all-cause mortality (RR 0.76, p = 0.05). They significantly elevated risks of severe hyperkalemia (RR 1.35, p = 0.009) and gynecomastia and breast pain (RR 4.23, p < 0.001). In conclusion, MRAs can reduce the incidence of nonfatal cardiovascular events in dialysis patients; however, clinicians also need to be mindful of the risks of severe hyperkalemia as well as gynecomastia and breast pain in men when prescribing them. Across 14 randomized trials in dialysis patients, mineralocorticoid receptor antagonists did not reduce cardiovascular or all-cause mortality. They lowered non-fatal cardiovascular events but increased severe hyperkalemia and gynecomastia. Routine use in unselected dialysis populations is not supported and requires careful monitoring.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42056760/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42056760",
+        "doi": "10.1080/0886022X.2026.2656561",
+        "journal": "Renal failure",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.494Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "997822752a43cfbca2aa",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "40037371",
+      "title": "Impact of Psychosocial Interventions on Depression in Chronic Kidney Disease: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1177/00912174251326009",
+      "source_title": "Impact of Psychosocial Interventions on Depression in Chronic Kidney Disease: A Systematic Review and Meta-Analysis.",
+      "abstract": "BackgroundDepression is prevalent among individuals with chronic kidney disease (CKD) and those undergoing dialysis, with significant impacts on morbidity and mortality. This systematic review and meta-analysis was done to evaluate the efficacy of psychosocial interventions in managing depressive symptoms in patients with CKD.MethodsThis systematic review and meta-analysis adhered to PRISMA guidelines. A literature search was conducted across PubMed, Embase, Google Scholar, and Cochrane Library databases from January 2007 to July 2024. Randomized controlled trials (RCTs) investigating psychosocial interventions in CKD patients (Stage 4 or 5 or on hemodialysis) were included. The primary outcome was the change in depressive symptoms, measured by standardized clinical tools. Quality of life was a secondary outcome. Data extraction and bias assessment were conducted using ROB-2 and GRADEpro GDT tools.ResultsTwelve studies with a total of 792 participants (420 in the intervention group and 372 in the control group) were included. Cognitive-behavioral therapy (CBT) was the most common intervention. Psychosocial interventions significantly reduced depressive symptoms compared to routine care (mean difference [MD]: -4.22; 95% CI: -6.67, -1.76; P = 0.0008). High heterogeneity (I 2 = 89%) was noted. Sensitivity analysis confirmed the robustness of the results. The impact on quality of life was not statistically significant (MD: 0.94; 95% CI: -0.61, 2.49; P = 0.24).ConclusionsModerate-quality evidence suggests that psychosocial interventions effectively reduce depressive symptoms in CKD patients. While no significant improvement in quality of life was observed, these interventions provide an alternative to pharmacological treatments, potentially minimizing drug-related side effects.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40037371/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40037371",
+        "doi": "10.1177/00912174251326009",
+        "journal": "International journal of psychiatry in medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.494Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2a7538095d7904e0202b",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42837024",
+      "title": "GLP-1 receptor agonists for obstructive sleep apnea: a meta-analysis of randomized controlled trials.",
+      "doi": "10.1007/s11325-026-03826-5",
+      "source_title": "GLP-1 receptor agonists for obstructive sleep apnea: a meta-analysis of randomized controlled trials.",
+      "abstract": "Weight reduction is recommended in all overweight and obese patients with obstructive sleep apnea (OSA). Glucagon-like peptide-1 (GLP-1) receptor agonists-based therapies have demonstrated clinical benefits in reducing weight and could potentially improve OSA outcomes. We aim to analyze the efficacy and safety of GLP-1 receptor agonists-based therapies in patients with moderate-to-severe OSA. We conducted a systematic review and meta-analysis of randomized controlled trials (RCTs) that compared GLP-1 receptor agonists-based therapies versus control in adults with moderate-to-severe OSA. We systematically searched electronic databases and registries up to February 10, 2025. Outcomes assessed included apnea-hypopnea index (AHI), body weight, oxygen desaturation index (ODI), minimum oxygen saturation, systolic blood pressure (SBP), diastolic blood pressure (DBP), and adverse events. A total of 6 RCTs involving 1,069 participants were included, four evaluating liraglutide and two tirzepatide. Compared with control, GLP-1 receptor agonist-based therapies reduced AHI by - 9.99 events/hour (95% CI, - 16.47 to - 3.50; p < 0.01; I 2 = 87%) and body weight by - 9.68 kg (95% CI, - 15.84 to - 3.51; p < 0.01; I 2 = 98%). These therapies also reduced SBP by -4.77 mmHg (95% CI, -7.04 to -2.51; p < 0.01), and DBP by -1.41 mmHg (95% CI, -2.71 to -0.11; p = 0.03). No significant differences were observed in ODI or minimum oxygen saturation. GLP-1 receptor agonists-based therapies did not increase the risk of adverse events. GLP-1 receptor agonist-based therapies reduced AHI and body weight in the populations studied. Substantial heterogeneity limits interpretation of the pooled effect magnitude. These findings support their potential role within comprehensive OSA management but do not establish them as substitutes for CPAP. International Prospective Register of Systematic Reviews; No.: CRD42024564018; URL: https://www.crd.york.ac.uk/prospero/ .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42837024/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42837024",
+        "doi": "10.1007/s11325-026-03826-5",
+        "journal": "Sleep & breathing = Schlaf & Atmung",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.495Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c1ff8285593f32319e8a",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42786612",
+      "title": "Effect of Continuous Positive Airway Pressure on Left Atrial Volume Index in Patients With Stroke and Obstructive Sleep Apnea: A Randomized Trial.",
+      "doi": "10.1161/JAHA.126.050964",
+      "source_title": "Effect of Continuous Positive Airway Pressure on Left Atrial Volume Index in Patients With Stroke and Obstructive Sleep Apnea: A Randomized Trial.",
+      "abstract": "Obstructive sleep apnea is associated with left atrial enlargement, a predictor of stroke. We hypothesized that continuous positive airway pressure (CPAP) would reduce the left atrial volume index (LAVI) and modify its longitudinal trajectory in patients with stroke and obstructive sleep apnea. Patients with stroke and obstructive sleep apnea were randomized to standard care plus CPAP or standard care alone. Coprimary outcomes were absolute 12-month change and longitudinal trajectories of LAVI and N-terminal pro-B-type natriuretic peptide (NT-proBNP), assessed at baseline and 3, 6, and 12 months. Functional outcomes were assessed at 3, 6, and 12 months. Seventy-one participants were randomized (35 CPAP, 36 control). LAVI did not change significantly from baseline to 12 months in either group, and the between-group difference in 12-month LAVI change (control-CPAP) was nonsignificant (mean difference, 0.5 mL/m 2 [95% CI, -3.2 to 4.1 mL/m 2 ]; P =0.804). A linear mixed-effects model for LAVI revealed a significant group×time interaction ( P =0.005). NT-proBNP declined in the CPAP group ( P =0.029) without between-group differences. Among 63 participants who completed follow-up, a significant quadratic interaction was observed, with a downward LAVI trajectory in the CPAP group and an upward trajectory in controls after 6 months ( P =0.020). A modified Rankin Scale of 0 at 12 months was more frequent with CPAP (46.9% versus 22.6%; P =0.043). In participants with stroke and obstructive sleep apnea, CPAP did not significantly reduce 12-month LAVI compared with control; however, LAVI trajectories diverged over time. Among those who completed follow-up, complete neurologic recovery was more frequent with CPAP. URL: https://www.clinicaltrials.gov; Unique Identifier: NCT04458779.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42786612/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42786612",
+        "doi": "10.1161/JAHA.126.050964",
+        "journal": "Journal of the American Heart Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.495Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a0113add3b5eca5ca1c4",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42678121",
+      "title": "Characteristics of post-exercise responders versus non-responders following aerobic or isometric exercise in physically inactive adults of African and South Asian descent with high-normal blood pressure or grade I hypertension.",
+      "doi": "10.1080/08037051.2026.2717787",
+      "source_title": "Characteristics of post-exercise responders versus non-responders following aerobic or isometric exercise in physically inactive adults of African and South Asian descent with high-normal blood pressure or grade I hypertension.",
+      "abstract": "To investigate interindividual variability in post-exercise hypotension (PEH) and to characterise cardiovascular and autonomic differences between responders and non-responders following aerobic and isometric exercise in adults of African and South Asian descent with elevated blood pressure (BP). Physically inactive adults of African and South Asian descent living in Suriname (18-65 years) with high-normal BP or grade I hypertension participated in a randomised controlled crossover trial. In this randomised cross-over trial, 47 adults (50.1 ± 10.8 years; 38% male) with high-normal blood pressure or grade I hypertension completed three conditions: aerobic exercise (30 min at 40-60% heart rate reserve), isometric handgrip exercise, and a non-exercise control. Ambulatory BP was assessed over 24 h. PEH was defined as the net effect: (post-exercise - pre-exercise) - (post-control - pre-control). Participants were classified as responders if daytime BP decreased ≥5 mmHg. Arterial stiffness, cardiac, and autonomic parameters were assessed. Following aerobic exercise, 46% of participants were classified as systolic responders compared with 28% after isometric exercise. No baseline differences were observed in demographic or clinical characteristics between responders and non-responders, suggesting that PEH variability may reflect underlying physiological rather than clinical differences. Aerobic responders demonstrated greater reductions in aortic augmentation index (-19.4% vs. -10.9%, p = 0.05), larger increases in stroke volume (+8.1 vs. -5.3 mL, p = 0.05) and cardiac output (+1.54 ± 1.89 vs. +0.58 ± 1.60 L/min, p = 0.009), and more favourable autonomic recovery. Among all variables, only the change in cardiac output was associated with PEH magnitude ( r = -0.46, p = 0.006). No consistent physiological differences were observed following isometric exercise. PEH following aerobic exercise is characterised by a distinct responder phenotype associated with greater reductions in aortic augmentation index and favourable cardiac adaptations. These findings highlight substantial interindividual variability in BP responses and support the need for individualised exercise strategies in hypertension management. High blood pressure is a major cause of heart disease. Exercise is widely recommended to lower blood pressure, but individuals do not respond in the same way.This study examined how adults of African and South Asian descent with elevated blood pressure respond to two types of exercise: aerobic exercise (such as walking on a treadmill) and handgrip exercise.We focused on the short-term reduction in blood pressure that can occur after a single exercise session.We found that about half of the participants experienced a meaningful reduction in blood pressure after aerobic exercise.These individuals also showed improvements in how their heart, blood vessels, and nervous system responded after exercise. Their hearts pumped more blood, pressure on the arteries was reduced.In contrast, participants who did not show a reduction in blood pressure showed little or no change in these responses.Handgrip exercise did not produce similar changes, indicating that different types of exercise do not have the same effect on blood pressure.A single exercise recommendation may not be effective for everyone. A more personalised approach to exercise may improve blood pressure control and reduce the risk of heart disease. However, this needs to be investigated in future research.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42678121/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42678121",
+        "doi": "10.1080/08037051.2026.2717787",
+        "journal": "Blood pressure",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.495Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "736834b1a9e456f2796a",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42677730",
+      "title": "Dietary Soybean vs. Palm Oils Differ in Effects on Liver Fat in Adults With MAFLD: A 16-Week, Double-Masked, Randomized Controlled Trial.",
+      "doi": "10.1111/dom.71237",
+      "source_title": "Dietary Soybean vs. Palm Oils Differ in Effects on Liver Fat in Adults With MAFLD: A 16-Week, Double-Masked, Randomized Controlled Trial.",
+      "abstract": "Dietary linoleic acid (LA)-rich oils reduce liver fat in healthy adults who are not otherwise undergoing weight loss strategies. Effects on the liver fat in adults with fatty liver disease are unknown. The objective of this randomized double-masked controlled trial was to compare the effects of a dietary soybean oil (SO) which is high in LA vs. palm oil (PO) which is composed of a mixture of saturated, mono- and polyunsaturated fats, on changes of liver fat level in adults with MAFLD. Adults with MAFLD were recruited to complete a double-masked, randomized controlled trial consisting of a 2-week run-in period followed by a 16-week dietary intervention. Study foods contained either SO or PO to deliver 30 g oils per day. At week 0 and week 16, liver fat and visceral adipose tissue were measured by 1 H-magnetic resonance spectroscopy imaging and fasting blood was collected for secondary biochemical markers of cardiometabolic disease risk. Sixty-five adults with MAFLD (mean age ~53 y, BMI 36 kg/m 2 ) completed the study. Overall, there was a significant difference in the change of liver fat between SO and PO groups; however, after adjusting for baseline liver fat the diet group differences were no longer significant (p = 0.14). The direct effect of diet group on the change of liver fat was not mediated by weight change (p = 0.11). For within group change, liver fat tended to decrease in SO group (p = 0.11) and tended to increase in PO group (p = 0.11). There was no significant difference for the effect of PO over SO on liver fat change when controlling for baseline liver fat or weight change. Larger trials testing dietary strategies that reduce liver fat in adults with MAFLD in the context of weight change are needed. The WELL study is registered on ClinicalTrials.gov (NCT05199948).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42677730/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42677730",
+        "doi": "10.1111/dom.71237",
+        "journal": "Diabetes, obesity & metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.496Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9830df5c4849e3ed443b",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42537929",
+      "title": "Effects of CPAP on endothelial activation and fibrinolytic balance in coronary artery disease with obstructive sleep apnea: The RICCADSA randomized controlled trial.",
+      "doi": "10.1016/j.ijcard.2026.134701",
+      "source_title": "Effects of CPAP on endothelial activation and fibrinolytic balance in coronary artery disease with obstructive sleep apnea: The RICCADSA randomized controlled trial.",
+      "abstract": "Obstructive sleep apnea (OSA) promotes endothelial activation and a prothrombotic milieu through intermittent hypoxia, oxidative stress, and systemic inflammation, mechanisms closely linked to atherosclerosis progression. The vascular effects of continuous positive airway pressure (CPAP) therapy in patients with established coronary artery disease (CAD) remain incompletely understood. To evaluate the longitudinal effects of CPAP treatment on endothelial adhesion molecules and fibrinolytic balance in patients with CAD and OSA. In this randomized controlled analysis from the RICCADSA trial, 210 revascularized CAD patients with moderate-to-severe OSA were assigned to CPAP (n = 104) or no-CPAP (n = 106) and had available biomarker measurements at baseline and 12 months. Circulating intercellular adhesion molecule-1 (ICAM-1), vascular cell adhesion molecule-1 (VCAM-1), and plasminogen activator inhibitor-1 (PAI-1) were assessed. Linear mixed-effects models were used to examine longitudinal changes and time-by-treatment interactions adjusted for cardiometabolic covariates. For ICAM-1, no significant time-by-treatment interaction was observed. For PAI-1, a borderline time-by-treatment interaction suggested a numerically smaller increase in the CPAP group compared with no-CPAP (p = 0.09). CPAP treatment was associated with a significantly greater reduction in VCAM-1 over time compared with no-CPAP (time-by-treatment interaction p = 0.045 in adjusted models). CPAP treatment was associated with selective modulation of vascular biomarkers in patients with CAD and OSA, characterized by attenuation of endothelial activation reflected by reduced VCAM-1 levels, while fibrinolytic imbalance appeared largely resistant to intervention. These findings support pathway-specific vascular responses to CPAP and provide mechanistic insight into residual atherosclerotic risk in this high-risk population.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42537929/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42537929",
+        "doi": "10.1016/j.ijcard.2026.134701",
+        "journal": "International journal of cardiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.497Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d5724557855b73a77407",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42532282",
+      "title": "Psychotherapy vs antidepressants in heart failure: Impact of adherence.",
+      "doi": "10.1016/j.jad.2026.122318",
+      "source_title": "Psychotherapy vs antidepressants in heart failure: Impact of adherence.",
+      "abstract": "Depression affects nearly half of patients with heart failure (HF), which is associated with increased morbidity and reduced health-related quality of life (HRQoL). This secondary per-protocol analysis of a previously published randomized trial evaluated the behavioral activation (BA) versus antidepressant medication (MEDS) among patients with depression and HF who adhered to study interventions. This analysis is based on a pragmatic randomized comparative-effectiveness trial conducted from 2018 to 2022, with a 1-year follow-up. 416 participants diagnosed with HF and a DSM-5 depressive disorder were randomized to BA or MEDS, and the current analysis examined outcomes according to treatment adherence. The primary outcome was depressive symptom severity (PHQ-9) at 6 months, and the secondary outcomes were physical and mental HRQoL (SF-12v2-PC and SF-12v2-MC, respectively) and HF-specific HRQoL (Kansas City Cardiomyopathy Questionnaire; KCCQ) overall and clinical scores (KCCQ-OS and KCCQ-CS), at 3, 6, and 12 months. High adherence was defined as completion of >75-100% of intervention components. Overall adherence rates were similar between BA and MEDS. At 6 months, among patients with >75-100% adherence who followed treatment as directed in both arms, BA was associated with higher Mental HRQoL (SF-12v2-MC: 5.22; 95% CI: 0.72 to 9.72; p = 0.023) and higher HF-specific HRQoL (KCCQ-OS: 16.08; 95% CI: 7.20 to 24.97; p < 0.001); (KCCQ-CS: 16.04; 95%CI: 7.05 to 25.02; p < 0.001) compared to MEDS. There were no significant differences in depressive symptoms or physical HRQoL at 6 months. Both BA and MEDS were equally effective treatments for depression in HF. However, among highly adherent patients, BA was associated with greater improvements in mental and HF-specific HRQoL than MEDS. The study was funded by PCORI Award Number: 2017C2-7716.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42532282/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Pragmatic Clinical Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Pragmatic Clinical Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42532282",
+        "doi": "10.1016/j.jad.2026.122318",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.497Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "833b769bc776a5b871bc",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42474623",
+      "title": "Comparative Effects of Four Dietary Approaches on Symptom Severity and Quality of Life in Irritable Bowel Syndrome: A Randomized Controlled Trial.",
+      "doi": "10.1007/s10620-026-10126-1",
+      "source_title": "Comparative Effects of Four Dietary Approaches on Symptom Severity and Quality of Life in Irritable Bowel Syndrome: A Randomized Controlled Trial.",
+      "abstract": "Irritable bowel syndrome (IBS) is a chronic functional gastrointestinal disorder in which dietary interventions play a pivotal role in symptom management. Although traditional dietary advice, the low-FODMAP diet (LFD), and the gluten-free diet (GFD) are commonly employed in clinical practice, comparative evidence regarding their relative efficacy-particularly when applied in combination-remains limited. This randomized controlled trial with blinded outcome assessment was conducted in the gastroenterology outpatient clinic of a university hospital. Adult patients aged 19-65 years with IBS diagnosed according to the Rome IV criteria were randomized using a minimization method to one of four dietary interventions administered for four weeks: traditional diet (TD), LFD, GFD or a combined low-FODMAP gluten-free diet (LFGFD). Participants were blinded to the specific name of the dietary intervention, and outcome assessors were blinded to group allocation. The primary outcomes were changes in the IBS Symptom Severity Score (IBS-SSS) and the IBS Quality of Life questionnaire (IBS-QOL). Secondary outcomes included changes in FODMAP and gluten intake frequency scores, Bristol Stool Scale, body mass index (BMI), and responder rates. Baseline demographic and clinical characteristics were comparable across the four groups. IBS-SSS decreased significantly within all groups following dietary intervention (p ≤ 0.004), with significantly greater reductions observed in the LFD and LFGFD groups compared with the TD group (p = 0.002). IBS-QOL scores improved significantly within all groups (p ≤ 0.003); however, no significant between-group differences were detected (p = 0.082). Clinically meaningful symptom improvement, defined as a reduction of at least 50 points in IBS-SSS, was achieved by all participants in the LFD, GFD, and LFGFD groups, compared with 8 of 13 participants (61.5%) in the TD group (p = 0.001). Changes in BSS and BMI did not differ significantly between groups. LFD and LFGFD diets were more effective than traditional dietary advice in reducing IBS symptom severity, whereas all dietary approaches yielded significant within-group improvements in quality of life, with no significant between-group difference detected, indicating that no single dietary strategy demonstrated a clear advantage in this domain. These findings, which reflect the restriction phase only, support a stepwise, individualized dietary management strategy in IBS that balances symptom control with quality-of-life considerations. NCT04853381.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42474623/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42474623",
+        "doi": "10.1007/s10620-026-10126-1",
+        "journal": "Digestive diseases and sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.497Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4892118c34de0bf8e2d9",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42323987",
+      "title": "Investigating the effects of antidepressants on measures of insulin resistance in major depressive disorder: A systematic review.",
+      "doi": "10.1016/j.jad.2026.122156",
+      "source_title": "Investigating the effects of antidepressants on measures of insulin resistance in major depressive disorder: A systematic review.",
+      "abstract": "Persons with depression are disproportionately at risk for developing insulin resistance. Replicated evidence indicates that insulin resistance blunts acute antidepressant response; however, some antidepressants exacerbate insulin resistance risk. Herein, we aim to comprehensively evaluate previous literature reporting on the effects of antidepressants on measures of insulin resistance with the view to disaggregate class- and drug-specific effects. A systematic search on PubMed, Ovid and Scopus (inception-July 2025) was conducted, with a manual search of Google Scholar and reference lists. Two reviewers (S.W. and G.H.L.) independently screened studies. Clinical trials investigating FDA-approved antidepressants on a validated measure of insulin resistance were included. Studies were assessed using the National Institute of Health quality assessment tools. Select tricyclic antidepressants (i.e., nortriptyline, amitriptyline, imipramine) were associated with acute and long-term disruptions in insulin sensitivity. SSRIs were not associated with acute alterations in insulin sensitivity. Preliminary evidence suggests agomelatine and bupropion are metabolically neutral and may improve insulin resistance in persons with diabetes mellitus. SNRIs do not adversely affect glucose-insulin signaling in the long-term. There was a paucity of studies reporting the effects of other antidepressant classes and agents. The effect of antidepressants on mechanisms mediating insulin sensitivity is mixed, with a relatively limited body of evidence currently available. While select SSRIs and tricyclic antidepressants may adversely affect glucose-insulin homeostasis, conclusions remain preliminary. The development of novel antidepressants may provide an opportunity to optimize psychiatric and metabolic outcomes. Identifying mechanisms contributing to insulin resistance could inform future discovery and development of antidepressants.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42323987/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42323987",
+        "doi": "10.1016/j.jad.2026.122156",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.498Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7263fa04ca82636ba459",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42320790",
+      "title": "Variation in sleep and instability in mood in patients with bipolar disorder and the association between these - an exploratory post hoc study on daily smartphone-based data from two separate randomised controlled trials.",
+      "doi": "10.1016/j.jad.2026.122149",
+      "source_title": "Variation in sleep and instability in mood in patients with bipolar disorder and the association between these - an exploratory post hoc study on daily smartphone-based data from two separate randomised controlled trials.",
+      "abstract": "Dysregulation in circadian rhythms, including sleep abnormalities, is a central feature in bipolar disorder during all illness phases. This exploratory post hoc study investigated the association between variation in sleep and instability in mood based on day-to-day patient-reported smartphone-based data in patients with bipolar disorder. Data from patients with bipolar disorder from two prior studies (A-Bipolar and SMART-Bipolar) were included for exploratory analyses. Patients provided daily smartphone-based evaluations of sleep and mood. A total of 370 patients with bipolar disorder each providing data for six months were included in the analyses. We analysed how various summaries of sleep variation were associated with mood instability, using linear mixed effect regression models. There was a positive association between variation in sleep for both the prior three days (1.22, 95%CI: (1.19; 1.24), p < 0.0001) as well as the prior week (1.40,95% CI: (1.36, 1.44), p < 0.0001)) and mood instability. Interestingly, increasing sleep up to a certain point around eight hours was associated with decreased mood instability. Increasing sleep after this point was associated with increased mood instability. The estimated inflection point for this choice of knots was 8.05 h (95% CI: 7.20,8.90) for the A-bipolar study and 8.24 h (95% CI: 6.24,10.24) for SMART-Bipolar study. Analyses were exploratory and post hoc. Sleep and mood were patient-reported. Findings should be interpreted with caution. Temporal ordering of the associations cannot be concluded. In this exploratory study of patients with bipolar disorder, short-term fluctuations in sleep were significantly associated with increased mood instability, highlighting the dynamic interplay between circadian regulation and affective variability.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42320790/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42320790",
+        "doi": "10.1016/j.jad.2026.122149",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.498Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ef5b346a8dbc7c4227cc",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42015790",
+      "title": "The effect of nutrition education interventions on dialysis patients' outcomes: a systematic review and meta-analysis.",
+      "doi": "10.1080/07853890.2026.2660389",
+      "source_title": "The effect of nutrition education interventions on dialysis patients' outcomes: a systematic review and meta-analysis.",
+      "abstract": "Non-adherence to dietary and fluid restrictions among dialysis patients is associated with adverse clinical outcomes. Quantifying the effectiveness of nutrition education interventions can inform practice and policy. We searched MEDLINE, EMBASE, CINAHL, CENTRAL, PsycINFO, Web of Science, and Scopus up to 15 July 2025, supplemented by trial registries and Google Scholar, with an updated search through 8 April 2026. Eligible studies included randomized and non-randomized trials evaluating nutritional education interventions in adult dialysis populations. Risk of bias was assessed using RoB-2 and ROBINS-I, certainty graded using GRADE, and random-effects meta-analyses conducted alongside subgroup, sensitivity, and meta-regression analyses. Publication bias was assessed with Egger and Begg tests and trim-and-fill where applicable. Forty-four studies comprising 4,106 participants were included. Nutrition education significantly improved knowledge (SMD = 1.09; 95% CI: 0.67-1.51) and health-related quality of life (SMD = 1.43; 95% CI: 0.86-2.00; I² = 0%), and reduced serum potassium (SMD = -0.52; 95% CI: -0.91 to -0.14; I² = 92%) and serum phosphate (SMD = -0.35; 95% CI: -0.56 to -0.15; I² = 81%). Results for albumin, creatinine, sodium, calcium, and BUN were inconsistent and non-significant. Most outcomes were rated low or very low certainty by GRADE, reflecting inconsistency, indirectness, and imprecision. Potential publication bias was identified for certain outcomes. Nutrition education consistently improves knowledge and quality of life and may modestly reduce serum phosphate and potassium in dialysis patients. High-quality registered trials with standardized outcomes and longer follow-up are needed to establish effectiveness and sustainability. CRD420251119567.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42015790/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42015790",
+        "doi": "10.1080/07853890.2026.2660389",
+        "journal": "Annals of medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.499Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6d5c635d6d978d36e34a",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "41949335",
+      "title": "Emotion regulation skills training as an adjunctive treatment to narrative exposure therapy for posttraumatic stress disorder (PTSD) in refugees: a pilot randomized controlled trial.",
+      "doi": "10.1080/20008066.2026.2648941",
+      "source_title": "Emotion regulation skills training as an adjunctive treatment to narrative exposure therapy for posttraumatic stress disorder (PTSD) in refugees: a pilot randomized controlled trial.",
+      "abstract": "Background: Responses to evidence-based interventions for posttraumatic stress disorder (PTSD) in refugees vary considerably. Emotion regulation difficulties are associated with greater PTSD severity in refugees and thus represent a potential treatment target. Objective: This study aimed to test the efficacy of Skills Training in Affective and Interpersonal Regulation for Refugees (STAIR-R) and Narrative Exposure Therapy (NET) or Supportive Problem-Solving (SPS) and NET. An exploratory aim was to examine relative efficacy in refugees with high and low levels of visa and family insecurity. Methods: Seventy-one participants were randomly assigned to STAIR-R (6 sessions) + NET (7 sessions) or SPS (6 sessions) +NET (7 sessions). Assessments occurred at baseline, post-treatment, and 3-month follow-up, with additional self-report at mid-treatment. The primary outcome was clinician-assessed PTSD symptom severity (CAPS-5) and secondary outcomes included self-reported PTSD symptoms, depression symptoms, emotion regulation difficulties, difficulties in relationships and environmental quality of life. Results: Intent-to-treat linear mixed models showed no significant between-group differences at mid-treatment, post-treatment, or follow-up. Both groups demonstrated significant improvements at 3-month follow-up in clinician-assessed (STAIR-R + NET, g = -1.41 ; SPS + NET, g = -1.54, p < .001) and self-reported (STAIR-R + NET, g = -0.49; SPS + NET, g = -0.44, p = .006) PTSD symptoms. Moderatorg analyses revealed that those with high insecurity ( n = 16) obtained greater benefits in STAIR-R + NET from pre-treatment to follow-up on self-reported PTSD ( g = 1.35), depression ( g = 1.11), emotion regulation difficulties ( g = 1.24), relationship difficulties ( g = 1.12) and quality of life ( g = -1.05). Conclusions: While there were no overall between group-differences, refugees in both conditions showed reduced PTSD symptoms. There is preliminary evidence that those with high insecurity showed a better response to STAIR-R + NET than SPS + NET across several clinical outcomes, although the small sample size necessitates replication of these. These findings highlight the potential importance of tailored intervention approaches for refugees living in different environmental circumstances. Emotion regulation difficulties represent a promising treatment target for refugees with PTSD.A randomized controlled trial comparing Skills Training in Affective and Interpersonal Regulation for Refugees + Narrative Exposure Therapy (STAIR-R + NET) to Supportive Problem Solving Training + Narrative Exposure Therapy (SPS + NET) revealed no significant differences at 3-month follow-up, with both groups improving on PTSD symptoms.Moderator analyses provided preliminary evidence that refugees living with high insecurity (i.e. insecure visa or separated from all family) showed greater improvements following STAIR-R + NET than SPS + NET. Antecedentes: Las respuestas a las intervenciones basadas en la evidencia para el trastorno de estrés postraumático (TEPT) en refugiados varía considerablemente. Las dificultades en la regulación emocional se asocian con mayor gravedad del TEPT en refugiados y, por ende, representa un objetivo terapéutico potencial. Objetivo: Este estudio tuvo como objetivo evaluar la eficacia del Entrenamiento de Habilidades en la Regulación Afectiva e Interpersonal para Refugiados (STAIR-R por sus siglas en inglés) y la Terapia de Exposición Narrativa (NET por sus siglas en inglés) o la Resolución de Problemas con Apoyo (SPS por sus siglas en ingles) y NET. Un objetivo exploratorio fue examinar la eficacia relativa en refugiados con altos y bajos niveles de inseguridad migratoria y familiar. Métodos: Setenta y un participantes se asignaron en forma aleatoria al STAIR-R (6 sesiones) + NET (7 sesiones) o SPS (6 sesiones) + NET (7 sesiones). Las evaluaciones se hicieron al inicio, postratamiento y a los 3 meses de seguimiento, con autorreportes adicionales a la mitad del tratamiento. El resultado primario fue la gravedad de los síntomas de TEPT evaluada por el clínico (CAPS-5) y los resultados secundarios incluyeron síntomas de TEPT auto-informados, síntomas depresivos, dificultades en la regulación emocional, dificultades en las relaciones interpersonales y calidad de vida ambiental. Resultados: Los modelos lineales mixtos por intención de tratar no mostraron diferencias significativas entre grupos a mitad del tratamiento, postratamiento o en el seguimiento. Ambos grupos demostraron mejoras significativas en el seguimiento de 3 meses en los síntomas de TEPT evaluados por el clínico (STAIR-R + NET, g = −1.41; 0.44, p = .006) y auto-informado (STAIR-R+NET, g = −0.49; SPS+NET, g = −0.44, p = .006) síntomas de TEPT. Los análisis de moderación revelaron que aquellos con alta inseguridad ( n = 16) obtuvieron mayores beneficios en el STAIR-R + NET desde antes del tratamiento hasta el seguimiento en el TEPT auto-informado ( g = 1.35), depresión ( g = 1.11), dificultades en la regulación emocional ( g = 1.24), dificultades en las relaciones ( g = 1.12) y calidad de vida ( g = 1.05). Conclusiones: Si bien no hubo diferencias generales entre grupos, los refugiados mostraron en ambas condiciones una reducción de los síntomas de TEPT. Existe evidencia preliminar que aquellos con alta inseguridad mostraron una mejor respuesta a STAIR + NET que a SPS + NET en varios resultados clínicos, aunque el pequeño tamaño de la muestra necesita la replicación de estos resultados. Estos hallazgos destacan la importancia potencial de los enfoques de intervenciones personalizadas para los refugiados que viven en diferentes circunstancias ambientales.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41949335/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41949335",
+        "doi": "10.1080/20008066.2026.2648941",
+        "journal": "European journal of psychotraumatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.500Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9a1b38f98fc40dc4499a",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "41556283",
+      "title": "Whey protein intakes up to 0.4g/kg body mass are well tolerated before a 10km run at 85% of race pace: a clinical trial.",
+      "doi": "10.1080/15502783.2026.2615270",
+      "source_title": "Whey protein intakes up to 0.4g/kg body mass are well tolerated before a 10km run at 85% of race pace: a clinical trial.",
+      "abstract": "Exercise induced gastrointestinal (GI) symptoms affect a significant portion of endurance runners, resulting in discomfort and suboptimal performance. Protein intakes pre-exercise may have benefits; however, research investigating dietary intake prior to exercise suggests that many runners avoid foods high in protein before running to manage their GI symptoms. Unfortunately, clinical trials evaluating the effectiveness of this strategy are lacking. This study aimed to quantify exercise-induced GI symptoms, gut fullness, blood glucose response, and ratings of perceived exertion in response to low-protein (LP) and moderate-protein (MP) pre-exercise shake. This single-blind crossover study involved 13 recreational runners (eight females, five males) who completed a 10 km treadmill run at 85% of their 10 km race pace after consuming a shake with carbohydrate and whey protein at either a low-protein (0.15 g/kg body mass) or moderate-protein (0.4 g/kg body mass) dose 60 minutes prior to exercise. Due to increased whey protein and standardized carbohydrate, the shakes had differing energy contents. GI symptoms were assessed pre-shake, 60 minutes post-shake, and post-run using a questionnaire and gut fullness was assessed pre-shake, 15-, 30-, and 60 minutes post-shake, and post-run using a visual analog scale. Blood glucose was measured pre-shake, 30- and 60 minutes post-shake, and post-run using a capillary blood sample and rating of perceived exertion was assessed following the 10 km run. Total symptoms experienced increased over time ( p < 0.01) and were greater during the run than at fasting ( p < 0.01) or post-shake ( p = 0.01) but were not affected by protein content ( p = 0.85). A significant increase in bloating severity was observed following the moderate-protein shake as compared to the low-protein shake during the run (0.54 vs 1.23; p = 0.03), but no other symptoms assessed were significantly impacted by the shake composition. Blood glucose was significantly higher at 30 minutes post-shake than at any other time; however, there was no difference between the shakes ( p = 0.20). Gut fullness increased post-shake ( p < 0.01) but did not differ significantly between the two conditions at any time point; however, remained above fasting at all time points only in the MP group. Rating of perceived exertion was not significantly different between the two conditions (low-protein = 14.9 ± 1.0; moderate-protein = 14.9 ± 0.7; p = 1.00). Easily digestible protein sources up to 0.4 g/kg body mass consumed one hour before exercise are advised and generally well tolerated, though 0.4 g/kg body mass of protein was associated with increased bloating. However, protein intakes before exercise should be trialed prior to competition due to variations in individual tolerance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41556283/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Clinical Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Clinical Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41556283",
+        "doi": "10.1080/15502783.2026.2615270",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.501Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "20e00d3b6a931a431599",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42028821",
+      "title": "Effects of nutritional interventions on competitive performance and dose‒response relationships among esports players of different skill levels: a systematic review and three-level meta-analysis.",
+      "doi": "10.1080/15502783.2026.2663363",
+      "source_title": "Effects of nutritional interventions on competitive performance and dose‒response relationships among esports players of different skill levels: a systematic review and three-level meta-analysis.",
+      "abstract": "Esports place exceptional demands on neuropsychological capacities; however, a systematic and quantitative synthesis of the specific efficacy of nutritional interventions across various tasks and competitive populations remains absent. This study aims to evaluate the impact of nutritional supplementation on cognitive function and competitive performance in esports players and to explore key moderating variables. Electronic databases, including Web of Science, PubMed, and Scopus, were searched (up to January 25, 2026). Thirteen randomized controlled trials (RCTs) met the inclusion criteria. A three-level random-effects model was employed to calculate the pooled effect size (Hedges' g), with sources of heterogeneity explored through subgroup analyses and meta-regression. Nutritional interventions significantly enhanced esports-related performance (g = 0.92), with the most pronounced benefits observed in processing speed (g = 1.18) and executive function (g = 1.06). Subgroup analyses revealed significant gains in both professional (g = 0.97) and amateur groups (g = 0.92), while the improvement in first-person shooter (FPS) games (g = 0.96) appeared to surpass that in multiplayer online battle athlete (MOBA) games. Meta-regression indicated no significant linear correlation between caffeine dosage and effect size. GRADE assessment categorized the quality of evidence mostly as \"low\" to \"moderate.\" Nutritional interventions demonstrate significant potential for optimizing multidimensional cognitive performance in esports players, particularly in enhancing fundamental reaction speed and high-level decision-making processes. While the findings exhibit a degree of robustness, their practical application should be cautiously evaluated within specific competitive contexts due to current limitations in evidence certainty and significant interstudy heterogeneity. Future research characterized by gender balance and mechanistic orientation with long-term intervention protocols is warranted to elevate the level of clinical evidence.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42028821/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42028821",
+        "doi": "10.1080/15502783.2026.2663363",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:31:30.502Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "34006f939107f43c702e",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "41424341",
+      "title": "Nutritional supplements to improve esports player performance: a systematic review of randomized controlled trials.",
+      "doi": "10.1080/15502783.2025.2603303",
+      "source_title": "Nutritional supplements to improve esports player performance: a systematic review of randomized controlled trials.",
+      "abstract": "Esports has become a globally popular competitive activity. The performance of esports athletes depends not only on daily skill training but also on cognitive function, reaction speed, and psychological mood. In recent years, nutritional supplements have attracted widespread attention as a potential adjunctive treatment. However, their actual effects lack systematic evaluation. Objective: The primary aim of this study is to comprehensively review existing evidence and assess the impact of nutritional supplements on the performance of esports athletes, including cognitive, psychological, and gaming aspects. As of June 17, 2025, randomized controlled trials (RCTs) or randomized crossover trials investigating the effects of nutritional supplements on cognitive function, psychological mood, and competitive performance in esports players were retrieved from the PubMed, Scopus, Web of Science, and Embase databases. Two researchers independently extracted key information and data from the literature. The methodological quality of the included studies was assessed using the Physical Therapy Evidence Database (PEDro) scale. A total of 13 randomized controlled trials were included, comprising 10 randomized crossover trials and 3 randomized controlled trials. The study population comprised 466 participants. The methodological quality of the studies, assessed by the PEDro scale (score range 6-10), was good to excellent. The studies included 18 nutritional supplement protocols, with 14 protocols involving pure caffeine or caffeine-containing supplements. Other protocols included active substances such as inositol-enhanced arginine silicate (ASI + I), γ -aminobutyric acid (GABA), and microalgae extracts. Based on existing evidence, some nutritional supplements are associated with three aspects of competitive performance among esports players: 1) Esports players demonstrate significant improvements in attention and executive function, which are closely related to gaming. 2) Improvements in esports players' psychological mood are manifested as increased vitality and reduced fatigue/negative emotions. 3) Improvements in gaming performance are primarily focused on shooting performance, such as increased shooting scores and accuracy, as well as reduced reaction times. Specific nutritional supplements may improve esports players' cognitive function, psychological mood, and gaming performance.However, these findings represent preliminary evidence based on the heterogeneity of the included studies and raise concerns regarding the overall risk of bias in over half of the research. Furthermore, the small sample sizes and focus on amateur players limit the generalizability of the results. Consequently, caution is warranted when interpreting these findings.Future clinical studies are needed to standardize supplementation protocols, dosage, and measurement methods to confirm the benefits of nutritional supplements for esports players.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41424341/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41424341",
+        "doi": "10.1080/15502783.2025.2603303",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T10:31:30.502Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3c33be957572ec62f576",
+      "reserved_at": "2026-10-09T10:31:40.121Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
     }
   ],
   "batches": [
@@ -30293,22 +32235,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 379,
+    "total_reservations": 404,
     "by_lane": {
       "1": 5,
       "2": 56,
       "3": 60,
       "4": 33,
-      "5": 225
+      "5": 250
     },
     "by_state": {
-      "SOURCE_VERIFIED": 379
+      "SOURCE_VERIFIED": 404
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 379,
+        "count": 404,
         "pr_number": null,
         "blocker": null
       }
