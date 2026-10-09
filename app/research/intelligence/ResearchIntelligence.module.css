@@ -228,3 +228,24 @@
 .scienceDetail .export{width:100%;max-width:100%;font-size:.7rem;color:#142a20;background:#fafaf1}
 .scienceGuard{font-size:.74rem;line-height:1.65;color:#e9d7b8;border-top:1px solid #e8bc733b;margin-top:1rem;padding-top:.8rem}
 @media(max-width:690px){.scienceGrid{grid-template-columns:minmax(0,1fr)}.scienceHeading>span{max-width:100%}.scienceCard>summary{min-height:0}.scienceWorkbench{padding:.8rem}}
+
+/* 2.0 · Question → verified research PMID → unchanged governed case workspace. */
+.discovery{border:1px solid #9cae8a;background:#e5ecd9;color:#193728;padding:clamp(.75rem,1.8vw,1.2rem);margin-bottom:1rem;min-width:0}
+.discoveryHeading{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:.65rem}
+.discoveryHeading strong{font-family:var(--font-display),Georgia,serif;font-size:clamp(1.1rem,2vw,1.5rem)}
+.discoveryHeading p{font-size:.76rem;line-height:1.6;max-width:68ch;margin:.3rem 0 0;color:#355343}
+.discoveryHeading>span{font-size:.63rem;font-weight:850;letter-spacing:.07em;border:1px solid #74906c;padding:.4rem .5rem}
+.discovery .field{color:#193728;margin:.85rem 0 .3rem}
+.discovery .field input{width:100%;background:#fffef6;border:1px solid #77916c;color:#163327;padding:.7rem;min-height:44px}
+.discoveryMeta{font-size:.7rem;font-weight:740;color:#32573e;line-height:1.5}
+.discoveryResults{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:.85rem 0;padding:0}
+.discoveryResults li{min-width:0}
+.discoveryResults button{display:flex;flex-direction:column;text-align:left;gap:.4rem;width:100%;height:100%;min-height:104px;border:1px solid #9fb49a;background:#f9faef;color:#193d2b;padding:.8rem;overflow-wrap:anywhere}
+.discoveryResults button:hover,.discoveryResults button:focus-visible{background:#d6e8cc;border-color:#356b45}
+.discoveryResults button>span{font-size:.66rem;text-transform:uppercase;letter-spacing:.025em;color:#4d6e53}
+.discoveryResults button strong{font-size:.82rem;line-height:1.35}
+.discoveryResults button small{font-size:.66rem;color:#345944;margin-top:auto}
+.discoveryEmpty{border:1px dashed #74906c;padding:.8rem;margin:.8rem 0;font-size:.75rem;line-height:1.6}
+.discovery .discoveryBoundary{border-top:1px solid #9db49a;margin:.85rem 0 0;padding-top:.75rem;font-size:.71rem;color:#35533f;line-height:1.65}
+.discovery a{color:#235b38;font-weight:800}
+@media(max-width:720px){.discoveryResults{grid-template-columns:minmax(0,1fr)}.discoveryResults button{min-height:0}.discoveryHeading>span{font-size:.59rem}}

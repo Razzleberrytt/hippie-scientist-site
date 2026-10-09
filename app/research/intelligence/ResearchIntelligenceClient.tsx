@@ -9,6 +9,7 @@ import reviewedDistributionObjects from '@/data/distribution/research-objects.js
 import {traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
 import {Brief,Notice,Tag,Sources,WitnessPanel} from './ResearchIntelligencePrimitives'
 import ScientificIntelligencePanel from './ScientificIntelligencePanel'
+import ResearchSourceDiscovery from './ResearchSourceDiscovery'
 import styles from './ResearchIntelligence.module.css'
 
 type Payload=ResearchStudio&{graph:SemanticNetwork;reviewedStudies?:ReviewedStudyInput[]}
@@ -172,7 +173,8 @@ return <section className={styles.studio}>
     <div className={styles.workspaceTitle}><div><span className={styles.micro}>INSTRUMENT / {active.number}</span><h2>{active.label}</h2></div>
       <span className={styles.status}>{data?'VERIFIED / READY':'PREVIEW / OPEN TO EXPLORE'}</span>
     </div>
-    {data?<section ref={caseRef} className={styles.caseWorkbench} aria-label='Shared eight-instrument source case file'>
+    {data?<section className={styles.caseWorkbench} aria-label='Shared eight-instrument source case file'>
+      <ResearchSourceDiscovery dna={data.dna} graph={data.graph} onInspect={inspectPmid}/>
       <form className={styles.caseLookup} onSubmit={e=>{e.preventDefault();inspectPmid(focusLookup.trim())}}>
         <label className={styles.field}>Trace a verified PubMed source through all eight instruments
           <input type='search' inputMode='numeric' value={focusLookup} maxLength={10}
@@ -181,7 +183,7 @@ return <section className={styles.studio}>
         <button type='submit' className={styles.prime} disabled={!/^\d{5,10}$/.test(focusLookup.trim())}>Open case file ↗</button>
       </form>
       {lookupError?<p role='status'>{lookupError} <button type='button' className={styles.caseTrace} onClick={clearSourceFocus}>Clear lookup</button></p>:null}
-      {caseFile?<article className={styles.casePanel} aria-live='polite'>
+      {caseFile?<article ref={caseRef} className={styles.casePanel} aria-live='polite'>
         <div className={styles.scopeBar}><span role='status'><strong>SOURCE FOCUS ACTIVE:</strong> All eight instruments are restricted to exact source-linked leads for PMID {caseFile.pmid}.{handoffNote?<small className={styles.handoffNote}> {handoffNote}</small>:null}</span>
           <button type='button' onClick={clearSourceFocus}>Clear focus · explore all sources ↗</button></div>
         <div className={styles.paperTop}><Tag>RESEARCH-ONLY CASE FILE</Tag><span>PMID {caseFile.pmid}</span></div>
