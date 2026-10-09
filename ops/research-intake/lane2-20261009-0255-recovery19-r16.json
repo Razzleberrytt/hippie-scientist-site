@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "41850683",
+    "42046021",
+    "42061108",
+    "41694319",
+    "41926740",
+    "41450035",
+    "42698526",
+    "42692117",
+    "42253437",
+    "41747400",
+    "42075146",
+    "42356257",
+    "42641106",
+    "42251202",
+    "42141362",
+    "42811187",
+    "42063954",
+    "41624204",
+    "42406397"
+  ],
+  "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review."
+}
