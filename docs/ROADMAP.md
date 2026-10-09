@@ -15,6 +15,14 @@
 **Execution window (proposed, not automatically scheduled):** October 12–16, beginning with exact GitHub and Cloudflare current-state reconciliation, then source/claim contracts, one vertical read-only case-to-editorial review trace, verification/deployment receipt and retrospective. No existing milestone M0–M6 advances automatically from architectural design, merged GitHub code, or a larger research register.
 
 **Safety/validation invariants:** existing backlog score, atomic PR governance, exact-head CI and merge controller, review-before-clinical-claim, static export and consent/privacy, accessible output, published-artifact provenance, rollback. Optimization eliminates redundant checks only with identical risk scope and demonstrable proof; it never eliminates a required scientific, security, accessibility, SEO or deployment gate.
+### Additive P0 accelerator — build and CI optimization (October 9, 2026)
+
+**No replacement:** the existing Generational Engineering P0 and all current scientific, integration, evidence, revenue and milestone goals stand. Add an engineering-throughput track whose first delivery vehicle is existing #6507 / PR #6509. Do not fork parallel preflight/controller implementations or add an Operations implementation WIP lane.
+
+**Sequence:** complete and verify the existing batched preflight/postdeploy-owner-retirement owner; establish risk-stratified critical-path timing and GitHub Actions trigger-graph baselines; remove verified duplicate/no-op triggers and repeated equivalent full-check jobs where protected check semantics permit; profile Next static export/workbook/data generation and remove bottlenecks through deterministic, keyed caches/artifact sharing; compare results on comparable PR risk classes and record regressions.
+
+**Exit conditions:** fewer redundant workflow jobs and improved verified p50/p90 CI and time-to-green (specific numeric targets only after a representative baseline); correct cache invalidation and cold-build parity; unchanged security/scientific/a11y/SEO/static-export/full-final required checks and original check contexts; controller-only merge and exact production receipt. A speed improvement alone does not complete an M0–M6 milestone or prove commercial ROI.
+
 ## Status summary
 
 | Milestone | Status | Current constraint |

@@ -4,6 +4,16 @@
 **Updated:** 2026-10-08
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-10-09 — Add build/CI optimization to existing P0 without displacing it
+
+**Decision:** Retain the accepted Generational Engineering P0 (#6431) and its scientific intelligence, semantic integration, reviewed-evidence, content/distribution and business objectives **in full**. Add build, CI and engineering-throughput optimization as a highest-priority **cross-cutting accelerator**, not a successor strategy, fourth workstream, new scoring formula, or automatically admitted implementation ticket.
+
+**Execution:** Use existing #6507 / PR #6509 for its already-scoped batched preflight and safe postdeploy owner-retirement proposal. Subsequent work prioritizes reliable critical-path/duplicate-trigger measurement, redundant check elimination, Next static build profiling, immutable and input-keyed intermediate artifact reuse and dependency caches, then measured before/after verification. Keep change bundles cohesive, small enough to review and rollback, and one governed release train; do not create redundant standalone controllers.
+
+**Invariants:** Preserve existing live P0 work and three normal D/R/A WIP slots; evidence identity, separate scientific review, security, accessibility, SEO, privacy, static export, failed-check blocking, exact-head required CI, correct immutable artifact keys, branch protection, protected merge controller and production deployment proof. Cached green results must never be reused after relevant inputs change. Never disable required workflows or represent optional fast developer preflight as release authorization. Gains and revenue ROI remain Unknown until observed.
+
+**Source of truth:** The additive sprint/roadmap/backlog plan controls priority only; code, CI receipts, PR statuses and deploy proofs determine completed execution. See #6507 and PR #6509. No old #6431 acceptance criterion is canceled.
+
 ## 2026-10-08 — Generational System Engineering is P0 execution methodology
 
 **Decision:** Plan architecture, interoperability, versioned source/claim/review identity, dependency graph and validation scopes as a *generation* before expanding isolated feature branches. Implement through bounded per-ticket PRs and normal WIP/admission limits, using T0 cheap fixtures, T1 cross-system contracts, T2 mandatory exact-head CI/build/scientific/security/a11y/SEO/review gates, and T3 main deployment plus user-facing proof. Optimize total safely deployed capability throughput and avoidance of redundant verifications, not source count, PR count or unmeasured velocity.
