@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42805149",
+    "41477654",
+    "41762480"
+  ],
+  "relevance_reason": "PubMed-verified botanical interaction and safety evidence: Danshen-atorvastatin transporter pharmacokinetics in rats, kava-associated liver injury case report, and Sijunzi-cyclophosphamide pharmacokinetics in rats; research-only pending independent review."
+}
