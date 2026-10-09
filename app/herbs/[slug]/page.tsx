@@ -36,6 +36,7 @@ import { SourcingCta } from '../../../components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '../../../components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import EvidenceScopeGuide from '@/components/ui/EvidenceScopeGuide'
 import SafetyCautionLevel, { safetyFactorsForRecord } from '@/components/ui/SafetyCautionLevel'
 import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
 import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
@@ -576,6 +577,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 </div>
               )}
             </dl>
+            <EvidenceScopeGuide context="profile" />
           </header>
 
           {/* Decision-critical content stays ahead of supporting art in the
@@ -968,3 +970,4 @@ export default async function HerbDetailPage({ params }: PageProps) {
     </div>
   )
 }
+
