@@ -23,5 +23,7 @@ describe('EvidenceScopeGuide', () => {
     expect(screen.getByText('What do the evidence report grades measure?')).toBeTruthy()
     expect(screen.getByText(/indexable ingredient profiles as their denominator—not every tracked compound or every PubMed reference/)).toBeTruthy()
     expect(screen.getByText(/An evidence grade does not confer approval/)).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Read the grading methodology' }).getAttribute('href')).toMatch(/^\/info\/methodology\/?$/)
+    expect(screen.getByRole('link', { name: 'Check safety separately' }).getAttribute('href')).toMatch(/^\/safety-checker\/?$/)
   })
 })
