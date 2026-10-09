@@ -7,7 +7,16 @@ const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'start
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 const DISPATCH_EVENTS = new Set(['pull_request', 'workflow_dispatch'])
 const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
-const CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof'])
+export const CI_OWNED_RECOVERY_CONSUMERS = new Set([
+  'Build Check',
+  'Lighthouse CI',
+  'Production Content Lint',
+  'P0 Visual Proof',
+  'Production Content Invariants',
+  'Crawl Governance',
+  'Schema and Media Governance',
+  'Technical SEO Monitor',
+])
 
 const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
@@ -315,10 +324,16 @@ async function getBranchSha(repo, branch) {
   return payload?.commit?.sha || null
 }
 
-async function getWorkflowRuns(repo, sha) {
+// Recovery must see every matching same-head run, including older real jobs;
+// readiness keeps its existing newest-per-workflow view and semantics.
+export function workflowRunView(exact, preserveAll = false) {
+  return preserveAll ? exact : newestBy(exact, (run) => run.name, runScore)
+}
+
+async function getWorkflowRuns(repo, sha, { preserveAll = false } = {}) {
   const payload = await github(`/repos/${repo}/actions/runs?head_sha=${encodeURIComponent(sha)}&per_page=100`)
   const exact = (payload.workflow_runs || []).filter((run) => run.head_sha === sha && DISPATCH_EVENTS.has(run.event))
-  return newestBy(exact, (run) => run.name, runScore)
+  return workflowRunView(exact, preserveAll)
 }
 
 async function getCheckRuns(repo, sha) {
@@ -406,32 +421,60 @@ export function shouldDispatchRegisteredWorkflow(name, observedRuns, verifiedZer
   )
 }
 
+// Plan dispatches only from exact-head observations. A real or recoverable
+// same-head CI producer owns its artifact consumers; a missing/failed CI does
+// not silently make its consumers successful or suppress their fallback paths.
+export function planRecoveryDispatch(registeredRuns, observedRuns, verifiedZeroJobIds, headSha) {
+  const sameHeadRuns = observedRuns.filter((run) => run.head_sha === headSha)
+  const eligible = registeredRuns.filter((run) =>
+    shouldDispatchRegisteredWorkflow(run.name, sameHeadRuns, verifiedZeroJobIds)
+  )
+  const ciToDispatch = eligible.some((run) => run.name === 'CI')
+  const realCiOnHead = sameHeadRuns.some((run) =>
+    run.name === 'CI' &&
+    DISPATCH_EVENTS.has(run.event) &&
+    (run.status !== 'completed' || run.conclusion === 'success')
+  )
+  const ciOwnsFanout = ciToDispatch || realCiOnHead
+  const direct = eligible
+    .filter((run) => !(ciOwnsFanout && CI_OWNED_RECOVERY_CONSUMERS.has(run.name)))
+    .sort((a, b) => Number(b.name === 'CI') - Number(a.name === 'CI'))
+  const deferred = eligible.filter((run) =>
+    ciOwnsFanout && CI_OWNED_RECOVERY_CONSUMERS.has(run.name)
+  )
+  return { direct, deferred, ciOwnsFanout }
+}
+
 async function dispatchRegisteredWorkflows(repo, sourceRuns, pr) {
   await sleep(3000)
-  const existingRuns = await getWorkflowRuns(repo, pr.head.sha)
+  // Do not collapse multiple same-name runs before verifying every jobless stub.
+  const existingRuns = await getWorkflowRuns(repo, pr.head.sha, { preserveAll: true })
   const registered = newestBy(sourceRuns, (run) => run.name, runScore)
-  let dispatched = 0
+  const verifiedZeroJobIds = new Set()
   for (const run of registered) {
-    const matching = existingRuns.filter((candidate) => candidate.name === run.name)
-    // Preserve all real completions, failures, in-flight work and existing
-    // workflow_dispatch recoveries. Only jobless bot-suppressed stubs qualify.
-    if (matching.length && !matching.every((candidate) =>
-      candidate.event === 'pull_request' &&
-      candidate.status === 'completed' &&
-      candidate.conclusion === 'action_required'
-    )) continue
-    const verifiedZeroJobIds = new Set()
+    const matching = existingRuns.filter((candidate) =>
+      candidate.name === run.name && candidate.head_sha === pr.head.sha
+    )
+    // Preserve real completed, failing, in-flight or previously dispatched
+    // runs. Only proved jobless action_required stubs qualify for recovery.
     for (const candidate of matching) {
+      if (candidate.event !== 'pull_request' ||
+          candidate.status !== 'completed' ||
+          candidate.conclusion !== 'action_required') continue
       if ((await getRunJobs(repo, candidate.id)).length === 0) {
         verifiedZeroJobIds.add(candidate.id)
       }
     }
-    if (!shouldDispatchRegisteredWorkflow(run.name, existingRuns, verifiedZeroJobIds)) continue
-    await dispatchWorkflowRun(repo, run, pr)
-    dispatched += 1
   }
-  console.log(`Recovery dispatch complete for PR #${pr.number}; dispatched ${dispatched}/${registered.length} registered workflow(s)`)
-  return dispatched
+  const plan = planRecoveryDispatch(registered, existingRuns, verifiedZeroJobIds, pr.head.sha)
+  // Dispatch the producer before any independent checks. Every consumer
+  // still requires a real terminal-green exact-head result before merge.
+  for (const run of plan.direct) await dispatchWorkflowRun(repo, run, pr)
+  if (plan.deferred.length) {
+    console.log(`CI owns same-head governed fan-out; deferred direct recovery of: ${plan.deferred.map(run => run.name).join(', ')}`)
+  }
+  console.log(`Recovery dispatch complete for PR #${pr.number}; dispatched ${plan.direct.length}/${registered.length} registered workflow(s); deferred ${plan.deferred.length} CI-owned consumer(s)`)
+  return plan.direct.length
 }
 
 async function waitForHeadMove(repo, number, previousHeadSha) {
@@ -479,19 +522,34 @@ async function recoverZeroJobActionRequired(repo, pr, failedRuns) {
     if (jobs.length !== 0) return false
   }
   console.log(`Classified ${failedRuns.length} action_required workflow(s) on ${pr.head.sha} as zero-job control-plane failures`)
-  const ciRecovery = failedRuns.some((run) => run.name === 'CI')
-  const directRuns = ciRecovery
+  const ciInFailedRuns = failedRuns.some((run) => run.name === 'CI')
+  // CI may already be real/in flight, while only its zero-job consumers
+  // appear among failedRuns. Never self-build those consumers in that race.
+  const otherRuns = !ciInFailedRuns && failedRuns.some((run) => CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
+    ? await getWorkflowRuns(repo, pr.head.sha)
+    : []
+  const realCiOnHead = otherRuns.some((run) =>
+    run.head_sha === pr.head.sha &&
+    run.name === 'CI' &&
+    DISPATCH_EVENTS.has(run.event) &&
+    (run.status !== 'completed' || run.conclusion === 'success')
+  )
+  const ciOwnsFanout = ciInFailedRuns || realCiOnHead
+  const directRuns = (ciOwnsFanout
     ? failedRuns.filter((run) => !CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
     : failedRuns
+  ).sort((a, b) => Number(b.name === 'CI') - Number(a.name === 'CI'))
 
-  if (ciRecovery) {
+  if (ciOwnsFanout) {
     const deferred = failedRuns
       .filter((run) => CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
       .map((run) => run.name)
-    console.log(`CI recovery owns governed consumer fan-out; deferring direct recovery for: ${deferred.join(', ') || 'none'}`)
+    console.log(`Same-head CI producer owns governed consumer fan-out; deferring direct recovery for: ${deferred.join(', ') || 'none'}`)
   }
 
   for (const run of directRuns) await dispatchWorkflowRun(repo, run, pr)
+  // No fabricated successful consumers: the existing exact-head merge gate
+  // independently requires their actual terminal-green workflow records.
   return true
 }
 
