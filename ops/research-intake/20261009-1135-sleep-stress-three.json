@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "40006090",
+    "40169760",
+    "40362800"
+  ],
+  "relevance_reason": "Human randomized controlled trials of sleep quality, stress and anxiety outcomes."
+}
