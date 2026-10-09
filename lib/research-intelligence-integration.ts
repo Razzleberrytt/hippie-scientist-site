@@ -14,6 +14,42 @@ import {planResearchSemanticFabric,type ResearchFabricPlan,type DistributionIden
 import type {ResearchStudio,ReviewedStudyInput} from './research-intelligence-studio'
 import type {SemanticNetwork} from './research-semantic-network'
 
+/**
+ * Strictly research-only transport shape. A matching DOI and purported
+ * claim/source IDs merely identify records for a *human* to inspect.
+ * This is neither a reviewed medical claim nor a publication grant.
+ */
+export type ResearchEditorialReviewHandoff={
+  schemaVersion:1
+  kind:'research-editorial-review-request'
+  sourcePmid:string
+  sourceSignature:string
+  sourceUrl:string
+  sourceDoi:string|null
+  reviewedCitationIds:string[]
+  instrumentCount:8
+  scientificProjectionCount:12
+  reviewTargets:Array<{
+    requestId:string
+    sourcePmid:string
+    sourceSignature:string
+    exactPublicationDoi:string
+    objectId:string
+    targetPage:string
+    claimedFindingId:string
+    claimedPrimarySourceId:string
+    identityBasis:'exact-primary-citation-doi'
+    status:'human-editorial-review-required'
+    claimIndependentlyApproved:false
+  }>
+  heldChannels:Array<{channel:'editorial'|'social';reason:string;status:'held-for-human-review'}>
+  disposition:'review-candidates-await-independent-adjudication'|'held-no-exact-review-targets'
+  evidenceAuthority:'research-intake-not-clinical-evidence'
+  clinicalPromotions:0
+  publicationAllowed:false
+  mutationAllowed:false
+}
+
 export type IntegratedResearchCase={
   schemaVersion:1
   pmid:string
@@ -23,6 +59,7 @@ export type IntegratedResearchCase={
   relay:InstrumentRelay
   scientific:ScientificIntelligenceCase
   fabric:ResearchFabricPlan
+  reviewHandoff:ResearchEditorialReviewHandoff
   status:'source-bound-human-review-only'
   clinicalPromotions:0
   publicationAllowed:false
@@ -75,10 +112,81 @@ export function buildIntegratedResearchCase(
     throw Error('Integrated research case failed exact-source, scientific or review-only contract')
   }
 
-  return {
-    schemaVersion:1,pmid,sourceSignature:verifiedSignature,
+  const core={
+    schemaVersion:1 as const,pmid,sourceSignature:verifiedSignature,
     caseFile,scope,relay,scientific,fabric,
-    status:'source-bound-human-review-only',
+    status:'source-bound-human-review-only' as const,
+    clinicalPromotions:0 as const,publicationAllowed:false as const,mutationAllowed:false as const,
+  }
+  return {...core,reviewHandoff:compileResearchEditorialReviewHandoff(core)}
+}
+
+/** Build from the single canonical 8+12 integrated case, never a new ledger. */
+export function compileResearchEditorialReviewHandoff(
+  integrated:Omit<IntegratedResearchCase,'reviewHandoff'>,
+):ResearchEditorialReviewHandoff{
+  const {pmid,sourceSignature,caseFile,scientific,fabric}=integrated
+  if(!/^\\d{5,10}$/.test(pmid) ||
+    caseFile.pmid!==pmid || caseFile.sourceSignature!==sourceSignature ||
+    scientific.pmid!==pmid || scientific.sourceSignature!==sourceSignature ||
+    fabric.sourcePmid!==pmid || fabric.sourceSignature!==sourceSignature ||
+    caseFile.status!=='source-discovery-only-no-clinical-adjudication' ||
+    fabric.evidenceAuthority!=='research-intake-not-clinical-evidence' ||
+    fabric.publicationAllowed!==false || fabric.mutationAllowed!==false ||
+    scientific.clinicalPromotions!==0 || scientific.autopublished!==0 ||
+    scientific.calibrationPassed!==true || scientific.calibrationFailures!==0 ||
+    integrated.publicationAllowed!==false || integrated.mutationAllowed!==false ||
+    caseFile.instruments.length!==8 || scientific.capabilities.length!==12) {
+    throw Error('Editorial handoff rejected conflicting research-only source or scientific authority')
+  }
+  const requests=fabric.distributionReviewTargets.map(target=>{
+    if(!fabric.sourceDoi || target.matchingDoi!==fabric.sourceDoi ||
+      target.provenance!=='exact-primary-citation-doi' ||
+      target.status!=='publication-matched-editorial-review-required' ||
+      !target.objectId || !target.targetPage || !target.citationId || !target.sourceClaimId) {
+      throw Error('Editorial handoff rejected mismatched exact publication/claim identifiers')
+    }
+    return {
+      requestId:[pmid,sourceSignature,target.objectId,target.citationId,target.sourceClaimId]
+        .map(encodeURIComponent).join(':'),
+      sourcePmid:pmid,sourceSignature,
+      exactPublicationDoi:target.matchingDoi,
+      objectId:target.objectId,targetPage:target.targetPage,
+      claimedFindingId:target.sourceClaimId,claimedPrimarySourceId:target.citationId,
+      identityBasis:'exact-primary-citation-doi' as const,
+      status:'human-editorial-review-required' as const,
+      claimIndependentlyApproved:false as const,
+    }
+  })
+  const heldChannels=fabric.unresolvedChannels.map(hold=>({
+    channel:hold.channel,reason:hold.reason,status:'held-for-human-review' as const,
+  }))
+  return {
+    schemaVersion:1,kind:'research-editorial-review-request',
+    sourcePmid:pmid,sourceSignature,sourceUrl:caseFile.sourceUrl,
+    sourceDoi:fabric.sourceDoi,reviewedCitationIds:[...caseFile.reviewedCitationIds],
+    instrumentCount:8,scientificProjectionCount:12,
+    reviewTargets:requests,heldChannels,
+    disposition:requests.length?'review-candidates-await-independent-adjudication':'held-no-exact-review-targets',
+    evidenceAuthority:'research-intake-not-clinical-evidence',
     clinicalPromotions:0,publicationAllowed:false,mutationAllowed:false,
   }
+}
+
+/**
+ * Consumer firewall: regenerate from the CURRENT trusted source/case/fabric.
+ * Never accept a serialized claim, stale source or unreviewed approval flag
+ * simply because a producer included the right DOI.
+ */
+export function resolveResearchEditorialReviewHandoff(
+  studio:ResearchStudio,graph:SemanticNetwork,pmid:string,
+  distributionObjects:readonly DistributionIdentity[],
+  received:unknown,reviewedStudies:readonly ReviewedStudyInput[]=[],
+):ResearchEditorialReviewHandoff{
+  const trusted=buildIntegratedResearchCase(studio,graph,pmid,distributionObjects,reviewedStudies)
+  if(!trusted || !received || typeof received!=='object' ||
+    JSON.stringify(trusted.reviewHandoff)!==JSON.stringify(received)) {
+    throw Error('Editorial review handoff identity/version/revision mismatch: human review required')
+  }
+  return trusted.reviewHandoff
 }
