@@ -34,7 +34,9 @@
     7506,
     7508,
     7523,
-    7528
+    7528,
+    7666,
+    7984
   ],
   "issueDisposition": [
     {
@@ -60,6 +62,20 @@
       "wave": 7528,
       "finding": "Rodent/preclinical evidence, not human clinical research",
       "action": "QUARANTINE_NONHUMAN",
+      "clinicalAdmission": false
+    },
+    {
+      "wave": 7666,
+      "pmid": "27379960",
+      "finding": "Healthy athletes aged 18–45 in a vitamin D muscle-strength systematic review; not aging/sarcopenia participants or outcomes. May be useful in performance category after separate review.",
+      "action": "QUARANTINE_OFF_CATEGORY",
+      "clinicalAdmission": false
+    },
+    {
+      "wave": 7984,
+      "pmid": "38084984",
+      "finding": "Human probiotic RCT studies prevention of recurrent urinary tract infections, not respiratory infections; immune_respiratory category mismatch.",
+      "action": "QUARANTINE_OFF_CATEGORY",
       "clinicalAdmission": false
     }
   ],
