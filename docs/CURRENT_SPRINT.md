@@ -5,9 +5,13 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
+**Current admission (verified 2026-10-08):** Normal implementation WIP is **1/3**: Discovery/SEO (D) owns #6451 after fresh, scored exact-base admission; Revenue/Conversion and Authority/Content are free. This is not a fourth Operations slot. Current runtime/release outcome remains Unknown until validation and deployment.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
+
+### P0 source-register release verified; #6451 next admitted governance fix
+
+**2026-10-08 release:** #6445 / PR #6452 merged on exact main `c71a60cdf2511e6a777659568beeeed3a2e51e51`; deploy run `37861839685` verified the matching production receipt. Real zero-job recovery execution remains **Unknown**. **Now admitted (D, 1/3):** #6451 corrects the narrower GitHub HTTP 405 review-conversation exception path; no review bypass, merge shortcut or workflow change allowed.
 
 ### Existing-owner P0 source-register recovery — #6448 merged, #6445 security follow-up
 
@@ -75,6 +79,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| D | #6451 | Treat unresolved-review merge 405 as a PR-local governance hold | Active — admitted | P0 | 80.0 | 2026-10-08 |
 
 
 
