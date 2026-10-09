@@ -32686,6 +32686,1944 @@
       "reservation_id": "b1ce994407df23633e5f",
       "reserved_at": "2026-10-09T10:49:24.887Z",
       "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
+    },
+    {
+      "pmid": "41968688",
+      "title": "Treatment of Persisting Symptoms after Concussion with Repetitive Transcranial Magnetic Stimulation: A Double-Blinded, Randomized, Controlled Trial.",
+      "doi": "10.1177/08977151261440773",
+      "source_title": "Treatment of Persisting Symptoms after Concussion with Repetitive Transcranial Magnetic Stimulation: A Double-Blinded, Randomized, Controlled Trial.",
+      "abstract": "Following a mild traumatic brain injury (mTBI), up to 30% of individuals will experience persisting symptoms beyond 3 months. Repetitive transcranial magnetic stimulation (rTMS) is a noninvasive neuromodulation technique that has shown promise as an intervention for persisting symptoms after concussion (PSaC); however, to determine efficacy, larger clinical trials are required. The objective of this study was to investigate the efficacy of high-frequency rTMS targeting the left dorsolateral prefrontal cortex as an intervention for PSaC. This randomized, double-blinded, sham-controlled study recruited adults (aged 18-75 years) experiencing PSaC for at least 3 months and up to 5 years post-mTBI. Participants were randomized 1:1 to receive 20 sessions of rTMS (10 Hz, 10 trains of 60 pulses with 45 s inter-train intervals, 100-120% resting motor threshold) using either an active or sham coil. The primary outcome was the Rivermead Postconcussion Symptoms Questionnaire (RPQ). The primary end-point was the difference in total RPQ score change from baseline at post-rTMS and 1- and 3-month follow-ups in active compared with sham rTMS. Secondary exploratory outcomes included anxiety, depression, quality of life, headache, post-traumatic stress disorder (PTSD), and cognition. To determine the effects of rTMS, a difference-in-differences approach was adopted using linear mixed models, which controlled for age, sex, and baseline stress (life stress questionnaire [LSQ]). One hundred and forty individuals were screened, and 91 participants were enrolled (mean age 41.3 ± 11.3; 61% female). For our primary end-point, there was no significant difference in differences in total RPQ score between the active and sham groups at post-rTMS (β = 1.07, 95% CI [-3.01, 5.1], p = 0.607), 1 month (β = 3.81, 95% CI [-0.72, 8.3], p = 0.099), or 3 months (β = -3.18, 95% CI [-7.1, 0.70], p = 0.108). However, both active and sham groups demonstrated a significant improvement in total RPQ scores from baseline at post-rTMS, 1 month, and 3 months. The secondary outcomes (depression, anxiety, quality of life, headache impact, cognition, post-traumatic stress) demonstrated a significant effect of time, but no significant effect of group. Age and sex did not influence the model; however, higher baseline LSQ (>300) was associated with higher scores in both active and sham groups at all timepoints for every outcome measure other than headache impact. Lower LSQ significantly influenced response to active rTMS treatment with regard to PTSD symptoms at post-rTMS timepoint only but not in the sham group. In conclusion, there was no significant difference between active and sham rTMS when evaluating symptom severity scores. However, both treatment groups significantly improved following intervention, which was maintained up to 3 months. Lower baseline LSQ significantly influenced PTSD symptom response in the active group at post-rTMS only. Alternative neuromodulation approaches should be considered in this patient population.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41968688/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41968688",
+        "doi": "10.1177/08977151261440773",
+        "journal": "Journal of neurotrauma",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.919Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "658e8cd27b07d3b77512",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42839221",
+      "title": "Repetitive Head Impacts During Contact Sports and Fluid Biomarkers of Neural Damage: A Meta-analysis.",
+      "doi": "10.1007/s40279-026-02529-x",
+      "source_title": "Repetitive Head Impacts During Contact Sports and Fluid Biomarkers of Neural Damage: A Meta-analysis.",
+      "abstract": "Growing evidence indicates that former professional contact sports athletes are at increased risk of neurodegenerative disease, potentially linked to repetitive head impacts (RHI). Research into the acute effects of RHI on fluid biomarkers of neural damage can contribute to the identification of underlying pathophysiological processes. To systematically aggregate the acute effect of contact sport participation on fluid biomarkers of neural damage. MEDLINE, Embase and SPORTDiscus were searched up to 18 July 2024. Studies that were included assessed fluid biomarkers of neural damage before and within 24 h after a single session of contact sport participation. Studies on mild traumatic brain injury were excluded. Risk of bias was assessed using the Bias in Non-randomized Studies of Exposure tool and the Risk of Bias Tool 2. The level of evidence was synthesized according to the Grading of Recommendations Assessment, Development, and Evaluation (GRADE) methodology. Meta-analysis was performed for natural and experimental exposure to RHI separately, while also differentiating for contact sports and biomarkers in subsequent analyses. Thirthy-three studies (representing 892 participants) were included for meta-analysis. Meta-analysis on natural exposure revealed medium-to-large-sized elevations across blood biomarkers for fight sports (k = 7), American Football (k = 9) and football (soccer) (k = 2). Very few studies (8%) controlled for the confounding effects of physical exercise or blood volume change, introducing considerable risk of bias. Meta-analysis on experimental exposure to football heading revealed no significant change in blood biomarkers of neural damage (k = 11, n = 236, d = 0.108, 95% CI = -0.047 to 0.263, p = 0.172), and the experimental heading groups also showed no difference in pre-post change compared with control groups (k = 8, heading = 174, controls = 151, d = -0.115, 95% CI = -0.452 to 0.223, p = 0.505). The current literature provides convincing evidence for acute elevations of blood biomarkers after a single session of contact sports participation. However, due to considerable risk of bias in existing literature, this evidence is very uncertain regarding the acute effect of contact sports participation on brain integrity (GRADE level of evidence: very low). On the basis of meta-analysis of the available literature (including S100B, neurofilament light chain and total-tau), the evidence is very uncertain about the acute effects of football heading on brain integrity within 24 h after exposure (GRADE level of evidence: very low). In the light of the increased risk of neurodegenerative disease in former professional contact sport athletes, there is a need for well-powered and controlled prospective studies on the acute and long-term effects of contact sport participation on brain integrity. PROSPERO number: CRD42023461119.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42839221/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42839221",
+        "doi": "10.1007/s40279-026-02529-x",
+        "journal": "Sports medicine (Auckland, N.Z.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.920Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0814ea0799dfa93c63ee",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42788834",
+      "title": "Bispectral index during remimazolam versus propofol sedation at matched depths: a randomized, double-blind crossover trial in healthy volunteers.",
+      "doi": "10.1080/07853890.2026.2735790",
+      "source_title": "Bispectral index during remimazolam versus propofol sedation at matched depths: a randomized, double-blind crossover trial in healthy volunteers.",
+      "abstract": "The bispectral index (BIS) was derived primarily from propofol data, and whether its thresholds apply to remimazolam is uncertain. We compared BIS between the two agents at matched sedation depths and examined early cognitive recovery. In this prospective, randomized, double-blind, two-period crossover trial, 16 healthy volunteers (American Society of Anesthesiologists physical status I) received remimazolam and propofol in random order, ≥ 7 days apart. Each agent was titrated to moderate (Modified Observer's Assessment of Alertness/Sedation [MOAA/S] 3) and deep (MOAA/S 1) sedation. The confirmatory outcome was mean BIS at deep sedation. All other outcomes were exploratory: BIS at moderate sedation and at loss of the eyelash reflex, emergence time, and cognitive recovery at 30 and 120 min. At deep sedation, mean BIS was higher with remimazolam (57.6 ± 7.5) than with propofol (46.5 ± 7.9; adjusted difference 11.1 units; 95% CI, 7.3 to 14.8; p < 0.001). In exploratory analyses, BIS was also higher at moderate sedation and at loss of the eyelash reflex (both p < 0.001), and emergence time did not differ ( p = 0.606). At 30 min, processing speedand executive function recovered faster after remimazolam (p = 0.012 and p < 0.001), whereas verbal memory did not differ between agents. All domains converged by 120 min. Adverse events were uncommon, and the trial was not powered to compare them. At clinically matched sedation depths, remimazolam produced higher BIS values than propofol. Spectral data were not recorded, so the basis of this offset is undetermined, and the cognitive findings were exploratory. Whether this offset warrants agent-specific reference values requires validation in clinical populations. Remimazolam produced higher BIS values than propofol at all three clinically matched sedation depths in healthy young volunteers.Because depth was matched by clinical endpoint, these higher readings do not indicate lighter sedation as conventionally defined.Whether this offset warrants agent-specific reference values requires validation in clinical populations before implementation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42788834/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42788834",
+        "doi": "10.1080/07853890.2026.2735790",
+        "journal": "Annals of medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.920Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2b84980dc55422043393",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42612477",
+      "title": "The efficacy of non-invasive brain stimulation interventions in obsessive-compulsive disorder management: A network meta-analysis of randomized controlled trials.",
+      "doi": "10.1016/j.psychres.2026.117379",
+      "source_title": "The efficacy of non-invasive brain stimulation interventions in obsessive-compulsive disorder management: A network meta-analysis of randomized controlled trials.",
+      "abstract": "Non-invasive brain stimulation (NIBS) has been widely used as an alternative treatment for obsessive compulsive disorder (OCD). However, the most effective NIBS parameters are unclear. To compare the efficacy of NIBS in OCD. We conducted a systematic review and network meta-analyses (NMA) to combine direct and indirect comparisons of NIBS.Systematic searches were conducted in Cochrane CENTRAL, EMBASE, PubMed, and Web of Science from inception to June 20, 2025. Forty-two randomized sham-controlled trials (n = 1456) were included. All statistical analyses were conducted with R statistical software. Bayesian NMAs mainly using the BUGSnet package and gemtc package. Five NIBS protocols produced statistically significant reductions in Yale-Brown Obsessive Compulsive Scale (Y-BOCS) scores compared with sham stimulation: high-frequency rTMS over the FzFCz (Hf-rTMS-FzFCz; MD -11.77, 95% CrI -20.62 to -3.09), low-frequency rTMS over F3F4 (Lf-rTMS-F3F4; MD -9.93, 95% CrI -18.07 to -1.65), low-frequency rTMS over FCz (Lf-rTMS-FCz; MD -3.25, 95% CrI -6.06 to -0.40), high-frequency deep TMS over FzFC (Hf-dTMS-FzFC; MD -6.48, 95% CrI -12.32 to -0.50), and 2 mA anodal tDCS over F3 with cathodal over Fp2 (MD -9.34, 95% CrI -16.01 to -3.03).For secondary outcomes, high-frequency deep rTMS over FzFCz produced the largest reduction both in depressive symptoms (SMD -1.24, 95% CrI -1.92 to -0.55) and anxiety scores (SMD -1.88, 95% CrI -2.62 to -1.11), but had no effect on Clinical Global Impression-Severity (CGI-S) scores.Specific NIBS protocols are safe and effective adjunctive treatments for OCD, with promising yet inconclusive improvements in comorbid depressive symptoms. Further high-quality, head-to-head trials are needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42612477/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Network Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Network Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42612477",
+        "doi": "10.1016/j.psychres.2026.117379",
+        "journal": "Psychiatry research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.921Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1412899d6f8afc8156ea",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42546545",
+      "title": "Meta-analysis of different internet-based cognitive behavioral interventions for women at high risk for postpartum depression.",
+      "doi": "10.1016/j.jad.2026.122336",
+      "source_title": "Meta-analysis of different internet-based cognitive behavioral interventions for women at high risk for postpartum depression.",
+      "abstract": "To evaluate the efficacy of Internet-based cognitive behavioral therapies (iCBTs) for women at high risk for postpartum depression (PPD) and examine the influence of screening tools and intervention timings. PubMed, Embase, Web of Science, and the Cochrane Library databases were searched for randomized controlled trials (RCTs) on iCBT for high-risk PPD through July 2026. Meta-analysis was conducted using RevMan 5.4.1. A total of 11 RCTs involving 4065 participants were included. Meta-analysis revealed that compared with the control, iCBT significantly reduced the incidence rate of PPD in women at high risk for PPD (OR = 0.21, 95%CI [0.14, 0.33], P < 0.01). Regarding symptom scores, the iCBT group exhibited significantly lower depression scores (standardized mean difference [SMD = -0.34, 95% CI [-0.49, -0.19], P < 0.01) and anxiety scores (SMD = -0.24, 95% CI [-0.32, -0.17], P < 0.01) than the control group. Subgroup analyses revealed no significant differences in PPD incidence or depression improvement across screening tools or intervention timings, though further trials are needed to rule out potential moderating effects. Anxiety alleviation assessment may depend on the selected tool. iCBT may reduce PPD incidence and alleviate depression and anxiety symptoms in high-risk women. PROSPERO CRD420251174544.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42546545/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42546545",
+        "doi": "10.1016/j.jad.2026.122336",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.921Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "524e6243032cc574362c",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "41791032",
+      "title": "Temporal sequencing of symptom change in youth receiving treatment for posttraumatic stress disorder and substance use: secondary findings from a randomised controlled trial.",
+      "doi": "10.1080/20008066.2026.2630609",
+      "source_title": "Temporal sequencing of symptom change in youth receiving treatment for posttraumatic stress disorder and substance use: secondary findings from a randomised controlled trial.",
+      "abstract": "Posttraumatic stress disorder (PTSD) and substance use disorders (SUD) frequently co-occur in youth. Integrated, trauma-focused treatments are recommended, but evidence in youth is limited and the dynamics of symptom change are poorly understood. We investigated within-treatment changes in PTSD and substance use, and their temporal sequencing, in a randomised controlled trial (RCT) comparing integrated treatment with supportive counselling among youth aged 13-25 years. Participants ( n = 55) were randomised to an integrated, exposure-based treatment, Concurrent Treatment of PTSD and SUD Using Prolonged Exposure - Adolescent version (COPE-A); or supportive counselling, Person-Centred Therapy (PCT). PTSD and substance use symptoms were assessed at each session. Generalised estimating equations were used to analyse symptom change over time, and Spearman's correlations were used to examine associations between early (sessions 1-5) and later (sessions 5-11) change. COPE-A showed significantly greater reductions in total PTSD symptom severity during treatment ( β = -17.00, 95% CI -29.50 to -4.46); with no between-group differences in substance use quantity or frequency. PTSD symptom clusters improved concurrently, but no temporal relationships were observed. Temporal relationships for substance use change were limited, and changes in PTSD symptoms were not associated with concurrent or subsequent changes in substance use. Integrated, trauma-focused treatment reduced PTSD symptoms, reinforcing the safety and tolerability of exposure-based therapy in this youth sample with comorbid PTSD-SUD. PTSD improvement was not associated with either concurrent or subsequent reductions in substance use. Understanding temporal patterns of change may help refine models of PTSD-SUD comorbidity and optimise intervention delivery. This is the first randomised trial to examine how posttraumatic stress and substance use symptoms change over time in youth with co-occurring posttraumatic stress disorder (PTSD) and substance use disorders (SUD).An integrated, exposure-based treatment (Concurrent Treatment of PTSD and SUD Using Prolonged Exposure – Adolescent Version; COPE-A) produced significantly greater reductions in posttraumatic stress symptoms than supportive counselling.Findings suggest that COPE-A is a safe and effective approach for youth with PTSD-SUD, however neither concurrent nor temporal relationships were observed between changes in PTSD and SUD symptoms, offering new insight into treatment mechanisms and ways to refine integrated care. Antecedentes: El trastorno de estrés postraumático (TEPT) y el trastorno por uso de sustancias (TUS) con frecuencia co-ocurren en jóvenes. Se recomiendan los tratamientos integrados centrados en trauma, pero la evidencia en jóvenes es limitada y las dinámicas del cambio de síntomas es poco conocida. Objetivos: Investigamos, los cambios dentro del tratamiento en TEPT y consumo de sustancias y su secuencia temporal, en un ensayo controlado aleatorizado (ECA) comparando el tratamiento integrado con consejería de apoyo entre jóvenes de 13 a 25 años. Método: Los participantes ( n = 55) fueron asignados aleatoriamente a un tratamiento integrado basado en exposición, el Tratamiento Concurrente del TEPT y TUS Utilizando Exposición Prolongada versión para Adolescentes (COPE-A; o a consejería de apoyo, Terapia Centrada en la Persona (TCP). Los síntomas de TEPT y consumo de sustancias se evaluaron en cada sesión. Se utilizaron ecuaciones de estimación generalizadas para analizar el cambio de los síntomas a lo largo del tiempo las correlaciones de Spearman para examinar las asociaciones entre los cambios tempranos (sesiones 1-5) y posteriores (sesiones 5-11). Resultados: COPE-A mostró reducciones significativamente mayores en la gravedad total de los síntomas del TEPT durante el tratamiento ( β = −17.00, IC 95% −29.50 a −4.46; sin diferencias intergrupales en la cantidad ni frecuencia del consumo de sustancias. Los grupos de síntomas del TEPT mejoraron simultáneamente, pero no se observaron relaciones temporales. Las relaciones temporales para el cambio del consumo de sustancias fueron limitadas y los cambios en los síntomas de TEPT no se asociaron con cambios simultáneos o posteriores en el consumo de sustancias. Conclusión: El tratamiento integrado centrado en el trauma redujo los síntomas de TEPT, lo que refuerza la seguridad y tolerabilidad de la terapia basada en la exposición en esta muestra de jóvenes con TEPT-TUS comórbidos. La mejoría del TEPT no se asoció ni con reducciones simultáneas ni posteriores en el consumo de sustancias. La comprensión de los patrones temporales de cambio puede refinar los modelos de comorbilidad de TEPT-TUS y optimizar la aplicación de la intervención.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41791032/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41791032",
+        "doi": "10.1080/20008066.2026.2630609",
+        "journal": "European journal of psychotraumatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.922Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5e5b95e1de1e4b59f7fa",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "41763323",
+      "title": "Antidepressant retention and adherence among Latinx outpatients with major depressive disorder: The effect of a novel motivational interviewing-consistent approach to pharmacotherapy.",
+      "doi": "10.1016/j.jad.2026.121490",
+      "source_title": "Antidepressant retention and adherence among Latinx outpatients with major depressive disorder: The effect of a novel motivational interviewing-consistent approach to pharmacotherapy.",
+      "abstract": "Patient disengagement from Major Depressive Disorder (MDD) pharmacotherapy is extensive, particularly among individuals who are Black, Indigenous, and People of Color. Based on motivational interviewing, motivational pharmacotherapy (MPT) was developed to promote engagement in psycho-pharmacotherapy by fostering communication and reducing treatment-related ambivalence. A 36-week antidepressant RCT of MPT vs. standard pharmacotherapy was conducted with 195 Latinx outpatients with at-least-moderately-severe MDD using independent adherence and retention assessments, a standardized medication algorithm, and matched provider characteristics. Retention was compared across arms using parametric and nonparametric tests as appropriate. Electronic caps helped assess medication adherence; independent evaluators assessed symptom response, disability, and quality of life. Moderation by prior antidepressant treatment adequacy was examined. MPT reduced early medication discontinuation in the first month (RR = 0.47; 95%CI:0.25, 0.90) and increased treatment completion/late discontinuation in weeks 32-36 (RR = 1.19; 95%CI:1.003, 1.41) but showed no significant effect on retention over the 36-week period. Treatment discontinuation was significantly decreased among participants without prior antidepressant history (HR = 0.56; 95%CI:0.36, 0.88) but increased at the trend level (HR = 2.33; 95%CI:0.94, 5.82) among those with adequate history. Effects on adherence, continuous MDD symptom score, disability, and quality of life were nonsignificant but there was a significant effect on MDD remission. In conclusion, MPT particularly reduced premature treatment discontinuation early in treatment and among participants without prior antidepressant experience, suggesting impact on initial treatment concerns such as ambivalence about starting medication, fears of early adverse effects, or clinician mistrust, especially among treatment-naïve individuals. Overly manualizing MPT may inadvertently hinder tailoring to individuals with greater medication experience.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41763323/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41763323",
+        "doi": "10.1016/j.jad.2026.121490",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.922Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9ae0a2aa43319ea0e154",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42831437",
+      "title": "Acute effects of volume-matched isometric exercise intensity on vascular function and autonomic regulation in men with elevated blood pressure.",
+      "doi": "10.1111/cpf.70093",
+      "source_title": "Acute effects of volume-matched isometric exercise intensity on vascular function and autonomic regulation in men with elevated blood pressure.",
+      "abstract": "Isometric exercise (IE) has been introduced as an effective non-pharmacological strategy for blood pressure (BP) management; however, the influence of exercise intensity remains unclear during lower-limb IE. This study investigated the acute effects of volume-matched high-intensity (HIIE) and low-intensity IE (LIIE) on cardiovascular function in men with elevated BP. Seventeen men with prehypertension or stage I hypertension completed three randomized crossover conditions, including HIIE (60% of maximal voluntary contraction (MVC)), LIIE (30% of MVC), and a non-exercise control condition (CON). BP, heart rate variability (HRV), brachial-ankle pulse wave velocity (baPWV) were measured at baseline and three different time points during recovery, while flow-mediated dilation (FMD) was measured at baseline and 30-min post-exercise. No significant BP reduction was observed. However, HIIE induced greater autonomic disturbance with elevated heart rate and reduced HRV indices during recovery (p < 0.05). Right baPWV decreased following HIIE (p < 0.05) while FMD increased after both exercise conditions (p < 0.001). Our findings suggest that volume-matched HIIE induces greater acute autonomic and vascular responses than LIIE in men with elevated BP, despite no immediate changes in BP. HIIE may provide a stronger physiological stimulus associated with vascular adaptation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42831437/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42831437",
+        "doi": "10.1111/cpf.70093",
+        "journal": "Clinical physiology and functional imaging",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.922Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c5e26f5d1c5f373b6ce4",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42829513",
+      "title": "A Randomized Controlled Trial of a Digital Stepped-Care Program to Reduce Anxiety and Depressive Symptoms Among Long-Term Care Workers With Psychological Distress: The REPICAL Study.",
+      "doi": "10.1155/da/5875889",
+      "source_title": "A Randomized Controlled Trial of a Digital Stepped-Care Program to Reduce Anxiety and Depressive Symptoms Among Long-Term Care Workers With Psychological Distress: The REPICAL Study.",
+      "abstract": "Long-term care workers (LTCWs), encompassing those in long-term care facilities and home-care settings, constitute a particularly vulnerable population to psychological distress. This study aimed to evaluate the effectiveness of a digital stepped-care program, adapted from two World Health Organization (WHO) psychological interventions-Doing What Matters in Times of Stress (DWM) and Problem Management Plus (PM+)-in reducing anxiety and depressive symptoms among LTCWs. A parallel-group randomized controlled trial was conducted. Participants were LTCWs from Catalonia (Spain) experiencing psychological distress (Kessler Psychological Distress Scale, K10 ≥ 16). All participants received Psychological First Aid (PFA), and those in the intervention group subsequently received the digital stepped-care program: DWM as step 1, and if psychological distress persisted (K10 ≥ 16), PM + as step 2. The primary outcome was the between-group difference in self-reported depressive and anxiety symptoms at week 21 (2-month post-program follow-up), measured using the Patient Health Questionnaire-Anxiety and Depression Scale (PHQ-ADS). Secondary outcomes included depressive and anxiety symptoms measured separately, post-traumatic stress disorder (PTSD) symptoms, and health-related quality of life (HR-QoL; measured using PHQ-9, 7-item Generalized Anxiety Disorder [GAD-7] scale, PCL-5, and EuroQol 5-dimensional descriptive system-5-level [EQ-5D-5L], respectively). Between October 2022 and May 2024, 165 participants were randomized (intervention: n = 83; control: n = 82). At week 21, depressive and anxiety symptoms were significantly lower in the intervention group, with moderate to large effect sizes (mean difference = 4.2, 95% CI: 1.1-7.3; Standardized effect size [SES] = 0.8, 95% CI: 0.1-1.4). Secondary outcomes also showed significantly greater improvement in the intervention group, except for HR-QoL, for which no differences were found. This study provides evidence supporting the effectiveness of a digital and scalable stepped-care program to support LTCWs' mental health. These robust findings may inform occupational and public health strategies for supporting LTCWs' experiencing psychological distress. Trial Registration: ClinicalTrials.gov identifier: NCT05526235.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42829513/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42829513",
+        "doi": "10.1155/da/5875889",
+        "journal": "Depression and anxiety",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.923Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "15f23c8dd0babfd82c59",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42829430",
+      "title": "Should I drink water or wine? Impacts of online nutritional counseling on the alcohol consumption of elderly individuals with mild cognitive impairment : Secondary Data Analysis from the RCT \"BrainFit-Nutrition\".",
+      "doi": "10.1186/s12889-026-29728-5",
+      "source_title": "Should I drink water or wine? Impacts of online nutritional counseling on the alcohol consumption of elderly individuals with mild cognitive impairment : Secondary Data Analysis from the RCT \"BrainFit-Nutrition\".",
+      "abstract": "People with mild cognitive impairment (MCI) have an increased health risk when they consume alcohol in comparison with people without cognitive impairment. Excessive alcohol consumption is an established modifiable risk factor that contributes to the risk of developing dementia. Within a secondary data analysis of a 2 × 2 randomized controlled trial (RCT) - consisting of a computerized cognitive intervention and a nutrition counseling intervention -, we evaluated the impact of a nutritional counseling group (neither focusing solely on alcohol consumption) on alcohol consumption in people with MCI at a 12-months follow-up, identified predictors of changes in alcohol consumption, and determined whether women benefited in the same way as men. One hundred eighty-nine (189) of 270 trial participants reported consuming alcohol at baseline and started one of the two nutritional counseling programs (ITT sample). Data were collected at a 12-months follow-up and imputed for n = 15 participants. Participants received either whole-food plant-based (WFPB) nutritional group counseling or nutritional group counseling based on the German Nutrition Society's (DGE) recommendations. Alcohol consumption was quantified with standard drinks (10 g alcohol)/day. Multiple linear regressions were used to identify potential predictors of reduction. P-values were corrected. The sample's average age was 70.6 years and nearly showed gender parity (52% female). Both interventions led to a significant reduction in alcohol consumption in people with MCI after 12 months (Cohen''''s d = .30 (WFPB); Cohen''''s d = .39 (DGE)). There were no significant differences in the change in consumption level over time between the nutritional counseling groups (p = .173). Women substantially reduced their alcohol consumption over time only in the DGE nutritional counseling group (Cohen''''s d = .33). In successful alcohol reducers (n = 84), higher baseline alcohol consumption (β = .670, p < .001), older age (β = .158, p = .035), and stricter adherence in the counseling group (β = .184, p = .017) were significant predictors of a greater reduction (F(7,76) = 18.539, p = .003). Higher cognitive functioning was a significant negative predictor of reduction (β = -.199, p = .009). In context of the lifestyle intervention of the BrainFit-Nutrition study, nutritional counseling for people with MCI was effective for reducing alcohol intake. Our results suggest focusing on younger people living with MCI as well as higher educated people, especially men, to optimize the potential of modifiable risk factors for dementia. However, gender differences exist. A gender-specific nutritional counseling program is advised in the light of the gender health gap. ISRCTN10560738; registered 11/23/2021.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42829430/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42829430",
+        "doi": "10.1186/s12889-026-29728-5",
+        "journal": "BMC public health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.924Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3704eeee794bb2d9afe0",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42635297",
+      "title": "Effectiveness of grief interventions in underrepresented regions: a systematic review and exploratory meta-analysis.",
+      "doi": "10.1080/20008066.2026.2712026",
+      "source_title": "Effectiveness of grief interventions in underrepresented regions: a systematic review and exploratory meta-analysis.",
+      "abstract": "Background: Most evidence on grief and bereavement interventions originates from Western, Educated, Industrialized, Rich, and Democratic (WEIRD) populations, raising concerns about the generalizability and cultural relevance of existing findings in diverse global contexts. Individuals confronted with the death of a close person, particularly in cases of sudden or potentially traumatic loss, may be at increased risk of adverse psychological and physical health outcomes, highlighting the importance of effective interventions. This study aimed to synthesize evidence on the effectiveness of grief interventions in underrepresented regions. Method: A systematic search of Web of Science, APA PsycInfo, and Scopus, supplemented by manual reference checks, identified randomized controlled trials (RCTs) targeting bereaved individuals in underrepresented regions. Meta-analyses were conducted to estimate overall and subgroup effects based on control type, loss type, and intervention characteristics. Results: Fourteen RCTs comprising 1122 participants were included. Grief interventions demonstrated a significant moderate-to-large effect compared to control conditions (SMD = -0.74, 95% CI [-1.01, -0.47]). Substantial heterogeneity was observed ( I ² = 77%). No significant subgroup differences were identified. Conclusion: Grief interventions show promising effectiveness across diverse cultural and geographical contexts. However, the limited and heterogeneous evidence base highlights the need for more high-quality RCTs and for the development of culturally sensitive and contextually grounded approaches to mental health care in underrepresented regions. Most evidence on grief interventions is derived from Western (WEIRD) populations, with limited representation from underrepresented regions.This meta-analysis synthesizes randomized controlled trial evidence on the effectiveness of grief interventions in diverse global contexts.Findings highlight both the effectiveness of interventions and the need for culturally sensitive, contextually grounded mental health care. Antecedentes: La mayor parte de la evidencia sobre las intervenciones para el duelo y el proceso de duelo proviene de poblaciones occidentales, educadas, industrializadas, ricas y democráticas (WEIRD, por sus siglas en inglés), lo que genera preocupaciones sobre la generalización y la pertinencia cultural de los hallazgos existentes en diversos contextos globales. Las personas que enfrentan la muerte de un ser querido, especialmente en casos de pérdidas repentinas o potencialmente traumáticas, pueden presentar un mayor riesgo de desarrollar consecuencias adversas para la salud mental y física, lo que resalta la importancia de contar con intervenciones eficaces. Este estudio tuvo como objetivo sintetizar la evidencia sobre la efectividad de las intervenciones para el duelo en regiones subrepresentadas. Método: Se realizó una búsqueda sistemática en las bases de datos Web of Science, APA PsycInfo y Scopus, complementada con una revisión manual de las referencias bibliográficas, para identificar ensayos clínicos aleatorizados (ECA) dirigidos a personas en duelo en regiones subrepresentadas. Se realizaron metaanálisis para estimar los efectos generales y de subgrupos según el tipo de control, el tipo de pérdida y las características de la intervención. Resultados: Se incluyeron 14 ensayos clínicos aleatorizados con un total de 1.122 participantes. Las intervenciones para el duelo mostraron un efecto significativo de magnitud moderada a grande en comparación con las condiciones de control (DME = −0,74; IC del 95%: −1,01 a −0,47). Se observó una heterogeneidad considerable entre los estudios ( I ² = 77%). No se identificaron diferencias significativas entre los subgrupos analizados. Conclusión: Las intervenciones para el duelo muestran una eficacia prometedora en diversos contextos culturales y geográficos. Sin embargo, la evidencia disponible es limitada y heterogénea, lo que pone de manifiesto la necesidad de realizar más ensayos clínicos aleatorizados de alta calidad y de desarrollar enfoques de atención en salud mental que sean culturalmente sensibles y fundamentados en las características específicas de las regiones subrepresentadas.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42635297/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42635297",
+        "doi": "10.1080/20008066.2026.2712026",
+        "journal": "European journal of psychotraumatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.924Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "44ce79090b918c117f99",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42617371",
+      "title": "Does impulsivity predict treatment outcomes in PTSD with borderline personality disorder features? Results from a randomized clinical trial.",
+      "doi": "10.1016/j.jpsychires.2026.08.017",
+      "source_title": "Does impulsivity predict treatment outcomes in PTSD with borderline personality disorder features? Results from a randomized clinical trial.",
+      "abstract": "Trauma-focused psychotherapies are first-line treatments for posttraumatic stress disorder (PTSD). However, a substantial proportion of clients do not respond adequately or drop out of therapy prematurely. This has sparked interest in identifying individual-level predictors of treatment outcomes, including improvement in PTSD severity and dropout. Impulsivity may be a predictor because it may interfere with key therapeutic processes, such as cognitive restructuring and emotional processing. Consequently, we present a hypothesis-driven secondary analysis of a 15-month randomized clinical trial comparing Dialectical Behavior Therapy for PTSD (DBT-PTSD) and Cognitive Processing Therapy (CPT) in women with childhood abuse-related PTSD and borderline personality disorder features to test whether impulsivity, assessed at baseline, predicts PTSD improvement and dropout. We further explore whether the dimensions of impulsivity (non-planning, attentional impulsivity, and motor impulsivity) differentially affect the outcomes in DBT-PTSD vs. CPT. A total of 193 cis women with PTSD related to childhood abuse and borderline personality disorder features were assessed using the Clinician-Administered PTSD Scale (CAPS) and the Barratt Impulsiveness Scale (BIS-10). Separate probit models and general linear models were applied to predict dropout and pre-to-post changes in PTSD severity (ΔCAPS) from total impulsivity and subscale scores, i.e. non-planning, attentional and motor impulsivity. Overall, dropout rates were higher for participants with higher baseline impulsivity scores (p = 0.049), particularly for those with higher non-planning impulsivity (p = 0.012). In participants randomized to CPT improvement in PTSD symptom severity (ΔCAPS) was negatively related to baseline total impulsivity (p = 0.021). In participants randomized to DBT-PTSD this relation was not significant. The results suggest that impulsivity may predict treatment outcomes. Specifically, patients with elevated impulsivity may be less likely to respond adequately to CPT. If replicated, these findings have implications for personalization of treatment.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42617371/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42617371",
+        "doi": "10.1016/j.jpsychires.2026.08.017",
+        "journal": "Journal of psychiatric research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.925Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "489c88ba6646f2123c4f",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42608317",
+      "title": "Oleanolic Acid-Enriched Olive Oil Attenuates Kidney Function Decline in Patients With Type 2 Diabetes: Results From the OLTRAD Randomised Controlled Trial.",
+      "doi": "10.1111/dom.71206",
+      "source_title": "Oleanolic Acid-Enriched Olive Oil Attenuates Kidney Function Decline in Patients With Type 2 Diabetes: Results From the OLTRAD Randomised Controlled Trial.",
+      "abstract": "Chronic kidney disease (CKD) is a major complication of type 2 diabetes mellitus (T2DM), driven in part by oxidative stress and the accumulation of advanced glycation end products (AGEs). Oleanolic acid (OA), a natural triterpene present in olive-derived matrices, may modulate AGE metabolism. In this prespecified, exploratory secondary analysis of the OLTRAD trial, we evaluated whether long-term intake of OA-enriched olive oil attenuates kidney function decline in patients with T2DM. In the OLTRAD randomised controlled trial, 97 patients with T2DM were assigned to consume OA-enriched olive oil (600 mg OA/kg) or control olive oil for 12 months, alongside standard therapy. Kidney outcomes included estimated glomerular filtration rate (eGFR) and urinary albumin-to-creatinine ratio (uACR). Circulating AGEs (methylglyoxal [MG], carboxymethyllysine [CML]), enzymes involved in AGE metabolism (aldose reductase [AR], glyoxalase-I [GloxI]), and oxidative stress markers (ROS and MDA) were assessed. OA-enriched olive oil attenuated eGFR decline relative to control, an effect restricted to participants with mildly impaired eGFR at baseline (60-90 mL/min/1.73 m 2 ; time × group interaction p = 0.010), with no significant interaction among participants with normal baseline eGFR. OA-enriched oil also prevented the rise in uACR observed with control oil. Mechanistically, OA reduced AR concentration and increased GloxI activity, resulting in lower circulating MG, whereas CML remained unchanged. OA-enriched oil further reduced ROS and MDA levels, while MDA increased with control oil. In this exploratory, hypothesis-generating secondary analysis, long-term consumption of OA-enriched olive oil was associated with attenuated kidney function decline in patients with T2DM, an effect limited to those with baseline mildly impaired eGFR. These changes were associated with modulation of AGE-related pathways and reduced oxidative stress. As the trial was powered for glycemic control rather than renal outcomes, larger, adequately powered studies are needed to confirm these findings before their clinical relevance can be established. Clinicaltrials.gov identifier: NCT06030544; https://clinicaltrials.gov/study/NCT06030544.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42608317/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42608317",
+        "doi": "10.1111/dom.71206",
+        "journal": "Diabetes, obesity & metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.926Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "48c77e4612e585424d52",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42599106",
+      "title": "An acceptance-based healthy lifestyle programme for community-dwelling patients with pneumoconiosis: A waitlist pilot randomised controlled trial.",
+      "doi": "10.1080/25310429.2026.2717021",
+      "source_title": "An acceptance-based healthy lifestyle programme for community-dwelling patients with pneumoconiosis: A waitlist pilot randomised controlled trial.",
+      "abstract": "Respiratory symptoms such as cough and shortness of breath are prevalent among patients with pneumoconiosis. These symptoms reduce their engagement in daily activities and induce psychological distress. Did a 6-week acceptance-based healthy lifestyle programme reduce psychological inflexibility (primary outcome) and enhance the health outcomes among community-dwelling patients with pneumoconiosis? A two-arm, prospective, multicenter, waitlist pilot randomised controlled trial was conducted. Patients with pneumoconiosis were randomly assigned to either an intervention group or waitlist group at a 1:1 ratio, with intervention group receiving the programme first. The intervention consisted of four biweekly interactive sessions on integrating acceptance-based components into pneumoconiosis management. Psychological inflexibility and health outcomes were assessed at baseline, Week 6, and Week 14 by trained research assistants. A generalized estimating equations model was used to examine the effects of the intervention effect between groups. Eighty patients were recruited and randomly assigned to the two groups. Compared to the waitlist group, the participants in the intervention group showed significant reduction in psychological inflexibility (β = -5.83, p = 0.002) and improvement in exercise self-efficacy (β = 11.68, p = 0.007) at Week 6, and reduction in body weight (β = -1.09, p < 0.001) at Week 14. No significant differences were observed for other outcomes. Moderate effect size was noted on the outcomes of psychological inflexibility and exercise self-efficacy at Week 6. The integration of acceptance-based components into pneumoconiosis management may reduce psychological inflexibility and promote engagement in exercise.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42599106/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42599106",
+        "doi": "10.1080/25310429.2026.2717021",
+        "journal": "Pulmonology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.926Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "09f7bedfd3a9f7c96dbf",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42462927",
+      "title": "Examining early-phase symptom trajectories in interpersonal psychotherapy versus antidepressant medication for adults with depression: A dynamic time warp network analysis.",
+      "doi": "10.1016/j.jad.2026.122279",
+      "source_title": "Examining early-phase symptom trajectories in interpersonal psychotherapy versus antidepressant medication for adults with depression: A dynamic time warp network analysis.",
+      "abstract": "Depression is characterized by substantial symptom heterogeneity, which is often concealed when examining total severity scores. Analyzing symptom-level change can improve our understanding of treatment effects and recovery processes. This study, therefore, examined dynamic symptom networks during early-phase interpersonal psychotherapy (IPT) and selective serotonin reuptake inhibitor (SSRI) antidepressant treatment, assessing patterns of symptom change across as well as differences between treatments. Using weekly item-level Hamilton Depression Rating Scale (HAM-D) data from a randomized clinical trial comparing IPT and SSRIs for adults with depression, this preregistered study examined symptom trajectories in the first six weeks of treatment with Dynamic Time Warping (DTW). Depressive symptom trajectories and DTW-based symptom networks were largely similar for IPT and SSRI. In both conditions, changes in somatic symptoms of anxiety and middle insomnia tended to precede improvements in depressed mood. Early symptom change may occur outside the core affective domain, underscoring the importance of monitoring symptoms broadly. Symptom-level patterns may reflect patients' stage of recovery and provide clinically relevant information beyond total severity scores. The absence of differences in improvement patterns between IPT and SSRI suggest few indications for treatment selection based on baseline symptom profiles. Future research should replicate and extend these findings to subsequent treatment phases using more frequent assessments and a broader range of interventions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42462927/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42462927",
+        "doi": "10.1016/j.jad.2026.122279",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.927Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6d4edee1d00ac94503fa",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42070973",
+      "title": "The effect of maternal scent-infused blanket on the stress level, crying duration and physiological parameters of premature newborns.",
+      "doi": "10.1080/14767058.2026.2648898",
+      "source_title": "The effect of maternal scent-infused blanket on the stress level, crying duration and physiological parameters of premature newborns.",
+      "abstract": "Olfactory cues from the mother may soothe distress in premature infants in the Neonatal Intensive Care Unit (NICU). This study evaluated the effect of a maternal scent-infused blanket on stress, crying duration, and physiological parameters in premature newborns. This double-blind randomized clinical trial included 69 premature infants who were randomly assigned to one of three groups: maternal scent-infused blanket, unscented blanket, or control (no blanket) group. Infants were covered with the assigned blanket for 60 min daily for 3 consecutive days. The maternal scent was obtained by placing a clean blanket in contact with the mother's bare chest overnight prior to each day's exposure, with fragrance-free cleansing products used and a new blanket for each session. Primary outcomes were stress level (Newborn Stress Scale, NSS), crying duration (chronometer), and Secondary outcomes were physiological parameters (heart rate, respiratory rate, oxygen saturation, and body temperature). Measurements were collected at 5 min before intervention, immediately after, and at 15, 30, 45, and 60 min during intervention, plus 5 min after intervention, each day for three consecutive days. Data were analyzed using one-way ANOVA and ANCOVA adjusting for baseline values; p < 0.05 denoted significance. Stress scores and crying duration differed significantly among groups during the intervention, with the maternal scent-infused blanket group showing lower NSS scores and shorter crying times than the unscented and no-blanket groups ( p < 0.001). During exposure, heart rate, oxygen saturation, and body temperature differed among groups (significant at multiple time points, p < 0.001); by contrast, respiratory rate did not differ significantly ( p > 0.05). Differences were not observed at baseline or immediately after the intervention for these physiological measures. The maternal scent-infused blanket may reduce stress and crying duration, with transient improvements in some physiological parameters during exposure. Maternal olfactory cues could serve as a feasible non-pharmacological adjunct to support comfort and well-being in vulnerable newborns, emphasizing parental involvement in neonatal care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42070973/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42070973",
+        "doi": "10.1080/14767058.2026.2648898",
+        "journal": "The journal of maternal-fetal & neonatal medicine : the official journal of the European Association of Perinatal Medicine, the Federation of Asia and Oceania Perinatal Societies, the International Society of Perinatal Obstetricians",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.927Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "75afdbb00adc5b95bae1",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "41847834",
+      "title": "Sex Differences in the Treatment Effect of Targeted Heart Rate Aerobic Exercise in Adolescents with Acute Sport-Related Concussion.",
+      "doi": "10.1177/08977151261433831",
+      "source_title": "Sex Differences in the Treatment Effect of Targeted Heart Rate Aerobic Exercise in Adolescents with Acute Sport-Related Concussion.",
+      "abstract": "Prescribed aerobic exercise is the recommended treatment for athletes with sport-related concussion (SRC) who present with exercise intolerance. A recent randomized controlled trial (RCT) found that higher volumes of aerobic exercise, compared with lower volumes, may not be as efficacious in adolescent females with SRC compared with adolescent males. We reanalyzed data from our previously published randomized controlled trials (RCT) and hypothesized that prescribed aerobic exercise, and not stretching, within 10 days of injury would result in faster recovery after SRC in males compared with females. The first RCT ( n = 103) recruited from 2015 to 2018 and the second RCT ( n = 115) recruited from 2018 to 2020. Sexes were compared in each RCT, then samples were stratified by sex, and intervention groups were compared using a Log-rank test. There were no significant differences in recovery times between males and females in either RCT, regardless of intervention. When stratified by sex and comparing intervention groups, males in RCT1 who were prescribed aerobic exercise ( n = 28) recovered 6 days faster than males prescribed stretching ( n = 27, p = 0.004) but there was no significant difference for females (aerobic exercise [ n = 24] vs. stretching [ n = 24, 3-day difference, p = 0.564]). In RCT2, males prescribed aerobic exercise ( n = 39) recovered 8 days faster than the stretching group ( n = 34, p = 0.020), whereas there was no significant difference for females (aerobic exercise [ n = 22] vs. stretching [ n = 20, 3-day difference, p = 0.587]). This reanalysis of prior RCT data revealed that male adolescents after SRC recovered significantly faster by 7-8 days when prescribed aerobic exercise within 10 days of injury, whereas female adolescents had a nonsignificant improvement of 3 days. Future adequately powered studies should account for variability between sexes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41847834/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41847834",
+        "doi": "10.1177/08977151261433831",
+        "journal": "Journal of neurotrauma",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.927Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "043990436679b2e3bcd8",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "41027659",
+      "title": "The Effects of Learning About Deathbed Visions (DBVs) on Students' Knowledge About DBVs and Levels of Death Anxiety.",
+      "doi": "10.1177/10499091251384613",
+      "source_title": "The Effects of Learning About Deathbed Visions (DBVs) on Students' Knowledge About DBVs and Levels of Death Anxiety.",
+      "abstract": "The purpose of this study was to examine the effects of learning about deathbed visions (DBVs) on undergraduate students' knowledge about DBVs and their levels of death anxiety. Twenty-two students were randomly assigned to a training group (received a 20-minute lecture and slides on DBVs) and 28 students served as an equivalent control (no training) group. Both groups completed a fear of death scale and a DBV knowledge questionnaire on two occasions (approximately one week before and immediately after the training group received the training). Participants in the training group experienced a significant increase in knowledge about DBVs following training compared to the no training group which showed virtually no change in knowledge about DBVs from pre- to post-test. No effect of training on participants' levels of death anxiety was found. Suggestions for future research are offered.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41027659/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41027659",
+        "doi": "10.1177/10499091251384613",
+        "journal": "The American journal of hospice & palliative care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.928Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "08bc8985fdb743aacb06",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42648550",
+      "title": "Effectiveness of mindfulness interventions for depressive symptoms in young people: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.jad.2026.122420",
+      "source_title": "Effectiveness of mindfulness interventions for depressive symptoms in young people: A systematic review and meta-analysis.",
+      "abstract": "Depression is a leading contributor to global disease burden, with onset commonly occurring in young people. Mindfulness interventions (MIs) are an increasingly popular approach for addressing depressive symptoms in this population. This study aimed to evaluate the effectiveness of MIs in reducing depressive symptoms and to examine whether a range of variables, including MI type, potentially influence effectiveness. This systematic review searched PsycINFO, MEDLINE, Web of Science, and Embase for controlled trials involving participants aged 14-27 years reporting depressive symptoms. Twenty-eight studies met inclusion criteria, of which 25 were included in a meta-analysis. A random-effects model was used to estimate pooled Hedges' g at end of treatment, and MI type was examined as a moderator. MIs were significantly more effective than control conditions in reducing depressive symptom severity, with a small pooled effect size (g = -0.32, p < .001). MI type did not significantly moderate outcomes, suggesting no single MI was superior in effectiveness. Despite moderate heterogeneity, effects were broadly consistent across populations, delivery modes, and comparator conditions. Narrative synthesis of follow-up data suggested that benefits may be maintained over time, although findings were mixed. Follow-up outcomes were not meta-analysed due to inconsistent reporting, and residual heterogeneity remained. MIs demonstrate reliable, small effectiveness in reducing depressive symptoms in young people and represent flexible, scalable interventions. Future research should examine key moderators and isolate the specific contribution of mindfulness within multi-component interventions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42648550/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42648550",
+        "doi": "10.1016/j.jad.2026.122420",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.928Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e9ce24024edafbb1f4ed",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42641961",
+      "title": "The effects of exercise on episodic memory in patients with depression: a three-level meta-analysis.",
+      "doi": "10.1016/j.jad.2026.122418",
+      "source_title": "The effects of exercise on episodic memory in patients with depression: a three-level meta-analysis.",
+      "abstract": "Using a three-level meta-analysis approach, this study evaluated the effects of exercise on episodic memory in patients with depression and explored its moderating variables. A systematic search was conducted across seven databases to identify randomized controlled trials examining the effects of exercise interventions on episodic memory in patients with depression. Two researchers independently screened studies, extracted data, and assessed the risk of bias. A three-level meta-analysis was performed to calculate the pooled effect size (Hedges' g), and subgroup analyses were conducted to explore moderating variables. A total of 13 randomized controlled trials (1098 participants) were included. Exercise showed a significant small-to-moderate positive effect on episodic memory in patients with depression (g = 0.210, 95% CI [0.10, 0.32]). Descriptively, significant improvements were observed for delayed recall (g = 0.213) and immediate recall (g = 0.206), whereas the effect for total learning was not significant (g = 0.243). No significant differences were found across memory indices or exercise characteristics (all ps > 0.05). Sensitivity analyses confirmed the robustness of the findings, and the certainty of evidence was rated as moderate. Exercise may provide small-to-moderate benefits for the episodic memory of patients with depression. No significant differences were observed among different memory indices or exercise characteristics, suggesting that these benefits are generally consistent under the conditions studied. Future research should standardize the assessment of episodic memory, extend the follow-up period, and further determine the optimal exercise prescriptions and its underlying mechanisms.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42641961/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42641961",
+        "doi": "10.1016/j.jad.2026.122418",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.928Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3ce6a4d818599f9de8d4",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42551309",
+      "title": "Cognitive behavioural therapy-based interventions on stress outcomes in pregnant women: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.ijnurstu.2026.105650",
+      "source_title": "Cognitive behavioural therapy-based interventions on stress outcomes in pregnant women: A systematic review and meta-analysis.",
+      "abstract": "Stress symptoms were the most common psychological problem in pregnancy. Cognitive behavioural therapy-based interventions are effective for antenatal depression and anxiety symptoms; but there are fewer studies for stress symptoms. The review aims to (1) examine the effectiveness of cognitive behavioural therapy-based interventions in reducing stress outcomes (pregnancy-specific stress symptoms, generic symptoms, and objective stress) in pregnant women, and (2) identify significant moderators affecting the effectiveness of the intervention. Systematic review, meta-analysis, and meta-regression analysis of randomised controlled trials. We conducted a three-step search (12 databases, 4 clinical registries, and citation searches) in English and Chinese up to July 24, 2025, by two independent reviewers. Meta-analysis, subgroup, and meta-regression analyses were performed using the R software. Quality assessment and certainty of the evidence were assessed with the Cochrane risk-of-bias tool version 2 and Grading of Recommendations, Assessment, Development, and Evaluation criteria. Publication bias was assessed using funnel plots and Egger's test. We included 20 randomised controlled trials involving a total of 6966 pregnant women from nine countries. Random-effects meta-analyses found that interventions significantly alleviated pregnancy-specific stress symptoms (Hedges' g = -0.84, 95% Confidence Interval, CI -1.42, -0.26, p < .01, I 2 = 92.3%), reduced generic stress symptoms (g = -0.64, 95% CI -1.09, -0.20, p < .01, I 2 = 87.4%) with median and large effect sizes at post-intervention. No effect was found in lowering cortisol levels (g = -0.99, 95% CI -2.58, -0.60, p = .12, I 2 = 84%) at post-intervention. Subgroup and meta-regression analyses indicated that region, age of participants, use of intention-to-treat, missing data management analyses, frequency, modalities, and approaches of interventions, use of different comparators, and attrition rate were significant factors affecting the effectiveness of interventions. Subgroup analyses suggested that the intensity of intervention should be more than once per week using a blended mode among Asian populations. Multivariate meta-regression analyses indicated that both younger age (β = 0.13, p = .02) and a lower attrition rate (β = 0.03, p = .03) significantly improved the effectiveness of interventions. The overall certainty of the evidence was rated as either very low or low. Cognitive behavioural therapy-based interventions can supplement antenatal care to alleviate pregnancy-specific stress symptoms and generic stress symptoms, particularly in young Asian women. However, the evidence has some uncertainties. These findings should be interpreted with caution due to substantial heterogeneity. Well-designed trials on a large-scale with long-term follow-ups were needed. PROSPERO registration ID: CRD420251115913.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42551309/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42551309",
+        "doi": "10.1016/j.ijnurstu.2026.105650",
+        "journal": "International journal of nursing studies",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.929Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "37db270acde17ba1a72d",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42480721",
+      "title": "The relationship between composite dietary antioxidant index and odds of depression: A systematic review and dose-response meta-analysis of observational studies.",
+      "doi": "10.1016/j.jad.2026.122290",
+      "source_title": "The relationship between composite dietary antioxidant index and odds of depression: A systematic review and dose-response meta-analysis of observational studies.",
+      "abstract": "Recently, the association between the composite dietary antioxidant index (CDAI) score and depression has received special attention from researchers. However, this possible association has not been comprehensively examined. Thus, the present study aims to comprehensively assess the relationship between CDAI score and depression odds. A thorough literature search was performed using Scopus, PubMed, and Web of Science up to November 2025. Observational studies assessing the relationship between CDAI score and depression odds were included. The odds ratios (ORs) and their 95% confidence intervals (CIs) reported in each study were extracted, and a pooled effect size was calculated using a random-effects model with inverse-variance weighting. Four observational studies were included in the current systematic review and meta-analysis. The pooled effect size indicated that a higher CDAI score was associated with lower odds of depression (OR:0.62; 95%CI: 0.51-0.76, I 2 = 48.5%; P-value = 0.121). In an exploratory linear dose-response analysis based on two eligible studies, no significant association was observed between a one-unit increase in CDAI score and the odds of depression (OR = 0.96; 95% CI: 0.91-1.02; I 2 = 92.2%; P-value<0.001). Given the limited number of studies and substantial heterogeneity, these findings should be interpreted cautiously. Our findings suggest that higher CDAI scores, reflecting greater adherence to antioxidant-rich dietary patterns, are associated with lower odds of depression.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42480721/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42480721",
+        "doi": "10.1016/j.jad.2026.122290",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.929Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3bafef2e88fd88fe73d1",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42480719",
+      "title": "Association between fruit and vegetable intake and risk of depression: A systematic review and meta-analysis of prospective cohort studies.",
+      "doi": "10.1016/j.jad.2026.122291",
+      "source_title": "Association between fruit and vegetable intake and risk of depression: A systematic review and meta-analysis of prospective cohort studies.",
+      "abstract": "Depression is a leading cause of global disability, and identifying modifiable lifestyle factors is a public health priority. We conducted a systematic review and dose-response meta-analysis of prospective cohort studies examining the association between fruit and vegetable intake and incident depression. PubMed, Web of Science, Scopus, Embase, and Google Scholar were searched through November 2025. Data on study characteristics, dietary assessment, outcomes, effect estimates, and covariates were independently extracted by two reviewers. Random-effects models were used to calculate pooled relative risks (RRs), and linear and non-linear dose-response relationships were assessed. Heterogeneity was evaluated using I 2 , and evidence certainty was rated with GRADE. Thirteen cohorts with 385,449 participants and 26,592 depression cases were included. Highest versus lowest combined fruit and vegetable intake was associated with a 37% lower risk of depression (RR: 0.63; 95% CI: 0.50, 0.80). Each 200 g/day increase corresponded to a 16% risk reduction (RR: 0.84; 95% CI: 0.74-0.94). Separate analyses showed that fruit and vegetable intake reduced depression risk by 16% and 12%, respectively, with a non-linear dose-response for vegetables. These findings indicate that higher consumption of fruits and vegetables is associated with lower depression risk, supporting dietary strategies as a potential approach for mental health prevention. However, given the observational nature of the included studies, these results should be interpreted with caution, as residual confounding may partially account for the observed associations. Registration: This study was registered at PROSPERO (CRD420261279998).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42480719/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42480719",
+        "doi": "10.1016/j.jad.2026.122291",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.929Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b01e73098e2c7b1bbdca",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "42421366",
+      "title": "Effects of serotonergic pharmacological manipulation on exercise performance and central fatigue: a systematic review and three-level meta-analysis.",
+      "doi": "10.1080/15502783.2026.2692017",
+      "source_title": "Effects of serotonergic pharmacological manipulation on exercise performance and central fatigue: a systematic review and three-level meta-analysis.",
+      "abstract": "Exercise-induced fatigue is a complex, non-pathological state that acutely limits physical performance, and the serotonergic (5-HT) system has been proposed as an important modulator of its central components. This systematic review and meta-analysis aimed to clarify the effects of serotonergic pharmacological manipulation on exercise-related outcomes. Following PRISMA guidelines, we systematically searched PubMed, Scopus, Web of Science, Cochrane Central, and SportDiscus from inception to August 2025. Randomized controlled trials examining the effects of serotonergic pharmacological manipulation on exercise-related outcomes in healthy adults were included. Study selection, data extraction, and risk-of-bias assessment using RoB 2.0 were conducted independently. Pooled effects were synthesized using three-level random-effects models, and the certainty and robustness of the evidence were examined in additional analyses. Twenty-one randomized controlled trials involving 248 healthy adults were included in the systematic review, of which 19 studies involving 229 participants were included in the meta-analysis. In the primary models, serotonergic pharmacological manipulation was associated with small reductions in evoked motor response (Hedges' g = -0.24, 95% CI -0.46 to -0.02), time-domain EMG (Hedges' g = -0.18, 95% CI -0.33 to -0.02), heart rate (Hedges' g = -0.17, 95% CI -0.34 to -0.01), and blood glucose (Hedges' g = -0.50, 95% CI -0.89 to -0.11). Voluntary activation showed a borderline negative pooled estimate (Hedges' g = -0.20, 95% CI -0.40 to 0), whereas ratings of perceived exertion showed a positive but statistically uncertain pooled estimate (Hedges' g = 0.63, 95% CI -0.01 to 1.28). Resting twitch torque showed a small positive pooled effect (Hedges' g = 0.12, 95% CI 0.04 to 0.19), whereas superimposed twitch torque, maximal voluntary contraction, prolactin, lactic acid, and time to task failure did not show clear overall effects. Overall, this meta-analysis indicates that serotonergic pharmacological manipulation has outcome-specific effects on exercise-related fatigue rather than a single uniform influence across domains. The most consistent primary-model signals were found for evoked motor response, time-domain EMG, heart rate, and blood glucose, whereas overt performance and perceptual outcomes remained more variable. By integrating evidence across different serotonergic interventions and exercise paradigms, these findings improve our understanding of how 5-HT-related mechanisms may contribute to central fatigue during exercise.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42421366/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42421366",
+        "doi": "10.1080/15502783.2026.2692017",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.930Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6e6dd18b142a67c232f1",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
+    },
+    {
+      "pmid": "41949043",
+      "title": "Phase-based versus non-phase-based psychological interventions for complex PTSD: a systematic review and meta-analysis.",
+      "doi": "10.1080/20008066.2026.2644112",
+      "source_title": "Phase-based versus non-phase-based psychological interventions for complex PTSD: a systematic review and meta-analysis.",
+      "abstract": "Background: Since complex post-traumatic stress disorder (CPTSD) was incorporated to the International Classification of Diseases-11th revision (ICD-11), the construct has drawn increasing attention in clinical research due to its debilitating effects across multiple domains of functioning. However, whether stabilization (Phase 1) is necessary before exposure to traumatic memories (Phase 2) remains controversial. Objective: We examined whether phase-based interventions are more effective than non-phase-based interventions in reducing symptoms of CPTSD. Methods: On 17 June 2025, we searched the Cochrane Library, Embase, Medline, PTSDpubs, Scopus, and Web of Science as well as South Korean databases, including the Korean Citation Index, the Research Information Sharing Service, DataBase Periodical Information Academic (DBPia), and ScienceON. Randomized controlled trials of psychological interventions for individuals with clinically significant CPTSD symptoms or PTSD with at least two of the 'disturbances in self-organization' (DSO) symptom clusters were eligible. We used Hedges' g to pool effect sizes and performed subgroup analyses using Cochran's Q test. We assessed risk of bias using the Cochrane Risk-of-Bias Assessment 2 tool. Results: Across most outcomes, we observed no significant differences between phase- and non-phase-based interventions, between multi-phase and single-phase interventions, or between exposure and non-exposure interventions. However, multi-phase interventions had superior effects on PTSD, while phase-based, multi-phase, and exposure interventions showed greater improvements in DSO - affect regulation compared to their counterparts. Conclusions: This study was limited by the small number of available trials, single time-point, and heterogeneity in outcome measures, which constrained both the detection of subgroup differences and the precision of effect size estimates. Our findings provide empirical evidence for the current discourse, suggesting that non-phase-based and non-exposure-based interventions can be as effective as structured approaches in many contexts, while some outcomes may still benefit from phase-, multi-modular-, or exposure-based designs. This systematic review examined whether interventions that include a first phase of stabilization followed by a second phase of exposure to traumatic memories are more effective than other interventions.Across most outcomes, there were no clear differences between phase- and non-phase-based interventions, or between exposure and non-exposure interventions.For post-traumatic stress symptoms, interventions with more than one phase were more effective than those with a single-phase treatment. For difficulties with emotion regulation, multi-phase interventions that included stabilization before exposure showed greater benefits. Antecedentes: Desde que el trastorno de estrés postraumático complejo (TEPTC) se incorporó a la 11˚ revisión de la Clasificación Internacional de Enfermedades (CIE-11), el constructo ha atraído cada vez más atención en el campo de la investigación clínica debido a sus efectos debilitantes en múltiples dominios del funcionamiento. Sin embargo, sigue siendo controvertido si es necesaria una estabilización (Fase 1) antes de la exposición a las memorias traumáticas (Fase 2). Objetivo: Examinamos si las intervenciones basadas en fases son más efectivas que las intervenciones no basadas en fases para disminuir los síntomas del TEPTC. Métodos: El 17 de junio del 2025, realizamos una búsqueda en la Biblioteca Cochrane, Embase, Medline, PTSDpubs, Scopus, y Web of Science así como bases de datos surcoreanas, incluido el Korean Citation Index, el Research Information Sharing Service, DataBase Periodical Information Academic (DBPia), y ScienceON. Se consideraron elegibles los ensayos controlados aleatorizados de intervenciones psicológicas para personas con síntomas de TEPTC o TEPT clínicamente significativos con al menos dos de los grupos de síntomas ‘alteraciones en la auto-organización’ (DSO por sus siglas en ingles). Se utilizó la g de Hedges para agrupar los tamaños del efecto y se realizaron análisis de subgrupos utilizando la prueba de Q de Cochrane. Se evaluó el riesgo de sesgo a través de la herramienta Evaluación de Riesgo de Sesgo de Cochrane 2. Resultados: En la mayoría de los resultados, no se observaron diferencias significativas entre las intervenciones basadas en fases y las no basadas en fases, entre las intervenciones multifásicas y las monofásicas, ni entre las intervenciones de exposición y las sin exposición. Sin embargo, las intervenciones multifásicas tuvieron efectos superiores en el TEPT, mientras que las intervenciones basadas en fases, multifásicas y de exposición mostraron mayores mejorías en la regulación afectiva de la DSO en comparación con sus contrapartes. Conclusión: Este estudio se vio limitado por el escaso número de ensayos disponibles, la temporalidad única y la heterogeneidad en las medidas de resultado, lo que limitó tanto la detección de las diferencias entre subgrupos y la precisión de la estimación del tamaño del efecto. Nuestros hallazgos proporcionan evidencia empírica para el discurso actual, lo que sugiere que las intervenciones no basadas en fases y no basadas en la exposición pueden ser tan eficaces como los enfoques estructurados en muchos contextos, mientras que algunos resultados aún pueden beneficiarse de diseños basados en fases, multimodulares o basados en la exposición.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41949043/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41949043",
+        "doi": "10.1080/20008066.2026.2644112",
+        "journal": "European journal of psychotraumatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T11:32:55.930Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e9cf1286857c0164ef05",
+      "reserved_at": "2026-10-09T11:33:06.118Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0726"
     }
   ],
   "batches": [
@@ -32699,22 +34637,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 410,
+    "total_reservations": 435,
     "by_lane": {
       "1": 5,
       "2": 62,
       "3": 60,
       "4": 33,
-      "5": 250
+      "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 410
+      "SOURCE_VERIFIED": 435
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 410,
+        "count": 435,
         "pr_number": null,
         "blocker": null
       }
