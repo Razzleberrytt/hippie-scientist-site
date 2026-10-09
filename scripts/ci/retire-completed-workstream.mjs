@@ -113,14 +113,24 @@ export async function proposeRetirement({ repo, sha, runId, token, request = fet
   if (open.some(x => x.head?.ref === branch)) return { status: 'existing', branch }
   const refreshed = await api('GET', 'git/ref/heads/main')
   if (refreshed.object?.sha !== sha) return { status: 'blocked', reason: 'Main moved during preparation' }
-  await api('POST', 'git/refs', { ref: 'refs/heads/' + branch, sha })
-  for (const [file, blob, content] of [
-    ['docs/CURRENT_SPRINT.md', s.sha, plan.sprint],
-    ['docs/MASTER_BACKLOG.md', b.sha, plan.backlog],
-  ]) {
-    await api('PUT', 'contents/' + file, { message: 'docs(control): retire verified issue #' + ticket,
-      content: Buffer.from(content).toString('base64'), sha: blob, branch })
-  }
+  // Single immutable tree + commit: never expose a partially updated branch.
+  const root = await api('GET', 'git/commits/' + sha)
+  if (!sha40(root.tree?.sha)) throw Error('Unverified base tree')
+  const tree = await api('POST', 'git/trees', {
+    base_tree: root.tree.sha,
+    tree: [
+      { path: 'docs/CURRENT_SPRINT.md', mode: '100644', type: 'blob', content: plan.sprint },
+      { path: 'docs/MASTER_BACKLOG.md', mode: '100644', type: 'blob', content: plan.backlog },
+    ],
+  })
+  if (!sha40(tree.sha)) throw Error('Unverified replacement tree')
+  const commit = await api('POST', 'git/commits', {
+    message: 'docs(control): retire completed issue #' + ticket,
+    tree: tree.sha,
+    parents: [sha],
+  })
+  if (!sha40(commit.sha)) throw Error('Unverified replacement commit')
+  await api('POST', 'git/refs', { ref: 'refs/heads/' + branch, sha: commit.sha })
   const body = '## Scope\nRetire only closed issue #' + ticket + ' after PR #' + pull.number +
     ' merged and [production run](https://github.com/' + repo + '/actions/runs/' + runId +
     ') succeeded for the exact SHA ' + sha +
