@@ -181,6 +181,25 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
 
 
+## Oct. 4 research enrichment Waves 501-1000
+
+- Research program: twenty passes of 25 findings, **500 completed waves**
+- Consolidated selection: `ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-1000-selection.json`
+- Research journal: `ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-1000.md`
+- PMID/source revalidation: `ops/enrichment-submissions/reconciliation/2026-10-03-waves-501-1000-pmid-revalidation.json`
+- Runtime ledger: `2026-10-04-enrichment-waves-501-1000.json`
+- Manifest: `2026-10-04-enrichment-waves-501-1000-manifest.json`
+- 12 net-new, independently revalidated, source-specific runtime evidence rows
+- 12 net-new runtime source rows
+- 0 entity-context rows
+- 0 relationships
+- Previously admitted vitamin-D and ashwagandha source identities were not duplicated.
+- Category, combination, route, correction, unresolved-entity, and identity-firewall findings remain research-only.
+- Null and mixed outcomes are preserved, including curcumin homocysteine null evidence, melatonin cancer-sleep uncertainty, alpha-lipoic-acid schizophrenia nulls, and CoQ10 endpoint inconsistencies.
+- No publication, indexing, recommendation, monetization, dosing, or governance fields are changed by this batch.
+- Full repository validation is intentionally run once on the exact consolidated head before merge.
+
+
 ## Oct. 4 research enrichment Waves 1001-1500
 
 - Research program: twenty passes of 25 findings, **500 completed waves**

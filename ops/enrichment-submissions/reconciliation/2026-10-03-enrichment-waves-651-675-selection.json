@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-651-675-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-626-650-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 175,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed systematic reviews/meta-analyses and historical counterevidence"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 651,
+      "entity_slug": "chromium",
+      "pmid": "39541030",
+      "focus": "2024 systematic review of chromium in T2D; possible glycemic/lipid signals coexist with wide formulation/dose/duration heterogeneity and uncertain long-term risk.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 652,
+      "entity_slug": "chromium",
+      "pmid": "40245649",
+      "focus": "2025 overweight/obesity meta-analysis; selected insulin-resistance/metabolic effects with several near-null estimates and mixed anthropometric/BP/liver findings.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 653,
+      "entity_slug": "potassium",
+      "pmid": "40612568",
+      "focus": "2025 dose-response meta-analysis of 10 RCTs; BP reduction was much larger in hypertensive than normotensive participants, emphasizing baseline-BP dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 654,
+      "entity_slug": "vitamin-k",
+      "pmid": "38282652",
+      "focus": "Systematic review/meta-analysis of vitamin-K supplementation and cardiovascular risk factors; biomarker/risk-factor evidence is not clinical-event prevention evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 655,
+      "entity_slug": "chromium",
+      "pmid": "39671146",
+      "focus": "Updated randomized-trial meta-analysis of inflammatory mediators; inflammatory biomarker evidence remains surrogate and population dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 656,
+      "entity_slug": "selenium",
+      "pmid": "41738711",
+      "focus": "2026 randomized-trial meta-analysis in metabolic diseases; cardiometabolic, inflammatory and oxidative-stress findings remain phenotype- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 657,
+      "entity_slug": "selenium",
+      "pmid": "40243093",
+      "focus": "2025 dose-response meta-analysis of 27 experimental human studies on blood lipids; possible nonlinear lipid effects and overexposure concerns remain first-class.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 658,
+      "entity_slug": "zinc",
+      "pmid": "37399684",
+      "focus": "75-study GRADE meta-analysis; several glycemic/lipid/inflammatory/oxidative markers improved while LDL, HDL, insulin, BP and liver enzymes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 659,
+      "entity_slug": "b-vitamins",
+      "pmid": "41615824",
+      "focus": "2026 13-study/14,539-participant CHD meta-analysis of folic acid+B6+B12; homocysteine lowering and vascular outcomes remain distinct from hard-event efficacy.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 660,
+      "entity_slug": "vitamin-b12",
+      "pmid": "37495210",
+      "focus": "21-RCT/1,625-participant meta-analysis; isolated B12 lowered homocysteine, a surrogate biomarker, without implying cardiovascular-event reduction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 661,
+      "entity_slug": "folic-acid",
+      "pmid": "42231372",
+      "focus": "2026 36-RCT hyperhomocysteinemia meta-analysis; tHcy and modest BP/lipid surrogate changes with high heterogeneity/bias and no adjudicated hard cardiovascular endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 662,
+      "entity_slug": "selenium",
+      "pmid": "35963054",
+      "focus": "Randomized-trial meta-analysis found little overall lipid benefit, increased SBP, and selected LDL/TC subgroup effects—important cardiovascular-safety counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 663,
+      "entity_slug": "selenium",
+      "pmid": "36432623",
+      "focus": "Ten-RCT/526-participant cardiometabolic-disease meta-analysis; insulin/HOMA-IR/HDL signals with FPG, TC, TG, LDL and VLDL nulls and high heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 664,
+      "entity_slug": "selenium",
+      "pmid": "37574154",
+      "focus": "20-RCT GRADE dose-response review; fasting-insulin/QUICKI signals with FBS, HbA1c and HOMA-IR nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 665,
+      "entity_slug": "chromium",
+      "pmid": "33783683",
+      "focus": "Ten-RCT/509-participant T2D meta-analysis of glucose/lipid outcomes; disease-specific evidence with formulation and trial-quality limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 666,
+      "entity_slug": "chromium",
+      "pmid": "32730903",
+      "focus": "28-study T2D meta-analysis; FPG/insulin/HbA1c/HOMA-IR pooled reductions accompanied by extreme heterogeneity for several outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 667,
+      "entity_slug": "chromium",
+      "pmid": "24635480",
+      "focus": "Older diabetes meta-analysis including mono- and combination supplementation; glycemic/lipid signals with inadequate long-term safety evidence and combination uncertainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 668,
+      "entity_slug": "folic-acid",
+      "pmid": "34478339",
+      "focus": "22-study/41,633-participant BP meta-analysis; small SBP/DBP reductions with dose/duration/subgroup variability—large sample but surrogate outcome.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 669,
+      "entity_slug": "potassium",
+      "pmid": "28024910",
+      "focus": "Hypertension-specific meta-analysis; BP lowering was stronger with lower baseline potassium, higher sodium and no antihypertensive therapy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 670,
+      "entity_slug": "potassium",
+      "pmid": "28419159",
+      "focus": "23-RCT/1,213-participant essential-hypertension meta-analysis; modest BP reduction with moderate heterogeneity and adjunctive-context framing.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 671,
+      "entity_slug": "t2d-nutrient-supplements",
+      "pmid": "35684094",
+      "focus": "Umbrella/hierarchical synthesis of nutrient supplements for T2D; most HbA1c evidence was low or very-low certainty and intervention-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 672,
+      "entity_slug": "selenium-status",
+      "pmid": "39882034",
+      "focus": "Observational dose-response meta-analysis found a U-shaped association between blood selenium and metabolic syndrome; association evidence must not be treated as supplementation efficacy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 673,
+      "entity_slug": "calcium-intake",
+      "pmid": "39379073",
+      "focus": "Observational GRADE dose-response meta-analysis linked higher dietary calcium with lower MetS odds; dietary association is not supplement-trial evidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 674,
+      "entity_slug": "zinc",
+      "pmid": "31494808",
+      "focus": "Earlier cardiometabolic RCT meta-analysis; glycemic/lipid signals with BP/anthropometric nulls, useful historical comparison with newer zinc syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 675,
+      "entity_slug": "selenium",
+      "pmid": "28992632",
+      "focus": "Older metabolic-disease RCT meta-analysis of glucose/lipid profiles; retained as historical evidence to compare with later contradictory selenium syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

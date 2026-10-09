@@ -1,19 +1,14 @@
 {
   "version": 1,
-  "mode": "fresh-admission",
-  "base_revision": "2d52b9fec58aca5d99cc6eedc33a4f859520e67f",
+  "mode": "existing-owner-reconciliation",
+  "base_revision": "2b3ac3471b8a9929e0c3e28645c64472bc8f6912",
   "last_verified": "2026-10-09",
-  "ticket": 6500,
-  "lane": "A",
-  "title": "Explain evidence-grade scope and public count denominators",
-  "priority": "P0",
-  "score_inputs": {
-    "businessImpact": 4,
-    "userValue": 5,
-    "trafficPotential": 4,
-    "strategicLeverage": 4,
-    "confidence": 0.75,
-    "effort": 3
-  },
-  "score": 80
+  "owners": [
+    {
+      "ticket": 6259,
+      "pr": 6260,
+      "lane": "A"
+    }
+  ],
+  "note": "This reconciles the already-open pre-base #6259/#6260 owner after completed #6500 retirement #6527; authenticated PR creation and issue timeline association must predate exact base. No clinical publication authority. Subjective priority score 27.0 is not ROI."
 }

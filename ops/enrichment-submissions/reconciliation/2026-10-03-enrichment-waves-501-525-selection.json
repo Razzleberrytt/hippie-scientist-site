@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-501-525-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 25,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "base_main": "19aba82ff4f94d5e8721ce207e723428356787a5",
+  "source_provenance": [
+    "Consensus peer-reviewed discovery",
+    "PubMed identity verification"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 501,
+      "entity_slug": "chamomile",
+      "pmid": "41394268",
+      "focus": "2025 systematic review/meta-analysis of eight human musculoskeletal-pain studies; possible analgesic effect with substantial heterogeneity and no proof of equivalence to standard analgesics.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 502,
+      "entity_slug": "chamomile",
+      "pmid": "41767834",
+      "focus": "2026 PCOS review combining four human and four animal studies; human pooled lipids and testosterone were null, so clinical-feature signals must not be conflated with hormonal/lipid efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 503,
+      "entity_slug": "medicinal-plants-allergic-rhinitis",
+      "pmid": "38603736",
+      "focus": "2024 review of 29 RCTs/1,879 participants; low-certainty nasal-symptom signals and no clear difference from antihistamines in limited comparisons; category-level only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 504,
+      "entity_slug": "ashwagandha",
+      "pmid": "39348746",
+      "focus": "2024 nine-RCT/558-participant stress-anxiety meta-analysis; PSS/Hamilton-anxiety/cortisol signals with mild-moderate adverse events and uncertain long-term safety.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 505,
+      "entity_slug": "collagen-supplements",
+      "pmid": "40324552",
+      "focus": "2025 23-RCT skin-aging meta-analysis; overall hydration/elasticity/wrinkle signals disappeared in non-industry-funded/high-quality subgroups, making funding and study quality first-class modifiers.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 506,
+      "entity_slug": "hibiscus-sabdariffa",
+      "pmid": "38878905",
+      "focus": "2024 six-RCT/339-participant obesity meta-analysis; body weight, BMI and waist outcomes were null overall, providing a direct counterweight to weight-loss claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 507,
+      "entity_slug": "cinnamon",
+      "pmid": "40611215",
+      "focus": "2025 49-study GRADE meta-analysis of cardiovascular/metabolic risk factors; multiple pooled surrogate signals with broad heterogeneity and no clinical-event inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 508,
+      "entity_slug": "pomegranate",
+      "pmid": "39499092",
+      "focus": "2025 RCT meta-analysis of insulin resistance/sensitivity; overall evidence did not establish meaningful HOMA-IR/fasting-insulin benefit across pomegranate products.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 509,
+      "entity_slug": "green-tea",
+      "pmid": "40160899",
+      "focus": "2025 38-RCT synthesis; oxidative-stress markers improved while CRP, IL-6 and TNF-alpha were null, separating antioxidant biomarker effects from broad anti-inflammatory claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 510,
+      "entity_slug": "pomegranate",
+      "pmid": "40617711",
+      "focus": "2025 dose-response meta-analysis of 53 RCTs/2,306 participants; cardiometabolic risk-factor evidence remains endpoint- and preparation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 511,
+      "entity_slug": "green-tea",
+      "pmid": "40497293",
+      "focus": "2025 GRADE dose-response meta-analysis of adult blood-pressure RCTs; blood-pressure effects require dose/duration/baseline-status context and should not imply cardiovascular-event prevention.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 512,
+      "entity_slug": "collagen-supplements",
+      "pmid": "41809116",
+      "focus": "2026 umbrella review of 16 systematic reviews/113 RCTs/7,983 participants; skin and musculoskeletal signals were more consistent than oral/cardiometabolic outcomes; category-level heterogeneity retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 513,
+      "entity_slug": "creatine",
+      "pmid": "39070254",
+      "focus": "2024 16-RCT/492-participant cognition meta-analysis; memory/attention/processing-speed signals with global cognition and executive-function nulls and low-to-moderate certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 514,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41457257",
+      "focus": "2025 systematic review/meta-analysis of 24 exercise studies; circulating CoQ10 increased but exercise-performance effects were limited/inconsistent—useful counterweight to ergogenic marketing.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 515,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "40833470",
+      "focus": "2025 seven-small-trial mood meta-analysis; some depression-scale signals, BDI and anxiety nulls, with small samples and clinical-population heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 516,
+      "entity_slug": "pro-pre-synbiotics",
+      "pmid": "41310510",
+      "focus": "2025 RCT meta-analysis of probiotics/prebiotics/synbiotics for anxiety, depression and sleep; intervention class and strain/product identity remain distinct.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 517,
+      "entity_slug": "plant-based-ibs-therapies",
+      "pmid": "42572206",
+      "focus": "2026 60-study/6,329-participant IBS review; peppermint-oil and Chinese-herbal signals coexist with limited-quality evidence and insufficient data for several plants.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 518,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "39904656",
+      "focus": "2025 T2D-specific systematic review/meta-analysis of CoQ10 effects on lipids and blood pressure; disease-population and endpoint boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 519,
+      "entity_slug": "omega-3",
+      "pmid": "38468309",
+      "focus": "2024 24-RCT/9,660-participant dose-response cognition meta-analysis in adults >=40 without dementia; domain/time/dose trends should not become a universal cognitive-enhancement claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 520,
+      "entity_slug": "l-theanine",
+      "pmid": "41227106",
+      "focus": "2025 systematic review/meta-analysis of placebo-controlled RCTs in healthy adults; cognitive effects remain domain-specific and the authors characterize evidence as promising but not conclusive.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 521,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "38287654",
+      "focus": "2024 systematic review of 12 RCTs/703 adults; cardiometabolic effects remain short-duration and pure-OLE specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 522,
+      "entity_slug": "artichoke",
+      "pmid": "35949557",
+      "focus": "Seven-RCT/472-participant BP meta-analysis; modest SBP/DBP reductions with nonlinear dose/duration signals and subgroup dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 523,
+      "entity_slug": "saffron",
+      "pmid": "40414301",
+      "focus": "2025 12-week DB-RCT in 202 adults with subclinical depressive symptoms; modest depression benefit, most secondary outcomes null, sleep benefit only exploratory in a more-impaired subgroup; proprietary Affron identity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 524,
+      "entity_slug": "saffron",
+      "pmid": "38913392",
+      "focus": "2024 meta-analysis comparing saffron with SSRIs; depression/anxiety differences were nonsignificant while adverse events were fewer with saffron; direct-comparator evidence does not establish broad interchangeability.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 525,
+      "entity_slug": "saffron",
+      "pmid": "35325766",
+      "focus": "Sleep meta-analysis across heterogeneous populations; PSQI/ISI/RSQ signals with limited long-term safety evidence and no generic dose recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

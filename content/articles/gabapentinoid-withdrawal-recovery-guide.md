@@ -3,7 +3,7 @@ slug: gabapentinoid-withdrawal-recovery-guide
 title: "Gabapentin & Pregabalin Withdrawal and Recovery: Dependence, Timeline, Seizures, Tapering Evidence, and Long-Term Recovery"
 description: "A masterclass evidence review of gabapentinoid withdrawal and recovery: gabapentin vs pregabalin, dependence, symptoms, timelines, renal function, seizures and delirium, tapering evidence, opioid/CNS-depressant risk, misuse, recovery, and special populations."
 date: "2026-10-03"
-updatedAt: "2026-10-03"
+updatedAt: "2026-10-09"
 author: "Will"
 category: "research"
 evidence_grade: "moderate-for-withdrawal-existence-and-core-symptoms-low-to-moderate-for-precise-timelines-and-taper-strategies-high-for-renal-pharmacokinetics-and-cns-depressant-risk-warnings"
@@ -208,7 +208,7 @@ Neither is supported by the evidence.
 
 ## Emergency and do-not-miss symptoms
 
-Most reported gabapentinoid withdrawal is not a medical emergency. However, urgent assessment is appropriate for symptoms that are severe, unusual, or potentially caused by another condition.
+Published withdrawal reports range from distressing symptoms to medical emergencies, but the studies do not establish a reliable population-wide frequency for either. Urgent assessment is appropriate for symptoms that are severe, unusual, or potentially caused by another condition.
 
 Seek urgent medical evaluation for:
 
