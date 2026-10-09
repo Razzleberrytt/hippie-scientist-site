@@ -36091,6 +36091,82 @@
       "reservation_id": "36d55399297cbac3a76b",
       "reserved_at": "2026-10-09T12:55:37.063Z",
       "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "41740527",
+      "title": "Moderate and vigorous aerobic exercise enhances inhibitory control, but not working memory or cognitive flexibility, up to the second ventilatory threshold: a randomized crossover trial.",
+      "doi": "10.1016/j.clinsp.2026.100896",
+      "source_title": "Moderate and vigorous aerobic exercise enhances inhibitory control, but not working memory or cognitive flexibility, up to the second ventilatory threshold: a randomized crossover trial.",
+      "abstract": "The effects of acute physical exercise on executive functions remain controversial, partly due to inconsistencies in how exercise intensity is measured. This study investigated the impact of moderate and vigorous aerobic exercise on three core components of executive function: inhibitory control, working memory, and cognitive flexibility. Exercise intensity was rigorously defined using a combination of heart rate reserve, ventilatory thresholds, and rate of perceived exertion. Twenty-six physically active adults completed three separate sessions in a randomized order: Rest (REST), Moderate-intensity exercise (MOD), and Vigorous-Intensity exercise (VIG). Cognitive performance was assessed during each condition using the Go/No-Go test (inhibitory control), the 2-back test (working memory), and the Multitasking test (cognitive flexibility). Inhibitory control improved significantly during exercise. Response Times (RT) on the Go/No-Go test were reduced in both MOD (p = 0.038) and VIG (p = 0.003) compared with REST, without changes in accuracy. In contrast, working memory and cognitive flexibility showed no significant differences across conditions. Acute moderate and vigorous aerobic exercise, up to the second ventilatory threshold, selectively enhances inhibitory control by reducing RT, with no detectable effects on working memory or cognitive flexibility. By integrating multiple physiological and perceptual markers of intensity, this study provides a rigorous evaluation of the acute cognitive effects of aerobic exercise.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41740527/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41740527",
+        "doi": "10.1016/j.clinsp.2026.100896",
+        "journal": "Clinics (Sao Paulo, Brazil)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T13:51:20.956Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5f7e2d02e9d5ffa2ffe7",
+      "reserved_at": "2026-10-09T13:51:29.652Z",
+      "source_branch": "research/intake/2/20261009-0947-cognition-metabolic-7-r23"
     }
   ],
   "batches": [
@@ -36104,22 +36180,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 454,
+    "total_reservations": 455,
     "by_lane": {
       "1": 5,
-      "2": 81,
+      "2": 82,
       "3": 60,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 454
+      "SOURCE_VERIFIED": 455
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 454,
+        "count": 455,
         "pr_number": null,
         "blocker": null
       }
