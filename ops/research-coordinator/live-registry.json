@@ -19385,6 +19385,315 @@
       "reservation_id": "ecd3773e1a57c149cd40",
       "reserved_at": "2026-10-09T04:36:33.870Z",
       "source_branch": "research/intake/5/contradictions-replication-20261009-0028"
+    },
+    {
+      "pmid": "42433278",
+      "title": "Effect of engineered mesoporous silica particles with tailored pore size on glycaemic control in individuals with prediabetes or type 2 diabetes: a randomised, double-blind, placebo-controlled SHINE trial.",
+      "doi": "10.1016/j.eclinm.2026.104042",
+      "source_title": "Effect of engineered mesoporous silica particles with tailored pore size on glycaemic control in individuals with prediabetes or type 2 diabetes: a randomised, double-blind, placebo-controlled SHINE trial.",
+      "abstract": "Prediabetes is a major global health concern due to its high prevalence and strong association with obesity and increased cardiovascular risk. Most individuals with prediabetes progress to type 2 diabetes, and although lifestyle modification is recommended early, long-term adherence and scalability remain challenging. SiPore21 offers a promising solution. SiPore21 is an oral gel containing engineered mesoporous silica particles that act locally in the gut by entrapping digestive enzymes and modulating macronutrient uptake. This 12-week, randomised, double-blind, placebo-controlled, multicentre trial was conducted at 27 centres across three European countries (ClinicalTrials.gov: NCT06087822). During Oct 5, 2023 and Jul 30, 2024, 318 participants were enrolled and assessed, and 312 completed the intervention (SiPore21 n = 155; placebo n = 157). Adults aged 18-70 years with overweight or obesity (BMI > 25 to ≤40 kg/m 2 ) and elevated HbA1c (≥42 and ≤58 mmol/mol [≥6 and ≤ 7.5%]) were eligible. Participants were randomly assigned 1:1 to SiPore21 or placebo using a web-based interactive randomisation system. SiPore21 was administered three times daily with meals for 12 weeks. The primary outcome was change in HbA1c from baseline to Week 12. Secondary outcomes included changes in body weight, lipid profiles, and other metabolic parameters. Safety and tolerability were assessed throughout. The primary analysis was performed on all participants who received at least one dose and at least one post-baseline HbA1c measurement; the safety analysis included all participants who received at least one dose. SiPore21 significantly reduced HbA1c from baseline (p = 0.0036), indicating a favourable glycaemic effect, whereas no significant reduction was observed with placebo (p = 0.0872). In a post hoc sex-stratified analysis, the HbA1c reduction vs. placebo was statistically significant in women (p = 0.019), whereas a marked placebo response in men attenuated the overall between-group difference. SiPore21 also improved body weight (p = 0.0374), fat mass (p = 0.05), and lipid measures (LDL-C; p = 0.035, total cholesterol; p = 0.0496) compared to placebo, and was associated with reduced progression from prediabetes to diabetes (p = 0.0233) and increased reversion to earlier glycaemic states (p = 0.0044). SiPore21 was safe and well tolerated, with only mild, transient gastrointestinal events and no serious adverse device effects. SiPore21 improved glycaemic control, body composition, and lipid metabolism while stabilising glycaemic status, whereas corresponding improvements were not observed in the placebo group. SiPore21 was well tolerated, with no clinically meaningful safety concerns identified. These findings support its potential as a safe and effective non-pharmacological option for prediabetes or early type 2 diabetes. Sigrid Therapeutics AB.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42433278/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Primary PubMed-checked human randomized studies of glycaemic control, ADHD attention, spatial cognition and exercise-related insulin sensitivity; preserve null endpoints, safety and population limitations for independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42433278",
+        "doi": "10.1016/j.eclinm.2026.104042",
+        "journal": "EClinicalMedicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T04:50:29.399Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d10bb59dbca608870fa3",
+      "reserved_at": "2026-10-09T04:50:38.565Z",
+      "source_branch": "research/intake/2/20261009-0048-cognition-metabolic-4-r14-recovery"
+    },
+    {
+      "pmid": "41545587",
+      "title": "External trigeminal nerve stimulation in youth with ADHD: a randomized, sham-controlled, phase 2b trial.",
+      "doi": "10.1038/s41591-025-04075-x",
+      "source_title": "External trigeminal nerve stimulation in youth with ADHD: a randomized, sham-controlled, phase 2b trial.",
+      "abstract": "External trigeminal nerve stimulation (TNS) received US Food and Drug Administration clearance in 2019 as the first device-based, non-pharmacological treatment for attention-deficit/hyperactivity disorder (ADHD), based on a small pilot sham-controlled randomized controlled trial (RCT) that reported symptom improvement in 62 children with ADHD. Here we conducted a confirmatory multicenter, double-blind, randomized, sham-controlled, parallel-group, phase 2b RCT to investigate short-term and long-term efficacy (6 months) of real versus sham TNS in 150 children and adolescents with ADHD. Participants were randomized to receive real TNS (n = 75, mean age (s.d.) = 12.6 (2.8) years) or sham TNS (n = 75, mean age (s.d.) = 12.6 (2.8) years) nightly for approximately 9 hours for 4 weeks. Bilateral stimulation targeted V1 trigeminal branches using battery-powered electrodes applied to the forehead. Sham TNS delivered 30 seconds of stimulation per hour at lower frequency and pulse width. Intention-to-treat analysis showed no significant differential treatment effects on ADHD symptoms (primary outcome) (estimated adjusted mean difference = 0.83; 95% confidence interval: -2.47 to 4.13; P = 0.622; Cohen's d = 0.09). No serious adverse events were reported, and side effects did not differ between groups. In conclusion, TNS is a safe intervention but does not demonstrate clinical efficacy for pediatric ADHD. Trial registration: ISRCTN82129325 .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41545587/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Primary PubMed-checked human randomized studies of glycaemic control, ADHD attention, spatial cognition and exercise-related insulin sensitivity; preserve null endpoints, safety and population limitations for independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase II; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase II",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41545587",
+        "doi": "10.1038/s41591-025-04075-x",
+        "journal": "Nature medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T04:50:29.400Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "70a020436f2cbcf14284",
+      "reserved_at": "2026-10-09T04:50:38.565Z",
+      "source_branch": "research/intake/2/20261009-0048-cognition-metabolic-4-r14-recovery"
+    },
+    {
+      "pmid": "42264275",
+      "title": "Insomnia and inflammatory exposure impair spatial memory and cognitive mapping in older adults: a randomized controlled trial.",
+      "doi": "10.1016/j.bbi.2026.106864",
+      "source_title": "Insomnia and inflammatory exposure impair spatial memory and cognitive mapping in older adults: a randomized controlled trial.",
+      "abstract": "Insomnia and inflammation are both risk factors for cognitive aging, especially declines of spatial memory and cognitive mapping. This study aimed to evaluate whether older adults with insomnia show deficits in spatial memory and cognitive mapping, and whether an inflammatory challenge might exacerbate those deficits. We analyzed secondary outcomes of an assessor-blinded, parallel-condition, placebo-controlled randomized clinical trial in 84 non-depressed adults aged 60-80 years (26 with insomnia disorder, 58 without insomnia) who were randomized to low-dose intravenous endotoxin or placebo. Two hours post-injection, participants completed a virtual Morris water maze task assessing spatial memory, followed by a room reconstruction task assessing cognitive mapping under real-world conditions. Circulating levels of inflammatory cytokines were repeatedly measured. Among 84 randomized participants (66.0 ± 4.6 years; 50.0% female), 39 participants (12 insomnia; 27 control) received endotoxin and 45 (14 insomnia; 31 control) placebo. Older adults with insomnia showed impairments in spatial memory and cognitive mapping as compared to controls (P's < 0.01). Further, a significant group (insomnia vs. control) × condition (endotoxin vs. placebo) interaction emerged (P < 0.05), with post hoc tests revealing deficits in cognitive mapping in older adults with insomnia exposed to endotoxin (P < 0.01), but not in insomnia patients who received placebo or in controls. Cytokine responses were not related to spatial memory or mapping outcomes. Older adults with insomnia, as compared to controls, exhibit deficits in spatial memory and cognitive mapping, and the latter appears to be exaggerated following inflammatory exposure. Both insomnia and inflammation are potential mechanistic targets to preserve cognitive aging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42264275/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Primary PubMed-checked human randomized studies of glycaemic control, ADHD attention, spatial cognition and exercise-related insulin sensitivity; preserve null endpoints, safety and population limitations for independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42264275",
+        "doi": "10.1016/j.bbi.2026.106864",
+        "journal": "Brain, behavior, and immunity",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T04:50:29.401Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "173d14ce0771b30b17ef",
+      "reserved_at": "2026-10-09T04:50:38.565Z",
+      "source_branch": "research/intake/2/20261009-0048-cognition-metabolic-4-r14-recovery"
+    },
+    {
+      "pmid": "41532329",
+      "title": "Metformin attenuates metabolic insulin sensitivity and insulin-stimulated carbohydrate oxidation after high-intensity exercise training in adults at risk for metabolic syndrome.",
+      "doi": "10.1111/dom.70478",
+      "source_title": "Metformin attenuates metabolic insulin sensitivity and insulin-stimulated carbohydrate oxidation after high-intensity exercise training in adults at risk for metabolic syndrome.",
+      "abstract": "Mixed evidence exists on whether metformin adds to or attenuates the insulin-sensitising effects of exercise. To date, no studies have tested whether metformin differentially impacts exercise training intensity-mediated insulin sensitivity. We tested the hypothesis that metformin would blunt metabolic insulin sensitivity and carbohydrate oxidation in an intensity-based manner among adults with metabolic syndrome (MetS) risk. In a double-blind, placebo-controlled trial, participants were randomised to low-intensity exercise plus placebo (~55% VO 2 max 5 days/week, LoEx + PL, n = 22) or metformin (2000 mg/day, LoEx + Met, n = 21) and high-intensity exercise plus placebo (~85% VO 2 max 5 days/week, HiEx + PL, n = 24) or metformin (HiEx + Met, n = 24) for 16 weeks. A 120-min euglycaemic-hyperinsulinemic clamp (40 mU/m 2 /min, 90 mg/dL) was conducted pre- and post-treatment to assess metabolic insulin sensitivity (M-value/insulin). Fasting and insulin-stimulated carbohydrate oxidation was also assessed using indirect calorimetry. Adipokines (leptin, high molecular weight (HWM), and total adiponectin) were measured at 0 and 120 min of the clamp. Aerobic fitness (VO 2 max) and body composition (DXA) were also analysed. HiEx + PL increased metabolic insulin sensitivity (p = 0.017) while HiEx + Met, LoEx + PL, or LoEx + Met did not. HiEx + PL also raised insulin-stimulated carbohydrate oxidation and decreased fat oxidation compared with LoEx + Met (both, p = 0.008). Increased metabolic insulin sensitivity related to reductions in fasting glucose (r = -0.41, p = 0.025), VO 2 max (r = 0.55, p = 0.002), fasting leptin (r = -0.54, p = 0.01), and weight loss (r = -0.60, p < 0.001) after exercise and placebo, but not exercise and metformin. Metformin attenuated metabolic insulin sensitivity and insulin-stimulated carbohydrate oxidation after high-intensity exercise training in adults at risk for MetS.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41532329/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Primary PubMed-checked human randomized studies of glycaemic control, ADHD attention, spatial cognition and exercise-related insulin sensitivity; preserve null endpoints, safety and population limitations for independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41532329",
+        "doi": "10.1111/dom.70478",
+        "journal": "Diabetes, obesity & metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T04:50:29.401Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2cbab1717a78f24cf8e6",
+      "reserved_at": "2026-10-09T04:50:38.565Z",
+      "source_branch": "research/intake/2/20261009-0048-cognition-metabolic-4-r14-recovery"
     }
   ],
   "batches": [
@@ -19398,22 +19707,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 238,
+    "total_reservations": 242,
     "by_lane": {
       "1": 5,
-      "2": 15,
+      "2": 19,
       "3": 60,
       "4": 33,
       "5": 125
     },
     "by_state": {
-      "SOURCE_VERIFIED": 238
+      "SOURCE_VERIFIED": 242
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 238,
+        "count": 242,
         "pr_number": null,
         "blocker": null
       }
