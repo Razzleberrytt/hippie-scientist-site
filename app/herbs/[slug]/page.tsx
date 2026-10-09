@@ -36,6 +36,7 @@ import { SourcingCta } from '../../../components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '../../../components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import EvidenceScopeGuide from '@/components/ui/EvidenceScopeGuide'
 import SafetyCautionLevel, { safetyFactorsForRecord } from '@/components/ui/SafetyCautionLevel'
 import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
 import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
@@ -530,6 +531,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
               <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
               <EvidenceScoreBadge record={herbRecord} />
             </div>
+
+            <EvidenceScopeGuide context="profile" />
 
             {/* Safety Summary — one line; full detail lives in the Safety section below.
                 Shared with compound profiles so both routes lead with the same
