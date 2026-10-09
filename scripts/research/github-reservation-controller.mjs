@@ -26,17 +26,21 @@ function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
  * Resolve the exact blob SHA instead; never parse an empty payload or
  * substitute an empty registry, which could produce duplicate reservations.
  */
-export async function decodeRegistryBlob(file,loadBlob){
-  if(!file||typeof file.sha!=='string'||!file.sha)throw Error('registry metadata missing SHA');
+export async function readGithubContent(file,loadBlob){
+  if(!file||typeof file.sha!=='string'||!file.sha)throw Error('GitHub content metadata missing SHA');
   let content=file.content;
   if(file.encoding==='none'||!content){
-    if(typeof loadBlob!=='function')throw Error('registry oversized/empty; blob retrieval unavailable');
+    if(typeof loadBlob!=='function')throw Error('GitHub content oversized/empty; blob retrieval unavailable');
     const blob=await loadBlob(file.sha);
-    if(blob?.encoding!=='base64'||typeof blob.content!=='string'||!blob.content)throw Error('registry Git blob missing base64 content');
+    if(blob?.encoding!=='base64'||typeof blob.content!=='string'||!blob.content)throw Error('GitHub blob missing base64 content');
     content=blob.content;
-  }else if(file.encoding!=='base64')throw Error('unsupported registry content encoding '+file.encoding);
+  }else if(file.encoding!=='base64')throw Error('unsupported GitHub content encoding '+file.encoding);
   const decoded=unb64(content);
-  if(!decoded.trim())throw Error('registry decoded to empty JSON');
+  if(!decoded.trim())throw Error('GitHub content decoded to empty JSON');
+  return decoded;
+}
+export async function decodeRegistryBlob(file,loadBlob){
+  const decoded=await readGithubContent(file,loadBlob);
   let value;
   try{value=JSON.parse(decoded)}catch(e){throw Error('registry JSON invalid: '+e.message)}
   if(value?.schema_version!==1||!Array.isArray(value.reservations)||!Array.isArray(value.batches))throw Error('registry structure invalid');
@@ -87,7 +91,7 @@ export function reconcileBaseline(records){
 
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
- for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
+ for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha,{accept:'application/vnd.github.object+json'});const json=await readGithubContent(c,sha=>api('/repos/'+repo+'/git/blobs/'+encodeURIComponent(sha)));for(const r of walk(JSON.parse(json)))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
  return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,head_ref:p.head.ref,title:p.title,draft:p.draft,state:p.state}))};
 }
 async function ensureRegistryBranch(){
