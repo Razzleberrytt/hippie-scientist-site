@@ -40295,6 +40295,235 @@
       "reservation_id": "68544ef73779b272b9e6",
       "reserved_at": "2026-10-09T20:54:55.972Z",
       "source_branch": "research/intake/2/20261009-1652-cognition-metabolic-2-r30"
+    },
+    {
+      "pmid": "36328482",
+      "title": "Pharmacokinetic Interactions of a Licorice Dietary Supplement with Cytochrome P450 Enzymes in Female Participants.",
+      "doi": "10.1124/dmd.122.001050",
+      "source_title": "Pharmacokinetic Interactions of a Licorice Dietary Supplement with Cytochrome P450 Enzymes in Female Participants.",
+      "abstract": "Licorice, the roots and rhizomes of Glycyrrhiza glabra L., has been used as a medicinal herb, herbal adjuvant, and flavoring agent since ancient times. Recently, licorice extracts have become popular as dietary supplements used by females to alleviate menopausal symptoms. Exposure to licorice products containing high levels of glycyrrhizic acid can cause hypokalemia, but independent from this effect, preclinical data indicate that licorice can inhibit certain cytochrome P450 (P450) enzymes. To evaluate whether clinically relevant pharmacokinetic interactions of licorice with P450 enzymes exist, a phase 1 clinical investigation was carried out using a licorice extract depleted in glycyrrhizic acid (content <1%) and a cocktail containing caffeine, tolbutamide, alprazolam, and dextromethorphan, which are probe substrates for the enzymes CYP1A2, CYP2C9, CYP3A4/5, and CYP2D6, respectively. The botanically authenticated and chemically standardized extract of roots from G. glabra was consumed by 14 healthy menopausal and postmenopausal female participants twice daily for 2 weeks. The pharmacokinetics of each probe drug were evaluated immediately before and after supplementation with the licorice extract. Comparison of the average areas under the time-concentration curves (AUCs) for each probe substrate in serum showed no significant changes from licorice consumption, whereas time to reach peak concentration for caffeine and elimination half-life for tolbutamide showed small changes. According to the US Food and Drug Administration guidance, which is based on changes in the AUC of each probe substrate drug, the investigated licorice extract should not cause any clinically relevant pharmacokinetic interactions with respect to CYP3A4/5, CYP2C9, CYP2D6, or CYP1A2. SIGNIFICANCE STATEMENT: Despite generally-recognized-as-safe status, the licorice species Glycyrrhiza glabra has been associated with some toxicity. Preclinical studies suggest that G. glabra might cause pharmacokinetic drug interactions by inhibiting several cytochrome P450 enzymes. This phase 1 clinical study addressed these concerns by evaluating clinically relevant effects with respect to CYP3A4/5, CYP2C9, CYP2D6, and CYP1A2. These results showed that a standardized G. glabra extract did not cause any clinically relevant pharmacokinetic drug interactions with four major cytochrome P450 enzymes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36328482/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "36328482",
+        "doi": "10.1124/dmd.122.001050",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2023,
+        "hydrated_at": "2026-10-09T21:07:32.448Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7a8ef2f2e77c7ac2acf2",
+      "reserved_at": "2026-10-09T21:07:36.254Z",
+      "source_branch": "research/intake/3/20261009-1705-licorice-withania-maytenus-3"
+    },
+    {
+      "pmid": "40023576",
+      "title": "Evaluation of reversible cytochrome P450 inhibition by Withania somnifera leaf and root extracts.",
+      "doi": "10.1016/j.dmd.2024.100024",
+      "source_title": "Evaluation of reversible cytochrome P450 inhibition by Withania somnifera leaf and root extracts.",
+      "abstract": "It is important to understand the potential of botanical-drug interactions to ensure the safe use of botanical dietary supplements (BDS). Cytochrome P450 (P450) is one of the most abundant phase 1 drug-metabolizing enzymes and is accountable for a great deal of pharmacokinetic botanical-drug interactions. This problem is particularly acute for older adults who often consume BDS with multiple prescription medicines. The consequences of botanical-drug interactions can lead to lack of prodrug efficacy or drug toxicity from reduced drug clearance through inhibition of P450 metabolizing enzymes. In this study, a 7-in-1 cocktail P450 inhibition assay with 7 Food and Drug Administration-recommended P450s (CYP1A2, CYP2A6, CYP2C8, CYP2C9, CYP2D6, and CYP3A4/5) including CYP2B6 recombinant enzyme was performed, minimizing substrate interactions with respect to specificity while maximizing assay sensitivity. High-performance liquid chromatography-mass spectrometry was used for quantitative determination of probe substrate metabolism. Withania somnifera L. Dunal (ashwagandha), a popular BDS in the United States with sales of ∼$16 million in 2021, is used to promote sleep and relieve stress and anxiety, especially in older adults. However, comprehensive studies of pharmacokinetic drug interactions with ashwagandha, especially with leaf extracts, have not been reported. Four extracts from ashwagandha root or leaf were evaluated for P450 inhibition, and no reversible inhibition was detected at IC 50 > 100 μg/mL extract. SIGNIFICANCE STATEMENT: Ashwagandha is often consumed by older adults, who also often use multiple prescribed medications concomitantly. Polypharmacy, combined with age-related decline of drug metabolism and other changes in drug disposition in this population, increases the risk of adverse events due to botanical inhibition of drug metabolism, indicating the significance of evaluating ashwagandha for potential pharmacokinetic drug interactions. This study will support our understanding for the safe use of ashwagandha.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40023576/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40023576",
+        "doi": "10.1016/j.dmd.2024.100024",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T21:07:32.449Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "da94ac605127ee72074b",
+      "reserved_at": "2026-10-09T21:07:36.254Z",
+      "source_branch": "research/intake/3/20261009-1705-licorice-withania-maytenus-3"
+    },
+    {
+      "pmid": "41078739",
+      "title": "Evaluation of the Pharmacokinetic Interactions of Maytenus ilicifolia Mart. ex Reiss Extracts on Drug Intestinal Permeability and Hepatic Metabolism.",
+      "doi": "10.1021/acsomega.5c07564",
+      "source_title": "Evaluation of the Pharmacokinetic Interactions of Maytenus ilicifolia Mart. ex Reiss Extracts on Drug Intestinal Permeability and Hepatic Metabolism.",
+      "abstract": "Maytenus ilicifolia Mart. ex Reiss is a plant native to South America, popularly used in the treatment of gastric disorders. The increase in the consumption of herbal products associated with conventional medications demands attention for the potential risks of interactions. The aim of the study was to evaluate potential pharmacokinetic interactions due to coadministration of M. ilicifolia extracts with drug substrates of P-glycoprotein (P-gp) and cytochrome P450 3A4 isoform (CYP3A4). Five extracts of M. ilicifolia were prepared, and the contents of the main secondary metabolites were determined. A high-performance liquid chromatography (HPLC) method was developed for the simultaneous quantitation of midazolam, nifedipine, and their respective metabolites and applied to assess the potential of M. ilicifolia extracts on hepatic metabolism mediated by the CYP3A4 enzyme. The influence of the extracts on the intestinal permeability of fexofenadine was evaluated by determining P-gp activity, using a Caco-2 cell model. The extracts were characterized in terms of total phenolic (1.77-11.46%), tannin (1.67-3.36%), and flavonoid (0.21-2.64%). The hydroacetonic extract (HAE1) exhibited a remaining activity (%RA) of 50.1% for the 1-hydroxylation of midazolam and 40.1% for the oxidation of nifedipine, indicating moderate inhibition of CYP3A4. HAE1 reduced the fexofenadine efflux ratio to an extent similar to that of verapamil (IC 50 = 20.42 μg/mL), suggesting an inhibitory effect on the P-gp activity. The extracts demonstrated the potential to inhibit both CYP3A4 and P-gp. Therefore, coadministration of M. ilicifolia -based preparations may potentially alter the pharmacokinetics of drugs that are substrates of these systems.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41078739/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41078739",
+        "doi": "10.1021/acsomega.5c07564",
+        "journal": "ACS omega",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T21:07:32.450Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "be498385a4894c67a6cb",
+      "reserved_at": "2026-10-09T21:07:36.254Z",
+      "source_branch": "research/intake/3/20261009-1705-licorice-withania-maytenus-3"
     }
   ],
   "batches": [
@@ -40323,16 +40552,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 509,
+    "total_reservations": 512,
     "by_lane": {
       "1": 17,
       "2": 91,
-      "3": 84,
+      "3": 87,
       "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 509
+      "SOURCE_VERIFIED": 512
     },
     "batches": [
       {
@@ -40345,7 +40574,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 9,
+        "count": 12,
         "pr_number": null,
         "blocker": null
       }
