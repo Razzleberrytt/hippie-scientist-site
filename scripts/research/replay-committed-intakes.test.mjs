@@ -43,6 +43,17 @@ test('keeps frozen-batch recovery ahead of optional replay',()=>{
   assert.match(workflow, /RESEARCH_REPLAY_MAX_FILES: '1'/)
 })
 
+test('scheduled replay continues after recovery failure only when control-plane validation passed',()=>{
+  const workflow=readFileSync('.github/workflows/research-lane-intake.yml','utf8')
+  const recoveryJob=workflow.slice(workflow.indexOf('  recover:'))
+  assert.match(recoveryJob, /name: Validate research control plane\\n\\s+id: validate_research_control_plane/)
+  assert.match(recoveryJob, /name: Recover pending freezes without bypassing gates\\n\\s+id: recover_freezes/)
+  const replay=recoveryJob.slice(recoveryJob.indexOf('name: Replay exact committed PMID seeds missed by push events'))
+  assert.match(replay, /if: \\$\\{\\{ !cancelled\\(\\) && steps\\.validate_research_control_plane\\.outcome == 'success'/)
+  assert.match(replay, /steps\\.recover_freezes\\.outcome == 'success' \\|\\| steps\\.recover_freezes\\.outcome == 'failure'/)
+  assert.doesNotMatch(replay, /if: always\\(\\)/)
+})
+
 test('repo-wide pagination cannot hide pinned research/intake branches',()=>{
   const sha='a'.repeat(40)
   const refs=[
