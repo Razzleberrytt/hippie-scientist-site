@@ -35630,6 +35630,467 @@
       "reservation_id": "21640410856c4cc577bb",
       "reserved_at": "2026-10-09T12:54:27.272Z",
       "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "42120725",
+      "title": "Pasteurized Akkermansia muciniphila Muc T for weight loss maintenance in people with overweight and obesity: a controlled randomized trial.",
+      "doi": "10.1038/s41591-026-04394-7",
+      "source_title": "Pasteurized Akkermansia muciniphila Muc T for weight loss maintenance in people with overweight and obesity: a controlled randomized trial.",
+      "abstract": "Preclinical research suggests that the mucosal symbiont Akkermansia muciniphila prevents diet-induced obesity. In this randomized controlled trial, adults with overweight/obesity (n = 90) underwent an 8-week low-energy diet for ≥8% weight loss, followed by a 24-week healthy ad libitum diet with daily supplementation of pasteurized A. muciniphila Muc T or placebo. The primary outcome was change in body weight during the maintenance period. Here we show that Muc T led to lower body weight regain versus placebo at the end of the weight maintenance period (Muc T : 1.2 ± 0.7 kg, placebo: 3.2 ± 0.4 kg, P = 0.012). Additionally, the Muc T group had a greater net weight loss from baseline to end of maintenance than the placebo group (3.1 ± 0.7 kg, P = 0.009). Initial Akkermansia spp. abundance was associated with cardiometabolic response to Muc T . No serious adverse events related to the treatment were observed. The relative short-term intervention and absence of groups receiving modified strains of Muc T lacking active components are limitations that should be addressed in the future. Our findings suggest pasteurized A. muciniphila Muc T as a strategy for weight loss maintenance. ClinicalTrials.gov: NCT05417360 .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42120725/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six human randomized studies on executive function, time-restricted eating, avocado substitution, postbiotic glycemic outcomes, and weight maintenance. Source identities only; nulls and safety uncertainty require independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42120725",
+        "doi": "10.1038/s41591-026-04394-7",
+        "journal": "Nature medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:55:25.804Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c1ede21a6a9c6ebbacc8",
+      "reserved_at": "2026-10-09T12:55:37.063Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "42229885",
+      "title": "Time-Restricted Eating Promotes Weight Loss and Favorable Changes in Adipose in Obesity: The TREAD Randomized Control Trial.",
+      "doi": "10.1002/oby.70228",
+      "source_title": "Time-Restricted Eating Promotes Weight Loss and Favorable Changes in Adipose in Obesity: The TREAD Randomized Control Trial.",
+      "abstract": "Examine time-restricted eating (TRE) as a strategy to promote weight loss and cardiometabolic health in adults with obesity. TRE in obesity and ADipose Tissue (TREAD) was a single-center 12-week RCT, involving 1:1 randomization to 10-h TRE versus standard of care (SOC) in adults with obesity (BMI 30-50 kg/m 2 ) without diabetes and baseline eating window ≥ 14 h/day. The primary endpoint was change in weight (kg). Exploratory RNA-seq in subcutaneous abdominal adipose tissue was performed in a subgroup of participants. A total of 61 participants were randomized, and 52 (26 TRE, 26 SOC) completed the study. Mean ± SD age was 55 ± 12.1 years, n = 35 were (58%) women, n = 35 were non-Hispanic White (58%), and BMI was 35.5 ± 4.8 kg/m 2 . With TRE, the mean total reduction in weight from baseline to end of study was -4.59 kg (95% CI -5.51, -3.67) (-4.6%) versus -1.68 kg (95% CI -2.59, -0.77) (-1.7%) with SOC (between-group difference -2.91 kg [-4.21, -1.60]) (p < 0.001), primarily through loss of body fat. Downregulation of proinflammatory genes was observed in adipose tissue during TRE. In adults with obesity, compared with SOC dietary counseling alone, TRE promotes weight loss, healthier body composition, and, in exploratory analyses, reduction in adipose tissue proinflammatory gene expression. ClinicalTrials.gov identifier: NCT04916730.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42229885/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six human randomized studies on executive function, time-restricted eating, avocado substitution, postbiotic glycemic outcomes, and weight maintenance. Source identities only; nulls and safety uncertainty require independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42229885",
+        "doi": "10.1002/oby.70228",
+        "journal": "Obesity (Silver Spring, Md.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:55:25.804Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5f2bb6fdf3ef471b1d2b",
+      "reserved_at": "2026-10-09T12:55:37.063Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "41729768",
+      "title": "Executive functions blues: Updating and inhibition training in older adults.",
+      "doi": "10.1037/pag0000974",
+      "source_title": "Executive functions blues: Updating and inhibition training in older adults.",
+      "abstract": "Population aging has made cognitive decline a growing public health challenge. Theories of cognitive aging highlight executive functions (EFs), particularly updating and inhibition, as central to cognitive decline. This study examined whether strengthening EFs can improve working memory, fluid reasoning, and everyday problem solving and which factors predict training outcomes. A total of 120 participants ( M = 70.30, SD = 5.84) were randomly assigned to one of four groups: updating, inhibition, combined training, or an active control group (communication skills). Participants completed 20 home-based training sessions (three 25-min sessions per week) and seven assessment sessions (pretest, posttest, and 6-month follow-up), which included sociodemographics, updating ( n -back, Memory Updating), inhibition (Picture-Word, Stroop), working memory (Operation Span task), fluid reasoning (Standard Progressive Matrices), and everyday problem-solving tasks (Everyday Problem Test). Bayesian repeated-measures analysis of variance indicated improvements on n -back tasks accuracy for the updating, inhibition, and combined groups and improvement in the n -back reaction time for combined and inhibition groups. Mixed-effects modeling revealed that age, education level, and baseline n -back performance predicted initial success in updating training, while baseline Picture-Word scores predicted initial success in inhibition training. Group membership predicted the rate of progress in inhibition training. Overall, findings suggest limited transfer effects from EF training to untrained domains and emphasize the role of individual characteristics and task-specific factors in determining training success. The study contributes to a more cautious understanding of EF training, demonstrating modest gains specific to certain EF components and identifying key individual and task-related predictors of training outcomes. (PsycInfo Database Record (c) 2026 APA, all rights reserved).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41729768/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six human randomized studies on executive function, time-restricted eating, avocado substitution, postbiotic glycemic outcomes, and weight maintenance. Source identities only; nulls and safety uncertainty require independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41729768",
+        "doi": "10.1037/pag0000974",
+        "journal": "Psychology and aging",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:55:25.805Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "efa7ba87ab337d3e3b98",
+      "reserved_at": "2026-10-09T12:55:37.063Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "41244602",
+      "title": "Time Restricted Hypo-caloric Diet Achieves Better Insulin Sensitivity over Hypo-caloric Diet Alone in Patients With Metabolic Dysfunction-associated Steatotic Liver Disease: A Randomized Controlled Trial.",
+      "doi": "10.1016/j.jceh.2025.103198",
+      "source_title": "Time Restricted Hypo-caloric Diet Achieves Better Insulin Sensitivity over Hypo-caloric Diet Alone in Patients With Metabolic Dysfunction-associated Steatotic Liver Disease: A Randomized Controlled Trial.",
+      "abstract": "Insulin resistance is a key pathogenic mechanism in metabolic dysfunction-associated steatohepatitis (MASLD). Time-restricted eating (TRE) has the potential to restore insulin sensitivity in patients with metabolic disorders. We investigated the effects of time-restricted eating on insulin resistance, metabolic profile, and steatosis in individuals with MASLD. The study was conducted at King George's Medical College, Lucknow, and Sanjay Gandhi Postgraduate Institute of Medical Sciences, Lucknow, from November 2024 to May 2025, with participants recruited from the medicine and hepatology outpatient departments. Adults aged 18-60 years with MASLD were screened for eligibility, excluding those with diabetes, advanced fibrosis, chronic comorbid illnesses, pregnancy, or those already undergoing treatment for MASLD. Participants were randomized to either a hypocaloric diet with time-restricted eating (TRE + HCD) or hypocaloric diet alone (HCD). The primary objective was to measure the mean changes in homeostatic model assessment of insulin resistance (HOMA-IR) at 12 weeks, while the secondary objective was to compare the proportion of participants with at least one-grade improvement in hepatic steatosis. A total of 84 participants, 42 in each arm were enrolled. Baseline characteristics were comparable between groups. In the intention-to-treat analysis, the mean reduction in HOMA-IR was 2.6 ± 1.9 in the TRE + HCD group and 1.55 + 1.2 in the HCD group ( P = 0.024). Overall, 66.7% of participants in the TRE + HCD arm and 52.4% in the HCD arm achieved a 1-grade improvement in steatosis ( P = 0.26). Time-restricted eating over 12 weeks led to greater improvement in insulin resistance compared to hypocaloric diet alone in MASLD subjects.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41244602/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six human randomized studies on executive function, time-restricted eating, avocado substitution, postbiotic glycemic outcomes, and weight maintenance. Source identities only; nulls and safety uncertainty require independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41244602",
+        "doi": "10.1016/j.jceh.2025.103198",
+        "journal": "Journal of clinical and experimental hepatology",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T12:55:25.805Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "92fd36a3d1648a72bd1c",
+      "reserved_at": "2026-10-09T12:55:37.063Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "41397527",
+      "title": "Effects of replacing solid fats and added sugars with avocado in adults with elevated cardiometabolic risk: a randomized, double-blind, controlled feeding, crossover trial.",
+      "doi": "10.1016/j.ajcnut.2025.101137",
+      "source_title": "Effects of replacing solid fats and added sugars with avocado in adults with elevated cardiometabolic risk: a randomized, double-blind, controlled feeding, crossover trial.",
+      "abstract": "Limited high-quality evidence exists from controlled trials on the impact of avocado-containing diets on cardiometabolic risk factors. The purpose of this randomized, double-blind, free-living, controlled feeding, crossover study in adults with increased cardiometabolic risk was to assess the effects of replacing energy from solid fats and added sugars with equivalent energy from 1 avocado daily on cardiometabolic risk factors. For two 3-wk periods, separated by a 2-wk washout, healthy adults with elevated triglycerides (TG, 135-499 mg/dL) consumed an average American diet or a diet in which 1 avocado (∼180 g/d, ∼300 kcal/d) replaced energy from saturated fatty acids and added sugars. The same study products (muffins, granola bites, dressing, salsa, marinade, and pesto) delivered the avocado or control ingredients. Green food dye was added to the control study products to facilitate double blinding. Non-high-density lipoprotein (non-HDL) cholesterol (primary outcome), other lipoprotein lipids, fasting glucose and insulin, and fasting and postprandial blood pressures were measured at baseline and end of condition. Linear mixed models were used to generate estimates for percentage changes. Of 42 randomly assigned participants, 37 completed the avocado condition and 39 completed the control condition. An intention-to-treat analysis showed significantly larger percentage changes, 95% confidence intervals (CIs), from baseline after the avocado condition, compared with after the control condition, for non-HDL cholesterol (-4.65%; 95% CI: -9.01%, -0.08%; P = 0.047), very-low-density lipoprotein cholesterol (-9.30%; 95% CI: -15.3%, -2.82%; P = 0.007); TG (-17.4%; 95% CI: -25.0%, -8.99%; P < 0.001), small low-density lipoprotein subfraction cholesterol (-13.9%; 95% CI: -23.2%, -3.49%; P = 0.012), and total cholesterol:HDL cholesterol ratio (-6.56%; 95% CI: -12.0%, -0.79%; P = 0.028). Percentage changes for other lipoprotein lipids, glucose, insulin, and blood pressures did not significantly differ (P > 0.05) between conditions. Replacing solid fats and added sugars with avocado in a typical American diet improves the lipoprotein lipid profile in adults with elevated TG. This trial was registered at clinicaltrials.gov as NCT04990817 (https://clinicaltrials.gov/study/NCT04990817).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41397527/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six human randomized studies on executive function, time-restricted eating, avocado substitution, postbiotic glycemic outcomes, and weight maintenance. Source identities only; nulls and safety uncertainty require independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41397527",
+        "doi": "10.1016/j.ajcnut.2025.101137",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:55:25.806Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7b7ff0b61fc459a2057c",
+      "reserved_at": "2026-10-09T12:55:37.063Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "42158917",
+      "title": "Effect of probiotics derivatives (postbiotics and metabiotics) on glycemic control in individuals with type 2 diabetes: a randomized clinical trial (DELI_Diab study).",
+      "doi": "10.3389/fendo.2026.1802045",
+      "source_title": "Effect of probiotics derivatives (postbiotics and metabiotics) on glycemic control in individuals with type 2 diabetes: a randomized clinical trial (DELI_Diab study).",
+      "abstract": "Probiotics have demonstrated positive effects on obesity and type 2 diabetes (T2D) in various studies. Postbiotics, specifically nonliving bacterial lysates derived from cell walls and DNA, are increasingly recognized as safe, stable, and effective alternatives for improving host metabolic health. to conduct a randomized, double-blind, placebo-controlled clinical trial (RCT) to assess the short-term safety and effectiveness of the bacterial lysate of Lactobacillus (L.) rhamnosus DV - NRRL B-68023 as an adjunct to standard antidiabetic therapy. Fifty-five participants with T2D were enrolled and assigned via computer-generated randomization to receive either 100 mg of L. rhamnosus DV lysate twice daily or a matching placebo. Blinding was ensured through identical masked packaging. The primary efficacy analysis was performed on a per-protocol (PP) population of 42 participants (intervention, n=20; placebo, n=22) who completed the 3-month treatment and 3-month follow-up. Primary endpoints were HbA1c and fasting plasma glucose (FPG). Secondary endpoints included HOMA-2 modeled insulin sensitivity (%S), β-cell function (%B), and anthropometric parameters, evaluated at baseline, 3, and 6 months. The trial was registered at ClinicalTrials.gov (NCT05770076). The primary analysis revealed a significant overall treatment effect for HbA1c (p<0.001). After 3 months, the intervention group showed a mean HbA1c reduction of -0.63% (95% CI: -0.98 to -0.28), while the placebo group significantly worsened (0.50%; 95% CI: 0.17 to 0.84). For FPG, a favorable between-group trend was observed (p=0.086), with a reduction of 1.32 mmol/L in the active group compared to an increase of 0.12 mmol/L in the placebo group. Exploratory analysis showed significant treatment effects for waist circumference (p = 0.021) and insulin sensitivity (%S, p = 0.013). Although within-group improvements were noted for BMI and β-cell function (%B) in the intervention group (p<0.05), between-group differences for these parameters were not statistically significant (p>0.05). Three-month supplementation with L. rhamnosus DV lysate significantly improves glycemic control (HbA1c) and reduces waist circumference compared to placebo in T2D patients. While positive trends in insulin sensitivity and anthropometrics were observed, further large-scale studies are required to confirm these metabolic benefits and assess long-term sustainability. https://clinicaltrials.gov/keywords, identifier NCT05770076.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42158917/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six human randomized studies on executive function, time-restricted eating, avocado substitution, postbiotic glycemic outcomes, and weight maintenance. Source identities only; nulls and safety uncertainty require independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42158917",
+        "doi": "10.3389/fendo.2026.1802045",
+        "journal": "Frontiers in endocrinology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:55:25.806Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "36d55399297cbac3a76b",
+      "reserved_at": "2026-10-09T12:55:37.063Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
     }
   ],
   "batches": [
@@ -35643,22 +36104,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 448,
+    "total_reservations": 454,
     "by_lane": {
       "1": 5,
-      "2": 75,
+      "2": 81,
       "3": 60,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 448
+      "SOURCE_VERIFIED": 454
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 448,
+        "count": 454,
         "pr_number": null,
         "blocker": null
       }
