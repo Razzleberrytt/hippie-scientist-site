@@ -26,7 +26,7 @@ The workflow `.github/workflows/retire-completed-workstream.yml` runs after a **
 - opens a **documentation-only PR** against main (never edits protected main directly);
 - leaves the same project-control/Atomic/CI and sole merge-controller checks in place.
 
-GitHub Actions permissions and organization policy may disallow PR creation: that is an **external blocker**, not authority to bypass branch protection. If the action reports blocked, use the same scoped manual control PR. This automation does not admit the next task automatically.
+GitHub Actions permissions and organization policy may disallow PR creation or workflow dispatch: that is an **external blocker**, not authority to bypass branch protection. If the action reports blocked, use the same scoped manual control PR. This automation does not admit the next task automatically.
 
 ## Evidence, rollback and quality economics
 
@@ -34,3 +34,7 @@ GitHub Actions permissions and organization policy may disallow PR creation: tha
 - Distinguish `planned → source committed → tested → PR → green CI → merged → deployed → production verified → measured`.
 - Track build/CI minutes **per merged P0 item**, duplicate builds per exact SHA, tests run during editing, stale workstream retirements, release failure rate and actual user-impact metrics. Baseline and ROI **Unknown** until a before/after sample exists.
 - Safety, exact clinical source provenance, access control, billing safeguards and production smoke are never deferred beyond a release.
+
+### GitHub-token automation and required checks
+
+GitHub intentionally suppresses normal `pull_request` workflow events from a PR created by the repository's `GITHUB_TOKEN`. Consequently the retirement proposer explicitly dispatches the **existing** CI, Site Health, Atomic, Build Quality, and Project Control workflows against the generated PR head. The existing ten-minute trusted-controller sweep separately handles guarded merge eligibility. If any workflow dispatch fails or policy denies it, the generated PR remains blocked; no check is faked or skipped. The workflow's `actions: write` permission is restricted to these GitHub recovery dispatches, not direct source modification or bypassing branch protection.
