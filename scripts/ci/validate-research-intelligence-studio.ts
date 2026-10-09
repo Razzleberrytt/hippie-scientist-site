@@ -15,6 +15,7 @@ import {calibrateIntelligenceCase,compileLivingReview} from '../../lib/scientifi
 import {verifyResearchSourceWitness} from '../../lib/research-semantic-provenance'
 import {validateResearchAdjudicationLedger,type ResearchAdjudicationEvent} from '../../lib/research-semantic-adjudication'
 import {buildResearchIntelligenceStudio,hydrateResearchStudioWithPublishedEvidence,askResearchSources,explainSemanticVoyage} from '../../lib/research-intelligence-studio'
+import {discoverResearchIntake} from '../../lib/research-intelligence-discovery'
 
 function source(pmid:string,title:string,year:string,abstract='An unreviewed source text with no clinical conclusions.',category='sleep'){
  return {pmid,title,year,abstract,category,journal:'Test journal',pubType:'Journal Article'}
@@ -490,6 +491,37 @@ assert(ui.includes('scienceTarget(id,data.graph,scientific.pmid)')&&
  sciencePanel.includes('onOpenCapability(cap.id)')&&
  sciencePanel.includes('Twelve connected research capabilities'),
  'Scientific capability handoffs must preserve identity and avoid untraceable Voyages destinations')
+// 2.0 · A plain-language query may only select an existing signed source case.
+// It cannot create reviewed clinical findings or promote pending 500-record drafts.
+const questionMatches=discoverResearchIntake(s.dna,graph,'Does magnesium improve sleep?')
+assert.deepEqual(questionMatches.matches.map(x=>x.pmid),['10000001'])
+assert.equal(questionMatches.total,1,'Question terms must match source metadata, not inferred conclusions')
+assert.equal(questionMatches.sourceCount,s.dna.length)
+assert.equal(discoverResearchIntake(s.dna,graph,'10000002').matches[0]?.pmid,'10000002',
+  'Direct PMID entry must reach exactly the same case')
+assert.equal(discoverResearchIntake(s.dna,graph,'Does creatine improve sleep?').total,0,
+  'Do not create cross-PMID relationships by mixing separate source phrases')
+assert.equal(discoverResearchIntake(s.dna,graph,'what is the').total,0,
+  'Questions with only stopwords must not silently display unrelated sample results')
+assert.equal(discoverResearchIntake(s.dna,graph,'magnesium',1).matches.length,1,
+  'A bounded first page must preserve the wider match count')
+assert.equal(discoverResearchIntake(s.dna,graph,'magnesium',1).total,2)
+const changedGraph={...graph,entries:{...graph.entries,
+  '10000001':{...graph.entries['10000001'],sourceSignature:'mismatched-source'}}}
+assert.equal(discoverResearchIntake(s.dna,changedGraph,'magnesium sleep').total,0,
+  'Source-signature mismatch must block a purported verified search result')
+assert.equal(discoverResearchIntake([...s.dna,{...s.dna[0],pmid:'99999999'}],graph,'99999999').total,0,
+  'Forged PMID outside the signed graph must not be discoverable')
+const discoveryComponent=readFileSync('app/research/intelligence/ResearchSourceDiscovery.tsx','utf8')
+assert(ui.includes('ResearchSourceDiscovery dna={data.dna} graph={data.graph} onInspect={inspectPmid}')&&
+ discoveryComponent.includes('discoverResearchIntake(dna,graph,query)')&&
+ discoveryComponent.includes('onInspect(d.pmid)')&&
+ discoveryComponent.includes('not scientific quality')&&
+ discoveryComponent.includes('ungraded until independently evaluated'),
+ 'Topic-first discovery must stay source-bound, actionable and transparently ungraded')
+assert(readFileSync('app/research/intelligence/ResearchIntelligence.module.css','utf8').includes('.discoveryResults'),
+ 'Research discovery requires an accessible responsive result layout')
+
 assert(ui.includes('ScientificIntelligencePanel')&&ui.includes('ResearchIntelligencePrimitives')&&
  researchPrimitives.includes('export function WitnessPanel')&&
  researchPrimitives.includes('export function Brief'),
