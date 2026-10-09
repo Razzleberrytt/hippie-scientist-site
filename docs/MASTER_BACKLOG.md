@@ -75,7 +75,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6447 | Reuse CI producer for governed zero-job recovery fan-out | D | Active — admitted | P0 | 5/4/3/5/0.75/3 | 75.0 | 2026-10-09 |
+| #6447 / PR #6460 | Reuse CI producer for governed zero-job recovery fan-out | D | In review — admitted | P0 | 5/4/3/5/0.75/3 | 75.0 | 2026-10-09 |
 
 
 
