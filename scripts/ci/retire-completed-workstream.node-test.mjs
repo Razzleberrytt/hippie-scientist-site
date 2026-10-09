@@ -78,6 +78,8 @@ function fakeApi({ deployment = {}, main = SHA, issueState = 'closed', duplicate
     if (endpoint === 'git/commits' && options.method === 'POST') return response({ sha: 'd'.repeat(40) })
     if (endpoint === 'git/refs' && options.method === 'POST') return response({ ref: 'new' })
     if (endpoint === 'pulls' && options.method === 'POST') return response({ number: 9000, html_url: 'https://github.com/example/repo/pull/9000' })
+    if (endpoint.startsWith('actions/workflows/') && endpoint.endsWith('/dispatches') && options.method === 'POST')
+      return { ok: true, status: 204, json: async () => { throw Error('204 must not be decoded as JSON') } }
     throw Error('Unexpected API: ' + endpoint)
   }
   return { requests, handler }
@@ -90,7 +92,16 @@ test('a verified production run proposes exactly one reviewed docs PR, never cha
   assert.equal(result.before, 2)
   assert.equal(result.after, 1)
   const writes = requests.filter(x => x.method !== 'GET')
-  assert.deepEqual(writes.map(x => x.endpoint), ['git/trees', 'git/commits', 'git/refs', 'pulls'])
+  assert.deepEqual(writes.map(x => x.endpoint), [
+    'git/trees','git/commits','git/refs','pulls',
+    'actions/workflows/ci.yml/dispatches',
+    'actions/workflows/check.yml/dispatches',
+    'actions/workflows/atomic-upgrade-gate.yml/dispatches',
+    'actions/workflows/build-quality-regression.yml/dispatches',
+    'actions/workflows/project-control-reconciliation.yml/dispatches',
+  ])
+  assert.deepEqual(result.dispatched, ['ci.yml','check.yml','atomic-upgrade-gate.yml',
+    'build-quality-regression.yml','project-control-reconciliation.yml'])
   assert.ok(!writes.some(x => x.endpoint === 'git/ref/heads/main'))
 })
 test('blocks a failed deploy or outdated main without ANY write', async () => {
