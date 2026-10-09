@@ -6,6 +6,7 @@ import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
+import {buildResearchEditorialReviewHandoff,verifyResearchEditorialReviewHandoff} from '../../lib/research-intelligence-integration'
 import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
 import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
 import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from '../../lib/scientific-intelligence-foundations'
@@ -590,6 +591,24 @@ assert(realFabric.distributionReviewTargets.every(t=>
 assert.equal(realFabric.publicationAllowed,false)
 assert(ui.includes('integratedCase?.fabric')&&ui.includes('Distribution review targets'),
  'Existing distribution objects must be joined in the visitor-facing source case')
+
+// The same *real* verified static research snapshot must remain the identity
+// authority for the human-review-only transport, not just a synthetic fixture.
+const liveReview=buildResearchEditorialReviewHandoff(real,realGraph,liveCase!.pmid,manifestObjects)
+assert(liveReview,'Exact verified source must resolve a research review packet')
+assert.equal(liveReview.schemaVersion,1)
+assert.equal(liveReview.identity.pmid,liveCase!.pmid)
+assert.equal(liveReview.identity.sourceSignature,liveCase!.sourceSignature)
+assert.equal(liveReview.trace.originalInstrumentCount,8)
+assert.equal(liveReview.trace.scientificProjectionCount,12)
+assert.equal(liveReview.publicationAllowed,false)
+assert.equal(liveReview.clinicalPromotions,0)
+assert(liveReview.reviewTargets.every(t=>t.status==='requires-independent-human-editorial-review'))
+assert.deepEqual(verifyResearchEditorialReviewHandoff(
+  liveReview,real,realGraph,liveCase!.pmid,manifestObjects),liveReview)
+assert(ui.includes('buildResearchEditorialReviewHandoff(')&&ui.includes('Source-bound human review handoff v'),
+ 'The existing source workbench must visibly render a versioned human-review-only packet')
+
 
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
  exactVerifiedSources:500,allFingerprintPmidsUnique:true,coveredInstruments:8,
