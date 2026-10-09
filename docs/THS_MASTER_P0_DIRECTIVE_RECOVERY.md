@@ -1,12 +1,12 @@
-# THS-MASTER-P0 v1.0 — Recovered Owner Directive (structured, partial)
+# THS-MASTER-P0 v1.0 — Full Owner-Supplied Directive (structured reference)
 
 **Recovered from:** Owner-supplied text in conversation on 2026-10-09, describing the original **MASTER TRANSFORMATION & COMMERCIALIZATION IMPLEMENTATION SPECIFICATION**, version 1.0, status **Authoritative implementation directive**. The separate October 8 business assessment informs its goals, but is not this directive.
 
-> **Source completeness / no false restoration:** The owner-supplied text currently ends within **§42 Institutional product development**, immediately after “Available support.” It includes Parts I–X, 42 numbered headings, and Phases 0–7. This is a **structured reference/index with faithful summarized requirements**, not a verbatim transcription or proof there were only 42 sections. The original remaining wording/phases/acceptance criteria are unavailable in this recovery. The original separately discussed 150 enumerated implementation tasks are also unavailable. Do not invent their text. When additional exact owner text arrives, append it with provenance rather than silently rewriting the recovered scope.
+> **Source fidelity:** The owner supplied the complete THS-MASTER-P0 v1.0 text in conversation on 2026-10-09: **Parts I–XX, §§1–73, Phases 0–9, eight strategic milestones, nine initial execution steps, and the final system acceptance framework.** The file is an accurate **structured index/summary, not a verbatim copy**. It supersedes the earlier partial-source cutoff at §42. The separately reconstructed 150-task checklist is still *not* the original numbered task list. Do not infer extra implementation or measured business outcomes from receiving text.
 
 ## Authority and safe use
 
-1. **Product intention:** this user-supplied v1.0 directive is the authoritative requirements source for the portion recovered. The reconstructed 150-item acceptance register is a **candidate decomposition** and must be aligned against it, not treated as original text.
+1. **Product intention:** this user-supplied v1.0 directive is the authoritative requirements source for the complete owner-supplied version. The reconstructed 150-item acceptance register is a **candidate decomposition** and must be aligned against it, not treated as original text.
 2. **Implementation control:** repository [`AGENTS.md`](../AGENTS.md), [`CURRENT_SPRINT.md`](CURRENT_SPRINT.md), [`MASTER_BACKLOG.md`](MASTER_BACKLOG.md), branch protections, scoped issue admission, exact-head CI and the sole merge controller control actual engineering. User requests to begin immediately do **not** waive those gates.
 3. **Completion:** proof distinguishes planned, local, committed, PR, CI, merged, deployed, production verified and genuinely measured in use. Source-only research discovery is not human clinical review. No real user event, sale, performance lift or value of work may be fabricated.
 4. **Ethics:** scientific integrity and safety are free, commercial rankings cannot change evidence, high-risk psychoactive harm reduction is noncommercial, and subscriptions/ad providers/costs require approval. Avoid premium creative vendor dependencies.
@@ -81,10 +81,65 @@
 - **§39 Advertising system:** Conditional ad-safe content classification, sensitive exclusions, CLS/perf/density controls and real reporting; owner approval before activation.
 - **§40 Subscription platform:** Proposed $0 Free, $9 Plus, $24 Pro, institutional custom; accounts/entitlements/checkout sandbox/webhook/cancel/refund/failure/privacy/reports; safety always free, billing requires owner approval.
 
-### Part X — Phase 7: Research products and B2B licensing (partial in recovered paste)
+### Part X — Phase 7: Research products and B2B licensing
 
 - **§41 Research Atlas membership experience:** Saved investigations, comparisons, source exports, real change timeline, followed questions, briefs, contradiction workflow, literature summary and provenance explorer; measured value.
-- **§42 Institutional product development — PARTIAL:** Potential publishers, research educators, journalists, research teams and evidence software; explain accuracy/review boundaries, completeness, provenance, refresh, API/export, intended use and available support. Source cuts off immediately after “Available support”.
+- **§42 Institutional product development:** Identify appropriate publishers, educators, journalists, research groups and evidence software; disclose verification limits, dataset completeness, source provenance, refresh frequency, interface/export capabilities, intended use, available support and **licensing restrictions**.
+
+### §43–44 — Completion of Part X / Phase 7
+
+- **§43 API and data licensing:** Versioned documented APIs, authentication/authorization, rate limits, provenance, dataset versions, usage/license/abuse governance and deprecation; third-party data and PubMed feeds cannot automatically be relicensed.
+- **§44 B2B demand validation:** Qualified institutional inquiry with intended use, data needs, workflow, refresh, access and voluntary budget; real buyer interest before enterprise investment.
+
+### Part XI — Phase 8: Content credibility, security and governance
+
+- **§45 Editorial governance:** Disclose real credentials, editorial methods, reviewed status, COIs, ad/affiliate relations, corrections, research updates, AI and educational scope.
+- **§46 High-risk scientific coverage:** Enhanced review for novel opioids, psychoactives, high-risk compounds, withdrawal and recovery: human evidence, identity, contamination, interactions, acute risks, resources and live legal status; no mechanism-to-dosing promotion.
+- **§47 Security and privacy:** Audit secrets, auth, billing callbacks, data retention, private logs, export permissions, rates/abuse, dependencies, backup/recovery and environment isolation.
+- **§48 Accessibility and performance:** Manual plus automated WCAG 2.2 AA and CWV/mobile/tables/search/interaction checks with observable performance budgets.
+
+### Part XII — Phase 9: Distribution and growth
+
+- **§49 Research-driven distribution strategy:** Approved-evidence-linked studies/contradictions/corrections, short video, visual explanations, comparisons, reports and newsletter assets.
+- **§50 Social system integration:** Inspect real versions/contracts of FieldLab, ContinuityOS, EvidenceBridge, StackPilot, Asset Director, EvidenceMotion, Voice Engine, PerceptualQA, PublishOps and FreshnessWatch; no paid dependency.
+- **§51 Content-to-audience attribution:** Preserve evidence/content/campaign/publishing identity through verified destinations, consented human visits and real return/signups/revenue; no duplicate publication or phantom attribution.
+- **§52 Scientific outreach:** Credible sharing of original assets with educational publishers, journalists, researchers and professional groups; no spam or invented endorsement.
+
+### Part XIII: Engineering orchestration
+
+- **§53 Dependency-aware implementation:** Provenance precedes evidence-change claims; measurement precedes revenue optimization; opt-in delivery precedes alerts; eligibility precedes offers; entitlements precede paywalled tools; API proof precedes licensing.
+- **§54 Ticket format:** Each scoped ticket includes ID, evidence, priority/domain, current/desired state, impacted files, dependencies, migrations, steps, tests, scientific/security gates, acceptance, rollback, effort, impact, confidence and status.
+- **§55 Prioritization model:** Impact×Confidence×Strategic Enablement÷Effort plus scientific safety, UX, revenue instrumentation and measurable user benefit; prioritize P0–P3 without invented ROI.
+- **§56 Efficient batching:** Read architecture once, group compatible bounded changes, targeted tests, checkpoint, one required full merge validation; 25-item batches only when compatible and safe.
+- **§57 Build and CI optimization:** Safe caching, exact artifact reuse, targeted tests, deterministic fixtures, parallel independent checks and static generation improvements; no stale reuse.
+- **§58 Pull request workflow:** Existing owner check, scoped implementation/tests, scientific/security review, required checks, guarded authorized merge, exact deploy/visitor verification and checkpoint.
+- **§59 Production verification:** Observed SHA, accessible pages, rendered flow, sources/counts, APIs, links, consent/signups, disclosures, logs and monitoring; unavailable provider proof remains Unknown.
+
+### Part XIV: Testing and acceptance framework
+
+- **§60 Required testing layers:** Unit, contract, integration, E2E, scientific QA, security, accessibility, performance and production smoke tests, per affected feature.
+- **§61 Non-negotiable release gates:** No unresolved P0 security, unsupported clinical relationship, essential nav break, data loss/migration corruption, missing disclosures, bad entitlements, committed secrets, invented review; required checks and rollback.
+- **§62 Definition of done:** Real implementation and integration, relevant tests/docs, intact safety/commercial boundaries, authorized merge, production verification, proof, limits and outcome instrumentation; code is not business impact.
+
+### Part XV: Revenue modeling and business intelligence
+
+- **§63 Revenue streams:** Separate actual ad, affiliate, Research Plus/Pro, organization subscription and original THS API/data licensing revenue from hypothetical earnings.
+- **§64 Commercial metrics:** Only observed RPMS, RPM, CTR/affiliate yield, signup/paid conversion, MRR, ARPA, churn, CAC, LTV assumptions, gross margin, infra/research/reviewer costs.
+- **§65 Forecasting:** Conservative/base/optimistic modeled scenarios with sensitivity to traffic quality, memberships, commission, ad eligibility, costs and B2B volume.
+- **§66 ROI reporting:** For each update, specify expected benefit, measurable outcome, cost/effort, hypothetical ROI, confidence, observed changes and missing data—never fabricate increases.
+
+### Part XVII: Continuous quality improvement
+
+- **§67 Avoid feature inflation:** Before a new tool: exact user problem, existing alternatives, data, independent verification, audience exposure, real benefit and maintenance cost.
+- **§68 Maintain prioritized improvement backlog:** Review root causes, remove obsolete work, score impact, track ideas without auto-admission and maintain ready queue.
+- **§69 Research enrichment integration:** Discovery → exact source verify → dedupe → structure → classify → qualify relationships → review eligibility → semantic integrate → publication eligibility → render → monitor; output usefulness matters more than volume.
+
+### Part XVIII: Execution reporting and persistence
+
+- **§70 Mandatory execution updates:** Run SUCCESS/PARTIAL/FAIL/BLOCKED with code, system tests, branch/PR/merge/deploy, live proof, scientific/commercial safety, actual outcomes, root causes, blockers and next batch.
+- **§71 Persistent execution state:** Machine-readable checkpoint: spec version/time, main/deployed SHA, active milestone, done/active/blocked/ready, open PRs/failures/migrations, scientific and billing blockers, release proof and next steps.
+- **§72 Resumption protocol:** At each session read checkpoint and fresh repo/production reality, reconcile old PRs/interruptions, avoid repeating full builds and continue dependency-ready work.
+- **§73 Autonomous operating boundaries:** Ordinary authorized code/tests/docs without repeated permission; explicit authorization for costs, live billing, contracts, unreviewed high-risk claims, destruction, bypass and legal terms.
 
 ## Original phase exit gates recovered
 
