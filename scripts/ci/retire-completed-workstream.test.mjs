@@ -73,6 +73,9 @@ function fakeApi({ deployment = {}, main = SHA, issueState = 'closed', duplicate
     }
     if (endpoint === 'pulls?state=open&per_page=100') return response(duplicate
       ? [{ head: { ref: 'control/retire-6500-6505-' + SHA.slice(0,8) } }] : [])
+    if (endpoint === 'git/commits/' + SHA && options.method === 'GET') return response({ tree: { sha: 'a'.repeat(40) } })
+    if (endpoint === 'git/trees' && options.method === 'POST') return response({ sha: 'c'.repeat(40) })
+    if (endpoint === 'git/commits' && options.method === 'POST') return response({ sha: 'd'.repeat(40) })
     if (endpoint === 'git/refs' && options.method === 'POST') return response({ ref: 'new' })
     if (endpoint === 'pulls' && options.method === 'POST') return response({ number: 9000, html_url: 'https://github.com/example/repo/pull/9000' })
     throw Error('Unexpected API: ' + endpoint)
@@ -87,8 +90,7 @@ test('a verified production run proposes exactly one reviewed docs PR, never cha
   assert.equal(result.before, 2)
   assert.equal(result.after, 1)
   const writes = requests.filter(x => x.method !== 'GET')
-  assert.deepEqual(writes.map(x => x.endpoint), ['git/refs',
-    'contents/docs/CURRENT_SPRINT.md', 'contents/docs/MASTER_BACKLOG.md', 'pulls'])
+  assert.deepEqual(writes.map(x => x.endpoint), ['git/trees', 'git/commits', 'git/refs', 'pulls'])
   assert.ok(!writes.some(x => x.endpoint === 'git/ref/heads/main'))
 })
 test('blocks a failed deploy or outdated main without ANY write', async () => {
