@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 4,
+  "lane_focus": "withdrawal-dependence-nps",
+  "research_only": true,
+  "pmids": [
+    "41668254",
+    "42163644"
+  ],
+  "relevance_reason": "Source-verified human xylazine withdrawal association and community drug-checking implementation; scientific interpretation remains pending independent review."
+}
