@@ -101,6 +101,7 @@ const caseScope=integratedCase?.scope??null
 const scientific=integratedCase?.scientific??null
 const relay=integratedCase?.relay??null
 const fabric=integratedCase?.fabric??null
+ const reviewRequest=integratedCase?.reviewRequest??null
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
@@ -242,7 +243,12 @@ return <section className={styles.studio}>
               {!fabric.distributionReviewTargets.length?<small>No exact DOI + claim/source identity match is registered. Similar ingredients or topics are intentionally not linked.</small>:null}
             </div>
           </div>
-          <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
+          {reviewRequest?<p className={styles.fabricGuard} role='status'>
+             <strong>Research-to-editorial review packet v1 · {reviewRequest.status.replaceAll('-',' ')}</strong>
+             {' '}Exact PMID {reviewRequest.sourcePmid} · {reviewRequest.researchInstrumentIds.length} original instruments · {reviewRequest.scientificCapabilityIds.length} scientific projections · {reviewRequest.distributionTargets.length} DOI-bound distribution review targets.
+             {' '}Source revision is pinned; clinical approval, page mutation and publication are all blocked. This is a request for qualified human review—not a published finding.
+           </p>:null}
+           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
 
         {scientific?<ScientificIntelligencePanel science={scientific}
