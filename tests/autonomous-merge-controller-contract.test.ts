@@ -22,7 +22,9 @@ describe('autonomous merge controller contract', () => {
     const wake = read('.github/workflows/autonomous-merge-controller.yml')
     expect(wake).toContain('workflow_run:')
     expect(wake).toContain('types: [completed]')
-    expect(wake).toContain("github.event.workflow_run.conclusion == 'success'")
+    expect(wake).toContain("contains(fromJSON('[\"success\",\"action_required\"]'), github.event.workflow_run.conclusion)")
+    // action_required is only a wake signal; controller readiness still validates the exact head.
+    expect(wake).toContain('node scripts/ci/autonomous-merge-controller.mjs')
     expect(wake).toContain('github.event.workflow_run.head_repository.full_name == github.repository')
     expect(wake).toContain('actions: write')
     expect(wake).toContain('node scripts/ci/autonomous-merge-wake.mjs')
