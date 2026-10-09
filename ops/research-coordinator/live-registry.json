@@ -36167,6 +36167,82 @@
       "reservation_id": "5f7e2d02e9d5ffa2ffe7",
       "reserved_at": "2026-10-09T13:51:29.652Z",
       "source_branch": "research/intake/2/20261009-0947-cognition-metabolic-7-r23"
+    },
+    {
+      "pmid": "41850439",
+      "title": "Contribution to the quality and safety assessment of traditional herbal remedy Tinospora crispa stem using phytochemical analyses and CYP3A4 inhibition assay in HepaRG cell model.",
+      "doi": "10.1016/j.toxicon.2026.109069",
+      "source_title": "Contribution to the quality and safety assessment of traditional herbal remedy Tinospora crispa stem using phytochemical analyses and CYP3A4 inhibition assay in HepaRG cell model.",
+      "abstract": "Legal use of herbal health products must comply with quality and safety standards required by health regulatory authorities in order to protect consumers from risks associated with misidentification, falsification and undesirable toxic effects. Some plant-derived compounds can act as CYP450 inhibitors, potentially leading to herb-drug interactions and, in some cases, direct hepatotoxicity, particularly when CYP450-mediated bioactivation is involved. There is a critical need to develop reliable and efficient screening assays to identify potential CYP450 inhibitors in such complex mixtures and hepatotoxicity risks associated to CYP450 metabolization. In this context, we propose associating a HepaRG cell-based test with suitable qualitative and quantitative phytochemical analyses. A case study was conducted using Tinospora crispa (T. crispa) stems harvested in Laos (\"boraphet\"). This herb is traditionally used for its antidiabetic effects and is known to cause hepatotoxicity, most likely due to the presence of furanoditerpenoids bioactivated by cytochromes. A Molecular Networking-based UHPLC-(HRMS) 2 fingerprint of furanoditerpenoids was established by analysing methanolic extracts, enriched fractions of a representative sample and standards, by applying the bioinformatic Feature-Based Molecular Networking workflow. The fingerprinting model enabled identification and comparison between three samples harvested from nearby geographical locations (Hinboun, Yommalath and Nakaiy) through the detection of fourteen furanoditerpenoids. Four of them were identified as borapetosides A-D, eight had not yet been isolated, and were tentatively assigned. Borapetoside C content, determined by UHPLC-UV is proposed as an assay for the quality control of T. crispa stems. The CYP3A4 inhibitory activities of the methanol extracts and of borapetoside C were measured in a HepaRG cell model, which is a validated model for studying CYP450 inhibitory effects. All extracts and borapetoside C exhibited CYP3A4 inhibition. This work highlights the interest in including a HepaRG cell-based test in the T. crispa stem specification to assess the toxicity of herbal constituents associated with CYP450 inhibition.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41850439/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41850439",
+        "doi": "10.1016/j.toxicon.2026.109069",
+        "journal": "Toxicon : official journal of the International Society on Toxinology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T14:05:01.057Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4eb9193d9d7c24771f5c",
+      "reserved_at": "2026-10-09T14:05:13.492Z",
+      "source_branch": "research/intake/3/20261009-1001-botanical-cyp-pk-ten"
     }
   ],
   "batches": [
@@ -36180,22 +36256,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 455,
+    "total_reservations": 456,
     "by_lane": {
       "1": 5,
       "2": 82,
-      "3": 60,
+      "3": 61,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 455
+      "SOURCE_VERIFIED": 456
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 455,
+        "count": 456,
         "pr_number": null,
         "blocker": null
       }
