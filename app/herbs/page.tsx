@@ -9,6 +9,7 @@ import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import { getHerbName, loadPublishedHerbs } from './library-data'
 import HerbsIndexClient from './HerbsIndexClient'
 import Pagination from '@/components/Pagination'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import LookupFamilyNav from '@/components/navigation/LookupFamilyNav'
 import '../../styles/library-browse.css'
 
@@ -90,6 +91,7 @@ export default async function HerbsPage() {
         <HerbsIndexClient herbs={leanPageItems} allHerbs={leanHerbs} paginated page={1} totalPages={pageData.totalPages} />
       </Suspense>
       <Pagination basePath="/herbs" currentPage={1} totalPages={pageData.totalPages} itemLabel="Herb profiles" />
+      <NewsletterSignup location='herbs-hub' variant='compact' />
     </div>
   )
 }
