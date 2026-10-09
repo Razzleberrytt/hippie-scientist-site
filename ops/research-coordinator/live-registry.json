@@ -41289,6 +41289,158 @@
       "reservation_id": "2469d9a1304cb8b18fb3",
       "reserved_at": "2026-10-09T22:22:16.438Z",
       "source_branch": "research/intake/4/20261009-1818-nitazene-xylazine"
+    },
+    {
+      "pmid": "33385020",
+      "title": "Lacticaseibacillus paracasei Lpc-37® improves psychological and physiological markers of stress and anxiety in healthy adults: a randomized, double-blind, placebo-controlled and parallel clinical trial (the Sisu study).",
+      "doi": "10.1016/j.ynstr.2020.100277",
+      "source_title": "Lacticaseibacillus paracasei Lpc-37® improves psychological and physiological markers of stress and anxiety in healthy adults: a randomized, double-blind, placebo-controlled and parallel clinical trial (the Sisu study).",
+      "abstract": "Chronic stress is a risk-factor for the development of mood and stress-related disorders. Clinical evidence indicates that probiotics can influence the stress response and mood. The Sisu study investigated whether Lacticaseibacillus paracasei Lpc-37® (Lpc-37®) could modulate stress, mood and well-being. Prior to a two-week run-in period, 120 healthy adults (18-45 y) were stratified for sex and chronic stress and randomized to either 1.75 × 10 10 colony forming units (CFU) of Lpc-37 or placebo (1:1) per day for 5 weeks. The primary objective was the effect of Lpc-37 on heart rate (HR) in response to the Trier Social Stress Test (TSST). Secondary objectives were assessed by biomarkers and self-report scales over the study. The primary hypothesis was not met in either the Intention-to-Treat (ITT) or Per Protocol (PP) population, but Lpc-37 reduced the increase in HR in participants with low chronic stress (LCS) and increased HR in participants with high chronic stress (HCS) during the TSST. Supporting significant efficacy in the PP population (n = 113), Lpc-37 reduced perceived stress following intervention. More significant effects were identified within the subgroups where Lpc-37 reduced exhaustion during the TSST and normalized cortisol levels at 8pm in participants with LCS, reduced perceived stress also in females, and increased perceived health and sleep-related recovery in participants with HCS. Adverse events (AEs) were similar between groups, there were no severe AEs, and vital signs remained unchanged. Overall, Lpc-37 reduced perceived stress compared to placebo. Other beneficial effects within biomarkers related to stress indicate that the effects of Lpc-37 may be differentially dependent on sex and chronic stress. (ClinicalTrials.gov: NCT03494725).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33385020/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "33385020",
+        "doi": "10.1016/j.ynstr.2020.100277",
+        "journal": "Neurobiology of stress",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T22:38:17.677Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1ea8088dc6224f602c60",
+      "reserved_at": "2026-10-09T22:38:21.954Z",
+      "source_branch": "research/intake/1/20261009-1835-lpc37-fennel-two"
+    },
+    {
+      "pmid": "42147465",
+      "title": "Effect of Aromatherapy Massage With Foeniculum vulgare Mill. Seed Essential Oil Compared to Massage on Anxiety, Well-Being, and Sleep Quality: An Exploratory Randomized Study.",
+      "doi": "10.1002/hsr2.72436",
+      "source_title": "Effect of Aromatherapy Massage With Foeniculum vulgare Mill. Seed Essential Oil Compared to Massage on Anxiety, Well-Being, and Sleep Quality: An Exploratory Randomized Study.",
+      "abstract": "Aromatherapy is a complementary and alternative medicine (CAM) widely used in the management of several mental and physical conditions. The fennel seed essential oil (FEO) has several biological activities and has been reported as potentially beneficial in the management of anxiety and sleep disorders. The present study aimed to evaluate the effects of aromatherapy massage using FEO compared to massage alone on reducing anxiety and improve sleep quality and overall well-being. FEO was extracted by hydrodistillation, and its chemical composition was determined by GC-MS. In the aromatherapy trial, 40 participants were randomly divided into the \"Massage Group\" ( n = 20) and the \"Aroma Massage Group\" ( n = 20). Individuals in the \"Aroma Massage Group\" were treated with 1.6% of FEO diluted in sweet almond oil, while the \"Massage Group\" only received the massage with sweet almond oil. The intervention consisted of one massage session every 15 days over a 2 months period. The questionnaires on anxiety (State-Trait Anxiety Inventory), sleep quality (Pittsburgh Sleep Quality), and well-being (WHO-Five Well-Being Index (WHO-5)) were performed at four different times. Data were analyzed using SPSS software with a significance level of 5%. The major compound in FEO was trans -Anethole (78.2%). In the aromatherapy trial, scores on the State Anxiety scale of the State-Trait Anxiety Inventory (STAI), were significantly lower in the \" Aroma Massage Group\" compared to \"Massage Group\" with mean values of 32.47 ± 7.86 and 41.75 ± 11.74, respectively, in Questionnaire 3 (after the last session), corresponding to a difference of -9.28 ( p = 0.007). No statistically significant differences were observed over time across the four assessment points, with p = 0.536 for the \"Massage Group\" and p = 0.381 for the \"Aroma Massage Group.\" Additionally, the \"Aroma Massage Group\" showed a higher proportion of individuals reporting strong well-being (89%) and good sleep (32%) compared to the \"Massage Group\" (65% and 25%, respectively) in Questionnaire 4 (1 month after the end of the intervention), however, these differences were not statistically significant when considering mean questionnaire scores. This exploratory study suggests that aromatherapy with FEO may be associated with beneficialeffects on anxiety reduction and improvements in well-being and sleep quality; however, further studies are required to confirm this results.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42147465/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42147465",
+        "doi": "10.1002/hsr2.72436",
+        "journal": "Health science reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T22:38:17.677Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "210bdb9d7e6877385318",
+      "reserved_at": "2026-10-09T22:38:21.954Z",
+      "source_branch": "research/intake/1/20261009-1835-lpc37-fennel-two"
     }
   ],
   "batches": [
@@ -41317,16 +41469,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 522,
+    "total_reservations": 524,
     "by_lane": {
-      "1": 19,
+      "1": 21,
       "2": 92,
       "3": 90,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 522
+      "SOURCE_VERIFIED": 524
     },
     "batches": [
       {
@@ -41339,7 +41491,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 22,
+        "count": 24,
         "pr_number": null,
         "blocker": null
       }
