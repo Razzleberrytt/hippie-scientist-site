@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6356,
-  "lane": "R",
-  "title": "Add first-party TikTok draft-upload provider",
+  "ticket": 6451,
+  "lane": "D",
+  "title": "Treat unresolved-review merge 405 as a PR-local governance hold",
   "priority": "P0",
-  "base_revision": "1c123a71b488b44aae61d33deccd00ad7942e1e8",
-  "last_verified": "2026-10-06",
+  "base_revision": "c71a60cdf2511e6a777659568beeeed3a2e51e51",
+  "last_verified": "2026-10-08",
   "score_inputs": {
-    "businessImpact": 5,
-    "userValue": 5,
-    "trafficPotential": 3,
+    "businessImpact": 4,
+    "userValue": 4,
+    "trafficPotential": 2,
     "strategicLeverage": 5,
     "confidence": 1,
-    "effort": 4
+    "effort": 2
   },
-  "score": 93.8,
-  "note": "Admit the bounded first-party TikTok draft-upload provider after a live Metricool account-limit failure. Direct Post remains out of scope because TikTok's current Direct Post intended-use rules reject private/internal managed-account uploader utilities."
+  "score": 80,
+  "note": "Exact-base admission only for bounded PR-local unresolved-review 405 controller reliability incident; source register #6452 verified deployed. Does not bypass review, exact-head merge validation, CI or grant another normal workstream."
 }
