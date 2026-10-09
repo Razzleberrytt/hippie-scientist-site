@@ -40219,6 +40219,82 @@
       "reservation_id": "58b382d593c6a5e6b995",
       "reserved_at": "2026-10-09T20:46:34.224Z",
       "source_branch": "research/intake/1/20261009-1643-bergamot-lp815-two"
+    },
+    {
+      "pmid": "42318806",
+      "title": "Effects of Acute Exercise on Cognitive Performance in Active Young Adults: A Randomized Trial Using Online Measures.",
+      "doi": "10.1177/00315125261461628",
+      "source_title": "Effects of Acute Exercise on Cognitive Performance in Active Young Adults: A Randomized Trial Using Online Measures.",
+      "abstract": "While acute exercise enhances cognitive performance, comparative effects of different maximal-effort exercise modalities remain unclear. This randomised crossover trial examined the differential cognitive impacts of graded maximal aerobic versus supramaximal exercise in active young adults. Forty-two participants (mean age = 24 ± 2 years) completed a progressive treadmill test to volitional exhaustion and a 30-s Wingate test, separated by ≥ 24-h washout. Cognition was assessed immediately before and 5 minutes post-exercise using computerized reaction time and Stroop tasks. Significant Time × Condition interactions revealed superior improvements following supramaximal exercise for simple reaction time (F (1,41) = 5.04, p = .030, ηp 2 = 0.11) and incongruent Stroop performance (F (1,41) = 5.75, p = .021, ηp 2 = 0.12). Supramaximal exercise produced 12.4 % improvement in reaction time versus 7.2 % for graded aerobic, and 12.8 % improvement in incongruent Stroop versus 7.6 % for graded aerobic. Congruent trials and interference scores showed no significant differences. These findings challenge the assumed superiority of aerobic exercise and demonstrate that brief supramaximal exercise elicits greater acute cognitive benefits than prolonged graded maximal exercise in physically active young adults.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42318806/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Primary human randomized trials on acute executive function and dietary fiber effects in prediabetes; source identity verified, scientific review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42318806",
+        "doi": "10.1177/00315125261461628",
+        "journal": "Perceptual and motor skills",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T20:54:51.159Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "68544ef73779b272b9e6",
+      "reserved_at": "2026-10-09T20:54:55.972Z",
+      "source_branch": "research/intake/2/20261009-1652-cognition-metabolic-2-r30"
     }
   ],
   "batches": [
@@ -40247,16 +40323,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 508,
+    "total_reservations": 509,
     "by_lane": {
       "1": 17,
-      "2": 90,
+      "2": 91,
       "3": 84,
       "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 508
+      "SOURCE_VERIFIED": 509
     },
     "batches": [
       {
@@ -40269,7 +40345,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 8,
+        "count": 9,
         "pr_number": null,
         "blocker": null
       }
