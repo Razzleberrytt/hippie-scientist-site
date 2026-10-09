@@ -37544,6 +37544,236 @@
       "reservation_id": "ca34fa64f19e8abed99d",
       "reserved_at": "2026-10-09T15:31:27.907Z",
       "source_branch": "research/intake/4/20261009-qualitative-fentanyl-vlpag-01"
+    },
+    {
+      "pmid": "40006090",
+      "title": "Aframomum melegueta Seed Extract's Effects on Anxiety, Stress, Mood, and Sleep: A Randomized, Double-Blind, Pilot Clinical Trial.",
+      "doi": "10.3390/ph18020278",
+      "source_title": "Aframomum melegueta Seed Extract's Effects on Anxiety, Stress, Mood, and Sleep: A Randomized, Double-Blind, Pilot Clinical Trial.",
+      "abstract": "Background and aims: Aframomum melegueta ( A. melegueta ) from the ginger family is appreciated for its pungent seeds widely used in African ethno-medicine. Among the several biological activities associated with the seed's preparations, some preclinical studies suggest a set of neuroactive properties that have not been tested in humans to date. We performed a clinical trial to investigate the effects of A. melegueta seed extracts on anxiety, stress, mood, and sleep in healthy subjects with moderate anxiety levels. In vitro pharmacological assays targeting the endocannabinoid, serotoninergic, and GABAergic systems were conducted to elucidate the underlying mechanism of action. Methods: A. melegueta standardized to 10% total vanilloids (primarily 6-gingerol, 6-shogaol, and 6-paradol) was obtained after hydroalcoholic extraction and the spray-drying microencapsulation process. Subjects consumed 50, 100, or 150 mg of the extract daily for two days. A set of validated psychometric test questionnaires was collected before and 48 h after the first intake. A. melegueta extract interaction with canonical endocannabinoid receptors (hCB1R and hCB2R), the serotonin receptor (5HT1AR) and gamma-aminobutyric acid receptor (GABAA1R) was evaluated by the radioligand binding assay. Additionally, receptor functional assays and enzyme inhibition assays were conducted to test the extract's functional activity on the non-canonical endocannabinoid receptor (TRPV1) and the cannabinoid fatty-acid amide hydrolase enzyme (FAAH), respectively. Results: In vitro pharmacological tests showed that the A. melegueta extract activated TRPV1, modulated both hCB2R and 5HT1AR and inhibited FAAH, which is the enzyme primarily responsible for hydrolyzing endogenous anandamide. After a 48 h intake period, the extract significantly reduced anxiety and tension related to stress, improved overall mood, and enhanced sleep quality in the participants at doses ranging from 50 to 150 mg, with no reported side effects. Conclusions: This study supports the potential of the A. melegueta extract for anxiety reduction, mood improvement, stress mitigation, and sleep enhancement. The in vitro tests suggest that the extract's primary mechanism of action may involve the inhibition of FAAH, which is a key target in anxiety management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40006090/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized controlled trials of sleep quality, stress and anxiety outcomes.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40006090",
+        "doi": "10.3390/ph18020278",
+        "journal": "Pharmaceuticals (Basel, Switzerland)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T15:37:38.525Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "38d2f150ef39007c6487",
+      "reserved_at": "2026-10-09T15:37:46.565Z",
+      "source_branch": "research/intake/1/20261009-1135-sleep-stress-three"
+    },
+    {
+      "pmid": "40169760",
+      "title": "A double blinded randomized placebo trial of Bifidobacterium animalis subsp. lactis BLa80 on sleep quality and gut microbiota in healthy adults.",
+      "doi": "10.1038/s41598-025-95208-2",
+      "source_title": "A double blinded randomized placebo trial of Bifidobacterium animalis subsp. lactis BLa80 on sleep quality and gut microbiota in healthy adults.",
+      "abstract": "Human sleep quality is intricately linked to gut health. Emerging research indicates that Bifidobacterium animalis subsp. lactis BLa80 has the potential to ameliorate gut microbiota dysbiosis. This randomized, placebo-controlled study evaluated the impact of BLa80 supplementation on sleep quality and gut microbiota in healthy individuals. One hundred and six participants were randomly assigned to receive either a placebo (maltodextrin) or BLa80 (maltodextrin + BLa80 at 10 billion CFU/day) for 8 weeks. Sleep quality was evaluated using the Pittsburgh Sleep Quality Index (PSQI), a validated tool consisting of 18 items assessing seven components of sleep quality over a one-month period, and the Insomnia Severity Index (ISI), a secondary measure of insomnia severity. Gut microbiota changes were assessed using 16S rRNA sequencing, while the in vitro gamma-aminobutyric acid (GABA) production capacity of BLa80 was analyzed by HPLC. After 8 weeks, the intervention group exhibited a significant reduction in the PSQI total score compared to the placebo group, suggesting improved sleep quality. While no significant changes in alpha diversity were noted, beta diversity differed markedly between groups. The gut microbiota predominantly consisted of Firmicutes, Bacteroidetes, Actinobacteria, Proteobacteria and Fusobacteria, collectively accounting for over 99.9% of the gut microbiota. Statistical analysis showed that BLa80 significantly decreased the relative abundance of Proteobacteria phylum and increased the abundance of Bacteroidetes, Fusicatenbacter, and Parabacteroides compared to placebo. PICRUSt2 analysis indicated noteworthy enhancements in the pathways of purine metabolism, glycolysis/gluconeogenesis, and arginine biosynthesis due to BLa80 intervention. Moreover, BLa80 demonstrated notable GABA production, potentially contributing to its effects on sleep quality modulation. These results demonstrate the ability of BLa80 to improve sleep quality through modulating gut microbiota and GABA synthesis, highlighting its potential as a beneficial probiotic strain.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40169760/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized controlled trials of sleep quality, stress and anxiety outcomes.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40169760",
+        "doi": "10.1038/s41598-025-95208-2",
+        "journal": "Scientific reports",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T15:37:38.526Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6d6b11b2a5b272991383",
+      "reserved_at": "2026-10-09T15:37:46.565Z",
+      "source_branch": "research/intake/1/20261009-1135-sleep-stress-three"
+    },
+    {
+      "pmid": "40362800",
+      "title": "Efficacy and Tolerability of a Chemically Characterized Scutellaria lateriflora L. Extract-Based Food Supplement for Sleep Management: A Single-Center, Controlled, Randomized, Crossover, Double-Blind Clinical Trial.",
+      "doi": "10.3390/nu17091491",
+      "source_title": "Efficacy and Tolerability of a Chemically Characterized Scutellaria lateriflora L. Extract-Based Food Supplement for Sleep Management: A Single-Center, Controlled, Randomized, Crossover, Double-Blind Clinical Trial.",
+      "abstract": "Background/Objectives : Primary insomnia is characterized by persistent sleeplessness that is not caused by medical, psychological, or environmental factors. It is defined by difficulty initiating or maintaining sleep for at least one month, leading to significant distress or impairment in daily functioning. This randomized, crossover, double-blind, placebo-controlled clinical trial aimed to assess the efficacy and tolerability of a Scutellaria lateriflora L. extract-based food supplement in subjects with mild to moderate primary insomnia. Methods : A total of 66 participants, aged 18-70 years, were randomly allocated into two groups (1:1 allocation ratio) and received either the food supplement (400 mg/day) or a placebo for 56 days, separated by a 28-day washout period. The clinical effectiveness of the food supplement was assessed using the Pittsburgh Sleep Quality Index (PSQI) as the primary outcome measure. Secondary outcomes included sleep-wake cycle parameters (sleep onset latency, sleep efficiency, and total sleep time) and a Visual Analog Scale (VAS). Results : A significant improvement in sleep-wake balance following supplementation with S. lateriflora , as reflected by enhanced scores in both primary and secondary outcomes, was observed. Furthermore, none of the participants reported adverse effects from the food supplement. Conclusions : Overall, these findings suggest that a S. lateriflora extract-based food supplement is a safe and effective strategy for restoring the sleep-wake cycle and improving quality of life in individuals with primary insomnia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40362800/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized controlled trials of sleep quality, stress and anxiety outcomes.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40362800",
+        "doi": "10.3390/nu17091491",
+        "journal": "Nutrients",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T15:37:38.526Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ffc9bfd60ba7acbb903a",
+      "reserved_at": "2026-10-09T15:37:46.565Z",
+      "source_branch": "research/intake/1/20261009-1135-sleep-stress-three"
     }
   ],
   "batches": [
@@ -37557,22 +37787,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 473,
+    "total_reservations": 476,
     "by_lane": {
-      "1": 9,
+      "1": 12,
       "2": 83,
       "3": 68,
       "4": 38,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 473
+      "SOURCE_VERIFIED": 476
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 473,
+        "count": 476,
         "pr_number": null,
         "blocker": null
       }
