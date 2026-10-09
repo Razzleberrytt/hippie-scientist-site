@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42729417",
+    "42449279",
+    "42663504",
+    "42142506",
+    "41810578",
+    "42276684",
+    "42024020",
+    "42577916"
+  ],
+  "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review."
+}
