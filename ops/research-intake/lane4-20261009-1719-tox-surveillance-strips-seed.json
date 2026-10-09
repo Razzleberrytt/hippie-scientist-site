@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 4,
+  "lane_focus": "withdrawal-dependence-nps",
+  "research_only": true,
+  "pmids": [
+    "42096994",
+    "41721315"
+  ],
+  "relevance_reason": "PubMed-verified surveillance of NPS adulterants and analytical evaluation of harm-reduction test strips; source identity only, no reviewed safety claims."
+}
