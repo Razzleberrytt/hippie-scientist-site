@@ -31,6 +31,19 @@ test('published Waves 01–50 ledger/manifest remain byte-for-byte immutable', (
   assert.deepEqual(manifest.counts, { entity_context_rows: 0, evidence_rows: 123, source_rows: 93, relationship_rows: 0 })
 })
 
+test('historical correction references only immutable source snapshots', () => {
+  // Do not permit a correction to silently point its historical receipt at
+  // itself, generated runtime data, or any file outside the original intake.
+  for (const recorded of [correction.historical.manifest_path, correction.historical.ledger_path]) {
+    assert.equal(typeof recorded, 'string')
+    assert.match(recorded, /^data-sources\/runtime-enrichment\/2026-10-02-enrichment-waves-01-50/)
+    const resolved = path.resolve(root, recorded)
+    assert.ok(resolved.startsWith(source + path.sep), 'historical path escapes immutable intake root')
+    assert.equal(recorded.includes('/corrections/'), false)
+  }
+  assert.notEqual(correction.historical.manifest_git_blob_sha, correction.historical.ledger_git_blob_sha)
+})
+
 test('append-only correction accounts for every identity once without rewriting source rows', () => {
   const spec = [
     ['evidence', 'record_id', 'admitted_evidence_record_ids', 'already_covered_evidence_record_ids', 85, 38],
