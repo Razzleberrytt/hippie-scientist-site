@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "active_batch_counter": 1,
-  "active_batch_id": "rolling-0001",
+  "active_batch_counter": 2,
+  "active_batch_id": "rolling-0002",
   "reservations": [
     {
       "pmid": "40698027",
@@ -39533,35 +39533,124 @@
       "reservation_id": "fd7106025050c8c426c3",
       "reserved_at": "2026-10-09T19:22:48.636Z",
       "source_branch": "research/intake/4/20261009-1519-xylazine-drugchecking"
+    },
+    {
+      "pmid": "41488152",
+      "title": "A Randomized, Triple-Blind, Placebo-Controlled, Parallel Clinical Trial Investigating Safety and Efficacy of Corn Leaf Extract on Sleep Quality in a Healthy Population With Difficulty Falling or Staying Asleep.",
+      "doi": "10.1002/fsn3.71285",
+      "source_title": "A Randomized, Triple-Blind, Placebo-Controlled, Parallel Clinical Trial Investigating Safety and Efficacy of Corn Leaf Extract on Sleep Quality in a Healthy Population With Difficulty Falling or Staying Asleep.",
+      "abstract": "Difficulties falling and/or staying asleep affect over one quarter of adults in the United States. Current management strategies include prescription sleep aids. However, long-term use is associated with serious adverse effects. Therefore, natural alternative sleep aids that may provide safer and more effective relief of sleep disturbances are needed. In this randomized, triple-blind, placebo-controlled clinical trial, 80 healthy adults ( n = 40 per group) with difficulties falling and/or staying asleep were supplemented with a standardized corn leaf extract (CLE) or placebo for 28 days. Objective (actigraphy with electroencephalogram) and subjective (Pittsburgh Sleep Quality Index) sleep measures, serum serotonin, plasma melatonin, and gamma-aminobutyric acid were assessed at baseline (Day 0), Day 14, and Day 28, and safety was assessed at screening and Day 28. Compared to placebo, participants supplemented with CLE demonstrated statistically significant increases in total sleep time (TST) and light sleep at Day 28 and improvements in REM sleep at both Days 14 and 28. Further, participants supplemented with CLE had significantly fewer sleep interruptions and shorter sleep onset latency at Day 14 with shorter wake after sleep onset (WASO) and higher sleep efficiency at Days 14 and 28. Post hoc analysis supported these findings with a significant increase of 35.7 min in non-REM sleep at Day 28 for participants supplemented with CLE compared to a decrease of 10.6 min for those on placebo. Supplementation with CLE was safe and well tolerated. Findings suggest CLE supplementation may improve sleep parameters in a healthy population with sleep difficulties.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41488152/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "2026 randomized placebo-controlled human study of corn leaf extract and objective and subjective sleep outcomes; source identity only, no scientific claims admitted.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41488152",
+        "doi": "10.1002/fsn3.71285",
+        "journal": "Food science & nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T19:43:31.491Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ae2ee4c36b421f81fe61",
+      "reserved_at": "2026-10-09T19:43:35.610Z",
+      "source_branch": "research/intake/1/20261009-1541-corn-leaf-sleep-41488152"
     }
   ],
   "batches": [
     {
       "id": "rolling-0001",
+      "state": "FREEZE_PENDING",
+      "created_at": "2026-10-08T16:39:11.408Z",
+      "frozen_at": "2026-10-09T19:43:35.610Z"
+    },
+    {
+      "id": "rolling-0002",
       "state": "ACTIVE",
-      "created_at": "2026-10-08T16:39:11.408Z"
+      "created_at": "2026-10-09T19:43:35.611Z"
     }
   ],
   "incidents": [],
   "observatory": {
     "schema_version": 1,
-    "active_batch_id": "rolling-0001",
-    "total_reservations": 499,
+    "active_batch_id": "rolling-0002",
+    "total_reservations": 500,
     "by_lane": {
-      "1": 14,
+      "1": 15,
       "2": 89,
       "3": 79,
       "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 499
+      "SOURCE_VERIFIED": 500
     },
     "batches": [
       {
         "id": "rolling-0001",
+        "state": "FREEZE_PENDING",
+        "count": 500,
+        "pr_number": null,
+        "blocker": null
+      },
+      {
+        "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 499,
+        "count": 0,
         "pr_number": null,
         "blocker": null
       }
