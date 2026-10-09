@@ -32222,6 +32222,470 @@
       "reservation_id": "3c33be957572ec62f576",
       "reserved_at": "2026-10-09T10:31:40.121Z",
       "source_branch": "research/intake/5/contradictions-replication-20261009-0625"
+    },
+    {
+      "pmid": "42097279",
+      "title": "Gut microbiota responses to isocaloric macronutrient modulation in tissue-specific insulin resistance: a secondary analysis of the PERSonalized glucose Optimization through Nutritional intervention (PERSON) randomized trial.",
+      "doi": "10.1016/j.ajcnut.2026.101340",
+      "source_title": "Gut microbiota responses to isocaloric macronutrient modulation in tissue-specific insulin resistance: a secondary analysis of the PERSonalized glucose Optimization through Nutritional intervention (PERSON) randomized trial.",
+      "abstract": "Precision nutrition strategies can be effective in optimizing health outcomes. We previously showed that dietary macronutrient modulation targeting tissue-specific insulin resistance (IR) phenotypes induced pronounced improvements in cardiometabolic health. It remains unclear whether these improvements may partially be explained by gut microbiota-related mechanisms. We investigated whether 12-wk high monounsaturated fatty acid (HMUFA) and low-fat, high-protein, high-fiber diets (LFHP) impact gut microbiota composition and functionality in people with predominant muscle IR (MIR) compared with liver IR (LIR) in relation to cardiometabolic health improvements. This 2-center, randomized, double-blind, dietary intervention trial included 179 individuals with LIR or MIR [40‒75 y, body mass index (in kg/m 2 ) 25‒40], who followed either a 12-wk isocaloric HMUFA or LFHP diet. A 7-point oral glucose tolerance test was performed to determine tissue-specific IR and cardiometabolic risk factors. Fecal microbiota composition was profiled using 16S ribosomal ribonucleic acid amplicon sequencing (V3‒V4 region), and GLP-1 and gut microbial products were determined in plasma and feces. The HMUFA diet induced significant shifts in overall gut microbial composition (P < 0.05) and short-chain fatty acid-producing bacteria (q < 0.05) in the LIR phenotype, but not in MIR. The LFHP diet induced only modest changes in gut microbiota features. We found phenotype-specific correlations between specific baseline taxa abundance and change in metabolic outcomes (MIR-HMUFA: Barnesiella-ΔMISI (Spearman ρ = 0.45, P < 0.001); LIR-HMUFA: Sutterella-Δplasma-C-reactive protein (Spearman ρ = 0.57, P = 0.0001) and a Rhodospirillales genus-Δhomeostasis model assessment of insulin resistance (Spearman ρ = ‒0.58, P < 0.001). Individuals with predominant LIR seem more prone to diet-induced gut microbiota-related improvements in cardiometabolic health than those with MIR, highlighting the importance of understanding heterogeneity in IR. Our findings support a role for the gut microbiota in precision nutrition targeting tissue-specific IR. gov registration: This is a secondary analysis of the PERSonalized glucose Optimization through Nutritional intervention (PERSON) randomized trial. NCT03708419, https://clinicaltrials.gov/study/NCT03708419.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42097279/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42097279",
+        "doi": "10.1016/j.ajcnut.2026.101340",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:49:17.073Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "714d21e74abf6acc95a7",
+      "reserved_at": "2026-10-09T10:49:24.887Z",
+      "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
+    },
+    {
+      "pmid": "41773904",
+      "title": "The Effects of 31-Day Exogenous Ketone Consumption on Running Performance, Cognitive Function, Metabolism, Body Composition, Hemodynamics, and Mood in Recreational Runners: A Randomized-Control Trial.",
+      "doi": "10.1080/27697061.2026.2636551",
+      "source_title": "The Effects of 31-Day Exogenous Ketone Consumption on Running Performance, Cognitive Function, Metabolism, Body Composition, Hemodynamics, and Mood in Recreational Runners: A Randomized-Control Trial.",
+      "abstract": "Exogenous ketone supplementation acutely elevates circulating beta-hydroxybutyrate ( R -BHB), but the impact of chronic repeated dosing on exercise performance, cognition, mood, and cardiometabolic health remains unclear. To evaluate the effects of 31 days of thrice-daily ketone monoester (KME) supplementation (90 g/day; high-dose) on exercise performance, executive function, mood, metabolism, body composition, blood pressure, and tolerability in recreational runners. In a single-blind, randomized-controlled trial, 18 runners consumed either ( R )-3-hydroxybutyl ( R )-3-hydroxybutyrate (KME; 30 g/dose; n = 9) or an isocaloric, flavor-matched placebo (PLA; 30 g/dose; n = 9) three times daily for 31 days. Outcomes included 5-km time trial (5KTT) performance, cognitive function, mood, body composition, blood pressure, and tolerability. Metabolism and substrate oxidation (rest and graded exercise) were performed after 31-d supplementation was completed to assess metabolic responses following 31 days of repeated exogenous ketone exposure. 31-day KME did not alter 5KTT performance, but improved cognitive function, as evidenced by faster Stroop Incongruent ( p = 0.015) and Switching task responses ( p = 0.038). Mood and quality of life scores were unchanged. Metabolically, the KME reliably elevated post-ingestion R-BHB (∼3.0 mM; p < 0.001) and lowered glycemia by 15% ( p < 0.001). After the 31-day KME supplementation stopped, KME-treatment preserved mean absolute VO 2 during graded exercise testing ( p = 0.029), without accompanying improvements in running performance. High-dose KME administration for 31-days did not alter running performance, but increased cognitive function and oxygen uptake during maximal graded exercise even after ketone administration stopped, indicating that selected physiological measures differed between groups when assessed after the supplementation period.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41773904/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41773904",
+        "doi": "10.1080/27697061.2026.2636551",
+        "journal": "Journal of the American Nutrition Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:49:17.074Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9b7b11d8706f65af78aa",
+      "reserved_at": "2026-10-09T10:49:24.887Z",
+      "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
+    },
+    {
+      "pmid": "41459804",
+      "title": "Effects of a slowly fermentable fiber mixture against the background of a high-protein diet on insulin sensitivity and metabolic health in individuals with overweight: a randomized, placebo-controlled trial.",
+      "doi": "10.1080/19490976.2025.2606473",
+      "source_title": "Effects of a slowly fermentable fiber mixture against the background of a high-protein diet on insulin sensitivity and metabolic health in individuals with overweight: a randomized, placebo-controlled trial.",
+      "abstract": "The gut microbiota ferments dietary fibers, producing short-chain fatty acids (SCFA). Enhanced SCFA production in the distal colon has been linked to improved cardiometabolic health. However, most fibers are fermented proximally, resulting in increased protein fermentation distally, producing metabolites putatively harmful to metabolic health. This 12-week randomized, placebo-controlled trial aimed to improve metabolic health through increasing distal SCFA production while inhibiting proteolytic fermentation using a fiber supplement that increased distal SCFA production in vitro . We assessed the effects of daily potato fiber/sugar beet pectin supplementation (fiber, n = 19) versus maltodextrin (placebo, n = 21), both added to a high-protein diet (25E% protein, ±45% plant-based), on peripheral insulin sensitivity (IS) in adults with overweight/obesity. Secondary outcomes included tissue-specific IS, body composition, microbial composition and functionality, substrate metabolism, and gut permeability. Peripheral IS tended to decrease after fiber supplementation compared to placebo ( p = 0.081), while whole-body IS significantly decreased ( p = 0.034). Fiber mitigated the increase in insulin-mediated carbohydrate oxidation ( p = 0.027) and decrease in fat oxidation ( p = 0.006) that occurred in the placebo group. Additionally, fiber prevented an increase in protein oxidation ( p = 0.048), while increasing colonic gut permeability ( p = 0.046) and plasma interleukin-6 ( p = 0.025). Body composition, microbial composition, and fecal and circulating metabolites remained unchanged. In conclusion, fibers combined with a high-protein diet reduced (peripheral) IS and decreased metabolic flexibility compared to placebo. Reduced protein oxidation after fiber may reflect diminished amino acid bioavailability. Additionally, coadministration of fiber and protein may compromise gut barrier function and inflammatory responses. More research investigating the interplay between dietary fibers and proteins is needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41459804/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41459804",
+        "doi": "10.1080/19490976.2025.2606473",
+        "journal": "Gut microbes",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T10:49:17.075Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "094b826701dc4d8ae3f7",
+      "reserved_at": "2026-10-09T10:49:24.887Z",
+      "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
+    },
+    {
+      "pmid": "41720867",
+      "title": "A novel fasting mimetic (Mimio) creates fasting-like benefits to hunger control, oxidative stress, and cardiometabolic health in humans.",
+      "doi": "10.1038/s41598-026-38495-7",
+      "source_title": "A novel fasting mimetic (Mimio) creates fasting-like benefits to hunger control, oxidative stress, and cardiometabolic health in humans.",
+      "abstract": "This decentralized, double-blind, randomized, placebo-controlled trial investigated the impact of a novel fasting mimetic “Mimio” on hunger, satiety, digestive symptoms, metabolism, cognition and wellbeing in overweight older adults with elevated HbA1c. Participants collected 2 weeks of baseline subjective data along with a fasted metabolic blood panel. The Mimio fasting mimetic, containing spermidine, nicotinamide, palmitoylethanolamide (PEA) and oleoethanolamide (OEA), or a placebo capsule was then taken before the first meal of the day for 8 weeks. Subjective measures were repeatedly collected throughout the study and metabolic bloodwork was repeated at the end of 8 weeks. 42 Participants were evaluated (47.6% female, BMI 27.6 (0.2) kg/m2, aged 62 ± 4, HbA1c 6.0 ± 0.1, n = 23 intervention and n = 19 placebo). Mimio improved more over time in all hunger and satiety metrics than placebo (Hunger and Satiety Composite Score Mann-Kendall p = 2.2*10− 16). More participants in the Mimio group improved daily ratings of hunger and appetite compared to placebo, including 91% vs. 47% of participants improving mealtime appetite across the study (Fisher’s Exact Test p = 0.003). The Mimio cohort reported significantly less abdominal pain and bloating than the placebo group (Student’s t-test p < 0.05). Mimio significantly reduced total cholesterol, LDL cholesterol, LDL particle number, oxidized LDL, non-HDL cholesterol and fasting glucose compared to placebo (Student’s t-test p < 0.05). Changes in quality of life, three-factor eating questionnaire and cognitive failures did not differ significantly between Mimio and placebo. There were no significant differences in any adverse effects between Mimio and placebo. Mimio, a daily fasting mimetic supplement, improves daily hunger and satiety, reduces oxidative stress, symptoms of indigestion and improves cardiometabolic health markers in overweight older adults with elevated HbA1c. This is the first study to show that fasting mimetic supplementation can recreate clinical fasting-like cardiometabolic benefits without lifestyle changes or the need to fast.Trial registration: The trial was IRB approved and registered with ClinicalTrials.gov (Pro00080269) on 4/25/2024.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41720867/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41720867",
+        "doi": "10.1038/s41598-026-38495-7",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:49:17.076Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7d97a67e6ed664ab50ef",
+      "reserved_at": "2026-10-09T10:49:24.887Z",
+      "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
+    },
+    {
+      "pmid": "41901148",
+      "title": "Minimally Cooked Potato Improved Glycemic Response Across Two Meals and Insulin Sensitivity of Rice-Potato Mixed Meals: A Randomized Controlled Acute Trial.",
+      "doi": "10.3390/nu18060973",
+      "source_title": "Minimally Cooked Potato Improved Glycemic Response Across Two Meals and Insulin Sensitivity of Rice-Potato Mixed Meals: A Randomized Controlled Acute Trial.",
+      "abstract": "Objectives: This study aimed to investigate the possible association among texture, oral processing and starch digestive characteristics of hard-cooked (HP) and soft-cooked (SP) potato samples, as well as their acute postprandial glycemic and insulinemic response, when co-ingested with rice in a meal. Methods: HP and SP replaced one-third of rice carbohydrates. Postprandial glycemic and insulinemic responses were measured after test meal ingestion. In vitro experiments evaluated sample physicochemical properties. Results: HP retained more resistant starch (RS) and total phenolics than SP. When co-ingested with rice (HP + R), HP elicited more total chews, higher oral sensory exposure time, slower chewing frequency and longer eating duration. HP + R significantly reduced postprandial glucose iAUC, peak glucose and glycemic excursion. SP + R increased glycemic variability despite reduced iAUCglucose. HP + R also lowered iAUCinsulin, peak insulin and insulin resistance index. The hypoglycemic effect did not extend to the second meal, though composite iAUCglucose over 540 min was reduced. Conclusions: Partially substituting rice with hard-cooked potatoes may help stabilize postprandial glycemic and insulinemic responses, an effect largely attributable to RS retention.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41901148/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41901148",
+        "doi": "10.3390/nu18060973",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T10:49:17.078Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a3e146c3c5161ddde081",
+      "reserved_at": "2026-10-09T10:49:24.887Z",
+      "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
+    },
+    {
+      "pmid": "41352803",
+      "title": "Roasting oat-based paste modulates postprandial glucose and insulin sensitivity: Roles of acrylamide, texture, and starch fractions.",
+      "doi": "10.1016/j.foodres.2025.117894",
+      "source_title": "Roasting oat-based paste modulates postprandial glucose and insulin sensitivity: Roles of acrylamide, texture, and starch fractions.",
+      "abstract": "Oat-based foods are widely recommended for dysphagia management and glycemic control, yet the impact of roasting conditions on their health benefits remains unclear. This study compared the postprandial glycemic and insulinemic responses to oat pastes prepared from low-temperature (90-110 °C) and conventional high-temperature (160 °C) roasted oat flours, using refined rice (R) as a reference, in a randomized crossover trial involving 21 healthy young female adults. All oat pastes complied with Level 3 dysphagia safety standards as defined by the International Dysphagia Diet Standardisation Initiative (IDDSI). Results showed that low-temperature roasted oats (L0 and L40) elicited significantly lower postprandial glucose responses than high-temperature roasted oats (H30) and R did, while H30 induced comparable glycemic but higher insulinemic responses than R did. Notably, H30 exhibited impaired insulin sensitivity (higher HOMA-PP) and adverse second-meal effects, likely due to acrylamide formation (507.4 μg/kg) and reduced slowly digestible starch (SDS). In contrast, low-temperature roasting preserved β-glucan integrity, enhanced SDS and resistant starch (RS) content, and improved textural properties without detectable acrylamide. These results demonstrate that optimizing roasting temperatures can mitigate adverse metabolic effects while maintaining swallowing safety, offering critical insights for developing functional foods for elderly and dysphagic populations with specific glycemic management needs.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41352803/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41352803",
+        "doi": "10.1016/j.foodres.2025.117894",
+        "journal": "Food research international (Ottawa, Ont.)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T10:49:17.078Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b1ce994407df23633e5f",
+      "reserved_at": "2026-10-09T10:49:24.887Z",
+      "source_branch": "research/intake/2/20261009-0647-cognition-metabolic-6-r20"
     }
   ],
   "batches": [
@@ -32235,22 +32699,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 404,
+    "total_reservations": 410,
     "by_lane": {
       "1": 5,
-      "2": 56,
+      "2": 62,
       "3": 60,
       "4": 33,
       "5": 250
     },
     "by_state": {
-      "SOURCE_VERIFIED": 404
+      "SOURCE_VERIFIED": 410
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 404,
+        "count": 410,
         "pr_number": null,
         "blocker": null
       }
