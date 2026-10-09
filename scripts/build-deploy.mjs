@@ -10,10 +10,108 @@
 
 import { execSync } from 'child_process'
 import { performance } from 'perf_hooks'
+import { createHash } from 'crypto'
+import fs from 'fs'
+import path from 'path'
+import globPkg from 'glob'
 import { CacheManager } from './cache/build-cache-manager.mjs'
 
 const cache = new CacheManager()
 const startTime = performance.now()
+
+// ---------------------------------------------------------------------------
+// Data-segment change detection.
+//
+// The workbook→JSON data segment is a pure function of its inputs: identical
+// data inputs + pipeline scripts produce identical public/data outputs.
+// Rebuilding it on every deploy (e.g. for a copy-only change like an About
+// page edit) is pure waste, so when the inputs are unchanged the whole
+// segment is skipped and the previously built public/data is reused instead.
+//
+// On GitHub Actions, public/data is restored from the build-intermediates
+// cache; locally it persists between runs. The gate is conservative: any
+// doubt (missing marker, missing outputs, hashing error) means "rebuild".
+// Set CLEAR_CACHE=1 (or USE_CACHE=false) to force a full data rebuild.
+// ---------------------------------------------------------------------------
+const DATA_INPUT_GLOBS = [
+  'data-sources/herb_monograph_master.xlsx',
+  'data-sources/workbook-patches/**/*.json',
+  'data-sources/runtime-enrichment/**/*',
+  'data/**/*.xlsx',
+  'data/canonical/**/*.json',
+  'public/_redirects',
+  'ops/cache/pubmed-metadata.json',
+  'scripts/data/**/*',
+  'scripts/workbook-source.mjs',
+  'config/*.mjs',
+  'lib/editorial-leak.mjs',
+]
+// Steps that depend ONLY on data inputs (never on app/components/lib code).
+// Everything else in the pipeline still runs on every build.
+const DATA_SEGMENT_STEPS = new Set([
+  'build-runtime-from-workbook',
+  'normalize-evidence-grades',
+  'postprocess-workbook-payloads',
+  'apply-participant-counts',
+  'quarantine-unverifiable-citations',
+  'apply-governance-overlay',
+  'build-related-runtime-maps',
+  'apply-pubmed-metadata',
+  'build-runtime-summary-indexes',
+  'sync-detail-indexability',
+  'build-search-index',
+])
+const DATA_HASH_MARKER = path.join('.build-cache', 'data-segment-hash')
+
+function hashDataInputs() {
+  const files = []
+  for (const pattern of DATA_INPUT_GLOBS) {
+    try {
+      files.push(...globPkg.sync(pattern, { absolute: true, nodir: true }))
+    } catch {
+      // A bad pattern must never silently green-light a skip.
+      throw new Error(`data-gate: failed to glob inputs for pattern: ${pattern}`)
+    }
+  }
+  files.sort()
+  const hash = createHash('sha256')
+  for (const file of files) {
+    try {
+      hash.update(file)
+      hash.update(fs.readFileSync(file))
+    } catch {
+      hash.update(`${file}:NOT_FOUND`)
+    }
+  }
+  return hash.digest('hex').substring(0, 32)
+}
+
+function isDataSegmentFresh(dataInputHash) {
+  try {
+    if (!fs.existsSync(DATA_HASH_MARKER)) return false
+    if (fs.readFileSync(DATA_HASH_MARKER, 'utf8').trim() !== dataInputHash) return false
+    // Outputs must actually exist — a partial cache restore or fresh
+    // checkout must never take the fast path.
+    if (!fs.existsSync(path.join('public', 'data', 'herbs.json'))) return false
+    if (!fs.existsSync(path.join('public', 'data', 'compounds.json'))) return false
+    return true
+  } catch {
+    return false
+  }
+}
+
+let dataInputHash = null
+let skipDataSegment = false
+try {
+  dataInputHash = hashDataInputs()
+  const cacheBypassed = !!process.env.CLEAR_CACHE || process.env.USE_CACHE === 'false'
+  skipDataSegment = !cacheBypassed && isDataSegmentFresh(dataInputHash)
+} catch (error) {
+  console.log(`[build-deploy] Data change detection unavailable (${error.message}); running full data segment.`)
+}
+if (skipDataSegment) {
+  console.log('[build-deploy] Data inputs unchanged since last successful data build — skipping pure data segment.')
+}
 
 const steps = [
   {
@@ -124,13 +222,6 @@ const steps = [
     cacheable: false,
   },
   {
-    name: 'sanitize-public-text-pre-index',
-    cmd: 'node scripts/data/sanitize-public-text.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*.json', 'scripts/data/sanitize-public-text.mjs', 'lib/editorial-leak.mjs'],
-    outputs: ['public/data/**/*.json'],
-    cacheable: false,
-  },
-  {
     name: 'build-related-runtime-maps',
     cmd: 'node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data',
     inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json', 'scripts/data/build-related-runtime-maps.mjs'],
@@ -212,17 +303,20 @@ const steps = [
     outputs: ['public/data/runtime-snapshots/profile-semantic-snapshots.json'],
   },
   {
-    name: 'build-search-index',
-    cmd: 'node scripts/data/build-search-index.mjs --data-dir=public/data',
-    cacheable: false,
-  },
-  {
-    // A final sanitation pass occurs after every generated artifact is rebuilt so
-    // nothing downstream can reintroduce internal editorial text.
+    // The ONLY sanitize pass. The old pre-index pass was removed: everything
+    // served (pages, search index, sitemap) is derived from post-sanitize
+    // data, so one pass after all generated artifacts are rebuilt is sufficient.
+    // build-search-index runs after it so the shipped index can never contain
+    // internal editorial text.
     name: 'sanitize-public-text-final',
     cmd: 'node scripts/data/sanitize-public-text.mjs --data-dir=public/data',
     inputs: ['public/data/**/*.json', 'scripts/data/sanitize-public-text.mjs', 'lib/editorial-leak.mjs'],
     outputs: ['public/data/**/*.json'],
+    cacheable: false,
+  },
+  {
+    name: 'build-search-index',
+    cmd: 'node scripts/data/build-search-index.mjs --data-dir=public/data',
     cacheable: false,
   },
   {
@@ -339,6 +433,14 @@ for (const step of steps) {
   const stepStart = performance.now()
 
   try {
+    // Coarse data-segment gate: skip pure data steps when data inputs are
+    // unchanged (see DATA_SEGMENT_STEPS above). Conservative by construction.
+    if (skipDataSegment && DATA_SEGMENT_STEPS.has(step.name)) {
+      console.log(`[SKIP - data unchanged] ${((performance.now() - stepStart) / 1000).toFixed(2)}s`)
+      executed.push({ ...step, duration: 0, cached: true, skippedData: true })
+      continue
+    }
+
     const shouldSkip = step.cacheable !== false && !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
 
     if (shouldSkip) {
@@ -388,6 +490,18 @@ const totalSeconds = ((performance.now() - startTime) / 1000).toFixed(2)
 if (failed) {
   console.error(`\n[build-deploy] FAILED after ${totalSeconds}s. Deployment should not continue.`)
   process.exit(1)
+}
+
+// Record the data input hash so the next build can skip the data segment
+// when nothing data-related changed. Written only on success; a failed build
+// leaves the previous marker (if any) untouched.
+if (!failed && !skipDataSegment && dataInputHash) {
+  try {
+    fs.mkdirSync(path.dirname(DATA_HASH_MARKER), { recursive: true })
+    fs.writeFileSync(DATA_HASH_MARKER, dataInputHash + '\n')
+  } catch {
+    // Non-fatal: the next build will simply rebuild the data segment.
+  }
 }
 
 console.log(`\n[build-deploy] PASS: ${executed.length} steps completed in ${totalSeconds}s.`)
