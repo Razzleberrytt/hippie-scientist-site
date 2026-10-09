@@ -36552,6 +36552,84 @@
       "reservation_id": "e6177d76aa2f6aa23519",
       "reserved_at": "2026-10-09T14:44:13.477Z",
       "source_branch": "research/intake/1/20261009-1042-sleep-mood-four"
+    },
+    {
+      "pmid": "39571910",
+      "title": "Effect of a 12-mo intervention with whey protein powder on cognitive function in older adults with mild cognitive impairment: a randomized controlled trial.",
+      "doi": "10.1016/j.ajcnut.2024.11.019",
+      "source_title": "Effect of a 12-mo intervention with whey protein powder on cognitive function in older adults with mild cognitive impairment: a randomized controlled trial.",
+      "abstract": "Our previous animal study revealed that supplementation with milk fat globule membrane (MFGM) alleviated Alzheimer's disease pathology in mice. We hypothesized that supplementation with whey protein powder rich in MFGM, taurine, and B vitamins would improve cognitive function in subjects with mild cognitive impairment (MCI). We conducted a 12-mo randomized controlled trial to investigate the effects of whey protein powder on cognitive function in older adults with MCI. Participants were randomly assigned in a 1:1 ratio to either the active intervention group (whey protein powder, 15 g/d) or the control group (placebo, 15 g/d). We performed comprehensive cognitive function tests at baseline, 6 mo, and 12 mo. The primary outcome was global cognitive function determined by the Montreal Cognitive Assessment (MoCA). Secondary outcomes included other cognitive subdomains, and body composition. The data were analyzed using the intention-to-treat (ITT) principle. A total of 107 participants [mean (standard deviation) age 62.94 (4.33) y] were randomly assigned to the active intervention group (n = 53), or control group (n = 54). In the ITT analysis, the mean change in MoCA score at 12 mo was 3.23 [95% confidence interval (CI): 2.17, 4.30] in the active intervention group and 1.42 (95% CI: 0.36, 2.48) in the control group, with the mean difference between groups (group × time interaction) in change of MoCA score was 1.81 (95% CI: 0.32, 3.30). The modified ITT and per-protocol analyses showed similar results. The results also found a significant beneficial effect of the active intervention for several secondary cognitive outcomes such as Digit Symbol Substitution Test score, and the mean difference between groups in the ITT analysis was 2.72 (95% CI: 0.20, 5.23). Few side effects were reported during the study, and there was no statistically significant difference between groups (P = 0.74). Supplementation with whey protein powder rich in MFGM, taurine, and B vitamins for 12 mo improve cognitive function in older adults with MCI. This trial was registered at the https://www.chictr.org.cn/showproj.html?proj=150871 as ChiCTR2200062705.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39571910/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-identified human randomized cognition trial; full scientific review and clinical interpretation remain pending.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39571910",
+        "doi": "10.1016/j.ajcnut.2024.11.019",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T14:55:12.810Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "261e719faacc1b06037f",
+      "reserved_at": "2026-10-09T14:55:20.293Z",
+      "source_branch": "research/intake/2/20261009-1052-cognition-metabolic-5-r24"
     }
   ],
   "batches": [
@@ -36565,22 +36643,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 460,
+    "total_reservations": 461,
     "by_lane": {
       "1": 9,
-      "2": 82,
+      "2": 83,
       "3": 61,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 460
+      "SOURCE_VERIFIED": 461
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 460,
+        "count": 461,
         "pr_number": null,
         "blocker": null
       }
