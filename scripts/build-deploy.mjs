@@ -65,7 +65,8 @@ const DATA_SEGMENT_STEPS = new Set([
   'build-related-runtime-maps',
   'apply-pubmed-metadata',
   'build-runtime-summary-indexes',
-  'sync-detail-indexability',
+  // Detail indexability copies can drift independently in a restored warm cache.
+  // Always run sync-detail-indexability before the divergence gate.
   // Search also reads content/learn frontmatter and MUST refresh on copy edits.
   // Never skip it based solely on workbook/data segment inputs.
 ])
