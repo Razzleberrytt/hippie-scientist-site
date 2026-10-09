@@ -40066,6 +40066,159 @@
       "reservation_id": "b99f4e0b7f887742a418",
       "reserved_at": "2026-10-09T20:08:32.873Z",
       "source_branch": "research/intake/3/20261009-1606-saikosaponin-hepatotox-five"
+    },
+    {
+      "pmid": "42755326",
+      "title": "Evaluation of the Anxiety-Reducing Effects of Aroma Stones with Bergamot Essential Oil before Examinations: A Randomized Controlled Trial.",
+      "doi": "10.1177/27683605261488658",
+      "source_title": "Evaluation of the Anxiety-Reducing Effects of Aroma Stones with Bergamot Essential Oil before Examinations: A Randomized Controlled Trial.",
+      "abstract": "Examinations are highly stressful for students and can impair their academic performance and mental well-being. While aromatherapy is used to relieve stress, its effectiveness during acute stress periods, such as pre-exam situations, remains underexplored. To evaluate the effectiveness of aromatherapy with bergamot essential oil using aroma stones in reducing pre-exam anxiety among university students. A randomized, parallel-group, open-label trial was performed with 57 Hoshi University undergraduates. Participants were assigned to either an intervention group (aroma stones infused with bergamot essential oil) or a control group (stones with water) for 3 days. The primary outcome was the change from baseline in the State Anxiety Inventory (SAI) scores at 180 min on each of the 3 days immediately preceding the regular examinations; secondary outcomes included the Short-form Measure of Relaxation Effects (S-MARE), Stanford Sleepiness Scale (SSS), Depression Anxiety Stress Scale (DASS-21), and Subjective Happiness Scale (SHS). The intervention group showed significantly lower SAI scores at 180 min on all 3 days compared with the control group (all p < 0.0167, the Bonferroni-adjusted significance threshold; Cohen's d > 0.8). Improvements were observed in the total and subscale scores of the S-MARE. The SSS scores indicated lower sleepiness only on Day 2. The SHS scores were significantly higher on the day before the exam. No significant between-group differences in DASS-21 scores were observed. Moreover, no intervention-related adverse events were reported. Aromatherapy with bergamot essential oil using aroma stones may reduce pre-exam anxiety and promote relaxation and well-being. This simple, noninvasive method may have potential as a practical psychological support tool in pre-examination educational settings, although the findings should be interpreted cautiously given the single-center design and relatively small sample size.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42755326/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Two distinct PubMed-verified human randomized trials investigating bergamot aromatherapy and pre-examination anxiety, and Lp815 probiotic supplementation and anxiety; source identity only, scientific interpretation pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42755326",
+        "doi": "10.1177/27683605261488658",
+        "journal": "Journal of integrative and complementary medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T20:46:28.669Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8846917b33d7fb19737c",
+      "reserved_at": "2026-10-09T20:46:34.224Z",
+      "source_branch": "research/intake/1/20261009-1643-bergamot-lp815-two"
+    },
+    {
+      "pmid": "40312029",
+      "title": "Lactiplantibacillus plantarum Lp815 decreases anxiety in people with mild to moderate anxiety: a direct-to-consumer, randomised, double-blind, placebo-controlled study.",
+      "doi": "10.1163/18762891-bja00073",
+      "source_title": "Lactiplantibacillus plantarum Lp815 decreases anxiety in people with mild to moderate anxiety: a direct-to-consumer, randomised, double-blind, placebo-controlled study.",
+      "abstract": "The major inhibitory neurotransmitter gamma-aminobutyric acid or GABA plays a pivotal role in mood and sleep. GABA exerts sedative and anxiolytic effects both within the central nervous system and through the gut-brain axis, which has generated interest in the potential for gut GABA to modulate mood and sleep. Several bacterial strains can produce GABA, yet their real-world impacts are poorly understood. We investigated the impact of 2 doses of the strain Lactiplantibacillus plantarum Lp815 on anxiety, sleep, mood, quality of life, cognition, heart rate variability and adverse events in adults with mild to moderate anxiety over a 6-week period. The trial was structured as a double-blinded, randomised, placebo-controlled trial with optional open label extension. Participants were blindly assigned to receive either a placebo, 1 billion colony-forming units (CFU), or 5 billion CFU of the oral capsule per day. Participants completed biweekly anxiety, insomnia and cognition measures, daily mood, sleep, and quality of life surveys, and collected wearable heart rate variability. 83 individuals were evaluated, aged 39 ± 13 years, 63% female and 64% Caucasian. Participants receiving 5 billion CFU exhibited significantly lower anxiety (GAD-7) scores at weeks 4 and 6 compared to placebo (Kruskal-Wallis P < 0.05). This result was clinically meaningful, with 68% of participants in the 5 billion CFU cohort exhibiting improvement by more than one category in their GAD-7 scores at week 6, compared to 37% in the 1 billion CFU group and 26% in the placebo group (e.g. from moderate to no anxiety) (Fisher's exact test P = 0.002 for 5 billion CFU vs Placebo). No serious adverse events occurred. A daily capsule containing 5 billion CFU Lp815 significantly reduced anxiety in a diverse cohort of adults at 4 and 6 weeks following daily consumption. GABA-producing probiotics may offer a safe option for anxiety reduction in people with mild to moderate anxiety. Trial Registration. The trial was IRB approved and registered with ClinicalTrials.gov (NCT06466603).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40312029/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Two distinct PubMed-verified human randomized trials investigating bergamot aromatherapy and pre-examination anxiety, and Lp815 probiotic supplementation and anxiety; source identity only, scientific interpretation pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40312029",
+        "doi": "10.1163/18762891-bja00073",
+        "journal": "Beneficial microbes",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T20:46:28.669Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "58b382d593c6a5e6b995",
+      "reserved_at": "2026-10-09T20:46:34.224Z",
+      "source_branch": "research/intake/1/20261009-1643-bergamot-lp815-two"
     }
   ],
   "batches": [
@@ -40094,16 +40247,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 506,
+    "total_reservations": 508,
     "by_lane": {
-      "1": 15,
+      "1": 17,
       "2": 90,
       "3": 84,
       "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 506
+      "SOURCE_VERIFIED": 508
     },
     "batches": [
       {
@@ -40116,7 +40269,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 6,
+        "count": 8,
         "pr_number": null,
         "blocker": null
       }
