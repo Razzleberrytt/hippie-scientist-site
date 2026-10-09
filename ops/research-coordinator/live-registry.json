@@ -35241,6 +35241,395 @@
       "reservation_id": "32b25c5ce6a3e134ffd6",
       "reserved_at": "2026-10-09T12:53:42.454Z",
       "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "41780824",
+      "title": "Effects of Protein Source and Amount of Saturated Fat on Insulin Sensitivity, Insulin Secretion, and Disposition Index in Healthy Individuals.",
+      "doi": "10.1016/j.tjnut.2026.101458",
+      "source_title": "Effects of Protein Source and Amount of Saturated Fat on Insulin Sensitivity, Insulin Secretion, and Disposition Index in Healthy Individuals.",
+      "abstract": "Red and processed meat intake is associated with type 2 diabetes (T2D) incidence, whereas plant-based protein has inverse associations. There is limited knowledge of white meat intake and its effects on T2D risk. Intake of saturated fatty acids (SFAs) may modify these associations. Our objective was to assess the effects of controlled intake of red meat, white meat, and nonmeat protein sources and concentration of SFAs, keeping weight stable, on glucose homeostasis measures, including disposition index. Secondary analysis was performed of a subset of participants (n = 46) who underwent frequently sampled oral glucose tolerance testing from a randomized, controlled crossover diet intervention trial (n = 113 in main trial) including adults without cardiovascular disease or diabetes. Diet interventions assessed effect of concentration of SFAs (14% compared with 7%) in 2 arms, and protein source (12% red meat, white meat, and nonmeat) in a crossover design with 4-wk feeding periods and 2-7-wk washout periods. Insulin sensitivity, insulin secretion rate, and disposition index were assessed using linear mixed models. There were no baseline differences in participant demographic and clinical variables between the 2 SFA arms. We found no significant differences in insulin sensitivity or static and dynamic insulin secretion rate and disposition index by protein source or concentration of SFA (P > 0.05). In a short-term diet intervention trial in healthy individuals, neither protein source nor concentration of SFAs significantly affects disposition index as a proxy for diabetes risk. This trial was registered at clinicaltrials.gov as NCT01427855.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41780824/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41780824",
+        "doi": "10.1016/j.tjnut.2026.101458",
+        "journal": "The Journal of nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:54:18.613Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "62c5a7c8213a9156ada2",
+      "reserved_at": "2026-10-09T12:54:27.272Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "42660124",
+      "title": "Effect of diet macronutrient content on the cardiometabolic response to weight loss: A randomized clinical trial.",
+      "doi": "10.1016/j.cmet.2026.07.020",
+      "source_title": "Effect of diet macronutrient content on the cardiometabolic response to weight loss: A randomized clinical trial.",
+      "abstract": "The influence of diet macronutrient content on the cardiometabolic effects of weight loss in people with metabolically unhealthy obesity (prediabetes and hepatic steatosis) has important clinical implications. We evaluated the cardiometabolic effects of moderate (∼10%) weight loss induced by three popular diets with markedly different macronutrient composition (very-low-carbohydrate ketogenic, Mediterranean, and very-low-fat plant-forward). Weight loss increased muscle insulin sensitivity by ∼50% in all groups but caused a two-to-three-fold greater increase in hepatic insulin sensitivity in the very-low-carbohydrate group than the other groups (p < 0.001). Intrahepatic triglyceride content, hepatic de novo lipogenesis, glycated hemoglobin, and 24-h serial plasma glucose and insulin decreased most in the very-low-carbohydrate group. There were no differences among groups in LDL-cholesterol, apolipoprotein B, or 24-h plasma triglyceride concentrations. These results demonstrate that a very-low-carbohydrate diet has greater cardiometabolic benefits, particularly in hepatic metabolic function, than matched 10% weight loss induced by a Mediterranean or very-low-fat diet in people with metabolically unhealthy obesity. This study was registered at ClinicalTrials.gov (NCT02706262).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42660124/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42660124",
+        "doi": "10.1016/j.cmet.2026.07.020",
+        "journal": "Cell metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:54:18.614Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1963073b9223b33e47eb",
+      "reserved_at": "2026-10-09T12:54:27.272Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "35616942",
+      "title": "Effects of Spermidine Supplementation on Cognition and Biomarkers in Older Adults With Subjective Cognitive Decline: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamanetworkopen.2022.13875",
+      "source_title": "Effects of Spermidine Supplementation on Cognition and Biomarkers in Older Adults With Subjective Cognitive Decline: A Randomized Clinical Trial.",
+      "abstract": "Developing interventions against age-related memory decline and for older adults experiencing neurodegenerative disease is one of the greatest challenges of our generation. Spermidine supplementation has shown beneficial effects on brain and cognitive health in animal models, and there has been preliminary evidence of memory improvement in individuals with subjective cognitive decline. To determine the effect of longer-term spermidine supplementation on memory performance and biomarkers in this at-risk group. This 12-month randomized, double-masked, placebo-controlled phase 2b trial (the SmartAge trial) was conducted between January 2017 and May 2020. The study was a monocenter trial carried out at an academic clinical research center in Germany. Eligible individuals were aged 60 to 90 years with subjective cognitive decline who were recruited from health care facilities as well as through advertisements in the general population. Data analysis was conducted between January and March 2021. One hundred participants were randomly assigned (1:1 ratio) to 12 months of dietary supplementation with either a spermidine-rich dietary supplement extracted from wheat germ (0.9 mg spermidine/d) or placebo (microcrystalline cellulose). Eighty-nine participants (89%) successfully completed the trial intervention. Primary outcome was change in memory performance from baseline to 12-month postintervention assessment (intention-to-treat analysis), operationalized by mnemonic discrimination performance assessed by the Mnemonic Similarity Task. Secondary outcomes included additional neuropsychological, behavioral, and physiological parameters. Safety was assessed in all participants and exploratory per-protocol, as well as subgroup, analyses were performed. A total of 100 participants (51 in the spermidine group and 49 in the placebo group) were included in the analysis (mean [SD] age, 69 [5] years; 49 female participants [49%]). Over 12 months, no significant changes were observed in mnemonic discrimination performance (between-group difference, -0.03; 95% CI, -0.11 to 0.05; P = .47) and secondary outcomes. Exploratory analyses indicated possible beneficial effects of the intervention on inflammation and verbal memory. Adverse events were balanced between groups. In this randomized clinical trial, longer-term spermidine supplementation in participants with subjective cognitive decline did not modify memory and biomarkers compared with placebo. Exploratory analyses indicated possible beneficial effects on verbal memory and inflammation that need to be validated in future studies at higher dosage. ClinicalTrials.gov Identifier: NCT03094546.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35616942/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35616942",
+        "doi": "10.1001/jamanetworkopen.2022.13875",
+        "journal": "JAMA network open",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-09T12:54:18.616Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c3f3308158939ba3dd78",
+      "reserved_at": "2026-10-09T12:54:27.272Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "37244291",
+      "title": "Multivitamin Supplementation Improves Memory in Older Adults: A Randomized Clinical Trial.",
+      "doi": "10.1016/j.ajcnut.2023.05.011",
+      "source_title": "Multivitamin Supplementation Improves Memory in Older Adults: A Randomized Clinical Trial.",
+      "abstract": "Maintenance of cognitive abilities is of critical importance to older adults, yet few effective strategies to slow cognitive decline currently exist. Multivitamin supplementation is used to promote general health; it is unclear whether it favorably affects cognition in older age. To examine the effect of daily multivitamin/multimineral supplementation on memory in older adults. The COcoa Supplement and Multivitamin Outcomes Study Web (COSMOS-Web) ancillary study (NCT04582617) included 3562 older adults. Participants were randomly assigned to a daily multivitamin supplement (Centrum Silver) or placebo and evaluated annually with an Internet-based battery of neuropsychological tests for 3 y. The prespecified primary outcome measure was change in episodic memory, operationally defined as immediate recall performance on the ModRey test, after 1 y of intervention. Secondary outcome measures included changes in episodic memory over 3 y of follow-up and changes in performance on neuropsychological tasks of novel object recognition and executive function over 3 y. Compared with placebo, participants randomly assigned to multivitamin supplementation had significantly better ModRey immediate recall at 1 y, the primary endpoint (t(5889) = 2.25, P = 0.025), as well as across the 3 y of follow-up on average (t(5889) = 2.54, P = 0.011). Multivitamin supplementation had no significant effects on secondary outcomes. Based on cross-sectional analysis of the association between age and performance on the ModRey, we estimated that the effect of the multivitamin intervention improved memory performance above placebo by the equivalent of 3.1 y of age-related memory change. Daily multivitamin supplementation, compared with placebo, improves memory in older adults. Multivitamin supplementation holds promise as a safe and accessible approach to maintaining cognitive health in older age. This trial was registered at clinicaltrials.gov as NCT04582617.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37244291/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Randomized Controlled Trial; Journal Article; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, N.I.H., Extramural",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "37244291",
+        "doi": "10.1016/j.ajcnut.2023.05.011",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2023,
+        "hydrated_at": "2026-10-09T12:54:18.617Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "522bfdec4c1b5667d3b0",
+      "reserved_at": "2026-10-09T12:54:27.272Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
+    },
+    {
+      "pmid": "40782191",
+      "title": "Effects of Probiotic and Synbiotic Supplementation on Glycemic Indices in Adult Individuals with Prediabetes and Type 2 Diabetes Mellitus: A Grade-Assessed Systematic Review and Dose-Response Meta-analysis of RCTs.",
+      "doi": "10.1007/s12602-025-10644-w",
+      "source_title": "Effects of Probiotic and Synbiotic Supplementation on Glycemic Indices in Adult Individuals with Prediabetes and Type 2 Diabetes Mellitus: A Grade-Assessed Systematic Review and Dose-Response Meta-analysis of RCTs.",
+      "abstract": "Probiotic and synbiotic supplementation has garnered attention for its potential to modulate metabolic parameters, including glycemic control, in individuals with prediabetes and type 2 diabetes mellitus (T2DM). This systematic review and dose-response meta-analysis aims to evaluate the effectiveness of these supplements on glycemic indices, synthesizing evidence from randomized controlled trials (RCTs) with grade-assessed methodologies. A comprehensive search of scientific databases was conducted from inception through January 2025 to identify RCTs assessing the effects of probiotic and synbiotic supplementation on glycemic indices, including fasting blood glucose (FBG), fasting insulin (FI), hemoglobin A1c (HbA1c), and homeostatic model assessment for insulin resistance (HOMA-IR). Eligible studies were screened; relevant data were extracted, and the quality of evidence was evaluated using the GRADE approach. Statistical analyses were performed using STATA to generate pooled results. The pooled analysis of 48 RCTs demonstrated that probiotics and synbiotics supplementation significantly decreased FBG (WMD: - 7.00 mg/dL), FI (WMD: - 1.72 µIU/mL), HbA1c levels (WMD: - 0.34%), and HOMA-IR (WMD: - 0.91), with a substantial heterogeneity across all outcomes (p < 0.001). Subgroup analyses indicated reductions in FBG, FI, HbA1c, and HOMA-IR across varying baseline characteristics, including glycemic levels, trial durations, and participant health status. Both probiotics and synbiotics were effective, with notable benefits for patients with T2DM, longer intervention durations, and higher baseline BMI. Meta-regression and dose-response analyses revealed no significant association between the duration of probiotic and synbiotic supplementation and changes in glycemic indices. Probiotic and synbiotic supplements significantly reduce FBG, FI, HbA1c, and HOMA-IR, leading to improvements in glycemic markers in individuals with prediabetes and T2DM. These supplements can be used as effective adjunctive strategies to enhance glycemic control, highlighting the promising role of gut microbiota modulation in diabetes management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40782191/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40782191",
+        "doi": "10.1007/s12602-025-10644-w",
+        "journal": "Probiotics and antimicrobial proteins",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:54:18.619Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "21640410856c4cc577bb",
+      "reserved_at": "2026-10-09T12:54:27.272Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
     }
   ],
   "batches": [
@@ -35254,22 +35643,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 443,
+    "total_reservations": 448,
     "by_lane": {
       "1": 5,
-      "2": 70,
+      "2": 75,
       "3": 60,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 443
+      "SOURCE_VERIFIED": 448
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 443,
+        "count": 448,
         "pr_number": null,
         "blocker": null
       }
