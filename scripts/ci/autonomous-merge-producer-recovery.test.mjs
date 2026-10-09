@@ -5,6 +5,7 @@ import {
   evaluateReadiness,
   planRecoveryDispatch,
   shouldDispatchRegisteredWorkflow,
+  workflowRunView,
 } from './autonomous-merge-controller.mjs'
 
 const sha = 'a'.repeat(40)
@@ -94,6 +95,25 @@ describe('P0 #6447: one exact-head CI producer for recovery fan-out', () => {
       expect(plan.direct.map(x => x.name)).toEqual(['CI'])
       expect(plan.deferred).toEqual([])
     }
+  })
+
+  it('retains every same-head same-name run before verifying zero-job evidence', () => {
+    const priorReal = {
+      name: 'Build Check', head_sha: sha, id: 41,
+      event: 'workflow_dispatch', status: 'completed', conclusion: 'failure',
+      run_number: 12, run_attempt: 1,
+    }
+    const latestSuppressed = {
+      ...suppressed('Build Check', 42),
+      run_number: 13, run_attempt: 1,
+    }
+    const all = workflowRunView([priorReal, latestSuppressed], true)
+    expect(all).toHaveLength(2)
+    expect(shouldDispatchRegisteredWorkflow('Build Check', all, new Set([42]))).toBe(false)
+    expect(planRecoveryDispatch([original('Build Check')], all, new Set([42]), sha).direct).toEqual([])
+    expect(workflowRunView(all)).toEqual([latestSuppressed])
+    const source = fs.readFileSync('scripts/ci/autonomous-merge-controller.mjs', 'utf8')
+    expect(source).toContain('getWorkflowRuns(repo, pr.head.sha, { preserveAll: true })')
   })
 
   it('refuses recovery unless every action_required record is verified jobless', () => {
