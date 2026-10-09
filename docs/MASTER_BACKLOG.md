@@ -75,7 +75,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6466 | Typed source-to-editorial review-only handoff and identity guards | D | Active — admitted | P0 | 4/4/3/5/0.75/3 | 60.0 | 2026-10-09 |
+| #6466 / PR #6476 | Typed source-to-editorial review-only handoff and identity guards | D | In review — admitted | P0 | 4/4/3/5/0.75/3 | 60.0 | 2026-10-09 |
 
 
 
