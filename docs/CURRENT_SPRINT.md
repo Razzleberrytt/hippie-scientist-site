@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (reconciled 2026-10-09, ticket #6491):** Normal implementation WIP is **2/3**: Discovery/SEO owns #6491 (first-visit homepage ingredient, comparison, safety actions), scored **80.0** after confirmed #6368 CLOSED / PR #6484 MERGED. Revenue/Conversion remains free; Authority/Content admits #6500 for scoped evidence-scope/count explanation; further changes require fresh admission and one owner per workstream. Production analytics transport remains blocked by #6143. The recovered original THS-MASTER-P0 v1.0 directive is distinct from the reconstructed 150-item audit (25/150 verified) and the legacy unmapped historical 10/150.
+**Current admission (verified 2026-10-09, control #6501):** Normal implementation WIP is **0/3**: D/R/A lanes are free **pending a separate scored admission**. Previous D owner #6491 was closed via governed PR #6492 (merge `06fd528135a4dbe5d286b45d898825e69179f1de`), and Cloudflare run 37935390084 successfully deployed. This control-only retirement does not admit #6500 or grant authorization to publish clinical claims. Analytics transport #6143 and all business outcomes remain Unknown. Reconstructed 25/150 proof differs from unmapped legacy 10/150.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -71,7 +71,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a15ef9831d520d38a`; deployment job 37922725823 verified the origin receipt and public Terms route. The prior D row still marked that ticket active; it is now retired from WIP. Under direct owner THS-MASTER-P0 §20–21, #6491 is the **single** D-lane P0 existing-owner reconciliation for a bounded three-path homepage change. Existing-score components BI=4, UV=5, TP=4, SL=4, Confidence=.75, Effort=3 give **80.0**, an estimated prioritization score only. PR #6492 was created and cross-linked from #6491 at 12:31:01Z, before corrected base commit ce048b9fbdfd630e46f5781562ab42b10ca61a95 at 12:36:20Z. The repository's pre-base existing-owner mode is authoritative for this documentation. Exact main/base and controller checks must still pass. All business impact remains **Unknown** until actual analytics #6143 is connected; no scientific claim is promoted. No code merged/deployed by this admission record alone.
 
-## Active / in review — implementation WIP 2/3
+### 2026-10-09 — Retired completed homepage D owner (#6501)
+
+GitHub #6491 CLOSED, PR #6492 MERGED on exact main `06fd528135a4dbe5d286b45d898825e69179f1de`, and Cloudflare run `37935390084` succeeded. The previous D row remained incorrectly active after its release, so project-control checks blocked a proposed A admission. This transaction **only** retires that D owner and records WIP 0/3; subsequent A #6500 must pass its own fresh scored admission from the corrected main base. No code, payment, source grade or commercial outcome changed.
+
+## Active / in review — implementation WIP 0/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -86,8 +90,7 @@ Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6491 / PR #6492 | First-visit homepage Find ingredient / Compare options / Check safety paths | Active — admitted; first-owner PR in scope | P0 | 80.0 | 2026-10-09 |
-| A | #6500 | Explain evidence-grade scope and public count denominators | Active — admitted; source presentation only | P0 | 80.0 | 2026-10-09 |
+
 
 
 
