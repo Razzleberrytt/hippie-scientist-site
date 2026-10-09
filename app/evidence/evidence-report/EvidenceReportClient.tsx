@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import EvidenceScopeGuide from '@/components/ui/EvidenceScopeGuide'
 import type { EvidenceGradeChange } from '@/data/editorial/evidence-grade-history'
 import type { PublicEvidenceReportMetrics } from '@/lib/public-evidence-dataset'
 
@@ -84,6 +85,9 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
           structured study/source records, human-study records, reported participant counts, safety cautions, and explicit disagreement
           between supporting and unfavorable or null evidence relationships.
         </p>
+        <div className="mt-5 max-w-4xl">
+          <EvidenceScopeGuide context="report" />
+        </div>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href="/evidence/evidence-report/dataset.csv" download className="rounded-full bg-brand-800 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900">Download CSV</a>
           <a href="/evidence/evidence-report/dataset.json" download className="rounded-full border border-brand-900/15 px-5 py-2.5 text-sm font-semibold text-ink hover:bg-brand-50">Download JSON</a>
