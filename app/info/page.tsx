@@ -40,6 +40,7 @@ const groups = [
       { href: '/info/disclaimer/', title: 'Educational disclaimer', description: 'The limits of what this research content can tell you.' },
       { href: '/info/affiliate-disclosure/', title: 'Affiliate disclosure', description: 'How product links work and what they do not influence.' },
       { href: '/info/privacy/', title: 'Privacy policy', description: 'Analytics, cookies, email, and contact data in plain English.' },
+      { href: '/info/terms/', title: 'Terms of Service', description: 'Conditions for using this educational research site and its resources.' },
       { href: '/info/content-licensing/', title: 'Licensing & attribution', description: 'How to cite or reuse the structured research data.' },
     ],
   },

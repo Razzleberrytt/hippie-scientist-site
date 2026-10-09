@@ -1,0 +1,123 @@
+{
+  "schema": "ths.social.creative-quality.v1",
+  "release": "R8.08",
+  "name": "Silent-First Comprehension & Mobile Claim Legibility",
+  "inherits": [
+    "R8.07",
+    "R8.06",
+    "R8.05",
+    "R8.04",
+    "R8.03"
+  ],
+  "premise": {
+    "interest_score_min": 4,
+    "cold_viewer_why_care_required": true,
+    "one_mental_job_required": true,
+    "payoff_before_method_required": true,
+    "methodology_hook_forbidden_unless_method_is_story": true,
+    "paper_summary_opening_forbidden": true
+  },
+  "cognitive_load": {
+    "default_max_primary_entities_per_beat": 1,
+    "comparison_exception_max_primary_entities_per_beat": 2,
+    "progressive_reveal_required": true
+  },
+  "timing": {
+    "duration_policy": "natural",
+    "fixed_runtime_target_forbidden": true,
+    "narration_is_timing_master": true,
+    "voice_first_semantic_beat_map_required": true,
+    "cut_on_meaning_required": true,
+    "semantic_clip_ownership_required": true,
+    "internal_motion_sync_required": true,
+    "exact_local_narration_timeline_required": true,
+    "visual_timeline_may_not_precede_voice_timeline": true
+  },
+  "final_cohesion": {
+    "whole_piece_review_required": true,
+    "reject_pasted_narration_feel": true,
+    "technical_sync_alone_is_insufficient": true,
+    "exact_mp4_hash_binding_required": true,
+    "publication_requires_master_qa_receipt": true,
+    "r806_native_master_gates": [
+      "openingScrollStop",
+      "nativePlatformFeel",
+      "visualTeachingObject",
+      "textCardMonotonyRejected"
+    ],
+    "r807_rhythm_master_gates": [
+      "visualRhythm",
+      "motifContinuity",
+      "semanticPatternInterrupt",
+      "repetitionDebtRejected"
+    ],
+    "r808_comprehension_master_gates": [
+      "audioOffComprehension",
+      "qualifierVisibility",
+      "mobileSafeArea",
+      "readableClaimDwell"
+    ]
+  },
+  "recovery": {
+    "macro_rebuild_limit": 1,
+    "after_limit": "retire_angle_and_learn"
+  },
+  "failure_semantics": {
+    "premise": "fail_before_render",
+    "temporal_coherence": "fail_closed",
+    "sunk_cost": "never_waives_quality_floor",
+    "missing_voice_timeline": "fail_before_visual_render",
+    "missing_master_cohesion_receipt": "fail_before_staging"
+  },
+  "runtime_base_release": "R8.05",
+  "concept_lab": {
+    "candidate_count": 3,
+    "distinct_angle_types_required": true,
+    "selected_interest_score_min": 4,
+    "selected_visual_potential_score_min": 4,
+    "selected_confusion_score_max": 2
+  },
+  "opening_native": {
+    "cover_first_frame_first_line_convergence_required": true,
+    "immediate_finding_after_hook": true,
+    "evidence_after_finding": true,
+    "opening_visual_modes_min_distinct": 2,
+    "all_kinetic_type_opening_forbidden": true,
+    "teaching_object_required_first_three_beats": true
+  },
+  "delivery": {
+    "metricool_optional": true,
+    "manual_native_fallback_required": true,
+    "provider_may_mutate_artifact": false,
+    "provider_retry_policy": "one-provider-attempt-then-fallback"
+  },
+  "visual_rhythm": {
+    "visual_thesis_required": true,
+    "recurring_semantic_motif_required": true,
+    "motif_core_appearances_min": 2,
+    "motif_core_appearances_max": 3,
+    "core_composition_families_min_distinct": 3,
+    "max_consecutive_composition_family": 2,
+    "max_consecutive_visual_mode": 2,
+    "semantic_pattern_interrupt_required": true,
+    "pattern_interrupt_role": "limitation",
+    "pattern_interrupt_reason": "limitation-pivot",
+    "local_composition_primitives_required": true
+  },
+  "silent_comprehension": {
+    "first_frame_hook_visible": true,
+    "core_roles": [
+      "hook",
+      "finding",
+      "evidence",
+      "limitation"
+    ],
+    "max_core_words": 14,
+    "max_core_chars": 96,
+    "min_readable_seconds": 0.85,
+    "spoken_scientific_qualifiers_preserved": true,
+    "mobile_safe_area": "platform-intersection",
+    "source_url_lossless": true,
+    "exact_master_audio_off_review": true
+  }
+}

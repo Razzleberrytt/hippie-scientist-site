@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {summarizeRegistry,renderSummaryMarkdown} from './research-observatory.mjs';
+test('observatory separates lanes and batch state',()=>{const s=summarizeRegistry({active_batch_id:'rolling-0001',reservations:[{lane:1,batch_id:'rolling-0001',state:'SOURCE_VERIFIED'},{lane:3,batch_id:'rolling-0001',state:'SOURCE_VERIFIED'}],batches:[{id:'rolling-0001',state:'ACTIVE'}]});assert.equal(s.by_lane['1'],1);assert.equal(s.by_lane['3'],1);assert.match(renderSummaryMarkdown(s),/rolling-0001/)});

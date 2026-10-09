@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor } from './autonomous-merge-controller.mjs'
+import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
 
 const baseSha = 'base'
 const headSha = 'head'
@@ -533,4 +533,73 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(failed.reason).toContain('known check failure')
   })
 
+})
+
+describe('P0 zero-job bot refresh recovery routing', () => {
+  const zeroJob={id:42,name:'CI',event:'pull_request',status:'completed',conclusion:'action_required'}
+  const confirmed=new Set([42])
+  it('dispatches a missing workflow but never assumes a zero-job stub is validated', () => {
+    expect(shouldDispatchRegisteredWorkflow('CI',[])).toBe(true)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob])).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob],confirmed)).toBe(true)
+  })
+  it('refuses to replace real failed, successful or pending workflow results', () => {
+    for(const state of [
+      {...zeroJob,conclusion:'failure'},
+      {...zeroJob,conclusion:'success'},
+      {...zeroJob,status:'in_progress',conclusion:null},
+      {...zeroJob,event:'workflow_dispatch',conclusion:'success'},
+    ]){
+      expect(shouldDispatchRegisteredWorkflow('CI',[state],confirmed)).toBe(false)
+    }
+  })
+  it('fails closed for a mixed zero-job and real workflow, including a prior recovery', () => {
+    const another={...zeroJob,id:43,conclusion:'success'}
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,another],new Set([42,43]))).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',[
+      zeroJob,{...zeroJob,id:44,event:'workflow_dispatch',status:'in_progress',conclusion:null},
+    ],new Set([42,44]))).toBe(false)
+  })
+  it('requires zero-job proof for EVERY bot-suppressed same-name run', () => {
+    const both=[zeroJob,{...zeroJob,id:43}]
+    expect(shouldDispatchRegisteredWorkflow('CI',both,new Set([42]))).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',both,new Set([42,43]))).toBe(true)
+  })
+  it('scopes to the exact workflow and ignores unrelated suppression records', () => {
+    expect(shouldDispatchRegisteredWorkflow('CI',[{...zeroJob,name:'Site Health Check'}])).toBe(true)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,{...zeroJob,id:55,name:'Site Health Check'}],confirmed)).toBe(true)
+  })
+})
+
+describe('P0 source-register strict exact-head recovery', () => {
+  const recoveryPr = { number: 6445, base: { ref: 'main' }, head: { sha: 'a'.repeat(40) } }
+  it('passes the exact PR, base and full SHA only to the named source workflow', () => {
+    expect(recoveryInputsFor('Research Source Register Integration', recoveryPr)).toEqual({
+      recovery_pr_number: '6445',
+      recovery_base_ref: 'main',
+      recovery_head_sha: 'a'.repeat(40),
+    })
+    expect(recoveryInputsFor('CI', recoveryPr)).toEqual({ recovery_pr_number: '6445' })
+    expect(recoveryInputsFor('Unexpected workflow', recoveryPr)).toBeNull()
+  })
+  it('runs fail-closed same-repo and SHA identity checks before checkout', () => {
+    const workflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/research-source-register-integration.yml'), 'utf8')
+    const proof = workflow.indexOf('Prove exact pull-request head and base before recovery execution')
+    const checkout = workflow.indexOf('actions/checkout@v4')
+    expect(proof).toBeGreaterThan(0)
+    expect(checkout).toBeGreaterThan(proof)
+    for (const boundary of [
+      'recovery_pr_number:', 'recovery_base_ref:', 'recovery_head_sha:',
+      'pr_state', 'pr_repo', 'pr_base', 'pr_head',
+      '$GITHUB_SHA', 'refs/heads/$pr_branch',
+      'pull-requests: read', 'contents: read',
+    ]) expect(workflow).toContain(boundary)
+    expect(workflow).not.toMatch(/^\s+(contents|actions|pull-requests): write\s*$/m)
+  })
+  it('preserves original science validators and PR/push event entry points', () => {
+    const workflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/research-source-register-integration.yml'), 'utf8')
+    for (const required of ['  pull_request:', '  push:', 'validate-research-source-register.mjs',
+      'validate-research-semantic-network.ts', 'validate-research-intelligence-studio.ts',
+      'npm run typecheck']) expect(workflow).toContain(required)
+  })
 })
