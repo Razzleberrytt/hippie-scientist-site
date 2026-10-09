@@ -1,0 +1,64 @@
+name: Research lane 4 native hourly discovery
+on:
+  schedule:
+    - cron: '27 * * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: research-reservation-global
+  cancel-in-progress: false
+
+jobs:
+  discover-and-submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate research control plane
+        run: node --test scripts/research/*.test.mjs
+      - name: Discover bounded research-only PMID seeds
+        id: discover
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          node scripts/research/discover-lane4-seeds.mjs | tee /tmp/lane4-discovery.log
+          seed="$(sed -n 's/^SEED_PATH=//p' /tmp/lane4-discovery.log | head -1)"
+          if [ -n "$seed" ]; then
+            echo "seed=$seed" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Persist source-identity seeds to unique intake branch
+        if: steps.discover.outputs.seed != ''
+        env:
+          SEED: ${{ steps.discover.outputs.seed }}
+        run: |
+          set -euo pipefail
+          branch="research/intake/4/native-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add -- "$SEED"
+          git commit -m "research(intake): source-identity-only lane 4 PMID seeds"
+          git push origin "HEAD:refs/heads/$branch"
+          echo "SUBMITTED branch=$branch seed=$SEED"
+      # GITHUB_TOKEN pushes do not trigger other GitHub Actions push workflows.
+      # The branch survives a transient reservation failure for the existing
+      # hourly replay handler, but this job must reserve it exactly once itself.
+      - name: Reserve with the existing globally serialized controller
+        if: steps.discover.outputs.seed != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CANDIDATE_PATH: ${{ steps.discover.outputs.seed }}
+        run: node scripts/research/github-reservation-controller.mjs reserve
