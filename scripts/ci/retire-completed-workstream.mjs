@@ -131,16 +131,25 @@ export async function proposeRetirement({ repo, sha, runId, token, request = fet
   })
   if (!sha40(commit.sha)) throw Error('Unverified replacement commit')
   await api('POST', 'git/refs', { ref: 'refs/heads/' + branch, sha: commit.sha })
-  const body = '## Scope\nRetire only closed issue #' + ticket + ' after PR #' + pull.number +
-    ' merged and [production run](https://github.com/' + repo + '/actions/runs/' + runId +
-    ') succeeded for the exact SHA ' + sha +
-    '.\n\n## Acceptance and validation\nCanonical active sprint/backlog ownership stays identical; WIP ' +
-    plan.before + '/3 → ' + plan.after +
-    '/3. No new ticket admitted, no product code or clinical claim, no paid dependency. ' +
-    'Required project-control/CI/Atomic gates and sole merge controller apply.\n\n' +
-    '## Rollback and outcomes\nRevert these documentation-only changes if GitHub/deployment provenance was wrong. ' +
-    'Business ROI, conversion, subscriptions and revenue remain Unknown; no implementation completion credit.'
-  const pr = await api('POST', 'pulls', {
+  const body = 'Closes #' + ticket + '\n\n## Relevant URLs\n' +
+    '- Source PR: https://github.com/' + repo + '/pull/' + pull.number + '\n' +
+    '- Closed owner: https://github.com/' + repo + '/issues/' + ticket + '\n' +
+    '- Production receipt: https://github.com/' + repo + '/actions/runs/' + runId + '\n\n' +
+    '## Acceptance criteria\nRetire only closed owner #' + ticket +
+    ' after a uniquely verified merged PR and exact successful production SHA ' + sha +
+    '. Both canonical active tables remain equivalent and WIP changes ' +
+    plan.before + '/3 → ' + plan.after + '/3. No additional owner is admitted.\n\n' +
+    '## Validation commands\nProject Control reconciliation, exact-PR Atomic, Site Health, ' +
+    'CI and Build Quality must all succeed on the new PR head. Sole governed controller merges; ' +
+    'no branch-protection changes or test suppression.\n\n' +
+    '## Before → after metrics\nNormal WIP ' + plan.before + '/3 → ' + plan.after +
+    '/3. Real traffic, ROI and revenue remain Unknown; documentation-only cleanup.\n\n' +
+    '## Generator/source-of-truth decision\nCURRENT_SPRINT and MASTER_BACKLOG are authoritative. ' +
+    'This PR was generated from the authenticated exact deploy/issue/PR receipts; ' +
+    'no new queue, billing or scientific data store.\n\n' +
+    '## Regression contract\nPreserve other D/R/A owners and all scientific, security and clinical gates. ' +
+    'Fail closed on mismatched ownership or source SHA; a missing mandatory check blocks merge. ' +
+    'Rollback by reverting this docs-only PR if its verified identity changes.'\n  const pr = await api('POST', 'pulls', {
     title: 'docs(control): retire verified completed issue #' + ticket,
     head: branch, base: 'main', draft: false, body,
   })
