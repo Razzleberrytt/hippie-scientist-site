@@ -39381,6 +39381,158 @@
       "reservation_id": "d1b23afe2d53cc00d0d6",
       "reserved_at": "2026-10-09T19:12:49.813Z",
       "source_branch": "research/intake/3/20261009-1511-herb-transcript-cannabinoid-cyp"
+    },
+    {
+      "pmid": "41668254",
+      "title": "Xylazine Exposure and Association With Early Physiological and Withdrawal Symptoms in People With Opioid Use Disorder.",
+      "doi": "10.1097/ADM.0000000000001659",
+      "source_title": "Xylazine Exposure and Association With Early Physiological and Withdrawal Symptoms in People With Opioid Use Disorder.",
+      "abstract": "The prevalence of xylazine, an agonist at the alpha-2 adrenergic receptor often used in veterinary medicine, has increased in the illicit opioid drug supply. Case series and survey data suggest that xylazine may increase the nature and severity of opioid withdrawal. We sought to evaluate the association between quantified levels of xylazine exposure and withdrawal symptoms in people undergoing opioid withdrawal. People (n=36; 11 female) with opioid use disorder and physical dependence were enrolled in two harmonized clinical trials. Urine specimens were collected at admission to a residential unit and were analyzed for xylazine, fentanyl, and its inactive metabolite norfentanyl. Opioid withdrawal and physiological effects were collected during stabilization on oral hydromorphone without illicit opioid access. Urinary xylazine was detected in 69% of samples with concentrations ranging from 5.7 to 15481.1 ng/mL. Among participants with detectable urinary xylazine, higher xylazine concentrations were significantly associated with higher systolic blood pressure ( b =7.68 [2.03, 13.33], P =0.011) and COWS total scores ( b =1.53 [0.17, 2.88], P =0.029). No significant differences in blood pressure or COWS were observed between participants with and without xylazine detected. Potential rebound hypertensive effects following xylazine exposure were observed, consistent with alpha-2 adrenergic mechanisms, which may be accompanied by an exacerbated withdrawal syndrome. Continued preclinical and clinical evaluation of strategies are needed to understand how co-exposure to drug adulterants like xylazine influences withdrawal expression and the utility of existing pharmacological approaches for withdrawal management in clinical settings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41668254/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified human xylazine withdrawal association and community drug-checking implementation; scientific interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41668254",
+        "doi": "10.1097/ADM.0000000000001659",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T19:22:45.164Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "97c3809a56b86595dc34",
+      "reserved_at": "2026-10-09T19:22:48.636Z",
+      "source_branch": "research/intake/4/20261009-1519-xylazine-drugchecking"
+    },
+    {
+      "pmid": "42163644",
+      "title": "Shifting Perspectives: Harm Reduction Staff Perceptions of Drug Checking Implementation.",
+      "doi": "10.1177/29767342261444522",
+      "source_title": "Shifting Perspectives: Harm Reduction Staff Perceptions of Drug Checking Implementation.",
+      "abstract": "As the overdose crisis continues to devastate communities, expanding access to harm reduction services, such as drug checking, is essential. Drug checking services (DCS) enable people who use drugs (PWUD) to identify the likely active ingredients within their substances, supporting safer use and reducing overdose risk. However, implementing DCS in community settings may encounter barriers such as stigma, legal ambiguity, and organizational constraints. This study examines harm reduction staff perspectives on the implementation and delivery of a community-based DCS program in Michigan. This study explored the perceptions of staff from a harm reduction organization before and after implementing Michigan's first community-based DCS using Fourier-Transform Infrared spectroscopy. Six focus groups, each composed of 2 to 5 staff members, were conducted before and after implementing DCS. Rapid qualitative methods, informed by the Consolidated Framework for Implementation Research, were used for analysis. Prior to implementation, staff anticipated that DCS would empower PWUD and provide crucial drug supply information to communities. Staff also believed that strong relationships with PWUD and effective service integration would facilitate uptake. Post-implementation, staff noted there was considerable engagement with DCS among PWUD, enhanced by dissemination via peer networks and strategic communication approaches. However, staff encountered several barriers to smooth implementation, including ongoing concerns about legal risks and criminalization, as well as organizational capacity constraints. Findings from this study highlight the need for legal protections, adequate staffing, and community support to sustain and expand drug checking programs.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42163644/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified human xylazine withdrawal association and community drug-checking implementation; scientific interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42163644",
+        "doi": "10.1177/29767342261444522",
+        "journal": "Substance use & addiction journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T19:22:45.165Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fd7106025050c8c426c3",
+      "reserved_at": "2026-10-09T19:22:48.636Z",
+      "source_branch": "research/intake/4/20261009-1519-xylazine-drugchecking"
     }
   ],
   "batches": [
@@ -39394,22 +39546,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 497,
+    "total_reservations": 499,
     "by_lane": {
       "1": 14,
       "2": 89,
       "3": 79,
-      "4": 40,
+      "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 497
+      "SOURCE_VERIFIED": 499
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 497,
+        "count": 499,
         "pr_number": null,
         "blocker": null
       }
