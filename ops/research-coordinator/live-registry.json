@@ -38232,6 +38232,83 @@
       "reservation_id": "ed15c3025f671c2bf781",
       "reserved_at": "2026-10-09T16:39:30.295Z",
       "source_branch": "research/intake/1/20261009-1237-six-sleep-stress-mood"
+    },
+    {
+      "pmid": "41935557",
+      "title": "An online, predominantly plant-based, dietary intervention for improving cardiovascular risk: A randomized controlled trial in people with type 2 diabetes.",
+      "doi": "10.1016/j.ahj.2026.107436",
+      "source_title": "An online, predominantly plant-based, dietary intervention for improving cardiovascular risk: A randomized controlled trial in people with type 2 diabetes.",
+      "abstract": "Proof-of-concept study evaluating the effect of a 12-week, predominantly plant-based online dietary intervention compared to usual diet on change in glycated hemoglobin (HbA1c) and estimated cardiovascular disease (CVD) risk in people with type 2 diabetes (T2D). People with T2D on stable medication were randomized to usual diet or a 12-week, predominantly plant-based online dietary intervention. Coprimary outcomes were change in HbA1c and estimated relative CVD risk calculated from change in HbA1c, low-density lipoprotein cholesterol (LDL-c), and systolic blood pressure (SBP). In total, 49 people were randomized, with 48 completing the trial. Mean age was 64 ± 9 years, and 50% were male. There was a nonsignificant 3 (95% CI -7, 2) mmol/mol reduction in HbA1c and a 16% (95% CI -29, 1%) estimated relative CVD risk reduction in the plant-based compared to the usual diet group. Plant-based to total protein intake increased by 35% (95% CI 21, 49%), saturated fat intake decreased by 4 energy-percent (95% CI -6, -1), weight decreased by 2.0 kg (95% CI -3.6; -0.5) and LDL-c by 0.3 mmol/L (95% CI -0.6; -0.0) in the plant-based compared to the usual diet group. There was no effect on SBP (-3 mmHg) (95% CI -10, 4). Medication use remained stable. No people experienced clinically important hypoglycemia. Mild gastrointestinal complaints in the plant-based group were generally well tolerated. An online plant-based dietary intervention did not significantly reduce HbA1c and resulted in a trend toward a 16% estimated reduction in relative CVD risk. Several secondary outcomes, including dietary components, weight, and LDL-c improved. This trial was registered at clinicaltrials.gov under NCT05777746.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41935557/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41935557",
+        "doi": "10.1016/j.ahj.2026.107436",
+        "journal": "American heart journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T16:57:46.098Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7e26c5c52e5dbc566abe",
+      "reserved_at": "2026-10-09T16:57:50.627Z",
+      "source_branch": "research/intake/2/20261009-1255-cognition-metabolic-4-r26"
     }
   ],
   "batches": [
@@ -38245,22 +38322,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 482,
+    "total_reservations": 483,
     "by_lane": {
       "1": 13,
-      "2": 85,
+      "2": 86,
       "3": 69,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 482
+      "SOURCE_VERIFIED": 483
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 482,
+        "count": 483,
         "pr_number": null,
         "blocker": null
       }
