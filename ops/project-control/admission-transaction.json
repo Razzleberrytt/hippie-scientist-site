@@ -1,19 +1,14 @@
 {
   "version": 1,
-  "ticket": 6368,
-  "lane": "D",
-  "title": "TikTok app-review Terms of Service page, first-party canonical route and discoverability",
-  "priority": "P0",
-  "base_revision": "2a8a5f9294e0a4a40d9b28f299388a31859f6961",
+  "mode": "existing-owner-reconciliation",
+  "base_revision": "ce048b9fbdfd630e46f5781562ab42b10ca61a95",
   "last_verified": "2026-10-09",
-  "score_inputs": {
-    "businessImpact": 4,
-    "userValue": 5,
-    "trafficPotential": 3,
-    "strategicLeverage": 4,
-    "confidence": 0.75,
-    "effort": 2
-  },
-  "score": 90,
-  "note": "Exactly one user-visible TikTok app-review prerequisite ticket, preserve static export, existing privacy/disclaimer, no provider configuration or publication authority; separately verify item against original 150-task checklist."
+  "owners": [
+    {
+      "ticket": 6491,
+      "pr": 6492,
+      "lane": "D"
+    }
+  ],
+  "note": "Authenticate exact pre-base issue→PR reference and unique open PR #6492 as existing owner; base main retired closed #6368 via PR #6494. No second D admission, no bypass of checks or science gates. P0 priority score corrected to canonical confidence 0.75: 80.0."
 }
