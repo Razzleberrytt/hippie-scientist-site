@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO (D) owns the #6466 typed source-to-editorial review-only handoff after fresh exact-base admission; Revenue/Conversion and Authority/Content remain free. WIP cap is unchanged. No medical review/publication authority, field use, revenue or checklist credit is inferred from this admission.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Issue #6466 / PR #6471 was merged as `bfbfeea3c15acfa5cc171bffd38714a1e1228c4c` through the authorized controller and no longer occupies Discovery/SEO; R/A remain free. This does not authorize an unadmitted successor. Source/claim review stays human-only; Cloudflare workflow `37875021598` requires an independent exact production receipt, and research usage/ROI remain Unknown.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -67,7 +67,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -82,7 +82,6 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6466 / PR #6471 | Typed source-to-editorial review-only handoff and identity guards | In review — admitted | P0 | 60.0 | 2026-10-09 |
 
 
 
