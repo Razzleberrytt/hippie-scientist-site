@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent} from './github-reservation-controller.mjs';
+import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent,resolveRegistryContents} from './github-reservation-controller.mjs';
 
 const record=(pmid,domain)=>({
  pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,
@@ -70,4 +70,22 @@ test('oversized evidence part reads from immutable GitHub blob without losing PM
   assert.deepEqual(JSON.parse(decoded),part);
   assert.deepEqual(seen,['verified-head-blob']);
   await assert.rejects(readGithubContent({sha:'bad',encoding:'none',content:''},async()=>({encoding:'none',content:''})),/missing base64 content/);
+});
+
+
+test('exact registry blob 404 never recreates an empty research ledger',async()=>{
+  const contents={sha:'existing-blob',encoding:'none',content:'',size:2800000};
+  const blobError=Object.assign(Error('GitHub blob not found'),{status:404});
+  await assert.rejects(
+    resolveRegistryContents(async()=>contents,async()=>{throw blobError}),
+    /GitHub blob not found/
+  );
+  const notFound=Object.assign(Error('GitHub registry contents missing'),{status:404});
+  let fetchedBlob=false;
+  const initial=await resolveRegistryContents(async()=>{throw notFound},async()=>{fetchedBlob=true});
+  assert.equal(initial.sha,null);
+  assert.deepEqual(initial.value.reservations,[]);
+  assert.equal(fetchedBlob,false);
+  const forbidden=Object.assign(Error('GitHub forbidden'),{status:403});
+  await assert.rejects(resolveRegistryContents(async()=>{throw forbidden},async()=>{}),/GitHub forbidden/);
 });
