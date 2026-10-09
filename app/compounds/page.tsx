@@ -10,6 +10,7 @@ import { getCompoundName } from './library-selector'
 import CompoundsIndexClient from './CompoundsIndexClient'
 import type { RuntimeRecord } from '../../types/content'
 import Pagination from '@/components/Pagination'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import LookupFamilyNav from '@/components/navigation/LookupFamilyNav'
 import '../../styles/library-browse.css'
 
@@ -98,6 +99,7 @@ export default async function CompoundsPage() {
         />
       </Suspense>
       <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
+      <NewsletterSignup location='compounds-hub' variant='compact' />
     </div>
   )
 }
