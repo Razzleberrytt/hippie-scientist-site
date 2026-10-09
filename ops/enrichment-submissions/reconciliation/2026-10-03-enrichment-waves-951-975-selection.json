@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-951-975-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-926-950-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 475,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "Sider Scholar/OpenAlex + NCBI PubMed exact-source verification",
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 951,
+      "entity_slug": "hmb",
+      "pmid": "42441818",
+      "focus": "Randomized triple-blind HMB free-acid trial in trained/untrained men with high-intensity functional exercise; aerobic-capacity support was more apparent than strength, with training-status and regimen boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 952,
+      "entity_slug": "l-citrulline",
+      "pmid": "42280350",
+      "focus": "Open-label randomized post-COVID trial in 43 adults; ICAM-1 decreased and 6-minute walk improved, while body composition did not differ between groups; disease-specific and small-study evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 953,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42445795",
+      "focus": "33-study exercise meta-analysis; modest HI sprint, mean-power and VO2max signals with potential athlete/sport/timing modifiers; performance context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 954,
+      "entity_slug": "5-htp",
+      "pmid": "42160304",
+      "focus": "Acute randomized trial in adults with high/low ADHD traits; 5-HTP produced no significant positive effect on distractibility measures, providing a useful null counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 955,
+      "entity_slug": "citrulline-malate",
+      "pmid": "42162613",
+      "focus": "Pilot 6-week RCT in 20 physically active older women; sit-to-stand improved, while several between-group performance, biomarker and QoL outcomes were nonsignificant; preliminary evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 956,
+      "entity_slug": "citrulline-malate",
+      "pmid": "42043075",
+      "focus": "Very small randomized crossover in 11 trained male sprinters; acute 8-g CM modestly improved repeated 100-m performance and reduced pre-second-sprint RPE; acute athletic context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 957,
+      "entity_slug": "fiber-blend",
+      "pmid": "42782339",
+      "focus": "Three-week proprietary fiber-blend RCT in 26 IBS patients following low-FODMAP diets; microbiota and GI-specific anxiety changed while gut symptoms, sleep and measured biomarkers remained stable/null.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 958,
+      "entity_slug": "black-tea-inulin-dextrin",
+      "pmid": "39616149",
+      "focus": "Acute crossover T2D study; black tea with inulin+dextrin reduced postprandial glucose fluctuation/AUC and insulin response versus placebo; combination-only evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 959,
+      "entity_slug": "dietary-interventions-gut-microbiota",
+      "pmid": "41501909",
+      "focus": "Systematic review of 80 controlled diet trials; taxonomy and biomarker changes occurred across diets but alpha/beta diversity changes were not consistent; broad dietary category evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 960,
+      "entity_slug": "gut-microbiome-cancer-interventions",
+      "pmid": "41475679",
+      "focus": "Cancer-treatment SR/MA: gut-microbiome interventions reduced GI adverse events overall with high heterogeneity, while objective cancer-treatment response did not clearly improve.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 961,
+      "entity_slug": "dietary-fiber",
+      "pmid": "40647069",
+      "focus": "Seven-RCT/187-participant elderly-constipation meta-analysis; stool frequency was not significantly improved, while laxative/enema use fell and bifidobacteria increased.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 962,
+      "entity_slug": "multiple-micronutrients-development",
+      "pmid": "41470911",
+      "focus": "Long-term randomized-evidence review of maternal/early-childhood micronutrient supplementation; most cognitive outcomes were null with a few modest domain-specific developmental signals.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 963,
+      "entity_slug": "macro-micronutrients-orthopedic",
+      "pmid": "42111841",
+      "focus": "Broad orthopedic nutrition meta-analysis; BMD/biochemical/inflammation/recovery signals contrasted with null fracture-healing and functional/muscle outcomes; high heterogeneity limits attribution.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 964,
+      "entity_slug": "berry-supplements",
+      "pmid": "42196965",
+      "focus": "Nine-RCT/547-participant hypertension/elevated-BP meta-analysis; resting SBP/DBP and cardiometabolic markers were null, with only a small ambulatory DBP signal and low/very-low certainty.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 965,
+      "entity_slug": "polyphenols-resistance-training",
+      "pmid": "42729406",
+      "focus": "Eleven-RCT/360-participant review; chronic polyphenols did not establish reliable added strength, lean-mass or muscle-morphology adaptation beyond resistance training.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 966,
+      "entity_slug": "probiotics",
+      "pmid": "42694318",
+      "focus": "Twenty-RCT mental-health systematic review; some psychological/sleep/microbiome signals but cortisol/stress findings inconsistent and strain/population/outcome heterogeneity substantial.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 967,
+      "entity_slug": "polyphenols-exercise-recovery",
+      "pmid": "42761264",
+      "focus": "Twenty-four-RCT three-level meta-analysis; small soreness benefit, but muscle-damage biomarkers and performance effects remained uncertain with low/very-low certainty.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 968,
+      "entity_slug": "broad-spectrum-micronutrients",
+      "pmid": "41643810",
+      "focus": "Eight-week RCT in 132 adolescents with irritability; some clinician/parent outcomes improved while one primary irritability measure was null; subgroup effects and pediatric formulation context retained.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 969,
+      "entity_slug": "herbal-hemorrhoid-cream",
+      "pmid": "42812757",
+      "focus": "Triple-blind trial of a four-herb topical cream versus conventional cream; both improved symptoms, but no significant between-group effect or interaction was shown; combination-only and high-dropout context.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 970,
+      "entity_slug": "strawberry-leaf-extract",
+      "pmid": "42508219",
+      "focus": "Older-adult trial of strawberry leaf extract for self-reported memory complaints; leaf material must remain distinct from strawberry fruit and sponsor/product provenance retained.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 971,
+      "entity_slug": "mentha-amaranthus-combination",
+      "pmid": "41519619",
+      "focus": "Mentha spicata + Amaranthus seed flour + flavonoids/B-vitamins trial; highest-dose lipid signals belong only to the multi-ingredient combination.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 972,
+      "entity_slug": "ulva-lactuca",
+      "pmid": "42514313",
+      "focus": "Small 28-day Ulva lactuca trial in healthy adults; biomarker-only outcomes, 18 completers and industry provenance require cautious research-only handling.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 973,
+      "entity_slug": "ecklonia-chrysanthemum-combination",
+      "pmid": "41523268",
+      "focus": "Twelve-week Ecklonia cava + Chrysanthemum indicum RCT; respiratory signals with some QoL nulls, attributable only to the combination.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 974,
+      "entity_slug": "naturopathy-review",
+      "pmid": "42403781",
+      "focus": "Broad naturopathy review retained for research mapping only; exact intervention-level extraction is required before any canonical claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 975,
+      "entity_slug": "probiotic-bone-health-correction",
+      "pmid": "42313181",
+      "focus": "Published correction associated with probiotic bone-health evidence; correction provenance must travel with any downstream use of the corrected source.",
+      "state": "correction_metadata_only"
+    }
+  ]
+}

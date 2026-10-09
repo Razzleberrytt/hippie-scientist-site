@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-801-825-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-776-800-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 325,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed systematic reviews/meta-analyses of sports nutrition and exercise supplementation; exact PMID identities verified during 2026-10-03 authoring"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 801,
+      "entity_slug": "taurine",
+      "pmid": "40852891",
+      "focus": "2025 meta-analysis of 23 randomized trials/308 participants; acute single-dose taurine showed a small-to-moderate overall exercise-performance signal, but prediction intervals often crossed null and several subgroup effects weakened after sensitivity analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 802,
+      "entity_slug": "taurine",
+      "pmid": "35769396",
+      "focus": "Five-RCT/209-participant diabetes meta-analysis; HbA1c, fasting glucose and HOMA-IR signals with insulin/triglyceride effects not statistically significant; diabetes-specific surrogate evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 803,
+      "entity_slug": "omega-3",
+      "pmid": "37222574",
+      "focus": "RCT meta-analysis in metabolic syndrome/related cardiovascular disease; TG, BP and several inflammatory-marker signals with LDL and multiple endothelial markers null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 804,
+      "entity_slug": "bcaa",
+      "pmid": "41655197",
+      "focus": "2026 systematic review of BCAA/leucine in endurance sport; biochemical changes must be separated from functional performance, recovery and adverse-effect outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 805,
+      "entity_slug": "bcaa",
+      "pmid": "41346907",
+      "focus": "2025 systematic review of 22 RCTs/511 participants; possible post-exercise soreness benefit but inconsistent strength, endurance and body-composition evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 806,
+      "entity_slug": "beta-alanine",
+      "pmid": "41971372",
+      "focus": "2026 multilevel RCT meta-analysis found no ergogenic benefit for repeated-sprint ability, an important counterweight to broader high-intensity performance claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 807,
+      "entity_slug": "hmb",
+      "pmid": "39797501",
+      "focus": "2025 umbrella review of 11 meta-analyses; small muscle-mass/strength/fat-free-mass signals with fat-mass/body-weight nulls and mixed review quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 808,
+      "entity_slug": "dietary-nitrate",
+      "pmid": "35580578",
+      "focus": "123-study/1,705-participant exercise meta-analysis; very small overall performance benefit with important formulation, exercise-task and participant modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 809,
+      "entity_slug": "leucine-rich-protein",
+      "pmid": "35777246",
+      "focus": "Six-RCT/699-participant meta-analysis in sarcopenic older adults; strength/mass/performance signals remain older-adult and combined-protein-formulation specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 810,
+      "entity_slug": "protein-supplements",
+      "pmid": "38830547",
+      "focus": "2024 review of 38 articles in older adults; small muscle-mass benefit in community-dwelling populations, while dose/frequency/timing did not significantly modify the effect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 811,
+      "entity_slug": "whey-protein",
+      "pmid": "39303495",
+      "focus": "2024 RCT meta-analysis in older adults; muscle strength, physical performance and body-composition outcomes are training- and outcome-specific rather than uniformly positive.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 812,
+      "entity_slug": "protein-supplements",
+      "pmid": "40200135",
+      "focus": "2025 systematic review/meta-analysis in physically inactive older adults; muscle mass, strength and physical-performance evidence remains population- and co-intervention specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 813,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42523624",
+      "focus": "2026 38-study/703-participant meta-analysis; beetroot juice produced a small VO2max/VO2peak signal with moderate heterogeneity, not a universal endurance-performance effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 814,
+      "entity_slug": "carbohydrate",
+      "pmid": "37449467",
+      "focus": "136-study endurance meta-analysis; acute carbohydrate feeding improved performance overall, with larger effects in time-to-exhaustion and longer-duration tasks; sport-context evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 815,
+      "entity_slug": "hmb",
+      "pmid": "39999663",
+      "focus": "2025 sarcopenia-specific RCT meta-analysis; HMB effects on muscle mass, strength and performance remain diagnosis-specific and should not be generalized to healthy adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 816,
+      "entity_slug": "collagen-peptides",
+      "pmid": "39060741",
+      "focus": "2024 systematic review/meta-analysis of collagen peptides with longer-term training; strength, musculotendinous remodeling, recovery and body-composition findings remain exercise- and formulation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 817,
+      "entity_slug": "protein-supplements",
+      "pmid": "39955964",
+      "focus": "2025 systematic review of protein alone or with exercise in adults >=65 with sarcopenia/frailty; co-intervention and frailty-status boundaries retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 818,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "42781544",
+      "focus": "2026 team-sport meta-analysis of acute/short-term sodium bicarbonate; high-intensity intermittent performance and physiologic responses are protocol-specific and tolerability matters.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 819,
+      "entity_slug": "caffeine",
+      "pmid": "42255518",
+      "focus": "2026 20-study/320-participant HIIE meta-analysis; small performance improvement with lactate/glucose changes and protocol/rest-work modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 820,
+      "entity_slug": "creatine",
+      "pmid": "42027564",
+      "focus": "2026 39-trial meta-analysis in healthy young men; body-composition, strength and performance effects differed by resistance-training versus non-resistance context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 821,
+      "entity_slug": "beta-alanine",
+      "pmid": "39724872",
+      "focus": "Systematic review in older adults; exercise-capacity/strength/function evidence is sparse and mixed, limiting generalization from younger athletic populations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 822,
+      "entity_slug": "caffeine",
+      "pmid": "42591203",
+      "focus": "2026 women-specific three-level meta-analysis of acute caffeine before resistance exercise; sex-specific performance domains and prediction intervals retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 823,
+      "entity_slug": "caffeine",
+      "pmid": "41601907",
+      "focus": "2025 systematic review/meta-analysis of acute caffeine and cycling performance; training status, age and dose were evaluated as moderators rather than assuming a uniform effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 824,
+      "entity_slug": "caffeine",
+      "pmid": "42445506",
+      "focus": "2026 cycling time-trial meta-analysis; acute caffeine effects were evaluated separately for short- and long-duration tasks, preserving task-duration dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 825,
+      "entity_slug": "beta-alanine",
+      "pmid": "42370349",
+      "focus": "2026 women-specific systematic review/meta-analysis; time-to-exhaustion, VO2, power, anaerobic performance and body-fat outcomes remain sex- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

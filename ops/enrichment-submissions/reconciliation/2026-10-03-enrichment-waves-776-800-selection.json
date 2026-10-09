@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-776-800-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-751-775-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 300,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed systematic reviews/meta-analyses and randomized-trial syntheses; exact PMID identities verified during 2026-10-03 authoring"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 776,
+      "entity_slug": "phytosterols",
+      "pmid": "40672367",
+      "focus": "2025 14-RCT/1,088-participant hyperlipidemia meta-analysis; TC/LDL-C reductions and modest HDL-C increase, CRP null and triglyceride result borderline/heterogeneous.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 777,
+      "entity_slug": "l-citrulline",
+      "pmid": "41786156",
+      "focus": "2026 nine-RCT meta-analysis of long-term L-citrulline plus exercise; small body-fat/android-fat signals while body weight, BMI, gynoid fat and total lean mass were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 778,
+      "entity_slug": "l-citrulline",
+      "pmid": "41097202",
+      "focus": "2025 21-RCT dose-response meta-analysis; no substantial overall effect on BMI, weight, fat mass, waist, body-fat percentage or fat-free mass, with exploratory subgroup signals only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 779,
+      "entity_slug": "phytosterols",
+      "pmid": "39432657",
+      "focus": "2024 28-RCT/1,777-participant meta-analysis; TC, LDL-C and apoB-related improvements with dose-response patterns, but lipid-surrogate evidence does not establish event reduction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 780,
+      "entity_slug": "fiber",
+      "pmid": "35816465",
+      "focus": "16-RCT/1,251-participant chronic-constipation meta-analysis; overall response improved, with psyllium and pectin among fiber types showing significant effects and heterogeneity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 781,
+      "entity_slug": "vitamin-b12",
+      "pmid": "39655146",
+      "focus": "Nine-RCT systematic review/meta-analysis; vitamin B12 supplementation showed no significant pooled benefit for cognitive memory or depressive symptoms.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 782,
+      "entity_slug": "phytosterols",
+      "pmid": "39476284",
+      "focus": "2024 inflammatory-marker meta-analysis; CRP overall null while hs-CRP decreased modestly, requiring biomarker-specific interpretation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 783,
+      "entity_slug": "citrulline-malate",
+      "pmid": "42356270",
+      "focus": "2026 three-level exercise-performance meta-analysis; small performance signal must remain distinct from perceived-exertion outcomes and acute/chronic protocol differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 784,
+      "entity_slug": "vitamin-k",
+      "pmid": "31076817",
+      "focus": "36-RCT bone-health meta-analysis; selected fracture/BMD signals in postmenopausal/osteoporotic populations with questioned historical evidence quality explicitly retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 785,
+      "entity_slug": "b-vitamins",
+      "pmid": "40966571",
+      "focus": "2025 17-RCT/5,275-participant cognition meta-analysis in adults >=60; apparent larger pooled benefit collapsed to a very small high-certainty effect after removing outliers/single-blind studies.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 786,
+      "entity_slug": "folic-acid",
+      "pmid": "38465839",
+      "focus": "2024 22-trial/3,604-participant cognitive-impairment meta-analysis; cognition and homocysteine findings remain population- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 787,
+      "entity_slug": "folic-acid",
+      "pmid": "36518821",
+      "focus": "Nine-RCT/641-participant memory meta-analysis; overall memory effect was null despite subgroup/dose-response signals, providing a direct counterweight to broad memory claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 788,
+      "entity_slug": "b-vitamin-complex",
+      "pmid": "31527485",
+      "focus": "Systematic review/meta-analysis of multi-B-vitamin supplementation for mood in healthy and at-risk adults; mood/stress signals were inconsistent across populations and outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 789,
+      "entity_slug": "multivitamin-mineral",
+      "pmid": "41308839",
+      "focus": "2026 rapid review of 19 meta-analyses spanning >5.5 million participants; heterogeneous cognitive, psychological, BP and other outcomes must remain outcome- and population-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 790,
+      "entity_slug": "multivitamin-mineral",
+      "pmid": "38244989",
+      "focus": "COSMOS clinic trial plus meta-analysis of three cognitive substudies; modest global-cognition and episodic-memory signals with no clear executive/attention benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 791,
+      "entity_slug": "vitamin-e",
+      "pmid": "33057114",
+      "focus": "33-RCT/2,102-participant inflammatory-biomarker meta-analysis; CRP decreased, IL-6 overall null and TNF-alpha effects depended on high-dose/formulation subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 792,
+      "entity_slug": "selenium",
+      "pmid": "40898469",
+      "focus": "2025 Hashimoto meta-analysis of 21 studies/1,610 participants; TPOAb and selected TSH/TgAb reductions are antibody/biochemical outcomes, not proof of improved long-term thyroid clinical outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 793,
+      "entity_slug": "calcium",
+      "pmid": "36164828",
+      "focus": "43-study/7,382-participant meta-analysis in people <=35; selected femoral-neck/total-body BMD/BMC gains with site-specific nulls and no direct fracture-prevention evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 794,
+      "entity_slug": "vitamin-c",
+      "pmid": "33932734",
+      "focus": "RCT meta-analysis of vitamin C and adult mood; overall mood effect was not broadly established, with signals concentrated in selected subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 795,
+      "entity_slug": "phytosterols",
+      "pmid": "36891733",
+      "focus": "2023 hypercholesterolemia RCT meta-analysis; TC/LDL-C reductions with HDL-C and triglyceride nulls, and effects modified by food matrix/dose/esterification/duration.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 796,
+      "entity_slug": "folate",
+      "pmid": "15260915",
+      "focus": "Older controlled-trial review of folate in depressive disorders; limited adjunctive evidence from a small trial base retained as historical context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 797,
+      "entity_slug": "potassium",
+      "pmid": "32500831",
+      "focus": "Dose-response RCT synthesis of potassium intake and blood pressure; nonlinear/baseline-dependent effects require caution and do not support a universal optimal supplemental dose.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 798,
+      "entity_slug": "chromium",
+      "pmid": "33197598",
+      "focus": "Randomized-trial meta-analysis of chromium and lipid profile; endpoint-specific lipid changes with substantial formulation/population heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 799,
+      "entity_slug": "chromium",
+      "pmid": "17519436",
+      "focus": "Historical systematic review of chromium supplementation for glucose/lipid outcomes; inconsistent trial quality and formulation/dose differences retained as counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 800,
+      "entity_slug": "selenium",
+      "pmid": "24847462",
+      "focus": "Cochrane-era Hashimoto evidence review found the small heterogeneous trial base insufficient for reliable clinical conclusions; retained as historical evidence-quality counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
