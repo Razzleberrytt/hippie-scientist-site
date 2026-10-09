@@ -47,3 +47,31 @@ The regression suite checks exact DOI joins, unrelated DOI lookalikes, topic/pag
 2. Exact claim-lineage graph crossing articles, evidence blocks, review ledger, social scripts and published artifacts.
 3. Authenticated stale-source detection, human-approved correction queues, and public explanations of evidence changes.
 4. Telemetry and reviewer feedback loops that prioritize investigation without upgrading unreviewed observations to scientific authority.
+
+## Typed source-to-editorial request v1 — issue #6466
+
+This extends the existing exact-PMID scientific case/8-instrument/12-projection
+workbench with one `ResearchEditorialReviewHandoffV1`. It is a deterministic,
+read-only **human-review request**, not a clinical claim approval, publication
+event, revision of canonical evidence, or new data source.
+
+The packet pins `identity.pmid`, `identity.sourceSignature` and an optional
+normalized exact DOI, and separately carries reviewed citation crosswalk IDs.
+Distribution targets include existing `findingClaimId` and
+`primarySourceId`, explicitly labeled `requires-independent-human-editorial-review`.
+Publication identity and a recorded claim identifier **cannot themselves prove
+the claim is scientifically supported or that studies are independent**.
+Missing primary DOI, unknown claimed identifiers or absent exact source links
+remain unresolved/held; there is no fuzzy topic/ingredient fallback.
+
+Consumers use `verifyResearchEditorialReviewHandoff` with fresh current
+studio, semantic graph, PMID and distribution records. Unknown version,
+added rights, mismatched PMID/DOI/signature, foreign claim/source IDs and stale
+source revisions fail closed. `clinicalPromotions` stays `0`,
+`mutationAllowed` and `publicationAllowed` stay `false`.
+The existing research UI presents this status for source inspection, but cannot
+publish, change an article, or certify safety/clinical outcomes.
+
+Synthetic adversarial tests and the actual static-source/visible-workbench
+validator are required before exact-head CI, governed merge and matching
+production receipt. Reader use and business ROI remain Unknown absent telemetry.
