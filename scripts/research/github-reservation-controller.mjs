@@ -14,9 +14,17 @@ const intakeRoot='ops/research-intake/';
 
 function required(v,n){if(!v)throw Error('missing '+n);return v}
 async function api(url,{method='GET',body}={}){
- const r=await fetch(API+url,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
- if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
- if(r.status===204)return null;const t=await r.text();return t?JSON.parse(t):null;
+ for(let attempt=1;attempt<=3;attempt++){
+  const r=await fetch(API+url,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
+  if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
+  if(r.status===204)return null;
+  const t=await r.text();
+  if(!t)return null;
+  try{return JSON.parse(t)}catch(error){
+   if(method!=='GET'||attempt===3||!(error instanceof SyntaxError))throw error;
+   await new Promise(resolve=>setTimeout(resolve,attempt*250));
+  }
+ }
 }
 function b64(s){return Buffer.from(s,'utf8').toString('base64')}
 function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
@@ -250,64 +258,3 @@ async function reconcileBatchPrStates(reg){
      const runs=await api('/repos/'+repo+'/actions/runs?head_sha='+encodeURIComponent(pr.head.sha)+'&per_page=100');
      const gate=(runs.workflow_runs||[]).filter(r=>r.name==='Research rolling gate').sort((a,b)=>Number(b.run_number)-Number(a.run_number))[0];
      b.state=pr.draft?'DRAFT_PR':'MERGE_TRAIN';
-     b.head_sha=pr.head.sha;b.gate_status=gate?gate.status+'/'+(gate.conclusion||'pending'):'not_seen';
-     b.blocker=pr.draft?(gate?.conclusion==='failure'?'research rolling gate failed':'independent semantic review or gate pending'):(gate?.conclusion==='success'?'autonomous merge controller pending':'exact-head research gate pending');
-   }catch(e){
-     b.blocker='lifecycle reconciliation: '+e.message;
-     reg.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)});
-   }
- }
-}
-async function refreshPrLifecycle(reg){
- for(const b of reg.batches.filter(x=>x.pr_number&&['DRAFT_PR','MERGE_TRAIN'].includes(x.state))){
-  try{
-   const pr=await api('/repos/'+repo+'/pulls/'+b.pr_number);
-   if(pr.merged===true){
-    b.state='MERGED';b.merged_at=pr.merged_at;b.blocker=null;b.head_sha=pr.head?.sha||b.head_sha;
-    for(const r of reg.reservations.filter(r=>r.batch_id===b.id))r.state='MERGED';
-   }else if(pr.state==='closed'){
-    b.state='ABANDONED';b.closed_at=pr.closed_at;b.blocker='PR closed without merge';
-    for(const r of reg.reservations.filter(r=>r.batch_id===b.id))r.state='RELEASED';
-   }else{
-    b.state=pr.draft?'DRAFT_PR':'MERGE_TRAIN';b.head_sha=pr.head?.sha||b.head_sha;
-    b.blocker=pr.draft?'independent semantic review or research gate pending':'exact-head autonomous merge train pending';
-   }
-  }catch(e){
-   b.blocker='PR lifecycle check: '+e.message;
-   (reg.incidents??=[]).push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)});
-  }
- }
-}
-async function commitRegistryMutation(mutator,message){
- return withRecovery(async()=>{const current=await getRegistry(),reg=current.value;await mutator(reg);const saved=await putRegistry(current,reg,message);return {reg,saved}},{});
-}
-async function persistObservatory(reg){
- const snapshot={...summarizeRegistry(reg),generated_at:new Date().toISOString(),research_only:true};
- try{
-  await upsertBranchJson(registryBranch,'ops/research-coordinator/observatory.json',snapshot,'research: update rolling observatory');
-  await upsertBranchJson(registryBranch,'ops/research-coordinator/public-observatory.json',snapshot,'research: update sanitized public observatory');
- }catch(e){console.error('OBSERVATORY_WARNING '+e.message)}
-}
-function appendSummary(reg){const file=process.env.GITHUB_STEP_SUMMARY;if(file)fs.appendFileSync(file,renderSummaryMarkdown(summarizeRegistry(reg)))}
-async function run(){
- required(repo,'GITHUB_REPOSITORY');const mode=process.argv[2]||'reserve';
- if(mode==='reserve'){
-   const p=required(process.env.CANDIDATE_PATH,'CANDIDATE_PATH');if(!p.startsWith(intakeRoot)||!p.endsWith('.json'))throw Error('unsafe candidate path');
-   const raw=JSON.parse(fs.readFileSync(p,'utf8'));const manifest=validateManifest(await hydrateIntakeEnvelope(raw));const main=await findMainThroughWave();const pending=await listOpenPrRecords();let reserved=[];
-   await commitRegistryMutation(async reg=>{reserved=reserveInto(reg,manifest,[...main.records,...pending.records])},'research: reserve lane '+manifest.lane+' intake');
-   const allocated=(await allocateFrozenRanges()).reg;
-   for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){try{await materializeBatch(allocated,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;allocated.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}}
-   await refreshPrLifecycle(allocated);
-   const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: reconcile freeze/PR state')).reg;
-   await persistObservatory(final);appendSummary(final);console.log(JSON.stringify({reserved:reserved.length,lane:manifest.lane,batches:[...new Set(reserved.map(r=>r.batch_id))]}));
- }else if(mode==='recover'){
-   const allocated=(await allocateFrozenRanges()).reg;
-   for(const b of allocated.batches.filter(x=>x.state==='FREEZE_PENDING')){
-     try{await materializeBatch(allocated,b)}catch(e){b.blocker=classifyFailure(e).action+': '+e.message;allocated.incidents.push({at:new Date().toISOString(),batch:b.id,error:e.message,class:classifyFailure(e)})}
-   }
-   await refreshPrLifecycle(allocated);
-   const final=(await commitRegistryMutation(async latest=>{for(const b of allocated.batches){const x=latest.batches.find(y=>y.id===b.id);if(x)Object.assign(x,b)}},'research: recover rolling batch freezes')).reg;
-   await persistObservatory(final);appendSummary(final);
- }else throw Error('unknown mode');
-}
-if(process.argv[1]?.endsWith('github-reservation-controller.mjs'))run().catch(e=>{console.error('BLOCKED '+e.message);console.error(JSON.stringify(classifyFailure(e)));process.exitCode=1});
