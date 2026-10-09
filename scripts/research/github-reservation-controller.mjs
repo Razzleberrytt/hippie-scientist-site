@@ -14,17 +14,33 @@ const intakeRoot='ops/research-intake/';
 
 function required(v,n){if(!v)throw Error('missing '+n);return v}
 async function api(url,{method='GET',body}={}){
- const r=await fetch(API+url,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
- if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
- if(r.status===204)return null;const t=await r.text();return t?JSON.parse(t):null;
+ for(let attempt=1;attempt<=3;attempt++){
+  const r=await fetch(API+url,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
+  if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
+  if(r.status===204)return null;
+  const t=await r.text();
+  if(!t)return null;
+  try{return JSON.parse(t)}catch(error){
+   if(method!=='GET'||attempt===3||!(error instanceof SyntaxError))throw error;
+   await new Promise(resolve=>setTimeout(resolve,attempt*250));
+  }
+ }
 }
 function b64(s){return Buffer.from(s,'utf8').toString('base64')}
 function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
+async function contentText(file){
+ if(file?.sha){
+  const blob=await api('/repos/'+repo+'/git/blobs/'+file.sha);
+  if(blob?.content)return unb64(blob.content);
+ }
+ if(file?.content)return unb64(file.content);
+ throw Error('GitHub content payload unavailable');
+}
 async function upsertBranchJson(branch,file,value,message){
  const text=JSON.stringify(value,null,2)+'\n';let existing=null;
  try{existing=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/')+'?ref='+encodeURIComponent(branch))}
  catch(e){if(Number(e.status)!==404)throw e}
- if(existing&&unb64(existing.content)===text)return {content:{sha:existing.sha},unchanged:true};
+ if(existing&&await contentText(existing)===text)return {content:{sha:existing.sha},unchanged:true};
  const body={message,content:b64(text),branch};if(existing?.sha)body.sha=existing.sha;
  return api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/'),{method:'PUT',body});
 }
@@ -64,7 +80,7 @@ export function reconcileBaseline(records){
 
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
- for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
+ for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(await contentText(c))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
  return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,head_ref:p.head.ref,title:p.title,draft:p.draft,state:p.state}))};
 }
 async function ensureRegistryBranch(){
@@ -75,7 +91,7 @@ async function ensureRegistryBranch(){
 }
 async function getRegistry(){
  await ensureRegistryBranch();
- try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));return {sha:f.sha,value:JSON.parse(unb64(f.content))}}
+ try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));return {sha:f.sha,value:JSON.parse(await contentText(f))}}
  catch(e){if(Number(e.status)!==404)throw e;return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}}}
 }
 async function putRegistry(current,value,message){
