@@ -674,6 +674,11 @@ assert(realFabric.distributionReviewTargets.every(t=>
 assert.equal(realFabric.publicationAllowed,false)
 assert(ui.includes('integratedCase?.fabric')&&ui.includes('Distribution review targets'),
  'Existing distribution objects must be joined in the visitor-facing source case')
+assert(ui.includes('integratedCase?.reviewRequest')&&
+ ui.includes('Inspect exact-source editorial handoff')&&
+ ui.includes('This is a research-only identity packet')&&
+ ui.includes('value={JSON.stringify(integratedCase.reviewRequest,null,2)}'),
+ 'The verified typed handoff must be inspectable in the same PMID case without publishing')
 
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
  exactVerifiedSources:500,allFingerprintPmidsUnique:true,coveredInstruments:8,
