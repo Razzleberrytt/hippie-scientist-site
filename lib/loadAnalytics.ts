@@ -1,4 +1,5 @@
 import { canTrackAnalytics, getConsent } from '@/lib/consent'
+import { getSocialAttribution } from '@/lib/social-attribution'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID?.trim() ?? ''
 const AHREFS_ANALYTICS_KEY = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY?.trim() ?? ''
@@ -86,8 +87,13 @@ function scheduleAnalyticsLoad() {
 }
 
 export function loadAnalytics() {
-  if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
   if (!canTrackAnalytics()) return
+
+  // A consented tagged landing needs its bounded session attribution even
+  // without a configured GA4/Ahrefs transport. getSocialAttribution() owns
+  // first-touch, input validation, and never stores raw query strings.
+  getSocialAttribution()
+  if (!GA_ID && !AHREFS_ANALYTICS_KEY) return
 
   // Bootstrap only the in-memory queue immediately. Network loading remains
   // deferred for performance, and nothing is created before analytics consent.
