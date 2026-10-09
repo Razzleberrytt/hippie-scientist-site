@@ -11,10 +11,35 @@ const run = { status: 'completed', conclusion: 'success', event: 'workflow_dispa
 const wake = (event, get = vi.fn(async () => [pr]), eventName = 'workflow_run') => resolveWake({ event, get, repo, eventName })
 
 describe('controller wake classification', () => {
-  it.each(['failure', 'cancelled', 'skipped', 'timed_out', 'action_required'])('does no API work for %s completion; recovery remains scheduled', async conclusion => {
+  it.each(['failure', 'cancelled', 'skipped', 'timed_out'])('does no API work for %s completion; recovery remains scheduled', async conclusion => {
     const get = vi.fn()
     expect(await wake({ workflow_run: { ...run, conclusion } }, get)).toMatchObject({ proceed: false })
     expect(get).not.toHaveBeenCalled()
+  })
+  it('targets a verified zero-job action_required PR completion for serialized recovery', async () => {
+    const id = 12345
+    const jobPath = `/repos/${repo}/actions/runs/${id}/jobs?filter=all&per_page=100`
+    const prPath = `/repos/${repo}/commits/${sha}/pulls?per_page=100&page=1`
+    const get = vi.fn(async path => path === jobPath ? { total_count: 0, jobs: [] } : [pr])
+    const result = await wake({ workflow_run: { ...run, id, event: 'pull_request', conclusion: 'action_required' } }, get)
+    expect(result).toMatchObject({ proceed: true, sweep: false, pr_number: '42', head_sha: sha })
+    expect(get.mock.calls.map(([path]) => path)).toEqual([jobPath, prPath])
+  })
+  it('never wakes on a genuine job, missing run ID, unavailable job inventory or stale head', async () => {
+    const id = 12346
+    const badRun = { ...run, id, event: 'pull_request', conclusion: 'action_required' }
+    const jobPath = `/repos/${repo}/actions/runs/${id}/jobs?filter=all&per_page=100`
+    const prPath = `/repos/${repo}/commits/${sha}/pulls?per_page=100&page=1`
+    const getJobs = vi.fn(async path => path === jobPath ? { total_count: 1, jobs: [{ id: 1 }] } : [pr])
+    expect(await wake({ workflow_run: badRun }, getJobs)).toMatchObject({ proceed: false })
+    expect(getJobs).toHaveBeenCalledExactlyOnceWith(jobPath)
+    const missingId = vi.fn()
+    expect(await wake({ workflow_run: { ...badRun, id: undefined } }, missingId)).toMatchObject({ proceed: false })
+    expect(missingId).not.toHaveBeenCalled()
+    expect(await wake({ workflow_run: badRun }, async () => ({ jobs: [] }))).toMatchObject({ proceed: false })
+    const stale = await wake({ workflow_run: badRun }, async path => path === jobPath ? { total_count: 0, jobs: [] } : [{ ...pr, head: { ...pr.head, sha: 'b'.repeat(40) } }])
+    expect(stale).toMatchObject({ proceed: false, sweep: false })
+    await expect(wake({ workflow_run: badRun }, async () => { throw Error('GitHub unavailable') })).rejects.toThrow('GitHub unavailable')
   })
   it.each(['push', 'schedule', 'workflow_run'])('ignores %s upstream events without a broad PR sweep', async event => {
     const get = vi.fn()
@@ -58,6 +83,7 @@ describe('controller wake classification', () => {
     expect(workflow).toContain('group: autonomous-merge-commit')
     expect(workflow).toContain("CONTROLLER_SINGLE_PASS: 'true'")
     expect(workflow).toContain("cron: '*/10 * * * *'")
+    expect(workflow).toContain("contains(fromJSON('[\"success\",\"action_required\"]'), github.event.workflow_run.conclusion)")
     expect(workflow).toContain("if: steps.wake.outputs.proceed == 'true'")
     expect(workflow).toContain("if: github.event_name != 'workflow_run' || steps.reconcile.outputs.merged == 'true'")
   })
