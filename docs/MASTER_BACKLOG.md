@@ -75,11 +75,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6368 | TikTok app-review Terms of Service page, first-party canonical route and discoverability | D | Active — admitted | P0 | 4/5/3/4/0.75/2 | 90.0 | 2026-10-09 |
+| #6491 | Consumer-first homepage three-path first visit (ingredient / comparison / safety) | D | Active — admitted | P0 | 4/5/4/4/0.85/3 | 90.7 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6368 (first-party Terms of Service page and public legal navigation) on an exact-base scored admission; Revenue/Conversion and Authority/Content remain free. Publishing integration/Cloudflare/TikTok account access are not authorized by this page. Original 150-item checklist remains 10/150 pending exact item verification.
+**Current admission (reconciled 2026-10-09):** Normal implementation WIP is **1/3**: D owns #6491, a scoped consumer-first homepage integration after #6368 closed / PR #6484 merged; R and A free. Existing-score 4×5×4×4×0.85/3 = **90.7** (subjective priority, not ROI). The owner-supplied THS-MASTER-P0 v1.0 directive requires first-visit ingredient, comparison and safety actions; no GA4/affiliate/revenue outcomes are implied. Live analytics transport still external-blocked #6143. Reconstructed acceptance 25/150 verified, seven candidates, 118 unaudited; historical original 10/150 unmapped and separate.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
