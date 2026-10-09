@@ -38004,6 +38004,158 @@
       "reservation_id": "eb878b20f6dab01e2756",
       "reserved_at": "2026-10-09T16:11:58.627Z",
       "source_branch": "research/intake/3/20261009-1208-cyp-herbal-hepatotox-11"
+    },
+    {
+      "pmid": "42748561",
+      "title": "\"Rhino Tranq\" in Connecticut-Prevalence of Medetomidine in the Fentanyl Supply Varies by Data Source.",
+      "doi": "10.1097/ADM.0000000000001779",
+      "source_title": "\"Rhino Tranq\" in Connecticut-Prevalence of Medetomidine in the Fentanyl Supply Varies by Data Source.",
+      "abstract": "Medetomidine, a veterinary sedative, has emerged as an adulterant in the unregulated fentanyl supply. Exposure may cause profound sedation and a severe withdrawal syndrome. We aimed to better estimate medetomidine prevalence by integrating multiple statewide datasets from Connecticut. We analyzed 4 datasets from 2025: (a) accidental overdose fatalities, (b) drug seizure testing, (c) driving under the influence (DUI) toxicology, and (d) community-based drug checking using medetomidine test strips (MTS) and field-based Fourier-transform infrared spectroscopy (FTIR). Analyses were restricted to fentanyl-involved cases/samples, and medetomidine prevalence was calculated for each source. Among 579 fentanyl-involved overdose fatalities, medetomidine was detected in 1.4%-though confirmatory testing was limited. Of 259 fentanyl seizure units tested, 41.7% contained medetomidine. Among 177 fentanyl-involved DUI cases, 24.9% were positive for medetomidine on toxicology. There were 169 samples of fentanyl/heroin/dope submitted to community-based drug checking programs that subsequently tested positive for fentanyl and assessed for medetomidine: MTS yielded positive results in 46.2% of samples on average, while FTIR detected medetomidine in 28.4% of samples. This study not only demonstrated that medetomidine is prevalent in the street-based fentanyl supply, but that the prevalence varied by data source. The findings highlight that surveillance mechanisms that rely exclusively on a single data source (typically overdose toxicology data) may misrepresent the true presence of medetomidine in the street supply.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42748561/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified PubMed identity seeds on medetomidine adulteration surveillance and preclinical xylazine withdrawal; no clinical conclusions are approved.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42748561",
+        "doi": "10.1097/ADM.0000000000001779",
+        "journal": "Journal of addiction medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T16:13:05.984Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f94ee64f62b76b65a188",
+      "reserved_at": "2026-10-09T16:13:11.223Z",
+      "source_branch": "research/intake/4/20261009-1211-medetomidine-xylazine"
+    },
+    {
+      "pmid": "42600850",
+      "title": "Xylazine, veterinary anesthetic and recreational drug adulterant, reduces cephalic regeneration and alters defensive responding in planarians.",
+      "doi": "10.1016/j.neuro.2026.103547",
+      "source_title": "Xylazine, veterinary anesthetic and recreational drug adulterant, reduces cephalic regeneration and alters defensive responding in planarians.",
+      "abstract": "Xylazine is a veterinary anesthetic and α2-adrenoceptor agonist found in illicit drug supplies. Injection of opioids adulterated with xylazine is correlated with necrotic tissue injury and a withdrawal syndrome including anxiety. Planarians are flatworms with a simple nervous system and no circulatory system that exhibit several characteristics, including regenerative capacity and negative phototaxis (light avoidance). Because regeneration reflects tissue repair and negative phototaxis constitutes defensive behavior, planarians provide a simple in vivo system to explore possible effects of xylazine on planarian wound repair and anxiety-like behavior. Using planarians, we investigated the effects of xylazine on cephalic regeneration and defensive responding (i.e., determined by time spent on light side of a dish divided into light and dark compartments). In decapitated planarians, chronic xylazine exposure (0.001-0.1 µM, over 2 weeks) reduced head regeneration rate. For intact worms, acute xylazine (1 µM, 5 min) caused a reduction in defensive responding (i.e., increased time in light) that was abolished by yohimbine (0.001 µM), an α2-adrenoceptor antagonist. Clonidine (0.01-1 µM), another α2-adrenoceptor agonist, mimicked xylazine's defensive responding effects. We next assessed effects of xylazine withdrawal on defensive responding. Early xylazine abstinence (0.01-1 µM, 5 and 30 min), like acute xylazine, reduced defensive responding. In contrast, during later xylazine abstinence (0.001-1 µM, 60 min), defensive responding robustly increased with no significant changes in motility. Our data show that xylazine impairs planarian regeneration and bidirectionally impacts planarian defensive behaviors with distinct acute and withdrawal-dependent effects. These results suggest that some effects of xylazine on tissue injury and anxiety-like behavior are conserved in planarians.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42600850/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified PubMed identity seeds on medetomidine adulteration surveillance and preclinical xylazine withdrawal; no clinical conclusions are approved.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42600850",
+        "doi": "10.1016/j.neuro.2026.103547",
+        "journal": "Neurotoxicology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T16:13:05.985Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "576a8d3d34877858f24b",
+      "reserved_at": "2026-10-09T16:13:11.223Z",
+      "source_branch": "research/intake/4/20261009-1211-medetomidine-xylazine"
     }
   ],
   "batches": [
@@ -38017,22 +38169,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 479,
+    "total_reservations": 481,
     "by_lane": {
       "1": 12,
       "2": 85,
       "3": 69,
-      "4": 38,
+      "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 479
+      "SOURCE_VERIFIED": 481
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 479,
+        "count": 481,
         "pr_number": null,
         "blocker": null
       }
