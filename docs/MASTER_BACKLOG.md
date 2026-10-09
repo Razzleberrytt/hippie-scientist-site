@@ -75,10 +75,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6466 | Typed source-to-editorial review-only handoff and identity guards | D | Active — admitted | P0 | 4/4/3/5/0.75/3 | 60.0 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. #6447 / PR #6460 merged on `0d7635a6918ccacc391f5ead8832ffbc6de86368` and no longer occupies Discovery/SEO; Revenue/Conversion and Authority/Content are also free. The original WIP cap stays three; vacancy alone does not authorize new code. Cloudflare run `37869304990` and real zero-job recovery receipts must be checked independently before calling production or performance outcomes proved.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO (D) owns the #6466 typed source-to-editorial review-only handoff after fresh exact-base admission; Revenue/Conversion and Authority/Content remain free. WIP cap is unchanged. No medical review/publication authority, field use, revenue or checklist credit is inferred from this admission.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
