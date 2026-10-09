@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import EditorialFamilyNav from '@/components/navigation/EditorialFamilyNav'
 import { SITE_URL } from '@/lib/navigation-config'
 import { buildTwitterMetadata } from '@/lib/seo'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
   title: 'Guides — Topics, Comparisons & Practical Decisions',
@@ -116,6 +117,7 @@ export default function GuidesHub() {
           ))}
         </div>
       </aside>
+      <NewsletterSignup location='guides-hub' variant='compact' />
     </div>
   )
 }
