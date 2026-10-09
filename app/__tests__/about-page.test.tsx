@@ -20,7 +20,8 @@ describe('About page', () => {
     render(<AboutClient />)
 
     expect(screen.getByRole('heading', { name: /Willie B\. Randolph III/i })).toBeInTheDocument()
-    expect(screen.getByText(/Age 34, father of two little girls, and based in Oak Ridge, Tennessee/i)).toBeInTheDocument()
+    expect(screen.getByText(/I.m Willie, 34, from Oak Ridge, Tennessee/i)).toBeInTheDocument()
+    expect(screen.getByText(/I.m a father of two little girls/i)).toBeInTheDocument()
     expect(screen.getByText(/^Age$/)).toBeInTheDocument()
     expect(screen.getByText(/2 girls/)).toBeInTheDocument()
     expect(screen.getByText(/^Oak Ridge$/)).toBeInTheDocument()
