@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-501-1000",
+  "generated_from": {
+    "input_files": [
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-525-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-525.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-526-550-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-526-550.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-551-575-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-551-575.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-576-600-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-576-600.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-601-625-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-601-625.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-626-650-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-626-650.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-651-675-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-651-675.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-676-700-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-676-700.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-701-725-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-701-725.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-726-750-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-726-750.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-751-775-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-751-775.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-776-800-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-776-800.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-801-825-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-801-825.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-826-850-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-826-850.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-851-875-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-851-875.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-876-900-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-876-900.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-901-925-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-901-925.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-926-950-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-926-950.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-951-975-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-951-975.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-976-1000-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-976-1000.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-1000-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-1000.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-waves-501-1000-pmid-revalidation.json"
+    ],
+    "review_note": "Twenty 25-finding passes produced 500 unique research receipts. Final fail-closed admission retains 10 net-new source-specific evidence rows and 10 source rows on existing canonical entities; two already-canonical sources (inositol PMID 41757236 and taurine PMID 41275513) are omitted as duplicates. Previously admitted source identities are not duplicated. Category, combination, route, correction, identity, and unresolved-entity receipts remain research-only."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 10,
+    "source_rows": 10,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 501,
+    "last_wave": 1000,
+    "completed_waves": 500,
+    "evidence_records": 10,
+    "unique_source_records": 10
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "evidence_merge": "append-only; only source-specific reader-ready rows are runtime-materialized",
+    "claim_calibration": "retain negative/null evidence, uncertainty, endpoint distinctions, formulation/population limits, safety context, and source-specific claim language",
+    "verification_strategy": "batch-first; admission and repository gates run once after the 500-wave consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-04-enrichment-waves-501-1000.json",
+    "sha256": "8054f7d87bc69c6cb8956130f6c61125774e81c933702b96bbbfe7bc7b039ec0",
+    "bytes": 22506
+  },
+  "admission": {
+    "evidence_additions": 10,
+    "evidence_corrections": 0,
+    "source_additions": 10,
+    "source_corrections": 0
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-551-575-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-526-550-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 75,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed exact-identity discovery and review abstracts"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 551,
+      "entity_slug": "beta-alanine",
+      "pmid": "39032921",
+      "focus": "2024 systematic review/meta-analysis in trained young men; maximal-intensity performance evidence is sex-, training-status-, duration-, and chronic-supplementation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 552,
+      "entity_slug": "ginger",
+      "pmid": "40226035",
+      "focus": "2025 systematic review/meta-analysis for hyperemesis gravidarum; pregnancy-specific nausea/vomiting evidence across differing ginger forms and active comparators.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 553,
+      "entity_slug": "cranberry",
+      "pmid": "39030132",
+      "focus": "2024 network meta-analysis of cranberry juice/tablets and increased fluids for UTI prevention; product form and comparator identity remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 554,
+      "entity_slug": "cranberry",
+      "pmid": "39668896",
+      "focus": "2024/2025 PAC-dose meta-analysis; prevention signal concentrated in products providing at least a specified proanthocyanidin threshold, reinforcing composition-specificity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 555,
+      "entity_slug": "inositol",
+      "pmid": "38163998",
+      "focus": "International-guideline-supporting PCOS systematic review/meta-analysis; some metabolic/reproductive signals but broad outcome uncertainty and generally mild GI tolerability versus metformin.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 556,
+      "entity_slug": "ginger",
+      "pmid": "40808693",
+      "focus": "2025 systematic review of ginger meta-analyses; umbrella-level synthesis across inflammation, T2D, oxidative stress and pregnancy nausea with indication-specific evidence kept separate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 557,
+      "entity_slug": "taurine",
+      "pmid": "38755142",
+      "focus": "2024 25-RCT/1,024-participant metabolic-syndrome meta-analysis; BP/FBG/TG signals with HDL null and no universal dose inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 558,
+      "entity_slug": "caffeine",
+      "pmid": "42356375",
+      "focus": "2026 dose-response meta-analysis of aerobic time-trial RCTs; low and moderate acute doses improved completion time, with no qualifying high-dose evidence and no dosing recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 559,
+      "entity_slug": "caffeine",
+      "pmid": "37844569",
+      "focus": "2024 CYP1A2 genotype/exercise meta-analysis; genotype appeared to modify ergogenic response, with strong caution about small CC-genotype samples.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 560,
+      "entity_slug": "caffeine",
+      "pmid": "41127092",
+      "focus": "2025 resistance-exercise meta-analysis; acute caffeine improved mean velocity/power with subgroup differences by sex and habitual use.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 561,
+      "entity_slug": "ganoderma-lucidum",
+      "pmid": "40510787",
+      "focus": "2025 17-RCT/971-participant GRADE review; selected BMI/creatinine/GPx/heart-rate signals but most cardiometabolic endpoints null and overall certainty very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 562,
+      "entity_slug": "hericium-erinaceus",
+      "pmid": "40959699",
+      "focus": "2025 systematic review of lion's mane human/preclinical evidence; limited RCT cognition signals with substantial evidence-type heterogeneity.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 563,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "39203900",
+      "focus": "2024 cycling-sprint meta-analysis; dietary nitrate improved time-to-peak power but not mean, peak, or minimum power—performance-domain specificity preserved.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 564,
+      "entity_slug": "tart-cherry",
+      "pmid": "40964149",
+      "focus": "2025 systematic review of seven interventional sleep studies; sleep evidence remains small and heterogeneous across tart-cherry products/outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 565,
+      "entity_slug": "caffeine",
+      "pmid": "35894639",
+      "focus": "Systematic review/meta-analysis of cardiopulmonary responses during maximal graded exercise; physiologic responses are exercise-test specific and distinct from performance outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 566,
+      "entity_slug": "caffeine-placebo",
+      "pmid": "39339818",
+      "focus": "2024 systematic review of expectancy/placebo effects in sport and exercise; useful context separating pharmacologic caffeine effects from expectancy effects.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 567,
+      "entity_slug": "dietary-supplements-skin-photoaging",
+      "pmid": "40761858",
+      "focus": "2025 40-RCT review of oral supplements for photoaging; collagen/flavanol/polyphenol signals coexist with null hyaluronic-acid/lycopene/carotenoid outcomes.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 568,
+      "entity_slug": "herbal-adverse-reaction-signals",
+      "pmid": "40601107",
+      "focus": "2025 pharmacovigilance scoping analysis of herbal adverse-reaction signals; safety surveillance evidence only, not incidence or causal-risk estimates.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 569,
+      "entity_slug": "non-soy-herbal-menopause",
+      "pmid": "42451042",
+      "focus": "2026 systematic review of 30 RCTs/19 oral herbal interventions; high heterogeneity, with black cohosh/dong quai trials among null results.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 570,
+      "entity_slug": "ding-kun-dan",
+      "pmid": "41143285",
+      "focus": "2025 21-RCT/1,981-participant menopausal-syndrome meta-analysis; multi-herb formula and adjunctive-treatment contexts remain product specific.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 571,
+      "entity_slug": "plant-derived-supplements-menopause-lipids",
+      "pmid": "40613540",
+      "focus": "2025 60-study/6,127-participant meta-analysis; modest lipid signals across heterogeneous plant-derived supplements, with soy/phytoestrogen subgroup concentration.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 572,
+      "entity_slug": "herbal-masld-network",
+      "pmid": "42668494",
+      "focus": "2026 network meta-analysis of herbal products on metabolic outcomes in MASLD; rankings remain network-level and formulation-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 573,
+      "entity_slug": "dietary-supplement-caers",
+      "pmid": "42323077",
+      "focus": "2026 FDA CAERS disproportionality analysis; herbal/botanical and weight-loss categories carried safety signals, but spontaneous-reporting data cannot establish incidence or causality.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 574,
+      "entity_slug": "plant-derived-menopause-symptoms",
+      "pmid": "38189863",
+      "focus": "Updated meta-analysis of plant-derived supplements for menopausal symptoms; pooled symptom improvements coexist with heterogeneous products and generally suboptimal evidence quality.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 575,
+      "entity_slug": "microbiota-masld",
+      "pmid": "38879003",
+      "focus": "2024 RCT meta-analysis of probiotics/prebiotics/synbiotics/FMT and related gut-microbiota interventions in MASLD; intervention classes, duration and mechanistic endpoints remain separate.",
+      "state": "research_only_category_firewall"
+    }
+  ]
+}
