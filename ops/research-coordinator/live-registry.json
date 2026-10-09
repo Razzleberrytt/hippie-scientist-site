@@ -39074,6 +39074,161 @@
       "reservation_id": "2af4020c9c11e20baa9e",
       "reserved_at": "2026-10-09T18:44:49.901Z",
       "source_branch": "research/intake/1/20261009-1442-bergamot-preop-32379683"
+    },
+    {
+      "pmid": "42334484",
+      "title": "Exercise- and dietary pattern-based lifestyle interventions and neurocognitive function in adults: a Bayesian multilevel network and dose-response meta-analysis.",
+      "doi": "10.1007/s00415-026-13918-7",
+      "source_title": "Exercise- and dietary pattern-based lifestyle interventions and neurocognitive function in adults: a Bayesian multilevel network and dose-response meta-analysis.",
+      "abstract": "To systematically review the effects of lifestyle interventions focused on exercise and dietary patterns on neurocognitive function in adults, and to examine their relative effects and dose-response relationships. PubMed, Embase, Web of Science, and the Cochrane Library were searched from database inception to March 20, 2026. A total of 23 randomized controlled trials (RCTs) involving 12,286 participants were included. Bayesian multilevel pairwise, network, and dose-response meta-analyses were conducted to evaluate overall cognition, memory, and executive function. RoB 2 and CINeMA were used to assess the credibility of the evidence. Combined interventions yielded small, but statistically significant cognitive benefits (overall cognition: SMD = 0.18; memory: SMD = 0.10; executive function: SMD = 0.09). These benefits were driven primarily by differences between the combined intervention and control or usual care, as well as exercise alone; compared with diet alone, the combined intervention still showed a small advantage for executive function. Network meta-analysis suggested that AE_MIND and AE_RT_MED were more beneficial for overall cognition, AE_RT_MIND and AE_RT_MED for memory, and AE_RT_CR and AE_MIND for executive function. Exploratory dose-response analyses suggested possible curvature in some spline-based models; however, comparison with simpler monotonic specifications did not provide robust evidence for a clinically interpretable non-linear or monotonic dose-response relationship. Combined lifestyle interventions may produce statistically significant but modest improvements in cognitive function in adults, with benefits varying across cognitive domains. However, current evidence remains insufficient to support a standardized precision prescription, and high-quality RCTs with long-term follow-up are needed to determine the optimal combinations and dosages.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42334484/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Network Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Network Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42334484",
+        "doi": "10.1007/s00415-026-13918-7",
+        "journal": "Journal of neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T18:56:14.680Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "285ae972c44ffaf1d7ed",
+      "reserved_at": "2026-10-09T18:56:18.442Z",
+      "source_branch": "research/intake/2/20261009-1454-cognition-metabolic-2-r28"
+    },
+    {
+      "pmid": "42541977",
+      "title": "Optimizing Weight Loss Maintenance: Can Continuous Glucose Monitoring Play a Role (OWL-CGM)? A Randomized Controlled Feasibility Trial.",
+      "doi": "10.1016/j.clnu.2026.106738",
+      "source_title": "Optimizing Weight Loss Maintenance: Can Continuous Glucose Monitoring Play a Role (OWL-CGM)? A Randomized Controlled Feasibility Trial.",
+      "abstract": "Maintenance of weight loss is a major challenge. Continuous glucose monitoring (CGM) could provide biofeedback to support lifestyle changes to facilitate weight maintenance. This randomised controlled trial evaluated the feasibility of incorporating CGM into a personalised, dietitian-led, weight loss maintenance programme (PWM), and whether CGM use led to greater improvements in dietary intake, physical activity, body weight, body composition, and cardiometabolic risk biomarkers over 24 weeks. Adults who lost >5 kg bodyweight in the past six months were eligible. Of 131 individuals who expressed interest, 99 met eligibility criteria. Forty-nine participants (17 men, 32 women) consented and were randomised to either PWM (n = 25) or PWM/CGM (n = 24) groups. Average recruitment rate was five participants/month. All participants received five one-to-one personalised dietitian consultations in weeks 1, 2, 4, 8 and 12; the PWM/CGM group also received a CGM for the 24-week intervention period and education on its use to support diet and physical activity behaviours. 19 PWM and 22 PWM/CGM participants completed the study (83.7% of randomised participants). All completers attended all dietitian consultations, and PWM/CGM participants wore their CGMs on 92.6% of intervention days. In completers, weight loss at 24-weeks was greater for PWM/CGM than PWM (-2.7 ± 1.1 kg vs +0.5 ± 0.8 kg, p = 0.032). This difference remained significant in an intention-to-treat sensitivity analysis (-2.5 ± 1.0 kg vs +0.4 ± 0.6 kg, p = 0.012). Change in energy intake from baseline to 24-weeks was greater in PWM/CGM than PWM (-235.0 ± 123.0 kcal.day -1 vs +23.3 ± 201.6 kcal.day -1 , p = 0.007). There were no differences in changes in physical activity or cardiometabolic risk biomarkers except triglycerides between groups. These findings indicate that CGM is a feasible addition to an intensive weight loss maintenance programme and support a future fully-powered randomised controlled trial to determine long-term effectiveness. gov (NCT05890209).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42541977/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42541977",
+        "doi": "10.1016/j.clnu.2026.106738",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T18:56:14.681Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "42a5bf6b88a6b6820fb9",
+      "reserved_at": "2026-10-09T18:56:18.442Z",
+      "source_branch": "research/intake/2/20261009-1454-cognition-metabolic-2-r28"
     }
   ],
   "batches": [
@@ -39087,22 +39242,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 493,
+    "total_reservations": 495,
     "by_lane": {
       "1": 14,
-      "2": 87,
+      "2": 89,
       "3": 77,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 493
+      "SOURCE_VERIFIED": 495
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 493,
+        "count": 495,
         "pr_number": null,
         "blocker": null
       }
