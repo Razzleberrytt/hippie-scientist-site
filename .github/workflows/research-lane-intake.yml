@@ -85,11 +85,6 @@ jobs:
           node-version: '22'
       - name: Validate research control plane
         run: node --test scripts/research/*.test.mjs
-      - name: Recover pending freezes without bypassing gates
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/research/github-reservation-controller.mjs recover
       - name: Replay exact committed PMID seeds missed by push events
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -98,3 +93,8 @@ jobs:
           # existing global serialization and 20-minute job budget intact.
           RESEARCH_REPLAY_MAX_FILES: '1'
         run: node scripts/research/replay-committed-intakes.mjs
+      - name: Recover pending freezes without bypassing gates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/research/github-reservation-controller.mjs recover
