@@ -86,8 +86,6 @@
 - **§41 Research Atlas membership experience:** Saved investigations, comparisons, source exports, real change timeline, followed questions, briefs, contradiction workflow, literature summary and provenance explorer; measured value.
 - **§42 Institutional product development:** Identify appropriate publishers, educators, journalists, research groups and evidence software; disclose verification limits, dataset completeness, source provenance, refresh frequency, interface/export capabilities, intended use, available support and **licensing restrictions**.
 
-### §43–44 — Completion of Part X / Phase 7
-
 - **§43 API and data licensing:** Versioned documented APIs, authentication/authorization, rate limits, provenance, dataset versions, usage/license/abuse governance and deprecation; third-party data and PubMed feeds cannot automatically be relicensed.
 - **§44 B2B demand validation:** Qualified institutional inquiry with intended use, data needs, workflow, refresh, access and voluntary budget; real buyer interest before enterprise investment.
 
@@ -190,7 +188,7 @@
 
 ## Mapping the original phases to the *reconstructed* 150-item register
 
-**IMPORTANT:** The register's thirteen Sections 0–12 are **our earlier reconstructed accounting buckets**, not the original directive's Phase 0–7 numbering. One-to-many mapped IDs below are candidates for comparison, not approval or proof that coverage is complete.
+**IMPORTANT:** The register's thirteen Sections 0–12 are **our earlier reconstructed accounting buckets**, not the original directive's Phase 0–9 numbering. One-to-many mapped IDs below are candidates for comparison, not approval or proof that coverage is complete.
 
 | Original phase | Original clauses | Closest provisional IDs | Required original result | Gaps / rework necessary |
 |---|---|---|---|---|
