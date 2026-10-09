@@ -94,7 +94,7 @@ describe('consent-triggered first-party social attribution initialization', () =
     loadAnalytics()
     expect(window.sessionStorage.getItem(SOCIAL_ATTRIBUTION_SESSION_KEY)).not.toBeNull()
     expect(window.gtag).toBeTypeOf('function')
-    expect(window.dataLayer.length).toBeGreaterThanOrEqual(2)
+    expect(window.dataLayer?.length ?? 0).toBeGreaterThanOrEqual(2)
     expect(document.head.querySelector('#ga4-script')).toBeNull()
   })
 })
