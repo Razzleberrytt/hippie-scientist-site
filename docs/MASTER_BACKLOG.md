@@ -72,7 +72,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6451 | Treat unresolved-review merge 405 as a PR-local governance hold | D | Active — admitted | P0 | 4/4/2/5/1.00/2 | 80.0 | 2026-10-08 |
+| #6451 / PR #6455 | Treat unresolved-review merge 405 as a PR-local governance hold | D | In review — admitted | P0 | 4/4/2/5/1.00/2 | 80.0 | 2026-10-08 |
 
 
 

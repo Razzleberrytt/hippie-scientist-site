@@ -232,6 +232,34 @@ export function canAutoRefreshPr(changedFiles = []) {
 }
 
 export class PrRefreshBlockedError extends Error {}
+export class PrReviewConversationBlockedError extends PrRefreshBlockedError {}
+
+const UNRESOLVED_REVIEW_MESSAGE = 'A conversation must be resolved before this pull request can be merged.'
+
+// GitHub's actual merge rejection includes "Repository rule violations found"
+// and blank lines ahead of the review sentence. Require the complete, exact
+// message shape: other 405 rule failures must remain fatal controller errors.
+export function classifyMergeRejection(error, number) {
+  if (error?.status !== 405 || typeof error.responseBody !== 'string') return error
+  let response
+  try {
+    response = JSON.parse(error.responseBody)
+  } catch {
+    return error
+  }
+  if (response?.status !== undefined && String(response.status) !== '405') return error
+  if (typeof response?.message !== 'string') return error
+  const lines = response.message.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean)
+  const reviewOnly = lines.length === 1 && lines[0] === UNRESOLVED_REVIEW_MESSAGE
+  const reviewWithHeader = lines.length === 2 &&
+    lines[0] === 'Repository rule violations found' &&
+    lines[1] === UNRESOLVED_REVIEW_MESSAGE
+  if (!reviewOnly && !reviewWithHeader) return error
+  return new PrReviewConversationBlockedError(
+    `[PR #${number}] BLOCKED: unresolved review conversation; resolve the review before merging (GitHub 405)`,
+    { cause: error },
+  )
+}
 
 // Isolate only known PR-local blockers. Authentication, transport, and service
 // failures must still fail the controller heartbeat instead of looking healthy.
@@ -549,11 +577,16 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   }
 }
 
-async function mergePr(repo, number, expectedHeadSha) {
-  const result = await github(`/repos/${repo}/pulls/${number}/merge`, {
-    method: 'PUT',
-    body: { sha: expectedHeadSha, merge_method: 'merge' },
-  })
+export async function mergePr(repo, number, expectedHeadSha, request = github) {
+  let result
+  try {
+    result = await request(`/repos/${repo}/pulls/${number}/merge`, {
+      method: 'PUT',
+      body: { sha: expectedHeadSha, merge_method: 'merge' },
+    })
+  } catch (error) {
+    throw classifyMergeRejection(error, number)
+  }
   if (!result?.merged) throw new Error(`GitHub refused merge for PR #${number}: ${result?.message || 'unknown reason'}`)
   console.log(`Merged PR #${number} as ${result.sha}`)
   return result
@@ -707,7 +740,14 @@ async function followOnePr() {
         writeOutput('risk_tier', verdict.riskTier)
         return
       }
-      await mergeIfStillCurrent({ repo, number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
+      try {
+        await mergeIfStillCurrent({ repo, number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
+      } catch (error) {
+        if (!(error instanceof PrReviewConversationBlockedError)) throw error
+        // Only this merge-endpoint review rejection is terminal PR-local BLOCKED.
+        // Never report a merge, make a retry, or convert it to a green outcome.
+        console.log(error.message)
+      }
       return
     }
     if (verdict.action === 'stop') return
