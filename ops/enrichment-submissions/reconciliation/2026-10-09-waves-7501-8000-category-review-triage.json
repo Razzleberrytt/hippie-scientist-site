@@ -15,7 +15,13 @@
       "title": "Pain and activity after vaginal reconstructive surgery for pelvic organ prolapse and stress urinary incontinence.",
       "wave": 7506,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "EXCLUDE_FROM_STRESS_ANXIETY",
+        "method": "Secondary analysis of vaginal prolapse/surgical trial; urinary stress incontinence is not mental stress."
+      }
     },
     {
       "category": "stress_anxiety",
@@ -24,7 +30,13 @@
       "title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
       "wave": 7508,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_OR_EXCLUDE",
+        "method": "Clinical intervention in infertile men evaluates semen oxidative biomarkers, hormones and sperm motility, not perceived stress or anxiety."
+      }
     },
     {
       "category": "withdrawal_nps",
@@ -33,7 +45,13 @@
       "title": "Cannabidiol inhibits THC-elicited paranoid symptoms and hippocampal-dependent memory impairment.",
       "wave": 7585,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_TO_CANNABINOID_SAFETY_OR_EXCLUDE",
+        "method": "Controlled oral CBD then IV THC challenge examines acute THC paranoia/cognition; not withdrawal evidence."
+      }
     },
     {
       "category": "aging_sarcopenia",
@@ -42,7 +60,13 @@
       "title": "Effects of Vitamin D Supplementation on Muscle Strength in Athletes: A Systematic Review.",
       "wave": 7666,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_PERFORMANCE_OR_INDIRECT_ONLY",
+        "method": "Systematic review of vitamin D supplementation among athletes 18–45, not older adults or sarcopenia; population transfer would be indirect."
+      }
     },
     {
       "category": "cognition_focus",
@@ -51,7 +75,13 @@
       "title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
       "wave": 7767,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "CONTEXT_LIMITED_POSSIBLY_ELIGIBLE",
+        "method": "Post-carotid surgery anesthesia comparison includes Ceraxon and cognition tests; direct special-population cognition context possible, not general focus enhancement."
+      }
     },
     {
       "category": "metabolic",
@@ -60,7 +90,13 @@
       "title": "Efficacy of adding once- and thrice-daily voglibose in Japanese type 2 diabetic patients treated with alogliptin.",
       "wave": 7856,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "SCOPE_REVIEW",
+        "method": "Human randomized add-on voglibose/alogliptin type 2 diabetes study; metabolic endpoint relevant but prescription-only scope needs editorial decision."
+      }
     },
     {
       "category": "mitochondrial_energy",
@@ -69,7 +105,13 @@
       "title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
       "wave": 7961,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_GUT_OR_FATIGUE_IF_ELIGIBLE",
+        "method": "Review of probiotics, GI/inflammatory effects and fatigue in athletes; abstract does not demonstrate direct mitochondrial endpoints."
+      }
     },
     {
       "category": "immune_respiratory",
@@ -78,7 +120,13 @@
       "title": "Effectiveness of Prophylactic Oral and/or Vaginal Probiotic Supplementation in the Prevention of Recurrent Urinary Tract Infections: A Randomized, Double-Blind, Placebo-Controlled Trial.",
       "wave": 7984,
       "status": "HUMAN_REVIEW_REQUIRED",
-      "disposition": "UNDECIDED"
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_UTI_WOMENS_HEALTH_OR_EXCLUDE",
+        "method": "Human probiotic UTI prevention trial, not respiratory infection; broader immune/respiratory category needs explicit scope."
+      }
     }
   ],
   "reviewed_scientifically": 0,
@@ -86,5 +134,9 @@
   "record_admission_changes": 0,
   "formal_independent_review_complete": false,
   "protocol": "Candidate flags from deterministic title/category conflict patterns; flagged records remain unchanged, pending reviewer decisions after reading abstracts and methods. Other 492 records are NOT cleared; all 500 require individual independent semantic review.",
-  "evidence_limits": "Title screening is neither a comprehensive abstract review nor trial-design/correction checking. Negative/counterevidence must be evaluated; absence of a flag is not approval."
+  "evidence_limits": "Title screening is neither a comprehensive abstract review nor trial-design/correction checking. Negative/counterevidence must be evaluated; absence of a flag is not approval.",
+  "abstract_level_assistant_triage": 8,
+  "independent_human_methodology_reviews": 0,
+  "pending_formal_review": 500,
+  "triage_limitations": "Eight flags were individually considered against abstracts, but none has independent human scientific approval. Other 492 entries remain unassessed beyond title/category heuristics. All 500 pending source-only records require the governed independent review and final identity/admission checks."
 }
