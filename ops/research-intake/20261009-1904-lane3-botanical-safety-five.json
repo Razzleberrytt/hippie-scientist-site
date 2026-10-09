@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "41700226",
+    "41921217",
+    "42244875",
+    "42327994",
+    "42566627"
+  ],
+  "relevance_reason": "Source-verified botanical pharmacology and hepatotoxicity research; scientific interpretation and publication remain pending independent review."
+}
