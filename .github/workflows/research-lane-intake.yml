@@ -90,3 +90,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/research/github-reservation-controller.mjs recover
+      - name: Replay exact committed PMID seeds missed by push events
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          # One seed manifest per hourly run (up to 25 PMIDs), with the
+          # existing global serialization and 20-minute job budget intact.
+          RESEARCH_REPLAY_MAX_FILES: '1'
+        run: node scripts/research/replay-committed-intakes.mjs
