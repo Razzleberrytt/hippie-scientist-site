@@ -18,6 +18,16 @@ describe('EvidenceScopeGuide', () => {
     expect(screen.getByRole('link', { name: 'Check safety separately' }).getAttribute('href')).toMatch(/^\/safety-checker\/?$/)
   })
 
+  it('exposes a named accessible explanation without forcing the extended legend open', () => {
+    const { container, rerender } = render(<EvidenceScopeGuide context="profile" />)
+    expect(screen.getByRole('complementary', { name: 'How evidence grades and safety labels differ' })).toBeTruthy()
+    expect(screen.getByText('See the evidence levels explained').closest('summary')).toBeTruthy()
+    expect(container.querySelector('details')?.hasAttribute('open')).toBe(false)
+    rerender(<EvidenceScopeGuide context="report" />)
+    expect(screen.getByRole('complementary', { name: 'How evidence grades and safety labels differ' })).toBeTruthy()
+    expect(container.querySelector('details')?.hasAttribute('open')).toBe(false)
+  })
+
   it('does not confuse indexable evidence-report denominator with tracked compounds or PubMed records', () => {
     render(<EvidenceScopeGuide context="report" />)
     expect(screen.getByText('What do the evidence report grades measure?')).toBeTruthy()
