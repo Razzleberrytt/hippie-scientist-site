@@ -29897,6 +29897,389 @@
       "reservation_id": "c68c0cee6cd8f3892468",
       "reserved_at": "2026-10-09T09:35:12.871Z",
       "source_branch": "research/intake/5/contradictions-replication-20261009-0525"
+    },
+    {
+      "pmid": "42088310",
+      "title": "Daily intake of cuminaldehyde-rich cumin essential oil improves cognitive function in healthy elderly Japanese adults: a randomized, double-blind, placebo-controlled pilot study.",
+      "doi": "10.3389/fnut.2026.1784027",
+      "source_title": "Daily intake of cuminaldehyde-rich cumin essential oil improves cognitive function in healthy elderly Japanese adults: a randomized, double-blind, placebo-controlled pilot study.",
+      "abstract": "To extend healthspan has risen demand to maintain cognitive function through the exploitation of bioactive compounds from natural sources. We assessed the effects of daily intake of cumin essential oil (CEO), primarily composed of cuminaldehyde, on cognitive function in the elderly. Thirty-eight participants (ages 65-86) were randomly assigned to either the CEO group ( n = 19) or the placebo group ( n = 19) for a 12-week trial (UMIN no. 000050328). Cognitive performance on Cognitrax test and relevant blood biomarkers were assessed before and after the intervention. Repeated measures analysis of covariance, adjusted for age and years of education, was performed. The analysis revealed a significant group × time interaction for the CEO group in psychomotor speed ( p = 0.012) and reaction time ( p = 0.022). Additionally, a simple main effect analysis indicated that psychomotor speed and reaction time scores were significantly improved in the CEO group post-intervention compared to pre-intervention ( p = 0.048 and p = 0.012, respectively). Exploratory biomarker analyses showed significant main effects of time; however, no significant group × time interactions were observed for any biomarker, suggesting that these biological changes were not uniquely attributable to CEO supplementation in this pilot study. Overall, this study suggest that the daily intake of CEO, rich in cuminaldehyde, have a beneficial effect on cognitive function in the elderly. These findings provide foundational knowledge that could contribute to strategies aimed at extending the healthy life expectancy of older adults. https://center6.umin.ac.jp/cgi-open-bin/ctr/ctr_view.cgi?recptno=R000057216, identifier UMIN000050328.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42088310/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human cognition and metabolic-health controlled trials, including null primary outcomes, industry-funded nutritional interventions, and treatment safety limitations; exact PubMed source hydration and independent scientific review remain separate.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42088310",
+        "doi": "10.3389/fnut.2026.1784027",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T09:56:06.492Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5b6b36cce154f7adaeac",
+      "reserved_at": "2026-10-09T09:56:15.019Z",
+      "source_branch": "research/intake/2/20261009-0554-cognition-metabolic-5-r19"
+    },
+    {
+      "pmid": "42302880",
+      "title": "Cognitive improvement by daily intake of coffee cherry pulp extract from Coffea canephora var. Robusta in a Japanese population: A randomized, placebo-controlled, double-blind, parallel-group comparison trial.",
+      "doi": "10.1016/j.ctim.2026.103395",
+      "source_title": "Cognitive improvement by daily intake of coffee cherry pulp extract from Coffea canephora var. Robusta in a Japanese population: A randomized, placebo-controlled, double-blind, parallel-group comparison trial.",
+      "abstract": "In coffee-producing regions, coffee cherry pulp is usually discarded despite its potential bioactivity. This study examined the effects of coffee cherry pulp extract from Coffea canephora var. Robusta (CCPER) on cognitive function in healthy adults and its neurite outgrowth effect on PC12 cells. This randomized, placebo-controlled, double-blind, parallel-group trial included 66 individuals aged ≥ 40 years with suspected mild cognitive impairment. Participants were randomized in equal groups using a computer-generated list. They were assigned to either the high-dose CCPER, low-dose CCPER (20 or 5 mg/day of dimeric B-type procyanidins (PCs) consisting of two isomers with procyanidins B1 and B3 without procyanidin B2, respectively), or placebo group, with each group receiving five capsules daily for 12 weeks (UMIN000051275). In vitro, PC12 cells were treated with either CCPER (0.1 or 0.5 µg/mL) or PCs (0.0021 or 0.0105 µg/mL) for 3 or 6 days. Neurite outgrowth was evaluated using a microscope. Sixty participants completed the intervention. After the 12-week intervention, the primary outcome-a standardized composite memory score on Cognitrax-was significantly higher in the high-dose group than in the placebo group (difference: 12.1, 95% confidence interval: 0.7-23.5, P = 0.038). Contrarily, no significant difference was observed in the low-dose group. No adverse events occurred. In vitro, CCPER and PCs treatments significantly promoted neurite extension compared with the control (P < 0.05). Daily intake of CCPER (20 mg/day PCs) improved cognitive function, particularly visual memory, likely due to the neurite outgrowth-promoting effects of its PCs observed in PC12 cells.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42302880/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human cognition and metabolic-health controlled trials, including null primary outcomes, industry-funded nutritional interventions, and treatment safety limitations; exact PubMed source hydration and independent scientific review remain separate.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42302880",
+        "doi": "10.1016/j.ctim.2026.103395",
+        "journal": "Complementary therapies in medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T09:56:06.493Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "350419bf8097ad98d026",
+      "reserved_at": "2026-10-09T09:56:15.019Z",
+      "source_branch": "research/intake/2/20261009-0554-cognition-metabolic-5-r19"
+    },
+    {
+      "pmid": "41770546",
+      "title": "Low-Dose Lithium for Mild Cognitive Impairment: A Pilot Randomized Clinical Trial.",
+      "doi": "10.1001/jamaneurol.2026.0072",
+      "source_title": "Low-Dose Lithium for Mild Cognitive Impairment: A Pilot Randomized Clinical Trial.",
+      "abstract": "Lithium deficiency may contribute to Alzheimer disease pathogenesis. No randomized clinical trial has examined lithium's effects on cognition, neuroimaging, and plasma biomarkers in mild cognitive impairment (MCI). To examine the feasibility, safety, and preliminary efficacy of lithium carbonate for delaying cognitive decline in older adults with MCI. This single-site, randomized, double-blind, placebo-controlled pilot feasibility clinical trial was conducted at the University of Pittsburgh School of Medicine from February 2018 to August 2024, with 2-year follow-up. Analyses used linear mixed-effects models in the intention-to-treat population. Adults aged 60 years or older with MCI who were free of major psychiatric or neurologic illness and contraindications to lithium were included. Of 170 individuals assessed, 83 were randomized (41 lithium vs 42 placebo), with 80 starting treatment (41 lithium vs 39 placebo). Data were analyzed from August 2024 to December 2025. Daily low-dose lithium carbonate or placebo for 2 years. Six prespecified coprimary outcomes included cognitive performance (California Verbal Learning Test-II [CVLT-II] delayed recall, Brief Visuospatial Memory Test-Revised, preclinical Alzheimer cognitive composite), hippocampal volume, cortical gray matter volume, and brain-derived neurotrophic factor. Among 80 participants (mean [SD] age, lithium: 72.93 [8.77] years; placebo: 71.22 [6.47] years; 56% female), none of the 6 coprimary outcomes met the prespecified significance threshold. Mean (SD) CVLT-II baseline scores were 7.95 (3.4) for lithium and 7.90 (3.9) for placebo; scores declined 1.42 points annually in the placebo group vs 0.73 points in the lithium group (difference, 0.69 points per year; 95% CI, 0.01-1.37; P = .05). Hippocampal and cortical volumes showed a decline over time in both groups, but no significant treatment × time interactions. Serious adverse events occurred in 12 of 41 (29%) receiving lithium vs 9 of 39 (23%) receiving placebo; none were definitely treatment related. One death occurred in the placebo group. Common adverse events included increased creatinine levels (12 of 41 [29%] with lithium vs 12 of 39 [31%] with placebo), diarrhea (12 of 41 [29%] vs 6 of 39 [15%]), tiredness (12 of 41 [29%] vs 6 of 39 [15%]), and tremor occurrence (10 of 41 [24%] vs 6 of 39 [15%]). This pilot randomized clinical trial established feasibility, confirmed safety and tolerability, and generated effect size estimates for future trials of low-dose lithium in MCI. None of the coprimary outcomes met the prespecified significance threshold. ClinicalTrials.gov Identifier: NCT03185208.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41770546/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human cognition and metabolic-health controlled trials, including null primary outcomes, industry-funded nutritional interventions, and treatment safety limitations; exact PubMed source hydration and independent scientific review remain separate.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41770546",
+        "doi": "10.1001/jamaneurol.2026.0072",
+        "journal": "JAMA neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T09:56:06.494Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "14a7040596bc73ee825d",
+      "reserved_at": "2026-10-09T09:56:15.019Z",
+      "source_branch": "research/intake/2/20261009-0554-cognition-metabolic-5-r19"
+    },
+    {
+      "pmid": "42804222",
+      "title": "Hearing Intervention for Older Adults With Mild Cognitive Impairment: The CHOICE Randomized Clinical Trial.",
+      "doi": "10.1001/jamaneurol.2026.3395",
+      "source_title": "Hearing Intervention for Older Adults With Mild Cognitive Impairment: The CHOICE Randomized Clinical Trial.",
+      "abstract": "Hearing loss is a significant modifiable risk factor for cognitive decline, but the effectiveness of hearing intervention for cognition stabilization or improvement still remains controversial. To investigate whether hearing intervention could reduce dementia-level impairment incidence in older adults with coexisting hearing loss and mild cognitive impairment (MCI). This multicenter, parallel-group, open-label randomized clinical trial was conducted between September 2021 and February 2024, with the 24-month follow-up completed in February 2026. This study was conducted at 3 tertiary otology outpatient clinics and 3 CHOICE cohort community health stations in Shanghai, China. Of 21 908 adults aged 60 years or older assessed for eligibility, 703 participants with coexisting MCI (Clinical Dementia Rating [CDR] global score of 0.5) and moderate to severe hearing loss were enrolled and randomized. These data were analyzed from February 2026 to July 2026. Participants were randomized 1:1 to receive either hearing aid intervention (n = 353) or hearing care education (n = 350). The primary outcome was the conversion rate from MCI to dementia-level impairment over 24 months, defined as a CDR global score 1 or more. Key prespecified secondary outcomes comprised rate of cognitive improvement (CDR = 0) and CDR global and domain scores. Among 703 randomized patients (mean [SD] age, 74.53 [7.16] years; range, 60-96 years; 250 female [35.56%] and 452 male [64.44%]), 610 (86.77%) completed the trial. No significant difference was observed in the primary outcome, in which the conversion rate from MCI to dementia-level impairment was 3.09% (95% CI, 1.62%-5.74%) in the intervention group vs 4.74% (95% CI, 2.60%-8.29%) in the control group (risk difference [RD], -2.07%; 95% CI, -4.74% to 0.61%; relative risk [RR], 0.59; 95% CI, 0.25-1.38; P = .23). Meanwhile, prespecified secondary analysis demonstrated that hearing intervention increased the rate of cognitive improvement (15.34%; 95% CI, 11.84%-19.62% vs 2.36%; 95% CI, 0.99%-5.22%; RD, 12.00%; 95% CI, 8.79%-15.21%; RR, 5.94; 95% CI, 2.46-14.37). No study-related adverse events were reported. In this study, among older adults with mild cognitive impairment and coexisting hearing loss, a hearing aid intervention did not significantly reduce the incidence of dementia-level impairment at 24 months. Chinese Clinical Trial Registry Identifier: ChiCTR2000036139.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42804222/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human cognition and metabolic-health controlled trials, including null primary outcomes, industry-funded nutritional interventions, and treatment safety limitations; exact PubMed source hydration and independent scientific review remain separate.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42804222",
+        "doi": "10.1001/jamaneurol.2026.3395",
+        "journal": "JAMA neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T09:56:06.494Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9992e79685eef75019dc",
+      "reserved_at": "2026-10-09T09:56:15.019Z",
+      "source_branch": "research/intake/2/20261009-0554-cognition-metabolic-5-r19"
+    },
+    {
+      "pmid": "41725786",
+      "title": "A Probiotic Nutritional Supplement Improves Glycemic Control and Biomarkers of Metabolic Syndrome in Patients With Type 2 Diabetes Mellitus.",
+      "doi": "10.1177/11786388251413658",
+      "source_title": "A Probiotic Nutritional Supplement Improves Glycemic Control and Biomarkers of Metabolic Syndrome in Patients With Type 2 Diabetes Mellitus.",
+      "abstract": "BeaT-2/Sugarburner is a nutritional supplement based on a co-existing microbial consortium of bacterial strains. The purpose of this study was to investigate potential beneficial effects of the supplement versus placebo on glycemic control and on biomarkers of inflammation, insulin resistance and ß-cell dysfunction. A total of 40 Patients with type 2 diabetes (31 male, 9 female, age:65.5 ± 8.0 years, BMI: 33.6 ± 5.5 kg/m ² , HbA1c: 7.2 ± 0.9%) were included into the study. They were randomized to receive 2 capsules of either BeaT-2 or placebo once daily for 6 weeks. Observation parameters were time in normoglycemia as assessed by continuous glucose monitoring, and biomarkers of glycemic control, ß-cell function, insulin resistance and chronic systemic inflammation. Time in range was stable with BeaT-2 between weeks 0 and 2 versus weeks 4 and 6, while it slightly impaired with placebo (-4%, n.s.). At endpoint, there were significant improvements versus baseline with BeaT-2, but not with placebo for biomarkers of glycemic control (BeaT-2 vs Placebo, HbA1c: -0.3% vs 0.1%, fasting glucose: -14% vs +8%, both P < .05), insulin resistance (insulin: -17% vs +14%, HOMA-IR: -26% vs +21%, both P < .05), ß-cell dysfunction (intact proinsulin: -40% vs -2%, P < .05) and chronic systemic inflammation (adiponectin: +8% vs -8%; P < .05, hsCRP: -31% vs +27%, n.s.). In addition, observed changes in the lipid profiles and other parameters of metabolic syndrome were more favorable with BeaT-2 than with placebo. There were no differences between the groups with respect to number and type of adverse events. The results observed with BeaT-2 were comprehensively indicative for improvements in the cardiometabolic situation. BeaT-2 may be a valuable supplement to any existing treatment combination in patients with type 2 diabetes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41725786/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human cognition and metabolic-health controlled trials, including null primary outcomes, industry-funded nutritional interventions, and treatment safety limitations; exact PubMed source hydration and independent scientific review remain separate.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41725786",
+        "doi": "10.1177/11786388251413658",
+        "journal": "Nutrition and metabolic insights",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T09:56:06.495Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6ff7fe09faa2484432fc",
+      "reserved_at": "2026-10-09T09:56:15.019Z",
+      "source_branch": "research/intake/2/20261009-0554-cognition-metabolic-5-r19"
     }
   ],
   "batches": [
@@ -29910,22 +30293,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 374,
+    "total_reservations": 379,
     "by_lane": {
       "1": 5,
-      "2": 51,
+      "2": 56,
       "3": 60,
       "4": 33,
       "5": 225
     },
     "by_state": {
-      "SOURCE_VERIFIED": 374
+      "SOURCE_VERIFIED": 379
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 374,
+        "count": 379,
         "pr_number": null,
         "blocker": null
       }
