@@ -1,18 +1,36 @@
 # THS-MASTER-P0 — Reconstructed 150-Item Acceptance Register
 
-**Version:** reconstruction candidate 1.0 · **Reconstructed:** 2026-10-09 · **Owner:** P0 program #6431
+**Version:** reconstruction candidate 1.1 (audit 001) · **Reconstructed:** 2026-10-09 · **Owner:** P0 program #6431
 
 > **Not the recovered original.** The exact October 8 thirteen-section/150-item checklist could not be located in current GitHub records or accessible prior artifacts. This is a replacement acceptance *proposal* informed by the original THS-MASTER-P0 scope, AGENTS.md, the current authoritatives, the generational plan and observed GitHub releases. Do not represent these as verbatim original tasks or silently transplant the old progress count.
 
 ## Accounting and execution guardrails
 
 - **Original historical progress:** `10/150` as reported in #6431. **Original individual task-to-proof allocation:** unavailable. Keep legacy progress separate from the reconstructed register.
-- **Reconstructed item-level proof count:** `0/150 formally certified by this document at creation`. This is **not** a claim that no underlying features exist: previous releases are candidate evidence below, not yet independently mapped against all acceptance clauses.
+- **Reconstructed item-level proof count:** `4/150 verified accepted after audit 001` (plus five evidence candidates among nine audited). This is **not** a claim that no underlying features exist: previous releases are candidate evidence below, not yet independently mapped against all acceptance clauses.
 - Do not add the 10 legacy tasks to reconstructed verified items, or call candidate PRs completed checklist items. Recount only after explicit item-by-item review. Keep historical and reconstructed denominators distinct until signed-off migration.
 - This document is a **candidate acceptance inventory, not an implementation queue**, WIP admission, scientific approval, merge authorization, deployment proof or observed business outcome. `docs/CURRENT_SPRINT.md`, `docs/MASTER_BACKLOG.md`, `AGENTS.md`, the existing score, and the sole merge controller govern actual work.
 - For each item, use the status vocabulary `Not audited`, `Evidence candidate`, `Verified accepted`, `Blocked`, `Rejected`, with verification date, exact artifact SHA/CI/production or external observation as applicable. A merged PR alone is insufficient for a visitor-facing deployment item.
 - Completion requires **all** of the stated pass conditions, appropriate negative fixtures, existing mandatory checks and an auditable artifact. Browser receipts, clinical-review receipts, provider permission and actual revenue are separate where specified. Unknown is not PASS.
 - Preserve scientific source→human review firewall; research-only intake cannot promote medical claims or dosing. Preserve source/claim identity, privacy, accessibility, honest disclosures, stable routes, static export and rollback.
+
+## Audit 001 — Nine reconstructed criteria reconciled (2026-10-09)
+
+**Count:** 4 verified accepted / 150 reconstructed; 5 evidence candidates; 141 not audited. **Historical original count remains 10/150** (unallocated; **do not add 4+10**). Acceptance judgments apply only to the newly reconstructed criteria.
+
+| Item | Status | Proof (code/tests/merge/deploy) | Open boundary |
+|---|---|---|---|
+| P0-026 | Evidence candidate | [#6426](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6426) merged; main has malformed-candidate isolation and CLI test for 2 valid + 1 rejected, report `.txt` cannot enter `.json` reservation glob | Require real exact-head validation receipt for original merged head and operator CLI smoke; first PR-triggered CI attempt was zero-job/failed and is not a valid test outcome |
+| P0-030 | Evidence candidate | [#6480](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6480) merged; [CI](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37876214716) success; [deploy](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37878438302) success | Observed hourly missed-seed replay receipt, and no duplicate reservations in field, still Unknown; push-triggered intake is not proof |
+| P0-047 | Verified accepted | [#6437](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6437) eight-instrument source-bound coordinator; [exact-head CI](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37847833816) success with exact PMID/signature and zero promotion negative tests; present on main and later [deployed](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37875021598) | No human clinical review, research truth, adoption or ROI inferred |
+| P0-048 | Verified accepted | Same #6437 source-bound integration; CI fixtures require 12 capabilities, zero calibration failures, no clinical approvals; source survives in main and was later deployed with #6471 | Deterministic projections do not prove independent external science |
+| P0-059 | Verified accepted | [#6471](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6471) exact-source packet merged; [full CI](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37871073298) success including altered PMID/DOI/signature/claim and forged-publication refusal; [production](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37875021598) exact-origin success | Human editorial approval, claim promotion and publishing remain unauthorized |
+| P0-100 | Evidence candidate | [#6484](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6484) Terms page and footer/Info/sitemap contract merged; [Cloudflare](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37922725823) exact-origin success, artifact `out/info/terms/index.html` | Independent live `/info/terms/` request could not be retrieved; web-crawled `/info/` did not yet show Terms. Require uncached visitor/browser and sitemap proof |
+| P0-124 | Evidence candidate | [#6399](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6399) local Kokoro waveform/hash workflow merged; [Cloudflare](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37880086813) deployed | Human audition of actual approved narration master, synced final video and native upload are not verified |
+| P0-134 | Evidence candidate | [#6460](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6460) controller defers eight consumers behind one governed CI producer; [CI](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37867253807) and [production](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37869304990) success | Real zero-job recovery canary and measured duplicate-build savings remain Unknown; do not claim improved ROI |
+| P0-137 | Verified accepted | [#6455](https://github.com/Razzleberrytt/hippie-scientist-site/pull/6455) tests narrow known unresolved-review 405 classification and rejection of unrelated HTTP/auth/transport failures; current main retains implementation/tests; [CI](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37863385085) and [Cloudflare](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/37865211337) success | Real occurrence of 405 remains Unknown; tested logic accepted, not field-frequency claim |
+
+Four accepted items have source implementations surviving in `main`, negative contract fixtures, relevant passing GitHub Actions checks and a later production-origin deployment receipt. This is **not** independent re-execution of their tests during this documentation-only audit. Five other items have genuine shipped components but their own stated acceptance still lacks sufficient proof. Any later correction to these states must cite the precise failed or successful contract and preserve the audit history. Historical original completion is not reallocated.
 
 ## Legacy evidence reconciliation — candidates only
 
@@ -62,11 +80,11 @@
 - [ ] **P0-023 — Validate intake input schema.** **PASS when:** Missing PMID, malformed record and unexpected property fixtures produce a fail-closed preflight result. **Initial status:** Not audited.
 - [ ] **P0-024 — Deduplicate across intake lanes.** **PASS when:** Two concurrent lanes cannot reserve the same canonical PMID or DOI. **Initial status:** Not audited.
 - [ ] **P0-025 — Bound intake manifests.** **PASS when:** Each reservation produces an authenticated/reproducible manifest of at most 25 accepted source entries. **Initial status:** Not audited.
-- [ ] **P0-026 — Isolate malformed candidates.** **PASS when:** Rejected records never become JSON intake manifests or prevent valid candidates from proceeding. **Initial status:** Not audited.
+- [ ] **P0-026 — Isolate malformed candidates.** **PASS when:** Rejected records never become JSON intake manifests or prevent valid candidates from proceeding. **Current status:** Evidence candidate (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-027 — Verify source metadata.** **PASS when:** Any fetched PubMed title/abstract has an exact source receipt; absent metadata remains absent. **Initial status:** Not audited.
 - [ ] **P0-028 — Detect DOI/title collisions.** **PASS when:** Global collision check catches canonical DOI and normalized-title duplicates before reservation. **Initial status:** Not audited.
 - [ ] **P0-029 — Preserve frozen recovery order.** **PASS when:** Existing frozen-batch recovery precedes new committed-seed replay; adversarial test prevents regression. **Initial status:** Not audited.
-- [ ] **P0-030 — Recover missed scheduled seeds.** **PASS when:** Exact-SHA scheduled replay reserves previously missed committed seeds without duplicating reservations. **Initial status:** Not audited.
+- [ ] **P0-030 — Recover missed scheduled seeds.** **PASS when:** Exact-SHA scheduled replay reserves previously missed committed seeds without duplicating reservations. **Current status:** Evidence candidate (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-031 — Handle retries idempotently.** **PASS when:** Retries and concurrent scheduler runs cannot reserve a batch twice or silently corrupt state. **Initial status:** Not audited.
 - [ ] **P0-032 — Quarantine questionable sources.** **PASS when:** Retracted, corrected, malformed or off-domain candidates retain reason-coded review-only states. **Initial status:** Not audited.
 - [ ] **P0-033 — Keep intake research-only.** **PASS when:** Tests prove source-only records never automatically become clinical ratings, recommendations or public claims. **Initial status:** Not audited.
@@ -89,8 +107,8 @@
 
 ### Section 4. Semantic research intelligence and interoperability — 12 items
 
-- [ ] **P0-047 — Integrate eight research instruments.** **PASS when:** All eight existing instruments consume the same exact source-bound case without creating a second evidence authority. **Initial status:** Not audited.
-- [ ] **P0-048 — Integrate twelve scientific projections.** **PASS when:** Twelve bounded analysis capabilities produce inspectable source-linked receipts without clinical promotion. **Initial status:** Not audited.
+- [x] **P0-047 — Integrate eight research instruments.** **PASS when:** All eight existing instruments consume the same exact source-bound case without creating a second evidence authority. **Current status:** Verified accepted (audit 001). **Evidence:** audit 001 below.
+- [x] **P0-048 — Integrate twelve scientific projections.** **PASS when:** Twelve bounded analysis capabilities produce inspectable source-linked receipts without clinical promotion. **Current status:** Verified accepted (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-049 — Expose Study DNA.** **PASS when:** Study fingerprints show intervention, population, methods, outcomes, qualifiers and unavailable fields accurately. **Initial status:** Not audited.
 - [ ] **P0-050 — Expose contradiction candidates.** **PASS when:** Potential disagreements cite exact witnesses and explain comparability uncertainty rather than declaring facts. **Initial status:** Not audited.
 - [ ] **P0-051 — Expose knowledge gaps.** **PASS when:** Gap views distinguish local coverage scarcity from global evidence absence. **Initial status:** Not audited.
@@ -104,7 +122,7 @@
 
 ### Section 5. Editorial bridge, knowledge publication and controls — 12 items
 
-- [ ] **P0-059 — Generate review-only editorial packet.** **PASS when:** Source-bound case generates a typed reviewer request with source IDs, unknowns and immutable status. **Initial status:** Not audited.
+- [x] **P0-059 — Generate review-only editorial packet.** **PASS when:** Source-bound case generates a typed reviewer request with source IDs, unknowns and immutable status. **Current status:** Verified accepted (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-060 — Prohibit automatic publish handoff.** **PASS when:** Unapproved editorial packets never become indexed articles, recommendations or live social assets. **Initial status:** Not audited.
 - [ ] **P0-061 — Support explicit reviewer rejection.** **PASS when:** Rejected or disputed drafts retain rationale and cannot pass downstream release checks. **Initial status:** Not audited.
 - [ ] **P0-062 — Version editorial revisions.** **PASS when:** Any substantive claim revision requires re-review of affected source/claim relationships. **Initial status:** Not audited.
@@ -154,7 +172,7 @@
 - [ ] **P0-097 — Use governed affiliate config.** **PASS when:** Affiliate URLs are generated from canonical config and correct destination/product context. **Initial status:** Not audited.
 - [ ] **P0-098 — Display affiliate disclosure.** **PASS when:** Disclosure is clear before or alongside the first relevant affiliate link, mobile and desktop. **Initial status:** Not audited.
 - [ ] **P0-099 — Make comparisons commission-independent.** **PASS when:** Paid availability does not determine rankings and unmatched options remain represented. **Initial status:** Not audited.
-- [ ] **P0-100 — Release public Terms of Service.** **PASS when:** Terms route is generated, linked, sitemap-eligible and reachable on verified production origin. **Initial status:** Not audited.
+- [ ] **P0-100 — Release public Terms of Service.** **PASS when:** Terms route is generated, linked, sitemap-eligible and reachable on verified production origin. **Current status:** Evidence candidate (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-101 — Audit privacy/consent documentation.** **PASS when:** Published policy matches actual analytics, cookies, provider transport and contact behavior. **Initial status:** Not audited.
 - [ ] **P0-102 — Document monetization eligibility.** **PASS when:** Each revenue channel has account/eligibility and prohibited-claim requirements, with blockers explicit. **Initial status:** Not audited.
 - [ ] **P0-103 — Keep unsafe offers excluded.** **PASS when:** Restricted or unsafe product categories and unapproved health claims cannot enter commercial recommendations. **Initial status:** Not audited.
@@ -184,7 +202,7 @@
 - [ ] **P0-121 — Bind scripts to evidence.** **PASS when:** Every substantive media claim matches source-verified editorial copy with qualifiers intact. **Initial status:** Not audited.
 - [ ] **P0-122 — Enforce first-second clarity.** **PASS when:** Covers, first frames and opening lines agree and communicate one readable promise. **Initial status:** Not audited.
 - [ ] **P0-123 — Make muted playback complete.** **PASS when:** Core explanations and limitations remain readable without audio on phone preview. **Initial status:** Not audited.
-- [ ] **P0-124 — Render sovereign voice assets.** **PASS when:** Locally generated narration is reproducible and independent of paid credits or Metricool. **Initial status:** Not audited.
+- [ ] **P0-124 — Render sovereign voice assets.** **PASS when:** Locally generated narration is reproducible and independent of paid credits or Metricool. **Current status:** Evidence candidate (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-125 — Synchronize narration with video.** **PASS when:** Exact approved WAV, subtitles, scene timings and MP4 pass audible synchronization review. **Initial status:** Not audited.
 - [ ] **P0-126 — Run perceptual QA.** **PASS when:** Human/automated checks assess safe areas, pacing, readability, pronunciation and source fidelity. **Initial status:** Not audited.
 - [ ] **P0-127 — Version final creative artifacts.** **PASS when:** Asset hash, script hash, dimensions, runtime, evidence provenance and reviewer decision are recorded. **Initial status:** Not audited.
@@ -197,10 +215,10 @@
 - [ ] **P0-131 — Preserve static-export compatibility.** **PASS when:** No runtime-only Next APIs or secret-dependent server behavior enters the static Cloudflare export. **Initial status:** Not audited.
 - [ ] **P0-132 — Pin exact-head required CI.** **PASS when:** Required tests, security, science, content, SEO and accessibility checks validate intended head/base/tree. **Initial status:** Not audited.
 - [ ] **P0-133 — Implement cheap local preflight.** **PASS when:** Unit/schema/negative fixtures fail quickly without substituting for required full checks. **Initial status:** Not audited.
-- [ ] **P0-134 — Share immutable build output.** **PASS when:** One verified export producer serves equivalent downstream consumers only when hash/scope rules match. **Initial status:** Not audited.
+- [ ] **P0-134 — Share immutable build output.** **PASS when:** One verified export producer serves equivalent downstream consumers only when hash/scope rules match. **Current status:** Evidence candidate (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-135 — Avoid stale validator reuse.** **PASS when:** Risk-changing or SHA/base-changing edits force required checks to rerun, proven by negative fixtures. **Initial status:** Not audited.
 - [ ] **P0-136 — Constrain merge authority.** **PASS when:** Only the existing controller merges and unresolved review/safety holds cannot be overridden. **Initial status:** Not audited.
-- [ ] **P0-137 — Distinguish governance HTTP errors.** **PASS when:** Known unresolved-review 405 is classified correctly; unrelated auth, network and HTTP errors stay fatal. **Initial status:** Not audited.
+- [x] **P0-137 — Distinguish governance HTTP errors.** **PASS when:** Known unresolved-review 405 is classified correctly; unrelated auth, network and HTTP errors stay fatal. **Current status:** Verified accepted (audit 001). **Evidence:** audit 001 below.
 - [ ] **P0-138 — Keep secrets outside repository.** **PASS when:** Sensitive keys, tokens, signing material and provider credentials are never committed or printed in logs. **Initial status:** Not audited.
 - [ ] **P0-139 — Provide reproducible rollback.** **PASS when:** Release artifact and reversible change procedure can restore last known-good approved state. **Initial status:** Not audited.
 - [ ] **P0-140 — Verify Cloudflare production identity.** **PASS when:** Production-origin deployment receipt exposes the actual expected merged main SHA. **Initial status:** Not audited.
@@ -229,6 +247,6 @@
 ## Known limitations
 
 - The original October 8 checklist text is missing, so section names, item order and wording are reconstructed rather than original.
-- All individual reconstructed statuses start `Not audited`, despite known released capabilities. This intentionally avoids fabricating a completed item count.
+- At creation, all items were `Not audited`. After audit 001: 4 are verified accepted, 5 evidence candidates, and 141 not audited. The original 10/150 legacy count remains separate, unmapped and unchanged.
 - This 150-item document is distinct from the separate **25-item generational readiness register** and the older **1,000-ticket master backlog**.
 - Dated upstream sprint prose may be stale; live GitHub and origin deployment receipts outrank historical status snapshots.
