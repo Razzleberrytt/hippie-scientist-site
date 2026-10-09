@@ -14,6 +14,119 @@ import {planResearchSemanticFabric,type ResearchFabricPlan,type DistributionIden
 import type {ResearchStudio,ReviewedStudyInput} from './research-intelligence-studio'
 import type {SemanticNetwork} from './research-semantic-network'
 
+/**
+ * A transfer receipt, NOT a clinical finding or approved editorial claim.
+ * Distribution claim/source IDs are existing *claimed* identifiers associated
+ * with a matching publication; they are not proof of independent review.
+ */
+export type EditorialReviewRequest={
+  requestId:string
+  pmid:string
+  sourceSignature:string
+  primaryDoi:string
+  objectId:string
+  targetPage:string
+  claimedFindingId:string
+  claimedSourceId:string
+  status:'requires-independent-human-review'
+  basis:'exact-publication-identity-not-claim-support'
+}
+export type ResearchEditorialReviewHandoff={
+  schemaVersion:1
+  eventType:'research-editorial-review-request'
+  sourcePmid:string
+  sourceSignature:string
+  sourceUrl:string
+  sourceDoi:string|null
+  separatelyReviewedCitationIds:string[]
+  instrumentCount:8
+  scientificProjectionCount:12
+  draftBriefIds:string[]
+  requests:EditorialReviewRequest[]
+  heldReasons:Array<{channel:'editorial'|'social';reason:string}>
+  status:'review-requests-pending'|'held-no-exact-review-target'
+  evidenceAuthority:'ungraded-research-intake'
+  humanReviewRequired:true
+  clinicalClaimsApproved:0
+  automaticPublications:0
+  publicationAllowed:false
+  mutationAllowed:false
+}
+
+/** Identities are pinned to the *already validated* 8+12+Fabric case. */
+export function buildResearchEditorialReviewHandoff(
+  integrated:Pick<IntegratedResearchCase,
+    'pmid'|'sourceSignature'|'caseFile'|'scientific'|'fabric'|'relay'|
+    'clinicalPromotions'|'publicationAllowed'|'mutationAllowed'>,
+):ResearchEditorialReviewHandoff{
+  const {pmid,sourceSignature,caseFile,scientific,fabric,relay}=integrated
+  if(!/^\d{5,10}$/.test(pmid)||!sourceSignature||
+    caseFile.pmid!==pmid||caseFile.sourceSignature!==sourceSignature||
+    fabric.sourcePmid!==pmid||fabric.sourceSignature!==sourceSignature||
+    relay.pmid!==pmid||scientific.pmid!==pmid||
+    scientific.sourceSignature!==sourceSignature||
+    caseFile.instruments.length!==8||scientific.capabilities.length!==12||
+    scientific.calibrationPassed!==true||scientific.calibrationFailures!==0||
+    scientific.clinicalPromotions!==0||scientific.autopublished!==0||
+    integrated.clinicalPromotions!==0||
+    integrated.publicationAllowed!==false||integrated.mutationAllowed!==false||
+    fabric.evidenceAuthority!=='research-intake-not-clinical-evidence'||
+    fabric.publicationAllowed!==false||fabric.mutationAllowed!==false||
+    JSON.stringify(fabric.reviewedCitationIds)!==JSON.stringify(caseFile.reviewedCitationIds)||
+    fabric.distributionReviewTargets.some(t=>
+      !fabric.sourceDoi||t.matchingDoi!==fabric.sourceDoi||
+      t.status!=='publication-matched-editorial-review-required')) {
+    throw Error('Editorial handoff rejected inconsistent research-only source or permission authority')
+  }
+  const requests:EditorialReviewRequest[]=fabric.distributionReviewTargets.map(t=>({
+    // JSON tuple avoids ambiguous delimiter collisions and preserves identity.
+    requestId:JSON.stringify([pmid,sourceSignature,t.objectId,t.citationId,t.sourceClaimId,t.matchingDoi]),
+    pmid,sourceSignature,primaryDoi:t.matchingDoi,
+    objectId:t.objectId,targetPage:t.targetPage,
+    claimedFindingId:t.sourceClaimId,claimedSourceId:t.citationId,
+    status:'requires-independent-human-review' as const,
+    basis:'exact-publication-identity-not-claim-support' as const,
+  })).sort((a,b)=>a.requestId.localeCompare(b.requestId))
+  if(new Set(requests.map(r=>r.requestId)).size!==requests.length)
+    throw Error('Editorial handoff rejected duplicate exact review request identity')
+  return {
+    schemaVersion:1,eventType:'research-editorial-review-request',
+    sourcePmid:pmid,sourceSignature,sourceUrl:caseFile.sourceUrl,
+    sourceDoi:fabric.sourceDoi,
+    separatelyReviewedCitationIds:[...caseFile.reviewedCitationIds].sort(),
+    instrumentCount:8,scientificProjectionCount:12,
+    draftBriefIds:[...new Set(fabric.editorialQueue.map(b=>b.briefId))].sort(),
+    requests,
+    heldReasons:fabric.unresolvedChannels.map(c=>({channel:c.channel,reason:c.reason}))
+      .sort((a,b)=>a.channel.localeCompare(b.channel)),
+    status:requests.length||fabric.editorialQueue.length
+      ?'review-requests-pending':'held-no-exact-review-target',
+    evidenceAuthority:'ungraded-research-intake',
+    humanReviewRequired:true,
+    clinicalClaimsApproved:0,automaticPublications:0,
+    publicationAllowed:false,mutationAllowed:false,
+  }
+}
+
+/**
+ * Consumer must have the current source/graph and all original identity
+ * inputs. Exact structural equality rejects unknown versions/fields, foreign
+ * claim IDs, signatures, DOI drift, approval flags and stale source revisions.
+ */
+export function validateResearchEditorialReviewHandoff(
+  raw:unknown,
+  studio:ResearchStudio,graph:SemanticNetwork,pmid:string,
+  distributionObjects:readonly DistributionIdentity[],
+  reviewedStudies:readonly ReviewedStudyInput[]=[],
+):ResearchEditorialReviewHandoff{
+  const fresh=buildIntegratedResearchCase(studio,graph,pmid,distributionObjects,reviewedStudies)
+  if(!fresh||!raw||typeof raw!=='object'||
+    JSON.stringify(raw)!==JSON.stringify(fresh.reviewHandoff)) {
+    throw Error('Editorial handoff rejected stale, foreign, unreviewed or altered receipt')
+  }
+  return fresh.reviewHandoff
+}
+
 export type IntegratedResearchCase={
   schemaVersion:1
   pmid:string
@@ -23,6 +136,7 @@ export type IntegratedResearchCase={
   relay:InstrumentRelay
   scientific:ScientificIntelligenceCase
   fabric:ResearchFabricPlan
+  reviewHandoff:ResearchEditorialReviewHandoff
   status:'source-bound-human-review-only'
   clinicalPromotions:0
   publicationAllowed:false
@@ -75,10 +189,10 @@ export function buildIntegratedResearchCase(
     throw Error('Integrated research case failed exact-source, scientific or review-only contract')
   }
 
-  return {
-    schemaVersion:1,pmid,sourceSignature:verifiedSignature,
-    caseFile,scope,relay,scientific,fabric,
-    status:'source-bound-human-review-only',
-    clinicalPromotions:0,publicationAllowed:false,mutationAllowed:false,
+  const base={
+    pmid,sourceSignature:verifiedSignature,caseFile,scope,relay,scientific,fabric,
+    status:'source-bound-human-review-only' as const,
+    clinicalPromotions:0 as const,publicationAllowed:false as const,mutationAllowed:false as const,
   }
+  return {...base,schemaVersion:1,reviewHandoff:buildResearchEditorialReviewHandoff(base)}
 }
