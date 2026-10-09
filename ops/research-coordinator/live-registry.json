@@ -42053,6 +42053,83 @@
       "reservation_id": "596e8a92ea097953af7d",
       "reserved_at": "2026-10-09T23:46:12.963Z",
       "source_branch": "research/intake/1/20261009-1943-psychobiotic-echinacea-shumian-three"
+    },
+    {
+      "pmid": "41390484",
+      "title": "Gut microbiome predicts personalized responses to dietary fiber in prediabetes: a randomized, open-label trial.",
+      "doi": "10.1038/s41467-025-66498-x",
+      "source_title": "Gut microbiome predicts personalized responses to dietary fiber in prediabetes: a randomized, open-label trial.",
+      "abstract": "Gut microbiota contributes to prediabetes progression, however, whether microbiota features can guide targeted prevention and treatment for diabetes requires validation through large-scale clinical trials. Here, in a randomized, open-label trial, we randomly assigned 802 prediabetic subjects to a usual care control group (patient education and dietary recommendations, n = 393) or a dietary fiber intervention group (n = 409) for 6 months. The primary outcome was the percentage change in whole-blood HbA1c, and secondary outcomes were the changes in other glucose, insulin, lipid, liver and kidney function, and anthropometric parameters. There were no statistically significant differences in the primary and secondary outcomes between groups. In post-hoc analysis, we reclassified subjects into four clusters using a multivariate clustering model based on age, BMI, HbA1c, HOMA2-IR and HOMA2-B. These clusters differed in metabolic status, risks of diabetes and its complications, gut microbiome and serum metabolites. Notably, dietary fiber improved glycemic control in Clusters 3 and 4, but not in Clusters 1 and 2, consistent with observed gut microbiota alleviations. By using a LightGBM machine learning model, we calculated a microbiome-based clinical decision score to predict personalized fiber intervention responses and identified individuals who can get glycemic benefits. In conclusion, our study suggests that the gut microbiota response influences the effectiveness of dietary fiber intervention and provides a clinically applicable model to guide microbiome-targeted personalized medicine for prediabetes. Clinical Trial Registry: ChiCTR1900027663.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41390484/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41390484",
+        "doi": "10.1038/s41467-025-66498-x",
+        "journal": "Nature communications",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T23:55:16.578Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7253a006359e3764989c",
+      "reserved_at": "2026-10-09T23:55:21.349Z",
+      "source_branch": "research/intake/2/20261009-1953-fiber-prediabetes-r33"
     }
   ],
   "batches": [
@@ -42081,16 +42158,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 532,
+    "total_reservations": 533,
     "by_lane": {
       "1": 24,
-      "2": 92,
+      "2": 93,
       "3": 95,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 532
+      "SOURCE_VERIFIED": 533
     },
     "batches": [
       {
@@ -42103,7 +42180,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 32,
+        "count": 33,
         "pr_number": null,
         "blocker": null
       }
