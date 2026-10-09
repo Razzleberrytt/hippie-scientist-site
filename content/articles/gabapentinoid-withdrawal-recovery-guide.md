@@ -39,7 +39,7 @@ profile_status: "published"
 sitemap_included: true
 ai_assisted: true
 references:
-  - title: "Gabapentin tablets: U.S. prescribing information"
+  - title: "Gabapentin capsules: U.S. prescribing information"
     authors: "DailyMed / U.S. National Library of Medicine"
     year: "2026"
     url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4615aaa7-73d4-4473-8f26-e7a982f8a166"
