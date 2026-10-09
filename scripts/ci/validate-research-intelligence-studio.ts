@@ -6,6 +6,7 @@ import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
+import {buildIntegratedResearchCase,validateResearchReviewRequest} from '../../lib/research-intelligence-integration'
 import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
 import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
 import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from '../../lib/scientific-intelligence-foundations'
@@ -582,6 +583,66 @@ assert.throws(()=>planResearchSemanticFabric(doiStudio,doiGraph,doiCase,[
 assert.equal(planResearchSemanticFabric(doiStudio,doiGraph,
  buildResearchCaseFile(doiStudio,doiGraph,'10000002')!,[publisherObject])
  .distributionReviewTargets.length,0,'No same-PMID or unrelated-paper cross-talk')
+// P0 typed ResearchReviewRequested.v1: the same case spans 8+12 instruments
+// and a DOI-exact editorial review target, but never acquires claim authority.
+const integratedReviewCase=buildIntegratedResearchCase(doiStudio,doiGraph,doiCase.pmid,[publisherObject])!
+assert(integratedReviewCase,'Known exact PMID must remain navigable')
+const request=integratedReviewCase.reviewRequest
+assert.equal(request.kind,'ResearchReviewRequested.v1')
+assert.equal(request.schemaVersion,1)
+assert.equal(request.sourcePmid,doiCase.pmid)
+assert.equal(request.sourceSignature,doiCase.sourceSignature)
+assert.equal(request.sourceDoi,'10.5555/exact-synthetic-source')
+assert.equal(request.researchInstrumentIds.length,8)
+assert.equal(request.scientificCapabilityIds.length,12)
+assert.equal(request.distributionTargets.length,1)
+assert.deepEqual(request.distributionTargets[0],{
+ objectId:'social-exact-1',targetPage:'/herbs/magnesium/',
+ matchingDoi:'10.5555/exact-synthetic-source',
+ existingClaimId:'clm_exact001',existingPrimarySourceId:'src_exact001',
+ status:'publication-matched-editorial-review-required',
+})
+assert.equal(request.status,'human-review-required')
+assert.equal(request.authority,'source-identity-only-not-claim-support')
+assert.equal(request.independentClaimApproved,false)
+assert.equal(request.publicationAllowed,false)
+assert.equal(request.mutationAllowed,false)
+assert.deepEqual(
+ validateResearchReviewRequest(request,doiStudio,doiGraph,doiCase.pmid,[publisherObject]),
+ request,'Exact replay of the unchanged research-only handoff is permitted')
+const corruptReviewRequest=(mutation:(payload:any)=>void)=>{
+ const altered=JSON.parse(JSON.stringify(request))
+ mutation(altered)
+ assert.throws(()=>validateResearchReviewRequest(
+  altered,doiStudio,doiGraph,doiCase.pmid,[publisherObject],
+ ),/contract mismatch/,'Tampered review request must fail closed')
+}
+for(const edit of [
+ (v:any)=>{v.schemaVersion=2},
+ (v:any)=>{v.kind='ClaimApproved.v1'},
+ (v:any)=>{v.sourcePmid='10000002'},
+ (v:any)=>{v.sourceSignature='stale-or-forged'},
+ (v:any)=>{v.sourceDoi='10.5555/not-exact'},
+ (v:any)=>{v.reviewedCitationIds=['unrelated-study']},
+ (v:any)=>{v.distributionTargets[0].existingClaimId='clm_foreign'},
+ (v:any)=>{v.distributionTargets[0].existingPrimarySourceId='src_foreign'},
+ (v:any)=>{v.distributionTargets[0].matchingDoi='10.5555/not-exact'},
+ (v:any)=>{v.distributionTargets[0].status='approved'},
+ (v:any)=>{v.independentClaimApproved=true},
+ (v:any)=>{v.publicationAllowed=true},
+ (v:any)=>{v.mutationAllowed=true},
+ (v:any)=>{v.unverifiedExtraClinicalPermission=true},
+])corruptReviewRequest(edit)
+const unmatched=buildIntegratedResearchCase(doiStudio,doiGraph,'10000002',[publisherObject])!
+assert(unmatched)
+assert.equal(unmatched.reviewRequest.distributionTargets.length,0)
+assert.equal(unmatched.reviewRequest.status,'held-no-exact-target')
+assert.equal(unmatched.reviewRequest.publicationAllowed,false)
+assert.throws(()=>validateResearchReviewRequest(request,doiStudio,doiGraph,'10000002',[publisherObject]),
+ /contract mismatch/,'A valid packet must never be replayable for another PMID')
+assert.equal(buildIntegratedResearchCase(doiStudio,doiGraph,'99999999',[publisherObject]),null,
+ 'Missing source never falls back to a global review queue')
+
 const manifestObjects=JSON.parse(readFileSync('data/distribution/research-objects.json','utf8')) as Array<{
  id:string;sourceUrl:string;primarySourceUrl?:string;findingClaimId?:string;primarySourceId?:string}>
 const realFabric=planResearchSemanticFabric(real,realGraph,liveCase!,manifestObjects)
