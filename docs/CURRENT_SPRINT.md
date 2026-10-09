@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6447, scored and admitted against exact main after retirement of #6451; Revenue/Conversion and Authority/Content are free. WIP cap remains 3. No CI speedup, runtime recovery canary, or business outcome is proven by admission.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6461 (P0.1 evidence-linked inventory/CI timing baseline) after #6447 / PR #6460 merged and Cloudflare confirmed production receipt for `0d7635a6918ccacc391f5ead8832ffbc6de86368`. Revenue/Conversion and Authority/Content remain free. WIP cap unchanged; live bot recovery throughput/ROI and production engagement remain **Unknown**.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -82,7 +82,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6447 / PR #6460 | Reuse CI producer for governed zero-job recovery fan-out | In review — admitted | P0 | 75.0 | 2026-10-09 |
+| D | #6461 | P0.1 evidence-linked inventory and exact-CI throughput baseline | Active — admitted | P0 | 80.0 | 2026-10-09 |
 
 
 
