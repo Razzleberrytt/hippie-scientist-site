@@ -36243,6 +36243,315 @@
       "reservation_id": "4eb9193d9d7c24771f5c",
       "reserved_at": "2026-10-09T14:05:13.492Z",
       "source_branch": "research/intake/3/20261009-1001-botanical-cyp-pk-ten"
+    },
+    {
+      "pmid": "37899385",
+      "title": "Standardized Extract of Valeriana officinalis Improves Overall Sleep Quality in Human Subjects with Sleep Complaints: A Randomized, Double-Blind, Placebo-Controlled, Clinical Study.",
+      "doi": "10.1007/s12325-023-02708-6",
+      "source_title": "Standardized Extract of Valeriana officinalis Improves Overall Sleep Quality in Human Subjects with Sleep Complaints: A Randomized, Double-Blind, Placebo-Controlled, Clinical Study.",
+      "abstract": "Sleep deficit or poor sleep leads to ill-health, whereas sleep deprivation for longer periods of time increases the risk of developing adverse conditions associated with poor quality of life, and high socioeconomic impact. The treatments for sleep disturbances include melatonin and over-the-counter medicines like diphenhydramine and doxylamine, all of which have negative side effects. Valerian (Valeriana officinalis L.) is a traditional herb and the most preferred alternate sleep solution to manage sleep complaints. Eighty adult subjects with sleep complaints were randomized in 1:1 ratio to receive either V. officinalis extract (VE) or placebo for 8 weeks in a double-blind, placebo-controlled, parallel, clinical study. Primary efficacy endpoints included the Pittsburgh Sleep Quality Index (PSQI) and sleep latency using wrist actigraphy (WA), as well as a number of secondary endpoints, including sleep parameters such as actual sleep time and sleep efficiency using WA, the Epworth Sleepiness Scale (ESS), the Beck Anxiety Inventory (BAI), the Visual Analogue Scale (VAS) for the feeling of waking up refreshed, and a tertiary endpoint of sleep parameters using polysomnography (PSG) in a subset of 20 subjects per group. Safety parameters included physical examination, vital sign measurements, hematology, and clinical chemistry tests. Adverse events and serious adverse events were monitored throughout the study period. Seventy-two subjects (35 and 37 subjects in the placebo and VE groups, respectively) completed the study and were included in the efficacy assessments. On Days 14, 28, and 56, the PSQI Total Score in the VE group decreased significantly (p < 0.05) compared to the placebo group. Further, the VE group showed significant improvements (p < 0.05) in sleep latency and actual sleep time on Days 3, 14, 28, and 56, and sleep efficiency on Days 14, 28, and 56, as evaluated by WA. There was a decrease (p < 0.05) in anxiety (BAI) on Days 14, 28, and 56, daytime drowsiness (ESS) on Days 28 and 56, and an increased feeling of waking up refreshed (VAS) on Days 28 and 56 compared to placebo. PSG results carried out in subset of subjects revealed significant improvements (p < 0.05) in total sleep time, sleep latency, and sleep efficiency on Day 56 in the VE group compared to the placebo group. No safety concerns were observed throughout the study. VE supplementation significantly improved various subjective and objective parameters of sleep in young subjects with mild insomnia symptoms, such as overall sleep quality, sleep latency, sleep efficiency, and total sleep time. We also observed decreased anxiety and daytime sleepiness, and improved feeling of being refreshed after waking up with VE supplementation. VE was found to be safe and well tolerated throughout the study. Clinical Trials Registry of India: CTRI/2022/05/042818.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37899385/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "37899385",
+        "doi": "10.1007/s12325-023-02708-6",
+        "journal": "Advances in therapy",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T14:44:05.532Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e607647d3abde7ff5a01",
+      "reserved_at": "2026-10-09T14:44:13.477Z",
+      "source_branch": "research/intake/1/20261009-1042-sleep-mood-four"
+    },
+    {
+      "pmid": "38794761",
+      "title": "Dietary Supplementation with an Extract of Aloysia citrodora (Lemon verbena) Improves Sleep Quality in Healthy Subjects: A Randomized Double-Blind Controlled Study.",
+      "doi": "10.3390/nu16101523",
+      "source_title": "Dietary Supplementation with an Extract of Aloysia citrodora (Lemon verbena) Improves Sleep Quality in Healthy Subjects: A Randomized Double-Blind Controlled Study.",
+      "abstract": "Seventy-one healthy subjects with sleep disturbances participated in a randomized, double-blind controlled trial in which dietary supplementation with an extract of Aloysia citrodora (lemon verbena) ( n = 33) or placebo ( n = 38) was administered for 90 days. There were between-group differences in favor of the experimental group in the visual analogue scale (VAS) for sleep quality (6.5 ± 1.6 vs. 5.5 ± 2.1, p = 0.021) as well as in the overall score (5.8 ± 2.4, p = 0.008) and scores for sleep latency (1.6 ± 1.0 vs. 1.9 ± 0.7, p = 0.027) and sleep efficiency (84.5 ± 12.8 vs. 79.8 ± 13.6, p = 0.023) in the Pittsburgh Sleep Quality Index (PSQI). Sleep-related variables (latency, efficiency, wakefulness after sleep onset, awakenings) assessed by actigraphy also showed better scores in the experimental group ( p = 0.001). Plasma nocturnal melatonin levels also increased significantly in the experimental group (199.7 ± 135.3 vs. 174.7 ± 115.4 pg/mL, p = 0.048). Changes in anthropometric parameters and physical activity levels were not found. In summary, a dietary supplement of lemon verbena administered for 3 months was associated with a significant improvement in sleep quality as compared with placebo in a population of healthy subjects with sleep problems.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38794761/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "38794761",
+        "doi": "10.3390/nu16101523",
+        "journal": "Nutrients",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T14:44:05.533Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "64e0bda8fb16b9beb8d5",
+      "reserved_at": "2026-10-09T14:44:13.477Z",
+      "source_branch": "research/intake/1/20261009-1042-sleep-mood-four"
+    },
+    {
+      "pmid": "34444980",
+      "title": "Effects of Lactobacillus plantarum PS128 on Depressive Symptoms and Sleep Quality in Self-Reported Insomniacs: A Randomized, Double-Blind, Placebo-Controlled Pilot Trial.",
+      "doi": "10.3390/nu13082820",
+      "source_title": "Effects of Lactobacillus plantarum PS128 on Depressive Symptoms and Sleep Quality in Self-Reported Insomniacs: A Randomized, Double-Blind, Placebo-Controlled Pilot Trial.",
+      "abstract": "Recent animal studies have supported that Lactobacillus plantarum PS128 (PS128) can reduce the severity of anxiety and depression. However, previous studies did not focus on the sleep quality and mood of humans. This study determines whether PS128 reduces the severity of anxiety and depressive symptoms, regulates autonomic nervous system function, and improves sleep quality. Forty participants between 20 and 40 years of age with self-reported insomnia were randomly assigned to two groups, a PS128 group and a placebo group, in a double-blind trial. Participants took two capsules of either PS128 or a placebo after dinner for 30 days. Study measures included subjective depressive symptoms, anxiety and sleep questionnaires, and miniature-polysomnography recordings at baseline and on the 15th and 30th days of taking capsules. Overall, all outcomes were comparable between the two groups at baseline and within the 30-day period, yet some differences were still found. Compared to the control group, the PS128 group showed significant decreases in Beck Depression Inventory-II scores, fatigue levels, brainwave activity, and awakenings during the deep sleep stage. Their improved depressive symptoms were related to changes in brain waves and sleep maintenance. These findings suggest that daily administration of PS128 may lead to a decrease in depressive symptoms, fatigue level, cortical excitation, and an improvement in sleep quality during the deep sleep stage. Daily consumption of PS128 as a dietary supplement may improve the depressive symptoms and sleep quality of insomniacs, although further investigation is warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34444980/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "34444980",
+        "doi": "10.3390/nu13082820",
+        "journal": "Nutrients",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-09T14:44:05.534Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3bd0d57e1462627b005c",
+      "reserved_at": "2026-10-09T14:44:13.477Z",
+      "source_branch": "research/intake/1/20261009-1042-sleep-mood-four"
+    },
+    {
+      "pmid": "40195645",
+      "title": "Effects of dietary fermented blueberry leaf tea on sleep: a randomized double-blind controlled trial.",
+      "doi": "10.1039/d4fo05341a",
+      "source_title": "Effects of dietary fermented blueberry leaf tea on sleep: a randomized double-blind controlled trial.",
+      "abstract": "This study investigated the effects of dietary fermented blueberry leaf tea on sleep quality through a 3-week double-blind randomized controlled trial. Fifty healthy individuals (BMI: 22.3 ± 0.6 kg m -2 ), aged 20-69 years, were randomly assigned to either an active group consuming the fermented blueberry leaf tea or a placebo group. They consumed 200 mL of active tea (1.8 mg hyperoside/serving) or placebo tea three times daily. Sleep quality was assessed using both objective and subjective measures via actigraphy and the Oguri-Shirakawa-Azumi Sleep Inventory MA (OSA-MA) version questionnaire, respectively. We observed significantly higher sleep efficiency (active: from 82.2 ± 1.4% to 81.2 ± 1.6%, placebo: from 83.8 ± 1.6% to 80.4 ± 1.8%) and lower wake after sleep onset (WASO) (active: from 68.9 ± 6.6 min to 70.5 ± 6.8 min, placebo: from 61.9 ± 6.9 min to 77.9 ± 8.6 min) in the active group compared to the placebo group. Specifically, the active group exhibited higher sleep efficiency after 3 weeks and reduced WASO after 2 weeks of active tea consumption. Subjective evaluations indicated significant improvements in sleep onset and maintenance as early as one week, correlating with the objective sleep efficiency measures. On the other hand, no significant differences were observed in other parameters of actigraphy or OSA-MA. These findings suggest that hyperoside, a quercetin glycoside found in blueberry leaves, may positively influence sleep quality by increasing serotonin and melatonin levels, thereby enhancing non-rapid eye movement sleep. Regular consumption of dietary fermented blueberry leaf tea may improve daily sleep quality, leading to a better overall quality of life.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40195645/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40195645",
+        "doi": "10.1039/d4fo05341a",
+        "journal": "Food & function",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T14:44:05.534Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e6177d76aa2f6aa23519",
+      "reserved_at": "2026-10-09T14:44:13.477Z",
+      "source_branch": "research/intake/1/20261009-1042-sleep-mood-four"
     }
   ],
   "batches": [
@@ -36256,22 +36565,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 456,
+    "total_reservations": 460,
     "by_lane": {
-      "1": 5,
+      "1": 9,
       "2": 82,
       "3": 61,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 456
+      "SOURCE_VERIFIED": 460
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 456,
+        "count": 460,
         "pr_number": null,
         "blocker": null
       }
