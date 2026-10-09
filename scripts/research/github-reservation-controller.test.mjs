@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {validateManifest,reconcileBaseline} from './github-reservation-controller.mjs';
+import {validateManifest,reconcileBaseline,decodeRegistryBlob} from './github-reservation-controller.mjs';
 
 const record=(pmid,domain)=>({
  pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,
@@ -29,4 +29,32 @@ test('historical placeholder can be upgraded to exact identity',()=>{
 });
 test('divergent same PMID remains fail closed',()=>{
  assert.throws(()=>reconcileBaseline([{pmid:'12345',title:'Actual study',doi:'10.1/x'},{pmid:'12345',title:'Different study',doi:'10.1/y'}]),/conflicting existing PMID/);
+});
+
+
+test('oversized GitHub content encoding none resolves exact blob SHA',async()=>{
+  const registry={schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[],incidents:[]};
+  const encoded=Buffer.from(JSON.stringify(registry)).toString('base64');
+  const requests=[];
+  const resolved=await decodeRegistryBlob({sha:'blob-sha',encoding:'none',content:'',size:2832050},async sha=>{
+    requests.push(sha);
+    return {encoding:'base64',content:encoded};
+  });
+  assert.deepEqual(resolved,registry);
+  assert.deepEqual(requests,['blob-sha']);
+  let called=false;
+  const small=await decodeRegistryBlob({sha:'small-sha',encoding:'base64',content:encoded},async()=>{
+    called=true;
+    throw Error('small registry should not load a second blob');
+  });
+  assert.deepEqual(small,registry);
+  assert.equal(called,false);
+});
+test('invalid, absent or empty registry blobs fail closed instead of becoming an empty ledger',async()=>{
+  const base={sha:'known-sha',encoding:'none',content:''};
+  await assert.rejects(decodeRegistryBlob(base,async()=>({encoding:'base64',content:''})),/missing base64/);
+  await assert.rejects(decodeRegistryBlob(base,async()=>({encoding:'base64',content:Buffer.from('').toString('base64')})),/missing base64/);
+  await assert.rejects(decodeRegistryBlob(base,async()=>({encoding:'base64',content:Buffer.from('{').toString('base64')})),/registry JSON invalid/);
+  await assert.rejects(decodeRegistryBlob(base,async()=>({encoding:'base64',content:Buffer.from('{}').toString('base64')})),/registry structure invalid/);
+  await assert.rejects(decodeRegistryBlob({encoding:'none'},async()=>({encoding:'base64',content:'e30='})),/metadata missing SHA/);
 });
