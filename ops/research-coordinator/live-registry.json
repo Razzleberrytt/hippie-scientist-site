@@ -41823,6 +41823,236 @@
       "reservation_id": "b9265ae85c94aa8acb87",
       "reserved_at": "2026-10-09T23:06:15.954Z",
       "source_branch": "research/intake/3/20261009-1904-lavender-resveratrol-herbal-liver-five"
+    },
+    {
+      "pmid": "41464897",
+      "title": "Dual-Strain Psychobiotics Combining Live Lactiplantibacillus plantarum PS128 and Heat-Treated Lacticaseibacillus paracasei PS23 Improve Psychological and Neuroendocrine Outcomes in Stressed Adults: A Randomized, Placebo-Controlled Trial.",
+      "doi": "10.3390/foods14244190",
+      "source_title": "Dual-Strain Psychobiotics Combining Live Lactiplantibacillus plantarum PS128 and Heat-Treated Lacticaseibacillus paracasei PS23 Improve Psychological and Neuroendocrine Outcomes in Stressed Adults: A Randomized, Placebo-Controlled Trial.",
+      "abstract": "Chronic psychological stress impairs neuroendocrine balance and increases the risk of mental health disturbances, including anxiety, sleep disruption, and low mood. The gut-brain axis has emerged as a promising target for stress modulation, particularly through psychobiotic interventions. This randomized, double-blind, placebo-controlled trial evaluated the effects of a combined psychobiotic formulation (Neuralli Mood), comprising live Lactiplantibacillus plantarum PS128 (PS128) and heat-treated Lacticaseibacillus paracasei PS23 (HT-PS23), on the psychological and physiological stress responses in a high-stress occupational population. A total of 116 healthy participants with elevated perceived stress (PSS ≥ 14), primarily firefighters, were randomly assigned to receive the dual-strain supplement or placebo for 8 weeks. Stress-related outcomes were assessed by using validated psychological scales and serum biomarkers. Compared with placebo, the psychobiotics group showed significantly greater reductions in overall job stress perception (JSS), state anxiety (STAI), and insomnia severity (ISI) (all p < 0.05). Additionally, serum adrenocorticotropic hormone (ACTH) and norepinephrine levels were significantly reduced post-intervention, whereas cortisol levels remained unchanged. These findings suggested that combining live and heat-treated psychobiotic strains may provide a safe and effective strategy for alleviating psychological stress and regulating neuroendocrine function in high-risk populations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41464897/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials addressing occupational stress, anxiety and mood, and insomnia; source identity verified against PubMed, scientific interpretation pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41464897",
+        "doi": "10.3390/foods14244190",
+        "journal": "Foods (Basel, Switzerland)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T23:46:07.818Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3ac9bf30e2f800bbb5cc",
+      "reserved_at": "2026-10-09T23:46:12.963Z",
+      "source_branch": "research/intake/1/20261009-1943-psychobiotic-echinacea-shumian-three"
+    },
+    {
+      "pmid": "34217960",
+      "title": "An investigation into the anxiety-relieving and mood-enhancing effects of Echinacea angustifolia (EP107™): A randomised, double-blind, placebo-controlled study.",
+      "doi": "10.1016/j.jad.2021.06.054",
+      "source_title": "An investigation into the anxiety-relieving and mood-enhancing effects of Echinacea angustifolia (EP107™): A randomised, double-blind, placebo-controlled study.",
+      "abstract": "The acute anxiolytic effects of the echinacea angustifolia extract (EP107 TM ) have been demonstrated in two previous human trials. The goals of this study were to examine the anxiolytic and mood-enhancing effects of echinacea angustifolia over a longer duration with a larger sample size. In this 6-week, 3-arm, parallel-group, double-blind, randomised controlled trial, 108 adults with mild-to-moderately severe anxiety were recruited and randomised to receive either a placebo, 20 mg, or 40 mg of echinacea angustifolia, twice daily. Outcome measures included the Clinically Useful Anxiety Outcome Scale (CUXOS), Positive and Negative Affect Scale (PANAS), Short Form-36 (SF-36), and Bergen Insomnia Scale (BIS). Based on data collected from 104 participants, both doses of echinacea were associated with overall reductions in anxiety, although improvements were not different from the placebo. However, both doses of echinacea were associated with greater improvements in the PANAS positive and negative affect scores, and SF-36 emotional wellbeing score compared to the placebo. The positive improvements associated with echinacea were only identified via the secondary outcome measures and, therefore, require validation in future trials. The echinacea angustifolia extract (EP107 TM ) administered for 6 weeks at a dose of 40 and 80 mg daily was not associated with greater improvements in anxiety in adults with mild-to-moderately severe anxiety compared to the placebo. However, there were greater improvements in positive and negative affect, and emotional wellbeing, suggesting antidepressant effects. Further studies using clearly-defined populations and validated outcome measures will be useful in future trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34217960/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials addressing occupational stress, anxiety and mood, and insomnia; source identity verified against PubMed, scientific interpretation pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "34217960",
+        "doi": "10.1016/j.jad.2021.06.054",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-09T23:46:07.819Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dd812518ce32e7ab44e7",
+      "reserved_at": "2026-10-09T23:46:12.963Z",
+      "source_branch": "research/intake/1/20261009-1943-psychobiotic-echinacea-shumian-three"
+    },
+    {
+      "pmid": "35378821",
+      "title": "Clinical Efficacy of the Chinese Herbal Medicine Shumian Capsule for Insomnia: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "doi": "10.2147/NDT.S349427",
+      "source_title": "Clinical Efficacy of the Chinese Herbal Medicine Shumian Capsule for Insomnia: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "abstract": "Shumian capsule (SMC) is a patent Chinese herbal medicine that can soothe the liver and relieves depression, quiet the spirit. Here, we aimed to investigate the efficacy of SMC for treating insomnia using both scales and polysomnography (PSG). A randomized, double-blind, placebo-controlled trial was performed. Twenty-six insomnia patients randomly received SMC (n = 11) or placebo (n = 15) for four weeks. Pittsburgh Sleep Quality Inventory (PSQI), Insomnia Severity Index (ISI), 9-items Patient Health Questionnaire (PHQ-9), 7-items Generalized Anxiety Disorder (GAD-7), 17-item Hamilton Depression Rating Scale (HAMD-17), and Hamilton Anxiety Rating Scale (HAMA) were applied at the baseline and the 2nd, 4th week after treatment. Treatment Emergent Symptom Scale was used to assess adverse reactions. We used PSG to record and analyze sleep features at baseline and after four weeks. PSQI, ISI, PHQ-9, HAMD-17, and HAMA scores decreased significantly after SMC treatment. Also, the total sleep time, rapid-eye-movement (REM) sleep latency, stage 2 sleep, deep sleep, REM sleep, and sleep efficiency improved significantly after SMC treatment. In the placebo group, the only significant change was the decrease of PHQ-9 at week-2. Furthermore, both SMC and placebo reported no adverse events. SMC could safely improve sleep quality with depression and anxiety remission in insomnia patients.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35378821/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials addressing occupational stress, anxiety and mood, and insomnia; source identity verified against PubMed, scientific interpretation pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35378821",
+        "doi": "10.2147/NDT.S349427",
+        "journal": "Neuropsychiatric disease and treatment",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-09T23:46:07.819Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "596e8a92ea097953af7d",
+      "reserved_at": "2026-10-09T23:46:12.963Z",
+      "source_branch": "research/intake/1/20261009-1943-psychobiotic-echinacea-shumian-three"
     }
   ],
   "batches": [
@@ -41851,16 +42081,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 529,
+    "total_reservations": 532,
     "by_lane": {
-      "1": 21,
+      "1": 24,
       "2": 92,
       "3": 95,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 529
+      "SOURCE_VERIFIED": 532
     },
     "batches": [
       {
@@ -41873,7 +42103,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 29,
+        "count": 32,
         "pr_number": null,
         "blocker": null
       }
