@@ -1,0 +1,85 @@
+name: THS Publisher readiness
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PUBLISHER_ADMIN_TOKEN: ${{ secrets.THS_PUBLISHER_ADMIN_TOKEN }}
+      TIKTOK_ADMIN_TOKEN: ${{ secrets.TIKTOK_PUBLISHER_ADMIN_TOKEN }}
+    steps:
+      - name: Verify production receipt and Publisher manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS https://thehippiescientist.net/.well-known/deployment.json > receipt.json
+          curl -fsS https://thehippiescientist.net/media/distribution/publisher/latest.json > manifest.json
+          node - <<'NODE'
+          const fs = require('fs')
+          const receipt = JSON.parse(fs.readFileSync('receipt.json','utf8'))
+          const manifest = JSON.parse(fs.readFileSync('manifest.json','utf8'))
+          if (!receipt.commitHash) throw new Error('production receipt missing commit hash')
+          if (manifest.schemaVersion !== 'ths-publication-media-v1') throw new Error('invalid Publisher manifest schema')
+          if (manifest.status !== 'ready-for-provider') throw new Error('Publisher manifest is not provider-ready')
+          if (!Array.isArray(manifest.media) || manifest.media.length === 0) throw new Error('Publisher manifest has no media')
+          console.log('production_commit=' + receipt.commitHash)
+          console.log('publisher_manifest=' + manifest.researchObjectId + ':' + manifest.format)
+          NODE
+
+      - name: Verify Publisher admin secret exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${PUBLISHER_ADMIN_TOKEN:-}" ]; then
+            echo "Missing GitHub secret THS_PUBLISHER_ADMIN_TOKEN." >&2
+            exit 1
+          fi
+
+      - name: Verify Publisher D1 binding and schema
+        shell: bash
+        run: |
+          set -euo pipefail
+          code="$(curl -sS -o publisher.json -w '%{http_code}'             -H "Authorization: Bearer $PUBLISHER_ADMIN_TOKEN"             'https://thehippiescientist.net/api/publisher/job?publication_id=pub_000000000000000000000000')"
+          cat publisher.json
+          echo
+          if [ "$code" != "404" ]; then
+            echo "Expected 404 from a healthy empty lookup; got HTTP $code." >&2
+            exit 1
+          fi
+          grep -q 'Publication not found' publisher.json
+
+      - name: Verify TikTok admin secret exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${TIKTOK_ADMIN_TOKEN:-}" ]; then
+            echo "Missing GitHub secret TIKTOK_PUBLISHER_ADMIN_TOKEN." >&2
+            exit 1
+          fi
+
+      - name: Verify TikTok production connection
+        shell: bash
+        run: |
+          set -euo pipefail
+          code="$(curl -sS -o tiktok.json -w '%{http_code}'             -H "Authorization: Bearer $TIKTOK_ADMIN_TOKEN"             https://thehippiescientist.net/api/tiktok/connection)"
+          cat tiktok.json
+          echo
+          if [ "$code" != "200" ]; then
+            echo "TikTok production connection is not ready; HTTP $code." >&2
+            exit 1
+          fi
+          node - <<'NODE'
+          const fs = require('fs')
+          const x = JSON.parse(fs.readFileSync('tiktok.json','utf8'))
+          if (x.ok !== true) throw new Error('TikTok connection endpoint did not return ok=true')
+          if (x.connected !== true) throw new Error('TikTok account is not yet authorized')
+          if (!Array.isArray(x.scope) || !x.scope.includes('video.upload')) throw new Error('TikTok video.upload scope is missing')
+          console.log('tiktok_connected=true')
+          console.log('tiktok_scope=' + x.scope.join(','))
+          NODE
