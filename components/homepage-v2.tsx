@@ -3,6 +3,23 @@ import { ArrowRight, Search } from 'lucide-react'
 import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
 import { getResearchSourceRegisterSummary } from '@/lib/research-source-register'
 
+const firstVisitPaths = [
+  {
+    label: 'Find an ingredient',
+    description: 'Look up a supplement and its evidence.',
+    href: '/herbs/',
+  },
+  {
+    label: 'Compare options',
+    description: 'See study context and tradeoffs.',
+    href: '/guides/compare/',
+  },
+  {
+    label: 'Check safety concerns',
+    description: 'Review interaction and caution signals.',
+    href: '/safety-checker/',
+  },
+] as const
 
 export default async function HomepageV2() {
   const metrics = await getPublicSiteMetrics()
@@ -20,10 +37,10 @@ export default async function HomepageV2() {
         <section className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10' aria-labelledby='home-title'>
           <p className='eyebrow-label'>Evidence-based supplement research</p>
           <h1 id='home-title' className='mt-3 max-w-5xl font-display text-4xl font-bold tracking-tight text-ink sm:text-6xl'>
-            Start with the question. Open the evidence when you need it.
+            Which supplements actually work—and what does the research say about their risks?
           </h1>
           <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8'>
-            Search a name directly, or use Explore to choose a path by goal, ingredient, safety question, guide, or research task.
+            Compare human evidence where available, safety concerns, and study-backed outcomes without the marketing hype. When the research cannot establish an answer, we say so.
           </p>
 
           <form className='mt-6 flex max-w-3xl items-center gap-2 rounded-2xl border border-brand-900/10 bg-white p-2.5 shadow-sm sm:gap-3 sm:p-3' action='/search/' method='get' role='search'>
@@ -46,14 +63,26 @@ export default async function HomepageV2() {
             </button>
           </form>
 
-          <div className='mt-5 flex flex-wrap items-center gap-3'>
-            <Link
-              href='/explore/'
-              className='inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--text-primary)] px-5 py-2.5 text-sm font-bold !text-[var(--surface-elevated)] shadow-sm transition hover:opacity-90'
-            >
-              Explore the site <ArrowRight className='h-4 w-4' aria-hidden='true' />
-            </Link>
-          </div>
+          <nav className='mt-5' aria-label='Choose your first step'>
+            <p className='mb-3 text-sm font-semibold text-ink'>What would you like to do?</p>
+            <div className='grid gap-2 sm:grid-cols-3'>
+              {firstVisitPaths.map((path) => (
+                <Link
+                  key={path.href}
+                  href={path.href}
+                  className='group flex min-h-12 flex-col justify-center rounded-2xl border border-brand-900/10 bg-[var(--surface-elevated)] px-4 py-3 text-left shadow-sm transition hover:border-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700'
+                >
+                  <span className='flex items-center justify-between gap-2 text-sm font-bold text-[var(--text-primary)]'>
+                    {path.label} <ArrowRight className='h-4 w-4 shrink-0 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true' />
+                  </span>
+                  <span className='mt-1 text-xs leading-5 text-muted'>{path.description}</span>
+                </Link>
+              ))}
+            </div>
+          </nav>
+          <p className='mt-4 text-sm text-muted'>
+            Looking for something else? <Link href='/explore/' className='inline-flex min-h-11 items-center gap-1 font-semibold text-brand-700 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'>Explore the site <ArrowRight className='h-4 w-4' aria-hidden='true' /></Link>
+          </p>
           <p className='mt-4 text-xs leading-5 text-muted'>
             Need the exhaustive index? <Link href='/library/' className='font-semibold text-brand-700 hover:underline'>Open the complete library</Link>.
           </p>
@@ -83,6 +112,9 @@ export default async function HomepageV2() {
               ))}
             </dl>
           </div>
+          <p className='mt-4 max-w-4xl text-xs leading-6 text-muted'>
+            <strong className='text-ink'>What these counts include:</strong> Published articles and herbs are public content or profile counts. Compounds tracked includes canonical research records that may not have a published profile. Structured studies counts deduplicated study/source records, not independently confirmed clinical trials. These populations differ from the indexable ingredient profiles counted in the <Link href='/evidence/evidence-report/' className='font-semibold text-brand-700 hover:underline'>evidence report</Link>.
+          </p>
           <p className='mt-5 max-w-4xl border-t border-brand-900/10 pt-4 text-sm leading-6 text-muted'>
             Beyond the published evidence dataset, our source register tracks <strong className='text-ink'>{researchSourceRegister.totalIndexedPmids.toLocaleString()} unique PubMed references</strong> for further editorial review. Those are research-only identities, not an additional count of graded clinical studies. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Explore the source trail →</Link>
           </p>
@@ -91,3 +123,4 @@ export default async function HomepageV2() {
     </div>
   )
 }
+

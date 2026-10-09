@@ -84,13 +84,17 @@ jobs:
         with:
           node-version: '22'
       - name: Validate research control plane
+        id: validate_research_control_plane
         run: node --test scripts/research/*.test.mjs
       - name: Recover pending freezes without bypassing gates
+        id: recover_freezes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/research/github-reservation-controller.mjs recover
       - name: Replay exact committed PMID seeds missed by push events
+        # Recovery can fail independently; replay must not run after failed validation.
+        if: ${{ !cancelled() && steps.validate_research_control_plane.outcome == 'success' && (steps.recover_freezes.outcome == 'success' || steps.recover_freezes.outcome == 'failure') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}

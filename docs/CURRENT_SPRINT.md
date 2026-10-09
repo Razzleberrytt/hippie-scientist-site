@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Issue #6466 / PR #6471 was merged as `bfbfeea3c15acfa5cc171bffd38714a1e1228c4c` through the authorized controller and no longer occupies Discovery/SEO; R/A remain free. This does not authorize an unadmitted successor. Source/claim review stays human-only; Cloudflare workflow `37875021598` requires an independent exact production receipt, and research usage/ROI remain Unknown.
+**Current admission (2026-10-09, #6503):** Normal implementation WIP is **1/3**: A #6500 owns evidence grade/count clarity; D and R remain free after the retirement-only control #6501. Previous D owner #6491 was closed via governed PR #6492 (merge `06fd528135a4dbe5d286b45d898825e69179f1de`), and Cloudflare run 37935390084 successfully deployed. The independent scored A admission allows presentation-only integration, not clinical, editorial or commercial claim promotion. Analytics transport #6143 and all business outcomes remain Unknown. Reconstructed 25/150 proof differs from unmapped legacy 10/150.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -24,6 +24,21 @@
 **This week's immediate preparation:** reconcile existing open research/intake/social PRs, freeze canonical source/claim/handoff boundaries, map dependencies, write negative fixtures and risk-tiered validation gates, baseline actual CI durations and specify one review-only source-to-editorial vertical slice. **Next week's proposed order:** P0.1 actual-state/CI baseline → P0.2 shared provenance contracts → P0.3 human-review-only integration → P0.4 exact-head release proof/targeted CI optimization → P0.5 retrospective. Reconcile GitHub state and existing WIP reservations before any start.
 
 **Guardrail:** 3 total allowed workstreams, one admitted ticket each; one scoring formula, one merge controller, one science authority. No new clinical, content or social publishing permissions, no duplicate evidence datasets, no paid critical-path dependencies, no skipped security/science/CI/deployment proofs. This P0 supersedes *methodological priority*, not the existing sprint's evidence-first business objective or milestone exit criteria.
+### P0 additive accelerator — build and CI throughput (2026-10-09)
+
+**Owner clarification:** This is **added to** the accepted Generational Engineering P0 (#6431), not a replacement for its research intelligence, semantic integration, evidence-to-distribution, revenue, or safety goals. Original milestones, existing issue ownership, release DAG and existing A #6500 work remain unchanged. No fourth D/R/A slot and no new work may self-admit. This optimization accelerator is cross-cutting engineering/control work governed by existing acceptance and review rules.
+
+**Highest-priority execution order within the additive accelerator:**
+
+1. **Finish the existing owner, do not fork it:** #6507 / PR #6509 provides optional edit/checkpoint preflight and post-deployment owner-retirement proposals. It must pass its own required CI and controller-owned merge, then prove behavior in a real deployment. Its optional preflight **never** replaces the full final release checks.
+2. **Measure the true critical path:** record last 20 representative PRs by code risk/changed-path class and gather trigger-to-merge elapsed time, queue delay, jobs per push, median and p90 CI wall time, CPU/build times, cache hit/miss, artifact consumption, failure/retry reasons and GitHub Actions minutes. Record missing data as Unknown; compare before/after at comparable change scopes.
+3. **Remove duplicate work at its source:** map all 79 workflow definitions and their `push`, `pull_request`, `workflow_run`, `schedule` and dispatch edges; identify loops, repeated equivalent check computations and no-op controller runs. Consolidate only redundant, nonrequired triggers, preserve required check names/job statuses, first-party source integrity and branch-protection expectations; maintain a deterministic fallback when a shared result is unavailable.
+4. **Shorten the build's critical path:** profile Next.js static generation, data-source/workbook parsing, image preparation, indexing and SEO/report generation. Cache or reuse only content-addressed, identical-input intermediate results; minimize unnecessary regeneration and redundant `npm ci`/setup. Verify byte-identical public data, sitemap/indexability and static export with cold-cache and corrupted-cache tests.
+5. **Use scoped development gates, full protected release gates:** group roughly 15–25 compatible edits in one bounded, independently reviewable ownership batch; run changed-file tests and lint during editing, subsystem checks at checkpoint, and exact-head mandatory full security/science/accessibility/SEO/build checks at release. Never silence known failures or auto-promote unreviewed science.
+6. **Measure delivered improvement:** compare same-risk baseline with post-merge p50/p90 time-to-green, end-to-end lead time, duplicate job runs, Actions minutes per safe merged capability, flaky reruns, cache correctness and release regression/rollback rate. No promised ROI until proven.
+
+**Priority:** Optimization is the first engineering multiplier while P0 science/revenue/domain work continues within its admitted WIP; urgent production/safety incidents retain precedence. Stop optimization changes whose measured savings do not outweigh increased complexity or risk. Existing owner PR #6509 remains the implementation vehicle for its current scope; any subsequent work requires a separately scored, unblocked ticket and available slot, not this paragraph alone.
+
 ## Sprint objective
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
@@ -67,7 +82,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 0/3
+### 2026-10-09 — Completed Terms owner retired; homepage D admission
+
+Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a15ef9831d520d38a`; deployment job 37922725823 verified the origin receipt and public Terms route. The prior D row still marked that ticket active; it is now retired from WIP. Under direct owner THS-MASTER-P0 §20–21, #6491 is the **single** D-lane P0 existing-owner reconciliation for a bounded three-path homepage change. Existing-score components BI=4, UV=5, TP=4, SL=4, Confidence=.75, Effort=3 give **80.0**, an estimated prioritization score only. PR #6492 was created and cross-linked from #6491 at 12:31:01Z, before corrected base commit ce048b9fbdfd630e46f5781562ab42b10ca61a95 at 12:36:20Z. The repository's pre-base existing-owner mode is authoritative for this documentation. Exact main/base and controller checks must still pass. All business impact remains **Unknown** until actual analytics #6143 is connected; no scientific claim is promoted. No code merged/deployed by this admission record alone.
+
+### 2026-10-09 — Retired completed homepage D owner (#6501)
+
+GitHub #6491 CLOSED, PR #6492 MERGED on exact main `06fd528135a4dbe5d286b45d898825e69179f1de`, and Cloudflare run `37935390084` succeeded. The previous D row remained incorrectly active after its release, so project-control checks blocked a proposed A admission. This transaction **only** retires that D owner and records WIP 0/3; subsequent A #6500 must pass its own fresh scored admission from the corrected main base. No code, payment, source grade or commercial outcome changed.
+
+## Active / in review — implementation WIP 1/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -82,6 +105,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| A | #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | Active — admitted | P0 | 80.0 | 2026-10-09 |
+
 
 
 
@@ -164,7 +189,7 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are free. Normal WIP is 0/3. No candidate becomes executable merely because slots are free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+Revenue/Conversion and Authority/Content remain free. Discovery/SEO is occupied by admitted #6491; normal WIP is 1/3. No candidate becomes executable merely because slots are free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 

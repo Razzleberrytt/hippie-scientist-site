@@ -13,13 +13,48 @@ const registryPath='ops/research-coordinator/live-registry.json';
 const intakeRoot='ops/research-intake/';
 
 function required(v,n){if(!v)throw Error('missing '+n);return v}
-async function api(url,{method='GET',body}={}){
- const r=await fetch(API+url,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
+// This API wrapper must distinguish an empty/truncated GitHub response from valid registry JSON;
+// callers must not substitute a fresh registry after a transient provider error.
+async function api(url,{method='GET',body,accept='application/vnd.github+json'}={}){
+ const r=await fetch(API+url,{method,headers:{Accept:accept,Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
  if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
- if(r.status===204)return null;const t=await r.text();return t?JSON.parse(t):null;
+ if(r.status===204)return null;
+ const t=await r.text();
+ if(!t.trim()){const e=new Error('GitHub API empty JSON response: '+method+' '+url+' status='+r.status);e.status=r.status;throw e}
+ try{return JSON.parse(t)}catch(cause){
+  const e=new Error('GitHub API invalid/truncated JSON: '+method+' '+url+' status='+r.status+' bytes='+Buffer.byteLength(t)+' content-length='+(r.headers.get('content-length')||'unknown')+' cause='+cause.message);
+  e.status=r.status;e.cause=cause;throw e;
+ }
 }
 function b64(s){return Buffer.from(s,'utf8').toString('base64')}
 function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
+
+/**
+ * GitHub Contents API omits base64 content for files >1 MiB (encoding:none).
+ * Resolve the exact blob SHA instead; never parse an empty payload or
+ * substitute an empty registry, which could produce duplicate reservations.
+ */
+export async function readGithubContent(file,loadBlob){
+  if(!file||typeof file.sha!=='string'||!file.sha)throw Error('GitHub content metadata missing SHA');
+  let content=file.content;
+  if(file.encoding==='none'||!content){
+    if(typeof loadBlob!=='function')throw Error('GitHub content oversized/empty; blob retrieval unavailable');
+    const blob=await loadBlob(file.sha);
+    if(blob?.encoding!=='base64'||typeof blob.content!=='string'||!blob.content)throw Error('GitHub blob missing base64 content');
+    content=blob.content;
+  }else if(file.encoding!=='base64')throw Error('unsupported GitHub content encoding '+file.encoding);
+  const decoded=unb64(content);
+  if(!decoded.trim())throw Error('GitHub content decoded to empty JSON');
+  return decoded;
+}
+export async function decodeRegistryBlob(file,loadBlob){
+  const decoded=await readGithubContent(file,loadBlob);
+  let value;
+  try{value=JSON.parse(decoded)}catch(e){throw Error('registry JSON invalid: '+e.message)}
+  if(value?.schema_version!==1||!Array.isArray(value.reservations)||!Array.isArray(value.batches))throw Error('registry structure invalid');
+  return value;
+}
+
 async function upsertBranchJson(branch,file,value,message){
  const text=JSON.stringify(value,null,2)+'\n';let existing=null;
  try{existing=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/')+'?ref='+encodeURIComponent(branch))}
@@ -64,7 +99,7 @@ export function reconcileBaseline(records){
 
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
- for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
+ for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha,{accept:'application/vnd.github.object+json'});const json=await readGithubContent(c,sha=>api('/repos/'+repo+'/git/blobs/'+encodeURIComponent(sha)));for(const r of walk(JSON.parse(json)))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
  return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,head_ref:p.head.ref,title:p.title,draft:p.draft,state:p.state}))};
 }
 async function ensureRegistryBranch(){
@@ -73,10 +108,23 @@ async function ensureRegistryBranch(){
  const main=await api('/repos/'+repo+'/git/ref/heads/main');
  return api('/repos/'+repo+'/git/refs',{method:'POST',body:{ref:'refs/heads/'+registryBranch,sha:main.object.sha}});
 }
+export async function resolveRegistryContents(loadContents,loadBlob){
+ let f;
+ try{f=await loadContents()}
+ catch(e){
+  // Only a 404 on the *contents lookup* can represent a genuinely missing registry.
+  // A 404 retrieving its already-addressed Git blob must never reset reservations.
+  if(Number(e.status)!==404)throw e;
+  return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}};
+ }
+ return {sha:f.sha,value:await decodeRegistryBlob(f,loadBlob)};
+}
 async function getRegistry(){
  await ensureRegistryBranch();
- try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));return {sha:f.sha,value:JSON.parse(unb64(f.content))}}
- catch(e){if(Number(e.status)!==404)throw e;return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}}}
+ return resolveRegistryContents(
+  ()=>api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch),{accept:'application/vnd.github.object+json'}),
+  sha=>api('/repos/'+repo+'/git/blobs/'+encodeURIComponent(sha))
+ );
 }
 async function putRegistry(current,value,message){
  value.observatory=summarizeRegistry(value);

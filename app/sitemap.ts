@@ -373,6 +373,7 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
     '/info/dosing',
     '/info/affiliate-disclosure',
     '/info/privacy',
+    '/info/terms',
     '/info/disclaimer',
   ].map(normalizeRoutePath));
 
@@ -573,6 +574,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     route(normalizeSitemapUrl('/info/dosing'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/info/affiliate-disclosure'), 'yearly', 0.5),
     route(normalizeSitemapUrl('/info/privacy'), 'yearly', 0.4),
+    route(normalizeSitemapUrl('/info/terms'), 'yearly', 0.4),
     route(normalizeSitemapUrl('/info/disclaimer'), 'yearly', 0.4),
   ];
 

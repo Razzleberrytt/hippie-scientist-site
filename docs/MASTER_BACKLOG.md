@@ -20,6 +20,14 @@
 **Priority decision (2026-10-08):** first define the next generation's connected capability topology, shared provenance contracts, dependency DAG, verification tiers, release proof and October 12–16 execution sequence. [P0 operating plan](GENERATIONAL_ENGINEERING_P0.md) · [candidate/readiness register](GENERATIONAL_ENGINEERING_READINESS.md). The 25 candidates are **not 25 admitted tickets**. Normal execution continues to require an authoritative sprint entry, one scored admission through the existing formula, owner, dependency proof and WIP slot; P0 planning does not fabricate an extra Operations slot.
 
 **Next gated candidates, not yet admitted:** P0.1 GitHub/CI/current production truth; P0.2 source/claim/handoff contract; P0.3 bounded exact-source → 8+12 case → editorial review-only trace; P0.4 risk-preserving duplicated-CI analysis; P0.5 release proof/retrospective. Repair/close existing owner PRs before considering replacement implementations. Outcome and time-saving ROI **Unknown** until measured.
+### Added P0 engineering accelerator — build / CI critical-path optimization (2026-10-09)
+
+**Additive to #6431, not a replacement:** preserve current scientific intelligence, semantic interoperability, research quality, evidence-to-distribution, commercialization and M0–M6 objectives. Highest-priority engineering unblocker is to reduce safely delivered change latency and redundant verification overhead. Reuse existing owner #6507 / PR #6509; do **not** open a duplicate preflight or governance system.
+
+**Priority-ordered candidate sequence, not additional admitted tickets:** (1) validate and merge existing #6509 through the sole protected controller; (2) baseline workflows/build/CI durations and duplicate trigger graph against current main; (3) remove only demonstrably redundant workflow executions/check duplication with required names preserved; (4) profile/correct static generation and deterministic data/build bottlenecks, validate cold and cache-hit parity; (5) improve immutable identical-input artifact and dependency caching; (6) publish comparable before/after safety-and-throughput receipt. Group related changes into one reviewable ticket when they share failure domain/rollback. Never claim savings before observing them.
+
+**Acceptance for future admitted scoped work:** exact baseline/run URLs, change-risk classification, reproducible timings, required-status/check inventory, no skipped science/security/accessibility/SEO/publishing gates, byte-identical output and corrupted-cache refusal, unchanged workstream cap, mandatory exact-head CI, sole merge-controller authority, exact main/deployment receipt, measured p50/p90 wall time and Actions minutes or explicit Unknown. Use the existing score formula below; Strategic Leverage contains unlock value. Keep incident and safety fixes first, and preserve all prior P0 acceptance.
+
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
@@ -75,10 +83,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | A | Active — admitted | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Issue #6466 / PR #6471 was merged as `bfbfeea3c15acfa5cc171bffd38714a1e1228c4c` through the authorized controller and no longer occupies Discovery/SEO; R/A remain free. This does not authorize an unadmitted successor. Source/claim review stays human-only; Cloudflare workflow `37875021598` requires an independent exact production receipt, and research usage/ROI remain Unknown.
+
+**Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
+
+**Current admission (verified 2026-10-09, #6503):** Normal implementation WIP is **1/3**: A #6500 accepted as scoped source-presentation work. D/R lanes free. D issue #6491 / PR #6492 CLOSED/MERGED, Cloudflare deployment run 37935390084 SUCCESS. D/R free. #6500 is admitted by a distinct scored exact-base transaction; no clinical/publication authority conferred. Scientific and analytics results unchanged/Unknown; reconstructed 25/150 remains distinct from unmapped historical 10/150.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
