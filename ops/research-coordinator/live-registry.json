@@ -35163,6 +35163,84 @@
       "reservation_id": "57e7665d0cdabc09910a",
       "reserved_at": "2026-10-09T11:58:59.692Z",
       "source_branch": "research/intake/2/20261009-0755-cognition-metabolic-7-r21"
+    },
+    {
+      "pmid": "41879044",
+      "title": "The effect of anthocyanins through diet and supplementation on cognitive function in older adults: a multi-centre randomised controlled clinical trial.",
+      "doi": "10.1039/d5fo05366h",
+      "source_title": "The effect of anthocyanins through diet and supplementation on cognitive function in older adults: a multi-centre randomised controlled clinical trial.",
+      "abstract": "Anthocyanins, a flavonoid subclass present in certain blue, purple and red fruits and vegetables, have potential neuroprotective properties due to their anti-inflammatory, antioxidant, and signalling effects. Clinical and epidemiological studies of anthocyanins provide promising evidence for attenuation of memory loss and improved cognitive function. We investigated the effects of anthocyanins, provided through diet or supplementation, on cognitive function and related parameters. A multi-centre, 24-week randomised, parallel 3-arm clinical trial was conducted in participants aged 60-85 years with self-reported memory complaints and scoring ≤13 on the Memory Index Score within the Telephone Montreal Cognitive Assessment (T-MoCA). Participants were randomised to high anthocyanin diet, freeze-dried product derived from blackcurrants (250 mg anthocyanins per day), or control (placebo). The primary outcome was auditory episodic memory functioning. Secondary outcomes were additional cognitive functions, subjective memory complaints and self-reported depression symptoms, blood pressure, inflammatory biomarkers, lipid profile, vascular and microvascular endothelial function tests. Mixed linear modelling evaluated changes over time using both intention-to-treat and completer analyses. Of 110 participants enrolled (mean age 69.2 years SD 6.7; 36 males, 74 females), 94 completed the study. There was no treatment × time effect on any primary or secondary outcomes. We postulate that the potential anti-inflammatory, antioxidant, and signalling effects of anthocyanins were insufficient to significantly modulate any outcomes due to participants' overall good health and lack of relevant cognitive decline. We recommend future interventional studies focus on subjects with diagnosed cognitive impairment, such as MCI and dementia, and those with more severe comorbidities, particularly chronic inflammatory conditions. Trial Sponsor: National Health and Medical Research Centre (NHMRC) Dementia Collaborative Research Centre.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41879044/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41879044",
+        "doi": "10.1039/d5fo05366h",
+        "journal": "Food & function",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T12:53:33.249Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "32b25c5ce6a3e134ffd6",
+      "reserved_at": "2026-10-09T12:53:42.454Z",
+      "source_branch": "research/intake/2/20261009-0851-cognition-metabolic-12-r22"
     }
   ],
   "batches": [
@@ -35176,22 +35254,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 442,
+    "total_reservations": 443,
     "by_lane": {
       "1": 5,
-      "2": 69,
+      "2": 70,
       "3": 60,
       "4": 33,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 442
+      "SOURCE_VERIFIED": 443
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 442,
+        "count": 443,
         "pr_number": null,
         "blocker": null
       }
