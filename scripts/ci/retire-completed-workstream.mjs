@@ -73,7 +73,8 @@ export async function proposeRetirement({ repo, sha, runId, token, request = fet
     'X-GitHub-Api-Version': '2022-11-28' }
   const api = async (method, path, body) => {
     const r = await request(url + path, {
-      method, headers, ...(body ? { body: JSON.stringify(body) } : {}),
+      method, headers: body ? { ...headers, 'Content-Type': 'application/json' } : headers,
+      ...(body ? { body: JSON.stringify(body) } : {}),
       signal: AbortSignal.timeout(20000),
     })
     if (!r.ok) throw Error('GitHub ' + method + ' request HTTP ' + r.status)
