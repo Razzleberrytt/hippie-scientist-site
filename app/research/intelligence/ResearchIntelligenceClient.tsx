@@ -3,7 +3,7 @@ import {useEffect,useMemo,useRef,useState} from 'react'
 import Link from 'next/link'
 import {askResearchSources,explainSemanticVoyage,hydrateResearchStudioWithPublishedEvidence,type ResearchStudio,type ReviewedStudyInput} from '@/lib/research-intelligence-studio'
 import type {SemanticNetwork} from '@/lib/research-semantic-network'
-import {buildIntegratedResearchCase} from '@/lib/research-intelligence-integration'
+import {buildIntegratedResearchCase,buildResearchEditorialReviewHandoff} from '@/lib/research-intelligence-integration'
 import {pickTraceableConceptPair} from '@/lib/research-intelligence-relay'
 import reviewedDistributionObjects from '@/data/distribution/research-objects.json'
 import {traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '@/lib/research-intelligence-context'
@@ -101,6 +101,9 @@ const caseScope=integratedCase?.scope??null
 const scientific=integratedCase?.scientific??null
 const relay=integratedCase?.relay??null
 const fabric=integratedCase?.fabric??null
+const reviewRequest=useMemo(()=>data&&focusPmid
+  ?buildResearchEditorialReviewHandoff(data,data.graph,focusPmid,reviewedDistributionObjects,data.reviewedStudies||[])
+  :null,[data,focusPmid])
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
@@ -242,6 +245,11 @@ return <section className={styles.studio}>
               {!fabric.distributionReviewTargets.length?<small>No exact DOI + claim/source identity match is registered. Similar ingredients or topics are intentionally not linked.</small>:null}
             </div>
           </div>
+          {reviewRequest?<p className={styles.fabricGuard} role='status'>
+            <strong>Source-bound human review handoff v{reviewRequest.schemaVersion}: {reviewRequest.disposition.replaceAll('-',' ')}</strong>
+            {' '}PMID {reviewRequest.identity.pmid} · {reviewRequest.trace.originalInstrumentCount} original instruments · {reviewRequest.trace.scientificProjectionCount} scientific projections · {reviewRequest.reviewTargets.length} exact-DOI review targets.
+            {' '}No clinical approval, automatic publication or page mutation. Existing claim/source IDs are review leads, not established results.
+          </p>:null}
           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
 
