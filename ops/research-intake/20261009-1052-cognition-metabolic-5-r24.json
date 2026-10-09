@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "39571910"
+  ],
+  "relevance_reason": "Source-identified human randomized cognition trial; full scientific review and clinical interpretation remain pending."
+}
