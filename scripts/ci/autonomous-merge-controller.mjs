@@ -324,10 +324,16 @@ async function getBranchSha(repo, branch) {
   return payload?.commit?.sha || null
 }
 
-async function getWorkflowRuns(repo, sha) {
+// Recovery must see every matching same-head run, including older real jobs;
+// readiness keeps its existing newest-per-workflow view and semantics.
+export function workflowRunView(exact, preserveAll = false) {
+  return preserveAll ? exact : newestBy(exact, (run) => run.name, runScore)
+}
+
+async function getWorkflowRuns(repo, sha, { preserveAll = false } = {}) {
   const payload = await github(`/repos/${repo}/actions/runs?head_sha=${encodeURIComponent(sha)}&per_page=100`)
   const exact = (payload.workflow_runs || []).filter((run) => run.head_sha === sha && DISPATCH_EVENTS.has(run.event))
-  return newestBy(exact, (run) => run.name, runScore)
+  return workflowRunView(exact, preserveAll)
 }
 
 async function getCheckRuns(repo, sha) {
@@ -441,7 +447,8 @@ export function planRecoveryDispatch(registeredRuns, observedRuns, verifiedZeroJ
 
 async function dispatchRegisteredWorkflows(repo, sourceRuns, pr) {
   await sleep(3000)
-  const existingRuns = await getWorkflowRuns(repo, pr.head.sha)
+  // Do not collapse multiple same-name runs before verifying every jobless stub.
+  const existingRuns = await getWorkflowRuns(repo, pr.head.sha, { preserveAll: true })
   const registered = newestBy(sourceRuns, (run) => run.name, runScore)
   const verifiedZeroJobIds = new Set()
   for (const run of registered) {
