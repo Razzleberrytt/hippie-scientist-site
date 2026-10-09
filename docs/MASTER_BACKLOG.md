@@ -83,14 +83,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6259 / PR #6260 | Publish gabapentinoid withdrawal and recovery Masterclass flagship | A | In review — existing owner | P1 | 3/4/3/4/0.75/4 | 27.0 | 2026-10-09 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Current ownership (verified 2026-10-09, existing-owner control #6528):** Old A #6500 / PR #6505 is completed, retired on main `2b3ac3471b8a9929e0c3e28645c64472bc8f6912`. Existing issue #6259 / draft PR #6260 is registered as the sole pre-base A owner (WIP 1/3), D/R free. Authenticated unique open PR and pre-base GitHub cross-reference are mandatory. Review ownership is not evidence approval or medical publication authority; clinical and technical checks remain. Impact Unknown.
+**Current ownership (2026-10-09, completion retirement #6535):** #6259 CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9b27fe8442ed5`; stale A row removed. WIP **0/3**, D/R/A free pending separate scored admissions. No public clinical/SEO changes are made by this control repair; revenue/production outcomes Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
