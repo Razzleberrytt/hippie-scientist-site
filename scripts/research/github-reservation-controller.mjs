@@ -81,7 +81,18 @@ async function ensureRegistryBranch(){
 }
 async function getRegistry(){
  await ensureRegistryBranch();
- try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));return {sha:f.sha,value:JSON.parse(unb64(f.content))}}
+ try{
+  const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));
+  // GitHub Contents API omits content for blobs larger than 1 MiB.
+  // Fetch the immutable Git blob by SHA instead; never initialize an empty registry.
+  const source=f.encoding==='base64'&&typeof f.content==='string'&&f.content.length
+    ?f
+    :await api('/repos/'+repo+'/git/blobs/'+encodeURIComponent(f.sha));
+  if(source.encoding!=='base64'||!source.content)throw Error('registry blob unavailable or unsupported encoding for SHA '+f.sha);
+  let value;
+  try{value=JSON.parse(unb64(source.content))}catch(e){throw Error('registry JSON invalid for SHA '+f.sha+': '+e.message)}
+  return {sha:f.sha,value};
+ }
  catch(e){if(Number(e.status)!==404)throw e;return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}}}
 }
 async function putRegistry(current,value,message){
