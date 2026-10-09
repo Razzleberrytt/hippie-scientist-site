@@ -1,7 +1,7 @@
 import {describe,expect,it} from 'vitest'
 import {buildResearchSemanticNetwork} from '../research-semantic-network'
 import {buildResearchIntelligenceStudio} from '../research-intelligence-studio'
-import {buildIntegratedResearchCase} from '../research-intelligence-integration'
+import {buildIntegratedResearchCase,buildResearchEditorialReviewHandoff,validateResearchEditorialReviewHandoff} from '../research-intelligence-integration'
 
 // Deliberately synthetic PubMed-like records: these tests validate the
 // interoperability/authorization boundaries, not any scientific result.
@@ -85,4 +85,122 @@ describe('P0 integrated twenty-tool exact-source case',()=>{
       matching,{...matching,primarySourceUrl:'https://doi.org/10.5555/unrelated-test'},
     ])).toThrow(/conflicting DOI identity/)
   })
+
+  it('emits a deterministic v1 review REQUEST tied to actual 8+12 source context',()=>{
+    const integrated=buildIntegratedResearchCase(studio,graph,'10000001',[matching])
+    expect(integrated).not.toBeNull()
+    if(!integrated)throw Error('Fixture must create an integrated case')
+    const receipt=integrated.reviewHandoff
+    expect(receipt.schemaVersion).toBe(1)
+    expect(receipt.eventType).toBe('research-editorial-review-request')
+    expect(receipt.sourcePmid).toBe('10000001')
+    expect(receipt.sourceSignature).toBe(graph.entries['10000001'].sourceSignature)
+    expect(receipt.sourceDoi).toBe('10.5555/verified-test')
+    expect(receipt.instrumentCount).toBe(8)
+    expect(receipt.scientificProjectionCount).toBe(12)
+    expect(receipt.requests).toHaveLength(1)
+    expect(receipt.requests[0]).toEqual(expect.objectContaining({
+      pmid:'10000001',sourceSignature:receipt.sourceSignature,
+      primaryDoi:'10.5555/verified-test',objectId:matching.id,
+      claimedFindingId:matching.findingClaimId,claimedSourceId:matching.primarySourceId,
+      status:'requires-independent-human-review',
+      basis:'exact-publication-identity-not-claim-support',
+    }))
+    expect(receipt.separatelyReviewedCitationIds).toEqual([])
+    expect(receipt.humanReviewRequired).toBe(true)
+    expect(receipt.clinicalClaimsApproved).toBe(0)
+    expect(receipt.automaticPublications).toBe(0)
+    expect(receipt.publicationAllowed).toBe(false)
+    expect(receipt.mutationAllowed).toBe(false)
+    expect(validateResearchEditorialReviewHandoff(receipt,studio,graph,'10000001',[matching]))
+      .toEqual(receipt)
+    expect(buildResearchEditorialReviewHandoff(integrated)).toEqual(receipt)
+    expect(buildIntegratedResearchCase(studio,graph,'10000001',[matching])?.reviewHandoff)
+      .toEqual(receipt)
+  })
+
+  it('keeps unknown/missing exact DOI or claim/source identity on hold',()=>{
+    const cases=[
+      [],[{...matching,primarySourceUrl:'https://doi.org/10.5555/unrelated-test'}],
+      [{...matching,findingClaimId:undefined}],
+      [{...matching,primarySourceId:undefined}],
+    ]
+    for(const records of cases){
+      const result=buildIntegratedResearchCase(studio,graph,'10000001',records)
+      expect(result?.reviewHandoff.requests).toHaveLength(0)
+      expect(result?.reviewHandoff.status).toBe('held-no-exact-review-target')
+      expect(result?.reviewHandoff.heldReasons.some(x=>x.channel==='social')).toBe(true)
+      expect(result?.reviewHandoff.publicationAllowed).toBe(false)
+    }
+    const unrelated=buildIntegratedResearchCase(studio,graph,'10000002',[matching])
+    expect(unrelated?.reviewHandoff.requests).toHaveLength(0)
+    expect(unrelated?.reviewHandoff.sourcePmid).toBe('10000002')
+  })
+
+  it('validates latest source and every claim/DOI/permission field fail-closed',()=>{
+    const receipt=buildIntegratedResearchCase(studio,graph,'10000001',[matching])!.reviewHandoff
+    const mutated=[
+      {...receipt,schemaVersion:2},
+      {...receipt,sourcePmid:'10000002'},
+      {...receipt,sourceSignature:'forged'},
+      {...receipt,sourceDoi:'10.5555/unrelated-test'},
+      {...receipt,humanReviewRequired:false},
+      {...receipt,publicationAllowed:true},
+      {...receipt,mutationAllowed:true},
+      {...receipt,clinicalClaimsApproved:1},
+      {...receipt,automaticPublications:1},
+      {...receipt,requests:receipt.requests.map(r=>({...r,claimedFindingId:'borrowed_foreign_claim'}))},
+      {...receipt,requests:receipt.requests.map(r=>({...r,claimedSourceId:'borrowed_foreign_source'}))},
+      {...receipt,requests:receipt.requests.map(r=>({...r,primaryDoi:'10.5555/unrelated-test'}))},
+      {...receipt,requests:receipt.requests.map(r=>({...r,status:'approved'}))},
+      {...receipt,requests:receipt.requests.map(r=>({...r,pmid:'10000002'}))},
+      {...receipt,requests:receipt.requests.map(r=>({...r,sourceSignature:'stale-signature'}))},
+      {...receipt,requests:receipt.requests.concat(receipt.requests)},
+      {...receipt,unknownPermission:true},
+    ]
+    for(const forged of mutated){
+      expect(()=>validateResearchEditorialReviewHandoff(forged,studio,graph,'10000001',[matching]))
+        .toThrow(/rejected/)
+    }
+    expect(()=>validateResearchEditorialReviewHandoff(receipt,studio,graph,'10000002',[matching]))
+      .toThrow(/rejected/)
+    expect(()=>validateResearchEditorialReviewHandoff(receipt,studio,graph,'10000001',[
+      {...matching,primarySourceUrl:'https://doi.org/10.5555/unrelated-test'},
+    ])).toThrow(/rejected/)
+    expect(()=>validateResearchEditorialReviewHandoff(receipt,studio,graph,'10000001',[
+      {...matching,findingClaimId:'replacement_claim'},
+    ])).toThrow(/rejected/)
+  })
+
+  it('invalidates source revisions and refuses fabricated integrated case permissions',()=>{
+    const old=buildIntegratedResearchCase(studio,graph,'10000001',[matching])!
+    const changedSources=sources.map(x=>x.pmid==='10000001'
+      ?{...x,abstract:x.abstract+' Additional source revision.'}:x)
+    const changedGraph=buildResearchSemanticNetwork(changedSources)
+    const changedStudio=buildResearchIntelligenceStudio(changedSources,changedGraph,[])
+    expect(changedGraph.entries['10000001'].sourceSignature).not.toBe(old.sourceSignature)
+    expect(()=>validateResearchEditorialReviewHandoff(old.reviewHandoff,changedStudio,changedGraph,
+      '10000001',[matching])).toThrow(/rejected/)
+    for(const altered of [
+      {...old,sourceSignature:'forged'},
+      {...old,publicationAllowed:true},
+      {...old,fabric:{...old.fabric,publicationAllowed:true}},
+      {...old,fabric:{...old.fabric,sourceDoi:'10.5555/unrelated-test'}},
+      {...old,scientific:{...old.scientific,clinicalPromotions:1}},
+    ]){
+      expect(()=>buildResearchEditorialReviewHandoff(altered as typeof old)).toThrow(/rejected/)
+    }
+  })
+
+  it('is order-independent and distinguishes two existing object IDs without conflating sources',()=>{
+    const another={...matching,id:'another-reviewed-object'}
+    const first=buildIntegratedResearchCase(studio,graph,'10000001',[matching,another])!
+    const second=buildIntegratedResearchCase(studio,graph,'10000001',[another,matching])!
+    expect(first.reviewHandoff).toEqual(second.reviewHandoff)
+    expect(first.reviewHandoff.requests).toHaveLength(2)
+    expect(new Set(first.reviewHandoff.requests.map(r=>r.requestId)).size).toBe(2)
+    expect(first.reviewHandoff.requests.every(r=>r.status==='requires-independent-human-review'))
+      .toBe(true)
+  })
+
 })
