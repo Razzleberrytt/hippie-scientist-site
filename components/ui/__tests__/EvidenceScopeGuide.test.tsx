@@ -7,6 +7,7 @@ describe('EvidenceScopeGuide', () => {
     const { container } = render(<EvidenceScopeGuide context="profile" />)
     expect(screen.getByText('Why can two evidence grades differ?')).toBeTruthy()
     expect(screen.getByText(/It does not establish the strength of every outcome-specific claim/)).toBeTruthy()
+    expect(screen.queryByText(/These grade percentages use indexable ingredient profiles/)).toBeNull()
     expect(screen.getByText('Ingredient / profile grade')).toBeTruthy()
     expect(screen.getByText('Outcome-specific claim')).toBeTruthy()
     expect(screen.getByText('Individual study quality')).toBeTruthy()
