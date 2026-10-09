@@ -101,6 +101,7 @@ const caseScope=integratedCase?.scope??null
 const scientific=integratedCase?.scientific??null
 const relay=integratedCase?.relay??null
 const fabric=integratedCase?.fabric??null
+const reviewHandoff=integratedCase?.reviewHandoff??null
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
@@ -242,6 +243,11 @@ return <section className={styles.studio}>
               {!fabric.distributionReviewTargets.length?<small>No exact DOI + claim/source identity match is registered. Similar ingredients or topics are intentionally not linked.</small>:null}
             </div>
           </div>
+          {reviewHandoff?<div role='status' aria-label='Exact source editorial review handoff'>
+            <strong>Review handoff v{reviewHandoff.schemaVersion}: {reviewHandoff.requests.length} exact-publication review request{reviewHandoff.requests.length===1?'':'s'} · {reviewHandoff.draftBriefIds.length} draft brief{reviewHandoff.draftBriefIds.length===1?'':'s'}</strong>
+            <p>PMID {reviewHandoff.sourcePmid} · {reviewHandoff.status.replaceAll('-',' ')}. Zero approved clinical claims and automatic publications. Matched claim/source IDs still require independent human review.</p>
+            {reviewHandoff.heldReasons.map(hold=><small key={hold.channel}>Held {hold.channel}: {hold.reason}. </small>)}
+          </div>:null}
           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
 
