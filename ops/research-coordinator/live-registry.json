@@ -36707,6 +36707,159 @@
       "reservation_id": "76cb5afd386b1268b304",
       "reserved_at": "2026-10-09T14:56:28.708Z",
       "source_branch": "research/intake/4/20261009-1019-two-pmid-seed"
+    },
+    {
+      "pmid": "41520950",
+      "title": "Evidence of heterogeneity in the opioid withdrawal syndrome: Spontaneous and precipitated withdrawal.",
+      "doi": "10.1016/j.pbb.2026.174153",
+      "source_title": "Evidence of heterogeneity in the opioid withdrawal syndrome: Spontaneous and precipitated withdrawal.",
+      "abstract": "This study characterized the heterogeneity of opioid withdrawal by comparing naturally occurring withdrawal during opioid abstinence (spontaneous withdrawal) with abrupt, pharmacologically induced naloxone-precipitated withdrawal in adults with Opioid Use Disorder (OUD). A secondary analysis was conducted on de-identified data from 86 adults meeting DSM-5 criteria for moderate-to-severe OUD. Participants either presented in spontaneous withdrawal (n = 28) or underwent naloxone challenge to precipitate withdrawal (n = 58). Withdrawal symptoms were rated using the Wang procedure. Principal Component Analysis (PCA) of binary symptom data was performed to identify dominant patterns of symptom co-occurrence. Separate PCAs were then conducted for the withdrawal syndrome types to delineate group-specific symptom clusters. In the combined sample, four principal components together accounted for 55.6% of the variance in withdrawal symptoms, with the highest loadings observed on autonomic (e.g., temperature change, sweating) and somatic (e.g., restlessness, yawning) domains. Subgroup analyses revealed distinct symptom-loading patterns: the spontaneous withdrawal group displayed a more pronounced autonomic profile dominated by temperature dysregulation and muscle aching, whereas the precipitated withdrawal group exhibited greater variability, with notable gastrointestinal (vomiting, stomach pain) and somatic features. Across analyses, inter-individual variability was substantial, underscoring the multidimensional nature of opioid withdrawal. These findings suggest spontaneous and precipitated withdrawal are distinct clinical phenomena: the former emerges gradually, the latter produces diverse, acute symptoms, though both display heterogeneity. Moreover, relying solely on naloxone-challenge paradigms for treatment development may overlook key aspects of \"real-world\" spontaneous withdrawal, reinforcing the importance of broader experimental models and individualized care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41520950/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed title, DOI, and abstracts source-verified for opioid withdrawal heterogeneity, emerging OUD therapies, and nitazene toxicology; scientific interpretation remains unreviewed and unpublished.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41520950",
+        "doi": "10.1016/j.pbb.2026.174153",
+        "journal": "Pharmacology, biochemistry, and behavior",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T14:57:04.467Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "52459fc35aca40cdf701",
+      "reserved_at": "2026-10-09T14:57:11.725Z",
+      "source_branch": "research/intake/4/20261009-1027-source-verified-3"
+    },
+    {
+      "pmid": "42484800",
+      "title": "Novel 2-Benzylbenzimidazole Opioids: Emerging Drugs of Abuse and Pharmacological Considerations with Nitazene Analogs.",
+      "doi": "10.1007/s11916-026-01525-0",
+      "source_title": "Novel 2-Benzylbenzimidazole Opioids: Emerging Drugs of Abuse and Pharmacological Considerations with Nitazene Analogs.",
+      "abstract": "To summarize the developing evidence on novel 2-benzlbenzimidazole opioids (nitazene analogs), including pharmacology, potency, toxicology, management of overdose, and public health issues that are caused by this set of compounds as there is an increasing presence in illicit drug markets. Nitazene analogs include those such as isotonitazene, metonitazene, protonitazene, and etonitazene are highly potent mu opioid receptor agonists and are increasingly detected in counterfeit and illicit pharmaceutical products with exposure in other substances including other drugs. Reports from multiple clinical, forensic, and public health investigations have all demonstrated that severe opioid toxicity can be characterized by profound respiratory depression, which is seen in nitazene compounds. Detection remains a central issue with this compound because these derivatives frequently are missed in routine toxicology screening. Nitazene analogs represent a new class of synthetic opioids that are associated with a high overdose risk related to high potency and increased prevalence worldwide. New techniques for overdose reversal include improvements in the pharmacology of opioid antagonists, prolonged and improved monitoring, and advances in life support inside and outside the hospital setting.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42484800/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed title, DOI, and abstracts source-verified for opioid withdrawal heterogeneity, emerging OUD therapies, and nitazene toxicology; scientific interpretation remains unreviewed and unpublished.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42484800",
+        "doi": "10.1007/s11916-026-01525-0",
+        "journal": "Current pain and headache reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T14:57:04.468Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "febdc262ae00511bc0ce",
+      "reserved_at": "2026-10-09T14:57:11.725Z",
+      "source_branch": "research/intake/4/20261009-1027-source-verified-3"
     }
   ],
   "batches": [
@@ -36720,22 +36873,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 462,
+    "total_reservations": 464,
     "by_lane": {
       "1": 9,
       "2": 83,
       "3": 61,
-      "4": 34,
+      "4": 36,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 462
+      "SOURCE_VERIFIED": 464
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 462,
+        "count": 464,
         "pr_number": null,
         "blocker": null
       }
