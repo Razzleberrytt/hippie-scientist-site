@@ -47,3 +47,44 @@ The regression suite checks exact DOI joins, unrelated DOI lookalikes, topic/pag
 2. Exact claim-lineage graph crossing articles, evidence blocks, review ledger, social scripts and published artifacts.
 3. Authenticated stale-source detection, human-approved correction queues, and public explanations of evidence changes.
 4. Telemetry and reviewer feedback loops that prioritize investigation without upgrading unreviewed observations to scientific authority.
+
+## Research-editorial review handoff v1 — P0 #6466
+
+**Implementation scope (not a release claim):** The existing
+`buildIntegratedResearchCase` now compiles one `ResearchEditorialReviewHandoff`
+receipt from its exact PMID/source signature, eight instruments, twelve
+calibrated research-only scientific projections, and pre-existing 1.07
+`planResearchSemanticFabric` review candidates. It is an immutable-style
+local/static transfer representation, not a new clinical evidence database,
+publisher, background service, or qualified scientific review.
+
+- `schemaVersion: 1`, exact `sourcePmid`/`sourceSignature`/`sourceUrl`,
+  normalized `sourceDoi` (nullable) and separately indexed publication
+  crosswalk IDs are retained independently. No DOI match proves trial
+  independence or scientific claim support.
+- A distribution **request** appears only when the existing Fabric candidate
+  has a matching primary DOI and both pre-existing distribution claim/source
+  identifiers. Those are **claimed IDs to inspect**, not independently
+  approved findings. Each request carries a stable JSON-tuple identity,
+  `requires-independent-human-review`, and
+  `exact-publication-identity-not-claim-support`.
+- No matching source or target produces an explicit held state and the Fabric's
+  recorded unresolved-channel reasons. Editorial draft brief IDs remain
+  review-only and do not become clinical findings or publications.
+- `clinicalClaimsApproved: 0`, `automaticPublications: 0`,
+  `publicationAllowed: false`, `mutationAllowed: false`, and
+  `humanReviewRequired: true` are hard-coded, validated constraints.
+- Consumers call `validateResearchEditorialReviewHandoff(raw, studio, graph,
+  pmid, distributionObjects)` against **fresh source and distribution inputs**.
+  Any altered/foreign PMID, stale source signature/DOI, changed claim/source
+  ID, reordered or duplicate packet, extra field, unsupported version, or
+  modified permission bit is refused; there is no fallback to topic similarity
+  or an older green snapshot.
+- The existing research case UI displays request/hold counts and never
+  offers publish or edit controls from this receipt.
+
+**Verification:** Synthetic adversarial fixtures plus the repository's
+500-source static-intelligence validator and all required exact-head checks
+must pass before controller-owned merge; production requires the matching
+Cloudflare origin receipt. Runtime analytics or review throughput remain
+Unknown without observation.
