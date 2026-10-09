@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "batch": "7501–8000",
+  "scope": "read-only heuristic category-relevance triage, not independent abstract-level methodology or clinical approval",
+  "source_records_preserved": 500,
+  "source_verified_records": 500,
+  "screened_titles": 500,
+  "potential_category_mismatches": 8,
+  "flagged_records": [
+    {
+      "category": "stress_anxiety",
+      "pmid": "31201809",
+      "reason": "Stress urinary incontinence is not psychological stress/anxiety.",
+      "title": "Pain and activity after vaginal reconstructive surgery for pelvic organ prolapse and stress urinary incontinence.",
+      "wave": 7506,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "19501822",
+      "reason": "Oxidative stress/semen outcomes are not anxiety or mental-stress outcomes.",
+      "title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
+      "wave": 7508,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "23042808",
+      "reason": "Acute THC-induced paranoia/CBD study does not itself establish withdrawal or NPS evidence.",
+      "title": "Cannabidiol inhibits THC-elicited paranoid symptoms and hippocampal-dependent memory impairment.",
+      "wave": 7585,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "27379960",
+      "reason": "Athlete muscle-strength population is indirect to aging/sarcopenia.",
+      "title": "Effects of Vitamin D Supplementation on Muscle Strength in Athletes: A Systematic Review.",
+      "wave": 7666,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "24341035",
+      "reason": "Carotid endarterectomy postoperative cognition may not involve a qualifying compound intervention.",
+      "title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
+      "wave": 7767,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "24561488",
+      "reason": "Check whether a dual-prescription-drug comparison belongs in this intervention scope.",
+      "title": "Efficacy of adding once- and thrice-daily voglibose in Japanese type 2 diabetic patients treated with alogliptin.",
+      "wave": 7856,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "39193818",
+      "reason": "Probiotic/fatigue study should not be assigned mitochondrial mechanism without direct endpoints.",
+      "title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
+      "wave": 7961,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "38084984",
+      "reason": "Recurrent urinary-tract-infection endpoint is not respiratory; broader immune scope requires explicit decision.",
+      "title": "Effectiveness of Prophylactic Oral and/or Vaginal Probiotic Supplementation in the Prevention of Recurrent Urinary Tract Infections: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "wave": 7984,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED"
+    }
+  ],
+  "reviewed_scientifically": 0,
+  "admitted_clinically": 0,
+  "record_admission_changes": 0,
+  "formal_independent_review_complete": false,
+  "protocol": "Candidate flags from deterministic title/category conflict patterns; flagged records remain unchanged, pending reviewer decisions after reading abstracts and methods. Other 492 records are NOT cleared; all 500 require individual independent semantic review.",
+  "evidence_limits": "Title screening is neither a comprehensive abstract review nor trial-design/correction checking. Negative/counterevidence must be evaluated; absence of a flag is not approval."
+}
