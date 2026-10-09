@@ -14,7 +14,7 @@ Lane ownership:
 4. withdrawal, dependence, NPS, harm reduction
 5. contradictions, replication, emerging research
 
-Use a short-lived branch named `research/intake/<lane>/<unique-run>` and write one JSON intake file under `ops/research-intake/`. Pushing it invokes the globally serialized reservation controller. Never write the coordination registry directly.
+Use a short-lived branch named `research/intake/<lane>/<unique-run>` and write one JSON intake file under `ops/research-intake/`. For ordinary external/manual pushes, the `Research lane intake` push workflow invokes the globally serialized reservation controller. **GitHub Actions pushes made with the default `GITHUB_TOKEN` do not start other push-triggered workflows.** Therefore the native hourly Lane 4 job pushes its unique seed branch, then invokes the **same existing controller exactly once** under the shared global concurrency group. If that reservation fails after the push, the committed seed remains eligible for the bounded scheduled replay path. Neither path writes the registry directly or bypasses global collision checks; they must never act as simultaneous authorities.
 
 Minimal seed example:
 
