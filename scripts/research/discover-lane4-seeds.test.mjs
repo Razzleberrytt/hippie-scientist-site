@@ -1,38 +1,86 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
+import {selectLane4Candidates,createLane4Seed,discoverLane4} from './discover-lane4-seeds.mjs'
 
 const native=readFileSync('.github/workflows/research-lane4-native-hourly.yml','utf8')
-const owner=readFileSync('.github/workflows/research-lane-intake.yml','utf8')
-const discover=readFileSync('scripts/research/discover-lane4-seeds.mjs','utf8')
+const intake=readFileSync('.github/workflows/research-lane-intake.yml','utf8')
 
-test('native Lane 4 schedules no paid agent and submits a bounded seed through GitHub only',()=>{
-  assert.match(native,/schedule:\s*\n\s*- cron: '27 \* \* \* \*'/)
-  assert.match(native,/node scripts\/research\/discover-lane4-seeds\.mjs/)
-  assert.match(native,/research\/intake\/4\/native-\$\{GITHUB_RUN_ID\}-\$\{GITHUB_RUN_ATTEMPT\}/)
-  assert.match(native,/git push origin "HEAD:refs\/heads\/\$branch"/)
-  assert.match(discover,/\.slice\(0,2\)/)
-  assert.match(discover,/seed_only:true/)
-  assert.match(discover,/research_only:true/)
-})
-
-test('one serialized push-triggered reservation authority; never double-submit',()=>{
+test('hourly native path stays inside the original global serialized controller',()=>{
+  assert.match(native,/cron: '27 \* \* \* \*'/)
   assert.match(native,/group: research-reservation-global/)
-  assert.match(owner,/group: research-reservation-global/)
-  assert.match(owner,/- 'research\/intake\/\*\*'/)
-  assert.match(owner,/- 'ops\/research-intake\/\*\.json'/)
-  assert.match(owner,/CANDIDATE_PATH="\$manifest" node scripts\/research\/github-reservation-controller\.mjs reserve/)
-  assert.doesNotMatch(native,/node scripts\/research\/github-reservation-controller\.mjs reserve/,
-    'native discovery must not also reserve, because push handles reservation')
-  assert.doesNotMatch(native,/workflow_dispatch[^\n]*candidate_path/, 'no second dispatch path')
+  assert.match(intake,/group: research-reservation-global/)
+  assert.match(native,/node --test scripts\/research\/\*\.test\.mjs/)
+  assert.match(native,/git push origin "HEAD:refs\/heads\/\$branch"/)
+  assert.match(native,/research\/intake\/4\/native-\$\{GITHUB_RUN_ID\}-\$\{GITHUB_RUN_ATTEMPT\}/)
+  assert.match(native,/pull-requests: write/)
+  assert.match(native,/contents: write/)
+  assert.match(native,/CANDIDATE_PATH: \$\{\{ steps\.discover\.outputs\.seed \}\}/)
+  assert.equal((native.match(/run: node scripts\/research\/github-reservation-controller\.mjs reserve/g)||[]).length,1)
+  assert.match(native,/GITHUB_TOKEN pushes do not trigger/)
+  assert.match(intake,/name: Replay exact committed PMID seeds missed by push events/)
 })
 
-test('source ledger integrity and publication firewall remain explicit',()=>{
-  assert.match(discover,/registry\.schema_version!==1/)
-  assert.match(discover,/Array\.isArray\(registry\.reservations\)/)
-  assert.match(discover,/Array\.isArray\(registry\.batches\)/)
-  assert.match(discover,/git\/blobs\/.*registryMeta\.sha/)
-  assert.match(discover,/research_only:true/)
-  assert.doesNotMatch(discover,/clinical_approved\s*:\s*true|publish_approved\s*:\s*true/)
-  assert.match(owner,/name: Validate research control plane/)
+test('bounded novel source identities, deduplicated without clinical interpretation',()=>{
+  const reservations=[{pmid:'11111111',state:'RESERVED'},{pmid:'22222222',state:'RELEASED'}]
+  assert.deepEqual(selectLane4Candidates({idlist:['11111111','22222222','22222222','33333333','44444444']},reservations),
+    ['22222222','33333333'])
+  const seed=createLane4Seed(['22222222','33333333'])
+  assert.equal(seed.seed_only,true)
+  assert.equal(seed.research_only,true)
+  assert.equal(seed.lane_focus,'withdrawal-dependence-nps')
+  assert.equal(seed.lane,4)
+  assert.deepEqual(seed.pmids,['22222222','33333333'])
+  assert.doesNotMatch(JSON.stringify(seed),/clinical_approved":true|publish_approved":true/)
+  assert.deepEqual(selectLane4Candidates({idlist:['11111111']},reservations),[])
+})
+
+test('fail closed on invalid source ledger, PubMed payload and seed bounds',()=>{
+  assert.throws(()=>selectLane4Candidates(null,[]),/Malformed PubMed/)
+  assert.throws(()=>selectLane4Candidates({idlist:'bad'},[]),/Malformed PubMed/)
+  assert.throws(()=>selectLane4Candidates({idlist:['11111111']},null),/Canonical/)
+  assert.throws(()=>selectLane4Candidates({idlist:['11111111']},[{pmid:'?' ,state:'RESERVED'}]),/Invalid PMID/)
+  assert.throws(()=>selectLane4Candidates({idlist:['oops']},[]),/Malformed PMID/)
+  assert.throws(()=>selectLane4Candidates({idlist:[]},[],3),/cap/)
+  assert.throws(()=>createLane4Seed([]),/Invalid/)
+  assert.throws(()=>createLane4Seed(['11111111','11111111']),/Invalid/)
+  assert.throws(()=>createLane4Seed(['11111111','22222222','33333333']),/Invalid/)
+})
+
+test('oversized canonical registry uses exact Contents SHA blob and preserves research-only identity',async()=>{
+  const sha='a'.repeat(40)
+  const registry={schema_version:1,reservations:[{pmid:'11111111',state:'RESERVED'}],batches:[]}
+  const urls=[]
+  const fetchImpl=async url=>{
+    urls.push(url)
+    if(url.includes('/contents/'))return {ok:true,json:async()=>({sha,encoding:'none',content:''})}
+    if(url.endsWith('/git/blobs/'+sha))return {ok:true,json:async()=>({
+      encoding:'base64',content:Buffer.from(JSON.stringify(registry)).toString('base64')
+    })}
+    if(url.includes('esearch.fcgi?'))return {ok:true,json:async()=>({esearchresult:{idlist:['11111111','22222222','33333333']}})}
+    throw Error('Unexpected endpoint '+url)
+  }
+  const result=await discoverLane4({repo:'test/repository',token:'unit-test',fetchImpl})
+  assert.equal(result.state,'candidates')
+  assert.deepEqual(result.seed.pmids,['22222222','33333333'])
+  assert.ok(urls.some(x=>x.endsWith('/git/blobs/'+sha)), 'must read SHA-pinned blob, not mutable ref')
+  assert.equal(urls.length,3)
+})
+
+test('invalid oversize registry and absent PubMed idlist cannot look like no new studies',async()=>{
+  const sha='b'.repeat(40)
+  const invalid=async url=>{
+    if(url.includes('/contents/'))return {ok:true,json:async()=>({sha,encoding:'none',content:''})}
+    if(url.includes('/git/blobs/'))return {ok:true,json:async()=>({encoding:'base64',content:'e2JhZA=='})}
+    throw Error('Should never search after invalid ledger')
+  }
+  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl:invalid}),/Pinned registry JSON invalid/)
+  const valid=async url=>{
+    if(url.includes('/contents/'))return {ok:true,json:async()=>({
+      sha,encoding:'base64',content:Buffer.from(JSON.stringify({schema_version:1,reservations:[],batches:[]})).toString('base64')
+    })}
+    if(url.includes('esearch.fcgi?'))return {ok:true,json:async()=>({esearchresult:{}})}
+    throw Error('Unexpected fetch '+url)
+  }
+  await assert.rejects(discoverLane4({repo:'test/repository',token:'token',fetchImpl:valid}),/Malformed PubMed/)
 })
