@@ -107,9 +107,20 @@ export default function AboutClient() {
               Independent project
             </p>
             <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">Willie B. Randolph III</h2>
-            <p className="mt-2 text-sm leading-7 text-[color:var(--hs-body)]">
-              Age 34, father of two little girls, and based in Oak Ridge, Tennessee. He built this site to make supplement choices feel calmer, clearer, and less like marketing.
+            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">
+              Founder & Head Researcher · Oak Ridge, TN
             </p>
+            <div className="mt-3 space-y-3 text-sm leading-7 text-[color:var(--hs-body)]">
+              <p>
+                I&apos;m Willie, 34, from Oak Ridge, Tennessee. For years I&apos;ve worked restaurant life while teaching myself to code at night. I&apos;m a father of two little girls, and I started The Hippie Scientist because I was tired of supplement hype — for myself and for people like me who don&apos;t have time for marketing games.
+              </p>
+              <p>
+                I&apos;m not a doctor, and this isn&apos;t medical advice. I&apos;m a researcher-builder: I read the human trials, grade the evidence honestly, and tell you when the research can&apos;t give an answer. Every profile goes through the same evidence audit and safety review, and commercial stuff can never change a grade or hide a caution.
+              </p>
+              <p>
+                This site is my fight to build something better than the restaurant grind — for my family and for anyone who wants straight answers about what actually works.
+              </p>
+            </div>
             <dl className="mt-5 grid grid-cols-3 border-y border-[color:var(--hs-hairline)] py-3 text-center">
               <div>
                 <dt className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[color:var(--hs-body)]">Age</dt>
