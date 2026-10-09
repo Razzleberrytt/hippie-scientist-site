@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "41464897",
+    "34217960",
+    "35378821"
+  ],
+  "relevance_reason": "Human randomized trials addressing occupational stress, anxiety and mood, and insomnia; source identity verified against PubMed, scientific interpretation pending independent review."
+}
