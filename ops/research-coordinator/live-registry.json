@@ -19694,6 +19694,1936 @@
       "reservation_id": "2cbab1717a78f24cf8e6",
       "reserved_at": "2026-10-09T04:50:38.565Z",
       "source_branch": "research/intake/2/20261009-0048-cognition-metabolic-4-r14-recovery"
+    },
+    {
+      "pmid": "39122187",
+      "title": "The prognosis of patients with myocardial infarction after light therapy: A preliminary study.",
+      "doi": "10.1016/j.bj.2024.100783",
+      "source_title": "The prognosis of patients with myocardial infarction after light therapy: A preliminary study.",
+      "abstract": "Patients with myocardial infarction (MI) can have disturbed sleep, but little is known about the efficacy of light therapy on sleep and the prognosis of patients with MI. We conducted a randomized controlled study to investigate its efficacy. This preliminary study included 34 patients with MI. They were randomized into the blue light and the white light groups during their stay in intensive care unit. 17 age and gender-matched healthy controls were also enrolled. Actigraphy was used to evaluate objective sleep since enrollment. Delirium scales were used to screen delirium. Lab work-up, including vitamin D level was performed at the baseline and discharge. We used the Mann-Whitney U test or Wilcoxon signed-rank test to compare the difference between the MI group and the healthy control group, and the group difference after receiving light therapy. Patients with MI had significantly lower vitamin D levels than healthy controls (p < 0.001). They also had significantly poorer sleep, as indicated by actigraphy parameters, including sleep onset latency (p = 0.01), sleep efficiency (p = 0.002), wake after sleep onset (p < 0.001), and awake times (p = 0.002). No significant group difference was found by actigraphy after light therapy except a non-significant higher relative amplitude of the blue light group (p = 0.061). Besides, the vitamin D level of the blue light group increased significantly (p1 = 0.047, p2 = 0.045). Patients with MI had poorer sleep, highlighting the need to develop interventions. Significantly increased vitamin D levels and a non-significant better rest-active rhythm after light therapy suggest its potential with sleep and prognosis, which warrants further investigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39122187/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39122187",
+        "doi": "10.1016/j.bj.2024.100783",
+        "journal": "Biomedical journal",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T05:34:53.924Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5aad64c0e7576e29d84f",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "39203908",
+      "title": "Creatine Improves Total Sleep Duration Following Resistance Training Days versus Non-Resistance Training Days among Naturally Menstruating Females.",
+      "doi": "10.3390/nu16162772",
+      "source_title": "Creatine Improves Total Sleep Duration Following Resistance Training Days versus Non-Resistance Training Days among Naturally Menstruating Females.",
+      "abstract": "Females historically experience sleep disturbances and overall poor sleep compared to males. Creatine has been proposed to impact sleep; however, the effects are not well known. The purpose of this study was to examine the effects of creatine supplementation on sleep among naturally menstruating females. Twenty-one participants completed a double-blind, randomized controlled trial in which they consumed 5 g creatine + 5 g maltodextrin or placebo, 10 g maltodextrin, daily for 6 weeks. Participants completed resistance training 2x/week using the TONAL ® (Tonal Systems Inc., San Francisco, CA, USA) at-home gym. Pre- and post-testing assessed body composition, Pittsburgh Sleep Quality Index (PSQI), dietary intake, and muscular strength. Sleep was assessed nightly using an ŌURA ® (Oulu, Finland) ring. Compared to the placebo group, those consuming creatine experienced significant increases in total sleep on training days ( p = 0.013). No significant changes in chronic sleep and PSQI (pre-post) were observed. There was a significant increase in TONAL ® strength score over time ( p < 0.001), with no between-group differences. Participants reduced their total calorie (kcal) ( p = 0.039), protein (g/kg) ( p = 0.009), carbohydrate (g/kg) ( p = 0.023), and fat (g) ( p = 0.036) intake over time. Creatine supplementation increases sleep duration on resistance training days in naturally menstruating females.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39203908/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39203908",
+        "doi": "10.3390/nu16162772",
+        "journal": "Nutrients",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T05:34:53.925Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0e063ecd0ed877db9b51",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "39394141",
+      "title": "Effects of probiotic and vitamin D co-supplementation on clinical symptoms, mental health, and inflammation in adult patients with migraine headache: a randomized, triple-blinded, placebo-controlled trial.",
+      "doi": "10.1186/s12916-024-03684-6",
+      "source_title": "Effects of probiotic and vitamin D co-supplementation on clinical symptoms, mental health, and inflammation in adult patients with migraine headache: a randomized, triple-blinded, placebo-controlled trial.",
+      "abstract": "Migraine headache is a major public health problem. Routine medications for migraine treatment are not useful in treating all patients and may have some side effects. The present study aimed to investigate the effect of vitamin D and probiotic co-supplementation on clinical characteristics of migraine, daily functioning, mental health outcomes, and serum levels of high-sensitivity C-reactive protein (hs-CRP). In this randomized, triple-blinded, placebo-controlled trial, patients aged 18 to 55 years diagnosed with migraine based on the International Classification of Headache Disorders-3 (ICHD-3) were randomized to either vitamin D (50,000 IU every 2 weeks) plus probiotic (4.5 × 10 11 CFU per day) or placebo for 12 weeks. The Headache Impact Test (HIT-6) and Depression, Anxiety, and Stress Scale (DASS) questionnaires were administered to patients at baseline and after 12 weeks. In addition, the frequency, duration, and severity of migraine headaches per month were assessed using a self-administered 30-day headache diary at baseline and the end of the intervention. Anthropometric indices, blood pressure, and serum levels of 25-hydroxy vitamin D and hs-CRP were also examined at first and the end of the study. Seventy-two migraine patients with a mean age of 37.46 ± 8.32 years were included in this trial. Probiotic and vitamin D co-supplementation compared to placebo resulted in a significant increase in serum levels of vitamin D (+ 12.86 ± 1.64 vs. + 1.12 ± 0.80 ng/mL, P < 0.001). The between-group analysis in the adjusted model showed a significantly greater reduction in migraine headache frequency (- 3.17 ± 0.84 vs. - 1.25 ± 0.34; P = 0.031) and severity (- 1.55 ± 0.35 vs. + 0.67 ± 0.29; P = 0.017) in the probiotic and vitamin D group than the placebo group. No significant difference was found between the two arms of the intervention regarding the change in headache duration, hs-CRP, scores of DASS, and HIT-6 questionnaires (P > 0.05). This trial showed that probiotic and vitamin D co-supplementation for 12 weeks has beneficial effects on migraine headache characteristics. Further research is needed to confirm this finding.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39394141/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39394141",
+        "doi": "10.1186/s12916-024-03684-6",
+        "journal": "BMC medicine",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T05:34:53.926Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fdd9fc28749f97d725ab",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "40480279",
+      "title": "Impact of Vitamin D Supplementation on Cognition in Adults With Mild to Moderate Vitamin D Deficiency: Outcomes From the VitaMIND Randomized Controlled Trial.",
+      "doi": "10.1016/j.jamda.2025.105711",
+      "source_title": "Impact of Vitamin D Supplementation on Cognition in Adults With Mild to Moderate Vitamin D Deficiency: Outcomes From the VitaMIND Randomized Controlled Trial.",
+      "abstract": "Preserved cognitive health with ageing is a public health imperative. Vitamin D deficiency is associated with poor cognition, but it is unclear whether supplementation would provide benefit, particularly in individuals with mild/moderate deficiencies which do not have other clinical risks. The objective of this study was to establish the impact of daily vitamin D supplementation on cognition in older adults with mild to moderate vitamin D deficiency. Two-arm, parallel, 24-month randomized controlled trial, with vitamin D supplementation compared with a placebo. This was a remote trial, completed from home involving 620 adults, aged ≥ 50 years, with mild to moderate vitamin D deficiency and early cognitive impairment. The primary outcome was executive function measured through Trail Making Test Part B and other secondary measures of cognition, function, and well-being. Vitamin D supplementation conferred no significant benefit to executive function compared with placebo at follow-up on the primary outcome (between-group difference, 5770; 95% CI, -2189 to 13,730) or cognition, function, or well-being. Secondary analyses in defined subgroups and a per-protocol analysis also showed no significant impact on any outcome measures. Vitamin D supplementation produced no measurable improvement in cognitive outcomes in older adults with mild to moderate vitamin D deficiency. The remote trial methodology provides an innovative approach to large-scale trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40480279/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40480279",
+        "doi": "10.1016/j.jamda.2025.105711",
+        "journal": "Journal of the American Medical Directors Association",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T05:34:53.927Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6cc9f6ae0ae19fc6bd1a",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "40577556",
+      "title": "A randomized controlled trial comparing sleep hygiene advice with a self-help book focusing on cognitive behavioral therapy for insomnia: a study among patients with prescribed hypnotics from the GP.",
+      "doi": "10.1080/02813432.2025.2525423",
+      "source_title": "A randomized controlled trial comparing sleep hygiene advice with a self-help book focusing on cognitive behavioral therapy for insomnia: a study among patients with prescribed hypnotics from the GP.",
+      "abstract": "Chronic insomnia is commonly treated with hypnotics. However, the treatment of choice is cognitive behavioral therapy for insomnia (CBTi). We investigated whether a self-help book based on CBTi is effective in reducing hypnotic use and improving sleep. Patients who had received a prescription from their GP for z-hypnotics (zopiclone or zolpidem) in the last 6 months were recruited through PraksisNett, an infrastructure within General Practice, for a randomized controlled trial comparing written materials in form of a sheet of sleep hygiene advice and a self-help book. The participants completed an online questionnaire about hypnotic use, insomnia symptoms, sleep duration, anxiety and depression before the intervention and at 4-5 months follow-up. In total, 125 patients (response rate 72.7%) completed the follow-up questionnaire. Interaction analyses indicated effects favoring the self-help book for hypnotic use and anxiety. The book reduced the proportion using hypnotics daily from 25.4% to 18.6%, while the proportion increased from 21.2% to 22.7% in the sleep hygiene group. The proportion reporting anxiety was reduced from 32.1% to 23.2% in the self-help book group, while it increased from 27.0% to 31.7% in the sleep hygiene group. Insomnia symptoms were lowered in both intervention groups, whereas depression remained unchanged. This study indicated that the self-help book was an effective low-threshold treatment option that seems to reduce hypnotic use and at the same time improve sleep and mental health. The patients who received sleep hygiene advice also reported some positive effects, but daily hypnotic use and anxiety increased.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40577556/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40577556",
+        "doi": "10.1080/02813432.2025.2525423",
+        "journal": "Scandinavian journal of primary health care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.927Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5c5c84cf19540307355e",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "41092045",
+      "title": "The influence of intermittent fasting on body metrics, lipid profile, and physical performance in young and middle-aged men.",
+      "doi": "10.1177/02601060251385278",
+      "source_title": "The influence of intermittent fasting on body metrics, lipid profile, and physical performance in young and middle-aged men.",
+      "abstract": "Background: Intermittent fasting (IF) is increasingly adopted for weight and metabolic health management, yet its impact on lipid profile and physical performance in young and middle-aged men remains unclear. Aim: The present study examined the effect of a five-month (IF) on body composition, lipid profile, and physical performance. Methods: A randomized controlled trial was conducted to evaluate the impact of this eating pattern. Forty active male participants were divided into two age groups (a young group from 23 to 28 years and a middle-aged group from 46 to 59 years) and then randomly assigned to experimental (young experimental group (YE), middle-aged experimental group (ME)) or control groups (young control group, middle-aged control group). Before and after the five-month (IF) intervention (4 days per week), all participants performed the Running-based Anaerobic Sprint and the Test Blood for the determination of lipids profile. Results: Both young (YE) and middle-aged (ME) experimental groups showed significant reductions in weight ( p = 0.012 for YE and p = 0.011 for ME), body mass index (BMI) ( p = 0.011 for YE and p = 0.012 for ME) and fat-free mass ( p = 0.004 for YE and p = 0.043 for ME) compared to control groups. Analysis of variance (ANOVA) revealed significant main effects of time and group for weight ( p < 0.001; p = 0.012), BMI ( p = 0.012; p = 0.038), and fat-free mass ( p = 0.023; p = 0.037), with significant time × group interaction for weight ( p = 0.017) and trends for BMI ( p = 0.048) and fat-free mass ( p = 0.07); no significant effects were observed for body fat percentage ( p > 0.05). In addition, our results showed that (IF) was associated with significant decrease in total cholesterol ( p = 0.004 for YE and p = 0.0024 for ME) and high-density lipoprotein (HDL) levels ( p = 0.004 for YE and p = 0.009 for ME) in both experimental groups. Low-density lipoprotein decreased significantly only in the young IF group ( p = 0.041). However, IF did not affect triglyceride levels or physical performance. ANOVA revealed a significant interaction between time and group for HDL ( p < 0.001), with greater reductions in middle-aged participants, and a significant group effect for triglycerides ( p < 0.001), which were higher in middle-aged groups at both time points. Conclusion: These results suggest that while IF can positively influence body composition and is associated with selective changes in lipid profiles, its effects on triglycerides and physical performance may be limited. These findings underscore the need for further research to explore the long-term metabolic implications of IF, as well as potential age-related differences in response to fasting regimens.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41092045/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41092045",
+        "doi": "10.1177/02601060251385278",
+        "journal": "Nutrition and health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.928Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "de47450e0c7427319fdd",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42451057",
+      "title": "Changes in Resting Energy Expenditure in Response to Different Dietary Patterns: A Randomized Clinical Trial Exploratory Sub-Analysis.",
+      "doi": "10.3390/nu18132053",
+      "source_title": "Changes in Resting Energy Expenditure in Response to Different Dietary Patterns: A Randomized Clinical Trial Exploratory Sub-Analysis.",
+      "abstract": "Evidence comparing the effects of novel alternative dietary strategies on resting energy expenditure (REE) with a hypocaloric standard Mediterranean diet (MedDiet) with continuous caloric restriction remains limited. This study aimed to evaluate the effects of diets with varying ketogenic potentials-including a very-low-carbohydrate diet (ketogenic diet, KD), time-restricted eating (TRE), and modified alternate-day fasting (mADF)-on the REE of individuals with obesity compared to those of a standard MedDiet. This was a secondary post hoc sub-analysis of a three-month, parallel-arm, randomized clinical trial (RCT) including 160 adults with obesity (body mass index > 30 kg/m 2 ). The participants were randomly assigned to one of five calorie-restricted dietary interventions: control (MedDiet), KD, early time-restricted eating (eTRE), late time-restricted eating (lTRE), or mADF. All interventions featured an individualized energy deficit of 600 kcal/day. In this sub-analysis, a total of 102 participants with valid baseline measures were included. The REE was assessed by indirect calorimetry, and longitudinal trajectories were evaluated using Linear Mixed Models (LMMs) in 98 participants to account for baseline variability and to maximize data retention. The mean age of participants in this sub-analysis was 45.3 years (SD 10.8), and 73.1% were women. The longitudinal modeling confirmed no statistically significant differences in the adjusted REE trajectories among the five dietary groups over the 3-month intervention (Group × Time interaction, p = 0.506). Furthermore, the LMMs showed that total body weight ( p < 0.001) and biological sex ( p < 0.001) were the variables most strongly associated with REE within the model. No independent associations between circulating beta-hydroxybutyrate levels and REE trajectories were detected. Hypocaloric diets with varying macronutrient distributions and fasting windows did not show statistically significant differences in REE trajectories over the 3-month intervention. In this exploratory sub-analysis, the REE trajectories were more closely associated with individual biological characteristics, particularly body weight and sex, than with the specific dietary strategy employed. Given the modest sample size and exploratory nature of the study, these findings should be interpreted cautiously and require confirmation in larger, adequately powered prospective trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42451057/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42451057",
+        "doi": "10.3390/nu18132053",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.929Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "585d9929ce4c074841f9",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42504863",
+      "title": "Enhanced metabolic flexibility links Mediterranean diet with cognition: interim findings from a randomized controlled trial.",
+      "doi": "10.1039/d5fo05544j",
+      "source_title": "Enhanced metabolic flexibility links Mediterranean diet with cognition: interim findings from a randomized controlled trial.",
+      "abstract": "Metabolomics contributes to the understanding of mechanisms by which dietary interventions can minimize the progression of mild cognitive impairment (MCI) to dementia. In this study, changes in metabolomics profiles were analyzed to assess the effects of a 24-week intervention with a Mediterranean diet (MD), with and without probiotics, and a low-fat diet (according to the World Health Organization recommendations) in 47 older adults (aged ≥60 years, 42.6% women) with MCI. The plasma metabolome was analyzed using a quantitative LC-MS/MS targeted assay to assess metabolite changes derived from dietary intervention. Multivariate methods were employed to assess the impact of diets on the plasma metabolome, as well as the associations between the changes in metabolite profiles and cognitive evaluation scores (assessed through ADAS-Cog-11 and a complete neuropsychological test battery). Our results showed that the MD increased the levels of acetoacetic acid and various metabolites linked to the tricarboxylic acid (TCA) cycle and decreased the levels of branched-chain amino acids (BCAAs), particularly isoleucine. Increases in alpha-ketoglutarate, alpha-ketoisovalerate, and 2-oxocaproate, as well as decreases in beta-alanine, L-carnitine, and alpha-aminobutyric acid concentrations, were associated with improved cognitive scores. The MD, but not the low-fat diet, promoted ketone body production and increased the availability of TCA cycle intermediates, suggesting an increase in metabolic flexibility in older adults with MCI. Targeted dietary and/or pharmacological strategies aimed at enhancing metabolic flexibility may open new avenues for preventing the progression of MCI. This study is registered with ClinicalTrials.gov (NCT05029765).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42504863/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42504863",
+        "doi": "10.1039/d5fo05544j",
+        "journal": "Food & function",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.929Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "746705c94524ce493876",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42514457",
+      "title": "Acute 1,3-Butanediol Co-Ingestion with Carbohydrate Does Not Improve Endurance Performance in Chronically Ketogenic Male Athletes.",
+      "doi": "10.3390/nu18142388",
+      "source_title": "Acute 1,3-Butanediol Co-Ingestion with Carbohydrate Does Not Improve Endurance Performance in Chronically Ketogenic Male Athletes.",
+      "abstract": "Background/Objectives: Exogenous ketone supplementation has been proposed to enhance endurance performance by altering substrate metabolism and sparing muscle glycogen. Prolonged carbohydrate restriction may upregulate ketolytic capacity and could therefore modulate the response to exogenous ketone ingestion. This study investigated the impact of increasing circulating ketone bodies through exogenous ketone supplementation on endurance performance in athletes chronically adapted to a ketogenic diet. Methods: Participants ( n = 9 recreationally active males, with ≥1 year of ketogenic adherence) visited the lab four times. The first visit determined their V.O 2 max. The second visit accustomed them to test procedures. In a counterbalanced design, visits three and four tested the consumption of a 60 g carbohydrate beverage (CHO), or a beverage comprising 60 g carbohydrate and 0.5 g/kg 1,3-butanediol (CHO + BD). This was followed by a 60 min set-intensity exercise bout, followed by a 16.1 km time trial. Results: βHB significantly increased in the CHO + BD group (rest: 0.72 ± 0.33 mmol/L; post-exercise: 1.69 ± 0.30 mmol/L) compared to CHO (rest: 0.80 ± 0.53; post-exercise: 0.55 ± 0.30) ( p < 0.001). There was no significant difference in time trial performance between groups (1606 ± 138 s; 1620 ± 134 s; p > 0.05). During set intensity exercise, there was no significant main effect of supplementation on lactate concentration, substrate oxidation, oxygen consumption at a fixed workload, RPE or heart rate ( p > 0.05). However, glucose was significantly lower at minutes 40 and 60 of set intensity exercise in CHO + BD compared to CHO. Conclusions: No significant effect of 1,3-butanediol ingestion on endurance performance was detected in this sample of nine chronically ketogenic male athletes. βHB significantly increased from resting levels; however, time trial performance did not differ between conditions. Given the small sample and limited statistical power, these preliminary findings indicate no detectable ergogenic effect under the present conditions rather than evidence of no effect, and larger studies are warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42514457/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42514457",
+        "doi": "10.3390/nu18142388",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.930Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4df18fdfd69ed9381e0d",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42520714",
+      "title": "Impact of a 4-week time-restricted eating (16:8) intervention on working memory and attentional control in adult women: A randomized controlled pilot.",
+      "doi": "10.1016/j.actpsy.2026.107510",
+      "source_title": "Impact of a 4-week time-restricted eating (16:8) intervention on working memory and attentional control in adult women: A randomized controlled pilot.",
+      "abstract": "Time-restricted eating (TRE), a form of intermittent fasting, limits daily food intake to a specific window. This randomized-controlled pilot study examined the potential of a 4-week 16:8 TRE regimen (16 h fasting, 8 h eating) as a behavioural intervention on cognitive performance, well-being, and body weight among healthy women. Participants were assigned to either a Fasting group (N = 23) or a Control group (N = 20) maintaining their usual diet. Cognitive performance was assessed weekly using the Symmetry Span task (working memory) and the Stroop Squared, Simon Squared, and Flanker Squared tasks (attentional control), along with well-being and bodyweight. Working memory and attentional control improved across time, but no significant differences were observed between groups. The Fasting group showed a statistically significant reduction in BMI compared with controls, with no group differences in reported adverse events. These findings suggest that short-term 16:8 TRE was feasible and well tolerated in this pilot sample and was associated with reduced BMI, with no evidence of TRE-specific improvement or impairment in the tested cognitive functions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42520714/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42520714",
+        "doi": "10.1016/j.actpsy.2026.107510",
+        "journal": "Acta psychologica",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.931Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a4348aefeef5f848fc49",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42583947",
+      "title": "Monitoring and Acceptance, or Monitoring Only? Effects of a Dismantled Mindfulness Intervention on Mindfulness and Emotional Outcomes: A Randomized Controlled Trial.",
+      "doi": "10.1002/jclp.70205",
+      "source_title": "Monitoring and Acceptance, or Monitoring Only? Effects of a Dismantled Mindfulness Intervention on Mindfulness and Emotional Outcomes: A Randomized Controlled Trial.",
+      "abstract": "Previous studies based on the Monitoring and Acceptance Theory (MAT) failed to find differential effects of monitoring plus acceptance (MA) and monitoring only (MO) training on negative affect. This study aimed to investigate the differences between MA and MO from the perspective of mindfulness and emotional outcomes. A total of 392 participants were randomly assigned to three groups (MA, MO, or Waiting-List [WL]). MA or MO participants received a 14-day online mindfulness training focused on monitoring and acceptance skills, or only monitoring skills, respectively. We used the Five Facet Mindfulness Questionnaire, the Positive and Negative Affect Scale, and the Emotional Reactivity Scale (ERS) assess the outcomes before the intervention (T1), after the intervention (T2), and at the 2-week follow up (T3). Linear mixed model (LMM) was conducted to explore the data based on intent-to-treat (ITT) and per-protocol (PP) analyses. Both the MA and MO groups demonstrated significant improvements in the total mindfulness score and positive affect compared to the WL group (p < 0.05). A significant Group × Time interaction was observed for ERS; however, post hoc tests revealed no significant between-group differences. Negative affect did not differ significantly across groups (p > 0.05). No significant differences between MA and MO were observed for any outcome (p > 0.05). This study demonstrated that MA and MO had equivalent effects on mindfulness and emotional outcomes following a 2-week online training program.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42583947/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42583947",
+        "doi": "10.1002/jclp.70205",
+        "journal": "Journal of clinical psychology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.931Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0c6508099471305c0e6e",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42745378",
+      "title": "Changes in dyadic emotional flexibility and expressivity during parent-child interactions following successful treatment of child anxiety.",
+      "doi": "10.1017/S0954579426101825",
+      "source_title": "Changes in dyadic emotional flexibility and expressivity during parent-child interactions following successful treatment of child anxiety.",
+      "abstract": "Child anxiety is linked to emotions during parent-child interactions, and observing emotional flexibility and expressivity may reveal treatment-related changes. This observational study investigated whether changes in dyadic emotional flexibility and expressivity were associated with treatment non-response (responders vs. non-responders), and whether treatment modality (child vs. family cognitive behavior theory (CBT)) and parent gender (mother- vs. father-child dyads) affected these changes. Participants were 116 referred children with anxiety disorders (59.4% girls, M age = 12.4 years, SD = 2.7) and both parents, enrolled in a randomized controlled trial comparing child CBT ( n = 58) with family CBT ( n = 58). Anxiety was assessed using the Anxiety Disorders Interview Schedule. Father-child and mother-child dyads were videotaped separately pre- and post-treatment discussing a conflict. Affect (positive, negative, neutral) was continuously coded. Dyadic measures of emotional flexibility (transitions, dispersion, and average duration) and expressivity (positive, negative) were derived from state space grids. Hierarchical linear models showed improvements in dyadic emotional flexibility among treatment responders, and in dyadic positive affect regardless of whether CBT was successful changes did not differ by parent gender or treatment modality. Dyadic negative affect increased only in responders within father-child dyads and in individual CBT. Findings highlight changes in flexible emotional exchanges of parent-child dyads after successful CBT for child anxiety.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42745378/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42745378",
+        "doi": "10.1017/S0954579426101825",
+        "journal": "Development and psychopathology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.931Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e3d2fbb0bb1fee7921c5",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42748179",
+      "title": "Assessing the effect of Loving-Kindness Meditation on pain and social well-being using a randomized controlled trial design.",
+      "doi": "10.1371/journal.pone.0357888",
+      "source_title": "Assessing the effect of Loving-Kindness Meditation on pain and social well-being using a randomized controlled trial design.",
+      "abstract": "Loving-Kindness Meditation (LKM), a contemplative practice that aims to promote social well-being, has also been linked to lower self-reported pain symptoms. However, it remains unknown whether LKM can reduce pain through having a positive impact on social well-being, as well as whether LKM can improve self-reported acute pain and objectively measured acute pain tolerance among a general, healthy population. In this study (ClinicalTrials.gov; NCT04632875), participants (n = 69) completed either a 4-week online LKM training or an active control meditation training (Progressive Muscle Relaxation; PMR), followed by a novel, remote pain induction task: the wall sit test administered over video conference. This study used a two-arm, parallel-group randomized controlled trial design with stratified block randomization and a double-blind baseline session. We hypothesized that, relative to the PMR active control, LKM would improve social well-being, reduce subjective pain reports, and improve acute pain tolerance. Contrary to our hypotheses, the PMR active control training increased perceived social support relative to LKM (p = .028), and neither meditation decreased subjective pain or increased acute pain tolerance over time. Our data were collected during the unique circumstance of the early COVID-19 pandemic, and it is important to interpret our results with consideration of widespread restrictions on in-person social contact and elevated stress during this period. This context may have constrained participants' opportunities for social connection and influenced reports of social support and pain. Nevertheless, our findings add to the current understanding of how meditation, social wellness, and pain may be related.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42748179/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42748179",
+        "doi": "10.1371/journal.pone.0357888",
+        "journal": "PloS one",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.932Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1f65a09343f3281bbc79",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42777261",
+      "title": "Feasibility of a Virtual Mindfulness-Based Stress Reduction Intervention for Individuals With Chronic Pain: Pilot Randomized Controlled Trial.",
+      "doi": "10.2196/98632",
+      "source_title": "Feasibility of a Virtual Mindfulness-Based Stress Reduction Intervention for Individuals With Chronic Pain: Pilot Randomized Controlled Trial.",
+      "abstract": "Chronic pain (CP) is a complex and prevalent public health condition that significantly impacts physical functioning, psychological well-being, and quality of life. Traditional biomedical treatments often provide limited relief, highlighting the need for integrative approaches. Biopsychosocial interventions, such as mindfulness-based stress reduction (MBSR), have shown promise in improving pain-related outcomes by targeting cognitive, emotional, and behavioral processes associated with CP. This pilot randomized controlled trial (RCT) evaluated the feasibility and preliminary effects of a virtual MBSR intervention for individuals with CP. We conducted a single-blinded, randomized, pilot trial of 61 participants with CP randomly assigned to either an 8-week virtual MBSR program or a no-intervention control group. Participants were aware of their allocation; the data analyst remained blinded throughout the study; and the outcome assessor was blinded at baseline, although blinding could not be reliably maintained at subsequent assessments. The primary outcome was feasibility, assessed through recruitment, retention, and adherence rates. Secondary outcomes, examined on an exploratory basis, included pain disability, CP acceptance, pain catastrophizing, pain self-efficacy, health-related quality of life (HRQoL; PROMIS-29 [Patient-Reported Outcomes Measurement Information System-29] and PROMIS-10 [Patient-Reported Outcomes Measurement Information System-10]), and global rating of change. Recruitment (23.5%), retention (60.7%), and adherence (63.3%) rates were below the prespecified thresholds of 30%, 80%, and 80%, respectively, indicating that modifications to the current design are required before proceeding to a definitive trial. As this pilot trial was not powered to test intervention effectiveness, the following clinical outcomes are reported as exploratory and hypothesis-generating. A significant group-by-assessment period interaction was observed for pain disability, PROMIS-10 (physical health and global health), and PROMIS-29 (participation in social activities). No significant interactions were observed for pain catastrophizing, pain self-efficacy, or CP acceptance. On the Global Rating of Change scale, MBSR participants reported greater improvement in pain self-efficacy than the no-intervention control group. This pilot study did not meet its feasibility targets, highlighting the need to refine recruitment, retention, and intervention delivery procedures before conducting a future trial. Preliminary exploratory analyses suggested improvements in pain disability and several HRQoL subdomains in the MBSR group compared with the control group, but these findings should be interpreted cautiously given the underpowered sample and the exploratory nature of these analyses. These results provide guidance for optimizing study design and implementation of a future, adequately powered RCT evaluating virtual MBSR for adults with CP.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42777261/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42777261",
+        "doi": "10.2196/98632",
+        "journal": "JMIR formative research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.933Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "66545bd2ab6eaa7d2dad",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42849063",
+      "title": "Estimating the Economic Value of Supported Online Parent-Led Cognitive Behavioral Therapy to Prevent Child Anxiety Problems: Economic Evaluation of the MYCATS Cluster Randomized Controlled Trial.",
+      "doi": "10.2196/87123",
+      "source_title": "Estimating the Economic Value of Supported Online Parent-Led Cognitive Behavioral Therapy to Prevent Child Anxiety Problems: Economic Evaluation of the MYCATS Cluster Randomized Controlled Trial.",
+      "abstract": "Childhood anxiety disorders are common and lead to substantial negative long-term outcomes in various life domains. Although digital interventions for preventing childhood anxiety problems have been increasingly used in the recent decade, there is limited evidence documenting their cost-effectiveness (CE). This study aimed to evaluate the CE of a parent-led online cognitive behavioral therapy with therapist support (OSI+TS) alongside usual school practice (USP), compared to USP alone for children aged 4-7 years at risk of anxiety disorders identified through universal school screening. The economic evaluation was conducted alongside the MYCATS trial (N=865), a parallel group, superiority cluster randomized trial across 95 primary or infant schools in England. Schools were randomized (1:1) to OSI+TS or USP, stratified by school-level deprivation. The primary analyses, at 12 months after randomization, considered child quality-adjusted life years (QALYs) as the health economic outcome, using both the UK adult and the Australia adolescent value sets, and costs were from the National Health Service and Personal Social Services perspective. Incremental cost-effectiveness ratios (ICERs) were compared to the UK National Institute for Health and Care Excellence (NICE) recommended threshold of £20,000-£30,000 (£1=US $1.35 as of September 10, 2026) per QALY gained, as per predefined Health Economics Analysis Plan. Sensitivity analyses included a societal perspective and the application of the new NICE cost-effectiveness threshold. Children receiving OSI+TS gained 0.021 (95% CI 0.010-0.033; P <.001) and 0.043 (95% CI 0.021-0.064; P <.001) QALYs, respectively, for United Kingdom and Australia value sets, with an additional cost of £244.16 compared to school usual practice only, resulting in ICERs of £11,462.47 and £5,700.98, respectively. At the £20,000 threshold, OSI+TS had an 88.2% or 99.3% chance of being cost-effective. OSI+TS is cost-effective compared to usual school provision, supporting its future implementation for children at risk of anxiety problems.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42849063/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42849063",
+        "doi": "10.2196/87123",
+        "journal": "Journal of medical Internet research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.933Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "018daf75da2f1d25fe15",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "41441966",
+      "title": "Immediate Cognitive and Interoceptive Benefits of Yoga-Based Visual Respiratory Biofeedback in Migraine: A Randomized Controlled Trial.",
+      "doi": "10.1007/s10484-025-09761-7",
+      "source_title": "Immediate Cognitive and Interoceptive Benefits of Yoga-Based Visual Respiratory Biofeedback in Migraine: A Randomized Controlled Trial.",
+      "abstract": "Migraine without aura is associated with autonomic dysregulation and cognitive deficits, particularly in visuospatial cognition and interoception. Yoga-based interventions have shown promise in enhancing autonomic and cognitive functions. This study aimed to evaluate the immediate effects of a novel yoga-based visual respiratory biofeedback (VRB) intervention on visuospatial cognition and interoception in individuals with migraine without aura. A total of 102 individuals were screened using clinical history, Migraine Screening Questionnaire (MSQ), and Montreal Cognitive Assessment (MoCA). Sixty-four participants who met the eligibility criteria were recruited and randomized in a 1:1 ratio into two groups: (1) the experimental group (n = 32), which received 20 min of yogic VRB intervention involving alternate nostril yogic breathing (ANYB), and (2) the control group (n = 32), which watched a 20-minute documentary as a neutral visual stimulus. Visuospatial cognition was assessed using the Corsi Block Tapping Task, while interoception was measured with the Heartbeat Counting Task. Assessments were conducted immediately before and after the intervention. Linear Mixed Models (LMM) were used for statistical analysis to account for repeated measures. The VRB intervention significantly improved both visuospatial cognition and interoceptive accuracy in the experimental group compared to the control group. The experimental group showed a significant increase in Corsi span (t = - 3.97, df = 62, 95% CI [- 0.7, - 0.23], p < 0.001), indicating enhanced spatial working memory. In contrast, the control group showed no significant change in Corsi span. Both the groups showed significant increase in Corsi total score (t = 3.5, df = 62, 95% CI [1.87, 6.41], p < 0.001) after intervention, with no significant difference in group*time interaction. Furthermore, the experimental group demonstrated greater improvement in interoceptive accuracy compared to the control group, as indicated by increased scores derived from the Heartbeat Counting Task (t = - 8.59, df = 62, 95% CI [- 0.21, - 0.13], p < 0.001). The results suggest that a single session of the yoga-based VRB intervention effectively enhances both visuospatial cognitive performance and interoceptive accuracy in individuals with migraine without aura. These findings indicate that VRB may serve as a promising therapeutic tool for modulating autonomic and cognitive functions in migraine patients, potentially reducing the impact of migraine-related cognitive and interoceptive impairments. Future studies should explore the integration of this therapy with conventional care, its long-term effects and their applicability to broader populations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41441966/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41441966",
+        "doi": "10.1007/s10484-025-09761-7",
+        "journal": "Applied psychophysiology and biofeedback",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.934Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "36413d46a53d28e210df",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "41652149",
+      "title": "Optimizing the Work of Learning for Flourishing: A Randomized Pilot Study of a Digital CBT-Based Intervention in Medical Students.",
+      "doi": "10.1007/s40596-026-02308-w",
+      "source_title": "Optimizing the Work of Learning for Flourishing: A Randomized Pilot Study of a Digital CBT-Based Intervention in Medical Students.",
+      "abstract": "This study aimed to evaluate the feasibility, acceptability, and impact of a digital cognitive behavioral therapy (CBT)-based intervention to improve well-being in medical students. The authors conducted a 16-week randomized (1:1) controlled trial of a digital CBT-based intervention (OptimalWork) compared to a podcast listening control in medical students. Both interventions were fully remote, self-paced, and designed to take 10-15 min per day, 5 days per week for 4 weeks. Primary outcomes were feasibility and acceptability; measures of impact included flourishing (Flourish Index) and burnout (Professional Fulfillment Index) at 8 weeks. Qualitative analysis of open-ended feedback and exit interviews was performed to understand participants' experience with the intervention, as well as barriers and facilitators of implementation. Thirty-five medical students were enrolled and randomized. The OptimalWork group showed improvements in work engagement, burnout, anxiety, and stress, and an increase in overall flourishing. Dropout rates were high in both arms (46% by 4 weeks, 56% by 16 weeks), with lower baseline work engagement and higher stress predicting attrition. Qualitative analysis revealed that students who completed OptimalWork found it feasible, relevant, and helpful, while participants who dropped out cited time constraints and difficulty with daily habit formation. This pilot study demonstrates the feasibility of delivering a CBT-based digital intervention designed to improve well-being at work for medical students and offers insights into barriers and facilitators that can guide implementation efforts. ClinicalTrials.gov identifier: NCT06914843 (July 24, 2024, retrospectively registered).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41652149/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41652149",
+        "doi": "10.1007/s40596-026-02308-w",
+        "journal": "Academic psychiatry : the journal of the American Association of Directors of Psychiatric Residency Training and the Association for Academic Psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.934Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9eaf20c6660eee93a0ea",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "41850653",
+      "title": "Relative Effects of Time-Restricted Eating, Energy-Restricted Eating, and Unrestricted Eating on Eating Patterns and Dietary Intake: Results From a Randomized Controlled Trial.",
+      "doi": "10.1016/j.jand.2026.156331",
+      "source_title": "Relative Effects of Time-Restricted Eating, Energy-Restricted Eating, and Unrestricted Eating on Eating Patterns and Dietary Intake: Results From a Randomized Controlled Trial.",
+      "abstract": "Time-restricted eating (TRE) may be as effective as an energy-restricted (ER) diet for weight loss. However, little is known about the effects of TRE on eating patterns and dietary intake. The aims of this study were to examine the relative effects of TRE, ER, and unrestricted eating (UE) diets on eating patterns and dietary intake. This study is a secondary analysis of data from a randomized controlled trial carried out between October 2020 and October 2023. Over this period, 88 participants were randomized to a TRE, ER, or UE diet group. Adults with obesity in the Minneapolis-Saint Paul, Minnesota, metropolitan area who completed study baseline and follow-up measures of dietary intake (n = 73). The interventions were (1) TRE with an 8-hour self-chosen window with ad libitum diet; (2) ER diet with 15% reduction of energy intake; or (3) UE in which self-monitoring of food intake was encouraged with no specific change to eating recommended. The intervention period was 12 weeks. Outcomes included meals eaten and intake of vegetables, fruit, dairy, protein foods, grains, energy, added sugars, saturated fat, sodium, dietary fiber, and potassium. Multivariate linear regression analyses were carried out to compare the change in food and nutrient intake between experimental groups. Logistic mixed-effects models were constructed to examine the change in meals eaten. The TRE group ate fewer daily meals at end-intervention (-1.1 meals/day; 95% confidence interval [CI], -1.6, -0.7) compared with baseline, whereas the ER and UE groups did not experience a change in eating occasions. Those in the TRE group were less likely to report eating breakfast during end-intervention compared with baseline (odds ratio [OR], 0.13; 95% CI, 0.05, 0.33), whereas no statistically significant change in behavior was identified for the ER (OR, 1.02; 95% CI, 0.41, 2.55) or UE (OR, 0.68; 95% CI, 0.28, 1.68) groups. Between baseline and end-intervention those in the TRE group had a decrease in intake of energy (-469 kcal/day; 95% CI, -681, -257), saturated fat (-8.5 g/day; 95% CI, -12.9, -4.1), potassium (-496 mg/day; 95% CI, -729, -263), and total (-1.7 ounce equivalents/day; 95% CI, -2.9, -0.6) and refined grains (-1.6 ounce equivalents; 95% CI, -2.6, -0.6). These changes were more marked compared with changes in the UE group. There were no statistically significant differences found between those in the TRE and ER groups. Findings suggest that TRE with an 8-hour window and ad libitum intake may have similar effects on food and nutrient intake as an energy-restricted diet.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41850653/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41850653",
+        "doi": "10.1016/j.jand.2026.156331",
+        "journal": "Journal of the Academy of Nutrition and Dietetics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.935Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2dce7d094c5fbf4e570b",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42045759",
+      "title": "Effects of Time-Restricted Eating With Calorie Restriction Versus Calorie Restriction on Health Outcomes in Patients With Weight Regain Post-Sleeve Surgery: A Randomized Controlled Trial.",
+      "doi": "10.1007/s11695-026-08707-0",
+      "source_title": "Effects of Time-Restricted Eating With Calorie Restriction Versus Calorie Restriction on Health Outcomes in Patients With Weight Regain Post-Sleeve Surgery: A Randomized Controlled Trial.",
+      "abstract": "PURPOSE: Time-restricted eating (TRE) combined with calorie restriction (CR) has been proposed as a promising approach for weight management after bariatric surgery. Evidence on its effectiveness among patients experiencing weight regain following sleeve gastrectomy remains limited. METHODS: In this 12-week randomized controlled trial, 62 patients with ≥ 10% weight regain two years after sleeve gastrectomy were randomly assigned to a TRE + CR diet (8-hour eating window) or a CR-only diet. Anthropometric, biochemical, and psychological parameters were assessed at baseline and post-intervention. RESULTS: A total of 48 participants (25 in TRE + CR; 23 in CR) completed the trial. Both groups experienced modest, non-significant reductions in body weight and BMI, with significant decreases in waist and hip circumference (p ≤ 0.01). No significant between-group differences were observed in body composition indices. The TRE + CR group showed significant reductions in lean body mass (p = 0.01) and basal metabolic rate (p = 0.003). Fasting blood glucose significantly increased in the TRE + CR group (p < 0.001), whereas lipid and other glycemic indices remained unchanged. Food addiction symptoms and neuroticism scores significantly decreased only in the CR group (p = 0.02 and p = 0.04, respectively). CONCLUSIONS: In patients with post-sleeve weight regain, a 12-week TRE + CR intervention did not produce superior effects compared with CR alone on anthropometric, metabolic, or psychological outcomes. Longer and more comprehensive trials are warranted to determine the optimal dietary approach for sustained weight management after bariatric surgery.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42045759/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42045759",
+        "doi": "10.1007/s11695-026-08707-0",
+        "journal": "Obesity surgery",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.935Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f014cd36174ab76905fb",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42124061",
+      "title": "The Effect of Online Fitness Combining Dietary Intervention on Body Composition, Body Shame and Self-Esteem in Young Adults: A Randomized Controlled Trial.",
+      "doi": "10.3390/nu18091460",
+      "source_title": "The Effect of Online Fitness Combining Dietary Intervention on Body Composition, Body Shame and Self-Esteem in Young Adults: A Randomized Controlled Trial.",
+      "abstract": "Background : Obesity is a major public health concern associated with adverse physical and psychological outcomes, including body shame (BS) and reduced self-esteem (SE). Lifestyle interventions incorporating dietary and exercise components, such as time-restricted eating (TRE), mindful eating, and structured physical activity, have shown promise; however, evidence on their combined effects within scalable, web-based formats remains limited. Objective : This study aimed to evaluate the effectiveness of a multi-component, web-based lifestyle intervention integrating TRE, mindful eating, and structured online exercise on body composition and psychological outcomes in young adults. Methods : In this pilot randomized controlled trial, 42 healthy young adults (age: 20.4 ± 1.6 years) were allocated to either an intervention group ( n = 28) or a control group ( n = 14). The intervention group followed an integrated program combining TRE, mindful eating principles, and guided online exercise sessions, while the control group received standard dietary and physical activity recommendations. Outcomes included body composition, anthropometric measures, BS (Weight- and Body-Related Shame and Guilt Scale), SE (Rosenberg Self-Esteem Scale), and eating behavior (Three-Factor Eating Questionnaire). Results : Significant group × time interactions were observed for body fat percentage ( p < 0.001), fat mass ( p = 0.001), and body mass ( p = 0.025), with the intervention group demonstrating greater reductions compared with controls. BS scores significantly decreased in the intervention group, whereas no significant between-group differences were observed for SE ( p > 0.05). Dietary adherence appeared higher than exercise adherence over the intervention period. Conclusions : A multi-component, web-based lifestyle intervention integrating TRE, mindful eating, and structured exercise may improve body composition and reduce BS in young adults. However, changes in SE were not observed over the short term. These findings support the feasibility of scalable digital lifestyle interventions, while highlighting the need for longer-term studies to clarify psychological outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42124061/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42124061",
+        "doi": "10.3390/nu18091460",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.937Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0307104fa28790d0f443",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42246173",
+      "title": "Blue Light Exposure During Sleep in Type 1 Diabetes: Impacts on Glycemic Control and Psychosocial Health.",
+      "doi": "10.1111/jsr.70380",
+      "source_title": "Blue Light Exposure During Sleep in Type 1 Diabetes: Impacts on Glycemic Control and Psychosocial Health.",
+      "abstract": "Light exposure at night is linked to increased risk for obesity and insulin resistance in the general population. While sleep health is recognized as a key component of diabetes management, there has been less emphasis on nighttime light exposure. This study aimed to investigate the effects of blue and white light exposure immediately prior to (1 h) and during sleep (LEDS) on glycemic control and psychosocial wellbeing in adults with type 1 diabetes (T1D). Using baseline data from a randomized controlled trial testing a sleep intervention (NCT04506151), we analysed the following data from 170 adults with T1D: light exposure pattern and sleep from one week of wrist-worn actigraphy, glucose levels from one week of continuous glucose monitoring (CGM), and A1C and self-reported psychosocial measures. Generalized linear models, adjusting for covariates, were employed to examine the relationship between log-transformed light variables and glycemic/psychosocial outcomes. The results revealed that greater blue LEDS was significantly associated with higher glucose levels from CGM including less % time spent in glucose range 70-180 mg/dL (B = -7.30; p = 0.022) and greater % time spent above glucose range 180 mg/dL (B = 6.95; p = 0.041), along with greater depressive (B = 4.41; p = 0.016) and anxiety symptoms (B = 2.25; p = 0.008), and worse diabetes quality of life (B = -5.81; p = 0.031). Light exposure one hour prior to sleep was related to increased fatigue. In conclusion, increased blue LEDS is linked to hyperglycemia and worse psychosocial outcomes in T1D. Thus, blue LEDS warrants further investigation as a modifiable risk factor. Trial Registration: NCT04506151, www.clinicaltrial.gov.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42246173/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42246173",
+        "doi": "10.1111/jsr.70380",
+        "journal": "Journal of sleep research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.937Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a6635fea5e1d8c02154d",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42372695",
+      "title": "Promoting self-compassion meditation with intranasal oxytocin in borderline personality disorder: a pilot study.",
+      "doi": "10.1016/j.psychres.2026.117294",
+      "source_title": "Promoting self-compassion meditation with intranasal oxytocin in borderline personality disorder: a pilot study.",
+      "abstract": "Borderline personality disorder (BPD) is characterized by emotion dysregulation, interpersonal difficulties, and high levels of self-criticism, which may hinder engagement with compassion-based therapeutic practices. Oxytocin has been proposed as a modulator of social-affective processes and may facilitate specific mechanisms involved in psychotherapy. In this pilot study, 18 individuals with BPD received intranasal oxytocin (24 IU) or placebo prior to a guided compassion-based meditation practice over five weekly sessions. Compassion practice quality was assessed at baseline (T1) and endpoint (T5). Endpoint differences were examined using ANCOVA models controlling for baseline values. Compared with placebo, oxytocin was associated with higher endpoint scores on the imagination dimension of compassion practice quality. No significant differences were observed for the total score or the somatic dimension, and no adverse effects related to oxytocin administration were reported. Oxytocin may facilitate specific aspects of the subjective experience during compassion-based practices in individuals with BPD, particularly those related to imagery processes. Further controlled studies with larger samples are needed to clarify the mechanisms of action and to determine whether these effects translate into clinically meaningful outcomes when oxytocin is used as an adjunct to psychotherapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42372695/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42372695",
+        "doi": "10.1016/j.psychres.2026.117294",
+        "journal": "Psychiatry research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.938Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b617e69e798f8532e230",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42402245",
+      "title": "Efficacy of adjunctive Yoga Nidra in patients with functional dissociative seizures receiving structured psychoeducation (YOGA-FDS): a pilot randomised controlled trial.",
+      "doi": "10.1016/j.yebeh.2026.111180",
+      "source_title": "Efficacy of adjunctive Yoga Nidra in patients with functional dissociative seizures receiving structured psychoeducation (YOGA-FDS): a pilot randomised controlled trial.",
+      "abstract": "Functional dissociative seizures (FDS) are paroxysmal seizure-like events with no electrographic abnormalities. Structured psychoeducation is considered a standard component of FDS management. Yoga Nidra (YN) is a guided meditative relaxation technique that has shown benefit in other neuropsychiatric conditions, but its adjunctive role in FDS has not been studied. To evaluate whether adjunctive YN provides additional benefit over structured brief psychoeducation alone in reducing monthly FDS frequency. This open-label, randomised controlled pilot trial enrolled 50 FDS patients aged ≥13 years, randomised 1:1 to receive brief psychoeducation plus YN (n = 25) or brief psychoeducation plus sham YN (n = 25). All participants received structured psychoeducation; the intervention group additionally practised standardised audio-guided YN. The primary outcome was the change in monthly FDS frequency. Secondary outcomes included 6-month FDS episode count, seizure freedom duration, HAM-A, HAM-D, WSAS, and QOLIE-31 scores. Outcomes were assessed at 6 months by a blinded evaluator. Between January 2021 and February 2022, 72 patients were screened, and 22 were excluded. Fifty patients were randomly assigned to receive brief psychoeducation plus YN (n = 25) or brief psychoeducation plus sham YN (n = 25), of whom primary outcome data were available for 48 patients at 6 months (23 patients in the brief psychoeducation plus YN group and 25 in the brief psychoeducation plus sham YN group). Median monthly FDS frequency reduced from 6 (IQR 2.5-45) to 0.5 (0-1) in the brief psychoeducation plus YN group and from 7 (3.5-45) to 0.5 (01.7) in the sham group; between-group difference was not statistically significant (p = 0.88). Both groups demonstrated substantial clinical improvement during follow-up in seizure frequency, mood symptoms, functioning and quality of life; however, adjunctive YN did not provide measurable additional benefit over the control condition. Larger studies are needed to clarify the role of adjunctive YN in the management of functional dissociative seizures.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42402245/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42402245",
+        "doi": "10.1016/j.yebeh.2026.111180",
+        "journal": "Epilepsy & behavior : E&B",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.938Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2f1e03d856d575a6b68b",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42413627",
+      "title": "Randomized controlled trial of a modular, transdiagnostic, cognitive-behavioral anxiety intervention versus primary care behavioral health treatment as usual.",
+      "doi": "10.1016/j.jad.2026.122217",
+      "source_title": "Randomized controlled trial of a modular, transdiagnostic, cognitive-behavioral anxiety intervention versus primary care behavioral health treatment as usual.",
+      "abstract": "Offering behavioral treatment for anxiety in primary care will help to address the anxiety treatment gap. Modular Anxiety Skills Training (MAST) is a transdiagnostic cognitive-behavioral therapy (CBT) intervention for Primary Care Behavioral Health (PCBH) settings. This multi-site randomized controlled trial compared the effects of MAST versus PCBH treatment as usual (TAU), both delivered by frontline clinicians, on anxiety severity and impairment. Participants (N = 167, 70% male, 89% White, 9% Hispanic, M age 51 [16] years) were recruited from primary care at two Veterans Health Administration healthcare systems. Contrary to our hypothesis, intent-to-treat analyses found no differences by condition at 16-weeks post-treatment. Participants in both conditions improved significantly on overall anxiety severity and impairment (OASIS) as well as anxiety and depression symptom severity, functional disability, and quality of life, with small to medium effect sizes (0.21-0.61). All gains were maintained at 28-week follow-up, and participants receiving MAST demonstrated further significant reduction in OASIS. Post hoc analyses suggested baseline depression severity moderated the condition effect; participants with moderate and severe comorbid depression responded better to MAST than PCBH TAU. While MAST was not superior to PCBH TAU at post-treatment as hypothesized, it may potentially yield a more enduring impact and work better with comorbid depression; however, these findings require prospective replication. This study advances the literature by comparing brief CBT for anxiety in primary care to a strong active comparison comprising behavioral treatment. MAST may offer implementation advantages due to being manualized and modular. Further research on modular CBT for anxiety is warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42413627/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42413627",
+        "doi": "10.1016/j.jad.2026.122217",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.938Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8bd06ca0df721c3e5771",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "42431239",
+      "title": "Effects of intensive lifestyle interventions with calorie-carbohydrate-restricted diet versus time-restricted eating on appetite and binge eating in type 2 diabetes: A randomized controlled trial.",
+      "doi": "10.1016/j.appet.2026.108718",
+      "source_title": "Effects of intensive lifestyle interventions with calorie-carbohydrate-restricted diet versus time-restricted eating on appetite and binge eating in type 2 diabetes: A randomized controlled trial.",
+      "abstract": "The impact of intensive lifestyle interventions on appetite regulation and binge eating in individuals with type 2 diabetes (T2D) remains unclear. This study evaluated the effects of combined lifestyle interventions on appetite responses and binge eating in overweight or obese adults with T2D. In a randomized trial, 120 participants with T2D were allocated to three groups (n = 40 each): (1) Calorie-carbohydrate restriction (CCR), (2) Time-restricted eating with CCR (TRE + CCR), or (3) Control. Intervention groups received structured exercise and behavioral education based on the Information-Motivation-Behavioral Skills model. Appetite perceptions (hunger, satiety, desire to eat, and prospective food consumption) and binge eating (Binge Eating Scale; BES and objective binge episodes) were evaluated at baseline, week 12, and week 24 using linear mixed models. Both CCR and TRE + CCR significantly improved subjective appetite compared with the control group at 12 and 24 weeks (all p < 0.01). At 24 weeks, hunger decreased by -24.1 mm (95% CI: -35.8, -12.5) in the CCR group and -32.7 mm (95% CI: -44.2, -21.3) in the TRE + CCR group. Satiety also increased by 21.7 mm (95% CI: 9.46, 33.9) and 29.4 mm (95% CI: 17.4, 41.4), respectively. Significant reductions were observed for desire to eat and prospective food consumption. In contrast, changes in BES and objective binge episodes were not significantly different between groups at any time point. No significant differences were detected between the CCR and the TRE + CCR groups. Intensive lifestyle interventions incorporating CCR or TRE + CCR effectively reduced appetite in adults with T2D but did not significantly affect binge eating. Future research should target individuals with higher baseline BES scores to clarify potential benefits for binge eating behavior.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42431239/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42431239",
+        "doi": "10.1016/j.appet.2026.108718",
+        "journal": "Appetite",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T05:34:53.939Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3f270f313f053d534449",
+      "reserved_at": "2026-10-09T05:35:03.812Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
     }
   ],
   "batches": [
@@ -19707,22 +21637,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 242,
+    "total_reservations": 267,
     "by_lane": {
       "1": 5,
       "2": 19,
       "3": 60,
       "4": 33,
-      "5": 125
+      "5": 150
     },
     "by_state": {
-      "SOURCE_VERIFIED": 242
+      "SOURCE_VERIFIED": 267
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 242,
+        "count": 267,
         "pr_number": null,
         "blocker": null
       }
