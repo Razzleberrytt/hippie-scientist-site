@@ -44,6 +44,19 @@ export function parseReservationReceipt(stdout,expectedCount){
   throw Error('reservation controller returned no exact reservation receipt')
 }
 
+export function selectIntakeBranches(refs,maxBranches=500){
+  if(!Array.isArray(refs))throw Error('Invalid GitHub intake refs response')
+  if(refs.length>maxBranches)throw Error('Intake branch scan cap reached; review before replay')
+  const prefix='refs/heads/'+BRANCH_PREFIX
+  if(refs.some(ref=>ref?.ref?.startsWith(prefix)&&
+    !/^[a-f0-9]{40}$/.test(ref.object?.sha||'')))
+    throw Error('Intake ref is missing an exact commit SHA')
+  return refs.filter(ref=>ref?.ref?.startsWith(prefix)).map(ref=>({
+    name:ref.ref.slice('refs/heads/'.length),
+    commit:{sha:ref.object.sha},
+  })).sort((a,b)=>a.name.localeCompare(b.name))
+}
+
 const requireInteger=(name,def,min,max)=>{
   const n=Number(process.env[name]??def)
   if(!Number.isInteger(n)||n<min||n>max)throw Error(name+' outside '+min+'..'+max)
@@ -77,18 +90,11 @@ export async function runReplay(){
       throw Error('Unsupported encoded blob: '+path)
     return JSON.parse(decode(blob.content))
   }
-  const all=[]
-  for(let page=1;all.length<maxBranches;page++){
-    const rows=await api('/repos/'+repo+'/branches?per_page=100&page='+page)
-    if(!Array.isArray(rows))throw Error('Invalid GitHub branch response')
-    all.push(...rows)
-    if(rows.length<100)break
-  }
-  // A truncated page can permanently starve later branches. Fail closed.
-  if(all.length>=maxBranches)throw Error('Branch scan cap reached; widen scoped review before replay')
-  const branches=all.filter(b=>b.name?.startsWith(BRANCH_PREFIX)&&
-    /^[a-f0-9]{40}$/.test(b.commit?.sha||''))
-    .sort((a,b)=>a.name.localeCompare(b.name))
+  // GitHub's repository-wide branch listing is alphabetically paginated.
+  // Repositories with >500 branches otherwise never reach research/intake/.
+  // The matching-refs endpoint searches only the committed intake refs.
+  const refs=await api('/repos/'+repo+'/git/matching-refs/heads/research/intake')
+  const branches=selectIntakeBranches(refs,maxBranches)
   const registry=await readJson('ops/research-coordinator/live-registry.json','research-coordination-registry')
   if(!Array.isArray(registry?.reservations))throw Error('Live reservation registry unavailable')
   const seen=new Set(registry.reservations.filter(r=>r.state!=='RELEASED').map(r=>String(r.pmid)))
