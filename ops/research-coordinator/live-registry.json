@@ -39686,6 +39686,386 @@
       "reservation_id": "b63c7bd6f1402ca9c224",
       "reserved_at": "2026-10-09T19:57:49.457Z",
       "source_branch": "research/intake/2/20261009-1554-cognition-metabolic-pmid42508996-r29"
+    },
+    {
+      "pmid": "42322102",
+      "title": "Intestinal deglycosylation activates saikosaponins as potent, selective UGT2B7/2B15 inhibitors: structural basis and implications for herb-drug interactions.",
+      "doi": "10.1080/00498254.2026.2692510",
+      "source_title": "Intestinal deglycosylation activates saikosaponins as potent, selective UGT2B7/2B15 inhibitors: structural basis and implications for herb-drug interactions.",
+      "abstract": "Radix Bupleuri (RB)-induced hepatotoxicity and herb-drug interactions have raised clinical concerns, yet the role of its intestinal metabolites, saikogenins (SGs), in modulating human UDP-glucuronosyltransferase (UGT) activity remains poorly understood.Using 11 recombinant human UGT isoforms and 4-methylumbelliferone as the probe substrate, we demonstrate that the parent saikosaponins (SSA, SSC, SSD) produced no potent, isoform-selective inhibition of any of the tested UGT isoforms at 100 μM, whereas the deglycosylated aglycones SGA and SGD selectively and potently inhibited UGT2B7 and UGT2B15 (IC 50 : 0.24-1.88 μM; K i : 0.14-1.34 μM) through competitive mechanisms.Molecular docking revealed that deglycosylation removes steric hindrance from the sugar moiety, enabling the aglycone backbone to penetrate the catalytic pocket, where the most potent metabolite SGD anchored the conserved catalytic histidine of UGT2B7 (HIS481); inhibition of UGT2B15 instead arose from deep occupancy of the hydrophobic pocket. In vitro - in vivo extrapolation yielded an R -value of 1.36 for SGD-UGT2B7, exceeding the regulatory threshold ( R ≥ 1.1), indicating a clinically significant risk when RB preparations are co-administered with narrow-therapeutic-index UGT2B7 substrates such as morphine or zidovudine.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42322102/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42322102",
+        "doi": "10.1080/00498254.2026.2692510",
+        "journal": "Xenobiotica; the fate of foreign compounds in biological systems",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T20:08:28.065Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "736e459aeb8eb440d289",
+      "reserved_at": "2026-10-09T20:08:32.873Z",
+      "source_branch": "research/intake/3/20261009-1606-saikosaponin-hepatotox-five"
+    },
+    {
+      "pmid": "40009936",
+      "title": "Cannabidiol and Δ9-tetrahydrocannabinol induce drug-metabolizing enzymes, but not transporters, in human hepatocytes: Implications for predicting complex cannabinoid-drug interactions.",
+      "doi": "10.1016/j.dmd.2025.100037",
+      "source_title": "Cannabidiol and Δ9-tetrahydrocannabinol induce drug-metabolizing enzymes, but not transporters, in human hepatocytes: Implications for predicting complex cannabinoid-drug interactions.",
+      "abstract": "Cannabidiol (CBD) or delta-9-tetrahydrocannabinol (THC) can inhibit multiple CYPs and UGTs in vivo and/or in vitro. CBD, but not THC, is also a time-dependent inhibitor of CYP3A, CYP1A2, and CYP2C19. We showed that a single 640 mg oral dose of CBD inhibits oral midazolam plasma clearance by 56%, whereas others found no interaction of chronic CBD with midazolam. These data can be explained if chronic CBD induces CYP3A enzymes. To investigate if CBD or THC induces CYP enzymes or transporters, we treated 4 lots of human hepatocytes for 72 hours with in vivo relevant concentrations of CBD (42 nM, 420 nM) or THC (250 nM, 700 nM). Then, mRNA expression and CYP activity were measured using quantitative polymerase chain reaction and liquid chromatography-tandem mass spectrometry, respectively. CYP3A4 mRNA was significantly induced to 7.3-, 11.1-, and 3.3-fold by CBD (420 nM) and 14.8-, 5.9-, and 3.1-fold by THC (700 nM) in 3 of the 4 lots. CYP3A activity was significantly induced 3.39- and 3.28-fold by low (42 nM) and 2.4- and 2.3-fold by high (420 nM) CBD concentrations, respectively, in 2 lots, and 2.3-fold by THC (700 nM) in 1 lot. Rifampin (10 μM) significantly induced CYP3A mRNA and activity across all lots. CBD (420 nM) significantly induced CYP1A2 and CYP2B6 mRNA (but not activity) in 2 lots. No significant induction of other CYPs, UGTs, or transporters was observed. Incorporation of CBD E max and EC 50 of CYP3A4 mRNA induction (without scaling by rifampin mRNA induction) into a CBD physiologically-based pharmacokinetic model successfully captured the lack of the observed chronic CBD-midazolam drug interaction. SIGNIFICANCE STATEMENT: Time-dependent inhibition and induction of CYP3A enzymes by cannabidiol (CBD) is a plausible explanation for the significant CBD-midazolam pharmacokinetic interaction after single-dose CBD administration and the absence of such an interaction after multiple-dose CBD administration.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40009936/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40009936",
+        "doi": "10.1016/j.dmd.2025.100037",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T20:08:28.065Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a60cc858098a5c0f7bf9",
+      "reserved_at": "2026-10-09T20:08:32.873Z",
+      "source_branch": "research/intake/3/20261009-1606-saikosaponin-hepatotox-five"
+    },
+    {
+      "pmid": "40991455",
+      "title": "Oroxylum indicum root bark extract mitigates hepato-renal damage induced by acetaminophen and cisplatin.",
+      "doi": "10.1515/znc-2025-0088",
+      "source_title": "Oroxylum indicum root bark extract mitigates hepato-renal damage induced by acetaminophen and cisplatin.",
+      "abstract": "Oroxylum indicum is an important Ayurvedic plant from the \"Dasamoola\" group, traditionally used as a detoxifying agent. This study evaluates the protective effects of the root bark methanol extract of O . indicum (ORX) against acetaminophen-induced hepatotoxicity and cisplatin-induced nephrotoxicity in rats. The doses of ORX used in the study were selected based on the previous toxicity analysis (200 mg/kg and 400 mg/kg doses). Acetaminophen administration increased serum liver function markers (AST, ALT, ALP, bilirubin), while ORX and silymarin treatments significantly reduced these levels ( p < 0.01). ORX administration also reversed the acetaminophen-induced depletion in hepatic redox balance as indicated in terms of SOD, GPx, GSH and lipid peroxidation. Corroborating these, the changes in the hepatic normal architecture induced by acetaminophen were also reversed by the pre-treatment with ORX. Similarly, the cisplatin administration resulted in strong myelosuppression and nephrotoxicity. In cisplatin-exposed rats, renal oxidative stress markers worsened, and serum renal function parameters were elevated. On the contrary, the pre-treatment with ORX alleviated the cisplatin-induced myelosuppression and redox imbalance in the renal tissues; further, it also restored the renal histology to near normal. Overall, O . indicum root bark extract effectively mitigated drug-induced liver and kidney damage, likely through redox balance restoration.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40991455/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40991455",
+        "doi": "10.1515/znc-2025-0088",
+        "journal": "Zeitschrift fur Naturforschung. C, Journal of biosciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T20:08:28.066Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a821b7149898c27ecdcf",
+      "reserved_at": "2026-10-09T20:08:32.873Z",
+      "source_branch": "research/intake/3/20261009-1606-saikosaponin-hepatotox-five"
+    },
+    {
+      "pmid": "40113111",
+      "title": "Artichoke water extract protects against Lead-induced hepatotoxicity by activating Nrf2 signaling and inhibiting NLRP3/caspase-1/GSDMD-mediated pyroptosis.",
+      "doi": "10.1016/j.jep.2025.119654",
+      "source_title": "Artichoke water extract protects against Lead-induced hepatotoxicity by activating Nrf2 signaling and inhibiting NLRP3/caspase-1/GSDMD-mediated pyroptosis.",
+      "abstract": "Lead (Pb), a predominant heavy metal in the environment, causes significant harm to mammalian organs by activating oxidative stress and inflammation. Artichoke (Cynarascolymus L.) is a conventional edible botanical remedy known for its diverse pharmacological attributes, including antioxidant and anti-inflammatory properties. In this study, we aimed to investigate the effects of artichoke water extract (AWE) on Pb-induced liver toxicity and the potential underlying mechanisms. We identified and quantified the chemical compounds in AWE using ultra-performance liquid chromatography-tandem mass spectrometry (UPLC-MS/MS). Fifty male C57BL/6J mice (8-week-old) were randomly divided into five groups with ad libitum access to a standard diet and water. Over six weeks of experiments, the control group was orally administered 100 μL/day of distilled water. The Pb group received orally a Pb solution at 25 mg/kg body weight (BW)/day. The Pb + AWE (0.8) group received a combination of Pb solution (25 mg/kg BW) and AWE (0.8 g/kg BW) daily. Next, the Pb + AWE (1.6) group received a combination of Pb solution (25 mg/kg BW) and AWE (1.6 g/kg BW) daily. The Pb + vitamin C group received a combination of Pb solution (25 mg/kg BW) and vitamin C (50 mg/kg BW) daily. We evaluated tissue Pb levels, serum biochemical indices, liver function parameters, and histopathology post-experiment. HepG2 cells were cultured to investigate AWE's role and underlying mechanism of action on Pb-induced pyroptosis. Ninety-six major compounds were identified and quantified in AWE using UPLC-MS/MS. Treatment with AWE at 0.8 and 1.6 g/kg body weight (BW) significantly reduced tissue Pb accumulation, induced fecal Pb excretion, improved lipid profiles, and attenuated liver injury. In addition, AWE treatment increased superoxide dismutase (SOD) and glutathione peroxidase (GPx) activity and decreased malondialdehyde (MDA), 8-OHdG production, tumor necrosis factor-alpha (TNF-alpha), interleukin (IL)-6, and IL-1 beta expression in Pb-exposed mice and HepG2 cells. Mechanistically, the in vivo and in vitro results showed that AWE's antioxidant role was related to the activation of nuclear factor-E2-related factor 2 (Nrf2) signaling. Its anti-inflammatory effect was associated with the inhibition of Pb-induced pyroptosis by inhibiting the nucleotide-binding oligomerization domain-like receptor pyrin domain-containing protein 3 (NLRP3)/caspase-1/gasdermin D (GSDMD) pathway. These findings indicate that AWE protects against Pb-induced liver toxicity potentially through its chelating, antioxidant, and anti-inflammatory properties.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40113111/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40113111",
+        "doi": "10.1016/j.jep.2025.119654",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T20:08:28.066Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6d2465dc5dd11b632bb3",
+      "reserved_at": "2026-10-09T20:08:32.873Z",
+      "source_branch": "research/intake/3/20261009-1606-saikosaponin-hepatotox-five"
+    },
+    {
+      "pmid": "40291109",
+      "title": "Sargassum horneri extract attenuates high-dose acetaminophen-induced hepatotoxicity by enhancing the antioxidant activity and inhibiting acetaminophen activation in the mouse liver.",
+      "doi": "10.1007/s43188-025-00278-z",
+      "source_title": "Sargassum horneri extract attenuates high-dose acetaminophen-induced hepatotoxicity by enhancing the antioxidant activity and inhibiting acetaminophen activation in the mouse liver.",
+      "abstract": "Sargassum horneri is an edible brown seaweed used as traditional medicine in various East Asian countries, such as China and Korea. Its therapeutic effects, including antioxidant and anti-inflammatory activities, have been reported in animal models of respiratory diseases and allergic disorders. However, its specific effects on liver health remain ambiguous. Therefore, in this study, we aimed to examine the effects of S. horneri extract (SHE) on acetaminophen (APAP)-induced hepatotoxicity, a common clinical cause of drug-induced liver injury. SHE-pretreated male mice were injected with a high dose of APAP. SHE alleviated APAP-induced liver injury and inhibited lipid peroxidation and glutathione (GSH) depletion. It also enhanced the hepatic total antioxidant capacity in APAP-treated mice, exhibiting direct radical scavenging activity against APAP-induced oxidative stress. Levels of the hepatic antioxidant enzymes, superoxide dismutase-1/2 and GSH peroxidase 1, were unaffected by SHE; however, catalase levels decreased by APAP were restored by the extract. Protein levels of the APAP-metabolizing enzymes, uridine 5'-diphospho-glucuronosyltransferase 1a6, sulfotransferase 1a1, GSH S-transferase a1, cytochrome P450 (Cyp)-1a2, Cyp2e1, and Cyp3a, were unaffected; however, Cyp1a activity was reduced by SHE. Plasma concentrations of APAP-GSH and APAP-cysteine conjugates were reduced by SHE in APAP-treated mice, indicating that SHE alleviates APAP hepatotoxicity by inhibiting Cyp1a-mediated metabolic activation of APAP. In conclusion, our results suggest that the increase in cellular antioxidant capacity and inhibition of APAP bioactivation are possible mechanisms underlying the hepatoprotective effects of SHE against high-dose APAP-induced acute liver injury.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40291109/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40291109",
+        "doi": "10.1007/s43188-025-00278-z",
+        "journal": "Toxicological research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T20:08:28.067Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b99f4e0b7f887742a418",
+      "reserved_at": "2026-10-09T20:08:32.873Z",
+      "source_branch": "research/intake/3/20261009-1606-saikosaponin-hepatotox-five"
     }
   ],
   "batches": [
@@ -39714,16 +40094,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 501,
+    "total_reservations": 506,
     "by_lane": {
       "1": 15,
       "2": 90,
-      "3": 79,
+      "3": 84,
       "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 501
+      "SOURCE_VERIFIED": 506
     },
     "batches": [
       {
@@ -39736,7 +40116,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 1,
+        "count": 6,
         "pr_number": null,
         "blocker": null
       }
