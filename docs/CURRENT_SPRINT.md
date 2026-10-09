@@ -105,7 +105,7 @@ GitHub #6491 CLOSED, PR #6492 MERGED on exact main `06fd528135a4dbe5d286b45d8988
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6500 | Explain evidence-grade scope and public count denominators | Active — admitted | P0 | 80.0 | 2026-10-09 |
+| A | #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | Active — admitted | P0 | 80.0 | 2026-10-09 |
 
 
 
