@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42749130",
+    "41410576"
+  ],
+  "relevance_reason": "Human randomized dietary intervention studies on metabolic markers and cognitive outcomes; source identity verified, clinical interpretation and safety pending independent review."
+}
