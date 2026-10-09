@@ -78,7 +78,7 @@ export async function proposeRetirement({ repo, sha, runId, token, request = fet
       signal: AbortSignal.timeout(20000),
     })
     if (!r.ok) throw Error('GitHub ' + method + ' request HTTP ' + r.status)
-    return r.json()
+    return r.status === 204 ? null : r.json()
   }
   const deployed = await api('GET', 'actions/runs/' + runId)
   if (deployed.name !== 'Deploy to Cloudflare Pages' || deployed.status !== 'completed' ||
@@ -144,7 +144,29 @@ export async function proposeRetirement({ repo, sha, runId, token, request = fet
     title: 'docs(control): retire verified completed issue #' + ticket,
     head: branch, base: 'main', draft: false, body,
   })
-  return { status: 'proposed', number: pr.number, url: pr.html_url, before: plan.before, after: plan.after }
+  // GitHub's GITHUB_TOKEN suppresses pull_request webhooks created by Actions.
+  // Explicit workflow_dispatch is an allowed exception and is required here,
+  // otherwise the proposed PR would never receive its protected CI checks.
+  const recovery = [
+    ['ci.yml', { recovery_pr_number: String(pr.number) }],
+    ['check.yml', { recovery_pr_number: String(pr.number) }],
+    ['atomic-upgrade-gate.yml', { recovery_pr_number: String(pr.number), recovery_base_ref: 'main' }],
+    ['build-quality-regression.yml', { recovery_pr_number: String(pr.number), recovery_base_ref: 'main' }],
+    ['project-control-reconciliation.yml', {}],
+  ]
+  const dispatched = []
+  try {
+    for (const [workflow, inputs] of recovery) {
+      await api('POST', 'actions/workflows/' + workflow + '/dispatches', { ref: branch, inputs })
+      dispatched.push(workflow)
+    }
+  } catch {
+    return { status: 'proposed_validation_blocked', number: pr.number, url: pr.html_url,
+      before: plan.before, after: plan.after, dispatched,
+      reason: 'GitHub Actions dispatch permission or required recovery workflow unavailable; do not merge without mandatory checks' }
+  }
+  return { status: 'proposed', number: pr.number, url: pr.html_url,
+    before: plan.before, after: plan.after, dispatched }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
