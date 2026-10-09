@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42508996"
+  ],
+  "relevance_reason": "Randomized feeding study of time-restricted eating in adults with obesity and prediabetes; null appetite and inflammatory biomarker comparisons require independent review."
+}
