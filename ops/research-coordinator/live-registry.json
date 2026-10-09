@@ -40524,6 +40524,160 @@
       "reservation_id": "be498385a4894c67a6cb",
       "reserved_at": "2026-10-09T21:07:36.254Z",
       "source_branch": "research/intake/3/20261009-1705-licorice-withania-maytenus-3"
+    },
+    {
+      "pmid": "42096994",
+      "title": "Fentanyl, xylazine, and bromazolam: Urine toxicology trends in a San Francisco safety net opioid treatment patient cohort 2023-2025.",
+      "doi": "10.1016/j.drugalcdep.2026.113185",
+      "source_title": "Fentanyl, xylazine, and bromazolam: Urine toxicology trends in a San Francisco safety net opioid treatment patient cohort 2023-2025.",
+      "abstract": "To gain insights on the illicit drug supply in San Francisco using urine toxicology of opioid use disorder intake patients to assess temporal trends and co-occurrence patterns and detect emerging compounds of concern. To inform local overdose prevention and opioid use disorder treatment efforts. We analyzed 1763 opioid treatment intake patient urine samples at a safety net clinic over 2.5 years from March 2023-August 2025. We assessed urine toxicology by untargeted liquid chromatography high resolution mass spectrometry (LC-HRMS) using an in-house library containing > 500 small molecules, including fentanyl analogs, nitazene compounds, non-FDA approved benzodiazepines, medetomidine, and xylazine. We calculated auto and cross correlations between pairs of drug classes to assess contemporaneous and lagged weekly associations between drug classes over the study period. Xylazine was widely detected over the study period, with multiple spikes in prevalence. No nitazene compounds were ever detected. Fentanyl, methamphetamine, and cocaine were the most prevalent drug classes and fentanyl was correlated with both stimulants contemporaneously. Norcarfentanil was detected once, medetomidine was detected twice, and bromazolam was detected 23 times. Xylazine had an auto-correlation lag pattern suggestive of surges in prevalence lasting two weeks. Urine toxicology of a relevant patient population establishes the presence of xylazine in the San Francisco drug supply. Multiple other compounds of concern for overdose risk were also intermittently detected. The highly dynamic prevalences of substances of concern for fatal overdose suggests the value of ongoing monitoring.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42096994/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed-verified surveillance of NPS adulterants and analytical evaluation of harm-reduction test strips; source identity only, no reviewed safety claims.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42096994",
+        "doi": "10.1016/j.drugalcdep.2026.113185",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T21:20:39.666Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0d71e912768f03b5a79f",
+      "reserved_at": "2026-10-09T21:20:44.258Z",
+      "source_branch": "research/intake/4/20261009-1719-tox-surveillance-strips"
+    },
+    {
+      "pmid": "41721315",
+      "title": "Analytical performance and visual evaluation of fentanyl and xylazine test strips.",
+      "doi": "10.1186/s12954-026-01415-z",
+      "source_title": "Analytical performance and visual evaluation of fentanyl and xylazine test strips.",
+      "abstract": "Testing street drugs for the presence of active adulterants such as fentanyl and xylazine can provide the user some confidence as to the safety of their drugs. We obtained 3 different commercially available xylazine and 3 different commercially available fentanyl test strips and evaluated them for analytical sensitivity using drug standards. The specificity of the fentanyl strips against fentanyl analogues was also assessed. Powdered fentanyl, xylazine, and fentanyl analogue standards were dissolved in water and serially diluted to bracket the manufacturer's stated test strip sensitivity. Each dilution was tested in duplicate until a negative result was obtained. The ability to discern positive from negative results under different lighting conditions was also assessed for one of the strips (two lots of reagents). All three xylazine test strips detected the drug at concentrations below the manufacturer's stated limits, however one strip was substantially more sensitive (at 50 ng/mL) than the other two (at 250 ng/mL). One of the fentanyl strips had the best sensitivity (at 3.5 ng/mL), well below the stated sensitivity of 20 ng/mL. The other two were less sensitive (at 7 and 250 ng/mL). For specificity against fentanyl analogues, all of the strips tested positive for all of the analogues tested, but at different levels. The visual endpoints for all of the strips were acceptable under normal lighting conditions, but cannot be read when the ambient light is low. Based on these results, we selected one xylazine (Shanghai Accurature Diagnostics) and one fentanyl strip (W.P.H.M.) based on the best analytical sensitivity. The fentanyl strip chosen had varying degrees of specificity against the other manufacturers.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41721315/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed-verified surveillance of NPS adulterants and analytical evaluation of harm-reduction test strips; source identity only, no reviewed safety claims.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Evaluation Study; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Evaluation Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41721315",
+        "doi": "10.1186/s12954-026-01415-z",
+        "journal": "Harm reduction journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T21:20:39.666Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "715b0f76572f89d84593",
+      "reserved_at": "2026-10-09T21:20:44.258Z",
+      "source_branch": "research/intake/4/20261009-1719-tox-surveillance-strips"
     }
   ],
   "batches": [
@@ -40552,16 +40706,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 512,
+    "total_reservations": 514,
     "by_lane": {
       "1": 17,
       "2": 91,
       "3": 87,
-      "4": 42,
+      "4": 44,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 512
+      "SOURCE_VERIFIED": 514
     },
     "batches": [
       {
@@ -40574,7 +40728,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 12,
+        "count": 14,
         "pr_number": null,
         "blocker": null
       }
