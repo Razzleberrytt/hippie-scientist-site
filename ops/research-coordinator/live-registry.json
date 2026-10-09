@@ -37392,6 +37392,158 @@
       "reservation_id": "dfeaa52e2c187271105d",
       "reserved_at": "2026-10-09T15:11:07.467Z",
       "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "42561604",
+      "title": "Multilevel drivers and constraints of shifts from injecting to smoking opioids and stimulants: A qualitative study from the San Diego-Tijuana border region.",
+      "doi": "10.1016/j.drugalcdep.2026.113279",
+      "source_title": "Multilevel drivers and constraints of shifts from injecting to smoking opioids and stimulants: A qualitative study from the San Diego-Tijuana border region.",
+      "abstract": "Amidst declines in injecting opioids and stimulants across North America, we sought to explore multilevel drivers and constraints of shifts from injecting to smoking these substances among people with a history of injection drug use. From October-December 2024, we conducted semi-structured qualitative interviews with individuals with histories of injection drug use in San Diego, California, and Tijuana, Baja California. Eligibility included past-month heroin, fentanyl, or methamphetamine use by injection and/or smoking. Informed by the social ecological model, we used thematic analysis to examine the multilevel determinants of shifts in routes of drug use. Among 36 participants (50% in San Diego), median age was 40 years, 61% were male and 58% were unsheltered. In the past month, 81% both injected and smoked heroin, fentanyl, and/or methamphetamine, 17% smoked only and 3% injected only. Rather than complete substitution, most participants described smoking as their primary route alongside intermittent or situational injection, driven by: (1) desires to avoid fentanyl-related injection harms; (2) greater ease, discretion, and lower stigma of smoking; and (3) drug-supply conditions and fentanyl-methamphetamine co-use. Sustained movement toward smoking was constrained by (4) embodied injection practices and beliefs about desired effects or withdrawal relief and (5) inconsistent access to smoking equipment. Individual shifts toward smoking were often intentional (e.g., to reduce health harms) but depended on drug market conditions and material environments. Expanding access to smoking equipment while maintaining syringe coverage for ongoing injection may reduce harms in the context of fentanyl-methamphetamine co-use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42561604/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source identity seeds for withdrawal, dependence and harm reduction; all scientific claims pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42561604",
+        "doi": "10.1016/j.drugalcdep.2026.113279",
+        "journal": "Drug and alcohol dependence",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:31:21.021Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0e0de02cb03f6a97a0e1",
+      "reserved_at": "2026-10-09T15:31:27.907Z",
+      "source_branch": "research/intake/4/20261009-qualitative-fentanyl-vlpag-01"
+    },
+    {
+      "pmid": "42249078",
+      "title": "GABAergic neurons in the ventrolateral periaqueductal gray mediate fentanyl withdrawal and self-administration in mice.",
+      "doi": "10.1038/s41386-026-02457-4",
+      "source_title": "GABAergic neurons in the ventrolateral periaqueductal gray mediate fentanyl withdrawal and self-administration in mice.",
+      "abstract": "Opioid addiction is characterized by compulsive drug seeking and use, accompanied by pain and heightened pain sensitivity (hyperalgesia) during withdrawal, yet the underlying neural mechanisms remain incompletely understood, especially for fentanyl. Using whole-brain Fos mapping and network analysis, we found that the periaqueductal gray is a central hub brain region engaged during fentanyl withdrawal, suggesting a prominent role for this region in withdrawal-associated neural signaling and warranting further examination. The ventrolateral periaqueductal gray (vlPAG) is a key site for nociceptive processing and shows robust neuronal responses during opioid withdrawal, but the role of its GABAergic neurons in fentanyl withdrawal has not been defined, and their contribution to the self-administration of drugs has not been investigated. We combined behavioral, molecular, electrophysiological, and chemogenetic approaches to examine the role of GABAergic vlPAG neurons during fentanyl withdrawal, and their contribution to withdrawal-induced hyperalgesia and fentanyl intake. During withdrawal from fentanyl, we observed increased Fos expression in GABAergic vlPAG neurons and enhanced inhibitory synaptic transmission revealed by channelrhodopsin-assisted circuit mapping, indicating increased GABAergic neuronal activity and inhibitory synaptic activity due to fentanyl use and withdrawal. Chemogenetic inhibition of GABAergic vlPAG neurons alleviated withdrawal-induced hyperalgesia. Male control mice exhibited overall escalating fentanyl self-administration across the final four intravenous self-administration sessions, whereas this escalation was not observed in males whose GABAergic vlPAG neurons were inhibited. Female mice did not exhibit a comparable effect. Together, these findings demonstrate that GABAergic vlPAG neurons are recruited during fentanyl withdrawal and contribute to withdrawal-associated nociceptive hypersensitivity. In addition, modulation of this population affects fentanyl self-administration in a sex-dependent manner. Targeting inhibitory signaling within the vlPAG may represent a strategy to alleviate withdrawal-associated hyperalgesia and limit fentanyl use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42249078/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source identity seeds for withdrawal, dependence and harm reduction; all scientific claims pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42249078",
+        "doi": "10.1038/s41386-026-02457-4",
+        "journal": "Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:31:21.022Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ca34fa64f19e8abed99d",
+      "reserved_at": "2026-10-09T15:31:27.907Z",
+      "source_branch": "research/intake/4/20261009-qualitative-fentanyl-vlpag-01"
     }
   ],
   "batches": [
@@ -37405,22 +37557,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 471,
+    "total_reservations": 473,
     "by_lane": {
       "1": 9,
       "2": 83,
       "3": 68,
-      "4": 36,
+      "4": 38,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 471
+      "SOURCE_VERIFIED": 473
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 471,
+        "count": 473,
         "pr_number": null,
         "blocker": null
       }
