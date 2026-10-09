@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42097279",
+    "41773904",
+    "41459804",
+    "41720867",
+    "41901148",
+    "41352803"
+  ],
+  "relevance_reason": "Six original human intervention studies on cognition, executive function, glycemic response, insulin sensitivity, or metabolic health; include null outcomes, safety limitations, secondary-analysis status, and conflicts for independent scientific review."
+}
