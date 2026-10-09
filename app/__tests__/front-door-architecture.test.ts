@@ -37,6 +37,31 @@ describe('front-door information architecture', () => {
     expect(start).not.toContain('const paths')
   })
 
+  it('gives a first-time reader a specific ingredient, comparison, and safety choice without replacing the research library', () => {
+    const home = read('components/homepage-v2.tsx')
+
+    expect(home).toContain('Which supplements actually work—and what does the research say about their risks?')
+    expect(home).toContain('When the research cannot establish an answer, we say so.')
+    expect(home).toContain("aria-label='Choose your first step'")
+    expect(home).toContain('min-h-12')
+    expect(home).toContain('focus-visible:outline')
+
+    for (const [label, href] of [
+      ['Find an ingredient', '/herbs/'],
+      ['Compare options', '/guides/compare/'],
+      ['Check safety concerns', '/safety-checker/'],
+    ]) {
+      expect(home).toContain(`label: '${label}'`)
+      expect(home).toContain(`href: '${href}'`)
+    }
+
+    expect(home).toContain("action='/search/'")
+    expect(home).toContain("href='/explore/'")
+    expect(home).toContain('getPublicSiteMetrics()')
+    expect(home).toContain('getResearchSourceRegisterSummary()')
+    expect(home).toContain('research-only identities')
+  })
+
   it('keeps Library exhaustive while grouping by the same five destinations plus Site Information', () => {
     const library = read('app/library/page.tsx')
 

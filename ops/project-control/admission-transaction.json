@@ -1,20 +1,19 @@
 {
-  "version": 2,
-  "base_revision": "85470582cbeaf68fedf9ef6c9386f109b1e281b2",
-  "last_verified": "2026-10-02T16:00:00Z",
-  "ticket": 6021,
-  "lane": "D",
-  "title": "nav: fix misleading Articles breadcrumb destination on focus-cluster pages",
-  "priority": "P1",
+  "version": 1,
+  "mode": "fresh-admission",
+  "base_revision": "2d52b9fec58aca5d99cc6eedc33a4f859520e67f",
+  "last_verified": "2026-10-09",
+  "ticket": 6500,
+  "lane": "A",
+  "title": "Explain evidence-grade scope and public count denominators",
+  "priority": "P0",
   "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 4,
-    "trafficPotential": 2,
-    "strategicLeverage": 3,
-    "confidence": 1,
-    "effort": 1
+    "businessImpact": 4,
+    "userValue": 5,
+    "trafficPotential": 4,
+    "strategicLeverage": 4,
+    "confidence": 0.75,
+    "effort": 3
   },
-  "score": 72,
-  "note": "Fresh exact-main revalidation after #6185 retirement. Admission only: fix the focus-cluster root breadcrumb label/destination mismatch and add an accessible breadcrumb name while preserving article copy, evidence, safety, metadata, canonicals, redirects, and layout.",
-  "control_issue": 6193
+  "score": 80
 }

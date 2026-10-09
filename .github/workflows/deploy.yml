@@ -165,6 +165,10 @@ jobs:
         if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:high
 
+      - name: Build Content Collections for tests
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        run: npm run content:build
+
       - name: Run test suite
         if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run test
@@ -197,7 +201,7 @@ jobs:
         if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:cluster-member-trust:strict
 
-      - name: Build governed Metricool publication pilot
+      - name: Build governed THS publication pilot
         run: |
           node scripts/distribution/build-research-distribution.mjs
           node scripts/distribution/build-opportunity-selection.mjs
@@ -223,10 +227,10 @@ jobs:
           command -v ffmpeg
           ffmpeg -version | sed -n '1p'
 
-      - name: Stage governed Metricool publication media
+      - name: Stage governed THS Publisher media
         env:
-          METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}
-        run: node scripts/distribution/stage-metricool-publication-media.mjs
+          THS_PUBLISHER_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/publisher' || 'public/media/distribution/publisher' }}
+        run: node scripts/distribution/stage-publication-media.mjs
 
       - name: Build app
         if: steps.governed-verify.outputs.reusable != 'true'
@@ -283,8 +287,8 @@ jobs:
             exit 1
           fi
 
-          if [ ! -f "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json" ]; then
-            echo "❌ Missing governed Metricool publication-media manifest"
+          if [ ! -f "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json" ]; then
+            echo "❌ Missing governed THS Publisher publication-media manifest"
             exit 1
           fi
 
@@ -293,19 +297,19 @@ jobs:
           import fs from 'node:fs'
           import path from 'node:path'
           const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
-          const manifestFile = path.join(process.env.STATIC_OUTPUT_DIR || 'out', 'media/distribution/metricool/latest.json')
+          const manifestFile = path.join(process.env.STATIC_OUTPUT_DIR || 'out', 'media/distribution/publisher/latest.json')
           const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'))
-          if (manifest?.schemaVersion !== 'metricool-publication-media-v1' || manifest?.status !== 'ready-for-provider') {
-            throw new Error('deployed Metricool manifest contract is invalid')
+          if (manifest?.schemaVersion !== 'ths-publication-media-v1' || manifest?.status !== 'ready-for-provider') {
+            throw new Error('deployed THS Publisher manifest contract is invalid')
           }
           if (manifest.format === 'carousel' && manifest.mediaType !== 'image') throw new Error('carousel manifest must declare image media')
           if (manifest.format === 'vertical-video' && manifest.mediaType !== 'video') throw new Error('vertical-video manifest must declare video media')
-          if (!['carousel', 'vertical-video'].includes(manifest.format)) throw new Error(`unsupported deployed Metricool format: ${manifest.format}`)
-          if (!Array.isArray(manifest.media) || manifest.media.length === 0) throw new Error('deployed Metricool manifest has no media')
+          if (!['carousel', 'vertical-video'].includes(manifest.format)) throw new Error(`unsupported deployed THS Publisher format: ${manifest.format}`)
+          if (!Array.isArray(manifest.media) || manifest.media.length === 0) throw new Error('deployed THS Publisher manifest has no media')
           if (manifest.format === 'vertical-video' && manifest.media.length !== 1) throw new Error('vertical-video deployment must contain exactly one MP4')
           for (const item of manifest.media) {
             const url = new URL(item.url)
-            if (url.hostname !== 'thehippiescientist.net' || !url.pathname.startsWith('/media/distribution/metricool/')) {
+            if (url.hostname !== 'thehippiescientist.net' || !url.pathname.startsWith('/media/distribution/publisher/')) {
               throw new Error(`invalid governed media URL: ${item.url}`)
             }
             const file = path.join(process.env.STATIC_OUTPUT_DIR || 'out', url.pathname.replace(/^\/+/, ''))
@@ -369,12 +373,12 @@ jobs:
             else
               echo "- out/index.html exists: no"
             fi
-            if [ -f "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json" ]; then
-              FORMAT="$(jq -r '.format // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json")"
-              MEDIA_TYPE="$(jq -r '.mediaType // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/metricool/latest.json")"
-              echo "- governed Metricool publication media staged: yes (${FORMAT}/${MEDIA_TYPE})"
+            if [ -f "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json" ]; then
+              FORMAT="$(jq -r '.format // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json")"
+              MEDIA_TYPE="$(jq -r '.mediaType // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json")"
+              echo "- governed THS publication media staged: yes (${FORMAT}/${MEDIA_TYPE})"
             else
-              echo "- governed Metricool publication media staged: no"
+              echo "- governed THS publication media staged: no"
             fi
             if [ -f "$STATIC_OUTPUT_DIR/.well-known/deployment.json" ]; then
               echo "- exact deployment receipt generated: yes"

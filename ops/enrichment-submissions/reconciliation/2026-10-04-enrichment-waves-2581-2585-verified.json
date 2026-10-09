@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2581-2585",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2581,
+      "pmid": "42686209",
+      "title": "Sleep Management and Recovery After TBI in Kids (SMART-Kids): Pilot Trial Using Melatonin.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "This pilot melatonin trial is specific to children recovering from traumatic brain injury; small-sample and disease-context limitations prevent broad sleep-use generalization."
+    },
+    {
+      "wave": 2582,
+      "pmid": "42679687",
+      "title": "Effects of simulated exogenous and endogenous lipid microenvironments on cannabidiol disposition and cytochrome P450 2C19-mediated drug interactions: New mechanistic insights.",
+      "abstract_verified": true,
+      "state": "research_only_in_vitro",
+      "evidence_boundary": "The work uses human liver microsomes and simulated lipid conditions; it supports CYP2C19 interaction mechanisms but does not quantify real-world interaction magnitude across patient populations."
+    },
+    {
+      "wave": 2583,
+      "pmid": "42661597",
+      "title": "Placebo and nocebo effects on pain through the lens of the predictive brain: Neurobiological mechanisms and translational implications.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "This mechanistic review concerns contextual modulation of pain rather than a specific supplement; it is valuable for interpreting symptom trials but not evidence for an ingredient effect."
+    },
+    {
+      "wave": 2584,
+      "pmid": "42653071",
+      "title": "Safety and Efficacy Assessment of Cannabis Plant Compared to Atorvastatin for Lipid Lowering in Diabetic and Obese Wistar Male Rats.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "The comparison is a small rodent study in obese diabetic rats; it cannot support replacing statins or infer human lipid-lowering efficacy or safety."
+    },
+    {
+      "wave": 2585,
+      "pmid": "42794540",
+      "title": "Coptidis Rhizoma for Obesity, Diabetes, and Dyslipidemia: An Integrated Meta-Analysis and In Silico Study.",
+      "abstract_verified": true,
+      "state": "research_only_meta_analysis",
+      "evidence_boundary": "The pooled trials largely involve Coptidis-containing formulations and adjunctive therapy, while mechanistic results are in silico; ingredient-specific attribution and generalizability remain limited."
+    }
+  ]
+}

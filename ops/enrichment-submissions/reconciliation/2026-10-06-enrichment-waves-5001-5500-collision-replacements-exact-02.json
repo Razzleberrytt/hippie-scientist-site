@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "rows": [
+    {
+      "wave": 5036,
+      "category": "micronutrients",
+      "pmid": "41408560",
+      "title": "Association between 25-hydroxy vitamin D levels and risk of frailty and pre-frailty in elderly adults: a systematic review and dose-response meta-analysis of epidemiologic studies with GRADE assessment.",
+      "abstract": "A growing number of studies investigated vitamin D and frailty have led to conflicting results. This systematic review and meta-analysis aimed to summarize and update the current evidence surrounding the association between vitamin D and risk of frailty and pre-frailty in elderly adults. MEDLINE (PubMed), Scopus, Institute for Scientific Information (ISI) Web of Science databases, and Google Scholar were searched for all published articles up to January 2025. All observational studies that reported odds ratios (ORs) or relative risks (RRs) with 95% confidence intervals (CIs) for the association between 25-hydroxy vitamin D (as independent variable) and frailty (as dependent variable) were included. Maximally adjusted effect sizes were pooled. Certainty of evidence was assessed by the GRADE approach. A total of 41 studies (6 cohorts, 31 cross-sectionals and 4 studies with information of baseline and longitudinal) were included. Highest (vs. lowest) level of vitamin D in prospective cohort studies (with 14,153 participants and 2,137 cases with frailty) was significantly related to a 29% reduction in risk of frailty (pooled RR: 0.71; 95% CI: 0.60, 0.84). Also, a significant inverse association was found in cross-sectional studies with 42,936 cases out of 500,826 participants (OR: 0.50; 95% CI: 0.44, 0.56). Based on linear dose-response analysis, each 10 ng/mL (or 25 nmol/L) increase in serum vitamin D level was inversely related to risk of frailty in cohort (RR: 0.83; 95% CI: 0.77, 0.91) and cross-sectional (OR: 0.73; 95%CI: 0.66, 0.81) studies. Also, non-linear dose-response analysis on eligible studies was significant in both cross-sectional and cohort studies (Pnon-linearity < 0.001). Combining effect sizes of 15 studies (463,103 participants and 259,673 cases) indicated that the highest level of vitamin D compared to the lowest level was significantly related to a 40% reduction in risk of pre-frailty (OR/RR: 0.60; 95% CI: 0.49, 0.73). This systematic review and meta-analysis documented inverse associations between vitamin D and frailty, as well as prefrailty, and supported vitamin D as a potential cost-effective screening tool for identifying individuals at risk of frailty.",
+      "journal": "Journal of translational medicine",
+      "pub_date": "2025-Dec-17",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12709776/",
+      "pdf_link": "https://doi.org/10.1186/s12967-025-07415-0",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed collision replacement verification"
+    },
+    {
+      "wave": 5038,
+      "category": "micronutrients",
+      "pmid": "41413176",
+      "title": "Aerobic exercise and NBS superfood supplementation modulate iron-related biomarkers in methadone treated men in randomized double blind controlled trial.",
+      "abstract": "Methadone maintenance therapy effectively treats opioid addiction but disrupts iron metabolism and promotes ferroptosis. This study aimed to investigate the combined effects of aerobic exercise and NBS superfood supplementation on iron-related biomarkers in men undergoing methadone maintenance therapy. Fifty-eight participants were randomized into four groups: control, exercise, supplement, and exercise + supplement. The 8-week aerobic exercise protocol targeted 65% of peak heart rate. The supplement group received 4.5 g/day of NBS. Serum levels of GPX4, SLC7A11, hepcidin, and ferritin were measured via ELISA. Data were analyzed using repeated measures ANOVA in SPSS-26. Significant time × group interactions were observed for GPX4, SLC7A11, and ferritin (p < 0.05), with the largest reductions seen in the combined exercise + supplement group. Hepcidin levels did not change significantly in any group (p > 0.05). The combined intervention showed the greatest improvement in these biomarkers, though the magnitude of changes was moderate. Eight weeks of aerobic exercise combined with NBS superfood supplementation was associated with favorable changes in GPX4, SLC7A11, and ferritin levels in men undergoing Methadone maintenance therapy, suggesting a possible modulation of iron-related pathways. However, the clinical significance of these biochemical changes remains to be established. The study is limited by its relatively small sample size, male-only population, short duration, and lack of long-term follow-up. Larger and longer-term trials are needed to confirm these preliminary findings and to assess whether the observed biomarker changes translate into meaningful clinical benefits.",
+      "journal": "Scientific reports",
+      "pub_date": "2025-Dec-18",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12820270/",
+      "pdf_link": "https://doi.org/10.1038/s41598-025-32518-5",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed collision replacement verification"
+    },
+    {
+      "wave": 5043,
+      "category": "micronutrients",
+      "pmid": "41417236",
+      "title": "Assessment of vitamin A, vitamin B2, vitamin B12, vitamin K, folate, and choline status following 4 months of multinutrient supplementation in healthy vegans: a randomised, double-blind, placebo-controlled trial.",
+      "abstract": "The aim of the MultiVeg study, a double-blind, randomised controlled trial (RCT), was to investigate the nutritional status of healthy vegans following 4 months of multinutrient supplementation. A double-blind, RCT was conducted with 72 vegan adults (19-57 years) in Germany. Data on anthropometric parameters, dietary nutrient intake, and nutritional status were collected. The nutritional status of the participants was assessed at baseline and after 4 months. The results were compared between groups using ANCOVA. The results for vitamins and choline are presented here. After adjustment for baseline values, age, sex, and multiple testing, no significant between-group differences in biomarker concentration changes from baseline to 4 months were observed for vitamin A, retinol-binding protein, transthyretin, beta-carotene, methylmalonic acid, homocysteine, choline, total osteocalcin, carboxylated and undercarboxylated osteocalcin, and folate. In contrast, significant between-group differences in changes were observed for flavin adenine dinucleotide (FAD), serum vitamin B12, holotranscobalamin, and the combined vitamin B12 status indicator (cB12) after adjustment. A multinutrient supplement containing 82 µg of vitamin B12 per day significantly positively affected vitamin B12 blood biomarkers in healthy vegans. This study was registered in the German Clinical Trials Register (DRKS00028151).",
+      "journal": "European journal of nutrition",
+      "pub_date": "2025-Dec-19",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12717231/",
+      "pdf_link": "https://doi.org/10.1007/s00394-025-03814-7",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed collision replacement verification"
+    },
+    {
+      "wave": 5121,
+      "category": "micronutrients",
+      "pmid": "41459083",
+      "title": "Does micronutrient supplementation improve outcomes in adult gastrointestinal surgery patients? A systematic review.",
+      "abstract": "Gastrointestinal surgery can result in short-term (in hospital) complications such as infections, post-operative ileus and poor wound healing and longer-term (post-discharge) complications such as intestinal failure, malnutrition and loss of bone mass. These complications can severely impact the patient and increase healthcare costs. Impaired immunity, excessive inflammation and oxidative stress can contribute to postoperative complications and poor outcome. Many micronutrients support immunity and help to control inflammation and oxidative stress. Therefore, providing micronutrients could mitigate poor outcome from surgery. The aim of this systematic review was to collate findings from randomized controlled trials (RCTs) of micronutrients provided to adult patients undergoing, or who had undergone, gastrointestinal surgery. Searches were conducted in Medline and CINHAL; only literature from 2014 onwards was searched. A total of 12 articles reporting data from 11 RCTs were included. These trials studied vitamin D alone (administered orally) or combinations of different micronutrients (administered orally, intravenously or in wound dressings). Six trials started the intervention following discharge from hospital. Six trials had a low risk of bias overall, while five had some concerns. Two trials found that vitamin D decreased the loss of bone density in those who had undergone bariatric surgery, but two other trials did not find this; vitamin D dose may be important in determining its effect. One trial found that vitamin D improved quality of life in those who had surgery and another found that vitamin D improved survival time and prevented relapse in some patients who had surgery for gastrointestinal cancer. Another trial found that vitamin D helped support the immune response following surgery; this could lead to fewer infections, although that outcome was not reported. Intravenous multivitamins shortened hospital stay and decreased oxidative stress in the immediate postoperative period in one trial. Using vitamin E and silicone in wound dressings decreased surgical site infection, postoperative pain, inflammation and hospital stay in one trial. Although some micronutrients may reduce risk of short- and long-term complications of surgery, insufficient trials have been conducted to make strong conclusions. Further research, especially with interventions in the perioperative period and looking at in-hospital outcomes, is needed.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742210/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2025.1719617",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed collision replacement verification"
+    },
+    {
+      "wave": 5393,
+      "category": "metabolic",
+      "pmid": "41479657",
+      "title": "Targeting gut microbiota with short-chain fructo-oligosaccharides prebiotic fibers to support metabolic health in overweight prediabetic adults: a randomized, double-blinded, placebo-controlled study.",
+      "abstract": "The global rise in metabolic disorders such as obesity and type 2 diabetes is largely driven by dietary changes and sedentary lifestyles. Prebiotic dietary fibers may help mitigate this trend by modulating gut microbiota. This study aimed to evaluate the effects of short-chain fructo-oligosaccharides (scFOS) on glucose homeostasis, body composition and gut microbiota in overweight individuals with prediabetes. In this randomized, double-blind, placebo-controlled, parallel arms trial, participants with fasting glycemia between 1 and 1.25 g/L and BMI between 23 and 35 kg/m2 received either 20 g/day of scFOS (Actilight® 950P; Beghin-Meiji, France) or placebo for 12 weeks. Glucose metabolism, body composition and gut microbiota were assessed at baseline and post-intervention. The primary endpoint was the change in HbA1c level, with a hypothesis of superiority, tested using a linear mixed model. Participants (n = 66, 35 scFOS, 31 placebo) had a mean age of 50.6 ± 9.0 years and BMI of 28.2 ± 2.7 kg/m2. Compliance was excellent (> 97%). No significant treatment effect was observed for glucose metabolism markers, including the primary outcome HbA1c (+0.055% with scFOS vs +0.030% with placebo, p = 0.6835). However, body composition outcomes favored scFOS: fat mass decreased (medians: -0.26% vs +0.20%, p = 0.0273), lean mass increased (+0.27% vs -0.30%; p = 0.0279). Body weight remained stable with scFOS while it tended to increase with placebo (estimated means: +0.14 kg vs +0.70 kg; global treatment effect: p = 0.0718). Among 30 participants analyzed for gut microbiota, α-diversity decreased in the scFOS arm and increased in placebo across three of four indices (p < 0.004), primarily driven by selective microbial shifts. In addition to a significant increase in Bifidobacterium (p = 0.0202), scFOS supplementation enriched Anaerostipes, while reducing Blautia and Ruminococcus2 (p < 0.05). These changes were accompanied by increased fecal acetate (p = 0.0310) and propionate (p = 0.0062), contrasting with decreases in placebo. Twelve-week scFOS supplementation in overweight prediabetic adults led to beneficial changes in gut microbiota composition and fermentative activity, along with modest improvements in body composition. Although no significant improvements in glucose homeostasis were observed, this may reflect the moderately impaired metabolic status of participants and interindividual variability in response to prebiotics. Findings nonetheless suggest that scFOS may support gut and metabolic health and contribute to strategies for preventing or delaying metabolic disorders. ClinicalTrials.gov, identifier NCT04767672.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12753434/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2025.1718169",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed collision replacement verification"
+    },
+    {
+      "wave": 5446,
+      "category": "metabolic",
+      "pmid": "41470853",
+      "title": "Impact of the Mediterranean Diet on Glycemic Control, Body Mass Index, Lipid Profile, and Blood Pressure in Type 2 Diabetes: A Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Background: Type 2 diabetes mellitus (T2DM) is a growing global health challenge requiring effective dietary management strategies. While the Mediterranean diet shows promise for cardiovascular and metabolic health, the last comprehensive meta-analysis of randomized controlled trials (RCTs) examining its effects on glycemic control and body mass index (BMI) in T2DM was published in 2015. Multiple RCTs, including culturally adapted interventions with extended follow-up, have since been completed, but remain unsynthesized. Methods: We conducted a systematic review and meta-analysis following PRISMA 2020 guidelines (PROSPERO: CRD420251147035), searching PubMed, Web of Science, and Embase from inception through 17 August 2025. Unlike previous syntheses that combined observational cohorts or mixed dietary approaches, our analysis focused strictly on RCTs in adults with established T2DM and incorporated trials published after 2015. We included RCTs comparing Mediterranean diet interventions against non-Mediterranean control diets in adults with T2DM. Primary outcomes included glycated hemoglobin (HbA1c), fasting plasma glucose (FPG), and body mass index (BMI). Secondary outcomes comprised low-density lipoprotein cholesterol (LDL-C), systolic blood pressure (SBP), and diastolic blood pressure (DBP). Pooled effects were estimated using random-effects models. Results: Eleven RCTs (10 publications) involving diverse populations met inclusion criteria. Compared with control diets, Mediterranean diet interventions showed reductions in HbA1c (mean difference [MD] -0.307%, 95% CI: -0.451 to -0.163), FPG (MD -0.845 mmol/L, 95% CI: -1.307 to -0.384), and BMI (MD -0.828 kg/m2, 95% CI: -1.4 to -0.256). Secondary analyses revealed reductions in LDL-C (MD -8.060 mg/dL, 95% CI: -14.213 to -1.907), SBP (MD -5.130 mmHg, 95% CI: -10.877 to 0.617), and DBP (MD -2.008 mmHg, 95% CI: -3.027 to -0.989). Sensitivity analyses supported stability of findings, with no substantial publication bias detected. Subgroup analyses revealed geographic variation in blood pressure responses, with greater benefits observed in non-Mediterranean populations. Conclusions: Mediterranean dietary patterns were associated with modest improvements in glycemic control, body composition, and cardiometabolic risk factors among adults with T2DM. The cultural adaptability of this approach may support implementation in clinical practice, though larger multicenter trials with standardized protocols and extended follow-up remain necessary.",
+      "journal": "Nutrients",
+      "pub_date": "2025-Dec-13",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735701/",
+      "pdf_link": "https://doi.org/10.3390/nu17243908",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed collision replacement verification"
+    }
+  ]
+}

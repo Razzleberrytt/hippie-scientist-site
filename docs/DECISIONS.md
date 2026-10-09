@@ -1,8 +1,50 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-09-27
+**Updated:** 2026-10-08
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
+
+## 2026-10-09 — Add build/CI optimization to existing P0 without displacing it
+
+**Decision:** Retain the accepted Generational Engineering P0 (#6431) and its scientific intelligence, semantic integration, reviewed-evidence, content/distribution and business objectives **in full**. Add build, CI and engineering-throughput optimization as a highest-priority **cross-cutting accelerator**, not a successor strategy, fourth workstream, new scoring formula, or automatically admitted implementation ticket.
+
+**Execution:** Use existing #6507 / PR #6509 for its already-scoped batched preflight and safe postdeploy owner-retirement proposal. Subsequent work prioritizes reliable critical-path/duplicate-trigger measurement, redundant check elimination, Next static build profiling, immutable and input-keyed intermediate artifact reuse and dependency caches, then measured before/after verification. Keep change bundles cohesive, small enough to review and rollback, and one governed release train; do not create redundant standalone controllers.
+
+**Invariants:** Preserve existing live P0 work and three normal D/R/A WIP slots; evidence identity, separate scientific review, security, accessibility, SEO, privacy, static export, failed-check blocking, exact-head required CI, correct immutable artifact keys, branch protection, protected merge controller and production deployment proof. Cached green results must never be reused after relevant inputs change. Never disable required workflows or represent optional fast developer preflight as release authorization. Gains and revenue ROI remain Unknown until observed.
+
+**Source of truth:** The additive sprint/roadmap/backlog plan controls priority only; code, CI receipts, PR statuses and deploy proofs determine completed execution. See #6507 and PR #6509. No old #6431 acceptance criterion is canceled.
+
+## 2026-10-08 — Generational System Engineering is P0 execution methodology
+
+**Decision:** Plan architecture, interoperability, versioned source/claim/review identity, dependency graph and validation scopes as a *generation* before expanding isolated feature branches. Implement through bounded per-ticket PRs and normal WIP/admission limits, using T0 cheap fixtures, T1 cross-system contracts, T2 mandatory exact-head CI/build/scientific/security/a11y/SEO/review gates, and T3 main deployment plus user-facing proof. Optimize total safely deployed capability throughput and avoidance of redundant verifications, not source count, PR count or unmeasured velocity.
+
+**No override:** Existing AGENTS, one backlog scoring formula, evidence firewall, sole merge controller, static export, published-asset consent/identity, peer review, platform permissions, and release gates remain authoritative. CI reuse is allowed only where existing classifier and exact head/base/tree proof demonstrate equivalence; high-risk work remains fully gated. No paid services, new broad autonomous publication, source-only clinical recommendation, phantom WIP slot, or invented ROI.
+
+**Execution authority:** [P0 #6431](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6431) is architecture/planning. [Operating program](GENERATIONAL_ENGINEERING_P0.md) and [candidate register](GENERATIONAL_ENGINEERING_READINESS.md) define October 12–16 stages; tickets are admitted through CURRENT_SPRINT and MASTER_BACKLOG only after current GitHub state is reconciled. M0–M6 milestone exit conditions unchanged. Success claims require exact SHA, tests, production receipts and observed outcomes or Unknown.
+## 2026-10-08 — Scientific intelligence tools are source projections, not new medical authority
+
+**Decision:** v1.08–1.14 integrates twelve deterministic scientific investigation tools on each v1.05 exact PMID case, shares the v1.06 eight-instrument source handoff and the v1.07 editorial/distribution review firewall, and makes source signatures and calibration visible in the existing studio. Separately reviewed citation relationship metadata may only join by already governed exact publication identity. No second evidence database, paid inference runtime, automatic clinical claim, or publication authorization is created.
+
+**Boundaries:** Trial/participant independence, complete study comparability, full-text claims, live correction/retraction feeds, real third-party autonomous research, and independent peer review remain unverified without appropriate approved source material and reviewers. Rule-based adversarial checks and internal calibration do not demonstrate scientific truth.
+
+**Status:** Accepted scoped architecture; #6427 / PR #6428 remains in review until latest-head validation, release governance, mobile UI checks and production receipt. Unknown business and scientific outcome ROI must not be scored as observed.
+
+## 2026-10-08 — Source-exact instrument relays and publication-to-editorial review remain nonclinical
+
+**Decision:** Build v1.06 as a deterministic read-only projection over the already-pinned v1.05 PMID source graph, exact citation crosswalk and separately reviewed semantic annotation ledger. Source-focused Voyages require two distinct non-method indexed concepts with at least one title-backed witness, not merely a shared neighbor. v1.07 downstream content/distribution joins may use only exact DOI and already-existing source and claim identifiers; their status is human-review required.
+
+**Authority boundary:** No second corpus, inferred trial independence, forged graph path, automatic efficacy claim, evidence-grade promotion, auto-publishing, or paid runtime service. Reviewed annotations stay distinct from source text; a matched DOI is not proof that a specific claim is supported.
+
+**Governance/status:** #6419 v1.05 merged; #6420 / PR #6422 in review; #6423/#6424 work is stacked in its source branch and not independently established as a main-branch release. Tests, review threads and production receipts remain release gates. Engagement, search and business outcomes Unknown.
+
+## 2026-10-08 — Research Intelligence Studio uses two separate authorities and eight projections
+
+**Decision:** Scientific discovery features derive from the merged, SHA-pinned research-only PMID intake and controlled concept graph. Clinical directional assessments can only be compared where separately published citation relationships explicitly provide ingredient, endpoint, and relationship labels. The eight consumer instruments (Study DNA, Contradiction Observatory, Knowledge Frontier, Evidence Time Machine, Semantic Voyages, safety-literature matrix, Ask the Evidence, and editorial Content Reactor) are projections of those existing authorities; they are not eight new independent scientific datasets.
+
+**Safety and uncertainty boundary:** Textual co-mentions do not mean exposure, causal link, efficacy, risk, or contradiction. Candidate disagreements need expert review. Sparse local coverage is not absence of global evidence. Historic publication year is not historic grade-change proof; only explicit editorial grade-change receipts can appear as actual change events. Draft briefs must be source-witnessed, review-required, and never autopublished. Unreviewed intake remains nonindexable and cannot change public evidence grades, doses, recommendations, or safety decisions.
+
+**Delivery and provenance:** The visually experimental Science Atlas on `/research/intelligence/` ships as a static, noindex Next export. The 500 exact title/abstract receipts build a deterministic snapshot; the other 6,935 older PMID-only entries have no fabricated metadata. The source-rich JSON loads on user activation rather than every initial page visit. No recurring paid service, external AI credits, runtime API, or user-uploaded personal data is necessary. Frontend provides original PMIDs and reviewed citation links where the identities legitimately overlap. **Status:** In review under #6404 / PR #6407, dependent on the semantic base PR #6402; not proof of production deployment, clinical efficacy or measured engagement.
+
 
 
 ## 2026-09-28 — Curated index policy has one mutable authority
@@ -300,3 +342,66 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** The prose-only roster reported machine WIP 0/3 while existing PRs occupied two workstreams. Converting that roster to tables triggered the new-admission validator, which previously had no way to reconcile already-running owners.
 
 **Consequences:** PR #6132 / #6131 owns this bounded repair. Reconciliation does not authorize additional work, scientific promotion or cap exceptions. The historical timeline proves pre-base association; current closing references prove current ownership. Unknown outcomes remain Unknown. **Status:** Accepted; exact-head release checks required.
+
+
+## 2026-10-06 — TikTok bypass is draft upload, not hidden Direct Post
+
+**Decision:** Replace Metricool as the sole TikTok transport with a first-party TikTok Content Posting API **draft-upload** path using `video.upload` and `PULL_FROM_URL` from the governed THS media origin. Do not implement a private unattended Direct Post bot for THS.
+
+**Rationale:** The live 2026-10-06 TikTok attempt demonstrated a Metricool account-limit bottleneck. TikTok provides a supported draft-upload flow that sends server-hosted media to the creator's TikTok inbox for review and posting. By contrast, TikTok's current Direct Post guidelines explicitly say an API client should be intended for a wide audience and identify an internal utility for accounts the developer/team manages as unacceptable; Direct Post also requires creator-controlled metadata and express per-post consent.
+
+**Consequences:** The Cloudflare bridge owns OAuth/token refresh and draft/status API calls; the existing L5 lifecycle remains publication authority. A TikTok `publish_id` from draft initialization is a provider dispatch identity only and may create a real `scheduled` receipt, never a `published` receipt by itself. Broad/high-volume auto-publishing remains unauthorized. Public-post proof remains separate and must be observed before lifecycle publication can be asserted. **Status:** Accepted; implementation tracked by #6356 / PR #6357.
+
+
+## 2026-10-06 — THS Publisher owns publication identity; providers are adapters
+
+**Decision:** Supersede provider-centered publication control with three explicit layers: THS SocialOS remains the learning/control plane, THS Publisher owns provider-neutral publication identity and operational state, and THS Observer verifies provider/public state before performance learning. Canonical identity is `publication_id → experiment_id → artifact_sha256 → platform → intended_time`; provider IDs and public URLs are append-only receipts beneath that identity.
+
+**Rationale:** The Metricool account-limit failure demonstrated that a replaceable transport had become a control-plane dependency. That made provider planner state capable of blocking publication and complicated reconciliation. A first-party publication identity lets adapters fail, retry, change IDs, or be replaced without corrupting experiment/artifact identity.
+
+**Consequences:** New publication jobs are single-writer by platform/time and idempotent by `publication_id`. Known failures may retry under that same identity. Ambiguous transport outcomes become `NEEDS_RECONCILIATION` and never blind-retry. Metricool is frozen as canonical publisher but its historical receipts/analytics are preserved. TikTok draft upload is the first active adapter; Meta remains future work; exact locked artifacts may be manually posted and recorded during transition. Website attribution stays separate and fail-closed. The earlier same-day TikTok draft-upload decision remains valid as an adapter decision but no longer defines the overall publication control plane. **Status:** Accepted; implementation tracked by #6356 / PR #6357.
+
+
+## 2026-10-07 — Social production must have a sovereign zero-credit critical path
+
+**Decision:** Adopt THS R8.04 “Sovereign Production & Zero-Credit Critical Path” for new social production. A releasable artifact must be creatable, narrated, rendered, mastered, QA-checked, packaged, and handed off for manual native upload without a paid membership, hosted generation account, API key, metered generation credit, or premium external editor. First-party platform APIs may remain optional transport adapters; manual native upload is sufficient canonical transport. Descript, Metricool scheduling, hosted TTS/image/video credits, and basic operating-system TTS are prohibited as automatic or emergency production fallbacks.
+
+**Rationale:** A real Descript credit failure demonstrated that the prior architecture had a local/no-credit voice capability but did not make it mandatory. The pipeline could therefore degrade into robotic narration merely to preserve output. That violates the existing Natural Presence quality doctrine and makes production reliability depend on external plan state.
+
+**Consequences:** Vertical-video packages emit a governed narration script. The canonical local Voice Engine renders an on-device open-source narration artifact and provenance receipt. The exact WAV must explicitly pass Natural Presence and pronunciation QA before the MP4 renderer can mux AAC audio. THS Publisher staging rejects silent, stale, credit-backed, or non-local narration. The sovereignty validator watches the actual distribution/rendering/publisher surfaces. If local quality cannot pass, release fails closed; the allowed recovery path is local regeneration/model change, authorized human house voice, or stop—not a paid-provider fallback. **Status:** Accepted; implementation tracked by #6378 / PR #6377.
+
+## 2026-10-07 — R8.05 makes attention and audiovisual coherence release requirements
+
+**Decision:** Adopt THS R8.05 “Attention-First Story Architecture & Semantic AV Lock” for new social video. R8.05 inherits the complete R8.04 sovereign zero-credit critical path and R8.03 evidence/trust contracts, but adds a pre-render premise gate and an artifact-level temporal-coherence gate. A technically valid video is not releasable merely because it is accurate, polished, and properly encoded.
+
+**Rationale:** The 2026-10-07 TikTok field test showed two distinct failures. First, a study-summary concept required too much setup and too many simultaneous entities before the payoff. Second, a good local narrator and individually clean visuals still felt disconnected because the visual timeline and internal clip motion had been authored independently of the spoken semantic beats. Repeated cut-point repairs did not solve the deeper composition problem.
+
+**Consequences:** New R8.05 work must state why a cold viewer should care, answer one viewer question, deliver a partial payoff before methodology, use natural rather than template-driven duration, and build the visual timeline from an approved voice-first semantic beat map. Every clip owns an exact spoken idea; cuts occur on meaning; internal motion lands on spoken anchors; PerceptualQA judges the exact master as one audiovisual object. One macro rebuild is allowed. If the concept still needs rescue after that, FieldLab records the creative loss and the angle is retired/reframed rather than polished indefinitely. Audience impact remains Unknown until observed. **Status:** Accepted; implementation tracked by #6382.
+
+## 2026-10-07 — R8.06 adds hook competition and native-feel release gates
+
+**Decision:** Adopt R8.06 “Hook Competition, Visual Teaching Objects & Native Delivery” as the next THS creative methodology, running on the unchanged R8.05 production runtime. R8.06 does not rename the renderer/voice artifact formats; it adds a fail-closed creative-direction overlay before render and additional exact-master perceptual gates after render.
+
+**Rationale:** R8.05 solved concept viability, voice-first timing, semantic clip ownership, visible motion, and exact-master audiovisual cohesion, but it can still select the first acceptable angle and produce an opening that is synchronized yet visually sterile. R8.06 forces comparison among three materially different angles, makes visual potential/confusion part of selection, requires immediate finding/payoff and opening convergence, and creates a native-feel rejection gate for generic text-card execution.
+
+**Delivery consequence:** Metricool is permitted only as an optional post-QA convenience adapter. Manual native upload remains the mandatory fallback. Provider limits, plan state, or format errors may not trigger creative regeneration or artifact mutation; after one provider failure the same approved artifact falls back to manual upload.
+
+**Measurement:** Internal selection scores and structural gates are pre-render filters, not predictions of virality. Audience impact remains Unknown until matched R8.06 artifacts are published and FieldLab observes retention, completion, saves/shares, profile depth, follows, and return behavior. **Status:** Implementation tracked by #6384.
+
+## 2026-10-07 — R8.07 adds authored visual rhythm and semantic pattern interruption
+
+**Decision:** Adopt R8.07 “Visual Authorship, Pattern Interruption & Retention Rhythm” as the next THS creative methodology over R8.06, while retaining the R8.05 artifact/runtime schemas. R8.07 adds executable local composition primitives plus a whole-piece rhythm contract; it does not alter scientific authority, narration timing authority, or provider sovereignty.
+
+**Rationale:** R8.06 improves concept selection, opening convergence and native-feel rejection, but a video can still decay into repetitive composition after the opening. R8.07 makes repetition and visual continuity explicit: one visual thesis, a recurring motif that returns at the limitation pivot, at least three composition families in the core story, no more than two consecutive identical families/modes, and exactly one semantic pattern interrupt earned by the limitation pivot.
+
+**Execution:** The local zero-credit SVG renderer now draws governed composition primitives (hero object, split comparison, evidence focus, diagram flow, macro detail, process flow, kinetic type), motif continuity, and the limitation interrupt state. The R8.07 overlay is hash-bound and recomputed from the exact creative brief before render. Exact-master QA must additionally pass visual rhythm, motif continuity, semantic pattern interruption, and repetition-debt rejection.
+
+**Measurement:** These are authorship/quality gates, not a claim that pattern interruption mechanically increases retention. Retention/completion/follow uplift remains Unknown until matched R8.07 field artifacts are published and observed. **Status:** Implementation tracked by #6386.
+
+## 2026-10-07 — R8.08 requires silent comprehension on the exact master
+
+**Decision:** Add R8.08 as a hash-bound methodology overlay on the R8.05 runtime. Hook text must be visible on frame zero. Core claims must be concise, displayed inside intersection safe areas, and readable for a measured >=0.85 s without extending narration. Require exact-MP4 human audio-off comprehension and scientific-qualifier visibility approvals, then stage only the same artifact hash.
+
+**Rationale:** Earlier releases protected voice synchronization and visual variety but did not fully prevent an audio-off viewer from missing the finding, qualifier or on-screen meaning. Device-safe visible text and real hold time are enforceable before release; semantic fidelity remains a reviewer judgment, not a word-count proxy.
+
+**Consequences:** R8.08 fails closed at brief, renderer, master QA and Publisher boundaries. Inherited R8.07/R8.06/R8.05/R8.04 protections remain mandatory, with no paid provider or credit prerequisite. **Status:** In review under PR #6388; audience uplift Unknown.

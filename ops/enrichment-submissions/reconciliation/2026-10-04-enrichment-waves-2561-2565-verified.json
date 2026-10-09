@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2561-2565",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2561,
+      "pmid": "42755825",
+      "title": "Novel pharmacotherapies for opioid use disorder and opioid withdrawal.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "This is a narrative review of emerging OUD and withdrawal pharmacotherapies; promising mechanisms and early signals are not equivalent to established treatment efficacy or guideline endorsement."
+    },
+    {
+      "wave": 2562,
+      "pmid": "42627450",
+      "title": "Pharmacokinetics, Safety, and Dosing of Antiseizure Medications in Patients with Renal or Hepatic Impairment.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Cannabidiol is discussed as one antiseizure medication within organ-impairment dosing guidance; conclusions are drug- and disease-specific and should not be generalized to nonprescription CBD use."
+    },
+    {
+      "wave": 2563,
+      "pmid": "42813605",
+      "title": "Effects of Δ(9)-tetrahydrocannabinol on affiliative social behaviour: A systematic review of rodent studies.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The evidence base is entirely rodent/preclinical; social-behavior findings cannot be assumed to predict human psychosocial effects."
+    },
+    {
+      "wave": 2564,
+      "pmid": "42813543",
+      "title": "Pharmacokinetics of Buccally Administered Cannabidiol and Oral Carprofen During Single- and Repeated-Dose Administration in Dogs.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "This is a veterinary dog pharmacokinetic study; it may inform interaction hypotheses but cannot establish human CBD pharmacokinetics, efficacy, or safety."
+    },
+    {
+      "wave": 2565,
+      "pmid": "42807438",
+      "title": "Functionalized Colloidal Hydroxyapatite for Combined Delivery of Cannabidiol and Epirubicin: Characterization, Biomimetic Membrane Interaction, and Cytotoxicity Studies.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "The work is a biomaterials/cell-cytotoxicity study of CBD co-delivery with epirubicin; it is mechanistic and not evidence for oral CBD supplementation or clinical cancer efficacy."
+    }
+  ]
+}

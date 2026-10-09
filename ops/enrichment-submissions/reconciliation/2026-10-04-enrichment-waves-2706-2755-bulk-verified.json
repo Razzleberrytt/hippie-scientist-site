@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "range": "2706-2755",
+  "rows": [
+    {
+      "wave": 2706,
+      "pmid": "42727807",
+      "doi": "10.1016/j.envpol.2026.129068",
+      "title": "Curcumin attenuates DEHP-induced splenic immunotoxicity in chicks: involvement of Mfn2-mtROS-associated mitochondrial homeostasis.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Bis(2-ethylhexyl) phthalate (DEHP) is a ubiquitous environmental contaminant frequently detected in environmental and food-related matrices and associated with immune dysregulation and inflammatory injury. However, the mechanistic basis of DEHP-induced splenic immunotoxicity and its potential intervention strategies remain incompletely understood. Here, we combined an in vivo chick model and in vitro cell systems to investigate whether curcumin mitigates DEHP-induced splenic injury by modulating mitochondrial homeostasis. DEHP exposure markedly impaired growth performance, increased the spleen index, induced histopathological and ultrastructural damage, and elevated inflammatory cytokine production. These alterations were accompanied by mitochondrial dysfunction, excessive mtROS accumulation, dysregulated Mfn2/Drp1 signaling, macrophage M1 polarization, and concurrent changes in apoptosis-, pyroptosis-, and necroptosis-associated signaling. Integrated network pharmacology, molecular do",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2708,
+      "pmid": "42763670",
+      "doi": "10.5812/ijpr-172121",
+      "title": "The Effectiveness of a Topical Turmeric-Based Formulation on Contact Dermatitis: A Randomized, Double-Blind, Controlled Trial.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background Contact dermatitis (CD) affects approximately 15% of adults worldwide, and commonly used treatments are often associated with adverse effects. Traditional medicine sources, including Persian medicine, offer promising alternatives. Based on the principles of Persian medicine, the formulation investigated in this study combines Curcuma longa L., Lawsonia inermis L., and Aristolochia rotunda L. (CLA) to achieve a synergistic therapeutic effect. Objectives This study aimed to evaluate the efficacy and safety of a 4-week intervention using CLA cream in patients with mild-to-moderate CD. Methods A randomized, double-blind, placebo-controlled trial was conducted in 64 participants who were assigned to apply either CLA cream or the base cream. Assessments included demographic characteristics, the Dermatology Life Quality Index (DLQI), the Three-Item Severity Score (TIS), and skin parameters, including transepidermal water loss (TEWL), stratum corneum hydration, skin pH, and sebum pr",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2711,
+      "pmid": "42819798",
+      "doi": "10.3389/fphar.2026.1911009",
+      "title": "Curcumin-based compounds in non-malignant biliary injury and cholangiocarcinoma: mechanistic insights and translational barriers.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Biliary tract diseases are frequently associated with chronic cholestasis, cholangiocyte injury, inflammation, and fibrotic remodeling. Persistent injury and dysregulated repair may create a microenvironment that promotes the development of cholangiocarcinoma (CCA). CCA is an aggressive and highly heterogeneous biliary malignancy shaped by the interplay among bile acid dysregulation, inflammatory signaling, oxidative and nitrative stress, metabolic adaptation, stromal remodeling, and therapeutic resistance. Curcumin, a major bioactive polyphenol derived from Curcuma longa, and related curcumin-based compounds have been investigated in preclinical studies for their anti-inflammatory, antioxidant, antifibrotic, and antitumor properties. Available evidence suggests that native curcumin, its analogs and derivatives, and formulation-based interventions may modulate signaling pathways involved in chronic biliary injury and CCA progression, including NF-κB, Nrf2/HO-1, and TGF-β/Smad signaling",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2712,
+      "pmid": "42812562",
+      "doi": "10.3389/fphar.2026.1702947",
+      "title": "Advances in traditional Chinese medicine for modulating macrophage polarization in the treatment of rheumatoid arthritis.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Rheumatoid arthritis (RA) is a chronic autoimmune disorder characterized by persistent synovitis and progressive joint destruction, wherein macrophage polarization constitutes a critical pathogenic mechanism governing both the initiation and perpetuation of synovial inflammation. The conventional M1 and M2 dichotomy has evolved into a continuum model encompassing disease-stage-specific synovial subsets, including remission-associated MerTK-positive populations and pro-inflammatory clusters, reflecting the functional heterogeneity of macrophages in the rheumatoid microenvironment. Modulating macrophage polarization accordingly represents a promising therapeutic strategy; however, pharmacological agents specifically designed to target macrophage phenotypes remain in nascent stages of development. Traditional Chinese medicine (TCM) has emerged as a potential avenue for addressing this therapeutic gap. Extensive experimental evidence has demonstrated that diverse multi-botanical drug formu",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2713,
+      "pmid": "42812398",
+      "doi": "10.3389/fphar.2026.1900560",
+      "title": "ALIAmides and pediatric health: a structured narrative review.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Although most children require medications only for occasional acute conditions, a significant proportion lives with chronic diseases that necessitate long-term, often multiple treatments, which negatively impact their health and quality of life, and may lead to adverse outcomes. Challenges related to prescribing and formulation further complicate pediatric treatment, underscoring the need for safe and effective innovative strategies. Autacoid Local Injury Antagonism amides (ALIAmides), particularly palmitoylethanolamide (PEA) and Adelmidrol, represent promising therapeutic options. This structured narrative review aims to collect and discuss all available literature on PEA and Adelmidrol use in pediatric patients. A search of PubMed, Scopus, and the Cochrane Library identified 17 studies involving a total of 2,530 patients, of whom 1,772 received PEA (oral or topical), and 54 received Adelmidrol. Following a transdiagnostic approach, results were organized by symptom domains rather th",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2715,
+      "pmid": "42807265",
+      "doi": "10.3389/fnut.2026.1902198",
+      "title": "Dietary polyphenols and nutritional modulators in glioblastoma: mechanistic promise and translational barriers.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Glioblastoma is the deadliest primary brain tumor, and fewer than 7% of patients survive 5 years even after surgery, radiation, and chemotherapy. Several features make it difficult to treat: the tumor heterogeneity, it adapts quickly to resist drugs, and the blood-brain barrier keeps most agents from reaching it. These obstacles have renewed interest in adjuncts to standard care. Dietary polyphenols and certain nutritional compounds are among the candidates, since they can influence oxidative stress, inflammation, tumor metabolism, and the glioblastoma stem cells that drive recurrence. This review weighs the mechanistic, preclinical, and early clinical evidence for major polyphenols (curcumin, resveratrol, EGCG, quercetin, apigenin), non-polyphenol agents (omega-3 fatty acids, vitamin D, melatonin), and dietary patterns such as ketogenic, anti-inflammatory, and caloric restriction approaches. Across models these agents act on familiar oncogenic and stress pathways, including NF-κB, STA",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2720,
+      "pmid": "42797458",
+      "doi": "10.3390/ph19091413",
+      "title": "Phytochemicals Modulating Receptor Tyrosine Kinase Signaling Networks in Endometriosis.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Endometriosis is a chronic, estrogen-dependent inflammatory condition that is marked by the growth of lesions outside the uterus, along with angiogenesis, fibrosis, immune dysregulation, and pain sensitization. There is now growing evidence that receptor tyrosine kinase (RTK) signaling networks are central to these processes, integrating proliferative, angiogenic, inflammatory, endocrine, and microenvironmental signals. This review summarizes the roles of six major RTK axes in endometriosis and evaluates their receptor-specific mechanisms, therapeutic relevance, and modulation by representative phytochemicals. An English-language literature search of PubMed was conducted with no publication date restrictions using combinations and variations of the following keywords: phytochemicals, endometriosis, EGFR, VEGFR, IGF1R, PDGFR, FGFR, MET, curcumin, resveratrol, epigallocatechin gallate (EGCG), quercetin, naringenin, berberine, apigenin, luteolin, genistein, and baicalein. Additional searc",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2721,
+      "pmid": "42797379",
+      "doi": "10.3390/ph19091333",
+      "title": "Pharmacological Mechanisms of Active Constituents from Traditional Chinese Medicine for Vitiligo Treatment.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Vitiligo is a chronic acquired depigmenting disorder characterized by progressive melanocyte loss. Its pathogenesis involves a multifactorial interplay among oxidative stress, impaired melanocyte regeneration, immune-mediated cytotoxicity, and neuroendocrine dysregulation. In recent years, traditional Chinese medicine (TCM)-derived active ingredients have attracted increasing research interest as potential interventions for vitiligo, although most isolated compounds remain at the preclinical stage. This review summarizes pharmacological and natural compounds applied in vitiligo treatment and highlights their regulatory mechanisms on core pathogenic modules. A comprehensive analysis of natural and semisynthetic active ingredients is provided, covering their preclinical and clinical evidence, mechanisms of action, and therapeutic relevance. Multiple ingredients, including baicalein, quercetin, curcumin, paeoniflorin, kaempferol, glycyrrhizin, and epigallocatechin-3-gallate (EGCG), have d",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2723,
+      "pmid": "42796932",
+      "doi": "10.3390/nu18182949",
+      "title": "Palmitoylethanolamide and Luteolin in Brain Aging and Cognitive Decline: Biological Rationale and Current Evidence.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Cognitive decline is closely associated with biological aging and with interconnected processes, including chronic low-grade inflammation, oxidative stress, mitochondrial dysfunction, and cellular senescence. Nutraceutical strategies capable of modulating several of these pathways may represent a complementary approach to supporting cognitive health. This narrative review examines the biological rationale and available evidence regarding palmitoylethanolamide (PEA), luteolin, and their co-ultramicronized formulation (PEA-Lut) in cognitive impairment and dementia. Evidence from mechanistic studies, animal models, observational studies, and clinical trials was considered. PEA is an endogenous N-acylethanolamine with anti-inflammatory and neuroprotective properties, whereas luteolin exerts complementary antioxidant and anti-inflammatory effects. Co-ultramicronization may improve their physicochemical properties and biological activity. Preclinical studies suggest that PEA-Lut may attenuat",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2724,
+      "pmid": "42792182",
+      "doi": "10.3390/antiox15091143",
+      "title": "Phytochemicals and Irisin as Multi-Target Regulators of Adipose Tissue Browning and Metabolic Reprogramming: Synergies with GLP-1 Pathways.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background: Obesity is a multifaceted metabolic disorder characterized by systemic disturbances, particularly impaired energy homeostasis, chronic low-grade inflammation, and mitochondrial dysfunction across the brain, gut, adipose tissue, and liver axes. Objectives: This review aims to examine the metabolic properties and molecular mechanisms of six key phytochemicals (berberine, resveratrol, catechins, capsaicin, thymoquinone, and phycocyanin) and the exercise-induced myokine irisin, and their roles in mitochondrial signaling and metabolic reprogramming. Sources of Evidence: A comprehensive literature search was conducted across major electronic databases, including PubMed, Web of Science, and Scopus, to identify relevant mechanistic, in vivo, and in vitro studies. Results: Both the selected phytochemicals and irisin act as multi-target regulators that modulate key signaling pathways, including AMPK, PI3K/Akt/mTOR, SIRT1, Nrf2, and PPARγ. These phytochemicals and irisin can drive cel",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2725,
+      "pmid": "42727470",
+      "doi": "10.1016/j.jenvman.2026.130917",
+      "title": "A soil microbial indicator framework for ecological effect assessment of heavy metal risks in red mud stockpiles: A meta-analysis of available evidence.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Red mud stockpiles may pose long-term heavy-metal-related risks to surrounding soils, yet microbial indicators for ecological effect assessment remain poorly defined. Because direct microbial evidence from red mud stockpiles is limited, published studies on heavy metal contaminated soils were synthesized to screen candidate indicators for this scenario. This meta-analysis integrated 116 studies comprising 763 observations and quantified responses of microbial biomass, alpha diversity, community structure, beta diversity, and enzyme activities to cadmium, mercury, arsenic, lead, chromium, copper, zinc, and nickel. Subgroup analyses, climatic meta-regressions, and precision-weighted random forest models evaluated associations between microbial responses and concentration-toxicity category, soil properties, climatic background, land use, and experimental setting. Heavy metal contamination was associated with significant decreases in microbial biomass carbon (MBC) and microbial biomass nit",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2728,
+      "pmid": "42806850",
+      "doi": "10.1631/jzus.B2500053",
+      "title": "Nrf2 signaling pathway and its molecular regulatory mechanism.",
+      "category": "metabolic",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2730,
+      "pmid": "42794450",
+      "doi": "10.3390/ijms27188020",
+      "title": "Structural Modification of Resveratrol: Biological Activities and Anticancer Potential of Emerging Methoxylated Analogs.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Resveratrol remains one of the most extensively studied plant-derived polyphenols because of its broad antioxidant, anti-inflammatory, cardioprotective, neuroprotective, and anticancer activities. However, its clinical translation has been substantially limited by its poor aqueous solubility, rapid phase II metabolism, and low systemic bioavailability, despite decades of intensive investigation. Structural modification through methoxylation has emerged as a promising strategy to overcome these pharmacokinetic limitations by enhancing metabolic stability, lipophilicity, membrane permeability, and biological activity. While considerable attention has focused on resveratrol and a limited number of established analogs, emerging methoxylated derivatives remain comparatively underexplored. This review highlights the structural characteristics, biological activities, and molecular mechanisms of two such derivatives, 4,4-(ethane-1,2-diyl)bis(2-methoxyphenol) (EG) and (Z)-3,5,4′-trimethoxystilb",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2732,
+      "pmid": "42751143",
+      "doi": "10.3389/fvets.2026.1848289",
+      "title": "Mitochondria-associated endoplasmic reticulum membranes in canine and feline diabetic kidney disease: mechanistic links and nutritional implications.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Diabetic kidney disease in dogs and cats is clinically relevant but mechanistically underdefined, and the dietary management of diabetic pets is still dominated by empirical control of glycemia, body weight, and renal nutrient load. Mitochondria-associated endoplasmic reticulum membranes (MAMs) are dynamic contact domains that coordinate calcium transfer, lipid exchange, ER stress, mitochondrial quality control, inflammatory signaling, and cell death. This review first summarizes the veterinary clinical context of canine and feline diabetic kidney disease, including proteinuria, microalbuminuria, hypertension, chronic kidney disease, and species-specific differences in diabetes pathophysiology. It then integrates MAM biology into core renal injury modules involving structural tethering proteins, the IP3R-GRP75-VDAC-MCU/MICU1 calcium axis, lipid metabolic enzymes, PERK/GRP78-mediated ER stress, mPTP opening, mitophagy, and inflammatory amplification. Because direct MAM evidence in diabe",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2733,
+      "pmid": "42739055",
+      "doi": "10.3390/nu18172883",
+      "title": "Modulating the Estrobolome and Inflammatory Microenvironment in Endometriosis: The Role of Microbiome-Targeted Interventions and Nutritional Compounds.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Endometriosis is a chronic estrogen-dependent systemic inflammatory disorder characterized by ectopic implantation of endometrial-like tissue, primarily on the ovaries, pelvic peritoneum, and bowel. According to the World Health Organization (WHO) estimate updated in 2025, endometriosis affects approximately 10% (about 190 million) of reproductive-age women worldwide and is a major contributor to chronic pelvic pain, dysmenorrhea, dyspareunia, and infertility. Standard medical therapies focus on ovarian suppression, which alleviates symptoms but precludes conception and carries significant metabolic and skeletal adverse effects. Recent multi-omics research has raised interest in the gut microbiome and the estrobolome, defined as the microbial gene repertoire involved in estrogen metabolism, as potential modulators of systemic estrogen exposure and immune homeostasis. Altered microbiota composition and microbial β-glucuronidase activity may influence enterohepatic estrogen recirculation",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2734,
+      "pmid": "42739030",
+      "doi": "10.3390/nu18172856",
+      "title": "Dietary Polyphenols in Type 2 Diabetes: A Metabolite-Centric Review of Human Evidence.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Dietary polyphenols are studied as potential adjuncts for type 2 diabetes (T2D), although many reviews still rely on an antioxidant framework that does not adequately reflect human exposure. This review organises the evidence around two metabolite waves, namely early postprandial phase-II conjugates produced by host enzymes within 0 to 4 h of a polyphenol-rich meal, and microbiome-derived catabolites including urolithins and γ-valerolactones that peak at 6 to 24 h. This biphasic interpretation is advanced as a hypothesis-generating framework rather than as an established explanation, and it offers a testable account of why polyphenol effects may be meal-contingent, metabotype-dependent and heterogeneous across clinical trials. Using randomised controlled trials and meta-analyses published between 2015 and 2025, we review the human evidence for anthocyanins, catechins, stilbenes, cocoa flavanols and olive phenolics, with briefer coverage of isoflavones, curcuminoids and ellagitannins. A",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2735,
+      "pmid": "42738959",
+      "doi": "10.3390/nu18172787",
+      "title": "Immunometabolic Plasticity in Sarcopenic Obesity: Toward a New Paradigm for Precision Immunonutrition.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Immunonutrition continues to generate heterogeneous and often contradictory clinical outcomes, suggesting that nutrients do not exert fixed immunological effects but interact with the biological context in which they operate. Sarcopenic obesity (SO) represents a paradigmatic clinical model of this complexity, where chronic low-grade inflammation, mitochondrial dysfunction, anabolic resistance, metabolic inflexibility, and microbiota remodeling converge to compromise the adaptive capacity of integrated immunometabolic networks. We propose that this condition may be interpreted as a state of impaired immunometabolic plasticity, which may help explain the context-dependent variability of nutritional responses. Within this perspective, micronutrients are viewed not simply as cofactors supporting immune competence but as dynamic regulators of interconnected immunometabolic pathways. Particular attention is devoted to vitamin D and resveratrol, presented as complementary regulators of immuno",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2736,
+      "pmid": "42738926",
+      "doi": "10.3390/nu18172752",
+      "title": "Interpreting the Evidence on Wine Consumption and Health: A Narrative Review of the J-Shaped Association and Contemporary Alcohol Guidelines.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Moderate wine consumption has historically been associated with a J-shaped relationship between dose and total mortality, driven primarily by cardiovascular protection, enhanced endothelial function, improved glucose metabolism, and anti-inflammatory and antioxidant effects attributable to both ethanol and grape-derived phenolic constituents. Yet in recent years, international alcohol guidelines have shifted markedly towards the assertion that ‘no safe level’ of alcohol exists. This transition has occurred despite the continued consistency of mechanistic, clinical, and epidemiological evidence demonstrating hormetic (biphasic) responses to wine and its constituents and despite methodological controversies over the mathematical models used in several recent national guideline revisions. This narrative review synthesises mechanistic evidence on hormesis and wine-specific biological effects—including polyphenols, resveratrol, nitric oxide signalling, platelet modulation, and endothelial b",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2737,
+      "pmid": "42738647",
+      "doi": "10.3390/molecules31172986",
+      "title": "From Plant Chemistry to Reproducible Antidiabetic Products: A Critical Review of Molecular Targets, Clinical Evidence, and Translational Gaps.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Diabetes mellitus results from insulin resistance, progressive pancreatic β-cell dysfunction, dysregulated hepatic and adipose metabolism, oxidative stress, and inflammation. Plant-derived compounds can modulate several of these processes, yet pharmacological breadth does not necessarily produce a reproducible therapy. This critical narrative review links phytochemical identity and product composition to intestinal carbohydrate digestion, insulin secretion, hepatic glucose production, GLUT4 trafficking, AMPK and PPARγ signaling, the incretin–DPP-4 axis, renal glucose handling, and diabetic organ injury. Alkaloids, flavonoids, phenolic acids, tannins, saponins, and polysaccharides are considered alongside evidence concerning nephropathy, neuropathy, ocular disease, hepatopathy, and cardiomyopathy. Controlled human studies provide product-specific signals, particularly for chemically defined berberine preparations and mulberry alkaloids, whereas most other interventions remain supported ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2738,
+      "pmid": "42729755",
+      "doi": "10.1021/acsomega.6c05321",
+      "title": "Berberine as a Promising Antifungal Agent: Insights into Molecular Mechanisms and Therapeutic Potential.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Due to the increasing prevalence of antifungal resistance and the limitations of existing therapeutic options, fungal infections represent a significant global health burden. Berberine (BBR), a naturally occurring isoquinoline alkaloid compound derived from various medicinal plants such as Coptis chinensis, has garnered attention for the antifungal activities. In this review, we present the current knowledge-base on the multifaceted antifungal effects of BBR and its underlying mechanisms. It involves the inhibition of the biofilm formation, the disruption of fungal cell membrane integrity, the interference with key metabolic pathways and the induction of apoptotic cell death. BBR also exhibited potential significant synergistic effects with some common antifungal drugs. Beneficially, BBR has been ″demonstrated to improve oxidative stress damage and inflammatory response induced by fungal infections. We also discuss its safety, clinical applications, formulation strategies and existing ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2739,
+      "pmid": "42721598",
+      "doi": "10.1016/j.prp.2026.156688",
+      "title": "Sigma-1 receptor (S1R): Advancing therapeutic strategies in targeting ischemia.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The condition of ischemia and reperfusion (I/R) injury remains one of the significant pathological processes in diseases, including stroke and myocardial infarction, involving multifaceted molecular mechanisms: signaling pathways in cellular survival and oxidative stress response as well as metabolic responses. The Sigma-1 receptor is an important key modulator for many physiological and pathological processes, including neurotransmitter receptor/ligand as well as ion channels, modulating their respective functions under activation conditions of the receptor by stress or disease states. This review emphasizes evidence indicating the critical role of S1R in the therapeutics of ischemia. Angiogenic pathways, such as Vascular Endothelial Growth Factor (VEGF), Tropomyosin Receptor Kinase B (TrKB), and Epidermal Growth Factor (EGF), are considered to promote survival. The inflammatory pathways, which include Mitogen-Activated Protein Kinase (MAPK), Phosphoinositide 3-Kinase/Protein Kinase B",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2740,
+      "pmid": "42720758",
+      "doi": "10.1007/s00044-026-03614-6",
+      "title": "O-methylation of phenolic natural products: translational insights from resveratrol.",
+      "category": "metabolic",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2741,
+      "pmid": "42710827",
+      "doi": "10.1016/j.biochi.2026.09.002",
+      "title": "Selenium in aging and longevity.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Selenium is an essential dietary micronutrient, exerting beneficial effects over a limited range of concentrations. Insufficient dietary intake of selenium increases the risk of type 2 diabetes, infertility, immune dysfunction, prostate cancer, cognitive decline, prostate cancer, colorectal cancer in females, skeletal muscle disorders, overall mortality and an endemic cardiomyopathy known as Keshan disease. Excessive intake of selenium is toxic, leading to a condition termed selenosis, that is associated with damage to the nails, dermatitis, alopecia, central nervous system dysfunction and death. Selenium exerts its biological effects through low-molecular weight molecules, through a small family of selenoproteins which contain the 21st amino acid selenocysteine, and via selenium-binding proteins, in which an atom of selenium is covalently bound to a cysteine residue. In addition to being regulated by body selenium status, the abundance and function of these biomolecules can be control",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2742,
+      "pmid": "42703134",
+      "doi": "10.47391/JPMA.26-61",
+      "title": "The Neovitamins: Metavitamins and Vitaminoids.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Many nutrients share some characteristics with vitamins, but do not meet the entire criteria for definition. Metavitamins (like Vitamin A, D, K) may be defined as nutrients which serve a role as vitamins, as well as beyond (meta-) that traditionally is expected from vitamins. Vitaminoids (like choline and inositol) are nutrients which meet some, but not all, of the characteristics of a vitamin. These are sourced from nutritional products, have a well defined physiological and biochemical role, have a recommended daily allowance, and may lead to dysfunction or disease if taken in inadequate or excessive amounts. As newer physiologic and pharmacologic properties are uncovered, the term \"neovitamin\" may apply to molecules that are discovered to have vitaminoid properties. These may cause, contribute to, confound, co occur with, or be a consequence of metabolic disease. We must evaluate and optimize these nutrients while addressing metabolic health.",
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2743,
+      "pmid": "42699515",
+      "doi": "10.3389/fnut.2026.1885983",
+      "title": "Plant polyphenols as context-dependent modulators of cellular signalling networks.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Plant-derived polyphenols have attracted considerable attention because of their antioxidant, anti-inflammatory, and metabolic regulatory activities. However, despite extensive research, their biological actions are still frequently interpreted through simplified one-compound–one-pathway models, which inadequately explain their pleiotropic and context-dependent effects. Furthermore, existing studies and reviews often examine signalling pathways, structural characteristics, metabolism, and exposure biology separately, limiting a comprehensive understanding of how polyphenols regulate cellular networks. Therefore, this review aims to re-evaluate the mechanisms of representative polyphenols, including curcumin, quercetin, epigallocatechin-3-gallate (EGCG), and resveratrol, from a systems-level perspective and to examine how structural features influence signalling behaviour across different biological contexts. By integrating evidence from molecular studies, omics technologies, biotransfo",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2744,
+      "pmid": "42694676",
+      "doi": "10.3389/fnins.2026.1912268",
+      "title": "Retinoic acid-related orphan receptor alpha (RORα) as a candidate multi-pathway target in Alzheimer's disease: mechanisms and therapeutic prospects.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The development of Alzheimer disease (AD) involves a cluster of pathogenic processes, including amyloid-beta (Aβ) deposition, tau-mediated neurodegeneration, chronic neuroinflammation, oxidative stress (OS), metabolic dysregulation, and disruption of circadian rhythms. Nuclear hormone receptor, Retinoic Acid-Related Orphan Receptor Alpha (RORα) was shown to regulate multiple neuroprotective pathways such as inflammatory signaling (NF-κB suppression), mitochondrial integrity and mitophagy, redox homeostasis [upregulation of glutathione peroxidase 1 (GPX1), and mitochondrial superoxide dismutase 2, (SOD2)], calcium-dependent synaptic architecture [inositol 1,4,5-trisphosphate receptor type 1 (ITPR1), Purkinje cell protein 4 (PCP4)], and circadian rhythm stability [period 2 (PER2), brain and muscle ARNT-like 1 (BMAL1)]. Multi-omics network analyses place RORα within regulatory networks that are co-associated with key AD-related genes and supports an associational, network-based relationsh",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2746,
+      "pmid": "42683273",
+      "doi": "10.3389/fimmu.2026.1889465",
+      "title": "Immune dysregulation in chronic diabetic wounds: therapeutic opportunities for healing reprogramming.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Diabetic foot ulcers (DFUs) represent a devastating complication of diabetes mellitus, affecting approximately 25% of diabetic patients and contributing significantly to morbidity, mortality, and healthcare costs worldwide. Chronic non-healing wounds in diabetes are characterized by persistent inflammation, impaired immune cell function, and dysregulated cellular responses. The nucleotide-binding oligomerization domain-like receptor family pyrin domain-containing 3 (NLRP3) inflammasome has emerged as a critical mediator of chronic inflammation and wound chronicity in diabetes. This comprehensive review examines the molecular mechanisms linking NLRP3 inflammasome activation, macrophage polarization dynamics, and wound healing impairment in diabetic conditions. We discuss how hyperglycemia-induced oxidative stress, advanced glycation end-products (AGEs), and mitochondrial dysfunction converge to activate the NLRP3 inflammasome, leading to caspase-1 activation, interleukin-1β (IL-1β) and ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2747,
+      "pmid": "42662728",
+      "doi": "10.1016/j.metop.2026.100491",
+      "title": "Alpha-lipoic acid as a trigger of insulin autoimmune syndrome: Current evidence, a case-based approach, diagnostic pitfalls, and practical management.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Insulin autoimmune syndrome (IAS), also known as Hirata disease, is a rare immune-mediated cause of endogenous hyperinsulinemic hypoglycemia characterized by circulating insulin autoantibodies (IAAs). It typically develops in individuals without prior exposure to exogenous insulin. Although IAS has been associated with viral infections and, less commonly, with autoimmune and hematologic disorders, medications and dietary supplements are considered the most frequent precipitating factors. Sulfhydryl-containing compounds are the most commonly implicated triggers. Methimazole represents the classical drug-associated cause, whereas an increasing number of cases have been attributed to the widely available antioxidant supplement alpha-lipoic acid (ALA).In genetically susceptible individuals, i.e. in those carrying the HLA alleles HLA-DRB1*04:06/04:/03/04:04, sulfhydryl-containing compounds are thought to alter insulin immunogenicity and promote the formation of IAAs. The resulting insulin–a",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2749,
+      "pmid": "42825362",
+      "doi": "10.4142/jvs.25161",
+      "title": "Activation of the unfolded protein response via PERK-ATF4 signalling in deoxynivalenol- and PRRSV-co-exposed MARC-145 cells.",
+      "category": "metabolic",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2755,
+      "pmid": "42829776",
+      "doi": "10.4103/jehp.jehp_1533_25",
+      "title": "Impact of oil fortification with iron in the prevention of anemia-A systematic review.",
+      "category": "micronutrients",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Micronutrient malnutrition has gained its significant influence on public health and a role in the worldwide disease burden in recent years. Through fortification, the nutritional profile of staple foods is enhanced, making them more nutritious and beneficial for consumption. This systematic review aims to assess the impact of oil fortification with iron in anemia prevention. Electronic search through five databases and additional resources was performed by using the appropriate keywords. Out of 13,948 records that were identified, one double-blind randomized controlled trial done among Swiss women met eligibility criteria. Selected study focused on women aged between 18 and 40 years with low serum ferritin, evaluating the impact of iron-fortified low-fat margarine. This study is registered in PROSPERO (CRD42023420044). Intervention showed an increase in body iron stores with both compounds, namely, sodium iron ethylenediaminetetraacetate (NaFeEDTA) and micronized ground ferric pyropho",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    }
+  ],
+  "missing_after_bulk_lookup": [
+    {
+      "wave": 2707,
+      "pmid": "42790661",
+      "doi": "10.1016/j.jpain.2026.106450",
+      "title": "Modulating Pain via Virtual-Reality-based Interoceptive Modeling: A Randomized Crossover Experiment in an All-Female Sample.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2709,
+      "pmid": "42828921",
+      "doi": "10.1016/j.colsurfb.2026.116212",
+      "title": "Bioinspired Fe-polyphenol nanozymes: harnessing natural coordination assembly for biomedical applications.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2710,
+      "pmid": "42825537",
+      "doi": "10.1002/ptr.70275",
+      "title": "Curcumin Delivery Systems for Inflammatory Skin Application: A Review.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2714,
+      "pmid": "42811994",
+      "doi": "10.31083/FBL47763",
+      "title": "Mechanism and Individualized Management of Hypertension Associated With Bruton Tyrosine Kinase Inhibitors: The PCSK9/Notch3 Signaling Pathway.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2716,
+      "pmid": "42804009",
+      "doi": "10.1007/s11033-026-12867-8",
+      "title": "Phytochemicals modulating TGF-β signaling in radiation-induced fibrosis.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2717,
+      "pmid": "42800936",
+      "doi": "10.2147/DDDT.S639169",
+      "title": "Piperine: From Green Extraction to Clinical Translation-A Review.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2718,
+      "pmid": "42800069",
+      "doi": "10.1080/14786419.2026.2737994",
+      "title": "Rubusoside: a natural and functional sweetener-an integrated review of phytochemistry, bioactivities, and solubilization.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2719,
+      "pmid": "42797524",
+      "doi": "10.3390/ph19091480",
+      "title": "Beyond the Rhizome: Phytochemistry, Biological Activities, and Sustainable Utilization of Curcuma longa L.",
+      "category": "inflammation_pain"
+    },
+    {
+      "wave": 2722,
+      "pmid": "42797031",
+      "doi": "10.3390/nu18183048",
+      "title": "Food Matrix as a Modulator of Spice Phytochemical Bioactivity: Evidence from In Vitro, Animal, and Human Studies.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2726,
+      "pmid": "42829886",
+      "doi": "10.1007/s10653-026-03518-9",
+      "title": "Multi-metal co-exposure and type 2 diabetes: integrating biomonitoring evidence, inflammatory mechanisms, and a framework for future risk stratification.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2727,
+      "pmid": "42821252",
+      "doi": "10.1039/d6cs00825a",
+      "title": "α-Lipoic acid: from a mitochondrial cofactor to a versatile platform for dynamic biomaterials and translational biomedicine.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2729,
+      "pmid": "42802797",
+      "doi": "10.2147/DDDT.S639792",
+      "title": "Neonatal Hypoxic-Ischemic Encephalopathy: From the Limitations of Therapeutic Hypothermia to Precision Intervention.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2731,
+      "pmid": "42781545",
+      "doi": "10.1136/egastro-2026-100574",
+      "title": "Dysosmobacter: from a serendipitous discovery to a next-generation beneficial gut commensal linked to health.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2745,
+      "pmid": "42690000",
+      "doi": "10.31083/FBL41721",
+      "title": "Metabolic Dysfunction-Associated Steatotic Liver Disease and Mitochondrial Quality Control: From Laboratory to Clinical Practice.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2748,
+      "pmid": "42829475",
+      "doi": "10.1080/09205063.2026.2741657",
+      "title": "Dual pH/glucose-responsive berberine-loaded bioactive glass/carboxymethyl chitosan hydrogel for promoting diabetic wound healing.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2750,
+      "pmid": "42823860",
+      "doi": "10.1096/fj.202602880RRR",
+      "title": "Combination of Empagliflozin and Resveratrol Mitigates Hepatic Steatosis via Attenuation of Inflammation and Promotion of Adipose Tissue Browning in High-Fat Diet-Fed C57BL/6J Mice.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2751,
+      "pmid": "42821141",
+      "doi": "10.1007/s10142-026-02052-2",
+      "title": "Network pharmacology, single-cell transcriptomics, machine learning and experimental validation identifying CHEK2 and HPGD as key therapeutic targets of berberine in diabetic nephropathy.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2752,
+      "pmid": "42817135",
+      "doi": "10.2174/0113816128525206260914061658",
+      "title": "ZhiXiaoSanZheng Decoction Ameliorates HGPA-induced HK-2 Cell Injury and Mitochondrial Metabolic Imbalance by Regulating the AMPK/PPARα/CPT1A Pathway.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2753,
+      "pmid": "42828562",
+      "doi": "10.1007/s00198-026-08225-w",
+      "title": "Interaction between vitamin D and the growth hormone/insulin-like growth factor 1 axis in children: a systematic review and meta-analysis.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2754,
+      "pmid": "42829807",
+      "doi": "10.1080/15502783.2026.2740227",
+      "title": "Modulating stress and sleep through a multi-compound dietary supplement: a randomized, double-blind, placebo-controlled trial.",
+      "category": "sleep"
+    }
+  ]
+}

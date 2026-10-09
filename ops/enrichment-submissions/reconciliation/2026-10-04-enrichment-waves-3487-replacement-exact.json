@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3487,
+      "pmid": "42588068",
+      "doi": "10.3390/nu18152446",
+      "category": "women_health",
+      "title": "Real-World Effectiveness of IHATTM in Women with Iron Deficiency Across Pregnancy, Postpartum and Abnormal Uterine Bleeding.",
+      "journal": "Nutrients",
+      "pub_date": "2026-Jul-27",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Prospective multicenter observational study of 517 women with iron deficiency across pregnancy, postpartum, and abnormal uterine bleeding found increases in hemoglobin and ferritin over approximately three months, with high reported adherence and relatively infrequent gastrointestinal adverse events.",
+      "evidence_boundary": "Prospective real-world observational evidence without a randomized comparator; improvements cannot be attributed solely to the intervention and may not generalize beyond the studied product and clinical settings."
+    }
+  ]
+}

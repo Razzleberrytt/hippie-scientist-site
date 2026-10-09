@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-6501-7000-final-status",
+  "range": "6501-7000",
+  "state": "finalized_pending_repository_ci_review",
+  "verified_rows": 500,
+  "unique_new_pmids": 500,
+  "previous_unique_pmids": 6435,
+  "total_unique_pmids": 6935,
+  "duplicates": 0,
+  "previous_pmid_collisions": 0,
+  "replacements": 3,
+  "commit_gate": "Repository checks and review required before merging",
+  "research_only": true,
+  "published": false,
+  "parts": 5,
+  "artifacts": {
+    "manifest": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-manifest.json",
+    "audit": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-audit.json",
+    "index": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-pmid-index.json",
+    "repairs": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-semantic-repairs.json"
+  }
+}

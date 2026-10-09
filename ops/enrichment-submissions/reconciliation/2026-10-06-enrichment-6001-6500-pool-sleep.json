@@ -1,0 +1,1059 @@
+{
+  "schema_version": 1,
+  "category": "sleep",
+  "target": 35,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 105,
+  "rows": [
+    {
+      "pmid": "42687891",
+      "title": "Characterization of the circadian system in binge eating disorder and the effects of morning bright light and individually timed exogenous melatonin administration: A 4-week feasibility double-blind randomized controlled mechanistic clinical trial.",
+      "doi": "10.21203/rs.3.rs-10684280/v1",
+      "pub_date": "2026 Aug 26",
+      "journal": "Research square",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42394777",
+      "title": "Melatonin supplementation, hyperprolactinemia, and incident heart failure: A proposed prolactin-mediated pathway for cardiovascular risk.",
+      "doi": "10.5493/wjem.v16.i2.120754",
+      "pub_date": "2026 Jun 20",
+      "journal": "World journal of experimental medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42399726",
+      "title": "Melatonin in ovarian function and dysfunction: Molecular mechanisms and therapeutic potential.",
+      "doi": "10.1186/s13048-026-02188-6",
+      "pub_date": "2026 Jul 3",
+      "journal": "Journal of ovarian research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42439713",
+      "title": "Chemotypic diversity and neuroactive potential of Valeriana jatamansi Jones: a systematic review on phytochemistry, pharmacology and standardisation challenges.",
+      "doi": "10.1080/14786419.2026.2697332",
+      "pub_date": "2026 Jul 13",
+      "journal": "Natural product research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450571",
+      "title": "The Circadian-Light-Hygiene Hypothesis: A Potential Modulator of Fertility and Birthrate Trends.",
+      "doi": "10.3390/biology15131023",
+      "pub_date": "2026 Jun 26",
+      "journal": "Biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42451209",
+      "title": "The Interactions Between Circadian Rhythm, Gut Microbiota, and Anxiety: From Mechanisms to Intervention Strategies.",
+      "doi": "10.3390/nu18132209",
+      "pub_date": "2026 Jul 7",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42495077",
+      "title": "Perioperative sleep management in cardiac surgery: an evidence-oriented narrative review of pharmacological, behavioral, and respiratory support strategies.",
+      "doi": "10.3389/fcvm.2026.1853937",
+      "pub_date": "2026",
+      "journal": "Frontiers in cardiovascular medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42496250",
+      "title": "Mechanisms of Heat-Induced Sleep Disruption in Aging: A Narrative Review.",
+      "doi": "10.3390/clockssleep8030043",
+      "pub_date": "2026 Jul 8",
+      "journal": "Clocks & sleep",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42498436",
+      "title": "Sleep Disorders: Management by Alternative Therapies.",
+      "doi": "10.1016/j.mcna.2026.01.013",
+      "pub_date": "2026 Sep",
+      "journal": "The Medical clinics of North America",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42499341",
+      "title": "Circadian rhythms and chronotherapy in Alzheimer's disease: Mechanisms and therapeutic implications.",
+      "doi": "10.1002/nep3.70046",
+      "pub_date": "2026 Sep",
+      "journal": "Neuroprotection (Chichester, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42504374",
+      "title": "Impact of Core Circadian Gene Variants on Glycemic Parameters and Insulin Resistance in Type 2 Diabetes: A Systematic Review.",
+      "doi": "10.7759/cureus.111534",
+      "pub_date": "2026 Jun",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42511861",
+      "title": "The Molecular and Cellular Mechanisms of Melatonin: From Physiological Actions to Clinical Applications in Reproductive Medicine.",
+      "doi": "10.3390/ijms27146524",
+      "pub_date": "2026 Jul 22",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42515750",
+      "title": "Atrioventricular Block Potentially Associated with Melatonin Supplementation: A Case Report and Systematic Review of Cardiac Rhythm Adverse Events.",
+      "doi": "10.3390/ph19071069",
+      "pub_date": "2026 Jul 11",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42523963",
+      "title": "Circadian-immune crosstalk in insomnia disorder: mechanisms and therapeutic implications.",
+      "doi": "10.3389/fnins.2026.1881195",
+      "pub_date": "2026",
+      "journal": "Frontiers in neuroscience",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42524168",
+      "title": "Evening Light-Emitting Diode Screen Exposure, Melanopsin-Mediated Circadian Disruption, and Optical Filtration for Sleep Hygiene: A Narrative Review in the Indian Context.",
+      "doi": "10.7759/cureus.113484",
+      "pub_date": "2026 Jul",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42525367",
+      "title": "Current and Emerging Therapies for Pediatric Sleep Disorders: A Narrative Review.",
+      "doi": "10.1007/s40120-026-01002-1",
+      "pub_date": "2026 Oct",
+      "journal": "Neurology and therapy",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42535778",
+      "title": "Recommendations on Switching or Deprescribing Hypnotic Medications for Insomnia.",
+      "doi": "10.3238/arztebl.m2026.0141",
+      "pub_date": "2026 Sep 18",
+      "journal": "Deutsches Arzteblatt international",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42559654",
+      "title": "Sleep Disturbance and Atopic Dermatitis: A Bidirectional Relationship With Clinical and Therapeutic Implications.",
+      "doi": "10.7759/cureus.112165",
+      "pub_date": "2026 Jul",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42564320",
+      "title": "Melatonin and Lactation in Ruminants Dairy Animals: A Systematic Review and Meta-Analysis of Preclinical Studies.",
+      "doi": "10.1002/hsr2.73003",
+      "pub_date": "2026 Aug",
+      "journal": "Health science reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42589377",
+      "title": "Bidirectional Mechanisms Linking Circadian Rhythm Disruption and Parkinson's Disease: Chronobiomarkers and Therapeutic Implications.",
+      "doi": "10.3390/ijms27156719",
+      "pub_date": "2026 Jul 28",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42621357",
+      "title": "When the biological clock is disordered: circadian rhythm disruption as a core pathophysiological mechanism in anxiety and depression.",
+      "doi": "10.3389/fpsyt.2026.1842599",
+      "pub_date": "2026",
+      "journal": "Frontiers in psychiatry",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42623795",
+      "title": "Pharmacological treatments of REM sleep behaviour disorder in synucleinopathies: a systematic review of effectiveness and safety.",
+      "doi": "10.1016/j.sleep.2026.109154",
+      "pub_date": "2026 Dec",
+      "journal": "Sleep medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42625443",
+      "title": "Pharmacological and non-pharmacological interventions for managing sleep disorders in children with cerebral palsy: A systematic review.",
+      "doi": "10.1111/dmcn.70435",
+      "pub_date": "2026 Aug 21",
+      "journal": "Developmental medicine and child neurology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42630638",
+      "title": "Amphetamine-type stimulants in young adults with ADHD: effects on sleep, circadian rhythms, and neuropsychiatric outcomes.",
+      "doi": "10.3389/fphar.2026.1891825",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42635877",
+      "title": "Sleep in Children with Neurodevelopmental Disorders: From Diagnostic Labels to Phenotype-directed Care.",
+      "doi": "10.1007/s11910-026-01513-2",
+      "pub_date": "2026 Aug 24",
+      "journal": "Current neurology and neuroscience reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42636615",
+      "title": "Melatonin: A versatile neuroprotective molecule in neurodegenerative diseases: A narrative review.",
+      "doi": "10.1016/j.tice.2026.103884",
+      "pub_date": "2026 Aug 21",
+      "journal": "Tissue & cell",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42657593",
+      "title": "From plate to pillow: the role of food-derived bioactive compounds in sleep modulation and the potential of glia-neuron crosstalk.",
+      "doi": "10.1039/d6fo02383e",
+      "pub_date": "2026 Sep 21",
+      "journal": "Food & function",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42673734",
+      "title": "Sleep-modulating pharmacological interventions for delirium prevention: a systematic review and a network meta-analysis of randomized controlled trials.",
+      "doi": "10.1016/j.smrv.2026.102365",
+      "pub_date": "2026 Aug 27",
+      "journal": "Sleep medicine reviews",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42674694",
+      "title": "Circadian Rhythm Disruption and Cutaneous Carcinogenesis.",
+      "doi": "10.21873/anticanres.18333",
+      "pub_date": "2026 Sep",
+      "journal": "Anticancer research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42692181",
+      "title": "Intrinsically Photosensitive Retinal Ganglion Cell Dysfunction and Suprachiasmatic Nucleus-Mediated Circadian Disruption in Humans: A Systematic Review.",
+      "doi": "10.1016/j.exer.2026.111229",
+      "pub_date": "2026 Sep 3",
+      "journal": "Experimental eye research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42694495",
+      "title": "Ayurvedic Interventions for Primary Insomnia in the Elderly: A Systematic Review of Clinical Evidence and Research Gaps.",
+      "doi": "10.1177/27536130261440317",
+      "pub_date": "2026 Jan-Dec",
+      "journal": "Global advances in integrative medicine and health",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42728526",
+      "title": "Melatonin in Pregnancy-Related Disorders: A Review of Protective Mechanisms and Therapeutic Potential.",
+      "doi": "10.1007/s43032-026-02196-3",
+      "pub_date": "2026 Sep 11",
+      "journal": "Reproductive sciences (Thousand Oaks, Calif.)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42771218",
+      "title": "Melatonin beyond chronobiology: integrating pharmacokinetics, dose-exposure forecasting, and clinical evidence.",
+      "doi": "10.1007/s11033-026-12765-z",
+      "pub_date": "2026 Sep 22",
+      "journal": "Molecular biology reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824268",
+      "title": "Decoding melatonin's role in musculoskeletal health: mechanistic foundations and clinical applications.",
+      "doi": "10.1007/s43465-026-01795-1",
+      "pub_date": "2026 Sep",
+      "journal": "Indian journal of orthopaedics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42534655",
+      "title": "Follow-up and outcome of patients with primary BH4 deficiencies.",
+      "doi": "10.3389/fneur.2026.1793300",
+      "pub_date": "2026",
+      "journal": "Frontiers in neurology",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42382567",
+      "title": "Diurnal rhythms in melatonin and cortisol in very preterm human milk.",
+      "doi": "10.3389/fnut.2026.1845043",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42392022",
+      "title": "Dim light melatonin onset profile endotypes in a real-world clinical population with home-based, self-collected salivary assessments: Identification, distribution, and potential clinical relevance.",
+      "doi": "10.1016/j.sleep.2026.109053",
+      "pub_date": "2026 Oct",
+      "journal": "Sleep medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42394773",
+      "title": "Letter to the Editor: Circadian and microbial misalignment in metabolic dysfunction-associated steatotic liver disease - mechanistic insights and chronotherapeutic potential.",
+      "doi": "10.5493/wjem.v16.i2.118228",
+      "pub_date": "2026 Jun 20",
+      "journal": "World journal of experimental medicine",
+      "pub_type": "Comment",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395279",
+      "title": "Evaluating community pharmacists' practices in managing insomnia in Saudi Arabia: a cross-sectional study using simulated patient visits.",
+      "doi": "10.3389/fpubh.2026.1792148",
+      "pub_date": "2026",
+      "journal": "Frontiers in public health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42401921",
+      "title": "Circadian dysregulation as a factor in impaired hepatic protein-synthetic function under chronic photoperiod disruption: the role of sex and chronobiotic correction.",
+      "doi": "10.1186/s13293-026-00949-y",
+      "pub_date": "2026 Jul 4",
+      "journal": "Biology of sex differences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42415359",
+      "title": "Circadian rhythms in the wild: Skin temperature versus actimetry for short-term field assessment in varying sleep conditions.",
+      "doi": "10.1080/07420528.2026.2696432",
+      "pub_date": "2026 Jul 7",
+      "journal": "Chronobiology international",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42417186",
+      "title": "Circadian Rhythm in Restless Legs Syndrome and Its Association With Symptom Severity: An Actigraphy-Based Study.",
+      "doi": "10.1177/07487304261456963",
+      "pub_date": "2026 Jul 8",
+      "journal": "Journal of biological rhythms",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42427282",
+      "title": "Pregnant Women With Gestational Diabetes Mellitus and High Consumption of Tryptophan-Rich Foods Show Increased Levels of 6-Sulfatoxymelatonin in Urine.",
+      "doi": "10.1155/jp/4762066",
+      "pub_date": "2026",
+      "journal": "Journal of pregnancy",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42435888",
+      "title": "Topical melatonin in esthetic dermatology: From cutaneous melatoninergic biology to photoprotection, and skin rejuvenation.",
+      "doi": "10.1016/j.clindermatol.2026.07.002",
+      "pub_date": "2026 Jul 11",
+      "journal": "Clinics in dermatology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450025",
+      "title": "A Dysbiosis-Urolithin A Depletion-Low 6-Sulfatoxymelatonin Triad as a Composite Biomarker Framework Across Age-Related Vascular and Malignant Disease States.",
+      "doi": "10.3390/ijms27135753",
+      "pub_date": "2026 Jun 25",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42462503",
+      "title": "Time-of-day effects on eating behaviors: Examining circadian timing and caloric intake patterns.",
+      "doi": "10.1016/j.eatbeh.2026.102113",
+      "pub_date": "2026 Aug",
+      "journal": "Eating behaviors",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42462921",
+      "title": "A Passiflora incarnata extract exerts multi-target effects on selected sleep-related receptors.",
+      "doi": "10.1016/j.jep.2026.122198",
+      "pub_date": "2027 Jan 10",
+      "journal": "Journal of ethnopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42470603",
+      "title": "From GPT-4 to Expert-Endorsed Athlete Guidance: A Delphi Consensus on Sleep and Jet Lag.",
+      "doi": "10.1007/s40279-026-02484-7",
+      "pub_date": "2026 Jul 18",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42476148",
+      "title": "Circadian Rhythms in Dermatology: Mechanisms, Clinical Implications, and Chronotherapy Opportunities.",
+      "doi": "10.1097/ASW.0000000000000498",
+      "pub_date": "2026 Jul 20",
+      "journal": "Advances in skin & wound care",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42497814",
+      "title": "Chronotype preference and circadian markers in children and adolescents with obsessive-compulsive disorder: A case-control study.",
+      "doi": "10.1016/j.sleep.2026.109152",
+      "pub_date": "2026 Nov",
+      "journal": "Sleep medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42501684",
+      "title": "Cadmium induces renal injury via a BMAL1-dependent inflammatory and senescence cascade: Attenuation by Lycium barbarum polysaccharide and melatonin.",
+      "doi": "10.1016/j.ecoenv.2026.120563",
+      "pub_date": "2026 Sep 1",
+      "journal": "Ecotoxicology and environmental safety",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42504584",
+      "title": "Variable Morning Melatonin Profiles Limit Determination of Dim-Light Melatonin Offset in Preschool-Aged Children.",
+      "doi": "10.1177/07487304261469609",
+      "pub_date": "2026 Jul 27",
+      "journal": "Journal of biological rhythms",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42509620",
+      "title": "Treatment of Post-Concussion Sleep Disturbances in Children and Adults: A Scoping Review.",
+      "doi": "10.1097/HTR.0000000000001203",
+      "pub_date": "2026 Jul 28",
+      "journal": "The Journal of head trauma rehabilitation",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42518646",
+      "title": "Therapeutic dilemma: how to treat severe chronic sleep concerns in youth with neurodevelopmental disorders.",
+      "doi": "10.1093/pch/pxag050",
+      "pub_date": "2026 Jul",
+      "journal": "Paediatrics & child health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42524479",
+      "title": "Spawning of pacu, Piaractus mesopotamicus, at two different times, with a focus on melatonin levels and reproductive performance.",
+      "doi": "10.1590/1984-3143-AR2025-0024",
+      "pub_date": "2026",
+      "journal": "Animal reproduction",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42527970",
+      "title": "How Clinicians Manage Sleep During Inpatient Hospitalization Following Pediatric Hematopoietic Stem Cell Transplantation.",
+      "doi": "10.1002/1545-5017.70468",
+      "pub_date": "2026 Sep",
+      "journal": "Pediatric blood & cancer",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42528305",
+      "title": "Chrononutrition, Circadian Rhythms, and Genetic Susceptibility in Noncommunicable Diseases: Sex-Specific Perspective.",
+      "doi": "10.1093/nutrit/nuag115",
+      "pub_date": "2026 Jul 29",
+      "journal": "Nutrition reviews",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42535145",
+      "title": "Impact of Perioperative Circadian Rhythm Disruption on Recovery and Complications in Skull Base Surgery: A Prospective Cohort Study.",
+      "doi": "10.1055/s-0046-1819645",
+      "pub_date": "2026 Sep",
+      "journal": "Asian journal of neurosurgery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42539544",
+      "title": "Circadian dimensions in insomnia disorder: mechanistic evidence, candidate phenotypes, and a phenotype-stratified research framework.",
+      "doi": "10.3389/fpsyt.2026.1884632",
+      "pub_date": "2026",
+      "journal": "Frontiers in psychiatry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42546381",
+      "title": "Au nanocoral-gated needle-type organic electrochemical transistor for ultrasensitive in vivo melatonin detection.",
+      "doi": "10.1016/j.bios.2026.119087",
+      "pub_date": "2026 Nov 15",
+      "journal": "Biosensors & bioelectronics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42550425",
+      "title": "Continuous Light Exposure as Factor in Pro-Senescent Liver Remodeling: Key Role of Melatonin Deficiency.",
+      "doi": "10.1134/S0012496626600314",
+      "pub_date": "2026 Aug 3",
+      "journal": "Doklady biological sciences : proceedings of the Academy of Sciences of the USSR, Biological sciences sections",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42560083",
+      "title": "A Cross-Sectional Study of Prescribed Sleep Medication Use and Its Clinical and Demographic Factors Among Young People Receiving Mental Health Crisis Interventions in Sydney, Australia.",
+      "doi": "10.1111/jcap.70071",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of child and adolescent psychiatric nursing : official publication of the Association of Child and Adolescent Psychiatric Nurses, Inc",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42570448",
+      "title": "Time-restricted eating to entrain circadian rhythms, increase physiological responsiveness, and prevent stressor-induced frailty: A pilot randomized controlled trial.",
+      "doi": "10.1016/j.jgo.2026.103077",
+      "pub_date": "2026 Aug 8",
+      "journal": "Journal of geriatric oncology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42578404",
+      "title": "Impact of Human Melanopsin Gene (OPN4) Polymorphisms (I394T, P10L) on Nocturnal Melatonin and Daily Rhythms in Young Adults.",
+      "doi": "10.1111/jpi.70181",
+      "pub_date": "2026 Sep",
+      "journal": "Journal of pineal research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42584690",
+      "title": "Effects of bedtime melatonin treatment on blood pressure and arterial stiffness: a three-month, randomized, placebo-controlled crossover study in individuals with type 2 diabetes mellitus.",
+      "doi": "10.1007/s00592-026-02750-0",
+      "pub_date": "2026 Aug 12",
+      "journal": "Acta diabetologica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42604612",
+      "title": "Day and night variation of plasma melatonin and glucocorticoids in a subterranean rodent endemic to north-west Argentina in two seasons.",
+      "doi": "10.1016/j.yhbeh.2026.105980",
+      "pub_date": "2026 Aug",
+      "journal": "Hormones and behavior",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42613860",
+      "title": "Melatonin Use in a School-aged Boy with Obesity Born to a Mother with Type 2 Diabetes.",
+      "doi": "10.4274/jcrpe.galenos.2026.2026-7-24",
+      "pub_date": "2026 Aug 19",
+      "journal": "Journal of clinical research in pediatric endocrinology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42614672",
+      "title": "Insomnia-Associated Circadian and Thrombotic Alterations Coincide with Morning Cardiac Vulnerability.",
+      "doi": "10.1021/acsptsci.5c00752",
+      "pub_date": "2026 Aug 14",
+      "journal": "ACS pharmacology & translational science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42615232",
+      "title": "Rapid eye movement sleep reduction in pediatric epilepsy: A propensity score-matched study.",
+      "doi": "10.1002/epi.70433",
+      "pub_date": "2026 Aug 19",
+      "journal": "Epilepsia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42617392",
+      "title": "High-dose melatonin for early tibial fracture healing: A prospective study of safety, feasibility, and preliminary biological effects.",
+      "doi": "10.1016/j.injury.2026.113548",
+      "pub_date": "2026 Aug 14",
+      "journal": "Injury",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42642973",
+      "title": "Effect of organic light-emitting diode on nighttime task performance and melatonin secretion: Randomized controlled trials.",
+      "doi": "10.1080/07420528.2026.2723201",
+      "pub_date": "2026 Aug 25",
+      "journal": "Chronobiology international",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42655910",
+      "title": "Melatonin exerts dual, concentration-dependent effects on intestinal pacemaker networks via MT2 receptor activation and redox pathways.",
+      "doi": "10.1111/bph.70658",
+      "pub_date": "2026 Aug 26",
+      "journal": "British journal of pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42658639",
+      "title": "A preliminary investigation of the relationship between rapid eye movement (REM) sleep and fear inhibition processes in the context of circadian misalignment.",
+      "doi": "10.1037/tra0002257",
+      "pub_date": "2026 Aug 27",
+      "journal": "Psychological trauma : theory, research, practice and policy",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42661501",
+      "title": "Association Between Serum Trace Elements and Obstructive Sleep Apnea: Multiple-Exposure Models.",
+      "doi": "10.3961/jpmph.25.904",
+      "pub_date": "2026 Aug 8",
+      "journal": "Journal of preventive medicine and public health = Yebang Uihakhoe chi",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42669868",
+      "title": "Stability-enhanced liposomal system co-loaded with γ-aminobutyric acid and naringenin: outstanding sleep-promoting efficacy.",
+      "doi": "10.1002/jsfa.71017",
+      "pub_date": "2026 Aug 30",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42677863",
+      "title": "Differences in circadian rhythm changes between myopic and non-myopic college students over 2 years.",
+      "doi": "10.1080/07420528.2026.2723199",
+      "pub_date": "2026 Sep 1",
+      "journal": "Chronobiology international",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42701454",
+      "title": "Circadian and behavioral timing in MASLD: a systematic review of human observational studies.",
+      "doi": "10.1016/j.eclinm.2026.104187",
+      "pub_date": "2026 Sep",
+      "journal": "EClinicalMedicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42708270",
+      "title": "Circadian Rhythm Disruption in Alzheimer's Disease: Molecular Mechanisms, Clinical Implications, and Therapeutic Approaches.",
+      "doi": "10.2174/0115672026473002260820065219",
+      "pub_date": "2026 Aug 29",
+      "journal": "Current neurovascular research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42712099",
+      "title": "Smartphone-based digital phenotyping of sighted non-24-h sleep-wake disorder: A 258-d continuous circadian monitoring study.",
+      "doi": "10.1080/07420528.2026.2712429",
+      "pub_date": "2026 Sep 8",
+      "journal": "Chronobiology international",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42717437",
+      "title": "The Circadian System and Chronic Kidney Disease Risk: Epidemiological Evidence.",
+      "doi": "10.1177/07487304261477969",
+      "pub_date": "2026 Sep 9",
+      "journal": "Journal of biological rhythms",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42725517",
+      "title": "Circadian Rhythm Disruption in Alzheimer's Disease: Mechanistic Insights, Diagnostic Implications, and Emerging Chronotherapeutic Strategies: A Narrative Review.",
+      "doi": "10.2174/0118715273425623260210180623",
+      "pub_date": "2026 Sep 4",
+      "journal": "CNS & neurological disorders drug targets",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42727489",
+      "title": "Unraveling the impact of vine growth habit on stem elongation through photosystem redox modulation and a proposed ELIP-GASA22 regulatory module in Glycinesoja.",
+      "doi": "10.1016/j.plaphy.2026.111713",
+      "pub_date": "2026 Sep",
+      "journal": "Plant physiology and biochemistry : PPB",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42729312",
+      "title": "Synergistic effects of intradialytic concurrent training and melatonin supplementation on immune cell adaptations in hemodialysis patients.",
+      "doi": "10.3389/fphar.2026.1880592",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42732417",
+      "title": "Efficacy of an Oral Melatonin Suspension in Idiopathic Nocturnal Irritability among Infants Older than 6 Months: A Randomized, Single-blind, Quasi-experimental Trial.",
+      "doi": "10.4103/jrpp.jrpp_115_25",
+      "pub_date": "2026",
+      "journal": "Journal of research in pharmacy practice",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42735299",
+      "title": "Endocrine, Skeletal, and Circadian Biomarker Profiles Across Operational Phases in Elite Special Forces Operators.",
+      "doi": "10.1519/JSC.0000000000005679",
+      "pub_date": "2026 Sep 14",
+      "journal": "Journal of strength and conditioning research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760394",
+      "title": "The role of the transdiagnostic sleep and circadian intervention in adolescent bedtime and sleep quality: a pilot study.",
+      "doi": "10.1007/s44470-026-00180-x",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of clinical sleep medicine : JCSM : official publication of the American Academy of Sleep Medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807004",
+      "title": "Evaluating non-linear thresholds and synergistic interactions in the comorbidity of preoperative insomnia and emergence agitation: a SHAP-based machine learning study.",
+      "doi": "10.3389/fneur.2026.1875540",
+      "pub_date": "2026",
+      "journal": "Frontiers in neurology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813623",
+      "title": "Melatonin and Diabetic Nephropathy: From Mechanistic Pathways to Translational Opportunities in Clinical Management.",
+      "doi": "10.2174/0109298673480116260915111102",
+      "pub_date": "2026 Sep 25",
+      "journal": "Current medicinal chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813838",
+      "title": "Influence of Intravenous Norepinephrine Administration on Melatonin Plasma Concentration in Awake and Anaesthetised Healthy Adult Volunteers.",
+      "doi": "10.1111/jpi.70188",
+      "pub_date": "2026 Nov",
+      "journal": "Journal of pineal research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42821616",
+      "title": "Forward genetics reveals a conserved CNBHD-CNBHD interface that restrains EAG channel activation to regulate sleep.",
+      "doi": "10.1371/journal.pgen.1012255",
+      "pub_date": "2026 Oct 1",
+      "journal": "PLoS genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836311",
+      "title": "Individual effects of a nutritional supplementation blend on sleep in professional under-17 footballers: a replicate crossover trial.",
+      "doi": "10.1080/24733938.2026.2741064",
+      "pub_date": "2026 Oct 6",
+      "journal": "Science & medicine in football",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42392020",
+      "title": "Ten-year trends in pediatric hypnotic prescribing before and during the COVID-19 pandemic in Japan.",
+      "doi": "10.1016/j.sleep.2026.109108",
+      "pub_date": "2026 Oct",
+      "journal": "Sleep medicine",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42429052",
+      "title": "Endocrine‑metabolic imbalance drives osteoarthritis: From whole‑joint pathobiology to precision therapy (Review).",
+      "doi": "10.3892/ijmm.2026.5923",
+      "pub_date": "2026 Sep",
+      "journal": "International journal of molecular medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42489789",
+      "title": "Therapeutic and research frontiers in fibromyalgia: integrating pathophysiology with innovative drug repurposing.",
+      "doi": "10.1007/s10787-026-02349-5",
+      "pub_date": "2026 Aug",
+      "journal": "Inflammopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42489905",
+      "title": "Plant-derived therapies in Parkinson's disease: a systematic review of clinical evidence.",
+      "doi": "10.1007/s00702-026-03239-4",
+      "pub_date": "2026 Jul 23",
+      "journal": "Journal of neural transmission (Vienna, Austria : 1996)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42515816",
+      "title": "Post-COVID-19 rise in central precocious puberty: an integrative Review.",
+      "doi": "10.1515/jpem-2026-0331",
+      "pub_date": "2026 Oct 26",
+      "journal": "Journal of pediatric endocrinology & metabolism : JPEM",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42539707",
+      "title": "Altered tryptophan metabolism as a contributor to cognitive impairment in chronic kidney disease: a narrative review.",
+      "doi": "10.3389/fnins.2026.1872778",
+      "pub_date": "2026",
+      "journal": "Frontiers in neuroscience",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42587597",
+      "title": "Detecting the Non-Dipper Phenotype in Adolescents Exposed to Nighttime Screen Use-Digital Chronotoxicity as a Proposed Integrative Framework: A Narrative Review of Ambulatory Blood Pressure Monitoring, Subclinical Biomarkers, and Emerging Wearable and AI-Based Screening.",
+      "doi": "10.3390/diagnostics16152355",
+      "pub_date": "2026 Jul 27",
+      "journal": "Diagnostics (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42588175",
+      "title": "Current Evidence and Practical Considerations for Adaptogen Use in Exercise Recovery, Training Adaptation, and Exercise Performance in Athletes: A Narrative Review.",
+      "doi": "10.3390/nu18152552",
+      "pub_date": "2026 Aug 4",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42610386",
+      "title": "A global literature review of comorbidities and concomitant supportive medications among individuals with Rett syndrome.",
+      "doi": "10.57264/cer-2026-0100",
+      "pub_date": "2026 Sep",
+      "journal": "Journal of comparative effectiveness research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42663788",
+      "title": "The interplay between chronobiology, neuroinflammation, and the glymphatic system in neurodegenerative diseases.",
+      "doi": "10.1007/s11033-026-12670-5",
+      "pub_date": "2026 Aug 28",
+      "journal": "Molecular biology reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752099",
+      "title": "NR4A2-Related Neurodevelopmental Disorder and Dopa-Responsive Dystonia.",
+      "doi": null,
+      "pub_date": "1993",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754851",
+      "title": "Nutrigenomics in the prevention and management of type 2 diabetes and obesity: A systematic review of clinical trials.",
+      "doi": "10.1177/02601060261487857",
+      "pub_date": "2026 Sep 17",
+      "journal": "Nutrition and health",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772083",
+      "title": "Management of Non-REM parasomnias: A systematic review of evidence-based treatment approaches.",
+      "doi": "10.1016/j.smrv.2026.102376",
+      "pub_date": "2026 Sep 17",
+      "journal": "Sleep medicine reviews",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42794432",
+      "title": "BMAL1 Dysregulation as a Contributing Mechanism Linking Obesity to Oocyte and Endometrial Dysfunction in IVF.",
+      "doi": "10.3390/ijms27188001",
+      "pub_date": "2026 Sep 8",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract] OR ashwagandha[Title/Abstract]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

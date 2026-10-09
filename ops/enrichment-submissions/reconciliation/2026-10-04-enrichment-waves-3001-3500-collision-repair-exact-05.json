@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "part": 5,
+  "rows": [
+    {
+      "wave": 3231,
+      "old_pmid": "42774343",
+      "pmid": "42756089",
+      "doi": "10.3389/fnut.2026.1922441",
+      "category": "metabolic",
+      "title": "Vitamin D status, metabolic determinants, and association with MASLD: retrospective health-screening cohort mediation analysis.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3236,
+      "old_pmid": "42745443",
+      "pmid": "42796984",
+      "doi": "10.3390/nu18183000",
+      "category": "metabolic",
+      "title": "Therapeutic Potential of Berberine in Obesity-Associated Neuroinflammation Through Shared Molecular Pathways: TLR4/NF-κB/MAPK, ROS/NRF2 and NLRP3.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Nutrients",
+      "pub_date": "2026-Sep-14",
+      "error": null
+    },
+    {
+      "wave": 3298,
+      "old_pmid": "42765071",
+      "pmid": "41604113",
+      "doi": "10.1007/s11357-025-02068-9",
+      "category": "mitochondrial_energy",
+      "title": "Coenzyme Q10 supplementation raises plasma levels without improving mitochondrial function in older adults.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "GeroScience",
+      "pub_date": "2026-Jan-28",
+      "error": null
+    },
+    {
+      "wave": 3308,
+      "old_pmid": "42796943",
+      "pmid": "41705654",
+      "doi": "10.1080/15502783.2026.2632284",
+      "category": "mitochondrial_energy",
+      "title": "Anti-inflammatory effects of nicotinamide mononucleotide (NMN) in human skeletal muscle after BFR-exercise.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2026-Dec-31",
+      "error": null
+    },
+    {
+      "wave": 3318,
+      "old_pmid": "42794622",
+      "pmid": "41605120",
+      "doi": "10.1016/j.jad.2025.120696",
+      "category": "mood",
+      "title": "Effectiveness of probiotic supplementation in managing depressive symptoms and inflammatory status in patients with depression: A systematic review and meta-analysis.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_date": "2026-Mar",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1301-1325-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1276-1300-selection",
+  "program": {
+    "range": "1001-1500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 325,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1500"
+  },
+  "source_provenance": [
+    "Sider Scholar/NCBI PubMed exact-source verification",
+    "collision screening against merged history, pending Waves 501-1000, and active Waves 1001-1300"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 1500"
+  },
+  "waves": [
+    {
+      "wave": 1301,
+      "entity_slug": "cricket-protein-concurrent-training",
+      "pmid": "42813244",
+      "focus": "Randomized trial in 44 older adults found concurrent training plus cricket protein hydrolysate improved selected blood-pressure-related measures versus placebo, but showed no clear added benefit over training or protein alone and did not uniquely improve arterial stiffness or most HRV outcomes.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1302,
+      "entity_slug": "black-cumin-sleep-circadian",
+      "pmid": "42819242",
+      "focus": "Small randomized double-blind crossover trial in 24 adults with non-restorative sleep found a black-cumin-oil extract produced a distinct nocturnal melatonin profile and reduced daytime sleepiness/cortisol, while synthetic melatonin improved sleep latency and total sleep time more; active-comparator design and proprietary formulation limit generalization.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1303,
+      "entity_slug": "bcaa-postoperative-muscle",
+      "pmid": "42819727",
+      "focus": "Single-blind randomized trial in 50 gastrointestinal-cancer surgery patients found BCAA-enriched supplementation after exercise did not significantly improve thigh muscle area, strength or six-minute-walk distance compared with amino-acid-free supplementation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1304,
+      "entity_slug": "caffeine-postexercise-recovery",
+      "pmid": "42823978",
+      "focus": "Systematic review and three-level meta-analysis found caffeine had no clear effect on perceptual or physiological recovery, a small possible benefit for functional performance, and worse sleep recovery; prediction intervals crossed the null and certainty varied by domain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1305,
+      "entity_slug": "postbiotic-overweight-gut-health",
+      "pmid": "42824179",
+      "focus": "Randomized double-blind placebo-controlled trial in adults with excess weight and GI discomfort found a heat-killed Lactiplantibacillus plantarum postbiotic improved GSRS symptoms, perceived stress and digestion-related quality of life with microbiome shifts, while TNF-alpha, lipids and body composition were unchanged.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1306,
+      "entity_slug": "igy-helicobacter-pylori",
+      "pmid": "42824818",
+      "focus": "Randomized double-blind adjunctive trial in 60 H. pylori patients found IgY-enriched egg-yolk powder numerically improved eradication and symptom recovery, but the eradication difference was not statistically significant; promising adjunct signal without confirmatory efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1307,
+      "entity_slug": "pediococcus-functional-constipation",
+      "pmid": "42824822",
+      "focus": "Randomized double-blind trial in 87 adults with functional constipation found Pediococcus acidilactici PA53 improved stool form and altered gut microbiota, while between-group bowel-movement-frequency and biomarker differences were not significant.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1308,
+      "entity_slug": "chickpea-protein-exercise-recovery",
+      "pmid": "42828502",
+      "focus": "Randomized double-blind trial in 24 trained male cyclists found 14 days of chickpea protein hydrolysate improved selected LDH and CRP responses after training, while body composition and direct recovery/performance outcomes were not improved or not measured.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1309,
+      "entity_slug": "corn-fiber-cardiometabolic",
+      "pmid": "42829185",
+      "focus": "Meta-analysis of randomized trials found corn-derived dietary fibers lowered total and LDL cholesterol modestly, while glycemic control, other lipids, anthropometrics, blood pressure and CRP were unchanged.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1310,
+      "entity_slug": "beetroot-resistance-training-older-adults",
+      "pmid": "42829363",
+      "focus": "Twelve-week randomized trial in middle-aged and older adults found resistance training improved mitochondrial and strength measures, but nitrate-rich beetroot juice provided no additional benefit on molecular or functional outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1311,
+      "entity_slug": "green-coffee-magnesium-t2d",
+      "pmid": "42531580",
+      "focus": "Randomized double-blind pilot in women with type 2 diabetes found a green-coffee-extract plus magnesium-dimalate capsule regimen was feasible, but glycemic and cardiovascular biomarker effects were exploratory and inconclusive.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1312,
+      "entity_slug": "fenugreek-postpartum-sleep",
+      "pmid": "42547874",
+      "focus": "Triple-blind randomized trial in 60 primiparous postpartum women found fenugreek extract improved later PSQI sleep scores after baseline adjustment, but baseline sleep differed between groups and the study was small.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1313,
+      "entity_slug": "asparagus-extract-sleep",
+      "pmid": "42571331",
+      "focus": "Randomized double-blind crossover trial in 38 adults dissatisfied with sleep found standardized Asparagus officinalis extract did not improve the primary N3-sleep endpoint but reduced wake after sleep onset and selected insomnia-symptom scores; subgroup findings were post hoc.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1314,
+      "entity_slug": "propolis-bioavailability",
+      "pmid": "42598803",
+      "focus": "Small randomized double-blind crossover pharmacokinetic study in healthy adults characterized rapid absorption and urinary elimination of phenolics from a standardized propolis extract; evidence informs bioavailability rather than clinical efficacy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1315,
+      "entity_slug": "egcg-obesity-iron-inflammation",
+      "pmid": "42613905",
+      "focus": "Pilot randomized double-blind trial in 17 women with obesity found no between-group metabolic, inflammatory or iron-status differences surviving multiple-comparison correction after EGCG; metabolomic findings were nominal and exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1316,
+      "entity_slug": "moringa-obesity-metabolomics",
+      "pmid": "42666703",
+      "focus": "Small randomized double-blind trial in adults with obesity found Moringa oleifera leaf extract reduced BMI and improved selected HbA1c, HDL, microbiome and metabolomic measures while preserving lean-mass-related measures; modest sample and multi-omic multiplicity require replication.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1317,
+      "entity_slug": "shatavari-low-libido",
+      "pmid": "42751626",
+      "focus": "Randomized double-blind placebo-controlled trial in 70 women with low libido found standardized Shatavari root extract improved FSFI and several fatigue, sleep, anxiety and psychosocial scores over eight weeks; single-center proprietary-extract evidence requires independent replication.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1318,
+      "entity_slug": "andrographolide-urti",
+      "pmid": "42760788",
+      "focus": "Randomized double-blind placebo-controlled trial in 56 adults with uncomplicated URTI found a standardized andrographolide formulation improved symptom scores and mucus weight faster than placebo, while CRP and IL-8 changes were not clearly significant.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1319,
+      "entity_slug": "ginger-primary-dysmenorrhea",
+      "pmid": "42765050",
+      "focus": "Multicenter randomized double-blind placebo-controlled trial found standardized ginger extract reduced menstrual pain, dysmenorrhea severity, symptom burden and menstrual flow over three cycles, with favorable tolerability; formulation-specific replication remains important.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1320,
+      "entity_slug": "multivitamin-cocoa-neurodegeneration-biomarkers",
+      "pmid": "42775737",
+      "focus": "COSMOS-clinic ancillary analysis found neither a multivitamin-multimineral nor cocoa flavanol extract significantly changed two-year blood neurodegeneration biomarkers NfL, NT1 tau fragment or oligomeric amyloid-beta versus placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1321,
+      "entity_slug": "walnut-mood-young-adults",
+      "pmid": "42808314",
+      "focus": "Open-label randomized crossover trial in 31 mostly female young adults found eight weeks of walnut consumption modestly reduced total mood disturbance and increased urinary 5-HIAA and urolithins; small sample and open-label food intervention limit causal certainty.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1322,
+      "entity_slug": "shatavari-postmenopause-discomfort",
+      "pmid": "42769795",
+      "focus": "Randomized double-blind placebo-controlled trial in 214 postmenopausal women found a standardized Asparagus racemosus extract improved several sexual-function and menopausal-symptom measures and oxidative-stress markers; proprietary formulation and broad endpoint set warrant independent replication.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1323,
+      "entity_slug": "dietary-nitrate-postmenopause-reactivity",
+      "pmid": "42782334",
+      "focus": "Randomized crossover trial in 14 healthy normotensive postmenopausal women found short-term nitrate-rich beetroot juice did not alter blood-pressure or heart-rate reactivity to handgrip, post-exercise ischemia or cold pressor stress.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1324,
+      "entity_slug": "gochujang-menopause",
+      "pmid": "42787012",
+      "focus": "Eight-week randomized double-blind three-arm trial in 59 postmenopausal women found all gochujang formulations improved symptoms within groups, but there were no between-formulation differences and no placebo arm, so efficacy cannot be established.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1325,
+      "entity_slug": "prenatal-vitamin-d-offspring-bone",
+      "pmid": "42829785",
+      "focus": "Thirteen-year follow-up of a randomized prenatal vitamin D trial found no lasting benefit of higher-dose gestational vitamin D on offspring bone mineral content, bone density or fracture risk versus standard-dose supplementation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

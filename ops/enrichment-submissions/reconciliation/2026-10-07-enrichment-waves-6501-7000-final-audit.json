@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-6501-7000-final-audit",
+  "range": "6501-7000",
+  "source_branch": "research/enrichment-6501-7000",
+  "consolidation_branch": "data/enrichment-waves-6501-7000-final-20261007",
+  "check_basis": "Direct parsing of the five finalized source-part JSON files against the main-branch predecessor PMID index",
+  "row_count": 500,
+  "contiguous_waves": true,
+  "unique_pmids": 500,
+  "duplicate_pmids": 0,
+  "duplicate_normalized_dois": 0,
+  "duplicate_normalized_titles": 0,
+  "pmids_colliding_with_predecessor": 0,
+  "exact_title_verified": 500,
+  "non_null_abstract_verified": 500,
+  "doi_metadata_present": 494,
+  "doi_metadata_absent": 6,
+  "semantic_repairs": 3,
+  "category_counts": {
+    "stress_anxiety": 11,
+    "sleep": 25,
+    "withdrawal_nps": 35,
+    "cardiometabolic": 30,
+    "performance": 15,
+    "aging_sarcopenia": 20,
+    "micronutrients": 37,
+    "women_health": 30,
+    "gut": 40,
+    "cognition_focus": 30,
+    "mood": 30,
+    "inflammation_pain": 30,
+    "metabolic": 30,
+    "botanicals_mushrooms": 30,
+    "safety_interactions": 25,
+    "cannabinoid_safety": 22,
+    "mitochondrial_energy": 15,
+    "immune_respiratory": 45
+  },
+  "context_only_review_flags": [
+    {
+      "wave": 6522,
+      "type": "circadian-modeling",
+      "claim_gate": "not direct clinical treatment evidence"
+    },
+    {
+      "wave": 6551,
+      "type": "indirect-clinical-association",
+      "claim_gate": "not a treatment recommendation for benzodiazepine dependence"
+    },
+    {
+      "wave": 6561,
+      "type": "health-economics",
+      "claim_gate": "not evidence of treatment efficacy"
+    },
+    {
+      "wave": 6571,
+      "type": "neonatal-pharmacokinetic-model",
+      "claim_gate": "no dose recommendations"
+    },
+    {
+      "wave": 6587,
+      "type": "cost-effectiveness",
+      "claim_gate": "no inference of dietary supplement benefit"
+    }
+  ],
+  "human_preclinical_word_sense_note": {
+    "wave": 6628,
+    "explanation": "Preclinical Alzheimer's disease in the title describes the clinical disease stage of human participants, not animal or in vitro preclinical research"
+  },
+  "integrity_issues": {
+    "noncontiguous_waves": [],
+    "duplicate_pmids": [],
+    "duplicate_titles": [],
+    "duplicate_dois": [],
+    "predecessor_collisions": [],
+    "exact_verification_failures": []
+  },
+  "source_part_blob_shas": [
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-part-01.json",
+      "blob_sha": "fec4c82f9384dbb89c6d6c32b943c42a7dcd02f7"
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-part-02.json",
+      "blob_sha": "6f6dd861d194057c1cadae50a025ba29e0eee2a9"
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-part-03.json",
+      "blob_sha": "5b412caa5eb5d8155f518385d7832f01850f8e25"
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-part-04.json",
+      "blob_sha": "28b3b2cec21fc1cff1619e2059e7f0a788fe1774"
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-6501-7000-final-part-05.json",
+      "blob_sha": "c57a102b7bb6c9a0a0f6a33f8109bdd72dd007e9"
+    }
+  ],
+  "research_only": true,
+  "claim_promotion_allowed": false
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "row_count": 1,
+  "rows": [
+    {
+      "wave": 3850,
+      "pmid": "42515750",
+      "doi": "10.3390/ph19071069",
+      "title": "Atrioventricular Block Potentially Associated with Melatonin Supplementation: A Case Report and Systematic Review of Cardiac Rhythm Adverse Events.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2026-Jul-11",
+      "pub_type": "Review",
+      "pmcid": null,
+      "category": "safety_interactions",
+      "primary_category": "safety_interactions",
+      "source_query": "targeted safety reserve: melatonin adverse cardiac rhythm events",
+      "replacement_for_pmid": "42810501",
+      "replacement_reason": "off-domain ozone-pollution machine-learning false positive",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "focus": "Background/Objectives: Melatonin is widely used as a sleep aid and is generally considered safe; moreover, it is well known for its cardioprotective properties. Nonetheless, little is known about the underlying mechanisms of melatonin. Indeed, some potential undesirable cardiovascular effects associated with melatonin supplementation have been observed. Methods: We conducted a systematic review to evaluate evidence relevant to a case involving a 63-year-old man who developed ventricular arrhythmia while taking 10 mg of exogenous melatonin daily, exhibiting cardiovascular symptoms, and was then diagnosed with ventricular arrhythmia. After discontinuing melatonin, the patient fully recovered from all cardiovascular symptoms. Results: Following withdrawal of melatonin, the patient experienced complete resolution of symptoms and improvement in electrocardiographic findings. The systematic review identified reports describing similar arrhythmic events associated with melatonin supplementation, with symptom resolution or clinical improvement after discontinuation of the supplement. Conclusions: Although melatonin is generally regarded as safe, with cardioprotective effects, in this review we discuss possible mechanisms involving melatonin receptors, sleep architecture, pharmacokinetic variability, and genetic predisposition which could be associated with cardiac rhythm and conduction disturbances. Herein, we highlight the necessity for further studies to identify risk factors and underlying mechanisms and guide the safe use of this molecule.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13415057/",
+      "pdf_link": "https://doi.org/10.3390/ph19071069",
+      "state": "research_only_exact_verified_replacement"
+    }
+  ]
+}

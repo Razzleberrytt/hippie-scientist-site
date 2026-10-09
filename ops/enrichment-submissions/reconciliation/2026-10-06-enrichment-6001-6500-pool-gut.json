@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "category": "gut",
+  "target": 28,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 84,
+  "rows": [
+    {
+      "pmid": "42824634",
+      "title": "Tryptophan metabolism: a critical bridge linking gut microbiota to depression.",
+      "doi": "10.3389/fmicb.2026.1936353",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42825194",
+      "title": "Symbiotic interactions of plant microbiota in alleviating stress: a review.",
+      "doi": "10.3389/fpls.2026.1892395",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827967",
+      "title": "Short-chain fatty acid-producing commensals: Key modulators of AD neuroinflammation via the microbiota-gut-brain axis.",
+      "doi": "10.1016/j.crmicr.2026.100660",
+      "pub_date": "2026 Dec",
+      "journal": "Current research in microbial sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828074",
+      "title": "Bacterial extracellular vesicles as central mediators of microbiota-host communication.",
+      "doi": "10.3389/fmicb.2026.1910885",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828098",
+      "title": "Are we there yet? understanding interactions between respiratory viral infections, atopy, and the microbiome.",
+      "doi": "10.3389/falgy.2026.1952677",
+      "pub_date": "2026",
+      "journal": "Frontiers in allergy",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828170",
+      "title": "Mechanisms underlying the role of the oral-gut-liver axis in the promotion of liver fibrosis by periodontal disease: an interacting network of inflammation, microbiota, and barrier function.",
+      "doi": "10.3389/fcimb.2026.1942882",
+      "pub_date": "2026",
+      "journal": "Frontiers in cellular and infection microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828346",
+      "title": "Ultraviolet Radiation and the Skin Microbiome: Dose-Dependent Effects and Consequences for Epidermal Barrier Integrity.",
+      "doi": "10.2147/CCID.S630891",
+      "pub_date": "2026",
+      "journal": "Clinical, cosmetic and investigational dermatology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828409",
+      "title": "Forensic applications of the skin microbiome: a structured narrative review of donor association, contact inference, and crime-scene reconstruction.",
+      "doi": "10.3389/fmicb.2026.1947173",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829721",
+      "title": "Mechanisms by Which the Cervicovaginal Microbiota Mediates Endometrial Repair Following Uterine Injury: A Review of Recent Advances.",
+      "doi": "10.2147/IJGM.S636969",
+      "pub_date": "2026",
+      "journal": "International journal of general medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831995",
+      "title": "Pharmacomicrobiomics-driven targeted drug delivery for precision microbiome modulation.",
+      "doi": "10.1007/s40199-026-00666-2",
+      "pub_date": "2026 Oct 5",
+      "journal": "Daru : journal of Faculty of Pharmacy, Tehran University of Medical Sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832270",
+      "title": "Gut microbiome and healthy ageing: a systematic review of literature.",
+      "doi": "10.1099/mic.0.001779",
+      "pub_date": "2026 Oct",
+      "journal": "Microbiology (Reading, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832344",
+      "title": "Assessing diet-microbiome associations with linear models: variability across human studies.",
+      "doi": "10.1080/19490976.2026.2740905",
+      "pub_date": "2026 Dec 31",
+      "journal": "Gut microbes",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835768",
+      "title": "Transforming growth factor β-activated kinase 1 as a central integrator of immune-microbiota crosstalk in colitis (Review).",
+      "doi": "10.3892/etm.2026.13313",
+      "pub_date": "2026 Nov",
+      "journal": "Experimental and therapeutic medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836164",
+      "title": "Gut Microbiota in Psoriasis: Evidence for Dysbiosis, Pathological Mechanisms, Causality, and Therapeutic Implications.",
+      "doi": "10.2147/CCID.S630661",
+      "pub_date": "2026",
+      "journal": "Clinical, cosmetic and investigational dermatology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836419",
+      "title": "Seminal Microbiota and Pregnancy Outcomes: Mechanistic Insights, Clinical Implications, and Future Directions.",
+      "doi": "10.1111/andr.70401",
+      "pub_date": "2026 Oct 6",
+      "journal": "Andrology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836569",
+      "title": "Tripartite Interplay of Epithelial, Immune, and Microbiota Dysregulation in Crohn's Disease: Mechanisms and Translational Strategies.",
+      "doi": "10.1002/iid3.70538",
+      "pub_date": "2026 Oct",
+      "journal": "Immunity, inflammation and disease",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836953",
+      "title": "Gut microbiome-enteric virus interactions: mechanisms, clinical implications, and translational directions.",
+      "doi": "10.1007/s00535-026-02524-z",
+      "pub_date": "2026 Oct 6",
+      "journal": "Journal of gastroenterology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824700",
+      "title": "Gastrodia elata Polysaccharide Attenuates Aging by Modulating Oxidative Stress, Inflammation, and Gut Microbiota.",
+      "doi": "10.1002/fsn3.72413",
+      "pub_date": "2026 Oct",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42824926",
+      "title": "Renal tissue microbiota and metabolite profiling reveal dysregulated signatures in diabetic kidney disease.",
+      "doi": "10.3389/fmicb.2026.1898177",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42825030",
+      "title": "Microecological succession and quality enhancement of fermented tomato sour soup by synthetic functional microbiota.",
+      "doi": "10.1016/j.fochx.2026.104484",
+      "pub_date": "2026 Oct",
+      "journal": "Food chemistry: X",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42825108",
+      "title": "A longitudinal multi-omic dataset of pediatric cystic fibrosis patients receiving lumacaftor/ivacaftor therapy: clinical, microbiome, inflammatory and metabolomic measurements collected over 24 months.",
+      "doi": "10.1016/j.dib.2026.113237",
+      "pub_date": "2026 Aug",
+      "journal": "Data in brief",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42825219",
+      "title": "The association between the oral microbiome and oral Kaposi's sarcoma-associated herpesvirus (KSHV) shedding is modified by age and HIV status in a rural Ugandan cohort.",
+      "doi": "10.1080/20002297.2026.2737698",
+      "pub_date": "2026",
+      "journal": "Journal of oral microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826055",
+      "title": "The type VI secretion system governs strain maintenance in a wild mammalian gut microbiome.",
+      "doi": "10.7554/eLife.110200",
+      "pub_date": "2026 Oct 2",
+      "journal": "eLife",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826548",
+      "title": "Altered gut microbiota composition and function potential in polycystic ovary syndrome: a multicohort metagenome-assembled genomes study.",
+      "doi": "10.1016/j.ejogrb.2026.115453",
+      "pub_date": "2026 Sep 23",
+      "journal": "European journal of obstetrics, gynecology, and reproductive biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826561",
+      "title": "Protected area management contexts are associated with variation in Tibetan macaque gut microbiota and antibiotic resistomes.",
+      "doi": "10.1016/j.ecoenv.2026.120878",
+      "pub_date": "2026 Oct 2",
+      "journal": "Ecotoxicology and environmental safety",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826649",
+      "title": "Spontaneously fermented rennet-coagulated whey from milk of different ruminants: from microbiota characterisation to isolation of lactic acid bacteria with proteolytic potential.",
+      "doi": "10.1016/j.ijfoodmicro.2026.112096",
+      "pub_date": "2026 Sep 29",
+      "journal": "International journal of food microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826781",
+      "title": "Chinese yam polysaccharide attenuates DSS-induced ulcerative colitis by modulating gut microbiota and eicosanoid metabolism.",
+      "doi": "10.1016/j.ijbiomac.2026.154728",
+      "pub_date": "2026 Oct 2",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826905",
+      "title": "A cross-families evaluation of using fecal samples as a method to study the amphibian gut microbiome.",
+      "doi": "10.1016/j.mimet.2026.107733",
+      "pub_date": "2026 Oct 2",
+      "journal": "Journal of microbiological methods",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827404",
+      "title": "Evaluating Vaginal Microbiome Effects on Antiretroviral Exposure in the Female Genital Tract Using Pharmacometric and Machine Learning Approaches.",
+      "doi": "10.1002/cpt.70499",
+      "pub_date": "2026 Oct 3",
+      "journal": "Clinical pharmacology and therapeutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827489",
+      "title": "Combined application of organic and microbial amendments reshapes soil microbiome diversity and improves soybean growth performance.",
+      "doi": "10.3389/fmicb.2026.1939259",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827739",
+      "title": "Squalene alleviates DSS-induced colitis by restoring Nrf2-dependent redox balance and gut microbiota homeostasis.",
+      "doi": "10.3389/fphar.2026.1938047",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827747",
+      "title": "Correlation analysis between tongue hyperspectral imaging and tongue coating microbiota and feasibility study for early screening of type 2 diabetes mellitus status.",
+      "doi": "10.3389/fendo.2026.1936566",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827942",
+      "title": "Mucosal microbiota and intraepithelial lymphocyte remodeling link maternal immune activation to neuroimmune outcomes in female and male offspring.",
+      "doi": "10.3389/fimmu.2026.1945751",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828250",
+      "title": "Correction: Modulation of the rumen microbiome and metabolism in dairy cows by altering the concentrate feeding pattern and the inclusion of Saccharomyces cerevisiae yeast.",
+      "doi": "10.3389/frmbi.2026.1965017",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiomes",
+      "pub_type": "Published Erratum",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828283",
+      "title": "Correction: Pilot study evaluating tolerability and changes in fecal microbiota associated with novel probiotic administration to dogs with diarrhea.",
+      "doi": "10.3389/fvets.2026.1981863",
+      "pub_date": "2026",
+      "journal": "Frontiers in veterinary science",
+      "pub_type": "Published Erratum",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828602",
+      "title": "Valorization of Citrus limetta peel powder for probiotic encapsulation: enhanced gastrointestinal and storage stability of Lactiplantibacillus plantarum RAD1 isolated from fermented radish (Raphanus sativus L.).",
+      "doi": "10.1007/s11274-026-05309-x",
+      "pub_date": "2026 Oct 3",
+      "journal": "World journal of microbiology & biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828814",
+      "title": "Dietary date (Phoenix dactylifera) modulates antioxidant defenses, immune function, and cecal microbiota to improve performance in Muscovy ducks.",
+      "doi": "10.1016/j.psj.2026.107852",
+      "pub_date": "2026 Sep 26",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828843",
+      "title": "Near-infrared photocatalytic oral microalgae-carbon nitride-based nanozyme ameliorate Parkinson's disease via suppressing gut microbiota-indole-3-lactic acid-brain axis-mediated neuroinflammation.",
+      "doi": "10.1016/j.biomaterials.2026.124642",
+      "pub_date": "2026 Sep 30",
+      "journal": "Biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829140",
+      "title": "A branched α-glucan from Galli Gigeriae Endothelium Corneum alleviates high-fat diet-induced obesity in a gut microbiota-dependent manner.",
+      "doi": "10.1016/j.phrs.2026.108482",
+      "pub_date": "2026 Oct 3",
+      "journal": "Pharmacological research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829579",
+      "title": "Functional Profiles of Fish Gut Microbiota Associated With Feeding Habits in the Midstream of the Jialing River Under Cascade Channelization.",
+      "doi": "10.1002/ece3.74414",
+      "pub_date": "2026 Oct",
+      "journal": "Ecology and evolution",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829818",
+      "title": "Aromaticity Engineering of Hybrid Cyanine Dyes for Metabolic Labeling and Bioorthogonal NIR-II Imaging of Gut Microbiota.",
+      "doi": "10.1002/anie.7816959",
+      "pub_date": "2026 Oct 4",
+      "journal": "Angewandte Chemie (International ed. in English)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830016",
+      "title": "Wei-Tong-Xin decoction targets CD8+ T cell-driven colitis via gut microbiota and linoleic acid modulation: an integrated omics study.",
+      "doi": "10.1016/j.phymed.2026.158831",
+      "pub_date": "2026 Sep 28",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830139",
+      "title": "Age-related shifts in the salivary microbiome linked to cariogenic changes: A cross-sectional study.",
+      "doi": "10.1016/j.jdent.2026.107091",
+      "pub_date": "2026 Oct 4",
+      "journal": "Journal of dentistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830151",
+      "title": "Forsythiae Fructus polysaccharides mitigate DSS colitis by modulating gut microbiota-derived palmitic acid and PI3K/AKT pathway.",
+      "doi": "10.1016/j.ijbiomac.2026.154733",
+      "pub_date": "2026 Oct 4",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830161",
+      "title": "Colon-targeted delivery of α-terpineol via ZIF-8 alleviates ulcerative colitis by anti-inflammatory and gut microbiota-metabolism modulation.",
+      "doi": "10.1016/j.ijpharm.2026.127488",
+      "pub_date": "2026 Oct 4",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830277",
+      "title": "Metagenomic analysis of rhizosphere soil microbiota in wild and cultivated Notopterygium incisum, an umbelliferae medicinal herb.",
+      "doi": "10.1186/s12866-026-05269-0",
+      "pub_date": "2026 Oct 5",
+      "journal": "BMC microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830374",
+      "title": "Extracts of okra mucilage protect intestinal homeostasis through gut microbiota and immune responses.",
+      "doi": "10.1007/s11418-026-02083-w",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of natural medicines",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831109",
+      "title": "Ecological assembly of activated sludge microbiomes under contrasting process configurations and influent regimes.",
+      "doi": "10.3389/fbioe.2026.1912780",
+      "pub_date": "2026",
+      "journal": "Frontiers in bioengineering and biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831371",
+      "title": "Vanillin alleviates circadian disruption-induced cognitive impairment: involvement of gut microbiota alterations and tryptophan metabolism.",
+      "doi": "10.1039/d6fo03659g",
+      "pub_date": "2026 Oct 5",
+      "journal": "Food & function",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831472",
+      "title": "The Critical Role of Molecular Weight in Digestion Stability and Gut Microbiota-Dependent Fermentation of Dendrobium officinale Polysaccharides.",
+      "doi": "10.1021/acs.jafc.6c10562",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of agricultural and food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831635",
+      "title": "Impacts of temperature on hydrogenotrophic denitrifying aquifer microbiota.",
+      "doi": "10.1128/aem.01206-26",
+      "pub_date": "2026 Oct 5",
+      "journal": "Applied and environmental microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831644",
+      "title": "Implementation and continuation in a network CURE: insights from the Bean Beetle Microbiome Project.",
+      "doi": "10.1128/jmbe.00222-26",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of microbiology & biology education",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831655",
+      "title": "Comparison of oral and gut microbiome highlights the role of oral bacteria in systemic inflammation in HIV.",
+      "doi": "10.1128/msphere.00384-26",
+      "pub_date": "2026 Oct 5",
+      "journal": "mSphere",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831875",
+      "title": "The Impact of Dietary Fiber Supplementation on Gut-Brain Axis Biomarkers and Symptoms in Functional Constipation: A Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.14309/ctg.0000000000001114",
+      "pub_date": "2026 Oct 5",
+      "journal": "Clinical and translational gastroenterology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831993",
+      "title": "Dual action of baicalin against renal fibrosis in hyperuricemic nephropathy: targeting PANX1-P2Y6 signaling and gut microbiota dysbiosis.",
+      "doi": "10.1007/s10735-026-10973-2",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of molecular histology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832513",
+      "title": "LGTM: Gaussian process modulated neural topic modeling for longitudinal microbiome.",
+      "doi": "10.1080/19490976.2026.2741488",
+      "pub_date": "2026 Dec 31",
+      "journal": "Gut microbes",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832545",
+      "title": "The impact of the estrous cycle on the vaginal microbiota of dairy cows.",
+      "doi": "10.1371/journal.pone.0359551",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832926",
+      "title": "Root exudate-mediated interspecific interactions reshape the rhizosphere microbiome and promote the accumulation of bioactive compounds in Pinellia ternata.",
+      "doi": "10.1016/j.micres.2026.128746",
+      "pub_date": "2026 Oct 2",
+      "journal": "Microbiological research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833064",
+      "title": "Senecio scandens extract alleviates allergic rhinitis by attenuating epithelial inflammation and modulating gut microbiota balance.",
+      "doi": "10.1016/j.imbio.2026.153252",
+      "pub_date": "2026 Oct 2",
+      "journal": "Immunobiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833252",
+      "title": "Investigating the presence of microbiota-based phenotypes in Irritable Bowel Syndrome.",
+      "doi": "10.1088/1752-7163/aeb043",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of breath research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833404",
+      "title": "Multi-omics profiling reveals the role of gut microbiota and associated metabolites in postweaning oxidative stress in Holstein dairy calves, particularly in relation to amino acid synthesis and metabolism.",
+      "doi": "10.3168/jds.2026-29112",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of dairy science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833452",
+      "title": "Putative functional redundancy in cyanobacterial microbiomes allows stable bioplastic production despite shifts in dominant populations.",
+      "doi": "10.1016/j.biortech.2026.136012",
+      "pub_date": "2026 Oct 5",
+      "journal": "Bioresource technology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833523",
+      "title": "Gut microbiota-expressed sulfotransferase sulfonates 25-hydroxyvitamin D3 and promotes depression.",
+      "doi": "10.1016/j.bbi.2026.107043",
+      "pub_date": "2026 Oct 5",
+      "journal": "Brain, behavior, and immunity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833601",
+      "title": "Phycosphere microbiome remodeling and Brevundimonas partnership establishment enhance microalgal nonylphenol tolerance.",
+      "doi": "10.1016/j.jare.2026.10.006",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of advanced research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833816",
+      "title": "Effect of diarrhea on early-life gut microbiome composition and subsequent infant growth in Beira, Mozambique: analysis of the PAASIM longitudinal birth cohort.",
+      "doi": "10.1016/j.ajcnut.2026.101464",
+      "pub_date": "2026 Oct",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833873",
+      "title": "Microbiota-host genetic interactions modulate MASLD risk in PNPLA3(I148M) carriers via ceramides and are reversible by targeted microbial interventions.",
+      "doi": "10.1136/gutjnl-2026-338178",
+      "pub_date": "2026 Oct 5",
+      "journal": "Gut",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834167",
+      "title": "Thiamine cross-feeding drives microbial coexistence in the leaf microbiome.",
+      "doi": "10.1038/s41564-026-02499-w",
+      "pub_date": "2026 Oct 5",
+      "journal": "Nature microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834399",
+      "title": "Chestnut-quebracho tannins shape the fecal metabolome of weaned pigs through microbiota-dependent urolithin production.",
+      "doi": "10.1186/s40104-026-01503-x",
+      "pub_date": "2026 Oct 6",
+      "journal": "Journal of animal science and biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834436",
+      "title": "Dynamic effects of dietary shifts and temporal variation on the rumen microbiota of dairy goats differing in SARA tolerance.",
+      "doi": "10.1093/jas/skag322",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of animal science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834904",
+      "title": "Cervicovaginal microbiome alterations across HPV infection.",
+      "doi": "10.3389/fcimb.2026.1907605",
+      "pub_date": "2026",
+      "journal": "Frontiers in cellular and infection microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835097",
+      "title": "Changes in ruminal lipopolysaccharide, fermentation characteristics, nutrient digestibility, blood variables, and microbiota in sheep with subacute ruminal acidosis and its regulation by polymyxin CP7.",
+      "doi": "10.1016/j.vas.2026.100878",
+      "pub_date": "2026 Dec",
+      "journal": "Veterinary and animal science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835196",
+      "title": "Research on the spillover risk of antibiotic resistance gene from the gut microbiome of wild animal: A case study of the golden snub-nosed monkey.",
+      "doi": "10.1016/j.isci.2026.117624",
+      "pub_date": "2026 Oct 16",
+      "journal": "iScience",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835245",
+      "title": "Integrative Metagenomic Analysis Reveals Human Gut Microbiome-Derived Candidate Non-invasive Biomarkers for Type II Diabetes Mellitus.",
+      "doi": "10.30476/ijms.2026.108150.4295",
+      "pub_date": "2026 Sep",
+      "journal": "Iranian journal of medical sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835332",
+      "title": "Metagenomic and metabolomic profiling of laterally spreading tumors identifies a microbiome with putative pro-tumorigenic features in high-grade intraepithelial neoplasia.",
+      "doi": "10.3389/fmicb.2026.1844759",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835356",
+      "title": "Gut virome orchestrates nitrogen partitioning between the host and microbiome.",
+      "doi": "10.1002/imt2.70177",
+      "pub_date": "2026 Oct 4",
+      "journal": "iMeta",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835359",
+      "title": "Spatial associations among soil physicochemical properties, rhizosphere microbiota, leaf mineral status, agronomic traits, and fruit quality of white strawberry in acidic soils.",
+      "doi": "10.3389/fpls.2026.1927019",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835440",
+      "title": "Impact of Avibacterium paragallinarum infection on the upper respiratory tract microbiome of chickens.",
+      "doi": "10.3389/fvets.2026.1911133",
+      "pub_date": "2026",
+      "journal": "Frontiers in veterinary science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835511",
+      "title": "Ecological origin and natural Trypanosoma cruzi infection are associated with reconfiguration of the Rhodnius pallescens midgut microbiome.",
+      "doi": "10.1016/j.crpvbd.2026.100442",
+      "pub_date": "2026",
+      "journal": "Current research in parasitology & vector-borne diseases",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835731",
+      "title": "Physiological responses and gut microbiota dynamics in beef cattle following transport stress syndrome with melatonin or dexmedetomidine administration.",
+      "doi": "10.3389/fvets.2026.1861919",
+      "pub_date": "2026",
+      "journal": "Frontiers in veterinary science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835783",
+      "title": "Transplant of cryopreserved mosquito gut microbiota reveals strain-specific patterns of microbial acquisition and assembly.",
+      "doi": "10.1093/ismehm/aazag010",
+      "pub_date": "2026",
+      "journal": "ISME host microbe",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835803",
+      "title": "Phocaeicola dorei YGMCC0564 attenuates HFD-induced glycolipid metabolic disorders in association with remodeling of the gut microbiota and bile acid profiles.",
+      "doi": "10.3389/fmicb.2026.1911556",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836268",
+      "title": "Short-term changes in photographed dental calculus coverage and pooled supragingival microbiota after baked dental treats containing a pomegranate-propolis blend or sodium hexametaphosphate in dogs.",
+      "doi": "10.1111/jsap.70207",
+      "pub_date": "2026 Oct 6",
+      "journal": "The Journal of small animal practice",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836409",
+      "title": "Tanshinone IIA Ameliorates Sleep Deprivation-Induced Cognitive Impairment: Involvement of Gut Microbiota and the TLR4/NF-κB Signaling Pathway.",
+      "doi": "10.1142/S0192415X26500801",
+      "pub_date": "2026 Oct 7",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836733",
+      "title": "Network-guided synthesis of antagonistic microbiota for suppressing maize stalk rot disease.",
+      "doi": "10.1093/ismejo/wrag243",
+      "pub_date": "2026 Oct 6",
+      "journal": "The ISME journal",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract] OR fiber[Title/Abstract] OR fibre[Title/Abstract] OR psyllium[Title/Abstract]) AND (gut[Title/Abstract] OR gastrointestinal[Title/Abstract] OR bowel[Title/Abstract] OR constipation[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR microbiome[Title/Abstract] OR microbiota[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

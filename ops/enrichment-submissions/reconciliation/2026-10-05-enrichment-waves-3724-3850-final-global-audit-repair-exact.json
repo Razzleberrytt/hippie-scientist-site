@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "range": "3724-3850",
+  "row_count": 3,
+  "verified_count": 3,
+  "reason": "Final 500-row audit repair: remove two collisions with the cumulative prior PMID ledger and replace a correction-notice verification exception.",
+  "rows": [
+    {
+      "wave": 3724,
+      "pmid": "40806131",
+      "doi": "10.3390/nu17152547",
+      "title": "Comparative Effectiveness of Nutritional Supplements in the Treatment of Knee Osteoarthritis: A Network Meta-Analysis.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Aug 3",
+      "pub_type": "Network Meta-Analysis",
+      "category": "inflammation_pain",
+      "focus": "Systematic review and network meta-analysis of randomized trials comparing common nutritional supplements for knee osteoarthritis pain, stiffness, function, and adverse events.",
+      "has_abstract": true,
+      "normalized_title": "comparative effectiveness of nutritional supplements in the treatment of knee osteoarthritis a network meta analysis",
+      "state": "research_only_exact_verified_final_repair",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "source": "Direct PubMed exact verification"
+    },
+    {
+      "wave": 3725,
+      "pmid": "31351488",
+      "doi": "10.1186/s13075-019-1960-5",
+      "title": "Bio-optimized Curcuma longa extract is efficient on knee osteoarthritis pain: a double-blind multicenter randomized placebo controlled three-arm study.",
+      "journal": "Arthritis research & therapy",
+      "pub_date": "2019 Jul 27",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "focus": "Double-blind multicenter randomized placebo-controlled trial evaluating two doses of a bio-optimized Curcuma longa extract in symptomatic knee osteoarthritis, including pain and safety outcomes.",
+      "has_abstract": true,
+      "normalized_title": "bio optimized curcuma longa extract is efficient on knee osteoarthritis pain a double blind multicenter randomized placebo controlled three arm study",
+      "state": "research_only_exact_verified_final_repair",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "source": "Direct PubMed exact verification"
+    },
+    {
+      "wave": 3850,
+      "pmid": "41769636",
+      "doi": "10.3389/fnut.2026.1742464",
+      "title": "Timing-dependent effects of melatonin supplementation on exercise performance and exercise-induced muscle damage: a systematic review and meta-analysis.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "category": "performance",
+      "focus": "Systematic review and meta-analysis of randomized trials examining melatonin supplementation timing in relation to exercise performance and exercise-induced muscle-damage outcomes.",
+      "has_abstract": true,
+      "normalized_title": "timing dependent effects of melatonin supplementation on exercise performance and exercise induced muscle damage a systematic review and meta analysis",
+      "state": "research_only_exact_verified_final_repair",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "source": "Direct PubMed exact verification"
+    }
+  ]
+}

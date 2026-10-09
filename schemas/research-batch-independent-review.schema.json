@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thehippiescientist.net/schemas/research-batch-independent-review.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "batch_id",
+    "batch_content_sha256",
+    "independent_semantic_review",
+    "reviewer",
+    "reviewed_at",
+    "reviewed_records",
+    "accepted_records",
+    "rejected_records",
+    "adverse_effects_reviewed",
+    "interactions_reviewed",
+    "limitations_reviewed",
+    "uncertainty_reviewed",
+    "overclaim_check",
+    "record_reviews"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "batch_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "batch_content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "independent_semantic_review": {
+      "const": true
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 3
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_records": {
+      "const": 500
+    },
+    "accepted_records": {
+      "const": 500
+    },
+    "rejected_records": {
+      "const": 0
+    },
+    "adverse_effects_reviewed": {
+      "const": true
+    },
+    "interactions_reviewed": {
+      "const": true
+    },
+    "limitations_reviewed": {
+      "const": true
+    },
+    "uncertainty_reviewed": {
+      "const": true
+    },
+    "overclaim_check": {
+      "const": true
+    },
+    "notes": {
+      "type": "string"
+    },
+    "record_reviews": {
+      "type": "array",
+      "minItems": 500,
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pmid",
+          "accepted",
+          "source_identity_confirmed",
+          "evidence_class_confirmed",
+          "study_design_confirmed",
+          "adverse_effects_reviewed",
+          "interactions_reviewed",
+          "limitations_reviewed",
+          "uncertainty_reviewed",
+          "overclaim_check",
+          "semantic_relationships",
+          "contradiction_flags"
+        ],
+        "properties": {
+          "pmid": {
+            "type": "string",
+            "pattern": "^[0-9]{5,10}$"
+          },
+          "accepted": {
+            "const": true
+          },
+          "source_identity_confirmed": {
+            "const": true
+          },
+          "evidence_class_confirmed": {
+            "const": true
+          },
+          "study_design_confirmed": {
+            "const": true
+          },
+          "adverse_effects_reviewed": {
+            "const": true
+          },
+          "interactions_reviewed": {
+            "const": true
+          },
+          "limitations_reviewed": {
+            "const": true
+          },
+          "uncertainty_reviewed": {
+            "const": true
+          },
+          "overclaim_check": {
+            "const": true
+          },
+          "contradiction_flags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "semantic_relationships": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject",
+                "predicate",
+                "object",
+                "context",
+                "evidence_type",
+                "uncertainty"
+              ],
+              "properties": {
+                "subject": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "predicate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "object": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "context": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uncertainty": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

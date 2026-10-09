@@ -198,3 +198,20 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - Null and mixed outcomes are preserved, including curcumin homocysteine null evidence, melatonin cancer-sleep uncertainty, alpha-lipoic-acid schizophrenia nulls, and CoQ10 endpoint inconsistencies.
 - No publication, indexing, recommendation, monetization, dosing, or governance fields are changed by this batch.
 - Full repository validation is intentionally run once on the exact consolidated head before merge.
+
+
+## Oct. 4 research enrichment Waves 1001-1500
+
+- Research program: twenty passes of 25 findings, **500 completed waves**
+- Consolidated selection: `ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500-selection.json`
+- Research journal: `ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500.md`
+- Runtime ledger: `2026-10-04-enrichment-waves-1001-1500.json`
+- Manifest: `2026-10-04-enrichment-waves-1001-1500-manifest.json`
+- **9** net-new, independently revalidated, source-specific evidence rows
+- **9** net-new source rows
+- 0 entity-context rows
+- 0 relationships
+- Canonical-aware admission pruned saffron PMID `41693488` as already covered rather than relying on silent runtime deduplication.
+- Final admission remains deliberately conservative: the other 491 findings stay as durable research receipts behind category, formulation, combination, observational, safety-only, product-quality, retraction, or evidence-quality boundaries.
+- Null, negative, mixed, population-specific, performance-versus-biomarker, and safety findings remain first-class.
+- No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3384,
+      "pmid": "42487522",
+      "doi": "10.1177/27683605261469317",
+      "category": "safety_interactions",
+      "title": "Efficacy and Safety of Phyllanthus Emblica and Tinospora Cordifolia in Postadolescence Acne: A Randomized Double-Blind Placebo-Controlled Trial.",
+      "journal": "Journal of integrative and complementary medicine",
+      "pub_date": "2026-Jul-23",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized double-blind placebo-controlled dose-ranging trial in 88 adults with acne. Hematologic, hepatic, and renal safety parameters remained within reference ranges and no serious or treatment-related adverse events were reported; efficacy signals were not definitive."
+    },
+    {
+      "wave": 3389,
+      "pmid": "42568515",
+      "doi": "10.3389/fphar.2026.1856615",
+      "category": "safety_interactions",
+      "title": "Traditional Chinese medicine-induced cardiac adverse reactions: a critical review of current evidence, knowledge gaps, and pharmacovigilance strategies.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Critical review of cardiac adverse reactions linked to traditional Chinese medicine, emphasizing sparse pharmacokinetic interaction data, underused real-world evidence, lack of specific biomarkers, and the need for stronger pharmacovigilance."
+    },
+    {
+      "wave": 3394,
+      "pmid": "42735358",
+      "doi": "10.1051/sicotj/2026029",
+      "category": "sleep",
+      "title": "Natural history of sleep before and after total joint arthroplasty is poor and unimproved by melatonin: A randomized controlled study.",
+      "journal": "SICOT-J",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized study of perioperative melatonin versus placebo in 48 arthroplasty patients. Melatonin increased sleep duration in hip arthroplasty patients but did not improve overall sleep-quality scores, opioid use, or recovery."
+    },
+    {
+      "wave": 3400,
+      "pmid": "42662821",
+      "doi": "10.3389/fnut.2026.1890075",
+      "category": "sleep",
+      "title": "Dietary melatonin, chronotype, and night eating syndrome in relation to sleep quality among adults.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Cross-sectional study of 325 adults found eveningness and night-eating behaviors associated with poorer sleep quality, while estimated dietary melatonin intake was not associated with sleep quality after adjustment. Findings are observational and hypothesis-generating."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "row_count": 5,
+  "verified_count": 5,
+  "rows": [
+    {
+      "wave": 5505,
+      "category": "stress_anxiety",
+      "pmid": "33548936",
+      "title": "The Effect of Lavender Oil on Perioperative Pain, Anxiety, Depression, and Sleep after Microvascular Breast Reconstruction: A Prospective, Single-Blinded, Randomized, Controlled Trial.",
+      "abstract": "Psychosocial distress, depression, or anxiety can occur in up to 50% of women after a breast cancer diagnosis and mastectomy. The purpose of this study was to assess the potential benefit of lavender oil as a perioperative adjunct to improve anxiety, depression, pain, and sleep in women undergoing microvascular breast reconstruction. This was a prospective, single-blinded, randomized, controlled trial of 49 patients undergoing microvascular breast reconstruction. Patients were randomized to receive lavender oil or placebo (coconut oil) throughout their hospitalization. The effect of lavender oil on perioperative stress, anxiety, depression, sleep, and pain was measured using the hospital anxiety and depression scale, Richards-Campbell Sleep Questionnaire, and the visual analogue scale. Twenty-seven patients were assigned to the lavender group and 22 patients were assigned to the control group. No significant differences were seen in the perioperative setting between the groups with regard to anxiety (p = 0.82), depression (p = 0.21), sleep (p = 0.86), or pain (p = 0.30) scores. No adverse events (i.e., allergic reaction) were captured, and no significant differences in surgery-related complications were observed. When evaluating the entire cohort, postoperative anxiety scores were significantly lower than preoperative scores (p < 0.001), while depression scores were significantly higher postoperatively as compared with preoperatively (p = 0.005). In the setting of microvascular breast reconstruction, lavender oil and aromatherapy had no significant adverse events or complications; however, there were no measurable advantages pertaining to metrics of depression, anxiety, sleep, or pain as compared with the control group.",
+      "journal": "Journal of reconstructive microsurgery",
+      "pub_date": "2021-Jul",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1055/s-0041-1724465",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5515,
+      "category": "stress_anxiety",
+      "pmid": "33626029",
+      "title": "Lavender Aromatherapy for Anxiety and Pain During Multichannel Urodynamics: A Randomized Controlled Pilot Trial.",
+      "abstract": "Our objective was to determine if there is a difference in anxiety during urodynamics in women given lavender aromatherapy (lavender) versus placebo. This was a randomized, controlled trial of women scheduled for urodynamic testing with baseline anxiety. Participants rated their anxiety and pain immediately before the examination and then were randomized to lavender or placebo. Anxiety and pain were assessed immediately after catheter placement and 15 minutes after termination of the study. Data for 40 women who received lavender and 38 women who received placebo were available for analysis. Decrease in anxiety from baseline to catheter placement (-2 vs -0.5, P = 0.01) and 15 minutes post procedure was significantly greater in the lavender group. Postprocedure anxiety was lower in the lavender group compared with controls (0 vs 0.5, P = 0.001). No differences were seen in pain. Lavender aromatherapy reduces anxiety during urodynamics.",
+      "journal": "Female pelvic medicine & reconstructive surgery",
+      "pub_date": "2021-Nov-01",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1097/SPV.0000000000001032",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5643,
+      "category": "cardiometabolic",
+      "pmid": "38169319",
+      "title": "Omega-3 fatty acids for cardiovascular event lowering.",
+      "abstract": "Low-density lipoprotein cholesterol (LDL-C) is the main target for therapeutics aimed at reducing the risk of atherosclerotic cardiovascular disease (ASCVD) and downstream cardiovascular (CV) events. However, multiple studies have demonstrated that high-risk patient populations harbour residual risk despite effective LDL-C lowering. While data support the causal relationship between triglycerides and ASCVD risk, triglyceride-lowering therapies such as omega-3 fatty acids have shown mixed results in CV outcomes trials. Notably, icosapent ethyl, a purified formulation of eicosapentaenoic acid (EPA), has garnered compelling evidence in lowering residual CV risk in patients with hypertriglyceridaemia and treated with statins. In this review, we summarize studies that have investigated omega-3-fatty acids for CV event lowering and discuss the clinical implementation of these agents based on trial data and guidelines.",
+      "journal": "European journal of preventive cardiology",
+      "pub_date": "2024-Jun-03",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1093/eurjpc/zwae003",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5916,
+      "category": "botanicals_mushrooms",
+      "pmid": "39004031",
+      "title": "Effects of ginseng berry saponins from panax ginseng on glucose metabolism of patients with prediabetes: A randomized, double-blinded, placebo-controlled, crossover trial.",
+      "abstract": "Prediabetes strongly increases the risk of type 2 diabetes and cardiovascular events. However, lifestyle intervention, the first-line treatment for prediabetes currently, was inconsistently beneficial for glucose metabolism, and the conventional medicines, such as metformin, is controversial for prediabetes due to the possible side effects. This study was designed to evaluate the effects of Zhenyuan Capsule, a Chinese patented medicine consisting of ginseng berry saponins extracted from the mature berry of Panax Ginseng, on the glucose metabolism of prediabetic patients as a complementary therapy. In this randomized, double-Blinded, placebo-controlled, crossover trial, 195 participants with prediabetes were randomized 1:1 to receive either placebo followed by Zhenyuan Capsule, or vice versa, alongside lifestyle interventions. Each treatment period lasted 4 weeks with a 4-week washout period in between. The primary outcomes were the changes in fasting plasma glucose (FPG) and 2-h postprandial plasma glucose (2-h PG) from baseline. Secondary outcomes includes the changes in fasting and 2-h postprandial insulin and C-peptide, the homeostatic model assessment-insulin resistance (HOMA-IR) index and quantitative insulin sensitivity check index (QUICKI) from baseline. Blood lipids and adverse events were also assessed. Compared with placebo, Zhenyuan Capsule caused remarkable reduction in 2-h PG (-0.98 mmol/l) after adjusting treatment order. Zhenyuan Capsule also reduced the fasting and 2-h postprandial levels of insulin and C-peptide, lowered HOMA-IR index (-1.26), and raised QUICKI index (+0.012) when compared to placebo. Additionally, a significant increase in high density lipoprotein cholesterol (HDL-C; +0.25 mmol/l) was found in patients with Zhenyuan Capsule. No serious adverse event occurred during the study. Among prediabetic patients, Zhenyuan Capsule further reduced 2-h PG level, alleviated insulin resistance and raised HDL-C level on the background of lifestyle interventions. The study protocol is registered with the Chinese Clinical Trial Registry (ChiCTR2000034000).",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2024-Sep",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.phymed.2024.155842",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5949,
+      "category": "safety_interactions",
+      "pmid": "39923577",
+      "title": "Efficacy and safety of Chinese herbal compound in the treatment of acute gouty arthritis: A systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "The present study aimed to comprehensively assess the efficacy and safety of Chinese herbal compounds in the management of acute gouty arthritis (AGA). A systematic search was performed across multiple databases, including PubMed, The Cochrane Library, Embase, Web of Science, CBM, CNKI, VIP, and Wanfang, from their inception until December 1, 2024, to identify relevant randomized controlled trials (RCTs) involving Chinese herbal compounds for AGA. Two independent researchers were responsible for the retrieved literature screening, data extraction, and quality evaluation. A meta-analysis of RCTs that fulfill the inclusion criteria will be executed utilizing Stata 14.0 software. The quality of the outcomes will be assessed using the Grading of Recommendations Assessment, Development and Evaluation (GRADE). A total of 28 studies, encompassing 2100 participants, were included in the analysis. The meta-analysis showed that compared with conventional Western medicine, Chinese herbal compounds significantly enhance the overall efficacy of AGA treatment (RR = 1.11, 95 %CI (1.05, 1.16), P < 0.00001; Level of evidence: very low). It also demonstrated improvements in the Visual Analogue Scale (VAS) (SMD = -1.46, 95 %CI(-2.17, -0.75), P < 0.00001; Level of evidence: very low), serum uric acid levels (SMD = -0.67, 95 %CI (-1.00, -0.33), P < 0.00001; Level of evidence: very low), blood sedimentation levels (SMD = -0.71, 95 %CI (-1.08, -0.33), P < 0.00001; Level of evidence: very low), C-reactive protein (CRP) levels (SMD = 0.89, 95 %CI(-1.33, -0.45), P < 0.00001; Level of evidence: very low), and the traditional Chinese medicine syndrome score(SMD = -0.93, 95 %CI (-1.37, -0.49), P < 0.00001; Level of evidence: very low). Additionally, a reduced incidence of adverse effects was noted (RR = 0.26, 95 %CI (0.18, 0.39), P < 0.00001; Level of evidence: moderate). Subgroup analysis revealed that regardless of whether the treatment duration was less than or more than 1 week, Chinese herbal compounds were effective in improving the total effective rate of AGA treatment, VAS scores, serum uric acid levels, blood sedimentation levels, CRP levels, and Traditional Chinese medicine symptom scores, while simultaneously decreasing the occurrence of adverse reactions. Chinese herbal compounds demonstrated superior efficacy and safety compared to conventional Western medicine in treating AGA. However, further validation through multicenter, high-quality RCTs is warranted to strengthen this conclusion.",
+      "journal": "International immunopharmacology",
+      "pub_date": "2025-Mar-06",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.intimp.2025.114223",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}

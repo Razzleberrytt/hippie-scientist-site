@@ -1,0 +1,566 @@
+{
+  "schema_version": 1,
+  "row_count": 56,
+  "rows": [
+    {
+      "category": "sleep",
+      "pmid": "42735299",
+      "doi": "10.1519/JSC.0000000000005679",
+      "title": "Endocrine, Skeletal, and Circadian Biomarker Profiles Across Operational Phases in Elite Special Forces Operators.",
+      "journal": "Journal of strength and conditioning research",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42759347",
+      "doi": "10.1016/j.sleep.2026.109254",
+      "title": "A longitudinal case report illustrating diagnostic complexity among overlapping sleep-wake phenotypes.",
+      "journal": "Sleep medicine",
+      "pub_date": "2026 Dec",
+      "pub_type": "Case Reports",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42760394",
+      "doi": "10.1007/s44470-026-00180-x",
+      "title": "The role of the transdiagnostic sleep and circadian intervention in adolescent bedtime and sleep quality: a pilot study.",
+      "journal": "Journal of clinical sleep medicine : JCSM : official publication of the American Academy of Sleep Medicine",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42807004",
+      "doi": "10.3389/fneur.2026.1875540",
+      "title": "Evaluating non-linear thresholds and synergistic interactions in the comorbidity of preoperative insomnia and emergence agitation: a SHAP-based machine learning study.",
+      "journal": "Frontiers in neurology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42810800",
+      "doi": "10.1136/bmjopen-2026-119965",
+      "title": "Melatonin to improve sleep in patients undergoing major surgery: protocol for a double-blind, randomised placebo-controlled trial (MELROSE).",
+      "journal": "BMJ open",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42813623",
+      "doi": "10.2174/0109298673480116260915111102",
+      "title": "Melatonin and Diabetic Nephropathy: From Mechanistic Pathways to Translational Opportunities in Clinical Management.",
+      "journal": "Current medicinal chemistry",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42813838",
+      "doi": "10.1111/jpi.70188",
+      "title": "Influence of Intravenous Norepinephrine Administration on Melatonin Plasma Concentration in Awake and Anaesthetised Healthy Adult Volunteers.",
+      "journal": "Journal of pineal research",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42821616",
+      "doi": "10.1371/journal.pgen.1012255",
+      "title": "Forward genetics reveals a conserved CNBHD-CNBHD interface that restrains EAG channel activation to regulate sleep.",
+      "journal": "PLoS genetics",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42824268",
+      "doi": "10.1007/s43465-026-01795-1",
+      "title": "Decoding melatonin's role in musculoskeletal health: mechanistic foundations and clinical applications.",
+      "journal": "Indian journal of orthopaedics",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42810623",
+      "doi": "10.1016/j.neuint.2026.106268",
+      "title": "Bacopa monnieri attenuates Alzheimer's pathology by modulating RNA metabolism, cellular stress responses, and Rho GTPase signaling: Phosphoproteomic insights from a cellular model of Alzheimer's disease.",
+      "journal": "Neurochemistry international",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42812851",
+      "doi": "10.1039/d6ra04388g",
+      "title": "Biodegradable polyethylene glycol-based poly(β-amino ester) hydrogel for curcumin delivery in wound treatment.",
+      "journal": "RSC advances",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42812853",
+      "doi": "10.3897/mycokeys.140.204190",
+      "title": "Update and taxonomic revision of Ganoderma (Basidiomycota, Ganodermataceae) from China.",
+      "journal": "MycoKeys",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42814403",
+      "doi": "10.1142/S0192415X26500813",
+      "title": "Curcumin from Turmeric Alleviates Lipid Metabolism: Network Pharmacology and Cellular Validation.",
+      "journal": "The American journal of Chinese medicine",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42815278",
+      "doi": "10.1016/j.bioorg.2026.110593",
+      "title": "Bio-templated synthesis of crystalline nanocellulose/MgO hybrids from Withania somnifera: for selective anticancer, antioxidant, and anti-inflammatory activity.",
+      "journal": "Bioorganic chemistry",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42815388",
+      "doi": "10.1016/j.foodchem.2026.151328",
+      "title": "Application of Cu(2+)-chelated curcumin/chitosan coating in maintaining the storage quality of harvested passion fruit.",
+      "journal": "Food chemistry",
+      "pub_date": "2026 Sep 27",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42815401",
+      "doi": "10.1016/j.cbd.2026.102019",
+      "title": "Curcumin attenuates chronic heat stress-induced cardiac injury in Siberian sturgeon (Acipenser baerii): Mechanisms of oxidative stress, mitochondrial dysfunction and metabolic reprogramming.",
+      "journal": "Comparative biochemistry and physiology. Part D, Genomics & proteomics",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42819694",
+      "doi": "10.1093/hr/uhag185",
+      "title": "Panax-derived Zingibroside R1 exerts allelopathic effects on root architecture by modulating the auxin transport pathway and oxidative stress responses.",
+      "journal": "Horticulture research",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42819834",
+      "doi": "10.1021/acsomega.6c06121",
+      "title": "Surface-Engineered Magnesium Metal-Organic Frameworks for Curcumin Stabilization: Interfacial Coordination Enhances Aqueous Stability and Boosts Antioxidant Efficacy 32-Fold.",
+      "journal": "ACS omega",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42822204",
+      "doi": "10.1016/j.foodchem.2026.151332",
+      "title": "Informed manipulation of nanoliposome bilayer structure enhances the antioxidant activity and storage stability of curcumin.",
+      "journal": "Food chemistry",
+      "pub_date": "2026 Sep 26",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42822924",
+      "doi": "10.1016/j.jes.2025.11.005",
+      "title": "Protective effects of ganoderic acid C2 from Ganoderma lucidum against aflatoxin B1-induced splenorenal injury: Inhibition of NOX4-mediated oxidative stress and inflammation.",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42823656",
+      "doi": "10.1186/s12870-026-08669-6",
+      "title": "Curcumin-rich plant material production through a robust and reproducible micropropagation protocol.",
+      "journal": "BMC plant biology",
+      "pub_date": "2026 Aug 5",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42825639",
+      "doi": "10.5935/1518-0557.20260117",
+      "title": "The Synergistic Role of Curcumin and L-Carnitine in Mitigating Cryo-preservation-Induced Damage in Human Sperm.",
+      "journal": "JBRA assisted reproduction",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42825902",
+      "doi": "10.18502/ijaai.v25is11.22490",
+      "title": "Impact of Vitamin D and Curcumin on CD4+ and CD8+ T cells Expressing CXCR3, CCR4, and CCR6 Chemokine Receptors in Patients with Relapsing-remitting Multiple Sclerosis.",
+      "journal": "Iranian journal of allergy, asthma, and immunology",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42826594",
+      "doi": "10.1016/j.micres.2026.128745",
+      "title": "An N-acetyltransferase influences AreA nuclear localization and nitrogen utilization in the basidiomycete Ganoderma lucidum.",
+      "journal": "Microbiological research",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42828456",
+      "doi": "10.1002/cbin.70222",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "journal": "Cell biology international",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42826768",
+      "doi": "10.1016/j.ibmb.2026.104670",
+      "title": "A conserved zinc-finger gene BmZFO721 regulates meiosis and female fertility in silkworm, Bombyx mori.",
+      "journal": "Insect biochemistry and molecular biology",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42826841",
+      "doi": "10.1016/j.jnutbio.2026.110513",
+      "title": "Selenium deficiency induces PANoptosis in porcine myocardial tissue via Sirt3-mediated YME1L1 acetylation under oxidative stress.",
+      "journal": "The Journal of nutritional biochemistry",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42827474",
+      "doi": "10.3389/fpsyg.2026.1900685",
+      "title": "Associations between cognitive reserve, iron deposition in the basal ganglia, and cognitive function in mild cognitive impairment.",
+      "journal": "Frontiers in psychology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42827651",
+      "doi": "10.3389/fnut.2026.1928365",
+      "title": "Improvement of residual dizziness associated with a low-dose vitamin D-calcium combination (Caltrate D) supplementation in female patients with benign paroxysmal positional vertigo after successful repositioning: an 8-week retrospective study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42828173",
+      "doi": "10.1016/j.bbrep.2026.102799",
+      "title": "Optimization of PEI-mediated transient transfection for antibody production in Expi293F cells by iron ion supplementation.",
+      "journal": "Biochemistry and biophysics reports",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42829093",
+      "doi": "10.1016/j.clinbiochem.2026.111214",
+      "title": "Association between elevated serum cobalamin concentrations and malignancy: a retrospective cohort study from the western Cape, South Africa.",
+      "journal": "Clinical biochemistry",
+      "pub_date": "2026 Oct 3",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42829709",
+      "doi": "10.1093/tas/txag141",
+      "title": "Effects of early gestational parenteral iron administration on maternal iron biomarkers and reproductive performance in sows under commercial conditions.",
+      "journal": "Translational animal science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42830041",
+      "doi": null,
+      "title": "ASSOCIATION BETWEEN INFLAMMATORY MARKERS, LIVER ENZYMES, LIPID PROFILE, AND VITAMIN D STATUS IN ADULTS WITH OBESITY: A CROSS-SECTIONAL STUDY.",
+      "journal": "Georgian medical news",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42830915",
+      "doi": "10.1016/j.eclinm.2026.104205",
+      "title": "Vitamin B12 replacement strategies: a Brazilian delphi consensus.",
+      "journal": "EClinicalMedicine",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42830970",
+      "doi": "10.2147/DMSO.S635338",
+      "title": "Vitamin D Deficiency, Inflammatory Biomarkers, and MASLD in Older Adults with Type 2 Diabetes: A Cross-Sectional Study.",
+      "journal": "Diabetes, metabolic syndrome and obesity : targets and therapy",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42831639",
+      "doi": "10.1128/msystems.01035-26",
+      "title": "Iron-dependent metabolic rewiring drives tryptophan-associated melanin production in a clinical Pseudomonas aeruginosa strain.",
+      "journal": "mSystems",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42832221",
+      "doi": "10.1093/nutrit/nuag136",
+      "title": "Zinc Status and Disease Severity in Psoriasis, Atopic Dermatitis, and Seborrheic Dermatitis: A Systematic Review and Meta‑analysis.",
+      "journal": "Nutrition reviews",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42810776",
+      "doi": "10.1016/j.jphs.2026.08.003",
+      "title": "Cholinergic neurons in the dorsal motor nucleus of the vagus contribute to vagally mediated cardiovascular responses through a putative pathway involving the nodose ganglion.",
+      "journal": "Journal of pharmacological sciences",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42812376",
+      "doi": "10.3389/fmed.2026.1910302",
+      "title": "Progression of coronary artery calcification in chronic kidney disease: nonlinear associations with serum magnesium and parathyroid hormone.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42814074",
+      "doi": "10.1016/j.jacc.2026.08.025",
+      "title": "Food and Health: Nutrition for Prevention and Management of Cardiovascular Disease: 2026 ACC Scientific Statement: A Report of the American College of Cardiology.",
+      "journal": "Journal of the American College of Cardiology",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Review",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42815684",
+      "doi": "10.1016/j.bbalip.2026.159774",
+      "title": "DHA increases Angptl4 gene expression and reduces LPL activity in a PPARγ-dependent manner in adipocytes.",
+      "journal": "Biochimica et biophysica acta. Molecular and cell biology of lipids",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42819509",
+      "doi": "10.7759/cureus.115506",
+      "title": "Relationship Between Obesity, Insulin Resistance, and Gastrointestinal Disorders Among Adult Patients With Established Cardiovascular Disease.",
+      "journal": "Cureus",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42821325",
+      "doi": "10.1002/adhm.71797",
+      "title": "\"Trojan Horse\"-Inspired Bionic Coating of Mesh-Like Assembled Lysozyme Nanofibers for Anti-Infection, Anti-Oxidative Stress and Bone Repair.",
+      "journal": "Advanced healthcare materials",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42823459",
+      "doi": "10.1038/s44161-026-00882-8",
+      "title": "All-fiber wireless auscultation garment for cardiopulmonary diagnostics.",
+      "journal": "Nature cardiovascular research",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42828013",
+      "doi": "10.1021/acsptsci.6c00098",
+      "title": "The Lipid Switch: Ultra-High Dose Omega Fatty Acids Determine MYCN Neuroblastoma Fate and Implicate Substrate-Level Oxylipin Competition.",
+      "journal": "ACS pharmacology & translational science",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "42831353",
+      "doi": "10.1039/d6fo02980a",
+      "title": "Matrix matters: the importance of the food matrix in bioaccessibility and basolateral recovery of microalgal-sourced DHA.",
+      "journal": "Food & function",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42820090",
+      "doi": "10.3389/fimmu.2026.1942637",
+      "title": "The microbiome-inflammasome axis in endometriosis-associated chronic pelvic pain: mechanisms and therapeutic opportunities from an immunological perspective.",
+      "journal": "Frontiers in immunology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42823420",
+      "doi": "10.1038/s41572-026-00741-7",
+      "title": "Irritable bowel syndrome.",
+      "journal": "Nature reviews. Disease primers",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42823900",
+      "doi": "10.1111/nmo.70456",
+      "title": "When Food Avoidance Meets Compatible Diagnostic Criteria: Avoidant/Restrictive Food Intake Disorder Features in Irritable Bowel Syndrome.",
+      "journal": "Neurogastroenterology and motility",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42825107",
+      "doi": "10.1016/j.crfs.2026.101565",
+      "title": "Next-generation probiotic delivery: Engineering complex coacervation systems for targeted gut release and bioactive synergy.",
+      "journal": "Current research in food science",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42825245",
+      "doi": "10.1080/20002297.2026.2732297",
+      "title": "Oral microbiome-metabolome axis links glycerophospholipid dysregulation to Alzheimer's disease.",
+      "journal": "Journal of oral microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42825603",
+      "doi": "10.1039/d6fo03527b",
+      "title": "Comparative genomic insights into strain-specific zinc-promoting effects of the spore-forming probiotic Heyndrickxia coagulans.",
+      "journal": "Food & function",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42826310",
+      "doi": "10.1097/MD.0000000000050956",
+      "title": "Systemic inflammation, gut microbiome composition, and cognitive performance among older Ugandans with Alzheimer's disease and related dementias: A cross-sectional study.",
+      "journal": "Medicine",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42827489",
+      "doi": "10.3389/fmicb.2026.1939259",
+      "title": "Combined application of organic and microbial amendments reshapes soil microbiome diversity and improves soybean growth performance.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42831970",
+      "doi": "10.1007/s11250-026-05365-3",
+      "title": "Probiotics supplements on fattening guinea pigs: effects on carcass traits and non-carcass components.",
+      "journal": "Tropical animal health and production",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42832417",
+      "doi": "10.1371/journal.pone.0359559",
+      "title": "Oral microbiome signatures of ageing and cognitive function across distinct geographical cohorts.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

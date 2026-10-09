@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2001-2500",
+  "generated_from": {
+    "input_files": [
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2001-2025-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2001-2025.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2026-2050-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2026-2050.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2051-2075-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2051-2075.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2076-2100-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2076-2100.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2101-2125-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2101-2125.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2126-2150-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2126-2150.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2151-2175-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2151-2175.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2176-2200-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2176-2200.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2201-2225-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2201-2225.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2226-2250-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2226-2250.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2251-2275-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2251-2275.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2276-2300-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2276-2300.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2301-2325-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2301-2325.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2326-2350-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2326-2350.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2351-2375-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2351-2375.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2376-2400-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2376-2400.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2401-2425-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2401-2425.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2426-2450-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2426-2450.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2451-2475-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2451-2475.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2476-2500-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2476-2500.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2001-2500-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2001-2500.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-waves-2001-2500-pmid-revalidation.json"
+    ],
+    "review_note": "Twenty 25-finding passes produced 500 unique, exact-PubMed-verified research receipts. Final fail-closed admission retains 9 source-specific runtime evidence rows on existing canonical entities. The remaining 491 receipts stay research-only after canonical/entity/formulation/combination/route/observational/evidence-quality review. Review repair canonicalized the vitamin B12 runtime identity to existing canonical slug `cobalamin`."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 9,
+    "source_rows": 9,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 2001,
+    "last_wave": 2500,
+    "completed_waves": 500,
+    "evidence_records": 9,
+    "unique_source_records": 9
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "evidence_merge": "append-only; only source-specific reader-ready rows are runtime-materialized",
+    "claim_calibration": "retain null evidence, mixed outcomes, uncertainty, endpoint distinctions, population limits, formulation boundaries, and source-specific claim language",
+    "verification_strategy": "batch-first; admission and repository gates run once after 500-wave consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-04-enrichment-waves-2001-2500.json",
+    "sha256": "19c457377fe47c26e7c94bc7fbc63f4d1dd6abf0cda5499356904928480364bb",
+    "bytes": 18152
+  },
+  "admission": {
+    "evidence_additions": 9,
+    "evidence_corrections": 1,
+    "source_additions": 9,
+    "source_corrections": 1
+  }
+}

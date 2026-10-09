@@ -17,6 +17,8 @@ const TEST_EXCLUDES = [
   'scripts/content/__tests__/**',
   'scripts/ci/swarm-operational-ledger.test.mjs',
   'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
+  // Native node:test, never Vitest: npm run test:node already discovers and runs each file.
+  'scripts/research/*.test.mjs',
 ]
 
 function workspaceAliasPlugin(): Plugin {

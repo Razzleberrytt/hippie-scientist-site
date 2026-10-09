@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "range": "2656-2705",
+  "rows": [
+    {
+      "wave": 2657,
+      "pmid": "42819218",
+      "doi": "10.3389/fmicb.2026.1944134",
+      "title": "Probiotic drug interactions in ulcerative colitis: a microbiota and metabolite perspective.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Ulcerative colitis (UC) is a chronic relapsing inflammatory bowel disease that imposes a substantial lifelong burden on patients, particularly as it commonly develops during adolescence or early adulthood. Despite major advances in pharmacological management, including the introduction of biologic agents and small-molecule therapies, considerable interindividual variability in therapeutic response remains a major clinical challenge. Emerging evidence in pharmacomicrobiomics indicates that the gut microbiota contributes to this variability through bidirectional interactions with drugs. These interactions involve direct microbial biotransformation of drugs, modulation of host metabolic pathways and transport systems, and pharmacodynamic effects mediated by microbiota that collectively influence drug efficacy, safety, and therapeutic outcomes. Strategies aimed at restoring microbial homeostasis, including dietary interventions, probiotics, prebiotics, synbiotics, postbiotics, and fecal mi",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2660,
+      "pmid": "42812824",
+      "doi": "10.3389/fmicb.2026.1895137",
+      "title": "Bacterial consortium construction for inhibition of Salmonella in chickens.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Salmonella enterica is one of the leading causes of bacterial enteritis in humans with consumption of contaminated poultry products being the leading cause of Salmonella infection. Salmonella is often considered a commensal organism within the poultry gut due to its asymptomatic carriage in adult birds making it difficult to clear by the host immune system once established. Understanding the niche Salmonella occupies will aid in the determination or selection for probiotic organisms with overlapping niche occupation metabolically or spatially for inhibition or exclusion of Salmonella within the poultry gut. Probiotics are an often-utilized treatment for reducing the presence of Salmonella within the poultry gut or as a preventative measure via colonization inhibition through the properties of competitive exclusion. Competitive exclusion is a well-known and effective strategy against Salmonella colonization, especially through the administration of undefined chicken cecal contents, effe",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2664,
+      "pmid": "42807696",
+      "doi": "10.3389/fimmu.2026.1949158",
+      "title": "Beyond desensitization: the SCFA-Treg-gut microbiota axis as a mechanistic framework for sustained unresponsiveness in food allergy.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Food allergy is an immune-mediated condition associated with acute reactions, risk of anaphylaxis, and a substantial day-to-day management burden. Oral immunotherapy (OIT) can increase the amount of allergen tolerated during treatment, but this desensitized state commonly depends on continued exposure. Sustained unresponsiveness (SU), also termed remission in some trials, is a stricter operational endpoint in which clinical non-reactivity is retained after a predefined period of treatment withdrawal and is confirmed by oral food challenge. The biological processes that determine whether desensitization develops into SU remain incompletely understood. This narrative review evaluates the gut microbiota-short-chain fatty acid (SCFA)-regulatory T-cell (Treg) axis as a mechanistic framework for this transition. Experimental studies show that microbial SCFAs can influence Treg differentiation and function through histone deacetylase inhibition and metabolite-sensing receptors, while also con",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2669,
+      "pmid": "42783209",
+      "doi": "10.3390/diseases14090316",
+      "title": "Safety and Effectiveness of Probiotic Preparations: A Contemporary Review.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/Objectives: Probiotic preparations have attracted increasing attention because of their potential to modulate the gut microbiota and improve health outcomes in a wide range of gastrointestinal and extraintestinal diseases. However, their efficacy and safety are strain-specific and remain inconsistent across many clinical indications. The aim of this review was to evaluate current evidence regarding the efficacy, safety, mechanisms of action, and clinical applications of probiotic preparations. Methods: A narrative literature review was conducted using the PubMed, Scopus, and Web of Science databases to identify publications addressing the efficacy, safety, and clinical applications of probiotic preparations. The literature search was last updated in July 2026. No publication-year restrictions were applied; the studies included in this review were published between 2000 and 2026. Priority was given to systematic reviews, meta-analyses, randomized controlled trials, internatio",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2672,
+      "pmid": "42825912",
+      "doi": "10.18502/ijaai.v25is11.22481",
+      "title": "Associations between Inflammatory Markers, Micronutrients, and Disease Severity in COVID-19 Patients with Type 2 Diabetes Mellitus.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The management of treatment strategies in COVID-19 is critical, especially in patients with type 2 diabetes. Non-enzymatic glycation of transmembrane protease serine 2 and angiotensin-converting enzyme 2 during COVID-19 in patients with diabetes may exacerbate immune dysregulation and inflammation. Elevated inflammatory cytokines such as IL-1, IL-2, IL-6, IL-7, and IL-10, tumor necrosis factor-α, interferon-γ, granulocyte-macrophage colony-stimulating factor, and monocyte chemoattractant protein-1 have been observed in COVID-19 patients. This review aims to assess the relationship between inflammatory markers, including C-reactive protein, and micronutrients (vitamins D and C, zinc, and copper) with the severity of COVID-19 infection in patients with type 2 diabetes. A narrative review was conducted through a comprehensive literature search of English-language articles published between 2000 and 2025. The databases searched included PubMed, Scopus, the ISI Web of Science, Cochrane, and",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2674,
+      "pmid": "42820108",
+      "doi": "10.3389/fimmu.2026.1901186",
+      "title": "Metalloimmunotherapies: metal-driven regulatory networks in the immune microenvironment.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Metal ions, as common endogenous signaling molecules, play a crucial role in immune homeostasis and inflammation regulation. This paper systematically elucidates the molecular mechanisms by which iron, manganese, zinc, copper, magnesium, cobalt, nickel, lithium, silver, gold, and rare earth elements cerium, yttrium and lanthanum regulate inflammation through NF-κB, MAPK, AKT, STAT, and ROS pathways. It proposes establishing a closed-loop “metal-immunotherapeutic efficacy” database to lay the theoretical foundation for the development of metal immune-materials genomics.",
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2677,
+      "pmid": "42797461",
+      "doi": "10.3390/ph19091416",
+      "title": "Cooperation or Conflict? Molecular and Physiological Cross-Talk Between the Aryl Hydrocarbon and Vitamin D Receptors.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The aryl hydrocarbon receptor (AHR) and the vitamin D receptor (VDR) were long regarded as independent transcription factors governing distinct physiology—xenobiotic sensing and calcium–vitamin D homeostasis, respectively. AHR, a basic helix–loop–helix/PAS protein, heterodimerizes with ARNT and binds xenobiotic response elements (XREs) to drive cytochrome P450 genes such as CYP1A1; VDR, a nuclear receptor activated by 1,25-dihydroxyvitamin D3, heterodimerizes with RXR and binds vitamin D response elements (VDREs). Although their genes reside on separate chromosomes (AHR, Chr 7; VDR, Chr 12), an integrated view recognizes the two pathways as extensively cross-regulatory. This review synthesizes the molecular, immunological, and tissue-level evidence for VDR–AHR interplay. At the molecular level, the receptors cooperate at composite promoter architectures—most notably an everted-repeat VDRE positioned adjacent to an XRE in the CYP1A1 promoter—while AHR ligands reciprocally enhance CYP24A",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2679,
+      "pmid": "42797015",
+      "doi": "10.3390/nu18183032",
+      "title": "Microbiome-Derived Metabolic Signaling in the Gut-Skin Axis: Implications for Nutricosmetics and Healthy Skin Aging.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The gut–skin axis represents a bidirectional communication network linking the gut microbiota, microbial metabolism, immune regulation, and skin physiology. Natural bioactives derived from dietary plants, mushrooms, fermented foods, marine resources, and functional ingredients may influence skin health through both direct nutritional effects and host–microbiome metabolic interactions. This review provides a microbiome-centered, systems-level perspective on the relationships among dietary bioactives, gut microbial biotransformation, microbiome-derived metabolites, and skin aging-associated physiology. Particular attention is given to polyphenols, polysaccharides, carotenoids, peptides, fatty acids, probiotics, postbiotics, and fermented bioactive compounds as modulators of microbial composition and metabolic activity. Microbial metabolites, including short-chain fatty acids (SCFAs), indole derivatives, urolithins, phenolic metabolites, bile acid derivatives, and lipid-associated metabol",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2680,
+      "pmid": "42796662",
+      "doi": "10.3390/pathogens15090894",
+      "title": "The Modulatory Role of Vitamin D in the Molecular Mechanisms of Sepsis and Infections with Focus on Viral Pathogenesis: A Narrative Review.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Viral infections are a widely recognized cause of mortality. Recently it has been demonstrated that vitamin D plays an important immuno-modulatory role in both innate and adaptive immune responses against infections, by reducing excessive inflammation and enhancing defense mechanisms. Specifically, exacerbation of infections may cause sepsis, characterized by a dysregulated immune response with hyperinflammation and immune exhaustion. Vitamin D can modulate these processes through various mechanisms, such as enhancing antiviral protection, promoting anti-inflammatory responses, protecting endothelial barriers, and modulating T-cells. This has been demonstrated for various viral infections, including influenza viruses, respiratory syncytial virus, and severe acute respiratory syndrome coronavirus. Although vitamin D deficiency has been associated with increased susceptibility to viral infections and immune cells of infected patients are highly responsive to vitamin D, the clinical benef",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2681,
+      "pmid": "42794916",
+      "doi": "10.3390/cancers18182949",
+      "title": "Non-Pharmacological Treatments for Oral Carcinogenesis: From Oral Lichen Planus to Oral Squamous Cell Carcinoma.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Oral lichen planus (OLP) is a chronic, immune-mediated inflammatory disorder of the oral mucosa recognized as an oral potentially malignant disorder, with a pooled malignant transformation rate of approximately 1–1.4% that is highest in atrophic-erosive and tongue lesions. Its most feared outcome, oral squamous cell carcinoma (OSCC), remains associated with a 5-year survival below 50% and a substantial clinical, functional, and economic burden. Because conventional management, like topical corticosteroids for OLP and surgery with or without radiotherapy for OSCC, entails cumulative toxicity and limited long-term efficacy, non-pharmacological strategies are attracting growing interest. This narrative review critically appraises the available evidence across the OLP-to-OSCC continuum, examining high-power ablative lasers, low-level laser therapy/photobiomodulation, photodynamic therapy, nutraceutical and phytotherapeutic agents (including melatonin, curcumin, aloe vera, coconut, zinc, an",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2682,
+      "pmid": "42794187",
+      "doi": "10.3390/children13091167",
+      "title": "Periodic Fever, Aphthous Stomatitis, Pharyngitis, and Cervical Adenitis (PFAPA) Syndrome: An Updated Review with Current Insights into Pathogenesis and Therapeutic Strategies.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/Objectives: Periodic fever, aphthous stomatitis, pharyngitis, and cervical adenitis (PFAPA) syndrome is the most frequently encountered periodic fever syndrome in pediatric populations. It is characterized by recurrent, stereotyped episodes of fever accompanied by pharyngitis, cervical lymphadenopathy, and aphthous stomatitis, sometimes with other additional nonspecific symptoms. Episodes usually last 3–7 days and recur at regular intervals of approximately 2–8 weeks. The etiopathogenesis of PFAPA remains incompletely understood. Accumulating evidence supports a central role of immune dysregulation with multiple genetic variants that contribute to disease susceptibility. Diagnosis is primarily based on clinical evaluation, although targeted genetic testing may be considered in selected cases particularly when overlapping with other monogenic autoinflammatory disorders. Management of PFAPA aims to decrease the frequency and intensity of febrile episodes. Acute flares are mana",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2683,
+      "pmid": "42792633",
+      "doi": "10.3390/biomedicines14091889",
+      "title": "Photodynamic Therapy in Cancer: Mechanisms, Photosensitizer Technology, Vitamin Modulation, and Rational Combination Design.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Photodynamic therapy (PDT) is a minimally invasive anticancer modality based on the interaction of a photosensitizer, light of an appropriate wavelength, and molecular oxygen, resulting in reactive oxygen species (ROS)-mediated tumor injury. This review discusses PDT as a mechanism-dependent therapeutic platform and evaluates how photosensitizers, vitamin A, vitamin D, nanotechnology, and combination strategies may influence its efficacy. The article synthesizes mechanistic and translational evidence concerning photosensitizer activation, ROS generation, tumor cell death, vascular shutdown, immunogenic cell death, and clinically relevant PDT applications. Particular attention is given to the divergent roles of vitamin A and vitamin D. Mechanistic and limited experimental evidence indicates that the effects of vitamin A-related compounds on PDT are heterogeneous and context-dependent. Selected compounds may attenuate PDT through antioxidant or cytoprotective mechanisms, whereas enhancem",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2685,
+      "pmid": "42787737",
+      "doi": "10.3389/fimmu.2026.1909913",
+      "title": "Nutritional biomarkers regulating tumor immune microenvironment in osteosarcoma and as predictors of immune checkpoint inhibitor responses.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Osteosarcoma(OS) exhibits poor and heterogeneous responses to immune checkpoint inhibitors(ICIs), largely due to its highly tumor immunosuppressive microenvironment(TIME). This review explores how nutritional biomarkers regulate the OS tumor microenvironment(TME) and serve as predictors of ICIs efficacy. Key biomarkers, including prognostic nutritional index(PNI), vitamin D and IDO modulate tumor-infiltrating lymphocytes (TILs), CD8 + T-cell function, macrophage polarization, and cytokine–metabolite crosstalk through mechanisms such as nutrient depletion, lactate acidification, and inflammatory signaling. These biomarkers not only reflect host nutritional and inflammatory status but also actively shape an TIME that contributes to ICIs resistance. Targeted nutritional interventions and combinations with IDO show potential to reprogram the TME and enhance antitumor immunity. This review highlights the value of nutritional biomarkers for patient stratification, prognostic assessment, and ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2687,
+      "pmid": "42782738",
+      "doi": "10.3390/cells15181637",
+      "title": "Biomarker-Driven Strategies for Stromal Reprogramming in Pancreatic Ductal Adenocarcinoma.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Pancreatic ductal adenocarcinoma (PDAC) remains highly lethal, partly because its dense, heterogeneous stroma restricts drug delivery, promotes immune exclusion, and supports therapeutic resistance. Stromal targeting has, therefore, evolved from broad depletion towards biomarker-guided reprogramming and normalization strategies that aim to restore vascular function, improve intratumoral drug penetration, and enhance antitumor immunity. This review summarizes evidence on stromal biomarkers with prognostic or predictive value, including tumor–stroma ratio, fibrosis burden, cancer-associated fibroblast states, extracellular matrix stiffness, vascular accessibility, and spatial immune features. It also examines emerging therapeutic approaches to reprogram the PDAC stroma, such as repurposed drugs, immune–stromal modulators, metabolic interventions, and advanced delivery systems. Emphasis is placed on clinically or translationally supported strategies, including CXCR4, CD40, CD73, vitamin D",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2688,
+      "pmid": "42780844",
+      "doi": "10.3389/fmicb.2026.1951748",
+      "title": "Type VI secretion system effectors as modulators of host immunometabolism: organelle stress, nutritional immunity, and therapeutic opportunities.",
+      "category": "immune_respiratory",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Metabolic reprogramming is a central determinant of host defense and pathogen persistence during infection. Although the bacterial type VI secretion system (T6SS) is primarily recognized as a contact-dependent apparatus for interbacterial competition and effector delivery, emerging evidence indicates that T6SS activity can also influence host metabolism at cellular, nutritional, and microbial-community levels. Here, we organize current evidence into three mechanistic tiers: direct biochemical interference with lipids, metabolites, or metal ions; organelle- and signaling-mediated immunometabolic reprogramming; and indirect metabolic effects arising from T6SS-dependent remodeling of microbial communities. T6SS effectors can disrupt endoplasmic-reticulum lipid homeostasis, activate the unfolded protein response and autophagy, alter mitochondrial Ca2+ handling and dynamics, promote redox imbalance, and modulate metabolically sensitive immune pathways including phosphoinositide 3-kinase (PI",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2694,
+      "pmid": "42827943",
+      "doi": "10.1016/j.crmicr.2026.100661",
+      "title": "Gut microbial allies and adversaries in SARS-CoV-2 infection.",
+      "category": "immune_respiratory",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2695,
+      "pmid": "42827912",
+      "doi": "10.3389/fimmu.2026.1793126",
+      "title": "Mapping research hotspots and trends in gut microbiota and autoimmune diseases since the 21st century: a bibliometric visualization analysis based on two databases.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The gut microbiota is recognized as essential for maintaining immune homeostasis, and dysbiosis of the gut microbiota has been increasingly associated with the pathogenesis of various autoimmune diseases. Emerging evidence suggests that alterations in gut microbial composition may contribute to dysregulation of the immune system, thereby promoting inflammatory responses and autoimmunity. Despite growing interest in this field, a comprehensive bibliometric analysis integrating global research trends, influential publications, and key contributors, as well as clinical translation perspectives, remains lacking. This study aims to systematically evaluate the research landscape on the relationship between the gut microbiota and autoimmune diseases, thereby providing insights into research development, emerging hotspots, and future directions. Global publications on gut microbiota and autoimmune diseases were systematically retrieved and extracted from the Web of Science Core Collection (WOS",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2697,
+      "pmid": "42750761",
+      "doi": "10.1016/j.bbrep.2026.102759",
+      "title": "The protective effect of chemical and natural compounds against amiodarone induced toxicity: A systematic review.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Objectives Amiodarone remains an important antiarrhythmic drug, but cumulative exposure can cause pulmonary, hepatic, renal, thyroid, and reproductive toxicity. This systematic review critically compares interventions tested to prevent or attenuate amiodarone-induced injury, evaluates evidence strength and replication, and integrates the implicated molecular pathways. Methods PubMed, MEDLINE, Scopus, and Web of Science were searched from inception to July 2025 for English-language in vitro, animal, and human studies of protective interventions against amiodarone toxicity. Animal studies were evaluated using SYRCLE; in vitro studies using an adapted OHAT framework; and the human observational study using the applicable JBI checklist. Because of substantial heterogeneity, findings were synthesized narratively by organ, mechanism, replication, and translational readiness. Database-specific search strategies are reported in Supplementary Table S1. Disagreements were resolved by consensus; ",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2698,
+      "pmid": "42797450",
+      "doi": "10.3390/ph19091405",
+      "title": "Efficacy of Curcumin in Neurodegenerative Diseases: From Pharmacokinetic Barriers to Advanced Delivery Systems.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background and Objectives: The main neurodegenerative diseases (NDs)—Alzheimer’s disease (AD), Parkinson’s disease (PD), multiple sclerosis (MS), and amyotrophic lateral sclerosis (ALS)—represent a growing global health burden with no available disease-modifying therapies. Curcumin, a polyphenol from Curcuma longa, is a promising candidate owing to its pleiotropic antioxidant, anti-inflammatory, and neuroprotective profile observed mainly in preclinical models, but the poor oral bioavailability (<1%) and negligible BBB penetration (<0.1%) have substantially limited curcumin’s clinical translation. The objective of this work was to critically examine the therapeutic potential of curcumin in NDs, focusing on advanced drug delivery systems (DDSs) designed to overcome its pharmacokinetic barriers. Methods: This is a narrative, non-systematic review of PubMed/MEDLINE, Scopus, and Web of Science. The review is organized around five complementary thematic areas selected to span the full trans",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2699,
+      "pmid": "42788466",
+      "doi": "10.4103/ijpvm.ijpvm_7_25",
+      "title": "What Do We Know about The Potential Toxicity of Turmeric and Curcumin Derivatives.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Turmeric is a well-known compound in traditional medicine and its derivatives, such as curcumin, have been used for years to prevent, treat, and improve symptoms of various diseases due to their beneficial properties. Curcumin is known for its anti-inflammatory and antioxidant properties. Many studies have investigated the effects of curcumin as a dietary supplement on human health, and positive results have been reported. However, curcumin has low bioavailability, so several new derivatives have been produced to overcome this limitation. Most studies conducted so far have not reported any serious toxic effects from consuming turmeric, curcumin, and its derivatives. However, side effects have been associated with the consumption of these supplements in some human studies. There are also concerns regarding the use of higher doses of curcumin and its long-term use. Our review of the published human studies suggests that consuming turmeric, curcumin, and its derivatives has no major side ",
+      "evidence_boundary": "Review-level synthesis supports context and hypothesis generation but does not by itself establish clinical efficacy.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2700,
+      "pmid": "42756119",
+      "doi": "10.3389/fphar.2026.1907919",
+      "title": "A narrative review of emerging chemoprotective agents for chemotherapy-induced toxicity: nanoformulated natural products, dual COX-2/TNF-α inhibitors, and Nrf2 modulators.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background Chemotherapy-induced toxicity remains a major cause of treatment discontinuation, reduced quality of life, and long-term morbidity in cancer survivors. Established chemoprotective agents (dexrazoxane, mesna, and amifostine) are limited by narrow indications (dexrazoxane: only anthracycline cardiotoxicity), significant adverse effects (amifostine: hypotension in 62%), and lack of efficacy against common toxicities such as peripheral neuropathy. Objective This focused review evaluates emerging chemoprotective strategies with preclinical or early clinical data published between 2015 and 2025, with an emphasis on agents that address unmet clinical needs. Methods This is a critical narrative review, not a systematic review. A literature search was conducted in PubMed, Scopus, and ClinicalTrials.gov (2015–2025) using keywords including “chemoprotection,” “nanoparticle,” “curcumin,” “resveratrol,” “dual COX-2/TNF-α inhibitor,” “Nrf2 modulator,” and “chemotherapy-induced peripheral ",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2701,
+      "pmid": "42745984",
+      "doi": "10.3389/fphar.2026.1906759",
+      "title": "A review bridging pharmacokinetics, preclinical data, and human evidence on curcuminoids in cardiovascular disease.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Curcumin, the major curcuminoid of turmeric (Curcuma longa L.), has attracted sustained interest as a nutraceutical with pleiotropic anti-inflammatory, antioxidant, and vascular actions. However, extrapolating experimental in vitro findings to cardiovascular outcomes in humans is challenged by low aqueous solubility, chemical instability at intestinal pH, extensive first-pass metabolism, and substantial inter-product variability in formulation. Preclinical research supports antihypertensive and vasculoprotective effects, but many in vitro studies rely on micromolar exposures that are difficult to achieve following oral dosing. In humans, randomized trials and meta-analyses suggest modest improvements in surrogate cardiometabolic risk markers (e.g., minor alterations in lipid profiles and inflammatory biomarkers), with substantial heterogeneity across populations, doses, durations, and formulations. However, these results cannot establish turmeric-derived preparations as standard cardio",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2703,
+      "pmid": "42807111",
+      "doi": "10.3389/fphys.2026.1799419",
+      "title": "Bioregulatory periodontal medicine: could the molecular networks, inflammation and system biology modify the auto-regulatory capacity of the patients?",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The traditional healthcare model, focused on symptom management, has shown limitations in addressing chronic diseases. In response, Bioregulatory Systems Medicine (BrSM) has emerged, an approach that promotes the body’s self-regulation through multi-component drug and phytotherapeutic treatments. Its potential application in dentistry, particularly in periodontitis, has spurred the study of various natural molecules with the potential to prevent or reduce bone resorption. This qualitative systematic review analyzes the available evidence from animal and human models in the field of bioregulatory periodontal medicine. A qualitative systematic review was conducted according to PRISMA-P guidelines. Animal and human studies published in English or Spanish within the last 10 years were included. The search was performed in five databases (SciELO, CENTRAL, PubMed, LILACS, and Web of Science) using MeSH terms. Data selection and analysis were performed in duplicate. Tools were applied to asse",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2704,
+      "pmid": "42797739",
+      "doi": "10.3390/toxics14090820",
+      "title": "Prenatal Chlorpyrifos Exposure Induces Ovarian Toxicity in Rat Offspring: Modulatory Potential of Curcumin.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background: Chlorpyrifos (CPF) is a widely used organophosphate pesticide that can reach the developing organism during gestation. The finite ovarian follicle pool is established early, yet prenatal CPF effects on it remain poorly characterized by unbiased quantitative methods. This study evaluated the developmental ovarian toxicity of prenatal CPF exposure and the modulatory potential of curcumin in rat offspring. Methods: Pregnant Wistar rats were assigned to Control, Sham, CPF (5 mg/kg/day), CUR (100 mg/kg/day), and CPF + CUR groups (five dams per group). Anogenital distance was recorded at birth (PND1). Female offspring were examined at postnatal day 28 using ovarian weight, histopathology, unbiased stereological follicle quantification, cortical volume estimation, serum anti-Müllerian hormone (AMH), serum cholinesterase activity, and biochemical markers of ovarian oxidative status and inflammation. The litter was the unit of analysis (n = 5 litters per group). Results: Prenatal CP",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2705,
+      "pmid": "42792650",
+      "doi": "10.3390/biomedicines14091907",
+      "title": "Liposomal Nano-Curcumin Attenuates Cisplatin-Induced Hepatotoxicity in Rats with Concomitant Regulation of Wnt/β-Catenin/GSK-3β and Nrf2 Signaling.",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Objective: This research examined the effectiveness of liposomal N-Curcumin (N-Cur) against Cis-diamminedichloroplatinum (CDDP)-induced hepatotoxicity, specifically examining its ability to influence the Wnt/β-catenin/GSK-3 pathway and associated molecular markers. Methods: Male Wistar rats were treated for 14 days with oral N-Cur (80 mg/kg) and with a single intraperitoneal dose of CDDP (7 mg/kg) administered on day 7. Hepatic integrity was assessed through liver injury markers, histopathological examination, and biochemical analysis of oxidative stress (SOD, GSH, and MDA), inflammation (IL-10, TNF-α, CRP, and NF-κB p65), and signaling protein expression (β-catenin, Nrf2, and GSK-3). Results: CDDP administration resulted in significant hepatic damage, characterized by elevated injury markers and distorted tissue architecture. It induced severe oxidative stress (increased MDA; decreased GSH and SOD) and a robust inflammatory response. At the molecular level, CDDP suppressed the cytopro",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    }
+  ],
+  "missing_after_bulk_lookup": [
+    {
+      "wave": 2656,
+      "pmid": "42820934",
+      "doi": "10.1080/1040841X.2026.2729426",
+      "title": "Live probiotic encapsulation: process engineering, wall materials, and the translation gap to human gastrointestinal survival.",
+      "category": "gut"
+    },
+    {
+      "wave": 2658,
+      "pmid": "42816118",
+      "doi": "10.1080/10408398.2026.2737571",
+      "title": "Impact of prebiotics on vegetable juices: technological advances, gastrointestinal resistance, and functional potential.",
+      "category": "gut"
+    },
+    {
+      "wave": 2659,
+      "pmid": "42815885",
+      "doi": "10.1080/07388551.2026.2698072",
+      "title": "Advancements in resveratrol formulations for enhanced probiotic potential and high-yield productions.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2661,
+      "pmid": "42809189",
+      "doi": "10.1007/s11882-026-01292-3",
+      "title": "Immunomodulatory Function of Soluble Dietary Fiber: Toward Application for Prevention and Treatment of Food Allergies.",
+      "category": "gut"
+    },
+    {
+      "wave": 2662,
+      "pmid": "42809174",
+      "doi": "10.1007/s12602-026-11222-4",
+      "title": "Lactiplantibacillus plantarum as a Biosafe Microbial Bridge in the Gut-Environment Continuum.",
+      "category": "gut"
+    },
+    {
+      "wave": 2663,
+      "pmid": "42809154",
+      "doi": "10.1007/s10482-026-02432-5",
+      "title": "Glucansucrases as versatile biocatalysts: structural insights, synthesis of emerging prebiotic oligosaccharides, and their functional roles in food matrices.",
+      "category": "gut"
+    },
+    {
+      "wave": 2665,
+      "pmid": "42804385",
+      "doi": "10.1080/10408398.2026.2737065",
+      "title": "Leveraging millet's potential to mitigate metabolic syndrome: a comprehensive approach for managing lifestyle disorders.",
+      "category": "gut"
+    },
+    {
+      "wave": 2666,
+      "pmid": "42803857",
+      "doi": "10.1007/s11259-026-11535-3",
+      "title": "From dysbiosis to disease: the role of gut microbial communities in Toxoplasma gondii pathogenesis, zoonotic transmission, diagnostic innovation, and therapeutic outcomes.",
+      "category": "gut"
+    },
+    {
+      "wave": 2667,
+      "pmid": "42803357",
+      "doi": "10.1111/1541-4337.70655",
+      "title": "Lachnospiraceae in the Food-Gut Axis: A Critical Review of Dietary Modulation, Immune Regulation, and Translational Barriers.",
+      "category": "gut"
+    },
+    {
+      "wave": 2668,
+      "pmid": "42799463",
+      "doi": "10.2147/JIR.S626690",
+      "title": "Detrimental and Beneficial Diets Regulate Acute Pancreatitis Through Convergent Gut Microbiota Pathways.",
+      "category": "gut"
+    },
+    {
+      "wave": 2670,
+      "pmid": "42812452",
+      "doi": "10.1177/17449871261481751",
+      "title": "Topical maternal breast milk versus commercial topical products for diaper dermatitis in infants: a systematic review.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2671,
+      "pmid": "42806592",
+      "doi": "10.1021/acsami.6c16733",
+      "title": "Interface-Regulated Humidity-Sensing Transparent Flexible Film: Antibacterial Properties Facilitate Human-Computer Interaction and Health Monitoring.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2673,
+      "pmid": "42825850",
+      "doi": "10.1007/s12026-026-09854-3",
+      "title": "Vitamin D status and supplementation as potential modifiers of allergen immunotherapy outcomes in respiratory allergy: A structured narrative review.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2675,
+      "pmid": "42813499",
+      "doi": "10.1002/14651858.CD015216.pub2",
+      "title": "Interventions for treatment of herpes labialis (cold sores on the lips).",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2676,
+      "pmid": "42808367",
+      "doi": "10.1111/jmi.70182",
+      "title": "Engineered probiotic biointerfaces: Construction principles, microscopic characterisation and biomedical functions.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2678,
+      "pmid": "42797090",
+      "doi": "10.3390/nu18183107",
+      "title": "Primary Hyperparathyroidism in Celiac Disease: Diagnostic Challenges and Therapeutic Strategies.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2684,
+      "pmid": "42792613",
+      "doi": "10.3390/biology15181668",
+      "title": "Seasonality of Cytokines in Inflammatory Disease: Exploring Molecular Parallels with the Yellow Emperor's Inner Canon.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2686,
+      "pmid": "42784771",
+      "doi": "10.1080/09273948.2026.2725798",
+      "title": "The Role of Vitamin D in Noninfectious Uveitis: A Scoping Review with Transcriptomic and Bioinformatic Insights.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2689,
+      "pmid": "42778011",
+      "doi": "10.1016/j.expneurol.2026.116039",
+      "title": "Mechanisms and precision intervention strategies of time-dependent dynamic regulation of matrix metalloproteinase-mediated cerebrovascular barrier disruption and neurovascular unit remodeling in stroke.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2690,
+      "pmid": "42829259",
+      "doi": "10.1016/j.alit.2026.08.005",
+      "title": "Infant dermatitis induces long-lasting innate immune imprinting associated with the exacerbated adult atopic dermatitis-like skin inflammation.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2691,
+      "pmid": "42828779",
+      "doi": "10.1094/MPMI-06-26-0062-R",
+      "title": "Rust Fungi Secretomes Contain Structurally Diverse Effector Families Including Cysteine-Rich Metal-Binding Proteins.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2692,
+      "pmid": "42828674",
+      "doi": "10.1007/s12602-026-11221-5",
+      "title": "Engineered Bacillus subtilis Spores Surface-Displaying a PRRSV GP3/GP4/GP5 Fusion Antigen: A Preliminary Immunogenicity Evaluation in Mice and Piglets.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2693,
+      "pmid": "42828482",
+      "doi": "10.1002/jmv.71173",
+      "title": "RBM6 Facilitates RLR-Mediated Antiviral Responses by Promoting K63-Linked Ubiquitination of MAVS.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2696,
+      "pmid": "42827167",
+      "doi": "10.1007/s00284-026-05112-9",
+      "title": "Effects of Post-infection Supplementation with Lactiplantibacillus plantarum CRD7 and Lacticaseibacillus rhamnosus CRD11 on Helicobacter pylori Virulence Gene Expression in a Rat Model of Gastric Infection.",
+      "category": "immune_respiratory"
+    },
+    {
+      "wave": 2702,
+      "pmid": "42828456",
+      "doi": "10.1002/cbin.70222",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "category": "inflammation_pain"
+    }
+  ]
+}

@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "row_count": 46,
+  "rows": [
+    {
+      "category": "immune_respiratory",
+      "pmid": "42752258",
+      "doi": "10.1128/mbio.02000-26",
+      "title": "Yersinopine is a primary zinc acquisition system for Yersinia pseudotuberculosis.",
+      "journal": "mBio",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42753582",
+      "doi": "10.1016/j.bioadv.2026.215163",
+      "title": "Manganese-doped zinc oxide Nano-agonists activating the cGAS-STING pathway to potentiate anti-tumor immunotherapy and reprogram the immunosuppressive tumor microenvironment.",
+      "journal": "Biomaterials advances",
+      "pub_date": "2027 Jan",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42754984",
+      "doi": "10.11005/jbm.26.022",
+      "title": "Impact of Vitamin D Status on Speed, Power, and Sport-Specific Skills in Young Soccer Players Living Above 55° North Latitude.",
+      "journal": "Journal of bone metabolism",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42761692",
+      "doi": "10.3389/fmicb.2026.1908591",
+      "title": "Self-assembled quercetin-zinc supramolecular nanoparticles exhibit strong antibacterial and anti-biofilm activity against methicillin-resistant Staphylococcus aureus.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42763419",
+      "doi": "10.1002/vms3.71176",
+      "title": "The Effect of Multi-Strain Probiotics, Zinc and Copper on the Performance of Broiler Chickens Challenged With Clostridium perfringens.",
+      "journal": "Veterinary medicine and science",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42763789",
+      "doi": "10.1515/dx-2026-0094",
+      "title": "Evaluation of a new non-competitive chemiluminescent immunoassay for 25-OH vitamin D measurement.",
+      "journal": "Diagnosis (Berlin, Germany)",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42775102",
+      "doi": "10.1016/j.bioactmat.2026.07.052",
+      "title": "Zinc silicate microspheres-mediated bacterial metabolic interference and microenvironment remodeling for chronic wound repair.",
+      "journal": "Bioactive materials",
+      "pub_date": "2027 Jan",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42783965",
+      "doi": "10.3390/jof12090670",
+      "title": "N-Acetylcysteine Attacks Phenoloxidase to Inhibit Insect Melanization and Boost Fungal Virulence.",
+      "journal": "Journal of fungi (Basel, Switzerland)",
+      "pub_date": "2026 Sep 7",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42785032",
+      "doi": "10.1016/j.foodchem.2026.151233",
+      "title": "Dietary zinc oxide nanoparticles alter tissue-specific shifts in fatty acid and amino acid profiles but do not affect meat quality or targeted rumen bacteria in Haemonchus contortus-infected lambs.",
+      "journal": "Food chemistry",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42795281",
+      "doi": "10.3390/life16091414",
+      "title": "N-Acetylcysteine as a Bacterial Antibiofilm Adjuvant: Mechanisms, Synergistic Combinations and Clinical Translation.",
+      "journal": "Life (Basel, Switzerland)",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42799095",
+      "doi": "10.3389/fnut.2026.1940130",
+      "title": "Dietary zinc intake, serum zinc concentrations, and disease activity in children with juvenile idiopathic arthritis: a case-control study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42804643",
+      "doi": "10.1073/pnas.2608087123",
+      "title": "Zinc mediates the allosteric activation of Shiftless to suppress programmed -1 ribosomal frameshifting.",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_date": "2026 Oct 6",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42739060",
+      "doi": "10.3390/nu18172889",
+      "title": "Bioimpedance: From Body Composition Assessment to Emerging Technologies in Clinical Nutrition.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 3",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42752819",
+      "doi": "10.1007/s40279-026-02499-0",
+      "title": "Effects of Resistance Training on Muscle Hypertrophy in Children and Adolescents: A Systematic Review and Meta-Analysis.",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42756776",
+      "doi": "10.3389/fphar.2026.1839235",
+      "title": "Protein kinase C-λ drives third-degree burn-induced muscle wasting via STAT3-dependent catabolic pathways.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42757313",
+      "doi": "10.5005/jp-journals-10071-25246",
+      "title": "Added Value of Quadriceps Muscle Layer Thickness to modified Nutrition Risk in the Critically Ill (mNUTRIC) Score in Predicting Clinical Outcomes in Critically Ill Patients: A Prospective Observational Study.",
+      "journal": "Indian journal of critical care medicine : peer-reviewed, official publication of Indian Society of Critical Care Medicine",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42760404",
+      "doi": "10.1007/s00415-026-14148-7",
+      "title": "High-load resistance training and FSHD: harmful mixture or a silver bullet combination?",
+      "journal": "Journal of neurology",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42760937",
+      "doi": "10.3389/fnut.2026.1894965",
+      "title": "Valorisation of Prosciutto di Parma PDO by-products for the development of protein-rich snacks.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42763302",
+      "doi": "10.11817/j.issn.1672-7347.2026.250650",
+      "title": "[Effects of exergame combined with elastic band resistance training on exercise self-efficacy and physical activity levels in older adults with cognitive frailty: A mixed-methods study].",
+      "journal": "Zhong nan da xue xue bao. Yi xue ban = Journal of Central South University. Medical sciences",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "English Abstract",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42768432",
+      "doi": "10.1177/10815589261493463",
+      "title": "EXPRESS: Vitamin D variability might be linked to sarcopenia, especially with decreased muscle mass in older patients: a retrospective longitudinal study.",
+      "journal": "Journal of investigative medicine : the official publication of the American Federation for Clinical Research",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42771559",
+      "doi": "10.1159/anm/abmag008",
+      "title": "A High-Fat, High-Protein, Carbohydrate-Restricted Dietary Interventions in Pompe Disease: A Case Series with Long-Term Follow-Up.",
+      "journal": "Annals of nutrition & metabolism",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42772368",
+      "doi": "10.1016/j.clnesp.2026.105131",
+      "title": "Dietary protein intake, normalized handgrip strength, and gastrointestinal symptoms in stable lung transplant recipients: A cross-sectional study.",
+      "journal": "Clinical nutrition ESPEN",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42775354",
+      "doi": "10.22038/ABJS.2026.89311.4049",
+      "title": "The Impact of Vitamin D Supplementation on Postoperative Outcomes Following Total Joint Arthroplasty: A Systematic Review.",
+      "journal": "The archives of bone and joint surgery",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42776704",
+      "doi": "10.3390/geriatrics11050115",
+      "title": "Prevalence of Sarcopenia and Factors Associated with Body Composition and Protein Intake in Institutionalized Older Adults from Three Long-Term Care Facilities in Loja, Ecuador: A Cross-Sectional Study.",
+      "journal": "Geriatrics (Basel, Switzerland)",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42507981",
+      "doi": "10.1093/plphys/kiag543",
+      "title": "Heterologous expression of CsAlaDC enhances thermotolerance through a functional ethylamine-theanine-GABA metabolic network in tomato.",
+      "journal": "Plant physiology",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42589403",
+      "doi": "10.3390/ijms27156746",
+      "title": "Withania somnifera-Functionalized Selenium Nanoparticles Attenuate Glycerol-Induced Rhabdomyolysis-Associated Acute Renal Failure.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42610286",
+      "doi": "10.62713/aic.4542",
+      "title": "Comparison of Labetalol With Versus Without Magnesium Sulfate on Intraoperative Blood Pressure Variability During Cesarean Delivery in Hypertensive Disorders of Pregnancy: A Retrospective Cohort Study.",
+      "journal": "Annali italiani di chirurgia",
+      "pub_date": "2026 Aug 13",
+      "pub_type": "Comparative Study",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42637141",
+      "doi": "10.1016/j.plantsci.2026.113396",
+      "title": "Magnesium-induced transporters remodel the ionome of mulberry leaves by promoting the nitrate reductase (NIA) gene in nitrogen metabolism.",
+      "journal": "Plant science : an international journal of experimental plant biology",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42649815",
+      "doi": "10.3390/bioengineering13080926",
+      "title": "Biodegradable Magnesium-Based Implants in Sports Orthopedic Surgery: Advances in Alloy Design, Surface Engineering, and Translational Evidence.",
+      "journal": "Bioengineering (Basel, Switzerland)",
+      "pub_date": "2026 Aug 15",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42651842",
+      "doi": "10.3390/cimb48080844",
+      "title": "Magnesium Sulfate in Neonatal Hypoxic-Ischemic Encephalopathy: Bridging the Gap Between Molecular Neuroprotection and Clinical Outcomes.",
+      "journal": "Current issues in molecular biology",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42665173",
+      "doi": "10.1016/j.cbpc.2026.110678",
+      "title": "Integrative multi-omics analysis of magnesium-mediated alleviation of nitrite toxicity in Litopenaeus vannamei.",
+      "journal": "Comparative biochemistry and physiology. Toxicology & pharmacology : CBP",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42687797",
+      "doi": "10.1039/d6tb00975a",
+      "title": "3D-Printed poly(lactic acid)/magnesium scaffolds functionalized with chitosan-chlorhexidine gluconate microspheres for antibacterial repair of infected bone defects.",
+      "journal": "Journal of materials chemistry. B",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42768433",
+      "doi": "10.1111/dar.70263",
+      "title": "Evaluating the Pattern of Kava (Piper methysticum) Consumption in Australia by Wastewater-Based Epidemiology.",
+      "journal": "Drug and alcohol review",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42782665",
+      "doi": "10.3390/biomimetics11090639",
+      "title": "Biomedical Hydrogels Based on Oxidized Hyaluronic Acid and Carboxymethyl Chitosan Coordinated with Magnesium Ions.",
+      "journal": "Biomimetics (Basel, Switzerland)",
+      "pub_date": "2026 Sep 6",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42777354",
+      "doi": "10.1016/j.psj.2026.107841",
+      "title": "From environmental perception to reproductive allocation: the microbiome-membrane-mitochondria axis in poultry.",
+      "journal": "Poultry science",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42777374",
+      "doi": "10.1016/j.psj.2026.107689",
+      "title": "Age-related succession of the gut microbiome drives ovarian function decline in laying hens.",
+      "journal": "Poultry science",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42778035",
+      "doi": "10.1016/j.rmed.2026.109167",
+      "title": "The gut-lung axis in respiratory diseases: Mechanisms, microbiome dysbiosis, and therapeutic implications. A comprehensive review.",
+      "journal": "Respiratory medicine",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42778553",
+      "doi": "10.1038/s41467-026-76763-2",
+      "title": "An atlas of colonization factors in the human gut microbiome reveals ecological strategies and inflammatory bowel disease signatures.",
+      "journal": "Nature communications",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42781463",
+      "doi": "10.3389/fmicb.2026.1880722",
+      "title": "Rhizosphere microbiome engineering with PGPR to combat soil-mediated climate change.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42785073",
+      "doi": "10.1016/j.psj.2026.107674",
+      "title": "Dose-response evaluation of feed additive tert-butylhydroquinone on performance, hepatic antioxidant, gut health, and functional microbiome in heat-stressed broiler chickens.",
+      "journal": "Poultry science",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42789141",
+      "doi": "10.1007/s12032-026-03425-0",
+      "title": "Ketogenic diet as a systems-level immunometabolic sensitization strategy in cancer therapy: integrating metabolism, immune reprogramming, microbiome dynamics, and epigenetic regulation.",
+      "journal": "Medical oncology (Northwood, London, England)",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42790334",
+      "doi": "10.1016/j.plaphy.2026.111750",
+      "title": "Climate-induced metabolic rewiring in plants: Impact on plant secondary metabolism and microbiome interactions.",
+      "journal": "Plant physiology and biochemistry : PPB",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42792243",
+      "doi": "10.3390/antiox15091204",
+      "title": "Monochromatic Blue Light Enhances Antioxidant Status and Remodels the Gut Microbiome in Association with Increased Plasma Melatonin in Broiler Chickens.",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_date": "2026 Sep 20",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42792707",
+      "doi": "10.3390/biomedicines14091965",
+      "title": "Mitochondria Meet the Lung Microbiome: A Bidirectional Dialogue in Inflammation and Respiratory Diseases.",
+      "journal": "Biomedicines",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42795325",
+      "doi": "10.3390/life16091460",
+      "title": "Rhizosphere Diazotrophs in Acidic Agroecosystems: An Evidence-Chain and Microbiome-Compatibility Framework for Stabilizing Crop Growth Promotion.",
+      "journal": "Life (Basel, Switzerland)",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "gut",
+      "pmid": "42795676",
+      "doi": "10.3390/microorganisms14092097",
+      "title": "Multidimensional Physiological and Gut Microbiome Profiling Identifies Subtle Physiological Patterns in an Apparently Healthy Aging Indian Cohort: A Cross-Sectional Observational Study.",
+      "journal": "Microorganisms",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ on:
       - Lighthouse CI
       - P0 Visual Proof
       - Research Distribution
+      - Research rolling gate
     types: [completed]
   schedule:
     - cron: '*/10 * * * *'
@@ -206,7 +207,7 @@ jobs:
     if: >-
       github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'workflow_run' &&
-       github.event.workflow_run.conclusion == 'success' &&
+       contains(fromJSON('["success","action_required"]'), github.event.workflow_run.conclusion) &&
        contains(fromJSON('["pull_request","workflow_dispatch"]'), github.event.workflow_run.event) &&
        github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
@@ -218,9 +219,10 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPOSITORY: ${{ github.repository }}
       CONTROLLER_RUN_ID: ${{ github.run_id }}
-      # Every wake evaluates once; no runner waits for validations to finish.
-      CONTROLLER_SINGLE_PASS: 'true'
-      MERGE_POLL_SECONDS: '5'
+      # Completion wakes stay one-shot. Exact targeted workflow_dispatch wakes
+      # poll briefly so the consumer's final wake job can transition to terminal.
+      CONTROLLER_SINGLE_PASS: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_number != '' && inputs.expected_head_sha != '' && 'false' || 'true' }}
+      MERGE_POLL_SECONDS: '10'
       MERGE_MAX_WAIT_MINUTES: '3'
     steps:
       - name: Checkout trusted controller from main
@@ -289,3 +291,4 @@ jobs:
             echo "No CI or deploy run registered for latest main $main_sha; dispatching deploy.yml self-build fallback."
             gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
           fi
+

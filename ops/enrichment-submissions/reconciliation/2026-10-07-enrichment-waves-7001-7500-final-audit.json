@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-7001-7500-final-audit",
+  "range": "7001-7500",
+  "row_count": 500,
+  "contiguous_waves": true,
+  "unique_new_pmids": 500,
+  "predecessor_unique_pmids": 6935,
+  "predecessor_pmid_collisions": 0,
+  "duplicate_pmids": 0,
+  "duplicate_normalized_dois": 0,
+  "duplicate_normalized_titles": 0,
+  "exact_title_verified": 500,
+  "substantive_abstracts_verified": 500,
+  "doi_metadata_present": 491,
+  "doi_metadata_absent": 9,
+  "source_part_blob_shas": [
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-01.json",
+      "blob_sha": "7086c0661a87cb99f27da927f26ee86d5128b8a0",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-02.json",
+      "blob_sha": "55794c46a40a41b1b0b6e4ddaf4e6c2873369404",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-03.json",
+      "blob_sha": "1ff85217d5bbcaf1dfa98e45ab68c5afa6e2bd29",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-04.json",
+      "blob_sha": "ffa614c85ca6166002528a0732465695cb618bdf",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-05.json",
+      "blob_sha": "eca5f89d997487d2260d3b2058f5ba17253ac608",
+      "rows": 100
+    }
+  ],
+  "semantic_replacements": 8,
+  "rejection_registry_pmids": 10,
+  "category_counts": {
+    "stress_anxiety": 34,
+    "sleep": 22,
+    "withdrawal_nps": 8,
+    "cardiometabolic": 35,
+    "performance": 5,
+    "aging_sarcopenia": 30,
+    "women_health": 6,
+    "micronutrients": 62,
+    "gut": 18,
+    "cognition_focus": 28,
+    "mood": 15,
+    "inflammation_pain": 40,
+    "metabolic": 19,
+    "botanicals_mushrooms": 40,
+    "safety_interactions": 32,
+    "cannabinoid_safety": 45,
+    "mitochondrial_energy": 42,
+    "immune_respiratory": 19
+  },
+  "context_only_low_directness_flags": [
+    {
+      "wave": 7036,
+      "reason": "Sedation-related postoperative sleep: not supplement efficacy"
+    },
+    {
+      "wave": 7153,
+      "reason": "Public-health agriculture/nutrition/WASH intervention; no isolated supplement effect"
+    },
+    {
+      "wave": 7190,
+      "reason": "Transplant-associated gut microbiome context; not direct supplement efficacy"
+    },
+    {
+      "wave": 7378,
+      "reason": "Synthetic cannabinoid withdrawal case-report synthesis; lower strength safety evidence"
+    },
+    {
+      "wave": 7478,
+      "reason": "Open-label cognition evidence; hypothesis-generating only"
+    }
+  ],
+  "source": "NCBI PubMed EFetch XML",
+  "research_only": true,
+  "clinical_claims_approved": false,
+  "integrity_issues": []
+}

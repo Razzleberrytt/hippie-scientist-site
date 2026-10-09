@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "category": "cannabinoid_safety",
+  "target": 10,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 30,
+  "rows": [
+    {
+      "pmid": "42601331",
+      "title": "Signal detection and characterisation of a novel drug-drug interaction between methadone and a synthetic cannabinoid receptor agonist.",
+      "doi": "10.1111/bph.70635",
+      "pub_date": "2026 Aug 14",
+      "journal": "British journal of pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42639023",
+      "title": "Multiple binding modes underlie Cannabis sativa cannabinoids recognition by peroxisome proliferator-activated receptor gamma.",
+      "doi": "10.3389/fbinf.2026.1893303",
+      "pub_date": "2026",
+      "journal": "Frontiers in bioinformatics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42663925",
+      "title": "Selective and Time-Dependent Alterations in Cytochrome P450 (CYP) Enzyme Activity and Expression by Major Phytocannabinoids.",
+      "doi": "10.1007/s13318-026-01031-z",
+      "pub_date": "2026 Aug 28",
+      "journal": "European journal of drug metabolism and pharmacokinetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42673522",
+      "title": "Integrating Use Frequency, Vaping, and Dependence to Characterize Nicotine-Cannabis Co-Use in Young Adults: A Latent Class Analysis.",
+      "doi": "10.1093/ntr/ntag194",
+      "pub_date": "2026 Aug 31",
+      "journal": "Nicotine & tobacco research : official journal of the Society for Research on Nicotine and Tobacco",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42683213",
+      "title": "Gabapentin for the Management of Suspected Cannabis Withdrawal in a Pregnant Patient With a History of Cannabinoid Hyperemesis Syndrome: A Case Report.",
+      "doi": "10.1155/crog/3043344",
+      "pub_date": "2026",
+      "journal": "Case reports in obstetrics and gynecology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42702565",
+      "title": "When Tobacco and Cannabis Use Motives Interact: Implications for Dependence and Quitting.",
+      "doi": "10.1080/10826084.2026.2723589",
+      "pub_date": "2026 Sep 6",
+      "journal": "Substance use & misuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42708292",
+      "title": "A Critical Review of the Interactions Between Δ9-THC and Other Naturally Occurring Phytochemical Constituents of Cannabis sativa.",
+      "doi": "10.2174/011570159X453562260805073318",
+      "pub_date": "2026 Aug 31",
+      "journal": "Current neuropharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42725860",
+      "title": "Cannabis Use Interacts With Psychosis Vulnerability in Borderline Personality Disorder: La consommation de cannabis interagit avec la vulnérabilité à la psychose dans le trouble de la personnalité limite.",
+      "doi": "10.1177/07067437261486962",
+      "pub_date": "2026 Sep 11",
+      "journal": "Canadian journal of psychiatry. Revue canadienne de psychiatrie",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834730",
+      "title": "Integrating Static and Dynamic Models to Predict Cannabidiol-Mediated Metabolic Drug-Drug Interactions.",
+      "doi": "10.1002/cpt.70509",
+      "pub_date": "2026 Oct 5",
+      "journal": "Clinical pharmacology and therapeutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42606863",
+      "title": "A Digital Behavioral Health Game for Adolescent Mental Health: A Prespecified Secondary Analysis of a Randomized Clinical Trial.",
+      "doi": "10.1001/jamanetworkopen.2026.29173",
+      "pub_date": "2026 Aug 3",
+      "journal": "JAMA network open",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42628038",
+      "title": "Prevalence of Anxiety, Depressive Symptoms, and Substance Use in Schizophrenia.",
+      "doi": "10.4088/PCC.26m04210",
+      "pub_date": "2026 Aug 20",
+      "journal": "The primary care companion for CNS disorders",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "30000647",
+      "title": "Cannabis.",
+      "doi": null,
+      "pub_date": "2006",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42603629",
+      "title": "Varenicline for the management of cannabis use disorder: A systematic review.",
+      "doi": "10.1016/j.josat.2026.210090",
+      "pub_date": "2026 Aug 15",
+      "journal": "Journal of substance use and addiction treatment",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42623795",
+      "title": "Pharmacological treatments of REM sleep behaviour disorder in synucleinopathies: a systematic review of effectiveness and safety.",
+      "doi": "10.1016/j.sleep.2026.109154",
+      "pub_date": "2026 Dec",
+      "journal": "Sleep medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42625443",
+      "title": "Pharmacological and non-pharmacological interventions for managing sleep disorders in children with cerebral palsy: A systematic review.",
+      "doi": "10.1111/dmcn.70435",
+      "pub_date": "2026 Aug 21",
+      "journal": "Developmental medicine and child neurology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42642048",
+      "title": "Electronic cigarettes for smoking cessation.",
+      "doi": "10.1002/14651858.CD010216.pub11",
+      "pub_date": "2026 Aug 26",
+      "journal": "The Cochrane database of systematic reviews",
+      "pub_type": "Meta-Analysis",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42594823",
+      "title": "Cannabis craving and cross-substance substitution during cannabis treatment: Initial insights across seven cannabis use disorder clinical trials.",
+      "doi": "10.1016/j.addbeh.2026.108834",
+      "pub_date": "2026 Dec",
+      "journal": "Addictive behaviors",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42600133",
+      "title": "Characterizing Online Questions and Answers About Cannabis Use and Pregnancy on the Social Media Platform Quora: Data Mining and Qualitative Content Analysis.",
+      "doi": "10.2196/82300",
+      "pub_date": "2026 Aug 14",
+      "journal": "Journal of medical Internet research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42603524",
+      "title": "Co-occurring mood, anxiety, and substance use disorders in Canada 2022: prevalence, patterns, correlates, and changes over time.",
+      "doi": "10.1016/j.psychres.2026.117370",
+      "pub_date": "2026 Nov",
+      "journal": "Psychiatry research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42611548",
+      "title": "Examining the transdiagnostic role of coping motives and experiential avoidance in the relationship between generalized anxiety disorder and addictive behaviours.",
+      "doi": "10.1556/2006.2026.00064",
+      "pub_date": "2026 Aug 18",
+      "journal": "Journal of behavioral addictions",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42612572",
+      "title": "Utilization, tolerability, and perception of medical cannabis use in patients with seizures.",
+      "doi": "10.1016/j.yebeh.2026.111230",
+      "pub_date": "2026 Aug 18",
+      "journal": "Epilepsy & behavior : E&B",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42613096",
+      "title": "Tobacco and marijuana induce adverse effects on cardiac function and platelet activity and reduce tissue preservation following myocardial infarction.",
+      "doi": "10.1152/ajpheart.00407.2026",
+      "pub_date": "2026 Oct 1",
+      "journal": "American journal of physiology. Heart and circulatory physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42616101",
+      "title": "Behavioral pharmacology of isolated cannabidiol in animal models of autism spectrum disorder: a systematic review.",
+      "doi": "10.1007/s00213-026-07149-x",
+      "pub_date": "2026 Aug 19",
+      "journal": "Psychopharmacology",
+      "pub_type": "Letter",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42616497",
+      "title": "Safety and Mental Health Outcomes of Oregon State-Regulated Psilocybin Services.",
+      "doi": "10.1001/jamanetworkopen.2026.30608",
+      "pub_date": "2026 Aug 3",
+      "journal": "JAMA network open",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42617538",
+      "title": "Trends in cannabis use disorder among adults in the United States, 2021-2024.",
+      "doi": "10.1016/j.addbeh.2026.108835",
+      "pub_date": "2026 Aug 12",
+      "journal": "Addictive behaviors",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42623017",
+      "title": "Association between smoking dependence and intuitive eating in adults in primary care.",
+      "doi": "10.1177/02601060261480419",
+      "pub_date": "2026 Aug 20",
+      "journal": "Nutrition and health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42633578",
+      "title": "Building and Sustaining Cross-Sector Collaboration: A Commentary on Cannabis Packaging and Labeling Research, Policy, and Coordination.",
+      "doi": "10.1080/10826084.2026.2710349",
+      "pub_date": "2026 Aug 23",
+      "journal": "Substance use & misuse",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42639723",
+      "title": "Insight into cannabis use disorder in people with psychotic disorders.",
+      "doi": "10.1192/bjo.2026.12064",
+      "pub_date": "2026 Aug 25",
+      "journal": "BJPsych open",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42649324",
+      "title": "Pilot study comparing the effects of high dose THC to high dose psilocybin and placebo in the set and setting of a classic psychedelic therapy session.",
+      "doi": "10.1007/s00213-026-07138-0",
+      "pub_date": "2026 Aug 27",
+      "journal": "Psychopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42659581",
+      "title": "Intersectional Disparities in Adult Cigarette Smoking, E-Cigarette Use, and Cannabis Use Among Sexual and Gender and Racial and Ethnic Minorities in California.",
+      "doi": "10.2105/AJPH.2026.308633",
+      "pub_date": "2026 Aug 27",
+      "journal": "American journal of public health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((cannabis[Title/Abstract] OR cannabinoid[Title/Abstract] OR THC[Title/Abstract] OR cannabidiol[Title/Abstract] OR CBD[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR withdrawal[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract] OR dependence[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

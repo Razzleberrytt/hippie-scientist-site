@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "source": "NCBI PubMed exact retrieval via Sider Scholar",
+  "row_count": 7,
+  "verified_count": 7,
+  "rows": [
+    {
+      "wave": 5595,
+      "pmid": "42227316",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "wave": 5967,
+      "pmid": "37682843",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "wave": 5977,
+      "pmid": "37686873",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "wave": 5988,
+      "pmid": "37787773",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "wave": 5989,
+      "pmid": "37802017",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "wave": 5991,
+      "pmid": "37917592",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    },
+    {
+      "wave": 5997,
+      "pmid": "37945979",
+      "exact_title_verified": true,
+      "abstract_verified": true
+    }
+  ]
+}

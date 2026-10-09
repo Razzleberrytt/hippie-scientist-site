@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "part": 4,
+  "rows": [
+    {
+      "wave": 3080,
+      "old_pmid": "42807438",
+      "pmid": "42816475",
+      "doi": "10.1080/10550887.2026.2734452",
+      "category": "cannabinoid_safety",
+      "title": "Psychological and neuropsychological effects of adolescent cannabis use: a structured narrative review.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Journal of addictive diseases",
+      "pub_date": "2026-Sep-30",
+      "error": null
+    },
+    {
+      "wave": 3102,
+      "old_pmid": "42824366",
+      "pmid": "42552400",
+      "doi": "10.1038/s41440-026-02768-5",
+      "category": "cardiometabolic",
+      "title": "Magnesium and blood pressure regulation: systemic and renal mechanisms.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Hypertension research : official journal of the Japanese Society of Hypertension",
+      "pub_date": "2026-Aug-04",
+      "error": null
+    },
+    {
+      "wave": 3205,
+      "old_pmid": "42797297",
+      "pmid": "42829743",
+      "doi": "10.4103/jehp.jehp_391_25",
+      "category": "inflammation_pain",
+      "title": "Efficacy of ginger and fennel in relieving primary dysmenorrhea: A triple-blind crossover controlled trial.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Journal of education and health promotion",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3219,
+      "old_pmid": "42792129",
+      "pmid": "42698930",
+      "doi": "10.2106/JBJS.OA.26.00225",
+      "category": "inflammation_pain",
+      "title": "A Comparison of Clinical Outcomes Among Undenatured Collagen Type II, Glucosamine Sulfate, and Diacerein on Osteoarthritic Knee Treatment: A Randomized Clinical Trial.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "JB & JS open access",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3222,
+      "old_pmid": "42654291",
+      "pmid": "42677182",
+      "doi": "10.5114/reum/214398",
+      "category": "inflammation_pain",
+      "title": "Dietary and serum magnesium in children with juvenile idiopathic arthritis: a case-control study.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Reumatologia",
+      "pub_date": "2026",
+      "error": null
+    }
+  ]
+}

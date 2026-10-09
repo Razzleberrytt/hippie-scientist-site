@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1826-1850-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1801-1825-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 350,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "repository-wide PMID collision screening using the Waves 1501-2000 PMID index through Wave 1825"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1826,
+      "entity_slug": "vitamin-e-ms-observational",
+      "pmid": "42060044",
+      "focus": "Case-control/cross-sectional analysis found lower serum vitamin E in MS and associations with cognition/disability, but authors explicitly call for longitudinal studies and RCTs before supplementation benefit can be inferred.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1827,
+      "entity_slug": "vitamin-e-centennial-review",
+      "pmid": "42096852",
+      "focus": "Centennial review confirms vitamin E essentiality in deficiency while highlighting persistent uncertainty around broader disease-prevention/therapeutic effects of tocopherols and metabolites.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1828,
+      "entity_slug": "vitamin-e-vancomycin-emr",
+      "pmid": "42168788",
+      "focus": "Large Japanese electronic-record analysis evaluated vitamin E exposure in relation to vancomycin-associated nephrotoxicity; retrospective pharmacoepidemiology should remain association evidence rather than a prophylaxis recommendation.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1829,
+      "entity_slug": "vitamin-e-depression-mr",
+      "pmid": "42213642",
+      "focus": "Two-sample Mendelian-randomization study examined genetically proxied vitamin-E status and depression; genetic causal-inference evidence remains distinct from clinical supplementation trials.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1830,
+      "entity_slug": "aved-chinese-pedigrees",
+      "pmid": "42259017",
+      "focus": "Genetic series identified TTPA-related ataxia with profound vitamin-E deficiency; three of four patients improved after high-dose replacement, supporting disease-specific deficiency treatment rather than general neuroenhancement.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1831,
+      "entity_slug": "selenium-vitamin-e-esrd-uncontrolled",
+      "pmid": "42334563",
+      "focus": "Uncontrolled 60-day selenium-plus-vitamin-E study in ESRD found improved oxidative/inflammatory markers but nonsignificant erythrocyte outcomes; combination and absence of control prevent causal attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1832,
+      "entity_slug": "vitamin-e-homocysteine-crosssectional",
+      "pmid": "42418008",
+      "focus": "Large Chinese cross-sectional study found sex-specific nonlinear associations between plasma vitamin E and homocysteine; U-shaped patterns in men argue against simplistic more-is-better interpretation.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1833,
+      "entity_slug": "vitamin-e-dental-pellicle-review",
+      "pmid": "42242612",
+      "focus": "Narrative review of four experimental studies suggests topical vitamin-E-containing formulations may modify acquired enamel pellicle and reduce erosion; evidence is local/topical and largely experimental.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1834,
+      "entity_slug": "vitamin-e-topical-nanodelivery-review",
+      "pmid": "42105366",
+      "focus": "Review describes liposomal/nanoemulsion approaches to improve topical vitamin-E stability and skin penetration; formulation technology evidence does not establish clinical superiority.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1835,
+      "entity_slug": "vitamin-e-oxygen-nanomaterial",
+      "pmid": "41962577",
+      "focus": "Cell-model nanomaterial study combining oxygen delivery, citric acid and vitamin E showed divergent redox effects in healthy versus cancer cells; entirely preclinical and formulation-specific.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1836,
+      "entity_slug": "nac-contrast-nephropathy-meta-null",
+      "pmid": "42015439",
+      "focus": "Meta-analysis of 49 studies found neither oral nor IV N-acetylcysteine reduced contrast-associated AKI, dialysis or mortality; strong direct null against routine prophylactic benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1837,
+      "entity_slug": "nac-mci-cardiac-rehab-rct",
+      "pmid": "42045982",
+      "focus": "Randomized trial evaluated NAC for cognitive symptoms during exercise-based cardiac rehabilitation in patients with mild cognitive impairment; co-rehabilitation context requires endpoint-specific interpretation rather than NAC-only generalization.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1838,
+      "entity_slug": "nac-spata22-poi-preclinical",
+      "pmid": "42098781",
+      "focus": "Genetic/animal/cell study identified SPATA22-related ovarian dysfunction and found NAC partially rescued mouse/cell phenotypes; translational rescue is preclinical, not human fertility efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1839,
+      "entity_slug": "nac-nf1-youth-rct-null",
+      "pmid": "42173046",
+      "focus": "Double-blind pilot RCT in youth with NF1 found NAC was generally tolerated but did not improve primary motor, secondary cognitive/behavioral or exploratory biomarker outcomes; two participants stopped for worsening behavior.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1840,
+      "entity_slug": "nac-dermatology-review",
+      "pmid": "42183686",
+      "focus": "Dermatology review describes plausible and early clinical uses of NAC but notes most studies remain small and methodologically limited; condition-specific evidence should not be flattened into broad skin-benefit claims.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1841,
+      "entity_slug": "nac-cannabis-craving-secondary",
+      "pmid": "42184587",
+      "focus": "Secondary analysis of a 302-person cannabis-use-disorder NAC trial identified heterogeneous craving trajectories associated with psychiatric symptoms and outcomes; craving-class analysis does not demonstrate NAC efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1842,
+      "entity_slug": "nac-dysmenorrhea-rct",
+      "pmid": "42289121",
+      "focus": "Double-blind RCT in 50 adolescents found cyclical oral NAC reduced menstrual pain, rescue ibuprofen use and urinary oxidative-stress marker versus placebo; small short study needs independent replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1843,
+      "entity_slug": "nac-preeclampsia-protocol",
+      "pmid": "42308185",
+      "focus": "Protocol describes a planned double-blind trial of oral NAC for early-onset preeclampsia progression; no efficacy data are available yet.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1844,
+      "entity_slug": "nac-ovarian-xenograft-null",
+      "pmid": "42309178",
+      "focus": "Human ovarian-tissue xenograft study found oral NAC in mice produced little to no reduction in oxidative stress or follicle-survival improvement; preclinical direct null.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1845,
+      "entity_slug": "nac-dendrimer-drug-delivery",
+      "pmid": "42101951",
+      "focus": "NAC-functionalized dendrimer study improved experimental drug-carrier characteristics and glioma-cell uptake; nanocarrier engineering evidence is unrelated to oral NAC clinical effects.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1846,
+      "entity_slug": "nac-mrna-lnp-inhaled-preclinical",
+      "pmid": "42124519",
+      "focus": "NAC-enabled inhaled mRNA lipid nanoparticles improved delivery and antitumor immunity in mouse models through surface remodeling/mucolysis; this is platform-preclinical evidence, not systemic NAC anticancer efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1847,
+      "entity_slug": "nac-urea-cycle-leukocyte-invitro",
+      "pmid": "42171752",
+      "focus": "Human-leukocyte in-vitro study found NAC reduced metabolite/ammonia-induced DNA damage in most conditions; cellular protection does not establish clinical benefit in urea-cycle disorders.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1848,
+      "entity_slug": "nac-hcc-preclinical",
+      "pmid": "42177959",
+      "focus": "Rat/cell hepatocellular-carcinoma study found NAC altered Nrf2/redox and transcriptomic pathways and reduced experimental tumor progression; entirely preclinical.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1849,
+      "entity_slug": "nac-fucoidan-nanoparticle-liver",
+      "pmid": "42229330",
+      "focus": "Targeted fucoidan/NAC nanoparticles improved delayed acetaminophen liver injury in mice by combining antioxidant delivery with neutrophil-recruitment blockade; nanoformulation animal evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1850,
+      "entity_slug": "nac-dental-sealer-invitro",
+      "pmid": "42298535",
+      "focus": "In-vitro endodontic study found NAC medicament altered sealer penetration relative to calcium hydroxide; local dental material interaction is not evidence for systemic NAC effects.",
+      "state": "research_only_evidence_quality"
+    }
+  ]
+}
