@@ -26,6 +26,12 @@ test('fast editing avoids exhaustive validation while covering directly changed 
   assert.ok(!plan.commands.some(x => x.name === 'Typecheck'))
   assert.ok(!plan.commands.some(x => x.name === 'Explicit accessibility gate'))
 })
+test('changed native test suites run under node --test rather than Vitest', () => {
+  const plan = planBatch(['scripts/ci/retire-completed-workstream.node-test.mjs'], { mode: 'edit' })
+  assert.ok(plan.commands.some(x => x.name === 'Explicit native node:test suites'))
+  assert.equal(plan.commands.some(x => x.name === 'Explicit changed tests'), false)
+  assert.equal(plan.releaseAuthorized, false)
+})
 test('security-sensitive checkpoint cannot drop security audit', () => {
   const plan = planBatch(['scripts/ci/autonomous-merge-controller.mjs'], { mode: 'checkpoint' })
   assert.ok(plan.risk.includes('security'))

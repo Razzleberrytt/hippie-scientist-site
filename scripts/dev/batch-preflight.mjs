@@ -15,7 +15,8 @@ import { pathToFileURL } from 'node:url'
 import { classifyReleaseImpact } from '../ci/classify-release-impact.mjs'
 
 const MODES = new Set(['edit', 'checkpoint', 'release'])
-const isTest = f => /(?:^|\/)(?:__tests__\/)?[^/]+\.(?:test|spec)\.[cm]?[jt]sx?$/.test(f)
+const isNodeSuite = f => /(?:^|\/)[^/]+\.node-test\.mjs$/.test(f)
+const isTest = f => isNodeSuite(f) || /(?:^|\/)(?:__tests__\/)?[^/]+\.(?:test|spec)\.[cm]?[jt]sx?$/.test(f)
 const isCode = f => /\.(?:[cm]?[jt]sx?|css)$/.test(f)
 const isUi = f => /^(?:app\/|components\/|styles\/)/.test(f)
 const isScientific = f => /^(?:data-sources\/|public\/data\/|scripts\/data\/|app\/herbs\/|app\/compounds\/|lib\/.*(?:evidence|clinical|research)|components\/ui\/.*(?:Evidence|Safety))/.test(f)
@@ -28,7 +29,8 @@ export function planBatch(files, { mode = 'checkpoint', head = '' } = {}) {
   if (!normalized.length) return { mode, head, files: [], risk: [], classifier: classifyReleaseImpact([]),
     commands: [], summary: 'No changes', releaseAuthorized: false }
   const impact = classifyReleaseImpact(normalized)
-  const changedTests = normalized.filter(isTest)
+  const changedTests = normalized.filter(f => isTest(f) && !isNodeSuite(f))
+  const changedNodeSuites = normalized.filter(isNodeSuite)
   const sourceFiles = normalized.filter(f => isCode(f) && !isTest(f))
   const risk = [
     ...(normalized.some(isScientific) ? ['scientific'] : []),
@@ -50,6 +52,9 @@ export function planBatch(files, { mode = 'checkpoint', head = '' } = {}) {
       })
       if (changedTests.length) commands.push({
         name: 'Explicit changed tests', argv: ['npx','vitest','run',...changedTests],
+      })
+      if (changedNodeSuites.length) commands.push({
+        name: 'Explicit native node:test suites', argv: ['node','--test',...changedNodeSuites],
       })
     }
     if (mode === 'checkpoint') {
