@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-876-900-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-851-875-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 400,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "retraction_quarantine": true,
+    "validation_strategy": "PMID-level dedupe during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 876,
+      "entity_slug": "sage",
+      "pmid": "18350281",
+      "focus": "Standardized Salvia officinalis acute four-dose RCT in 20 healthy older adults; selected memory/attention signals with very small sample and acute extract-specific boundary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 877,
+      "entity_slug": "sage",
+      "pmid": "24050577",
+      "focus": "Salvia officinalis leaf extract trial in 80 adults with T2D/hyperlipidemia; glycemic/lipid marker improvements remain disease-, duration-, and extract-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 878,
+      "entity_slug": "sage",
+      "pmid": "27942500",
+      "focus": "Salvia officinalis add-on trial in 100 dyslipidemic T2D participants; selected glycemic/lipid improvements with BMI/AST/ALT/creatinine nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 879,
+      "entity_slug": "sage",
+      "pmid": "37489230",
+      "focus": "Four-study/310-participant hot-flush meta-analysis; frequency favored sage while severity was not significant and heterogeneity was high.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 880,
+      "entity_slug": "sage",
+      "pmid": "35106985",
+      "focus": "Three-study diabetes meta-analysis; FBS/HbA1c/TC/LDL signals with TG/HDL nulls and very small evidence base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 881,
+      "entity_slug": "sage",
+      "pmid": "24836739",
+      "focus": "Systematic review of human Salvia cognition studies; heterogeneous preparations and incomplete product characterization limit generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 882,
+      "entity_slug": "sage-identity-contamination",
+      "pmid": "40302443",
+      "focus": "SAGE-718/dalzanemdor Huntington-disease trial is a pharmaceutical code/name collision, not botanical sage evidence; preserve as identity-contamination guardrail.",
+      "state": "research_only_source_integrity"
+    },
+    {
+      "wave": 883,
+      "entity_slug": "kanna-zembrin",
+      "pmid": "23903032",
+      "focus": "Single-dose Zembrin pharmaco-fMRI study in 16 participants; amygdala threat-reactivity/coupling changes are surrogate neuroimaging evidence only.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 884,
+      "entity_slug": "luteolin",
+      "pmid": "29801717",
+      "focus": "Human-safety/evidence-gap source retained as research-gap context rather than efficacy; do not promote preclinical mechanism into human benefit.",
+      "state": "research_only_evidence_gap"
+    },
+    {
+      "wave": 885,
+      "entity_slug": "taurine",
+      "pmid": "40320621",
+      "focus": "Cognition systematic review/meta-analysis; overall cognitive benefit was not significant, providing a direct counterweight to nootropic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 886,
+      "entity_slug": "gotu-kola",
+      "pmid": "28878245",
+      "focus": "Human cognition synthesis found no significant overall cognitive improvement; useful null counterweight for Centella claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 887,
+      "entity_slug": "holy-basil",
+      "pmid": "36185698",
+      "focus": "Eight-week standardized Ocimum tenuiflorum RCT in 100 stressed adults; stress/sleep biomarker and subjective signals remain product- and population-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 888,
+      "entity_slug": "lions-mane",
+      "pmid": "38004235",
+      "focus": "Human randomized trial of lion's-mane preparation; formulation and chronic-use boundaries retained, including null outcomes where reported.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 889,
+      "entity_slug": "lions-mane",
+      "pmid": "40276537",
+      "focus": "Second human lion's-mane RCT; acute/chronic and formulation distinctions retained rather than merged into a generic nootropic claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 890,
+      "entity_slug": "american-ginseng",
+      "pmid": "41017752",
+      "focus": "Panax quinquefolius human evidence; species identity must remain distinct from Panax ginseng and red-ginseng findings.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 891,
+      "entity_slug": "valerian",
+      "pmid": "38359657",
+      "focus": "Umbrella review: favorable safety profile but no established insomnia efficacy; subjective sleep outcomes were stronger than objective measures.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 892,
+      "entity_slug": "chamomile",
+      "pmid": "39106912",
+      "focus": "Chamomile sleep systematic review; possible sleep signals remain heterogeneous and preparation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 893,
+      "entity_slug": "chamomile",
+      "pmid": "31006899",
+      "focus": "Clinical anxiety evidence showed no significant overall effect; retain as counterweight to broad anxiolytic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 894,
+      "entity_slug": "saffron",
+      "pmid": "42057871",
+      "focus": "Saffron safety systematic review; safety/tolerability evidence retained separately from efficacy and long-term-use assumptions.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 895,
+      "entity_slug": "saffron",
+      "pmid": "41693488",
+      "focus": "Later depression/anxiety synthesis; preserve diagnosis, comparator, extract and heterogeneity boundaries rather than generic mood claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 896,
+      "entity_slug": "creatine",
+      "pmid": "41189312",
+      "focus": "Eleven-trial/1,093-participant depression synthesis; small pooled effect, very-low certainty and effect below minimal-important-difference threshold.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 897,
+      "entity_slug": "lavender",
+      "pmid": "36717399",
+      "focus": "Oral Silexan-specific evidence; cannot be generalized to inhaled lavender, teas, essential oils or unspecified lavender products.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 898,
+      "entity_slug": "psyllium",
+      "pmid": "42600900",
+      "focus": "IBS systematic review; response signal around RR 1.53 with indication-specific and fiber-formulation boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 899,
+      "entity_slug": "psyllium",
+      "pmid": "41126340",
+      "focus": "27-RCT anthropometric synthesis; weight-related outcomes kept separate from lipid/glycemic/IBS evidence and from weight-loss marketing.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 900,
+      "entity_slug": "psyllium",
+      "pmid": "38844885",
+      "focus": "Glycemic systematic review; glucose-related findings remain disease/population and dietary-adjunct specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

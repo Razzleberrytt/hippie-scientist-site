@@ -1,0 +1,3561 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-501-1000-selection",
+  "source_passes": [
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-525-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-526-550-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-551-575-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-576-600-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-601-625-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-626-650-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-651-675-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-676-700-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-701-725-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-726-750-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-751-775-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-776-800-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-801-825-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-826-850-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-851-875-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-876-900-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-901-925-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-926-950-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-951-975-selection.json",
+    "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-976-1000-selection.json"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "runtime_materialization": "Only source-specific, reader-ready rows on existing canonical entities may enter runtime; identity-firewall, category/formula/product, route-specific, correction-only, unresolved-entity and under-extracted receipts remain research-only.",
+    "validation_strategy": "500 findings authored before consolidated admission/runtime/repository verification"
+  },
+  "counts": {
+    "completed_waves": 500,
+    "first_wave": 501,
+    "last_wave": 1000,
+    "unique_pmids": 500,
+    "state_counts": {
+      "reviewed_receipt_pending_final_admission": 361,
+      "research_only_category_firewall": 79,
+      "research_only_formulation_firewall": 4,
+      "research_only_evidence_quality": 3,
+      "research_only_cross_entity_safety": 10,
+      "research_only_product_level": 12,
+      "research_only_combination_firewall": 16,
+      "research_only_observational": 2,
+      "research_only_product_quality": 1,
+      "research_only_pending_entity_resolution": 5,
+      "research_only_source_integrity": 1,
+      "research_only_evidence_gap": 1,
+      "retraction_metadata_only": 1,
+      "correction_metadata_only": 2,
+      "research_only_route_firewall": 1,
+      "research_only_identity_firewall": 1
+    }
+  },
+  "waves": [
+    {
+      "wave": 501,
+      "entity_slug": "chamomile",
+      "pmid": "41394268",
+      "focus": "2025 systematic review/meta-analysis of eight human musculoskeletal-pain studies; possible analgesic effect with substantial heterogeneity and no proof of equivalence to standard analgesics.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 502,
+      "entity_slug": "chamomile",
+      "pmid": "41767834",
+      "focus": "2026 PCOS review combining four human and four animal studies; human pooled lipids and testosterone were null, so clinical-feature signals must not be conflated with hormonal/lipid efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 503,
+      "entity_slug": "medicinal-plants-allergic-rhinitis",
+      "pmid": "38603736",
+      "focus": "2024 review of 29 RCTs/1,879 participants; low-certainty nasal-symptom signals and no clear difference from antihistamines in limited comparisons; category-level only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 504,
+      "entity_slug": "ashwagandha",
+      "pmid": "39348746",
+      "focus": "2024 nine-RCT/558-participant stress-anxiety meta-analysis; PSS/Hamilton-anxiety/cortisol signals with mild-moderate adverse events and uncertain long-term safety.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 505,
+      "entity_slug": "collagen-supplements",
+      "pmid": "40324552",
+      "focus": "2025 23-RCT skin-aging meta-analysis; overall hydration/elasticity/wrinkle signals disappeared in non-industry-funded/high-quality subgroups, making funding and study quality first-class modifiers.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 506,
+      "entity_slug": "hibiscus-sabdariffa",
+      "pmid": "38878905",
+      "focus": "2024 six-RCT/339-participant obesity meta-analysis; body weight, BMI and waist outcomes were null overall, providing a direct counterweight to weight-loss claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 507,
+      "entity_slug": "cinnamon",
+      "pmid": "40611215",
+      "focus": "2025 49-study GRADE meta-analysis of cardiovascular/metabolic risk factors; multiple pooled surrogate signals with broad heterogeneity and no clinical-event inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 508,
+      "entity_slug": "pomegranate",
+      "pmid": "39499092",
+      "focus": "2025 RCT meta-analysis of insulin resistance/sensitivity; overall evidence did not establish meaningful HOMA-IR/fasting-insulin benefit across pomegranate products.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 509,
+      "entity_slug": "green-tea",
+      "pmid": "40160899",
+      "focus": "2025 38-RCT synthesis; oxidative-stress markers improved while CRP, IL-6 and TNF-alpha were null, separating antioxidant biomarker effects from broad anti-inflammatory claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 510,
+      "entity_slug": "pomegranate",
+      "pmid": "40617711",
+      "focus": "2025 dose-response meta-analysis of 53 RCTs/2,306 participants; cardiometabolic risk-factor evidence remains endpoint- and preparation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 511,
+      "entity_slug": "green-tea",
+      "pmid": "40497293",
+      "focus": "2025 GRADE dose-response meta-analysis of adult blood-pressure RCTs; blood-pressure effects require dose/duration/baseline-status context and should not imply cardiovascular-event prevention.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 512,
+      "entity_slug": "collagen-supplements",
+      "pmid": "41809116",
+      "focus": "2026 umbrella review of 16 systematic reviews/113 RCTs/7,983 participants; skin and musculoskeletal signals were more consistent than oral/cardiometabolic outcomes; category-level heterogeneity retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 513,
+      "entity_slug": "creatine",
+      "pmid": "39070254",
+      "focus": "2024 16-RCT/492-participant cognition meta-analysis; memory/attention/processing-speed signals with global cognition and executive-function nulls and low-to-moderate certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 514,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41457257",
+      "focus": "2025 systematic review/meta-analysis of 24 exercise studies; circulating CoQ10 increased but exercise-performance effects were limited/inconsistent—useful counterweight to ergogenic marketing.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 515,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "40833470",
+      "focus": "2025 seven-small-trial mood meta-analysis; some depression-scale signals, BDI and anxiety nulls, with small samples and clinical-population heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 516,
+      "entity_slug": "pro-pre-synbiotics",
+      "pmid": "41310510",
+      "focus": "2025 RCT meta-analysis of probiotics/prebiotics/synbiotics for anxiety, depression and sleep; intervention class and strain/product identity remain distinct.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 517,
+      "entity_slug": "plant-based-ibs-therapies",
+      "pmid": "42572206",
+      "focus": "2026 60-study/6,329-participant IBS review; peppermint-oil and Chinese-herbal signals coexist with limited-quality evidence and insufficient data for several plants.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 518,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "39904656",
+      "focus": "2025 T2D-specific systematic review/meta-analysis of CoQ10 effects on lipids and blood pressure; disease-population and endpoint boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 519,
+      "entity_slug": "omega-3",
+      "pmid": "38468309",
+      "focus": "2024 24-RCT/9,660-participant dose-response cognition meta-analysis in adults >=40 without dementia; domain/time/dose trends should not become a universal cognitive-enhancement claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 520,
+      "entity_slug": "l-theanine",
+      "pmid": "41227106",
+      "focus": "2025 systematic review/meta-analysis of placebo-controlled RCTs in healthy adults; cognitive effects remain domain-specific and the authors characterize evidence as promising but not conclusive.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 521,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "38287654",
+      "focus": "2024 systematic review of 12 RCTs/703 adults; cardiometabolic effects remain short-duration and pure-OLE specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 522,
+      "entity_slug": "artichoke",
+      "pmid": "35949557",
+      "focus": "Seven-RCT/472-participant BP meta-analysis; modest SBP/DBP reductions with nonlinear dose/duration signals and subgroup dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 523,
+      "entity_slug": "saffron",
+      "pmid": "40414301",
+      "focus": "2025 12-week DB-RCT in 202 adults with subclinical depressive symptoms; modest depression benefit, most secondary outcomes null, sleep benefit only exploratory in a more-impaired subgroup; proprietary Affron identity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 524,
+      "entity_slug": "saffron",
+      "pmid": "38913392",
+      "focus": "2024 meta-analysis comparing saffron with SSRIs; depression/anxiety differences were nonsignificant while adverse events were fewer with saffron; direct-comparator evidence does not establish broad interchangeability.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 525,
+      "entity_slug": "saffron",
+      "pmid": "35325766",
+      "focus": "Sleep meta-analysis across heterogeneous populations; PSQI/ISI/RSQ signals with limited long-term safety evidence and no generic dose recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 526,
+      "entity_slug": "probiotics",
+      "pmid": "40187225",
+      "focus": "2025 network meta-analysis of probiotic strains/combinations in adults with T2D; glycemic effects are strain/product and disease-population specific, and ranking does not equal head-to-head superiority.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 527,
+      "entity_slug": "turmeric-products",
+      "pmid": "40731001",
+      "focus": "2025 network meta-analysis of turmeric preparations for knee OA; product/formulation identity and network-comparison limitations retained.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 528,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "39413860",
+      "focus": "2025 CKD-specific RCT meta-analysis of inflammatory, lipid, hematologic and anthropometric markers; disease-population surrogate evidence only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 529,
+      "entity_slug": "resveratrol",
+      "pmid": "41987155",
+      "focus": "2026 umbrella review of 45 systematic reviews/129 associations; broad multi-outcome evidence with GRADE credibility differences across endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 530,
+      "entity_slug": "curcuma-longa",
+      "pmid": "39712249",
+      "focus": "2025 knee-OA systematic review/meta-analysis; pain/function findings remain short-term, indication-specific and preparation-sensitive.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 531,
+      "entity_slug": "curcumin",
+      "pmid": "38576215",
+      "focus": "2024 umbrella meta-analysis of prior OA meta-analyses; useful for consistency/heterogeneity assessment but not a substitute for formulation-specific RCT evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 532,
+      "entity_slug": "pro-pre-synbiotics-fmt",
+      "pmid": "41321404",
+      "focus": "2025 systematic review of 30 trials in T2D/prediabetes/metabolic syndrome; modest glycemic signals plus mechanistic microbiome readouts, with intervention classes kept separate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 533,
+      "entity_slug": "curcumin",
+      "pmid": "40615851",
+      "focus": "2025 knee-OA RCT meta-analysis of serum inflammatory biomarkers; biomarker findings remain distinct from patient-reported pain/function efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 534,
+      "entity_slug": "nigella-sativa",
+      "pmid": "40210172",
+      "focus": "2025 16-RCT T2D meta-analysis; FBG/HbA1c/TC/LDL signals with 2-h glucose, insulin, HOMA, TG, HDL, liver/kidney, weight and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 535,
+      "entity_slug": "nigella-sativa",
+      "pmid": "39181437",
+      "focus": "2024 30-study glycemic meta-analysis; FBS/HbA1c signals with insulin and HOMA-IR nulls and extreme heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 536,
+      "entity_slug": "nigella-sativa",
+      "pmid": "41858302",
+      "focus": "2026 31-trial metabolic-disease meta-analysis; modest weight/BMI/BP/glycemic changes with central-adiposity and insulin-resistance nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 537,
+      "entity_slug": "tribulus-terrestris",
+      "pmid": "40360723",
+      "focus": "2025/2026 ED systematic review/meta-analysis of randomized trials; erectile-function evidence remains indication-specific and separated from testosterone/bodybuilding claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 538,
+      "entity_slug": "chia-seed",
+      "pmid": "39672763",
+      "focus": "2025 eight-RCT/372-participant meta-analysis; SBP/DBP and waist signals with weight and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 539,
+      "entity_slug": "flaxseed",
+      "pmid": "38971216",
+      "focus": "2024 54-RCT/3,000-participant inflammation meta-analysis; CRP/IL-6 reductions with TNF-alpha null and high heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 540,
+      "entity_slug": "chia-seed",
+      "pmid": "41076614",
+      "focus": "2025 umbrella review of chia meta-analyses; broad health claims graded by AMSTAR-2/GRADE, preserving low-certainty and inconsistent outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 541,
+      "entity_slug": "astaxanthin",
+      "pmid": "40872489",
+      "focus": "2025 systematic review/meta-analysis of moderate-high-dose astaxanthin and lipid profiles; lipid endpoints remain dose/formulation dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 542,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "40180416",
+      "focus": "2025 meta-analysis in overweight/obese adults; intermediate-disease-marker evidence only, with heterogeneous populations and surrogate endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 543,
+      "entity_slug": "spirulina",
+      "pmid": "40953712",
+      "focus": "2025 systematic meta-analysis of RCTs on cardiovascular/metabolic markers; multi-endpoint cardiometabolic evidence with no event-level inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 544,
+      "entity_slug": "flaxseed",
+      "pmid": "38992480",
+      "focus": "2024 updated randomized-trial meta-analysis of anthropometric indices; weight/BMI/waist effects remain preparation/population dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 545,
+      "entity_slug": "spirulina",
+      "pmid": "40330210",
+      "focus": "2025 CRP dose-response meta-analysis; inflammatory biomarker evidence remains surrogate and distinct from clinical anti-inflammatory efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 546,
+      "entity_slug": "chia-seed",
+      "pmid": "38917708",
+      "focus": "2024 glycemic systematic review/meta-analysis; FBG/HbA1c/insulin evidence is limited by a small heterogeneous RCT base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 547,
+      "entity_slug": "flaxseed",
+      "pmid": "37927501",
+      "focus": "2023/2024 sex-hormone meta-analysis; FSH, SHBG, testosterone, free-androgen index and DHEAS were not significantly changed—useful endocrine counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 548,
+      "entity_slug": "fenugreek",
+      "pmid": "36470549",
+      "focus": "29-RCT metabolic-syndrome meta-analysis; FPG/TG/HDL/waist/SBP signals with DBP and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 549,
+      "entity_slug": "fenugreek",
+      "pmid": "41509111",
+      "focus": "2025 updated 26-RCT glycemic synthesis; FBG/2hPPG/HbA1c/insulin signals with HOMA-IR null and substantial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 550,
+      "entity_slug": "nigella-sativa",
+      "pmid": "38265398",
+      "focus": "Metabolic-syndrome RCT meta-analysis of lipid and glycemic indices; disease-population and endpoint specificity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 551,
+      "entity_slug": "beta-alanine",
+      "pmid": "39032921",
+      "focus": "2024 systematic review/meta-analysis in trained young men; maximal-intensity performance evidence is sex-, training-status-, duration-, and chronic-supplementation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 552,
+      "entity_slug": "ginger",
+      "pmid": "40226035",
+      "focus": "2025 systematic review/meta-analysis for hyperemesis gravidarum; pregnancy-specific nausea/vomiting evidence across differing ginger forms and active comparators.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 553,
+      "entity_slug": "cranberry",
+      "pmid": "39030132",
+      "focus": "2024 network meta-analysis of cranberry juice/tablets and increased fluids for UTI prevention; product form and comparator identity remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 554,
+      "entity_slug": "cranberry",
+      "pmid": "39668896",
+      "focus": "2024/2025 PAC-dose meta-analysis; prevention signal concentrated in products providing at least a specified proanthocyanidin threshold, reinforcing composition-specificity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 555,
+      "entity_slug": "inositol",
+      "pmid": "38163998",
+      "focus": "International-guideline-supporting PCOS systematic review/meta-analysis; some metabolic/reproductive signals but broad outcome uncertainty and generally mild GI tolerability versus metformin.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 556,
+      "entity_slug": "ginger",
+      "pmid": "40808693",
+      "focus": "2025 systematic review of ginger meta-analyses; umbrella-level synthesis across inflammation, T2D, oxidative stress and pregnancy nausea with indication-specific evidence kept separate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 557,
+      "entity_slug": "taurine",
+      "pmid": "38755142",
+      "focus": "2024 25-RCT/1,024-participant metabolic-syndrome meta-analysis; BP/FBG/TG signals with HDL null and no universal dose inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 558,
+      "entity_slug": "caffeine",
+      "pmid": "42356375",
+      "focus": "2026 dose-response meta-analysis of aerobic time-trial RCTs; low and moderate acute doses improved completion time, with no qualifying high-dose evidence and no dosing recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 559,
+      "entity_slug": "caffeine",
+      "pmid": "37844569",
+      "focus": "2024 CYP1A2 genotype/exercise meta-analysis; genotype appeared to modify ergogenic response, with strong caution about small CC-genotype samples.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 560,
+      "entity_slug": "caffeine",
+      "pmid": "41127092",
+      "focus": "2025 resistance-exercise meta-analysis; acute caffeine improved mean velocity/power with subgroup differences by sex and habitual use.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 561,
+      "entity_slug": "ganoderma-lucidum",
+      "pmid": "40510787",
+      "focus": "2025 17-RCT/971-participant GRADE review; selected BMI/creatinine/GPx/heart-rate signals but most cardiometabolic endpoints null and overall certainty very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 562,
+      "entity_slug": "hericium-erinaceus",
+      "pmid": "40959699",
+      "focus": "2025 systematic review of lion's mane human/preclinical evidence; limited RCT cognition signals with substantial evidence-type heterogeneity.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 563,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "39203900",
+      "focus": "2024 cycling-sprint meta-analysis; dietary nitrate improved time-to-peak power but not mean, peak, or minimum power—performance-domain specificity preserved.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 564,
+      "entity_slug": "tart-cherry",
+      "pmid": "40964149",
+      "focus": "2025 systematic review of seven interventional sleep studies; sleep evidence remains small and heterogeneous across tart-cherry products/outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 565,
+      "entity_slug": "caffeine",
+      "pmid": "35894639",
+      "focus": "Systematic review/meta-analysis of cardiopulmonary responses during maximal graded exercise; physiologic responses are exercise-test specific and distinct from performance outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 566,
+      "entity_slug": "caffeine-placebo",
+      "pmid": "39339818",
+      "focus": "2024 systematic review of expectancy/placebo effects in sport and exercise; useful context separating pharmacologic caffeine effects from expectancy effects.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 567,
+      "entity_slug": "dietary-supplements-skin-photoaging",
+      "pmid": "40761858",
+      "focus": "2025 40-RCT review of oral supplements for photoaging; collagen/flavanol/polyphenol signals coexist with null hyaluronic-acid/lycopene/carotenoid outcomes.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 568,
+      "entity_slug": "herbal-adverse-reaction-signals",
+      "pmid": "40601107",
+      "focus": "2025 pharmacovigilance scoping analysis of herbal adverse-reaction signals; safety surveillance evidence only, not incidence or causal-risk estimates.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 569,
+      "entity_slug": "non-soy-herbal-menopause",
+      "pmid": "42451042",
+      "focus": "2026 systematic review of 30 RCTs/19 oral herbal interventions; high heterogeneity, with black cohosh/dong quai trials among null results.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 570,
+      "entity_slug": "ding-kun-dan",
+      "pmid": "41143285",
+      "focus": "2025 21-RCT/1,981-participant menopausal-syndrome meta-analysis; multi-herb formula and adjunctive-treatment contexts remain product specific.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 571,
+      "entity_slug": "plant-derived-supplements-menopause-lipids",
+      "pmid": "40613540",
+      "focus": "2025 60-study/6,127-participant meta-analysis; modest lipid signals across heterogeneous plant-derived supplements, with soy/phytoestrogen subgroup concentration.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 572,
+      "entity_slug": "herbal-masld-network",
+      "pmid": "42668494",
+      "focus": "2026 network meta-analysis of herbal products on metabolic outcomes in MASLD; rankings remain network-level and formulation-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 573,
+      "entity_slug": "dietary-supplement-caers",
+      "pmid": "42323077",
+      "focus": "2026 FDA CAERS disproportionality analysis; herbal/botanical and weight-loss categories carried safety signals, but spontaneous-reporting data cannot establish incidence or causality.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 574,
+      "entity_slug": "plant-derived-menopause-symptoms",
+      "pmid": "38189863",
+      "focus": "Updated meta-analysis of plant-derived supplements for menopausal symptoms; pooled symptom improvements coexist with heterogeneous products and generally suboptimal evidence quality.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 575,
+      "entity_slug": "microbiota-masld",
+      "pmid": "38879003",
+      "focus": "2024 RCT meta-analysis of probiotics/prebiotics/synbiotics/FMT and related gut-microbiota interventions in MASLD; intervention classes, duration and mechanistic endpoints remain separate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 576,
+      "entity_slug": "omega-3",
+      "pmid": "37028202",
+      "focus": "Systematic review/meta-analysis of long-chain omega-3 for anxiety/depression in adults; depression signals were stronger in EPA-enriched interventions while anxiety evidence was sparse and heterogeneity/publication-bias concerns remain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 577,
+      "entity_slug": "omega-3",
+      "pmid": "37726108",
+      "focus": "Large dose-response depression meta-analysis; symptom reduction was concentrated in people with existing depression, while prevention of incident depression in general populations was not established.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 578,
+      "entity_slug": "l-citrulline-watermelon",
+      "pmid": "40789388",
+      "focus": "15-RCT/415-participant review in middle-aged/older adults; blood-pressure effects combine isolated L-citrulline and watermelon interventions, so compound-versus-food-matrix identity is preserved.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 579,
+      "entity_slug": "l-citrulline",
+      "pmid": "41797970",
+      "focus": "Six-RCT/162-participant meta-analysis in cold exposure; blood-pressure findings are environmental-context specific and not a general resting-BP claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 580,
+      "entity_slug": "magnesium",
+      "pmid": "38213402",
+      "focus": "Seven-RCT/325-participant meta-analysis in depressive disorders; mood evidence is diagnosis-specific and limited by small trials/formulation differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 581,
+      "entity_slug": "vitamin-e",
+      "pmid": "41063466",
+      "focus": "RCT meta-analysis of adiponectin/leptin; overall effects were limited/null with selected NAFLD or longer-duration subgroup signals, making subgroup dependence explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 582,
+      "entity_slug": "lycopene",
+      "pmid": "40507061",
+      "focus": "Systematic review of randomized human trials examining lycopene intake and mental-health outcomes; evidence remains heterogeneous and outcome-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 583,
+      "entity_slug": "iron",
+      "pmid": "29626044",
+      "focus": "Systematic review/meta-analysis in non-anemic iron-deficient adults; subjective fatigue improved while objective physical-capacity outcomes did not, preserving symptom-versus-performance distinction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 584,
+      "entity_slug": "omega-3",
+      "pmid": "40049535",
+      "focus": "Recent depression meta-analysis; depressive-symptom signal did not translate consistently into response/remission or adverse-event superiority, and any proposed EPA/dose pattern remains evidence metadata rather than a dosing recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 585,
+      "entity_slug": "magnesium",
+      "pmid": "38817505",
+      "focus": "Systematic review of magnesium for self-reported anxiety and sleep; most included studies reported some benefit, but samples, formulations and outcome methods were small/heterogeneous.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 586,
+      "entity_slug": "l-carnitine",
+      "pmid": "38101999",
+      "focus": "Blood-pressure meta-analysis; overall systolic/diastolic effects were null, with an obesity-related DBP subgroup signal that should not be generalized.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 587,
+      "entity_slug": "l-arginine",
+      "pmid": "42520885",
+      "focus": "2026 meta-analysis of ambulatory blood pressure from five RCTs/202 participants; ambulatory-BP evidence remains small and protocol-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 588,
+      "entity_slug": "vitamin-a",
+      "pmid": "38816049",
+      "focus": "Systematic review of 120 randomized prevention trials involving roughly 1.67 million participants; clinically important outcomes and safety vary strongly by population, baseline status and prevention context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 589,
+      "entity_slug": "l-carnitine",
+      "pmid": "37656233",
+      "focus": "48-RCT/3,255-participant meta-analysis of inflammatory and oxidative-stress biomarkers; biomarker effects are surrogate evidence and do not establish disease modification.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 590,
+      "entity_slug": "l-carnitine",
+      "pmid": "38594107",
+      "focus": "Dose-response meta-analysis in type 2 diabetes; glycemic/cardiometabolic findings remain T2D- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 591,
+      "entity_slug": "l-carnitine",
+      "pmid": "40470390",
+      "focus": "Cardiac-surgery meta-analysis of postoperative outcomes; perioperative evidence cannot be inherited by routine outpatient supplementation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 592,
+      "entity_slug": "l-carnitine",
+      "pmid": "36704801",
+      "focus": "41-RCT/~2,900-participant glycemic meta-analysis with high heterogeneity; pooled biomarker changes require population/formulation boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 593,
+      "entity_slug": "l-arginine",
+      "pmid": "34967840",
+      "focus": "Randomized-trial blood-pressure meta-analysis; modest pooled effects are heterogeneous and should remain distinct from ambulatory-BP evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 594,
+      "entity_slug": "l-carnitine",
+      "pmid": "32932644",
+      "focus": "Metabolic-syndrome related meta-analysis; cardiometabolic biomarker evidence remains surrogate and phenotype-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 595,
+      "entity_slug": "omega-3",
+      "pmid": "33806078",
+      "focus": "Systematic review/meta-analysis of omega-3 for prevention/treatment of depression; prevention and treatment strata remain separate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 596,
+      "entity_slug": "omega-3",
+      "pmid": "31647041",
+      "focus": "Large randomized-trial synthesis found little or no preventive effect on depression/anxiety in people without baseline disorders—important counterweight to broad mental-health claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 597,
+      "entity_slug": "vitamin-d",
+      "pmid": "41674721",
+      "focus": "Updated randomized-trial synthesis in steatotic liver disease; hepatic/metabolic outcomes stay disease-specific and separate from generic vitamin-D efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 598,
+      "entity_slug": "zinc",
+      "pmid": "39377022",
+      "focus": "2024 systematic review of eight human trials on sleep; most adult studies suggested better sleep quality, while sleep-disorder and nonadult findings were inconsistent and more trials are needed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 599,
+      "entity_slug": "selenium",
+      "pmid": "38243784",
+      "focus": "2024 GRADE meta-analysis of 35 Hashimoto-thyroiditis studies; TSH/TPOAb/MDA signals with several thyroid hormones, TGAb, thyroid volume and immune markers null; autoimmune-thyroid population boundary retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 600,
+      "entity_slug": "vitamin-c",
+      "pmid": "41784995",
+      "focus": "2026 umbrella review of six meta-analyses/17 RCTs; modest systolic-BP signal, overall DBP null with diabetes subgroup signal, and low certainty of evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 601,
+      "entity_slug": "probiotics",
+      "pmid": "40697756",
+      "focus": "2025 MASLD meta-analysis of 12 RCTs/657 participants; liver-enzyme and selected metabolic/inflammatory signals remain disease-, strain-, and outcome-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 602,
+      "entity_slug": "curcumin-resveratrol-silymarin",
+      "pmid": "39723101",
+      "focus": "27-study/1,691-participant MASLD comparison of curcumin, resveratrol and silymarin; intervention-specific steatosis/transaminase/metabolic effects must not be collapsed into a generic polyphenol claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 603,
+      "entity_slug": "herbal-oral-health",
+      "pmid": "40077632",
+      "focus": "2025 systematic review of 17 human oral-health studies spanning multiple herbal extracts; adjunctive gingivitis/periodontitis evidence is product- and route-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 604,
+      "entity_slug": "curcumin",
+      "pmid": "38213188",
+      "focus": "15-RCT/905-participant NAFLD GRADE review; ALT/AST decreased with curcumin while ALP was null and curcumin-plus-piperine aminotransferase effects were nonsignificant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 605,
+      "entity_slug": "curcumin",
+      "pmid": "42499105",
+      "focus": "26-RCT/1,266-participant periodontal comparison with chlorhexidine; plaque/gingival/bleeding outcomes similar while chlorhexidine was superior for probing depth/attachment loss overall; very high heterogeneity/risk of bias retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 606,
+      "entity_slug": "probiotics-synbiotics",
+      "pmid": "39166132",
+      "focus": "21-study CKD meta-analysis; modest BUN/CRP signals with heterogeneous renal, uremic-toxin and metabolic outcomes; CKD-specific and strain/intervention-class dependent.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 607,
+      "entity_slug": "curcumin",
+      "pmid": "38232906",
+      "focus": "2024 NAFLD systematic review/meta-analysis of glycemic, lipid, BP, inflammatory and anthropometric outcomes; multi-endpoint evidence remains disease-specific and heterogeneous.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 608,
+      "entity_slug": "curcumin",
+      "pmid": "38965866",
+      "focus": "15-study/835-participant NAFLD meta-regression; AST improved while ALT was null overall, high heterogeneity persisted, and adding piperine did not improve aminotransferases—important counterweight to other syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 609,
+      "entity_slug": "natural-products-nafld",
+      "pmid": "38886838",
+      "focus": "Network meta-analysis comparing seven natural products in NAFLD; indirect rankings and product heterogeneity prevent ingredient-wide superiority claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 610,
+      "entity_slug": "probiotics",
+      "pmid": "38643738",
+      "focus": "2024 network meta-analysis of probiotic combinations in NAFLD; strain/composition rankings are indirect and cannot be generalized across probiotics.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 611,
+      "entity_slug": "probiotics",
+      "pmid": "42245504",
+      "focus": "2026 11-RCT/726-participant diabetic-kidney-disease meta-analysis; creatinine/eGFR and related signals remain DKD-, strain-, and duration-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 612,
+      "entity_slug": "probiotics",
+      "pmid": "38968867",
+      "focus": "15-RCT/899-participant NAFLD meta-analysis; ALT/HOMA-IR/insulin improved while fasting glucose, HbA1c, AST, lipids, IL-6 and TNF-alpha were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 613,
+      "entity_slug": "mafld-supplements-network",
+      "pmid": "41695987",
+      "focus": "2026 Bayesian network meta-analysis of dietary supplements and pharmacologic agents in MAFLD; ranking evidence is indirect and outcome-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 614,
+      "entity_slug": "natural-products-periodontal",
+      "pmid": "41828611",
+      "focus": "2026 review of 90 periodontal RCTs/33 pooled trials across curcumin, resveratrol, propolis, Aloe, green-tea catechins, omega-3 and others; adjunct/route/product boundaries retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 615,
+      "entity_slug": "nutritional-interventions-ibs",
+      "pmid": "39110917",
+      "focus": "Umbrella review of randomized evidence in IBS; most nutritional interventions had small low/very-low-certainty effects, with stronger evidence concentrated in probiotics and low-FODMAP diets.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 616,
+      "entity_slug": "probiotics-exercise",
+      "pmid": "39090657",
+      "focus": "Nine-study/615-participant NAFLD meta-analysis of probiotics plus exercise versus exercise alone; selected liver/lipid/HOMA-IR signals with HDL/insulin/FBG nulls; combination-only.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 617,
+      "entity_slug": "vitamin-d",
+      "pmid": "37356648",
+      "focus": "Systematic review of vitamin-D therapy in adults with CKD assessing mortality, cardiovascular, bone and kidney outcomes; CKD-MBD context and clinically important outcomes retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 618,
+      "entity_slug": "pcos-nutraceuticals",
+      "pmid": "41287200",
+      "focus": "2025 78-study PCOS nutraceutical review; fasting-insulin/LH/SHBG signals with inconsistent follicle-count/menstrual outcomes and substantial intervention heterogeneity.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 619,
+      "entity_slug": "aloe-vera",
+      "pmid": "39909775",
+      "focus": "2025 oral-mucositis meta-analysis of randomized trials in cancer therapy; Aloe evidence is cancer-treatment-context and route/formulation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 620,
+      "entity_slug": "pcos-supplements-network",
+      "pmid": "40611279",
+      "focus": "2025 network meta-analysis of 79 RCTs/5,501 women with PCOS; supplement rankings are endpoint-specific indirect evidence, not head-to-head proof.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 621,
+      "entity_slug": "probiotics",
+      "pmid": "38551321",
+      "focus": "2024 five-study/286-participant psoriasis meta-analysis; PASI/DLQI signals come from a small disease-specific probiotic evidence base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 622,
+      "entity_slug": "pcos-phytotherapy",
+      "pmid": "40663739",
+      "focus": "2025 systematic review of clinical phytotherapy in PCOS; herb/product-specific findings must remain separated from category-level efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 623,
+      "entity_slug": "pcos-dietary-supplements",
+      "pmid": "41235304",
+      "focus": "2025 umbrella meta-analysis of dietary supplements in PCOS; pathway-level metabolic/hormonal signals across inositol, probiotics, omega-3, curcumin and others remain intervention-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 624,
+      "entity_slug": "psoriasis-supplements-network",
+      "pmid": "41459063",
+      "focus": "2025 21-RCT/1,463-participant plaque-psoriasis network meta-analysis; no supplement dominated all outcomes and certainty was low-to-moderate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 625,
+      "entity_slug": "l-carnitine",
+      "pmid": "40436023",
+      "focus": "2025 systematic review/dose-response meta-analysis of fertility outcomes in PCOS; reproductive evidence remains PCOS-specific and distinct from generic carnitine metabolic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 626,
+      "entity_slug": "creatine-beta-alanine",
+      "pmid": "40647180",
+      "focus": "2025 seven-RCT/263-participant systematic review of combined creatine+beta-alanine; high-intensity performance signals are combination-specific and evidence is predominantly male.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 627,
+      "entity_slug": "creatine-beta-alanine",
+      "pmid": "42384726",
+      "focus": "2026 52-RCT network meta-analysis; creatine alone had the most consistent high-intensity performance effects while beta-alanine was task-specific and combined supplementation showed no added synergy.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 628,
+      "entity_slug": "caffeine-nitrate",
+      "pmid": "39408319",
+      "focus": "Six-study/95-participant meta-analysis found caffeine+nitrate co-supplementation did not outperform caffeine or nitrate alone for time trials, heart rate or oxygen uptake.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 629,
+      "entity_slug": "conditioning-supplements",
+      "pmid": "41323837",
+      "focus": "2025 network meta-analysis of 30 RCTs/693 athletes comparing protein, creatine, beta-alanine, HMB, vitamin D and nitrate across energy-system outcomes; indirect rankings remain outcome-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 630,
+      "entity_slug": "dietary-nitrate",
+      "pmid": "40085422",
+      "focus": "2025 umbrella review of 20 meta-analyses/180 primary studies/2,672 participants; benefits were domain-specific, several performance outcomes were null, and most underlying reviews were low/critically-low quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 631,
+      "entity_slug": "probiotics",
+      "pmid": "41291638",
+      "focus": "2025 meta-analysis of 34 RCTs/2,390 adults on cognitive outcomes and adverse events; cognition evidence remains strain-, population-, test-, and duration-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 632,
+      "entity_slug": "athlete-supplements-network",
+      "pmid": "40717998",
+      "focus": "2025 network meta-analysis of 35 RCTs/991 athletes; supplement effects on strength, sprint, jump and muscle mass differed by outcome, with most trials having some risk-of-bias concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 633,
+      "entity_slug": "elite-athlete-supplements",
+      "pmid": "41058995",
+      "focus": "2025 review of 46 studies/928 elite athletes; caffeine showed more consistent sport-performance effects than nitrate, while beta-alanine and recovery supplements were sport/context dependent.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 634,
+      "entity_slug": "cycling-ergogenic-aids",
+      "pmid": "38892701",
+      "focus": "2024 systematic review of 36 cycling studies/701 participants spanning caffeine, creatine, bicarbonate, beta-alanine, nitrate and combinations; sport- and intervention-specific evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 635,
+      "entity_slug": "ergogenic-combinations",
+      "pmid": "40619880",
+      "focus": "2025 systematic review/meta-analysis of 16 randomized studies testing performance-enhancing supplement combinations; combination effects must not be attributed to individual ingredients.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 636,
+      "entity_slug": "probiotics",
+      "pmid": "40740336",
+      "focus": "2025 six-study/424-patient insomnia meta-analysis; PSQI improved with moderate certainty while depression-score evidence was very-low certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 637,
+      "entity_slug": "probiotics",
+      "pmid": "40966579",
+      "focus": "2025 umbrella review of probiotic meta-analyses for cognitive-related outcomes; strength/quality of evidence varies substantially by population and endpoint.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 638,
+      "entity_slug": "probiotics",
+      "pmid": "41958906",
+      "focus": "2026 13-study/890-participant adult sleep meta-analysis; modest PSQI/ISI signals with strain/product and baseline-sleep heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 639,
+      "entity_slug": "vitamin-d",
+      "pmid": "37418225",
+      "focus": "24-RCT/7,557-participant cognition meta-analysis; small global-cognition effect, no consistent specific-domain effect, with stronger signals in vulnerable/deficient subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 640,
+      "entity_slug": "creatine",
+      "pmid": "41062952",
+      "focus": "2025 20-study/1,093-participant meta-analysis of creatine plus exercise in older adults; strength/fat-percentage signals with total-body BMD null; combination/context specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 641,
+      "entity_slug": "creatine",
+      "pmid": "38582412",
+      "focus": "2024 systematic review found brain creatine increases but cognitive effects remain equivocal, providing a counterweight to positive cognition meta-analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 642,
+      "entity_slug": "vitamin-d",
+      "pmid": "34806158",
+      "focus": "Systematic review of 20 adult RCTs found mixed cognition results and did not support a consistent cognitive-enhancement effect—important counterweight to later positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 643,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "36091835",
+      "focus": "RCT meta-analysis of fatigue; fatigue-reduction signal stronger for CoQ10-only formulations than compound products, with formulation and symptom-context boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 644,
+      "entity_slug": "protein-resistance-training",
+      "pmid": "38753309",
+      "focus": "2024 18-RCT/1,147-participant review of protein+resistance training and gait speed in older adults; exercise-combination and aging-population context retained.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 645,
+      "entity_slug": "whey-protein",
+      "pmid": "41228181",
+      "focus": "2025 older-adult meta-analysis of whey protein with/without resistance training; body-composition, strength and cardiometabolic outcomes remain context- and co-intervention-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 646,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "41416636",
+      "focus": "Systematic review/meta-analysis found negligible benefit of a single oral dose for continuous running performance, providing a sport-task-specific null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 647,
+      "entity_slug": "bcaa",
+      "pmid": "38625669",
+      "focus": "2024 18-study meta-analysis; BCAA reduced selected CK and muscle-soreness timepoints after exercise-induced damage but did not improve LDH; recovery biomarker/symptom evidence only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 648,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "39841595",
+      "focus": "2025 swimming meta-analysis; bicarbonate raised blood bicarbonate/lactate/pH but did not significantly improve 200-m time—physiology-performance dissociation retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 649,
+      "entity_slug": "bcaa",
+      "pmid": "38241335",
+      "focus": "2024 overview of 11 systematic reviews; CK/muscle-soreness recovery signals with no effect on muscle-performance recovery and notable review-quality limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 650,
+      "entity_slug": "hmb",
+      "pmid": "41934514",
+      "focus": "2026 13-RCT/561-participant meta-analysis in adults >=50 found no meaningful added benefit of HMB+resistance training for fat mass, muscle mass or strength; strong counterweight to routine-adjunct claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 651,
+      "entity_slug": "chromium",
+      "pmid": "39541030",
+      "focus": "2024 systematic review of chromium in T2D; possible glycemic/lipid signals coexist with wide formulation/dose/duration heterogeneity and uncertain long-term risk.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 652,
+      "entity_slug": "chromium",
+      "pmid": "40245649",
+      "focus": "2025 overweight/obesity meta-analysis; selected insulin-resistance/metabolic effects with several near-null estimates and mixed anthropometric/BP/liver findings.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 653,
+      "entity_slug": "potassium",
+      "pmid": "40612568",
+      "focus": "2025 dose-response meta-analysis of 10 RCTs; BP reduction was much larger in hypertensive than normotensive participants, emphasizing baseline-BP dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 654,
+      "entity_slug": "vitamin-k",
+      "pmid": "38282652",
+      "focus": "Systematic review/meta-analysis of vitamin-K supplementation and cardiovascular risk factors; biomarker/risk-factor evidence is not clinical-event prevention evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 655,
+      "entity_slug": "chromium",
+      "pmid": "39671146",
+      "focus": "Updated randomized-trial meta-analysis of inflammatory mediators; inflammatory biomarker evidence remains surrogate and population dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 656,
+      "entity_slug": "selenium",
+      "pmid": "41738711",
+      "focus": "2026 randomized-trial meta-analysis in metabolic diseases; cardiometabolic, inflammatory and oxidative-stress findings remain phenotype- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 657,
+      "entity_slug": "selenium",
+      "pmid": "40243093",
+      "focus": "2025 dose-response meta-analysis of 27 experimental human studies on blood lipids; possible nonlinear lipid effects and overexposure concerns remain first-class.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 658,
+      "entity_slug": "zinc",
+      "pmid": "37399684",
+      "focus": "75-study GRADE meta-analysis; several glycemic/lipid/inflammatory/oxidative markers improved while LDL, HDL, insulin, BP and liver enzymes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 659,
+      "entity_slug": "b-vitamins",
+      "pmid": "41615824",
+      "focus": "2026 13-study/14,539-participant CHD meta-analysis of folic acid+B6+B12; homocysteine lowering and vascular outcomes remain distinct from hard-event efficacy.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 660,
+      "entity_slug": "vitamin-b12",
+      "pmid": "37495210",
+      "focus": "21-RCT/1,625-participant meta-analysis; isolated B12 lowered homocysteine, a surrogate biomarker, without implying cardiovascular-event reduction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 661,
+      "entity_slug": "folic-acid",
+      "pmid": "42231372",
+      "focus": "2026 36-RCT hyperhomocysteinemia meta-analysis; tHcy and modest BP/lipid surrogate changes with high heterogeneity/bias and no adjudicated hard cardiovascular endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 662,
+      "entity_slug": "selenium",
+      "pmid": "35963054",
+      "focus": "Randomized-trial meta-analysis found little overall lipid benefit, increased SBP, and selected LDL/TC subgroup effects—important cardiovascular-safety counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 663,
+      "entity_slug": "selenium",
+      "pmid": "36432623",
+      "focus": "Ten-RCT/526-participant cardiometabolic-disease meta-analysis; insulin/HOMA-IR/HDL signals with FPG, TC, TG, LDL and VLDL nulls and high heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 664,
+      "entity_slug": "selenium",
+      "pmid": "37574154",
+      "focus": "20-RCT GRADE dose-response review; fasting-insulin/QUICKI signals with FBS, HbA1c and HOMA-IR nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 665,
+      "entity_slug": "chromium",
+      "pmid": "33783683",
+      "focus": "Ten-RCT/509-participant T2D meta-analysis of glucose/lipid outcomes; disease-specific evidence with formulation and trial-quality limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 666,
+      "entity_slug": "chromium",
+      "pmid": "32730903",
+      "focus": "28-study T2D meta-analysis; FPG/insulin/HbA1c/HOMA-IR pooled reductions accompanied by extreme heterogeneity for several outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 667,
+      "entity_slug": "chromium",
+      "pmid": "24635480",
+      "focus": "Older diabetes meta-analysis including mono- and combination supplementation; glycemic/lipid signals with inadequate long-term safety evidence and combination uncertainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 668,
+      "entity_slug": "folic-acid",
+      "pmid": "34478339",
+      "focus": "22-study/41,633-participant BP meta-analysis; small SBP/DBP reductions with dose/duration/subgroup variability—large sample but surrogate outcome.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 669,
+      "entity_slug": "potassium",
+      "pmid": "28024910",
+      "focus": "Hypertension-specific meta-analysis; BP lowering was stronger with lower baseline potassium, higher sodium and no antihypertensive therapy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 670,
+      "entity_slug": "potassium",
+      "pmid": "28419159",
+      "focus": "23-RCT/1,213-participant essential-hypertension meta-analysis; modest BP reduction with moderate heterogeneity and adjunctive-context framing.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 671,
+      "entity_slug": "t2d-nutrient-supplements",
+      "pmid": "35684094",
+      "focus": "Umbrella/hierarchical synthesis of nutrient supplements for T2D; most HbA1c evidence was low or very-low certainty and intervention-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 672,
+      "entity_slug": "selenium-status",
+      "pmid": "39882034",
+      "focus": "Observational dose-response meta-analysis found a U-shaped association between blood selenium and metabolic syndrome; association evidence must not be treated as supplementation efficacy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 673,
+      "entity_slug": "calcium-intake",
+      "pmid": "39379073",
+      "focus": "Observational GRADE dose-response meta-analysis linked higher dietary calcium with lower MetS odds; dietary association is not supplement-trial evidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 674,
+      "entity_slug": "zinc",
+      "pmid": "31494808",
+      "focus": "Earlier cardiometabolic RCT meta-analysis; glycemic/lipid signals with BP/anthropometric nulls, useful historical comparison with newer zinc syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 675,
+      "entity_slug": "selenium",
+      "pmid": "28992632",
+      "focus": "Older metabolic-disease RCT meta-analysis of glucose/lipid profiles; retained as historical evidence to compare with later contradictory selenium syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 676,
+      "entity_slug": "herb-drug-interactions",
+      "pmid": "38504455",
+      "focus": "2024 30-year historical assessment of clinically relevant botanical-drug interactions; mechanism and clinical-evidence strength remain interaction-specific.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 677,
+      "entity_slug": "herb-drug-interactions",
+      "pmid": "30660822",
+      "focus": "Systematic review/meta-analysis of clinical herb-drug interaction studies; clinically important St John's wort, echinacea and green-tea interactions illustrate transporter/enzyme-specific risk.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 678,
+      "entity_slug": "natural-product-drug-interactions",
+      "pmid": "16175124",
+      "focus": "Systematic review of 47 clinical pharmacokinetic interaction trials; strongest evidence centered on St John's wort, with limited inference for most botanicals.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 679,
+      "entity_slug": "botanical-drug-interactions",
+      "pmid": "26438626",
+      "focus": "Clinical/pharmacokinetic review highlights major gaps between in-vitro predictions and human interaction trials; preclinical enzyme effects must not be treated as proven clinical interactions.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 680,
+      "entity_slug": "green-tea-extract",
+      "pmid": "32140423",
+      "focus": "USP comprehensive hepatotoxicity review; concentrated extract, fasting/bolus exposure and interindividual susceptibility are key context, distinct from brewed tea.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 681,
+      "entity_slug": "green-tea-extract",
+      "pmid": "27188915",
+      "focus": "Systematic review of 34 RCTs found few mostly mild liver-enzyme adverse events and no serious hepatic events; useful RCT counterweight to case-report hepatotoxicity evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 682,
+      "entity_slug": "turmeric-curcumin",
+      "pmid": "32656820",
+      "focus": "Italian phytovigilance plus systematic case review linked high-bioavailability turmeric/curcumin supplements with acute hepatitis; concomitant exposures and case-report causality limitations retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 683,
+      "entity_slug": "green-tea-extract",
+      "pmid": "29580974",
+      "focus": "Systematic safety review of 159 human intervention studies; hepatic risk concentrated in high-bolus catechin-rich extracts and differed from brewed tea/food exposures.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 684,
+      "entity_slug": "turmeric-curcumin",
+      "pmid": "42364655",
+      "focus": "2026 USP safety review concluded clinically apparent hepatotoxicity is rare but real enough to justify cautionary labeling; idiosyncratic/genetic susceptibility and concomitant products retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 685,
+      "entity_slug": "kava",
+      "pmid": "16011454",
+      "focus": "Systematic kava safety review covering hepatotoxicity, adverse effects, interactions and preparation issues; product/extract type and causality uncertainty remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 686,
+      "entity_slug": "kratom",
+      "pmid": "41803068",
+      "focus": "2026 systematic review of 31 studies/32 liver-injury cases; predominantly cholestatic injury, frequent incomplete exposure data/polysubstance use, and several transplant cases; case evidence does not establish incidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 687,
+      "entity_slug": "ashwagandha",
+      "pmid": "42367407",
+      "focus": "2026 scoping review of 25 reported liver-injury patients; cholestatic/mixed patterns predominated, with case-series evidence and product/concomitant-exposure limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 688,
+      "entity_slug": "st-johns-wort",
+      "pmid": "15231618",
+      "focus": "Systematic review of prospective clinical trials found repeated reductions in systemic bioavailability of conventional drugs during St John's wort exposure; interaction evidence is extract/hyperforin dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 689,
+      "entity_slug": "st-johns-wort",
+      "pmid": "17010103",
+      "focus": "31-study CYP3A systematic review; high-hyperforin extracts consistently induced CYP3A while low-hyperforin extracts showed less/no effect, making constituent standardization central.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 690,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "21923430",
+      "focus": "18-RCT/1,985-participant meta-analysis of hemostasis outcomes found no clear increased bleeding-risk signal with standardized Ginkgo extract—counterweight to bleeding case reports.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 691,
+      "entity_slug": "licorice",
+      "pmid": "28660884",
+      "focus": "18-study meta-analysis linked chronic glycyrrhizic-acid-containing licorice exposure with increased BP and reduced potassium/renin/aldosterone; cardiovascular-risk context retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 692,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "40198642",
+      "focus": "2025 clinical interaction/coagulation analysis found associations between Ginkgo-drug interactions, bleeding symptoms and abnormal coagulation, with medication-specific patterns.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 693,
+      "entity_slug": "black-cohosh",
+      "pmid": "21228727",
+      "focus": "Meta-analysis of five randomized trials of isopropanolic black-cohosh extract found no adverse liver-function effect, an important formulation-specific counterweight to spontaneous reports.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 694,
+      "entity_slug": "herb-drug-interactions",
+      "pmid": "19719333",
+      "focus": "Updated systematic review of seven popular herbs documented extensive St John's wort interactions and more limited evidence for ginkgo, ginseng, garlic, echinacea, saw palmetto and kava.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 695,
+      "entity_slug": "black-cohosh",
+      "pmid": "21677326",
+      "focus": "Causality-focused survey of purported black-cohosh liver-injury cases found major case-quality limitations and no confirmed causality under liver-specific assessment methods.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 696,
+      "entity_slug": "medicinal-edible-fruit-safety",
+      "pmid": "38851470",
+      "focus": "2024 systematic review of medicinal/edible fruit adverse events; serious events were present and were often associated with excess exposure or young children; species identity preserved.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 697,
+      "entity_slug": "adaptogen-heavy-metals",
+      "pmid": "41300272",
+      "focus": "2025 analytical safety study documented lead/nickel contamination in tested adaptogenic supplements, demonstrating product-quality risk rather than intrinsic botanical pharmacology.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 698,
+      "entity_slug": "herb-induced-liver-injury",
+      "pmid": "34307603",
+      "focus": "Systematic review/meta-analysis of 936 reported HILI cases across 79 herbs/products; causality and incidence limitations retained while high-frequency implicated products are mapped.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 699,
+      "entity_slug": "supplement-liver-injury",
+      "pmid": "36515339",
+      "focus": "Pooled analysis of 428 herbal/dietary-supplement liver-injury cases; severe outcomes occurred, but case-report aggregation cannot estimate population incidence.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 700,
+      "entity_slug": "black-cohosh",
+      "pmid": "12544678",
+      "focus": "Systematic safety review found clinical adverse events generally rare/mild/reversible while serious spontaneous reports existed with uncertain causality; historical safety context retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 701,
+      "entity_slug": "vitamin-d",
+      "pmid": "39993397",
+      "focus": "2025 updated acute-respiratory-infection prevention meta-analysis of 40 studies/61,589 participants; overall protection did not reach statistical significance, providing a major counterweight to earlier positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 702,
+      "entity_slug": "vitamin-d",
+      "pmid": "41387808",
+      "focus": "2025 pediatric ARI meta-analysis of 17 RCTs/18,372 participants; overall infection incidence, hospitalization, recovery and mortality were null, with subgroup/safety signals kept exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 703,
+      "entity_slug": "vitamin-d",
+      "pmid": "39143549",
+      "focus": "2024 43-RCT/49,320-participant ARI-prevention meta-analysis; overall pooled effect was null and subgroup dose/frequency findings must not become dosing recommendations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 704,
+      "entity_slug": "vitamin-d",
+      "pmid": "40005471",
+      "focus": "2025 allergic-rhinitis meta-analysis of five RCTs; overall symptom benefit was nonsignificant with extreme heterogeneity, while selected no-corticosteroid subgroup findings remain exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 705,
+      "entity_slug": "probiotics",
+      "pmid": "42197372",
+      "focus": "2026 meta-analysis spanning upper-respiratory infection, allergic rhinitis and chronic rhinosinusitis; disease, strain and product identity must remain separated.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 706,
+      "entity_slug": "probiotics",
+      "pmid": "42602161",
+      "focus": "2026 pediatric respiratory-infection network meta-analysis of eight RCTs/1,158 participants; strain-specific signals were low-certainty and network rankings are not head-to-head proof.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 707,
+      "entity_slug": "zinc",
+      "pmid": "28515951",
+      "focus": "Seven-trial/575-participant common-cold lozenge meta-analysis; roughly one-third shorter duration in selected high-dose lozenge trials, with formulation and dose context essential.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 708,
+      "entity_slug": "zinc",
+      "pmid": "27378206",
+      "focus": "Individual-patient-data meta-analysis of three zinc-acetate trials/199 participants; shorter cold duration with no clear modification by allergy/status variables, but restricted to acetate lozenges.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 709,
+      "entity_slug": "zinc",
+      "pmid": "22566526",
+      "focus": "17-trial/2,121-participant common-cold meta-analysis; shorter duration in adults but not children, with more adverse events and substantial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 710,
+      "entity_slug": "zinc",
+      "pmid": "10801968",
+      "focus": "Older systematic review found evidence insufficient/inconclusive for zinc in the common cold; retained as historical counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 711,
+      "entity_slug": "probiotics",
+      "pmid": "33293995",
+      "focus": "Six-RCT/1,551-adult URTI meta-analysis; low-quality evidence suggested selected incidence/duration benefits with very high heterogeneity for episode-rate outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 712,
+      "entity_slug": "zinc",
+      "pmid": "21769305",
+      "focus": "Systematic review of zinc dose/formulation in common-cold trials; heterogeneity in salts, lozenge composition and dosing prevents a generic zinc equivalence claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 713,
+      "entity_slug": "zinc",
+      "pmid": "28480298",
+      "focus": "Individual-patient-data analysis of three zinc-acetate trials found faster recovery rates; formulation-specific and small-trial evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 714,
+      "entity_slug": "zinc",
+      "pmid": "31980506",
+      "focus": "Randomized placebo-controlled zinc-acetate lozenge trial in 87 common-cold cases found no meaningful recovery benefit, providing a direct counterweight to prior positive lozenge meta-analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 715,
+      "entity_slug": "zinc",
+      "pmid": "9361579",
+      "focus": "Historical zinc-lozenge meta-analysis with null/inconclusive findings; useful for tracing evidence evolution and formulation heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 716,
+      "entity_slug": "vitamin-c",
+      "pmid": "38082300",
+      "focus": "Meta-analysis of vitamin C for severe common-cold symptoms; treatment-context and symptom-severity findings remain distinct from prevention claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 717,
+      "entity_slug": "vitamin-c",
+      "pmid": "34967304",
+      "focus": "Respiratory-infection meta-analysis; incidence/severity were not consistently reduced while illness duration was shorter in selected analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 718,
+      "entity_slug": "vitamin-c-antiviral",
+      "pmid": "33102597",
+      "focus": "Meta-analysis of vitamin C used with antiviral therapy for common cold; combination-treatment evidence cannot be attributed to vitamin C alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 719,
+      "entity_slug": "probiotics",
+      "pmid": "21901706",
+      "focus": "Older randomized-trial review of probiotics for acute URTI prevention; incidence signals with less consistent duration evidence and substantial intervention heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 720,
+      "entity_slug": "pelargonium-sidoides",
+      "pmid": "18222667",
+      "focus": "Six-RCT acute-bronchitis evidence for Pelargonium sidoides preparations; acute indication and standardized-product identity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 721,
+      "entity_slug": "vitamin-d",
+      "pmid": "37606475",
+      "focus": "Systematic review of vitamin-D supplementation for respiratory infections in children under six; findings were inconsistent and age-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 722,
+      "entity_slug": "vitamin-d",
+      "pmid": "33798465",
+      "focus": "2021 large ARI meta-analysis; modest protective signal in some analyses with regimen/population modifiers, retained to compare with later null updates.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 723,
+      "entity_slug": "vitamin-d",
+      "pmid": "23840373",
+      "focus": "Older respiratory-infection meta-analysis reported a protective signal but also heterogeneity/publication-bias concerns; historical context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 724,
+      "entity_slug": "vitamin-d",
+      "pmid": "23326099",
+      "focus": "Early small-trial respiratory-infection meta-analysis suggested benefit; retained as historical evidence showing how conclusions changed as trial volume increased.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 725,
+      "entity_slug": "zinc",
+      "pmid": "23775705",
+      "focus": "Older Cochrane-style common-cold synthesis; possible duration benefit alongside adverse events and major formulation/dose heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 726,
+      "entity_slug": "ashwagandha",
+      "pmid": "34559859",
+      "focus": "Five-RCT/400-participant sleep meta-analysis; small pooled sleep benefit with stronger subgroup signals in insomnia/longer exposure, but extract/duration heterogeneity and no generic dose recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 727,
+      "entity_slug": "lavender",
+      "pmid": "31743795",
+      "focus": "22-RCT aromatherapy meta-analysis; anxiety and selected physiologic stress signals, with route-specific evidence and substantial contextual heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 728,
+      "entity_slug": "bacopa",
+      "pmid": "24252493",
+      "focus": "Nine-trial cognition meta-analysis; attention-processing-speed signals with standardized-extract and chronic-use boundaries, not proof of broad nootropic enhancement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 729,
+      "entity_slug": "lavender",
+      "pmid": "40600743",
+      "focus": "2025/2026 review of 11 RCTs/628 adults; lavender essential oil improved pooled sleep-quality scores, but route, blinding and subjective-outcome limits remain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 730,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "19653225",
+      "focus": "Systematic review of randomized trials for menopausal vasomotor symptoms; inconsistent results and study-quality variation prevent a uniform hot-flash claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 731,
+      "entity_slug": "black-cohosh",
+      "pmid": "37192826",
+      "focus": "Updated 22-study/2,310-participant meta-analysis; overall menopausal/hot-flash signals with anxiety/depression nulls and combination-regimen heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 732,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "35651836",
+      "focus": "11-RCT menopause meta-analysis; estradiol/Kupperman signals with hot-flash/FSH/LH nulls and extreme heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 733,
+      "entity_slug": "black-cohosh",
+      "pmid": "20085176",
+      "focus": "Older placebo-controlled meta-analysis suggesting vasomotor improvement but with significant heterogeneity; retained as historical positive evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 734,
+      "entity_slug": "evening-primrose-oil",
+      "pmid": "41883983",
+      "focus": "2025 six-RCT menopause systematic review/meta-analysis; menopausal-symptom evidence remains limited and indication/formulation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 735,
+      "entity_slug": "red-clover",
+      "pmid": "42269521",
+      "focus": "GRADE-assessed hot-flash systematic review/meta-analysis; red-clover isoflavone efficacy remains formulation/population specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 736,
+      "entity_slug": "black-cohosh",
+      "pmid": "22972105",
+      "focus": "Cochrane review of 16 RCTs/2,027 women; no significant difference versus placebo for hot-flush frequency or menopausal symptom scores, a major counterweight to positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 737,
+      "entity_slug": "black-cohosh",
+      "pmid": "18585461",
+      "focus": "Older systematic review of six double-blind RCTs; efficacy inconsistent and uncertain, supporting explicit historical disagreement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 738,
+      "entity_slug": "red-clover",
+      "pmid": "33920485",
+      "focus": "Eight-trial meta-analysis; modest reduction in daily hot-flash frequency with substantial heterogeneity and formulation/dose dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 739,
+      "entity_slug": "black-cohosh-icr",
+      "pmid": "33021111",
+      "focus": "Review/meta-analysis of isopropanolic Cimicifuga racemosa extract; product-specific menopausal evidence with manufacturer-affiliation provenance retained.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 740,
+      "entity_slug": "ginger",
+      "pmid": "31519467",
+      "focus": "2019 CINV systematic review/meta-analysis; selected acute-vomiting/fatigue signals but many nausea/delayed outcomes null, adjunctive oncology context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 741,
+      "entity_slug": "ginger",
+      "pmid": "36501010",
+      "focus": "2022 review of 23 CINV RCTs; overall acute/delayed nausea/vomiting largely null, with a limited low-dose/longer-duration acute-vomiting subgroup signal.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 742,
+      "entity_slug": "ginger",
+      "pmid": "30299420",
+      "focus": "Ten-RCT CINV meta-analysis; historical pooled antiemetic evidence retained alongside newer conflicting syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 743,
+      "entity_slug": "ginger",
+      "pmid": "34312974",
+      "focus": "14-study postoperative-nausea/vomiting meta-analysis; selected nausea/rescue-antiemetic outcomes improved while vomiting comparisons were mixed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 744,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "20199985",
+      "focus": "RCT meta-analysis in menopausal women; spine BMD signal with intervention-duration, geography, dose and preparation heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 745,
+      "entity_slug": "maca",
+      "pmid": "21840656",
+      "focus": "Four-RCT menopause systematic review; limited favorable symptom evidence with small samples, methodological limitations and insufficient safety evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 746,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "36012916",
+      "focus": "18-RCT meta-analysis; modest BMD preservation at lumbar spine/femoral neck/hip with preparation, duration and population modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 747,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "34067865",
+      "focus": "Bone-turnover-marker meta-analysis in postmenopausal women; osteocalcin/BAP/PYD/DPD pooled changes were not statistically significant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 748,
+      "entity_slug": "isoflavones",
+      "pmid": "39214463",
+      "focus": "2024 umbrella review of ten RCT meta-analyses; BMD signals across several bone sites, but inherits heterogeneity and quality limits of underlying reviews.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 749,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "20673147",
+      "focus": "Meta-analysis in Western peri/postmenopausal women; isoflavone mixtures did not significantly preserve lumbar-spine BMD, useful counterweight to broader positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 750,
+      "entity_slug": "isoflavones",
+      "pmid": "37875614",
+      "focus": "63-RCT postmenopausal BMD meta-analysis; pooled bone-density signals with major intervention, duration and population heterogeneity.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 751,
+      "entity_slug": "probiotics",
+      "pmid": "41827145",
+      "focus": "2026 IBS umbrella review of 27 systematic reviews; modest symptom signals but predominantly low/very-low certainty, high review overlap, and generally weak methodology.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 752,
+      "entity_slug": "probiotics",
+      "pmid": "40551240",
+      "focus": "2025 umbrella meta-analysis across gastrointestinal disorders; diarrhea/nausea/epigastric-pain/bloating signals remain disorder-, strain-, duration-, and formulation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 753,
+      "entity_slug": "constipation-dietary-management",
+      "pmid": "40888045",
+      "focus": "2025 evidence review of chronic-constipation diet/supplement strategies; psyllium, specific probiotics, magnesium oxide and selected foods show differing evidence strength, not category equivalence.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 754,
+      "entity_slug": "constipation-supplements",
+      "pmid": "37243443",
+      "focus": "Systematic review/meta-analysis of food/vitamin/mineral supplements for chronic constipation; magnesium oxide improved several outcomes while senna/kiwifruit evidence was limited by few trials.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 755,
+      "entity_slug": "probiotics-diet-ibs",
+      "pmid": "39862384",
+      "focus": "2025 network meta-analysis comparing probiotics, dietary management and combinations in IBS; indirect rankings and heterogeneous interventions remain research-only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 756,
+      "entity_slug": "herbal-functional-dyspepsia",
+      "pmid": "34851546",
+      "focus": "49-RCT/6,987-participant meta-analysis of herbal therapies for functional dyspepsia; broad category evidence requires product-level separation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 757,
+      "entity_slug": "non-chinese-herbal-dyspepsia",
+      "pmid": "37323050",
+      "focus": "Cochrane review of non-Chinese herbal medicines for functional dyspepsia; individual botanicals showed mixed benefits/nulls and adverse-event differences, preventing a generic herbal claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 758,
+      "entity_slug": "probiotics",
+      "pmid": "38446227",
+      "focus": "13-RCT/930-participant ulcerative-colitis meta-analysis; active-disease remission signal did not reach significance, maintenance/response/mucosal healing were null, while relapse prevention in remission showed benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 759,
+      "entity_slug": "gerd-diet-nutraceuticals",
+      "pmid": "36513474",
+      "focus": "Systematic review/meta-analysis of dietary, nutraceutical and probiotic GERD interventions; evidence was sparse and highly heterogeneous, with only selected interventions showing signals.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 760,
+      "entity_slug": "curcumin",
+      "pmid": "39612780",
+      "focus": "Updated placebo-controlled RCT meta-analysis of curcumin adjunctive therapy in IBD; UC response/remission signals with heterogeneity, but Crohn disease outcomes were not superior to placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 761,
+      "entity_slug": "probiotics",
+      "pmid": "35745212",
+      "focus": "Ten-RCT/757-participant IBS-C meta-analysis; stool consistency and fecal bacterial counts improved, while abdominal pain, bloating, quality of life and adverse events were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 762,
+      "entity_slug": "probiotics",
+      "pmid": "37541528",
+      "focus": "Large 82-RCT/10,332-participant IBS meta-analysis; effects differed materially by strain and outcome, with certainty ranging from moderate to very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 763,
+      "entity_slug": "probiotics",
+      "pmid": "38479936",
+      "focus": "2024 20-study/3,011-participant IBS meta-analysis; global symptom and quality-of-life signals remain limited by heterogeneous probiotic formulations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 764,
+      "entity_slug": "pro-pre-synbiotics",
+      "pmid": "37995508",
+      "focus": "2024 network meta-analysis of adjunctive probiotic/prebiotic/synbiotic formulations in mild-moderate UC; formulation rankings are indirect and disease-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 765,
+      "entity_slug": "probiotics",
+      "pmid": "37686889",
+      "focus": "81-RCT/9,253-participant IBS network meta-analysis; apparent strain/mixture rankings are outcome-specific and not direct head-to-head proof.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 766,
+      "entity_slug": "siho-sogan-san",
+      "pmid": "37127143",
+      "focus": "12-study/867-participant functional-dyspepsia meta-analysis; traditional multi-herb formula evidence remains formula- and comparator-specific.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 767,
+      "entity_slug": "probiotics",
+      "pmid": "39106167",
+      "focus": "2024 IBD overview plus updated RCT meta-analysis; benefit appeared more consistent in UC/pouchitis than Crohn disease, with low overall certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 768,
+      "entity_slug": "uc-dietary-supplements-network",
+      "pmid": "42100281",
+      "focus": "2026 24-RCT/1,491-participant UC network meta-analysis across 14 dietary supplements; efficacy rankings remain indirect, outcome-specific and limited by trial number/quality.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 769,
+      "entity_slug": "curcumin",
+      "pmid": "40196017",
+      "focus": "2025 13-placebo-controlled-RCT IBD meta-analysis; adjunctive curcumin improved selected UC outcomes but not Crohn clinical/endoscopic remission.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 770,
+      "entity_slug": "probiotics",
+      "pmid": "36831029",
+      "focus": "33-study/2,713-participant IBD systematic review; probiotic benefit was more consistent for UC than Crohn disease, with formulation-specific differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 771,
+      "entity_slug": "microbiome-targeted-ibd",
+      "pmid": "39482823",
+      "focus": "2024 network meta-analysis of prebiotics/probiotics/synbiotics/FMT as IBD adjuncts; intervention-class and disease-type distinctions remain explicit.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 772,
+      "entity_slug": "probiotics",
+      "pmid": "41029747",
+      "focus": "2025 umbrella meta-analysis of IBD relapse/recurrence/remission; relapse signal versus placebo but not mesalazine, and no consistent remission benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 773,
+      "entity_slug": "plant-derived-ibs",
+      "pmid": "41599795",
+      "focus": "2026 review positioning plant-derived IBS treatments against guideline evidence; peppermint oil has the most consistent botanical support while many other extracts are mixed/null.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 774,
+      "entity_slug": "probiotics-gi-qol",
+      "pmid": "39371511",
+      "focus": "2024 systematic review of probiotic effects on quality of life across GI diseases; disease, strain, and QoL instrument heterogeneity prevent a general probiotic QoL claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 775,
+      "entity_slug": "functional-dyspepsia-nutraceuticals",
+      "pmid": "41936486",
+      "focus": "2026 narrative evidence synthesis of diet/nutraceutical approaches in functional dyspepsia; peppermint-caraway, ginger, STW-5, curcumin and selected probiotics remain product/phenotype specific.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 776,
+      "entity_slug": "phytosterols",
+      "pmid": "40672367",
+      "focus": "2025 14-RCT/1,088-participant hyperlipidemia meta-analysis; TC/LDL-C reductions and modest HDL-C increase, CRP null and triglyceride result borderline/heterogeneous.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 777,
+      "entity_slug": "l-citrulline",
+      "pmid": "41786156",
+      "focus": "2026 nine-RCT meta-analysis of long-term L-citrulline plus exercise; small body-fat/android-fat signals while body weight, BMI, gynoid fat and total lean mass were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 778,
+      "entity_slug": "l-citrulline",
+      "pmid": "41097202",
+      "focus": "2025 21-RCT dose-response meta-analysis; no substantial overall effect on BMI, weight, fat mass, waist, body-fat percentage or fat-free mass, with exploratory subgroup signals only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 779,
+      "entity_slug": "phytosterols",
+      "pmid": "39432657",
+      "focus": "2024 28-RCT/1,777-participant meta-analysis; TC, LDL-C and apoB-related improvements with dose-response patterns, but lipid-surrogate evidence does not establish event reduction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 780,
+      "entity_slug": "fiber",
+      "pmid": "35816465",
+      "focus": "16-RCT/1,251-participant chronic-constipation meta-analysis; overall response improved, with psyllium and pectin among fiber types showing significant effects and heterogeneity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 781,
+      "entity_slug": "vitamin-b12",
+      "pmid": "39655146",
+      "focus": "Nine-RCT systematic review/meta-analysis; vitamin B12 supplementation showed no significant pooled benefit for cognitive memory or depressive symptoms.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 782,
+      "entity_slug": "phytosterols",
+      "pmid": "39476284",
+      "focus": "2024 inflammatory-marker meta-analysis; CRP overall null while hs-CRP decreased modestly, requiring biomarker-specific interpretation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 783,
+      "entity_slug": "citrulline-malate",
+      "pmid": "42356270",
+      "focus": "2026 three-level exercise-performance meta-analysis; small performance signal must remain distinct from perceived-exertion outcomes and acute/chronic protocol differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 784,
+      "entity_slug": "vitamin-k",
+      "pmid": "31076817",
+      "focus": "36-RCT bone-health meta-analysis; selected fracture/BMD signals in postmenopausal/osteoporotic populations with questioned historical evidence quality explicitly retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 785,
+      "entity_slug": "b-vitamins",
+      "pmid": "40966571",
+      "focus": "2025 17-RCT/5,275-participant cognition meta-analysis in adults >=60; apparent larger pooled benefit collapsed to a very small high-certainty effect after removing outliers/single-blind studies.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 786,
+      "entity_slug": "folic-acid",
+      "pmid": "38465839",
+      "focus": "2024 22-trial/3,604-participant cognitive-impairment meta-analysis; cognition and homocysteine findings remain population- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 787,
+      "entity_slug": "folic-acid",
+      "pmid": "36518821",
+      "focus": "Nine-RCT/641-participant memory meta-analysis; overall memory effect was null despite subgroup/dose-response signals, providing a direct counterweight to broad memory claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 788,
+      "entity_slug": "b-vitamin-complex",
+      "pmid": "31527485",
+      "focus": "Systematic review/meta-analysis of multi-B-vitamin supplementation for mood in healthy and at-risk adults; mood/stress signals were inconsistent across populations and outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 789,
+      "entity_slug": "multivitamin-mineral",
+      "pmid": "41308839",
+      "focus": "2026 rapid review of 19 meta-analyses spanning >5.5 million participants; heterogeneous cognitive, psychological, BP and other outcomes must remain outcome- and population-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 790,
+      "entity_slug": "multivitamin-mineral",
+      "pmid": "38244989",
+      "focus": "COSMOS clinic trial plus meta-analysis of three cognitive substudies; modest global-cognition and episodic-memory signals with no clear executive/attention benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 791,
+      "entity_slug": "vitamin-e",
+      "pmid": "33057114",
+      "focus": "33-RCT/2,102-participant inflammatory-biomarker meta-analysis; CRP decreased, IL-6 overall null and TNF-alpha effects depended on high-dose/formulation subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 792,
+      "entity_slug": "selenium",
+      "pmid": "40898469",
+      "focus": "2025 Hashimoto meta-analysis of 21 studies/1,610 participants; TPOAb and selected TSH/TgAb reductions are antibody/biochemical outcomes, not proof of improved long-term thyroid clinical outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 793,
+      "entity_slug": "calcium",
+      "pmid": "36164828",
+      "focus": "43-study/7,382-participant meta-analysis in people <=35; selected femoral-neck/total-body BMD/BMC gains with site-specific nulls and no direct fracture-prevention evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 794,
+      "entity_slug": "vitamin-c",
+      "pmid": "33932734",
+      "focus": "RCT meta-analysis of vitamin C and adult mood; overall mood effect was not broadly established, with signals concentrated in selected subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 795,
+      "entity_slug": "phytosterols",
+      "pmid": "36891733",
+      "focus": "2023 hypercholesterolemia RCT meta-analysis; TC/LDL-C reductions with HDL-C and triglyceride nulls, and effects modified by food matrix/dose/esterification/duration.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 796,
+      "entity_slug": "folate",
+      "pmid": "15260915",
+      "focus": "Older controlled-trial review of folate in depressive disorders; limited adjunctive evidence from a small trial base retained as historical context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 797,
+      "entity_slug": "potassium",
+      "pmid": "32500831",
+      "focus": "Dose-response RCT synthesis of potassium intake and blood pressure; nonlinear/baseline-dependent effects require caution and do not support a universal optimal supplemental dose.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 798,
+      "entity_slug": "chromium",
+      "pmid": "33197598",
+      "focus": "Randomized-trial meta-analysis of chromium and lipid profile; endpoint-specific lipid changes with substantial formulation/population heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 799,
+      "entity_slug": "chromium",
+      "pmid": "17519436",
+      "focus": "Historical systematic review of chromium supplementation for glucose/lipid outcomes; inconsistent trial quality and formulation/dose differences retained as counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 800,
+      "entity_slug": "selenium",
+      "pmid": "24847462",
+      "focus": "Cochrane-era Hashimoto evidence review found the small heterogeneous trial base insufficient for reliable clinical conclusions; retained as historical evidence-quality counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 801,
+      "entity_slug": "taurine",
+      "pmid": "40852891",
+      "focus": "2025 meta-analysis of 23 randomized trials/308 participants; acute single-dose taurine showed a small-to-moderate overall exercise-performance signal, but prediction intervals often crossed null and several subgroup effects weakened after sensitivity analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 802,
+      "entity_slug": "taurine",
+      "pmid": "35769396",
+      "focus": "Five-RCT/209-participant diabetes meta-analysis; HbA1c, fasting glucose and HOMA-IR signals with insulin/triglyceride effects not statistically significant; diabetes-specific surrogate evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 803,
+      "entity_slug": "omega-3",
+      "pmid": "37222574",
+      "focus": "RCT meta-analysis in metabolic syndrome/related cardiovascular disease; TG, BP and several inflammatory-marker signals with LDL and multiple endothelial markers null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 804,
+      "entity_slug": "bcaa",
+      "pmid": "41655197",
+      "focus": "2026 systematic review of BCAA/leucine in endurance sport; biochemical changes must be separated from functional performance, recovery and adverse-effect outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 805,
+      "entity_slug": "bcaa",
+      "pmid": "41346907",
+      "focus": "2025 systematic review of 22 RCTs/511 participants; possible post-exercise soreness benefit but inconsistent strength, endurance and body-composition evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 806,
+      "entity_slug": "beta-alanine",
+      "pmid": "41971372",
+      "focus": "2026 multilevel RCT meta-analysis found no ergogenic benefit for repeated-sprint ability, an important counterweight to broader high-intensity performance claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 807,
+      "entity_slug": "hmb",
+      "pmid": "39797501",
+      "focus": "2025 umbrella review of 11 meta-analyses; small muscle-mass/strength/fat-free-mass signals with fat-mass/body-weight nulls and mixed review quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 808,
+      "entity_slug": "dietary-nitrate",
+      "pmid": "35580578",
+      "focus": "123-study/1,705-participant exercise meta-analysis; very small overall performance benefit with important formulation, exercise-task and participant modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 809,
+      "entity_slug": "leucine-rich-protein",
+      "pmid": "35777246",
+      "focus": "Six-RCT/699-participant meta-analysis in sarcopenic older adults; strength/mass/performance signals remain older-adult and combined-protein-formulation specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 810,
+      "entity_slug": "protein-supplements",
+      "pmid": "38830547",
+      "focus": "2024 review of 38 articles in older adults; small muscle-mass benefit in community-dwelling populations, while dose/frequency/timing did not significantly modify the effect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 811,
+      "entity_slug": "whey-protein",
+      "pmid": "39303495",
+      "focus": "2024 RCT meta-analysis in older adults; muscle strength, physical performance and body-composition outcomes are training- and outcome-specific rather than uniformly positive.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 812,
+      "entity_slug": "protein-supplements",
+      "pmid": "40200135",
+      "focus": "2025 systematic review/meta-analysis in physically inactive older adults; muscle mass, strength and physical-performance evidence remains population- and co-intervention specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 813,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42523624",
+      "focus": "2026 38-study/703-participant meta-analysis; beetroot juice produced a small VO2max/VO2peak signal with moderate heterogeneity, not a universal endurance-performance effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 814,
+      "entity_slug": "carbohydrate",
+      "pmid": "37449467",
+      "focus": "136-study endurance meta-analysis; acute carbohydrate feeding improved performance overall, with larger effects in time-to-exhaustion and longer-duration tasks; sport-context evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 815,
+      "entity_slug": "hmb",
+      "pmid": "39999663",
+      "focus": "2025 sarcopenia-specific RCT meta-analysis; HMB effects on muscle mass, strength and performance remain diagnosis-specific and should not be generalized to healthy adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 816,
+      "entity_slug": "collagen-peptides",
+      "pmid": "39060741",
+      "focus": "2024 systematic review/meta-analysis of collagen peptides with longer-term training; strength, musculotendinous remodeling, recovery and body-composition findings remain exercise- and formulation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 817,
+      "entity_slug": "protein-supplements",
+      "pmid": "39955964",
+      "focus": "2025 systematic review of protein alone or with exercise in adults >=65 with sarcopenia/frailty; co-intervention and frailty-status boundaries retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 818,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "42781544",
+      "focus": "2026 team-sport meta-analysis of acute/short-term sodium bicarbonate; high-intensity intermittent performance and physiologic responses are protocol-specific and tolerability matters.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 819,
+      "entity_slug": "caffeine",
+      "pmid": "42255518",
+      "focus": "2026 20-study/320-participant HIIE meta-analysis; small performance improvement with lactate/glucose changes and protocol/rest-work modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 820,
+      "entity_slug": "creatine",
+      "pmid": "42027564",
+      "focus": "2026 39-trial meta-analysis in healthy young men; body-composition, strength and performance effects differed by resistance-training versus non-resistance context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 821,
+      "entity_slug": "beta-alanine",
+      "pmid": "39724872",
+      "focus": "Systematic review in older adults; exercise-capacity/strength/function evidence is sparse and mixed, limiting generalization from younger athletic populations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 822,
+      "entity_slug": "caffeine",
+      "pmid": "42591203",
+      "focus": "2026 women-specific three-level meta-analysis of acute caffeine before resistance exercise; sex-specific performance domains and prediction intervals retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 823,
+      "entity_slug": "caffeine",
+      "pmid": "41601907",
+      "focus": "2025 systematic review/meta-analysis of acute caffeine and cycling performance; training status, age and dose were evaluated as moderators rather than assuming a uniform effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 824,
+      "entity_slug": "caffeine",
+      "pmid": "42445506",
+      "focus": "2026 cycling time-trial meta-analysis; acute caffeine effects were evaluated separately for short- and long-duration tasks, preserving task-duration dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 825,
+      "entity_slug": "beta-alanine",
+      "pmid": "42370349",
+      "focus": "2026 women-specific systematic review/meta-analysis; time-to-exhaustion, VO2, power, anaerobic performance and body-fat outcomes remain sex- and endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 826,
+      "entity_slug": "ashwagandha",
+      "pmid": "42738987",
+      "focus": "Four-RCT resistance-training meta-analysis; bench/lower-body strength and chest-circumference signals, body-fat null, low/very-low GRADE certainty, and HKSJ sensitivity limiting robustness.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 827,
+      "entity_slug": "epicor-postbiotic",
+      "pmid": "42625679",
+      "focus": "Single-dose crossover RCT in 30 healthy adults; rapid cytokine and immune-cell biomarker changes only, with no established clinical immune benefit.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 828,
+      "entity_slug": "shatavari",
+      "pmid": "42571384",
+      "focus": "Proprietary SheVari4 8-week RCT in 60 peri/post-menopausal women; MENQOL and hormone changes reported, with product-specific and short-duration boundaries.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 829,
+      "entity_slug": "shatavari",
+      "pmid": "38725785",
+      "focus": "Multicenter placebo-controlled Shatavari root-extract trial in 70 menopausal women; symptom/QoL improvements with no significant adverse events, but small sample and short follow-up.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 830,
+      "entity_slug": "saffron",
+      "pmid": "42389708",
+      "focus": "Affron RCT in 86 women aged 50–70 with low mood and poor sleep; depression/self-esteem/sleep-impairment signals, while sleep-disturbance and appearance outcomes were null.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 831,
+      "entity_slug": "ashwagandha",
+      "pmid": "42780946",
+      "focus": "Sustained-release AshwaSR 90-day RCT in recreationally active adults; strength/VO2max/QoL improved, but between-group testosterone change was not significant and formulation is proprietary.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 832,
+      "entity_slug": "lemon-balm",
+      "pmid": "41782777",
+      "focus": "Zensera acute RCT in 106 moderately stressed young adults; primary calmness outcome null, with selected executive-function and post-demand calmness-recovery signals.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 833,
+      "entity_slug": "cistanche-ginkgo-combination",
+      "pmid": "41847135",
+      "focus": "30-day RCT in 117 healthy adults; Cistanche+Ginkgo improved multiple memory scores with MRI correlates; combination-only and short-term evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 834,
+      "entity_slug": "boswellia-terminalia-combination",
+      "pmid": "41438191",
+      "focus": "120-day proof-of-concept RCT in 100 adults with subjective memory complaints; cognition/sleep/BDNF signals belong to LN19184 blend only.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 835,
+      "entity_slug": "plant-active-cognition-network",
+      "pmid": "41640686",
+      "focus": "25-study NMA in 1,861 healthy older adults comparing 10 plant-active interventions; rankings are indirect and intervention-specific, not head-to-head proof.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 836,
+      "entity_slug": "botanical-mci-network",
+      "pmid": "41333026",
+      "focus": "19-trial NMA/4,956 participants in MCI; botanical rankings are indirect and heterogeneous, and safety reporting was inconsistent.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 837,
+      "entity_slug": "milk-thistle",
+      "pmid": "39097726",
+      "focus": "24-week silymarin RCT in 83 MASLD patients; liver-stiffness/GGT/ApoB signals with steatosis, most biochemical, anthropometric and fibrosis-index outcomes null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 838,
+      "entity_slug": "camu-camu",
+      "pmid": "39168095",
+      "focus": "Randomized crossover trial in 30 overweight hypertriglyceridemic adults; camu-camu reduced liver fat and AST/ALT versus placebo, with small-sample exploratory microbiome context.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 839,
+      "entity_slug": "ginger",
+      "pmid": "35031435",
+      "focus": "10-trial T2D meta-analysis; FBS/HbA1c and SBP/DBP reductions with very high heterogeneity, while lipid outcomes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 840,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42815860",
+      "focus": "Older-adult beetroot review; nitrate biomarkers and some functional measures improved, while BP findings were heterogeneous and evidence remained preliminary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 841,
+      "entity_slug": "live-microbial-aging",
+      "pmid": "42819170",
+      "focus": "24-trial review/1,809 older adults; preliminary cognition/handgrip signals were highly heterogeneous and sensitive to individual studies.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 842,
+      "entity_slug": "restless-legs-supplements",
+      "pmid": "39064758",
+      "focus": "Ten-RCT RLS supplement review/482 participants; magnesium/B6 and other signals coexist with vitamin-D and valerian null/uncertain findings and high risk of bias.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 843,
+      "entity_slug": "probiotics",
+      "pmid": "42032711",
+      "focus": "41-RCT cortisol meta-analysis; modest cortisol reduction with I² 96.9% and very-low GRADE certainty, so no firm stress-treatment inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 844,
+      "entity_slug": "creatine",
+      "pmid": "42712402",
+      "focus": "Eleven-RCT older-adult meta-analysis: creatine plus resistance training modestly improved strength, while added muscle-mass and physical-function effects were not significant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 845,
+      "entity_slug": "rhodiola",
+      "pmid": "42738995",
+      "focus": "Four-week DanceSport RCT; caffeine-containing arms improved Jive outcomes, Rhodiola alone did not, and no caffeine×Rhodiola synergy was established.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 846,
+      "entity_slug": "green-tea-kombucha",
+      "pmid": "42799570",
+      "focus": "12-week runner RCT; primary antioxidant and acute immune/oxidative outcomes were null, with nominal chronic biomarker changes becoming exploratory after multiplicity adjustment.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 847,
+      "entity_slug": "nad-precursors",
+      "pmid": "42774067",
+      "focus": "27-study NMA/1,599 participants; no significant perceived-fatigue or sleep benefit, with domain-specific endurance/cognition signals varying by precursor.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 848,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42642885",
+      "focus": "Pilot RCT in 22 older adults with metabolic syndrome; nitrate-rich beetroot juice increased nitrate but had no significant primary cerebral-autoregulation or cognition effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 849,
+      "entity_slug": "probiotics",
+      "pmid": "42514426",
+      "focus": "Nine-RCT pediatric ADHD meta-analysis/482 participants; no clear benefit for core ADHD measures, with small exploratory parent-reported behavioral signals and substantial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 850,
+      "entity_slug": "performance-supplement-network",
+      "pmid": "42821324",
+      "focus": "119-study Bayesian NMA in physically active people/athletes; selected HMB, beta-alanine, creatine, vitamin-D, caffeine and betaine signals, but most pairwise comparisons were low/very-low certainty and rankings were indirect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 851,
+      "entity_slug": "chlorella-vulgaris",
+      "pmid": "35331862",
+      "focus": "Ten-RCT/539-participant lipid meta-analysis; total and LDL cholesterol decreased while triglycerides and HDL were null, with weak supplement-characterization reporting across most trials.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 852,
+      "entity_slug": "edible-algae",
+      "pmid": "40726022",
+      "focus": "2025 29-RCT/1,583-participant blood-pressure meta-analysis across edible algae; small pooled BP reductions with high heterogeneity and species-specific differences.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 853,
+      "entity_slug": "cocoa-flavanols",
+      "pmid": "42679502",
+      "focus": "2026 updated RCT meta-analysis of cocoa flavanols for blood pressure and vascular function; BP and vascular indices remain surrogate endpoints with intervention heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 854,
+      "entity_slug": "chlorella",
+      "pmid": "42420253",
+      "focus": "2026 24-study GRADE dose-response meta-analysis; multiple metabolic/anthropometric biomarker signals but most outcome certainty was very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 855,
+      "entity_slug": "prebiotics",
+      "pmid": "39800313",
+      "focus": "Eleven-study/546-participant prediabetes meta-analysis; body-fat percentage decreased while fasting glucose, insulin, HbA1c, HOMA-IR and lipid outcomes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 856,
+      "entity_slug": "artichoke",
+      "pmid": "41270328",
+      "focus": "2025 cardiometabolic synthesis; BMI/waist, BP, selected lipids and insulin/HOMA-IR improved while weight, hip circumference, HDL, fasting glucose and HbA1c were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 857,
+      "entity_slug": "spirulina",
+      "pmid": "40655486",
+      "focus": "2025 23-study/1,035-participant review in overweight/obesity; weight/lipid/DBP signals with exercise-combination effects and substantial endpoint heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 858,
+      "entity_slug": "spirulina",
+      "pmid": "34578932",
+      "focus": "Five-RCT/230-participant historical BP meta-analysis; SBP/DBP reductions with small samples and subgroup dependence, useful against newer broader evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 859,
+      "entity_slug": "astaxanthin",
+      "pmid": "41596351",
+      "focus": "2025 human systematic review of oxidative, inflammatory and metabolic outcomes; broad positive narrative signals require trial-level separation rather than a universal efficacy claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 860,
+      "entity_slug": "lycopene",
+      "pmid": "37496241",
+      "focus": "GRADE-assessed RCT meta-analysis of lycopene/tomato and cardiovascular risk factors; lipid, glycemic, BP, inflammatory and anthropometric outcomes remain endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 861,
+      "entity_slug": "astaxanthin",
+      "pmid": "35091276",
+      "focus": "Twelve-RCT/380-participant meta-analysis; oxidative/inflammatory biomarker effects were modest and condition-dependent, without direct clinical-outcome evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 862,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "41848522",
+      "focus": "2026 11-RCT meta-analysis found no clinically meaningful continuous-intake glycemic or lipid benefit and sparse low-certainty inflammatory evidence—a strong counterweight to earlier positive OLE syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 863,
+      "entity_slug": "cocoa-flavanols",
+      "pmid": "41849087",
+      "focus": "2026 COSMOS cardiovascular-outcome reanalysis using win-ratio methods; outcome-level evidence remains separate from short-term biomarker meta-analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 864,
+      "entity_slug": "inulin-type-fructans",
+      "pmid": "34401107",
+      "focus": "33-RCT meta-analysis; glucose, total cholesterol and triglyceride benefits appeared mainly in diabetes, with weight and insulin null overall and high unexplained heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 865,
+      "entity_slug": "lycopene",
+      "pmid": "41369612",
+      "focus": "2026 umbrella review of tomato-derived lycopene intervention reviews; cardiovascular-risk signals inherit underlying review quality, formulation and outcome heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 866,
+      "entity_slug": "astaxanthin",
+      "pmid": "42100673",
+      "focus": "2026 nine-RCT/403-participant prediabetes/T2D meta-analysis; glycemic/lipid signals with HOMA-IR, weight and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 867,
+      "entity_slug": "astaxanthin",
+      "pmid": "35631193",
+      "focus": "Seven-study/321-participant metabolic-syndrome-risk review; marginal/selected lipid and BP signals with need for more robust evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 868,
+      "entity_slug": "inulin-type-fructans",
+      "pmid": "38309832",
+      "focus": "55-RCT/2,518-participant cardiovascular-risk meta-analysis; small LDL, triglyceride and weight reductions with little/no effect on most other outcomes and low/very-low certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 869,
+      "entity_slug": "astaxanthin",
+      "pmid": "39269488",
+      "focus": "2025 PCOS systematic review/single-arm meta-analysis; oxidative and reproductive outcomes remain female-PCOS specific and limited by small trial evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 870,
+      "entity_slug": "astaxanthin",
+      "pmid": "38243785",
+      "focus": "2024 RCT meta-analysis of fatigue, motor function and cognition; domain-specific findings remain distinct rather than generalized to global energy/cognitive enhancement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 871,
+      "entity_slug": "cocoa",
+      "pmid": "38931273",
+      "focus": "2024 31-RCT/1,986-participant cardiometabolic meta-analysis; TC/LDL/glucose/BP signals with weight, BMI, waist, triglyceride, HDL and HbA1c nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 872,
+      "entity_slug": "cocoa",
+      "pmid": "41858752",
+      "focus": "2026 metabolic-syndrome/related-disease meta-analysis; limited triglyceride-focused benefit with duration/disease modifiers and low certainty for broader metabolic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 873,
+      "entity_slug": "resistant-starch",
+      "pmid": "41080169",
+      "focus": "2025 23-RCT systematic review of adults with metabolic-syndrome-related risks; anthropometric, glycemic, lipid, inflammatory and oxidative outcomes are resistant-starch-type and delivery-context dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 874,
+      "entity_slug": "cocoa",
+      "pmid": "40886195",
+      "focus": "2025 11-RCT/506-participant T2D lipid meta-analysis; triglycerides decreased but other lipids did not, with severe heterogeneity and low-certainty/clinically small effects.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 875,
+      "entity_slug": "oat-beta-glucan",
+      "pmid": "35631184",
+      "focus": "13-RCT/927-participant hypercholesterolemia meta-analysis; total/LDL cholesterol reductions with triglyceride/HDL nulls and source/dose/duration modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 876,
+      "entity_slug": "sage",
+      "pmid": "18350281",
+      "focus": "Standardized Salvia officinalis acute four-dose RCT in 20 healthy older adults; selected memory/attention signals with very small sample and acute extract-specific boundary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 877,
+      "entity_slug": "sage",
+      "pmid": "24050577",
+      "focus": "Salvia officinalis leaf extract trial in 80 adults with T2D/hyperlipidemia; glycemic/lipid marker improvements remain disease-, duration-, and extract-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 878,
+      "entity_slug": "sage",
+      "pmid": "27942500",
+      "focus": "Salvia officinalis add-on trial in 100 dyslipidemic T2D participants; selected glycemic/lipid improvements with BMI/AST/ALT/creatinine nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 879,
+      "entity_slug": "sage",
+      "pmid": "37489230",
+      "focus": "Four-study/310-participant hot-flush meta-analysis; frequency favored sage while severity was not significant and heterogeneity was high.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 880,
+      "entity_slug": "sage",
+      "pmid": "35106985",
+      "focus": "Three-study diabetes meta-analysis; FBS/HbA1c/TC/LDL signals with TG/HDL nulls and very small evidence base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 881,
+      "entity_slug": "sage",
+      "pmid": "24836739",
+      "focus": "Systematic review of human Salvia cognition studies; heterogeneous preparations and incomplete product characterization limit generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 882,
+      "entity_slug": "sage-identity-contamination",
+      "pmid": "40302443",
+      "focus": "SAGE-718/dalzanemdor Huntington-disease trial is a pharmaceutical code/name collision, not botanical sage evidence; preserve as identity-contamination guardrail.",
+      "state": "research_only_source_integrity"
+    },
+    {
+      "wave": 883,
+      "entity_slug": "kanna-zembrin",
+      "pmid": "23903032",
+      "focus": "Single-dose Zembrin pharmaco-fMRI study in 16 participants; amygdala threat-reactivity/coupling changes are surrogate neuroimaging evidence only.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 884,
+      "entity_slug": "luteolin",
+      "pmid": "29801717",
+      "focus": "Human-safety/evidence-gap source retained as research-gap context rather than efficacy; do not promote preclinical mechanism into human benefit.",
+      "state": "research_only_evidence_gap"
+    },
+    {
+      "wave": 885,
+      "entity_slug": "taurine",
+      "pmid": "40320621",
+      "focus": "Cognition systematic review/meta-analysis; overall cognitive benefit was not significant, providing a direct counterweight to nootropic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 886,
+      "entity_slug": "gotu-kola",
+      "pmid": "28878245",
+      "focus": "Human cognition synthesis found no significant overall cognitive improvement; useful null counterweight for Centella claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 887,
+      "entity_slug": "holy-basil",
+      "pmid": "36185698",
+      "focus": "Eight-week standardized Ocimum tenuiflorum RCT in 100 stressed adults; stress/sleep biomarker and subjective signals remain product- and population-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 888,
+      "entity_slug": "lions-mane",
+      "pmid": "38004235",
+      "focus": "Human randomized trial of lion's-mane preparation; formulation and chronic-use boundaries retained, including null outcomes where reported.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 889,
+      "entity_slug": "lions-mane",
+      "pmid": "40276537",
+      "focus": "Second human lion's-mane RCT; acute/chronic and formulation distinctions retained rather than merged into a generic nootropic claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 890,
+      "entity_slug": "american-ginseng",
+      "pmid": "41017752",
+      "focus": "Panax quinquefolius human evidence; species identity must remain distinct from Panax ginseng and red-ginseng findings.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 891,
+      "entity_slug": "valerian",
+      "pmid": "38359657",
+      "focus": "Umbrella review: favorable safety profile but no established insomnia efficacy; subjective sleep outcomes were stronger than objective measures.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 892,
+      "entity_slug": "chamomile",
+      "pmid": "39106912",
+      "focus": "Chamomile sleep systematic review; possible sleep signals remain heterogeneous and preparation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 893,
+      "entity_slug": "chamomile",
+      "pmid": "31006899",
+      "focus": "Clinical anxiety evidence showed no significant overall effect; retain as counterweight to broad anxiolytic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 894,
+      "entity_slug": "saffron",
+      "pmid": "42057871",
+      "focus": "Saffron safety systematic review; safety/tolerability evidence retained separately from efficacy and long-term-use assumptions.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 895,
+      "entity_slug": "saffron",
+      "pmid": "41693488",
+      "focus": "Later depression/anxiety synthesis; preserve diagnosis, comparator, extract and heterogeneity boundaries rather than generic mood claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 896,
+      "entity_slug": "creatine",
+      "pmid": "41189312",
+      "focus": "Eleven-trial/1,093-participant depression synthesis; small pooled effect, very-low certainty and effect below minimal-important-difference threshold.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 897,
+      "entity_slug": "lavender",
+      "pmid": "36717399",
+      "focus": "Oral Silexan-specific evidence; cannot be generalized to inhaled lavender, teas, essential oils or unspecified lavender products.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 898,
+      "entity_slug": "psyllium",
+      "pmid": "42600900",
+      "focus": "IBS systematic review; response signal around RR 1.53 with indication-specific and fiber-formulation boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 899,
+      "entity_slug": "psyllium",
+      "pmid": "41126340",
+      "focus": "27-RCT anthropometric synthesis; weight-related outcomes kept separate from lipid/glycemic/IBS evidence and from weight-loss marketing.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 900,
+      "entity_slug": "psyllium",
+      "pmid": "38844885",
+      "focus": "Glycemic systematic review; glucose-related findings remain disease/population and dietary-adjunct specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 901,
+      "entity_slug": "zinc",
+      "pmid": "41617950",
+      "focus": "41-RCT/44-effect-size synthesis; most body-composition/adipokine endpoints were null with only small weight/waist changes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 902,
+      "entity_slug": "zinc",
+      "pmid": "42594341",
+      "focus": "Glycemic systematic review/meta-analysis; metabolic surrogate evidence remains population- and baseline-status specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 903,
+      "entity_slug": "selenium",
+      "pmid": "42355878",
+      "focus": "Five-RCT/303-participant Graves orbitopathy synthesis; clinical-activity score improved while QoL/visual-function outcomes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 904,
+      "entity_slug": "citicoline-phosphatidylserine",
+      "pmid": "42538853",
+      "focus": "Review of 11 controlled studies/10 RCTs; pediatric ADHD and adult populations plus citicoline/phosphatidylserine identities must remain separated.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 905,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41294251",
+      "focus": "Five-RCT/474-participant mood synthesis; depressive-symptom signal with fatigue null and small heterogeneous clinical populations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 906,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "40495903",
+      "focus": "45-RCT blood-pressure synthesis; modest SBP reduction with DBP and heart-rate nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 907,
+      "entity_slug": "vitamin-d",
+      "pmid": "42521227",
+      "focus": "45-RCT cardiometabolic synthesis; modest LDL/SBP/glucose/HbA1c shifts with uncertain clinical importance and no event-level inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 908,
+      "entity_slug": "vitamin-d",
+      "pmid": "42100929",
+      "focus": "Cognition systematic review/meta-analysis; preserve cognitive domain, baseline vitamin-D status, age and population modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 909,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "40679494",
+      "focus": "13-RCT endothelial-function synthesis; FMD improved by about 1.48 percentage points with I² 98.2%, making heterogeneity central.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 910,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "41619653",
+      "focus": "Blood-pressure synthesis of nitrate/beetroot interventions; dietary nitrate, beetroot juice and isolated nitrate remain distinct exposures.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 911,
+      "entity_slug": "astaxanthin",
+      "pmid": "41710469",
+      "focus": "Seven-RCT/188-participant exercise/oxidative-stress synthesis; AOPP signal while most oxidative/injury biomarkers were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 912,
+      "entity_slug": "spirulina",
+      "pmid": "41873104",
+      "focus": "Eight-RCT inflammation synthesis; small CRP signal with TNF-alpha and IL-6 nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 913,
+      "entity_slug": "curcumin",
+      "pmid": "41652864",
+      "focus": "Seven trials/571 critically ill participants; ALT/bilirubin/SOFA/ICU-stay signals apply only to critical illness and cannot transfer to healthy users.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 914,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "42303499",
+      "focus": "30-RCT/1,726 synthesis; olive-leaf cardiometabolic/inflammatory signals with glycemic nulls, while olive pomace showed no consistent cardiometabolic benefit and an IL-8 signal.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 915,
+      "entity_slug": "garlic",
+      "pmid": "40580481",
+      "focus": "108-RCT/7,137-participant synthesis; multiple lipid/glycemic/BP/inflammatory marker signals with several BMI/weight/adiponectin nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 916,
+      "entity_slug": "aged-garlic-extract",
+      "pmid": "40628369",
+      "focus": "Nineteen-trial aged-garlic synthesis; modest SBP and LDL signals with preparation-specificity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 917,
+      "entity_slug": "aged-garlic-retraction",
+      "pmid": "42527229",
+      "focus": "Retraction notice governing earlier PMID 39437887; preserve as quarantine metadata so the retracted synthesis cannot re-enter aggregation.",
+      "state": "retraction_metadata_only"
+    },
+    {
+      "wave": 918,
+      "entity_slug": "ashwagandha",
+      "pmid": "41644067",
+      "focus": "Twenty-two-RCT mental-health synthesis; stress/anxiety/depression findings remain heterogeneous across products, routes, doses and populations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 919,
+      "entity_slug": "ashwagandha",
+      "pmid": "42641800",
+      "focus": "Eleven-trial/667-participant glucose synthesis; fasting-glucose signal but HbA1c estimate crossed zero, preserving mixed metabolic evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 920,
+      "entity_slug": "ginger",
+      "pmid": "42566667",
+      "focus": "Twelve-RCT BP synthesis; SBP/DBP reductions reported with low certainty and substantial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 921,
+      "entity_slug": "garlic",
+      "pmid": "42398591",
+      "focus": "27-RCT/1,619-participant glycemic synthesis; fasting-glucose/HbA1c signals with insulin/HOMA-IR nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 922,
+      "entity_slug": "curcumin",
+      "pmid": "42254374",
+      "focus": "Osteoarthritis umbrella review; review-level consistency/heterogeneity evidence cannot replace formulation-specific RCT interpretation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 923,
+      "entity_slug": "resveratrol",
+      "pmid": "42471257",
+      "focus": "Seven-RCT apolipoprotein synthesis; ApoB and ApoA-I outcomes were null, directly constraining broad lipid claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 924,
+      "entity_slug": "nmn",
+      "pmid": "41901064",
+      "focus": "Ten-RCT/349-participant elevated-BP synthesis; NMN-specific blood-pressure evidence must stay distinct from NR, NAD+, niacin and other precursors.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 925,
+      "entity_slug": "nmn",
+      "pmid": "42514320",
+      "focus": "Fifteen-trial safety review; short-term 250–2000 mg/day studies found no significant AE/SAE/withdrawal/ALT/AST signals, which does not establish long-term safety.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 926,
+      "entity_slug": "endometriosis-supplements",
+      "pmid": "40288359",
+      "focus": "Nine-RCT/545-participant review of supplements for endometriosis-associated pain; pelvic pain, dysmenorrhea and dyspareunia were not significantly improved overall, with trial trustworthiness concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 927,
+      "entity_slug": "osteoarthritis-supplement-network",
+      "pmid": "40425393",
+      "focus": "Network meta-analysis of dietary supplements for osteoarthritis; rankings are indirect, product-specific and not evidence of category-wide superiority.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 928,
+      "entity_slug": "antioxidant-supplements-endometriosis",
+      "pmid": "38221738",
+      "focus": "Systematic review/meta-analysis of antioxidant supplementation for dysmenorrhea/endometriosis-related pain; heterogeneous compounds and small trials require intervention-specific interpretation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 929,
+      "entity_slug": "endometriosis-dietary-interventions",
+      "pmid": "39358652",
+      "focus": "Systematic review of 11 RCTs/716 participants; positive dietary/supplement signals are limited by heterogeneous interventions and moderate-to-high risk of bias.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 930,
+      "entity_slug": "vitamin-d",
+      "pmid": "42443965",
+      "focus": "2026 NAFLD/MASLD meta-analysis; ALT and alkaline-phosphatase signals with AST/GGT nulls, preserving disease and surrogate-enzyme boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 931,
+      "entity_slug": "migraine-supplement-network",
+      "pmid": "42707444",
+      "focus": "2026 network meta-analysis of 14 RCTs/791 adults across vitamins, magnesium, CoQ10, probiotics and combinations; rankings remain exploratory and indirect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 932,
+      "entity_slug": "fatty-acid-supplements",
+      "pmid": "39823374",
+      "focus": "2025 migraine systematic review/meta-analysis; fatty-acid composition, intervention duration and migraine outcomes must remain explicit.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 933,
+      "entity_slug": "green-tea",
+      "pmid": "33737989",
+      "focus": "Systematic review/meta-analysis of green-tea interventions for oral/periodontal health; evidence was insufficient for first-line dental use.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 934,
+      "entity_slug": "vitamin-c",
+      "pmid": "39201285",
+      "focus": "2024 systematic review of vitamin C in periodontal/oral health; high heterogeneity across 16 studies/17,853 participants limits uniform clinical claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 935,
+      "entity_slug": "probiotics",
+      "pmid": "39407177",
+      "focus": "2024 network meta-analysis of probiotics adjunctive to nonsurgical periodontal therapy; strain/product rankings are indirect and outcome-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 936,
+      "entity_slug": "collagen-supplements",
+      "pmid": "37432180",
+      "focus": "26-RCT/1,721-participant skin-aging meta-analysis; hydration/elasticity/wrinkle signals coexist with design, publication and funding concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 937,
+      "entity_slug": "hydrolyzed-collagen",
+      "pmid": "33742704",
+      "focus": "19-trial/1,125-participant skin meta-analysis; hydration/elasticity signals are historical positive evidence with product and trial-quality limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 938,
+      "entity_slug": "green-tea",
+      "pmid": "33729563",
+      "focus": "Systematic review/meta-analysis of green tea as an adjunct in periodontal therapy; adjunctive context and local/systemic preparations remain distinct.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 939,
+      "entity_slug": "collagen-supplements",
+      "pmid": "40826844",
+      "focus": "Ten-RCT/646-participant collagen-based skin meta-analysis; hydration and elasticity signals with predominantly female samples and moderate heterogeneity.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 940,
+      "entity_slug": "vitamin-c",
+      "pmid": "39768921",
+      "focus": "2024 systematic review of ascorbic acid and periodontal/oral outcomes; dietary exposure, supplementation, periodontal status and biomarker outcomes remain separated.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 941,
+      "entity_slug": "probiotics",
+      "pmid": "40186219",
+      "focus": "2025 meta-analysis of 24 studies in gingivitis/periodontitis; effects differed by condition and outcome, and several gingivitis measures were not significantly improved.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 942,
+      "entity_slug": "probiotics",
+      "pmid": "34391565",
+      "focus": "Historical 24-RCT adjunctive periodontal meta-analysis; short-term CAL/PPD/BOP signals were not consistently maintained at six months.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 943,
+      "entity_slug": "hydrolyzed-collagen",
+      "pmid": "42342959",
+      "focus": "2026 systematic review of 25 skin RCTs; efficacy and safety were inconsistent across products, doses, durations and measurement instruments.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 944,
+      "entity_slug": "probiotics",
+      "pmid": "41969406",
+      "focus": "2026 umbrella review of 11 oral-health probiotic meta-analyses; inherited methodological quality and strain/outcome heterogeneity prevent a generic oral-health claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 945,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "20236541",
+      "focus": "Historical dementia meta-analysis of nine trials/2,372 participants; cognitive signal with activities-of-daily-living null, retained against newer evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 946,
+      "entity_slug": "chamomile",
+      "pmid": "38784853",
+      "focus": "2024 systematic review of 10 oral-chamomile anxiety trials; most trials reported improvement but heterogeneity and limited pooled certainty require caution.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 947,
+      "entity_slug": "hyaluronic-acid-oral",
+      "pmid": "40911749",
+      "focus": "2025 seven-RCT oral hyaluronic-acid meta-analysis; hydration, elasticity and wrinkle-depth signals with firmness, wrinkle-volume and transepidermal-water-loss nulls.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 948,
+      "entity_slug": "riboflavin",
+      "pmid": "41769676",
+      "focus": "2026 migraine systematic review/dose-response meta-analysis of 12 trials/749 participants; frequency and duration improved with very high heterogeneity; study exposure is not a dosing recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 949,
+      "entity_slug": "migraine-supplements",
+      "pmid": "39404918",
+      "focus": "Twenty-two-trial GRADE meta-analysis across magnesium, CoQ10, riboflavin, ALA, probiotics, vitamin D and omega-3; supplement-specific effects and omega-3 nulls retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 950,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "42510611",
+      "focus": "2026 endometriosis systematic review; non-postoperative pain/NSAID/endometrioma signals contrasted with a postoperative randomized comparison showing no added benefit, while fertility evidence remained preliminary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 951,
+      "entity_slug": "hmb",
+      "pmid": "42441818",
+      "focus": "Randomized triple-blind HMB free-acid trial in trained/untrained men with high-intensity functional exercise; aerobic-capacity support was more apparent than strength, with training-status and regimen boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 952,
+      "entity_slug": "l-citrulline",
+      "pmid": "42280350",
+      "focus": "Open-label randomized post-COVID trial in 43 adults; ICAM-1 decreased and 6-minute walk improved, while body composition did not differ between groups; disease-specific and small-study evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 953,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42445795",
+      "focus": "33-study exercise meta-analysis; modest HI sprint, mean-power and VO2max signals with potential athlete/sport/timing modifiers; performance context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 954,
+      "entity_slug": "5-htp",
+      "pmid": "42160304",
+      "focus": "Acute randomized trial in adults with high/low ADHD traits; 5-HTP produced no significant positive effect on distractibility measures, providing a useful null counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 955,
+      "entity_slug": "citrulline-malate",
+      "pmid": "42162613",
+      "focus": "Pilot 6-week RCT in 20 physically active older women; sit-to-stand improved, while several between-group performance, biomarker and QoL outcomes were nonsignificant; preliminary evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 956,
+      "entity_slug": "citrulline-malate",
+      "pmid": "42043075",
+      "focus": "Very small randomized crossover in 11 trained male sprinters; acute 8-g CM modestly improved repeated 100-m performance and reduced pre-second-sprint RPE; acute athletic context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 957,
+      "entity_slug": "fiber-blend",
+      "pmid": "42782339",
+      "focus": "Three-week proprietary fiber-blend RCT in 26 IBS patients following low-FODMAP diets; microbiota and GI-specific anxiety changed while gut symptoms, sleep and measured biomarkers remained stable/null.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 958,
+      "entity_slug": "black-tea-inulin-dextrin",
+      "pmid": "39616149",
+      "focus": "Acute crossover T2D study; black tea with inulin+dextrin reduced postprandial glucose fluctuation/AUC and insulin response versus placebo; combination-only evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 959,
+      "entity_slug": "dietary-interventions-gut-microbiota",
+      "pmid": "41501909",
+      "focus": "Systematic review of 80 controlled diet trials; taxonomy and biomarker changes occurred across diets but alpha/beta diversity changes were not consistent; broad dietary category evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 960,
+      "entity_slug": "gut-microbiome-cancer-interventions",
+      "pmid": "41475679",
+      "focus": "Cancer-treatment SR/MA: gut-microbiome interventions reduced GI adverse events overall with high heterogeneity, while objective cancer-treatment response did not clearly improve.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 961,
+      "entity_slug": "dietary-fiber",
+      "pmid": "40647069",
+      "focus": "Seven-RCT/187-participant elderly-constipation meta-analysis; stool frequency was not significantly improved, while laxative/enema use fell and bifidobacteria increased.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 962,
+      "entity_slug": "multiple-micronutrients-development",
+      "pmid": "41470911",
+      "focus": "Long-term randomized-evidence review of maternal/early-childhood micronutrient supplementation; most cognitive outcomes were null with a few modest domain-specific developmental signals.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 963,
+      "entity_slug": "macro-micronutrients-orthopedic",
+      "pmid": "42111841",
+      "focus": "Broad orthopedic nutrition meta-analysis; BMD/biochemical/inflammation/recovery signals contrasted with null fracture-healing and functional/muscle outcomes; high heterogeneity limits attribution.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 964,
+      "entity_slug": "berry-supplements",
+      "pmid": "42196965",
+      "focus": "Nine-RCT/547-participant hypertension/elevated-BP meta-analysis; resting SBP/DBP and cardiometabolic markers were null, with only a small ambulatory DBP signal and low/very-low certainty.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 965,
+      "entity_slug": "polyphenols-resistance-training",
+      "pmid": "42729406",
+      "focus": "Eleven-RCT/360-participant review; chronic polyphenols did not establish reliable added strength, lean-mass or muscle-morphology adaptation beyond resistance training.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 966,
+      "entity_slug": "probiotics",
+      "pmid": "42694318",
+      "focus": "Twenty-RCT mental-health systematic review; some psychological/sleep/microbiome signals but cortisol/stress findings inconsistent and strain/population/outcome heterogeneity substantial.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 967,
+      "entity_slug": "polyphenols-exercise-recovery",
+      "pmid": "42761264",
+      "focus": "Twenty-four-RCT three-level meta-analysis; small soreness benefit, but muscle-damage biomarkers and performance effects remained uncertain with low/very-low certainty.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 968,
+      "entity_slug": "broad-spectrum-micronutrients",
+      "pmid": "41643810",
+      "focus": "Eight-week RCT in 132 adolescents with irritability; some clinician/parent outcomes improved while one primary irritability measure was null; subgroup effects and pediatric formulation context retained.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 969,
+      "entity_slug": "herbal-hemorrhoid-cream",
+      "pmid": "42812757",
+      "focus": "Triple-blind trial of a four-herb topical cream versus conventional cream; both improved symptoms, but no significant between-group effect or interaction was shown; combination-only and high-dropout context.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 970,
+      "entity_slug": "strawberry-leaf-extract",
+      "pmid": "42508219",
+      "focus": "Older-adult trial of strawberry leaf extract for self-reported memory complaints; leaf material must remain distinct from strawberry fruit and sponsor/product provenance retained.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 971,
+      "entity_slug": "mentha-amaranthus-combination",
+      "pmid": "41519619",
+      "focus": "Mentha spicata + Amaranthus seed flour + flavonoids/B-vitamins trial; highest-dose lipid signals belong only to the multi-ingredient combination.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 972,
+      "entity_slug": "ulva-lactuca",
+      "pmid": "42514313",
+      "focus": "Small 28-day Ulva lactuca trial in healthy adults; biomarker-only outcomes, 18 completers and industry provenance require cautious research-only handling.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 973,
+      "entity_slug": "ecklonia-chrysanthemum-combination",
+      "pmid": "41523268",
+      "focus": "Twelve-week Ecklonia cava + Chrysanthemum indicum RCT; respiratory signals with some QoL nulls, attributable only to the combination.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 974,
+      "entity_slug": "naturopathy-review",
+      "pmid": "42403781",
+      "focus": "Broad naturopathy review retained for research mapping only; exact intervention-level extraction is required before any canonical claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 975,
+      "entity_slug": "probiotic-bone-health-correction",
+      "pmid": "42313181",
+      "focus": "Published correction associated with probiotic bone-health evidence; correction provenance must travel with any downstream use of the corrected source.",
+      "state": "correction_metadata_only"
+    },
+    {
+      "wave": 976,
+      "entity_slug": "magnesium-l-threonate",
+      "pmid": "41601871",
+      "focus": "Six-week randomized double-blind trial in 100 adults with dissatisfied sleep; magnesium L-threonate improved the NIH total-cognition composite and sleep-related impairment, while objective wearable sleep outcomes and several subjective sleep measures were null; proprietary-formulation and short-duration boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 977,
+      "entity_slug": "magnesium-l-threonate-correction",
+      "pmid": "40567408",
+      "focus": "Published corrigendum/erratum to the 2024 magnesium L-threonate sleep trial (PMID 39252819); correction provenance must remain attached to any downstream use of the corrected study.",
+      "state": "correction_metadata_only"
+    },
+    {
+      "wave": 978,
+      "entity_slug": "curcumin",
+      "pmid": "42534858",
+      "focus": "Three-RCT meta-analysis found no statistically significant homocysteine-lowering effect, with very low certainty, extreme heterogeneity, and one physiologically implausible source dataset; strong null/evidence-quality counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 979,
+      "entity_slug": "probiotics-synbiotics-berberine",
+      "pmid": "42213651",
+      "focus": "Systematic review/meta-analysis pooled probiotics, synbiotics, and berberine in type 2 diabetes; modest glycemic signals with substantial intervention heterogeneity mean effects cannot be attributed interchangeably across the three intervention classes.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 980,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "41996285",
+      "focus": "Twelve-study/357-participant COPD meta-analysis found a small exercise-capacity signal and lower blood pressure, but parallel and crossover trial estimates diverged materially; disease-specific methodological boundary retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 981,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42588136",
+      "focus": "Twenty-three randomized sprint studies (401 participants) found benefits for time-to-peak-power and handgrip but no clear effect on short sprint times, mean/peak power, RPE, heart rate, or lactate; certainty was low to very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 982,
+      "entity_slug": "probiotics-synbiotics-sleep",
+      "pmid": "42184272",
+      "focus": "Six RCTs in exercised populations suggested subjective sleep-quality/latency signals, but strain/product heterogeneity, small total sample, and athlete-specific context prevent a generic probiotic sleep claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 983,
+      "entity_slug": "vitamin-d",
+      "pmid": "41923913",
+      "focus": "Fifteen-trial meta-analysis in diagnosed depression reported lower depressive symptom scores with vitamin D but high heterogeneity; dose-response findings are retained as study-level evidence only and not converted into consumer dosing guidance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 984,
+      "entity_slug": "vitamin-d-containing-supplements",
+      "pmid": "42594843",
+      "focus": "Bayesian review found a favorable but heterogeneous depressive-symptom signal for vitamin-D-containing interventions; fragmented treatment networks and co-nutrient variation made treatment ranking and component-level synergy inference indefensible.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 985,
+      "entity_slug": "melatonin",
+      "pmid": "42708337",
+      "focus": "Cancer-population sleep meta-analysis found no significant overall pooled benefit with very high heterogeneity; selected subgroup/qualitative signals did not overturn the overall uncertainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 986,
+      "entity_slug": "nutraceuticals-depression",
+      "pmid": "40314175",
+      "focus": "Large network meta-analysis of 192 trials/17,437 participants compared 44 nutraceutical strategies for depressive disorders; useful comparative map but compound, adjunctive-treatment, bias, and network-inference boundaries require category-level handling.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 987,
+      "entity_slug": "plant-foods-exercise-recovery",
+      "pmid": "42797032",
+      "focus": "Thirty-six human intervention studies of plant-derived foods/supplements for post-exercise recovery showed nonuniform soreness/recovery signals with major product, timing, dose, exercise-protocol, and outcome heterogeneity; category-level only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 988,
+      "entity_slug": "aromatherapy-cancer",
+      "pmid": "39037416",
+      "focus": "Twenty-six-study cancer aromatherapy meta-analysis reported sleep, fatigue, anxiety, depression, and vomiting signals, but mixed oils, delivery routes, massage co-intervention, and cancer-context boundaries prevent ingredient-level attribution.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 989,
+      "entity_slug": "aromatherapy-menopause",
+      "pmid": "42709539",
+      "focus": "Seventeen-study menopause aromatherapy synthesis reported improvements across several symptom domains, but certainty was low/very low and intervention heterogeneity was substantial; complementary-therapy category evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 990,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "41077538",
+      "focus": "Sixty-three-RCT dose-response meta-analysis found small changes across several glycemic, anthropometric, and lipid risk factors, with null findings for LDL-C, blood pressure, and HDL-C; surrogate-outcome boundary retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 991,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "42535603",
+      "focus": "Eight-study/165-participant schizophrenia review found no significant placebo-controlled improvement in PANSS, BMI, adverse events, or discontinuation and no consistent metabolic benefit; small-study null evidence retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 992,
+      "entity_slug": "inositol",
+      "pmid": "41757236",
+      "focus": "Umbrella review of 13 PCOS meta-analyses found signals across hormonal, insulin-resistance, and reproductive outcomes but no high-quality GRADE evidence and important subtype/comparator differences; formulation boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 993,
+      "entity_slug": "taurine",
+      "pmid": "41275513",
+      "focus": "Thirty-four-RCT meta-analysis reported pooled improvements across several cardiometabolic biomarkers; findings remain surrogate-endpoint evidence and dose/duration subgroup patterns are not converted into optimization guidance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 994,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41630501",
+      "focus": "Thirty-nine-RCT meta-analysis found small glycemic-marker changes with CoQ10, especially in diabetes populations, but overall certainty was rated very low; effect size and certainty boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 995,
+      "entity_slug": "ashwagandha",
+      "pmid": "42198398",
+      "focus": "Systematic review of 23 trials/2,317 healthy adults found standardized root-only extracts generally well tolerated over studied durations, while explicitly limiting inference beyond 180 days and to nonstandardized, leaf, or multi-ingredient products.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 996,
+      "entity_slug": "carnosine",
+      "pmid": "42123986",
+      "focus": "Thirteen-study review of carnosine/anserine-containing interventions found mostly null cognitive and mood outcomes with selective memory signals; combination products, single-team pooled effects, and low strength of evidence prevent a broad carnosine cognition claim.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 997,
+      "entity_slug": "nad-precursors",
+      "pmid": "41655607",
+      "focus": "PRISMA review of 33 human and 80 rodent intervention studies found NR/NMN reliably changed NAD-related biomarkers but human functional, metabolic, vascular, and healthspan outcomes were heterogeneous/often null; no eligible IV/IM NAD outcome trials supported wellness claims.",
+      "state": "research_only_identity_firewall"
+    },
+    {
+      "wave": 998,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41657017",
+      "focus": "Fourteen-RCT/433-participant exercise meta-analysis found lower malondialdehyde and creatine kinase with CoQ10 but no clear effect on lactate or maximal oxygen uptake; biomarker and performance endpoints kept separate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 999,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41859772",
+      "focus": "Umbrella review of eight meta-analyses found glycemic conclusions sensitive to analytic scale: fasting glucose improved most consistently while HbA1c/HOMA-IR/insulin conclusions differed by pooling approach; inconsistency retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1000,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "42642774",
+      "focus": "Twenty-RCT GRADE-assessed prediabetes/T2D meta-analysis reported improvements in triglycerides, fasting glucose, HbA1c, HOMA-IR, CRP, and HDL but null total cholesterol, LDL, blood pressure, and malondialdehyde; disease-specific surrogate evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

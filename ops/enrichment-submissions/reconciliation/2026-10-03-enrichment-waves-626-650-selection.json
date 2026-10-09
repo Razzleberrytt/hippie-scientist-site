@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-626-650-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-601-625-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 150,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed systematic-review/meta-analysis discovery"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 626,
+      "entity_slug": "creatine-beta-alanine",
+      "pmid": "40647180",
+      "focus": "2025 seven-RCT/263-participant systematic review of combined creatine+beta-alanine; high-intensity performance signals are combination-specific and evidence is predominantly male.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 627,
+      "entity_slug": "creatine-beta-alanine",
+      "pmid": "42384726",
+      "focus": "2026 52-RCT network meta-analysis; creatine alone had the most consistent high-intensity performance effects while beta-alanine was task-specific and combined supplementation showed no added synergy.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 628,
+      "entity_slug": "caffeine-nitrate",
+      "pmid": "39408319",
+      "focus": "Six-study/95-participant meta-analysis found caffeine+nitrate co-supplementation did not outperform caffeine or nitrate alone for time trials, heart rate or oxygen uptake.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 629,
+      "entity_slug": "conditioning-supplements",
+      "pmid": "41323837",
+      "focus": "2025 network meta-analysis of 30 RCTs/693 athletes comparing protein, creatine, beta-alanine, HMB, vitamin D and nitrate across energy-system outcomes; indirect rankings remain outcome-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 630,
+      "entity_slug": "dietary-nitrate",
+      "pmid": "40085422",
+      "focus": "2025 umbrella review of 20 meta-analyses/180 primary studies/2,672 participants; benefits were domain-specific, several performance outcomes were null, and most underlying reviews were low/critically-low quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 631,
+      "entity_slug": "probiotics",
+      "pmid": "41291638",
+      "focus": "2025 meta-analysis of 34 RCTs/2,390 adults on cognitive outcomes and adverse events; cognition evidence remains strain-, population-, test-, and duration-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 632,
+      "entity_slug": "athlete-supplements-network",
+      "pmid": "40717998",
+      "focus": "2025 network meta-analysis of 35 RCTs/991 athletes; supplement effects on strength, sprint, jump and muscle mass differed by outcome, with most trials having some risk-of-bias concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 633,
+      "entity_slug": "elite-athlete-supplements",
+      "pmid": "41058995",
+      "focus": "2025 review of 46 studies/928 elite athletes; caffeine showed more consistent sport-performance effects than nitrate, while beta-alanine and recovery supplements were sport/context dependent.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 634,
+      "entity_slug": "cycling-ergogenic-aids",
+      "pmid": "38892701",
+      "focus": "2024 systematic review of 36 cycling studies/701 participants spanning caffeine, creatine, bicarbonate, beta-alanine, nitrate and combinations; sport- and intervention-specific evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 635,
+      "entity_slug": "ergogenic-combinations",
+      "pmid": "40619880",
+      "focus": "2025 systematic review/meta-analysis of 16 randomized studies testing performance-enhancing supplement combinations; combination effects must not be attributed to individual ingredients.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 636,
+      "entity_slug": "probiotics",
+      "pmid": "40740336",
+      "focus": "2025 six-study/424-patient insomnia meta-analysis; PSQI improved with moderate certainty while depression-score evidence was very-low certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 637,
+      "entity_slug": "probiotics",
+      "pmid": "40966579",
+      "focus": "2025 umbrella review of probiotic meta-analyses for cognitive-related outcomes; strength/quality of evidence varies substantially by population and endpoint.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 638,
+      "entity_slug": "probiotics",
+      "pmid": "41958906",
+      "focus": "2026 13-study/890-participant adult sleep meta-analysis; modest PSQI/ISI signals with strain/product and baseline-sleep heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 639,
+      "entity_slug": "vitamin-d",
+      "pmid": "37418225",
+      "focus": "24-RCT/7,557-participant cognition meta-analysis; small global-cognition effect, no consistent specific-domain effect, with stronger signals in vulnerable/deficient subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 640,
+      "entity_slug": "creatine",
+      "pmid": "41062952",
+      "focus": "2025 20-study/1,093-participant meta-analysis of creatine plus exercise in older adults; strength/fat-percentage signals with total-body BMD null; combination/context specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 641,
+      "entity_slug": "creatine",
+      "pmid": "38582412",
+      "focus": "2024 systematic review found brain creatine increases but cognitive effects remain equivocal, providing a counterweight to positive cognition meta-analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 642,
+      "entity_slug": "vitamin-d",
+      "pmid": "34806158",
+      "focus": "Systematic review of 20 adult RCTs found mixed cognition results and did not support a consistent cognitive-enhancement effect—important counterweight to later positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 643,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "36091835",
+      "focus": "RCT meta-analysis of fatigue; fatigue-reduction signal stronger for CoQ10-only formulations than compound products, with formulation and symptom-context boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 644,
+      "entity_slug": "protein-resistance-training",
+      "pmid": "38753309",
+      "focus": "2024 18-RCT/1,147-participant review of protein+resistance training and gait speed in older adults; exercise-combination and aging-population context retained.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 645,
+      "entity_slug": "whey-protein",
+      "pmid": "41228181",
+      "focus": "2025 older-adult meta-analysis of whey protein with/without resistance training; body-composition, strength and cardiometabolic outcomes remain context- and co-intervention-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 646,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "41416636",
+      "focus": "Systematic review/meta-analysis found negligible benefit of a single oral dose for continuous running performance, providing a sport-task-specific null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 647,
+      "entity_slug": "bcaa",
+      "pmid": "38625669",
+      "focus": "2024 18-study meta-analysis; BCAA reduced selected CK and muscle-soreness timepoints after exercise-induced damage but did not improve LDH; recovery biomarker/symptom evidence only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 648,
+      "entity_slug": "sodium-bicarbonate",
+      "pmid": "39841595",
+      "focus": "2025 swimming meta-analysis; bicarbonate raised blood bicarbonate/lactate/pH but did not significantly improve 200-m time—physiology-performance dissociation retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 649,
+      "entity_slug": "bcaa",
+      "pmid": "38241335",
+      "focus": "2024 overview of 11 systematic reviews; CK/muscle-soreness recovery signals with no effect on muscle-performance recovery and notable review-quality limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 650,
+      "entity_slug": "hmb",
+      "pmid": "41934514",
+      "focus": "2026 13-RCT/561-participant meta-analysis in adults >=50 found no meaningful added benefit of HMB+resistance training for fat mass, muscle mass or strength; strong counterweight to routine-adjunct claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

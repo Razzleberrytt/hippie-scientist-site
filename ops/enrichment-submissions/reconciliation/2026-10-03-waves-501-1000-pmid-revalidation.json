@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-waves-501-1000-pmid-revalidation",
+  "verified_on": "2026-10-04",
+  "rule": "Exact PMID/DOI identity, source-specific result direction, prior runtime coverage, and canonical-entity legality were checked before runtime materialization. Category, combination, route, correction, identity, duplicate-source, and unresolved-entity receipts remain fail-closed.",
+  "sources": [
+    {
+      "wave": 976,
+      "entity_slug": "magnesium-l-threonate",
+      "pmid": "41601871",
+      "doi": "10.3389/fnut.2025.1729164",
+      "decision": "withheld_pending_canonical_runtime_entity_confirmation",
+      "reason": "The source is verified, but current generated-detail search did not establish a canonical magnesium-l-threonate runtime entity; preserve the receipt until entity identity is confirmed."
+    },
+    {
+      "wave": 977,
+      "entity_slug": "magnesium-l-threonate-correction",
+      "pmid": "40567408",
+      "doi": "10.1016/j.sleepx.2025.100141",
+      "decision": "correction_metadata_only",
+      "reason": "Published correction to a prior magnesium L-threonate trial; preserve correction provenance rather than emitting a duplicate efficacy row."
+    },
+    {
+      "wave": 978,
+      "entity_slug": "curcumin",
+      "pmid": "42534858",
+      "doi": "10.3389/fphar.2026.1864151",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 979,
+      "entity_slug": "probiotics-synbiotics-berberine",
+      "pmid": "42213651",
+      "decision": "withheld_category_combination_firewall",
+      "reason": "The synthesis pools distinct intervention classes and cannot be assigned to one canonical entity without over-attribution."
+    },
+    {
+      "wave": 980,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "41996285",
+      "doi": "10.1093/nutrit/nuag013",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 981,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42588136",
+      "doi": "10.3390/nu18152513",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 982,
+      "entity_slug": "probiotics-synbiotics-sleep",
+      "pmid": "42184272",
+      "decision": "withheld_category_firewall",
+      "reason": "Sleep findings combine probiotic and synbiotic interventions in exercised populations and are not a strain-specific canonical claim."
+    },
+    {
+      "wave": 983,
+      "entity_slug": "vitamin-d",
+      "pmid": "41923913",
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final admission audit found the PMID already present in an earlier runtime-enrichment batch."
+    },
+    {
+      "wave": 984,
+      "entity_slug": "vitamin-d-containing-supplements",
+      "pmid": "42594843",
+      "decision": "withheld_combination_firewall",
+      "reason": "Co-nutrient variation and fragmented treatment networks prevent component-level vitamin D attribution."
+    },
+    {
+      "wave": 985,
+      "entity_slug": "melatonin",
+      "pmid": "42708337",
+      "doi": "10.2174/0127724328470308260825053321",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 986,
+      "entity_slug": "nutraceuticals-depression",
+      "pmid": "40314175",
+      "decision": "withheld_category_firewall",
+      "reason": "Network meta-analysis spans many nutraceuticals and treatment combinations; preserve as comparative research rather than a single-entity runtime row."
+    },
+    {
+      "wave": 987,
+      "entity_slug": "plant-foods-exercise-recovery",
+      "pmid": "42797032",
+      "decision": "withheld_category_firewall",
+      "reason": "The review spans heterogeneous foods, supplements, doses, timing, and recovery outcomes."
+    },
+    {
+      "wave": 988,
+      "entity_slug": "aromatherapy-cancer",
+      "pmid": "39037416",
+      "decision": "withheld_route_combination_firewall",
+      "reason": "Mixed oils, inhalation/massage routes, and co-interventions prevent ingredient-specific attribution."
+    },
+    {
+      "wave": 989,
+      "entity_slug": "aromatherapy-menopause",
+      "pmid": "42709539",
+      "decision": "withheld_category_firewall",
+      "reason": "Aromatherapy interventions were heterogeneous and certainty was low or very low."
+    },
+    {
+      "wave": 990,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "41077538",
+      "doi": "10.1016/j.numecd.2025.104370",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 991,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "42535603",
+      "doi": "10.1097/JCP.0000000000002231",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 992,
+      "entity_slug": "inositol",
+      "pmid": "41757236",
+      "doi": "10.3389/fendo.2026.1741509",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 993,
+      "entity_slug": "taurine",
+      "pmid": "41275513",
+      "doi": "10.1093/nutrit/nuaf220",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 994,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41630501",
+      "doi": "10.1080/10408398.2026.2624477",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 995,
+      "entity_slug": "ashwagandha",
+      "pmid": "42198398",
+      "decision": "verified_but_omitted_already_admitted_source",
+      "reason": "The PMID is already represented in the existing runtime-enrichment corpus; no duplicate source row is added."
+    },
+    {
+      "wave": 996,
+      "entity_slug": "carnosine",
+      "pmid": "42123986",
+      "decision": "withheld_combination_and_entity_firewall",
+      "reason": "Evidence includes carnosine/anserine and other combinations, and current generated-detail search did not establish a standalone canonical carnosine runtime entity."
+    },
+    {
+      "wave": 997,
+      "entity_slug": "nad-precursors",
+      "pmid": "41655607",
+      "decision": "withheld_identity_firewall",
+      "reason": "The review spans NR, NMN, other NAD-related compounds, and parenteral wellness claims; class-level evidence is not attributed to a single compound."
+    },
+    {
+      "wave": 998,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41657017",
+      "doi": "10.1177/03000605251411151",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 999,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41859772",
+      "doi": "10.1002/edm2.70182",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1000,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "42642774",
+      "doi": "10.1186/s40360-025-01002-1",
+      "decision": "verified_for_runtime_materialization"
+    }
+  ]
+}

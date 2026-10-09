@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-526-550-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-501-525-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 50,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed recent systematic reviews/meta-analyses",
+    "web-verified PMID identities"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 526,
+      "entity_slug": "probiotics",
+      "pmid": "40187225",
+      "focus": "2025 network meta-analysis of probiotic strains/combinations in adults with T2D; glycemic effects are strain/product and disease-population specific, and ranking does not equal head-to-head superiority.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 527,
+      "entity_slug": "turmeric-products",
+      "pmid": "40731001",
+      "focus": "2025 network meta-analysis of turmeric preparations for knee OA; product/formulation identity and network-comparison limitations retained.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 528,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "39413860",
+      "focus": "2025 CKD-specific RCT meta-analysis of inflammatory, lipid, hematologic and anthropometric markers; disease-population surrogate evidence only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 529,
+      "entity_slug": "resveratrol",
+      "pmid": "41987155",
+      "focus": "2026 umbrella review of 45 systematic reviews/129 associations; broad multi-outcome evidence with GRADE credibility differences across endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 530,
+      "entity_slug": "curcuma-longa",
+      "pmid": "39712249",
+      "focus": "2025 knee-OA systematic review/meta-analysis; pain/function findings remain short-term, indication-specific and preparation-sensitive.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 531,
+      "entity_slug": "curcumin",
+      "pmid": "38576215",
+      "focus": "2024 umbrella meta-analysis of prior OA meta-analyses; useful for consistency/heterogeneity assessment but not a substitute for formulation-specific RCT evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 532,
+      "entity_slug": "pro-pre-synbiotics-fmt",
+      "pmid": "41321404",
+      "focus": "2025 systematic review of 30 trials in T2D/prediabetes/metabolic syndrome; modest glycemic signals plus mechanistic microbiome readouts, with intervention classes kept separate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 533,
+      "entity_slug": "curcumin",
+      "pmid": "40615851",
+      "focus": "2025 knee-OA RCT meta-analysis of serum inflammatory biomarkers; biomarker findings remain distinct from patient-reported pain/function efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 534,
+      "entity_slug": "nigella-sativa",
+      "pmid": "40210172",
+      "focus": "2025 16-RCT T2D meta-analysis; FBG/HbA1c/TC/LDL signals with 2-h glucose, insulin, HOMA, TG, HDL, liver/kidney, weight and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 535,
+      "entity_slug": "nigella-sativa",
+      "pmid": "39181437",
+      "focus": "2024 30-study glycemic meta-analysis; FBS/HbA1c signals with insulin and HOMA-IR nulls and extreme heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 536,
+      "entity_slug": "nigella-sativa",
+      "pmid": "41858302",
+      "focus": "2026 31-trial metabolic-disease meta-analysis; modest weight/BMI/BP/glycemic changes with central-adiposity and insulin-resistance nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 537,
+      "entity_slug": "tribulus-terrestris",
+      "pmid": "40360723",
+      "focus": "2025/2026 ED systematic review/meta-analysis of randomized trials; erectile-function evidence remains indication-specific and separated from testosterone/bodybuilding claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 538,
+      "entity_slug": "chia-seed",
+      "pmid": "39672763",
+      "focus": "2025 eight-RCT/372-participant meta-analysis; SBP/DBP and waist signals with weight and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 539,
+      "entity_slug": "flaxseed",
+      "pmid": "38971216",
+      "focus": "2024 54-RCT/3,000-participant inflammation meta-analysis; CRP/IL-6 reductions with TNF-alpha null and high heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 540,
+      "entity_slug": "chia-seed",
+      "pmid": "41076614",
+      "focus": "2025 umbrella review of chia meta-analyses; broad health claims graded by AMSTAR-2/GRADE, preserving low-certainty and inconsistent outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 541,
+      "entity_slug": "astaxanthin",
+      "pmid": "40872489",
+      "focus": "2025 systematic review/meta-analysis of moderate-high-dose astaxanthin and lipid profiles; lipid endpoints remain dose/formulation dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 542,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "40180416",
+      "focus": "2025 meta-analysis in overweight/obese adults; intermediate-disease-marker evidence only, with heterogeneous populations and surrogate endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 543,
+      "entity_slug": "spirulina",
+      "pmid": "40953712",
+      "focus": "2025 systematic meta-analysis of RCTs on cardiovascular/metabolic markers; multi-endpoint cardiometabolic evidence with no event-level inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 544,
+      "entity_slug": "flaxseed",
+      "pmid": "38992480",
+      "focus": "2024 updated randomized-trial meta-analysis of anthropometric indices; weight/BMI/waist effects remain preparation/population dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 545,
+      "entity_slug": "spirulina",
+      "pmid": "40330210",
+      "focus": "2025 CRP dose-response meta-analysis; inflammatory biomarker evidence remains surrogate and distinct from clinical anti-inflammatory efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 546,
+      "entity_slug": "chia-seed",
+      "pmid": "38917708",
+      "focus": "2024 glycemic systematic review/meta-analysis; FBG/HbA1c/insulin evidence is limited by a small heterogeneous RCT base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 547,
+      "entity_slug": "flaxseed",
+      "pmid": "37927501",
+      "focus": "2023/2024 sex-hormone meta-analysis; FSH, SHBG, testosterone, free-androgen index and DHEAS were not significantly changed—useful endocrine counterweight.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 548,
+      "entity_slug": "fenugreek",
+      "pmid": "36470549",
+      "focus": "29-RCT metabolic-syndrome meta-analysis; FPG/TG/HDL/waist/SBP signals with DBP and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 549,
+      "entity_slug": "fenugreek",
+      "pmid": "41509111",
+      "focus": "2025 updated 26-RCT glycemic synthesis; FBG/2hPPG/HbA1c/insulin signals with HOMA-IR null and substantial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 550,
+      "entity_slug": "nigella-sativa",
+      "pmid": "38265398",
+      "focus": "Metabolic-syndrome RCT meta-analysis of lipid and glycemic indices; disease-population and endpoint specificity retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
