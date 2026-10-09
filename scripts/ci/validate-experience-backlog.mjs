@@ -48,12 +48,30 @@ const lighthouseWorkflow = read('.github/workflows/lighthouse.yml')
 invariant('THS-001', 'homepage is routed through the focused V2 experience', () =>
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
-invariant('THS-001', 'homepage hero has a clear promise and only Search plus Explore as primary actions', () => {
+invariant('THS-001', 'homepage provides one Search, three safe first-visit tasks, and one progressive Explore handoff', () => {
   const searchActions = homepage.split("action='/search/'").length - 1
   const exploreActions = homepage.split("href='/explore/'").length - 1
-  return homepage.includes('Start with the question. Open the evidence when you need it.') &&
+  const firstPathStart = homepage.indexOf('const firstVisitPaths = [')
+  const firstPathEnd = homepage.indexOf('] as const', firstPathStart)
+  const firstPaths = firstPathStart >= 0 && firstPathEnd > firstPathStart
+    ? homepage.slice(firstPathStart, firstPathEnd) : ''
+  return homepage.includes('Which supplements actually work—and what does the research say about their risks?') &&
+    homepage.includes('When the research cannot establish an answer, we say so.') &&
     searchActions === 1 &&
     exploreActions === 1 &&
+    firstPaths.split('href:').length - 1 === 3 &&
+    includesAll(firstPaths, [
+      "label: 'Find an ingredient'",
+      "href: '/herbs/'",
+      "label: 'Compare options'",
+      "href: '/guides/compare/'",
+      "label: 'Check safety concerns'",
+      "href: '/safety-checker/'",
+    ]) &&
+    homepage.includes("aria-label='Choose your first step'") &&
+    homepage.includes('min-h-12') &&
+    homepage.includes('focus-visible:outline') &&
+    !homepage.includes('<SiteDestinationGrid />') &&
     homepage.includes("href='/library/'")
 })
 invariant('THS-001', 'homepage scientific search protects mobile ingredient terms from keyboard rewriting', () =>
