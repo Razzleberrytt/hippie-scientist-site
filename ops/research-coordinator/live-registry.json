@@ -23566,6 +23566,1465 @@
       "reservation_id": "de40a30c20466b7aff7d",
       "reserved_at": "2026-10-09T06:32:28.479Z",
       "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41850683",
+      "title": "Effects of 24-Week Almond Supplementation on Executive Function and Processing Speed in Middle-Aged Asian Indians with Prediabetes: An Open-Label Randomized Controlled Trial.",
+      "doi": "10.1016/j.tjnut.2026.101484",
+      "source_title": "Effects of 24-Week Almond Supplementation on Executive Function and Processing Speed in Middle-Aged Asian Indians with Prediabetes: An Open-Label Randomized Controlled Trial.",
+      "abstract": "Prediabetes is potentially recognized as a stage of heightened risk not only for diabetes but also for early cognitive decline, driven by insulin resistance, oxidative stress, and low-grade inflammation. The aim of this study was to evaluate the effect of daily almond supplementation on cognitive performance and biochemical markers in middle-aged Asian Indians with prediabetes, who are at high risk for metabolic and cognitive decline. This 24-wk, open-label, parallel-arm randomized controlled trial was conducted at a tertiary care center in New Delhi. A total of 60 adults aged 40-60 y with prediabetes were randomly assigned to an almond group (n = 29; almonds providing 20% of daily energy with diet and exercise) or a control group (n = 31; isocaloric diet and exercise without almonds). Cognitive function was assessed at baseline and 24 wk using the Cambridge neuropsychological test automated battery (CANTAB), covering executive function, memory, attention, processing speed, and working memory. Anthropometry, glycemia, plasma α-tocopherol, thiobarbituric acid reactive substances (TBARS), and high-sensitivity C-reactive protein were also measured. At 24 wk, the almond group showed significant improvements in executive function [One Touch Stockings of Cambridge; β = -2.5, 95% confidence interval (CI): -4.4, -0.6, P = 0.01] and in processing speed (reaction time; β = 73.8, 95% CI: 25.7, 122.0, P = 0.003; β = 39.3, 95% CI: 9.4, 69.1, P = 0.011) compared with controls. There were also significant reductions in weight, body mass index, waist circumference, fasting and postprandial glucose, glycosylated hemoglobin, and TBARS, along with increased plasma α-tocopherol (all P < 0.05). Six months of almond supplementation improved executive function, processing speed, and overall cognition, reduced oxidative stress (TBARS), and improved plasma α-tocopherol and glycemia in Asian Indians with prediabetes. These findings suggest that almonds provide dual cognitive and metabolic benefits in this high-risk population. However, the moderate sample size and 24-wk duration warrant confirmation in larger and longer-term trials. This trial was registered at clinicaltrials.gov as NCT05322304.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41850683/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41850683",
+        "doi": "10.1016/j.tjnut.2026.101484",
+        "journal": "The Journal of nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.513Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "24c86f6937b1cfc06bfb",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42046021",
+      "title": "Impact of MIND diet on cognitive function among patients with metabolic syndrome: a randomised control clinical trial.",
+      "doi": "10.1186/s12883-026-04756-1",
+      "source_title": "Impact of MIND diet on cognitive function among patients with metabolic syndrome: a randomised control clinical trial.",
+      "abstract": "BACKGROUND: Mediterranean-DASH Intervention for Neurodegenerative Delay (MIND) diet is a new dietary approach designed to help maintain cognitive function. Patients with MetS are at increased risk of cognitive decline due to chronic inflammation, oxidative stress, and vascular dysfunction. Therefore, this population provides an appropriate model to investigate the potential neuroprotective effects of the MIND diet, which emphasizes foods with anti-inflammatory and antioxidant properties. AIMS: This study aims to investigate the impact of this diet on the cognitive function of patients with MetS. METHODS: This research was a RCTs conducted with adults diagnosed with MetS who were referred to the Hazrat Ali Health Center in Isfahan. A total of 56 eligible participants were divided into two groups: one group received the MIND diet along with a placebo, while the other served as a control group. Statistical analysis was performed using SPSS26. RESULTS: In this study, we compared the two groups. The MIND diet group showed a significant increase in total cognitive function after adjusting for Model 1 [Using Generalized Linear Model (GLM) with distribution of Gamma & link of Log controlling for baseline, gender, education, surgery, drug, supplementation, physical activity, age, and hospitalization] and 2 [Using Generalized Linear Model (GLM) with distribution of Gamma & link of Log controlling for baseline, gender, education, surgery, drug, supplementation, physical activity, age, hospitalization, and food intake], with increases of 1.6 times (60%) and 1.52 times (52%), respectively. In terms of visuoconstruction and executive functioning, there was a significant increase after adjusting for model 1 (1.42 times or 42%). Attention also significantly improved after adjusting models 1 and 2 by 2.05 times and 2.0 times, respectively. DISCUSSION: The antioxidant and anti-inflammatory properties of certain foods included in the MIND diet are believed to protect brain function and reduce cognitive decline like: Green leafy vegetables, berries, nuts, whole grains, and fish. CONCLUSION: This study suggests that MIND diet can significantly enhance total cognitive function, attention, executive functioning, and visuoconstruction abilities. REGISTRATION: The protocol for this study was also approved by the Iranian Registry of Clinical Trials on March 28, 2023, with registration reference IRCT20230105057054N1.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42046021/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42046021",
+        "doi": "10.1186/s12883-026-04756-1",
+        "journal": "BMC neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.514Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6477512e678030050ca6",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42061108",
+      "title": "Neurocognition and food cue-related brain reactivity after fiber supplementation within a high-protein, plant-based diet in individuals with overweight and prediabetes: A randomized-controlled trial (the DISTAL-study).",
+      "doi": "10.1016/j.clnu.2026.106668",
+      "source_title": "Neurocognition and food cue-related brain reactivity after fiber supplementation within a high-protein, plant-based diet in individuals with overweight and prediabetes: A randomized-controlled trial (the DISTAL-study).",
+      "abstract": "The increasing prevalence of obesity and related diseases, such as type 2 diabetes mellitus (T2DM) and neurocognitive dysfunction, warrants sustainable and effective strategies for treatment and prevention. A healthy diet, containing dietary fibers that are fermented by the gut microbiome, produces short-chain fatty acids, among other metabolites, known to alleviate insulin resistance. SCFA also may protect against neurocognitive decline and increase satiety through food-reward-related pathways of the gut-brain axis, thereby contributing to sustainable dietary habits and counteracting obesity and -related diseases. We therefore studied the effects of dietary fibers in the context of a high-protein, partially plant-based diet on neurocognitive functioning and food-reward related brain activity. This 12-week RCT compared a potato fiber and sugar beet pectin supplement to an isocaloric placebo (maltodextrin), both within a high-protein (±45% plant-based) diet. We investigated the effects on food-reward-related brain activity using functional magnetic resonance imaging (fMRI) with visual food stimuli, comprising high-calorie, low-calorie, and non-food items. Neurocognitive performance was tested with the Cambridge Neurocognitive Test Automated Battery (CANTAB). Furthermore, satiety hormones, stress, and general well-being were assessed, and associations with cardiometabolic markers were explored. Overall, there was a trend towards an increased amygdala BOLD response over time in the fiber group compared to placebo, independent of visual stimuli conditions. The change in amygdala activity was positively associated with increased colonic permeability in both groups. After the intervention, both groups showed improvements in psychomotor speed, visual memory, and learning abilities, and reported less subjective hunger after 12 weeks on a high-protein, partially plant-based diet. General well-being, stress, and satiety hormone concentrations remained unchanged. Twelve weeks of fiber supplementation did not change brain activity induced by visual food cues in reward-related brain regions. However, the high-protein, partially plant-based diet seemed to provide neurocognitive benefits, improving psychomotor speed and memory, and decrease perceived hunger.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42061108/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42061108",
+        "doi": "10.1016/j.clnu.2026.106668",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.515Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3c0e28d0c2eed3bcaabe",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "41694319",
+      "title": "Effects of multidomain intervention on cognitive function in older adults with cognitive impairment: A multicenter, four-arm, cluster randomized trial.",
+      "doi": "10.1002/trc2.70221",
+      "source_title": "Effects of multidomain intervention on cognitive function in older adults with cognitive impairment: A multicenter, four-arm, cluster randomized trial.",
+      "abstract": "Multidomain lifestyle-based interventions seem to be effective for cognitive improvement but larger trials are limited, especially in China. This study aims to explore whether multi-domain interventions of Baduanjin exercise, the Mediterranean-DASH Intervention for Neurodegenerative Delay (MIND) diet, and relaxation training can improve cognitive function in older adults. This is a four-arm cluster randomized trial conducted in 15 centers (counties/districts) in China. A total of 60 communities with 886 older adults with cognitive impairment were randomized to the control group (routine service, RS), and groups B (Baduanjin exercise, plus RS), BM (Baduanjin exercise and MIND diet, plus RS), and BMR (Baduanjin exercise, MIND diet, and relaxation training, plus RS), in a 1:1:1:1 ratio. The intervention lasted for 9 months. The two primary outcomes were an executive function composite and a global cognitive function composite; the secondary outcomes were Mini-Mental State Examination (MMSE) score and six individual tests that comprise the global cognitive function composite. Among 886 old adults with cognitive impairment at baseline, 801 and 809 participants were followed for 4.5 months and 9 months, respectively. At the 9-month follow-up, the BMR and BM interventions showed significant effects on executive function (Mean difference in change of composite for BMR vs. Control: 0.26 points [95% CI, 0.11, 0.41], p < 0.001; BM vs. Control: 0.23 points [95% CI, 0.08, 0.37], p = 0.003); however, only BMR demonstrated significant effects on global cognitive function (BMR vs. Control: 0.22 [95% CI, 0.09, 0.35], p = 0.001; BM vs. Control: 0.17 [95% CI, 0.04, 0.30], p = 0.01). No significant effect of Baduanjin alone was observed. A multi-domain comprehensive intervention combining Baduanjin exercise, MIND diet and relaxation training, can significantly improve both executive function and global cognitive function after 9 months in older adults with cognitive impairment. These findings supported the use of these interventions to enhance cognitive function in older adults. Chinese clinical registry, registration number: ChiCTR2100045375.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41694319/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41694319",
+        "doi": "10.1002/trc2.70221",
+        "journal": "Alzheimer's & dementia (New York, N. Y.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.516Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "22ffa74c32e9f395490c",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "41926740",
+      "title": "Electroacupuncture improves cognitive function and neuropsychiatric symptoms in breast cancer survivors: a pilot randomized controlled trial.",
+      "doi": "10.1093/jnci/djag096",
+      "source_title": "Electroacupuncture improves cognitive function and neuropsychiatric symptoms in breast cancer survivors: a pilot randomized controlled trial.",
+      "abstract": "We conducted a randomized, double-blinded pilot trial to compare the impact of 2 electroacupuncture (EA) regimens on co-occurring neuropsychiatric symptoms among breast cancer survivors. Breast cancer survivors (BCS) who self-reported cognitive impairment, fatigue, insomnia, or psychological distress were randomized (1:1) to receive 10 weekly EA to target either neuropsychiatric-specific (neuropsychiatric-specific EA, nEA) or nonneuropsychiatric-specific (sham EA, sEA) acupoints. Primary endpoints were the within-group pre-post effect sizes (Glass's Δ) in symptom severities, adjusted for multiple comparisons (Padjusted). Outcomes were assessed using neurocognitive tests (CANTAB), patient-reported outcomes (PROs) (Functional Assessment of Cancer Therapy-Cognitive Function, Multidimensional Fatigue Symptom Inventory-Short Form, European Organisation for Research and Treatment of Cancer Quality of Life Questionnaire-Core 30), plasma biomarkers, and neuroimaging. Responders were defined by reliable change index (for objective cognition) or minimal clinically important differences (for PROs). Thirty-five participants were recruited, with 30 (86%) completing all sessions. The mean (±SD) age was 58.2 (±12.2) years, and 86% reported co-occurring symptoms. Following treatment, the nEA group demonstrated significant improvements in attention (T3: Δ = 0.562, T4: Δ = 0.708, both Padjusted <.05) and distress (T3: Δ = 0.764, T4: Δ = 0.711, both Padjusted < .05). More responders were observed after nEA treatment for objective cognition (42.9% vs 12.5%) and distress (50% vs 37.5%). Neuropsychiatric-specific EA-treated participants showed increased gray matter volume compared with sEA (P = .033), which positively correlated with better attention function (r = 0.69, P = .020). Neuropsychiatric-specific EA-related improvements in memory and response speed were associated with reduced connectivity in the default mode network (DMN-SFG, r = -0.93, P < .01) and increased connectivity in the dorsal attention network (DAN-SMG, r = 0.86, P < .001), respectively. All adverse events were grade 2 or lower. Electroacupuncture targeting neuropsychiatric-specific acupoints suggests improvements in cognition and distress symptoms in BCS, warranting validation in larger, multicenter trials. NCT05283577.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41926740/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41926740",
+        "doi": "10.1093/jnci/djag096",
+        "journal": "Journal of the National Cancer Institute",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.517Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e1b4252d25979e8f1624",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "41450035",
+      "title": "Probiotic Supplementation and Executive Function in Children With Attention-Deficit/Hyperactivity Disorder.",
+      "doi": "10.1002/npr2.70084",
+      "source_title": "Probiotic Supplementation and Executive Function in Children With Attention-Deficit/Hyperactivity Disorder.",
+      "abstract": "Attention Deficit Hyperactivity Disorder (ADHD) is a prevalent neurodevelopmental condition marked by inattention, hyperactivity, and impulsivity, which substantially impacts children's academic and social performance. The aim of this research was to examine the effect of probiotic supplementation on executive functioning in children with ADHD. This triple-blind, randomized controlled trial included 84 children with ADHD who were randomly allocated to receive either a probiotic supplement including Lactobacillus Acidophilus, Bifidobacterium Lactis, and Bifidobacterium Longum or a placebo, administered once daily for 2 months. Executive function was assessed using the parent form of the Behavior Rating Inventory of Executive Function (BRIEF) questionnaire. The data were analyzed using repeated measures analysis of variance after adjusting the confounding variables. No significant difference was found between executive function scores of the groups at baseline (191.45 ± 20.725 vs. 190.55 ± 23.520, p = 0.214). Probiotic treatment significantly improved the scores of the intervention group compared to the control group (151.50 ± 16.784 vs. 190.68 ± 23.479, F = 7.93, p < 0.001) after adjusting for the confounders including age, BMI, and IQ. Probiotics may be beneficial as non-pharmacological adjunctive therapy for enhancing executive function in children with ADHD. Further studies with extended follow-up durations and objective neuropsychological evaluations are warranted. IRCT: IRCT20210531051454N2.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41450035/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41450035",
+        "doi": "10.1002/npr2.70084",
+        "journal": "Neuropsychopharmacology reports",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T06:56:35.517Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d8f56357ba602993ae5c",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42698526",
+      "title": "Effects of peanut consumption on task-related brain activation, cognition and neuroinflammation in older adults with memory complaints: a randomized controlled trial.",
+      "doi": "10.3389/fnut.2026.1817518",
+      "source_title": "Effects of peanut consumption on task-related brain activation, cognition and neuroinflammation in older adults with memory complaints: a randomized controlled trial.",
+      "abstract": "Peanuts are rich in unsaturated fats, antioxidants like polyphenols, and other bioactive compounds that may reduce neuroinflammation and support cognitive health. Although limited evidence suggests potential cognitive benefits of peanut intake, none have explored these effects in older adults at risk for cognitive decline or assessed brain activity using functional magnetic resonance imaging (fMRI). This study explored the effects of daily peanut consumption on task-related brain activation, cognition, and neuroinflammation biomarkers in older adults with cardiovascular disease (CVD) risk factors and memory complaints. In this 12-week, controlled, parallel-design, open-label randomized trial registered at ClinicalTrials.gov (NCT05532007), 30 overweight or obese older adults with memory complaints and CVD risk factors were randomized to a peanut group (PG), which consumed 42-86 g/d of peanuts and peanut butter, or a control group (CG), which abstained from peanuts. The final analyzed sample included 27 participants (PG, n = 12; CG, n = 15). Assessments at baseline and 12 weeks included fMRI during an n-back working memory task; a comprehensive neurocognitive battery assessing global cognition and specific domains (memory, processing speed, verbal fluency, and executive function); and selected serum markers of inflammation and oxidative stress. Cognitive outcomes were analyzed using analysis of covariance, and biomarker outcomes using repeated-measures models, adjusting for baseline values (cognitive outcomes only), age, sex, baseline BMI, and change in body weight. The Holm step-down procedure was applied separately to cognitive and biomarker outcome families to account for multiple comparisons. No significant between-group differences were observed in task-related brain activation or cognitive performance. Although some biomarker outcomes were nominally significant in unadjusted analyses, no Time × Group interactions remained significant after adjustment and correction for multiple comparisons. In overweight or obese older adults with elevated CVD risk and memory complaints, a 12-week peanut intervention did not produce significant changes in cognition or task-related activation of the brain. Future studies with larger sample sizes, longer intervention durations, and greater statistical power are needed to determine whether peanut consumption may influence neurocognitive trajectories and to further investigate the role of inflammatory and oxidative stress mechanisms in these relationships.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42698526/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42698526",
+        "doi": "10.3389/fnut.2026.1817518",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.518Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "88babd0144c001c63d6c",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42692117",
+      "title": "Metformin therapy increases leukocyte telomere length, telomerase activity, and longevity gene expression in Asian Indians with prediabetes: A 24-week participant-blind, outcome-assessor-blinded randomized controlled trial.",
+      "doi": "10.1016/j.mad.2026.112241",
+      "source_title": "Metformin therapy increases leukocyte telomere length, telomerase activity, and longevity gene expression in Asian Indians with prediabetes: A 24-week participant-blind, outcome-assessor-blinded randomized controlled trial.",
+      "abstract": "Asian Indians exhibit disproportionately high rates of prediabetes progression to type 2 diabetes, associated with accelerated biological aging. Metformin has been proposed to exert anti-aging effects independent of glycemic control; however, adequately powered randomized controlled trials evaluating telomere biology in prediabetes are lacking. We conducted a participant-blind, outcome-assessor-blinded randomized placebo-controlled trial in North Indian individuals aged 30-60 years with prediabetes. A total of 322 individuals were screened, of whom 195 were excluded for various reasons. Consequently, 127 participants met the eligibility criteria and were enrolled in the study. Participants received metformin 500 mg twice daily (n = 63) or placebo (n = 64) for 24 weeks, alongside lifestyle counseling. Primary outcomes were leukocyte telomere length (LTL), telomerase activity (TA), and longevity gene expression (SIRT1, p66Shc, p53, mTOR) measured in peripheral blood mononuclear cells using quantitative real time PCR. Secondary outcomes included anthropometric and metabolic parameters. Among 127 randomized participants, 112 (88.2%) completed the study. Metformin significantly increased LTL compared to placebo (mean change +0.247 ± 0.298 vs +0.036 ± 0.068; 29.6% vs 4.4% elongation; between-group p < 0.0001), TA increased substantially in the intervention group (+0.528 ± 0.412, 39.3% increase, p < 0.0001), vs minimal change in placebo (-0.019 ± 0.279, p = 0.6035; between-group p < 0.0001). SIRT1 expression increased significantly (Δ+0.249 ± 0.535 vs +0.029 ± 0.097; p = 0.0037), while mTOR expression showed a context-dependent increase requiring mechanistic interpretation (p = 0.0004). These effects occurred independent of sustained glycemic improvement. Metformin over 24 weeks significantly elongated LTL, raised TA and upregulated SIRT1, independent of glycemic control. While demonstrating metformin's geroprotective potential in healthy Asian Indians, the marked LTL response requires cautious interpretation, and validation in larger, long-term studies is needed.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42692117/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42692117",
+        "doi": "10.1016/j.mad.2026.112241",
+        "journal": "Mechanisms of ageing and development",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.518Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "48ced1a3e585a8e1fc66",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42253437",
+      "title": "Virtual reality-based cognitive-motor training in middle-aged adults at high Alzheimer's disease risk improves frontal cortex cerebral blood flow: A randomized controlled trial.",
+      "doi": "10.1002/trc2.70265",
+      "source_title": "Virtual reality-based cognitive-motor training in middle-aged adults at high Alzheimer's disease risk improves frontal cortex cerebral blood flow: A randomized controlled trial.",
+      "abstract": "Alzheimer's disease (AD) pathological processes begin decades before symptom onset. Early intervention in high-risk populations may be crucial for prevention. We investigated the effect of an intervention utilizing virtual reality (VR) cognitive-motor training on cerebral blood flow (CBF) and cognitive functioning in middle-aged adults at high AD risk due to parental history. In this randomized controlled trial, participants ( n = 79) were randomly assigned to: VR cognitive-motor training while walking on a treadmill (VR+T, n = 24, treatment); VR cognitive training without treadmill (VR-T, n = 21, active control); treadmill walking while watching documentaries (TV+T, n = 20, active control); or no intervention ( n = 14, passive control). Training consisted of 45-min sessions, twice weekly, for 12 weeks. CBF was measured at resting state using arterial spin labeling (ASL) at baseline, 3-month, and 6-month follow-up. Cognition was assessed using a comprehensive neuropsychological battery. We applied the intent-to-treat approach. All groups improved in executive functions and memory over time (all p -values < 0.05), with no consistent between-group differences at follow-up. CBF of the VR+T group significantly increased at 3 months in the superior ( p = 0.013, middle ( p = 0.014), and inferior ( p = 0.003) frontal gyri compared to the passive control group, which showed a decline in CBF over the same period. No significant differences in frontal CBF change were observed between VR+T and the TV+T active control group. This increase was sustained for 6 months in the superior ( p = 0.035) and middle ( p = 0.028) frontal gyri. In contrast, in the middle temporal gyrus, the VR+T group had lower CBF at 3 months, compared to the VR-T ( p = 0.033) and to the passive control groups ( p = 0.004). Cognitive-motor VR training increased CBF in frontal regions susceptible to early AD-related changes in middle-aged adults at high AD risk. This intervention shows promise as a preventive approach and may be suitable for implementation as a home-based program for individuals at high risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42253437/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42253437",
+        "doi": "10.1002/trc2.70265",
+        "journal": "Alzheimer's & dementia (New York, N. Y.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.519Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "53c8d32fa78e141beeb3",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "41747400",
+      "title": "Effects of the ketogenic-caloric restricted diet on metabolic endotoxemia and metabolic health in adults with prediabetes: A randomized controlled trial.",
+      "doi": "10.1016/j.nut.2026.113119",
+      "source_title": "Effects of the ketogenic-caloric restricted diet on metabolic endotoxemia and metabolic health in adults with prediabetes: A randomized controlled trial.",
+      "abstract": "To investigate the effects of a ketogenic-caloric-restricted (KD+CR) diet on metabolic endotoxemia and related metabolic markers in adults with obesity and prediabetes. A randomized controlled trial was conducted among 90 adults with obesity and prediabetes. Participants were randomized to three groups: 1) KD+CR, 2) normal diet with caloric restriction (ND+CR), or 3) normal diet without caloric restriction (ND). Lipopolysaccharides (LPS), inflammatory biomarkers, fasting glucose, insulin, HOMA-IR, and anthropometric measures were assessed at baseline and week 12. After 12 wk, serum LPS levels were significantly higher in KD+CR group compared with ND+CR and ND (158.6 ± 6.9 versus 129.6 ± 6.6, 126.7 ± 7.0; P = 0.004). Interleukin-6 (IL-6) significantly decreased in KD+CR versus ND (2.4 ± 0.2, 3.9 ± 0.2; P = 0.004). Insulin and HOMA-IR were significantly lower in KD+CR and ND+CR than in ND (insulin: 12.0 ± 1.1, 13.9 ± 1.0, 19.3 ± 1.1; P < 0.001) (HOMA-IR: 2.9 ± 0.28, 3.2 ± 0.27, and 4.7 ± 0.29; P < 0.001). Body weight and fat mass reductions were greater in the KD+CR group than in the ND+CR and ND groups (body weight: -10.5%, -3.9%, -4.5%; P < 0.001), (body-fat mass: -21.7%, -7.7%, -9.8%; P < 0.001). A 12-wk KD+CR diet in adults with obesity and prediabetes improved inflammatory markers, insulin sensitivity, and body composition, alongside a significant increase in serum LPS levels and altered LPS-cytokine dynamics. The long-term metabolic consequences of LPS changes during prolonged ketogenic exposure warrant investigation in future studies. This trial was registered with ClinicalTrials.gov (NCT06911879).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41747400/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41747400",
+        "doi": "10.1016/j.nut.2026.113119",
+        "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.519Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d0bf9b6de45a340ce1c0",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42075146",
+      "title": "Effects of the Synbiotic Formulation EDC-HHA01 on Glucose Regulation in Adults with Type 2 Diabetes and Prediabetes: A Randomized, Placebo-Controlled Study.",
+      "doi": "10.3390/microorganisms14040749",
+      "source_title": "Effects of the Synbiotic Formulation EDC-HHA01 on Glucose Regulation in Adults with Type 2 Diabetes and Prediabetes: A Randomized, Placebo-Controlled Study.",
+      "abstract": "Microbiome-targeted interventions have shown promise for metabolic health, yet clinical evidence remains inconsistent, particularly across stages of metabolic disease. This study evaluated the metabolic effects, safety, and tolerability of EDC-HHA01, a microbiome-informed, non-pharmacologic intervention, in adults with prediabetes (PD) or Type 2 Diabetes (T2DM). In a randomized, double-blind, placebo-controlled clinical trial, participants received EDC-HHA01 or placebo for six months. The study was adequately powered (≥80%) for the primary endpoint. Outcomes included changes in glycated hemoglobin (HbA1c), indices of insulin resistance, markers of metabolic endotoxemia, safety-related laboratory parameters, and exploratory patient-reported measures. Analyses were stratified by metabolic status and background metformin use. In participants with PD, EDC-HHA01 supplementation was associated with a statistically and clinically meaningful reduction in HbA1c compared with placebo, supported by concordant improvements in fasting insulin, insulin resistance indices, and reductions in endotoxemia markers. In participants with T2DM, changes were directionally similar but attenuated and did not reach statistical significance. The intervention was well tolerated, with no serious adverse events, high adherence, and no clinically relevant adverse changes in renal or lipid parameters. Exploratory patient-reported outcomes indicated favorable acceptability but were not interpreted as efficacy endpoints. EDC-HHA01 was associated with biologically coherent, stage-dependent metabolic effects, most evident in PD. These findings support further investigation of microbiome-informed strategies as metabolic support in early-stage dysregulation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42075146/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42075146",
+        "doi": "10.3390/microorganisms14040749",
+        "journal": "Microorganisms",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.520Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cdb5c6c87c6252efc1d9",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42356257",
+      "title": "Effects of Nucleotide-Rich Kluyveromyces fragilis and Saccharomyces cerevisiae Yeast Extracts on Cognitive Function in Older Adults with Mild Cognitive Impairment: A Randomized Placebo-Controlled Trial.",
+      "doi": "10.3390/nu18121869",
+      "source_title": "Effects of Nucleotide-Rich Kluyveromyces fragilis and Saccharomyces cerevisiae Yeast Extracts on Cognitive Function in Older Adults with Mild Cognitive Impairment: A Randomized Placebo-Controlled Trial.",
+      "abstract": "Mild cognitive impairment (MCI) may precede dementia, and safe nutritional strategies able to support cognitive function are of clinical interest. Dietary nucleotides may contribute to membrane phospholipid synthesis, synaptic function, and neuroprotective pathways; however, clinical evidence in older adults with MCI remains limited. This randomized placebo-controlled trial evaluated the efficacy and tolerability of nucleotide-rich yeast extracts from Kluyveromyces fragilis and Saccharomyces cerevisiae . Seventy-two participants (mean age 73.5 ± 7.7 years; range 60-85) were randomly assigned (1:1:1) to receive K. fragilis extract, S. cerevisiae extract, or placebo once daily for 180 days. Cognitive outcomes were assessed using the Montreal Cognitive Assessment (MoCA) and Mini-Mental State Examination (MMSE) at baseline (T0), 90 days (T1), and 180 days (T2); quality of life was assessed using the SF-12 questionnaire at T0 and T2. Treatment effects were analyzed using linear mixed-effects models adjusted for age and sex. After 180 days, MoCA scores increased by 4.42 points in the K. fragilis group and 3.92 points in the S. cerevisiae group, compared with 0.58 points in the placebo group (time × treatment p < 0.001; T0-T2 within-group p < 0.001 for both active groups and p = 0.14 for placebo). MMSE scores increased by 1.62 and 3.11 points in the K. fragilis and S. cerevisiae groups, respectively, compared with 0.25 points in the placebo group (time × treatment p < 0.001; T0-T2 within-group p < 0.001 for both active groups and p = 0.57 for placebo). The SF-12 mental component score increased by 7.50 and 9.16 points in the two active groups, respectively (time × treatment p = 0.022; T0-T2 p = 0.0013 and p < 0.001, respectively), while physical quality-of-life scores did not change significantly (PCS time × treatment p = 0.11). No adverse events were reported. Nucleotide-rich K. fragilis and S. cerevisiae yeast extracts were well tolerated and were associated with improved cognitive scores over six months in older adults with MCI. Larger multicenter trials are needed to confirm these findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42356257/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42356257",
+        "doi": "10.3390/nu18121869",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.521Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0607208fb95ee6481f84",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42641106",
+      "title": "Effect of Chronic Dark Chocolate or Cocoa Intake on Cognitive Function: A Grading of Recommendations Assessment, Development, and Evaluation (GRADE)-Assessed Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.1093/nutrit/nuaf286",
+      "source_title": "Effect of Chronic Dark Chocolate or Cocoa Intake on Cognitive Function: A Grading of Recommendations Assessment, Development, and Evaluation (GRADE)-Assessed Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Cocoa and dark chocolate are abundant dietary sources of polyphenols and may improve cognitive performance. Previous studies have been controversial. In this systematic review and meta-analysis of randomized controlled trials we aimed to review the effect of regular dark chocolate or cocoa intake on cognitive function. The literature search included the Web of Science, PubMed, and Scopus databases up to January 2025. A random-effects model was used to calculate the weighted mean difference (WMD) and 95% CI. The Cochrane Collaboration criteria tool was used to evaluate the risk of bias for the included studies. The quality of evidence was assessed using the Grading of Recommendations Assessment, Development, and Evaluation (GRADE) system. Eight studies of the 16 included studies of 2847 participants found a significant effect on at least 1 of the cognitive function domains. Chronic dark chocolate or cocoa intake significantly improved results of the Trail Making Test (TMT) part A (WMD, -4.51; 95% CI, -8.41 to -0.60; P = .024) and part B (WMD, -13.1; 95% CI, -17.73 to -8.47; P < .001) and verbal fluency test (VFT) (WMD, 3.15; 95% CI, 0.71-5.6; P = .012). Subgroup analysis showed that this efficacy is greater in dosages of ≥500 mg cocoa flavanol/d and duration ≥8 weeks. The results of studies on working and verbal memory were inconsistent. Participant scores on the Mini-Mental State Examination (MMSE) did not indicate any beneficial effects of chronic dark chocolate or cocoa intake. The quality of evidence was moderate and high. Our findings suggest that chronic dark chocolate or cocoa intake has potential benefits on some dimensions of cognitive function, including executive function, attention, processing speed, language, and rote memory. PROSPERO registration No. CRD42024568294.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42641106/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42641106",
+        "doi": "10.1093/nutrit/nuaf286",
+        "journal": "Nutrition reviews",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.521Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "990b7eb1fa3631ed28a7",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42251202",
+      "title": "Time-restricted eating versus dietetic guidance on glycaemic outcomes in adults at risk of type 2 diabetes: a non-inferiority randomised clinical trial.",
+      "doi": "10.1007/s00125-026-06762-x",
+      "source_title": "Time-restricted eating versus dietetic guidance on glycaemic outcomes in adults at risk of type 2 diabetes: a non-inferiority randomised clinical trial.",
+      "abstract": "Time-restricted eating (TRE) consolidates daily energy intake to a consistent 6-10 h window. The aim was to assess whether TRE is non-inferior to individualised dietetic guidance (IDG) in changing HbA 1c at 4 months in adults at risk of type 2 diabetes. In a two-arm, parallel-group, multi-centre randomised, non-inferiority clinical trial at two Australian clinical research institutes, adults at risk of type 2 diabetes (i.e. with overweight or obesity and a score of ≥15 on the Australian type 2 diabetes risk assessment tool) were recruited. Participants were randomly assigned using an electronic system (1:1) to TRE (9 h, self-selected eating window, last eating occasion by 19:00 hours) or IDG. Staff conducting assessments and analyses were blinded to allocation; participants and dietitians were unblinded. Both groups received five personalised telehealth consultations between 0 and 3 months (3 h total), specific to their allocated group. The primary outcome was the between-group difference for change in HbA 1c at 4 months assessed via covariate linear regression using multiple imputation with a non-inferiority margin set at 1.1 mmol/mol (0.10%). Secondary outcomes were change in HbA 1c at 12 months and changes in fasting glucose, insulin, HOMA-IR and nocturnal glucose AUC. Exploratory outcomes included changes in cardiometabolic outcomes and body mass and composition. Adverse events were tracked for 12 months. One hundred and twenty four participants were randomised to TRE and 123 to IDG (mean ± SD HbA 1c : 40 ± 3 mmol/mol [5.8 ± 0.3%]). At 4 months, TRE was non-inferior but not superior to IDG for HbA 1c (mean [95% CI]: -0.22 [-0.72, 0.30] mmol/mol; -0.02 [-0.07, 0.03]%; p=0.40). At 12 months, the upper bound of the difference between groups was larger than the non-inferiority margin (0.10%) meaning that non-inferiority could no longer be concluded (mean [95% CI]: 0.47 [-0.19, 1.23] mmol/mol; 0.05 [-0.02, 0.11]%; p=0.14). However, the absolute changes in HbA 1c were small and not clinically meaningful in either group at either time point. Adverse events were minor and not different between interventions. TRE may offer a pragmatic and practical short-term alternative when access to dietetic support is limited, or if the approach is preferred by an individual. ClinicalTrials.gov; NCT04762251 FUNDING: This research was funded by the Australian Government Medical Research Future Fund (MRFF 1200555).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42251202/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study; Equivalence Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Equivalence Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42251202",
+        "doi": "10.1007/s00125-026-06762-x",
+        "journal": "Diabetologia",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.522Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "87a7fd66c5ff251c01a3",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42141362",
+      "title": "Effect of Sevelamer and B. longum on Insulin Sensitivity in Participants With Obesity: A Randomized Clinical Trial.",
+      "doi": "10.1002/oby.70224",
+      "source_title": "Effect of Sevelamer and B. longum on Insulin Sensitivity in Participants With Obesity: A Randomized Clinical Trial.",
+      "abstract": "This study evaluated whether two interventions with putative lipopolysaccharide (LPS)-lowering properties, the phosphate binder sevelamer or a synbiotic, improve insulin sensitivity in humans. We conducted a randomized, double-blind, placebo-controlled, three-arm parallel-group trial. Twenty-two lean and twenty-eight participants with obesity completed the trial. Participants were randomized to: (1) sevelamer; (2) synbiotic (oligofructose plus Bifidobacterium longum Rosell-175); or (3) placebo, three times a day for 4 weeks. The primary outcome was change in peripheral insulin sensitivity (M) assessed by hyperinsulinemic (60 mU/m 2 min) euglycemic clamp versus placebo. In participants with obesity, sevelamer improved the M (+2.176 [0.314, 4.038] mg/kg min vs. placebo; p = 0.022) and lowered LDL-C (-29.675 [-53.794, -5.556] mg/dL vs. placebo; p = 0.016). Synbiotic had no effect on insulin sensitivity or lipids in either group. No changes in markers of endotoxemia were observed with any intervention. Sevelamer increased plasma levels of metabolites linked to improved glucose and lipid metabolism, such as bile acids, amino acids (citrulline, betaine), NAD+ precursors (trigonelline), and xenobiotics (genistein, umbelliferone). Sevelamer improves insulin sensitivity and LDL-C in participants with obesity. Further investigation is warranted to elucidate sevelamer's metabolic mechanisms, potentially involving the mediation of bile acids and other host-microbiome-derived metabolites. ClinicialTrials.gov NCT02127125.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42141362/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial, Phase II",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42141362",
+        "doi": "10.1002/oby.70224",
+        "journal": "Obesity (Silver Spring, Md.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.522Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d57423ff7e1c4795010d",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42811187",
+      "title": "Oral small-molecule GLP-1 receptor agonist safiglipron in early type 2 diabetes: a randomized, double-blind, placebo-controlled trial.",
+      "doi": "10.1038/s41591-026-04651-9",
+      "source_title": "Oral small-molecule GLP-1 receptor agonist safiglipron in early type 2 diabetes: a randomized, double-blind, placebo-controlled trial.",
+      "abstract": "Safiglipron is an oral small-molecule glucagon-like peptide-1 (GLP-1) receptor agonist administered without fasting or dietary restrictions. We evaluated its efficacy and safety in OUTSTAND-1, a phase 3, multicenter, randomized, double-blind, placebo-controlled trial at 46 sites in China. We randomized 284 adults with type 2 diabetes managed with diet and exercise alone (mean baseline HbA1c 7.95%, median diabetes duration 1.6 years, 33.1% women) to once-daily safiglipron 30 mg (n = 70), 60 mg (n = 70), 90 mg (n = 72) or placebo (n = 72) for 32 weeks, followed by a 20-week active-treatment extension. For the primary endpoint, placebo-adjusted treatment differences in HbA1c change from baseline to week 32 were -1.22% (95% CI, -1.53 to -0.91), -1.20% (95% CI, -1.52 to -0.89) and -1.45% (95% CI, -1.75 to -1.14) for 30 mg, 60 mg and 90 mg, respectively (all P < 0.0001; treatment policy estimand). Secondary outcomes showed HbA1c < 7.0% in 71.4-77.8% versus 25.0%, HbA1c ≤ 6.5% in 58.6-68.1% versus 16.7% and placebo-adjusted fasting plasma glucose differences of -1.58, -1.68 and -2.08 mmol l - 1 , respectively (all P < 0.0001). Body weight differences were modest (-0.65%, -2.23% and -3.56% versus placebo). Other secondary outcomes generally favored safiglipron for HbA1c < 5.7% attainment, postprandial glycemia, homeostatic model assessment of β cell function (HOMA-β), homeostatic model assessment of insulin resistance (HOMA-IR), disposition index and waist circumference, with less rescue therapy use. Insulin and C-peptide responses varied by dose, and changes in treatment satisfaction were limited. Gastrointestinal adverse events were most common and mostly mild or moderate. Adverse events led to treatment discontinuation in 1.4%, 2.9%, 6.9% and 0% of participants receiving safiglipron 30 mg, 60 mg, 90 mg and placebo, respectively. These findings support once-daily oral safiglipron as an effective treatment option for type 2 diabetes. ClinicalTrials.gov identifier: NCT06672172 .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42811187/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42811187",
+        "doi": "10.1038/s41591-026-04651-9",
+        "journal": "Nature medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.523Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3415e78a3199984f39c8",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42063954",
+      "title": "The effect of exogenous ketone bodies on cognition across health and disease: a systematic review and meta-analysis.",
+      "doi": "10.3389/fnut.2026.1802531",
+      "source_title": "The effect of exogenous ketone bodies on cognition across health and disease: a systematic review and meta-analysis.",
+      "abstract": "Cognitive function is closely linked to brain energy metabolism and may be compromised by aging, metabolic stress, and neuropsychiatric disease. Ketone bodies can serve as an alternative cerebral fuel and may also exert signaling effects relevant to cognition. Exogenous ketones (EK) offer a practical means of increasing circulating ketone concentrations without dietary carbohydrate restriction. However, the overall effect of EK supplementation on cognitive performance in humans has not been systematically quantified. A systematic review and meta-analysis were conducted in accordance with PRISMA guidelines. PubMed, Web of Science, and Embase were searched through October 2025 for randomized controlled trials investigating the effects of EK on cognitive outcomes in healthy adults or individuals with neuropsychiatric conditions. Data extraction and quality assessment were performed independently by multiple reviewers using the PEDro scale. Standardized mean differences (SMD) were calculated using random-effects models. Subgroup and meta-regression analyses examined the influence of ketone formulation, intervention duration, dose, population type, and presence of acute cognitive stressors. 38 studies comprising 41 protocols (1,602 participants) were included in the systematic review, with 29 protocols (1,117 participants) eligible for meta-analysis. EK supplementation was associated with a statistically significant improvement in cognitive performance compared with placebo (SMD = 0.29, 95% CI 0.16-0.41; p < 0.001). Sub-group analyses did not show statistically significant differences between the type of supplementation ( p = 0.083), study duration (acute vs. intermediate; p = 0.11), population type (healthy vs. Alzheimer's disease; p = 0.077), or the presence of acute cognitive stressors ( p = 0.89). Meta-regression revealed a positive association between daily EK dose and cognitive improvement. EK supplementation is associated with modest improvements in cognitive performance across diverse populations and study designs. These findings support EK as a flexible nutritional strategy for cognitive support and warrant further investigation in well-powered, long-term trials to clarify optimal dosing, formulation, and clinical applicability. https://www.crd.york.ac.uk/PROSPERO/view/CRD42023471727, CRD42023471727.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42063954/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42063954",
+        "doi": "10.3389/fnut.2026.1802531",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.524Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2c28e6cd3c0386b02d42",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "41624204",
+      "title": "Effects of lifestyle intervention and supplementation with insoluble oat fiber on cognitive functions in patients with prediabetes: a secondary analysis of the Optimal Fiber Trial.",
+      "doi": "10.3389/fnut.2025.1699958",
+      "source_title": "Effects of lifestyle intervention and supplementation with insoluble oat fiber on cognitive functions in patients with prediabetes: a secondary analysis of the Optimal Fiber Trial.",
+      "abstract": "In cohort studies, intake of insoluble cereal fiber is associated with multiple health benefits, including preserved cognitive functions. However, evidence from intervention studies is sparse. In the Optimal Fiber Trial (OptiFiT), lifestyle changes and supplementation with oat fiber in prediabetes patients improved glycemic metabolism and body composition, which could be linked to cognitive changes. In OptiFiT, 180 patients with impaired glucose tolerance received either an insoluble fiber supplement or a placebo for 2 years in a double-blind, randomized approach, and underwent a parallel 1-year complex lifestyle intervention program. Annual visits included metabolic, anthropometric, and cognitive assessments: Mini-Mental State Examination (MMSE), Verbal Learning Memory Test (VLMT), Regensburg Word Fluency Test (RWFT), Number Connection Test (NCT), Number Recall Test (NRT), and Rey-Osterrieth Complex Figure Test (RCFT). Group-wise comparisons were conducted both globally as well as stratified by age. Cognitive functions only slightly improved-particularly in VLMT and RWFT-without major differences by group or age. At baseline, cognitive function measured by RCFT recall, VLMT, RWFT, and backwards NRT was inversely correlated with age, but not with HbA1c, fasting, or postprandial glucose levels. Beneficial effects of insoluble fiber and lifestyle intervention on glycemia might not translate into preserved cognitive capabilities in middle-to-higher aged patients with prediabetes in a 2-year intervention period. Long-term intervention studies in patients with both cognitive vulnerability and metabolic susceptibility are warranted. Such large RCTs should also corroborate putatively involved mechanisms in the epidemiologically assumed protection from cognitive decline. Clinicaltrials.gov, identifier NCT01681173.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41624204/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41624204",
+        "doi": "10.3389/fnut.2025.1699958",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.524Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0957065573bc48e7bbf3",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42406397",
+      "title": "Multifocal Noninvasive Deep Brain Stimulation to Enhance Cognition in Mild Cognitive Impairment: A Crossover Trial.",
+      "doi": "10.1001/jamanetworkopen.2026.21756",
+      "source_title": "Multifocal Noninvasive Deep Brain Stimulation to Enhance Cognition in Mild Cognitive Impairment: A Crossover Trial.",
+      "abstract": "Impairment of working memory (WM), which relies on distributed cortical and subcortical structures, including cerebello-striatal pathways, is a core contributor to functional decline in patients with mild cognitive impairment (MCI) and dementia. Because the striatum is affected early in dementia, whereas the cerebellum remains relatively preserved, the cerebellum may offer support for maintaining striatal function in neurodegenerative diseases. To evaluate whether sequential cerebellar transcranial magnetic stimulation (TMS) and striatal transcranial temporal interference stimulation (tTIS) enhances WM in patients with MCI, especially those with early striatal degeneration, like MCI with Lewy bodies (MCI-LB). This randomized, quadruple-blind, placebo-controlled, crossover trial was conducted from August 2023 to October 2024 at 1 site in Switzerland and 1 in Czech Republic. Participants included individuals with MCI-LB or amnestic MCI (aMCI) and age-matched healthy controls (HCs). Three pseudorandomized single stimulation sessions: (1) cerebellar TMS followed by striatal tTIS, (2) control TMS followed by striatal tTIS, and (3) an active control combining control TMS with control striatal tTIS. The primary outcomes were changes in accuracy and correct answer reaction times in a visual WM task with varying memory loads and distractors. Modulators included resting-state functional connectivity and gray-matter volume in WM-related regions. Linear mixed-effects models were used to examine the main effects of stimulation condition on accuracy and reaction times. Forty-one patients with MCI, including 21 with MCI-LB (16 female [76%]; mean [SD] age, 71.05 [6.84] years) and 20 with aMCI (11 female [55%]; mean [SD] age, 72.30 [7.50] years), and 20 HCs (10 female [50%]; mean [SD] age, 69.5 [4.42] years) were analyzed. In patients with MCI-LB, cerebellar TMS plus striatal tTIS increased accuracy in distractor trials compared with the active control (control TMS plus control tTIS, P < .001; d = -0.77) and striatal tTIS alone (control TMS plus striatal tTIS, P = .004; d = -0.60). Greater accuracy gains were associated with lower putaminal connectivity (r = -0.66; P = .03). In patients with aMCI, cerebellar volumes showed associations with task performance in both distractor trials (cerebellar TMS plus striatal tTIS, R2 = 0.27; P = .02) and high-load trials (control TMS plus striatal tTIS, R2 = 0.24; P = .03), and larger volumes were associated with faster responses; however, significant behavioral differences between active and control stimulation conditions were not observed. No serious adverse events occurred. Synergistic dual-target cerebellar TMS and striatal tTIS improved WM in MCI-LB, particularly in patients with lower striatal connectivity, suggesting dual-targeted neuromodulation as a potential therapeutic avenue in neurodegenerative disorders. ClinicalTrials.gov Identifier: NCT07090681.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42406397/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Recover 19 previously screened cognition, attention and metabolic-health primary PubMed candidates; one newly reserved cross-lane PMID excluded. Source identity verification only; null findings, adverse events, corrections, population limitations, and clinical interpretation require independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42406397",
+        "doi": "10.1001/jamanetworkopen.2026.21756",
+        "journal": "JAMA network open",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:56:35.525Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8a99ab0e4801fff4aad6",
+      "reserved_at": "2026-10-09T06:56:45.308Z",
+      "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
     }
   ],
   "batches": [
@@ -23579,22 +25038,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 292,
+    "total_reservations": 311,
     "by_lane": {
       "1": 5,
-      "2": 19,
+      "2": 38,
       "3": 60,
       "4": 33,
       "5": 175
     },
     "by_state": {
-      "SOURCE_VERIFIED": 292
+      "SOURCE_VERIFIED": 311
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 292,
+        "count": 311,
         "pr_number": null,
         "blocker": null
       }
