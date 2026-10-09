@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "41747400",
+    "42075146",
+    "42356257"
+  ],
+  "relevance_reason": "Human randomized studies in prediabetes, glycemic control and mild cognitive impairment; preserve null results and safety caveats for independent review."
+}
