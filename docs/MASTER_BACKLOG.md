@@ -83,7 +83,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6500 | Explain evidence-grade scope and public count denominators | A | Active — admitted | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
+| #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | A | Active — admitted | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
 
 
 
