@@ -99,7 +99,9 @@ export function buildResearchEditorialReviewHandoff(
     requests,
     heldReasons:fabric.unresolvedChannels.map(c=>({channel:c.channel,reason:c.reason}))
       .sort((a,b)=>a.channel.localeCompare(b.channel)),
-    status:requests.length||fabric.editorialQueue.length
+    // Editorial hypotheses are drafts, not accepted distribution review
+    // targets. Missing an exact target always remains an explicit hold.
+    status:requests.length
       ?'review-requests-pending':'held-no-exact-review-target',
     evidenceAuthority:'ungraded-research-intake',
     humanReviewRequired:true,
