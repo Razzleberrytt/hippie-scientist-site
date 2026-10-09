@@ -62,3 +62,12 @@ test('indexability synchronization must run on a warm cache hit', () => {
   assert.ok(sync >= 0 && divergence > sync, 'detail reconciliation must precede divergence validation')
   assert.match(build.slice(divergence, divergence + 700), /report-indexability-divergence/, 'authoritative divergence check remains enabled')
 })
+
+test('warm-cache indexability sync fails closed on governance conflict and divergent copies', () => {
+  const sync = readFileSync(new URL('../data/sync-detail-indexability.mjs', import.meta.url), 'utf8')
+  const divergence = readFileSync(new URL('report-indexability-divergence.mjs', import.meta.url), 'utf8')
+  assert.match(sync, /governanceAllows !== null && governanceAllows !== authorityPublishes/, 'conflicting governance must not be overwritten by sync')
+  assert.match(sync, /governanceConflicts \+= 1/, 'governance conflict is observable')
+  assert.match(divergence, /divergent\.length > baseline/, 'divergence must continue to fail above baseline')
+  assert.match(divergence, /process\.exit\(1\)/, 'divergence violation must remain fatal')
+})
