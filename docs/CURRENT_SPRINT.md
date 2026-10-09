@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current ownership (2026-10-09, existing-owner reconciliation #6528):** #6500 and PR #6505 completed and retired through merged PR #6527 (`2b3ac3471b8a9929e0c3e28645c64472bc8f6912`). The already-existing #6259 / PR #6260 is now registered as sole Authority/Content A review owner, normal implementation WIP **1/3**, D/R free. PR #6260 was created on 2026-10-03, before the exact 2026-10-09 control base, and must have a pre-base GitHub cross-reference verified by the Project Control gate. This is ownership only, not scientific review completion, permission to publish, CI release proof or deployment approval. Analytics outcomes remain Unknown.
+**Current ownership (2026-10-09, completion retirement #6535):** A #6259 / PR #6260 is CLOSED/MERGED (`bba24cd536f7f75e95f86c0a8ec9b27fe8442ed5`) and removed from both active tables. Normal implementation WIP returns to **0/3**, D/R/A free pending distinct scored admissions; the existing-owner transaction remains historical proof. This control-only retirement changes no clinical evidence, released medical article, revenue claim or live analytics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -98,7 +98,11 @@ GitHub issue #6500 is CLOSED, PR #6505 MERGED (`fec4d381a80a57036c50cb2d14aa31d3
 
 After retirement-only #6527 merged, authenticate a single already-open A issue/PR pair whose creation and issue timeline association predate exact base `2b3ac3471b8a9929e0c3e28645c64472bc8f6912`. This adds no newly authorized clinical claim or publication. Source verification, editorial review, exact-head CI and final merge/deploy proof remain required; numerical prioritization is subjective and outcomes Unknown.
 
-## Active / in review — implementation WIP 1/3
+### 2026-10-09 — Retire implemented gabapentinoid A owner
+
+Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9b27fe8442ed5`, after independent review-thread resolution and exact-head CI. Retirement #6535 removes only the stale active queue row; D/R/A WIP 0/3. Future content tasks require a separate governed admission. No new source, published claim, article, approval or analytics receipt is asserted by this bookkeeping correction.
+
+## Active / in review — implementation WIP 0/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -113,7 +117,6 @@ After retirement-only #6527 merged, authenticate a single already-open A issue/P
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6259 / PR #6260 | Publish gabapentinoid withdrawal and recovery Masterclass flagship | In review — existing owner | P1 | 27.0 | 2026-10-09 |
 
 
 
