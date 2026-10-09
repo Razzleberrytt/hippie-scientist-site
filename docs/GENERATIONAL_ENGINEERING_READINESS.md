@@ -4,6 +4,8 @@
 
 This is the **candidate and dependency register**, not a second execution queue. [CURRENT_SPRINT.md](CURRENT_SPRINT.md) alone authorizes admitted implementation work; facts here are snapshots and must be reconciled with GitHub CI/deployment next week.
 
+**Package interface:** [14-package machine-readable dependency and acceptance manifest](GENERATIONAL_ENGINEERING_14_PACKAGES.json), with all statuses explicitly **unadmitted / Unknown until verified**. The 25 capability candidates below remain distinct from the 14 integration work packages and the authoritative execution backlog.
+
 ## Definitions
 
 - **Existing:** an inspected implementation; not necessarily live or complete.
