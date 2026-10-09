@@ -7,11 +7,19 @@ import fs from 'node:fs'
 import {spawnSync} from 'node:child_process'
 import {pathToFileURL} from 'node:url'
 import {resolve} from 'node:path'
+import {readGithubContent} from './github-reservation-controller.mjs'
 
 const PREFIX='ops/research-intake/'
 const BRANCH_PREFIX='research/intake/'
 const VALID_PMID=/^\d{5,10}$/
 const VALID_SEED=/^lane[1-5][\w.-]*\.json$/
+
+/** Decode a GitHub contents result without ever treating missing bytes as an empty ledger. */
+export async function parsePinnedReplayJson(entry,loadBlob){
+  const decoded=await readGithubContent(entry,loadBlob)
+  try{return JSON.parse(decoded)}
+  catch(error){throw Error('Pinned replay JSON invalid: '+error.message)}
+}
 
 export function selectReplaySeed(seed,occupied=new Set()){
   if(!seed||seed.seed_only!==true)return {state:'not-pmid-seed',pmids:[]}
@@ -88,15 +96,12 @@ export async function runReplay(){
     if(!response.ok){const err=new Error('GitHub '+response.status+' '+path);err.status=response.status;throw err}
     return response.json()
   }
-  const decode=value=>Buffer.from(value.replace(/\s/g,''),'base64').toString('utf8')
   async function readJson(path,ref){
     const entry=await api('/repos/'+repo+'/contents/'+path+'?ref='+encodeURIComponent(ref))
-    if(typeof entry?.content==='string')return JSON.parse(decode(entry.content))
-    if(!/^[a-f0-9]{40}$/.test(entry?.sha||''))throw Error('Missing pinned blob identity: '+path)
-    const blob=await api('/repos/'+repo+'/git/blobs/'+entry.sha)
-    if(blob?.encoding!=='base64'||typeof blob.content!=='string')
-      throw Error('Unsupported encoded blob: '+path)
-    return JSON.parse(decode(blob.content))
+    // The Contents API sends encoding:none and an empty content string for
+    // registries above 1 MiB. Reuse the existing SHA-pinned fallback: never
+    // parse empty inline content or use a moving branch to retrieve bytes.
+    return parsePinnedReplayJson(entry,sha=>api('/repos/'+repo+'/git/blobs/'+sha))
   }
   // GitHub's repository-wide branch listing is alphabetically paginated.
   // Repositories with >500 branches otherwise never reach research/intake/.
