@@ -61,6 +61,7 @@ const NON_EDITORIAL_INFO = new Set([
   '/info/contact',
   '/info/faq',
   '/info/privacy',
+  '/info/terms',
   '/info/disclaimer',
   '/info/affiliate-disclosure',
   '/info/content-licensing',

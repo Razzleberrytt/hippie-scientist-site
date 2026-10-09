@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6",
+  "requested": 3,
+  "assigned": 3,
+  "remaining_shortages": 0,
+  "assignments": [
+    {
+      "wave": 4726,
+      "category": "gut",
+      "replacement_for_pmid": "42796963",
+      "replacement_for_title": "Morchella Polysaccharides in Oxidative Stress-Structure-Activity Relationships, Redox Signaling, and Translational Evidence.",
+      "prior_rejection_reason": "too tangential, wrong-domain, mechanistic-only, case-report-heavy, or category-mismatched for this enrichment slot",
+      "pmid": "38717445",
+      "doi": "10.1080/19490976.2024.2347715",
+      "title": "Metabolome-associated psychological comorbidities improvement in irritable bowel syndrome patients receiving a probiotic.",
+      "journal": "Gut microbes",
+      "pub_date": "2024 Jan-Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "state": "fresh_pubmed_replacement_pending_exact_verification"
+    },
+    {
+      "wave": 4728,
+      "category": "gut",
+      "replacement_for_pmid": "42794492",
+      "replacement_for_title": "Immunometabolism in Obesity-Associated Type 2 Diabetes: Molecular Mechanisms and Emerging Therapeutic Targets.",
+      "prior_rejection_reason": "too tangential, wrong-domain, mechanistic-only, case-report-heavy, or category-mismatched for this enrichment slot",
+      "pmid": "38794741",
+      "doi": "10.3390/nu16101503",
+      "title": "Effectiveness of a Balanced Nine-Strain Synbiotic in Primary-Care Irritable Bowel Syndrome Patients-A Multi-Center, Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "journal": "Nutrients",
+      "pub_date": "2024 May 16",
+      "pub_type": "Multicenter Study",
+      "state": "fresh_pubmed_replacement_pending_exact_verification"
+    },
+    {
+      "wave": 4801,
+      "category": "inflammation_pain",
+      "replacement_for_pmid": "42513202",
+      "replacement_for_title": "Palmitoylethanolamide in Human and Animal Obesity.",
+      "prior_rejection_reason": "PEA obesity review mixes human and animal evidence and is better aligned to metabolic than inflammation/pain",
+      "pmid": "39186190",
+      "doi": "10.1007/s00210-024-03369-0",
+      "title": "The analgesic effect of curcumin and nano-curcumin in clinical and preclinical studies: a systematic review and meta-analysis.",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_date": "2025 Jan",
+      "pub_type": "Systematic Review",
+      "state": "fresh_pubmed_replacement_pending_exact_verification"
+    }
+  ],
+  "unassigned": []
+}

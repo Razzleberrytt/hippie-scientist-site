@@ -201,7 +201,7 @@ jobs:
         if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:cluster-member-trust:strict
 
-      - name: Build governed Metricool publication pilot
+      - name: Build governed THS publication pilot
         run: |
           node scripts/distribution/build-research-distribution.mjs
           node scripts/distribution/build-opportunity-selection.mjs
@@ -376,9 +376,9 @@ jobs:
             if [ -f "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json" ]; then
               FORMAT="$(jq -r '.format // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json")"
               MEDIA_TYPE="$(jq -r '.mediaType // "unknown"' "$STATIC_OUTPUT_DIR/media/distribution/publisher/latest.json")"
-              echo "- governed Metricool publication media staged: yes (${FORMAT}/${MEDIA_TYPE})"
+              echo "- governed THS publication media staged: yes (${FORMAT}/${MEDIA_TYPE})"
             else
-              echo "- governed Metricool publication media staged: no"
+              echo "- governed THS publication media staged: no"
             fi
             if [ -f "$STATIC_OUTPUT_DIR/.well-known/deployment.json" ]; then
               echo "- exact deployment receipt generated: yes"

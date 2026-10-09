@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-6501-7000-semantic-repairs",
+  "replace_count": 3,
+  "replacements": [
+    {
+      "wave": 6501,
+      "original_pmid": "31461801",
+      "original_title": "Intrathecal dexmedetomidine versus magnesium sulphate for postoperative analgesia and stress response after caesarean delivery; randomized controlled double-blind study.",
+      "replacement_pmid": "29908682",
+      "replacement_title": "The effects of Melissa officinalis supplementation on depression, anxiety, stress, and sleep disorder in patients with chronic stable angina.",
+      "replacement_doi": "10.1016/j.clnesp.2018.04.015",
+      "reason": "Intrathecal anesthesia comparison is off-domain for oral/supplement anxiety evidence",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "wave": 6833,
+      "original_pmid": "41183689",
+      "original_title": "Refining capsaicin-induced pain models: A comprehensive analysis of preclinical practices and their translational potential.",
+      "replacement_pmid": "35477159",
+      "replacement_title": "The Effect of a Dispersible Curcumin (HydroCurc®) Compared to a Placebo for Reducing Joint Pain in an Adult Population - A Randomised, Double-Blind Study.",
+      "replacement_doi": "10.1159/000524689",
+      "reason": "Preclinical pain model overview fails human-intervention evidence scope",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "wave": 6932,
+      "original_pmid": "35984927",
+      "original_title": "Effects of Δ(9)-THC and Type-1 Cannabinoid Receptor Agonists in the Elevated Plus Maze Test of Anxiety: A Systematic Review and Meta-Analysis.",
+      "replacement_pmid": "38096722",
+      "replacement_title": "A systematic evidence map of the association between cannabis use and psychosis-related outcomes across the psychosis continuum: An umbrella review of systematic reviews and meta-analyses.",
+      "replacement_doi": "10.1016/j.psychres.2023.115626",
+      "reason": "Elevated-plus-maze evidence was preclinical, not human cannabinoid safety evidence",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    }
+  ],
+  "policy": "One-for-one replacements only; original PMIDs not admitted; abstracts retrieved directly from PubMed"
+}

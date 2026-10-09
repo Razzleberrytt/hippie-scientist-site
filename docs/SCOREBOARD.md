@@ -14,6 +14,23 @@
 
 **Next:** Resolve GitHub #6143 by connecting the intended GA4 property/web stream (or another explicitly approved aggregate analytics transport), configuring production without committing credentials, proving a consented tagged test receipt, and establishing read-only reporting. Then import matching-period GSC/GA4/Amazon/Mailchimp aggregates. Never commit private analytics credentials or person-level data.
 
+## Additive P0 engineering-throughput scoreboard (2026-10-09)
+
+This section measures the new build/CI acceleration track **in addition** to the existing P0 evidence/distribution and business metrics. It does not declare the existing milestones complete. Baseline measurement is an execution deliverable, not an assumed success.
+
+| Metric | Definition / measurement method | Baseline | Follow-up proof |
+|---|---|---|---|
+| Median / p90 PR time-to-green | Open/update of final source SHA to all required checks terminal-green, segmented by changed-path/risk tier | Unknown | Exact PR and run IDs, compare like-for-like tier |
+| End-to-end delivery lead time | Ticket admitted to successful exact-main production receipt | Unknown | Controller merge and deployment receipt |
+| CI critical path | Trigger-to-final-required-check elapsed time excluding nonblocking background jobs | Unknown | Per-job start/end plus dependency DAG |
+| Redundant workflow/job executions | Duplicate trigger paths and identical-equivalence work on one source SHA | Unknown | Trigger-graph map and run URLs |
+| GitHub Actions minutes per safely delivered capability | Billable/runner minutes per merged and receipt-verified cohesive batch | Unknown | Usage and merged delivery receipt |
+| Static export data/build duration | Timed clean versus warm keyed-cache builds on matched inputs | Unknown | Build log stages, output hashes and cold-cache parity |
+| Cache correctness | Number of stale/corrupt/changed-input reuse violations | Unknown | Negative fixtures and exact artifact identity |
+| Release safety regressions | Escaped build, scientific, security, accessibility, SEO or deployment failures | Unknown | Confirmed incidents and rollbacks |
+
+**Existing implementation:** #6507 / PR #6509 offers optional preflight and owner-retirement proposal tooling, but has not established observed acceleration by its existence. Record before/after only from actual runs, including failed and canceled runs; never count a missing receipt as a success or zero.
+
 ## Search
 
 | Metric | Definition | Current value | Source | Period | Owner | Next measurement action | Interpretation notes |

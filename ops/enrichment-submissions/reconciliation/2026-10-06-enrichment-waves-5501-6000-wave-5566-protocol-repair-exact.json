@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000",
+  "row_count": 1,
+  "rows": [
+    {
+      "wave": 5566,
+      "category": "withdrawal_nps",
+      "old_pmid": "42721136",
+      "old_title": "Vanderbilt Integrated Community TMS for Opioid Recovery (VICTORY): Study protocol for a randomized, controlled trial of non-invasive brain stimulation to reduce craving in people with opioid use disorder.",
+      "pmid": "42726212",
+      "doi": "10.1007/s00414-026-04007-5",
+      "title": "Fentanyl in forensic autopsies: Trends, circumstances, and toxicological findings.",
+      "journal": "International journal of legal medicine",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "abstract": "Postmortem fentanyl detection in medicolegal autopsy cases presents a fundamental interpretive challenge: detection does not inherently indicate non-medical use or causal involvement in death. Systematic frameworks for contextualizing fentanyl findings remain underutilized in forensic practice, particularly in settings with limited antemortem documentation. All medicolegal autopsy cases with postmortem fentanyl detection between January 2019 and December 2024 at a high-volume metropolitan forensic autopsy institution were retrospectively analyzed. A structured three-tier exposure context classification (consistent with therapeutic indication, non-medical use, or indeterminate) was applied using routinely available autopsy variables including co-detected substances, clinical intervention markers, incident type, and external examination findings. Among 842 fentanyl-positive cases, 731 (86.8%) were classified as consistent with therapeutic indication, 68 (8.1%) as non-medical use, and 43 (5.1%) as indeterminate. Annual case numbers increased 87.3% over the study period. Cases meeting combined classical forensic criteria showed 90.5% non-medical classification. Non-medical decedents were markedly younger (mean 32.4 vs. 45.0 years) and more predominantly male (82.4% vs. 76.3%). Amphetamine-type stimulants predominated among co-detected illicit substances; opioid-on-opioid co-detection was rare. Tattoo presence and self-inflicted scarring were significantly more frequent in the non-medical group (p < 0.001). A structured, variable-based classification framework can meaningfully stratify postmortem fentanyl cases by exposure context using routinely available autopsy data. Systematic contextual assessment should be a standard component of medicolegal fentanyl investigation across diverse forensic settings.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "verified_title": "Fentanyl in forensic autopsies: Trends, circumstances, and toxicological findings.",
+      "verified_journal": "International journal of legal medicine",
+      "verified_pub_date": "2026-Sep-11",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6212520/",
+      "pdf_link": "https://doi.org/10.1007/s00414-026-04007-5",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}

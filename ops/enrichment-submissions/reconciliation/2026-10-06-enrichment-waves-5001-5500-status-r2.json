@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "state": "final_exact_verified_relevance_repaired_collision_free",
+  "range": {
+    "first_wave": 5001,
+    "last_wave": 5500,
+    "row_count": 500
+  },
+  "prior_unique_pmids": 4935,
+  "new_unique_pmids": 500,
+  "cumulative_unique_pmids": 5435,
+  "exact_title_verified": 500,
+  "non_null_abstracts": 500,
+  "duplicate_pmids": 0,
+  "duplicate_normalized_dois": 0,
+  "duplicate_normalized_titles": 0,
+  "prior_pmid_collisions": 0,
+  "objective_hard_off_domain_title_hits": 0,
+  "replacements_total": 35,
+  "relevance_quality_replacements": 22,
+  "upstream_collision_replacements": 13,
+  "retry_recoveries": 14,
+  "research_only": true,
+  "runtime_publication": false,
+  "recommendation_promotion": false,
+  "dosing_inference": false,
+  "authoritative_artifacts": {
+    "final_consolidated": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5001-5500-final-consolidated-r2.json",
+    "final_audit": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5001-5500-final-audit-r2.json",
+    "cumulative_pmid_index": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5001-5500-pmid-index-r2.json"
+  }
+}

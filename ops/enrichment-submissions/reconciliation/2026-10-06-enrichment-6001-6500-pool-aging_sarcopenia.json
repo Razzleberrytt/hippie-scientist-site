@@ -1,0 +1,1059 @@
+{
+  "schema_version": 1,
+  "category": "aging_sarcopenia",
+  "target": 35,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 105,
+  "rows": [
+    {
+      "pmid": "42835593",
+      "title": "Oxidative aging of plant protein-stabilized emulsions and its impact on carotenoid bioaccessibility.",
+      "doi": "10.1016/j.fochx.2026.104513",
+      "pub_date": "2026 Oct",
+      "journal": "Food chemistry: X",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804542",
+      "title": "Using iPALM to determine protein organisation in cardiac muscle Z-discs.",
+      "doi": "10.1371/journal.pcbi.1014309",
+      "pub_date": "2026 Sep",
+      "journal": "PLoS computational biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42815575",
+      "title": "Electroacupuncture Alleviates Functional Constipation by Activating HSF1-Dependent Mitochondrial Unfolded Protein Response in Colonic Smooth Muscle Cells.",
+      "doi": "10.1016/j.jcmgh.2026.101913",
+      "pub_date": "2026 Sep 30",
+      "journal": "Cellular and molecular gastroenterology and hepatology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42816597",
+      "title": "FBXL21 regulates diurnal proteostasis in skeletal muscle by targeting DNAJB6 and client proteins.",
+      "doi": "10.1038/s44319-026-00922-1",
+      "pub_date": "2026 Sep 30",
+      "journal": "EMBO reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817627",
+      "title": "Caenorhabditis elegans small heat-shock protein HSP-12.6 has a highly specialized protective function towards muscle thick filaments in vivo.",
+      "doi": "10.1098/rstb.2025.0362",
+      "pub_date": "2026 Oct 1",
+      "journal": "Philosophical transactions of the Royal Society of London. Series B, Biological sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818424",
+      "title": "Circulating Proteins as Predictors of Improvement in Physical Function in Hospitalized Older Adults with Geriatric Syndromes: Findings from the REHAB-HF Trial.",
+      "doi": "10.64898/2026.09.22.26363692",
+      "pub_date": "2026 Sep 23",
+      "journal": "medRxiv : the preprint server for health sciences",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831952",
+      "title": "Polydeoxyribonucleotide attenuates dexamethasone-induced skeletal muscle atrophy by suppressing oxidative stress and regulating muscle protein turnover.",
+      "doi": "10.1007/s10974-026-09740-3",
+      "pub_date": "2026 Oct 5",
+      "journal": "Journal of muscle research and cell motility",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817640",
+      "title": "Proteostasis and ageing dissidence.",
+      "doi": "10.1098/rstb.2025.0266",
+      "pub_date": "2026 Oct 1",
+      "journal": "Philosophical transactions of the Royal Society of London. Series B, Biological sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830599",
+      "title": "Cardiac nanomedicine for ischemic injury and remodeling: imaging and therapy.",
+      "doi": "10.1080/17435889.2026.2742413",
+      "pub_date": "2026 Oct 4",
+      "journal": "Nanomedicine (London, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796971",
+      "title": "The C-Reactive Protein/Albumin Ratio Predicts In-Hospital Mortality Across Age Groups.",
+      "doi": "10.3390/nu18182988",
+      "pub_date": "2026 Sep 12",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798390",
+      "title": "Spatiotemporal Dynamics of Protein Recruitment During Cell Wound Repair.",
+      "doi": "10.64898/2026.08.14.744976",
+      "pub_date": "2026 Aug 17",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798544",
+      "title": "Prevalence and non-invasive predictive models of vitamin D insufficiency in Paraguayan youth: the role of body composition and traditional mate consumption.",
+      "doi": "10.3389/fnut.2026.1953400",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798874",
+      "title": "Unbiased bioinformatic and clinical analysis identifies glial fibrillary acidic protein as a potential biomarker in spinal muscular atrophy.",
+      "doi": "10.1093/braincomms/fcag350",
+      "pub_date": "2026",
+      "journal": "Brain communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801622",
+      "title": "Salvianolic Acid a Disrupts the HSP90α-AKT-PERK Ternary Complex to Alleviate Atherosclerosis by Activating Endoplasmic Reticulum Stress of Senescent Vascular Smooth Muscle Cells.",
+      "doi": "10.1002/advs.77891",
+      "pub_date": "2026 Sep 27",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42802374",
+      "title": "Nutrient-rich algal innovation: exploring the amino acid profile, flavor, antioxidant, immunomodulatory, and cytotoxic properties of Chara corallina protein sauce powder.",
+      "doi": "10.1002/jsfa.71118",
+      "pub_date": "2026 Sep 27",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805084",
+      "title": "Visible/near infrared spectroscopy in muscle beef analysis: How device choice and sampling affect prediction accuracy.",
+      "doi": "10.1016/j.meatsci.2026.110228",
+      "pub_date": "2026 Sep 22",
+      "journal": "Meat science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805315",
+      "title": "β(2)-Adenoceptor activity antagonises vasoconstrictor-mediated vascular smooth muscle migration via an EPAC-, GRK5- and arrestin3-dependent mechanism.",
+      "doi": "10.1016/j.bcp.2026.118509",
+      "pub_date": "2026 Sep 28",
+      "journal": "Biochemical pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805496",
+      "title": "Butyrate-producing gut microbiota modifies the association between dietary protein density and functional recovery after stroke.",
+      "doi": "10.1016/j.clnesp.2026.105120",
+      "pub_date": "2026 Sep 28",
+      "journal": "Clinical nutrition ESPEN",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806170",
+      "title": "Impact of orthogeriatric care: prescription patterns in hospitalized older adults.",
+      "doi": "10.1007/s00198-026-08244-7",
+      "pub_date": "2026 Sep 28",
+      "journal": "Osteoporosis international : a journal established as result of cooperation between the European Foundation for Osteoporosis and the National Osteoporosis Foundation of the USA",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807167",
+      "title": "Nutritional risk versus established malnutrition in older adults: metabolic considerations for the association with depression.",
+      "doi": "10.1007/s40200-026-02077-1",
+      "pub_date": "2026 Dec",
+      "journal": "Journal of diabetes and metabolic disorders",
+      "pub_type": "Letter",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811194",
+      "title": "TSPO PET selectively detects the denervated skeletal muscle district remodeling after experimental peripheral nerve injury.",
+      "doi": "10.1186/s13550-026-01497-7",
+      "pub_date": "2026 Sep 3",
+      "journal": "EJNMMI research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812197",
+      "title": "Transcriptomics-based analysis of muscle injury mechanism mediated by inflammatory imbalance in the Duchenne muscular dystrophy muscle microenvironment.",
+      "doi": "10.3389/fneur.2026.1905030",
+      "pub_date": "2026",
+      "journal": "Frontiers in neurology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813050",
+      "title": "Protein and Amino Acid Supplementation in Military Personnel: Accessibility, Prevalence, and Effectiveness.",
+      "doi": "10.1097/nt.0000000000000807",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Nutrition today",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818267",
+      "title": "ULK1 and ULK2 Restrain Skeletal Myofiber Growth by Balancing Protein Synthesis and Degradation.",
+      "doi": "10.64898/2026.09.06.749722",
+      "pub_date": "2026 Sep 10",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818343",
+      "title": "Translation fidelity mechanisms and their changes in aging.",
+      "doi": "10.64898/2026.09.24.754133",
+      "pub_date": "2026 Sep 25",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818389",
+      "title": "DEPP1 connects nutrient and oxygen availability to maintenance of muscle mass.",
+      "doi": "10.64898/2026.09.21.753276",
+      "pub_date": "2026 Sep 27",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818609",
+      "title": "Redundant YAP and TAZ functions are essential for skeletal muscle regeneration.",
+      "doi": "10.64898/2026.09.04.749462",
+      "pub_date": "2026 Sep 7",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42818747",
+      "title": "A SUN1-ApoD feedback loop promotes cellular aging via microtubule-nuclear mechanotransduction.",
+      "doi": "10.64898/2026.09.08.750279",
+      "pub_date": "2026 Sep 10",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42820359",
+      "title": "Mediating Effect of Protein Intake on the Association Between Number of Remaining Teeth and Functional Decline.",
+      "doi": "10.1111/ger.70127",
+      "pub_date": "2026 Oct 1",
+      "journal": "Gerodontology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42821566",
+      "title": "Disease-first public-data integration with local virtual knockout prioritizes shared proteins linking osteoarthritis and osteoporosis.",
+      "doi": "10.1371/journal.pone.0359583",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42822349",
+      "title": "IGF2BP1 regulates chicken skeletal muscle development through an m6A-dependent inter-organ regulatory axis.",
+      "doi": "10.1016/j.psj.2026.107856",
+      "pub_date": "2026 Sep 28",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42823846",
+      "title": "Multimodal Ageing Biomarkers and Plasma Proteomic Signatures Associated With All-Cause Mortality.",
+      "doi": "10.1111/acel.70747",
+      "pub_date": "2026 Oct",
+      "journal": "Aging cell",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42823972",
+      "title": "Myogenic differentiation-derived small extracellular vesicles as a therapeutic strategy for miR-193b-3p-mediated muscle regeneration.",
+      "doi": "10.1016/j.omtn.2026.103087",
+      "pub_date": "2026 Dec 8",
+      "journal": "Molecular therapy. Nucleic acids",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826493",
+      "title": "Muscle biopsy to end a diagnostic odyssey in a genetically complex case of spinal muscular atrophy type 3: the importance of \"old school\" in the next-generation sequencing era.",
+      "doi": "10.1016/j.ejpn.2026.09.009",
+      "pub_date": "2026 Sep 29",
+      "journal": "European journal of paediatric neurology : EJPN : official journal of the European Paediatric Neurology Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42827393",
+      "title": "Age-specific genomic and transcriptomic variation reveals limited evidence for cis-regulatory interactions modulating aging in Saccharomyces cerevisiae.",
+      "doi": "10.1093/g3journal/jkag276",
+      "pub_date": "2026 Oct 3",
+      "journal": "G3 (Bethesda, Md.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828076",
+      "title": "Modulation of NF-κB, MMP-1, and HAase by Coriandrum sativum Seed Extract in UV-Induced Skin Aging Model.",
+      "doi": "10.18502/ajmb.v18i3.22240",
+      "pub_date": "2026 Jul-Sep",
+      "journal": "Avicenna journal of medical biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828960",
+      "title": "Thermal pretreatment-assisted dual-enzyme hydrolysis of steamed skipjack tuna dark muscle for safety-controlled bioactive hydrolysate production.",
+      "doi": "10.1016/j.foodchem.2026.151375",
+      "pub_date": "2026 Oct 1",
+      "journal": "Food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830164",
+      "title": "Histone lactylation-upregulated CEBPB transcriptionally activates CXCL12 and p21 to modulate vascular smooth muscle cell senescence and macrophage polarization.",
+      "doi": "10.1016/j.cellsig.2026.112928",
+      "pub_date": "2026 Oct 4",
+      "journal": "Cellular signalling",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834177",
+      "title": "Decline of chaperone-mediated autophagy in aging impairs macrophage clearance of senescent cells.",
+      "doi": "10.1038/s43587-026-01240-w",
+      "pub_date": "2026 Oct 5",
+      "journal": "Nature aging",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836490",
+      "title": "Dietary OPL-rich structured lipid modulates the nutritional characteristics of developing muscle and is associated with lipid and amino acid metabolic changes in juvenile largemouth bass.",
+      "doi": "10.1039/d6fo03390c",
+      "pub_date": "2026 Oct 6",
+      "journal": "Food & function",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836745",
+      "title": "Electrical Pulse Stimulation Partially Restores Insulin Signaling in Palmitate-Induced Insulin-Resistant Skeletal Muscle Cells via Mitochondrial Remodeling and Contractile Activity-Dependent Secretome.",
+      "doi": "10.1002/jcp.70240",
+      "pub_date": "2026 Oct",
+      "journal": "Journal of cellular physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837064",
+      "title": "A Live-Cell Imaging System for the Identification of Pro- and Anti-Aggregatory α-Synuclein Modulators.",
+      "doi": "10.1007/s12035-026-06248-2",
+      "pub_date": "2026 Oct 6",
+      "journal": "Molecular neurobiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837281",
+      "title": "Nutritional composition of plant-based meat alternatives and modeled implications for adult nutrient intake: a comparative analysis with conventional meats and traditional plant proteins.",
+      "doi": "10.1080/10408398.2026.2742119",
+      "pub_date": "2026 Oct 6",
+      "journal": "Critical reviews in food science and nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837305",
+      "title": "A Unique Case of Granulomatosis with Polyangiitis Presenting with Proximal Muscle Weakness.",
+      "doi": "10.1093/mrcr/rxag095",
+      "pub_date": "2026 Oct 6",
+      "journal": "Modern rheumatology case reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837457",
+      "title": "Titin extension explains residual force enhancement in skeletal muscle.",
+      "doi": "10.1073/pnas.2534671123",
+      "pub_date": "2026 Oct 13",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810719",
+      "title": "Autoantibody Profiles of Immune Checkpoint Inhibitor-Associated Myasthenia and Myositis.",
+      "doi": "10.1177/10732748261493412",
+      "pub_date": "2026 Jan-Dec",
+      "journal": "Cancer control : journal of the Moffitt Cancer Center",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796473",
+      "title": "Mollusk-Derived Peptides at the Food-Pharma Interface: Bioactivities, Preclinical Evidence, and Development Prospects.",
+      "doi": "10.3390/molecules31183186",
+      "pub_date": "2026 Sep 10",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797057",
+      "title": "Adipose Tissue Expandability as a Link Between Nutrition and Obesity-Related Metabolic Risk: Insights from Bariatric Surgery.",
+      "doi": "10.3390/nu18183075",
+      "pub_date": "2026 Sep 20",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797299",
+      "title": "Pharmaceutical Strategies for Translating Klotho-Based Therapeutics: From Biologic Developability to Advanced Delivery Systems.",
+      "doi": "10.3390/pharmaceutics18091124",
+      "pub_date": "2026 Sep 7",
+      "journal": "Pharmaceutics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798439",
+      "title": "Mitochondrial Ca(2+) homeostasis in ovarian function and oocyte competence: from molecular transporters to early embryonic development.",
+      "doi": "10.3389/fcell.2026.1963467",
+      "pub_date": "2026",
+      "journal": "Frontiers in cell and developmental biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800503",
+      "title": "Exercise-driven neuromuscular junction plasticity: integrating motor-neuron adaptation, synaptic remodeling, and glial support.",
+      "doi": "10.1016/j.neuroscience.2026.09.037",
+      "pub_date": "2026 Sep 26",
+      "journal": "Neuroscience",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801316",
+      "title": "Dendrobium Polysaccharides in Alcoholic Beverage Matrices Structure Stability Functionality and Processing Strategies.",
+      "doi": "10.1111/1750-3841.71510",
+      "pub_date": "2026 Sep",
+      "journal": "Journal of food science",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42802134",
+      "title": "Renin-Angiotensin Signaling and Vascular Function: Insights into Health and Disease.",
+      "doi": "10.1111/apha.70321",
+      "pub_date": "2026 Nov",
+      "journal": "Acta physiologica (Oxford, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804113",
+      "title": "Troponin: biology, molecular mechanisms, and multidimensional clinical applications.",
+      "doi": "10.1186/s43556-026-00597-z",
+      "pub_date": "2026 Sep 28",
+      "journal": "Molecular biomedicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804978",
+      "title": "Phosphoinositide-dependent signaling in arteriovenous fistula remodeling and failure: From pathophysiology to emerging therapeutic targets.",
+      "doi": "10.1016/j.jbior.2026.101182",
+      "pub_date": "2026 Sep 16",
+      "journal": "Advances in biological regulation",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807701",
+      "title": "Therapeutic advances in spinal muscular atrophy: a review of clinical, safety, and economic considerations.",
+      "doi": "10.3389/fphar.2026.1793581",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809990",
+      "title": "Transforming growth factor-β3 in primate tissue induction: Heterotopic osteogenesis, periodontal cementogenesis and the limits of clinical translation; A personal historical perspective.",
+      "doi": "10.1016/j.bioadv.2026.215176",
+      "pub_date": "2026 Sep 15",
+      "journal": "Biomaterials advances",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810631",
+      "title": "Meteorin-like (Metrnl): An emerging target linking metabolism, immunity, and tissue homeostasis.",
+      "doi": "10.1016/j.phrs.2026.109647",
+      "pub_date": "2026 Sep 29",
+      "journal": "Pharmacological research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812893",
+      "title": "Mitohormesis linking metabolic dysfunction and neurodegeneration: implications for dementia and therapeutic strategies.",
+      "doi": "10.3389/fnmol.2026.1892506",
+      "pub_date": "2026",
+      "journal": "Frontiers in molecular neuroscience",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814033",
+      "title": "The Underexplored Mechanobiology of Lamin A Biogenesis and Homeostasis.",
+      "doi": "10.1111/boc.70080",
+      "pub_date": "2026 Oct",
+      "journal": "Biology of the cell",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814369",
+      "title": "Management of Multiple Sclerosis: Incorporating Recent Advances in Pathophysiology and Diagnosis to Guide Treatment Strategies.",
+      "doi": "10.1007/s40265-026-02391-1",
+      "pub_date": "2026 Sep 30",
+      "journal": "Drugs",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817630",
+      "title": "From aggregate structure to disease trajectory: the role of the proteostasis network.",
+      "doi": "10.1098/rstb.2025.0276",
+      "pub_date": "2026 Oct 1",
+      "journal": "Philosophical transactions of the Royal Society of London. Series B, Biological sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817631",
+      "title": "More than the 'master regulator of cytosolic proteostasis': new roles for HSF1 in promoting tissue health.",
+      "doi": "10.1098/rstb.2025.0270",
+      "pub_date": "2026 Oct 1",
+      "journal": "Philosophical transactions of the Royal Society of London. Series B, Biological sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817633",
+      "title": "Proteostasis (in)action: the role of co-pathologies in neurodegenerative disease.",
+      "doi": "10.1098/rstb.2025.0273",
+      "pub_date": "2026 Oct 1",
+      "journal": "Philosophical transactions of the Royal Society of London. Series B, Biological sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817634",
+      "title": "Cellular and systemic modifiers of alpha-synuclein proteostasis.",
+      "doi": "10.1098/rstb.2025.0275",
+      "pub_date": "2026 Oct 1",
+      "journal": "Philosophical transactions of the Royal Society of London. Series B, Biological sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42826779",
+      "title": "Antifreeze polysaccharides as natural cryoprotectants for frozen meat and seafood products: Mechanisms, evaluation methods, and future prospects.",
+      "doi": "10.1016/j.ijbiomac.2026.154700",
+      "pub_date": "2026 Oct 2",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830509",
+      "title": "Recent developments in microsampling for oligonucleotides and biologics bioanalysis.",
+      "doi": "10.1080/17576180.2026.2739128",
+      "pub_date": "2026 Aug-Aug",
+      "journal": "Bioanalysis",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831987",
+      "title": "Electroacupuncture Targeting the NLRP3 Inflammasome in Senescence‑associated Cognitive Impairment: Mechanistic Synthesis and Meta‑analysis of Clinical Randomized Controlled Trials.",
+      "doi": "10.1007/s11064-026-04901-9",
+      "pub_date": "2026 Oct 5",
+      "journal": "Neurochemical research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835465",
+      "title": "Exploring the role of infectious pathogens in Alzheimer's disease neuroinflammation.",
+      "doi": "10.3389/fcimb.2026.1919289",
+      "pub_date": "2026",
+      "journal": "Frontiers in cellular and infection microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835648",
+      "title": "Engineered Source-Specific Extracellular Vesicles for Neurodegenerative Diseases: From Biological Barriers to Targeted Delivery Strategies.",
+      "doi": "10.2147/IJN.S636187",
+      "pub_date": "2026",
+      "journal": "International journal of nanomedicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42835684",
+      "title": "Targeting lipocalin-2 in atherosclerosis: biological functions, pathogenic mechanisms, and therapeutic potential.",
+      "doi": "10.3389/fcvm.2026.1927210",
+      "pub_date": "2026",
+      "journal": "Frontiers in cardiovascular medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797422",
+      "title": "Ginsenoside Compound K Differentially Regulates Neuronal and Astrocytic Ca(2+) Homeostasis Under Trimethyltin-Induced Stress.",
+      "doi": "10.3390/ph19091376",
+      "pub_date": "2026 Aug 31",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797494",
+      "title": "Aqueous Extract of Buddleja globosa Modulates Oxidative Stress-Induced Senescence-Associated Responses in THP-1-Derived Macrophages.",
+      "doi": "10.3390/ph19091447",
+      "pub_date": "2026 Sep 12",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798389",
+      "title": "Inflammatory phenotypes after total knee arthroplasty: a testable framework for biomarker-stratified enhanced recovery and precision rehabilitation.",
+      "doi": "10.3389/fmed.2026.1938901",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42799703",
+      "title": "MEF2C promoter variants in patent ductus arteriosus: a genetic and functional study.",
+      "doi": "10.1093/hmg/ddag097",
+      "pub_date": "2026 Sep 25",
+      "journal": "Human molecular genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800297",
+      "title": "Methionine-balanced diets modulate the fatty acid profile of beef.",
+      "doi": "10.1016/j.meatsci.2026.110230",
+      "pub_date": "2026 Sep 24",
+      "journal": "Meat science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800452",
+      "title": "Integrated multi-tissue transcriptomic analysis identifies hub genes associated with egg production recovery after fasting-induced molting.",
+      "doi": "10.1016/j.psj.2026.107779",
+      "pub_date": "2026 Sep 15",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800465",
+      "title": "A CotB1p-mediated one-step immobilization strategy for constructing GPCR affinity chromatography to screen multi-target natural product ligands.",
+      "doi": "10.1016/j.jpba.2026.117730",
+      "pub_date": "2026 Sep 17",
+      "journal": "Journal of pharmaceutical and biomedical analysis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800547",
+      "title": "Myocardial senescence as a mechanistic endpoint of arsenic cardiotoxicity: Cysteine-associated p53/p21 activation and reversal by quercetin.",
+      "doi": "10.1016/j.taap.2026.118050",
+      "pub_date": "2026 Sep 26",
+      "journal": "Toxicology and applied pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800952",
+      "title": "Systems-Level in Silico Bioinformatic Profiling Identifies Key Hub Genes and Potential Therapeutic Targets in Atrial Fibrillation without Overt Comorbidity.",
+      "doi": "10.18502/jthc.v21i1.21282",
+      "pub_date": "2026",
+      "journal": "Research in heart yield and translational medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801039",
+      "title": "Anti-MDA5 Dermatomyositis Presenting With Lupus-Like Mucocutaneous Features and Inflammatory Arthritis: A Case Report.",
+      "doi": "10.1155/crii/7236906",
+      "pub_date": "2026",
+      "journal": "Case reports in immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801324",
+      "title": "MST1 inhibition mitigates fat deposition in rotator cuff tears by modulating the WNT/β-catenin pathway.",
+      "doi": "10.1080/03008207.2026.2731155",
+      "pub_date": "2026 Sep 27",
+      "journal": "Connective tissue research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801417",
+      "title": "Distinct associations of life-course body composition with incident Sjögren disease: a prospective cohort study in the UK Biobank.",
+      "doi": "10.1007/s10067-026-08439-7",
+      "pub_date": "2026 Sep 27",
+      "journal": "Clinical rheumatology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801440",
+      "title": "Promoter-Targeted CRISPR Correction of PMP22 Gene Dosage Restores Schwann Cell Homeostasis in Charcot-Marie-Tooth Disease Type 1A.",
+      "doi": "10.1007/s13770-026-00837-x",
+      "pub_date": "2026 Sep 27",
+      "journal": "Tissue engineering and regenerative medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801446",
+      "title": "Targeting RUNX3 alleviates abdominal aortic aneurysm by ameliorating oxidative stress via mitophagy.",
+      "doi": "10.1007/s11239-026-03399-w",
+      "pub_date": "2026 Sep 27",
+      "journal": "Journal of thrombosis and thrombolysis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42802280",
+      "title": "The role of leukocyte p38 MAP kinase in immune-mediated peripheral polyneuropathies: distinct modulation by intravenous immunoglobulins.",
+      "doi": "10.1007/s00415-026-14106-3",
+      "pub_date": "2026 Sep 27",
+      "journal": "Journal of neurology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42802286",
+      "title": "PP4 deficiency drives airway epithelial senescence via the PERK-eIF2α-ATF4-p21 axis in severe asthma.",
+      "doi": "10.1007/s00011-026-02378-4",
+      "pub_date": "2026 Sep 27",
+      "journal": "Inflammation research : official journal of the European Histamine Research Society ... [et al.]",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42802678",
+      "title": "Ultrasound-Responsive Hydrogels for Accelerated Wound Healing through Programmable Microenvironment Modulation.",
+      "doi": "10.1021/acsabm.6c01430",
+      "pub_date": "2026 Sep 28",
+      "journal": "ACS applied bio materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42803209",
+      "title": "Real-world safety of concomitant colchicine and statin therapy.",
+      "doi": "10.1002/acr.80172",
+      "pub_date": "2026 Sep 28",
+      "journal": "Arthritis care & research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42804691",
+      "title": "Higher Workload, not Hypoxia, Enhances Acute Mitochondrial Respiratory Responses to High-Intensity Interval Exercise in Men with Overweight or Obesity.",
+      "doi": "10.1249/MSS.0000000000004158",
+      "pub_date": "2026 Sep 28",
+      "journal": "Medicine and science in sports and exercise",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806296",
+      "title": "FBLN1 Regulates Embryonic Myoblast Proliferation and Differentiation in Geese: Functional Characterization of a Meat Quality-Associated Candidate Gene From Prior Multi-Omics Screening.",
+      "doi": "10.1002/age.70214",
+      "pub_date": "2026 Oct",
+      "journal": "Animal genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806811",
+      "title": "Krüppel-like factors regulate lipid homeostasis to modulate SKN-1/Nrf activity, oxidative stress resistance and longevity.",
+      "doi": "10.1093/genetics/iyag255",
+      "pub_date": "2026 Sep 29",
+      "journal": "Genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42806980",
+      "title": "Factors associated with intracapsular versus extracapsular hip fracture patterns in elderly patients following low-energy falls: a retrospective analysis from a single tertiary-care center in China.",
+      "doi": "10.3389/fmed.2026.1753069",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807290",
+      "title": "Molecular confirmation of transfusion-transmitted dengue virus infection following platelet transfusion in the Chinese mainland.",
+      "doi": "10.3389/fcimb.2026.1920581",
+      "pub_date": "2026",
+      "journal": "Frontiers in cellular and infection microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807664",
+      "title": "Effects of compound Chinese herbal microecological preparations on growth performance, meat quality and rumen microflora of Simmental cattle.",
+      "doi": "10.3389/fgene.2026.1931836",
+      "pub_date": "2026",
+      "journal": "Frontiers in genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808129",
+      "title": "Engineering of a wireless single capacitive discharge conductivity-clamped gene electrotransfer probe for naked nucleic acid therapeutics.",
+      "doi": "10.1063/5.0343508",
+      "pub_date": "2026 Dec",
+      "journal": "APL bioengineering",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42808587",
+      "title": "Single-Cell Transcriptomics Reveals the Immune Pathogenesis of Isolated Coronary Arteritis Presenting as Refractory In-Stent Restenosis.",
+      "doi": "10.1016/j.jacbts.2026.101639",
+      "pub_date": "2026 Sep",
+      "journal": "JACC. Basic to translational science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809144",
+      "title": "Rapid and reliable molecular diagnosis of oculopharyngeal muscular dystrophy: a cost-effective alternative for PABPN1 gene (GCN)n repeat analysis.",
+      "doi": "10.1007/s13353-026-01115-1",
+      "pub_date": "2026 Sep 29",
+      "journal": "Journal of applied genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810392",
+      "title": "Direct Pharmacological Activation of AMPK Extends Lifespan in Yeast, Worms and Flies.",
+      "doi": "10.1111/acel.70721",
+      "pub_date": "2026 Oct",
+      "journal": "Aging cell",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810481",
+      "title": "Flowable and microporous granular grafts made from decellularized extracellular matrix microgels for tissue repair.",
+      "doi": "10.1016/j.actbio.2026.09.047",
+      "pub_date": "2026 Sep 29",
+      "journal": "Acta biomaterialia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42810487",
+      "title": "Natural periocular infection by Kudoa bora in Osteomugil perusii: a case study with transcriptomic evidence of immune suppression and impaired visual pathways.",
+      "doi": "10.1016/j.actatropica.2026.108350",
+      "pub_date": "2026 Sep 29",
+      "journal": "Acta tropica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811122",
+      "title": "Exercise enhances aged chondrocyte health through microRNA-29-enriched extracellular vesicles.",
+      "doi": "10.1038/s43587-026-01225-9",
+      "pub_date": "2026 Sep 29",
+      "journal": "Nature aging",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811753",
+      "title": "4-Octyl Itaconate Attenuates Age-Induced Parotid Gland Dysfunction Through the Suppression of Fibrosis and Lipid Deposition by AMPKα/PPARα and the Inhibition of Oxidative Stress via the AMPKα/Nrf2 Signaling Pathway.",
+      "doi": "10.1096/fj.202602956RR",
+      "pub_date": "2026 Oct 15",
+      "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42811990",
+      "title": "Multi-Omics Analyses Reveal Expression Remodeling of Key Glycolytic-Lactate Metabolic Nodes in the Pituitary of High-Altitude Sheep.",
+      "doi": "10.31083/FBL54255",
+      "pub_date": "2026 Sep 7",
+      "journal": "Frontiers in bioscience (Landmark edition)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813978",
+      "title": "Role of carbonic anhydrases 9 and 12 in hypoxia and non-hypoxia associated pulmonary hypertension.",
+      "doi": "10.1093/ajrcmb/aanag182",
+      "pub_date": "2026 Sep 30",
+      "journal": "American journal of respiratory cell and molecular biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((protein[Title/Abstract] OR leucine[Title/Abstract] OR \"beta-hydroxy-beta-methylbutyrate\"[Title/Abstract] OR HMB[Title/Abstract] OR creatine[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR omega-3[Title/Abstract]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR ageing[Title/Abstract] OR muscle[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}
