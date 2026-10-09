@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "41999682",
+    "42698526",
+    "42692117",
+    "42253437"
+  ],
+  "relevance_reason": "Four human randomized cognition or metabolic-health studies, including null cognitive outcomes and surrogate metabolic endpoints, requiring independent safety and methodology review."
+}
