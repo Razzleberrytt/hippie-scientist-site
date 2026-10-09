@@ -15,10 +15,10 @@
   "batches": [
     {
       "id": "rolling-0001",
-      "state": "FREEZE_PENDING",
+      "state": "DRAFT_PR",
       "count": 500,
-      "pr_number": null,
-      "blocker": null
+      "pr_number": 6546,
+      "blocker": "Independent scientific review pending"
     },
     {
       "id": "rolling-0002",
