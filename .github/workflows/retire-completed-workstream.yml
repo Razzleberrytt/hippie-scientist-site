@@ -8,8 +8,10 @@ on:
     types: [completed]
     branches: [main]
 
+# GITHUB_TOKEN cannot trigger pull_request workflows for Actions-created PRs.
+# Only explicit workflow_dispatch launches the required exact-head recovery suites.
 permissions:
-  actions: read
+  actions: write
   contents: write
   issues: read
   pull-requests: write
