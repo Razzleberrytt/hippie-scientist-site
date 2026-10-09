@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "41488152"
+  ],
+  "relevance_reason": "2026 randomized placebo-controlled human study of corn leaf extract and objective and subjective sleep outcomes; source identity only, no scientific claims admitted."
+}
