@@ -82,7 +82,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6466 | Typed source-to-editorial review-only handoff and identity guards | Active — admitted | P0 | 60.0 | 2026-10-09 |
+| D | #6466 / PR #6472 | Typed source-to-editorial review-only handoff and identity guards | In review — admitted | P0 | 60.0 | 2026-10-09 |
 
 
 
