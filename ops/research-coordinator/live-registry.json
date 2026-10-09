@@ -38537,6 +38537,85 @@
       "reservation_id": "13ad199863b4cbca6d8e",
       "reserved_at": "2026-10-09T17:08:25.068Z",
       "source_branch": "research/intake/3/20261009-1305-seneciphylline-sesamin-tripterygium-3"
+    },
+    {
+      "pmid": "40412481",
+      "title": "The effects of the Multicultural Healthy Diet on cognitive decline and Alzheimer's disease risk: a phase II randomized controlled trial in middle-aged adults.",
+      "doi": "10.1016/j.ajcnut.2025.05.011",
+      "source_title": "The effects of the Multicultural Healthy Diet on cognitive decline and Alzheimer's disease risk: a phase II randomized controlled trial in middle-aged adults.",
+      "abstract": "Anti-inflammatory dietary patterns are associated with slower cognitive decline in older adults; however, little is known about the effects of an anti-inflammatory dietary pattern in middle age. This study aims to adapt an anti-inflammatory diet to a multicultural setting and assess its impact on cognitive decline and Alzheimer's disease risk and related dementias in healthy middle-aged adults. We performed a phase II pilot randomized clinical trial in adults (40-65 y old; n = 290) in Bronx, New York. Participants were assigned to follow either the Multicultural Healthy Diet (MHD), an anti-inflammatory diet, or usual diet (Comparison). Diet was evaluated using the National Cancer Institute's Automated Self-Administered 24-h food records. The primary cognitive outcome was assessed at 9 mo after randomization using a global composite score derived from 3 ambulatory cognitive assessments of visuospatial memory (Grid Memory), processing speed (Symbol Search) and short-term associative memory binding (Color Shapes). Secondary outcomes included performance on individual tests and association of dietary components with cognitive performance. At 9-mo follow-up, the MHD arm had a lower Dietary Inflammatory Index (DII) score based on self-reported diet, with an adjusted MHD minus Comparison difference of -0.64 [95% confidence interval (CI): -1.02, -0.27] and -0.94 (95% CI: -1.34, -0.54) for the DII and energy-adjusted DII scores, respectively, indicating intervention participants had adhered to an anti-inflammatory dietary pattern. Group session and telephone contact completion averaged 93% and 72%, respectively, for the MHD arm. No statistically significant difference between arms was found in the primary outcome-cognitive global score change-from baseline: -0.06 (95% CI: -0.15, 0.04), P = .259. The MHD is feasible and acceptable in this multicultural United States cohort. Although the influence of MHD at 9 mo is nonsignificant based on the global composite cognitive score, additional research using other measures such as day-to-day variability in cognitive function and peak performance is warranted. This study was registered at clinicaltrials.gov as NCT03240406 (https://clinicaltrials.gov/study/NCT03240406?term=Diet%20%26%20Cognition&page=3&rank=30).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40412481/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Clinical Trial, Phase II; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Clinical Trial, Phase II",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40412481",
+        "doi": "10.1016/j.ajcnut.2025.05.011",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T17:52:56.318Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "01a23f4cf8499ab4c3c2",
+      "reserved_at": "2026-10-09T17:53:00.587Z",
+      "source_branch": "research/intake/2/20261009-1350-cognition-metabolic-2-r27"
     }
   ],
   "batches": [
@@ -38550,22 +38629,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 486,
+    "total_reservations": 487,
     "by_lane": {
       "1": 13,
-      "2": 86,
+      "2": 87,
       "3": 72,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 486
+      "SOURCE_VERIFIED": 487
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 486,
+        "count": 487,
         "pr_number": null,
         "blocker": null
       }
