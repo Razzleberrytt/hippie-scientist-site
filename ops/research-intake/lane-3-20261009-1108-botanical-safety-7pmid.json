@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "41605223",
+    "41655553",
+    "42356585",
+    "42107731",
+    "41664843",
+    "42032893",
+    "40772759"
+  ]
+}
