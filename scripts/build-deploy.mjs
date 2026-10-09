@@ -43,8 +43,15 @@ const DATA_INPUT_GLOBS = [
   'ops/cache/pubmed-metadata.json',
   'scripts/data/**/*',
   'scripts/workbook-source.mjs',
+  'scripts/build-deploy.mjs',
+  'scripts/cache/**/*.mjs',
   'config/*.mjs',
-  'lib/editorial-leak.mjs',
+  'lib/**/*.mjs',
+  'content/articles/**/*',
+  'content/blog/**/*',
+  'package.json',
+  'package-lock.json',
+  '.nvmrc',
 ]
 // Steps that depend ONLY on data inputs (never on app/components/lib code).
 // Everything else in the pipeline still runs on every build.
@@ -59,7 +66,8 @@ const DATA_SEGMENT_STEPS = new Set([
   'apply-pubmed-metadata',
   'build-runtime-summary-indexes',
   'sync-detail-indexability',
-  'build-search-index',
+  // Search also reads content/learn frontmatter and MUST refresh on copy edits.
+  // Never skip it based solely on workbook/data segment inputs.
 ])
 const DATA_HASH_MARKER = path.join('.build-cache', 'data-segment-hash')
 
@@ -77,7 +85,7 @@ function hashDataInputs() {
   const hash = createHash('sha256')
   for (const file of files) {
     try {
-      hash.update(file)
+      hash.update(path.relative(process.cwd(), file).replaceAll(path.sep, '/'))
       hash.update(fs.readFileSync(file))
     } catch {
       hash.update(`${file}:NOT_FOUND`)
@@ -92,8 +100,16 @@ function isDataSegmentFresh(dataInputHash) {
     if (fs.readFileSync(DATA_HASH_MARKER, 'utf8').trim() !== dataInputHash) return false
     // Outputs must actually exist — a partial cache restore or fresh
     // checkout must never take the fast path.
-    if (!fs.existsSync(path.join('public', 'data', 'herbs.json'))) return false
-    if (!fs.existsSync(path.join('public', 'data', 'compounds.json'))) return false
+    for (const relativePath of [
+      'herbs.json',
+      'compounds.json',
+      'claims.json',
+      'summary-indexes/herbs-summary.json',
+      'summary-indexes/compounds-summary.json',
+      'runtime-maps/related-profiles.json',
+    ]) {
+      if (!fs.existsSync(path.join('public', 'data', relativePath))) return false
+    }
     return true
   } catch {
     return false
