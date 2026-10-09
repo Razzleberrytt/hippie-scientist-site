@@ -14,6 +14,8 @@ test('postdeploy retirement is independent from protected main and requires exac
   assert.match(action, /workflow_run\.head_branch == 'main'/)
   assert.match(action, /persist-credentials: false/)
   assert.match(action, /contents: write/)
+  assert.match(action, /actions: write/)
+  assert.match(script, /actions\/workflows\/.*?\/dispatches/)
   assert.match(action, /pull-requests: write/)
   assert.match(script, /deployed\.conclusion !== 'success'/)
   assert.match(script, /deployed\.head_sha !== sha/)
