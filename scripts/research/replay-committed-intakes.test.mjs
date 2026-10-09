@@ -23,11 +23,16 @@ test('refuse duplicate, invalid, oversized and malformed source seeds',()=>{
 })
 test('reservation receipts must match the full requested manifest exactly',()=>{
   const ok='INFO source check\n'+JSON.stringify({reserved:2,lane:4,batches:['rolling-0009']})+'\n'
-  assert.equal(parseReservationReceipt(ok,2).reserved,2)
-  assert.throws(()=>parseReservationReceipt(ok,1))
-  assert.throws(()=>parseReservationReceipt('INFO source check\n',2))
-  assert.throws(()=>parseReservationReceipt('{"reserved":2,"lane":4}',2))
-  assert.throws(()=>parseReservationReceipt('{"reserved":0,"lane":4,"batches":[]}',2))
+  assert.equal(parseReservationReceipt(ok,2,4).reserved,2)
+  assert.throws(()=>parseReservationReceipt(ok,1,4))
+  assert.throws(()=>parseReservationReceipt(ok,2,3),/partial receipt/)
+  assert.throws(()=>parseReservationReceipt('{"reserved":2,"lane":4,"batches":[]}',2,4),/partial receipt/)
+  assert.throws(()=>parseReservationReceipt('{"reserved":2,"lane":4,"batches":["rolling-0009","rolling-0009"]}',2,4),/partial receipt/)
+  assert.throws(()=>parseReservationReceipt('{"reserved":2,"lane":4,"batches":["other-system"]}',2,4),/partial receipt/)
+  assert.throws(()=>parseReservationReceipt(ok,2,0),/Invalid exact reservation expectations/)
+  assert.throws(()=>parseReservationReceipt('INFO source check\n',2,4))
+  assert.throws(()=>parseReservationReceipt('{"reserved":2,"lane":4}',2,4))
+  assert.throws(()=>parseReservationReceipt('{"reserved":0,"lane":4,"batches":[]}',2,4))
 })
 
 test('keeps frozen-batch recovery ahead of optional replay',()=>{

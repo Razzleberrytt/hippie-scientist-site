@@ -30,14 +30,22 @@ export function selectReplaySeed(seed,occupied=new Set()){
   return {state:'ready',pmids}
 }
 
-export function parseReservationReceipt(stdout,expectedCount){
+export function parseReservationReceipt(stdout,expectedCount,expectedLane){
+  const lane=Number(expectedLane)
+  if(!Number.isInteger(expectedCount)||expectedCount<1||expectedCount>25||
+     !Number.isInteger(lane)||lane<1||lane>5)
+    throw Error('Invalid exact reservation expectations')
   const lines=String(stdout||'').split(/\r?\n/).reverse()
   for(const line of lines){
     let payload
     try{payload=JSON.parse(line)}catch{continue}
     if(payload&&Number.isInteger(payload.reserved)&&
-       payload.reserved===expectedCount && Array.isArray(payload.batches) &&
-       Number.isInteger(Number(payload.lane)))return payload
+       payload.reserved===expectedCount &&
+       Number.isInteger(Number(payload.lane))&&Number(payload.lane)===lane &&
+       Array.isArray(payload.batches)&&payload.batches.length>=1&&
+       payload.batches.length<=2&&
+       payload.batches.every(b=>typeof b==='string'&&/^rolling-\d{4,}$/.test(b))&&
+       new Set(payload.batches).size===payload.batches.length)return payload
     if(payload&&Object.hasOwn(payload,'reserved'))
       throw Error('reservation controller returned an invalid or partial receipt')
   }
@@ -135,7 +143,7 @@ export async function runReplay(){
         })
         if(cmd.error||cmd.status!==0)throw Error(
           'reserve failed: '+(cmd.error?.message||String(cmd.stderr||cmd.stdout).slice(-800)))
-        const receipt=parseReservationReceipt(cmd.stdout,selection.pmids.length)
+        const receipt=parseReservationReceipt(cmd.stdout,selection.pmids.length,seed.lane)
         result.reserved+=receipt.reserved
         for(const pmid of selection.pmids)seen.add(pmid)
         console.log('REPLAY_RESERVED '+branch.name+' '+entry.name+' count='+receipt.reserved)
