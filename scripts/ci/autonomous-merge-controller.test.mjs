@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor } from './autonomous-merge-controller.mjs'
+import { classifyRisk, evaluateReadiness, requiredChecksFor, requiredWorkflowsFor, shouldDispatchRegisteredWorkflow, recoveryInputsFor } from './autonomous-merge-controller.mjs'
 
 const baseSha = 'base'
 const headSha = 'head'
@@ -78,28 +78,39 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(source).not.toMatch(/page\s*<=\s*4/)
   })
 
-  it('has one trusted completion wake owner without a dispatch bridge', () => {
+  it('explicitly wakes the trusted controller from every governed consumer', () => {
     const controllerWorkflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/autonomous-merge-controller.yml'), 'utf8')
 
     expect(controllerWorkflow).toContain('pr_number:')
     expect(controllerWorkflow).toContain('expected_head_sha:')
     expect(controllerWorkflow).toContain("group: autonomous-merge-${{ github.event.pull_request.number || inputs.pr_number || 'fallback' }}")
     expect(controllerWorkflow).toContain('SWEEP_OPEN_PRS: ${{ steps.wake.outputs.sweep }}')
-    expect(controllerWorkflow).toContain("CONTROLLER_SINGLE_PASS: 'true'")
-
+    expect(controllerWorkflow).toContain("github.event_name == 'workflow_dispatch' && inputs.pr_number != '' && inputs.expected_head_sha != '' && 'false' || 'true'")
     expect(controllerWorkflow).toContain('workflow_run:')
-    for (const workflowName of ['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof']) {
-      expect(controllerWorkflow).toContain(`- ${workflowName}`)
-    }
     expect(fs.existsSync('.github/workflows/governed-consumer-wake.yml')).toBe(false)
     expect(controllerWorkflow).toContain('node scripts/ci/autonomous-merge-wake.mjs')
     expect(controllerWorkflow).toContain('EXPECTED_HEAD_SHA: ${{ steps.wake.outputs.head_sha }}')
 
-    for (const workflow of ['build-check.yml', 'lighthouse.yml', 'production-content-lint.yml', 'visual-proof.yml']) {
+    for (const workflow of [
+      'build-check.yml',
+      'lighthouse.yml',
+      'production-content-lint.yml',
+      'production-content-invariants.yml',
+      'crawl-governance.yml',
+      'schema-media-governance.yml',
+      'technical-seo-monitor.yml',
+      'visual-proof.yml',
+    ]) {
       const source = fs.readFileSync(path.join(process.cwd(), '.github/workflows', workflow), 'utf8')
-      expect(source, workflow).toContain('actions: read')
-      expect(source, workflow).not.toContain('actions: write')
-      expect(source, workflow).not.toContain('Wake autonomous merge controller')
+      expect(source, workflow).toContain('wake-controller:')
+      expect(source, workflow).toContain('name: Wake autonomous merge controller')
+      expect(source, workflow).toContain("if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_run_id != '' && inputs.producer_pr_number != '' && inputs.producer_sha != ''")
+      expect(source, workflow).toContain('actions: write')
+      expect(source, workflow).toContain('PR_NUMBER: ${{ inputs.producer_pr_number }}')
+      expect(source, workflow).toContain('EXPECTED_HEAD_SHA: ${{ inputs.producer_sha }}')
+      expect(source, workflow).toContain('DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}')
+      expect(source, workflow).toContain('actions/workflows/autonomous-merge-controller.yml/dispatches')
+      expect(source, workflow).toContain('{ref:$ref,inputs:{pr_number:$pr,expected_head_sha:$sha}}')
     }
   })
 
@@ -533,4 +544,73 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(failed.reason).toContain('known check failure')
   })
 
+})
+
+describe('P0 zero-job bot refresh recovery routing', () => {
+  const zeroJob={id:42,name:'CI',event:'pull_request',status:'completed',conclusion:'action_required'}
+  const confirmed=new Set([42])
+  it('dispatches a missing workflow but never assumes a zero-job stub is validated', () => {
+    expect(shouldDispatchRegisteredWorkflow('CI',[])).toBe(true)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob])).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob],confirmed)).toBe(true)
+  })
+  it('refuses to replace real failed, successful or pending workflow results', () => {
+    for(const state of [
+      {...zeroJob,conclusion:'failure'},
+      {...zeroJob,conclusion:'success'},
+      {...zeroJob,status:'in_progress',conclusion:null},
+      {...zeroJob,event:'workflow_dispatch',conclusion:'success'},
+    ]){
+      expect(shouldDispatchRegisteredWorkflow('CI',[state],confirmed)).toBe(false)
+    }
+  })
+  it('fails closed for a mixed zero-job and real workflow, including a prior recovery', () => {
+    const another={...zeroJob,id:43,conclusion:'success'}
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,another],new Set([42,43]))).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',[
+      zeroJob,{...zeroJob,id:44,event:'workflow_dispatch',status:'in_progress',conclusion:null},
+    ],new Set([42,44]))).toBe(false)
+  })
+  it('requires zero-job proof for EVERY bot-suppressed same-name run', () => {
+    const both=[zeroJob,{...zeroJob,id:43}]
+    expect(shouldDispatchRegisteredWorkflow('CI',both,new Set([42]))).toBe(false)
+    expect(shouldDispatchRegisteredWorkflow('CI',both,new Set([42,43]))).toBe(true)
+  })
+  it('scopes to the exact workflow and ignores unrelated suppression records', () => {
+    expect(shouldDispatchRegisteredWorkflow('CI',[{...zeroJob,name:'Site Health Check'}])).toBe(true)
+    expect(shouldDispatchRegisteredWorkflow('CI',[zeroJob,{...zeroJob,id:55,name:'Site Health Check'}],confirmed)).toBe(true)
+  })
+})
+
+describe('P0 source-register strict exact-head recovery', () => {
+  const recoveryPr = { number: 6445, base: { ref: 'main' }, head: { sha: 'a'.repeat(40) } }
+  it('passes the exact PR, base and full SHA only to the named source workflow', () => {
+    expect(recoveryInputsFor('Research Source Register Integration', recoveryPr)).toEqual({
+      recovery_pr_number: '6445',
+      recovery_base_ref: 'main',
+      recovery_head_sha: 'a'.repeat(40),
+    })
+    expect(recoveryInputsFor('CI', recoveryPr)).toEqual({ recovery_pr_number: '6445' })
+    expect(recoveryInputsFor('Unexpected workflow', recoveryPr)).toBeNull()
+  })
+  it('runs fail-closed same-repo and SHA identity checks before checkout', () => {
+    const workflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/research-source-register-integration.yml'), 'utf8')
+    const proof = workflow.indexOf('Prove exact pull-request head and base before recovery execution')
+    const checkout = workflow.indexOf('actions/checkout@v4')
+    expect(proof).toBeGreaterThan(0)
+    expect(checkout).toBeGreaterThan(proof)
+    for (const boundary of [
+      'recovery_pr_number:', 'recovery_base_ref:', 'recovery_head_sha:',
+      'pr_state', 'pr_repo', 'pr_base', 'pr_head',
+      '$GITHUB_SHA', 'refs/heads/$pr_branch',
+      'pull-requests: read', 'contents: read',
+    ]) expect(workflow).toContain(boundary)
+    expect(workflow).not.toMatch(/^\s+(contents|actions|pull-requests): write\s*$/m)
+  })
+  it('preserves original science validators and PR/push event entry points', () => {
+    const workflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/research-source-register-integration.yml'), 'utf8')
+    for (const required of ['  pull_request:', '  push:', 'validate-research-source-register.mjs',
+      'validate-research-semantic-network.ts', 'validate-research-intelligence-studio.ts',
+      'npm run typecheck']) expect(workflow).toContain(required)
+  })
 })

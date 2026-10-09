@@ -135,6 +135,49 @@ The TikTok adapter additionally needs the TikTok bridge configuration documented
 - `TIKTOK_TOKEN_KV`
 - one-time TikTok account authorization with `video.upload`
 
+## Production status — 2026-10-06
+
+THS Publisher v0.1 is merged and deployed to the canonical production domain.
+
+Verified production facts:
+
+- Cloudflare Pages deployed the current Publisher build successfully.
+- the exact production receipt at `/.well-known/deployment.json` verified the Publisher merge commit.
+- the Pages deploy explicitly uploaded the Functions bundle, so `/api/publisher/*` and `/api/tiktok/*` are part of the production Worker.
+- `/media/distribution/publisher/latest.json` is live and passes the provider-ready manifest contract.
+- a production probe confirmed the Publisher and TikTok admin boundaries currently return `503` because their admin secrets are not yet configured.
+- D1/KV readiness is therefore still **Unknown** from the live API until the admin layer is configured and the authenticated readiness workflow can test the bindings.
+
+### One-time production finish checklist
+
+Cloudflare Pages production:
+
+1. Create a D1 database (recommended name: `ths-publisher-prod`).
+2. Apply `migrations/0001_ths_publisher.sql`.
+3. Add a Pages D1 binding named exactly `THS_PUBLISHER_DB`.
+4. Create a Workers KV namespace (recommended name: `ths-tiktok-token-kv-prod`).
+5. Add a Pages KV binding named exactly `TIKTOK_TOKEN_KV`.
+6. Add an encrypted Pages secret named `THS_PUBLISHER_ADMIN_TOKEN`.
+7. Add a different encrypted Pages secret named `TIKTOK_PUBLISHER_ADMIN_TOKEN`.
+8. Add `TIKTOK_REDIRECT_URI=https://thehippiescientist.net/api/tiktok/callback`.
+9. Add the same two admin-token values as GitHub Actions repository secrets with the same names. GitHub needs only those operator tokens; TikTok client/user credentials stay in Cloudflare.
+
+TikTok for Developers:
+
+1. Register/use the THS TikTok app and add the Content Posting API product.
+2. Request/enable the `video.upload` scope.
+3. Register `https://thehippiescientist.net/api/tiktok/callback` as the OAuth callback.
+4. Verify `thehippiescientist.net` or the exact Publisher media URL prefix for `PULL_FROM_URL`.
+5. Store `TIKTOK_CLIENT_KEY` and `TIKTOK_CLIENT_SECRET` as encrypted Cloudflare Pages secrets.
+6. Complete the one-time creator authorization for the THS TikTok account with `video.upload`.
+7. Run the GitHub Actions workflow **THS Publisher readiness**. It must pass the production receipt, manifest, D1 lookup, TikTok connection, and scope checks before the first live dispatch.
+
+After that setup, the normal operator flow is:
+
+`/publish-ths → canonical publication_id → D1 queue → TikTok PULL_FROM_URL upload → TikTok inbox notification → user taps Post → Observer verifies public post → SocialOS learns`.
+
+TikTok Upload still intentionally requires the creator to complete the final post inside TikTok; THS does not claim unaudited Direct Post approval.
+
 ## Transition plan
 
 1. Freeze Metricool as a canonical transport dependency.

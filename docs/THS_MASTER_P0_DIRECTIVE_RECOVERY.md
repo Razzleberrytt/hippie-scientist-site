@@ -1,0 +1,245 @@
+# THS-MASTER-P0 v1.0 — Full Owner-Supplied Directive (structured reference)
+
+**Recovered from:** Owner-supplied text in conversation on 2026-10-09, describing the original **MASTER TRANSFORMATION & COMMERCIALIZATION IMPLEMENTATION SPECIFICATION**, version 1.0, status **Authoritative implementation directive**. The separate October 8 business assessment informs its goals, but is not this directive.
+
+> **Source fidelity:** The owner supplied the complete THS-MASTER-P0 v1.0 text in conversation on 2026-10-09: **Parts I–XX, §§1–73, Phases 0–9, eight strategic milestones, nine initial execution steps, and the final system acceptance framework.** The file is an accurate **structured index/summary, not a verbatim copy**. It supersedes the earlier partial-source cutoff at §42. The separately reconstructed 150-task checklist is still *not* the original numbered task list. Do not infer extra implementation or measured business outcomes from receiving text.
+
+## Authority and safe use
+
+1. **Product intention:** this user-supplied v1.0 directive is the authoritative requirements source for the complete owner-supplied version. The reconstructed 150-item acceptance register is a **candidate decomposition** and must be aligned against it, not treated as original text.
+2. **Implementation control:** repository [`AGENTS.md`](../AGENTS.md), [`CURRENT_SPRINT.md`](CURRENT_SPRINT.md), [`MASTER_BACKLOG.md`](MASTER_BACKLOG.md), branch protections, scoped issue admission, exact-head CI and the sole merge controller control actual engineering. User requests to begin immediately do **not** waive those gates.
+3. **Completion:** proof distinguishes planned, local, committed, PR, CI, merged, deployed, production verified and genuinely measured in use. Source-only research discovery is not human clinical review. No real user event, sale, performance lift or value of work may be fabricated.
+4. **Ethics:** scientific integrity and safety are free, commercial rankings cannot change evidence, high-risk psychoactive harm reduction is noncommercial, and subscriptions/ad providers/costs require approval. Avoid premium creative vendor dependencies.
+5. **Current honest accounting:** reconstructed [150-item register](THS_MASTER_P0_ACCEPTANCE_REGISTER.md) is **25/150 accepted, 7 evidence candidates, 118 unaudited** at audit 003. Older missing-original **10/150 historical count** remains separate and nonadditive. Finding this source does **not** verify any further item.
+
+## Recovered numbered sections, in the owner's order
+
+### Part I: Master execution directive
+
+- **§1 Your role:** Implement against actual repo; inspect, inventory, prioritize, integrate, test, merge/deploy with authorization, measure, repair, preserve checkpoints.
+- **§2 Non-negotiable execution principles:** Evidence-only completion states; reuse-before-replace; scientific integrity over conversion; honest release claims; no unapproved paid dependencies; bounded validation.
+
+### Part II: Success definition
+
+- **§3 Strategic business objective:** Three interoperable experiences: Consumer Evidence, Research Atlas, Harm Reduction & Emerging Substances; one evidence foundation and audience-appropriate UI.
+- **§4 Commercial milestones:** Milestones are validation ($100–$500/month), $2k/month serious traction, $3k–$10k established, $15k–$50k advanced, $100k+ exceptional; not forecasts.
+
+### Part III — Phase 0: Discovery and baseline audit
+
+- **§5 Repository and infrastructure inventory:** Verify GitHub, framework/build, publishing, ingestion, evidence, semantics, CI, deployment, Cloudflare resources, analytics, commercial connections, outstanding PRs and duplication.
+- **§6 Establish a verified scientific-data baseline:** Reconcile definitions and public/internal counts: articles, herb/compound/tracked/indexed entities, studies, research-only references, independently reviewed claims/relationships, grades and change events.
+- **§7 Baseline the business funnel:** Observe genuine GSC, sessions, human traffic, returning visitors, engagement, email, affiliate, subscriptions, licensing, expenses; Unknown ≠ zero and AI citations ≠ visits.
+- **§8 Produce Phase 0 deliverables:** Inventory, baseline, dependency graph, master plan/backlog, decision/risk registers and execution state. Adapt to existing docs, avoid parallel sources.
+
+### Part IV — Phase 1: Trust, data integrity and scientific foundations
+
+- **§9 Establish one canonical scientific data model:** Separate entity, formulation, population, outcome, publication, participant trial, claim, safety, grade, review, provenance, correction, semantic and commercial entities.
+- **§10 Evidence grading consistency:** Explicit ingredient grade, outcome-specific strength, study quality, claim confidence, safety, research validation and product eligibility; communicate differences wherever displayed.
+- **§11 Scientific provenance contracts:** Link claims to exact PMID/DOI/source, population, comparator, outcome, limitation, review, verification and correction status; support visible why-this-citation backing.
+- **§12 Trial lineage and deduplication:** Cohort/trial registration, duplicate/follow-up papers, DOI/title duplicates, retractions and corrections; never silently count one trial as several.
+- **§13 Evidence Change Ledger:** Store only real dated reviewer-backed conclusion/grade changes with triggering evidence, effective date and notification justification.
+- **§14 Scientific review gate:** Automated flags and independent human review for causality, study/outcome mismatch, safety and retractions; high-risk escalation before clinical publication.
+
+### Part V — Phase 2: Intelligence and semantic integration
+
+- **§15 Inventory and integrate existing intelligence systems:** Reuse Study/Claim DNA, Contradiction, Frontier, Time, Voyages, Interaction, Ask, Content Reactor, Comparability, Lineage and research/enrichment equivalents.
+- **§16 Establish a common intelligence contract:** Share IDs, relation semantics, evidence/review states, events, uncertainty, citations, version/freshness, interfaces, errors and safe backward compatibility.
+- **§17 Semantic graph requirements:** Distinguish mention, synonym, taxonomy, tested intervention, measured outcome, effect, hypothesis, potential/clinically reviewed interaction and validated conclusion.
+- **§18 Integrate advanced research workflows:** Real source-backed contradiction/comparability, knowledge gaps, evidence history, and a research-to-answer flow with limitations, safety and expandable sources.
+- **§19 Research quality benchmarks:** Representative benchmark questions with citation precision, unsupported-claim rate, provenance completeness, semantic relevance and uncertainty; measure improvement vs baseline.
+
+### Part VI — Phase 3: Website user experience and design
+
+- **§20 Homepage transformation:** Use consumer-first promise about effectiveness/risks and three direct paths: Find an ingredient, Compare options, Check safety concerns.
+- **§21 Consumer user journey:** Home → search/topic → clear answer → comparison/related question → save/subscribe/eligible commerce; no sales pressure.
+- **§22 Ingredient profile redesign:** Plain answer; condition/formulation-specific evidence and limits; safety, interactions, related options, sources, review/update metadata; progressive disclosure.
+- **§23 Mobile-first interaction standards:** Audit realistic mobile sizes, touch/contrast/filters/tables/search/loading, accessible keyboard and screen readers; WCAG 2.2 AA target.
+- **§24 Site architecture:** Distinct yet connected consumer, Research Atlas and harm reduction + reports, methods, corrections, newsletter; stable URL compatibility.
+- **§25 Visual design system:** Warm scientifically credible typography/colors/spacing, evidence and safety states, contrast, responsive breakpoints, loading/empty states; minimal animation.
+
+### Part VII — Phase 4: SEO, discoverability and editorial distribution
+
+- **§26 Technical SEO audit:** Actual GSC ownership/indexing/sitemaps/robots/canonicals/redirects/HTTP/schema/links/performance/multilingual crawl validation.
+- **§27 Search-intent architecture:** Distinct useful clusters for sleep, stress, anxiety, cognition, safety, methodology, compounds, dependence and withdrawal; no thin synonyms.
+- **§28 High-value content upgrades:** Prioritize 20–30 pages via demand and review evidence, improve answers/synthesis/internal links/comparisons/mobile/canonical and measure outcomes.
+- **§29 Programmatic publishing safeguards:** Do not publish unsupported claims, fake credentials, duplicate/thin pages, misleading dates or unreviewed source-only content.
+- **§30 Multilingual quality:** Audit actual translation coverage, safety meaning, hreflang/canonicals, demand and maintenance; prioritize maintained languages.
+- **§31 Link-worthy research assets:** Original state-of-evidence reports, provenance-rich datasets/visualizations, change reports and methodology assets with public citation/sharing conventions.
+
+### Part VIII — Phase 5: Analytics, retention and recurring use
+
+- **§32 Establish a unified event taxonomy:** Consentful deduplicated privacy-safe named events from search/evidence/use/signup/watchlist/commerce/subscription/institutional inquiry; clicks are not purchases.
+- **§33 Analytics dashboard:** Actual acquisition/search sessions, tool usage, retention, verified conversions, revenue, costs/margin; Unknown and estimates visibly distinct.
+- **§34 Newsletter system:** Opt-in, verifications, unsubscribe/consent, deliverability, retries, duplicate-send prevention, receipts, only real reviewed updates; no premium dependency.
+- **§35 Research watchlist:** Follow ingredient, outcome, interactions or research question; alert on meaningful documented changes; no unreviewed medical recommendation.
+- **§36 Retention experiments:** Instrument comparable relevant visits, signups, return use, watchlist and email engagement; don't infer significance with inadequate exposure.
+
+### Part IX — Phase 6: Commercial monetization
+
+- **§37 Affiliate revenue system:** Central eligibility with truthful merchant/link/product/formulation quality/disclosure/click/network evidence; scientific independence and safety exclusions.
+- **§38 Product-quality comparison capabilities:** Separate ingredient science from verified formulation, label, independent lab/certification and merchant claims; never invent product testing.
+- **§39 Advertising system:** Conditional ad-safe content classification, sensitive exclusions, CLS/perf/density controls and real reporting; owner approval before activation.
+- **§40 Subscription platform:** Proposed $0 Free, $9 Plus, $24 Pro, institutional custom; accounts/entitlements/checkout sandbox/webhook/cancel/refund/failure/privacy/reports; safety always free, billing requires owner approval.
+
+### Part X — Phase 7: Research products and B2B licensing
+
+- **§41 Research Atlas membership experience:** Saved investigations, comparisons, source exports, real change timeline, followed questions, briefs, contradiction workflow, literature summary and provenance explorer; measured value.
+- **§42 Institutional product development:** Identify appropriate publishers, educators, journalists, research groups and evidence software; disclose verification limits, dataset completeness, source provenance, refresh frequency, interface/export capabilities, intended use, available support and **licensing restrictions**.
+
+- **§43 API and data licensing:** Versioned documented APIs, authentication/authorization, rate limits, provenance, dataset versions, usage/license/abuse governance and deprecation; third-party data and PubMed feeds cannot automatically be relicensed.
+- **§44 B2B demand validation:** Qualified institutional inquiry with intended use, data needs, workflow, refresh, access and voluntary budget; real buyer interest before enterprise investment.
+
+### Part XI — Phase 8: Content credibility, security and governance
+
+- **§45 Editorial governance:** Disclose real credentials, editorial methods, reviewed status, COIs, ad/affiliate relations, corrections, research updates, AI and educational scope.
+- **§46 High-risk scientific coverage:** Enhanced review for novel opioids, psychoactives, high-risk compounds, withdrawal and recovery: human evidence, identity, contamination, interactions, acute risks, resources and live legal status; no mechanism-to-dosing promotion.
+- **§47 Security and privacy:** Audit secrets, auth, billing callbacks, data retention, private logs, export permissions, rates/abuse, dependencies, backup/recovery and environment isolation.
+- **§48 Accessibility and performance:** Manual plus automated WCAG 2.2 AA and CWV/mobile/tables/search/interaction checks with observable performance budgets.
+
+### Part XII — Phase 9: Distribution and growth
+
+- **§49 Research-driven distribution strategy:** Approved-evidence-linked studies/contradictions/corrections, short video, visual explanations, comparisons, reports and newsletter assets.
+- **§50 Social system integration:** Inspect real versions/contracts of FieldLab, ContinuityOS, EvidenceBridge, StackPilot, Asset Director, EvidenceMotion, Voice Engine, PerceptualQA, PublishOps and FreshnessWatch; no paid dependency.
+- **§51 Content-to-audience attribution:** Preserve evidence/content/campaign/publishing identity through verified destinations, consented human visits and real return/signups/revenue; no duplicate publication or phantom attribution.
+- **§52 Scientific outreach:** Credible sharing of original assets with educational publishers, journalists, researchers and professional groups; no spam or invented endorsement.
+
+### Part XIII: Engineering orchestration
+
+- **§53 Dependency-aware implementation:** Provenance precedes evidence-change claims; measurement precedes revenue optimization; opt-in delivery precedes alerts; eligibility precedes offers; entitlements precede paywalled tools; API proof precedes licensing.
+- **§54 Ticket format:** Each scoped ticket includes ID, evidence, priority/domain, current/desired state, impacted files, dependencies, migrations, steps, tests, scientific/security gates, acceptance, rollback, effort, impact, confidence and status.
+- **§55 Prioritization model:** Impact×Confidence×Strategic Enablement÷Effort plus scientific safety, UX, revenue instrumentation and measurable user benefit; prioritize P0–P3 without invented ROI.
+- **§56 Efficient batching:** Read architecture once, group compatible bounded changes, targeted tests, checkpoint, one required full merge validation; 25-item batches only when compatible and safe.
+- **§57 Build and CI optimization:** Safe caching, exact artifact reuse, targeted tests, deterministic fixtures, parallel independent checks and static generation improvements; no stale reuse.
+- **§58 Pull request workflow:** Existing owner check, scoped implementation/tests, scientific/security review, required checks, guarded authorized merge, exact deploy/visitor verification and checkpoint.
+- **§59 Production verification:** Observed SHA, accessible pages, rendered flow, sources/counts, APIs, links, consent/signups, disclosures, logs and monitoring; unavailable provider proof remains Unknown.
+
+### Part XIV: Testing and acceptance framework
+
+- **§60 Required testing layers:** Unit, contract, integration, E2E, scientific QA, security, accessibility, performance and production smoke tests, per affected feature.
+- **§61 Non-negotiable release gates:** No unresolved P0 security, unsupported clinical relationship, essential nav break, data loss/migration corruption, missing disclosures, bad entitlements, committed secrets, invented review; required checks and rollback.
+- **§62 Definition of done:** Real implementation and integration, relevant tests/docs, intact safety/commercial boundaries, authorized merge, production verification, proof, limits and outcome instrumentation; code is not business impact.
+
+### Part XV: Revenue modeling and business intelligence
+
+- **§63 Revenue streams:** Separate actual ad, affiliate, Research Plus/Pro, organization subscription and original THS API/data licensing revenue from hypothetical earnings.
+- **§64 Commercial metrics:** Only observed RPMS, RPM, CTR/affiliate yield, signup/paid conversion, MRR, ARPA, churn, CAC, LTV assumptions, gross margin, infra/research/reviewer costs.
+- **§65 Forecasting:** Conservative/base/optimistic modeled scenarios with sensitivity to traffic quality, memberships, commission, ad eligibility, costs and B2B volume.
+- **§66 ROI reporting:** For each update, specify expected benefit, measurable outcome, cost/effort, hypothetical ROI, confidence, observed changes and missing data—never fabricate increases.
+
+### Part XVI: Strategic delivery sequence — dependency milestones
+
+- **Milestone 1 Reliable foundation:** Repository and scientific-count audit, critical reliability, provenance, measurement architecture, ops docs.
+- **Milestone 2 Better first-time experience:** Consumer hero/navigation, mobile/profile/search, evidence-grade clarity, SEO.
+- **Milestone 3 Trustworthy intelligence:** Shared semantics, trial lineage, Claim DNA, traceable answers, real review history and benchmark quality.
+- **Milestone 4 Audience retention:** Functional newsletter, topic follow and reviewed research updates with returning-user evidence.
+- **Milestone 5 Initial commercialization:** Independent affiliate/product-quality eligibility, ad-safety, real revenue dashboard and controlled experiments.
+- **Milestone 6 Paid research validation:** Plus/Pro prototypes, access controls, sandbox billing and evidence of willingness to pay before any approved launch.
+- **Milestone 7 Institutional expansion:** Source-legal exports/API, licensing terms, institutional inquiries and credible demos/customer demand.
+- **Milestone 8 Optimization and scale:** Measurement-backed revenue/retention/SEO, scientific reviewer scale, performance, removal of low-value complexity and reinvestment.
+
+### Part XVII: Continuous quality improvement
+
+- **§67 Avoid feature inflation:** Before a new tool: exact user problem, existing alternatives, data, independent verification, audience exposure, real benefit and maintenance cost.
+- **§68 Maintain prioritized improvement backlog:** Review root causes, remove obsolete work, score impact, track ideas without auto-admission and maintain ready queue.
+- **§69 Research enrichment integration:** Discovery → exact source verify → dedupe → structure → classify → qualify relationships → review eligibility → semantic integrate → publication eligibility → render → monitor; output usefulness matters more than volume.
+
+### Part XVIII: Execution reporting and persistence
+
+- **§70 Mandatory execution updates:** Run SUCCESS/PARTIAL/FAIL/BLOCKED with code, system tests, branch/PR/merge/deploy, live proof, scientific/commercial safety, actual outcomes, root causes, blockers and next batch.
+- **§71 Persistent execution state:** Machine-readable checkpoint: spec version/time, main/deployed SHA, active milestone, done/active/blocked/ready, open PRs/failures/migrations, scientific and billing blockers, release proof and next steps.
+- **§72 Resumption protocol:** At each session read checkpoint and fresh repo/production reality, reconcile old PRs/interruptions, avoid repeating full builds and continue dependency-ready work.
+- **§73 Autonomous operating boundaries:** Ordinary authorized code/tests/docs without repeated permission; explicit authorization for costs, live billing, contracts, unreviewed high-risk claims, destruction, bypass and legal terms.
+
+### Part XIX: Initial execution order
+
+- **Step 1:** Discover real GitHub, deployment, database, analytics and other connection access without asking for chat secrets.
+- **Step 2:** Inspect architecture, schemas, modules, current PRs/jobs, and actual implementation.
+- **Step 3:** Gap-analyze Parts I–XVIII as complete verified, unverified, partial, missing, broken, external blocked or unjustified.
+- **Step 4:** Build one dependency graph/backlog with no duplicate owner and bounded compatible batches.
+- **Step 5:** Start highest-priority dependency-ready P0 science, integration, analytics, UX, SEO or deploy repair.
+- **Step 6:** Modify actual code and relevant data/config, add focused tests, repair and validate a cohesive batch.
+- **Step 7:** Run required exact-head checks and authorized merge, then verify production.
+- **Step 8:** Write durable release/evidence/Unknown checkpoint.
+- **Step 9:** Continue until all applicable requirements are verified, explicitly deferred, superseded with equivalent proof or truly blocked.
+
+### Part XX: Final system acceptance — technical gates and separate business validation
+
+- **Scientific foundation:** Canonical model, defined counts, clinical claim provenance, understandable grades, deduped trial cohorts, real evidence changes, semantic nonpromotion, high-risk editorial review.
+- **Intelligence integration:** Shared schemas, honest relationship meaning, source-traceable answers, meaningful contradictory/uncertain evidence and measured research benchmark quality.
+- **User experience:** Consumer benefit-driven home, connected consumer/research/harm-reduction, accessible ingredient profiles, mobile journeys, accessibility/performance.
+- **Discovery and retention:** Actual SEO, priority content improvement, newsletter and research watchlist delivery, returning-user metrics, original externally useful research assets.
+- **Monetization:** Independently governed affiliate disclosure and eligibility, approved ads if enabled, correct sandbox subscription entitlements/billing, owner consent to live commerce, revenue not projections.
+- **Institutional research:** Honest exports and licensing, stable APIs if offered, real inquiry functionality and buyer-demand receipts.
+- **Engineering operations:** Efficient-but-safe CI, exact deploy, rollback, reliable checkpoints, safely consolidated systems and privacy/security.
+- **Business validation (separate from technical DONE):** Real audience acquisition, science/correction quality, return use, emails, paying members, monthly revenue, affiliate/ad margin, institutions, customer satisfaction and useful research performance.
+
+## Original phase exit gates recovered
+
+| Original phase | Exit criterion from the supplied v1.0 directive |
+|---|---|
+| 0 | Every major system has a recorded status, technical owner, dependency, validation path and implementation priority. |
+| 1 | Scientific classifications reconcile; grades are understandable; unsupported relationships cannot publish automatically; source-to-claim traceability works end to end. |
+| 2 | Research systems share contracts, produce traceable answers and demonstrate useful gains against benchmark questions. |
+| 3 | A first-time mobile visitor finds an ingredient, understands a research conclusion and its limits, and finds a next step without needing internal architecture knowledge. |
+| 4 | Controllable indexing issues addressed; priority editorial pages meet distinct intent; original research assets prepared for credible external distribution. |
+| 5 | Users can establish an ongoing relationship, while real return/research usefulness is measured accurately. |
+| 6 | Scientific-independent eligible monetization is integrated and measurable, launchable only after explicit outstanding approvals. |
+| 7 | Institutional offering technically demonstrable, honest about research limits, appropriately licensed and supported by real customer-interest evidence. |
+
+## Mapping the original phases to the *reconstructed* 150-item register
+
+**IMPORTANT:** The register's thirteen Sections 0–12 are **our earlier reconstructed accounting buckets**, not the original directive's Phase 0–9 numbering. One-to-many mapped IDs below are candidates for comparison, not approval or proof that coverage is complete.
+
+| Original phase | Original clauses | Closest provisional IDs | Required original result | Gaps / rework necessary |
+|---|---|---|---|---|
+| 0 | §§5–8 | P0-001–010; P0-107–118 | Baseline/census reconciliation, all 16 infrastructure domains, current authoritative docs, real funnel endpoint events | Infrastructure inventory may be incomplete; GA4/GSC/provider reporting is Unknown, not PASS |
+| 1 | §§9–14 | P0-011–022; P0-035–046; P0-059–070 | Canonical data roles, vocabulary/grade parity, human review, claim/source proof, cohort lineage, change history | Current register lacks direct public-level grade vocabulary + count parity + real independent review completion requirements |
+| 2 | §§15–19 | P0-047–058; P0-059–063 | Interoperability, accurate semantic edges, traceable science case, contradiction and answer compiler, benchmark proof | Existing 8+12 integration is NOT benchmarked useful scientific output; research-to-answer and measured correctness are under-specified |
+| 3 | §§20–25 | P0-071–082; P0-095–096; P0-145 | Consumer-first homepage three routes; complete mobile answer-to-action path; distinctive brand and WCAG 2.2 AA | Five global nav destinations are not proof that the specified homepage hero or three conversion paths exist |
+| 4 | §§26–31 | P0-083–094; P0-064–070 | Actual GSC, canonical/indexing/SEO, 20–30 reviewed priority pages, multilingual safety, unique cite-worthy data | Need explicit 20–30 page tracked cohort and independent publication safeguards, not generic high build score |
+| 5 | §§32–36 | P0-104; P0-107–118; P0-092 | Named 17-event taxonomy, verified analytics receipt, real newsletter consent/send, meaningful evidence-watchlist and return-use | Register currently measures data quality but does NOT fully scope signup/watchlist delivery or all 17 events |
+| 6 | §§37–40 | P0-095–106; P0-097–103 | Affiliate eligibility/quality disclosures, product-quality truth, safe ad placement, Free/Plus/Pro/Org subscription sandbox | Register largely omits account identity, entitlement/payment webhook, cancellation/refund, advertising approval and complete product-quality proof |
+| 7 | §§41–44 | P0-047–058; P0-104–118 | Saved cases, exports, paid research, institutional license/API contracts and real B2B demand | Licensing/versioned API, customer and support requirements still under-scoped in provisional 150 items |
+| 8 | §§45–48 | P0-035–046; P0-098–103; P0-131–142 | Content credibility, high-risk editorial safety, security/privacy and field accessibility | Reviewer qualifications, specialty harm-reduction QA, billing security and true WCAG field acceptance not fully captured |
+| 9 | §§49–52 | P0-119–130; P0-107–118 | Scientific social integration, attributable real human journeys and ethical outreach | Independent final AV, platform receipts, real conversion and earned scientific citations remain unknown |
+
+## Explicitly missing or insufficiently covered business-critical acceptances
+
+| Gap | Required minimum PASS evidence (future scoped owner ticket) | Priority / dependency |
+|---|---|---|
+| Canonical public count and evidence taxonomy | Reproducible source-set/count definitions for homepage, research report and evidence lookup, with one tested labeling distinction for ingredient grade vs outcome-specific grade, study confidence and safety. | P0; science integrity before claims/conversion |
+| Real production measurement | Document consent and prove a tagged browser event reaches the approved analytics property with real timestamp/stream; import comparable GSC/search/index coverage. Missing consent/provider permission stays Unknown. Existing [#6143](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6143) is the analytics owner; do not fork it. | P0; before declaring growth or ROI |
+| Consumer homepage three-path promise | At a narrow-phone width the visitor sees the explicit effectiveness/risks promise and Find/Compare/Safety actions; each routes to a useful real page without unreviewed claim promotion. | P0; after issue admission and mobile/a11y QA |
+| Research usefulness benchmark | Fixed real-source question cohort covers contradictions, lineage, uncertainty, populations, safety and formulation; record citation precision and unsupported-claim rate versus a simpler baseline. | P0; before selling professional research |
+| 20–30 page priority cohort | Dated demand/evidence/quality scoring and named pages, reviewer proof, distinct search intent, content/SEO completion and comparative outcome measurement. | P0; independent editorial review required |
+| Unified event taxonomy | Define and validate these 17 owner-named event schemas and dedup/consent policies; do not invent provider receipts: `search_submitted`, `ingredient_viewed`, `evidence_expanded`, `study_opened`, `comparison_started`, `comparison_completed`, `safety_section_viewed`, `research_tool_started`, `research_tool_completed`, `newsletter_signup`, `watchlist_created`, `research_alert_opened`, `affiliate_link_clicked`, `subscription_checkout_started`, `subscription_activated`, `subscription_cancelled`, `institutional_inquiry_submitted`. | P0; after transport authorization |
+| Newsletter and watchlist | Confirm opt-in/verification/unsubscribe and real provider send/receipt; alerts trigger only on genuine reviewed research changes; no duplicate sends. | P0; depends on consent and change ledger |
+| Product-quality evidence | Distinguish independently verified product formulation/label/testing/certification from ingredient-level studies, network terms and vendor assertions. | P1; scientific review and affiliate eligibility first |
+| Ad-safe classification | Actual network approval before ads; sensitive exclusions and layout performance; never monetize high-risk content. | P1; after measurement and owner decision |
+| Subscription lifecycle | Sandbox accounts, secure authentication, entitlements, webhooks, cancellation/refund/failed payment/account deletion, free safety and explicit owner approval before billing. Current reconstructed 150 lacks this complete functional acceptance. | P1; no live payments until approved |
+| Paid Research Atlas | Saving cases/questions, reproducible source-level exports, real evidence-change notifications, advanced comparisons, usage quality outcomes. | P1; after benchmark/source review |
+| Institutional licensing | Confirm audience need, original analysis licensing rights, terms/data coverage/limits, support/API contracts and verified B2B inquiry counts. | P2; §§42–44 now fully supplied, product and customer proof remains Missing |
+
+## Near-term dependency ordering based on the actual directive
+
+1. **Reconcile Phase 0 truth**: recognize repaired stale D-owner #6368 in merged #6494; confirm the separately admitted homepage PR #6492 state before any new work, inventory actual Cloudflare/analytics and authoritative scientific counts. Do not infer absent network receipts from GitHub source.
+2. **Make measurement real**: existing #6143 with authorized GTM/GA4 or approved alternative; consented real-event proof; GSC canonical coverage; provider consent and data security.
+3. **Make scientific claims legible and testably right**: canonical grade/count display vocabulary, sampled human reviewers, useful cross-source contradiction and lineage benchmarks; make research-only boundaries visible.
+4. **Improve visitor outcomes**: one mobile first-impression/home-to-answer-to-Compare/Safety journey, then an evidence-screened 20–30 page cohort; test retention invitations in context.
+5. **Enable recurring engagement**: real verified newsletter and independently reviewed evidence changes; then research watchlist/topic follows, with no invented notifications.
+6. **Test permitted commerce**: affiliate destination/product-quality basis/disclosure and measured yield, plus future ad-safe and sandbox-only subscription research prototypes—never finance/provider/billing activation without owner permission.
+7. **Commercial discovery**: speak to paying researcher/institutional audiences only when value, quality, support rights, and outcomes can be demonstrated.
+
+## Source-gap log
+
+- [x] Owner supplied §42 licensing restrictions and complete §§43–44.
+- [x] Owner supplied Parts XI–XX, Phases 8–9, §§45–73, eight milestones, nine initial steps and final system acceptance.
+- [ ] Exact original 150 numbered task checklist or accepted ID-to-original-section map. Historical 10/150 is not reconstructible item-by-item from available source.
+- [ ] Independent real-world results for audience, returning use, paid membership, revenue, independent scientific reviewer signoff and full provider pipelines.
+
+## Source integrity checklist
+
+- Numbered sections in complete owner-supplied specification: **73/73 indexed contiguously, §1–§73** (structured summaries, not verbatim original text).
+- Original phase headings: **10 (Phase 0–9)**. Phases 0–7 have supplied exit gates; Phases 8–9 are continuous governance/distribution requirements. Parts I–XX and strategic milestones 1–8 are represented.
+- The source was pasted directly by the project owner. Its text is not a GitHub-derived runtime/deployment fact and does not authorize a merge outside controls.
+- The reconstructed register is not re-numbered or marked more complete by this file; any future changes require source-linked acceptance audits and bounded PRs.

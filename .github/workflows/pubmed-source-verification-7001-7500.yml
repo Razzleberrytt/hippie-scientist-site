@@ -1,0 +1,70 @@
+name: THS PubMed Source Verification 7001-7500
+
+on:
+  push:
+    branches:
+      - research/enrichment-waves-7001-7500-20261007
+    paths:
+      - '.github/workflows/pubmed-source-verification-7001-7500.yml'
+      - 'scripts/data/verify-enrichment-waves-7001-7500.py'
+      - 'ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-candidates-part-*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ths-pubmed-7001-7500
+  cancel-in-progress: false
+
+jobs:
+  source-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify exact PubMed titles, DOI and substantive abstracts via NCBI EFetch
+        run: python3 scripts/data/verify-enrichment-waves-7001-7500.py
+      - name: Upload audit artifacts even when incomplete
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waves-7001-7500-pubmed-source-receipts
+          path: |
+            ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-*.json
+            ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-status.json
+          if-no-files-found: warn
+      - name: Commit only source-verification receipts to the research branch
+        if: success() && github.ref_type == 'branch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-verified-part-*.json
+          git add ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-status.json
+          if git diff --cached --quiet; then
+            echo "No new verification changes"
+          else
+            git commit -m "data(research): NCBI EFetch source verification receipts 7001-7500"
+            git push origin HEAD:research/enrichment-waves-7001-7500-20261007
+          fi
+      - name: Record exact research-only counts
+        if: always()
+        run: |
+          echo "## PubMed Waves 7001-7500 verification" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-status.json ]; then
+            python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          p="ops/enrichment-submissions/reconciliation/2026-10-07-enrichment-waves-7001-7500-efetch-status.json"
+          d=json.load(open(p))
+          print(f"- Exact-verified: {d['verified_rows']} / {d['candidate_rows']}")
+          print(f"- Unverified: {d['unverified_rows']}")
+          print(f"- State: {d['status']}")
+          print("- Research-only; no clinical claims, dosing recommendations or public content changes")
+          PY
+          fi

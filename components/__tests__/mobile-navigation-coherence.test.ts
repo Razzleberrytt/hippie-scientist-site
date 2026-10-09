@@ -45,8 +45,14 @@ describe('P0 mobile exploration shell', () => {
 
     expect(homepage).toContain(themeSafeAction)
     expect(homepage).toContain(themeSafeActionText)
-    expect(homepage.split("!text-[var(--surface-elevated)]").length - 1).toBeGreaterThanOrEqual(2)
+    // Search remains the only solid inverted action. The three consumer paths use
+    // theme-aware elevated surfaces instead of hard-coded white cards.
+    expect(homepage.split("!text-[var(--surface-elevated)]").length - 1).toBe(1)
     expect(homepage).toContain("rounded-full bg-[var(--text-primary)] px-4 text-sm font-bold !text-[var(--surface-elevated)]")
+    expect(homepage).toContain("bg-[var(--surface-elevated)]")
+    expect(homepage).toContain("focus-visible:outline")
+    expect(homepage).toContain("href='/explore/'")
+    expect(homepage).toContain("aria-label='Choose your first step'")
     expect(explore).toContain(themeSafeAction)
     expect(explore).toContain(themeSafeActionText)
     expect(homepage).not.toContain('bg-brand-900 px-4 text-sm font-bold text-white')

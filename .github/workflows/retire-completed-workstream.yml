@@ -1,0 +1,49 @@
+name: Propose closed workstream retirement
+
+# Trust only the completed first-party production workflow on main.
+# This workflow proposes a documentation PR; it NEVER edits protected main.
+on:
+  workflow_run:
+    workflows: ["Deploy to Cloudflare Pages"]
+    types: [completed]
+    branches: [main]
+
+# GITHUB_TOKEN cannot trigger pull_request workflows for Actions-created PRs.
+# Only explicit workflow_dispatch launches the required exact-head recovery suites.
+permissions:
+  actions: write
+  contents: write
+  issues: read
+  pull-requests: write
+
+concurrency:
+  group: propose-retirement-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: false
+
+jobs:
+  retirement:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out trusted default-branch source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Set up Node (no npm install)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Confirm script syntax
+        run: node --check scripts/ci/retire-completed-workstream.mjs
+      - name: Propose only independently verified completed owner's retirement
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: node scripts/ci/retire-completed-workstream.mjs

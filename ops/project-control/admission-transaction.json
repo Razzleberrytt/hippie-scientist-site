@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6356,
-  "lane": "R",
-  "title": "Add first-party TikTok draft-upload provider",
+  "mode": "fresh-admission",
+  "base_revision": "2d52b9fec58aca5d99cc6eedc33a4f859520e67f",
+  "last_verified": "2026-10-09",
+  "ticket": 6500,
+  "lane": "A",
+  "title": "Explain evidence-grade scope and public count denominators",
   "priority": "P0",
-  "base_revision": "1c123a71b488b44aae61d33deccd00ad7942e1e8",
-  "last_verified": "2026-10-06",
   "score_inputs": {
-    "businessImpact": 5,
+    "businessImpact": 4,
     "userValue": 5,
-    "trafficPotential": 3,
-    "strategicLeverage": 5,
-    "confidence": 1,
-    "effort": 4
+    "trafficPotential": 4,
+    "strategicLeverage": 4,
+    "confidence": 0.75,
+    "effort": 3
   },
-  "score": 93.8,
-  "note": "Admit the bounded first-party TikTok draft-upload provider after a live Metricool account-limit failure. Direct Post remains out of scope because TikTok's current Direct Post intended-use rules reject private/internal managed-account uploader utilities."
+  "score": 80
 }

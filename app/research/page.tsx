@@ -7,6 +7,7 @@ import {
   type PublicStudyEntity,
 } from '@/lib/public-evidence-dataset'
 import { buildPageMetadata } from '@/lib/seo'
+import { getResearchSourceRegisterSummary } from '@/lib/research-source-register'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Research Library | Studies, Trials & Evidence Sources',
@@ -40,6 +41,10 @@ const secondaryResearchLinks = [
   {
     label: 'Methodology',
     href: '/info/methodology/',
+  },
+  {
+    label: 'Research operations',
+    href: '/research/operations/',
   },
   {
     label: 'Recent evidence changes',
@@ -169,6 +174,7 @@ function firstStudy(studies: PublicStudyEntity[], classes: Set<string>) {
 
 export default async function ResearchPage() {
   const dataset = await getPublicEvidenceDataset()
+  const sourceRegister = getResearchSourceRegisterSummary()
   const directlyLinkedStudies = rankStudies(dataset.studies.filter((study) => Boolean(sourceHref(study))))
 
   const seeded = [
@@ -218,6 +224,10 @@ export default async function ResearchPage() {
           ))}
         </div>
 
+        <div className='mt-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-brand-900/10 bg-brand-50/50 px-4 py-3 text-sm'>
+          <p className='max-w-3xl text-muted'><strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()} unique research-only PubMed references</strong> are cataloged separately from the editorially reviewed evidence.</p>
+          <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source register →</Link>
+        </div>
         <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm'>
           <span className='font-semibold text-ink'>Trust & updates</span>
           {secondaryResearchLinks.map((link) => (
@@ -292,6 +302,9 @@ export default async function ResearchPage() {
             Full Evidence Report →
           </Link>
         </div>
+        <p className='mt-4 text-sm leading-7 text-muted'>
+          Separately, the research intake register tracks <strong className='text-ink'>{sourceRegister.totalIndexedPmids.toLocaleString()}</strong> distinct PubMed IDs through wave {sourceRegister.throughWave.toLocaleString()}. Those identities are not added to the published study counts below. <Link href='/research/source-register/' className='font-semibold text-brand-700 hover:underline'>Browse source intake →</Link> <Link href='/research/intelligence/' className='font-semibold text-brand-700 hover:underline'>Explore the Research Intelligence Studio ↗</Link>
+        </p>
         <div className='mt-6 grid gap-4 sm:grid-cols-3'>
           <div className='rounded-xl bg-white p-5'>
             <p className='text-3xl font-bold text-ink'>{dataset.metrics.studyCount.toLocaleString()}</p>

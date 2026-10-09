@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-07-enrichment-waves-7001-7500",
+  "stage": "efetch_source_verification",
+  "status": "ready_for_semantic_reconciliation",
+  "candidate_rows": 500,
+  "verified_rows": 500,
+  "unverified_rows": 0,
+  "failure_details": [],
+  "retrieval_errors": [],
+  "previous_pmids": 6935,
+  "prospective_cumulative_pmids": 7435,
+  "research_only": true,
+  "recommendation_promotion": false,
+  "dosing_inference": false,
+  "public_content_published": false,
+  "independent_semantic_review_still_required": true
+}
