@@ -119,9 +119,18 @@ function compileEditorialReviewRequest(
  * unauthorized field or publication flag invalidates the packet.
  */
 export function validateResearchEditorialReviewRequest(
-  integrated:IntegratedResearchCase,
+  studio:ResearchStudio,
+  graph:SemanticNetwork,
+  pmid:string,
+  distributionObjects:readonly DistributionIdentity[],
   packet:unknown,
+  reviewedStudies:readonly ReviewedStudyInput[]=[],
 ):ResearchEditorialReviewRequestV1{
+  // A consumer must reconstruct the current case from governed inputs rather
+  // than trusting the handoff's own claim of its source identity or permission.
+  const integrated=buildIntegratedResearchCase(
+    studio,graph,pmid,distributionObjects,reviewedStudies,
+  )
   if(!integrated||integrated.status!=='source-bound-human-review-only'||
     integrated.caseFile.pmid!==integrated.pmid||
     integrated.caseFile.sourceSignature!==integrated.sourceSignature||
