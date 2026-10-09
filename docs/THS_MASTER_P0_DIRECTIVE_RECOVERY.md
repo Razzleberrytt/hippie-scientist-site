@@ -128,6 +128,17 @@
 - **§65 Forecasting:** Conservative/base/optimistic modeled scenarios with sensitivity to traffic quality, memberships, commission, ad eligibility, costs and B2B volume.
 - **§66 ROI reporting:** For each update, specify expected benefit, measurable outcome, cost/effort, hypothetical ROI, confidence, observed changes and missing data—never fabricate increases.
 
+### Part XVI: Strategic delivery sequence — dependency milestones
+
+- **Milestone 1 Reliable foundation:** Repository and scientific-count audit, critical reliability, provenance, measurement architecture, ops docs.
+- **Milestone 2 Better first-time experience:** Consumer hero/navigation, mobile/profile/search, evidence-grade clarity, SEO.
+- **Milestone 3 Trustworthy intelligence:** Shared semantics, trial lineage, Claim DNA, traceable answers, real review history and benchmark quality.
+- **Milestone 4 Audience retention:** Functional newsletter, topic follow and reviewed research updates with returning-user evidence.
+- **Milestone 5 Initial commercialization:** Independent affiliate/product-quality eligibility, ad-safety, real revenue dashboard and controlled experiments.
+- **Milestone 6 Paid research validation:** Plus/Pro prototypes, access controls, sandbox billing and evidence of willingness to pay before any approved launch.
+- **Milestone 7 Institutional expansion:** Source-legal exports/API, licensing terms, institutional inquiries and credible demos/customer demand.
+- **Milestone 8 Optimization and scale:** Measurement-backed revenue/retention/SEO, scientific reviewer scale, performance, removal of low-value complexity and reinvestment.
+
 ### Part XVII: Continuous quality improvement
 
 - **§67 Avoid feature inflation:** Before a new tool: exact user problem, existing alternatives, data, independent verification, audience exposure, real benefit and maintenance cost.
@@ -141,6 +152,29 @@
 - **§72 Resumption protocol:** At each session read checkpoint and fresh repo/production reality, reconcile old PRs/interruptions, avoid repeating full builds and continue dependency-ready work.
 - **§73 Autonomous operating boundaries:** Ordinary authorized code/tests/docs without repeated permission; explicit authorization for costs, live billing, contracts, unreviewed high-risk claims, destruction, bypass and legal terms.
 
+### Part XIX: Initial execution order
+
+- **Step 1:** Discover real GitHub, deployment, database, analytics and other connection access without asking for chat secrets.
+- **Step 2:** Inspect architecture, schemas, modules, current PRs/jobs, and actual implementation.
+- **Step 3:** Gap-analyze Parts I–XVIII as complete verified, unverified, partial, missing, broken, external blocked or unjustified.
+- **Step 4:** Build one dependency graph/backlog with no duplicate owner and bounded compatible batches.
+- **Step 5:** Start highest-priority dependency-ready P0 science, integration, analytics, UX, SEO or deploy repair.
+- **Step 6:** Modify actual code and relevant data/config, add focused tests, repair and validate a cohesive batch.
+- **Step 7:** Run required exact-head checks and authorized merge, then verify production.
+- **Step 8:** Write durable release/evidence/Unknown checkpoint.
+- **Step 9:** Continue until all applicable requirements are verified, explicitly deferred, superseded with equivalent proof or truly blocked.
+
+### Part XX: Final system acceptance — technical gates and separate business validation
+
+- **Scientific foundation:** Canonical model, defined counts, clinical claim provenance, understandable grades, deduped trial cohorts, real evidence changes, semantic nonpromotion, high-risk editorial review.
+- **Intelligence integration:** Shared schemas, honest relationship meaning, source-traceable answers, meaningful contradictory/uncertain evidence and measured research benchmark quality.
+- **User experience:** Consumer benefit-driven home, connected consumer/research/harm-reduction, accessible ingredient profiles, mobile journeys, accessibility/performance.
+- **Discovery and retention:** Actual SEO, priority content improvement, newsletter and research watchlist delivery, returning-user metrics, original externally useful research assets.
+- **Monetization:** Independently governed affiliate disclosure and eligibility, approved ads if enabled, correct sandbox subscription entitlements/billing, owner consent to live commerce, revenue not projections.
+- **Institutional research:** Honest exports and licensing, stable APIs if offered, real inquiry functionality and buyer-demand receipts.
+- **Engineering operations:** Efficient-but-safe CI, exact deploy, rollback, reliable checkpoints, safely consolidated systems and privacy/security.
+- **Business validation (separate from technical DONE):** Real audience acquisition, science/correction quality, return use, emails, paying members, monthly revenue, affiliate/ad margin, institutions, customer satisfaction and useful research performance.
+
 ## Original phase exit gates recovered
 
 | Original phase | Exit criterion from the supplied v1.0 directive |
@@ -152,7 +186,7 @@
 | 4 | Controllable indexing issues addressed; priority editorial pages meet distinct intent; original research assets prepared for credible external distribution. |
 | 5 | Users can establish an ongoing relationship, while real return/research usefulness is measured accurately. |
 | 6 | Scientific-independent eligible monetization is integrated and measurable, launchable only after explicit outstanding approvals. |
-| 7 | **Unrecoverable from supplied excerpt**: do not fabricate an exit gate. |
+| 7 | Institutional offering technically demonstrable, honest about research limits, appropriately licensed and supported by real customer-interest evidence. |
 
 ## Mapping the original phases to the *reconstructed* 150-item register
 
@@ -167,7 +201,9 @@
 | 4 | §§26–31 | P0-083–094; P0-064–070 | Actual GSC, canonical/indexing/SEO, 20–30 reviewed priority pages, multilingual safety, unique cite-worthy data | Need explicit 20–30 page tracked cohort and independent publication safeguards, not generic high build score |
 | 5 | §§32–36 | P0-104; P0-107–118; P0-092 | Named 17-event taxonomy, verified analytics receipt, real newsletter consent/send, meaningful evidence-watchlist and return-use | Register currently measures data quality but does NOT fully scope signup/watchlist delivery or all 17 events |
 | 6 | §§37–40 | P0-095–106; P0-097–103 | Affiliate eligibility/quality disclosures, product-quality truth, safe ad placement, Free/Plus/Pro/Org subscription sandbox | Register largely omits account identity, entitlement/payment webhook, cancellation/refund, advertising approval and complete product-quality proof |
-| 7 | §§41–42 (partial) | P0-047–058; P0-104–118 | Saved investigations, researcher exports, paid workspaces, institutional licensing/metadata/provenance/support | Institutional contract/support and account-product requirements not represented as explicit testable 150 IDs; section 42 is incomplete |
+| 7 | §§41–44 | P0-047–058; P0-104–118 | Saved cases, exports, paid research, institutional license/API contracts and real B2B demand | Licensing/versioned API, customer and support requirements still under-scoped in provisional 150 items |
+| 8 | §§45–48 | P0-035–046; P0-098–103; P0-131–142 | Content credibility, high-risk editorial safety, security/privacy and field accessibility | Reviewer qualifications, specialty harm-reduction QA, billing security and true WCAG field acceptance not fully captured |
+| 9 | §§49–52 | P0-119–130; P0-107–118 | Scientific social integration, attributable real human journeys and ethical outreach | Independent final AV, platform receipts, real conversion and earned scientific citations remain unknown |
 
 ## Explicitly missing or insufficiently covered business-critical acceptances
 
@@ -184,11 +220,11 @@
 | Ad-safe classification | Actual network approval before ads; sensitive exclusions and layout performance; never monetize high-risk content. | P1; after measurement and owner decision |
 | Subscription lifecycle | Sandbox accounts, secure authentication, entitlements, webhooks, cancellation/refund/failed payment/account deletion, free safety and explicit owner approval before billing. Current reconstructed 150 lacks this complete functional acceptance. | P1; no live payments until approved |
 | Paid Research Atlas | Saving cases/questions, reproducible source-level exports, real evidence-change notifications, advanced comparisons, usage quality outcomes. | P1; after benchmark/source review |
-| Institutional licensing | Confirm audience need, original analysis licensing rights, terms/data coverage/limits, support/API contracts and verified B2B inquiry counts. | P2; §42 excerpt incomplete |
+| Institutional licensing | Confirm audience need, original analysis licensing rights, terms/data coverage/limits, support/API contracts and verified B2B inquiry counts. | P2; §§42–44 now fully supplied, product and customer proof remains Missing |
 
 ## Near-term dependency ordering based on the actual directive
 
-1. **Reconcile Phase 0 truth**: repair stale current sprint ownership (its #6368 D-lane says active even though #6484 merged), inventory actual Cloudflare/analytics and authoritative scientific counts. Do not infer absent network receipts from GitHub source.
+1. **Reconcile Phase 0 truth**: recognize repaired stale D-owner #6368 in merged #6494; confirm the separately admitted homepage PR #6492 state before any new work, inventory actual Cloudflare/analytics and authoritative scientific counts. Do not infer absent network receipts from GitHub source.
 2. **Make measurement real**: existing #6143 with authorized GTM/GA4 or approved alternative; consented real-event proof; GSC canonical coverage; provider consent and data security.
 3. **Make scientific claims legible and testably right**: canonical grade/count display vocabulary, sampled human reviewers, useful cross-source contradiction and lineage benchmarks; make research-only boundaries visible.
 4. **Improve visitor outcomes**: one mobile first-impression/home-to-answer-to-Compare/Safety journey, then an evidence-screened 20–30 page cohort; test retention invitations in context.
@@ -198,14 +234,14 @@
 
 ## Source-gap log
 
-- [ ] Owner's pasted §42 continuation after “Available support”.
-- [ ] Any later Parts, Phase 8+, §§43+, appendices or final exit/acceptance definitions not present in the supplied text.
+- [x] Owner supplied §42 licensing restrictions and complete §§43–44.
+- [x] Owner supplied Parts XI–XX, Phases 8–9, §§45–73, eight milestones, nine initial steps and final system acceptance.
 - [ ] Exact original 150 numbered task checklist or accepted ID-to-original-section map. Historical 10/150 is not reconstructible item-by-item from available source.
 - [ ] Independent real-world results for audience, returning use, paid membership, revenue, independent scientific reviewer signoff and full provider pipelines.
 
 ## Source integrity checklist
 
-- Visible original numbered sections recovered: **42/42 in the supplied excerpt**, contiguous §1–§42.
-- Original phase headings in supplied excerpt: **8**, Phase 0 through 7. Phases 0–6 have quoted exit-condition summaries; Phase 7 exit is absent.
+- Numbered sections in complete owner-supplied specification: **73/73 indexed contiguously, §1–§73** (structured summaries, not verbatim original text).
+- Original phase headings: **10 (Phase 0–9)**. Phases 0–7 have supplied exit gates; Phases 8–9 are continuous governance/distribution requirements. Parts I–XX and strategic milestones 1–8 are represented.
 - The source was pasted directly by the project owner. Its text is not a GitHub-derived runtime/deployment fact and does not authorize a merge outside controls.
 - The reconstructed register is not re-numbered or marked more complete by this file; any future changes require source-linked acceptance audits and bounded PRs.
