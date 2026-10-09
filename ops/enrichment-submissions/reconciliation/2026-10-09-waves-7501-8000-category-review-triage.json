@@ -6,7 +6,7 @@
   "source_records_preserved": 500,
   "source_verified_records": 500,
   "screened_titles": 500,
-  "potential_category_mismatches": 8,
+  "potential_category_mismatches": 10,
   "flagged_records": [
     {
       "category": "stress_anxiety",
@@ -127,6 +127,36 @@
         "provisional_disposition": "RECLASSIFY_UTI_WOMENS_HEALTH_OR_EXCLUDE",
         "method": "Human probiotic UTI prevention trial, not respiratory infection; broader immune/respiratory category needs explicit scope."
       }
+    },
+    {
+      "pmid": "25828061",
+      "category": "stress_anxiety",
+      "title": "Withania somnifera (Ashwagandha) in neurobehavioural disorders induced by brain oxidative stress in rodents: a systematic review and meta-analysis.",
+      "reason": "Systematic review of rodent neural oxidative-stress experiments only; abstract calls for future human trials.",
+      "wave": 7523,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "EXCLUDE_FROM_HUMAN_EVIDENCE_INTAKE",
+        "method": "Animal-only rodent studies in review, no human participant outcomes; fails human-focused intake criterion."
+      }
+    },
+    {
+      "pmid": "20614803",
+      "category": "stress_anxiety",
+      "title": "A systematic review on the anxiolytic effects of aromatherapy on rodents under experimentally induced anxiety models.",
+      "reason": "Systematic review of 14 rodent behavioral studies only; calls for human translational research.",
+      "wave": 7528,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "EXCLUDE_FROM_HUMAN_EVIDENCE_INTAKE",
+        "method": "Rodents-only experimental anxiety models, no human efficacy trials; fails human-focused intake criterion."
+      }
     }
   ],
   "reviewed_scientifically": 0,
@@ -135,8 +165,9 @@
   "formal_independent_review_complete": false,
   "protocol": "Candidate flags from deterministic title/category conflict patterns; flagged records remain unchanged, pending reviewer decisions after reading abstracts and methods. Other 492 records are NOT cleared; all 500 require individual independent semantic review.",
   "evidence_limits": "Title screening is neither a comprehensive abstract review nor trial-design/correction checking. Negative/counterevidence must be evaluated; absence of a flag is not approval.",
-  "abstract_level_assistant_triage": 8,
+  "abstract_level_assistant_triage": 10,
   "independent_human_methodology_reviews": 0,
   "pending_formal_review": 500,
-  "triage_limitations": "Eight flags were individually considered against abstracts, but none has independent human scientific approval. Other 492 entries remain unassessed beyond title/category heuristics. All 500 pending source-only records require the governed independent review and final identity/admission checks."
+  "triage_limitations": "Ten flagged abstracts were individually triaged by the assistant; two are clearly animal-only reviews despite the claimed retained-title zero-animal audit. No source records edited, no independent human approval and no clinical promotion. Other 490 records remain unscreened beyond title heuristics. All 500 require governed semantic/identity/methodology adjudication.",
+  "human_only_source_filter_violations_found": 2
 }
