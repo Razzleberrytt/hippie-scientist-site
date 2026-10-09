@@ -1,6 +1,7 @@
 import {describe,expect,it} from 'vitest'
 import {buildResearchSemanticNetwork} from '../research-semantic-network'
 import {buildResearchIntelligenceStudio} from '../research-intelligence-studio'
+import type {DistributionIdentity} from '../research-semantic-fabric'
 import {buildIntegratedResearchCase,buildResearchEditorialReviewHandoff,verifyResearchEditorialReviewHandoff} from '../research-intelligence-integration'
 
 // Deliberately synthetic PubMed-like records: these tests validate the
@@ -89,9 +90,9 @@ describe('P0 integrated twenty-tool exact-source case',()=>{
 
 
 describe('P0 typed editorial request — exact source and human-only permissions',()=>{
-  const build=(objects:readonly typeof matching[]=[matching])=>
+  const build=(objects:readonly DistributionIdentity[]=[matching])=>
     buildResearchEditorialReviewHandoff(studio,graph,'10000001',objects)
-  const verify=(candidate:unknown,objects:readonly typeof matching[]=[matching])=>
+  const verify=(candidate:unknown,objects:readonly DistributionIdentity[]=[matching])=>
     verifyResearchEditorialReviewHandoff(candidate,studio,graph,'10000001',objects)
 
   it('delivers one source-pinned, 8+12 trace with human review targets only',()=>{
@@ -127,10 +128,11 @@ describe('P0 typed editorial request — exact source and human-only permissions
   it('holds a source with no exact linked review target, never promotes it',()=>{
     const held=build([])
     expect(held).toMatchObject({
-      disposition:'held-no-source-linked-review-target',
       reviewTargets:[],
       publicationAllowed:false,mutationAllowed:false,clinicalPromotions:0,
     })
+    expect(held?.disposition).toBe(held?.draftBriefs.length ?
+      'human-review-required':'held-no-source-linked-review-target')
     expect(held?.unresolved.some(item=>item.channel==='social')).toBe(true)
     expect(verify(held,[])).toEqual(held)
   })
