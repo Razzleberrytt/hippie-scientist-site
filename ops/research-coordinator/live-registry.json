@@ -39614,14 +39614,18 @@
   "batches": [
     {
       "id": "rolling-0001",
-      "state": "FREEZE_PENDING",
+      "state": "DRAFT_PR",
       "created_at": "2026-10-08T16:39:11.408Z",
       "frozen_at": "2026-10-09T19:43:35.610Z",
       "wave_start": 8001,
       "wave_end": 8500,
       "branch": "research/enrichment-waves-8001-8500-rolling",
       "artifact_prefix": "2026-10-09-enrichment-waves-8001-8500",
-      "allocated_at": "2026-10-09T19:43:41.737Z"
+      "allocated_at": "2026-10-09T19:43:41.737Z",
+      "pr_number": 6546,
+      "review_queue": "ops/research-coordinator/review-queues/2026-10-09-enrichment-waves-8001-8500-review-queue.json",
+      "blocker": "independent semantic review or research gate pending",
+      "head_sha": "180187464fa67562012fc39dc9e89fb3f17e3ea0"
     },
     {
       "id": "rolling-0002",
@@ -39647,10 +39651,10 @@
     "batches": [
       {
         "id": "rolling-0001",
-        "state": "FREEZE_PENDING",
+        "state": "DRAFT_PR",
         "count": 500,
-        "pr_number": null,
-        "blocker": null
+        "pr_number": 6546,
+        "blocker": "Independent scientific review pending"
       },
       {
         "id": "rolling-0002",
