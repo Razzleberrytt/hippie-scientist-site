@@ -1,0 +1,31 @@
+{
+  "schema_version": 3,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "purpose": "retrigger repository validation after automated upstream merge commit",
+  "authoritative_artifacts": [
+    "2026-10-06-enrichment-waves-5001-5500-final-consolidated-r3.json",
+    "2026-10-06-enrichment-waves-5001-5500-final-selection-r3.json",
+    "2026-10-06-enrichment-waves-5001-5500-pmid-index-r3.json",
+    "2026-10-06-enrichment-waves-5001-5500-final-audit-r3.json",
+    "2026-10-06-enrichment-waves-5001-5500-final-status-r3.json"
+  ],
+  "integrity": {
+    "findings": 500,
+    "cumulative_unique_pmids": 5435,
+    "exact_titles_verified": 500,
+    "non_null_abstracts": 500,
+    "duplicate_pmids": 0,
+    "duplicate_dois": 0,
+    "duplicate_titles": 0,
+    "prior_pmid_collisions": 0,
+    "hard_off_domain_rows": 0,
+    "residual_case_report_or_explicit_preclinical_rows": 0
+  },
+  "research_only": true,
+  "validation_context": {
+    "base_ref": "main",
+    "upstream_pr_6355_merged": true,
+    "pr_contract_template_restored": true,
+    "reason": "fresh validation cycle after upstream merge and PR retarget to main"
+  }
+}

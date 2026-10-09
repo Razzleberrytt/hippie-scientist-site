@@ -35,7 +35,12 @@ describe('premium visual refinement contracts', () => {
 
   it('keeps the homepage hero as an unmistakable flagship composition', () => {
     expect(homepage).toContain("className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10'")
-    expect(homepage).toContain('Start with the question. Open the evidence when you need it.')
+    expect(homepage).toContain('Which supplements actually work—and what does the research say about their risks?')
+    expect(homepage).toContain("aria-label='Choose your first step'")
+    expect(homepage).toContain("label: 'Find an ingredient'")
+    expect(homepage).toContain("label: 'Compare options'")
+    expect(homepage).toContain("label: 'Check safety concerns'")
+    expect(homepage).toContain("bg-[var(--surface-elevated)]")
     expect(homepage).toContain("role='search'")
     expect(homepage).toContain("href='/explore/'")
     expect(homepage).not.toContain('<SiteDestinationGrid />')

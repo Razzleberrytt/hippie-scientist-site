@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "category": "performance",
+  "target": 16,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 48,
+  "rows": [
+    {
+      "pmid": "42801387",
+      "title": "Longitudinal impact of sodium bicarbonate therapy on health-related quality of life in pre-dialysis chronic kidney disease with metabolic acidosis: a pragmatic trial in Malaysia.",
+      "doi": "10.1007/s11136-026-04404-8",
+      "pub_date": "2026 Sep 27",
+      "journal": "Quality of life research : an international journal of quality of life aspects of treatment, care and rehabilitation",
+      "pub_type": "Pragmatic Clinical Trial",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836870",
+      "title": "Effects of isolated and combined supplementation of caffeine and capsaicin on a self-paced 10-km running performance.",
+      "doi": "10.1007/s00421-026-06456-7",
+      "pub_date": "2026 Oct 6",
+      "journal": "European journal of applied physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42696273",
+      "title": "Common questions and misconceptions of sodium bicarbonate as an ergogenic aid: what does the science really show?",
+      "doi": "10.1080/15502783.2026.2724103",
+      "pub_date": "2026 Dec 30",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42707668",
+      "title": "From Macronutrients to Functional Foods: Nutritional Strategies for Recovery Following High-Intensity Exercise.",
+      "doi": "10.1002/fsn3.72331",
+      "pub_date": "2026 Sep",
+      "journal": "Food science & nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42710212",
+      "title": "From nutrient recovery to fertilizer product quality: A nitrogen-quality framework for manure-derived liquid fraction management.",
+      "doi": "10.1016/j.jenvman.2026.130890",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of environmental management",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738943",
+      "title": "Beyond Ergogenic Effects: Limited Evidence on Caffeine-Related Problematic Use, Dependence, and Withdrawal in Athletic Populations-A Structured Narrative Review.",
+      "doi": "10.3390/nu18172770",
+      "pub_date": "2026 Aug 25",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42742069",
+      "title": "Pulsed Electrocatalysis: A Novel Paradigm of Nitrate Reduction.",
+      "doi": "10.1002/adma.74881",
+      "pub_date": "2026 Sep 15",
+      "journal": "Advanced materials (Deerfield Beach, Fla.)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779370",
+      "title": "Excitonic-engineered bismuth oxyhalide nanosheets with superior performance for environmental photocatalysis.",
+      "doi": "10.1039/d6cc05101d",
+      "pub_date": "2026 Sep 24",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42789042",
+      "title": "Synergistic Cu-Co Bimetallic Catalysts for Electrocatalytic Nitrate Reduction to Ammonia: From Atomic-Level Design to Relay Catalysis.",
+      "doi": "10.1002/smll.75918",
+      "pub_date": "2026 Sep 25",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813445",
+      "title": "Electrocatalytic nitrate reduction to ammonia: catalyst design, electrolyte engineering and application scenarios.",
+      "doi": "10.1039/d6cc05378e",
+      "pub_date": "2026 Sep 30",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831375",
+      "title": "3d transition metal (Fe, Co, Ni, Cu) compounds for electrocatalytic nitrate reduction to ammonia: fundamentals, strategies, and progress.",
+      "doi": "10.1039/d6mh01029f",
+      "pub_date": "2026 Oct 5",
+      "journal": "Materials horizons",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42700445",
+      "title": "Steering pH-Dependent Pathways on Unconventional Phase Alloy Nanostructures for Universal Nitrate Electroreduction.",
+      "doi": "10.1002/adma.74915",
+      "pub_date": "2026 Sep 5",
+      "journal": "Advanced materials (Deerfield Beach, Fla.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42702113",
+      "title": "Redox-mediated Zn electrode for hydrogen supplementation to enhance microbial electrolysis reduces toxicity and improved nitrate removal.",
+      "doi": "10.1016/j.watres.2026.126834",
+      "pub_date": "2026 Aug 29",
+      "journal": "Water research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42703068",
+      "title": "Electron and Hydrogen Dual Spillover at CeO(2)/Fe(3)C Interfaces for Efficient NH(3) Electrosynthesis and High-Performance Zn-NO(3) (-) Batteries.",
+      "doi": "10.1002/smll.75629",
+      "pub_date": "2026 Sep 6",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42709106",
+      "title": "Tailoring Multivalent Nickel Sites via Mild Surface Reconstruction for Enhanced Nitrate Reduction.",
+      "doi": "10.1021/acs.langmuir.6c03009",
+      "pub_date": "2026 Sep 8",
+      "journal": "Langmuir : the ACS journal of surfaces and colloids",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42709628",
+      "title": "High Mass Activity of a Dendritic Ag-Cu Relay Catalyst for Nitrate to Ammonia Electroreduction.",
+      "doi": "10.1021/acsami.6c12419",
+      "pub_date": "2026 Sep 8",
+      "journal": "ACS applied materials & interfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42712005",
+      "title": "Combination of In Ovo Nutritional Components Improves Embryonic Development, Growth Performance, and Gut Health in Broiler Chickens.",
+      "doi": "10.1111/jpn.70111",
+      "pub_date": "2026 Sep 8",
+      "journal": "Journal of animal physiology and animal nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42716389",
+      "title": "Sulfide-driven partial denitrification serves as a remedial strategy for suboptimal partial nitrification-anammox performance.",
+      "doi": "10.1016/j.biortech.2026.135813",
+      "pub_date": "2026 Sep 9",
+      "journal": "Bioresource technology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42717633",
+      "title": "High-Entropy Alloy-Induced Triple Synergistic Modulation for Enhanced Electrocatalytic Nitrate Reduction to Ammonia.",
+      "doi": "10.1002/smll.75679",
+      "pub_date": "2026 Sep 9",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42719740",
+      "title": "Nonthermal Concentration of Red Beetroot Juice by Reverse Osmosis and Forward Osmosis.",
+      "doi": "10.1002/fsn3.72222",
+      "pub_date": "2026 Sep",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42719752",
+      "title": "Green auto-combustion derived V-type hexagonal ferrite nanoparticles: local atomic structure by XAFS and dual magnetic-electrochemical caffeine sensing properties.",
+      "doi": "10.1039/d6ra05692j",
+      "pub_date": "2026 Sep 30",
+      "journal": "RSC advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42721849",
+      "title": "A machine learning approach to estimating nitrate-nitrogen concentrations in shallow groundwater across New Zealand.",
+      "doi": "10.1016/j.chemosphere.2026.145093",
+      "pub_date": "2026 Sep 10",
+      "journal": "Chemosphere",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42723415",
+      "title": "Identifying Dominant Factors and Combined Effects of Shallow Groundwater Nitrate Contamination in the Guanzhong Basin Using PSO-XGBoost-SHAP.",
+      "doi": "10.1002/wer.70564",
+      "pub_date": "2026 Sep",
+      "journal": "Water environment research : a research publication of the Water Environment Federation",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42727131",
+      "title": "Building biofilms for saline hydrogenotrophic denitrification from contrasting origins: Convergent acclimation, divergent performance.",
+      "doi": "10.1016/j.watres.2026.126879",
+      "pub_date": "2026 Sep 6",
+      "journal": "Water research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42734810",
+      "title": "Carbonate-nitrate alkali sintering for fluoride determination in geological materials: mechanistic insights, interference control and validation with reference materials.",
+      "doi": "10.1007/s44211-026-00965-3",
+      "pub_date": "2026 Sep 14",
+      "journal": "Analytical sciences : the international journal of the Japan Society for Analytical Chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42735791",
+      "title": "Integrated sustainability evaluation of electrochemical quantification of flibanserin and caffeine in various matrices.",
+      "doi": "10.1016/j.ab.2026.116256",
+      "pub_date": "2026 Sep 14",
+      "journal": "Analytical biochemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42736276",
+      "title": "Spin state and orbital engineering of cuprous oxide for efficient nitrate reduction.",
+      "doi": "10.1038/s41467-026-76420-8",
+      "pub_date": "2026 Aug 15",
+      "journal": "Nature communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738590",
+      "title": "The Combination of Phytogenic in High-Starch Diets for Growing Cattle and Its Effects on Immunomodulation, Fermentation, Microbiota, and Performance.",
+      "doi": "10.3390/ani16172803",
+      "pub_date": "2026 Sep 6",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738765",
+      "title": "Novel Caffeine-Assisted Aqueous Extraction Strategy for Enhanced Solubilization of Polycyclic Aromatic Hydrocarbons from Creosote-Treated Waste Wood.",
+      "doi": "10.3390/molecules31173107",
+      "pub_date": "2026 Sep 4",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42739326",
+      "title": "Trehalose-6-Phosphate Phosphatase I (TPPI) Regulates Floral Transition, Nitrogen Responses, and Photosynthetic Performance in Arabidopsis.",
+      "doi": "10.3390/plants15172559",
+      "pub_date": "2026 Aug 23",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42739386",
+      "title": "Calcium Sources Mitigate Salt Stress and Improve the Physiological and Productive Performance of Bell Peppers.",
+      "doi": "10.3390/plants15172620",
+      "pub_date": "2026 Aug 27",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42745141",
+      "title": "Ligand-Directed Nitrate Incorporation Into Reconstructed Oxyhydroxides for Durable Seawater Electrolysis.",
+      "doi": "10.1002/anie.3751410",
+      "pub_date": "2026 Sep 15",
+      "journal": "Angewandte Chemie (International ed. in English)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42746726",
+      "title": "Isoniazid nitrate: synergistic dual π-conjugation triggering prominent second-harmonic generation.",
+      "doi": "10.1039/d6cc05510a",
+      "pub_date": "2026 Sep 16",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42746782",
+      "title": "CuO/Sm(2)CuO(4) heterointerfaces with Sm-derived Lewis acid sites for efficient nitrate-to-ammonia electroreduction.",
+      "doi": "10.1039/d6nr02274j",
+      "pub_date": "2026 Sep 16",
+      "journal": "Nanoscale",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42753169",
+      "title": "Electronic Modulation of Bi-Decorated Ti(3)C(2)T(x) MXene Toward Highly Efficient Electrocatalytic Nitrate Reduction to Ammonia.",
+      "doi": "10.1002/cssc.71063",
+      "pub_date": "2026 Sep 28",
+      "journal": "ChemSusChem",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42753437",
+      "title": "Iron extraction from copper slag constructs oxygen vacancy-containing Fe₂O₃ for electrocatalytic nitrate reduction to ammonia.",
+      "doi": "10.1016/j.jhazmat.2026.143610",
+      "pub_date": "2026 Sep 17",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754105",
+      "title": "Calcium-mediated interfacial regulation in tourmaline-strain YX13 system for enhanced denitrification: Performance and mechanisms.",
+      "doi": "10.1016/j.biortech.2026.135858",
+      "pub_date": "2026 Sep 17",
+      "journal": "Bioresource technology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754116",
+      "title": "Surface anchoring and structural confinement of iron species within wood-derived carbon for efficient electrocatalytic nitrate reduction to ammonia.",
+      "doi": "10.1016/j.biortech.2026.135854",
+      "pub_date": "2026 Sep 17",
+      "journal": "Bioresource technology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42757173",
+      "title": "Chemical Composition, Physicochemical Properties, and Morphological Characterization of Granules of AmmoniumNitrate Modified by Serpentinite Additive.",
+      "doi": "10.1021/acsomega.6c06718",
+      "pub_date": "2026 Sep 15",
+      "journal": "ACS omega",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42757756",
+      "title": "Interfacial Electronic Reconstruction in SnS2/CoS Heterostructure for Efficient Electrochemical Nitrate-to-Ammonia Conversion and Energy-Environment Integration.",
+      "doi": "10.1021/acsami.6c13867",
+      "pub_date": "2026 Sep 18",
+      "journal": "ACS applied materials & interfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42762438",
+      "title": "Coordinating Mesopore Geometry and Interfacial Water Dynamics for Iron-Site Evolution in Nitrate Electroreduction.",
+      "doi": "10.1002/anie.5865467",
+      "pub_date": "2026 Sep 19",
+      "journal": "Angewandte Chemie (International ed. in English)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766332",
+      "title": "In Situ Derived Fe/Fe(x)O(y) Janus Electrocatalyst for Efficient Nitrate-to-Ammonia Conversion via Intensifying Nitrate Affinity and Active Hydrogen Supply.",
+      "doi": "10.1002/smll.75879",
+      "pub_date": "2026 Sep 21",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766885",
+      "title": "Effect of resting temperature on the aggregation and gel properties of pork myosin with sodium bicarbonate.",
+      "doi": "10.1016/j.meatsci.2026.110225",
+      "pub_date": "2026 Sep 19",
+      "journal": "Meat science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42767049",
+      "title": "Hydroxyapatite-microbe coupling confers Cu²⁺ resilience and functional recovery in partial denitrification granules.",
+      "doi": "10.1016/j.jhazmat.2026.143693",
+      "pub_date": "2026 Sep 19",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42767072",
+      "title": "Causal inference for managing groundwater nitrate levels: toward causation-based prescriptive analytics from correlation-based predictive analytics.",
+      "doi": "10.1016/j.watres.2026.126945",
+      "pub_date": "2026 Sep 16",
+      "journal": "Water research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42767301",
+      "title": "Synergistic regulation of mycorrhizal symbiosis and bacteria in winter nitrogen removal of constructed wetlands: Performance and metabolism.",
+      "doi": "10.1016/j.envres.2026.125720",
+      "pub_date": "2026 Sep 21",
+      "journal": "Environmental research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772735",
+      "title": "Enhancing Recovery in Soccer: A Scoping Review on Nutritional and Supplementation Strategies.",
+      "doi": "10.1123/ijspp.2025-0634",
+      "pub_date": "2026 Sep 21",
+      "journal": "International journal of sports physiology and performance",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780528",
+      "title": "Thiobacillus denitrificans enhances nitrogen removal, growth performance, gut histomorphometry, and immunity in fish raised in recirculatory aquaculture systems.",
+      "doi": "10.3389/fphys.2026.1963898",
+      "pub_date": "2026",
+      "journal": "Frontiers in physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((caffeine[Title/Abstract] OR creatine[Title/Abstract] OR beta-alanine[Title/Abstract] OR citrulline[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"sodium bicarbonate\"[Title/Abstract]) AND (performance[Title/Abstract] OR endurance[Title/Abstract] OR strength[Title/Abstract] OR exercise[Title/Abstract] OR recovery[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

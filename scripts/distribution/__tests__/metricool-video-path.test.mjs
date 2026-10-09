@@ -219,7 +219,7 @@ describe('Metricool governed video normalization', () => {
 describe('video deployment governance', () => {
   it('provisions ffmpeg only when the selected governed pilot is short-video and verifies format-specific static media', () => {
     const workflow = fs.readFileSync(path.resolve('.github/workflows/deploy.yml'), 'utf8')
-    expect(workflow).toContain('Build governed Metricool publication pilot')
+    expect(workflow).toContain('Build governed THS publication pilot')
     expect(workflow).toContain('Provision and verify ffmpeg when governed pilot requires video')
     expect(workflow).toContain("if [ \"$FORMAT\" != 'short-video' ]")
     expect(workflow).toContain('skipping provisioning')
@@ -229,11 +229,13 @@ describe('video deployment governance', () => {
     expect(workflow).toContain('governed media hash mismatch in static output')
   })
 
-  it('uses the deployed governed manifest for dispatch and never revives the image placeholder', () => {
-    const workflow = fs.readFileSync(path.resolve('.github/workflows/metricool-publication.yml'), 'utf8')
-    expect(workflow).toContain('Validate deployed governed publication boundary')
-    expect(workflow).toContain('METRICOOL_YOUTUBE_MADE_FOR_KIDS')
-    expect(workflow).toContain('METRICOOL_YOUTUBE_AI_GENERATED_CONTENT')
+  it('routes new TikTok dispatch through THS Publisher rather than Metricool', () => {
+    const workflow = fs.readFileSync(path.resolve('.github/workflows/ths-publisher-publication.yml'), 'utf8')
+    expect(workflow).toContain('THS_PUBLISHER_ADMIN_TOKEN')
+    expect(workflow).toContain('THS_EXPERIMENT_ID')
+    expect(workflow).toContain('THS_RESEARCH_OBJECT_ID')
+    expect(workflow).toContain('upload-tiktok-draft.mjs')
+    expect(workflow).not.toContain('METRICOOL_USER_TOKEN')
     expect(workflow).not.toContain('pre-dispatch/example.png')
   })
 })

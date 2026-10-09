@@ -16,9 +16,20 @@ export async function resolveWake({ eventName, event, repo, get }) {
   }
   if (eventName !== 'workflow_run') return stop('unsupported-event')
   const run = event.workflow_run
-  if (run?.status !== 'completed' || run.conclusion !== 'success' ||
+  if (run?.status !== 'completed' || !['success', 'action_required'].includes(run.conclusion) ||
       !['pull_request', 'workflow_dispatch'].includes(run.event) || run.head_repository?.full_name !== repo ||
       !/^[a-f0-9]{40}$/.test(run.head_sha || '')) return stop('non-actionable-completion')
+
+  // A bot-refreshed PR can produce action_required with no runnable jobs.
+  // Only wake recovery when GitHub confirms the exact run really had ZERO jobs.
+  // Real failed/running jobs, unavailable data and ambiguous heads fail closed.
+  if (run.conclusion === 'action_required') {
+    if (!Number.isSafeInteger(run.id) || run.id <= 0) return stop('invalid-zero-job-run-id')
+    const jobs = await get(`/repos/${repo}/actions/runs/${run.id}/jobs?filter=all&per_page=100`)
+    if (jobs?.total_count !== 0 || !Array.isArray(jobs.jobs) || jobs.jobs.length !== 0) {
+      return stop('not-verified-zero-job-run')
+    }
+  }
 
   // Resolve current PR identity from GitHub, never trust event pull_requests or a branch name.
   const candidates = []
@@ -48,3 +59,4 @@ async function main() {
   console.log(`Controller wake: ${result.reason}`)
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch(error => { console.error(error); process.exitCode = 1 })
+

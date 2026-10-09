@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4776-4785-relevance-review",
+  "summary": {
+    "range": "4776-4785",
+    "rows": 10,
+    "keep": 1,
+    "replace_preferred": 2,
+    "replace": 7,
+    "replacement_waves": [
+      4776,
+      4778,
+      4779,
+      4780,
+      4781,
+      4782,
+      4783,
+      4784,
+      4785
+    ]
+  },
+  "policy_note": "Exact PubMed verification is necessary but not sufficient; formulation-only, preclinical, and category-mismatched rows should be replaced when stronger human/clinical evidence is available.",
+  "rows": [
+    {
+      "wave": 4776,
+      "pmid": "42360398",
+      "title": "A Dynamic and Complex Early Inflammatory Response in Blood and Cerebrospinal Fluid of Severe Traumatic Brain Injury Patients: A Dual Platform Analysis.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "human inflammatory-biomarker study but no supplement/nutraceutical intervention and too tangential to enrichment target"
+    },
+    {
+      "wave": 4777,
+      "pmid": "42803668",
+      "title": "Postoperative administration of a combination of Phycocyanin, PEA and Selenium following prostatic deobstructive surgery: a preliminary clinical study.",
+      "category": "inflammation_pain",
+      "decision": "keep",
+      "reason": "human clinical intervention directly relevant to pain/inflammation and site supplement evidence"
+    },
+    {
+      "wave": 4778,
+      "pmid": "42559811",
+      "title": "Blue turmeric (Curcuma caesia Roxb.): phenolic profile, bioaccessibility after in vitro gastrointestinal digestion, and chondroprotective effects in IL-1β-stimulated human chondrocytes.",
+      "category": "inflammation_pain",
+      "decision": "replace_preferred",
+      "reason": "direct botanical/chondrocyte evidence but in vitro; replace if a human clinical option is available"
+    },
+    {
+      "wave": 4779,
+      "pmid": "42546933",
+      "title": "Modulation of pancreatic β-cell function by adaptogens: Emerging evidence and integrative therapeutic potential.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "adaptogen/beta-cell review is primarily metabolic and predominantly preclinical; category mismatch"
+    },
+    {
+      "wave": 4780,
+      "pmid": "42527887",
+      "title": "Rational Use of Herbal Products in Pediatric Patients Treated With Anticancer Drugs in the European Union.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "valuable herb-drug interaction review but pediatric oncology safety, not inflammation/pain; better suited to a safety/interactions layer"
+    },
+    {
+      "wave": 4781,
+      "pmid": "42401527",
+      "title": "Epigenetic modulation by essential oils: Potential applications and challenges in palliative care.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "essential-oil epigenetic palliative-care review is largely preclinical/speculative for pain/inflammation claims"
+    },
+    {
+      "wave": 4782,
+      "pmid": "42342159",
+      "title": "Hyaluronic acid and PEA-based Rutin-loaded nanoparticles as new cardioprotective tool against anthracycline-induced cardiotoxicity.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "formulation-only nanoparticle cardioprotection study; not appropriate for research enrichment target"
+    },
+    {
+      "wave": 4783,
+      "pmid": "42567375",
+      "title": "Ginger-derived exosome-like nanoparticles incorporated into hydrogel matrix for enhanced oral delivery of celastrol to alleviate ulcerative colitis.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "nanodelivery/hydrogel formulation study; formulation firewall"
+    },
+    {
+      "wave": 4784,
+      "pmid": "42508767",
+      "title": "Biomineralized nanozymes remodel the infectious microenvironment for precision MRSA pneumonia therapy.",
+      "category": "inflammation_pain",
+      "decision": "replace",
+      "reason": "nanozyme MRSA pneumonia platform; off-domain formulation/infectious-disease engineering"
+    },
+    {
+      "wave": 4785,
+      "pmid": "42823420",
+      "title": "Irritable bowel syndrome.",
+      "category": "inflammation_pain",
+      "decision": "replace_preferred",
+      "reason": "high-value IBS review with pain biology, but not directly tied to the intended supplement/inflammation query"
+    }
+  ]
+}

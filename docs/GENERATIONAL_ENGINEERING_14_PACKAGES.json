@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "plan": "THS-MASTER-P0",
+  "version": "candidate-1.0",
+  "createdAt": "2026-10-09",
+  "authority": "Planning artifact only; AGENTS.md, CURRENT_SPRINT.md, MASTER_BACKLOG.md, current GitHub and production deployment receipts govern implementation",
+  "globalRequirements": {
+    "maximumConcurrentImplementationTickets": 3,
+    "maximumPerWorkstream": 1,
+    "consumerSafety": "Research verification never confers clinical or publishing authority",
+    "releaseGate": "Current exact-head CI and protected main only; no invented deployment or ROI",
+    "acceptanceStatus": "Unknown until tested at named exact artifact revision"
+  },
+  "packages": [
+    {
+      "id": "P01",
+      "name": "GitHub release-state inventory",
+      "workstream": "Operations",
+      "dependsOn": [],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Read-only exact-sha inventory of open issues, PRs, merges, deployment, and unresolved statuses",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P02",
+      "name": "Publication identity and source register",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P01"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Exact PMID/DOI/title identity, provenance, and explicit research-only boundaries",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P03",
+      "name": "Five-lane deduplicated intake",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P02"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Atomic reservations, collision quarantine, idempotent replay, and frozen batch receipts",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P04",
+      "name": "Independent scientific review and claim authority",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P03"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Review distinct from source verification, grade changes human-adjudicated, no automatic medical claims",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P05",
+      "name": "Canonical entity, claim, and correction events",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P02",
+        "P04"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Versioned identities, typed event envelopes, source revision impact, rollback",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P06",
+      "name": "Eight linked research instruments",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P02",
+        "P05"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Same-PMID case navigation, provenance, uncertainty, and bounded semantic conclusions",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P07",
+      "name": "Twelve source-bound reasoning projections",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P06",
+        "P04"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "No unsupported study independence, causality, dose, or clinical promotion",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P08",
+      "name": "Evidence ledger and comparable study lineage",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P04",
+        "P05"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Source-to-claim ledger, study role and comparability documented with negative fixtures",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P09",
+      "name": "Human-governed editorial change propagation",
+      "workstream": "Authority/Content",
+      "dependsOn": [
+        "P08",
+        "P07"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "A correction creates review tasks, never silently rewrites a live claim",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P10",
+      "name": "Accessible mobile evidence journey",
+      "workstream": "Discovery/SEO",
+      "dependsOn": [
+        "P06",
+        "P08"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Reader can navigate question to source, limitations, evidence status and safety on mobile",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P11",
+      "name": "Canonical search and disclosure integrity",
+      "workstream": "Discovery/SEO",
+      "dependsOn": [
+        "P10",
+        "P09"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Content schema, SEO and count/grade denominators match published authorities",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P12",
+      "name": "Source-locked short-video production",
+      "workstream": "Revenue/Conversion",
+      "dependsOn": [
+        "P09"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Versioned scripts, synchronized audio, human natural-presence and scientific approval",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P13",
+      "name": "First-party publisher and consent analytics",
+      "workstream": "Revenue/Conversion",
+      "dependsOn": [
+        "P12",
+        "P11"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "Idempotent publication registry, provider receipt, no acceptance-as-publication, consent-aware outcomes",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    },
+    {
+      "id": "P14",
+      "name": "Exact-SHA release, deployment, and measurement",
+      "workstream": "Operations",
+      "dependsOn": [
+        "P01",
+        "P03",
+        "P05",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13"
+      ],
+      "status": "candidate—not admitted",
+      "currentProof": "Unknown; audit current GitHub/head and live receipts",
+      "contract": "T0/T1/T2/T3 receipts, required security/science/a11y, merge controller, production SHA and measured field outcomes",
+      "acceptanceCriteria": [
+        "Publish an inspectable producer/consumer contract preserving source and human-review authority",
+        "Run positive and adversarial unit/integration fixtures with exact input/output and negatives",
+        "Verify relevant required CI/security/accessibility/evidence checks against current revision and production receipt if public"
+      ],
+      "blockedBy": [
+        "Admission and capacity audit",
+        "Exact-head/deployment evidence where applicable",
+        "Independent scientific or external account proof where applicable"
+      ],
+      "measuredUpliftPct": null
+    }
+  ]
+}

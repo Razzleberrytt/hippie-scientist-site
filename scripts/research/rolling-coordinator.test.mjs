@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {reserve,validateSnapshot,freeze} from './rolling-coordinator.mjs';
+const row=n=>({pmid:String(n),title:'Distinct title '+n,doi:'10.1234/'+n,source_title:'Distinct title '+n,abstract:'Verified abstract '+n,evidence_class:'human',provenance:'NCBI',state:'VERIFIED'});
+test('twenty 25-record increments freeze 500',()=>{const s={baseline:[],reservations:[]};for(let i=0;i<20;i++)reserve(s,3,'batch-1',Array.from({length:25},(_,j)=>row(i*25+j+1)));assert.equal(freeze(s,'batch-1').records,500)});
+test('reject duplicate PMID across lanes',()=>{const s={baseline:[],reservations:[]};reserve(s,1,'a',[row(1)]);assert.throws(()=>reserve(s,3,'b',[row(1)]),/collision pmid/)});
+test('reject normalized DOI and title collisions',()=>{const s={baseline:[row(1)],reservations:[]};assert.throws(()=>reserve(s,2,'b',[{...row(2),title:'DISTINCT   TITLE 1'}]),/collision title/);assert.throws(()=>reserve(s,2,'b',[{...row(2),doi:'https://doi.org/10.1234/1'}]),/collision doi/)});
+test('fail closed on incomplete evidence',()=>{const s={baseline:[],reservations:[]};reserve(s,3,'b',[row(1)]);assert.throws(()=>freeze(s,'b'),/exactly 500/);assert.equal(validateSnapshot(s).size,3)});

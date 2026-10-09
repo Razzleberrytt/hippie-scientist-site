@@ -1,0 +1,616 @@
+{
+  "schema_version": 1,
+  "row_count": 61,
+  "rows": [
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42707229",
+      "doi": "10.3389/fphar.2026.1691999",
+      "title": "Antifibrotic mechanism of curcumin and its therapeutic potential in multi-organ diseases.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42708223",
+      "doi": "10.1080/20415990.2026.2726710",
+      "title": "Aptamer-conjugated curcumin nanomedicine: targeted drug delivery and theranostic innovations in cancer Immunotherapy.",
+      "journal": "Therapeutic delivery",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42718943",
+      "doi": "10.1016/j.jgr.2026.101021",
+      "title": "Therapeutic potential of ginseng and ginsenosides on muscle wasting disorders: Cachexia, sarcopenia, anorexia, and aging.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42719322",
+      "doi": "10.1016/j.jgr.2026.101108",
+      "title": "The roles of ginseng and ginsenosides for immune regulation: Relation to immunometabolic responses.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42719408",
+      "doi": "10.1016/j.jgr.2026.100975",
+      "title": "Ginseng polysaccharides: Structures-based classification and biological activities-A review.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41903343",
+      "doi": "10.1016/j.nut.2026.113176",
+      "title": "Creatine in fatty liver disease: Differential roles, multi-organ lipid regulation, and safety.",
+      "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41935518",
+      "doi": "10.1016/j.addbeh.2026.108670",
+      "title": "Experimental and observational evidence on substance use and metacognition among adults: a systematic review.",
+      "journal": "Addictive behaviors",
+      "pub_date": "2026 Aug",
+      "pub_type": "Systematic Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41958904",
+      "doi": "10.3389/fnut.2026.1719702",
+      "title": "Mapping smart technologies and nutritional strategies for monitoring cognitive resilience in military personnel under extreme operational conditions: a scoping review.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42043082",
+      "doi": "10.3390/sports14040150",
+      "title": "Energy Availability as a Neurocognitive Regulator of Endurance Performance: Integrating Metabolic, Perceptual, and Decision-Making Mechanisms-A Narrative Review.",
+      "journal": "Sports (Basel, Switzerland)",
+      "pub_date": "2026 Apr 13",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42079329",
+      "doi": "10.1002/fsn3.71819",
+      "title": "The Role of Nootropic Supplements in Sports: Enhancing Cognitive and Physical Performance Simultaneously.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42163019",
+      "doi": "10.1002/jsfa.70740",
+      "title": "Theanine: a phytochemical candidate for neural protection.",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_date": "2026 May 20",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42199923",
+      "doi": "10.2147/NDT.S579603",
+      "title": "L-α-GPC in Cognitive Decline: Mechanisms and Clinical Evidence in Neurodegenerative Disorders.",
+      "journal": "Neuropsychiatric disease and treatment",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42216624",
+      "doi": "10.1177/13872877261450996",
+      "title": "A century of coffee and tea research in cognitive health and Alzheimer's disease: Structural, thematic, and translational insights (1911-2025).",
+      "journal": "Journal of Alzheimer's disease : JAD",
+      "pub_date": "2026 Jul",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42280440",
+      "doi": "10.3390/nu18111796",
+      "title": "Herbal Neurotherapeutics for Cognitive Disorders: Integrative Mechanisms Linking Neurotransmitter Systems, Neurodegeneration, and the Gut-Brain Axis.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Jun 2",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42309243",
+      "doi": "10.1016/j.neuint.2026.106204",
+      "title": "Ayurvedic Herbs as neurogenesis modulators: Current understanding on their potential therapeutic relevance in enhancing neuroplasticity and cognition in aging and neurodegeneration.",
+      "journal": "Neurochemistry international",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42335514",
+      "doi": "10.1016/j.biopha.2026.119712",
+      "title": "Bacoside-A from Bacopa monnieri (L.) Wettst. in Parkinson's disease: In Silico and preclinical insights into dopaminergic neuroprotection.",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42404568",
+      "doi": "10.3389/fmed.2026.1834211",
+      "title": "Changes in MoCA scores with sequential administration of Trikatu Cūrṇa and Brahmi Ghṛta in mild cognitive impairment: an exploratory single-arm clinical study.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((caffeine OR theanine OR creatine OR citicoline OR \"alpha-GPC\" OR bacopa OR \"lion's mane\" OR \"Hericium erinaceus\") AND (cognition OR attention OR memory OR executive)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42795495",
+      "doi": "10.3390/microorganisms14091913",
+      "title": "The Oral and Nasal Gateway Microbiomes: Salivaomics and Systemic Health at the Airway-Digestive Interface.",
+      "journal": "Microorganisms",
+      "pub_date": "2026 Aug 29",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42795698",
+      "doi": "10.3390/microorganisms14092118",
+      "title": "Dynamic Assembly and Multifunctional Roles of Plant Endophytic Microbiomes.",
+      "journal": "Microorganisms",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42797015",
+      "doi": "10.3390/nu18183032",
+      "title": "Microbiome-Derived Metabolic Signaling in the Gut-Skin Axis: Implications for Nutricosmetics and Healthy Skin Aging.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 16",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42797975",
+      "doi": "10.3390/vetsci13090940",
+      "title": "Core, Resident, and Transient Members of the Trout Gut Microbiome: Dietary, Environmental, Stress and Pathogen/Antibiotic Modulation.",
+      "journal": "Veterinary sciences",
+      "pub_date": "2026 Sep 10",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42797987",
+      "doi": "10.3390/vetsci13090952",
+      "title": "Respiratory and Gastrointestinal Microbiome Shifts in Livestock Exposed to High-Ammonia Environments: A Systematic Review.",
+      "journal": "Veterinary sciences",
+      "pub_date": "2026 Sep 12",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42798786",
+      "doi": "10.3389/fmicb.2026.1953995",
+      "title": "Methanotrophic microbiomes for dilute coal-mine methane biofiltration: ecophysiological constraints and design priorities.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42819723",
+      "doi": "10.3389/fnut.2026.1881019",
+      "title": "Indoxyl sulfate in the gut-kidney axis: from diet-microbiome interactions to renal injury and targeted therapies.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42819986",
+      "doi": "10.3389/fnut.2026.1843587",
+      "title": "The \"pro-inflammatory imprint\" of ultra-processed food exposure: a review of mechanisms affecting child and adolescent health and development via the gut microbiome-inflammation axis.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "42823420",
+      "doi": "10.1038/s41572-026-00741-7",
+      "title": "Irritable bowel syndrome.",
+      "journal": "Nature reviews. Disease primers",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR microbiome OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42244506",
+      "doi": "10.3389/fncel.2026.1843871",
+      "title": "Disrupted synapses: prefrontal cortex-reward circuit dysfunction in stress-induced depression-like behaviors.",
+      "journal": "Frontiers in cellular neuroscience",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42325521",
+      "doi": "10.3389/fnut.2026.1789372",
+      "title": "Nutritional interventions for late-life depression: evidence, mechanisms, and clinical assessment tools.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42350785",
+      "doi": "10.1038/s41380-026-03722-0",
+      "title": "Novel approaches in depression treatment: from rapid-acting antidepressants to personalized interventions.",
+      "journal": "Molecular psychiatry",
+      "pub_date": "2026 Jun 25",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42356524",
+      "doi": "10.3390/ph19060906",
+      "title": "Vitamin D-Related Signaling and Epigenetic Regulation: Evidence from Experimental, Observational, and Interventional Studies.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2026 Jun 8",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42377363",
+      "doi": "10.20960/nh.06956",
+      "title": "[Importance of omega-3 fatty acids in women's health].",
+      "journal": "Nutricion hospitalaria",
+      "pub_date": "2026 Jul 20",
+      "pub_type": "English Abstract",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42388388",
+      "doi": "10.1007/s13205-026-04912-x",
+      "title": "Ameliorated potential and possible mechanisms of medicine food homology for depression.",
+      "journal": "3 Biotech",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42396914",
+      "doi": "10.7189/jogh.16.04257",
+      "title": "Folate and global health review series, part 4: syntheses on folate and autoimmune diseases and skeletal outcomes.",
+      "journal": "Journal of global health",
+      "pub_date": "2026 Jul 3",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42401022",
+      "doi": "10.1016/j.psychres.2026.117318",
+      "title": "Comparative efficacy and acceptability of pharmacological interventions for postpartum depression: a systematic review and network meta-analysis.",
+      "journal": "Psychiatry research",
+      "pub_date": "2026 Oct",
+      "pub_type": "Comparative Study",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42456817",
+      "doi": "10.1016/j.jad.2026.122275",
+      "title": "Treatment-related associations of nucleus accumbens connectivity within mesocorticolimbic circuits in depression.",
+      "journal": "Journal of affective disorders",
+      "pub_date": "2026 Dec 1",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42479213",
+      "doi": "10.1007/s00484-026-03286-2",
+      "title": "Heat stress associated depression and allied affliction: Therapeutic roles of nutrition, micronutrients, and phytochemicals-a review.",
+      "journal": "International journal of biometeorology",
+      "pub_date": "2026 Jul 21",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42484803",
+      "doi": "10.1007/s13668-026-00786-w",
+      "title": "Magnesium: Hype and Health Benefits.",
+      "journal": "Current nutrition reports",
+      "pub_date": "2026 Jul 22",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42514296",
+      "doi": "10.3390/nu18142227",
+      "title": "Vitamin D Deficiency in Leukemia: Implications for Pathophysiology, Treatment, and Supportive Care.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Jul 9",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42522066",
+      "doi": "10.1176/appi.ajp.20251233",
+      "title": "Determinants of Nonspecific Response to Treatment in Randomized Controlled Trials of Major Depressive Disorder: A Narrative Review.",
+      "journal": "The American journal of psychiatry",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42595199",
+      "doi": "10.1016/j.phrs.2026.108390",
+      "title": "Natural products for depression: Preclinical insights into microbiota-gut-brain axis modulation and pharmacological potential.",
+      "journal": "Pharmacological research",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42601961",
+      "doi": "10.3389/fnut.2026.1894055",
+      "title": "Plant-derived bioactives in depression-related and antidepressant-associated sexual dysfunction: a narrative review.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42602095",
+      "doi": "10.1177/09727531261444529",
+      "title": "Neuroinflammation, HPA Axis Dysregulation, Cytokine Activity and Nutritional Modulation in Depression: A PRISMA-compliant Systematic Review.",
+      "journal": "Annals of neurosciences",
+      "pub_date": "2026 Aug 13",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42606922",
+      "doi": "10.7189/jogh.16.04286",
+      "title": "Folate and global health: part 5. syntheses on neuropsychiatric disorders.",
+      "journal": "Journal of global health",
+      "pub_date": "2026 Aug 17",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42652792",
+      "doi": "10.3390/jcm15166390",
+      "title": "The Gut-Brain Axis in Fetal Alcohol Spectrum Disorder (FASD): Why the Gut Shapes Behavior, Depression, and Self-Injurious Behavior in Children with Prenatal Alcohol Exposure-A Narrative Review with a Proposal for Staged Nutritional and Microbiological Intervention.",
+      "journal": "Journal of clinical medicine",
+      "pub_date": "2026 Aug 18",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mood",
+      "pmid": "42662924",
+      "doi": "10.7573/dic.2026-5-7",
+      "title": "Cerebral folate deficiency, developmental difficulties in autism spectrum disorder and the role of leucovorin: a narrative review of mechanisms and clinical evidence.",
+      "journal": "Drugs in context",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((saffron OR \"omega-3\" OR EPA OR \"vitamin D\" OR folate OR magnesium OR \"N-acetylcysteine\" OR NAC) AND (depression OR depressive OR mood)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42643395",
+      "doi": "10.3389/froh.2026.1850800",
+      "title": "Vitamin D as a candidate host susceptibility factor in sugar-driven oral dysbiosis.",
+      "journal": "Frontiers in oral health",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42645101",
+      "doi": "10.3390/diseases14080293",
+      "title": "Vitamin D and Intestinal Diseases: Impact on Intestinal Immunity and Gut Barrier Function.",
+      "journal": "Diseases (Basel, Switzerland)",
+      "pub_date": "2026 Aug 13",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42645799",
+      "doi": "10.3390/hematolrep18040060",
+      "title": "A Narrative Review of Zinc Deficiency-Associated Anemia.",
+      "journal": "Hematology reports",
+      "pub_date": "2026 Aug 21",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42646675",
+      "doi": "10.3390/vaccines14080656",
+      "title": "ZFP36 Family Proteins as Critical Regulators of Inflammation, Immune Cell Development, and Antiviral Responses.",
+      "journal": "Vaccines",
+      "pub_date": "2026 Jul 27",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42652075",
+      "doi": "10.3390/biomedicines14081693",
+      "title": "Nanotechnology-Enabled Strategies to Overcome Antibiotic Resistance in Respiratory Infections: Mechanisms, Platforms, and Translational Challenges.",
+      "journal": "Biomedicines",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42684662",
+      "doi": "10.1007/s12010-026-05906-4",
+      "title": "Antimicrobial Activities of ZnO NPs Against Oral Infection-Associated Pathogens: A Review of Activity Enhancement via Different Modifications.",
+      "journal": "Applied biochemistry and biotechnology",
+      "pub_date": "2026 Sep 2",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42732429",
+      "doi": "10.4103/jrpp.jrpp_70_25",
+      "title": "Navigating Therapeutic Frontiers: A Meta-review and Meta-analysis of COVID-19 Treatment Options.",
+      "journal": "Journal of research in pharmacy practice",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42737413",
+      "doi": "10.3390/ijms27177510",
+      "title": "Vitamin D and COVID-19: Inmunomodulatory Effects and the Mexican Public Health Perspectives.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Aug 22",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42737476",
+      "doi": "10.3390/ijms27177574",
+      "title": "From Phytochemical Diversity to Clinical Translation: Preparation-Dependent Bioactivity of Echinacea purpurea.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Aug 24",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42739037",
+      "doi": "10.3390/nu18172865",
+      "title": "Oral Zinc Supplementation in Acne Vulgaris and Hidradenitis Suppurativa: An Updated Comprehensive Review.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 2",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42739074",
+      "doi": "10.3390/nu18172902",
+      "title": "Vitamin D and Health: Establishing Causal Relationships Through Observational Evidence and Hill's Criteria in a Biological Framework.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42741707",
+      "doi": "10.2147/JIR.S611721",
+      "title": "Vitamin D/VDR Signaling and Programmed Cell Death in Sepsis-Associated Organ Injury: Evidence from Sepsis and Related Disease Models.",
+      "journal": "Journal of inflammation research",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42745778",
+      "doi": "10.3389/froh.2026.1943222",
+      "title": "Vitamin D(3) oral rinsing reduces salivary SARS-CoV-2 antigen detectability: a clinical trial with public health implications.",
+      "journal": "Frontiers in oral health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42820108",
+      "doi": "10.3389/fimmu.2026.1901186",
+      "title": "Metalloimmunotherapies: metal-driven regulatory networks in the immune microenvironment.",
+      "journal": "Frontiers in immunology",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42824986",
+      "doi": "10.3389/fvets.2026.1925519",
+      "title": "Nano zinc supplementation in broiler nutrition: current evidence, mechanisms of action, and future perspectives.",
+      "journal": "Frontiers in veterinary science",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42825912",
+      "doi": "10.18502/ijaai.v25is11.22481",
+      "title": "Associations between Inflammatory Markers, Micronutrients, and Disease Severity in COVID-19 Patients with Type 2 Diabetes Mellitus.",
+      "journal": "Iranian journal of allergy, asthma, and immunology",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    }
+  ]
+}

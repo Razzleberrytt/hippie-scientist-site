@@ -1,11 +1,15 @@
 # Site Swarm — Extensive Backlog Inventory
 
 **Status:** Durable candidate feeder; not direct execution authority  
-**Updated:** 2026-09-30  
-**Current citation snapshot:** 2026-09-17 — 29,591 Bing AI citations across 133 cited URLs  
+**Updated:** 2026-10-09  
+**Latest configured citation snapshot:** 2026-10-04 — 42,446 Bing AI citations across 166 cited URLs (historical, freshness-gated)  
+**Current executable citation signal:** `config/ai-citation-swarm-priorities.json` only while its 14-day freshness and validity policy passes; otherwise citation-neutral scheduling  
 **Execution authority:** `docs/CURRENT_SPRINT.md` only  
 **Ranked feeder:** `docs/MASTER_BACKLOG.md`  
 **WIP:** maximum 3 normal implementation workstreams — Discovery/SEO, Revenue/Conversion, Authority/Content — one active item per workstream.
+
+
+**Measurement boundary:** The route-level candidate figures below are historical feeder context, not a refreshed current ranking or authorization to execute. Citation totals indicate AI reuse, not search traffic, conversions, clinical effectiveness, or observed revenue. Only the current dated scheduler manifest, `docs/CURRENT_SPRINT.md`, normal prioritization scoring, and scientific/safety/CI gates can determine runnable work. The existing 65% citation-adjacent / 35% exploration target remains subordinate to eligible work and fresh search opportunity.
 
 ## Why this file exists
 

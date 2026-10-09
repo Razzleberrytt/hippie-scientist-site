@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-05-enrichment-waves-4001-4500",
+  "status": "final_review_repair_complete_pending_repository_validation",
+  "admission_issue": 6349,
+  "branch": "data/enrichment-waves-4001-4500-2026-10-05",
+  "target_findings": 500,
+  "range": "4001-4500",
+  "prior_unique_pmids": 3935,
+  "verified_findings": 500,
+  "cumulative_unique_pmids": 4435,
+  "integrity": {
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "abstract_verified_500_of_500": true,
+    "exact_title_match_500_of_500": true,
+    "synthetic_rows_created": false,
+    "failed_candidates_replaced": 52,
+    "second_pass_repairs": 1,
+    "domain_review_repairs": 37,
+    "objective_off_domain_rows_remaining": 0,
+    "strict_relevance_review_passed": true,
+    "expanded_hard_off_domain_review_passed": true,
+    "final_pr_review_hard_off_domain_review_passed": true
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-05-enrichment-waves-4001-4500-verified-consolidated.json",
+    "cumulative_index": "2026-10-05-enrichment-waves-4001-4500-pmid-index.json",
+    "final_selection": "2026-10-05-enrichment-waves-4001-4500-final-selection.json",
+    "final_audit": "2026-10-05-enrichment-waves-4001-4500-final-audit.json",
+    "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json",
+    "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json",
+    "domain_review_repair_r2": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r2-exact.json",
+    "domain_review_repair_r3": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r3-exact.json"
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "retraction_quarantine": true
+  },
+  "next": [
+    "run repository-owned validation/checks on the repaired PR head",
+    "merge PR #6350 only when required checks and review are green"
+  ]
+}

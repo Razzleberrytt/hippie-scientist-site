@@ -1,14 +1,19 @@
 {
-  "version": 2,
-  "mode": "existing-owner-reconciliation",
-  "base_revision": "209b461135ca19eaa5f7e765f1e1180ed6ad461b",
-  "last_verified": "2026-10-05",
-  "owners": [
-    {
-      "ticket": 6258,
-      "pr": 6257,
-      "lane": "A"
-    }
-  ],
-  "note": "Reconcile existing RC/NPS owner after verified merged enrichment-owner retirement. #6257 and its closing association with #6258 predate this exact base. #6252/#6254 are consolidated into this one implementation owner, not additional WIP. Normal new-ticket admission remains unchanged."
+  "version": 1,
+  "mode": "fresh-admission",
+  "base_revision": "2d52b9fec58aca5d99cc6eedc33a4f859520e67f",
+  "last_verified": "2026-10-09",
+  "ticket": 6500,
+  "lane": "A",
+  "title": "Explain evidence-grade scope and public count denominators",
+  "priority": "P0",
+  "score_inputs": {
+    "businessImpact": 4,
+    "userValue": 5,
+    "trafficPotential": 4,
+    "strategicLeverage": 4,
+    "confidence": 0.75,
+    "effort": 3
+  },
+  "score": 80
 }

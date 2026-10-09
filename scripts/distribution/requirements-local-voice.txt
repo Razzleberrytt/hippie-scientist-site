@@ -1,0 +1,4 @@
+# R8.04 local voice runtime — no hosted API, account, or credits required.
+# Python 3.10-3.12 recommended. Kokoro also requires espeak-ng on the host.
+kokoro>=0.9.4,<1
+numpy>=1.26,<3

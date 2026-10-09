@@ -1,11 +1,32 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-05
+**Updated:** 2026-10-08 (P0 planning priority)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 **Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync. The deep candidate feeder is [SWARM_BACKLOG.md](SWARM_BACKLOG.md); candidates there are not executable until revalidated and promoted here and into the sprint.
+
+### P0 control-plane review-hold reliability — #6451 (completed)
+
+**Dependency satisfied 2026-10-08:** PR #6452 deployed at `c71a60cdf2511e6a777659568beeeed3a2e51e51` and Cloudflare run `37861839685` verified the production receipt. #6451 / PR #6455 is now merged and production receipt verified for `9e192934cfa1e1c285075307455b9622f4e88ef4` (run `37865211337`); WIP now 0/3. Restrict implementation to the known GitHub 405 unresolved-review conversation blocker; unrelated HTTP/auth/transport failures stay fatal and no controller merge gates change. Runtime review-hold canary still **Unknown**.
+
+### Release-control security continuation — #6445 (existing owner)
+
+**Verified 2026-10-08:** #6448 / PR #6450 merged as `b3b0a1a357b97e09158fff516ef0d876d643d3e2` and Cloudflare deployment `37856454431` verified the production SHA. Remaining scoped gap: stale PR #6446 contains fail-closed exact PR/base/branch/head inputs and a pre-check absent from the merged minimal dispatch trigger. Preserve this distinct hardening through a clean current-main restage under #6445; do not merge a behind workflow-changing branch or bypass `NEEDS_CLEAN_RESTAGE`. A real zero-job recovery dispatch is still **Unknown**. Issue #6451 has since been implemented and deployed; natural production 405 review-hold canary still Unknown. Business impact, CI savings and revenue **Unknown**.
+
+## P0 — Cross-cutting generational engineering (#6431)
+
+**Priority decision (2026-10-08):** first define the next generation's connected capability topology, shared provenance contracts, dependency DAG, verification tiers, release proof and October 12–16 execution sequence. [P0 operating plan](GENERATIONAL_ENGINEERING_P0.md) · [candidate/readiness register](GENERATIONAL_ENGINEERING_READINESS.md). The 25 candidates are **not 25 admitted tickets**. Normal execution continues to require an authoritative sprint entry, one scored admission through the existing formula, owner, dependency proof and WIP slot; P0 planning does not fabricate an extra Operations slot.
+
+**Next gated candidates, not yet admitted:** P0.1 GitHub/CI/current production truth; P0.2 source/claim/handoff contract; P0.3 bounded exact-source → 8+12 case → editorial review-only trace; P0.4 risk-preserving duplicated-CI analysis; P0.5 release proof/retrospective. Repair/close existing owner PRs before considering replacement implementations. Outcome and time-saving ROI **Unknown** until measured.
+### Added P0 engineering accelerator — build / CI critical-path optimization (2026-10-09)
+
+**Additive to #6431, not a replacement:** preserve current scientific intelligence, semantic interoperability, research quality, evidence-to-distribution, commercialization and M0–M6 objectives. Highest-priority engineering unblocker is to reduce safely delivered change latency and redundant verification overhead. Reuse existing owner #6507 / PR #6509; do **not** open a duplicate preflight or governance system.
+
+**Priority-ordered candidate sequence, not additional admitted tickets:** (1) validate and merge existing #6509 through the sole protected controller; (2) baseline workflows/build/CI durations and duplicate trigger graph against current main; (3) remove only demonstrably redundant workflow executions/check duplication with required names preserved; (4) profile/correct static generation and deterministic data/build bottlenecks, validate cold and cache-hit parity; (5) improve immutable identical-input artifact and dependency caching; (6) publish comparable before/after safety-and-throughput receipt. Group related changes into one reviewable ticket when they share failure domain/rollback. Never claim savings before observing them.
+
+**Acceptance for future admitted scoped work:** exact baseline/run URLs, change-risk classification, reproducible timings, required-status/check inventory, no skipped science/security/accessibility/SEO/publishing gates, byte-identical output and corrupted-cache refusal, unchanged workstream cap, mandatory exact-head CI, sole merge-controller authority, exact main/deployment receipt, measured p50/p90 wall time and Actions minutes or explicit Unknown. Use the existing score formula below; Strategic Leverage contains unlock value. Keep incident and safety fixes first, and preserve all prior P0 acceptance.
 
 ## Scoring and gates
 
@@ -18,6 +39,9 @@ The formula remains singular. **Strategic Leverage explicitly includes dependenc
 Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conversion, and **A** Authority/Content, with one active ticket per workstream. **O** Operations remains a classification, not a fourth normal workstream. The Evidence → Distribution surfaces—**L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**—describe ownership, not permission for concurrent Revenue/Conversion tickets.
 
 ### Backlog hygiene rules
+
+**Execution efficiency:** Batch multiple dependent acceptance criteria inside one reviewable ticket/PR when source ownership, safety, and rollback are coherent. Perform T0/T1 tests before opening the PR; reuse immutable same-head CI artifact receipts for T2 consumers; preserve every existing triggered exact-head check, controller merge authority, and T3 deployment evidence. Never invent checklist credit or measured CI savings.
+
 
 - GitHub issue/PR state outranks stale prose in this file.
 - A merged/closed item may remain only in a completed/history section, never in `Now`.
@@ -46,18 +70,35 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+**#6427 / PR #6428 — Scientific Intelligence 1.08–1.14, in review (2026-10-08):** Build twelve source-bound analysis/review instruments on the existing exact PMID research graph and eight-instrument relay after #6420. Acceptance: 12 distinct inspectable receipts, valid source identity, 13 calibration invariants on 500 verified intake PMIDs, 0 automatic medical promotions/publications, stable route, static export and UI/CI gates. Available source data cannot prove underlying trial independence, live correction status or full-text efficacy. Consumer/scientific performance impact and revenue ROI remain **Unknown**. This in-review entry does not grant another WIP slot or override machine-managed admission.
+
+**#6420 / PR #6422 — Research Intelligence 1.06/1.07, in review (2026-10-08):** Exact source identity is preserved across all eight existing instruments; explicit semantic handoffs require real title-backed traceable concept pairs. The 1.07 downstream review fabric uses exact DOI and claim/source IDs and cannot publish. Prerequisite #6419 (1.05) merged. #6423/#6424's review-only fabric is included on #6422's head, not yet a separate main-branch release. Continue required PR checks and resolve P1/P2 review threads before merge. Value: safer source navigation/editorial audit; business ROI, retention and time savings **Unknown**. No additional normal D/R/A WIP admission implied.
+
+
+
+**#6382 — R8.05 creative-quality control, active:** make attention and audiovisual coherence release gates rather than optional polish. Acceptance requires pre-render premise-interest and one-mental-job gates, payoff-before-method, natural-duration editing, narration-first semantic beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. Preserve all R8.04 zero-credit sovereignty and R8.03 evidence/trust invariants.
+
+
+**Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
+
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | A | Active — admitted | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6258 / PR #6257 merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda`; #6249 / PR #6252 and #6253 / PR #6254 were consolidated into that owner. All three normal lanes are free; this receipt admits no new work.
+
+**Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
+
+**Current admission (verified 2026-10-09, #6503):** Normal implementation WIP is **1/3**: A #6500 accepted as scoped source-presentation work. D/R lanes free. D issue #6491 / PR #6492 CLOSED/MERGED, Cloudflare deployment run 37935390084 SUCCESS. D/R free. #6500 is admitted by a distinct scored exact-base transaction; no clinical/publication authority conferred. Scientific and analytics results unchanged/Unknown; reconstructed 25/150 remains distinct from unmapped historical 10/150.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-05
+### Verified completion refresh — 2026-10-06
+
+- **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. First-party publication identity/state, TikTok draft transport, Observer/reconciliation, provider-neutral staging, and Metricool publication freeze are implemented and exact-head validation/build gates passed. External Cloudflare D1/KV bindings, production secrets, TikTok app approval, creator authorization, and live publication receipt remain pending/Unknown.
 
 - **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
 
@@ -89,7 +130,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Authority/Content is occupied by #6338; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
@@ -217,3 +258,7 @@ These are capability proofs, not claims of business impact.
 ## Legacy backlog disposition
 
 Historical `backlog/`, `ops/backlog/`, old sprint tickets, and old open issues are discovery inputs, not execution queues. Revalidate the underlying problem against current `main`, current production, current analytics, current experiment history where applicable, and current PR overlap before promoting anything here. A large backlog is useful only if the top is trustworthy.
+
+**#6384 — R8.06 creative-methodology control, active:** Require three materially different concept candidates, selected-angle visual-potential/confusion thresholds, cover→first-frame→first-line convergence, hook→finding→evidence opening order, early teaching-object diversity, exact-master native-feel QA, and optional Metricool with immutable manual fallback. Runtime remains R8.05; audience impact Unknown until measured.
+
+**#6386 — R8.07 visual-authorship control, active:** Add one whole-piece visual thesis, a semantic recurring motif, >=3 core composition families, max-two consecutive family/mode repetition, an earned limitation-pivot pattern interrupt, deterministic local SVG composition primitives, and exact-master passes for visual rhythm, motif continuity, semantic interruption, and repetition-debt rejection. Runtime stays R8.05; R8.06 delivery remains inherited; audience impact Unknown until measured.

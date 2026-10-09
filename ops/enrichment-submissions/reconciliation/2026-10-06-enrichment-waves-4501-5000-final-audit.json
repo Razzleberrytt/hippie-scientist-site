@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4501-5000",
+  "status": "complete_pending_repository_validation",
+  "findings": 500,
+  "wave_coverage": {
+    "first": 4501,
+    "last": 5000,
+    "missing": []
+  },
+  "finalized_prior_basis": {
+    "through_wave_4500_unique_pmids": 4435,
+    "source": "2026-10-05-enrichment-waves-4001-4500-pmid-index.json"
+  },
+  "dedupe": {
+    "prior_unique_pmids": 4435,
+    "new_unique_pmids": 500,
+    "cumulative_unique_pmids": 4935,
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0,
+    "prior_pmid_collisions": 0
+  },
+  "verification": {
+    "final_consolidated_row_count": 500,
+    "exact_pubmed_title_and_abstract": true,
+    "all_rows_abstract_verified": true,
+    "unverified_rows": 0,
+    "objective_off_domain_review_passed": true,
+    "objective_off_domain_rows_remaining": 0,
+    "final_relevance_review_passed": true,
+    "final_full_text_links_omitted_pending_authoritative_pmid_pmcid_mapping": true
+  },
+  "repairs": {
+    "reviewed_replacement_rows": 66,
+    "r5b_override_rows": 13,
+    "final_shortage_repair_rows": 4,
+    "post_review_replacement_rows": 28,
+    "second_pass_category_drift_rows": 10,
+    "total_repair_actions": 111,
+    "note": "The 28 post-review replacement waves include the 17 R7 substitutions. Historical repair-action count includes superseded earlier repairs and therefore exceeds the number of final rows carrying a repair state.",
+    "post_review_replacements": 28,
+    "second_pass_category_drift_replacements": 10,
+    "r7_substitutions_within_post_review_set": 17
+  },
+  "category_counts": {
+    "aging_sarcopenia": 44,
+    "botanicals_mushrooms": 41,
+    "cannabinoid_safety": 41,
+    "cardiometabolic": 28,
+    "cognition_focus": 40,
+    "gut": 34,
+    "micronutrients": 34,
+    "immune_respiratory": 45,
+    "inflammation_pain": 29,
+    "mitochondrial_energy": 45,
+    "metabolic": 34,
+    "mood": 13,
+    "withdrawal_nps": 33,
+    "performance": 4,
+    "women_health": 24,
+    "sleep": 11
+  },
+  "state_counts": {
+    "research_only_exact_verified_final": 392,
+    "research_only_exact_verified_review_replacement": 77,
+    "research_only_exact_verified_override_r5b": 13,
+    "research_only_exact_verified_review_repair_r7": 17,
+    "research_only_exact_verified_final_shortage_repair": 1
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-06-enrichment-waves-4501-5000-verified-consolidated.json",
+    "cumulative_index": "2026-10-06-enrichment-waves-4501-5000-pmid-index.json",
+    "final_selection": "2026-10-06-enrichment-waves-4501-5000-final-selection.json",
+    "final_audit": "2026-10-06-enrichment-waves-4501-5000-final-audit.json",
+    "status": "2026-10-06-enrichment-waves-4501-5000-status.json",
+    "r5b_exact": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5b-overrides-exact.json",
+    "r6_exact": "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6-exact.json"
+  },
+  "authority_note": "This audit and consolidated receipt supersede stale discovery rows, failed exact-verification candidates, prior relevance replacements, and the Codex-reviewed off-domain/null-abstract/misbound-link final rows. Final PMC shortcuts are intentionally omitted until authoritative PMID↔PMCID mapping is available; DOI links remain.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "retraction_quarantine": true,
+    "authoritative_full_text_link_policy": "omit final PMC shortcut unless PMID↔PMCID mapping is independently authoritative"
+  }
+}

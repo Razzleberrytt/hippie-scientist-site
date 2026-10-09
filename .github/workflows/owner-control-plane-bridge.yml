@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/owner-control-plane-bridge.yml'
       - '.github/workflows/check.yml'
+      - '.github/workflows/ths-publisher-publication.yml'
       - 'scripts/ci/owner-control-plane-bridge.mjs'
       - 'scripts/ci/owner-control-plane-bridge.contract.mjs'
       - 'scripts/enrichment-governor/lease-transaction.mjs'
@@ -81,12 +82,12 @@ jobs:
             -f "entities=$LEASE_ENTITIES" \
             -f "disposition=$LEASE_DISPOSITION"
 
-  metricool_publish:
+  ths_publish:
     if: >-
       github.event_name == 'issue_comment' &&
       github.event.issue.pull_request == null &&
       github.event.comment.user.login == github.repository_owner &&
-      startsWith(github.event.comment.body, '/publish-metricool ')
+      startsWith(github.event.comment.body, '/publish-ths ')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -103,25 +104,28 @@ jobs:
         with:
           node-version: 22
 
-      - name: Parse and validate Metricool publish command
+      - name: Parse and validate THS Publisher command
         id: parse
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
-        run: node scripts/ci/owner-control-plane-bridge.mjs parse-metricool
+        run: node scripts/ci/owner-control-plane-bridge.mjs parse-publisher
 
-      - name: Dispatch governed Metricool connector preparation workflow
+      - name: Dispatch canonical THS Publisher workflow
         env:
           GH_TOKEN: ${{ github.token }}
+          EXPERIMENT_ID: ${{ steps.parse.outputs.experiment_id }}
+          RESEARCH_OBJECT_ID: ${{ steps.parse.outputs.research_object_id }}
           PUBLICATION_AT: ${{ steps.parse.outputs.publication_at }}
-          NETWORKS: ${{ steps.parse.outputs.networks }}
+          PLATFORM: ${{ steps.parse.outputs.platform }}
         run: |
           set -euo pipefail
-          gh workflow run metricool-connector-publication.yml \
+          gh workflow run ths-publisher-publication.yml \
             --repo "$GITHUB_REPOSITORY" \
             --ref main \
+            -f "experiment_id=$EXPERIMENT_ID" \
+            -f "research_object_id=$RESEARCH_OBJECT_ID" \
             -f "publication_at=$PUBLICATION_AT" \
-            -f "networks=$NETWORKS" \
-            -f "auto_publish=true"
+            -f "platform=$PLATFORM"
 
   ready:
     if: >-

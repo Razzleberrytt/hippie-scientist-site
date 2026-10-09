@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "row_count": 16,
+  "rows": [
+    {
+      "category": "stress_anxiety",
+      "pmid": "40443471",
+      "doi": "10.1007/s12298-025-01594-2",
+      "title": "Temperature stress and its effects on phytochemical dynamics and antioxidant activity in Withania somnifera (L). dunal.",
+      "journal": "Physiology and molecular biology of plants : an international journal of functional plant biology",
+      "pub_date": "2025 Apr",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40654405",
+      "doi": "10.1016/j.jds.2024.12.004",
+      "title": "The effects of lavender, chamomile and peppermint inhalation aromatherapy on dental anxiety in children: A randomized controlled trial.",
+      "journal": "Journal of dental sciences",
+      "pub_date": "2025 Jul",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40746175",
+      "doi": "10.1177/02601060251363647",
+      "title": "Dual impact of Ashwagandha: Significant cortisol reduction but no effects on perceived stress - A systematic review and meta-analysis.",
+      "journal": "Nutrition and health",
+      "pub_date": "2025 Dec",
+      "pub_type": "Meta-Analysis",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40949566",
+      "doi": "10.3389/fpls.2025.1661227",
+      "title": "Structural and functional insights into NAD(P)H-quinone oxidoreductases in lavender: implications for abiotic stress tolerance and essential oil production.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40997134",
+      "doi": "10.1093/plphys/kiaf437",
+      "title": "The CsWRKY50-CsREM1-CsTSⅠ module inhibits theanine biosynthesis in tea plants under drought stress.",
+      "journal": "Plant physiology",
+      "pub_date": "2025 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41042405",
+      "doi": "10.1007/s11033-025-11070-5",
+      "title": "Combined nicotinamide riboside and magnesium-l-theanine protects against chronic stress-induced gut-liver injury by modulating NAD⁺ and metabolic pathways.",
+      "journal": "Molecular biology reports",
+      "pub_date": "2025 Oct 3",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41067127",
+      "doi": "10.1016/j.jphotobiol.2025.113279",
+      "title": "Short-duration UV-B exposure mitigates salinity stress in Withania somnifera (L.) Dunal and boosts secondary metabolite production.",
+      "journal": "Journal of photochemistry and photobiology. B, Biology",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41177368",
+      "doi": "10.1016/j.ctim.2025.103296",
+      "title": "Short- and long-term effects of inhaled lavender essential oil on anxiety, fatigue, blood pressure, and sleep quality in middle-aged adults with hypertension: A randomized placebo-controlled pilot study.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41186791",
+      "doi": "10.1007/s10695-025-01580-1",
+      "title": "Effect of dietary additives based on essential oils of Lemongrass and Chamomile on the zootechnical performance and physiological stress response of European seabass (Dicentrarchus labrax) in aquaculture.",
+      "journal": "Fish physiology and biochemistry",
+      "pub_date": "2025 Nov 4",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41207541",
+      "doi": "10.1016/j.jnutbio.2025.110177",
+      "title": "L-theanine mediates Hsf1 protection of intestinal mucosal barrier through Bifidobacterium to alleviate heat stress.",
+      "journal": "The Journal of nutritional biochemistry",
+      "pub_date": "2026 Mar",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41238616",
+      "doi": "10.1038/s41598-025-23567-x",
+      "title": "Comparative physiological responses of english lavender cultivars to drought stress and abscisic acid treatments with implications for agricultural water management.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Nov 14",
+      "pub_type": "Comparative Study",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41291405",
+      "doi": "10.1186/s12870-025-07705-1",
+      "title": "Exogenous curcumin alleviates salt stress in lavender plants: a physiological and biochemical investigation.",
+      "journal": "BMC plant biology",
+      "pub_date": "2025 Nov 25",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41292298",
+      "doi": "10.1017/S0007114525105734",
+      "title": "Magnesium-L-theanine complex protects against liver and intestinal damage caused by chronic variable stress.",
+      "journal": "The British journal of nutrition",
+      "pub_date": "2026 Jan 28",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41324719",
+      "doi": "10.1007/s11033-025-11287-4",
+      "title": "Osmotic stress triggers calcium-mediated expression of the aquaporin (TIP2;1) gene in ashwagandha (Withania somnifera L. Dunal).",
+      "journal": "Molecular biology reports",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41394907",
+      "doi": "10.3389/fvets.2025.1695881",
+      "title": "Efficacy of nutraceutical supplements containing Passiflora incarnata L., Withania somnifera (L.) Dunal and Taraxacum officinale (L.) weber ex F.H.Wigg. on markers of inflammation, oxidative stress and gut microbiota in senior dogs.",
+      "journal": "Frontiers in veterinary science",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41497633",
+      "doi": "10.64898/2025.12.18.695325",
+      "title": "Withania somnifera root extract reduces susceptibility of the model worm Caenorhabditis elegans to different types of stressors.",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_date": "2025 Dec 22",
+      "pub_type": "Preprint",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]"
+    }
+  ]
+}

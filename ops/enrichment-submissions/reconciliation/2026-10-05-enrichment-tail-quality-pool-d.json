@@ -1,0 +1,816 @@
+{
+  "schema_version": 1,
+  "row_count": 81,
+  "rows": [
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42608015",
+      "doi": "10.1123/japa.2025-0135",
+      "title": "Effects of Resistance Training, Interval Training, and Detraining on Functional Performance in Older Women: A Longitudinal Study.",
+      "journal": "Journal of aging and physical activity",
+      "pub_date": "2026 Aug 17",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42608744",
+      "doi": "10.1097/PHM.0000000000003130",
+      "title": "Association Between Vitamin D and Muscle Mass and Function in Children and Adolescents: A Study Based on National Health and Nutrition Examination Survey (NHANES).",
+      "journal": "American journal of physical medicine & rehabilitation",
+      "pub_date": "2026 Aug 18",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42609340",
+      "doi": "10.3389/fnut.2026.1854192",
+      "title": "Associations of magnesium intake and a magnesium-rich diet score with sarcopenia in middle-aged and older Korean adults: potential mediation by C-reactive protein.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42627860",
+      "doi": "10.1080/15502783.2026.2720733",
+      "title": "Effects of folic acid combined with resistance training on body composition and blood biomarkers in adult males.",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2026 Aug 21",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42628818",
+      "doi": "10.1053/j.jrn.2026.08.008",
+      "title": "Malnutrition, protein-energy wasting, sarcopenia and sarcopenic obesity in hemodialysis patients.",
+      "journal": "Journal of renal nutrition : the official journal of the Council on Renal Nutrition of the National Kidney Foundation",
+      "pub_date": "2026 Aug 21",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42631799",
+      "doi": "10.1007/s12325-026-03750-w",
+      "title": "Risk of protein intake deficiency during treatment with GLP-1 and GIP/GLP-1 receptor agonists: considerations for secondary sarcopenia.",
+      "journal": "Advances in therapy",
+      "pub_date": "2026 Aug 22",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42635423",
+      "doi": "10.1080/02640414.2026.2722765",
+      "title": "A scoping review of muscle excitation in resistance training across key training parameters.",
+      "journal": "Journal of sports sciences",
+      "pub_date": "2026 Oct",
+      "pub_type": "Scoping Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42638826",
+      "doi": "10.3389/fnut.2026.1846471",
+      "title": "Nutrition-related clinical laboratory indicators in perioperative management of geriatric hip fractures: a narrative review from risk stratification to precision intervention.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42648442",
+      "doi": "10.1016/j.arr.2026.103335",
+      "title": "Computational precision nutrition for sarcopenia and associated multimorbidity in ageing.",
+      "journal": "Ageing research reviews",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42651108",
+      "doi": "10.3390/brainsci16080797",
+      "title": "Differential Effects of Blood-Flow Restriction and High-Intensity Resistance Training on Cortical Thickness and White Matter Integrity in Older Men: A Three-Group Randomized Controlled Trial.",
+      "journal": "Brain sciences",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42653092",
+      "doi": "10.3390/ijms27167086",
+      "title": "Actinidin-Enriched Kiwifruit Concentrate (Kwd+(®)) Improves Protein Utilization Efficiency and Modulates Body Composition and Muscle Function in a Protein Source-Dependent Manner.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Aug 7",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42654313",
+      "doi": "10.3390/nu18162733",
+      "title": "Prevalence of Sarcopenia and Its Association with Nutrition Risk in Community-Dwelling Older Adults with Subjective Cognitive Impairment or Living in Retirement Homes.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Aug 21",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42654331",
+      "doi": "10.3390/medicina62081434",
+      "title": "Perioperative Nutrition and Surgical Outcomes in Patients Receiving Glucagon-like Peptide-1 Receptor Agonists: A Scoping Review.",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_date": "2026 Jul 23",
+      "pub_type": "Scoping Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42661721",
+      "doi": "10.3389/fnut.2026.1871481",
+      "title": "Kampo medicine as a nutrition-relevant multi-target intervention for sarcopenia: implications for appetite, mitochondrial function, and the frailty-sarcopenia-cachexia continuum.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42676943",
+      "doi": "10.55730/1300-0144.6363",
+      "title": "C-reactive protein-albumin-lymphocyte (CALLY) index as a novel inflammatory marker for sarcopenia: evidence from a cross-sectional study.",
+      "journal": "Turkish journal of medical sciences",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42686151",
+      "doi": "10.2519/josptopen.2026.0185",
+      "title": "Low-Load Blood Flow Restriction Training as an Alternative to Heavy-Load Resistance Training in Early-Stage Rehabilitation Following Bone-Patellar Tendon-Bone Anterior Cruciate Ligament Reconstruction: A Randomized Controlled Trial.",
+      "journal": "JOSPT open",
+      "pub_date": "2026 Apr",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42688204",
+      "doi": "10.3389/fpubh.2026.1896850",
+      "title": "Effects of 12-week supervised combined aerobic and resistance training on body composition and physical function in overweight or obese adults with multiple cardiometabolic risk factors: a randomized trial.",
+      "journal": "Frontiers in public health",
+      "pub_date": "2026",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42691222",
+      "doi": "10.14336/AD.2026.0483",
+      "title": "Endocrine Factors in Sarcopenia: Lifestyle-Based Approaches with Nutrition, Exercise, and Circadian Health.",
+      "journal": "Aging and disease",
+      "pub_date": "2026 Aug 13",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42698552",
+      "doi": "10.3389/fpubh.2026.1910792",
+      "title": "Effects of elastic-band resistance training on glycemic control, muscle strength, and functional outcomes in patients with type 2 diabetes mellitus: a systematic review and meta-analysis of randomized controlled trials.",
+      "journal": "Frontiers in public health",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42701496",
+      "doi": "10.1016/j.cdnut.2026.109460",
+      "title": "Influence of Protein Intake during Obesity Reduction on Physical Function and Body Habitus in Older Males with Prediabetes: A Pilot Study.",
+      "journal": "Current developments in nutrition",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42708292",
+      "doi": "10.2174/011570159X453562260805073318",
+      "title": "A Critical Review of the Interactions Between Δ9-THC and Other Naturally Occurring Phytochemical Constituents of Cannabis sativa.",
+      "journal": "Current neuropharmacology",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42711279",
+      "doi": "10.1080/10826084.2026.2724154",
+      "title": "Cannabis Use Among US Young Adult Cancer Survivors: Impacts of Legal Context, Information Sources, and Interactions with Healthcare Providers.",
+      "journal": "Substance use & misuse",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42712247",
+      "doi": "10.1111/jgs.70693",
+      "title": "Cannabis Use Among People Aged 65 and Older: Results From an Intercept Survey in New York City.",
+      "journal": "Journal of the American Geriatrics Society",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42713551",
+      "doi": "10.12788/fp.0619",
+      "title": "Cannabis Use by Veterans and Potential Interactions With Antineoplastic Agents: Analysis and Literature Review.",
+      "journal": "Federal practitioner : for the health care professionals of the VA, DoD, and PHS",
+      "pub_date": "2026 May",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42717263",
+      "doi": "10.1111/ajad.70202",
+      "title": "Proof-of-concept trial of PP-01 for mitigating cannabis withdrawal syndrome in participants with cannabis use disorder.",
+      "journal": "The American journal on addictions",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42717708",
+      "doi": "10.1080/02791072.2026.2727017",
+      "title": "Motives and Risk Perceptions Among Young Adults Engaged in Frequent Vaping and Dual Cannabis Use: Implications for Prevention and Intervention.",
+      "journal": "Journal of psychoactive drugs",
+      "pub_date": "2026 Sep 10",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42730866",
+      "doi": "10.1113/EP094039",
+      "title": "Protective effect of cannabinoid type 2 receptor agonist (JWH-133) against hepatotoxicity induced by Prangos ferulacea Lindl. extract.",
+      "journal": "Experimental physiology",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42767994",
+      "doi": "10.1093/oncolo/oyag374",
+      "title": "Dose Response Relationship of Medical Cannabis and Symptom Control in Patients With Pancreatic Cancer: An Analysis of the CANPAN Trial.",
+      "journal": "The oncologist",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42770844",
+      "doi": "10.1093/oncolo/oyag370",
+      "title": "Cannabis Assessment in Oncology Patients - Evaluation Survey: Understanding Usage Patterns in a Rural Radiation Cohort in Kentucky.",
+      "journal": "The oncologist",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42804268",
+      "doi": "10.1037/ser0001089",
+      "title": "Cannabis use and sleep outcomes among National Guard and Reserve soldiers.",
+      "journal": "Psychological services",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42826464",
+      "doi": "10.1016/j.psychres.2026.117479",
+      "title": "Endocannabinoid plasma concentrations and their relationship with clinical outcome and cannabis use in antipsychotic-naïve first episode psychosis.",
+      "journal": "Psychiatry research",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42828953",
+      "doi": "10.1016/j.jpsychires.2026.09.028",
+      "title": "Clinical correlates of homelessness and cannabis use among U.S. low-income veterans.",
+      "journal": "Journal of psychiatric research",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42831900",
+      "doi": "10.1007/s00296-026-06314-x",
+      "title": "Cannabinoids for pain management in rheumatoid arthritis: a scoping review of clinical evidence and mechanisms.",
+      "journal": "Rheumatology international",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Review",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "42831941",
+      "doi": "10.1007/s00213-026-07174-w",
+      "title": "Co-use of cannabis and tobacco in the same occasion: Acute effects. A systematic review.",
+      "journal": "Psychopharmacology",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Review",
+      "query": "((cannabidiol[Title] OR CBD[Title] OR cannabis[Title] OR cannabinoid*[Title]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction*[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41246694",
+      "doi": "10.7759/cureus.94742",
+      "title": "Neurocognitive and Neurological Effects of Coffee and Caffeine: A Narrative Review.",
+      "journal": "Cureus",
+      "pub_date": "2025 Oct",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41305589",
+      "doi": "10.3390/nu17223538",
+      "title": "The Role of Bacopa monnieri in Alzheimer's Disease: Mechanisms and Potential Clinical Use-A Review.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Nov 12",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41359040",
+      "doi": "10.1177/02601060251404327",
+      "title": "Creatine supplementation and cognitive aging: The challenge of crossing the blood-brain barrier.",
+      "journal": "Nutrition and health",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41379169",
+      "doi": "10.36660/abc.20240425",
+      "title": "Study on Urinary Caffeine and Caffeine Metabolite Levels in American Adults with Coronary Heart Disease: A Cross-Sectional NHANES Study (2009-2014).",
+      "journal": "Arquivos brasileiros de cardiologia",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41514140",
+      "doi": "10.1007/s12035-025-05586-x",
+      "title": "The Emerging Role of L-Arginine and Creatine Supplementation Combined with Exercise on Hippocampal Neurogenesis, Spatial Learning, and Cognitive Flexibility in Aging and Neurodegenerative Diseases.",
+      "journal": "Molecular neurobiology",
+      "pub_date": "2026 Jan 10",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41598189",
+      "doi": "10.3390/life16010033",
+      "title": "Differential Time-of-Day Effects of Caffeine Capsule and Mouth Rinse on Cognitive Performance in Adolescent Male Volleyball Athletes: A Randomized Crossover Investigation.",
+      "journal": "Life (Basel, Switzerland)",
+      "pub_date": "2025 Dec 25",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41692039",
+      "doi": "10.1016/j.phrs.2026.108140",
+      "title": "Chronic caffeine consumption prevents obesity-induced cognitive and memory impairments by reducing neuroinflammation and enhancing neuronal activity in the hippocampus.",
+      "journal": "Pharmacological research",
+      "pub_date": "2026 Mar",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41737290",
+      "doi": "10.1002/trc2.70228",
+      "title": "Bioenergetic data from a creatine monohydrate pilot trial in Alzheimer's disease.",
+      "journal": "Alzheimer's & dementia (New York, N. Y.)",
+      "pub_date": "2026 Jan-Mar",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41740144",
+      "doi": "10.2196/82891",
+      "title": "Efficacy of Bacopa monnieri (Linn.) on Cognitive Function and Alterations in Blood Metabolites in Patients With Amnestic Mild Cognitive Impairment and Early Alzheimer Disease: Protocol for an Exploratory Double-Blind, Randomized, Placebo-Controlled Trial.",
+      "journal": "JMIR research protocols",
+      "pub_date": "2026 Feb 25",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41770378",
+      "doi": "10.1007/s00394-026-03926-8",
+      "title": "Comparable improvements in selective, but not sustained, attention in response to a multi-ingredient nootropic formulation when compared with caffeine.",
+      "journal": "European journal of nutrition",
+      "pub_date": "2026 Mar 2",
+      "pub_type": "Comparative Study",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41774525",
+      "doi": "10.1080/15502783.2026.2638903",
+      "title": "Revisiting the evidence on caffeine mouth rinse: effects on exercise and cognitive performance: a meta-analytic review.",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2026 Dec 31",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41836921",
+      "doi": "10.3389/fmed.2026.1702773",
+      "title": "Effects of Bacopa monnieri herbal supplement on aging and neurocognitive functions, including neurophysiological assessments, in relation to constitution (Prakriti) in healthy adults: clinical trial protocol.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41901531",
+      "doi": "10.3390/medicina62030448",
+      "title": "Comparative Effects of BCI-Based Attention Training, Methylphenidate, and Citicoline on Attention and Executive Function in School-Age Children: A Quasi-Experimental Study.",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_date": "2026 Feb 27",
+      "pub_type": "Comparative Study",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41984564",
+      "doi": "10.17116/jnevro2026126031136",
+      "title": "[The effectiveness of citicoline in the treatment of cognitive disorders].",
+      "journal": "Zhurnal nevrologii i psikhiatrii imeni S.S. Korsakova",
+      "pub_date": "2026",
+      "pub_type": "English Abstract",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42003044",
+      "doi": "10.1111/ejn.70511",
+      "title": "The Effect of Caffeine Consumption and Acute Withdrawal on Resting-State fMRI Brain Connectivity, Mood and Cognition.",
+      "journal": "The European journal of neuroscience",
+      "pub_date": "2026 Apr",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42078218",
+      "doi": "10.7759/cureus.106320",
+      "title": "Impact of Energy Drinks and Caffeine on Cognition, Stress, and Sleep During Examination: A Mixed-Methods Cross-Sectional Study From a Medical School in Mauritius.",
+      "journal": "Cureus",
+      "pub_date": "2026 Apr",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42211536",
+      "doi": "10.3389/fnmol.2026.1772430",
+      "title": "Caffeine attenuates cisplatin induced microglial reactivity and cognitive dysfunction.",
+      "journal": "Frontiers in molecular neuroscience",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42440885",
+      "doi": "10.3389/fnhum.2026.1832731",
+      "title": "Caffeine and modafinil counteract sleep deprivation through distinct neurocognitive pathways: an ERP study of object working memory.",
+      "journal": "Frontiers in human neuroscience",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "42491907",
+      "doi": "10.4103/jehp.jehp_1579_25",
+      "title": "The association between caffeine consumption and memory, anxiety, and stress levels among students: A crosssectional study.",
+      "journal": "Journal of education and health promotion",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42616536",
+      "doi": "10.1001/jama.2026.14190",
+      "title": "Daily Zinc Supplementation for Infection Prevention in Children With Sickle Cell Anemia: The ZIPS-2 Randomized Clinical Trial.",
+      "journal": "JAMA",
+      "pub_date": "2026 Aug 19",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42617782",
+      "doi": "10.1016/j.actbio.2026.08.033",
+      "title": "Zinc-based nanoplatforms for cancer immunotherapy achieved through the cyclic GMP-AMP synthase-stimulator of interferon genes pathway: Bridging tumor metabolism and immune activation.",
+      "journal": "Acta biomaterialia",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42622773",
+      "doi": "10.1007/s13312-026-00402-8",
+      "title": "Oral Zinc Supplementation as an Adjunct to Standard Therapy in Children with Steroid-Sensitive Nephrotic Syndrome: A Double-Blind Randomized Controlled Trial.",
+      "journal": "Indian pediatrics",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42645087",
+      "doi": "10.3390/diseases14080279",
+      "title": "Sleep Disturbances and Vitamin D in Celiac Patients Under a Gluten Free Diet: A Cross-Sectional Study.",
+      "journal": "Diseases (Basel, Switzerland)",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42645478",
+      "doi": "10.3390/dj14080504",
+      "title": "The Association Between Dental Implant and Bone Graft Failure and the Levels of Vitamin D and LDL Cholesterol: Retrospective Clinical Study.",
+      "journal": "Dentistry journal",
+      "pub_date": "2026 Aug 10",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42648433",
+      "doi": "10.1016/j.jpedsurg.2026.163417",
+      "title": "Vitamin D and infection risk in patients with short bowel syndrome and intestinal failure.",
+      "journal": "Journal of pediatric surgery",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42651664",
+      "doi": "10.3390/biology15161360",
+      "title": "Redox-Dependent Modulation of Cardiac Mitochondrial F(1)F(O)-ATPase and Respiratory Function by N-Acetylcysteine and Sodium Ascorbate.",
+      "journal": "Biology",
+      "pub_date": "2026 Aug 10",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42651868",
+      "doi": "10.3390/ani16162463",
+      "title": "Dietary Vitamin D(3) Modulates Antioxidant Responses, Immune-Related Gene Expression, and Flesh Quality in Giant Freshwater Prawn (Macrobrachium rosenbergii) Under Pathogenic Vibrio Challenge.",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_date": "2026 Aug 7",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42654981",
+      "doi": "10.3390/microorganisms14081633",
+      "title": "The Dual Role of Zinc Homeostasis in Gram-Negative Bacterial Pathogenicity and Host Immune Defense.",
+      "journal": "Microorganisms",
+      "pub_date": "2026 Jul 27",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42660242",
+      "doi": "10.1016/j.ijbiomac.2026.154202",
+      "title": "Improved anti-tumour immune response of RBC-camouflaged oxaliplatin-zinc oxide albumin nanoparticles triggering robust activity in colorectal cancer cells.",
+      "journal": "International journal of biological macromolecules",
+      "pub_date": "2026 Aug 27",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42668756",
+      "doi": "10.7759/cureus.113623",
+      "title": "Association of Vitamin D Deficiency With Cardiometabolic and Renal Outcomes in Patients With Autoimmune Rheumatic Diseases: A Systematic Review and Meta-Analysis.",
+      "journal": "Cureus",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42678408",
+      "doi": "10.1039/d6bm00827e",
+      "title": "A zinc-iron nanozyme with pH-dependent multi-enzymatic activities for sequential infection control and inflammation resolution in vital pulp therapy.",
+      "journal": "Biomaterials science",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42689347",
+      "doi": "10.1093/qjmed/hcag168.108",
+      "title": "Evaluation of zinc status of critically ILL patients (infants and toddlers) admitted to pediatric intensive care units and its correlation to their outcome.",
+      "journal": "QJM : monthly journal of the Association of Physicians",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Observational Study",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42699602",
+      "doi": "10.3389/fnut.2026.1897312",
+      "title": "Low zinc status and long-term risk of incident sepsis in patients with type 2 diabetes: a multicenter cohort study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42704990",
+      "doi": "10.1016/j.colsurfb.2026.116142",
+      "title": "Biohybrid microalgae living hydrogel with self-oxygenation and green-synthesized zinc nanoparticles to combat multidrug-resistant infections via transcriptional reprogramming.",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42712621",
+      "doi": "10.1007/s12288-025-02217-2",
+      "title": "Immune Profiling Along with Vitamin D and Their Association with Genetic Risk Stratification in Newly Diagnosed Acute Myeloid Leukemia: Poor Risk Group Correlates with Activated T Regulatory Cells.",
+      "journal": "Indian journal of hematology & blood transfusion : an official journal of Indian Society of Hematology and Blood Transfusion",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42717774",
+      "doi": "10.1111/ggi.70816",
+      "title": "Ward-Level Variation and Clinical Correlates of Low Serum Zinc Among Long-Term Care Facility Residents: A Five-Year Retrospective Cohort Study.",
+      "journal": "Geriatrics & gerontology international",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42718682",
+      "doi": "10.3389/fvets.2026.1906481",
+      "title": "Dietary Echinacea purpurea polysaccharide supplementation improves antioxidative status, intestinal immune, and structure of cecal microbiota in Mahuang chickens.",
+      "journal": "Frontiers in veterinary science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42726742",
+      "doi": "10.1371/journal.pone.0357984",
+      "title": "Vitamin D alleviates indoxyl sulfate-induced inflammatory and cholesterol dysregulation in macrophages: Implications for vascular health in patients receiving hemodialysis.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42726758",
+      "doi": "10.1371/journal.pone.0357030",
+      "title": "SARS-CoV-2 infection induces functional impairment of vitamin D receptor signaling to drive interleukin 6-dependent hyperinflammation in mononuclear phagocytes.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42396376",
+      "doi": "10.1155/crin/3900923",
+      "title": "Exercise-Induced Rhabdomyolysis With Markedly Elevated Creatine Kinase and Preserved Renal Function.",
+      "journal": "Case reports in nephrology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42412894",
+      "doi": "10.1371/journal.ppat.1014392",
+      "title": "Novel duck reovirus σC hijacks the mitochondrial COQ6-CoQ10 axis to drive NLRP3-dependent pyroptosis.",
+      "journal": "PLoS pathogens",
+      "pub_date": "2026 Jul",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42438675",
+      "doi": "10.1016/j.aninu.2026.01.012",
+      "title": "Dietary riboflavin blocks the cGAS-STING pathway to curb hypoxia-induced hepatic inflammation in sub-adult grass carp (Ctenopharyngodon idella).",
+      "journal": "Animal nutrition (Zhongguo xu mu shou yi xue hui)",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42510930",
+      "doi": "10.3390/cimb48070690",
+      "title": "Alpha-Lipoic Acid Modulates Melanoma Survival Networks via ER Stress Induction, Mitochondrial Apoptosis, and Kinase Pathway Suppression in B16F10 Cells.",
+      "journal": "Current issues in molecular biology",
+      "pub_date": "2026 Jul 3",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42548992",
+      "doi": "10.7759/cureus.112027",
+      "title": "Marked Asymptomatic Creatine Kinase Elevation With Preserved Renal Function Identified Through Protocol-Driven Monitoring in a Clinical Trial Participant: A Case Report.",
+      "journal": "Cureus",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42628532",
+      "doi": "10.1016/j.molcel.2026.07.031",
+      "title": "Nicotinamide nucleotide transhydrogenase directly couples redox homeostasis to proline biosynthesis in human glioma.",
+      "journal": "Molecular cell",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42805300",
+      "doi": "10.1016/j.xfss.2026.09.002",
+      "title": "Synergistic Effects of L-Carnitine and Moderate-Intensity Exercise on Testicular Damage Induced by Varicocele: Implications for miR-570, Irisin, Hsp70-2a, and Hsp90 Crosstalk.",
+      "journal": "F&S science",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42832309",
+      "doi": "10.1080/10408398.2026.2742761",
+      "title": "Exercise combined with creatine supplementation for skeletal muscle hypertrophy: mechanistic basis, nutritional context, and applications.",
+      "journal": "Critical reviews in food science and nutrition",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

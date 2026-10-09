@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "status": "repair_required_after_exact_verification",
+  "failure_count": 38,
+  "category_counts": {
+    "withdrawal_nps": 1,
+    "performance": 1,
+    "micronutrients": 1,
+    "gut": 2,
+    "cognition_focus": 2,
+    "mood": 10,
+    "inflammation_pain": 7,
+    "metabolic": 5,
+    "botanicals_mushrooms": 2,
+    "immune_respiratory": 7
+  },
+  "failures": [
+    {
+      "wave": 5595,
+      "category": "withdrawal_nps",
+      "pmid": "36256767",
+      "title": "Kratom Toxicity and Withdrawal."
+    },
+    {
+      "wave": 5672,
+      "category": "performance",
+      "pmid": "42569897",
+      "title": "Nitrate bioaccumulation, growth performance and survival of rainbow trout (Oncorhynchus mykiss) in aquaponics with elevated water NO(3)-N levels."
+    },
+    {
+      "wave": 5728,
+      "category": "micronutrients",
+      "pmid": "42827970",
+      "title": "Patient-reported symptom profiles in vitamin B(12) deficiency and pernicious anemia: a cross-sectional study using latent class analysis."
+    },
+    {
+      "wave": 5776,
+      "category": "gut",
+      "pmid": "42809154",
+      "title": "Glucansucrases as versatile biocatalysts: structural insights, synthesis of emerging prebiotic oligosaccharides, and their functional roles in food matrices."
+    },
+    {
+      "wave": 5787,
+      "category": "gut",
+      "pmid": "42745684",
+      "title": "From Identification to Enzymatic Activity Profiling: Comprehensive Characterization of BloCAβ, a Probiotic β-Carbonic Anhydrase From Bifidobacterium longum."
+    },
+    {
+      "wave": 5814,
+      "category": "cognition_focus",
+      "pmid": "42548045",
+      "title": "From Caffeine to Aspirin: Everyday Molecules as Triggers for Genetically Encoded Proximity Systems."
+    },
+    {
+      "wave": 5816,
+      "category": "cognition_focus",
+      "pmid": "42667458",
+      "title": "L-theanine from Camellia sinensis (L.) attenuates 3-NP-induced Huntington's disease-like alterations by remedying behavioral patterns and modulating neurotransmitters across three distinct brain regions: evidence from in-vivo and in-silico approaches."
+    },
+    {
+      "wave": 5818,
+      "category": "mood",
+      "pmid": "41940453",
+      "title": "The role of vitamin D deficiency in psychiatric disorders: A systematic review on association with depression and schizophrenia."
+    },
+    {
+      "wave": 5820,
+      "category": "mood",
+      "pmid": "42354045",
+      "title": "Probiotic Bacteria in Stimulating Human Physiological Responses: Metabolic Function and Overall Health."
+    },
+    {
+      "wave": 5821,
+      "category": "mood",
+      "pmid": "42484803",
+      "title": "Magnesium: Hype and Health Benefits."
+    },
+    {
+      "wave": 5822,
+      "category": "mood",
+      "pmid": "32119480",
+      "title": "Magnesium Toxicity."
+    },
+    {
+      "wave": 5823,
+      "category": "mood",
+      "pmid": "41916434",
+      "title": "Probiotic treatment rescues behavioral deficits and gut microbial abnormalities induced by preconceptional stress in mothers and offspring."
+    },
+    {
+      "wave": 5826,
+      "category": "mood",
+      "pmid": "42000073",
+      "title": "Global burden of diabetes and depression (1990-2021), global burden trends, and the impact of vitamin D on diabetes and depression: A multidimensional analysis based on GBD and NHANES."
+    },
+    {
+      "wave": 5830,
+      "category": "mood",
+      "pmid": "42108731",
+      "title": "Effects of 3-Month Vitamin D(3) Supplementation on Motor and Non-Motor Symptoms in Parkinson's Disease: A Single-Arm Interventional Study."
+    },
+    {
+      "wave": 5831,
+      "category": "mood",
+      "pmid": "42110899",
+      "title": "The Association Between Serum Vitamin D and Lipid Levels in Patients With Depression: A Cross-Sectional Study."
+    },
+    {
+      "wave": 5832,
+      "category": "mood",
+      "pmid": "42125319",
+      "title": "The impact of psychosocial factors on secondary hyperparathyroidism and vitamin D deficiency in adults with congenital heart disease-the CHD-HYPER study."
+    },
+    {
+      "wave": 5837,
+      "category": "mood",
+      "pmid": "42269885",
+      "title": "A food-borne probiotic ameliorates depression by modulating tryptophan metabolism along the gut-brain axis."
+    },
+    {
+      "wave": 5850,
+      "category": "inflammation_pain",
+      "pmid": "42662082",
+      "title": "Integrated quantitative sensory testing and psychological phenotyping dataset for capsaicin-induced neuropathic pain susceptibility."
+    },
+    {
+      "wave": 5852,
+      "category": "inflammation_pain",
+      "pmid": "42666527",
+      "title": "Protective Effects of Mango Ginger (Curcuma amada Roxb.) Ethanol Extract against Carbon Tetrachloride-Induced Toxicity: In Vivo and In Silico Evidence."
+    },
+    {
+      "wave": 5855,
+      "category": "inflammation_pain",
+      "pmid": "42690793",
+      "title": "Anti-inflammatory Diterpenoids and Sesquiterpenoids from the Rhizomes of Shell Ginger (Alpinia zerumbet)."
+    },
+    {
+      "wave": 5857,
+      "category": "inflammation_pain",
+      "pmid": "42700907",
+      "title": "PEGylated curcumin for cigarette smoke-induced oxidative stress: From nasal epithelial cells to fast- dissolving microneedle patches."
+    },
+    {
+      "wave": 5860,
+      "category": "inflammation_pain",
+      "pmid": "42710751",
+      "title": "Chitosan-celluloses wafers containing emulsified curcumin: a nano-in-matrix approach for buccal delivery."
+    },
+    {
+      "wave": 5870,
+      "category": "inflammation_pain",
+      "pmid": "42828456",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes."
+    },
+    {
+      "wave": 5872,
+      "category": "inflammation_pain",
+      "pmid": "42835591",
+      "title": "Salmon bone-derived chondroitin sulfate nanogels for controlled delivery of curcumin: release behavior, structural characteristics and anti-inflammatory efficacy."
+    },
+    {
+      "wave": 5875,
+      "category": "metabolic",
+      "pmid": "42475523",
+      "title": "Untangling Inositol (Pyro)Phosphate Biology Through Emerging Technologies."
+    },
+    {
+      "wave": 5877,
+      "category": "metabolic",
+      "pmid": "42551031",
+      "title": "Cinnamon."
+    },
+    {
+      "wave": 5891,
+      "category": "metabolic",
+      "pmid": "42346410",
+      "title": "Metabolic Mechanisms of Hexavalent Chromium-Induced Splenic Immune Injury via Oxidative Stress and Ferroptosis Pathways in New Zealand Rabbits."
+    },
+    {
+      "wave": 5893,
+      "category": "metabolic",
+      "pmid": "42367479",
+      "title": "Enhanced Apparent Oral Bioavailability of Berberine Through BioSOLVE Technology: Pharmacokinetic Evaluation of Metaberine™."
+    },
+    {
+      "wave": 5895,
+      "category": "metabolic",
+      "pmid": "41098674",
+      "title": "The role of the myo-inositol for the prevention of the gestational diabetes mellitus: systematic review."
+    },
+    {
+      "wave": 5902,
+      "category": "botanicals_mushrooms",
+      "pmid": "42510917",
+      "title": "Elevated CO(2) as a Biostimulatory Approach to Enhance the Nutraceutical Potential of Ginseng."
+    },
+    {
+      "wave": 5914,
+      "category": "botanicals_mushrooms",
+      "pmid": "42503062",
+      "title": "Integrated miRNA-mRNA-degradome analysis unveils the key regulatory mechanism of ginseng under temperature-water stress."
+    },
+    {
+      "wave": 5967,
+      "category": "immune_respiratory",
+      "pmid": "41023725",
+      "title": "Clinical randomized trial of vitamin D and C supplementation in critically ill patients with respiratory failure."
+    },
+    {
+      "wave": 5977,
+      "category": "immune_respiratory",
+      "pmid": "42651868",
+      "title": "Dietary Vitamin D(3) Modulates Antioxidant Responses, Immune-Related Gene Expression, and Flesh Quality in Giant Freshwater Prawn (Macrobrachium rosenbergii) Under Pathogenic Vibrio Challenge."
+    },
+    {
+      "wave": 5982,
+      "category": "immune_respiratory",
+      "pmid": "42668497",
+      "title": "Reversing zinc dyshomeostasis and oxidative stress: A metallothionein 1-activating MXene/Zn(2+) triple-action nanotherapeutic strategy for chronic non-bacterial prostatitis."
+    },
+    {
+      "wave": 5988,
+      "category": "immune_respiratory",
+      "pmid": "42713054",
+      "title": "Association of Vitamin D Receptor Gene Polymorphism (FokI) with Susceptibility to Musculoskeletal Tuberculosis: A Case-Control Study from Central India."
+    },
+    {
+      "wave": 5989,
+      "category": "immune_respiratory",
+      "pmid": "42717206",
+      "title": "Zinc displacement and metabolic interference: cobalt ion-mediated therapy for broad-spectrum CRKP-resistant pneumonia via inhalable microspheres."
+    },
+    {
+      "wave": 5991,
+      "category": "immune_respiratory",
+      "pmid": "42729209",
+      "title": "Vitamin C enhances cytotoxicity of CAR-and εTRuC-engineered γδ T cells and modulates Ca(2+), NFAT, NF-κB and ERK signaling in human γδ T cells."
+    },
+    {
+      "wave": 5997,
+      "category": "immune_respiratory",
+      "pmid": "42745778",
+      "title": "Vitamin D(3) oral rinsing reduces salivary SARS-CoV-2 antigen detectability: a clinical trial with public health implications."
+    }
+  ]
+}
