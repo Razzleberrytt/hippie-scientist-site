@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42318806"
+  ],
+  "relevance_reason": "Primary human randomized trials on acute executive function and dietary fiber effects in prediabetes; source identity verified, scientific review pending."
+}
