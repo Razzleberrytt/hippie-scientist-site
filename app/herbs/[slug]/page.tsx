@@ -532,8 +532,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
               <EvidenceScoreBadge record={herbRecord} />
             </div>
 
-            <EvidenceScopeGuide context="profile" />
-
             {/* Safety Summary — one line; full detail lives in the Safety section below.
                 Shared with compound profiles so both routes lead with the same
                 safety hierarchy. */}
@@ -579,6 +577,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 </div>
               )}
             </dl>
+            <EvidenceScopeGuide context="profile" />
           </header>
 
           {/* Decision-critical content stays ahead of supporting art in the
