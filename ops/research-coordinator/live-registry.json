@@ -36860,6 +36860,538 @@
       "reservation_id": "febdc262ae00511bc0ce",
       "reserved_at": "2026-10-09T14:57:11.725Z",
       "source_branch": "research/intake/4/20261009-1027-source-verified-3"
+    },
+    {
+      "pmid": "41605223",
+      "title": "Mechanistic Insight into Difference in Hepatotoxicity of Methyleugenol and Safrole.",
+      "doi": "10.1021/acs.jafc.5c13276",
+      "source_title": "Mechanistic Insight into Difference in Hepatotoxicity of Methyleugenol and Safrole.",
+      "abstract": "Methyleugenol (MTL) and safrole (SFL) are hepatotoxic flavorants with distinct IARC classifications (Group 2A versus 2B), and yet the structural reason for this differential toxicity is unclear. Results showed that MTL was more hepatotoxic than SFL, owing to its more efficient metabolic activation. This was evidenced by greater glutathione (GSH) depletion, GSH conjugate formation, and protein adduction. CYP3A4 was identified as the key enzyme mediating this difference. Molecular simulations demonstrated that although SFL binds CYP3A4 with higher affinity, its rigid 3,4-methylenedioxy group displaces the allylic moiety from heme iron, resulting in suboptimal catalytic positioning. In contrast, MTL's 3-methoxy substituent enables stable orientation near the catalytic site, facilitating reactive metabolite formation. Thus, minor structural differences critically dictate the CYP3A4-mediated metabolic activation and subsequent hepatotoxic risk of allylbenzenes. This work provides a mechanistic basis for understanding structure-toxicity relationships and improving the safety assessment of flavor compounds in spices.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41605223/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41605223",
+        "doi": "10.1021/acs.jafc.5c13276",
+        "journal": "Journal of agricultural and food chemistry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.033Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "64eb4c6c4db5b76aebb5",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "41655553",
+      "title": "Multi-omics reveals hepatotoxic mechanisms and key toxic components of Polygoni Multiflori Radix and its processed products.",
+      "doi": "10.1016/j.phymed.2026.157908",
+      "source_title": "Multi-omics reveals hepatotoxic mechanisms and key toxic components of Polygoni Multiflori Radix and its processed products.",
+      "abstract": "Polygoni Multiflori Radix (PMR) and its processed form, Polygoni Multiflori Radix Praeparata (PMRP), are two widely used traditional Chinese medicines (TCM). However, in recent years, frequent reports have emerged regarding their hepatotoxicity. Despite numerous studies, the underlying mechanisms of hepatotoxicity and key toxic components remain poorly understood. This study aimed to comprehensively elucidate the hepatotoxic processes of PMR and PMRP and identify the principal toxic components. In vivo toxicity tests were carried out to assess the toxicity levels and characteristics of PMR and PMRP. The integration of untargeted serum metabolomics, liver spatial transcriptomics, and liver spatial metabolomics was first employed to elucidate the toxicity mechanisms, which were further validated through metabolite and sensitive index levels and by evaluating protein expression. Mass spectrometry and cytotoxicity tests were utilised to determine the primary toxic components. The findings revealed that PMR and PMRP primarily regulate tryptophan metabolism, the tricarboxylic acid (TCA) cycle, purine metabolism, and glutathione metabolism. Furthermore, PMR and PMRP can inhibit the expression of bile acid transporters, causing obstruction of bile acid secretion. These modulations trigger oxidative stress, which subsequently leads to cholestasis. The accumulation of bile acids further intensifies oxidative stress, creating a vicious cycle. Furthermore, emodin was identified as the primary toxic component. PMR and PMRP can induce cholestatic liver injury. They exert hepatotoxic effects by establishing a vicious cycle between cholestasis and oxidative stress, with emodin being the key component responsible for this toxicity.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41655553/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41655553",
+        "doi": "10.1016/j.phymed.2026.157908",
+        "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.034Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0229c59c9ab54cb7e875",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "42356585",
+      "title": "Fraxetin Inhibits UGT1A1 and UGT1A9 Activities In Vitro: Inhibition Kinetics, Molecular Dynamics Simulation, and Prediction of Herb-Drug Interaction Risk.",
+      "doi": "10.3390/ph19060968",
+      "source_title": "Fraxetin Inhibits UGT1A1 and UGT1A9 Activities In Vitro: Inhibition Kinetics, Molecular Dynamics Simulation, and Prediction of Herb-Drug Interaction Risk.",
+      "abstract": "Background/Objectives: Fraxetin (7,8-dihydroxy-6-methoxycoumarin), a coumarin constituent of Cortex Fraxini (Qinpi) used in traditional Chinese medicine, is metabolised mainly by UGT1A9, but its potential to inhibit UGT enzymes and cause herb-drug interactions (HDIs) is largely unstudied. Methods: Fraxetin and four related coumarins were screened against 11 recombinant human UGTs; isoforms inhibited ≥80% underwent full kinetic analysis with 4-methylumbelliferone as probe. Binding was examined by molecular docking on AlphaFold structures with PLIP, triplicate 100 ns molecular dynamics, and MM/GBSA and MM/PBSA free-energy calculations, and interaction risk by FDA 2020 in vitro-in vivo extrapolation (IVIVE). Results: Fraxetin alone inhibited both UGT1A1 and UGT1A9 by >80% and was characterised in detail, acting as a mainly competitive mixed-type inhibitor (UGT1A1 IC 50 15.99 μM, K i 8.32 μM; UGT1A9 IC 50 8.44 μM, K i 5.90 μM). A structure-activity comparison identified a dual-element pharmacophore comprising the C-6 methoxy group and the 7,8-dihydroxycoumarin aglycone. MM/GBSA favoured UGT1A9 over UGT1A1 (ΔΔ G = -4.06 kcal/mol, p = 0.005), concordant with the kinetic ranking. IVIVE predicted a borderline systemic signal ( R 1 > 1.02) but an intestinal R 1,gut approximately five- to seven-fold above the high-risk threshold of 11 after capping the luminal concentration at fraxetin aqueous solubility. Conclusions: This is the first characterisation of fraxetin as a moderate-potency inhibitor of UGT1A1 and UGT1A9 and points to a previously under-recognised herb-drug interaction risk concentrated in the intestinal lumen rather than systemically; the finding constitutes an interaction signal requiring clinical confirmation rather than an established risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42356585/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42356585",
+        "doi": "10.3390/ph19060968",
+        "journal": "Pharmaceuticals (Basel, Switzerland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.035Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f599f12e0e1bd806ce24",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "42107731",
+      "title": "In vitro investigation of the effect of cycloastragenol (CAG) on the cytochrome P450 enzyme activities.",
+      "doi": "10.1016/j.abb.2026.110858",
+      "source_title": "In vitro investigation of the effect of cycloastragenol (CAG) on the cytochrome P450 enzyme activities.",
+      "abstract": "As a bioactive compound of Astragalus mongholicus Bunge, cycloastragenol (CAG) has gained huge attention for its status as a telomerase activator. The evaluation of the impact of CAG on cytochrome P450 enzymes (CYP450s) may reveal potential pharmacological interactions, facilitating the development of treatment regimens using CAG or Astragalus mongholicus Bunge. The effect of CAG on CYP450 activity was assessed using human liver microsomes, with experimental groups including negative control, CAG treatment, and positive control groups. Inhibition kinetics were determined using Lineweaver-Burk plots. CAG demonstrated concentration-dependent inhibition of CYP3A4 (IC 50 = 13.40 μM), CYP2E1 (IC 50 = 15.00 μM), and CYP2C19 (IC 50 = 18.46 μM). Kinetic analysis revealed competitive inhibition of CYP2E1 (K i = 7.56 μM) and CYP2C19 (K i = 8.91 μM), whereas CYP3A4 inhibition was non-competitive (K i = 6.61 μM). While CYP2E1 and CYP2C19 inhibition were time-independent, CYP3A4 exhibited time-dependent inhibition (K I = 3.54 μM, K inact = 0.028/minute). CAG exhibited concentration-dependent inhibitory effects on CYP3A4, 2E1, and 2C19 activities, suggesting a high potential for clinically relevant drug-drug or herb-drug interactions when co-administered with drugs metabolized by these CYP450s.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42107731/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42107731",
+        "doi": "10.1016/j.abb.2026.110858",
+        "journal": "Archives of biochemistry and biophysics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.035Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c85aee23a7c399e2ecbc",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "41664843",
+      "title": "Effect of plantamajoside on the pharmacokinetics of nifedipine in rats and the underlying mechanisms.",
+      "doi": "10.1080/00498254.2026.2621364",
+      "source_title": "Effect of plantamajoside on the pharmacokinetics of nifedipine in rats and the underlying mechanisms.",
+      "abstract": "Plantamajoside was reported to possess blood pressure-lowering effects. This study explores how plantamajoside affects the pharmacokinetics of nifedipine, providing valuable insights for clinical drug use.This study examined the effect of plantamajoside on nifedipine pharmacokinetics. Sprague-Dawley rats ( n = 6 per group) were administered nifedipine orally, either alone or after pre-treatment with plantamajoside. Blood concentrations of nifedipine were measured using liquid chromatography-tandem mass spectrometry. The effects of plantamajoside on nifedipine metabolic stability and cytochrome P450 3A (CYP3A) activity were evaluated in rat liver microsomes (RLMs).Co-administration of nifedipine with plantamajoside altered its pharmacokinetics, including elevated peak plasma concentration (C max ), increased area under the concentration-time curve (AUC) (0-t) , prolonged elimination half-life (t 1/2 ), and reduced apparent clearance (CL/F). In vitro , plantamajoside enhanced the metabolic stability of nifedipine, extending its t 1/2 and lowering intrinsic clearance. Plantamajoside also inhibited CYP3A activity in RLMs (half maximal inhibitory concentration, IC 50 = 13.96 μM; inhibition constant, K i = 7.10 μM).The increased nifedipine exposure in rats could be attributed to the inhibition of CYP3A-mediated metabolism by plantamajoside. Given the role of orthologous CYP3A4 in humans, this interaction may enhance antihypertensive efficacy but could also increase the risk of severe hypotension clinically.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41664843/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41664843",
+        "doi": "10.1080/00498254.2026.2621364",
+        "journal": "Xenobiotica; the fate of foreign compounds in biological systems",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.035Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f57d5408b6a5e21678cb",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "42032893",
+      "title": "Green Tea Consumption Potentiates Paclitaxel Cytotoxic Efficacy in Vitro and Antitumor Efficacy in Vivo: A Pharmacodynamic and Pharmacokinetic Study.",
+      "doi": "10.1002/ptr.70207",
+      "source_title": "Green Tea Consumption Potentiates Paclitaxel Cytotoxic Efficacy in Vitro and Antitumor Efficacy in Vivo: A Pharmacodynamic and Pharmacokinetic Study.",
+      "abstract": "Green tea, a commonly consumed beverage worldwide, is extensively used as dietary supplements for cancer prevention. However, the interaction between green tea and paclitaxel is still unknown. This study aimed to systematically investigate the herb-drug interaction of green tea consumption on the pharmacodynamics and pharmacokinetics of paclitaxel. The ATP assay results indicated that green tea extract (GTE) significantly enhanced the cytotoxicity of paclitaxel in both human and murine breast cancer cells. Further, the 4T-1 tumor model testified that daily green tea consumption could improve the therapeutic effects of paclitaxel on breast carcinoma. The pharmacokinetic profiles revealed that in the group with short-term green tea consumption (0.5 h), there was a more than 55.87% increase in the maximum plasma concentration (C max ) of paclitaxel and a 38.49% increase in the area under the plasma concentration curve (AUC). In the long-term green tea consumption group (2 weeks), there was a 23.80% increase in the C max of paclitaxel and a 28.29% increase in the AUC. Moreover, long-term green tea consumption significantly reduced hepatic microsomal protein level. Taken together, green tea consumption enhances the anticancer efficacy and increases the pharmacokinetic profile of paclitaxel, which provides information to study the interaction between herbs and chemotherapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42032893/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42032893",
+        "doi": "10.1002/ptr.70207",
+        "journal": "Phytotherapy research : PTR",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.035Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fbc271e5995c04c6199f",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
+    },
+    {
+      "pmid": "40772759",
+      "title": "Chronic toxicity and modulatory effects of Deprungsith formulation in Wistar Albino rats.",
+      "doi": "10.1515/jcim-2025-0057",
+      "source_title": "Chronic toxicity and modulatory effects of Deprungsith formulation in Wistar Albino rats.",
+      "abstract": "Psoriasis is a systematic skin disease. Treatment choice is limited due to unsatisfactory clinical efficacy. The study evaluated the safety of Deprungsith formulation following long-term administration (chronic toxicity test) and its potential modulatory effect on hepatic cytochrome P450 (CYP) enzymes in rats. Wistar rats were randomly grouped to receive Deprungsith (125, 500, and 1,000 mg/kg/day) and the satellite (1,000 mg/kg bw) to observe reversibility, as well as distilled water (untreated control) for 9 months. The sentinel-1 group was for environmental risk assessment after 6 months, and the sentinel-2 group was for environmental risk assessment after 9 months). Clinical and behavioral signs, mortality, and histopathology were monitored. The chronic toxicity study of Deprungsith revealed no evidence of mortality or serious clinical signs at any dosage level. However, changes in WBC count, serum albumin, and sodium, were observed. Histopathological examination identified mild to moderate liver necrosis and renal interstitial inflammation. Low-dose (125 mg/kg bw) significantly induced CYP1A2 and CYP3A1, while high-dose (1,000 mg/kg bw) inhibited CYP1A2 and CYP3A1 activities. Deprungsith formulation was well-tolerated with an MTD (maximum tolerated dose) and NOAEL (no-observed-adverse-effect level) of 1,000 mg/kg bw. Long-term use of Deprungsith formulation in psoriasis patients should be carefully monitored for therapeutic outcomes (side effects from accumulated levels or unsatisfactory efficacy from inadequate CYP1A2 and CYP3A1-mediated metabolism) and potential herb-drug interactions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40772759/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40772759",
+        "doi": "10.1515/jcim-2025-0057",
+        "journal": "Journal of complementary & integrative medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:10:59.035Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dfeaa52e2c187271105d",
+      "reserved_at": "2026-10-09T15:11:07.467Z",
+      "source_branch": "research/intake/3/20261009-1108-botanical-safety-7pmid"
     }
   ],
   "batches": [
@@ -36873,22 +37405,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 464,
+    "total_reservations": 471,
     "by_lane": {
       "1": 9,
       "2": 83,
-      "3": 61,
+      "3": 68,
       "4": 36,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 464
+      "SOURCE_VERIFIED": 471
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 464,
+        "count": 471,
         "pr_number": null,
         "blocker": null
       }
