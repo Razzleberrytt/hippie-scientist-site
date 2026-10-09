@@ -37927,6 +37927,83 @@
       "reservation_id": "481ffd0e09dadcc85a4d",
       "reserved_at": "2026-10-09T15:50:30.910Z",
       "source_branch": "research/intake/2/20261009-1148-cognition-metabolic-2-r25"
+    },
+    {
+      "pmid": "41390976",
+      "title": "Repeated Intake of Grapefruit Juice Inhibits CYP2B6, CYP2C9, CYP2C19, and CYP3A4 while Lingonberry Powder Does Not Induce Major CYP Enzymes in Humans.",
+      "doi": "10.1002/cpt.70165",
+      "source_title": "Repeated Intake of Grapefruit Juice Inhibits CYP2B6, CYP2C9, CYP2C19, and CYP3A4 while Lingonberry Powder Does Not Induce Major CYP Enzymes in Humans.",
+      "abstract": "Grapefruit juice is a well-established inhibitor of cytochrome P450 (CYP) 3A4, but its effects on other CYP enzymes or organic anion transporting polypeptides (OATPs) are not fully characterized in humans. Recently, lingonberry powder was shown to induce murine CYP enzymes. We investigated the effects of lingonberry powder and grapefruit juice on seven CYP enzymes and two OATPs. Eleven healthy volunteers received three pretreatments three times per day: water for 1 day (control), lingonberry powder for 9 days, and grapefruit juice for 3 days. CYP index drugs (caffeine/CYP1A2, bupropion/CYP2B6, repaglinide/CYP2C8, flurbiprofen/CYP2C9, omeprazole/CYP2C19, dextromethorphan/CYP2D6, midazolam/CYP3A4, and simvastatin/CYP3A4) were administered orally on the study day of each pretreatment (day 1, 10, and 3, respectively). Venous blood samples were collected until 23 hours postdose. The concentrations of index drugs, their metabolites and endogenous OATP1B1 and OATP1B3 biomarkers glycochenodeoxycholate 3-O-glucuronide (GCDCA-3G) and glycochenodeoxycholate 3-sulfate (GCDCA-3S), respectively, were quantified. Grapefruit juice expectedly increased the AUC 0-23h values of the CYP3A4 index drugs midazolam and simvastatin (P < 0.01). Additionally, grapefruit juice decreased the hydroxybupropion/bupropion (CYP2B6), 4'-hydroxyflurbiprofen/flurbiprofen (CYP2C9), 5'-hydroxyomeprazole/omeprazole (CYP2C19), and 1'-hydroxymidazolam/midazolam AUC 0-23h ratios to 0.57-fold (90% confidence interval: 0.45-0.74), 0.78-fold (0.69-0.87), 0.43-fold (0.36-0.52), and 0.72-fold (0.63-0.84) of control, respectively (P < 0.01). Lingonberry pretreatment did not change any CYP indices. GCDCA-3G and GCDCA-3S concentrations were unaffected by grapefruit juice or lingonberry pretreatment. Collectively, our findings indicate that in addition to inhibiting CYP3A4, repeated grapefruit juice intake causes clinically relevant inhibition of CYP2B6, CYP2C9, and CYP2C19, revealing previously underappreciated interaction risks. Conversely, lingonberry powder is unlikely to induce CYP enzymes in humans.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41390976/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41390976",
+        "doi": "10.1002/cpt.70165",
+        "journal": "Clinical pharmacology and therapeutics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T16:11:52.538Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "eb878b20f6dab01e2756",
+      "reserved_at": "2026-10-09T16:11:58.627Z",
+      "source_branch": "research/intake/3/20261009-1208-cyp-herbal-hepatotox-11"
     }
   ],
   "batches": [
@@ -37940,22 +38017,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 478,
+    "total_reservations": 479,
     "by_lane": {
       "1": 12,
       "2": 85,
-      "3": 68,
+      "3": 69,
       "4": 38,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 478
+      "SOURCE_VERIFIED": 479
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 478,
+        "count": 479,
         "pr_number": null,
         "blocker": null
       }
