@@ -149,7 +149,8 @@ export async function proposeRetirement({ repo, sha, runId, token, request = fet
     'no new queue, billing or scientific data store.\n\n' +
     '## Regression contract\nPreserve other D/R/A owners and all scientific, security and clinical gates. ' +
     'Fail closed on mismatched ownership or source SHA; a missing mandatory check blocks merge. ' +
-    'Rollback by reverting this docs-only PR if its verified identity changes.'\n  const pr = await api('POST', 'pulls', {
+    'Rollback by reverting this docs-only PR if its verified identity changes.'
+  const pr = await api('POST', 'pulls', {
     title: 'docs(control): retire verified completed issue #' + ticket,
     head: branch, base: 'main', draft: false, body,
   })
