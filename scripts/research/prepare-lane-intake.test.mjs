@@ -55,3 +55,30 @@ test('v1.01 accepts valid source records in bounded manifests and independently 
  assert(result.manifests.every(x=>x.research_only===true&&x.records.length<=25));
  assert.equal(new Set(result.manifests.flatMap(m=>m.records.map(r=>r.pmid))).size,27);
 });
+
+test('v1.01 diagnostic report cannot trigger the existing *.json research reservation glob', async (t) => {
+  const { mkdtempSync, writeFileSync, readdirSync, readFileSync, rmSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { spawnSync } = await import('node:child_process');
+  const root = mkdtempSync(join(tmpdir(), 'ths-lane-preflight-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const input = join(root, 'candidates.json');
+  const output = join(root, 'ops', 'research-intake');
+  writeFileSync(input, JSON.stringify({
+    schema_version: 1, lane: 3, lane_focus: 'botanical-pharmacology-safety',
+    research_only: true, records: [validRecord(43999991), null, validRecord(43999992)]
+  }), 'utf8');
+  const proc = spawnSync(process.execPath,
+    ['scripts/research/prepare-lane-intake.mjs', input, output], { encoding: 'utf8' });
+  assert.equal(proc.status, 0, proc.stderr || proc.stdout);
+  const files = readdirSync(output).sort();
+  assert.deepEqual(files, ['intake-001.json', 'preflight-report.txt']);
+  const report = JSON.parse(readFileSync(join(output, 'preflight-report.txt'), 'utf8'));
+  assert.equal(report.accepted_count, 2);
+  assert.equal(report.rejected.length, 1);
+  const intakeFiles = files.filter(name => name.endsWith('.json'));
+  assert.equal(intakeFiles.length, 1, 'diagnostics must never match the intake manifest glob');
+  const { validateManifest } = await import('./github-reservation-controller.mjs');
+  assert.doesNotThrow(() => validateManifest(JSON.parse(readFileSync(join(output, intakeFiles[0]), 'utf8'))));
+});

@@ -39,7 +39,8 @@ if (process.argv[1]?.endsWith('prepare-lane-intake.mjs')) {
   fs.mkdirSync(output, {recursive: true});
   for (const [i, manifest] of result.manifests.entries())
     fs.writeFileSync(path.join(output, 'intake-' + String(i + 1).padStart(3, '0') + '.json'), JSON.stringify(manifest, null, 2) + '\n', {flag: 'wx'});
-  fs.writeFileSync(path.join(output, 'preflight-report.json'), JSON.stringify({...result, manifests: result.manifests.map((m,i) => ({file: 'intake-' + String(i + 1).padStart(3, '0') + '.json', count: m.records.length}))}, null, 2) + '\n', {flag: 'wx'});
+  // Keep the diagnostic JSON outside the '*.json' intake trigger; it is not a reservation manifest.
+  fs.writeFileSync(path.join(output, 'preflight-report.txt'), JSON.stringify({...result, manifests: result.manifests.map((m,i) => ({file: 'intake-' + String(i + 1).padStart(3, '0') + '.json', count: m.records.length}))}, null, 2) + '\n', {flag: 'wx'});
   console.log(JSON.stringify({candidates: result.candidate_count, accepted: result.accepted_count, rejected: result.rejected.length, manifests: result.manifests.length}));
   if (!result.accepted_count) process.exitCode = 1;
 }
