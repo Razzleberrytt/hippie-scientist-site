@@ -38997,6 +38997,83 @@
       "reservation_id": "a276c9a4e2e0247f5f26",
       "reserved_at": "2026-10-09T18:04:00.469Z",
       "source_branch": "research/intake/3/20261009-1401-kava-cyp-ces1-five"
+    },
+    {
+      "pmid": "32379683",
+      "title": "The effect of bergamot orange essence on anxiety, salivary cortisol, and alpha amylase in patients prior to laparoscopic cholecystectomy: A controlled trial study.",
+      "doi": "10.1016/j.ctcp.2020.101153",
+      "source_title": "The effect of bergamot orange essence on anxiety, salivary cortisol, and alpha amylase in patients prior to laparoscopic cholecystectomy: A controlled trial study.",
+      "abstract": "This study aimed to determine the effect of bergamot orange essence on anxiety, salivary cortisol, and alpha amylase in patients prior to laparoscopic cholecystectomy. This clinical trial with pre-post design was conducted on 60 candidates for cholecystectomy. The participants were randomly divided into an intervention and a control group. The intervention group participants underwent aromatherapy using two drops of 3% bergamot orange essence, while the control group ones inhaled two drops of odourless grape seed oil. Anxiety mean score and salivary cortisol and alpha amylase levels were measured before and after the intervention. A significant difference was found between the groups regarding anxiety (F = 9.00, p = 0.004) and alpha amylase level (F = 9.46, p = 0.003) after the intervention. Bergamot orange essence decreased anxiety and salivary alpha amylase level. Therefore, this method can be used as a complementary technique to reduce patients' anxiety prior to laparoscopic cholecystectomy surgery. IRCT20171113037428N2. It is available in following website: https://www.irct.ir/trial/27696 REGISTRATION DATE: 03/25/2018.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32379683/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "32379683",
+        "doi": "10.1016/j.ctcp.2020.101153",
+        "journal": "Complementary therapies in clinical practice",
+        "publication_year": 2020,
+        "hydrated_at": "2026-10-09T18:44:47.006Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2af4020c9c11e20baa9e",
+      "reserved_at": "2026-10-09T18:44:49.901Z",
+      "source_branch": "research/intake/1/20261009-1442-bergamot-preop-32379683"
     }
   ],
   "batches": [
@@ -39010,22 +39087,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 492,
+    "total_reservations": 493,
     "by_lane": {
-      "1": 13,
+      "1": 14,
       "2": 87,
       "3": 77,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 492
+      "SOURCE_VERIFIED": 493
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 492,
+        "count": 493,
         "pr_number": null,
         "blocker": null
       }
