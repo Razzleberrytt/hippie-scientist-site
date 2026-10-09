@@ -95,7 +95,7 @@ export default function TermsPage() {
         </nav>
       </header>
 
-      <main className='space-y-5' aria-label='Terms of Service sections'>
+      <div className='space-y-5' aria-label='Terms of Service sections'>
         {sections.map((section) => (
           <section key={section.title} className='card-premium p-6 sm:p-8'>
             <h2 className='text-2xl font-semibold tracking-tight text-ink'>{section.title}</h2>
@@ -106,7 +106,7 @@ export default function TermsPage() {
             </div>
           </section>
         ))}
-      </main>
+      </div>
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 sm:p-8'>
         <h2 className='text-2xl font-semibold tracking-tight text-ink'>Other policies and questions</h2>
