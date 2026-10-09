@@ -24,6 +24,21 @@
 **This week's immediate preparation:** reconcile existing open research/intake/social PRs, freeze canonical source/claim/handoff boundaries, map dependencies, write negative fixtures and risk-tiered validation gates, baseline actual CI durations and specify one review-only source-to-editorial vertical slice. **Next week's proposed order:** P0.1 actual-state/CI baseline → P0.2 shared provenance contracts → P0.3 human-review-only integration → P0.4 exact-head release proof/targeted CI optimization → P0.5 retrospective. Reconcile GitHub state and existing WIP reservations before any start.
 
 **Guardrail:** 3 total allowed workstreams, one admitted ticket each; one scoring formula, one merge controller, one science authority. No new clinical, content or social publishing permissions, no duplicate evidence datasets, no paid critical-path dependencies, no skipped security/science/CI/deployment proofs. This P0 supersedes *methodological priority*, not the existing sprint's evidence-first business objective or milestone exit criteria.
+### P0 additive accelerator — build and CI throughput (2026-10-09)
+
+**Owner clarification:** This is **added to** the accepted Generational Engineering P0 (#6431), not a replacement for its research intelligence, semantic integration, evidence-to-distribution, revenue, or safety goals. Original milestones, existing issue ownership, release DAG and existing A #6500 work remain unchanged. No fourth D/R/A slot and no new work may self-admit. This optimization accelerator is cross-cutting engineering/control work governed by existing acceptance and review rules.
+
+**Highest-priority execution order within the additive accelerator:**
+
+1. **Finish the existing owner, do not fork it:** #6507 / PR #6509 provides optional edit/checkpoint preflight and post-deployment owner-retirement proposals. It must pass its own required CI and controller-owned merge, then prove behavior in a real deployment. Its optional preflight **never** replaces the full final release checks.
+2. **Measure the true critical path:** record last 20 representative PRs by code risk/changed-path class and gather trigger-to-merge elapsed time, queue delay, jobs per push, median and p90 CI wall time, CPU/build times, cache hit/miss, artifact consumption, failure/retry reasons and GitHub Actions minutes. Record missing data as Unknown; compare before/after at comparable change scopes.
+3. **Remove duplicate work at its source:** map all 79 workflow definitions and their `push`, `pull_request`, `workflow_run`, `schedule` and dispatch edges; identify loops, repeated equivalent check computations and no-op controller runs. Consolidate only redundant, nonrequired triggers, preserve required check names/job statuses, first-party source integrity and branch-protection expectations; maintain a deterministic fallback when a shared result is unavailable.
+4. **Shorten the build's critical path:** profile Next.js static generation, data-source/workbook parsing, image preparation, indexing and SEO/report generation. Cache or reuse only content-addressed, identical-input intermediate results; minimize unnecessary regeneration and redundant `npm ci`/setup. Verify byte-identical public data, sitemap/indexability and static export with cold-cache and corrupted-cache tests.
+5. **Use scoped development gates, full protected release gates:** group roughly 15–25 compatible edits in one bounded, independently reviewable ownership batch; run changed-file tests and lint during editing, subsystem checks at checkpoint, and exact-head mandatory full security/science/accessibility/SEO/build checks at release. Never silence known failures or auto-promote unreviewed science.
+6. **Measure delivered improvement:** compare same-risk baseline with post-merge p50/p90 time-to-green, end-to-end lead time, duplicate job runs, Actions minutes per safe merged capability, flaky reruns, cache correctness and release regression/rollback rate. No promised ROI until proven.
+
+**Priority:** Optimization is the first engineering multiplier while P0 science/revenue/domain work continues within its admitted WIP; urgent production/safety incidents retain precedence. Stop optimization changes whose measured savings do not outweigh increased complexity or risk. Existing owner PR #6509 remains the implementation vehicle for its current scope; any subsequent work requires a separately scored, unblocked ticket and available slot, not this paragraph alone.
+
 ## Sprint objective
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
@@ -90,7 +105,7 @@ GitHub #6491 CLOSED, PR #6492 MERGED on exact main `06fd528135a4dbe5d286b45d8988
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6500 | Explain evidence-grade scope and public count denominators | Active — admitted | P0 | 80.0 | 2026-10-09 |
+| A | #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | Active — admitted | P0 | 80.0 | 2026-10-09 |
 
 
 
