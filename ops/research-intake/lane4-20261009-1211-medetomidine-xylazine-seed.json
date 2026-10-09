@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 4,
+  "lane_focus": "withdrawal-dependence-nps",
+  "research_only": true,
+  "pmids": [
+    "42748561",
+    "42600850"
+  ],
+  "relevance_reason": "Source-verified PubMed identity seeds on medetomidine adulteration surveillance and preclinical xylazine withdrawal; no clinical conclusions are approved."
+}
