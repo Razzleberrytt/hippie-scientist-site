@@ -13,6 +13,7 @@ describe('EvidenceScopeGuide', () => {
     expect(screen.getByText('Safety / caution level')).toBeTruthy()
     expect(screen.getByText('Research review and product eligibility')).toBeTruthy()
     expect(container.querySelector('details summary')).toBeTruthy()
+    // Next Link may normalize a trailing slash while preserving the canonical destination.
     expect(screen.getByRole('link', { name: 'Read the grading methodology' }).getAttribute('href')).toMatch(/^\/info\/methodology\/?$/)
     expect(screen.getByRole('link', { name: 'Check safety separately' }).getAttribute('href')).toMatch(/^\/safety-checker\/?$/)
   })
