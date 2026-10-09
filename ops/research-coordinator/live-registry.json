@@ -39609,6 +39609,83 @@
       "reservation_id": "ae2ee4c36b421f81fe61",
       "reserved_at": "2026-10-09T19:43:35.610Z",
       "source_branch": "research/intake/1/20261009-1541-corn-leaf-sleep-41488152"
+    },
+    {
+      "pmid": "42508996",
+      "title": "Time-Restricted Eating on Appetite and Inflammation in Adults With Obesity and Prediabetes: A Randomized Feeding Study.",
+      "doi": "10.1002/oby.70270",
+      "source_title": "Time-Restricted Eating on Appetite and Inflammation in Adults With Obesity and Prediabetes: A Randomized Feeding Study.",
+      "abstract": "Time-restricted eating (TRE) has gained attention for weight loss and cardiometabolic health improvement. The Time-Restricted Intake of Meals (TRIM) study was a 12-week randomized isocaloric and eucaloric feeding trial comparing 10-h TRE to a 16-h usual eating pattern (UEP) in adults with obesity and either prediabetes or diet-controlled type 2 diabetes. This post hoc analysis investigates TRE's effects on eating behavior, appetite hormones, and inflammatory markers. Participants completed the Three-Factor Eating Questionnaire (Restraint, Disinhibition, Hunger) and provided fasting blood samples for leptin, adiponectin, CRP, cortisol, and sRAGE at pre- and post-intervention. Ghrelin was measured during a 75 g OGTT. Wilcoxon signed rank and Mann-Whitney U tests were used for within- and between-group differences. Thirty-nine participants (19 TRE; 20 UEP) were analyzed, with a mean (SD) age of 60 (7) years and BMI of 35.2 (6.0) kg/m 2 . Weight loss was similar across groups (2.7% TRE; 2.5% UEP). Both arms increased restraint and decreased disinhibition and hunger. No statistically significant between-group differences were observed in eating behavior, appetite hormones, and inflammatory markers. Both 10-h TRE and 16-h UEP promoted improvements in eating behavior in the context of modest and equivalent weight loss. Larger prospective studies are needed to confirm whether clinically meaningful differences exist. ClinicalTrials.gov NCT03527368.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42508996/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Randomized feeding study of time-restricted eating in adults with obesity and prediabetes; null appetite and inflammatory biomarker comparisons require independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42508996",
+        "doi": "10.1002/oby.70270",
+        "journal": "Obesity (Silver Spring, Md.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T19:57:44.676Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b63c7bd6f1402ca9c224",
+      "reserved_at": "2026-10-09T19:57:49.457Z",
+      "source_branch": "research/intake/2/20261009-1554-cognition-metabolic-pmid42508996-r29"
     }
   ],
   "batches": [
@@ -39637,16 +39714,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 500,
+    "total_reservations": 501,
     "by_lane": {
       "1": 15,
-      "2": 89,
+      "2": 90,
       "3": 79,
       "4": 42,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 500
+      "SOURCE_VERIFIED": 501
     },
     "batches": [
       {
@@ -39659,7 +39736,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 0,
+        "count": 1,
         "pr_number": null,
         "blocker": null
       }
