@@ -1,5 +1,5 @@
 {
-  "reviewDate": "2026-10-08",
+  "reviewDate": "2026-10-09",
   "scope": "Existing PR 6397 pending research-only candidates",
   "waves": [
     7505,
@@ -32,6 +32,7 @@
   "clinicalPromotion": false,
   "issues": [
     7506,
+    7508,
     7523,
     7528
   ],
@@ -40,6 +41,13 @@
       "wave": 7506,
       "finding": "Urinary incontinence is not psychological stress",
       "action": "QUARANTINE_OFF_DOMAIN",
+      "clinicalAdmission": false
+    },
+    {
+      "wave": 7508,
+      "pmid": "19501822",
+      "finding": "Ashwagandha semen quality and oxidative stress in infertile males is not a psychological stress/anxiety trial; abstract outcomes are reproductive hormones and semen biomarkers.",
+      "action": "QUARANTINE_OFF_CATEGORY",
       "clinicalAdmission": false
     },
     {
