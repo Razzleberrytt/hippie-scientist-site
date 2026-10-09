@@ -75,11 +75,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6368 | TikTok app-review Terms of Service page, first-party canonical route and discoverability | D | Active — admitted | P0 | 4/5/3/4/0.75/2 | 90.0 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6368 (first-party Terms of Service page and public legal navigation) on an exact-base scored admission; Revenue/Conversion and Authority/Content remain free. Publishing integration/Cloudflare/TikTok account access are not authorized by this page. Original 150-item checklist remains 10/150 pending exact item verification.
+
+**Closed-owner reconciliation, 2026-10-09 (control #6493):** #6368 / PR #6484 is verified closed/merged/deployed and no longer consumes D workstream. Fresh homepage #6491 / PR #6492 is explicitly *not* admitted by this retirement-only change; exact-base admission is a later, separate transaction. No user-facing or analytics capability changed.
+
+**Current admission (verified 2026-10-09 after #6368 closure):** Normal implementation WIP is **0/3**: Discovery/SEO, Revenue/Conversion and Authority/Content are free **pending fresh scored, nonoverlapping admission**. Issue #6368 CLOSED, PR #6484 MERGED and Cloudflare deploy run 37922725823 verified production origin. This control-only retirement does not admit the separate proposed homepage #6491 or authorize TikTok/Cloudflare account actions. The original historical 10/150 is unmapped; reconstructed 25/150 is a distinct proof register.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
