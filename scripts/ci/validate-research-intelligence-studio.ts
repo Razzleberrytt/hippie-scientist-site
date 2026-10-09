@@ -6,6 +6,7 @@ import {buildResearchCaseFile} from '../../lib/research-intelligence-casefile'
 import {buildResearchCaseScope,traceCaseConceptPair,createResearchInstrumentHandoff,resolveResearchInstrumentHandoff} from '../../lib/research-intelligence-context'
 import {buildInstrumentRelay,pickTraceableConceptPair} from '../../lib/research-intelligence-relay'
 import {planResearchSemanticFabric} from '../../lib/research-semantic-fabric'
+import {buildIntegratedResearchCase,validateResearchEditorialReviewHandoff} from '../../lib/research-intelligence-integration'
 import {SCIENCE_CAPABILITIES,buildScientificIntelligenceCase} from '../../lib/scientific-intelligence-suite'
 import {compileReviewedClaimFacets} from '../../lib/scientific-intelligence-reviewed'
 import {compileClaimDNA,detectTrialLineage,compareStudyContexts,scanResearchIntegrity} from '../../lib/scientific-intelligence-foundations'
@@ -590,6 +591,29 @@ assert(realFabric.distributionReviewTargets.every(t=>
 assert.equal(realFabric.publicationAllowed,false)
 assert(ui.includes('integratedCase?.fabric')&&ui.includes('Distribution review targets'),
  'Existing distribution objects must be joined in the visitor-facing source case')
+
+// The same 500-source static snapshot must feed the typed review handoff.
+// Even a distribution match is a REQUEST, never a verified clinical claim.
+const integratedForReview=buildIntegratedResearchCase(real,realGraph,liveCase!.pmid,manifestObjects)
+assert(integratedForReview,'Known exact source must have an integrated review case')
+const handoff=integratedForReview.reviewHandoff
+assert.equal(handoff.schemaVersion,1)
+assert.equal(handoff.sourcePmid,liveCase!.pmid)
+assert.equal(handoff.sourceSignature,liveCase!.sourceSignature)
+assert.equal(handoff.scientificProjectionCount,12)
+assert.equal(handoff.instrumentCount,8)
+assert.equal(handoff.publicationAllowed,false)
+assert.equal(handoff.clinicalClaimsApproved,0)
+assert.equal(handoff.automaticPublications,0)
+assert(handoff.requests.every(r=>r.pmid===liveCase!.pmid&&
+  r.sourceSignature===liveCase!.sourceSignature&&
+  r.status==='requires-independent-human-review'))
+assert.deepEqual(validateResearchEditorialReviewHandoff(
+  handoff,real,realGraph,liveCase!.pmid,manifestObjects),handoff)
+assert(ui.includes('integratedCase?.reviewHandoff')&&ui.includes('Review handoff v')&&
+  ui.includes('Zero approved clinical claims and automatic publications'),
+  'Typed human-review-only handoff must be visible in the existing source case')
+
 
 console.log(JSON.stringify({pass:true,syntheticSources:6,syntheticReviewedDirectionCandidates:s.debates.length,
  exactVerifiedSources:500,allFingerprintPmidsUnique:true,coveredInstruments:8,
