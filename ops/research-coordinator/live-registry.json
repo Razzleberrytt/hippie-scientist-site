@@ -39229,6 +39229,158 @@
       "reservation_id": "42a5bf6b88a6b6820fb9",
       "reserved_at": "2026-10-09T18:56:18.442Z",
       "source_branch": "research/intake/2/20261009-1454-cognition-metabolic-2-r28"
+    },
+    {
+      "pmid": "42227392",
+      "title": "Transcript-Level Modulation of Drug-Metabolizing Enzymes by Echinacea, Salvia, and Thymus in Adult Male Rats: Implications for Herb-Drug Interactions.",
+      "doi": "10.2174/0113816128427960251223105542",
+      "source_title": "Transcript-Level Modulation of Drug-Metabolizing Enzymes by Echinacea, Salvia, and Thymus in Adult Male Rats: Implications for Herb-Drug Interactions.",
+      "abstract": "Herb-Drug Interactions (HDIs) are a major clinical concern, as they may alter drug efficacy or cause toxicity. This study evaluated the potential HDIs of Echinacea purpurea, Thymus vulgaris, and Salvia officinalis by assessing their effects on Drug-Metabolizing Enzyme (DME) gene expression in rats. Rats (n = 10/group) received Echinacea purpurea (50 mg/kg), Salvia officinalis (400 mg/kg), Thymus vulgaris (500 mg/kg), or vehicle for 15 days. Hepatic transcripts of Cyp3a1, Cyp2d1, Ephx1, Ugt1a1, Ces1, and Nqo1 were quantified by qPCR. Serum and hepatic biomarkers, oxidative stress indices, and histology of liver and kidney were also assessed. All extracts increased the mRNA levels of drug-metabolizing enzymes (2-8-fold) as measured by qPCR; protein expression and enzymatic activities were not assessed. Thymus vulgaris increased serum proteins and hepatic NO and GSH, while ALT rose in the Salvia officinalis and Thymus vulgaris groups. MDA was elevated in all groups. Histology showed mild hepatocellular vacuolation with Echinacea purpurea and minor hemorrhage with Thymus vulgaris. All extracts slightly increased serum creatinine with minimal renal lesions. These findings suggest that the three herbs may modulate DME expression at the transcript level and promote mild oxidative histopathological changes after subchronic exposure. Since only mRNA was measured, functional consequences for protein abundance and enzyme activity remain to be confirmed. Echinacea, Salvia, and Thymus may contribute to HDIs by altering DME gene expression and inducing early hepatic and renal stress in rats. Further studies at the protein, enzymatic, and pharmacokinetic levels are required to determine whether these findings have clinical relevance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42227392/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42227392",
+        "doi": "10.2174/0113816128427960251223105542",
+        "journal": "Current pharmaceutical design",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T19:12:45.313Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a86ef7d8953e44e9e6a7",
+      "reserved_at": "2026-10-09T19:12:49.813Z",
+      "source_branch": "research/intake/3/20261009-1511-herb-transcript-cannabinoid-cyp"
+    },
+    {
+      "pmid": "42663925",
+      "title": "Selective and Time-Dependent Alterations in Cytochrome P450 (CYP) Enzyme Activity and Expression by Major Phytocannabinoids.",
+      "doi": "10.1007/s13318-026-01031-z",
+      "source_title": "Selective and Time-Dependent Alterations in Cytochrome P450 (CYP) Enzyme Activity and Expression by Major Phytocannabinoids.",
+      "abstract": "The legalization of cannabis in many parts of the USA and worldwide emphasizes the need to study their potential for interaction with drugs. The Cannabis sativa plant contains over 120 phytocannabinoids, with delta-9-tetrahydrocannabinol (THC), cannabidiol (CBD), and cannabinol (CBN) being the most abundant cannabinoids. The aim of this study was to investigate the effect of treatment with individual cannabinoids or mixture of cannabinoids (mix) on the activity and expression of several cytochrome P450 (CYP) enzymes. Primary cultures of human hepatocytes were pretreated with either vehicle or cannabinoids, followed by incubation with a cocktail of CYP substrates. The activity of various CYP enzymes was determined by quantifying the formation of the metabolites of specific CYP substrates using liquid chromatography-tandem mass spectrometry. The messenger RNA (mRNA) expression of various CYP enzymes was determined by quantitative real-time polymerase chain reaction (qrt-PCR). A significant (> 2-fold) increase in CYP1A2 activity was observed after chronic exposure to CBN and mix at 3 µM. Similarly, THC and mix treatments at 3 µM led to a significant (> 2-fold) increase in CYP3A4 activity and expression. No major inducive effects were observed on CYP2D6 and CYP2C9. Acute exposure to CBD, CBN, or mix inhibited CYP1A2 activity in a concentration-dependent manner; mix showed mild CYP3A4 inhibition at 3 µM with no major effects on CYP2D6 and CYP2C9 activity. These data suggest that cannabinoids selectively alter the activity and expression of CYP enzymes, which may lead to change in exposure of coadministered substrates owing to possible metabolic drug-drug interactions (DDI).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42663925/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42663925",
+        "doi": "10.1007/s13318-026-01031-z",
+        "journal": "European journal of drug metabolism and pharmacokinetics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T19:12:45.314Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d1b23afe2d53cc00d0d6",
+      "reserved_at": "2026-10-09T19:12:49.813Z",
+      "source_branch": "research/intake/3/20261009-1511-herb-transcript-cannabinoid-cyp"
     }
   ],
   "batches": [
@@ -39242,22 +39394,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 495,
+    "total_reservations": 497,
     "by_lane": {
       "1": 14,
       "2": 89,
-      "3": 77,
+      "3": 79,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 495
+      "SOURCE_VERIFIED": 497
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 495,
+        "count": 497,
         "pr_number": null,
         "blocker": null
       }
