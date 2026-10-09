@@ -13,6 +13,8 @@ const registryPath='ops/research-coordinator/live-registry.json';
 const intakeRoot='ops/research-intake/';
 
 function required(v,n){if(!v)throw Error('missing '+n);return v}
+// This API wrapper must distinguish an empty/truncated GitHub response from valid registry JSON;
+// callers must not substitute a fresh registry after a transient provider error.
 async function api(url,{method='GET',body,accept='application/vnd.github+json'}={}){
  const r=await fetch(API+url,{method,headers:{Accept:accept,Authorization:'Bearer '+required(token,'GITHUB_TOKEN'),'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ths-research-reservation-controller'},body:body===undefined?undefined:JSON.stringify(body)});
  if(!r.ok){const e=new Error(method+' '+url+' failed '+r.status+': '+(await r.text()).slice(0,1000));e.status=r.status;throw e}
