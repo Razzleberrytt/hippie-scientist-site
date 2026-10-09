@@ -27652,6 +27652,313 @@
       "reservation_id": "b85f9cc3be9c159820b3",
       "reserved_at": "2026-10-09T08:52:13.760Z",
       "source_branch": "research/intake/2/20261009-0450-cognition-metabolic-5-r18"
+    },
+    {
+      "pmid": "41228432",
+      "title": "Synergistic Effects of Microencapsulated Polyphenols and Concurrent Training on Metabolic Health and Fitness in Overweight/Obese Adults with Prediabetes.",
+      "doi": "10.3390/nu17213358",
+      "source_title": "Synergistic Effects of Microencapsulated Polyphenols and Concurrent Training on Metabolic Health and Fitness in Overweight/Obese Adults with Prediabetes.",
+      "abstract": "Background/Objectives : Prediabetes markedly increases the risk of progression to type 2 diabetes. While exercise and dietary polyphenols independently enhance metabolic health, their combined and synergistic effects remain unclear. This randomized, single-blind, placebo-controlled trial investigated the synergistic effects of concurrent training and a microencapsulated persimmon-karonda polyphenol formulation on glycemic control and inflammatory outcomes in adults with prediabetes and who are overweight/obese. Methods : Forty-three participants completed the intervention and were assigned to placebo, concurrent training (CBT), supplementation (EATME), or the combined intervention (CBT + EATME) for 8 weeks. Primary outcomes included fasting blood glucose (FBG), glycated hemoglobin (HbA1c), homeostatic model assessment for insulin resistance (HOMA-IR), high-sensitivity C-reactive protein (hs-CRP), interleukin-6 (IL-6), tumor necrosis factor-alpha (TNF-α), adiponectin, physical fitness, and quality of life (QoL). Results : All intervention groups (CBT, EATME, and CBT + EATME) showed improvements in glycemic indices, with the greatest reductions in FBG ( p < 0.01), HbA1c ( p < 0.05), and HOMA-IR ( p < 0.01) observed in the CBT + EATME group compared with placebo. All interventions significantly reduced hs-CRP ( p < 0.01) and IL-6 ( p < 0.01), accompanied by marked increases in adiponectin ( p < 0.01), compared with placebo. In the CBT + EATME group, reductions in hs-CRP were positively correlated with improvements in HOMA-IR ( r = 0.627, p < 0.05). Both CBT and CBT + EATME improved muscular strength and maximal oxygen consumption ( V̇ O 2 max), with the combined intervention producing greater gains in upper- and lower-body strength ( p < 0.05), V̇ O 2 max ( p < 0.05), and the psychological well-being domain of QoL ( p < 0.05) compared with placebo. Conclusions : These findings highlight that combining concurrent training with microencapsulated polyphenol supplementation produced the most consistent improvements across metabolic, inflammatory, and fitness outcomes, supporting this combined approach as an integrated and synergistic strategy to reduce diabetes risk and promote overall health in at-risk adults. The trial was registered at the Thai Clinical Trials Registry (TCTR20250512003).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41228432/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41228432",
+        "doi": "10.3390/nu17213358",
+        "journal": "Nutrients",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T08:52:49.901Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7626be13386e6fe1d3fd",
+      "reserved_at": "2026-10-09T08:52:59.906Z",
+      "source_branch": "research/intake/2/20261009-0450-cognition-metabolic-5-r18"
+    },
+    {
+      "pmid": "42735609",
+      "title": "Individualized medical nutrition therapy with weekly follow-up improves glycemic control, inflammation, and reduces circulating zonulin in adults with type 2 diabetes mellitus: a randomized controlled trial.",
+      "doi": "10.1016/j.nut.2026.113404",
+      "source_title": "Individualized medical nutrition therapy with weekly follow-up improves glycemic control, inflammation, and reduces circulating zonulin in adults with type 2 diabetes mellitus: a randomized controlled trial.",
+      "abstract": "Medical nutrition therapy (MNT) is a key component of type 2 diabetes mellitus (T2DM) management, but evidence regarding its effects on inflammation and intestinal permeability-related markers remains limited. In this randomized controlled trial we evaluated the effects of individualized MNT with weekly follow-up on glycemic control, inflammatory markers, and zonulin in adults with T2DM. Forty-six adults with T2DM receiving oral antidiabetic treatment were randomly assigned to an individualized MNT group or a control group for 12 wk. The intervention group received individualized dietary counseling with weekly follow-up, whereas the control group received standard dietary advice at baseline only. Outcomes included anthropometric measures, glycemic parameters, lipid profile, inflammatory markers, zonulin, dietary intake, and physical activity. Compared with the control group, the individualized MNT group showed greater reductions in fasting plasma glucose (Δ: -56.52 ± 33.9 mg/dL) and HbA1c (Δ: -1.54 ± 0.5%) over 12 wk (P < 0.001). Significant decreases were also observed in tumor necrosis factor-α (TNF-α), interleukin-6, and zonulin, together with improvements in body weight, BMI, self-care behaviors, and quality of life. Higher HbA1c was positively associated with TNF-α (β = 0.27, P = 0.009), and TNF-α was positively associated with zonulin (β = 0.53, P = 0.002). Individualized MNT with weekly follow-up was associated with improved glycemic control, lower inflammatory marker levels, and reduced circulating zonulin levels in adults with T2DM. These findings support the potential value of structured, individualized dietary management with regular follow-ups in T2DM care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42735609/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42735609",
+        "doi": "10.1016/j.nut.2026.113404",
+        "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T08:52:49.902Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dd5f119f19f0521c3921",
+      "reserved_at": "2026-10-09T08:52:59.906Z",
+      "source_branch": "research/intake/2/20261009-0450-cognition-metabolic-5-r18"
+    },
+    {
+      "pmid": "41586243",
+      "title": "The effects of hesperidin supplementation on insulin resistance and sensitivity in adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.3389/fnut.2025.1724786",
+      "source_title": "The effects of hesperidin supplementation on insulin resistance and sensitivity in adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "This systematic review and meta-analysis of randomized controlled trials (RCTs) aimed to evaluate the effects of hesperidin supplementation on insulin resistance and sensitivity in adults. Two authors independently searched electronic databases, including PubMed, Scopus, Embase, Web of Science, and the Cochrane Library, from their inception to July 2025 for relevant RCTs. The quality of the included studies was assessed using the Cochrane Collaboration's tool for assessing the risk of bias. Heterogeneity among the included studies was evaluated using Cochrane's Q test and the I 2 statistic. A meta-analysis of eligible studies was conducted using either fixed- or random-effects models, with the weighted mean difference (WMD) serving as the overall effect size. Pre-specified subgroup and sensitivity analyses were performed to explore potential sources of heterogeneity. This meta-analysis included 16 studies, comprising 845 participants and assessing five outcome measures. We found that hesperidin supplementation significantly reduced the homeostatic model assessment of insulin resistance (HOMA-IR) (WMD: -0.43, 95%CI: -0.82, -0.03; p = 0.034) and increased the quantitative insulin sensitivity check index (WMD: 0.05, 95%CI: 0.01, 0.08; p = 0.005). However, no significant effects were observed on insulin, fasting blood glucose, or glycated hemoglobin A1c. Subgroup analyses indicated that supplementation with high-dose, long-duration purified hesperidin, particularly in individuals with metabolic disorders and obesity, had a positive effect on insulin levels. However, subsequent trial sequential analysis revealed that hesperidin confers no statistically significant improvement in HOMA-IR. In conclusion, the current body of evidence does not support hesperidin as an effective intervention for ameliorating insulin resistance or enhancing glycemic control. Future investigations are warranted to explore its potential efficacy in specific populations or subgroups. PROSPERO, identifier (CRD420251102342).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41586243/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41586243",
+        "doi": "10.3389/fnut.2025.1724786",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T08:52:49.903Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1d478ff6d1d6f7ef9163",
+      "reserved_at": "2026-10-09T08:52:59.906Z",
+      "source_branch": "research/intake/2/20261009-0450-cognition-metabolic-5-r18"
+    },
+    {
+      "pmid": "41974937",
+      "title": "Effect of microencapsulated sodium butyrate on abdominal symptoms and carbohydrate metabolism in patients with type 2 diabetes: a randomized placebo-controlled trial.",
+      "doi": "10.1038/s41598-026-47309-9",
+      "source_title": "Effect of microencapsulated sodium butyrate on abdominal symptoms and carbohydrate metabolism in patients with type 2 diabetes: a randomized placebo-controlled trial.",
+      "abstract": "Butyric acid, a short-chain fatty acid (SCFA) produced in the colon through bacterial fermentation of unabsorbed carbohydrates, plays a crucial role in maintaining gut health. Direct supplementation with butyric acid is not feasible because of its unpleasant taste and odor; hence, sodium butyrate is used as an alternative. Sodium butyrate has shown therapeutic potential, particularly for the treatment of irritable bowel syndrome (IBS), which is often associated with gut microbiota imbalance and a reduction in SCFA-producing bacteria. Supplementation with sodium butyrate alleviates gastrointestinal symptoms and improves metabolic regulation, especially in patients with type 2 diabetes, whose microbiota frequently lack sufficient butyrate-producing species. This study aimed to evaluate the effectiveness of oral supplementation with 1.5 g of sodium butyrate in reducing gastrointestinal symptoms in patients with type 2 diabetes and its impact on carbohydrate metabolism. This was a prospective, randomized, double-blind, placebo-controlled study. Fifty-two patients with type 2 diabetes who met the Rome IV criteria for IBS were randomized into two groups: one group received microencapsulated sodium butyrate (1.5 g/day) and the other received a placebo, for 12 weeks. During visits at weeks 0 and 12, anthropometric measurements, laboratory tests (including glycated hemoglobin [HbA1c] and Homeostatic Model Assessment of Insulin Resistance [HOMA-IR] calculation), and a lactulose hydrogen breath test for small intestinal bacterial overgrowth (SIBO) were performed. The patients also completed a questionnaire to assess the severity of their gastrointestinal symptoms. After 12 weeks, the sodium butyrate group showed a significant reduction in gastrointestinal symptoms including abdominal pain (p = 0.001), diarrhea (p = 0.004), and bloating (p < 0.001). This group also demonstrated a decrease in the frequency of lactulose hydrogen breath test results, as well as reductions in body weight, HbA1c levels, and HOMA-IR index. No significant differences were observed in the placebo group. Our study demonstrated that sodium butyrate effectively alleviated gastrointestinal symptoms and improved carbohydrate metabolism. Notably, this trial demonstrated a direct reduction in lactulose hydrogen breath test results incidence with sodium butyrate supplementation. Further studies with larger cohorts are required to confirm these findings. This trial was retrospectively registered in the UK’s Clinical Study Registry under reference number ISRCTN10844715. Registration Date: 31/01/2025.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41974937/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41974937",
+        "doi": "10.1038/s41598-026-47309-9",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T08:52:49.903Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "27e130f124e0ecbc215e",
+      "reserved_at": "2026-10-09T08:52:59.906Z",
+      "source_branch": "research/intake/2/20261009-0450-cognition-metabolic-5-r18"
     }
   ],
   "batches": [
@@ -27665,22 +27972,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 345,
+    "total_reservations": 349,
     "by_lane": {
       "1": 5,
-      "2": 47,
+      "2": 51,
       "3": 60,
       "4": 33,
       "5": 200
     },
     "by_state": {
-      "SOURCE_VERIFIED": 345
+      "SOURCE_VERIFIED": 349
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 345,
+        "count": 349,
         "pr_number": null,
         "blocker": null
       }
