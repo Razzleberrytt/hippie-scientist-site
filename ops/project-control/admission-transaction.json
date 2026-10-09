@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6447,
+  "ticket": 6466,
   "lane": "D",
-  "title": "Reuse CI producer for governed zero-job recovery fan-out",
+  "title": "Typed source-to-editorial review-only handoff and identity guards",
   "priority": "P0",
-  "base_revision": "208b13b35800fac3d4472ff0c8a4e7b0dd150b49",
+  "base_revision": "7dd7603bfd878506f9c212abd103b8981dabbeec",
   "last_verified": "2026-10-09",
   "score_inputs": {
-    "businessImpact": 5,
+    "businessImpact": 4,
     "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
     "confidence": 0.75,
     "effort": 3
   },
-  "score": 75,
-  "note": "Bounded single D-lane admission for existing #6447, after #6451 retirement and exact-base production proof. Reuse existing CI producer, never reduce exact-head source/artifact/release gates."
+  "score": 60,
+  "note": "Exact-base single D-lane admission after #6447 retirement. Extend existing case/fabric/provenance systems with typed research-only editorial REVIEW request and adversarial identity refusal. No clinical approval, publisher authority or extra WIP."
 }
