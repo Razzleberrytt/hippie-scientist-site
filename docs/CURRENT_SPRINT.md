@@ -82,7 +82,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6447 | Reuse CI producer for governed zero-job recovery fan-out | Active — admitted | P0 | 75.0 | 2026-10-09 |
+| D | #6447 / PR #6460 | Reuse CI producer for governed zero-job recovery fan-out | In review — admitted | P0 | 75.0 | 2026-10-09 |
 
 
 
