@@ -27,3 +27,4 @@ describe('About page', () => {
     expect(screen.getByText(/^Oak Ridge$/)).toBeInTheDocument()
   })
 })
+

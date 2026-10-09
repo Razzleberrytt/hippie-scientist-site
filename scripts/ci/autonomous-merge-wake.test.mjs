@@ -123,3 +123,4 @@ describe('controller wake classification', () => {
     } finally { await new Promise(resolve => server.close(resolve)) }
   })
 })
+

@@ -18,29 +18,38 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('github.event.pull_request.head.ref')
   })
 
-  it('keeps privileged consumer wake orchestration on the trusted default branch', () => {
+  it('uses explicit targeted consumer wakes with trusted controller revalidation', () => {
     const wake = read('.github/workflows/autonomous-merge-controller.yml')
     expect(wake).toContain('workflow_run:')
     expect(wake).toContain('types: [completed]')
     expect(wake).toContain("contains(fromJSON('[\"success\",\"action_required\"]'), github.event.workflow_run.conclusion)")
     // action_required is only a wake signal; controller readiness still validates the exact head.
     expect(wake).toContain('node scripts/ci/autonomous-merge-controller.mjs')
-    expect(wake).toContain('github.event.workflow_run.head_repository.full_name == github.repository')
     expect(wake).toContain('actions: write')
     expect(wake).toContain('node scripts/ci/autonomous-merge-wake.mjs')
     expect(wake).toContain('ref: ${{ github.event.repository.default_branch }}')
+    expect(wake).toContain("github.event_name == 'workflow_dispatch' && inputs.pr_number != '' && inputs.expected_head_sha != '' && 'false' || 'true'")
     expect(fs.existsSync('.github/workflows/governed-consumer-wake.yml')).toBe(false)
 
     for (const workflowPath of [
       '.github/workflows/build-check.yml',
       '.github/workflows/lighthouse.yml',
       '.github/workflows/production-content-lint.yml',
+      '.github/workflows/production-content-invariants.yml',
+      '.github/workflows/crawl-governance.yml',
+      '.github/workflows/schema-media-governance.yml',
+      '.github/workflows/technical-seo-monitor.yml',
       '.github/workflows/visual-proof.yml',
     ]) {
       const consumer = read(workflowPath)
-      expect(consumer).toContain('actions: read')
-      expect(consumer).not.toContain('actions: write')
-      expect(consumer).not.toContain('Wake autonomous merge controller')
+      expect(consumer).toContain('wake-controller:')
+      expect(consumer).toContain('name: Wake autonomous merge controller')
+      expect(consumer).toContain("if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_run_id != '' && inputs.producer_pr_number != '' && inputs.producer_sha != ''")
+      expect(consumer).toContain('actions: write')
+      expect(consumer).toContain('PR_NUMBER: ${{ inputs.producer_pr_number }}')
+      expect(consumer).toContain('EXPECTED_HEAD_SHA: ${{ inputs.producer_sha }}')
+      expect(consumer).toContain('DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}')
+      expect(consumer).toContain('actions/workflows/autonomous-merge-controller.yml/dispatches')
     }
   })
 
