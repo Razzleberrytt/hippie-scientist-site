@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42088310",
+    "42302880",
+    "41770546",
+    "42804222",
+    "41725786"
+  ],
+  "relevance_reason": "Human cognition and metabolic-health controlled trials, including null primary outcomes, industry-funded nutritional interventions, and treatment safety limitations; exact PubMed source hydration and independent scientific review remain separate."
+}
