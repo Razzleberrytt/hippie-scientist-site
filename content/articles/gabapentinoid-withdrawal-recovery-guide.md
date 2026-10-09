@@ -42,7 +42,7 @@ references:
   - title: "Gabapentin tablets: U.S. prescribing information"
     authors: "DailyMed / U.S. National Library of Medicine"
     year: "2026"
-    url: "https://dailymed.nlm.nih.gov/"
+    url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4615aaa7-73d4-4473-8f26-e7a982f8a166"
   - title: "LYRICA (pregabalin): U.S. prescribing information"
     authors: "U.S. Food and Drug Administration"
     year: "2025"
@@ -199,7 +199,7 @@ Neither is supported by the evidence.
 ## The short answer
 
 - **Gabapentin and pregabalin can produce physical dependence and withdrawal.** Symptoms reported after rapid reduction or discontinuation include insomnia, anxiety, agitation, sweating, headache, nausea, diarrhea, autonomic symptoms, and other neuropsychiatric complaints [1,2,9].
-- **Severe events are uncommon but documented.** Published cases include delirium after pregabalin or gabapentin discontinuation and status epilepticus after abrupt gabapentin cessation in a high-exposure case [10–14].
+- **Severe events are documented, but their frequency is unknown.** Published cases include delirium after pregabalin or gabapentin discontinuation and status epilepticus after abrupt gabapentin cessation in a high-exposure case [10–14].
 - **The evidence does not support one universal withdrawal clock.** Gabapentinoid half-lives are measured in hours, but renal function, repeated exposure, formulation, dose pattern, co-medications, and the underlying condition all change the clinical picture [4–8].
 - **Gabapentin and pregabalin are not interchangeable.** Pregabalin has faster, more linear absorption and high bioavailability; gabapentin absorption is saturable and becomes proportionally less efficient as dose rises [4].
 - **Kidney function matters.** Both drugs are largely eliminated unchanged in urine, so impaired renal function can substantially prolong exposure [5–8].
@@ -300,7 +300,7 @@ Reported symptoms include:
 - palpitations or autonomic activation;
 - depressed mood;
 - confusion or delirium in severe case reports;
-- seizures in rare severe reports.
+- seizures documented in severe case reports; population frequency is unknown.
 
 Not every symptom that appears after dose reduction is necessarily withdrawal.
 
@@ -759,7 +759,7 @@ Gabapentin and pregabalin withdrawal are real, but the science is less tidy than
 The strongest evidence supports five conclusions:
 
 1. **Abrupt discontinuation can produce withdrawal and should be avoided when possible** [1,2].
-2. **Severe outcomes such as delirium or seizures are possible but appear uncommon and are documented mainly through case literature** [10–14].
+2. **Severe outcomes such as delirium or seizures are documented in case literature, but their frequency cannot be determined from those reports** [10–14].
 3. **Gabapentin and pregabalin are not interchangeable**, especially in absorption and misuse profile [4,16–21].
 4. **Kidney function materially changes exposure** because both drugs are cleared predominantly through the kidneys [5–8].
 5. **Opioids and other CNS depressants materially increase safety risk**, particularly respiratory depression [3,22,23].
