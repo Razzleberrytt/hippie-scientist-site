@@ -38156,6 +38156,82 @@
       "reservation_id": "576a8d3d34877858f24b",
       "reserved_at": "2026-10-09T16:13:11.223Z",
       "source_branch": "research/intake/4/20261009-1211-medetomidine-xylazine"
+    },
+    {
+      "pmid": "38646244",
+      "title": "Randomized, Double-Blind, Placebo-Controlled, Clinical Study of Passiflora incarnata in Participants With Stress and Sleep Problems.",
+      "doi": "10.7759/cureus.56530",
+      "source_title": "Randomized, Double-Blind, Placebo-Controlled, Clinical Study of Passiflora incarnata in Participants With Stress and Sleep Problems.",
+      "abstract": "Background and objectives SIVI is a standardized extract prepared using the aerial parts of Passiflora incarnata developed to enhance the quality of sleep. ​​​​​​The objective of the present study was to the evaluate efficacy and safety of SIVI ( Passiflora incarnata extract) in the management of stress and sleep problems in Indian participants in a randomized, double-blind, placebo-controlled, clinical study. Materials and methods A total of 65 participants with stress and insomnia were randomized to two groups with 32 in the SIVI ( Passiflora incarnata extract) group and 33 in the placebo group. Subjects were asked to take the test substance along with water at bedtime for 30 days. The Perceived Stress Scale, quality of life using the General Health Questionnaire (GHQ-12) scale, and Insomnia Severity Index were assessed on day 1, day 15, and day 30. Results Passiflora incarnata extract showed a statistically significant reduction in the mean score of stress on the Perceived Stress Scale and significantly increased the mean score of total sleep time compared to placebo. The general psychological health was found to be significantly improved in the SIVI ( Passiflora incarnata extract) group compared to the placebo group on day 15 and day 30. SIVI ( Passiflora incarnata extract) did not show any adverse effects. Conclusions The results of the current study indicate that Passiflora incarnata extract is beneficial in the management of stress and helps to improve sleep quality in subjects with stress and insomnia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38646244/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "38646244",
+        "doi": "10.7759/cureus.56530",
+        "journal": "Cureus",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T16:39:26.292Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ed15c3025f671c2bf781",
+      "reserved_at": "2026-10-09T16:39:30.295Z",
+      "source_branch": "research/intake/1/20261009-1237-six-sleep-stress-mood"
     }
   ],
   "batches": [
@@ -38169,22 +38245,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 481,
+    "total_reservations": 482,
     "by_lane": {
-      "1": 12,
+      "1": 13,
       "2": 85,
       "3": 69,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 481
+      "SOURCE_VERIFIED": 482
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 481,
+        "count": 482,
         "pr_number": null,
         "blocker": null
       }
