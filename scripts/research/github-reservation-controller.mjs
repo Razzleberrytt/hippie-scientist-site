@@ -100,10 +100,23 @@ async function ensureRegistryBranch(){
  const main=await api('/repos/'+repo+'/git/ref/heads/main');
  return api('/repos/'+repo+'/git/refs',{method:'POST',body:{ref:'refs/heads/'+registryBranch,sha:main.object.sha}});
 }
+export async function resolveRegistryContents(loadContents,loadBlob){
+ let f;
+ try{f=await loadContents()}
+ catch(e){
+  // Only a 404 on the *contents lookup* can represent a genuinely missing registry.
+  // A 404 retrieving its already-addressed Git blob must never reset reservations.
+  if(Number(e.status)!==404)throw e;
+  return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}};
+ }
+ return {sha:f.sha,value:await decodeRegistryBlob(f,loadBlob)};
+}
 async function getRegistry(){
  await ensureRegistryBranch();
- try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch),{accept:'application/vnd.github.object+json'});return {sha:f.sha,value:await decodeRegistryBlob(f,sha=>api('/repos/'+repo+'/git/blobs/'+encodeURIComponent(sha)))}}
- catch(e){if(Number(e.status)!==404)throw e;return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}}}
+ return resolveRegistryContents(
+  ()=>api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch),{accept:'application/vnd.github.object+json'}),
+  sha=>api('/repos/'+repo+'/git/blobs/'+encodeURIComponent(sha))
+ );
 }
 async function putRegistry(current,value,message){
  value.observatory=summarizeRegistry(value);
