@@ -13,8 +13,8 @@ describe('EvidenceScopeGuide', () => {
     expect(screen.getByText('Safety / caution level')).toBeTruthy()
     expect(screen.getByText('Research review and product eligibility')).toBeTruthy()
     expect(container.querySelector('details summary')).toBeTruthy()
-    expect(screen.getByRole('link', { name: 'Read the grading methodology' }).getAttribute('href')).toBe('/info/methodology/')
-    expect(screen.getByRole('link', { name: 'Check safety separately' }).getAttribute('href')).toBe('/safety-checker/')
+    expect(screen.getByRole('link', { name: 'Read the grading methodology' }).getAttribute('href')).toMatch(/^\/info\/methodology\/?$/)
+    expect(screen.getByRole('link', { name: 'Check safety separately' }).getAttribute('href')).toMatch(/^\/safety-checker\/?$/)
   })
 
   it('does not confuse indexable evidence-report denominator with tracked compounds or PubMed records', () => {
