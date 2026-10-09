@@ -5,7 +5,7 @@
 **Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (reconciled 2026-10-09, ticket #6491):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6491 (first-visit homepage ingredient, comparison, safety actions), scored **90.7** after confirmed #6368 CLOSED / PR #6484 MERGED. Revenue/Conversion and Authority/Content remain free; further changes require fresh admission and one owner per workstream. Production analytics transport remains blocked by #6143. The recovered original THS-MASTER-P0 v1.0 directive is distinct from the reconstructed 150-item audit (25/150 verified) and the legacy unmapped historical 10/150.
+**Current admission (reconciled 2026-10-09, ticket #6491):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6491 (first-visit homepage ingredient, comparison, safety actions), scored **80.0** after confirmed #6368 CLOSED / PR #6484 MERGED. Revenue/Conversion and Authority/Content remain free; further changes require fresh admission and one owner per workstream. Production analytics transport remains blocked by #6143. The recovered original THS-MASTER-P0 v1.0 directive is distinct from the reconstructed 150-item audit (25/150 verified) and the legacy unmapped historical 10/150.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -69,7 +69,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ### 2026-10-09 — Completed Terms owner retired; homepage D admission
 
-Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a15ef9831d520d38a`; deployment job 37922725823 verified the origin receipt and public Terms route. The prior D row still marked that ticket active; it is now retired from WIP. Under direct owner THS-MASTER-P0 §20–21, #6491 is the **single** D-lane P0 admission for a bounded three-path homepage change. Existing-score components BI=4, UV=5, TP=4, SL=4, Confidence=.85, Effort=3 give **90.7**, an estimated prioritization score only. No other D first-owner homepage PR was found in open-PR list at admission. Exact main/base and controller checks must still pass. All business impact remains **Unknown** until actual analytics #6143 is connected; no scientific claim is promoted. No code merged/deployed by this admission record alone.
+Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a15ef9831d520d38a`; deployment job 37922725823 verified the origin receipt and public Terms route. The prior D row still marked that ticket active; it is now retired from WIP. Under direct owner THS-MASTER-P0 §20–21, #6491 is the **single** D-lane P0 existing-owner reconciliation for a bounded three-path homepage change. Existing-score components BI=4, UV=5, TP=4, SL=4, Confidence=.75, Effort=3 give **80.0**, an estimated prioritization score only. PR #6492 was created and cross-linked from #6491 at 12:31:01Z, before corrected base commit ce048b9fbdfd630e46f5781562ab42b10ca61a95 at 12:36:20Z. The repository's pre-base existing-owner mode is authoritative for this documentation. Exact main/base and controller checks must still pass. All business impact remains **Unknown** until actual analytics #6143 is connected; no scientific claim is promoted. No code merged/deployed by this admission record alone.
 
 ## Active / in review — implementation WIP 1/3
 
@@ -86,7 +86,7 @@ Live GitHub #6368 is CLOSED and PR #6484 was merged as `f77a9319be01872bbb9df90a
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6491 / PR #6492 | First-visit homepage Find ingredient / Compare options / Check safety paths | Active — admitted; first-owner PR in scope | P0 | 90.7 | 2026-10-09 |
+| D | #6491 / PR #6492 | First-visit homepage Find ingredient / Compare options / Check safety paths | Active — admitted; first-owner PR in scope | P0 | 80.0 | 2026-10-09 |
 
 
 
