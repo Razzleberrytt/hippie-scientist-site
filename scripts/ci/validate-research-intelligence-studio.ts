@@ -636,7 +636,9 @@ for(const edit of [
 const unmatched=buildIntegratedResearchCase(doiStudio,doiGraph,'10000002',[publisherObject])!
 assert(unmatched)
 assert.equal(unmatched.reviewRequest.distributionTargets.length,0)
-assert.equal(unmatched.reviewRequest.status,'held-no-exact-target')
+assert.equal(unmatched.reviewRequest.status,
+ unmatched.reviewRequest.editorialCandidates.length?'human-review-required':'held-no-exact-target',
+ 'An independently sourced editorial draft may still need review when distribution DOI has no match')
 assert.equal(unmatched.reviewRequest.publicationAllowed,false)
 assert.throws(()=>validateResearchReviewRequest(request,doiStudio,doiGraph,'10000002',[publisherObject]),
  /contract mismatch/,'A valid packet must never be replayable for another PMID')
@@ -649,6 +651,10 @@ const realFabric=planResearchSemanticFabric(real,realGraph,liveCase!,manifestObj
 assert(realFabric.distributionReviewTargets.every(t=>
  real.dna.some(d=>d.pmid===realFabric.sourcePmid&&d.doi.trim().toLowerCase()===t.matchingDoi)))
 assert.equal(realFabric.publicationAllowed,false)
+assert(ui.includes('const reviewRequest=integratedCase?.reviewRequest??null')&&
+ ui.includes('Research-to-editorial review packet v1')&&
+ ui.includes('clinical approval, page mutation and publication are all blocked'),
+ 'The review-only envelope must be visible to readers without creating a publishing action')
 assert(ui.includes('integratedCase?.fabric')&&ui.includes('Distribution review targets'),
  'Existing distribution objects must be joined in the visitor-facing source case')
 
