@@ -14,6 +14,65 @@ import {planResearchSemanticFabric,type ResearchFabricPlan,type DistributionIden
 import type {ResearchStudio,ReviewedStudyInput} from './research-intelligence-studio'
 import type {SemanticNetwork} from './research-semantic-network'
 
+/** An immutable, local, source-identity REVIEW REQUEST, not an approval. */
+export type ResearchReviewRequestV1={
+  schemaVersion:1
+  kind:'ResearchReviewRequested.v1'
+  sourcePmid:string
+  sourceSignature:string
+  sourceDoi:string|null
+  reviewedCitationIds:string[]
+  researchInstrumentIds:string[]
+  scientificCapabilityIds:string[]
+  editorialCandidates:Array<{briefId:string;sourcePmid:string;status:'draft-requires-qualified-editorial-review'}>
+  distributionTargets:Array<{
+    objectId:string;targetPage:string;matchingDoi:string;existingClaimId:string;existingPrimarySourceId:string
+    status:'publication-matched-editorial-review-required'
+  }>
+  unresolvedChannels:Array<{channel:'editorial'|'social';reason:string}>
+  status:'human-review-required'|'held-no-exact-target'
+  authority:'source-identity-only-not-claim-support'
+  independentClaimApproved:false
+  mutationAllowed:false
+  publicationAllowed:false
+}
+
+function compileReviewRequest(input: {
+  pmid:string
+  signature:string
+  caseFile:ResearchCaseFile
+  scientific:ScientificIntelligenceCase
+  fabric:ResearchFabricPlan
+}):ResearchReviewRequestV1{
+  const {pmid,signature,caseFile,scientific,fabric}=input
+  if(!signature||caseFile.pmid!==pmid||caseFile.sourceSignature!==signature||
+    scientific.pmid!==pmid||scientific.sourceSignature!==signature||
+    fabric.sourcePmid!==pmid||fabric.sourceSignature!==signature||
+    fabric.publicationAllowed!==false||fabric.mutationAllowed!==false||
+    scientific.clinicalPromotions!==0||scientific.autopublished!==0){
+    throw Error('Review request source identity or non-promotion policy mismatch')
+  }
+  return {
+    schemaVersion:1,kind:'ResearchReviewRequested.v1',
+    sourcePmid:pmid,sourceSignature:signature,sourceDoi:fabric.sourceDoi,
+    reviewedCitationIds:[...caseFile.reviewedCitationIds],
+    researchInstrumentIds:caseFile.instruments.map(i=>i.instrument),
+    scientificCapabilityIds:scientific.capabilities.map(c=>c.id),
+    editorialCandidates:fabric.editorialQueue.map(x=>({
+      briefId:x.briefId,sourcePmid:x.sourcePmid,status:x.status,
+    })),
+    distributionTargets:fabric.distributionReviewTargets.map(x=>({
+      objectId:x.objectId,targetPage:x.targetPage,matchingDoi:x.matchingDoi,
+      existingClaimId:x.sourceClaimId,existingPrimarySourceId:x.citationId,status:x.status,
+    })),
+    unresolvedChannels:fabric.unresolvedChannels.map(x=>({channel:x.channel,reason:x.reason})),
+    status:fabric.editorialQueue.length||fabric.distributionReviewTargets.length
+      ?'human-review-required':'held-no-exact-target',
+    authority:'source-identity-only-not-claim-support',
+    independentClaimApproved:false,mutationAllowed:false,publicationAllowed:false,
+  }
+}
+
 export type IntegratedResearchCase={
   schemaVersion:1
   pmid:string
@@ -23,6 +82,7 @@ export type IntegratedResearchCase={
   relay:InstrumentRelay
   scientific:ScientificIntelligenceCase
   fabric:ResearchFabricPlan
+  reviewRequest:ResearchReviewRequestV1
   status:'source-bound-human-review-only'
   clinicalPromotions:0
   publicationAllowed:false
@@ -78,7 +138,28 @@ export function buildIntegratedResearchCase(
   return {
     schemaVersion:1,pmid,sourceSignature:verifiedSignature,
     caseFile,scope,relay,scientific,fabric,
+    reviewRequest:compileReviewRequest({
+      pmid,signature:verifiedSignature,caseFile,scientific,fabric,
+    }),
     status:'source-bound-human-review-only',
     clinicalPromotions:0,publicationAllowed:false,mutationAllowed:false,
   }
+}
+
+/**
+ * A consumer must re-evaluate against the EXACT canonical source+review dataset.
+ * The caller-supplied payload alone cannot approve a claim, reuse a stale
+ * signature, or silently add a publication permission.
+ */
+export function validateResearchReviewRequest(
+  candidate:unknown,studio:ResearchStudio,graph:SemanticNetwork,pmid:string,
+  objects:readonly DistributionIdentity[],reviewedStudies:readonly ReviewedStudyInput[]=[],
+):ResearchReviewRequestV1{
+  const integrated=buildIntegratedResearchCase(studio,graph,pmid,objects,reviewedStudies)
+  if(!integrated)throw Error('Review request cannot resolve an exact PMID case')
+  const canonical=integrated.reviewRequest
+  if(JSON.stringify(candidate)!==JSON.stringify(canonical)){
+    throw Error('Review request version, source, claims, target identity or review-only contract mismatch')
+  }
+  return canonical
 }
