@@ -37,6 +37,8 @@ test('data segment cache is invalidated by executable inputs and requires full c
   const freshStart = build.indexOf('function isDataSegmentFresh(')
   const freshEnd = build.indexOf('let dataInputHash', freshStart)
   const fresh = build.slice(freshStart, freshEnd)
+  assert.ok(fresh.includes('if (!fs.existsSync(DATA_HASH_MARKER)) return false'), 'missing-marker cache must fail closed')
+  assert.ok(fresh.includes("fs.readFileSync(DATA_HASH_MARKER, 'utf8').trim() !== dataInputHash"), 'hash mismatch must force rebuild')
   for (const required of [
     'herbs.json',
     'compounds.json',
