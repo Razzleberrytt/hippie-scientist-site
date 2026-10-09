@@ -38309,6 +38309,234 @@
       "reservation_id": "7e26c5c52e5dbc566abe",
       "reserved_at": "2026-10-09T16:57:50.627Z",
       "source_branch": "research/intake/2/20261009-1255-cognition-metabolic-4-r26"
+    },
+    {
+      "pmid": "41806462",
+      "title": "Seneciphylline induces hepatotoxicity through mitochondrial apoptosis: mechanistic elucidation and in vitro-to-in vivo prediction via physiologically based pharmacokinetic modeling-facilitated reverse dosimetry.",
+      "doi": "10.1016/j.cbi.2026.112016",
+      "source_title": "Seneciphylline induces hepatotoxicity through mitochondrial apoptosis: mechanistic elucidation and in vitro-to-in vivo prediction via physiologically based pharmacokinetic modeling-facilitated reverse dosimetry.",
+      "abstract": "Seneciphylline (Spe), a highly hepatotoxic pyrrolizidine alkaloids (PAs) present in medicinal plants, posing risks to human health, yet its risk assessment has been limited by insufficient in vivo toxicity data. This study integrated multiomics analysis in mouse primary hepatocytes and in vivo validation to elucidate the hepatotoxic mechanism of Spe, and established a novel prediction framework using physiologically based pharmacokinetic (PBPK) modeling-facilitated reverse dosimetry. Our results demonstrated that Spe led to a reduction in mitochondrial membrane potential (MMP) and ATP levels, inducing disruption of the tricarboxylic acid (TCA) cycle metabolism in mouse primary hepatocytes. Key TCA cycle metabolites, including cis-aconitate, malic acid, NAD + , and NADH, were significantly increased. Spe exposure altered the P53 signaling pathway and regulated the apoptotic pathway in both mouse primary hepatocytes and liver tissue, accompanied by increased gene and protein expression levels of PMAIP1 and SEPTIN4, as well as elevated protein expression of Cytochrome c (Cyt c) and Caspase9 (CASP9). P53 can induce the transcription of pro-apoptotic proteins BAX and PMAIP1, thereby promoting mitochondrial membrane permeability and the release of Cyt c, ultimately activating the apoptotic pathway, leading to liver injury in mice. Besides, we for the first time extrapolated in vitro mitochondrial toxicity data of Spe to in vivo predictions using PBPK modeling-facilitated reverse dosimetry. The PBPK-predicted liver toxicity threshold matched well with that from the in vivo toxicity data. Collectively, this study reveals the mechanistic basis of Spe-induced hepatotoxicity and establishes a PBPK-based reverse dosimetry approach for non-animal-dependent prediction of natural toxins.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41806462/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41806462",
+        "doi": "10.1016/j.cbi.2026.112016",
+        "journal": "Chemico-biological interactions",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T17:08:22.438Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "25f27a2a8b0895aaf2e8",
+      "reserved_at": "2026-10-09T17:08:25.068Z",
+      "source_branch": "research/intake/3/20261009-1305-seneciphylline-sesamin-tripterygium-3"
+    },
+    {
+      "pmid": "41799916",
+      "title": "Sesamin exhibits potential food-drug interactions through the inhibition of cytochrome P450s and human UDP-glucuronosyltransferases in vitro .",
+      "doi": "10.1039/d6ra00237d",
+      "source_title": "Sesamin exhibits potential food-drug interactions through the inhibition of cytochrome P450s and human UDP-glucuronosyltransferases in vitro .",
+      "abstract": "As a natural plant active ingredient, sesamin has the following nutritional values: anti-inflammatory, antioxidant, anti-hypertension, liver protection, and cholesterol reduction, and has been developed for dietary supplements to assist clinical drug therapy. However, it is not known whether it inhibits the catalytic activities of drug-metabolizing enzymes. Hence, the objective of this research was to assess the inhibitory effects of sesamin on cytochrome P450s (CYPs) and UDP-glucuronosyltransferases (UGTs) and to predict the risk of inducing food-drug interactions (FDIs). The results indicated that sesamin had no significant inhibitory effects on UGTs. However, since people may take sesame in excessive amounts, the FDIs mediated by UGTs still cannot be ignored. Sesamin could increase the potential risk of FDIs by inhibiting the activities of CYP2C9 and CYP2C19. It is worth noting that for phenytoin, a CYP2C9 substrate with a narrow therapeutic window, sesamin can significantly inhibit the formation of its hydroxylation products and cause clinically significant FDIs. Therefore, when patients are being treated with CYP2C9 and CYP2C19 substrate drugs with narrow therapeutic windows, high doses of sesame or other sesamin-rich substances should be avoided.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41799916/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41799916",
+        "doi": "10.1039/d6ra00237d",
+        "journal": "RSC advances",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T17:08:22.439Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8293adedcc565df8d533",
+      "reserved_at": "2026-10-09T17:08:25.068Z",
+      "source_branch": "research/intake/3/20261009-1305-seneciphylline-sesamin-tripterygium-3"
+    },
+    {
+      "pmid": "42123731",
+      "title": "Tripterygium Glycosides Extract-Induced Hepatic Cholestasis: A Mechanistic Study Using a Microfluidic Liver-on-a-Chip System.",
+      "doi": "10.3390/ijms27094154",
+      "source_title": "Tripterygium Glycosides Extract-Induced Hepatic Cholestasis: A Mechanistic Study Using a Microfluidic Liver-on-a-Chip System.",
+      "abstract": "Tripterygium glycosides extract (TGE), the primary active component of tripterygium glycosides tablets, is widely used for immune-related disorders but raises significant clinical concerns regarding cholestatic drug-induced liver injury. As conventional models fail to fully recapitulate the complex pathogenesis of traditional Chinese medicine toxicity, this study aimed to elucidate the mechanisms of TGE-induced cholestatic injury using a biomimetic microfluidic liver-on-a-chip platform. The chip integrated rat precision-cut liver slices (PCLSs) and human endothelial cells (EA.hy926) to simulate the hepatic sinusoidal microenvironment. Following TGE exposure (15-135 μg/mL for 12 and 24 h), vascular barrier integrity was maintained, while liver injury markers (ALT, AST, TBA, DBIL) significantly increased in a dose- and time-dependent manner, accompanied by progressive histopathological deterioration in PCLSs. Mechanistically, TGE triggered severe oxidative stress (decreased SOD/GSH/GSH-Px and increased MDA) and upregulated pro-inflammatory cytokines (IL-4 and IL-1β). Consequently, the expression of the bile acid receptor FXR and transporters (BSEP and MRP2) was significantly downregulated. In conclusion, TGE induces cholestatic liver injury via a sequential pathway: oxidative stress initiates an immune-inflammatory response, which subsequently suppresses the FXR/BSEP/MRP2 axis. Future studies should focus on developing fully humanized liver-on-a-chip systems to further validate these mechanisms and improve clinical translational significance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42123731/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42123731",
+        "doi": "10.3390/ijms27094154",
+        "journal": "International journal of molecular sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T17:08:22.439Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "13ad199863b4cbca6d8e",
+      "reserved_at": "2026-10-09T17:08:25.068Z",
+      "source_branch": "research/intake/3/20261009-1305-seneciphylline-sesamin-tripterygium-3"
     }
   ],
   "batches": [
@@ -38322,22 +38550,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 483,
+    "total_reservations": 486,
     "by_lane": {
       "1": 13,
       "2": 86,
-      "3": 69,
+      "3": 72,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 483
+      "SOURCE_VERIFIED": 486
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 483,
+        "count": 486,
         "pr_number": null,
         "blocker": null
       }
