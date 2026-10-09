@@ -2,6 +2,8 @@
 
 **Version:** reconstruction candidate 1.3 (audits 001–003) · **Reconstructed:** 2026-10-09 · **Owner:** P0 program #6431
 
+**Original requirement source (partially recovered):** The owner supplied the actual **THS-MASTER-P0 v1.0 Master Transformation & Commercialization Implementation Specification**, with visible **§§1–42 and Phases 0–7**, in the conversation on 2026-10-09. Read the [structured recovered directive and source-to-150 crosswalk](THS_MASTER_P0_DIRECTIVE_RECOVERY.md) **before treating any reconstructed item as an implementation priority**. That original directive is broader and more business/measurement focused than this provisional 150-item breakdown; key subscription lifecycle, real research usefulness benchmarking, homepage first-visit conversion, newsletter/watchlist, institutional and public count/grade parity requirements are missing or underrepresented here. The owner's paste currently cuts off within §42, so this is **not** a complete transcription or original 150-ID mapping. The original and provisional counts remain separate.
+
 > **Not the recovered original.** The exact October 8 thirteen-section/150-item checklist could not be located in current GitHub records or accessible prior artifacts. This is a replacement acceptance *proposal* informed by the original THS-MASTER-P0 scope, AGENTS.md, the current authoritatives, the generational plan and observed GitHub releases. Do not represent these as verbatim original tasks or silently transplant the old progress count.
 
 ## Accounting and execution guardrails
