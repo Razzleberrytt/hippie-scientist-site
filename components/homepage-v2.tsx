@@ -70,7 +70,7 @@ export default async function HomepageV2() {
                 <Link
                   key={path.href}
                   href={path.href}
-                  className='group flex min-h-12 flex-col justify-center rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-left shadow-sm transition hover:border-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700'
+                  className='group flex min-h-12 flex-col justify-center rounded-2xl border border-brand-900/10 bg-[var(--surface-elevated)] px-4 py-3 text-left shadow-sm transition hover:border-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700'
                 >
                   <span className='flex items-center justify-between gap-2 text-sm font-bold text-ink'>
                     {path.label} <ArrowRight className='h-4 w-4 shrink-0 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true' />
