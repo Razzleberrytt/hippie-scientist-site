@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "42755326",
+    "40312029"
+  ],
+  "relevance_reason": "Two distinct PubMed-verified human randomized trials investigating bergamot aromatherapy and pre-examination anxiety, and Lp815 probiotic supplementation and anxiety; source identity only, scientific interpretation pending independent review."
+}
