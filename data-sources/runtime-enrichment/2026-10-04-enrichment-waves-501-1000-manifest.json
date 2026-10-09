@@ -47,20 +47,20 @@
       "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-501-1000.md",
       "ops/enrichment-submissions/reconciliation/2026-10-03-waves-501-1000-pmid-revalidation.json"
     ],
-    "review_note": "Twenty 25-finding passes produced 500 unique research receipts. Final fail-closed admission materializes 12 net-new, source-specific evidence rows and 12 source rows on existing canonical entities. Previously admitted vitamin-D and ashwagandha source identities are not duplicated. Category, combination, route, correction, identity, and unresolved-entity receipts remain research-only."
+    "review_note": "Twenty 25-finding passes produced 500 unique research receipts. Final fail-closed admission retains 10 net-new source-specific evidence rows and 10 source rows on existing canonical entities; two already-canonical sources (inositol PMID 41757236 and taurine PMID 41275513) are omitted as duplicates. Previously admitted source identities are not duplicated. Category, combination, route, correction, identity, and unresolved-entity receipts remain research-only."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 12,
-    "source_rows": 12,
+    "evidence_rows": 10,
+    "source_rows": 10,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 501,
     "last_wave": 1000,
     "completed_waves": 500,
-    "evidence_records": 12,
-    "unique_source_records": 12
+    "evidence_records": 10,
+    "unique_source_records": 10
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -73,13 +73,13 @@
   },
   "ledger": {
     "file": "2026-10-04-enrichment-waves-501-1000.json",
-    "sha256": "ee77ec5b85ee7d8ff0fff5227e5d7964fa7a650676ca9d7859b1399ccc1a9e66",
-    "bytes": 26876
+    "sha256": "8054f7d87bc69c6cb8956130f6c61125774e81c933702b96bbbfe7bc7b039ec0",
+    "bytes": 22506
   },
   "admission": {
-    "evidence_additions": 12,
+    "evidence_additions": 10,
     "evidence_corrections": 0,
-    "source_additions": 12,
+    "source_additions": 10,
     "source_corrections": 0
   }
 }
