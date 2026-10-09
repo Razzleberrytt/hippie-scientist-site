@@ -219,7 +219,7 @@ describe('Metricool governed video normalization', () => {
 describe('video deployment governance', () => {
   it('provisions ffmpeg only when the selected governed pilot is short-video and verifies format-specific static media', () => {
     const workflow = fs.readFileSync(path.resolve('.github/workflows/deploy.yml'), 'utf8')
-    expect(workflow).toContain('Build governed Metricool publication pilot')
+    expect(workflow).toContain('Build governed THS publication pilot')
     expect(workflow).toContain('Provision and verify ffmpeg when governed pilot requires video')
     expect(workflow).toContain("if [ \"$FORMAT\" != 'short-video' ]")
     expect(workflow).toContain('skipping provisioning')
