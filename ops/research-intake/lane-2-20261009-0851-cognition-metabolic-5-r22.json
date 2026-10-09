@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "41780824",
+    "42660124",
+    "35616942",
+    "37244291",
+    "40782191"
+  ]
+}
