@@ -120,14 +120,16 @@ describe('P0 #6466 research-to-editorial identity firewall',()=>{
 
   it('does not allow a compromised integrated science snapshot to mint review permission',()=>{
     const full=build()
-    expect(()=>compileResearchEditorialReviewHandoff({
+    // Deliberately malformed runtime inputs bypassing compile-time literal types.
+    const attacker=(value:unknown)=>value as Parameters<typeof compileResearchEditorialReviewHandoff>[0]
+    expect(()=>compileResearchEditorialReviewHandoff(attacker({
       ...full,scientific:{...full.scientific,clinicalPromotions:1},
-    })).toThrow(/conflicting research-only/)
-    expect(()=>compileResearchEditorialReviewHandoff({
+    }))).toThrow(/conflicting research-only/)
+    expect(()=>compileResearchEditorialReviewHandoff(attacker({
       ...full,fabric:{...full.fabric,sourceSignature:'fabricated'},
-    })).toThrow(/conflicting research-only/)
-    expect(()=>compileResearchEditorialReviewHandoff({
+    }))).toThrow(/conflicting research-only/)
+    expect(()=>compileResearchEditorialReviewHandoff(attacker({
       ...full,publicationAllowed:true,
-    })).toThrow(/conflicting research-only/)
+    }))).toThrow(/conflicting research-only/)
   })
 })
