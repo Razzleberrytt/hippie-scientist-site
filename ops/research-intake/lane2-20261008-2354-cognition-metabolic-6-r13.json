@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "41850683",
+    "42046021",
+    "42061108",
+    "41694319",
+    "41926740",
+    "41450035"
+  ],
+  "relevance_reason": "Human randomized studies of cognition, executive function and metabolic health, including null fiber effects, restricted populations, reported safety and correction flags; independent scientific review remains pending."
+}
