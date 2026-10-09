@@ -25025,6 +25025,622 @@
       "reservation_id": "8a99ab0e4801fff4aad6",
       "reserved_at": "2026-10-09T06:56:45.308Z",
       "source_branch": "research/intake/2/20261009-0255-cognition-metabolic-recovery19-r16"
+    },
+    {
+      "pmid": "42729417",
+      "title": "Whole wheat bread improves postprandial glucose tolerance in adults with prediabetes: a controlled-feeding randomized crossover trial with microbiome-associated variation in response.",
+      "doi": "10.3389/fnut.2026.1907908",
+      "source_title": "Whole wheat bread improves postprandial glucose tolerance in adults with prediabetes: a controlled-feeding randomized crossover trial with microbiome-associated variation in response.",
+      "abstract": "Whole grain intake is associated with reduced risk of type 2 diabetes, yet inconsistent findings from randomized trials and substantial interindividual variability suggest that gut microbiota may influence glycemic responses. We hypothesized that whole wheat bread would improve glucose tolerance compared with refined white bread under controlled feeding conditions in adults with prediabetes, and that gut microbial features would be associated with variability in glycemic response. In this randomized, controlled crossover trial, adults with prediabetes ( n = 39; 34.7 ± 0.9 kg/m 2 ) consumed fully controlled diets differing only in whole wheat (WHEAT) or refined white bread (WHITE) for 2-weeks each, separated by a 2-week washout. Fasting blood and stool samples were collected at baseline and post-intervention, and a 75 g oral glucose tolerance test was performed after each phase. Compared with WHITE, WHEAT reduced postprandial glucose excursion by 27% ( p = 0.04), independent of body weight, inflammation, carbonyl stress, and fecal short-chain fatty acids (SCFAs). Fasting glucose and insulin improved over time irrespective of treatment (P Time < 0.05), whereas inflammatory biomarkers, plasma methylglyoxal, and fecal SCFAs did not differ between interventions. Gut microbial α - and β -diversity were unchanged. However, compositional analyses identified directional shifts in selected taxa during WHEAT, including higher relative abundances of Agathobacter , Agathobaculum , and Lachnospiraceae NK4A136 group and lower Streptococcus , Lachnoclostridium , and Mediterraneibacter (nominal p < 0.05). Moderation analysis revealed that baseline abundances of Lachnoclostridium and Lachnospiraceae NK4A136 group predicted postprandial glycemic responses in a diet-dependent manner, identifying distinct microbial profiles associated with greater metabolic benefit from WHEAT relative to WHITE (P Interaction < 0.05). Whole wheat bread improves postprandial glucose tolerance in adults with prediabetes while exhibiting microbiome-associated variation in glycemic response. These findings support whole wheat as an effective dietary strategy and highlight baseline gut microbial features as key contributors to inter-individual responses, advancing precision nutrition approaches to whole grain consumption. ClinicalTrials.gov: NCT05318183.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42729417/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42729417",
+        "doi": "10.3389/fnut.2026.1907908",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.952Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3585ff4013460896664d",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "42449279",
+      "title": "Transcranial photobiomodulation improves prefrontal oxygenation and impulse control in adults with ADHD: a randomized controlled trial.",
+      "doi": "10.1186/s12888-026-08391-5",
+      "source_title": "Transcranial photobiomodulation improves prefrontal oxygenation and impulse control in adults with ADHD: a randomized controlled trial.",
+      "abstract": "Impulsivity in individuals with attention-deficit/hyperactivity disorder (ADHD) diminishes quality of life. Cortical hypometabolism has been hypothesized to contribute to ADHD. Transcranial photobiomodulation (tPBM) is a safe, non-invasive method for stimulating the prefrontal cortex (PFC), yet its cognition-enhancing effect on impulsivity and sustained attention in adults with ADHD remains understudied. This research evaluated whether acute tPBM administration could improve impulsivity and prefrontal oxygenation. The current investigation was conducted in two stages. The first stage included 223 participants with and without a history of ADHD, whereas the second stage focused exclusively on 52 adults with ADHD. In the first stage, participants were randomized to receive either active or sham 1064 nm laser tPBM applied to the right PFC, followed by completion of the continuous performance task (CPT). This stage examined the behavioral effects of tPBM on impulsivity and attentional control in adults with ADHD compared with non-ADHD participants. In the second stage, participants completed the CPT before and after the tPBM session. In addition, functional near-infrared spectroscopy (fNIRS) data were acquired before and after tPBM while participants performed a 2-back working memory task, enabling assessment of prefrontal hemodynamic responses. Behavioral results from the first stage showed that, within the ADHD group, participants receiving active tPBM exhibited a 51% improvement in correct rejections on the CPT compared to sham, reaching levels comparable to non-ADHD participants (p = 0.017, large effect size of Cohen's d = 0.93). In the second stage, exploratory analyses suggested that participants receiving ADHD medication showed greater improvements following tPBM compared to non-medicated individuals (p = 0.049), which should be interpreted cautiously. Active tPBM also improved correct rejections in the 2-back task (p = 0.040). fNIRS analyses demonstrated increased prefrontal oxygenation following active tPBM, with higher oxyhemoglobin (p = 0.011) and total hemoglobin (p = 0.038) compared to sham. No adverse events were reported. No sex differences were found in the tPBM effects. These findings suggest that enhancing prefrontal oxygenation via tPBM may strengthen neural networks supporting cognitive functions in adults with ADHD and merit evaluation in repeated-session studies. ClinicalTrials.gov (ID: NCT05802680) on 03-20-2023 (retrospectively registered). https://clinicaltrials.gov/study/NCT05802680?term=NCT05802680&rank=1.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42449279/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42449279",
+        "doi": "10.1186/s12888-026-08391-5",
+        "journal": "BMC psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.952Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c4cfc03ee320116c310d",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "42663504",
+      "title": "Attenuation of Fasting and Postprandial Glucose Exposure by Standardized Salacia reticulata Extract in Adults with Prediabetes: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "doi": "10.1177/1096620X261479626",
+      "source_title": "Attenuation of Fasting and Postprandial Glucose Exposure by Standardized Salacia reticulata Extract in Adults with Prediabetes: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "abstract": "Clinical evidence for Salacia reticulata extract (SR) in prediabetes remains limited, particularly with respect to its effects on comprehensive glucose exposure across multiple oral glucose tolerance test (OGTT)-derived intervals. This randomized, double-blind, placebo-controlled trial evaluated the effects of a standardized SR administered for 12 weeks on fasting and postprandial glucose exposure in adults with prediabetes. One hundred participants meeting prediabetes criteria (fasting plasma glucose [FPG] 100-139 mg/dL and postprandial plasma glucose [PPG] 140-199 mg/dL) were selected. Participants with dual fasting and postprandial glycemic impairments were randomly assigned to receive SR (500 mg/day, n = 50) or placebo ( n = 50). Efficacy and safety outcomes were assessed at baseline and after the intervention. Compared with placebo, SR significantly reduced FPG and PPG to 90 and 120 min after supplementation (all P < .05). Glucose areas under the curve at 0-30, 0-60, 0-90, and 0-120 min were significantly lower in the SR group compared with placebo, with significant percent reductions in postprandial glucose spikes from baseline to week 12 (all P < .05). Additionally, HbA1c and triglycerides were significantly reduced, while 1,5-anhydroglucitol was significantly increased compared with placebo. Total glucagon-like peptide-1 (GLP-1) levels showed a significant between-group difference. No clinically meaningful safety concerns were observed. Twelve weeks of supplementation with standardized SR attenuated fasting and postprandial glucose concentrations, including significant reductions in OGTT-derived glucose spikes. These findings extend clinical evidence of S. reticulata to early-stage dysglycemia and support its potential role in glycemic stabilization in prediabetes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42663504/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42663504",
+        "doi": "10.1177/1096620X261479626",
+        "journal": "Journal of medicinal food",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.952Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "976dddd7ecb4498a2529",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "42142506",
+      "title": "Effects of a novel individualized digital cognitive training on ADHD characteristics, quality of life, and cognitive functioning in adults with ADHD: A randomized controlled trial.",
+      "doi": "10.1016/j.jpsychires.2026.05.021",
+      "source_title": "Effects of a novel individualized digital cognitive training on ADHD characteristics, quality of life, and cognitive functioning in adults with ADHD: A randomized controlled trial.",
+      "abstract": "ADHD is characterized by inattention, hyperactivity, and impulsivity, often linked to cognitive impairment. Digital cognitive training has emerged as a potential non-pharmacological treatment, but evidence in adults remains limited. This study evaluated the effectiveness of a novel digital cognitive training application \"NeuroNation MED\" in improving executive functions, ADHD characteristics, psychological quality of life, and everyday functioning in adults with ADHD. A single-blind randomized controlled trial with cross-over design included 77 adults with ADHD (German Clinical Trial Register: DRKS00030767). Participants were randomized to a 12-week training program or to a control group receiving treatment as usual before crossing over. Training produced a significant interaction effect on psychological quality of life, with participants in the training group showing improvements not observed in controls. Additionally, subjective ratings indicated greater perceived gains in attention, memory, language, and executive functions (d = 0.47 - 0.94). Exploratory analyses indicated associations between baseline performance and change scores; however, these findings were not specific to the training condition and should be interpreted with caution. These subjective benefits were not paralleled by significant changes in objective neuropsychological test performance or ADHD characteristics. Cognitive Training demonstrated promising effects on perceived cognition and psychological well-being, though objective cognitive improvements were not observed. The discrepancy highlights the importance of considering both subjective and objective outcomes in ADHD interventions. Digital cognitive training may serve as an adjunct therapy for adults with ADHD, particularly in enhancing perceived functioning and quality of life. Larger, long-term studies with ecologically valid measures are needed to establish efficacy and generalizability.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42142506/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42142506",
+        "doi": "10.1016/j.jpsychires.2026.05.021",
+        "journal": "Journal of psychiatric research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.953Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4a1f6415f4554dbab2db",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "41810578",
+      "title": "Effectiveness of attexis , a digital intervention based on cognitive behavioral therapy for adults with ADHD: a randomized controlled trial.",
+      "doi": "10.1017/S0033291726103390",
+      "source_title": "Effectiveness of attexis , a digital intervention based on cognitive behavioral therapy for adults with ADHD: a randomized controlled trial.",
+      "abstract": "Access to evidence-based psychosocial interventions for adults with attention-deficit/hyperactivity disorder (ADHD) remains limited, despite strong patient demand for nonpharmacological options such as cognitive behavioral therapy (CBT). Digital interventions may offer a scalable, low-threshold solution to meet this need and complement existing care. This pragmatic randomized controlled trial evaluated the effectiveness of attexis , a fully self-guided digital intervention based on CBT and mindfulness principles, as an adjunct to treatment as usual (TAU). A total of 337 adults with confirmed ADHD were randomized to either attexis + TAU or TAU alone. The primary outcome was ADHD symptom severity (Adult ADHD Self-Report Scale total score) at 3 months post-randomization (T1). Secondary outcomes included functional impairment, depressive symptoms, self-esteem, and health-related quality of life. Follow-up was conducted at 6 months (T2). Intent-to-treat analyses showed significantly lower ADHD symptom severity in the intervention group at T1 (baseline-adjusted mean difference = -5.0 points; d = 0.85, p < .001). Significant improvements were also observed across all secondary outcomes, and effects remained stable at T2. Responder analyses confirmed the clinical relevance of the findings. Subgroup analyses demonstrated consistent effects across sex, medication use, psychotherapy status, and treatment changes. No adverse events related to attexis were reported. attexis was effective in reducing ADHD symptoms and improving a broad range of functional and psychosocial outcomes. As a safe, low-threshold, fully self-guided intervention, it may serve as a valuable adjunct to routine care and help address existing gaps in access to psychosocial treatment for adults with ADHD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41810578/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Pragmatic Clinical Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Pragmatic Clinical Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41810578",
+        "doi": "10.1017/S0033291726103390",
+        "journal": "Psychological medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.953Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f7538c5462c4706e7aa9",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "42276684",
+      "title": "Mindfulness Intervention Reduced Executive Dysfunction, Delay Aversion, and ADHD Symptoms: A Randomized Controlled Trial Based on the Dual Pathway Model.",
+      "doi": "10.1016/j.beth.2026.01.002",
+      "source_title": "Mindfulness Intervention Reduced Executive Dysfunction, Delay Aversion, and ADHD Symptoms: A Randomized Controlled Trial Based on the Dual Pathway Model.",
+      "abstract": "In the dual pathway model, executive dysfunction (EDF) and delay aversion (DEL) are key mechanisms underlying ADHD. This study aimed to develop and evaluate a pathway model to elucidate the mediating roles of trait mindfulness (TM), EDF, and DEL in mindfulness-based interventions' (MBIs) impact on ADHD symptoms. 120 adults (M age = 25.11, SD age = 5.33) exhibiting elevated ADHD symptoms were randomized into either an 8-week MBI group (n = 60) or a waitlist control group (n = 60). ADHD symptoms, EDF, DEL, and TM were assessed. Structural equation modeling was used to examine a theoretical pathway model and construct a data-driven model. Compared with the control group, the intervention group exhibited significant reductions in EDF, DEL, and ADHD symptoms and increased TM. Changes in TM and EDF sequentially mediated the effect of MBI on ADHD symptom reduction. Additionally, changes in TM mediated the impact of MBI on DEL reduction. However, DEL reduction did not link to changes in ADHD symptoms when EDF and TM were considered. It empirically indicated that improvement in TM and, subsequently, improvement in EDF are possible therapeutic mechanisms of MBIs on adult ADHD symptoms. While increased TM was associated with DEL reductions, this pathway was insignificantly related to ADHD symptom reduction.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42276684/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42276684",
+        "doi": "10.1016/j.beth.2026.01.002",
+        "journal": "Behavior therapy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.953Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cf2a660004afeaec4022",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "42024020",
+      "title": "Home-based transcranial photobiomodulation improves cognitive function in mild cognitive impairment due to Alzheimer's disease: A randomized, double-blind, placebo-controlled confirmatory trial.",
+      "doi": "10.1177/13872877261443973",
+      "source_title": "Home-based transcranial photobiomodulation improves cognitive function in mild cognitive impairment due to Alzheimer's disease: A randomized, double-blind, placebo-controlled confirmatory trial.",
+      "abstract": "BackgroundAlzheimer's disease (AD) is a progressive neurodegenerative disorder in which early bioenergetic dysfunction is increasingly implicated in its pathogenesis. Transcranial photobiomodulation (tPBM), a non-invasive neuromodulation using near-infrared light, has shown promise in improving cerebral metabolism and cognitive function.ObjectiveTo assess the safety and efficacy of a home-administered tPBM intervention in individuals with mild cognitive impairment (MCI) due to AD.MethodsIn this randomized clinical trial, 80 participants meeting the NIA-AA criteria for MCI due to AD were recruited. Participants self-administered a tPBM device emitting 808 nm near-infrared light over the bilateral dorsolateral prefrontal cortex, six times weekly for 12 weeks. The primary outcome was the change in MoCA-K score from baseline to week 13. Secondary outcomes included K-MMSE2, CERAD-K, and GDepS scores.ResultsActive tPBM significantly improved cognitive performance compared with the placebo. Mean MoCA-K scores increased by 3.87 ± 2.51 points in the active group versus a 0.74 ± 2.85 point decline in the placebo group (p < 0.001). K-MMSE2 scores improved significantly (p < 0.001). CERAD-K showed a significant between-group difference at week 13 (p < 0.001), while GDepS scores remained unchanged. No device-related adverse events occurred, and adherence to home-based treatment was high.Conclusions12 weeks of home-administered tPBM safely and significantly improved cognitive function in individuals with MCI due to AD. The observed benefits are consistent with enhanced mitochondrial metabolism, cerebral perfusion, and synaptic efficiency. These findings support tPBM as a promising, non-pharmacological treatment for MCI due to AD and as a preventative strategy against AD.Trial RegistrationKorean Clinical Research Information Service (CRiS), https://cris.nih.go.kr, KCT0011155.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42024020/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42024020",
+        "doi": "10.1177/13872877261443973",
+        "journal": "Journal of Alzheimer's disease : JAD",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.953Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "59d2ab136924dac4388b",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
+    },
+    {
+      "pmid": "42577916",
+      "title": "The Effect of Physical Activity on the Gut Microbiome in Prediabetes: Results from a Randomized Controlled Trial.",
+      "doi": "10.2337/doc25-0067",
+      "source_title": "The Effect of Physical Activity on the Gut Microbiome in Prediabetes: Results from a Randomized Controlled Trial.",
+      "abstract": "To test the effect of physical activity on the gut microbiome and circulating short chain fatty acids among sedentary adults with prediabetes and overweight/obesity. In a pilot and feasibility trial, we randomized 77 adults with prediabetes and a sedentary lifestyle into one of two groups: 1) Intervention: Invited to engage in home-based moderate intensity walking 3x/week for 30 minutes/session in weeks 1-4 and for 45 minutes/session during weeks 5-8 of the 8-week intervention; or 2) Control: Maintained habitual physical activity levels. We performed metagenomic sequencing from stool collected at baseline, week 4, and week 8, with short-chain fatty acids (SCFA) measured from serum collected at baseline and week 8. Taxonomic and functional profiling were performed on the metagenomic reads; alpha diversity metrics were subsequently derived. Linear regression assessed the difference in change between the intervention and control groups for alpha-diversity and SCFA levels. We screened 1,533 participants for eligibility and consented 132. Of these, 87 entered the run-in phase and 77 were randomized. Participants were 51.4±8.9 years old, 87.7% female, and 74% non-Hispanic White. Mean fasting glucose was 103.3±13.2 while mean BMI was 34.4±5.7. In comparison to control, the intervention group experienced decreased alpha diversity as characterized by Shannon, Richness, and Faith's diversity indices by intervention week 8 (P<0.05). Changes in SCFA levels were not statistically significant different in intervention vs. control. Randomization to a walking intervention resulted in modest gut microbiome changes among adults with overweight/obesity and prediabetes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42577916/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Eight human randomized cognition, ADHD/focus, or prediabetes/metabolic studies; source-only intake, preserving reported null endpoints, trial populations, limitations, safety-reporting gaps and pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42577916",
+        "doi": "10.2337/doc25-0067",
+        "journal": "Diabetes, obesity, and cardiometabolic CARE",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T07:49:05.954Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9d9b3e4484a1a99bbd68",
+      "reserved_at": "2026-10-09T07:49:16.385Z",
+      "source_branch": "research/intake/2/20261009-0347-cognition-metabolic-8-r17"
     }
   ],
   "batches": [
@@ -25038,22 +25654,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 311,
+    "total_reservations": 319,
     "by_lane": {
       "1": 5,
-      "2": 38,
+      "2": 46,
       "3": 60,
       "4": 33,
       "5": 175
     },
     "by_state": {
-      "SOURCE_VERIFIED": 311
+      "SOURCE_VERIFIED": 319
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 311,
+        "count": 319,
         "pr_number": null,
         "blocker": null
       }
