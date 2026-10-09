@@ -101,6 +101,7 @@ const caseScope=integratedCase?.scope??null
 const scientific=integratedCase?.scientific??null
 const relay=integratedCase?.relay??null
 const fabric=integratedCase?.fabric??null
+const reviewHandoff=integratedCase?.reviewHandoff??null
 const visibleDebates=caseScope?.debates??data?.debates??[]
 const visibleFrontiers=caseScope?.frontiers??data?.frontiers??[]
 const visibleSafety=caseScope?.safety??data?.safety??[]
@@ -242,6 +243,12 @@ return <section className={styles.studio}>
               {!fabric.distributionReviewTargets.length?<small>No exact DOI + claim/source identity match is registered. Similar ingredients or topics are intentionally not linked.</small>:null}
             </div>
           </div>
+          {reviewHandoff?<p className={styles.fabricGuard} aria-live='polite'>
+            Typed source-to-editorial handoff v{reviewHandoff.schemaVersion} · PMID {reviewHandoff.sourcePmid}
+            {' · '}{reviewHandoff.reviewTargets.length} source-identity review request{reviewHandoff.reviewTargets.length===1?'':'s'}
+            {' · '}{reviewHandoff.disposition==='held-no-exact-review-targets'?'HELD: no exact review target':'AWAITING independent editorial adjudication'}
+            {' · '}8 research instruments + 12 source-bound projections. This is not a reviewed claim.
+          </p>:null}
           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
 
