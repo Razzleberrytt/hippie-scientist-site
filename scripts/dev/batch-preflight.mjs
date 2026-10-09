@@ -46,7 +46,7 @@ export function planBatch(files, { mode = 'checkpoint', head = '' } = {}) {
     if (lintFiles.length) commands.push({
       name: 'Changed-file lint', argv: ['npx','eslint',...lintFiles,'--max-warnings=0'],
     })
-    if (sourceFiles.length || changedTests.length) {
+    if (sourceFiles.length || changedTests.length || changedNodeSuites.length) {
       if (sourceFiles.length) commands.push({
         name: 'Affected Vitest', argv: ['npx','vitest','related',...sourceFiles,'--run','--passWithNoTests'],
       })
