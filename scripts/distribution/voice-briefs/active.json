@@ -1,0 +1,167 @@
+{
+  "release": "R8.05",
+  "creativeMethodRelease": "R8.08",
+  "sourceIdentity": {
+    "id": "cohen-jama-2023-melatonin-gummies",
+    "sourceUrl": "https://doi.org/10.1001/jama.2023.2296",
+    "pmid": "37097362"
+  },
+  "premise": {
+    "interestScore": 5,
+    "coldViewerWhyCare": "Gummy supplement users want to know whether their doses are accurately labeled.",
+    "viewerQuestion": "Does the melatonin amount in gummies match the label?",
+    "earlyPayoff": "22 of 25 sampled products were outside plus or minus ten percent.",
+    "methodologyBeforePayoff": false,
+    "hookMode": "question",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "What if your melatonin gummies don't contain the dose on the label?",
+      "onScreenText": "WHAT'S REALLY IN YOUR\nMELATONIN GUMMIES?",
+      "visualPurpose": "Make the personal stakes of an inaccurate label instantly clear.",
+      "spokenAnchor": "dose on the label",
+      "visualAction": "Split the gummy silhouette from its dose label at the word dose.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "primaryEntities": [
+        "melatonin gummies"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "finding-main",
+      "role": "finding",
+      "narration": "A lab study found that twenty-two of twenty-five sampled products were more than ten percent off their labeled melatonin amount.",
+      "onScreenText": "22 / 25\nOUTSIDE ±10% OF LABEL",
+      "visualPurpose": "Lead with the quantitative answer as a memorable large-number comparison.",
+      "spokenAnchor": "twenty-two of twenty-five",
+      "visualAction": "Light 22 cells of a 25-cell laboratory sample grid precisely as the number is spoken.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "primaryEntities": [
+        "25-product sample"
+      ],
+      "pauseAfterSeconds": 0.12,
+      "factualAuthority": "source-governed"
+    },
+    {
+      "id": "finding-range",
+      "role": "finding",
+      "narration": "Among gummies with detectable melatonin, measured amounts ranged from seventy-four to three hundred forty-seven percent of the label.",
+      "onScreenText": "74% — 347%\nOF LABELED AMOUNT",
+      "visualPurpose": "Show the range using a neutral measured-versus-labeled axis.",
+      "spokenAnchor": "three hundred forty-seven percent",
+      "visualAction": "Extend the axis marker across 100 percent and finish at 347 percent on the number.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "primaryEntities": [
+        "melatonin amount"
+      ],
+      "pauseAfterSeconds": 0.11,
+      "factualAuthority": "source-governed"
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "narration": "This came from laboratory testing of twenty-five U.S. melatonin gummy products, published in JAMA in twenty twenty-three.",
+      "onScreenText": "LAB ANALYSIS\n25 U.S. PRODUCTS · JAMA 2023",
+      "visualPurpose": "Ground the striking result in its study type, sample size, location, and age.",
+      "spokenAnchor": "JAMA",
+      "visualAction": "Reveal a clean journal-style source annotation when JAMA is spoken.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "primaryEntities": [
+        "JAMA 2023"
+      ],
+      "pauseAfterSeconds": 0.1,
+      "factualAuthority": "source-governed"
+    },
+    {
+      "id": "limitation",
+      "role": "limitation",
+      "narration": "That's a small sample from twenty twenty-three. It does not tell us what's in every gummy sold today.",
+      "onScreenText": "IMPORTANT LIMITATION\nSMALL 2023 SAMPLE ≠ EVERY BRAND TODAY",
+      "visualPurpose": "Visually interrupt overgeneralization with an explicit uncertainty pivot.",
+      "spokenAnchor": "small sample",
+      "visualAction": "Collapse the sample grid into a small window rather than implying all products.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "primaryEntities": [
+        "sample"
+      ],
+      "pauseAfterSeconds": 0.18,
+      "factualAuthority": "source-governed"
+    },
+    {
+      "id": "context",
+      "role": "context",
+      "narration": "The practical takeaway? Look for independent product testing, and keep gummies safely out of children's reach.",
+      "onScreenText": "WHAT TO DO\nLOOK FOR INDEPENDENT TESTING\nKEEP AWAY FROM CHILDREN",
+      "visualPurpose": "Give actionable quality and child-safety guidance without implying the study tested current products.",
+      "spokenAnchor": "independent product testing",
+      "visualAction": "Reveal an independent-test seal silhouette and a child-resistant storage icon at their corresponding words.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "primaryEntities": [
+        "quality testing"
+      ],
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "More evidence, less hype. Follow The Hippie Scientist.",
+      "onScreenText": "EVIDENCE > HYPE\nTHE HIPPIE SCIENTIST",
+      "visualPurpose": "Memorable brand-signature close without adding another scientific claim.",
+      "spokenAnchor": "The Hippie Scientist",
+      "visualAction": "Bring the THS wordmark into focus precisely on the name.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "end",
+      "primaryEntities": [
+        "The Hippie Scientist"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://doi.org/10.1001/jama.2023.2296",
+      "visualPurpose": "Hold the exact DOI visibly long enough for screenshot or pause.",
+      "spokenAnchor": "",
+      "visualAction": "Stationary large legible DOI plus JAMA citation held for a real three-second read.",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "primaryEntities": [],
+      "holdSeconds": 3.6
+    }
+  ],
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "releaseDate": "2026-10-09"
+}
