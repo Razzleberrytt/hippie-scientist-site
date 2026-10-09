@@ -21624,6 +21624,1948 @@
       "reservation_id": "3f270f313f053d534449",
       "reserved_at": "2026-10-09T05:35:03.812Z",
       "source_branch": "research/intake/5/contradictions-replication-20261009-0130"
+    },
+    {
+      "pmid": "35428992",
+      "title": "What is the optimum thiamine dose to treat or prevent Wernicke's encephalopathy or Wernicke-Korsakoff syndrome? Results of a randomized controlled trial.",
+      "doi": "10.1111/acer.14843",
+      "source_title": "What is the optimum thiamine dose to treat or prevent Wernicke's encephalopathy or Wernicke-Korsakoff syndrome? Results of a randomized controlled trial.",
+      "abstract": "The primary cause of Wernicke-Korsakoff syndrome (WKS) is thiamine deficiency, and more than 90% of cases are reported in alcohol-dependent patients. While observational studies show parenteral thiamine administration drastically reduced WKS-related mortality, relevant treatment trials have never been conducted to determine the optimum thiamine dose. Two double-blind, parallel groups, randomized controlled trials (RCTs) were conducted to determine the optimal thiamine dose required for (1) the prevention of Wernicke's encephalopathy (WE), the acute phase of WKS, in asymptomatic but \"at-risk\" alcohol misuse patients (Study 1) and (2) the treatment of WE in symptomatic alcohol misuse patients (Study 2). Each study had a dosage regimen comprising three parenteral thiamine doses that were allocated at a ratio of 1:1:1. Study 1: Asymptomatic At-Risk patients (N = 393) received either 100 mg daily, 100 mg thrice daily, or 300 mg thrice daily, for 3 days. Study 2: Symptomatic patients (N = 127) received either 100 mg thrice daily, 300 mg thrice daily, or 500 mg thrice daily, for 5 days. Cognitive function was the primary outcome, assessed using the Rowland Universal Dementia Assessment Scale, two Cogstate subtests, and an adapted Story Memory Recall test. Secondary analyses examined differences in neurological function (ataxia, oculomotor abnormalities, and confusion) at follow-up. No significant differences were observed between any of the dosage conditions for either Study 1 or Study 2 on cognition or neurological functioning. This real-world study found that having a clinically unwell target population with high comorbidity and multiple presentations, coupled with challenges in cross-cultural assessment is likely to complicate RCT findings. The results of this study showed no clear benefit of high dose thiamine over intermediate or lower doses of thiamine, over the time intervals examined, for the treatment and prevention of cognitive and neurological abnormalities related to WKS. Several study limitations temper the interpretation of these findings. Nevertheless, the absence of conclusive evidence for the superiority of high-dose thiamine supports a recommendation for patient-specific treatment, while ensuring that the potential impact of other biochemical factors (e.g., magnesium and other B vitamin deficiencies) are considered and corrected if necessary.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35428992/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35428992",
+        "doi": "10.1111/acer.14843",
+        "journal": "Alcoholism, clinical and experimental research",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-09T06:32:18.554Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8d8c5eb8c95be5492247",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "35704085",
+      "title": "DHA status influences effects of B-vitamin supplementation on cognitive ageing: a post-hoc analysis of the B-proof trial.",
+      "doi": "10.1007/s00394-022-02924-w",
+      "source_title": "DHA status influences effects of B-vitamin supplementation on cognitive ageing: a post-hoc analysis of the B-proof trial.",
+      "abstract": "Trials aiming to lower homocysteine by B-vitamin supplementation have reported mixed results on slowing cognitive decline. We investigated if efficacy of B-vitamin supplementation is affected by baseline plasma omega-3 fatty acid levels. This post-hoc analysis of the B-proof trial included 191 adults aged 65 years or older with baseline plasma total homocysteine ≥ 12 μmol/L, randomly assigned to 400 µg folic acid and 500 µg vitamin B12 or placebo daily for 2 years. Global and domain-specific cognitive functioning were assessed at baseline and after 2 years. The effect of B-vitamin supplementation was analyzed according to tertiles of baseline plasma omega-3 fatty acids concentrations combined, and eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA) individually using multiple linear regression analyses. The mean ± SD age of the participants was 71.6 ± 5.9 years and median [IQR] Mini-Mental State Examination was 29 [28-30]. The treatment effect of B-vitamins on global cognition was larger in participants in the high compared to the middle DHA tertile (difference in z-score, mean ± SE 0.22 ± 0.10, p = 0.03). There was no significant interaction between B-vitamin supplementation and combined omega-3 fatty acid (p = 0.49) and EPA (p = 0.99) tertiles. Similarly, the efficacy of B-vitamin treatment on domain-specific cognitive functioning did not link to omega-3 fatty acid, DHA, or EPA plasma levels. This post-hoc analysis indicated that efficacy of B-vitamin supplementation in slowing cognitive decline relates to DHA status, with individuals with higher plasma DHA levels benefitting more from vitamin B12 and folic acid use. The results support earlier observations that positive effects of B-vitamins in cognitive ageing may be subgroup-specific. Registered at clinicaltrials.gov (NCT00696514) on June 12, 2008.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35704085/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35704085",
+        "doi": "10.1007/s00394-022-02924-w",
+        "journal": "European journal of nutrition",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-09T06:32:18.555Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ddd5848bb524568bd091",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "36501109",
+      "title": "Investigating the Effects of a Multinutrient Supplement on Cognition, Mood and Biochemical Markers in Middle-Aged Adults with 'Optimal' and 'Sub-Optimal' Diets: A Randomized Double Blind Placebo Controlled Trial.",
+      "doi": "10.3390/nu14235079",
+      "source_title": "Investigating the Effects of a Multinutrient Supplement on Cognition, Mood and Biochemical Markers in Middle-Aged Adults with 'Optimal' and 'Sub-Optimal' Diets: A Randomized Double Blind Placebo Controlled Trial.",
+      "abstract": "Background: Previous randomized controlled trials examining cognitive and mood effects of combination multivitamin supplements in healthy, non-clinical adults have reported mixed results. One purported explanation for this is that the dietary status of participants at the start of supplement interventions may influence the magnitude of the effect of supplementation. Methods: In this study, we evaluated the effect of a multinutrient formula containing B group vitamins, Bacopa monniera and Ginkgo biloba on memory, attention, mood and biochemical markers of nutrient status in middle-aged adults ( M = 52.84 years, n = 141) with 'optimal' and 'sub-optimal' diets over 12 weeks. We hypothesised that active supplementation would differentially improve memory and attention in those with a 'sub-optimal' diet. Results: Mixed model, repeated measures analysis revealed that, in comparison to placebo, active treatment was associated with significant increases in B vitamin status (B1, B6, B12). Regarding behavioural outcomes there was no significant benefit to memory ( F (1, 113.51) = 0.53, p = 0.470) nor attention ( F (1,113.77) = 1.89, p = 0.171) in the whole cohort. Contrary to our hypothesis, there was a significant beneficial effect of supplementation on attentional performance in individuals with an 'optimal' diet prior to supplementation ( F (1,57.25) = 4.94, p = 0.030). In the absence of a main effect of supplementation across the entire cohort, there were also a number of significant three-way interactions (treatment by time by diet group) detected in secondary outcomes including lower state anxiety and mental fatigue in those with an 'optimal' diet. Conclusion: These findings suggest that the cognitive benefit of B vitamin and herbal supplementation may be dependent on diet quality, supporting the concepts of 'co-nutrient optimisation' and interdependency of nutrients. This warrants further investigation. This study advocates characterising the diet of participants prior to supplementation as it may influence the effect of a nutraceutical intervention.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36501109/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "36501109",
+        "doi": "10.3390/nu14235079",
+        "journal": "Nutrients",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-09T06:32:18.556Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "11d5d3c678947d94621b",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "37148578",
+      "title": "Association of serum homocysteine, folate, and vitamin B 12 and mood following the Swank and Wahls elimination dietary interventions in relapsing-remitting multiple sclerosis: Secondary analysis of the WAVES trial.",
+      "doi": "10.1016/j.msard.2023.104743",
+      "source_title": "Association of serum homocysteine, folate, and vitamin B 12 and mood following the Swank and Wahls elimination dietary interventions in relapsing-remitting multiple sclerosis: Secondary analysis of the WAVES trial.",
+      "abstract": "Depression and anxiety are common psychiatric comorbidities among people with multiple sclerosis (MS). Emerging data suggest abnormal serum homocysteine, vitamin B 12 , and folate levels in people with MS, which are related to a range of neurological disorders, including mood and mental illnesses. Evidence suggests that dietary interventions could affect mood disorders via several pathways. This study aimed to evaluate the impact of the low-saturated fat (Swank) and modified Paleolithic elimination (Wahls) diets, along with a supplement regimen, on mood as assessed by Hospital Anxiety and Depression Scale (HADS), and Mental Health Inventory (MHI). The secondary objective was to identify changes in serum levels of homocysteine, folate, and vitamin B 12 and the association and mediation effects between their changes and HADS and MHI scores and their subscales among people with relapsing-remitting MS (RRMS). In a previously conducted randomized parallel-arm trial, participants with RRMS (n = 77) were randomly allocated to either the Swank or Wahls diets at baseline and followed for 24 weeks. Blood was drawn at four study visits spaced 12 weeks apart: (1) run-in, (2) baseline, (3) 12 weeks, and (4) 24 weeks. Serum vitamin B 12 , folate, and homocysteine were analyzed. HADS and MHI questionnaires were also completed by participants at the four study visits to assess symptoms of depression and anxiety, behavioral control and positive affect respectively. Significant improvement in severity of depression (HADS-D) and anxiety (HADS-A) symptoms, MHI total, and MHI subscores were seen at 12 and 24 weeks in each diet group. Further, a significant within-group reduction in serum homocysteine and a significant increase in serum vitamin B 12 level were observed in both groups at 12 and 24 weeks compared to corresponding baseline values (p ≤ 0.05 for all). All participants exceeded the analytical maximum threshold for folate of 20 nmol/L at 12 and 24 weeks. Changes in serum levels of homocysteine and vitamin B 12 were not associated with and did not mediate changes in HADS depression, anxiety, MHI total and four subscales scores (p > 0.05). Participants on both Swank and Wahls dietary interventions, including folate and vitamin B 12 supplements, showed significant improvement in mood. However, the favorable effects of both diets on mood were not associated with or mediated by the effect of the diets on serum levels of homocysteine, folate, and vitamin B 12 (p > 0.05).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37148578/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Randomized Controlled Trial; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "37148578",
+        "doi": "10.1016/j.msard.2023.104743",
+        "journal": "Multiple sclerosis and related disorders",
+        "publication_year": 2023,
+        "hydrated_at": "2026-10-09T06:32:18.557Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4060937d3806305da481",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "37952928",
+      "title": "Effectiveness of intermittent iron and high-dose vitamin A supplementation on cognitive development of school children in southern Ethiopia: a randomized placebo-controlled trial.",
+      "doi": "10.1016/j.ajcnut.2023.11.005",
+      "source_title": "Effectiveness of intermittent iron and high-dose vitamin A supplementation on cognitive development of school children in southern Ethiopia: a randomized placebo-controlled trial.",
+      "abstract": "Iron is an essential mineral whose deficiency results in cognitive alteration, impaired emotional behaviors, and altered myelination and neurotransmission. In animal models, it has been shown that vitamin A (VA) could affect cognition. The study aimed to evaluate the effectiveness of intermittent iron and VA supplementation on cognitive development of schoolchildren, and to assess the interaction between these supplementations. Considering a 2 × 2 factorial design, 504 children were randomly assigned to 1 of the 4 arms: placebo VA and placebo iron supplement; high-dose vitamin VA and placebo iron supplement; iron supplement and placebo VA; and iron and high-dose vitamin VA supplements. Cognitive development was assessed using Raven's Coloured Progressive Matrices, digit span, Tower of London, and visual search tasks. The mean [± standard deviation (SD)] age of the enrolled children was 9.6 (±1.6) y. One-fifth of the children had iron deficiency or anemia, whereas 2.9%, 3.9%, and 12.1% of children had low iron stores, iron deficiency anemia, and VA deficiency, respectively. Intermittent iron supplementation did not result in any significant improvement of children's cognitive development and had a negative effect on the performance index of the visual search task compared with placebo (-0.17 SD, 95% confidence interval: -0.32, -0.02). Effects were evident among children with stunting, thinness, or children coming from understimulating home environments. High-dose VA supplementation resulted in a significant improvement of digit span z-score with a mean difference of 0.30 SD (95% confidence interval: 0.14, 0.46) compared with placebo VA. VA had a more beneficial impact for girls, children infected with helminths, and those from food secure households. In a population where the prevalence of iron deficiency is low, intermittent iron supplementation did not have any or negative effect on the child's cognitive development outcomes. Conversely, VA supplementation improved the child's working memory. The study is registered at clinicaltrials.gov as NCT04137354 (https://clinicaltrials.gov/study/NCT04137354).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37952928/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "37952928",
+        "doi": "10.1016/j.ajcnut.2023.11.005",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T06:32:18.557Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "337fc061214a8ade0831",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "38818718",
+      "title": "Evaluating mineral biomarkers as mediators and moderators of behavioural improvements in a randomised controlled trial of multinutrients for children with attention-deficit/hyperactivity disorder.",
+      "doi": "10.1017/S0007114524001132",
+      "source_title": "Evaluating mineral biomarkers as mediators and moderators of behavioural improvements in a randomised controlled trial of multinutrients for children with attention-deficit/hyperactivity disorder.",
+      "abstract": "Essential minerals are cofactors for synthesis of neurotransmitters supporting cognition and mood. An 8-week fully-blind randomised controlled trial of multinutrients for attention-deficit/hyperactivity disorder (ADHD) demonstrated three times as many children (age 6-12) had significantly improved behaviour ('treatment responders') on multinutrients (54 %) compared with placebo (18 %). The aim of this secondary study was to evaluate changes in fasted plasma and urinary mineral concentrations following the intervention and their role as mediators and moderators of treatment response. Fourteen essential or trace minerals were measured in plasma and/or urine at baseline and week eight from eighty-six participants (forty-nine multinutrients, thirty-seven placebos). Two-sample t tests/Mann-Whitney U tests compared 8-week change between treatment and placebo groups, which were also evaluated as potential mediators. Baseline levels were evaluated as potential moderators, using logistic regression models with clinical treatment response as the outcome. After 8 weeks, plasma boron, Cr (in females only), Li, Mo, Se and vanadium and urinary iodine, Li and Se increased more with multinutrients than placebo, while plasma phosphorus decreased. These changes did not mediate treatment response. However, baseline urinary Li trended towards moderation: participants with lower baseline urinary Li were more likely to respond to multinutrients ( P = 0·058). Additionally, participants with higher baseline Fe were more likely to be treatment responders regardless of the treatment group ( P = 0·036.) These results show that multinutrient treatment response among children with ADHD is independent of their baseline plasma mineral levels, while baseline urinary Li levels show potential as a non-invasive biomarker of treatment response requiring further study.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38818718/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "38818718",
+        "doi": "10.1017/S0007114524001132",
+        "journal": "The British journal of nutrition",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T06:32:18.558Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "28f5b3893a6554ffc696",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "39304237",
+      "title": "Intravenous versus oral iron for anaemia among pregnant women in Nigeria (IVON): an open-label, randomised controlled trial.",
+      "doi": "10.1016/S2214-109X(24)00239-0",
+      "source_title": "Intravenous versus oral iron for anaemia among pregnant women in Nigeria (IVON): an open-label, randomised controlled trial.",
+      "abstract": "Oral iron for anaemia in pregnancy is often not well tolerated, with poor adherence. Iron administered intravenously might address these tolerance and adherence issues. We investigated the effectiveness and safety of intravenous ferric carboxymaltose versus oral ferrous sulphate on anaemia and iron deficiency among pregnant women in Nigeria. We did a multicentre, open-label, parallel, randomised controlled trial of pregnant women (aged 15-49 years) with haemoglobin (Hb) concentrations of less than 10 g/dL at 20-32 weeks' gestation from 11 primary, secondary, or tertiary health facilities in Nigeria (five in Lagos and six in Kano). Exclusion criteria included vaginal bleeding, blood transfusion or major surgery within the past 3 months, symptomatic anaemia, anaemia known to be unrelated to iron deficiency, clinically confirmed malabsorption syndrome, previous hypersensitivity to any form of iron, pre-existing maternal depression or other major psychiatric illness, immune-related diseases, such as systemic lupus erythematosus or rheumatoid arthritis, or severe allergic reactions. Participants were randomly assigned (1:1) by nurses and doctors using a web-based randomisation service to either receive a single dose of intravenous ferric carboxymaltose (20 mg/kg to a maximum of 1000 mg) or oral ferrous sulphate (200 mg; 65 mg elemental iron) three times daily until 6 weeks postpartum. The study was primarily unmasked. Primary outcomes were maternal anaemia (Hb <11 g/dL) at 36 weeks' gestation and preterm birth at before 37 weeks' gestation, with analysis by intention to treat in participants with available data. This study was registered at the ISRCTN registry on Dec 10, 2020 (ISRCTN63484804) and on ClinicalTrials.gov (NCT04976179) on April 7, 2021. Between Aug 10, 2021, and Dec 15, 2022, 13 724 pregnant women were screened for eligibility. 12 668 were excluded due to ineligibility for inclusion, and 1056 provided consent to participate and were randomly assigned to either the intravenous or oral administration groups. 527 were assigned to the intravenous ferric carboxymaltose group and 529 were assigned to the oral ferrous sulphate group. 518 in the intravenous group were assessed at 36 weeks' gestational age and after 518 deliveries, and 511 completed the 6 weeks postpartum visit. 513 in the oral ferrous sulphate group were assessed at 36 weeks' gestational age and after 512 deliveries, and 501 completed the 6 weeks postpartum visit. No significant difference was found in anaemia at 36 weeks (299 [58%] of 517 in the intravenous group vs 305 [61%] of 503 in the oral group; risk ratio 0·95, 95% CI 0·85-1·06; p=0·36), nor in preterm birth (73 [14%] of 518 vs 77 [15%] of 513; 0·94, 0·70-1·26; p=0·66). There were no significant differences in adverse events. The most common adverse events were diarrhoea (in six participants) and vomiting (in three participants) in the oral group and fatigue (in two participants) and headache (in two participants) in the intravenous group. Although the effect on overall anaemia did not differ, intravenous iron reduced the prevalence of iron deficiency to a greater extent than oral iron and was considered to be safe. We recommend that intravenous iron be considered for anaemic pregnant women in Nigeria and similar settings. Bill & Melinda Gates Foundation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39304237/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study; Comparative Study; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Comparative Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39304237",
+        "doi": "10.1016/S2214-109X(24)00239-0",
+        "journal": "The Lancet. Global health",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-09T06:32:18.559Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "232865fba978006b023e",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "40347853",
+      "title": "Queen garnet plum juice supplementation does not provide additional cognitive benefits over a group-based memory program in older adults with mild cognitive impairment: A randomized clinical trial.",
+      "doi": "10.1016/j.nutres.2025.04.006",
+      "source_title": "Queen garnet plum juice supplementation does not provide additional cognitive benefits over a group-based memory program in older adults with mild cognitive impairment: A randomized clinical trial.",
+      "abstract": "Research suggests a role for inflammation and oxidative stress in mild cognitive impairment (MCI) and its progression. Evidence suggests anthocyanin-rich foods may reduce inflammation and oxidative stress and improve cognition but benefits in MCI are unclear. Therefore, it was hypothesized that daily consumption of anthocyanin-rich Queen Garnet Plum (QGP) juice would improve cognition, mood and blood pressure in people with MCI. Participants diagnosed with MCI (N = 42) participated in a double-blind, randomized controlled trial. Participants were administered either QGP juice or apricot juice (comparator) daily for 8-weeks and participated in a 6-week group-based memory program. Cognitive function was assessed using a battery of cognitive tests, including the Rey Auditory Verbal Learning Test (RAVLT), Complex Figure Test (CFT), Royal Prince Alfred-Prospective Memory Test (RPA-ProMem), and Comprehensive Assessment of Prospective Memory self-report (CAPM-self). Mood and blood pressure were also measured pre- and post-intervention. There was a significant effect of TIME for total RAVLT (P = .028, η 2 = .12), CFT-recall (P = .036, η 2 = .11), RPA-ProMem (P < .001, η 2 = .28), and CAPM-self (P = .007, η 2 = .22) scores. There was a non-significant trend towards an interaction for CFT-recall (p = .063, η 2 = .09), where Bonferroni adjusted pairwise comparisons showed that the QGP group, but not comparators, had significantly improved CFT-recall scores (QGP: +13.93%, P = .007; comparators: +0.84%, P = .855). Overall, QGP consumption during a group-based memory rehabilitation program did not result in additional cognitive benefits in older adults with MCI. This trial was registered at the Australian New Zealand Clinical Trials Registry as ACTRN12618001184268.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40347853/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40347853",
+        "doi": "10.1016/j.nutres.2025.04.006",
+        "journal": "Nutrition research (New York, N.Y.)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T06:32:18.560Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7c18e21ebfa6b2d8d744",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41634322",
+      "title": "Cold stress impacts cognitive performance in healthy volunteers: results from a randomized, controlled, cross-over study.",
+      "doi": "10.1038/s41598-026-38048-y",
+      "source_title": "Cold stress impacts cognitive performance in healthy volunteers: results from a randomized, controlled, cross-over study.",
+      "abstract": "Humans exposed to cold environments for leisure or occupational activities may experience cold stress. Cold-related physical and mental stress can negatively affect cognitive performance. A recent literature review has pointed out that a single acute exposure to cold under controlled laboratory conditions (e.g., cold air or cold water) induces cognitive impairment with attention, processing speed, memory, and executive function being the most affected cognitive domains. Males and females seem to respond differently to short-term cold exposure, although results are not consistent. The aim of the study was to investigate the effect of acute and brief (15 min) exposure to low ambient temperatures of -10 °C compared with 5 °C and 20 °C on selected cognitive performance (reaction time, processing speed, and risky decision-making). We hypothesized that cognitive performance decreases at low temperatures with a sex difference, before core temperature changes. This randomized, controlled, crossover study was conducted in an environmental chamber (terraXcube) under controlled, replicable, and safe conditions in twenty-four healthy volunteers, females and males, aged between 18 and 60 years. Measurements included Psychomotor Vigilance Test (PVT), Balloon Analogue Risk Task (BART), and Digit Symbol Substitution Test (DSST). Cognitive performance, stress, and cold were subjectively rated with a visual analogue scale (VAS). Physiological data (including core and skin temperatures) were continuously recorded with a physiological monitoring system. Data were analysed using repeated measures analysis of variance (ANOVA), Friedman test, Generalised Estimating Equations (GEE), and correlation analysis. We identified transient impairments in cognitive performance in individuals wearing appropriate clothing. Cold exposure (-10 °C) affected attention by slowing response times and increasing the lapses, and decision-making by reducing risky behaviour. Heart rate, cold sensation, and stress, as well as thermal sensation and comfort, but not core temperature were different in the three experimental temperature exposures. No differences were found between male and female subjects in their cognitive performance. Our data support the distraction theory in the decline of cognitive performance even during a short exposure to cold temperatures. Such impairment should be carefully considered in people performing different activities in cold environments, even for a short time.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41634322/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41634322",
+        "doi": "10.1038/s41598-026-38048-y",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.560Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "aa656a0cf1027332db4f",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41742004",
+      "title": "Regular Cold-Water Immersion Following HIIT Does Not Affect Intramuscular Adaptation Markers, Inflammatory Profile or Endurance Performance.",
+      "doi": "10.1111/sms.70241",
+      "source_title": "Regular Cold-Water Immersion Following HIIT Does Not Affect Intramuscular Adaptation Markers, Inflammatory Profile or Endurance Performance.",
+      "abstract": "The study aimed to investigate the effects of 5 weeks of post-exercise cold-water immersion (CWI) following high-intensity interval training (HIIT) sessions on the satellite cell pool, muscle content of inflammatory markers, muscle expression of peroxisome proliferator-activated receptor-γ coactivator 1-α (PGC-1α), maximal oxygen uptake (V̇O 2 max), and running performance. Sixteen healthy males completed baseline assessments, including muscle biopsies, a graded exercise test for V̇O 2 max determination, and a constant work-rate (CWR) running test to assess time to task failure (TTF). Participants were ranked according to V̇O 2 max and randomly allocated to either a training-only control group (n = 7) or a CWI group (n = 9), which underwent CWI (11.2°C ± 0.2°C for 15 min) following each HIIT session. The HIIT program consisted of three weekly sessions 5-8 × 2-min bouts at 95% V̇O 2 max. At the end of weeks four and five, all participants repeated the same sequence of assessments. Training increased V̇O 2 max values, TTF at CWR, satellite cell pool, PGC-1α content, and induced changes in muscle morphology (connective tissue), as indicated by a main effect of time (p ≤ 0.031); none of the analyzed variables showed a main effect of condition (p ≥ 0.098) or interaction (p ≥ 0.088). No significant alterations were observed in inflammatory markers over time (p ≥ 0.395) and condition (p ≥ 0.115). In conclusion, 5 weeks of post-exercise CWI following HIIT did not influence the satellite cell pool, muscle inflammation status, muscle PGC-1α content, muscle morphological, V̇O 2 max, or running performance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41742004/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41742004",
+        "doi": "10.1111/sms.70241",
+        "journal": "Scandinavian journal of medicine & science in sports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.561Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1d52e94325467089a348",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41830490",
+      "title": "Tinnitus outcomes after ginkgo biloba extract in sudden sensorineural hearing loss: a dose-comparative and prognostic study.",
+      "doi": "10.1080/00016489.2026.2629608",
+      "source_title": "Tinnitus outcomes after ginkgo biloba extract in sudden sensorineural hearing loss: a dose-comparative and prognostic study.",
+      "abstract": "Tinnitus is a common symptom in otolaryngology with a complex and multifactorial etiology. Ginkgo biloba extract (EGB 761) is widely used in clinical practice, but the reported results vary across studies, partly due to differences in dosage and outcome assessment. To compare tinnitus outcomes between two commonly used EGB 761 dosages (120 mg/day vs. 240 mg/day) in patients with SSNHL-associated newly onset tinnitus, and to identify clinical factors associated with tinnitus prognosis. Participants from mainland China were randomly assigned (1:1) to receive either 120 mg/day or 240 mg/day of EGB 761 tablets for one month. Follow-up assessments were conducted at 1, 2, 3, 4, 6, 9, 12, and 18 months after treatment initiation. A total of 195 valid data sets were analyzed. The mean baseline Tinnitus Handicap Inventory (THI) score of 48.99 significantly decreased to 28.33 at 1 month, 16.97 at 6 months, and 10.54 at 18 months. A slightly higher proportion of patients met the improvement criterion in the high-dose group (95.9%) than in the low-dose group (91.9%), but the between-group differences were not statistically significant for THI reduction or other outcomes. In multivariable analyses, higher anxiety (GAD-7 ≥ 10), higher reflux symptom burden (RSI ≥13), and a history of vestibular disorders were associated with less favorable tinnitus outcomes at follow-up. Both 120 mg/day and 240 mg/day dosages of EGB 761 demonstrated similar tinnitus outcomes over follow-up. Anxiety, LPR, and a history of vestibular disorders may be prognostic factors for tinnitus.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41830490/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41830490",
+        "doi": "10.1080/00016489.2026.2629608",
+        "journal": "Acta oto-laryngologica",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.562Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "63adceaca24c5443a22c",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41843413",
+      "title": "Cold-Water Immersion Impairs Power Earlier than Strength Through Time-Dependent Reductions in Intramuscular Temperature in Human Dorsiflexor Muscles.",
+      "doi": "10.1249/MSS.0000000000003904",
+      "source_title": "Cold-Water Immersion Impairs Power Earlier than Strength Through Time-Dependent Reductions in Intramuscular Temperature in Human Dorsiflexor Muscles.",
+      "abstract": "We aimed to investigate the time- and intramuscular temperature-dependent changes in neuromuscular function throughout 1 h of cold-water immersion (CWI) at 10°C. It was hypothesized that acute CWI (<30 min) would not affect neuromuscular function due to limited reductions in intramuscular temperature, whereas prolonged CWI (>30 min) would impair muscle contractility by drastically reducing intramuscular temperature. Twelve healthy participants (nine males and three females) partook in a randomized crossover design study involving 1-h CWI at 10°C of their lower leg, with three experimental visits consisting of 1) 1-h CWI at 10°C (CWI-only), 2) nonfatiguing exercise followed by 1-h CWI at 10°C to mimic the use of postexercise CWI (Ex + CWI), and 3) passive muscle preheating followed by 1-h CWI at 10°C (Heat + CWI). Skin temperature, intramuscular temperature, and neuromuscular function were periodically assessed in the dorsiflexors throughout the 1 h of CWI. Decreased peak power was observed after 10 min of CWI, CWI-only (50.3 ± 16.0%, P < 0.05), Ex + CWI (55.0 ± 18.3%, P < 0.05), and Heat + CWI (62.0 ± 16.8%, P < 0.05), whereas maximal isometric torque decreased after ≥30 min of CWI, CWI-only (81.1 ± 9.1%, P < 0.05), Ex + CWI (86.6 ± 14.3%, P < 0.05), and Heat + CWI (88.7 ± 10.0%, P < 0.05). Decreases in M-wave peak-to-peak amplitude, 50-Hz torque, and postactivation potentiation were only evident following prolonged CWI (P < 0.05). These results highlight that peak power is more sensitive to reductions in intramuscular temperature than maximal isometric strength, reflecting a time- and temperature-dependent effect on skeletal muscle function.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41843413/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41843413",
+        "doi": "10.1249/MSS.0000000000003904",
+        "journal": "Medicine and science in sports and exercise",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.562Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7b727c9dcc6da32e7aad",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41855131",
+      "title": "Acute cocoa ingestion decreases spontaneous cardiac baroreflex sensitivity in healthy older adults.",
+      "doi": "10.1152/ajpregu.00203.2025",
+      "source_title": "Acute cocoa ingestion decreases spontaneous cardiac baroreflex sensitivity in healthy older adults.",
+      "abstract": "Prior reports suggested the beneficial effects of cocoa intake on cardiovascular system. However, the effects of cocoa on cardiac baroreflex sensitivity (CBRS) remain poorly understood. In this study, we hypothesized that cocoa ingestion would increase CBRS in a dose-dependent manner. Seventeen healthy older adults (61 ± 8 yr; 8 M, 9 F) participated in five trials using 250-mL drinks containing 0, 2, 5, 13, or 26 g of cocoa, whereas the drinks had a similar appearance and taste. The trials were conducted in a randomized, double-blind design, at the same time each morning, with at least 72 h between sessions. Two hours after ingesting the experimental drink, beat-by-beat heart rate (HR) and blood pressure (BP) were recorded in a supine position. Spontaneous CBRS was calculated from the beat-by-beat systolic BP and RR interval data using a sequence method. There were no significant differences in BP and HR after ingesting the drink across all visits (repeated-measures ANOVA; P > 0.05). Cocoa ingestion dose-dependently decreased CBRS (repeated-measures ANOVA, P = 0.009). CBRS was significantly lower following 26 g of cocoa compared with 0 g (12.1 ± 5.7 vs. 18.2 ± 7.7 ms/mmHg, post hoc test, P = 0.018). In addition, CBRS was significantly and negatively correlated with cocoa dose ( R = -0.35, P = 0.003). The data suggest that acute cocoa ingestion dose-dependently reduces CBRS in healthy older adults. As reduced CBRS may be associated with increased cardiovascular risks, this potential effect of cocoa warrants attention despite its known cardiovascular benefits. NEW & NOTEWORTHY Evidence suggests that regular consumption of cocoa products reduces the risk of cardiovascular disease. However, the present study demonstrates that acute cocoa ingestion decreases cardiac baroreflex sensitivity (CBRS) in a dose-dependent manner in healthy older adults. Because low CBRS may be associated with adverse cardiovascular events, the effects of cocoa on reducing CBRS warrant attention, particularly in individuals with compromised cardiovascular regulation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41855131/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41855131",
+        "doi": "10.1152/ajpregu.00203.2025",
+        "journal": "American journal of physiology. Regulatory, integrative and comparative physiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.563Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c64a37349abdbf0627fe",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "42468411",
+      "title": "Effects of group-based music therapy combined with speech therapy on language and social skills in preschool children with autism spectrum disorder: An exploratory randomized controlled trial.",
+      "doi": "10.1016/j.ridd.2026.105345",
+      "source_title": "Effects of group-based music therapy combined with speech therapy on language and social skills in preschool children with autism spectrum disorder: An exploratory randomized controlled trial.",
+      "abstract": "Autism spectrum disorder (ASD) is characterized by early difficulties in language and social communication. While speech therapy is a core early intervention, music therapy has been increasingly applied to support social-emotional development. However, evidence regarding the additive effects of group-based music therapy combined with speech therapy in preschool children with ASD remains limited. This exploratory randomized controlled trial enrolled (RCT) preschool children aged 3-5 years with ASD and language delay. Participants were randomly assigned to a Music Therapy group receiving group-based music therapy (60 min/week) plus individual speech therapy (30 min/week), or a Control group receiving speech therapy alone, for 8 weeks. The primary outcome was week 8 language performance assessed using the Preschool Language Scale (PLS). Secondary outcomes included autism-related characteristics, emotional and behavioral functioning, and parenting stress, assessed using the Checklist for Autism Spectrum Disorder-Chinese Version (CASD-C), Pervasive Developmental Problems scale of the Child Behavior Checklist for Ages 1½-5 (CBCL 1½-5 PDP), and Parenting Stress Index-Short Form (PSI-4-SF), respectively. The primary treatment effect was evaluated using a multiple imputation-based intention-to-treat (ITT) adjusted analysis accounting for sex and baseline outcome measures. Secondary outcome analyses were interpreted with Benjamini-Hochberg false discovery rate correction for multiple comparisons. Exploratory within-group analyses and generalized estimating equation (GEE) models were used to characterize observed changes over time. Forty participants were randomized, and 38 participants completed the week 8 assessment. The ITT analysis included all randomized participants. Observed PLS total scores increased significantly within both groups. Exploratory within-group analyses also showed reductions in CASD-C social interaction issues and emotional difficulties in the Music Therapy group, and CBCL 1½-5 PDP T-scores decreased within both groups. However, the primary adjusted ITT analysis did not demonstrate statistically significant superiority of adjunctive group-based music therapy over speech therapy alone for the primary language outcome (adjusted between-group difference, -1.65; 95% confidence interval, -7.52-4.21; p = 0.569). No statistically significant adjusted between-group differences were observed for secondary outcomes. Exploratory GEE analyses indicated time-related changes in PLS total score, CASD-C sensory difficulties, and CBCL 1½-5 PDP T-score, but no significant group-by-time interactions. In this exploratory RCT, group-based music therapy was feasible to integrate with speech therapy and was not associated with intervention-related adverse events. Although language performance and selected autism-related behavioral features showed improvements over time, adjunctive group-based music therapy did not demonstrate statistically significant superiority over speech therapy alone. Larger adequately powered trials are needed to evaluate its incremental benefit.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42468411/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42468411",
+        "doi": "10.1016/j.ridd.2026.105345",
+        "journal": "Research in developmental disabilities",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.563Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2b5f19b40fe2f59016bc",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "42693775",
+      "title": "Effects of ceiling fan use on cardiovascular autonomic function during simulated indoor overheating in bed-resting older adults.",
+      "doi": "10.1113/EP094066",
+      "source_title": "Effects of ceiling fan use on cardiovascular autonomic function during simulated indoor overheating in bed-resting older adults.",
+      "abstract": "Older adults are at heightened susceptibility to heat-related cardiovascular complications when exposed to indoor overheating. While ceiling fans are recommended as an accessible cooling intervention, their effects on cardiac autonomic regulation remain unclear. In this randomized crossover study, 20 healthy older adults (median age 71 years, 12 female) completed two 8-h exposures to simulated indoor overheating (31°C, 45% relative humidity) while bed-resting with either no fan (control) or ceiling fan use (∼1.5 m/s airflow). Core temperature and heart rate were monitored. Before exposure and between hours 6 and 7, participants underwent cardiac autonomic response testing including measures of heart rate variability (SDNN, RMSSD - indices of overall and parasympathetic/vagal cardiac autonomic modulation, respectively) and supine-to-standing tests (30:15 ratio, systolic blood pressure response) as well as self-reported symptoms of orthostatic intolerance. Ceiling fan use reduced peak core temperature (0.2°C [95% CI: 0.1-0.3]; P < 0.001), heart rate (-5 beats/min [-10 to 0]; P = 0.03), and attenuated heat-induced reductions in RMSSD (4.7 ms [0.2-9.2]; P = 0.04) compared to control. However, fan use did not influence SDNN, blood pressure during postural changes, cardiac response to standing, or symptoms of orthostatic intolerance. While ceiling fans provided modest reductions in core temperature and heart rate and partially preserved RMSSD, they offered limited overall cardiovascular and autonomic protection in older adults during prolonged heat exposure. These findings indicate that, despite some beneficial effects, ceiling fans provide limited cardiovascular autonomic protection, underscoring the need for comprehensive cooling strategies to safeguard older adults during indoor overheating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42693775/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42693775",
+        "doi": "10.1113/EP094066",
+        "journal": "Experimental physiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.564Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c989ef7c41ada6771c9e",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "40614481",
+      "title": "Acute effects of cocoa flavanols on cognitive control and response inhibition.",
+      "doi": "10.1016/j.nut.2025.112860",
+      "source_title": "Acute effects of cocoa flavanols on cognitive control and response inhibition.",
+      "abstract": "In this pre-registered study, we investigated the effects of acute cocoa flavanol (CF) consumption on cognitive control and response inhibition processes, at two different dosage levels. This crossover study was randomized, placebo-controlled, gender-balanced, and double-blind, and included 36 healthy adult participants. Participants consumed three different drinks across separate sessions: a placebo drink containing alkalized cocoa powder, a low-dose drink with 415 mg CF, and a medium-dose drink with 623 mg CF, both derived from flavanol-rich cocoa powder. Following each treatment, participants completed the Flanker, Simon, and Go/No-go tasks in a counterbalanced order. We analyzed accuracy and response times for congruent and incongruent trials in the Simon and Flanker tasks, and commission errors, omission errors, and response times in the Go/No-go task. The acute effects of CF on cognitive control and response inhibition were examined using (Generalized) Linear Mixed Model analysis, which included random intercepts, fixed effects, and random slopes. Results revealed that neither dose of CF acutely improved accuracy, interference scores, errors, or response times in these three tasks. Furthermore, neither participant gender nor BMI predicted performance in cognitive control or response inhibition beyond the effects of the treatment conditions. Taken together, these findings suggest that acute cocoa flavanol consumption has no significant effect on cognitive control or response inhibition in healthy young adults.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40614481/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40614481",
+        "doi": "10.1016/j.nut.2025.112860",
+        "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T06:32:18.564Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e599ec2f6efb87884de4",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "40736650",
+      "title": "Pilot pragmatic clinical trial of iron therapy in children with anemia of chronic kidney disease (FeTCh-CKD).",
+      "doi": "10.1007/s00467-025-06903-1",
+      "source_title": "Pilot pragmatic clinical trial of iron therapy in children with anemia of chronic kidney disease (FeTCh-CKD).",
+      "abstract": "KDIGO 2012 anemia guidelines recommend oral iron as initial anemia therapy in children with pre-dialysis chronic kidney disease (CKD) when transferrin saturation (TSAT) < 20% and ferritin < 100 ng/mL, while also warning against over-prescribing iron. In this trial, we hypothesized that postponement of iron therapy for 12 weeks after these KDIGO criteria are met does not compromise the wellbeing of children with CKD with mild anemia. Children with CKD II-IV, anemia, and iron deficiency as defined by KDIGO were rand.omized to iron sulfate therapy (n = 10) vs. no iron therapy (n = 11). Physical activity (assessed by PROMIS) was the primary outcome. Secondary outcomes included fatigue, grip strength, muscle mass, eating behavior, and hematologic parameters. At randomization, both groups had similar CKD severity, hemoglobin, iron, BMI, physical activity, muscle mass, grip strength, and eating behavior. After iron therapy, hemoglobin increased by 0.4 g/dL in the treated group and decreased by 0.1 g/dL in the non-treated group. In the treatment group, serum iron improved by 19.8 μg/dL, and TSAT improved by 7.1%. Differences in iron parameters between or within the groups did not reach statistical significance. Consistent with our hypothesis, there were no statistically significant differences in physical activity, fatigue, grip strength, muscle mass, or enjoyment of food between the groups after iron therapy. In this pilot trial, postponing iron therapy for 12 weeks did not compromise physical activity, muscle mass, muscle strength, or eating behavior in children with mild anemia of CKD compared to the KDIGO-recommended timing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40736650/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Pragmatic Clinical Trial; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Pragmatic Clinical Trial",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40736650",
+        "doi": "10.1007/s00467-025-06903-1",
+        "journal": "Pediatric nephrology (Berlin, Germany)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T06:32:18.565Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6442df40a7ac7862fc42",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41118254",
+      "title": "Effects of iron repletion on brain iron content, myelination, neural network activation, and cognition.",
+      "doi": "10.1172/jci.insight.194442",
+      "source_title": "Effects of iron repletion on brain iron content, myelination, neural network activation, and cognition.",
+      "abstract": "BACKGROUNDBlood donation increases the risk of iron deficiency, but its effect on brain iron, myelination, and neurocognition remains unclear.METHODSThis ancillary study enrolled 67 iron-deficient blood donors, 19-73 years of age, participating in a double-blind, randomized trial. After donating blood, positive and negative susceptibility were measured using quantitative susceptibility mapping (QSM) MRI to estimate brain iron and myelin levels, respectively. Furthermore, neurocognitive function was evaluated using the NIH Toolbox, and neural network activation patterns were assessed during neurocognitive tasks using functional MRI (fMRI). Donors were randomized to i.v. iron repletion (1 g iron) or placebo, and outcome measures repeated approximately 4 months later.RESULTSIron repletion corrected systemic iron deficiency and led to trends toward increased whole brain iron (P = 0.04) and myelination (P = 0.02), with no change in the placebo group. Although overall cognitive performance did not differ significantly between groups, iron-treated participants showed improved engagement of functional neural networks (e.g., memory pattern activation during speed tasks, P < 0.001). Brain region-specific changes in iron and myelin correlated with cognitive performance: iron in the putamen correlated with working memory scores (P < 0.01), and thalamic myelination correlated with attention and inhibitory control (P < 0.01).CONCLUSIONIron repletion in iron-deficient blood donors may influence brain iron, myelination, and function, with region-specific changes in iron and myelination linked to distinct cognitive domains.REGISTRATIONClinicalTrials.gov NCT02990559FUNDINGThis work was funded by the NIH.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41118254/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41118254",
+        "doi": "10.1172/jci.insight.194442",
+        "journal": "JCI insight",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T06:32:18.566Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "060f12a1ec713da6ce3a",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41182019",
+      "title": "Cognitive Function Among Heart Transplant Recipients Before and After Intravenous Iron Supplement for Iron Deficiency: Results From a Randomized, Placebo-Controlled, Double-Blind Treatment Trial.",
+      "doi": "10.1111/ctr.70370",
+      "source_title": "Cognitive Function Among Heart Transplant Recipients Before and After Intravenous Iron Supplement for Iron Deficiency: Results From a Randomized, Placebo-Controlled, Double-Blind Treatment Trial.",
+      "abstract": "Cognitive dysfunction after successful heart transplantation (HTx) is not uncommon. Lower hemoglobin levels have previously been associated with cognitive dysfunction in heart transplant recipients (HTx recipients). In a randomized, placebo-controlled, double-blind treatment trial, we assessed as a pre-specified secondary outcome whether a single intravenous iron supplement for iron deficiency in HTx recipients resulted in changes in cognitive function after 6 months. In the \"Intravenous Iron Supplement for Iron Deficiency in Cardiac Transplant Recipients\" (IronIC) trial, we assessed cognitive function at baseline and at 6-month follow-up with the following tests of the Cambridge Neuropsychological Test Automated Battery: Reaction Time, Paired Associates Learning, and Spatial Working Memory. Of 94 participants with cognitive data at baseline and follow-up, 49 were randomized to the single intravenous iron supplement, while 45 received placebo. Raw score changes from baseline to follow-up did not differ statistically significantly between study groups (two measures of each test analyzed). In the total sample, 27%-44% of participants performed at baseline at least one standard deviation below the normative mean on measures of memory and working memory/executive functions. Exploratory analyses indicated that performance on measures of memory might decrease more than expected with increasing age. A single intravenous iron supplement for iron deficiency in HTx recipients did not result in statistically significant cognitive changes after 6 months. The group as a whole performed approximately half a standard deviation below the normative mean on measures of memory and working memory/executive functions. Regular cognitive screening after HTx is recommended. Trial Registration: ClinicalTrials.gov identifier: NCT03662789.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41182019/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial, Phase II",
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41182019",
+        "doi": "10.1111/ctr.70370",
+        "journal": "Clinical transplantation",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T06:32:18.566Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cd88f02678e9d263badd",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41870419",
+      "title": "Effects of Exercise and Intensive Vascular Risk Reduction on Cognitive Function in Older Adults: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamaneurol.2026.0359",
+      "source_title": "Effects of Exercise and Intensive Vascular Risk Reduction on Cognitive Function in Older Adults: A Randomized Clinical Trial.",
+      "abstract": "Physical inactivity, hypertension, and hyperlipidemia are modifiable cardiovascular risk factors for age-related cognitive decline and dementia. It remains unknown whether exercise training combined with intensive pharmacological reduction of cardiovascular risk factors (IRVR) would have greater benefits on cognitive function than those of exercise or IRVR alone. To determine the effects of exercise, IRVR, and exercise combined with IRVR on cognitive function in older adults. This single-blind, multicenter randomized clinical trial with a 2 × 2 factorial design and duration of 24 months was conducted at 4 clinical sites in the US. Enrollment began on February 2, 2017; the final study visit was on January 31, 2022. After screening, older adults without dementia and with hypertension, family history of dementia, and/or self-reported subjective cognitive decline were randomized. Data were analyzed from December 2022 through October 2024. Participants were randomized with a 1:1:1:1 ratio to aerobic exercise training, IRVR (lowering of systolic blood pressure to <130 mm Hg and serum low-density lipoprotein cholesterol with atorvastatin), IRVR + exercise, and usual care. The primary outcome was change in global cognitive function at 24 months from baseline, assessed with the Preclinical Alzheimer Cognitive Composite (PACC) score. Secondary outcomes were changes in the National Institutes of Health Toolbox Cognition Battery (NIHTB-CB) fluid composite score and individual test scores. A total of 3290 individuals were screened, and 513 older adults (aged 60-85 years) without dementia and with hypertension, family history of dementia, and/or self-reported subjective cognitive decline were randomized. Among 513 randomized participants (mean [SD] age, 68.7 [6.0] years; 323 female participants [63.0%]), 443 completed 24-month visits, and 480 were included in the primary data analysis. For the primary outcome, there were no statistically significant interactions between intervention groups and time of visits (P = .13). At 24 months, PACC scores increased by 0.2 units in the no-exercise group (95% CI, 0.1-0.3) and by 0.3 units in the exercise group (95% CI, 0.2-0.4), with no significant group differences (0.1 units; 95% CI, -0.1 to 0.2; P = .37). PACC scores also increased by 0.3 units in the no-IRVR group (95% CI, 0.2-0.4) and by 0.2 units in the IRVR group (95% CI, 0.1-0.3), with no significant group differences (0.1 units; 95% CI, -0.3 to 0.03; P = .12). Increases in the NIHTB-CB composite score and individual test scores with exercise or IRVR showed similar results. In this multicenter randomized clinical trial among older adults with family history of dementia and/or self-reported subjective cognitive decline, exercise, IRVR, or both did not result in statistically significant differences in improvements in cognitive function over 24 months. ClinicalTrials.gov Identifier: NCT02913664.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41870419/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41870419",
+        "doi": "10.1001/jamaneurol.2026.0359",
+        "journal": "JAMA neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.567Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e43f63f6bba4342c95f1",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41875642",
+      "title": "Acute effect of moderate-intensity aerobic exercise on state anxiety and anger symptoms evoked by aversive stimuli in young women: A randomized clinical trial.",
+      "doi": "10.1016/j.actpsy.2026.106714",
+      "source_title": "Acute effect of moderate-intensity aerobic exercise on state anxiety and anger symptoms evoked by aversive stimuli in young women: A randomized clinical trial.",
+      "abstract": "Aerobic exercise is widely recognized for its acute anxiolytic and mood-regulating effects, typically demonstrated in neutral emotional contexts. However, it remains unclear whether such effects are preserved when exercise is performed concurrently with emotionally aversive stimuli, a situation that more closely mirrors real-world stress conditions. To examine whether a single session of moderate-intensity continuous aerobic exercise, performed simultaneously with exposure to aversive images, could mitigate acute symptoms of state anxiety and anger in young adult women. In a randomized controlled design, 52 healthy women (18-40 years) attended two laboratory visits. The first visit included informed consent, health screening, anthropometric assessments, and a graded exercise test. In the second visit, participants were randomized to four groups: Neutral Control, Aversive Control, Neutral Exercise, and Aversive Exercise. During a 30-minute intervention (cycling at 64-76% maximal heart rate or quiet sitting), participants viewed neutral or aversive images from the International Affective Picture System. State anxiety and state anger were measured at baseline, immediately post-session, and at 10- and 20-minute follow-ups. A significant main effect of time was observed for both anxiety and anger (p < 0.05). For anxiety, symptoms increased immediately post-session but returned to baseline, with no main effect of group (p > 0.05) and no significant time × group interaction (p > 0.05). For anger, there was a main effect of time (p < 0.05) and a significant time × group interaction (p = 0.028), driven by an increase in anger in the Aversive Exercise group immediately post-session (p = 0.0001). No significant effects were detected under neutral conditions. Concurrent exposure to emotionally aversive stimuli during moderate-intensity aerobic exercise does not reduce acute anxiety or anger in young women and may amplify anger responses. Emotional context may override the affective benefits typically associated with aerobic exercise.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41875642/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41875642",
+        "doi": "10.1016/j.actpsy.2026.106714",
+        "journal": "Acta psychologica",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.568Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8a08f4942f5fdf43b36b",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "41999682",
+      "title": "Effects of one avocado a day for six months on cognitive performance in overweight adults: A randomized controlled trial.",
+      "doi": "10.1016/j.jnha.2026.100847",
+      "source_title": "Effects of one avocado a day for six months on cognitive performance in overweight adults: A randomized controlled trial.",
+      "abstract": "With the rising incidence of neurodegenerative diseases and aging of the global population, it is important to investigate foods that may preserve cognitive function with advancing years. Avocados are rich in fiber, carotenoids, antioxidants, polyphenols and monounsaturated fat, all of which have been associated with improved cognition. To determine if consuming one avocado per day for 6 months has cognitive benefits in adults with central obesity, addressing cognitive health early in the aging trajectory. This was an ancillary study of the multicenter Habitual Diet and Avocado Trial (HAT), which investigated the effect of avocado consumption on visceral adiposity. The effect of avocado consumption on cognition was assessed in participants at the Loma Linda University center. Participants with elevated waist circumference (n = 251) were randomly assigned to consume 1 avocado per day (AVO), or to avoid consuming avocados (CON) for 6 months without additional dietary guidance. Cognitive function (memory, processing speed, executive function, simple reaction time, and working memory reaction time) was measured at baseline and end of the intervention period. A series of mixed analyses of covariance was conducted to assess changes in the five cognitive scores over the 6-month intervention, group differences (AVO vs. CON), and modification of intervention effects by age. A total of 241 participants (69.7% female, 53.1% white, mean BMI = 33.4 ± 5.7) between the ages of 25-84 years (mean age = 49.6 ± 13.3 years) completed the trial. Working memory reaction time improved for all participants at the end of the 6-month intervention, but no significant group by time interactions were found between the AVO and CON groups in any of the cognitive domains. There were no significant two-way interactions with age by time or intervention group, and the three-way interaction was also non-significant. The consumption of one avocado per day without any additional lifestyle modifications for six months did not significantly alter cognitive function in adults with central obesity across all age groups. Additional work is needed to determine whether avocados, as part of dietary strategies initiated in midlife, contribute to healthy cognitive aging, particularly in normal weight and metabolically vulnerable populations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41999682/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41999682",
+        "doi": "10.1016/j.jnha.2026.100847",
+        "journal": "The journal of nutrition, health & aging",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.569Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "515c4c702fac5d0e7093",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "42030202",
+      "title": "High-altitude exercise performance and acute mountain sickness unchanged following cold water habituation.",
+      "doi": "10.1152/ajpregu.00149.2025",
+      "source_title": "High-altitude exercise performance and acute mountain sickness unchanged following cold water habituation.",
+      "abstract": "Cross stress adaptation (CA) refers to the induction of physiological adaptation to one stimulus, such as cold water, to adaptively influence the physiological response to another novel stimulus, such as hypoxia. This study sought to determine if cold-hypoxia CA, induced by repeat cold-water immersion (CWI) and compared with a thermoneutral water (TN) control, could reduce resting and submaximal exercise physiologic strain, improve exercise performance, and decrease the incidence and severity of acute mountain sickness (AMS) symptoms during a 29 h exposure to hypobaric hypoxia (∼4,100 m). Cold ventilatory habituation was achieved, evidenced by an ∼20% reduction in peak minute ventilation (V̇e) and ∼31% reduction in 10 min average V̇e with six, 10-min 12°C water immersions. At 3 h of hypobaric hypoxia, an exercise bout at 50% peak oxygen uptake (V̇o 2peak ) elicited greater ventilation (+3.8 [0.8-6.7] L·min -1 , P = 0.014) with no concomitant improvement of [Formula: see text] (TN: 76 ± 4 vs. CWI: 76 ± 4%, P > 0.05) following CWI. Exercise heart rate was also elevated following CWI compared with TN, irrespective of altitude exposure duration (+5 [1-8] beats·min -1 , P = 0.030). Two-mile time trial performance and AMS symptomology both were unchanged by repeated CWI compared with TN. Habituation to repeated cold-water immersion does not advantageously cross adapt those subsequently exposed to hypobaric hypoxia. Instead, CWI heightened early altitude ventilatory and cardiovascular strain during submaximal exercise. NEW & NOTEWORTHY Existing literature suggests cold habituation is capable of cross-adapting submaximal exercise ventilatory, cardiac, and catecholamine responses with normobaric hypoxia. No data exists investigating cold-to-altitude cross adaptation within real-world applicable conditions of hypobaric hypoxia. This investigation suggests that habituation to repeated cold-water immersion does not advantageously cross adapt those subsequently exposed to hypobaric hypoxia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42030202/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42030202",
+        "doi": "10.1152/ajpregu.00149.2025",
+        "journal": "American journal of physiology. Regulatory, integrative and comparative physiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.569Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f137be7c4e85d27677e3",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "42134099",
+      "title": "Effects of (poly)phenol-rich cranberry on mental health in university students: The CRANMOOD randomised controlled trial.",
+      "doi": "10.1016/j.clnu.2026.106677",
+      "source_title": "Effects of (poly)phenol-rich cranberry on mental health in university students: The CRANMOOD randomised controlled trial.",
+      "abstract": "Increasing evidence indicate that (poly)phenol-rich foods can have beneficial effects on human brain function. This study investigated whether daily (poly)phenol-rich cranberry supplementation for 12 weeks influences mental health outcomes in university students. A parallel double-blind randomised controlled trial was conducted in 72 young healthy final year university students (20-25 years old). Participants consumed either a (poly)phenol-rich cranberry drink or a placebo drink daily for 12 weeks. The primary outcome was mood, assessed as Total Mood Disturbance (TMD), using the Profile of Mood States questionnaire. Secondary outcomes included stress, anxiety and depression levels, measured using the Perceived Stress Scale (PSS) and the Hospital Anxiety Depression Scale (HADS) questionnaires, cognitive function, measured using the Online General Cognitive Assessment Battery (CogniFit), and salivary cortisol levels. Blood and urine samples were collected to measure cranberry (poly)phenol metabolites. Dietary intake was assessed via food frequency questionnaires (FFQ), 7-day food diaries (EPIC, European Prospective Investigation into Cancer and Nutrition), and 24-h online dietary recalls (intake 24). Data was analysed using linear mixed-effects models using baseline as covariate. No significant differences were observed between groups for the primary outcome, self-reported mood (Total Mood Disturbance), or for secondary self-reported measures of stress, anxiety, or depression. In exploratory secondary analyses, 12 weeks of (poly)phenol-rich cranberry drink consumption significantly reduced diurnal area under the curve of salivary cortisol (p = 0.010) and significantly improved both short-term memory (p = 0.024) and phonological short-term memory (p = 0.014) compared to placebo. Additionally, plasma and urinary cranberry (poly)phenol metabolites were significantly modulated by cranberry consumption. While (poly)phenol-rich cranberry supplementation did not improve self-reported mood, stress, anxiety, or depression in healthy students, it influenced cortisol levels and some aspects of cognitive function, suggesting potential benefits for stress regulation and memory. The National Institutes of Health (NIH)-randomized trial records held on the NIH ClinicalTrials.gov website (NCT05260346).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42134099/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42134099",
+        "doi": "10.1016/j.clnu.2026.106677",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.570Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "60c1bb73401b3e00aa29",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
+    },
+    {
+      "pmid": "42385999",
+      "title": "Comparison of slow-paced breathing interventions with and without an inhalation-hold on physiological outcomes: A randomized cross-over pilot study.",
+      "doi": "10.1016/j.ijpsycho.2026.113437",
+      "source_title": "Comparison of slow-paced breathing interventions with and without an inhalation-hold on physiological outcomes: A randomized cross-over pilot study.",
+      "abstract": "Slow-paced breathing (SPB) interventions have shown promise for modulating physiological regulation and enhancing cognitive performance. However, few studies have empirically examined how specific components of the breathing structure, particularly inhalation-holds during SPB, influence autonomic and endocrine responses. Thus, the present pilot study sought to address this gap by comparing the physiological and psychological outcomes of SPB with and without a 4-s post-inhalation breath hold using a within-subjects design. Participants (n = 32; 37% female) completed two SPB conditions in a randomized order: a prolonged-exhalation pattern (4-6) without a breath hold and a matched pattern with an inhalation-hold (4-4-6). Measures of hypothalamic-pituitary-adrenal (HPA) axis activity (salivary cortisol), cardiac autonomic regulation (RMSSD), sympathetic activation (skin conductance), and self-reported stress, arousal, and mood were collected. Results indicated that the inhalation-hold condition produced significantly greater decreases in cortisol and RMSSD than the no-hold SPB condition, although supplementary HF power analyses did not replicate the RMSSD interaction effect. Measures of tonic skin conductance increased over time in both conditions, and no differences between conditions were observed. Neither breathing pattern significantly impacted self-reported stress, arousal, or mood. These findings suggest that a four-second inhalation-hold can modulate HPA activity during SPB with a prolonged exhalation, but the respiratory mechanics of the hold may alter short-term respiratory-cardiac dynamics reflected in RMSSD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42385999/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified candidate selected for contradiction, replication, uncertainty, or emerging-evidence relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42385999",
+        "doi": "10.1016/j.ijpsycho.2026.113437",
+        "journal": "International journal of psychophysiology : official journal of the International Organization of Psychophysiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T06:32:18.570Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "de40a30c20466b7aff7d",
+      "reserved_at": "2026-10-09T06:32:28.479Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261009-0226"
     }
   ],
   "batches": [
@@ -21637,22 +23579,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 267,
+    "total_reservations": 292,
     "by_lane": {
       "1": 5,
       "2": 19,
       "3": 60,
       "4": 33,
-      "5": 150
+      "5": 175
     },
     "by_state": {
-      "SOURCE_VERIFIED": 267
+      "SOURCE_VERIFIED": 292
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 267,
+        "count": 292,
         "pr_number": null,
         "blocker": null
       }
