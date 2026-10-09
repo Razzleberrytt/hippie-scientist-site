@@ -83,14 +83,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6500 / PR #6505 | Explain evidence-grade scope and public count denominators | A | Active — admitted | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Current admission (verified 2026-10-09, #6503):** Normal implementation WIP is **1/3**: A #6500 accepted as scoped source-presentation work. D/R lanes free. D issue #6491 / PR #6492 CLOSED/MERGED, Cloudflare deployment run 37935390084 SUCCESS. D/R free. #6500 is admitted by a distinct scored exact-base transaction; no clinical/publication authority conferred. Scientific and analytics results unchanged/Unknown; reconstructed 25/150 remains distinct from unmapped historical 10/150.
+**Current ownership (verified 2026-10-09, retirement control #6526):** Authority/Content #6500 closed and PR #6505 merged (`fec4d381a80a57036c50cb2d14aa31d3f26a1e7f`); its stale active row is retired. Implementation WIP is now 0/3. Existing open #6259 / draft #6260 is NOT admitted by this retirement; a separate authenticated existing-owner reconciliation must precede any scientific publication. Business outcomes remain Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
