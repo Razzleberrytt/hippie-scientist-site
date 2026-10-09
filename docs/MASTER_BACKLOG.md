@@ -75,11 +75,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6461 | P0.1 evidence-linked inventory and exact-CI throughput baseline | D | Active — admitted | P0 | 4/4/3/5/1.00/3 | 80.0 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6461 (P0.1 evidence-linked inventory/CI timing baseline) after #6447 / PR #6460 merged and Cloudflare confirmed production receipt for `0d7635a6918ccacc391f5ead8832ffbc6de86368`. Revenue/Conversion and Authority/Content remain free. WIP cap unchanged; live bot recovery throughput/ROI and production engagement remain **Unknown**.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3** after closing deployed #6447 / PR #6460; Discovery/SEO, Revenue/Conversion and Authority/Content have no newly admitted normal ticket. Cloudflare run `37869304990` verified production receipt for `0d7635a6918ccacc391f5ead8832ffbc6de86368`. Candidate #6461 is **ready-next only**, pending a separate fresh exact-base admission; bot recovery gains and revenue impact remain **Unknown**.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
