@@ -83,13 +83,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6149 | Capture consented social attribution before remote analytics transport check | R | Active — admitted | P1 | 4/4/3/5/1.00/1 | 240.0 | 2026-10-09 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Current ownership (2026-10-09, completion retirement #6535):** #6259 CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9b27fe8442ed5`; stale A row removed. WIP **0/3**, D/R/A free pending separate scored admissions. No public clinical/SEO changes are made by this control repair; revenue/production outcomes Unknown.
+**Current admission (verified 2026-10-09, #6149):** The R lane owns one bounded, scored consented social-attribution ordering fix (#6149), WIP **1/3**, D/A free. The exact-base admission is independent of completed A #6259/PR #6260. This fixes only eligibility to implement; analytics provider setup, measured conversion and production receipt remain Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
