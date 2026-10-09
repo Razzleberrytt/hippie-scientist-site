@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6451,
+  "ticket": 6447,
   "lane": "D",
-  "title": "Treat unresolved-review merge 405 as a PR-local governance hold",
+  "title": "Reuse CI producer for governed zero-job recovery fan-out",
   "priority": "P0",
-  "base_revision": "c71a60cdf2511e6a777659568beeeed3a2e51e51",
-  "last_verified": "2026-10-08",
+  "base_revision": "208b13b35800fac3d4472ff0c8a4e7b0dd150b49",
+  "last_verified": "2026-10-09",
   "score_inputs": {
-    "businessImpact": 4,
+    "businessImpact": 5,
     "userValue": 4,
-    "trafficPotential": 2,
+    "trafficPotential": 3,
     "strategicLeverage": 5,
-    "confidence": 1,
-    "effort": 2
+    "confidence": 0.75,
+    "effort": 3
   },
-  "score": 80,
-  "note": "Exact-base admission only for bounded PR-local unresolved-review 405 controller reliability incident; source register #6452 verified deployed. Does not bypass review, exact-head merge validation, CI or grant another normal workstream."
+  "score": 75,
+  "note": "Bounded single D-lane admission for existing #6447, after #6451 retirement and exact-base production proof. Reuse existing CI producer, never reduce exact-head source/artifact/release gates."
 }

@@ -75,10 +75,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6447 | Reuse CI producer for governed zero-job recovery fan-out | D | Active — admitted | P0 | 5/4/3/5/0.75/3 | 75.0 | 2026-10-09 |
 
 
 
-**Current admission (verified 2026-10-09):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; no ticket is newly admitted by vacancy. #6451 / PR #6455 are merged and closed, with Cloudflare origin receipt verified; a real unresolved-review 405 runtime canary remains **Unknown**.
+**Current admission (verified 2026-10-09):** Normal implementation WIP is **1/3**: Discovery/SEO owns #6447, scored and admitted against exact main after retirement of #6451; Revenue/Conversion and Authority/Content are free. WIP cap remains 3. No CI speedup, runtime recovery canary, or business outcome is proven by admission.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
