@@ -1,19 +1,19 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "2d52b9fec58aca5d99cc6eedc33a4f859520e67f",
+  "base_revision": "d5c1269e237181eed5550c2a1668776bb7634de3",
   "last_verified": "2026-10-09",
-  "ticket": 6500,
+  "ticket": 6259,
   "lane": "A",
-  "title": "Explain evidence-grade scope and public count denominators",
-  "priority": "P0",
+  "title": "Publish gabapentinoid withdrawal and recovery Masterclass flagship",
+  "priority": "P1",
   "score_inputs": {
-    "businessImpact": 4,
-    "userValue": 5,
-    "trafficPotential": 4,
+    "businessImpact": 3,
+    "userValue": 4,
+    "trafficPotential": 3,
     "strategicLeverage": 4,
     "confidence": 0.75,
-    "effort": 3
+    "effort": 4
   },
-  "score": 80
+  "score": 27
 }
