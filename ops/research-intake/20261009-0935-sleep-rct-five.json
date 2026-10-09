@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "21199787",
+    "30450627",
+    "21775910",
+    "26133206",
+    "40378898"
+  ],
+  "relevance_reason": "Five primary randomized human trials relevant to sleep or anxiety, with null, mixed and positive findings; clinical interpretation pending independent review."
+}
