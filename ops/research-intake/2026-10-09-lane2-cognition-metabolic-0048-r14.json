@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "42433278",
+    "41545587",
+    "42264275",
+    "41532329"
+  ],
+  "relevance_reason": "Primary PubMed-checked human randomized studies of glycaemic control, ADHD attention, spatial cognition and exercise-related insulin sensitivity; preserve null endpoints, safety and population limitations for independent review."
+}
