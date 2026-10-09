@@ -38616,6 +38616,387 @@
       "reservation_id": "01a23f4cf8499ab4c3c2",
       "reserved_at": "2026-10-09T17:53:00.587Z",
       "source_branch": "research/intake/2/20261009-1350-cognition-metabolic-2-r27"
+    },
+    {
+      "pmid": "41243788",
+      "title": "In Vitro Inhibitory Effect of Isorhapontigenin on Cytochrome P450 Enzymes (CYP3A4, 2C9, and 2D6) and Its Characteristics.",
+      "doi": "10.1002/jbt.70581",
+      "source_title": "In Vitro Inhibitory Effect of Isorhapontigenin on Cytochrome P450 Enzymes (CYP3A4, 2C9, and 2D6) and Its Characteristics.",
+      "abstract": "Isorhapontigenin is a polyphenol that is predominantly found in Gnetum cleistostachyum. It has been demonstrated to possess pharmacological effects, including anticancer and anti-inflammatory properties. The objective was to examine the impact of isorhapontigenin on cytochrome P450 (CYP450) enzymes, thereby establishing a theoretical foundation for drug-drug interactions and clinical prescriptions. The impact of isorhapontigenin (0, 2.5, 5, 10, 25, 50, and 100 µM) on CYP450 enzyme activity was investigated utilizing pooled human liver microsomes (HLMs). The activities of different CYP450 isozymes were assessed using the corresponding substrate and probe reactions with negative and positive controls (inhibitors). The inhibitory characteristics of isorhapontigenin on CYP450 isozymes were evaluated, and kinetic parameters were obtained via Lineweaver-Burk plots. Furthermore, the time-dependent inhibitory effect of isorhapontigenin on CYP3A4 was also analyzed. Isorhapontigenin exhibited inhibitory effects on the activities of CYP3A4, 2C9, and 2D6 in a concentration-dependent manner, with half-maximal inhibitory concentration (IC 50 ) values of 16.08, 14.31, and 21.06 µM, respectively. Isorhapontigenin inhibited CYP3A4 in a non-competitive manner (K i = 8.40 µM). It was also a time-based inhibitor of CYP3A4, exhibiting the K I and K inact values of 7.70 µM and 0.050 min -1 , respectively. The inhibition of CYP2C9 and 2D6 by isorhapontigenin was competitive, with K i values of 7.31 µM and 10.89 µM, respectively. The inhibitory effect of isorhapontigenin on CYP3A4, 2C9, and 2D6 activity was observed in vitro. These findings suggest that the inhibitory effect of isorhapontigenin on CYP450 enzymes may provide a theoretical basis for the co-administration and drug development of this compound.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41243788/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41243788",
+        "doi": "10.1002/jbt.70581",
+        "journal": "Journal of biochemical and molecular toxicology",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T18:03:56.405Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a8df7822e683e1c82f0d",
+      "reserved_at": "2026-10-09T18:04:00.469Z",
+      "source_branch": "research/intake/3/20261009-1401-kava-cyp-ces1-five"
+    },
+    {
+      "pmid": "41500152",
+      "title": "Inhibition of cytochrome P450 2B6 activity by dihydromethysticin: Structural and mechanistic insights.",
+      "doi": "10.1016/j.dmd.2025.100215",
+      "source_title": "Inhibition of cytochrome P450 2B6 activity by dihydromethysticin: Structural and mechanistic insights.",
+      "abstract": "(+)-Dihydromethysticin (DHM) is a major kavalactone isolated from kava plants. Previous studies have identified (+)-DHM as a CYP2B6 inhibitor, with intriguing structural specificity. It is the most potent CYP2B6 inhibitor identified to date, and CYP2B6 is the most sensitive of any CYP isoform to inhibition by DHM. This investigation evaluated the stereochemistry of DHM inhibition of CYP2B6 and the role of methylenedioxyphenyl group bioactivation in CYP2B6 inhibition, using expressed CYP2B6 and the probe substrates 7-ethoxy-4-trifluoromethyIcoumarin and S-ketamine. The unnatural enantiomer (-)-DHM and racemic (±)-DHM exhibited similar inhibitory activities. Both DHM enantiomers were noncompetitive inhibitors of CYP2B6, with Ki values of 0.2 μM. DHM analogs lacking a methylenedioxy group were devoid of inhibitory effects in both CYP2B6 metabolism assays. Difluoro substitution of the methylene hydrogens on DHM abolished DHM inhibitory activity, whereas dideuterio substitution had no effect on CYP2B6 inhibition. Both DHM enantiomers and the dideuterio analog, but not the difluorinated analog or methysticin, generated a difference spectrum consistent with a metabolite-inhibitor complex. Results suggest CYP2B6-catalyzed methylenedioxyphenyl bioactivation of DHM to a metabolite-inhibitor complex with subsequent enzyme inhibition. DHM may have potential clinical implications or application as a selective CYP2B6 index inhibitor probe. SIGNIFICANCE STATEMENT: Enantiomers of the kavalactone dihydromethysticin are among the most potent CYP2B6 inhibitors identified to date, undergo metabolite-inhibitor complex formation, and exhibit substrate-dependent competitive and noncompetitive inhibition, which may have potential clinical implications or application. Because there is presently no inhibitor of CYP2B6 recommended for in vitro studies and no strong index inhibitor available for CYP2B6 for clinical studies, due in part to specificity considerations, dihydromethysticin may be a candidate for this purpose.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41500152/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41500152",
+        "doi": "10.1016/j.dmd.2025.100215",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T18:03:56.405Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "942d6da2128557a9d1fc",
+      "reserved_at": "2026-10-09T18:04:00.469Z",
+      "source_branch": "research/intake/3/20261009-1401-kava-cyp-ces1-five"
+    },
+    {
+      "pmid": "39481475",
+      "title": "Kinetics of the inhibition of CYP3A4 and CYP2C19 activity by jabara juice and identification of the responsible inhibitory components.",
+      "doi": "10.1016/j.xphs.2024.10.037",
+      "source_title": "Kinetics of the inhibition of CYP3A4 and CYP2C19 activity by jabara juice and identification of the responsible inhibitory components.",
+      "abstract": "Some citrus fruits are known to cause clinically significant drug interactions by inhibiting intestinal cytochrome P450 (CYP) enzymes. This in vitro study aimed to investigate the kinetics of the inhibition of CYP3A4 and CYP2C19 by the juice of jabara, a Japanese citrus fruit that does not contain furanocoumarins such as 6',7'-dihydroxybergamottin, and to identify the inhibitory compound(s). CYP3A4 and CYP2C19 activity levels were determined in vitro using recombinant CYP preparations and their respective substrates. The ethyl acetate extract (EAE) of jabara juice was separated to isolate and identify the compound(s) that inhibited CYP3A4. Then, the time-dependent kinetics of the inhibition of CYP3A4 and CYP2C19 by the EAE and its inhibitory compound(s) were analyzed. The EAE of jabara juice was found to inhibit CYP3A4 in a time-dependent manner. Two flavonoids, 3,3',4',5,6,7,8-heptamethoxyflavone (HpMF) and 3,3',4',5,6,7-hexamethoxyflavone (HxMF), were identified as the responsible compounds. HpMF and HxMF inhibited CYP3A4 activity in a concentration- and time-dependent manner, with inhibition constants (K I ) of 10.0 and 7.90 µM and maximal inactivation rate constants (k inact,max ) of 0.00856 and 0.0134 min -1 , respectively. The EAE did not inhibit CYP2C19, even when preincubation was employed. These findings imply that jabara juice may cause food-drug interactions via time-dependent inhibition of intestinal CYP3A4.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39481475/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39481475",
+        "doi": "10.1016/j.xphs.2024.10.037",
+        "journal": "Journal of pharmaceutical sciences",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-09T18:03:56.406Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2a9f6a70fbaf6f171bf0",
+      "reserved_at": "2026-10-09T18:04:00.469Z",
+      "source_branch": "research/intake/3/20261009-1401-kava-cyp-ces1-five"
+    },
+    {
+      "pmid": "35278473",
+      "title": "In vitro inhibition of carboxylesterase 1 by Kava (Piper methysticum) Kavalactones.",
+      "doi": "10.1016/j.cbi.2022.109883",
+      "source_title": "In vitro inhibition of carboxylesterase 1 by Kava (Piper methysticum) Kavalactones.",
+      "abstract": "Kava refers to the extracts from the rhizome of the plant Piper methysticum which is of particular significance to various indigenous cultures in the South Pacific region. Kavalactones are the active constituents of kava products and are associated with sedative and anxiolytic effects. Kavalactones have been evaluated in vitro for their potential to alter the activity of various CYP450 enzymes but have undergone little systematic investigation as to their potential influence on esterases. This study investigated the inhibition effects of kava and its kavalactones on carboxylesterase 1 (CES1) in an in vitro system and established associated kinetic parameters. Kava and its kavalactones were found to produce reversible inhibition of CES1 to varying degrees. Kavain, dihydrokavain, and desmethoxyyangonin displayed competitive type inhibition, while methysticin, dihydromethysticin, and yangonin displayed a mixed competitive-noncompetitive type inhibition. The inhibition constants (K i ) values for each of the kavalactones were as follows: methysticin (35.2 μM), dihydromethysticin (68.2 μM), kavain (81.6 μM), dihydrokavain (105.3 μM), yangonin (24.9 μM), and desmethoxyyangonin (25.2 μM). With consideration to the in vitro K i for each evaluated kavalactone as well as available clinical kavalactone concentrations in blood circulation, co-administration of CES1 substrate medications and kava products at the recommended daily dose is generally free of drug interaction concerns. However, uncertainty around kavalactone exposure in humans has been noted and a clinically relevant CES1 inhibition by kavain, dihydrokavain, and dihydromethysticin is indeed possible if the kavalactone consumption is higher than 1000 mg in the context of over-the-counter usage. Further clinical studies would be required to assess the possibility of clinically significant kava drug-drug interactions with CES1 substrate medications.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35278473/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35278473",
+        "doi": "10.1016/j.cbi.2022.109883",
+        "journal": "Chemico-biological interactions",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-09T18:03:56.406Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e01e084ce28fbdf8798d",
+      "reserved_at": "2026-10-09T18:04:00.469Z",
+      "source_branch": "research/intake/3/20261009-1401-kava-cyp-ces1-five"
+    },
+    {
+      "pmid": "33802239",
+      "title": "Inhibitory Effects of Schisandra Lignans on Cytochrome P450s and Uridine 5'-Diphospho-Glucuronosyl Transferases in Human Liver Microsomes.",
+      "doi": "10.3390/pharmaceutics13030371",
+      "source_title": "Inhibitory Effects of Schisandra Lignans on Cytochrome P450s and Uridine 5'-Diphospho-Glucuronosyl Transferases in Human Liver Microsomes.",
+      "abstract": "Schisandra chinensis has been widely used as a traditional herbal medicine to treat chronic coughs, fatigue, night sweats, and insomnia. Numerous bioactive components including lignans have been identified in this plant. Lignans with a dibenzocyclooctadiene moiety have been known to possess anti-cancer, anti-inflammatory, and hepatoprotective activity. Fragmentary studies have reported the ability of some lignans to modulate some cytochrome P450 (P450) enzymes. Herein, we investigated the drug interaction potential of six dibenzocyclooctadiene lignans (schisandrin, gomisin A, B, C, and N, and wuweizisu C) on nine P450 enzymes (CYP1A2, 2A6, 2B6, 2C8, 2C9, 2C19, 2D6, 2E1, and 3A) and six uridine 5'-diphosphoglucuronosyl transferase (UGT) enzymes (UGT1A1, 1A3, 1A4, 1A6, 1A9, and 2B7) using human liver microsomes. We found that lignans with one or two methylenedioxyphenyl groups inhibited CYP2B6, CYP2C8, CYP2C9, CYP2C19, and CYP2E1 activities in a time- and concentration-dependent like their CYP3A inhibition. In comparison, these lignans do not induce time-dependent inhibition of CYP1A2, CYP2A6, and CYP2D6. The time-dependent inhibition of gomisin A against CYP2C8, CYP2C19, and CYP3A4 was also elucidated using glutathione as a trapping reagent of reactive carbene metabolites given that gomisin A strongly inhibits these P450 enzymes in a time-dependent manner. A glutathione conjugate of gomisin A was generated in reactions with human recombinant CYP2C8, CYP2C19, and CYP3A4. This suggests that the time-dependent inhibition of gomisin A against CYP2C8, CYP2C9, and CYP3A4 is due to the production of carbene reactive metabolite. Six of the lignans we tested inhibited the activities of six UGT to a limited extent (IC 50 > 15 μM). This information may aid the prediction of possible drug interactions between Schisandra lignans and any co-administered drugs which are mainly metabolized by P450s.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33802239/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "33802239",
+        "doi": "10.3390/pharmaceutics13030371",
+        "journal": "Pharmaceutics",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-09T18:03:56.407Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a276c9a4e2e0247f5f26",
+      "reserved_at": "2026-10-09T18:04:00.469Z",
+      "source_branch": "research/intake/3/20261009-1401-kava-cyp-ces1-five"
     }
   ],
   "batches": [
@@ -38629,22 +39010,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 487,
+    "total_reservations": 492,
     "by_lane": {
       "1": 13,
       "2": 87,
-      "3": 72,
+      "3": 77,
       "4": 40,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 487
+      "SOURCE_VERIFIED": 492
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 487,
+        "count": 492,
         "pr_number": null,
         "blocker": null
       }
