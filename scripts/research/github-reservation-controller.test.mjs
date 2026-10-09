@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {validateManifest,reconcileBaseline,decodeRegistryBlob} from './github-reservation-controller.mjs';
+import {validateManifest,reconcileBaseline,decodeRegistryBlob,readGithubContent} from './github-reservation-controller.mjs';
 
 const record=(pmid,domain)=>({
  pmid:String(pmid),title:'Study '+pmid,source_title:'Study '+pmid,
@@ -57,4 +57,17 @@ test('invalid, absent or empty registry blobs fail closed instead of becoming an
   await assert.rejects(decodeRegistryBlob(base,async()=>({encoding:'base64',content:Buffer.from('{').toString('base64')})),/registry JSON invalid/);
   await assert.rejects(decodeRegistryBlob(base,async()=>({encoding:'base64',content:Buffer.from('{}').toString('base64')})),/registry structure invalid/);
   await assert.rejects(decodeRegistryBlob({encoding:'none'},async()=>({encoding:'base64',content:'e30='})),/metadata missing SHA/);
+});
+
+test('oversized evidence part reads from immutable GitHub blob without losing PMID identity',async()=>{
+  const part={rows:[{pmid:'40698027',title:'Verified source identity',doi:'10.1234/example'}]};
+  const data=JSON.stringify(part);
+  const seen=[];
+  const decoded=await readGithubContent({sha:'verified-head-blob',encoding:'none',content:'',size:1900000},async sha=>{
+    seen.push(sha);
+    return {encoding:'base64',content:Buffer.from(data).toString('base64')};
+  });
+  assert.deepEqual(JSON.parse(decoded),part);
+  assert.deepEqual(seen,['verified-head-blob']);
+  await assert.rejects(readGithubContent({sha:'bad',encoding:'none',content:''},async()=>({encoding:'none',content:''})),/missing base64 content/);
 });
