@@ -123,3 +123,4 @@ export default async function HomepageV2() {
     </div>
   )
 }
+

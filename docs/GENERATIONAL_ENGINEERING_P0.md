@@ -4,6 +4,8 @@
 
 **Status:** Accepted operating direction; THIS DOCUMENT IS A PLAN, NOT DEPLOYMENT PROOF. Current GitHub PR/check state and authoritative sprint/admission records override a dated inventory snapshot.
 
+**Machine-readable companion:** [14-package dependency and acceptance manifest](GENERATIONAL_ENGINEERING_14_PACKAGES.json) — proposed, unadmitted packages with explicit Unknowns, dependency order and hard release gates. This is a supporting plan, not a second execution queue.
+
 ## 1. Objective and unit of optimization
 
 Develop a coherent generation of THS capabilities as one architectural program while **implementing and reviewing it through small scoped tickets**. Optimize for elapsed time to an evidence-safe, integrated, deployed, measurable capability—not number of feature proposals, PRs, citations, scheduled jobs, or unvalidated changes. Eliminate repeated architectural discovery and avoid duplicate expensive checks; never relax a required check simply because it is expensive.
