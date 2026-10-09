@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 2,
+  "lane_focus": "cognition-metabolic",
+  "research_only": true,
+  "pmids": [
+    "41523285",
+    "41673260",
+    "41524705",
+    "42437494",
+    "41825740",
+    "42145502",
+    "42459802"
+  ],
+  "relevance_reason": "Seven independently screened PubMed sources on cognition, executive function, ADHD, fiber, probiotics, polyphenols, resveratrol and glycemic health; retain null results, study-design limitations, safety uncertainty and research-only status pending independent scientific review."
+}
