@@ -1,14 +1,19 @@
 {
   "version": 1,
-  "mode": "existing-owner-reconciliation",
-  "base_revision": "ce048b9fbdfd630e46f5781562ab42b10ca61a95",
+  "mode": "fresh-admission",
+  "base_revision": "2d52b9fec58aca5d99cc6eedc33a4f859520e67f",
   "last_verified": "2026-10-09",
-  "owners": [
-    {
-      "ticket": 6491,
-      "pr": 6492,
-      "lane": "D"
-    }
-  ],
-  "note": "Authenticate exact pre-base issue→PR reference and unique open PR #6492 as existing owner; base main retired closed #6368 via PR #6494. No second D admission, no bypass of checks or science gates. P0 priority score corrected to canonical confidence 0.75: 80.0."
+  "ticket": 6500,
+  "lane": "A",
+  "title": "Explain evidence-grade scope and public count denominators",
+  "priority": "P0",
+  "score_inputs": {
+    "businessImpact": 4,
+    "userValue": 5,
+    "trafficPotential": 4,
+    "strategicLeverage": 4,
+    "confidence": 0.75,
+    "effort": 3
+  },
+  "score": 80
 }
