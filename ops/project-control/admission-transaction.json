@@ -1,14 +1,19 @@
 {
   "version": 1,
-  "mode": "existing-owner-reconciliation",
-  "base_revision": "2b3ac3471b8a9929e0c3e28645c64472bc8f6912",
+  "mode": "fresh-admission",
+  "base_revision": "66fe7f80b7c067cc9707124099049c816a197ee2",
   "last_verified": "2026-10-09",
-  "owners": [
-    {
-      "ticket": 6259,
-      "pr": 6260,
-      "lane": "A"
-    }
-  ],
-  "note": "This reconciles the already-open pre-base #6259/#6260 owner after completed #6500 retirement #6527; authenticated PR creation and issue timeline association must predate exact base. No clinical publication authority. Subjective priority score 27.0 is not ROI."
+  "ticket": 6149,
+  "lane": "R",
+  "title": "Capture consented social attribution before remote analytics transport check",
+  "priority": "P1",
+  "score_inputs": {
+    "businessImpact": 4,
+    "userValue": 4,
+    "trafficPotential": 3,
+    "strategicLeverage": 5,
+    "confidence": 1,
+    "effort": 1
+  },
+  "score": 240
 }
