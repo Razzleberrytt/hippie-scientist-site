@@ -41441,6 +41441,388 @@
       "reservation_id": "210bdb9d7e6877385318",
       "reserved_at": "2026-10-09T22:38:21.954Z",
       "source_branch": "research/intake/1/20261009-1835-lpc37-fennel-two"
+    },
+    {
+      "pmid": "41700226",
+      "title": "Herb-Induced Liver Injury (HILI) Associated With Asowosi (Momordica charantia): A Case Report.",
+      "doi": "10.7759/cureus.101682",
+      "source_title": "Herb-Induced Liver Injury (HILI) Associated With Asowosi (Momordica charantia): A Case Report.",
+      "abstract": "Herbal remedies are widely used for various health purposes, yet their potential to cause adverse effects is often overlooked. Asowosi, also known as bitter melon, is one such plant incorporated into traditional medicine practices for blood sugar management. This case study presents the comprehensive findings regarding a 38-year-old male who initially presented with transaminitis and weakness. The cause of the patient's elevated liver enzymes was unclear, as he reported occasional alcohol consumption. However, upon further questioning, he disclosed two to three weeks of herbal remedy use, including Asowosi. The supplement had been selected for its accessibility and familiarity. While the exact mechanism of injury in this case remains unclear, herbal products can have physiologic effects that warrant consideration during diagnostic evaluation. Determining the etiology of this patient's acute liver injury was challenging due to the limited clinical information available on Asowosi. After supportive care and discontinuation of the herbal remedies, the patient's condition improved, and liver histology supported a diagnosis of herb-induced liver injury (HILI). This case underscores the importance of including herbal and nonprescription products in the differential diagnosis of unexplained liver injury and encourages prompt recognition and reporting of similar cases.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41700226/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified botanical pharmacology and hepatotoxicity research; scientific interpretation and publication remain pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41700226",
+        "doi": "10.7759/cureus.101682",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T23:06:11.219Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "70f4b9cfcbd0efead265",
+      "reserved_at": "2026-10-09T23:06:15.954Z",
+      "source_branch": "research/intake/3/20261009-1904-lavender-resveratrol-herbal-liver-five"
+    },
+    {
+      "pmid": "41921217",
+      "title": "Linalool, linalyl acetate, and lavender essential oil: evaluation of metabolism and drug interactions using canine liver microsomes and recombinant enzymes.",
+      "doi": "10.1080/00498254.2026.2654087",
+      "source_title": "Linalool, linalyl acetate, and lavender essential oil: evaluation of metabolism and drug interactions using canine liver microsomes and recombinant enzymes.",
+      "abstract": "Pharmacokinetic interactions between natural extracts and hepatic cytochrome P450 (CYP) enzymes are a concern in veterinary medicine. Lavender essential oil (LEO), containing linalool (LIN) and linalyl acetate (LINAc), may be coadministered with conventional medicines.This study examined the canine metabolism of LIN and LINAc by substrate depletion using pooled dog liver microsomes (pDLMs) and recombinant canine CYP enzymes (rCYPs). Inhibitory effects of LIN, LINAc, and LEO on CYP isoform-selective probe drug reactions were also evaluated.LINAc was hydrolysed to LIN by a heat-sensitive esterase activity in pDLMs. LIN depletion by pDLMs was NADPH-dependent, saturable with a Michaelis-Menten constant of 52 ± 11 µM, and induced by over 5-fold in liver microsomes from phenobarbital-treated dogs. Recombinant CYP2B11 showed the highest LIN depletion activity, followed by CYP2C21, while other CYPs tested did not show measurable substrate depletion. Inhibition experiments showed that LIN, LINAc, and LEO inhibited CYP2B11-mediated metabolism but not metabolism by CYP2C21, CYP2D15, or CYP3A12. IC 50 values for LIN, LINAc, and LEO were 7.1, 2.7, and 2.5 µM for tramadol N-demethylation, and 13.9, 8.0, and 8.6 µM for methadone-N-demethylation, respectively. None of the terpenes were shown to directly inhibit recombinant CYP2B11 activity, suggesting that they exerted indirect inhibition via metabolites generated by other CYPs in pDLMs.These findings highlight CYP2B11 and CYP2C21 as key enzymes in LIN and LINAc metabolism and underscore the potential for herb-drug interactions when treating dogs with lavender essential oil.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41921217/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified botanical pharmacology and hepatotoxicity research; scientific interpretation and publication remain pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41921217",
+        "doi": "10.1080/00498254.2026.2654087",
+        "journal": "Xenobiotica; the fate of foreign compounds in biological systems",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T23:06:11.220Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ba7c0cfe1c9569970ea7",
+      "reserved_at": "2026-10-09T23:06:15.954Z",
+      "source_branch": "research/intake/3/20261009-1904-lavender-resveratrol-herbal-liver-five"
+    },
+    {
+      "pmid": "42244875",
+      "title": "Combining in vivo and in vitro studies to elucidate the inhibitory effect of resveratrol on vorolanib metabolism.",
+      "doi": "10.3389/fphar.2026.1819774",
+      "source_title": "Combining in vivo and in vitro studies to elucidate the inhibitory effect of resveratrol on vorolanib metabolism.",
+      "abstract": "Vorolanib is a new-generation multi-targeted kinase inhibitor (MTKI) whose drug-drug interaction (DDI) profile remains largely unexplored. This study combined in vitro and in vivo approaches to systematically investigate the effect of resveratrol on vorolanib metabolism. Using ultra-performance liquid chromatography-tandem mass spectrometry (UPLC-MS/MS), the concentrations of vorolanib and its primary active metabolite X297 were quantified in rat liver microsomes (RLM), human liver microsomes (HLM), recombinant human CYP3A4 (rCYP3A4), and Sprague-Dawley rats. Molecular docking simulations were performed to investigate the binding poses of vorolanib and resveratrol within the active site of CYP3A4. In vitro assays revealed that resveratrol inhibited vorolanib metabolism with half-maximal inhibitory concentration (IC 50 ) values of 6.28 ± 0.27, 33.86 ± 0.65 and 6.70 ± 0.32 μM in RLM, HLM and rCYP3A4, respectively. The specific mechanisms were identified as non-competitive inhibition in HLM, and mixed inhibition in both RLM and rCYP3A4. IC 50 shift experiments indicated that the inhibition of vorolanib by resveratrol was non-time-dependent. Furthermore, metabolic stability assays in RLM showed that resveratrol substantially prolonged the in vitro t 1/2 of vorolanib from 39.02 ± 2.02 to 186.24 ± 58.99 min. Molecular docking confirmed that both compounds bind within the catalytic pocket of CYP3A4 with binding energies of -7.29 and -7.23 kcal/mol, respectively. The in vivo pharmacokinetic study demonstrated that co-administration with resveratrol significantly increased the AUC (0-t) and AUC 0 - ∞ of vorolanib by 1.70- and 1.82-fold, respectively, while significantly decreasing its CL z/F by 56.1%. Similarly, for the metabolite X297, the AUC (0-t) , AUC 0 - ∞ , and C max were increased by 2.00-, 2.22-, and 1.18-fold, respectively, accompanied by a 63.9% decrease in CL z/F . Both in vitro and in vivo results consistently demonstrate that resveratrol profoundly inhibits the metabolism and elimination of vorolanib, driven by its interference with the CYP3A4 catalytic domain as corroborated by docking analysis. These findings highlight a potential risk of herb-drug interactions, suggesting that close clinical monitoring for adverse reactions is required when vorolanib and resveratrol are used in combination.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42244875/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified botanical pharmacology and hepatotoxicity research; scientific interpretation and publication remain pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42244875",
+        "doi": "10.3389/fphar.2026.1819774",
+        "journal": "Frontiers in pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T23:06:11.221Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b6f6a6889b3752cc9b1e",
+      "reserved_at": "2026-10-09T23:06:15.954Z",
+      "source_branch": "research/intake/3/20261009-1904-lavender-resveratrol-herbal-liver-five"
+    },
+    {
+      "pmid": "42327994",
+      "title": "Delayed-Onset Hepatocellular Liver Injury Associated With Nitrofurantoin and Herbal Supplement Use: A Case Report With Multiple Potential Exposures.",
+      "doi": "10.1155/crgm/1187155",
+      "source_title": "Delayed-Onset Hepatocellular Liver Injury Associated With Nitrofurantoin and Herbal Supplement Use: A Case Report With Multiple Potential Exposures.",
+      "abstract": "Nitrofurantoin, a first-line antibiotic, works effectively for treating uncomplicated urinary tract infections, but it can cause severe liver damage. In the setting of concurrent supplement use, distinguishing what caused liver damage is challenging. A 57-year-old woman who had nonalcoholic fatty liver disease developed sudden jaundice after finishing her short nitrofurantoin treatment while consuming a commercial weight-loss supplement. The laboratory results demonstrated a significant liver cell damage pattern with autoimmune test results positive while liver biopsy showed nonspecific inflammation that supported drug-induced liver injury over drug-induced autoimmune such as hepatitis. The patient received intravenous N-acetylcysteine emergently after removing all suspected hepatotoxic substances from her treatment plan. N-acetylcysteine was administered empirically due to concern for progression, although its role in nonacetaminophen DILI remains uncertain. The case demonstrates that clinicians should evaluate for polysubstance-induced liver damage when patients present with multiple possible liver-damaging substances.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42327994/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified botanical pharmacology and hepatotoxicity research; scientific interpretation and publication remain pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42327994",
+        "doi": "10.1155/crgm/1187155",
+        "journal": "Case reports in gastrointestinal medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T23:06:11.221Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ce7b4a60b1c2ba765848",
+      "reserved_at": "2026-10-09T23:06:15.954Z",
+      "source_branch": "research/intake/3/20261009-1904-lavender-resveratrol-herbal-liver-five"
+    },
+    {
+      "pmid": "42566627",
+      "title": "Severe acute pancreatitis and toxic hepatitis after solitary dietary supplement ingestion: A case report.",
+      "doi": "10.1097/MD.0000000000050060",
+      "source_title": "Severe acute pancreatitis and toxic hepatitis after solitary dietary supplement ingestion: A case report.",
+      "abstract": "Although many products have been approved for weight loss, their efficacy remains debatable owing to the insufficient scientific evidence in the relevant literature. Furthermore, because of the limited clinical data and research, the adverse effects of these products remain unelucidated. A 36-year-old woman presented to the emergency department with generalized weakness. She had a personal history of undergoing weight reduction trials several times. For 2 weeks, she ingested only water and dietary supplements containing green tea catechin and no other food or drugs. Laboratory examination results indicated highly elevated liver and pancreatic enzyme levels. Radiological examinations indicated severe acute pancreatitis and the possibility of severe fatty liver or toxic hepatitis. Furthermore, she was clinically diagnosed with substance-induced acute pancreatitis and was suspected to have concomitant toxic hepatitis. Intensive medical therapy was started, including intravenous hydration, prophylactic antibiotics, and nutritional balance, along with psychiatric support. With adequate management, both clinical manifestations and laboratory results improved. Finally, she was discharged 15 days after admission without any obvious complications. Most of the adverse events reported to be associated with catechin are related to the gastrointestinal tract and particularly lead to hepatic injury. Interestingly, catechin is known for its protective effects on the pancreas. This report highlights the possibility of catechin-induced pancreatitis, in contrast to the generally accepted protective effects on the pancreas.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42566627/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified botanical pharmacology and hepatotoxicity research; scientific interpretation and publication remain pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42566627",
+        "doi": "10.1097/MD.0000000000050060",
+        "journal": "Medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T23:06:11.222Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b9265ae85c94aa8acb87",
+      "reserved_at": "2026-10-09T23:06:15.954Z",
+      "source_branch": "research/intake/3/20261009-1904-lavender-resveratrol-herbal-liver-five"
     }
   ],
   "batches": [
@@ -41469,16 +41851,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 524,
+    "total_reservations": 529,
     "by_lane": {
       "1": 21,
       "2": 92,
-      "3": 90,
+      "3": 95,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 524
+      "SOURCE_VERIFIED": 529
     },
     "batches": [
       {
@@ -41491,7 +41873,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 24,
+        "count": 29,
         "pr_number": null,
         "blocker": null
       }
