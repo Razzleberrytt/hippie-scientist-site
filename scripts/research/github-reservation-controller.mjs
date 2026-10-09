@@ -20,11 +20,21 @@ async function api(url,{method='GET',body}={}){
 }
 function b64(s){return Buffer.from(s,'utf8').toString('base64')}
 function unb64(s){return Buffer.from(s,'base64').toString('utf8')}
+export async function decodeGitHubContent(file,fetchBlob){
+ // GitHub Contents API omits content for files over 1 MiB (encoding: none).
+ // Fetch the immutable Git blob by SHA; never interpret an empty payload as JSON.
+ if(file?.encoding==='base64'&&typeof file.content==='string'&&file.content.length)return unb64(file.content);
+ if(!file?.sha)throw Error('GitHub contents payload unavailable without blob SHA');
+ const blob=await fetchBlob(file.sha);
+ if(blob?.encoding!=='base64'||typeof blob.content!=='string'||!blob.content)throw Error('GitHub blob payload unavailable for '+file.sha);
+ return unb64(blob.content);
+}
+const contentText=file=>decodeGitHubContent(file,sha=>api('/repos/'+repo+'/git/blobs/'+sha));
 async function upsertBranchJson(branch,file,value,message){
  const text=JSON.stringify(value,null,2)+'\n';let existing=null;
  try{existing=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/')+'?ref='+encodeURIComponent(branch))}
  catch(e){if(Number(e.status)!==404)throw e}
- if(existing&&unb64(existing.content)===text)return {content:{sha:existing.sha},unchanged:true};
+ if(existing&&(await contentText(existing))===text)return {content:{sha:existing.sha},unchanged:true};
  const body={message,content:b64(text),branch};if(existing?.sha)body.sha=existing.sha;
  return api('/repos/'+repo+'/contents/'+encodeURIComponent(file).replaceAll('%2F','/'),{method:'PUT',body});
 }
@@ -64,7 +74,7 @@ export function reconcileBaseline(records){
 
 async function listOpenPrRecords(){
  const pulls=await api('/repos/'+repo+'/pulls?state=open&per_page=100');const out=[];const heads={};
- for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(unb64(c.content))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
+ for(const pr of pulls){heads[String(pr.number)]=pr.head.sha;let page=1;for(;;page++){const files=await api('/repos/'+repo+'/pulls/'+pr.number+'/files?per_page=100&page='+page);for(const file of files){if(!file.filename.startsWith('ops/enrichment-submissions/reconciliation/')||!/(?:efetch-verified-part|source-verified-part|final-part)-[0-9]+\.json$/.test(file.filename))continue;try{const c=await api('/repos/'+repo+'/contents/'+encodeURIComponent(file.filename).replaceAll('%2F','/')+'?ref='+pr.head.sha);for(const r of walk(JSON.parse(await contentText(c))))out.push({...r,batch:'PR-'+pr.number})}catch(e){if(Number(e.status)!==404)throw e}}if(files.length<100)break}}
  return {records:out,heads,pulls:pulls.map(p=>({number:p.number,head_sha:p.head.sha,head_ref:p.head.ref,title:p.title,draft:p.draft,state:p.state}))};
 }
 async function ensureRegistryBranch(){
@@ -75,7 +85,7 @@ async function ensureRegistryBranch(){
 }
 async function getRegistry(){
  await ensureRegistryBranch();
- try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));return {sha:f.sha,value:JSON.parse(unb64(f.content))}}
+ try{const f=await api('/repos/'+repo+'/contents/'+registryPath+'?ref='+encodeURIComponent(registryBranch));return {sha:f.sha,value:JSON.parse(await contentText(f))}}
  catch(e){if(Number(e.status)!==404)throw e;return {sha:null,value:{schema_version:1,active_batch_counter:1,active_batch_id:'rolling-0001',reservations:[],batches:[{id:'rolling-0001',state:'ACTIVE',created_at:new Date().toISOString()}],incidents:[]}}}
 }
 async function putRegistry(current,value,message){
