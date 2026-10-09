@@ -245,6 +245,15 @@ return <section className={styles.studio}>
           <p className={styles.fabricGuard}>Publisher state: BLOCKED from this research intake. All candidates require independent evidence and editorial review; matching a publication never establishes that a specific claim is supported.</p>
         </section>:null}
 
+        {integratedCase?.reviewRequest?<details className={styles.fabricWorkbench}>
+          <summary className={styles.detail}>Inspect exact-source editorial handoff · v1</summary>
+          <p role='status'>Status: {integratedCase.reviewRequest.status.replaceAll('-',' ')} · PMID {integratedCase.reviewRequest.source.pmid} · {integratedCase.reviewRequest.reviewTargets.length} proposed target(s)</p>
+          <p>This is a research-only identity packet for qualified human review, not proof a study supports an existing claim. It cannot approve or publish content.</p>
+          {integratedCase.reviewRequest.heldReasons.map(reason=><p key={reason}>Held: {reason}</p>)}
+          <textarea readOnly className={styles.export} rows={9}
+            aria-label={'Read-only editorial handoff for PMID '+integratedCase.reviewRequest.source.pmid}
+            value={JSON.stringify(integratedCase.reviewRequest,null,2)}/>
+        </details>:null}
         {scientific?<ScientificIntelligencePanel science={scientific}
           onOpenCapability={id=>openCaseInstrument(scienceTarget(id,data.graph,scientific.pmid))}
           getCapabilityLabel={id=>stations.find(x=>x.id===scienceTarget(id,data.graph,scientific.pmid))?.label||'Study DNA'}/>:null}
