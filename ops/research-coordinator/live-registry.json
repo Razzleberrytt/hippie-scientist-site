@@ -36630,6 +36630,83 @@
       "reservation_id": "261e719faacc1b06037f",
       "reserved_at": "2026-10-09T14:55:20.293Z",
       "source_branch": "research/intake/2/20261009-1052-cognition-metabolic-5-r24"
+    },
+    {
+      "pmid": "42519193",
+      "title": "Reconsidering the usefulness of using long-acting injectable buprenorphine as a tapering tool: a case report of delayed withdrawal months after last dose.",
+      "doi": "10.3389/fpsyt.2026.1863924",
+      "source_title": "Reconsidering the usefulness of using long-acting injectable buprenorphine as a tapering tool: a case report of delayed withdrawal months after last dose.",
+      "abstract": "Long-acting injectable buprenorphine (LAIB) has generated enthusiasm as a potential tapering strategy for patients seeking discontinuation from buprenorphine therapy. The rationale is pharmacokinetic: gradual decline in plasma concentrations over months may blunt or prevent withdrawal. Yet protocols, clinical risks, and the characteristics of delayed withdrawal during LAIB tapers are poorly described. We report a 45-year-old man who developed somatic withdrawal symptoms four months after receiving a single 200 mg dose of LAIB (Sublocade) as a tapering tool following years of stability on sublingual buprenorphine. Administration of 12.5 mg naltrexone precipitated a clinically significant worsening of withdrawal, supporting ongoing μ-opioid receptor agonism at month four. Symptoms were attenuated with transdermal buprenorphine (20 mcg/hr) as rescue therapy. This case underscores under-recognized risks of delayed withdrawal during LAIB-facilitated discontinuation and illustrates how loss of kappa opioid receptor (KOR) antagonism may contribute to the emergence or exacerbation of mood-like symptoms (e.g., anhedonia, dysphoria) that can be misattributed to primary psychiatric disorders rather than atypical withdrawal. Comprehensive tapering protocols, extended monitoring (6-12 months), reinforcement of recovery capital (defined as the sum of internal and external resources that support sustained recovery), and explicit informed consent about delayed withdrawal are essential when considering LAIB to discontinue buprenorphine. Clinicians should anticipate the need for bridging strategies, including symptomatic agents (such as clonidine or gabapentin), or buprenorphine rescue (temporary or return to maintenance)-and weigh formulation differences (Sublocade vs Brixadi) when planning stepwise tapers.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42519193/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "Source-verified PubMed abstracts on delayed withdrawal after long-acting injectable buprenorphine and medetomidine-associated withdrawal; research-only, no clinical claims or recommendations.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42519193",
+        "doi": "10.3389/fpsyt.2026.1863924",
+        "journal": "Frontiers in psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T14:56:19.992Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "76cb5afd386b1268b304",
+      "reserved_at": "2026-10-09T14:56:28.708Z",
+      "source_branch": "research/intake/4/20261009-1019-two-pmid-seed"
     }
   ],
   "batches": [
@@ -36643,22 +36720,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 461,
+    "total_reservations": 462,
     "by_lane": {
       "1": 9,
       "2": 83,
       "3": 61,
-      "4": 33,
+      "4": 34,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 461
+      "SOURCE_VERIFIED": 462
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 461,
+        "count": 462,
         "pr_number": null,
         "blocker": null
       }
