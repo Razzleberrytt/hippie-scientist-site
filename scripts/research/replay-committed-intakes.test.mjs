@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
-import {selectReplaySeed,parseReservationReceipt,selectIntakeBranches} from './replay-committed-intakes.mjs'
+import {selectReplaySeed,parseReservationReceipt,selectIntakeBranches,parsePinnedReplayJson} from './replay-committed-intakes.mjs'
 
 const seed={schema_version:1,seed_only:true,lane:4,pmids:['12345678','22345678']}
 test('bounded exact source PMID seed selection',()=>{
@@ -72,4 +72,39 @@ test('repo-wide pagination cannot hide pinned research/intake branches',()=>{
   assert.throws(()=>selectIntakeBranches([
     {ref:'refs/heads/research/intake/4/forged',object:{sha:'not-a-sha'}}
   ]),/exact commit SHA/)
+})
+
+
+test('replay reads inline GitHub contents using the existing safe source decoder',async()=>{
+  const registry={schema_version:1,reservations:[{pmid:'10000001',state:'RESERVED'}],batches:[]}
+  const sha='a'.repeat(40)
+  const value=await parsePinnedReplayJson({
+    sha,encoding:'base64',content:Buffer.from(JSON.stringify(registry)).toString('base64'),
+  },async()=>{throw Error('inline content must not request a blob')})
+  assert.deepEqual(value,registry)
+})
+
+test('oversized registry with encoding none loads exact Contents API blob SHA',async()=>{
+  const registry={schema_version:1,reservations:[{pmid:'10000001',state:'RESERVED'}],batches:[]}
+  const sha='b'.repeat(40)
+  const seen=[]
+  const value=await parsePinnedReplayJson({sha,encoding:'none',content:''},async pinned=>{
+    seen.push(pinned)
+    return {encoding:'base64',content:Buffer.from(JSON.stringify(registry)).toString('base64')}
+  })
+  assert.deepEqual(seen,[sha],'Fallback must use exact Contents SHA, never a moving branch')
+  assert.deepEqual(value,registry)
+})
+
+test('replay fails closed for missing, empty, malformed or unsupported GitHub content',async()=>{
+  const sha='c'.repeat(40)
+  const oversized={sha,encoding:'none',content:''}
+  await assert.rejects(parsePinnedReplayJson(oversized,async()=>({encoding:'base64',content:''})),/empty|missing/i)
+  await assert.rejects(parsePinnedReplayJson(oversized,async()=>({encoding:'none',content:'bad'})),/missing|base64/i)
+  await assert.rejects(parsePinnedReplayJson({encoding:'none',content:''},async()=>({encoding:'base64',content:'e30='})),/SHA/)
+  await assert.rejects(parsePinnedReplayJson({
+    sha,encoding:'base64',content:Buffer.from('{invalid').toString('base64'),
+  },async()=>{throw Error('unexpected blob request')}),/Pinned replay JSON invalid/)
+  await assert.rejects(parsePinnedReplayJson({sha,encoding:'base64',content:''},
+    async()=>{throw Error('GitHub read failed 502')}),/GitHub read failed 502/)
 })
