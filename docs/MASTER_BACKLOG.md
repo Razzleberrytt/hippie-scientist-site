@@ -75,7 +75,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6491 | Consumer-first homepage three-path first visit (ingredient / comparison / safety) | D | Active — admitted | P0 | 4/5/4/4/0.85/3 | 90.7 | 2026-10-09 |
+| #6491 / PR #6492 | Consumer-first homepage three-path first visit (ingredient / comparison / safety) | D | Active — admitted | P0 | 4/5/4/4/0.85/3 | 90.7 | 2026-10-09 |
 
 
 
