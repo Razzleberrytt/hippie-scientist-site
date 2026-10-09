@@ -82,7 +82,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6368 | TikTok app-review Terms of Service page, first-party canonical route and discoverability | Active — admitted | P0 | 96.0 | 2026-10-09 |
+| D | #6368 | TikTok app-review Terms of Service page, first-party canonical route and discoverability | Active — admitted | P0 | 90.0 | 2026-10-09 |
 
 
 

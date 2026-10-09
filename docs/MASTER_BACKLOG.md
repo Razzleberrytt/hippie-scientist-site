@@ -75,7 +75,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6368 | TikTok app-review Terms of Service page, first-party canonical route and discoverability | D | Active — admitted | P0 | 4/5/3/4/0.8/2 | 96.0 | 2026-10-09 |
+| #6368 | TikTok app-review Terms of Service page, first-party canonical route and discoverability | D | Active — admitted | P0 | 4/5/3/4/0.75/2 | 90.0 | 2026-10-09 |
 
 
 
