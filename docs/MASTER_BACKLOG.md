@@ -75,12 +75,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6491 / PR #6492 | Consumer-first homepage three-path first visit (ingredient / comparison / safety) | D | Active — admitted | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
-| #6500 | Explain evidence-grade scope and public count denominators | A | Active — admitted; source presentation only | P0 | 4/5/4/4/0.75/3 | 80.0 | 2026-10-09 |
 
 
 
-**Current admission (reconciled 2026-10-09):** Normal implementation WIP is **2/3**: D owns #6491, a scoped pre-base owned consumer-first homepage integration (issue #6491 / PR #6492) after #6368 closed / PR #6484 merged; R free; A #6500 admitted for scope/count clarity. Existing-score 4×5×4×4×0.75/3 = **80.0** (subjective priority, not ROI). The owner-supplied THS-MASTER-P0 v1.0 directive requires first-visit ingredient, comparison and safety actions; no GA4/affiliate/revenue outcomes are implied. Live analytics transport still external-blocked #6143. Reconstructed acceptance 25/150 verified, seven candidates, 118 unaudited; historical original 10/150 unmapped and separate.
+
+**Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
+
+**Current admission (verified 2026-10-09, retirement control #6501):** Normal implementation WIP is **0/3**. D issue #6491 / PR #6492 CLOSED/MERGED, Cloudflare deployment run 37935390084 SUCCESS. D/R/A free pending distinct scored admissions. Proposed A #6500 is ready-next, NOT admitted by this retirement-only change. Scientific and analytics results unchanged/Unknown; reconstructed 25/150 remains distinct from unmapped historical 10/150.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
