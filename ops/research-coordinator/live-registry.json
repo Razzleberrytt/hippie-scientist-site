@@ -37774,6 +37774,159 @@
       "reservation_id": "ffc9bfd60ba7acbb903a",
       "reserved_at": "2026-10-09T15:37:46.565Z",
       "source_branch": "research/intake/1/20261009-1135-sleep-stress-three"
+    },
+    {
+      "pmid": "42749130",
+      "title": "A higher-complex carbohydrate compared with conventional low-carbohydrate diet in gestational diabetes mellitus results in lower postprandial free fatty acids: a randomized controlled trial.",
+      "doi": "10.1016/j.ajcnut.2026.101525",
+      "source_title": "A higher-complex carbohydrate compared with conventional low-carbohydrate diet in gestational diabetes mellitus results in lower postprandial free fatty acids: a randomized controlled trial.",
+      "abstract": "Robust randomized controlled trials (RCTs) are unavailable to delineate the effects of nutrition in gestational diabetes mellitus (GDM) on placental-fetal fuel exposures from glucose, triglycerides (TGs), and free fatty acids (FFAs). TG/FFA may increase maternal insulin resistance (IR) and serve as substrates for fetal fat accretion. In an RCT, we tested the hypothesis that 7-8 wk of a higher-complex carbohydrate (60%)/lower-fat (25%) diet (CHOICE) would result in lower postprandial FFA (prespecified secondary outcome) compared with a conventional lower-carbohydrate (40%)/higher-fat (45%) diet (LC/CONV) in GDM. After diagnosis (∼28-30 wk), 59 body mass index (BMI)-matched diet-controlled participants with GDM (mean ± standard error of the mean; BMI 32 ± 1 kg/m 2 ) were randomly assigned to a eucaloric LC/CONV or CHOICE diet [7.2 ± 1 wk; all meals provided; 35% saturated fat (of total fat) and 70 ± 5 g/d simple sugars, both diets]. At 30-31 and 36-37 wk after fasting, a breakfast test meal was administered (30% of total calories), and blood was sampled hourly foir 5 hrs. Five-hour glucose, TGs, FFAs, and glycerol areas under the curve (AUCs) were calculated. Of 59 participants, 13 met exclusion criteria. By analysis of covariance (n = 23/group), weight gain, birthweight, and newborn adiposity were similar. At 36-37 wk, the FFA AUC was 20% higher on LC/CONV compared with CHOICE (P = 0.016), without differences in TG or glycerol. Participants on LC/CONV had 12% lower glucose AUC (P < 0.05). Those on LC/CONV demonstrated a 20% increase in TG AUC and a 15% increase in glycerol AUC (P < 0.05, both) compared with those on CHOICE, who had a 14% increase in TG AUC (P < 0.05) and no change in glycerol AUC. CHOICE resulted in 20% less postprandial FFA exposure and blunting of the expected rise in TG/glycerol, which may mitigate maternal IR and fetal fat accretion. Glycemic control was clinically acceptable despite a 12% greater postbreakfast glucose exposure. Thus, lower dietary fat and higher-quality carbohydrates produced a synergistic attenuation of TG/FFA with effective glycemic control in GDM. This trial was registered at clinicaltrials.gov registry as NCT02244814.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42749130/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized dietary intervention studies on metabolic markers and cognitive outcomes; source identity verified, clinical interpretation and safety pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42749130",
+        "doi": "10.1016/j.ajcnut.2026.101525",
+        "journal": "The American journal of clinical nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:50:24.429Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "acc15a1a7d1aba41bf49",
+      "reserved_at": "2026-10-09T15:50:30.910Z",
+      "source_branch": "research/intake/2/20261009-1148-cognition-metabolic-2-r25"
+    },
+    {
+      "pmid": "41410576",
+      "title": "Daily mango ( Mangifera indica L.) consumption supplemented with probiotics differentially modulates inflammation and cognitive function in individuals with overweight or obesity: a placebo-controlled, double-blind, and randomized trial.",
+      "doi": "10.1039/d5fo01687h",
+      "source_title": "Daily mango ( Mangifera indica L.) consumption supplemented with probiotics differentially modulates inflammation and cognitive function in individuals with overweight or obesity: a placebo-controlled, double-blind, and randomized trial.",
+      "abstract": "Mango, rich in gallotannins with antioxidant and anti-inflammatory properties, may enhance cognitive performance in overweight/obese individuals. However, bioavailability of mango polyphenol metabolites is reduced in this population. Probiotics may improve bioavailability by hydrolyzing parent compounds into smaller molecules. Main objective of this double-blind, randomized, controlled pilot study was to evaluate whether 8 weeks of mango and probiotic intake would enhance microbial gallotannin-metabolite levels, reduce inflammation, and improve cognitive function in overweight/obese individuals. Fifty lean participants (BMI 18-23 kg m -2 ) and 44 overweight/obese participants (BMI 27-35 kg m -2 ) aged 18-65 consumed 400 g of fresh mango with one placebo/probiotics capsule for 8 weeks. Cognitive function tests and blood collections occurred on days 1 and 54, with additional visual cognitive tests between days 43-54. Mango plus probiotics significantly reduced plasma Δ TNF-α in overweight/obese participants but had no effect in lean participants. Lean individuals showed improved cognitive performance (Trail Making Test A and Digit Span scores), while overweight/obese participants improved only in Digit Span Backward. Gallotannin-metabolites increased in lean participants regardless of treatment but increased only with probiotic intake in overweight/obese participants. Microbiota analysis identified enrichment of Lactobacillus and Lachnospiraceae in the mango-probiotics group, while Clostridium and Streptococcus decreased. Overweight/obese participants with higher systemic exposure to gallotannin-metabolites showed improved Δ IL-1β, Δ total ghrelin, and Δ PYY. Despite probiotic supplementation, low metabolite producers had increased Firmicutes and Clostridiaceae . Overall, probiotics enhanced cognitive performance in lean participants, while attenuated inflammation and improved cognitive function in overweight/obese participants, likely due to increased systemic exposure to gallotannin-metabolites.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41410576/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Human randomized dietary intervention studies on metabolic markers and cognitive outcomes; source identity verified, clinical interpretation and safety pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41410576",
+        "doi": "10.1039/d5fo01687h",
+        "journal": "Food & function",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-09T15:50:24.429Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0001",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "481ffd0e09dadcc85a4d",
+      "reserved_at": "2026-10-09T15:50:30.910Z",
+      "source_branch": "research/intake/2/20261009-1148-cognition-metabolic-2-r25"
     }
   ],
   "batches": [
@@ -37787,22 +37940,22 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0001",
-    "total_reservations": 476,
+    "total_reservations": 478,
     "by_lane": {
       "1": 12,
-      "2": 83,
+      "2": 85,
       "3": 68,
       "4": 38,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 476
+      "SOURCE_VERIFIED": 478
     },
     "batches": [
       {
         "id": "rolling-0001",
         "state": "ACTIVE",
-        "count": 476,
+        "count": 478,
         "pr_number": null,
         "blocker": null
       }
