@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42663925",
+    "42815441",
+    "41419033"
+  ],
+  "relevance_reason": "Primary laboratory botanical and phytochemical CYP pharmacology studies; clinical interaction relevance and null findings require independent scientific review."
+}
