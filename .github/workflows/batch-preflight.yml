@@ -1,0 +1,56 @@
+name: Batch preflight (optional, never a release gate)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Focused edit or integration checkpoint checks
+        required: true
+        default: checkpoint
+        type: choice
+        options:
+          - edit
+          - checkpoint
+
+permissions:
+  contents: read
+
+concurrency:
+  group: batch-preflight-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  focused:
+    name: Developer-only batched checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Fetch exact current main base
+        run: git fetch --no-tags --depth=1 origin main
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install reproducible dependencies
+        run: npm ci --no-audit --fund=false
+      - name: Run bounded developer batch check
+        env:
+          BATCH_MODE: ${{ inputs.mode }}
+        run: |
+          node scripts/dev/batch-preflight.mjs \
+            --base=origin/main \
+            --mode="$BATCH_MODE" \
+            --receipt=tmp/batch-preflight-receipt.json \
+            --run
+      - name: Save source-SHA-scoped developer receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-preflight-${{ github.sha }}
+          path: tmp/batch-preflight-receipt.json
+          if-no-files-found: warn
+          retention-days: 7
