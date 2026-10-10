@@ -44430,6 +44430,83 @@
       "reservation_id": "2f915b70f67fb5f5afd4",
       "reserved_at": "2026-10-10T05:50:12.357Z",
       "source_branch": "research/intake/2/20261010-0147-cognition-metabolic-r39"
+    },
+    {
+      "pmid": "42827146",
+      "title": "Quercetin as a modulator of xenobiotic metabolism: integrating CYP450 regulation, phase II conjugation pathways, and transporter-mediated drug interactions.",
+      "doi": "10.1007/s00228-026-04194-5",
+      "source_title": "Quercetin as a modulator of xenobiotic metabolism: integrating CYP450 regulation, phase II conjugation pathways, and transporter-mediated drug interactions.",
+      "abstract": "Quercetin is one of the most abundant dietary flavonoids and has attracted considerable interest because it can modulate xenobiotic metabolism by inhibiting and regulating drug-metabolizing enzymes and membrane transporters. However, the clinical relevance of these interactions remains uncertain because available evidence is fragmented and largely derived from preclinical studies. This systematic review critically evaluates quercetin's effects on human phase I cytochrome P450 enzymes, phase II conjugation pathways, drug transporters, and clinically relevant pharmacokinetic drug interactions. A systematic literature search was conducted in PubMed/MEDLINE, Scopus, Web of Science, Embase, and Google Scholar following PRISMA 2020 guidelines. We identified and critically synthesized original studies investigating quercetin-mediated modulation of xenobiotic metabolism, prioritizing mechanistic studies in humans, human pharmacokinetic investigations, and clinically documented drug interactions. Available evidence indicates that quercetin modulates several CYP450 isoforms, phase II enzymes, and major drug transporters, including P-glycoprotein, breast cancer resistance protein, and organic anion transporting polypeptides. Nevertheless, clinically significant pharmacokinetic interactions have been demonstrated for only a limited number of substrates, primarily involving CYP2C9, CYP2E1, and P-glycoprotein, whereas many experimentally predicted interactions have not translated into clinically meaningful effects in humans. Current evidence further highlights the importance of extensive phase II metabolism, circulating conjugated metabolites, transporter-enzyme interplay, and dose-dependent systemic exposure in determining interaction risk. Current evidence supports the biological plausibility of quercetin-mediated drug interactions but indicates that their clinical significance is substrate-dependent and remains insufficiently characterized for most therapeutic agents. Well-designed human pharmacokinetic studies using standardized quercetin formulations, validated probe substrates, quantitative pharmacokinetic endpoints, and pharmacogenetic approaches are required to establish evidence-based recommendations for the safe co-administration of quercetin with conventional medications.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42827146/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42827146",
+        "doi": "10.1007/s00228-026-04194-5",
+        "journal": "European journal of clinical pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T06:10:29.681Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "badfac4f9d26a94679e1",
+      "reserved_at": "2026-10-10T06:10:35.356Z",
+      "source_branch": "research/intake/3/20261010-0208-quercetin-cyp-review"
     }
   ],
   "batches": [
@@ -44458,16 +44535,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 563,
+    "total_reservations": 564,
     "by_lane": {
       "1": 34,
       "2": 105,
-      "3": 101,
+      "3": 102,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 563
+      "SOURCE_VERIFIED": 564
     },
     "batches": [
       {
@@ -44480,7 +44557,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 63,
+        "count": 64,
         "pr_number": null,
         "blocker": null
       }
