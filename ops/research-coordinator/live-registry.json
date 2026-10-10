@@ -46581,6 +46581,84 @@
       "reservation_id": "03e1d352d3884c140991",
       "reserved_at": "2026-10-10T12:46:08.715Z",
       "source_branch": "research/intake/1/20261010-0843-curcumin-saffron-27723543"
+    },
+    {
+      "pmid": "42106651",
+      "title": "Group dialectical behavior therapy skills training versus group cognitive behavioral therapy for adults with ADHD: a randomized controlled trial.",
+      "doi": "10.1186/s12888-026-08130-w",
+      "source_title": "Group dialectical behavior therapy skills training versus group cognitive behavioral therapy for adults with ADHD: a randomized controlled trial.",
+      "abstract": "Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurodevelopmental disorder characterized by inattention, hyperactivity, impulsivity, emotion dysregulation, and executive dysfunction. Current treatment guidelines recommend a multimodal approach. Cognitive Behavioral Therapy (CBT) has proven effective for alleviating core symptoms, improving executive functioning, and reducing emotional comorbidities, with benefits sustained for up to one year. Dialectical Behavior Therapy (DBT), an adaptation of CBT that integrates mindfulness and emotion regulation components, has also shown potential benefits in adult ADHD populations. However, no prior studies have directly compared CBT and DBT in Chinese adults with ADHD. This trial aimed to compare the efficacy of group DBT and group CBT in adults with ADHD across multiple dimensions, with follow-up assessments extending to six months post-treatment. Ninety-eight adults with ADHD were randomly assigned to either the DBT (n = 49) or CBT (n = 49) group, and received 12 weeks of group-based intervention. Assessments were conducted at baseline (T0), weeks 4 (T1) and 8 (T2), post-treatment (T3), and at 3-month (T4) and 6-month (T5) follow-ups. Outcome measures included core symptoms (ADHD-RS), emotional symptoms (SAS and SDS), emotion regulation (DERS and ERQ), quality of life (WHOQOL-BREF), global functioning (GSES and SDS), and executive function assessed via both self-report (BRIEF-A) and laboratory-based tasks (TMT, SCWT, SST, and CPT-IP). Linear mixed models (LMM) were employed to examine group-by-time interaction effects. Both the DBT and CBT groups showed improvement over time in core ADHD symptoms and several secondary outcomes at post-treatment and follow-up. No significant group-by-time interactions were observed for core ADHD symptoms and the between-group effect sizes were small at post-treatment (d = 0.06, 95% CI [-0.33, 0.46]) and at 6-month follow-up (d = 0.17, 95% CI [-0.27, 0.61]). However, the confidence intervals were not fully contained within the prespecified non-inferiority margin (d = 0.40), and formal non-inferiority of DBT relative to CBT was therefore not established. Across secondary outcomes, most between-group differences were generally small, time-specific, and not consistently maintained over follow-up. For laboratory-based executive function measures, CBT showed a relative advantage on a spatial working memory task, whereas no stable between-group differences were observed for most other measures. This is the first randomized controlled trial in China to directly compare DBT and CBT for adults with ADHD. The findings indicate that both interventions were associated with improvement across multiple symptom and functional domains, with generally small between-group differences over 6 months of follow-up. DBT may represent a potentially useful psychotherapeutic option for adults with ADHD. However, formal non-inferiority relative to CBT was not established, and the present findings do not support a conclusion of equivalence between the two treatments. Further studies with larger and more diverse samples are needed to obtain more precise estimates of treatment effects and to evaluate the generalizability of the present findings. ChiCTR2300072075, registered 2023.6.1.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42106651/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42106651",
+        "doi": "10.1186/s12888-026-08130-w",
+        "journal": "BMC psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T12:52:38.976Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "21f1df10d6188da08ecf",
+      "reserved_at": "2026-10-10T12:52:44.486Z",
+      "source_branch": "research/intake/2/20261010-0850-adhd-recovery-r46"
     }
   ],
   "batches": [
@@ -46609,16 +46687,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 591,
+    "total_reservations": 592,
     "by_lane": {
       "1": 44,
-      "2": 114,
+      "2": 115,
       "3": 108,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 591
+      "SOURCE_VERIFIED": 592
     },
     "batches": [
       {
@@ -46631,7 +46709,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 91,
+        "count": 92,
         "pr_number": null,
         "blocker": null
       }
