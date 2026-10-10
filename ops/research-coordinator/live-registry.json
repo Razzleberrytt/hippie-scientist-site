@@ -50892,6 +50892,159 @@
       "reservation_id": "699d44ca7e129ea0be2e",
       "reserved_at": "2026-10-10T23:09:01.262Z",
       "source_branch": "research/intake/3/20261010-1907-herbal-renal-yinchenhao"
+    },
+    {
+      "pmid": "42694510",
+      "title": "Effects of a Sound-Based Meditative Intervention on Anxiety, Depression, Salivary Cortisol Levels, and Blood Pressure: A Randomized Controlled Trial.",
+      "doi": "10.7759/cureus.115693",
+      "source_title": "Effects of a Sound-Based Meditative Intervention on Anxiety, Depression, Salivary Cortisol Levels, and Blood Pressure: A Randomized Controlled Trial.",
+      "abstract": "Background Psychological stress contributes to mental health symptoms and cardiovascular risk through pathways involving anxiety, depression, cortisol secretion, autonomic dysregulation, and elevated blood pressure. Sound-based meditation is a nonpharmacological approach that may support stress management, but randomized controlled trial evidence remains limited. Objective The objective was to evaluate whether a structured sound-based meditation intervention was associated with lower post-intervention anxiety symptoms, measured using the Hospital Anxiety and Depression Scale-Anxiety subscale (HADS-A), than a remotely delivered music-control condition after four weeks. Depressive symptoms, salivary cortisol concentration, systolic blood pressure, and exploratory diastolic blood pressure were also assessed. Methodology This parallel-group randomized controlled trial enrolled 100 adults aged 21-65 years from meditation centers and surrounding communities in Tamil Nadu, India. Participants were randomly assigned in a 1:1 ratio to a sound-based meditation intervention group ( n = 50) or a remotely delivered music-control group ( n = 50). The intervention group attended supervised, face-to-face, 60-minute daily sound-based meditation sessions for four weeks, involving recorded 528-Hz audio and acoustic instruments, including singing bowls, gongs, bells, and tingshas. The control group attended supervised 60-minute Google Meet sessions using two standardized, licensed music tracks with scheduled silent intervals. The primary analysis used analysis of covariance (ANCOVA) to compare post-intervention HADS-A scores between groups, adjusted for baseline HADS-A scores. Corresponding ANCOVA models evaluated HADS-D, salivary cortisol, and systolic blood pressure as secondary outcomes; diastolic blood pressure was exploratory. Holm adjustment was applied across the five reported outcomes. Results Observed baseline characteristics were comparable between groups. In baseline-adjusted ANCOVA analyses, post-intervention HADS-A scores were lower in the intervention group than in the music-control group (adjusted mean difference = -2.55, 95% confidence interval (CI): -3.62 to -1.48; Holm-adjusted P < 0.001; partial η 2 = 0.19). Corresponding adjusted differences favored the intervention group for HADS-D (adjusted mean difference = -2.39, 95% CI: -3.36 to -1.43; Holm-adjusted P < 0.001; partial η 2 = 0.20), salivary cortisol (-2.54 nmol/L, 95% CI: -2.95 to -2.13; Holm-adjusted P < 0.001; partial η 2 = 0.61), systolic blood pressure (-7.62 mmHg, 95% CI: -9.36 to -5.89; Holm-adjusted P < 0.001; partial η 2 = 0.44), and exploratory diastolic blood pressure (-2.22 mmHg, 95% CI: -3.00 to -1.43; Holm-adjusted P < 0.001; partial η 2 = 0.24). No adverse events were reported. Conclusions This randomized controlled trial provides preliminary evidence that participation in a structured sound-based meditation program was associated with greater short-term improvements in anxiety, depression, salivary cortisol, systolic blood pressure, and exploratory diastolic blood pressure compared with a remotely delivered music-control condition. These findings should be confirmed in larger, fully standardized randomized controlled trials with longer follow-up and diverse populations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42694510/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified human randomized trials of sound-based meditation for anxiety and depressive symptoms and guided digital CBT-I for insomnia with psychological distress; source identity only, no clinical claims.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42694510",
+        "doi": "10.7759/cureus.115693",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T23:46:52.119Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "20fcc8bc682192485b08",
+      "reserved_at": "2026-10-10T23:46:58.982Z",
+      "source_branch": "research/intake/1/20261010-1940-sound-cbti-two-r11"
+    },
+    {
+      "pmid": "42574103",
+      "title": "Guided digital cognitive-behavioral therapy for insomnia: A (cost-)effective intervention for people with insomnia and psychological distress? Results of a randomized controlled trial.",
+      "doi": "10.1037/ccp0001020",
+      "source_title": "Guided digital cognitive-behavioral therapy for insomnia: A (cost-)effective intervention for people with insomnia and psychological distress? Results of a randomized controlled trial.",
+      "abstract": "Insomnia is common in anxiety, posttraumatic stress disorder (PTSD), and borderline personality disorder (BPD), but cognitive-behavioral therapy for insomnia (CBT-I) is understudied in these conditions. We evaluated the (cost-)effectiveness of CBT-I in adults with insomnia and symptoms of anxiety, PTSD, or BPD. A total of 157 adults with insomnia and symptoms of anxiety, PTSD, or BPD were randomized to guided digital CBT-I or sleep diary control. Assessments at baseline, 2-month posttreatment, and 8-month follow-up included insomnia severity (Insomnia Severity Index), mental health symptoms, sleep diary measures, and positive health. Cost-effectiveness (Insomnia Severity Index-based) and cost-utility (quality-adjusted life years-based) were analyzed from a societal perspective. At posttreatment, CBT-I produced large reductions in insomnia severity versus control (d = -1.04; p < .001) and small effects on symptoms of anxiety and BPD (ds = -0.28; -0.36) but not of PTSD. At follow-up, effects on insomnia severity remained large (d = -0.98; p < .001), but effects on anxiety and BPD were no longer significant. Most sleep diary measures showed small-to-moderate improvements; positive health changes were minimal. CBT-I did not significantly reduce societal costs (-€826, 95% CI [-3,797, 2,144]) but showed a 94% probability of cost-effectiveness at €450 per Insomnia Severity Index point and 71% at €20,000 per quality-adjusted life year. CBT-I is a (cost-)effective treatment for insomnia with co-occurring anxiety, PTSD, or BPD symptoms, although effects on anxiety and BPD are small, and none were found for PTSD. These findings support integrating CBT-I into routine care, potentially alongside targeted interventions for co-occurring psychological distress. (PsycInfo Database Record (c) 2026 APA, all rights reserved).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42574103/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified human randomized trials of sound-based meditation for anxiety and depressive symptoms and guided digital CBT-I for insomnia with psychological distress; source identity only, no clinical claims.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42574103",
+        "doi": "10.1037/ccp0001020",
+        "journal": "Journal of consulting and clinical psychology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T23:46:52.120Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d6ac23a1c45dc570e2e8",
+      "reserved_at": "2026-10-10T23:46:58.982Z",
+      "source_branch": "research/intake/1/20261010-1940-sound-cbti-two-r11"
     }
   ],
   "batches": [
@@ -50920,16 +51073,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 647,
+    "total_reservations": 649,
     "by_lane": {
-      "1": 62,
+      "1": 64,
       "2": 138,
       "3": 122,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 647
+      "SOURCE_VERIFIED": 649
     },
     "batches": [
       {
@@ -50942,7 +51095,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 147,
+        "count": 149,
         "pr_number": null,
         "blocker": null
       }
