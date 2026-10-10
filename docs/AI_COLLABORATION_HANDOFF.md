@@ -8,7 +8,7 @@ pipeline. Git history is the versioning. Neither agent relies on memory alone.
 **Roles**
 
 - ChatGPT — scientific intelligence, architecture, and delegated PR merge gate:
-  research synthesis, evidence evaluation, semantic relationships, design critique,
+  research synthesis, evidence evaluation, semantic relationships, system design,
   measurable acceptance criteria, independent diff review, and merge decisions.
 - Muse — autonomous engineering & execution: inspect the actual repository,
   challenge specs against the existing architecture, implement worthwhile changes,
@@ -21,11 +21,11 @@ Each actively looks for weaknesses in the other's recommendations.
 **Rules**
 
 1. Never report projected capabilities as completed capabilities.
-2. Implementation is separate from approval. Will has delegated PR merge management
-   to ChatGPT (2026-10-09). ChatGPT evaluates scope, scientific risk, verification,
-   and repository protections before merging; Muse does not self-merge. High-risk
-   publication, data-loss, security, or scientific-policy changes receive explicit
-   heightened review; passing CI alone does not establish scientific correctness.
+2. Implementation is separate from approval. Will delegated PR merge management
+   to ChatGPT (2026-10-09). ChatGPT reviews scope, scientific integrity,
+   verification, and branch protections before merging; Muse does not self-merge.
+   High-risk publication, data-loss, security, or scientific-policy changes
+   require heightened review. Passing CI alone is not scientific approval.
 3. Every completion claim ships with verification evidence (commands run, outputs
    observed, what remains unknown).
 4. Legacy data is preserved verbatim; ambiguous values are reported for review,
@@ -76,8 +76,8 @@ join key between a lab "claim DNA" and a production claim id.
   holds 6,935 PMIDs (111/199 claim PMIDs present).
 - The suite's case-file builder is PMID-keyed (`buildResearchCaseFile`), so an
   adapter can feed production PMIDs through it wherever the register covers them,
-  reporting `metadata_unavailable` for a referenced PMID missing cached metadata;
-  source provenance is tracked separately from cache resolution.
+  separately reporting `metadata_unavailable` where a linked PMID lacks cached
+  metadata; citation provenance must not be conflated with cache coverage.
 - Conclusion: interoperability via an adapter (`lib/claim-dna-adapter.ts`,
   read-only in R1), not a refactor.
 
@@ -106,70 +106,157 @@ join key between a lab "claim DNA" and a production claim id.
 
 ---
 
-## Round 1 — Claim DNA Foundation v0.1 (APPROVED FOR IMPLEMENTATION PLANNING; no code merged)
+## Round 1 — Claim DNA Foundation v0.1 (APPROVED FOR IMPLEMENTATION PLANNING; code not yet merged)
 
 ### Hypothesis
 
 Making the intelligence we already built interoperable through a shared
 claim→evidence identity layer yields more scientific value than adding new
-intelligence systems.
+intelligence systems. The adapter is the first component of a **Scientific
+Interoperability Layer**: production claims, research analytics, and semantic
+intelligence interpret the same source records without duplicating ownership.
+Longer term, this becomes the foundation for every evidence-intelligence
+capability we develop.
 
-### Deliverables
+### Design refinements (agreed with ChatGPT, 2026-10-09)
 
-1. Canonical claim-to-evidence reference model on existing production claim IDs:
-   one claim → zero, one, or many references; each reference initially
-   `unassessed`, then `supports | contradicts | qualifies | context` only after
-   evidence-specific evaluation. A linked citation alone proves no directionality.
-2. Audited vocabulary migration: untangle legacy `evidence_tier` into distinct
-   controlled concepts: `study_design` (primarily an evidence-record attribute),
-   `certainty` (a separately assessed claim/body-of-evidence attribute),
-   `provenance_status`, and `claim_type`. Preserve each original string verbatim;
-   ambiguous values → `review_required`, never silently mapped. Do not infer
-   evidence certainty from study design.
-3. Nullable structured fields on the claim schema: dose, formulation, population,
-   comparator, outcome, duration.
-4. Explicit provenance states:
-   `primary_linked | secondary_linked | editorial_documented | unresolved | review_required`.
-   Also independently track `resolution_status` (including `metadata_unavailable`)
-   and `assessment_status` (`not_evaluated` until legitimately assessed). A present
-   PMID absent from local cache is not automatically unresolved provenance.
-   Provenance is not evidence strength.
-5. Adapter `lib/claim-dna-adapter.ts` (read-only in R1): `claims.json` →
-   `ResearchClaim`/`ResearchProfile` for the existing `research-claim-*`
-   modules; PMID-keyed bridge into suite case files where the register covers.
-6. Precomputed, deterministic, schema-versioned Claim DNA artifact (static JSON;
-   no runtime API — static-export compatible). Prefer a standalone build-time
-   generation job; site pages consume artifacts without rerunning intelligence.
-7. Lightweight validation suite runnable without the full production build.
+**Three independent dimensions — never conflated:**
 
-### Pilot scope
+- `provenance_status`: does the claim have an identifiable supporting source?
+  (`primary_linked | secondary_linked | editorial_documented | unresolved |
+  review_required`)
+- `resolution_status`: can that source be resolved to verified metadata and
+  linked analytical records?
+  (`resolved | metadata_unavailable | unrecognized_identifier | not_applicable`)
+- `evidence_assessment`: what can the available sources legitimately establish?
+  (`not_evaluated` until assessed; certainty vocabulary kept separate from
+  study design)
 
-20–30 claims sampled across strata: direct study evidence, multi-study
-synthesis, safety/interaction concerns, missing citations, conflicting findings.
-Difficult cases, not just easy wins.
+A claim with `provenance_status: primary_linked` + `resolution_status:
+metadata_unavailable` is *not* "unresolved provenance" — it has a citation the
+local cache doesn't cover. Absence from the cache must never become evidence
+that a publication doesn't exist. Provenance is not evidence strength, and
+certainty is never manufactured from study design.
+
+**Claim types:** direct empirical finding · evidence synthesis · mechanistic
+interpretation · safety/interaction statement · editorial interpretation.
+
+**Trial-lineage policy: stays intact** (accepted by ChatGPT). No inferred trial
+identity in R1. Round 2 may introduce explicitly verified registry relationships
+(e.g. NCT IDs) backed by authoritative metadata and an auditable adjudication
+process. The empty adjudication ledger is a future milestone in its own right:
+the infrastructure for scientific review exists, but there is no operational
+record of reviewed decisions yet.
+
+**Claim-to-evidence relationship state:** `unassessed` is the default. Only an
+individual evidence review can establish `supports | contradicts | qualifies |
+context`; a linked citation alone does not establish directionality.
+
+**Study design and certainty:** study design generally describes an individual
+source, while certainty is an independently justified assessment of a claim or
+body of evidence. Never infer certainty solely from study design.
+
+### Implementation sequence — five small, independently testable stages
+
+**Stage A — Compatibility adapter** (`lib/claim-dna-adapter.ts`, read-only,
+deterministic). Map production claim IDs, text, profiles, and PMID references
+into the existing `ResearchClaim` interface (`id→id`, `claim→predicate`,
+`pmid→sourceRefIds`, `profile_slug`→profile join). Verified against
+`lib/research-coverage.ts`: `sourceRefIds` accepts raw PMID strings
+(pass-through with expansion fallback). Preserve original identifiers; report
+anything unmappable.
+
+**Stage B — Controlled vocabulary audit.** Inventory the ~130 legacy
+`evidence_tier` values. Classify only unambiguous values into `study_design`
+and `certainty` vocabularies. Retain every original string as legacy metadata.
+Never manufacture certainty from design; ambiguous → `review_required`.
+
+**Stage C — Provenance coverage report** (internal). Claims with/without source
+references; unique PMIDs resolved against the cache; registered PMIDs missing
+cached metadata; unrecognized identifiers; claims needing editorial/scientific
+review. Typed missingness throughout — no guessed values.
+
+**Stage D — Claim DNA pilot.** Vertical slice first: **one** complete
+claim→evidence→intelligence connection end to end, then expand to 25
+representative claims (direct evidence, synthesis, safety, missing citation,
+conflicting findings). One precomputed artifact with documented schema and
+deterministic build.
+
+**Stage E — Scientific integrity verification.** Identifier preservation,
+unmapped values, missing metadata, duplicate references, null structured
+fields, reproducibility. Smallest relevant tests per stage; full build reserved
+for the final integration checkpoint.
+
+### Standalone artifact job (Muse's assessment: yes — fits the existing architecture)
+
+The repo already separates data computation from page generation: `data:build`
+(workbook → `public/data`), `agent:run` (patches), wave-versioned artifacts like
+`pmid-register-through-7000.json`, and `validate:deterministic-json-order`. A
+`claim-dna:build` job emitting `public/data/claim-dna/v1/artifact.json` +
+`manifest.json` (hashes of `claims.json`, relevant reference/cache inputs,
+source code and schema/generator versions) follows the established pattern.
+Reproducible artifact bytes must **not** contain wall-clock timestamps or
+unstable CI metadata. A `generated_at` audit event may live in a separate
+noncanonical build receipt (or derive deterministically from a pinned commit).
+The site consumes
+the artifact; no scientific recomputation during page builds. Because the
+manifest records inputs, a future job can diff and regenerate only affected
+claims — selective invalidation is achievable without architectural rework.
+Production must reject stale or mismatched manifests: a successful job for a
+previous source SHA is not evidence that the current source is covered.
+Constraints respected: static export (fully precomputed, no runtime API —
+already accepted), `validate:runtime-payload-budgets` (the artifact gets a size
+budget), and the job stays off the page-generation critical path.
+
+### Rebuild policy (decision: change-driven + separate freshness audit)
+
+- Rebuild on relevant **content** changes to published claim source,
+  PubMed metadata/cache, verified evidence references, adjudication decisions
+  affecting output, claim adapter, artifact generator, or schema/config versions.
+  Detect changed content hashes, not just file modification timestamps.
+- CI PR checks validate or generate the candidate artifact *against the PR's
+  exact source inputs*; publish/consume only after trusted merge/release gates.
+  Deployments must fail closed if artifact manifest hashes don't match source.
+- No unconditional rebuild on every push and no nightly regeneration of an
+  unchanged artifact. Schedule a lightweight **weekly freshness/coverage audit**
+  of missing and stale metadata, with separate provenance-aware source refresh
+  when warranted. Do not silently fetch mutable upstream data during a
+  deterministic artifact build. Support manual `workflow_dispatch` for recovery.
+- Keep the job off the page-generation critical path and set a payload budget.
+  Cache by content hash and pin the exact artifact SHA. Dependency-based
+  per-claim invalidation belongs to Round 2, not Round 1.
+
+### Performance measurement (collected during pilot)
+
+1. Time to generate the adapter output + Claim DNA artifact.
+2. Incremental build time vs. the existing build baseline.
+3. Production claims successfully connected to verified analytical records.
+
+If interoperability lands without materially increasing build time, the pattern
+extends to the remaining intelligence systems; if the adapter adds significant
+overhead, incremental computation / artifact caching comes before expansion.
 
 ### Acceptance criteria
 
 - [ ] All 508 existing claims intact and addressable; existing PMIDs retained
       without loss.
-- [ ] Every claim has a valid provenance classification or an explicit review
-      state.
+- [ ] Every claim carries valid `provenance_status` + `resolution_status`, or an
+      explicit review state — the three dimensions never conflated.
 - [ ] Ambiguous legacy terminology reported, not silently rewritten.
-- [ ] Pilot claims resolve to their evidence records where verified.
-- [ ] Generated artifact deterministic and reproducible (byte-identical across
-      runs).
+- [ ] Vertical slice (1 claim) works end to end before expansion to 25 pilot
+      claims.
+- [ ] Pilot claims resolve to evidence records where verified.
+- [ ] Artifact deterministic and reproducible (byte-identical across runs).
+- [ ] Performance numbers 1–3 recorded.
 - [ ] Existing public pages function without regression (targeted checks green).
-- [ ] Baseline and actual generation time, incremental build overhead, and
-      verified claim-to-evidence join coverage recorded. Missing/uncached sources
-      reported explicitly, not treated as negative evidence.
 
 ### Migration safeguards
 
 - Additive-only schema changes; originals preserved verbatim as `legacy_*`.
 - Vocabulary mapping is an audited in-repo table; unmapped → `review_required`.
-- Adapter is read-only over `claims.json` in R1 (no production data writes).
-- No fabricated dosages/populations; unresolved provenance and unavailable
-  cached metadata are distinct missingness states.
+- Adapter read-only over `claims.json` in R1 (no production data writes).
+- No fabricated dosages/populations; `unresolved` stays `unresolved`, and
+  `metadata_unavailable` stays distinct from it.
 
 ### Scoped validation (no full build per iteration)
 
@@ -180,17 +267,18 @@ Difficult cases, not just easy wins.
 
 ---
 
-## Round 1 decisions (2026-10-09)
+## Round 1 decisions and controlled-vocabulary proposal
 
-1. Trial identity remains publication-level in R1; no inferred trial or cohort
-   independence. Explicit, verified trial registry relationships require later
-   policy review and auditable adjudication.
-2. PMID-less claims are included in the pilot and assigned documented or
-   unresolved provenance states as evidence permits. No PMID ≠ unsupported.
-3. R1 internal diagnostics are descriptive (missing citations, unresolved
-   references, unmatched publications, duplicate identifiers). Scientific
-   mismatch and evidence-drift judgments await independently validated logic.
-4. **Proposed**, not yet adopted, controlled vocabularies:
+1. Trial/cohort independence remains publication-level in R1. Registry-ID
+   relationships are deferred until explicit, authoritative evidence and an
+   auditable adjudication policy exist.
+2. Include PMID-less claims in the pilot with documented or unresolved
+   provenance states. Absence of a PMID is not proof of scientific weakness.
+3. R1 integrity diagnostics are **internal, descriptive** signals (missing
+   citations, unmatched publications, unrecognized IDs, duplicate references).
+   Automated mismatch and evidence-drift conclusions require validation.
+4. Initial **proposed** vocabularies (validate before adoption; never force
+   ambiguous mappings):
    - `study_design`: `systematic_review`, `meta_analysis`, `randomized_trial`,
      `nonrandomized_intervention`, `cohort`, `case_control`, `cross_sectional`,
      `case_series`, `case_report`, `animal`, `in_vitro`, `narrative_review`,
@@ -199,26 +287,41 @@ Difficult cases, not just easy wins.
      `not_assessed`.
    - `claim_type`: `direct_empirical`, `evidence_synthesis`,
      `mechanistic_interpretation`, `safety_interaction`, `editorial_interpretation`.
-   Validate these against existing field semantics and avoid forced mappings.
+5. The Scientific Interoperability Layer may begin as a read-only adapter at
+   `lib/claim-dna-adapter.ts`, built by `claim-dna:build`, with precomputed
+   schema-versioned artifacts under `public/data/claim-dna/`.
 
-## Round 1A — Initial vertical slice (authorized design target)
+## Round 1A — Initial vertical slice
 
-Use **one** production claim with a verified citation: preserve claim ID,
-normalize its source reference without altering its meaning, resolve existing
-metadata, run existing research analytics when inputs are sufficient, and emit
-an inspectable, deterministic, versioned artifact. No public-page changes yet.
-After scoped tests and a measured result, extend to a stratified 25-claim pilot.
-All implementation changes require a separate PR and fresh merge review.
+Implement one representative claim with verified citation end to end, preserving
+its source ID and provenance. Require a deterministic artifact, a verified
+claim→publication→analytics join, a documented metadata-absent test, and
+scoped performance numbers before expanding to 25 claims. No public-page
+behavior changes yet. Implementation belongs in a separate PR and undergoes
+fresh review.
 
 ## Research-to-Implementation Opportunity Register
 
-For each new proposed system record the hypothesis, scientific rationale,
-existing reuse candidates, expected user value, risks, dependencies, measurable
-acceptance tests, and Muse's repository-grounded build/adapt/defer/reject call.
-No speculative capability is marked as shipped.
+For each proposal capture its hypothesis, scientific rationale, existing reuse
+candidates, intended user value, risks, dependencies, measurable acceptance
+criteria, and Muse's repository-grounded build/adapt/defer/reject recommendation.
+Never report proposed capabilities as shipped.
 
 ## Parked for Round 2
 
 - Evidence Integrity Diagnostics as user-visible features (R1: internal signals).
-- Trial/cohort identity resolution (needs explicit registry-ID fields + policy).
+- Trial/cohort identity resolution (explicit registry IDs + policy + ledger).
+- Adjudication ledger operationalization (first reviewed decisions recorded).
 - Surfacing CI intelligence output on herb/compound pages.
+- Selective per-claim artifact invalidation (manifest groundwork laid in R1).
+
+## File status (so nothing is ambiguous)
+
+- **Merged baseline:** `docs/AI_COLLABORATION_HANDOFF.md` via PR #6554,
+  merge commit `a27c7af69138f2de117d5e7d0f990b07eb03ef7d`.
+- **Current review:** this document is modified in PR #6555 on branch
+  `v/ai-handoff-r1-refinements`; changes remain documentation-only until merge.
+- **Workspace-only:** Muse reported a local read-only inspection clone at
+  `~/workspace/repos/hippie-scientist-site` (not verified as a committed source).
+- **Not implemented:** no adapter, artifact job, claim-data migration, or
+  new scientific UI is delivered by this documentation PR.
