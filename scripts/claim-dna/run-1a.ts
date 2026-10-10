@@ -229,14 +229,9 @@ export function buildClaimDna({ claimId, root = process.cwd() }: ClaimDnaInput):
   // adapter changes the fingerprint without a manual version bump.
   // Whole-file hash (implementation) is distinct from per-record hashes.
   const adapterPath = path.join(root, 'scripts', 'claim-dna', 'adapter-1a.ts')
-  let adapterBytes = ''
-  try {
-    adapterBytes = fs.readFileSync(adapterPath, 'utf8')
-  } catch {
-    // If the adapter file is unavailable, fall back to the generator version
-    // so the fingerprint is still present (but weaker).
-    adapterBytes = GENERATOR_VERSION
-  }
+  // A missing source file must fail closed rather than silently produce a
+  // weaker fingerprint that could mask an implementation change.
+  const adapterBytes = fs.readFileSync(adapterPath, 'utf8')
   const cacheJson = JSON.stringify(pmids.map((p) => cache[p] ?? null))
   const input_hashes = {
     'public/data/claims.json': claimHash,
