@@ -45351,6 +45351,161 @@
       "reservation_id": "096e04f6a02e650b89ce",
       "reserved_at": "2026-10-10T08:43:21.078Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42081986",
+      "title": "Comparing the Effects of Cognitive and Physical Training on Cognitive Function and Brain Activation in People With Mild Cognitive Impairment and Mild Dementia: A Randomized Controlled Trial.",
+      "doi": "10.1016/j.apmr.2026.04.036",
+      "source_title": "Comparing the Effects of Cognitive and Physical Training on Cognitive Function and Brain Activation in People With Mild Cognitive Impairment and Mild Dementia: A Randomized Controlled Trial.",
+      "abstract": "To compare the effects of different training strategies in individuals with mild cognitive impairment and mild dementia. Randomized controlled trial. University laboratory. Older adults aged >65 years with a diagnosis of mild cognitive impairment or mild dementia were eligible. Sixty participants were randomly assigned to the cognitive training group (CTG), physical training group (PTG), and control group (CG), with 20 participants in each group. CTG and PTG received interventions for 30 min/session, 3 sessions/wk, for 8 weeks. CG received health education. Primary outcomes were cognition and prefrontal cortex (PFC) activation during a cognitive task. Global cognition was measured by the Alzheimer's disease assessment scale-cognitive subscale (ADAS-Cog), executive function by the frontal assessment battery and Trail Making Test-B (TMT-B), attention by the trail making test-A, and memory by the category fluency test. PFC activation was documented with functional near-infrared spectroscopy. Secondary outcomes included the timed Up and Go test and the Modified Falls Efficacy Scale. Data were analyzed using generalized estimating equations. CTG significantly improved ADAS-Cog (P=.022), frontal assessment battery (P<.001), trail making test-A (P=.014), TMT-B (P=.008), and CFT (P=.004) than CG. PTG significantly improved ADAS-Cog (P=.008), TMT-B (P=.033), and CFT (P=.005) compared with CG. CTG exhibited significantly decreased PFC activation compared with CG and PTG (P=.002 vs physical training, P=.015 vs control). PTG significantly improved timed Up and Go performance compared with CG and CTG (P=.046 vs cognitive training, P=.003 vs control). Both training strategies showed potential cognitive benefits, with only PTG exceeding the minimal clinically important difference on the ADAS-Cog. Reduced PFC activation in the CTG may reflect improved neural efficiency; however, this interpretation requires further verification.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42081986/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42081986",
+        "doi": "10.1016/j.apmr.2026.04.036",
+        "journal": "Archives of physical medicine and rehabilitation",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T08:58:23.823Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e2bfab38916e529f7647",
+      "reserved_at": "2026-10-10T08:58:29.085Z",
+      "source_branch": "research/intake/2/20261010-0454-cognition-metabolic-r42"
+    },
+    {
+      "pmid": "42798168",
+      "title": "Effect of Multi-Modal Training in Patients With Mild Cognitive Impairment: A Randomized Controlled Pilot Trial.",
+      "doi": "10.12659/MSM.953455",
+      "source_title": "Effect of Multi-Modal Training in Patients With Mild Cognitive Impairment: A Randomized Controlled Pilot Trial.",
+      "abstract": "BACKGROUND This study aimed to evaluate whether a multi-modal training that combined Baduanjin, computerized cognitive training, and reminiscence therapy is associated with improved cognitive function in older adults with mild cognitive impairment (MCI) in a pilot randomized controlled trial. MATERIAL AND METHODS Sixty-five patients with MCI were randomly assigned into an intervention group (a 24-week multi-modal training) and a control group (health education). Cognitive function was assessed at baseline, week 12, and week 24 using the Mini-Mental State Examination (MMSE) and the Montreal Cognitive Assessment (MoCA). A repeated-measures ANOVA was conducted across 3 time points to examine the group effects, time effects, and interactions. RESULTS Significant group × time interactions were observed for MMSE and MoCA (both P<0.001). At 24 weeks, the intervention group showed greater improvement than the control group in MMSE score, with a between-group difference of 1.88 points (P<0.001), and in MoCA score, with a between-group difference of 1.62 points (P<0.001). Exploratory MoCA subdomain analyses suggested possible domain-specific benefits in the intervention group, with nominal declines in naming, memory, and attention in controls. CONCLUSIONS This pilot randomized controlled trial provides preliminary evidence that a 24-week multi-modal program combining Baduanjin, computerized cognitive training, and reminiscence therapy was associated with improved global cognitive performance in community-dwelling older adults with MCI compared with health education alone. Given the pilot nature of the study and the modest between-group differences, these findings should be interpreted with caution and confirmed in larger, adequately powered trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42798168/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42798168",
+        "doi": "10.12659/MSM.953455",
+        "journal": "Medical science monitor : international medical journal of experimental and clinical research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T08:58:23.824Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4c8410f167d44afff45b",
+      "reserved_at": "2026-10-10T08:58:29.085Z",
+      "source_branch": "research/intake/2/20261010-0454-cognition-metabolic-r42"
     }
   ],
   "batches": [
@@ -45379,16 +45534,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 575,
+    "total_reservations": 577,
     "by_lane": {
       "1": 38,
-      "2": 108,
+      "2": 110,
       "3": 104,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 575
+      "SOURCE_VERIFIED": 577
     },
     "batches": [
       {
@@ -45401,7 +45556,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 75,
+        "count": 77,
         "pr_number": null,
         "blocker": null
       }
