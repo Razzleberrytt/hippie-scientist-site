@@ -46275,6 +46275,82 @@
       "reservation_id": "4b69d29b2fee47b1beab",
       "reserved_at": "2026-10-10T10:55:19.962Z",
       "source_branch": "research/intake/2/20261010-0651-cognition-metabolic-r44"
+    },
+    {
+      "pmid": "41901337",
+      "title": "Berberine-Mediated BCRP Inhibition Enhances Systemic Exposure of Rhein: A Study to Unravel the Pharmacokinetic Basis of Synergy in Da-Huang-Xiao-Shi Decoction.",
+      "doi": "10.3390/ph19030492",
+      "source_title": "Berberine-Mediated BCRP Inhibition Enhances Systemic Exposure of Rhein: A Study to Unravel the Pharmacokinetic Basis of Synergy in Da-Huang-Xiao-Shi Decoction.",
+      "abstract": "Background/Objectives : Cholestasis is a clinically intractable liver disorder. Da-Huang-Xiao-Shi Decoction (DHXSD), a classic traditional Chinese medicine formula, demonstrates notable efficacy, yet the mechanistic basis for its multi-herb synergy remains unclear. The purpose of this study was to decipher the pharmacokinetic interaction underlying the synergy of DHXSD. Methods : A cholestatic rat model was established in male Sprague Dawley rats. Hepatoprotective efficacy was evaluated, and the pharmacokinetics of anthraquinones were profiled. Key interaction mechanisms were investigated using the everted intestinal sac model, the breast cancer resistance protein (BCRP)-overexpressing MDCKII cells, and molecular docking simulations. Results : DHXSD provided significantly stronger hepatoprotection than its principal herb Rheum palmatum L. (DaHuang, DH) alone. This enhanced efficacy correlated with an approximate 2-fold increase in the systemic exposure of rhein compared to DH monotherapy. We identified berberine from Phellodendron amurense Rupr. (Huang Bo, HB) as the key synergist, which potently inhibited the BCRP efflux transporter, thereby enhancing rhein absorption. In contrast, geniposide from Gardenia jasminoides Ellis (Zhi Zi, ZZ) showed minimal effects. Conclusions : This work elucidates a concrete, transporter-mediated pharmacokinetic interaction as the core mechanism underlying herbal synergy in DHXSD. Our findings offer a rational strategy-targeted efflux transporter modulation-for improving the oral bioavailability of challenging drug molecules.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41901337/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41901337",
+        "doi": "10.3390/ph19030492",
+        "journal": "Pharmaceuticals (Basel, Switzerland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T11:09:00.688Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "327856fff94457f2b263",
+      "reserved_at": "2026-10-10T11:09:05.480Z",
+      "source_branch": "research/intake/3/20261010-0707-berberine-bcrp-41901337"
     }
   ],
   "batches": [
@@ -46303,16 +46379,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 587,
+    "total_reservations": 588,
     "by_lane": {
       "1": 42,
       "2": 114,
-      "3": 106,
+      "3": 107,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 587
+      "SOURCE_VERIFIED": 588
     },
     "batches": [
       {
@@ -46325,7 +46401,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 87,
+        "count": 88,
         "pr_number": null,
         "blocker": null
       }
