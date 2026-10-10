@@ -47969,6 +47969,160 @@
       "reservation_id": "93c73f3bbbd6f5ec1fc0",
       "reserved_at": "2026-10-10T15:55:22.711Z",
       "source_branch": "research/intake/2/20261010-1152-cognition-metabolic-r49"
+    },
+    {
+      "pmid": "42554549",
+      "title": "Severe Nonischemic Dilated Cardiomyopathy Associated With Multi-Ingredient Herbal Supplement Use.",
+      "doi": "10.1016/j.jaccas.2026.109577",
+      "source_title": "Severe Nonischemic Dilated Cardiomyopathy Associated With Multi-Ingredient Herbal Supplement Use.",
+      "abstract": "Herbal supplements marketed for cognitive and cardiovascular enhancement are widely used, yet safety data remain scarce. Supplement-associated cardiomyopathy is a rare but life-threatening complication that remains underrecognized. A 39-year-old previously healthy man developed progressive dyspnea, and bilateral leg edema 2 months after initiating a multi-ingredient herbal supplement. Echocardiography revealed severe left ventricular dysfunction (ejection fraction 10%-15%). Comprehensive evaluation excluded ischemic, infectious, autoimmune, infiltrative, and toxicologic causes. Despite maximal guideline-directed therapy, the patient required orthotopic heart transplantation. Genetic testing was not obtained, representing a workup limitation. Multiple supplement ingredients lacked published cardiovascular safety data. The temporal association between supplement initiation and rapid progression to biventricular failure, in the absence of any identifiable alternative etiology, raises concern for supplement-associated cardiotoxicity. Clinicians should obtain thorough supplement histories in unexplained heart failure. This case underscores the cardiotoxic risk of multi-ingredient herbal supplements and the need for heightened clinical vigilance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42554549/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42554549",
+        "doi": "10.1016/j.jaccas.2026.109577",
+        "journal": "JACC. Case reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T16:07:41.947Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b9d2b3a53b756ffe96f0",
+      "reserved_at": "2026-10-10T16:07:46.801Z",
+      "source_branch": "research/intake/3/20261010-1205-herbal-cardiac-turmeric-safety"
+    },
+    {
+      "pmid": "42160492",
+      "title": "Recurrent Drug-Induced Autoimmune-like Hepatitis due to Turmeric Supplementation.",
+      "doi": "10.1177/23247096261452814",
+      "source_title": "Recurrent Drug-Induced Autoimmune-like Hepatitis due to Turmeric Supplementation.",
+      "abstract": "Drug-induced autoimmune-like hepatitis (DI-ALH) is a rare form of drug-induced liver injury (DILI) that mimics autoimmune hepatitis (AIH). Commonly implicated agents include minocycline, nitrofurantoin, and infliximab, though a wide range of other drugs has been reported. We report a 65-year-old woman with a history of suspected turmeric-induced liver injury six years prior who presented with nausea and painless jaundice two weeks after restarting the same turmeric supplement containing black pepper extract. She denied alcohol or hepatotoxic medication use, and family and personal history of autoimmune or liver disease were unremarkable. Laboratory evaluation revealed marked transaminase elevation (AST 4310 U/L, ALT >2500 U/L), total bilirubin 18.3 mg/dL, and INR 1.1. Autoimmune testing revealed positive smooth muscle antibodies and elevated IgG, while viral, metabolic, and genetic studies were negative. Imaging demonstrated periportal edema. Despite supplement discontinuation, liver enzymes worsened, prompting a liver biopsy, which demonstrated acute hepatitis with portal and lobular inflammation, plasma cell predominance, and canalicular cholestasis without fibrosis consistent with DI-ALH. Corticosteroid therapy led to biochemical improvement over three weeks. The temporal association with exposure, autoimmune serologies, characteristic histology, and steroid responsiveness supported the diagnosis of recurrent turmeric-induced DI-ALH, with more severe injury on re-exposure suggesting immune sensitization. Piperine, included to enhance curcumin bioavailability, may potentiate hepatotoxicity. DI-ALH should be considered in patients with liver injury and recent supplement use, as immunosuppressive therapy may be beneficial when injury persists after drug withdrawal.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42160492/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42160492",
+        "doi": "10.1177/23247096261452814",
+        "journal": "Journal of investigative medicine high impact case reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T16:07:41.948Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0cb16fe4aecacc2344b3",
+      "reserved_at": "2026-10-10T16:07:46.801Z",
+      "source_branch": "research/intake/3/20261010-1205-herbal-cardiac-turmeric-safety"
     }
   ],
   "batches": [
@@ -47997,16 +48151,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 609,
+    "total_reservations": 611,
     "by_lane": {
       "1": 48,
       "2": 124,
-      "3": 112,
+      "3": 114,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 609
+      "SOURCE_VERIFIED": 611
     },
     "batches": [
       {
@@ -48019,7 +48173,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 109,
+        "count": 111,
         "pr_number": null,
         "blocker": null
       }
