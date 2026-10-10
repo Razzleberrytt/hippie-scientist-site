@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "41698831",
+    "42191515",
+    "42745219"
+  ],
+  "relevance_reason": "Human insomnia trial of cannabinol, randomized aromatherapy trial addressing anxiety and depression, and aromatherapy-anxiety systematic review; PubMed source identities verified; interpretation pending independent scientific review."
+}
