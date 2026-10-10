@@ -47737,6 +47737,238 @@
       "reservation_id": "213e85f6c7ee38849d66",
       "reserved_at": "2026-10-10T15:46:56.895Z",
       "source_branch": "research/intake/1/20261010-1143-probiotic-stress-sleep-two"
+    },
+    {
+      "pmid": "42096995",
+      "title": "Therapeutic efficacy of computerized cognitive remediation therapy on cognitive function, inflammatory biomarkers, and brain structure in patients with amnestic mild cognitive impairment and Alzheimer's disease: A randomized controlled trial.",
+      "doi": "10.1016/j.jpsychires.2026.04.040",
+      "source_title": "Therapeutic efficacy of computerized cognitive remediation therapy on cognitive function, inflammatory biomarkers, and brain structure in patients with amnestic mild cognitive impairment and Alzheimer's disease: A randomized controlled trial.",
+      "abstract": "Cognitive and behavioral impairments in Alzheimer's disease (AD) and amnestic mild cognitive impairment (aMCI) represent significant neuropsychiatric challenges. This randomized controlled trial evaluated a 6-month computerized cognitive remediation therapy (CCRT) as a non-pharmacological intervention. Fifty-seven participants (32 aMCI, 25 mild AD) were assigned to CCRT or standard care. Outcomes included cognitive function (MMSE, MoCA), daily living activities (ADL), anxiety/depression (HAMA, HAMD-17), serum high-sensitivity C-reactive protein (Hs-CRP), and longitudinal brain MRI analyzed via voxel-based morphometry (VBM). Compared to controls, the CCRT group showed significant improvements in global cognition (ΔMMSE: +2.12 vs. -1.93, p < 0.001), daily functioning, and anxiety scores. A notable reduction in systemic inflammation (ΔHs-CRP, p < 0.01) was also observed. VBM revealed progressive gray matter atrophy in temporal and parahippocampal regions across both groups, yet cognitive gains in the CCRT cohort occurred independently of structural decline. CCRT effectively enhances cognitive-behavioral outcomes and modulates inflammatory activity in AD-spectrum patients, despite ongoing neurodegeneration. These findings support its integration as a neuropsychiatric intervention aimed at preserving function and promoting neural compensation in dementia care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42096995/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42096995",
+        "doi": "10.1016/j.jpsychires.2026.04.040",
+        "journal": "Journal of psychiatric research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T15:55:18.765Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fb2b45ffcd32b05e1898",
+      "reserved_at": "2026-10-10T15:55:22.711Z",
+      "source_branch": "research/intake/2/20261010-1152-cognition-metabolic-r49"
+    },
+    {
+      "pmid": "41630823",
+      "title": "Efficacy of personalized acupuncture combined with accelerated deep transcranial magnetic stimulation in mild cognitive impairment: A randomized controlled trial.",
+      "doi": "10.1016/j.imr.2026.101289",
+      "source_title": "Efficacy of personalized acupuncture combined with accelerated deep transcranial magnetic stimulation in mild cognitive impairment: A randomized controlled trial.",
+      "abstract": "This study evaluated the efficacy of combining personalized acupuncture with accelerated deep transcranial magnetic stimulation (adTMS) for mild cognitive impairment (MCI). In this randomized, double-blind, controlled trial, 120 MCI patients were assigned to a Combined group (personalized acupuncture + active adTMS), a Single Stimulation group (active adTMS + sham acupuncture), or a Placebo group (sham TMS + sham acupuncture). The primary outcome was the change in Montreal Cognitive Assessment (MoCA) score at 12 weeks. Secondary outcomes included P300 latency, magnetic resonance spectroscopy (MRS) NAA/Cr ratio, serum brain-derived neurotrophic factor (BDNF), C-reactive protein (CRP), interleukin-6 (IL-6), and the Modified Barthel Index (MBI). The Combined group showed a significantly greater improvement in MoCA scores (3.2 ± 1.3 points) compared to the Single Stimulation (1.9 ± 1.2 points; mean difference 1.3, 95 % CI 0.4 to 2.2) and Placebo groups (1.1 ± 1.0 points; mean difference 2.1, 95 % CI 1.2 to 3.0). The Combined group also demonstrated greater reductions in P300 latency and increases in NAA/Cr ratio and serum BDNF levels than the other groups. The combination of personalized acupuncture and adTMS significantly improves cognitive function in MCI patients, supported by positive changes in electrophysiological and metabolic markers. This integrative approach represents a promising non-pharmacological strategy for MCI.Trial registration: International Traditional Medicine Clinical Trials Registry (ITMCTR2025000652).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41630823/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41630823",
+        "doi": "10.1016/j.imr.2026.101289",
+        "journal": "Integrative medicine research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T15:55:18.766Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9ae0f5cff30a8945a6de",
+      "reserved_at": "2026-10-10T15:55:22.711Z",
+      "source_branch": "research/intake/2/20261010-1152-cognition-metabolic-r49"
+    },
+    {
+      "pmid": "42249138",
+      "title": "Oral small molecule GLP-1 receptor agonist aleniglipron in people with overweight or obesity: a randomized, double-blind, placebo-controlled phase 2b trial.",
+      "doi": "10.1038/s41591-026-04476-6",
+      "source_title": "Oral small molecule GLP-1 receptor agonist aleniglipron in people with overweight or obesity: a randomized, double-blind, placebo-controlled phase 2b trial.",
+      "abstract": "Aleniglipron is an oral, small-molecule glucagon-like peptide-1 receptor agonist (GLP1-RA) in development for obesity treatment. The ACCESS phase 2b placebo-controlled, double-blind study randomized 230 adults (mean BMI 39.5 kg m -2 , 54% female) with obesity or overweight to examine the effects of once-daily aleniglipron escalated every 4 weeks to 45, 90 or 120 mg. At week 36, the trial met its primary endpoint with a placebo-adjusted LS mean (95% confidence interval) body-weight change from baseline of -8.2% (-11.1 to -5.3%), -9.8% (-12.5 to -7.2%) and -11.3% (-13.9 to -8.6%) for the aleniglipron 45-, 90- and 120-mg arms, respectively (P < 0.0001, all doses versus placebo), with no apparent weight-loss plateau at the end of the double-blind period. Continued weight loss was observed at the interim analysis (median treatment duration of 20 weeks) of the ongoing open-label extension. Gastrointestinal events were generally mild to moderate and decreased in frequency over time, with little to no recurrence of vomiting after reintroduction following permitted dose interruptions. Treatment-related discontinuations were 10.4% across aleniglipron arms, with no events of drug-induced liver injury. Clinically relevant weight reductions of up to 11.3% with a tolerability profile consistent with the GLP-1RA class support further development of aleniglipron for obesity treatment. ClinicalTrials.gov registration: NCT06693843 .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42249138/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase II",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase II"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42249138",
+        "doi": "10.1038/s41591-026-04476-6",
+        "journal": "Nature medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T15:55:18.766Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "93c73f3bbbd6f5ec1fc0",
+      "reserved_at": "2026-10-10T15:55:22.711Z",
+      "source_branch": "research/intake/2/20261010-1152-cognition-metabolic-r49"
     }
   ],
   "batches": [
@@ -47765,16 +47997,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 606,
+    "total_reservations": 609,
     "by_lane": {
       "1": 48,
-      "2": 121,
+      "2": 124,
       "3": 112,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 606
+      "SOURCE_VERIFIED": 609
     },
     "batches": [
       {
@@ -47787,7 +48019,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 106,
+        "count": 109,
         "pr_number": null,
         "blocker": null
       }
