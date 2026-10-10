@@ -50200,6 +50200,161 @@
       "reservation_id": "aacf44dd6ad7140c8b96",
       "reserved_at": "2026-10-10T21:53:00.091Z",
       "source_branch": "research/intake/2/20261010-1750-cognition-metabolic-r55"
+    },
+    {
+      "pmid": "39793412",
+      "title": "[Origanum vulgare and hemorrhagic risk, about a case].",
+      "doi": "10.1016/j.ancard.2024.101856",
+      "source_title": "[Origanum vulgare and hemorrhagic risk, about a case].",
+      "abstract": "The use of medicinal plants in Algeria is an ancestral practice that remains relevant today. The population relies on plants to treat various diseases and everyday ailments, which can be dangerous, especially when taking medication [1,2]. The interaction between plants and medication can lead to a modification of the plasma concentrations of the latter, which can impact its therapeutic effectiveness and be responsible for toxicity or therapeutic failure [1,2]. The interaction can also be pharmacodynamic, resulting in the potentiation of the effect or its antagonism. The risk is even higher when the medication has a narrow therapeutic range or presents high inter- or intra-individual variability, such as with vitamin K antagonist anticoagulants. We report the case of patient B.Z., aged 77, who is suffering from complete atrial fibrillation (ACFA). The patient has been under antivitamin K (AVK) treatment with acenocoumarol for 8 years and has been followed at the central laboratory of Didouche Mourad Hospital since August 2019. The patient has been stable with an INR within the therapeutic target range of 2-3 for 4 years. She is compliant and adheres to the dietary regimen. The dosage of acenocoumarol is alternated between 1/2 tablet and 1/4 tablet. On September 6, 2023, during a routine check-up, the patient's INR was 6.42, and the PT was 17.9%. The recommendation was to stop AVK and perform a control the following day. The interview revealed that the patient had started taking an infusion of oregano (Origanum vulgare), and occasionally verbena, at a rate of one 200 ml cup per day for a week. On September 7, 2023, the INR decreased to 3.80 and the PT to 26.9%, so the recommendation was to resume AVK at a dosage of 1/4 tablet to 1/2 tablet, with discontinuation of the herbal tea intake and an INR check after 72 hours. On the fourth day after resuming the anticoagulant, the INR was 2.5. Despite being informed of the risk of interaction, the patient resumed taking the freshly picked oregano herbal tea from her garden. Given the patient's determination to continue her infusion, the recommendation was made to limit her intake, to prepare much more diluted infusions, and to reduce the dose of acenocoumarol to 1/4 tablet; this allowed the stabilization of the patient's INR. The last check-up was performed on April 7, 2024, with an INR value of 2.3. Oregano, a plant from the Lamiaceae family, is used in herbal tea to treat a wide range of diseases, including joint pain, respiratory conditions, and digestive disorders. Similarly, verbena is also used to combat sleep disorders [2-4]. Origanum and verbena are both plants rich in polyphenols, as well as tannins and flavonoids. These substances are inhibitors of CYP 450, particularly CYP 2C9 and CYP 3A4, which are responsible for the metabolism of many drugs, including painkillers, antihypertensives, central nervous system drugs, and anticoagulants such as acenocoumarol. Origanum also exhibits anticoagulant activity due to its high content of carvacrol and thymol [4-6]. These two modes of interaction lead to an increase in the pharmacodynamic effect of acenocoumarol and, therefore, an increased risk of bleeding. This was the case for our patient, who saw her INR increase to more than twice the normal level, coinciding with the intake of oregano and verbena infusions, which normalized after their discontinuation. Oregano is an endemic plant widely used in Algeria, whose anti-inflammatory properties are well established. However, its side effects, toxicity, and risk of interaction when combined with medications are less known. The interaction between oregano and AVK (acenocoumarol) exists and deserves to be recognized and monitored, especially in a population with a traditional culture where the use of plants is common. This practice should be accompanied by national phytovigilance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39793412/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports; English Abstract",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports",
+          "English Abstract"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39793412",
+        "doi": "10.1016/j.ancard.2024.101856",
+        "journal": "Annales de cardiologie et d'angeiologie",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T22:01:15.579Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ac589ccf132cb40e0de6",
+      "reserved_at": "2026-10-10T22:01:21.811Z",
+      "source_branch": "research/intake/3/20261010-1800-oregano-tb-39793412-42306966"
+    },
+    {
+      "pmid": "42306966",
+      "title": "Herbal supplements and anti-tuberculosis therapy: unlocking hidden interactions for better multidrug-resistant tuberculosis management.",
+      "doi": "10.1080/03602532.2026.2688186",
+      "source_title": "Herbal supplements and anti-tuberculosis therapy: unlocking hidden interactions for better multidrug-resistant tuberculosis management.",
+      "abstract": "Tuberculosis (TB), especially in its multidrug-resistant form (MDR-TB), remains a persistent threat to global health despite decades of medical advancements. Standard treatment regimens often involve complex drug combinations, which, while effective, pose a significant risk of drug-drug interactions (DDIs). The growing reliance on complementary and alternative medicine (CAM), particularly herbal supplements, further complicates this landscape by introducing herb-drug interactions (HDIs), many of which are poorly understood or undocumented. These interactions can compromise treatment efficacy, increase toxicity, and hinder patient adherence, particularly in settings where traditional medicine is widely used. This review emphasizes current evidence on the pharmacological interactions between anti-TB/MDR-TB drugs and other conventional medications, as well as commonly used herbal supplements. We explore the pharmacokinetic and pharmacodynamic mechanisms underlying these interactions, with a focus on cytochrome P450-mediated metabolism and modulation of transporter proteins. Highlighted are key interactions involving TB/MDR-TB medication. In addition, the review discusses the emerging role of Network Pharmacology in mapping multi-target interactions, offering new understandings into the potential risks and benefits of integrating herbal medicine into TB care. The potential therapeutic value of select herbs with hepatoprotective and immunomodulatory properties is critically examined alongside safety concerns. By collating and evaluating findings from clinical, pharmacological, and systems-based research, this review aims to guide healthcare professionals in optimizing TB treatment strategies. Emphasis is placed on the need for proactive monitoring, patient education, and culturally sensitive communication regarding herbal use. Integrating evidence-based approaches with traditional practices could enhance treatment outcomes and minimize adverse effects in TB and MDR-TB management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42306966/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42306966",
+        "doi": "10.1080/03602532.2026.2688186",
+        "journal": "Drug metabolism reviews",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T22:01:15.579Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3457e6937a9d90f7c5e5",
+      "reserved_at": "2026-10-10T22:01:21.811Z",
+      "source_branch": "research/intake/3/20261010-1800-oregano-tb-39793412-42306966"
     }
   ],
   "batches": [
@@ -50228,16 +50383,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 638,
+    "total_reservations": 640,
     "by_lane": {
       "1": 59,
       "2": 135,
-      "3": 119,
+      "3": 121,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 638
+      "SOURCE_VERIFIED": 640
     },
     "batches": [
       {
@@ -50250,7 +50405,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 138,
+        "count": 140,
         "pr_number": null,
         "blocker": null
       }
