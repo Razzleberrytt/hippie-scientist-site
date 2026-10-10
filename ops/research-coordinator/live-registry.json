@@ -48586,6 +48586,83 @@
       "reservation_id": "93695fd161e9ea6fc4e3",
       "reserved_at": "2026-10-10T17:06:42.535Z",
       "source_branch": "research/intake/3/20261010-1305-echinacea-42216677"
+    },
+    {
+      "pmid": "41862890",
+      "title": "Efficacy and safety of Kami Guibi-tang in older adults with insomnia and memory complaints: a randomized, double-blind, placebo-controlled pilot trial.",
+      "doi": "10.1186/s12906-026-05348-9",
+      "source_title": "Efficacy and safety of Kami Guibi-tang in older adults with insomnia and memory complaints: a randomized, double-blind, placebo-controlled pilot trial.",
+      "abstract": "BACKGROUND: Insomnia, which is a common complaint among older adults, is associated with cognitive deterioration and a lower quality of life. Kami Guibi-tang (KGT), traditional Eastern herbal medicine, is known to be beneficial for sleep and cognitive health. However, its efficacy and safety in treating older adults with insomnia needs to be clearly established. This study evaluated the safety and efficacy of KGT in enhancing sleep quality and cognitive function of older adults with insomnia. METHODS: A total of 34 elderly participants randomly received either KGT or placebo granules for 12 weeks. The primary endpoint was the change in Pittsburgh Sleep Quality Index (PSQI-K) score, while the secondary endpoints included changes in the Insomnia Severity Index-Korean (ISI-K), Seoul Neuropsychological Screening Battery-Dementia, Short-Form 36 Health Survey, and Short-Form Geriatric Depression Scale (S-GDS). Safety assessments included monitoring of blood pressure, pulse rate, body temperature, blood tests, electrocardiograms, and documentation of adverse events. RESULTS: While both KGT as well as the placebo groups demonstrated significant improvements in PSQI-K and ISI-K, the KGT group indicated greater cognitive benefits, especially in the domains associated with memory and executive processing. An improvement in the S-GDS was also observed in the KGT group. No side effects were linked to KGT. CONCLUSIONS: KGT can be considered as a safe and potentially effective therapeutic option for enhancing sleep and cognitive function among older adults suffering from insomnia. The added improvements shown by the KGT group in cognitive function and depressive symptoms indicate that KGT might provide broader benefits in addition to sleep enhancement. TRIAL REGISTRATION: https://cris.nih.go.kr Registration Number: KCT0008391 (April 27, 2023).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41862890/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41862890",
+        "doi": "10.1186/s12906-026-05348-9",
+        "journal": "BMC complementary medicine and therapies",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T17:41:58.792Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "73326382e443dbfedec2",
+      "reserved_at": "2026-10-10T17:42:03.726Z",
+      "source_branch": "research/intake/1/20261010-1339-kgt-41862890"
     }
   ],
   "batches": [
@@ -48614,16 +48691,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 617,
+    "total_reservations": 618,
     "by_lane": {
-      "1": 50,
+      "1": 51,
       "2": 127,
       "3": 115,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 617
+      "SOURCE_VERIFIED": 618
     },
     "batches": [
       {
@@ -48636,7 +48713,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 117,
+        "count": 118,
         "pr_number": null,
         "blocker": null
       }
