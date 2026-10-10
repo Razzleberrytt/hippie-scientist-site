@@ -43817,6 +43817,235 @@
       "reservation_id": "f5cd1edbea8d7eebf777",
       "reserved_at": "2026-10-10T04:03:22.107Z",
       "source_branch": "research/intake/3/20261010-0001-fenugreek-ribociclib"
+    },
+    {
+      "pmid": "42623910",
+      "title": "The effect of lavender scent recommended to the elderly on sleep quality and physical balance: A randomized controlled trial.",
+      "doi": "10.1016/j.gerinurse.2026.104248",
+      "source_title": "The effect of lavender scent recommended to the elderly on sleep quality and physical balance: A randomized controlled trial.",
+      "abstract": "This study is a randomized controlled pre-test post-test parallel-group study to examine the effect of lavender scent recommended to the elderly on sleep quality and physical balance. The study is a randomized controlled study with a pretest-posttest design. The sample group consisted of a total of 90 elderly individuals; 45 in the intervention group and 45 in the control group. The pre-test and post-test data collection tools were the Personal Information Form, Pittsburgh Sleep Quality Index (PSQI), and Berg Balance Scale (BBS). The elderly included in the lavender group were asked to sleep with lavender pouches in their pillows for a month. Descriptive analyses, t tests, chi-square, Wilcoxon, Mann Whitney U, and Fisher Exact tests were used in data analysis. The study was registered at Clinical Trials with the protocol number NCT05377697. In the lavender group, the PSQI Sleep Quality score was 1.37±0.68 in the pre-test and 0.86±0.58 in the post-test, the PSQI Sleep Latency score was 1.53±1.01 in the pre-test and 0.95±0.76 in the post-test, and the PSQI total score was 6.11±2.86 in the pre-test and 4.33±2.07 in the post-test (p < 0.05). In the lavender group, the BBS score increased from 38.31±11.84 in the pre-test to 41.48±10.82 in the post-test, and the difference was statistically significant. In the study, it was determined that lavender scent applied to elderly individuals decreased sleep latency and improved sleep quality and was associated with improved balance outcomes. It was seen that lavender may be effective in reducing sleep and balance problems frequently experienced in elderly individuals.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42623910/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42623910",
+        "doi": "10.1016/j.gerinurse.2026.104248",
+        "journal": "Geriatric nursing (New York, N.Y.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T04:43:32.325Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "924727dfdfa0f34b3464",
+      "reserved_at": "2026-10-10T04:43:36.841Z",
+      "source_branch": "research/intake/1/20261010-0041-lavender-melissa-three"
+    },
+    {
+      "pmid": "41970427",
+      "title": "Comparing the Effects of Lavender Aromatherapy With Virtual Reality on the Quality of Sleep in Type 2 Diabetic Patients: A Randomized Controlled Trial.",
+      "doi": "10.1002/hsr2.72319",
+      "source_title": "Comparing the Effects of Lavender Aromatherapy With Virtual Reality on the Quality of Sleep in Type 2 Diabetic Patients: A Randomized Controlled Trial.",
+      "abstract": "Sleep disturbances frequently affect patients with type 2 diabetes, impairing glycemic control and overall health. Safe, non-pharmacological approaches such as aromatherapy and virtual reality (VR) are increasingly utilized to enhance sleep. This study compared the effectiveness of lavender aromatherapy and VR interventions in improving sleep quality among individuals with type 2 diabetes. In this double-blind, randomized controlled trial, 90 patients with type 2 diabetes were randomly assigned to one of three groups: lavender aromatherapy, virtual reality (VR) and control (routine care). Interventions were performed nightly for three consecutive nights. Sleep quality was assessed before and after the intervention using the Pittsburgh Sleep Quality Index (PSQI). Data were analyzed using appropriate statistical tests based on the distribution of the data. Median (IQR) PSQI scores decreased from 7.5 (6-9) to 4.0 (3-5) in the aromatherapy group and from 8.0 (6-9) to 4.0 (3-6) in the VR group (both p < 0.001, r = 0.81-0.83), whereas no significant change occurred in the control group ( p = 0.225). ANCOVA adjusting for baseline PSQI confirmed a significant group effect, F (2, 86) = 171.06, p < 0.001, η ² = 0.799. Overall, 65%-70% of participants in both interventions achieved good sleep quality (PSQI < 5) compared with 5% in controls. Lavender aromatherapy and virtual reality improved sleep quality in patients with type 2 diabetes, but results should be interpreted cautiously due to the short, single-center study design.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41970427/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41970427",
+        "doi": "10.1002/hsr2.72319",
+        "journal": "Health science reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T04:43:32.326Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3d756e8d4a6fc6d18899",
+      "reserved_at": "2026-10-10T04:43:36.841Z",
+      "source_branch": "research/intake/1/20261010-0041-lavender-melissa-three"
+    },
+    {
+      "pmid": "37927585",
+      "title": "The possible \"calming effect\" of subchronic supplementation of a standardised phospholipid carrier-based Melissa officinalis L . extract in healthy adults with emotional distress and poor sleep conditions: results from a prospective, randomised, double-blinded, placebo-controlled clinical trial.",
+      "doi": "10.3389/fphar.2023.1250560",
+      "source_title": "The possible \"calming effect\" of subchronic supplementation of a standardised phospholipid carrier-based Melissa officinalis L . extract in healthy adults with emotional distress and poor sleep conditions: results from a prospective, randomised, double-blinded, placebo-controlled clinical trial.",
+      "abstract": "Background: Emotional distress conditions such as depression, anxiety, stress, and poor sleep are widespread health problems that have a significant impact on people's lives. Conventional drugs are commonly prescribed to treat emotional distress and poor sleep conditions; however, these medications have several limitations and have shown multiple side effects. Over recent years botanicals-based pharmacological agents have gained increasing research and clinical interest in the management of emotional distress and sleep disorder. Of note, Melissa officinalis L. (MO) leaf extract has demonstrated considerable neuropharmacological properties both in animal and human studies and has emerged as a promising natural \"calming agent.\" However, research in this area is limited, and more studies are needed to validate its efficacy in amelioration of emotional distress and poor sleep conditions. Objectives: We aimed to assess the pharmacological effects of subchronic supplementation of an innovative standardised phospholipid carrier-based MO aqueous extract on emotional distress and poor sleep conditions. Design: A 3-week prospective, randomised, placebo-controlled, parallel-group, double-blinded clinical trial was conducted in 100 healthy adults complaining of a moderate degree of depression, anxiety, or stress, with scores of ≥14, ≥10, and ≥19, respectively, in the self-report Depression, Anxiety, and Stress Scale (DASS-42) or poor sleep, as indicated by the score of >5 in the Pittsburgh Sleep Quality Index (PSQI) scale. In addition, the impact of emotional distress and/or poor sleep on participants' mental wellbeing, emotional feelings, and quality of life was also assessed using the self-reported Warwick-Edinburgh Mental Wellbeing Scale (WEMWBS), Positive and Negative Affect Schedule (PANAS) scale, and quality of life (WHO-QoL-BREF) scale, respectively. Results: Oral supplementation of 200 mg of phospholipid-based MO aqueous extract (Relissa™) tablets twice a day (i.e., 400 mg/day) for 3 weeks led to significant improvements in the depressive mood, anxiety, stress, positive and negative affect (emotional feelings), overall mental wellbeing, and quality-of-life scores (all p values <0.001). Supplementation of MO extract was well tolerated, and no treatment-emergent effects or serious adverse events were reported. Conclusion: According to the results of this study, the phospholipid carrier-based MO aqueous extract possesses considerable neuropharmacological properties, and its supplementation may provide a promising therapeutic option for the management of moderate emotional distress and/or poor sleep conditions. Clinical Trial Registration: clinicaltrials.gov, identifier NCT05602688.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37927585/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "37927585",
+        "doi": "10.3389/fphar.2023.1250560",
+        "journal": "Frontiers in pharmacology",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-10T04:43:32.327Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "bdf2072312954ed0ea38",
+      "reserved_at": "2026-10-10T04:43:36.841Z",
+      "source_branch": "research/intake/1/20261010-0041-lavender-melissa-three"
     }
   ],
   "batches": [
@@ -43845,16 +44074,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 555,
+    "total_reservations": 558,
     "by_lane": {
-      "1": 30,
+      "1": 33,
       "2": 101,
       "3": 101,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 555
+      "SOURCE_VERIFIED": 558
     },
     "batches": [
       {
@@ -43867,7 +44096,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 55,
+        "count": 58,
         "pr_number": null,
         "blocker": null
       }
