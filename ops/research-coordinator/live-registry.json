@@ -45814,6 +45814,160 @@
       "reservation_id": "3a2c65cf6d82275f25b2",
       "reserved_at": "2026-10-10T09:46:53.798Z",
       "source_branch": "research/intake/1/20261010-0544-ltheanine-lactolin-rose-three"
+    },
+    {
+      "pmid": "42796931",
+      "title": "Effects of Chokeberry Juice Added to a Mediterranean-Style Diet on Glycemic Control and Redox Homeostasis in Women with Prediabetes: A Randomized Controlled Trial.",
+      "doi": "10.3390/nu18182948",
+      "source_title": "Effects of Chokeberry Juice Added to a Mediterranean-Style Diet on Glycemic Control and Redox Homeostasis in Women with Prediabetes: A Randomized Controlled Trial.",
+      "abstract": "Background : Prediabetes is characterized by impaired glucose regulation and altered redox homeostasis, which may contribute to progression to type 2 diabetes. Polyphenol-rich foods may improve metabolic and redox balance. Methods : Fifty-four women aged 30-60 years with prediabetes were randomly assigned to an intervention group (IG) or control group (CG); 50 completed the 12-week study (25 per group). Both groups received Mediterranean diet recommendations. The IG additionally consumed 100 mL/day of chokeberry juice, providing 457 mg GAE of total polyphenols and 9.7 mmol antioxidant capacity (FRAP), whereas the CG received no study product. Fasting plasma glucose (FG), HbA1c, 2 h plasma glucose (2h-PG), total oxidant status (TOS), total antioxidant status (TAS), and oxidative stress index (OSI) were assessed at baseline and 12 weeks. Between-group differences in individual changes were analyzed using the Mann-Whitney U test with Benjamini-Hochberg false discovery rate correction. The randomized substudy reported here was conducted within the broader single-group parent study registered at ClinicalTrials.gov (NCT06435130), which enrolled a larger mixed-sex cohort; the present analysis concerns only the nested 12-week randomized comparison in women with prediabetes. Results : Compared with the CG, the IG showed greater reductions in FG, HbA1c, 2h-PG, TOS, and OSI and a greater increase in TAS. All between-group differences remained significant after FDR correction (adjusted p < 0.001), with large Cliff's delta values. Conclusions : Adding 100 mL/day of chokeberry juice to Mediterranean diet recommendations for 12 weeks was associated with modest but statistically significant improvements in glycemic and redox-related outcomes in women with prediabetes. The small sample, short follow-up, and lack of placebo control limit generalizability; larger, longer placebo-controlled trials are warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42796931/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42796931",
+        "doi": "10.3390/nu18182948",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T10:00:08.745Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "76cc6289e3fbea4d2df1",
+      "reserved_at": "2026-10-10T10:00:14.800Z",
+      "source_branch": "research/intake/2/20261010-0556-cognition-metabolic-r43"
+    },
+    {
+      "pmid": "42331287",
+      "title": "Impact of weight loss and reduction of ultra-processed foods on liver fat content in MASLD: A randomized controlled trial.",
+      "doi": "10.1016/j.jhepr.2026.101929",
+      "source_title": "Impact of weight loss and reduction of ultra-processed foods on liver fat content in MASLD: A randomized controlled trial.",
+      "abstract": "Dietary interventions are a cornerstone of management for metabolic dysfunction-associated steatotic liver disease (MASLD). However, it remains unclear whether specific dietary patterns confer benefits beyond weight loss. We aimed to compare the effects of different dietary strategies on liver fat and metabolic health in patients with MASLD. We conducted a 6-month, three-arm, parallel-group randomized controlled trial including patients with MASLD and overweight or obesity who were naïve to structured nutritional counselling. Participants were randomized to Mediterranean diet (MeD), low-carbohydrate, high-protein diet (LCHO), or standard nutritional recommendations. Liver fat content was assessed by controlled attenuation parameter (CAP). Secondary outcomes included changes in anthropometric and metabolic parameters, body composition, and ultra-processed food (UPF) consumption. Structural equation modelling was used to investigate pathways linking dietary allocation, weight loss, and UPF intake with changes in CAP. Of 173 enrolled participants, 148 (85.5%) completed the study. CAP decreased significantly within the LCHO and control groups (Δ -19.5 [-48.8 to 8.0], p = 0.004 and -11.0 [-32.0 to 12.0], p <0.001), with no significant between-group differences. All study arms achieved significant improvements in body weight, BMI, adiposity measures, metabolic profile, and dietary quality, including reductions in UPF intake. Structural equation modelling analyses showed no direct or total effect of dietary pattern on changes in CAP. In contrast, reductions in BMI and UPF consumption independently and significantly predicted CAP improvements: β = 14.34 (95% CI 10.55-18.13), and β = 0.64 (95% CI 0.25-1.03). In patients with MASLD, weight loss and reductions in UPF intake, rather than diet type, were the main drivers of improvements in liver fat and metabolic health. These findings support a patient-centered dietary approach in MASLD management. NCT073043336. This randomized controlled trial shows that weight loss and reductions in ultra-processed food intake, rather than the specific dietary pattern, are the primary factors associated with improvements in liver fat and metabolic health in MASLD. These findings challenge the emphasis on prescriptive dietary models and support a more flexible, patient-centered approach focused on sustainable weight reduction and improved dietary quality. Prioritizing reduction of ultra-processed foods may represent a practical and scalable strategy to enhance adherence and maximize long-term clinical benefit in routine care.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42331287/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42331287",
+        "doi": "10.1016/j.jhepr.2026.101929",
+        "journal": "JHEP reports : innovation in hepatology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T10:00:08.746Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f8c1d3853d11158a26d1",
+      "reserved_at": "2026-10-10T10:00:14.800Z",
+      "source_branch": "research/intake/2/20261010-0556-cognition-metabolic-r43"
     }
   ],
   "batches": [
@@ -45842,16 +45996,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 581,
+    "total_reservations": 583,
     "by_lane": {
       "1": 41,
-      "2": 110,
+      "2": 112,
       "3": 105,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 581
+      "SOURCE_VERIFIED": 583
     },
     "batches": [
       {
@@ -45864,7 +46018,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 81,
+        "count": 83,
         "pr_number": null,
         "blocker": null
       }
