@@ -17,6 +17,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 
+import { loadPubmedCache } from '@/lib/research-coverage'
+import { findProductionClaim, loadProductionClaims, splitPmids } from './adapter-1a'
+
 import {
   buildClaimDna,
   sortKeysDeep,
@@ -54,17 +57,14 @@ export type BatchManifest = {
   schema_version: string
   generator_version: string
   batch_id: string
-  claims: BatchClaimResult[]
+  claims: Array<Omit<BatchClaimResult, 'reprocessed'>>
   shared_identities: Record<string, SharedIdentity>
   aggregate_metrics: {
     total_claims_processed: number
-    total_claims_reprocessed: number
-    total_claims_skipped: number
     total_publication_identities: number
     successful_metadata_joins: number
     unresolved_identifiers: number
     duplicate_identities: number
-    processing_ms: number
     traceability_coverage: number
   }
   traceability: Array<{ output: string; inputs: string[]; via: string }>
@@ -119,12 +119,32 @@ export type RunBatchResult = {
   manifestBytes: string
   manifestSha256: string
   results: BatchClaimResult[]
+  run_metrics: {
+    total_claims_reprocessed: number
+    total_claims_skipped: number
+    processing_ms: number
+  }
+}
+
+function sha256Hex(value: string): string {
+  return crypto.createHash('sha256').update(value, 'utf8').digest('hex')
 }
 
 export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: RunBatchInput): RunBatchResult {
   const t0 = Date.now()
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(batchId)) throw new Error('invalid batch id')
+  if (!Array.isArray(claimIds) || claimIds.length === 0) throw new Error('batch requires claim IDs')
+  if (new Set(claimIds).size !== claimIds.length) throw new Error('duplicate claim IDs in batch')
+  if (claimIds.some((id) => !/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(id))) throw new Error('invalid claim id')
   const dir = batchDir(root)
   fs.mkdirSync(dir, { recursive: true })
+
+  // Load shared inputs once. Fingerprints exactly mirror Round 1A inputs,
+  // allowing unchanged claims to skip expensive buildClaimDna entirely.
+  const claims = loadProductionClaims(root)
+  const pubmed = loadPubmedCache(root)
+  const adapterBytes = fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'adapter-1a.ts'), 'utf8')
+  const adapterHash = sha256Hex(adapterBytes)
 
   const prevState = loadBatchState(root, batchId)
   const newState: BatchState = { batch_id: batchId, claims: {} }
@@ -135,10 +155,49 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
   const identityRefs = new Map<string, { pmid: string; referenced_by: string[] }>()
 
   for (const claimId of claimIds) {
-    // Reuse the 1A pipeline verbatim for each claim.
-    const dna: ClaimDnaResult = buildClaimDna({ claimId, root })
-    const artifact = dna.artifact
-    const inputHashes = (artifact['input_hashes'] as Record<string, string>) ?? {}
+    const productionClaim = findProductionClaim(claims, claimId)
+    const pmids = splitPmids(String(productionClaim.pmid ?? ''))
+    const inputHashes: Record<string, string> = {
+      'public/data/claims.json': sha256Hex(JSON.stringify(productionClaim)),
+      'ops/cache/pubmed-metadata.json': sha256Hex(JSON.stringify(pmids.map((p) => pubmed[p] ?? null))),
+      'scripts/claim-dna/adapter-1a.ts': adapterHash,
+    }
+    const claimPath = path.join(dir, `${claimId}.json`)
+    const prev = prevState?.claims?.[claimId]
+    let reusedArtifact: Record<string, unknown> | null = null
+
+    // Hash-match alone is insufficient: also verify artifact existence,
+    // integrity and readability before claiming a skipped rebuild.
+    if (prev && hashesEqual(prev.input_hashes, inputHashes) && fs.existsSync(claimPath)) {
+      try {
+        const bytes = fs.readFileSync(claimPath, 'utf8')
+        if (sha256Hex(bytes) === prev.artifact_sha256) {
+          const parsed = JSON.parse(bytes)
+          if (parsed && typeof parsed === 'object' && parsed.claim_id === claimId) {
+            reusedArtifact = parsed as Record<string, unknown>
+          }
+        }
+      } catch {
+        // Corrupt artifacts regenerate through the real Round 1A pipeline.
+      }
+    }
+    const reprocessed = reusedArtifact === null
+    let artifact: Record<string, unknown>
+    let artifactSha256: string
+    if (reprocessed) {
+      const dna: ClaimDnaResult = buildClaimDna({ claimId, root })
+      artifact = dna.artifact
+      artifactSha256 = dna.artifactSha256
+      if (!hashesEqual(inputHashes, artifact.input_hashes as Record<string, string>)) {
+        throw new Error(`claim input changed during generation: ${claimId}`)
+      }
+      fs.writeFileSync(claimPath, dna.artifactBytes, 'utf8')
+    } else {
+      artifact = reusedArtifact!
+      artifactSha256 = prev!.artifact_sha256
+    }
+    newState.claims[claimId] = { input_hashes: inputHashes, artifact_sha256: artifactSha256 }
+
     const joinMetrics = (artifact['join_metrics'] as BatchClaimResult['join_metrics']) ?? {
       identity_resolutions: 0,
       metadata_resolutions: 0,
@@ -148,16 +207,6 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
     const canonicalIds = (
       (artifact['analytical_outputs'] as Record<string, unknown>)?.['canonical_study_identities'] as string[] ?? []
     ).map(String)
-
-    // Incremental: skip rewrite if input hashes match previous state.
-    const prev = prevState?.claims[claimId]
-    const reprocessed = !prev || !hashesEqual(prev.input_hashes, inputHashes)
-    if (reprocessed) {
-      // Write the per-claim artifact (1A layout, but under the 1B batch dir).
-      const claimPath = path.join(dir, `${claimId}.json`)
-      fs.writeFileSync(claimPath, dna.artifactBytes, 'utf8')
-    }
-    newState.claims[claimId] = { input_hashes: inputHashes, artifact_sha256: dna.artifactSha256 }
 
     // Cross-claim deduplication: track which claims reference each identity.
     // Per-claim provenance is preserved in each claim's own artifact; the
@@ -172,12 +221,12 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
     batchTrace.push({
       output: `claim:${claimId}`,
       inputs: [`public/data/claims.json#${claimId}`],
-      via: reprocessed ? 'buildClaimDna (reprocessed)' : 'buildClaimDna (hash-match, artifact reused)',
+      via: 'buildClaimDna (Round 1A; validated artifact)',
     })
 
     results.push({
       claim_id: claimId,
-      artifact_sha256: dna.artifactSha256,
+      artifact_sha256: artifactSha256,
       input_hashes: inputHashes,
       join_metrics: joinMetrics,
       provenance_status: String(artifact['provenance_status'] ?? ''),
@@ -211,30 +260,40 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
   const totalJoins = results.reduce((s, r) => s + r.join_metrics.successful_joins, 0)
   const totalUnresolved = results.reduce((s, r) => s + r.join_metrics.unresolved_identifiers, 0)
   const reprocessedCount = results.filter((r) => r.reprocessed).length
-  const tracedCount = results.filter((r) =>
-    batchTrace.some((t) => t.output === `claim:${r.claim_id}`),
-  ).length
+  const tracedCount = results.filter((r) => {
+    const candidate = path.join(dir, `${r.claim_id}.json`)
+    try {
+      const dna = JSON.parse(fs.readFileSync(candidate, 'utf8')) as Record<string, unknown>
+      const trace = dna['traceability'] as Array<{ output: string }> | undefined
+      return Array.isArray(trace) && ['canonical_study_identities', 'join_metrics', 'provenance_status', 'resolution_status', 'evidence_relationship']
+        .every((output) => trace.some((entry) => entry.output === output))
+    } catch {
+      return false
+    }
+  }).length
 
   const manifest = sortKeysDeep({
     schema_version: BATCH_SCHEMA_VERSION,
     generator_version: BATCH_GENERATOR_VERSION,
     batch_id: batchId,
-    claims: results,
+    claims: results.map(({ reprocessed: _reprocessed, ...claim }) => claim),
     shared_identities,
     aggregate_metrics: {
       total_claims_processed: results.length,
-      total_claims_reprocessed: reprocessedCount,
-      total_claims_skipped: results.length - reprocessedCount,
       total_publication_identities: Object.keys(shared_identities).length,
       successful_metadata_joins: totalJoins,
       unresolved_identifiers: totalUnresolved,
       duplicate_identities: duplicateCount,
-      processing_ms: Date.now() - t0,
       traceability_coverage: results.length > 0 ? tracedCount / results.length : 0,
     },
     traceability: batchTrace,
   }) as unknown as BatchManifest
 
+  const run_metrics = {
+    total_claims_reprocessed: reprocessedCount,
+    total_claims_skipped: results.length - reprocessedCount,
+    processing_ms: Date.now() - t0,
+  }
   const manifestBytes = JSON.stringify(manifest, null, 2) + '\n'
   const manifestSha256 = crypto.createHash('sha256').update(manifestBytes, 'utf8').digest('hex')
 
@@ -247,10 +306,11 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
     generated_at: new Date().toISOString(),
     generator_version: BATCH_GENERATOR_VERSION,
     aggregate_metrics: manifest.aggregate_metrics,
+    run_metrics,
   })
   fs.writeFileSync(auditPath(root, batchId), JSON.stringify(audit, null, 2) + '\n', 'utf8')
 
-  return { manifest, manifestBytes, manifestSha256, results }
+  return { manifest, manifestBytes, manifestSha256, results, run_metrics }
 }
 
 // CLI: node scripts/claim-dna/run-1b.ts <batch-id> <claim-id> [<claim-id>...]
@@ -261,11 +321,11 @@ if (invokedAsScript) {
     console.error('usage: run-1b.ts <batch-id> <claim-id> [<claim-id>...]')
     process.exit(1)
   }
-  const { manifest, manifestSha256 } = runClaimDnaBatch({ batchId, claimIds })
+  const { manifest, manifestSha256, run_metrics } = runClaimDnaBatch({ batchId, claimIds })
   const m = manifest.aggregate_metrics
   console.log(`claim-dna 1b: batch ${batchId} -> ops/claim-dna-1b/${batchId}.manifest.json`)
   console.log(`  sha256: ${manifestSha256.slice(0, 16)}...`)
-  console.log(`  claims: ${m.total_claims_processed} (reprocessed: ${m.total_claims_reprocessed}, skipped: ${m.total_claims_skipped})`)
+  console.log(`  claims: ${m.total_claims_processed} (reprocessed: ${run_metrics.total_claims_reprocessed}, skipped: ${run_metrics.total_claims_skipped})`)
   console.log(`  identities: ${m.total_publication_identities} | joins: ${m.successful_metadata_joins} | unresolved: ${m.unresolved_identifiers} | duplicates: ${m.duplicate_identities}`)
-  console.log(`  ms: ${m.processing_ms} | traceability: ${(m.traceability_coverage * 100).toFixed(0)}%`)
+  console.log(`  ms: ${run_metrics.processing_ms} | traceability: ${(m.traceability_coverage * 100).toFixed(0)}%`)
 }
