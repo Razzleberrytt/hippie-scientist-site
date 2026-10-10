@@ -344,7 +344,7 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
       headers,
       body: JSON.stringify({
         email_address: email,
-        status_if_new: 'subscribed',
+        status_if_new: 'pending',
         ...(Object.keys(mergeFields).length > 0 ? { merge_fields: mergeFields } : {}),
       }),
     })
