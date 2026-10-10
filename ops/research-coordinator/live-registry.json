@@ -45506,6 +45506,83 @@
       "reservation_id": "4c8410f167d44afff45b",
       "reserved_at": "2026-10-10T08:58:29.085Z",
       "source_branch": "research/intake/2/20261010-0454-cognition-metabolic-r42"
+    },
+    {
+      "pmid": "42359199",
+      "title": "Chelidonium majus-Induced Hepatitis: A Case Report of Herb-Induced Liver Injury.",
+      "doi": "10.7759/cureus.109572",
+      "source_title": "Chelidonium majus-Induced Hepatitis: A Case Report of Herb-Induced Liver Injury.",
+      "abstract": "Herb-induced liver injury can present with nonspecific symptoms and may be difficult to recognize when herbal exposure is not initially disclosed. A 60-year-old female patient presented with jaundice and scleral icterus, nausea, anorexia, and fatigue after recent initiation of a herbal preparation identified as Chelidonium majus , commonly known as greater celandine. Clinical examination revealed icterus. Initial laboratory testing showed aspartate aminotransferase, alanine aminotransferase, total bilirubin, direct bilirubin, and international normalized ratio at pathologically high levels. Viral hepatitis was excluded. Overall, the findings of the autoimmune evaluation did not support a definitive diagnosis of autoimmune hepatitis. Magnetic resonance imaging/magnetic resonance cholangiopancreatography and abdominal ultrasonography showed no biliary obstruction or focal hepatic lesion. Liver biopsy demonstrated an acute hepatitis-like pattern with portal inflammation, ductular reaction, centrilobular necrosis, apoptotic hepatocytes, ceroid-laden macrophages, giant-cell hepatocyte transformation, and mild non-bridging fibrosis. The suspected herbal product was discontinued, and the patient received supportive treatment with progressive biochemical improvement. This case supports the need to consider herbal preparations in the diagnostic evaluation of acute hepatitis, particularly when common viral, autoimmune, and obstructive causes have been excluded.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42359199/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42359199",
+        "doi": "10.7759/cureus.109572",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T09:01:29.089Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a3e88c0ad6fd1f79a4b1",
+      "reserved_at": "2026-10-10T09:01:33.933Z",
+      "source_branch": "research/intake/3/20261010-0500-chelidonium-hepatitis-42359199"
     }
   ],
   "batches": [
@@ -45534,16 +45611,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 577,
+    "total_reservations": 578,
     "by_lane": {
       "1": 38,
       "2": 110,
-      "3": 104,
+      "3": 105,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 577
+      "SOURCE_VERIFIED": 578
     },
     "batches": [
       {
@@ -45556,7 +45633,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 77,
+        "count": 78,
         "pr_number": null,
         "blocker": null
       }
