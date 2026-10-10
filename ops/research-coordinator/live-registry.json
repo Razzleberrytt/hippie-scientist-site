@@ -49048,6 +49048,235 @@
       "reservation_id": "b8455fa0df6e304852ea",
       "reserved_at": "2026-10-10T19:04:41.672Z",
       "source_branch": "research/intake/3/20261010-1502-hibiscus-tejocote-safety"
+    },
+    {
+      "pmid": "42743908",
+      "title": "EEG changes associated with stress reduction in university students following exposure to essential oil odors.",
+      "doi": "10.1016/j.explore.2026.103527",
+      "source_title": "EEG changes associated with stress reduction in university students following exposure to essential oil odors.",
+      "abstract": "Stress among university students has become a significant public health concern, prompting growing interest in non-pharmacological interventions. Essential oil inhalation has been suggested as a potential approach to stress reduction; however, quantitative comparisons of electroencephalographic (EEG) responses to commonly used essential oils remain limited. This study investigated EEG changes following inhalation of six essential oils (lemon, rosemary, tea tree, lavender, eucalyptus, and chamomile) in 33 university students between February and June 2025. EEG signals were recorded using an 8-channel system covering the prefrontal, frontal, temporal, and parietal regions. Relative EEG power values, derived indices (RAB, RAHB, and RST), regional alpha activity, and inter-electrode connectivity were analyzed. The study employed a within-subject pre-post design without a separate control group. Pre- and post-inhalation changes were evaluated using paired-sample t-tests, and differences among oils were further examined using repeated-measures MANOVA. Across all essential oils, relative alpha power increased, while beta power generally decreased. Significant increases in RAB were observed for lavender, tea tree, chamomile, and rosemary, whereas RAHB increased significantly for lavender, rosemary, eucalyptus, chamomile, and tea tree. RST showed slight increases across all oils, but none reached statistical significance. The overall multivariate effect of odor on changes in RAB, RAHB, and RST was not statistically significant, although RAHB showed a significant difference among oils in the exploratory follow-up analysis. Relative alpha activity was highest in the parietal region. Connectivity among the prefrontal, frontal, and temporal regions generally increased following essential oil inhalation, whereas connectivity between these regions and the parietal region tended to decrease. Connectivity within the left hemisphere decreased slightly, while connectivity within the right hemisphere and between hemispheres increased, suggesting a redistribution of connectivity patterns. Descriptive patterns also indicated a tendency toward increased connectivity for lemon, rosemary, and tea tree and decreased connectivity for lavender, eucalyptus, and chamomile. These findings provide preliminary quantitative neurophysiological evidence of EEG changes associated with essential oil inhalation and may inform the potential application of olfactory stimuli in restorative indoor and outdoor campus environments.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42743908/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42743908",
+        "doi": "10.1016/j.explore.2026.103527",
+        "journal": "Explore (New York, N.Y.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T19:45:33.797Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7fda28200632a9759beb",
+      "reserved_at": "2026-10-10T19:45:39.274Z",
+      "source_branch": "research/intake/1/20261010-1541-eeg-sound-probiotic-three"
+    },
+    {
+      "pmid": "42389090",
+      "title": "The impact of sound intervention on sleep quality and stress levels in college students: a randomized controlled trial.",
+      "doi": "10.3389/fpsyg.2026.1859138",
+      "source_title": "The impact of sound intervention on sleep quality and stress levels in college students: a randomized controlled trial.",
+      "abstract": "To assess the effectiveness of interventions combining pink noise or binaural beats with pure music in improving sleep quality and reducing perceived stress among college students, and to preliminarily investigate their effects on morning salivary cortisol levels. Using a three-group randomized controlled design, 66 college students with poor sleep quality (PSQI score >7) were randomly assigned to a pink noise + pure music group, a binaural beats + pure music group, or a control group. The intervention group received a 30-min audio intervention at bedtime for 4 consecutive weeks, 5 nights per week. Morning salivary cortisol concentrations were measured at baseline, week 2, week 4, and the week-6 follow-up. Perceived stress and sleep quality were assessed using the PSS and PSQI, respectively. Generalized estimating equation analyses revealed significant time, group, and time-by-group interaction effects for both PSS and PSQI scores ( p < 0.05). The binaural beats + pure music group was more effective at reducing stress. Morning salivary cortisol concentrations showed only a significant main effect of time ( p < 0.05), with no significant group differences. A 4-week bedtime audio intervention effectively improved sleep quality and reduced perceived stress. Binaural beats combined with pure music appeared to be more effective in reducing perceived stress, but this benefit was not reflected in peak salivary cortisol levels measured 30 min after awakening. However, cortisol measurements obtained at a single daily time point are insufficient to infer a short-term modulatory effect of the intervention on basal hypothalamic-pituitary-adrenal (HPA) axis activity.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42389090/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42389090",
+        "doi": "10.3389/fpsyg.2026.1859138",
+        "journal": "Frontiers in psychology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T19:45:33.798Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e60badcfcaaacb996ab2",
+      "reserved_at": "2026-10-10T19:45:39.274Z",
+      "source_branch": "research/intake/1/20261010-1541-eeg-sound-probiotic-three"
+    },
+    {
+      "pmid": "42610044",
+      "title": "From Gut to Brain: Probiotics as an Emerging Adjunctive Strategy for Insomnia and Sleep Disturbances.",
+      "doi": "10.2147/NSS.S604978",
+      "source_title": "From Gut to Brain: Probiotics as an Emerging Adjunctive Strategy for Insomnia and Sleep Disturbances.",
+      "abstract": "Too little sleep and incidental insomnia are two common conditions in which sleep is disrupted. Insomnia is often accompanied by emotional, metabolic, and immunological deterioration. The purpose of this narrative review is to better understand the gut-brain axis and evaluate the potential usefulness of probiotics in the treatment of insomnia and related sleep problems. This study was designed as a narrative review of the literature on probiotics, gut microbiota, and sleep. A hierarchical method was used to synthesize mechanistic and clinical evidence, differentiating between upstream immune-inflammatory and HPA-axis control and downstream neuroactive metabolites and vagal signaling. Differences in probiotic strains, doses, intervention durations, and outcome measures were also investigated. As this study was designed as a narrative review rather than a systematic review, a formal risk-of-bias or quality assessment of the included randomized controlled trials was not performed. Current research indicates that probiotics may regulate sleep via multiple gut-brain axis routes. Upstream processes in the proposed framework are immune-inflammatory modulation and hypothalamic-pituitary-adrenal (HPA) axis regulation, whereas downstream mediators are neuroactive metabolites and vagal signaling. Clinical research show that probiotics have small and diverse impacts on sleep outcomes, with improvements more frequently reported in subjective sleep assessments than objective tests. By altering the functioning of the brain-gut axis, probiotics may provide a emerging therapeutic option for insomnia. On the other hand, it is uncertain which probiotic strains and dosages will be most effective, as well as the relevant mechanisms; thus, additional well-controlled human intervention studies are warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42610044/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42610044",
+        "doi": "10.2147/NSS.S604978",
+        "journal": "Nature and science of sleep",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T19:45:33.798Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "25de1018f3f821eda97d",
+      "reserved_at": "2026-10-10T19:45:39.274Z",
+      "source_branch": "research/intake/1/20261010-1541-eeg-sound-probiotic-three"
     }
   ],
   "batches": [
@@ -49076,16 +49305,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 623,
+    "total_reservations": 626,
     "by_lane": {
-      "1": 52,
+      "1": 55,
       "2": 128,
       "3": 118,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 623
+      "SOURCE_VERIFIED": 626
     },
     "batches": [
       {
@@ -49098,7 +49327,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 123,
+        "count": 126,
         "pr_number": null,
         "blocker": null
       }
