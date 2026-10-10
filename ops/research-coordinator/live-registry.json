@@ -45968,6 +45968,83 @@
       "reservation_id": "f8c1d3853d11158a26d1",
       "reserved_at": "2026-10-10T10:00:14.800Z",
       "source_branch": "research/intake/2/20261010-0556-cognition-metabolic-r43"
+    },
+    {
+      "pmid": "41805431",
+      "title": "A Case Report: Drug-Induced Liver Injury from Prolonged Topical Application of Noni ( Morinda citrifolia ).",
+      "doi": "10.1177/23247096261429179",
+      "source_title": "A Case Report: Drug-Induced Liver Injury from Prolonged Topical Application of Noni ( Morinda citrifolia ).",
+      "abstract": "Noni ( Morinda citrifolia ) is a widely plant-based herbal product with purported antioxidant, anti-inflammatory, and immunomodulatory properties and is widely available in oral, liquid, and topical formulations. Hepatotoxicity from juice and oral formulations are infrequent and liver injury associated with topical noni exposure has not previously been described. We report the case of a 60-year-old male with a history of hypertension and hypothyroidism who presented with 5 days of jaundice, generalized pruritus, dark urine, and acholic stools. Laboratory evaluation showed elevated liver enzymes in a cholestatic pattern. The patient reported prolonged use of a topical noni-containing analgesic cream for approximately 8 months, which had been discontinued 3 months prior to symptom onset. A through diagnostic evaluation excluded viral, autoimmune, and metabolic etiologies of the liver disease. Given the exposure history, clinical presentation, and exclusion of alternative diagnoses, the drug-induced liver injury was attributed to the topical noni product. The management included close outpatient follow-up until resolution of liver function tests 6 months after discharge after the discontinuation of the product. The precise mechanism for noni toxicity remains unclear, but a potential proposed pathway includes anthraquinone-mediated oxidative stress with subsequent mitochondrial dysfunction, but further investigation is warranted to better characterize systemic absorption and hepatotoxic risk associated with topical noni formulations.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41805431/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41805431",
+        "doi": "10.1177/23247096261429179",
+        "journal": "Journal of investigative medicine high impact case reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T10:10:12.286Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d3251cd20384d05f1770",
+      "reserved_at": "2026-10-10T10:10:16.338Z",
+      "source_branch": "research/intake/3/20261010-0608-topical-noni-41805431"
     }
   ],
   "batches": [
@@ -45996,16 +46073,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 583,
+    "total_reservations": 584,
     "by_lane": {
       "1": 41,
       "2": 112,
-      "3": 105,
+      "3": 106,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 583
+      "SOURCE_VERIFIED": 584
     },
     "batches": [
       {
@@ -46018,7 +46095,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 83,
+        "count": 84,
         "pr_number": null,
         "blocker": null
       }
