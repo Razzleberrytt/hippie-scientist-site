@@ -47508,6 +47508,83 @@
       "reservation_id": "f55230dbf2e061c9aefa",
       "reserved_at": "2026-10-10T14:57:16.232Z",
       "source_branch": "research/intake/2/20261010-1054-cognition-metabolic-r48"
+    },
+    {
+      "pmid": "41502355",
+      "title": "Potential Adverse Effects of Ashwagandha: A Critical Review of Preclinical and Clinical Evidence.",
+      "doi": "10.1002/ptr.70158",
+      "source_title": "Potential Adverse Effects of Ashwagandha: A Critical Review of Preclinical and Clinical Evidence.",
+      "abstract": "Ashwagandha ( Withania somnifera ) is a herbal adaptogen which has been extensively studied for its wide-ranging medicinal properties, ranging from stress relief to neuroprotection and immune modulation. Recent studies have evoked concerns over the toxicity of the bioactive compounds, including withanolides, alkaloids, and sitoindosides. Gastrointestinal side effects, immune hypersensitivity, liver toxicity, and endocrine disruption have been reported, particularly with prolonged or excessive usage. Metabolic transformation via cytochrome P450 enzymes can form reactive intermediates, leading to oxidative stress and hepatotoxicity. The endocrine-modulating activity of Ashwagandha has been implicated in thyrotoxicosis and adrenal suppression. This review provides a comprehensive overview of the pharmacological profiles, incorporating preclinical and clinical data to illustrate the fine balance between the therapeutic and toxic effects of Ashwagandha, identifying populations that may be at increased risk of adverse reactions and interactions with prescribed drugs for specific conditions. The necessity for standardizing dosing regimens, rigorous clinical trials, improving pharmacovigilance, carrying out long-term safety assessments, and revising regulatory guidelines is emphasized to maximize clinical application of Ashwagandha while minimizing concomitant risks.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41502355/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "PubMed-verified review of ashwagandha adverse effects, herb-drug interactions and toxicology; scientific interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41502355",
+        "doi": "10.1002/ptr.70158",
+        "journal": "Phytotherapy research : PTR",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T15:04:40.765Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d1c37ce8f9c832f70bac",
+      "reserved_at": "2026-10-10T15:04:44.996Z",
+      "source_branch": "research/intake/3/20261010-1103-ashwagandha-safety-41502355"
     }
   ],
   "batches": [
@@ -47536,16 +47613,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 603,
+    "total_reservations": 604,
     "by_lane": {
       "1": 46,
       "2": 121,
-      "3": 111,
+      "3": 112,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 603
+      "SOURCE_VERIFIED": 604
     },
     "batches": [
       {
@@ -47558,7 +47635,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 103,
+        "count": 104,
         "pr_number": null,
         "blocker": null
       }
