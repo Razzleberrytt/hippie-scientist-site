@@ -112,13 +112,13 @@ export default function AboutClient() {
             </p>
             <div className="mt-3 space-y-3 text-sm leading-7 text-[color:var(--hs-body)]">
               <p>
-                I&apos;m Willie, 34, from Oak Ridge, Tennessee. For years I&apos;ve worked restaurant life while teaching myself to code at night. I&apos;m a father of two little girls, and I started The Hippie Scientist because I was tired of supplement hype — for myself and for people like me who don&apos;t have time for marketing games.
+                I&apos;m Willie B. Randolph III, a father of two from Oak Ridge, Tennessee. I&apos;ve spent years working in restaurants while teaching myself to build things with code. The Hippie Scientist started with a question I kept coming back to: which supplements actually help, and how can we tell the difference between good evidence and convincing marketing?
               </p>
               <p>
-                I&apos;m not a doctor, and this isn&apos;t medical advice. I&apos;m a researcher-builder: I read the human trials, grade the evidence honestly, and tell you when the research can&apos;t give an answer. Every profile goes through the same evidence audit and safety review, and commercial stuff can never change a grade or hide a caution.
+                I&apos;m not a physician or a formally trained scientist. I&apos;m an independent author and builder who takes the research seriously. I look at human studies, explain their strengths and limitations, and make it clear when the evidence is promising, mixed, or simply not there yet. Safety and potential interactions deserve as much attention as possible benefits.
               </p>
               <p>
-                This site is my fight to build something better than the restaurant grind — for my family and for anyone who wants straight answers about what actually works.
+                I&apos;m building this with my family in mind — and for anyone who wants useful answers without the hype. You shouldn&apos;t need a scientific background to understand what a study found, what it didn&apos;t, and why that matters.
               </p>
             </div>
             <dl className="mt-5 grid grid-cols-3 border-y border-[color:var(--hs-hairline)] py-3 text-center">
