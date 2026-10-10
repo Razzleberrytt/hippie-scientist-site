@@ -1,0 +1,19 @@
+{
+  "entity_type": "compound",
+  "slug": "methylene-blue",
+  "name": "Methylene blue",
+  "summary": "Methylene blue is a mitochondrial redox cycler with a long medical history (malaria, Alzheimer's research) and small but intriguing low-dose cognition trials. A biohacker darling with real pharmacology and preliminary brain data.",
+  "description": "Canonical Methylene blue research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "mitochondrial redox; cognition; neuroprotection",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 6.5,
+    "evidence_notes": "Low-dose cognition trials small but intriguing (PMIDs flagged verify-before-publishing).",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}

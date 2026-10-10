@@ -1,0 +1,19 @@
+{
+  "entity_type": "compound",
+  "slug": "benfotiamine",
+  "name": "Benfotiamine",
+  "summary": "Benfotiamine is a fat-soluble B1 derivative with diabetic-neuropathy RCTs. A B-vitamin form with nerve-pain trial data distinct from plain thiamine.",
+  "description": "Canonical Benfotiamine research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "diabetic neuropathy; thiamine derivative; nerve pain",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 7.0,
+    "evidence_notes": "Diabetic neuropathy RCTs (PMIDs flagged verify-before-publishing).",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entity_type": "compound",
+  "slug": "ahcc",
+  "name": "AHCC (active hexose correlated compound)",
+  "summary": "AHCC is a shiitake-derived proprietary extract with HPV-clearance RCTs and immune trials. One of the few mushroom-derived compounds with human trial data in a specific clinical endpoint.",
+  "description": "Canonical AHCC (active hexose correlated compound) research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "immune function; HPV clearance; mushroom-derived immunomodulation",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 7.0,
+    "evidence_notes": "HPV-clearance RCTs and immune trials (PMIDs flagged verify-before-publishing).",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}

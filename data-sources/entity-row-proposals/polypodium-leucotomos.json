@@ -1,0 +1,19 @@
+{
+  "entity_type": "herb",
+  "slug": "polypodium-leucotomos",
+  "name": "Polypodium leucotomos",
+  "summary": "Polypodium leucotomos is a fern extract with photoprotection RCTs showing reduced UV damage \u2014 'sunscreen from the inside' with human data.",
+  "description": "Canonical Polypodium leucotomos research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "photoprotection; UV damage; skin",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 7.0,
+    "evidence_notes": "Photoprotection RCTs, reduced UV damage (PMIDs flagged verify-before-publishing).",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}
