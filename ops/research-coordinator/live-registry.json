@@ -48276,6 +48276,240 @@
       "reservation_id": "c9114b729d173c014273",
       "reserved_at": "2026-10-10T16:45:43.942Z",
       "source_branch": "research/intake/1/20261010-1241-lavender-sleep-two"
+    },
+    {
+      "pmid": "42360278",
+      "title": "Real-Time Continuous Glucose Monitoring Among People With Type 2 Diabetes and End-Stage Kidney Failure Undergoing Maintenance Hemodialysis: A Randomized Clinical Trial.",
+      "doi": "10.2337/dc26-0404",
+      "source_title": "Real-Time Continuous Glucose Monitoring Among People With Type 2 Diabetes and End-Stage Kidney Failure Undergoing Maintenance Hemodialysis: A Randomized Clinical Trial.",
+      "abstract": "There is a need for improved glycemia monitoring tools for people with type 2 diabetes (T2D) and end-stage kidney failure (ESKF). This prospective, randomized, crossover trial compared the efficacy of real-time continuous glucose monitoring (rtCGM) with capillary blood glucose (CBG) testing in adults with T2D and ESKF undergoing hemodialysis. The primary outcome was percentage of time below range (%TBR) <70 mg/dL. The %TBR <70 mg/dL was not significantly different between groups (mean 1.17% ± 1.8 vs. 1.29% ± 2.7; P = 0.28). Compared with CBG testing, percentage time in range (%TIR) was higher (63.4% ± 24 vs. 54.5% ± 23) and mean glucose lower (173.6 ± 37 vs. 187.7 ± 38 mg/dL) after the rtCGM intervention, while percentage time above range (%TAR) >180 mg/dL (35.3% ± 25 vs. 44.3% ± 23) and >250 mg/dL decreased (12.3% ± 15 vs. 18.8% ± 19) (all P ≤ 0.01). In adults with T2D and ESKF undergoing hemodialysis, TBR was minimal and not influenced by rtCGM use. Compared with CBG testing, %TIR and %TAR improved during the rtCGM intervention. Future studies are needed to confirm the benefits of rtCGM in this population.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42360278/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42360278",
+        "doi": "10.2337/dc26-0404",
+        "journal": "Diabetes care",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T16:59:52.744Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7d3acd6ad8e9dfa2b01e",
+      "reserved_at": "2026-10-10T16:59:57.601Z",
+      "source_branch": "research/intake/2/20261010-1256-cognition-metabolic-r50"
+    },
+    {
+      "pmid": "42762490",
+      "title": "Enhancing Self-Awareness in Older Adults With Mild Cognitive Impairment: A Preliminary Randomized Controlled Trial of the Feuerstein Instrumental Enrichment Program.",
+      "doi": "10.1002/gps.70256",
+      "source_title": "Enhancing Self-Awareness in Older Adults With Mild Cognitive Impairment: A Preliminary Randomized Controlled Trial of the Feuerstein Instrumental Enrichment Program.",
+      "abstract": "To examine whether the Feuerstein Instrumental Enrichment (FIE) program, a structured metacognitive intervention grounded in Mediated Learning Experience theory, could produce significant and durable improvements in self-awareness of memory abilities among older adults with mild cognitive impairment (MCI). In a three-arm randomized controlled trial conducted across seven assisted-living facilities in Israel, 114 Hebrew-speaking adults aged 67-99 years diagnosed with MCI were assigned to the FIE intervention or one of two active control conditions (psychological discussion group; cultural lecture series). All conditions comprised 30 group sessions over 15 weeks. Self-awareness was operationalized as the absolute discrepancy between objective memory performance (NeuroTrax) and subjective appraisal (CogSym questionnaire), assessed at pre-intervention, post-intervention, and 2-month follow-up. Among the 54 participants with impaired awareness at baseline, the FIE group showed significant improvement from pre- to post-intervention and from pre-intervention to follow-up, with gains fully maintained at the 2-month assessment. Control participants demonstrated only marginal improvement post-intervention that was not sustained at follow-up. Between-group differences at post-intervention were statistically significant. The FIE program produced significant and durable improvements in self-awareness of memory abilities in older adults with MCI. Findings support the clinical utility of mediated learning approaches for addressing metacognitive deficits in this at-risk population, with implications for rehabilitation engagement and dementia prevention efforts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42762490/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42762490",
+        "doi": "10.1002/gps.70256",
+        "journal": "International journal of geriatric psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T16:59:52.744Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "09439995eaa056b6b611",
+      "reserved_at": "2026-10-10T16:59:57.601Z",
+      "source_branch": "research/intake/2/20261010-1256-cognition-metabolic-r50"
+    },
+    {
+      "pmid": "42507315",
+      "title": "Oral polychemotherapy to induce remission in newly diagnosed type 2 diabetes: results from a randomized controlled trial.",
+      "doi": "10.1007/s40618-026-02930-3",
+      "source_title": "Oral polychemotherapy to induce remission in newly diagnosed type 2 diabetes: results from a randomized controlled trial.",
+      "abstract": "To assess the efficacy of a four-drug regimen (POLYCHEM) vs. standard diabetes care (SDC) in inducing remission in patients with newly diagnosed type 2 diabetes. A multicenter, open-label, pragmatic, phase III, randomized clinical trial (NCT04271189) was conducted in 6 Italian Diabetes Outpatient Clinics. Patients were randomized (visit 1) to receive POLYCHEM or SDC for 16 weeks, after which, if there was regression of diabetic hyperglycemia (visit 2), drug therapy was suspended. The primary endpoint was remission (HbA1c < 6.5%; 48 mmol/mol) assessed at least 12 weeks (visit 3) after ceasing any glucose-lowering pharmacotherapy. 108 patients (80% males, age: 58 ± 9 yrs), were enrolled in the study, of whom 60 were randomized to POLYCHEM and 48 to SDC treatment. After 16 weeks, 54 (90.0%) and 37 (77.1%) patients achieved regression of diabetic hyperglycemia in the POLYCHEM and SDC arm, respectively (p = 0.002). At visit 3, 23 (38.3%) and 21 (43.8%) patients achieved diabetes remission in the POLYCHEM and SDC arm, respectively (p = 0.59). The difference between the upper 95% CI in POLYCHEM (50.9%) and the lower 95% CI in SDC (30.4%) of diabetes remission was 20.5%. A four-drug regimen with minimal to null weight-lowering effect is not superior to current SDC in achieving remission in patients with newly diagnosed type 2 diabetes. If a superiority of POLYCHEM over SDC exists, it is expected to be ≤ 20.5%.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42507315/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study; Pragmatic Clinical Trial; Clinical Trial, Phase III",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Pragmatic Clinical Trial",
+          "Clinical Trial, Phase III"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42507315",
+        "doi": "10.1007/s40618-026-02930-3",
+        "journal": "Journal of endocrinological investigation",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T16:59:52.745Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "52ede11076aec0c0e4b9",
+      "reserved_at": "2026-10-10T16:59:57.601Z",
+      "source_branch": "research/intake/2/20261010-1256-cognition-metabolic-r50"
     }
   ],
   "batches": [
@@ -48304,16 +48538,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 613,
+    "total_reservations": 616,
     "by_lane": {
       "1": 50,
-      "2": 124,
+      "2": 127,
       "3": 114,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 613
+      "SOURCE_VERIFIED": 616
     },
     "batches": [
       {
@@ -48326,7 +48560,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 113,
+        "count": 116,
         "pr_number": null,
         "blocker": null
       }
