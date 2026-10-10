@@ -44659,6 +44659,161 @@
       "reservation_id": "8ad41a56665725c7dc32",
       "reserved_at": "2026-10-10T06:38:34.522Z",
       "source_branch": "research/intake/1/20261010-0235-ashwagandha-rcts-two"
+    },
+    {
+      "pmid": "41508766",
+      "title": "Long-term effects of a multidomain intervention on cognitive function and metabolic control in older adults with type 2 diabetes and mild cognitive impairment: A 42-month follow-up of the J-MIND-Diabetes study.",
+      "doi": "10.1111/dom.70431",
+      "source_title": "Long-term effects of a multidomain intervention on cognitive function and metabolic control in older adults with type 2 diabetes and mild cognitive impairment: A 42-month follow-up of the J-MIND-Diabetes study.",
+      "abstract": "This study investigated the long-term effects of a multidomain intervention on cognition and metabolic control in patients with type 2 diabetes and mild cognitive impairment (MCI). Outpatients aged 70-85 years were randomized to an 18-month multidomain intervention (comprising metabolic/vascular risk management, physical exercise, nutritional counselling, and social activity) or standard diabetes care. Neuropsychological assessments were conducted at 6, 18, 30, and 42 months. Change in the composite cognitive Z-score served as the primary endpoint. Metabolic control was evaluated using continuous glucose monitoring. Between-group differences at 42 months were analysed using mixed-effects models for repeated measures (MMRM). A total of 42 participants (22 intervention, 20 control) were analysed. The MMRM did not show significant between-group differences in the composite cognitive Z-score at 42 months (0.19; 95% confidence intervals [CI]: -0.14 to 0.52). However, the trail making test part A (-18.0; 95% CI: -28.7 to -7.19) and part B (-26.2; 95% CI: -50.5 to -1.91) showed that the intervention had significant benefits. A significant between-group difference was also observed in the change in %time range 70-180 mg/dL (16.2; 95% CI: 0.96-31.5). Multidomain interventions appear to provide sustained benefits for executive function and metabolic control in older adults with type 2 diabetes and MCI. Further studies should be performed to validate these findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41508766/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41508766",
+        "doi": "10.1111/dom.70431",
+        "journal": "Diabetes, obesity & metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T06:51:42.239Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f5ee8f1daa933d5d627e",
+      "reserved_at": "2026-10-10T06:51:47.662Z",
+      "source_branch": "research/intake/2/20261010-0249-cognition-metabolic-r40"
+    },
+    {
+      "pmid": "42231857",
+      "title": "A multimodal evaluation of transcranial photobiomodulation in mild cognitive impairment: Cognitive, metabolic, and neuroimaging outcomes of a pilot randomized controlled trial.",
+      "doi": "10.1177/13872877261453911",
+      "source_title": "A multimodal evaluation of transcranial photobiomodulation in mild cognitive impairment: Cognitive, metabolic, and neuroimaging outcomes of a pilot randomized controlled trial.",
+      "abstract": "BackgroundMild cognitive impairment (MCI), a prodromal stage of Alzheimer's disease and related dementias (ADRD), represents a critical window for intervention. Although mitochondrial dysfunction is increasingly implicated in neurodegeneration, most therapies target downstream protein aggregation. Transcranial photobiomodulation (tPBM) delivers near-infrared light to enhance mitochondrial respiration.ObjectiveWe hypothesized that tPBM in MCI would be safe, feasible, and associated with improvements in cognition, mitochondrial function, and default mode network (DMN) functional connectivity (FC).MethodsWe conducted a single-blind, randomized, sham-controlled pilot trial (NCT05563298) in adults ≥50 years with MCI. Twenty participants were randomized 1:1 to active or sham devices. Active devices delivered pulsed 810-nm light for 20 min per session; shams emitted light for 2 seconds. Stimulation targeted DMN hubs and the olfactory bulb. Participants self-administered treatment at home six days per week for six weeks.ResultsAdherence was high (active 96.9%; sham 94.2%). Adverse events (AEs) were reported by 10 of 20 participants (4 active, 6 sham). No serious AEs occurred. Compared with sham, active tPBM produced greater improvement in global cognition (Mini-Mental State Examination; p = 0.03, d = 1.05) and episodic memory (California Verbal Learning Test-II long-delay recognition; p = 0.02, d = 1.09). Serum pyruvate and lactate increased with a reduced lactate-to-pyruvate (L/P) ratio (p = 0.007, d = -1.37). DMN FC increased (p = 0.014, d = 1.25), and plasma IL-6 declined (p = 0.02, r = -0.52).ConclusionsHome-based tPBM was safe, well tolerated, and feasible, with high adherence and mild AEs. Cognitive, metabolic, and network-level findings are consistent with enhanced mitochondrial efficiency and anti-inflammatory effects. These results support larger, double-blind, multicenter trials to evaluate tPBM as a mitochondria-targeted therapy in early ADRD.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42231857/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42231857",
+        "doi": "10.1177/13872877261453911",
+        "journal": "Journal of Alzheimer's disease : JAD",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T06:51:42.239Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3fb82c9e8b0ad5f34a76",
+      "reserved_at": "2026-10-10T06:51:47.662Z",
+      "source_branch": "research/intake/2/20261010-0249-cognition-metabolic-r40"
     }
   ],
   "batches": [
@@ -44687,16 +44842,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 566,
+    "total_reservations": 568,
     "by_lane": {
       "1": 36,
-      "2": 105,
+      "2": 107,
       "3": 102,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 566
+      "SOURCE_VERIFIED": 568
     },
     "batches": [
       {
@@ -44709,7 +44864,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 66,
+        "count": 68,
         "pr_number": null,
         "blocker": null
       }
