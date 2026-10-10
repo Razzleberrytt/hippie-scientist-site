@@ -44046,6 +44046,160 @@
       "reservation_id": "bdf2072312954ed0ea38",
       "reserved_at": "2026-10-10T04:43:36.841Z",
       "source_branch": "research/intake/1/20261010-0041-lavender-melissa-three"
+    },
+    {
+      "pmid": "41535271",
+      "title": "Cholesterol-lowering effects of oats induced by microbially produced phenolic metabolites in metabolic syndrome: a randomized controlled trial.",
+      "doi": "10.1038/s41467-026-68303-9",
+      "source_title": "Cholesterol-lowering effects of oats induced by microbially produced phenolic metabolites in metabolic syndrome: a randomized controlled trial.",
+      "abstract": "Oats have various positive effects on human health, but the underlying mechanisms are not fully understood. To identify oat-microbiome-host interactions contributing to metabolic improvements, we conducted two randomized controlled dietary interventions in parallel-design in individuals with metabolic syndrome, comparing a short-term, high-dose and a six-week, moderate oat intake with respective controls (DRKS00022169). Both oat diets lead to an increase in plasma ferulic acid (0.64 [0.26, 1.02], P = 0.002; 0.55 [0.21, 0.89], P = 0.003), while the high-dose oat-diet also increased dihydroferulic acid (1.23 [0.44, 2.01], P = 0.003). Here we show that microbial phenolic metabolites are driving factors for the cholesterol-lowering effect of oats, which might be of relevance since short-term, high-dose oat-diet is a suitable approach to alleviate obesity-related lipid disorders.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41535271/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41535271",
+        "doi": "10.1038/s41467-026-68303-9",
+        "journal": "Nature communications",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T04:57:20.448Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a35ce60ea7a43b7cca82",
+      "reserved_at": "2026-10-10T04:57:26.540Z",
+      "source_branch": "research/intake/2/20261010-0053-cognition-metabolic-r38"
+    },
+    {
+      "pmid": "41819423",
+      "title": "Randomized Mediterranean diet intervention to reverse metabolic syndrome: Preliminary findings at 6-month follow-up.",
+      "doi": "10.1016/j.clnesp.2026.103110",
+      "source_title": "Randomized Mediterranean diet intervention to reverse metabolic syndrome: Preliminary findings at 6-month follow-up.",
+      "abstract": "Metabolic syndrome (MetS) is a significant public health issue in Chile, affecting approximately 40 % of the adult population and increasing the risk of chronic diseases. Although evidence from Mediterranean countries has shown benefits of the Mediterranean diet (MedDiet) improving metabolic parameters and reversing MetS, its impact in non-Mediterranean populations remains unclear. The CHILEan MEDiterranean (CHILEMED) study is evaluating MetS reversal effectiveness of a MedDiet, with or without well-being support, compared to a low-fat diet. CHILEMED is an ongoing 1-year, parallel-group randomized controlled trial, and this report presents an interim analysis with preliminary findings at 6 months of follow-up. A total of 246 participants (men and women, middle-aged, with comparable baseline cardiometabolic risk profiles) diagnosed with MetS have been assigned to low-fat diet (control), MedDiet, or MedDiet with psychological well-being interventions. Participants received face-to-face and online nutritional counseling specific to their assigned dietary intervention. Clinical assessments, including anthropometry, biochemical parameters, and dietary adherence, were performed at baseline and 6 months. The primary outcome was MetS reversal, while secondary outcomes included changes in dietary adherence and MetS components. Preliminary analyses of 156 participants completing the 6-month follow-up showed a significantly greater increase in MedDiet adherence in the combined MedDiet (with and without psychological well-being intervention) groups compared with the low-fat diet group. Participants in the MedDiet group exhibited greater reduction in waist circumference, triglycerides, and glucose levels compared to the low-fat diet group. Notably, 36 % of individuals in the MedDiet intervention experienced MetS reversal, compared to only 11 % in the low-fat diet group (p < 0.01), with an adjusted hazard ratio of 3.84 for MetS reversal in the MedDiet versus the control group. These preliminary 6-month results from the ongoing 1-year randomized CHILEMED trial provides evidence supporting MedDiet's effectiveness in improving metabolic health and reversing MetS in Chilean adults. Given changing dietary patterns and rising prevalence of MetS-related conditions, promoting adherence to MedDiet may be a key strategy for chronic disease management and public health policies in Chile.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41819423/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41819423",
+        "doi": "10.1016/j.clnesp.2026.103110",
+        "journal": "Clinical nutrition ESPEN",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T04:57:20.448Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "501fce63c66a3e12da2e",
+      "reserved_at": "2026-10-10T04:57:26.540Z",
+      "source_branch": "research/intake/2/20261010-0053-cognition-metabolic-r38"
     }
   ],
   "batches": [
@@ -44074,16 +44228,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 558,
+    "total_reservations": 560,
     "by_lane": {
       "1": 33,
-      "2": 101,
+      "2": 103,
       "3": 101,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 558
+      "SOURCE_VERIFIED": 560
     },
     "batches": [
       {
@@ -44096,7 +44250,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 58,
+        "count": 60,
         "pr_number": null,
         "blocker": null
       }
