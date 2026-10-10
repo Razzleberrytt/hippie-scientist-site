@@ -45199,6 +45199,158 @@
       "reservation_id": "75d18b57adb0123e9515",
       "reserved_at": "2026-10-10T08:01:27.285Z",
       "source_branch": "research/intake/3/20261010-0400-artri-king-dili-42344533"
+    },
+    {
+      "pmid": "42805551",
+      "title": "Tactile stimulation modulates withdrawal-related behaviors and brain molecular parameters in male offspring following perinatal morphine exposure.",
+      "doi": "10.1016/j.neuropharm.2026.111201",
+      "source_title": "Tactile stimulation modulates withdrawal-related behaviors and brain molecular parameters in male offspring following perinatal morphine exposure.",
+      "abstract": "The opioid crisis has intensified over recent decades, largely driven by the widespread and often indiscriminate prescription of opioid analgesics for chronic pain, leading to an unprecedented global burden of opioid-related morbidity and mortality. In this context, maternal opioid use represents a critical source of neurodevelopmental vulnerability for exposed offspring, irrespective of the occurrence of neonatal withdrawal, which develops in only a subset of opioid-exposed infants. This highlights the urgent need to elucidate the neurobiological mechanisms of dependence at birth and to identify early interventions capable of mitigating withdrawal and preventing long-term consequences. By promoting neuroplasticity, tactile stimulation (TS) represents a promising early-life intervention for recovery from withdrawal-related symptoms and dysfunctions after early opioid exposure. To investigate this, pregnant rats received escalating doses of morphine throughout gestation and lactation, while male offspring were exposed to early-life TS until weaning, followed by behavioral assessment of withdrawal-related responses. Moreover, molecular analyses of addiction- and neuroplasticity-related markers in brain reward and hedonic circuits were performed. Maternal exposure to morphine increased withdrawal-related behavioral responses in the offspring, whereas early-life TS effectively attenuated these alterations, restoring the overall withdrawal behavioral profile. At the molecular level, perinatal morphine disrupted dopaminergic and glutamatergic signaling in the Nucleus accumbens, as evidenced by the modulation of D1-R, D2-R, GLUA1-R, DAT and ΔFosB levels. Notably, TS reversed these neurochemical alterations, restoring molecular marker levels toward baseline values. Together, these findings support TS as a non-invasive intervention with the potential to mitigate neonatal abstinence syndrome, modulate addiction-related neuroplasticity, and support neurodevelopment in infants exposed to opioids during early life.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42805551/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42805551",
+        "doi": "10.1016/j.neuropharm.2026.111201",
+        "journal": "Neuropharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T08:43:16.218Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6e7dd5ed42653e585b10",
+      "reserved_at": "2026-10-10T08:43:21.078Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "42790729",
+      "title": "Addiction-like behavioral severity predicts prolonged oxycodone withdrawal-induced allodynia in genetically diverse rats.",
+      "doi": "10.1016/j.neuropharm.2026.111197",
+      "source_title": "Addiction-like behavioral severity predicts prolonged oxycodone withdrawal-induced allodynia in genetically diverse rats.",
+      "abstract": "Opioid withdrawal is associated with heightened pain sensitivity, including allodynia. Although opioid-induced allodynia is well-documented in humans and animal models, the relationship between the severity of opioid withdrawal-induced allodynia and individual addiction-like behaviors remains poorly understood. To address this gap, Heterogeneous Stock rats underwent long access (12 h/day) intravenous oxycodone or saline self-administration, followed by measurement of mechanical sensitivity at six timepoints across three weeks of abstinence. Oxycodone self-administering rats were stratified by an Addiction Index derived from individual differences in the escalation of oxycodone intake, motivation to consume oxycodone, tolerance to oxycodone's analgesic effects, and acute opioid withdrawal-induced mechanical pain sensitivity. Here, we show that High Addiction Index rats developed significantly more intense and longer-lasting allodynia than Low Addiction Index rats, identifying High Addiction Index status as a distinct, severe phenotype within the oxycodone self-administering population. Saline self-administering rats developed allodynia comparable in magnitude to Low Addiction Index rats, further distinguishing the severe phenotype of High Addiction Index rats. Results remained consistent even when excluding allodynia from the Addiction Index, highlighting the robustness of the association between addiction-like severity and protracted allodynia. These findings demonstrate that severe addiction-like behavior, rather than opioid exposure alone, is associated with protracted abstinence-associated allodynia and identify High Addiction Index status as a distinguishing feature of vulnerability to prolonged pain during abstinence. Supporting mechanical allodynia as a marker of addiction-like severity. These results motivate future work to define the mechanisms linking addiction-like severity to protracted opioid withdrawal-induced pain, with the goal of informing targeted clinical interventions for patients most susceptible to severe opioid withdrawal-induced allodynia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42790729/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42790729",
+        "doi": "10.1016/j.neuropharm.2026.111197",
+        "journal": "Neuropharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T08:43:16.219Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "096e04f6a02e650b89ce",
+      "reserved_at": "2026-10-10T08:43:21.078Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -45227,16 +45379,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 573,
+    "total_reservations": 575,
     "by_lane": {
       "1": 38,
       "2": 108,
       "3": 104,
-      "4": 48,
+      "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 573
+      "SOURCE_VERIFIED": 575
     },
     "batches": [
       {
@@ -45249,7 +45401,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 73,
+        "count": 75,
         "pr_number": null,
         "blocker": null
       }
