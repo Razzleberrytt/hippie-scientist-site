@@ -48663,6 +48663,85 @@
       "reservation_id": "73326382e443dbfedec2",
       "reserved_at": "2026-10-10T17:42:03.726Z",
       "source_branch": "research/intake/1/20261010-1339-kgt-41862890"
+    },
+    {
+      "pmid": "41554532",
+      "title": "Efficacy and Safety of Mobile App-Based Metamemory Cognitive Training for Mild Cognitive Impairment: Multicenter Randomized Clinical Trial.",
+      "doi": "10.2196/73464",
+      "source_title": "Efficacy and Safety of Mobile App-Based Metamemory Cognitive Training for Mild Cognitive Impairment: Multicenter Randomized Clinical Trial.",
+      "abstract": "Metamemory training (MMT) offers a potential nonpharmacological approach to enhance cognitive function in individuals with mild cognitive impairment (MCI). While digital cognitive training improves accessibility, the effectiveness of mobile app-based MMT has not been evaluated in a randomized clinical trial. We aimed to evaluate the efficacy and safety of a mobile app-based MMT program, ET-101 (Cogthera), compared to a sham device control group in individuals with MCI. This multicenter, randomized controlled trial enrolled participants with MCI, recruited from 7 medical centers, and randomly assigned them to the ET-101 or control group (1:1 ratio). The intervention lasted 12 weeks, with a 12-week follow-up. The ET-101 group received metamemory-based multimemory strategy training and real-time feedback. Assessments of cognition, the daily activities of living, and the quality of life were conducted at baseline, week 12, and week 24. The primary outcome was the proportion of participants who showed cognitive improvement as assessed by the Alzheimer's Disease Assessment Scale-Cognitive Subscale (ADAS-Cog)-14 at weeks 12 and 24. Secondary outcomes included changes in the scores of scales assessing cognition, daily activities, and quality of life. Safety analysis assessed adverse events and their relation to digital therapeutics. In the full analysis set, 49 participants were included in the ET-101 group and 50 in the control group. At week 24, the proportion of responders who maintained or improved their ADAS-Cog-14 scores was significantly higher in the ET-101 group than in the control group (P=.002). Additionally, the ET-101 group showed a significant improvement in ADAS-Cog-14 scores at week 24 compared to baseline levels (estimates=-2.53; t 265 =-3.05; Bonferroni-adjusted P=.003). A subdomain analysis revealed significant improvements in the memory (estimates=-2.50; t 264 =-4.03; Bonferroni-adjusted P<.001) and language (estimates=-0.807; t 290 =-3.68; Bonferroni-adjusted P<.001) domains at week 24 in the ET-101 group compared to the control group. In the safety analysis, 6 adverse events occurred in the ET-101 group and 4 in the control group, but none were related to the interventions. The attrition rate in the ET-101 group was 22.4% (11/49). ET-101 significantly improved cognitive function compared to the sham device, with effects observed not only in the memory domain but also in the language domain, indicating a transfer effect. Therefore, ET-101 has the potential to provide effective MMT to a broader population with MCI by overcoming location and personnel limitations through a mobile app-based platform. ClinicalTrials.gov NCT05938426; https://clinicaltrials.gov/study/NCT05938426.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41554532/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41554532",
+        "doi": "10.2196/73464",
+        "journal": "JMIR mHealth and uHealth",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T17:58:22.620Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9e24bf409ca2bc4b8e2c",
+      "reserved_at": "2026-10-10T17:58:28.141Z",
+      "source_branch": "research/intake/2/20261010-1356-cognition-metabolic-r51"
     }
   ],
   "batches": [
@@ -48691,16 +48770,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 618,
+    "total_reservations": 619,
     "by_lane": {
       "1": 51,
-      "2": 127,
+      "2": 128,
       "3": 115,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 618
+      "SOURCE_VERIFIED": 619
     },
     "batches": [
       {
@@ -48713,7 +48792,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 118,
+        "count": 119,
         "pr_number": null,
         "blocker": null
       }
