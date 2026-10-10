@@ -34,13 +34,22 @@ describe('parseStudyIdentity', () => {
   })
 
   it('treats malformed identifiers as unknown, never coercing them', () => {
-    for (const bad of ['pmid:abc', 'doi:', '', 'not-an-identifier', 'pmid:']) {
+    for (const bad of [
+      'pmid:abc', 'doi:', '', 'not-an-identifier', 'pmid:',
+      'doi:garbage', 'doi:not-a-doi', 'doi:10.1000', 'doi:11.1000/xyz', 'doi:10./xyz',
+    ]) {
       const id = parseStudyIdentity(bad)
       expect(id.pmid).toBeNull()
       expect(id.doi).toBeNull()
-      expect(['unknown', 'doi']).toContain(id.type)
+      expect(id.type).toBe('unknown')
     }
     expect(parseStudyIdentity('pmid:abc').type).toBe('unknown')
+  })
+
+  it('normalizes DOI case per the documented contract', () => {
+    const id = parseStudyIdentity('doi:10.1000/XYZ.123')
+    expect(id.type).toBe('doi')
+    expect(id.doi).toBe('10.1000/xyz.123')
   })
 })
 

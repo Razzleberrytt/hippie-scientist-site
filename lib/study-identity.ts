@@ -46,8 +46,14 @@ export function parseStudyIdentity(canonical: unknown): StudyIdentity {
     return { canonical: c, type: 'pmid', pmid: pmidMatch[1], doi: null }
   }
   const doiMatch = /^doi:(.+)$/i.exec(c)
-  if (doiMatch && doiMatch[1].trim()) {
-    return { canonical: c, type: 'doi', pmid: null, doi: doiMatch[1].trim() }
+  if (doiMatch) {
+    const rawDoi = doiMatch[1].trim()
+    // DOI syntax (ISO 26324): "10." + registrant code + "/" + suffix.
+    // Anything else after the prefix is malformed and must fall through to
+    // 'unknown' — a garbage doi:-root would otherwise merge unrelated records.
+    if (/^10\.\d+\/\S+$/i.test(rawDoi)) {
+      return { canonical: c, type: 'doi', pmid: null, doi: rawDoi.toLowerCase() }
+    }
   }
   if (/^source-ref:/i.test(c)) {
     return { canonical: c, type: 'source-ref', pmid: null, doi: null }
