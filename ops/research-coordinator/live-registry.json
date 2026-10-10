@@ -44507,6 +44507,158 @@
       "reservation_id": "badfac4f9d26a94679e1",
       "reserved_at": "2026-10-10T06:10:35.356Z",
       "source_branch": "research/intake/3/20261010-0208-quercetin-cyp-review"
+    },
+    {
+      "pmid": "31728244",
+      "title": "Efficacy and Safety of Ashwagandha (Withania somnifera) Root Extract in Insomnia and Anxiety: A Double-blind, Randomized, Placebo-controlled Study.",
+      "doi": "10.7759/cureus.5797",
+      "source_title": "Efficacy and Safety of Ashwagandha (Withania somnifera) Root Extract in Insomnia and Anxiety: A Double-blind, Randomized, Placebo-controlled Study.",
+      "abstract": "Introduction Insomnia is a prevalent sleep disorder that can profoundly impact a person's physical health and mental wellbeing. Most of the currently available drugs for insomnia exert adverse effects. Hence, alternative herbal therapies could be effective in treating insomnia. Ashwagandha, a proven \"Rasayana\" from ancient Ayurveda is having the required potential to treat insomnia. Objective To determine the efficacy and safety of Ashwagandha root extract in patients with insomnia and anxiety. Methods This was a randomized, double-blind, placebo-controlled study conducted at Prakruti Hospital, Kalwa, Maharashtra, India. A total of 60 patients were randomly divided into two groups: test (n = 40) and placebo (n = 20) in a randomization ratio of 2:1. Test product was a capsule containing highest concentration full-spectrum Ashwagandha root extract 300 mg, and the placebo was an identical capsule containing starch. Both treatments were given twice daily with milk or water for 10 weeks. Sleep actigraphy (Respironics Philips) was used for assessment of sleep onset latency (SOL), total sleep time (TST), sleep efficiency (SE) and wake after sleep onset (WASO). Other assessments were total time in bed (sleep log), mental alertness on rising, sleep quality, Pittsburgh Sleep Quality Index (PSQI), and Hamilton Anxiety Rating Scale (HAM-A) scales. Results Two patients, one from each group, did not complete study and the per-protocol dataset (n = 58) included 29 and 19 patients from test and placebo, respectively. The baseline parameters were similar in the two groups at baseline. The sleep onset latency was improved in both test and placebo at five and 10 weeks. However, the SOL was significantly shorter (p, 0.019) after 10 weeks with test [29.00 (7.14)] compared to placebo [33.94 (7.65)]. Also, significant improvement in SE scores was observed with Ashwagandha which was 75.63 (2.70) for test at the baseline and increased to 83.48 (2.83) after 10 weeks, whereas for placebo the SE scores changed from 75.14 (3.73) at baseline to 79.68 (3.59) after 10 weeks. Similarly, significant improvement in sleep quality was observed with test compared to placebo (p, 0.002). Significant improvement was observed in all other sleep parameters, i.e., SOL, SE, PSQI and anxiety (HAM-A scores) with Ashwagandha root extract treatment for 10 weeks. Conclusion Ashwagandha root extract is a natural compound with sleep-inducing potential, well tolerated and improves sleep quality and sleep onset latency in patients with insomnia at a dose of 300 mg extract twice daily. It could be of potential use to improve sleep parameters in patients with insomnia and anxiety, but need further large-scale studies.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31728244/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "31728244",
+        "doi": "10.7759/cureus.5797",
+        "journal": "Cureus",
+        "publication_year": 2020,
+        "hydrated_at": "2026-10-10T06:38:30.368Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8ed790d6acb3a4a16ff2",
+      "reserved_at": "2026-10-10T06:38:34.522Z",
+      "source_branch": "research/intake/1/20261010-0235-ashwagandha-rcts-two"
+    },
+    {
+      "pmid": "32021735",
+      "title": "Adaptogenic and Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults: A Double-blind, Randomized, Placebo-controlled Clinical Study.",
+      "doi": "10.7759/cureus.6466",
+      "source_title": "Adaptogenic and Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults: A Double-blind, Randomized, Placebo-controlled Clinical Study.",
+      "abstract": "Background Stress, anxiety and impeded sleep are a frequent feature of life in modern societies. Across socio-economic strata, stress, anxiety and ineffective sleep detract from healthful living and serve as precursors of various ailments. The use of herbs to offset these antecedents and outcomes has greatly increased in recent years. Ashwagandha, an adaptogenic Ayurvedic herb, has been often used to combat and reduce stress and thereby enhance general wellbeing. While there have been other studies documenting the use of Ashwagandha for stress resistance, this is the first study to use a high-concentration root extract while also varying the dosage substantially. Therefore, this is the first study to offer insight into dose-response of a high concentration root extract. Material and methods In this eight-week, prospective, randomized, double-blind, placebo-controlled study, the stress-relieving effect of Ashwagandha root extract was investigated in stressed healthy adults. Sixty male and female participants with a baseline perceived stress scale (PSS) score >20 were randomized to receive capsules of Ashwagandha extract 125 mg, Ashwagandha extract 300 mg or identical placebo twice daily for eight weeks in a 1:1:1 ratio. Stress was assessed using PSS at baseline, four weeks and eight weeks. Anxiety was assessed using the Hamilton-Anxiety (HAM-A) scale and serum cortisol was measured at baseline and at eight weeks. Sleep quality was assessed using a seven-point sleep scale. A repeat measures ANOVA (general linear model) was used for assessment of treatment effect at different time periods. Post-hoc Dunnett's test was used for comparison of two treatments with placebo. Results Two participants (one each in 250 mg/day Ashwagandha and placebo) were lost to follow-up and 58 participants completed the study. A significant reduction in PSS scores was observed with Ashwagandha 250 mg/day (P < 0.05) and 600 mg/day (P < 0.001). Serum cortisol levels reduced with both Ashwagandha 250 mg/day (P < 0.05) and Ashwagandha 600 mg/day (P < 0.0001). Compared to the placebo group participants, the participants receiving Ashwagandha had significant improvement in sleep quality. Conclusion Ashwagandha root aqueous extract was beneficial in reducing stress and anxiety.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32021735/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "32021735",
+        "doi": "10.7759/cureus.6466",
+        "journal": "Cureus",
+        "publication_year": 2020,
+        "hydrated_at": "2026-10-10T06:38:30.369Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8ad41a56665725c7dc32",
+      "reserved_at": "2026-10-10T06:38:34.522Z",
+      "source_branch": "research/intake/1/20261010-0235-ashwagandha-rcts-two"
     }
   ],
   "batches": [
@@ -44535,16 +44687,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 564,
+    "total_reservations": 566,
     "by_lane": {
-      "1": 34,
+      "1": 36,
       "2": 105,
       "3": 102,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 564
+      "SOURCE_VERIFIED": 566
     },
     "batches": [
       {
@@ -44557,7 +44709,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 64,
+        "count": 66,
         "pr_number": null,
         "blocker": null
       }
