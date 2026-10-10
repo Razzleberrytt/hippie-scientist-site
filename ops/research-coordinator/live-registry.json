@@ -43585,6 +43585,161 @@
       "reservation_id": "757de458accaf05a7000",
       "reserved_at": "2026-10-10T03:39:55.387Z",
       "source_branch": "research/intake/1/20261009-2337-bifido-travel-41769651"
+    },
+    {
+      "pmid": "42421035",
+      "title": "The impact of synbiotic yogurt consumption on insulin-resistance surrogates, atherogenic and novel anthropometric indices in adults with metabolic syndrome: a randomized clinical trial.",
+      "doi": "10.1186/s12986-026-01175-4",
+      "source_title": "The impact of synbiotic yogurt consumption on insulin-resistance surrogates, atherogenic and novel anthropometric indices in adults with metabolic syndrome: a randomized clinical trial.",
+      "abstract": "Metabolic syndrome (MetS) represents a well-recognized contributor to cardiovascular risk, and synbiotics have recently gained attention as a potential dietary strategy for its management. The present study aimed to determine whether a novel synbiotic yogurt formulated with Lactobacillus plantarum, Lactobacillus pentosus, and the yeast Kluyveromyces marxianus affects atherogenic markers, cardiometabolic parameters, and insulin resistance surrogates in individuals among individuals diagnosed with MetS. A 12-week double-blind, standard-yogurt-controlled randomized clinical trial was conducted, enrolling 44 adults with MetS who were randomized to either 300 g/day of synbiotic yogurt (n = 22) or a matched control yogurt (n = 22); 41 (22 synbiotic, 19 control yogurt) completed and were analyzed. A comprehensive panel of cardiometabolic outcomes was evaluated at baseline and week 12, encompassing atherogenic indices including the Atherogenic Index of Plasma (AIP), Castelli's Risk Index-I (CRI-I), Castelli's Risk Index-II (CRI-II), Atherogenic Coefficient (AC), and oxidized low-density lipoprotein (ox-LDL); cardiometabolic measures including the Visceral Adiposity Index (VAI), Waist Triglyceride Index (WTI), and Cardiometabolic Index (CMI); body shape and adiposity indices including A Body Shape Index (ABSI), Body Roundness Index (BRI), Body Adiposity Index (BAI), Conicity Index, Abdominal Volume Index (AVI), and Weight-adjusted Waist Index (WWI); and surrogate markers of insulin resistance including the Triglyceride-Glucose Index (TyG), Hepatic Steatosis Index (HSI), triglyceride to high-density lipoprotein ratio (TG/HDL), TyG-Body Mass Index (TyG-BMI), TyG-Waist Circumference (TyG-WC), Metabolic Score for Insulin Resistance (METS-IR), and Lipid Accumulation Product (LAP). At the end of the 12-week period, statistically significant between-group differences were limited to four indices, namely CRI-I (p = 0.039), CRI-II (p = 0.038), AC (p = 0.039), and BAI (p = 0.027), all of which favored the control group. Within-group analyses indicated that the control arm experienced significant reductions in AIP, CRI-I, CRI-II, AC, TG/HDL, and METS-IR, whereas participants in the synbiotic arm demonstrated significant decreases only in TyG and TyG-BMI. No significant changes were observed in other indices. According to our findings, 12 weeks of daily synbiotic yogurt consumption did not significantly improve insulin resistance surrogates, atherogenic, and novel anthropometric indices in adults with MetS. Iranian Registry of Clinical Trials (registration ID: IRCT20220426054667N1; registration date: 2022-05-18).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42421035/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42421035",
+        "doi": "10.1186/s12986-026-01175-4",
+        "journal": "Nutrition & metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T03:57:14.832Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7da42d88dc3bef2dd6db",
+      "reserved_at": "2026-10-10T03:57:20.696Z",
+      "source_branch": "research/intake/2/20261009-2354-cognition-metabolic-r37"
+    },
+    {
+      "pmid": "42425963",
+      "title": "Caloric restriction improves glycemic control via the adiponectin-ceramide axis in non-obese men and women: the CALERIE™ 2 randomized controlled trial.",
+      "doi": "10.1038/s41467-026-74468-0",
+      "source_title": "Caloric restriction improves glycemic control via the adiponectin-ceramide axis in non-obese men and women: the CALERIE™ 2 randomized controlled trial.",
+      "abstract": "Caloric restriction (CR) improves metabolic health across species, but the molecular mediators of its effects in humans remain incompletely defined. In a 24-month non-blinded randomized controlled trial (Clinicaltrial.gov: NCT00427193) of non-obese (BMI 22-27.9 kg/m 2 ) men and premenopausal women aged 21 to 50 years, we assessed prespecified outcomes. Participants were randomized to an ad libitum or CR diet. We found that CR was associated with increased high-molecular-weight (HMW) adiponectin and reduced circulating ceramide species implicated in insulin resistance, including C16:0, C18:0, and C24:0. Mediation analysis indicated that reductions in ceramides were statistically compatible with partial mediation of the CR-associated improvements in insulin secretion, insulin sensitivity, and IGF-1 signaling markers. These effects were most pronounced at 12 months and attenuated by 24 months, suggesting partial metabolic adaptation over time. Overall, our findings are consistent with a model in which CR remodels bioactive lipid profiles and may enhance glucose metabolism in part through an adiponectin-ceramide-linked mechanism, highlighting a potential therapeutic axis for enhancing metabolic health.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42425963/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial, Phase II",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42425963",
+        "doi": "10.1038/s41467-026-74468-0",
+        "journal": "Nature communications",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T03:57:14.835Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9bb324ae1f9891d570c7",
+      "reserved_at": "2026-10-10T03:57:20.696Z",
+      "source_branch": "research/intake/2/20261009-2354-cognition-metabolic-r37"
     }
   ],
   "batches": [
@@ -43613,16 +43768,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 552,
+    "total_reservations": 554,
     "by_lane": {
       "1": 30,
-      "2": 99,
+      "2": 101,
       "3": 100,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 552
+      "SOURCE_VERIFIED": 554
     },
     "batches": [
       {
@@ -43635,7 +43790,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 52,
+        "count": 54,
         "pr_number": null,
         "blocker": null
       }
