@@ -52,12 +52,17 @@ describe('round 1c DOI/PMID alias reconciliation', () => {
 })
 
 describe('round 1c claim inventory', () => {
-  it('reports eligibility and coverage deterministically', () => {
+  it('reports PMID linkage and coverage deterministically', () => {
     const a = buildClaimInventory()
     const b = buildClaimInventory()
     expect(a.sha256).toBe(b.sha256)
     expect(a.inventory.total_claims).toBe(508)
-    expect(a.inventory.eligible_claims).toBeGreaterThan(200)
+    expect(a.inventory.pmid_linked_claims).toBe(234)
+    expect(a.inventory.claims_without_pmid_linkage).toBe(274)
+    expect(a.inventory.metadata_coverage.distinct_linked_pmids).toBe(201)
+    expect(a.inventory.metadata_coverage.pmids_with_usable_metadata).toBe(172)
+    expect(a.inventory.metadata_coverage.coverage_rate).toBeCloseTo(172 / 201, 10)
+    // Coverage rate is over distinct linked PMIDs, not over all claims.
     expect(a.inventory.metadata_coverage.coverage_rate).toBeGreaterThan(0.8)
     // No timestamps in deterministic bytes.
     expect(a.bytes).not.toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/)
@@ -67,10 +72,18 @@ describe('round 1c claim inventory', () => {
     const { inventory } = buildClaimInventory()
     expect(Object.keys(inventory.by_compound).length).toBeGreaterThan(100)
     expect(Object.keys(inventory.by_evidence_tier).length).toBeGreaterThan(5)
-    // Eligible counts never exceed totals.
+    // PMID-linked counts never exceed totals.
     for (const entry of Object.values(inventory.by_compound)) {
-      expect(entry.eligible).toBeLessThanOrEqual(entry.total)
+      expect(entry.pmid_linked).toBeLessThanOrEqual(entry.total)
     }
+  })
+
+  it('uses PMID-linkage terminology, not eligibility language', () => {
+    const { inventory } = buildClaimInventory()
+    const json = JSON.stringify(inventory)
+    expect(json).not.toContain('eligible')
+    expect(json).not.toContain('ineligible')
+    expect(inventory.without_pmid_linkage_reasons['missing_pmid_field']).toBe(274)
   })
 })
 
@@ -125,5 +138,44 @@ describe('round 1c relationship index', () => {
     expect(json).not.toContain('supports')
     expect(json).not.toContain('contradicts')
     expect(json).not.toContain('efficacy')
+  })
+
+  it('never writes a DOI-canonical identifier into a PMID field', () => {
+    const manifest = {
+      batch_id: 'test-rel-doi',
+      claims: [
+        {
+          claim_id: 'c1',
+          canonical_identities: ['doi:10.1000/xyz', 'pmid:222'],
+          provenance_status: 'primary_linked',
+          resolution_status: 'resolved',
+        },
+      ],
+    } as any
+    // No verified PMID association: pmid is null, not the doi: string.
+    const { index } = buildRelationshipIndex(manifest, new Map([['c1', 'ginger']]))
+    expect(index.studies['doi:10.1000/xyz'].pmid).toBeNull()
+    expect(index.studies['doi:10.1000/xyz'].canonical_id).toBe('doi:10.1000/xyz')
+    expect(index.studies['pmid:222'].pmid).toBe('222')
+  })
+
+  it('preserves verified PMID associations for DOI-canonical identities', () => {
+    const manifest = {
+      batch_id: 'test-rel-doi-2',
+      claims: [
+        {
+          claim_id: 'c1',
+          canonical_identities: ['doi:10.1000/xyz'],
+          provenance_status: 'primary_linked',
+          resolution_status: 'resolved',
+        },
+      ],
+    } as any
+    const { index } = buildRelationshipIndex(
+      manifest,
+      new Map([['c1', 'ginger']]),
+      new Map([['doi:10.1000/xyz', '38561618']]),
+    )
+    expect(index.studies['doi:10.1000/xyz'].pmid).toBe('38561618')
   })
 })

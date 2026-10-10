@@ -1,1783 +1,1790 @@
 {
   "by_compound": {
     "11-keto-beta-boswellic-acid": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "23-epi-26-deoxyactein": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "acarbose": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "acemannan": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "acetyl-11-keto-beta-boswellic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "acetyl-beta-boswellic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "aescin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "allicin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "aloe-vera": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "alpha-asarone": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "alpha-gpc": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "alpha-lipoic-acid": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "alpha-mangostin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "american-ginseng-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "anabasine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "anatabine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "andrographis": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "andrographolide": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "anethole": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "angelicin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "arabinoxylan": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "arjunolic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "artemisinin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "artemisinin-b": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "artichoke-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "ashwagandha": {
-      "eligible": 6,
+      "pmid_linked": 6,
       "total": 9
     },
     "asiatic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "asiaticoside": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "aspalathin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "astaxanthin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "astragalin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "astragaloside-iv": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "atractylenolide-i": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "atractylenolide-ii": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "atractylenolide-iii": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "aucubin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "bacopa": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 5
     },
     "bacopa-monnieri": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "bacopaside-ii": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "bacoside-a": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bacoside-b": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "banaba-leaf-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "bcaa": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bcaas": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "beetroot": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "berbamine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "berberine": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 5
     },
     "bergamot": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "bergapten": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "beta-alanine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "beta-caryophyllene": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "beta-elemene": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "beta-glucans": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "beta-sitosterol": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "betaine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "betulinic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bicarbonate": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "bilberry-extract": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bile-salts": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bilobetin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "biochanin-a": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "biotin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bisabolol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bisdemethoxycurcumin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "black-seed": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "black-seed-oil": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "boron": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "boswellia": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "boswellic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "bromelain": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "butylidenephthalide": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cafestol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "caffeic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "caffeine": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "caffeine-l-theanine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "calcium": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "calycosin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "capsaicin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "capsicum-annuum": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "capsicum-frutescens": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 3
     },
     "carnitine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "carnitine-l-tartrate": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "carnosic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "carnosol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "carvacrol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "caryophyllene-oxide": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "catalpol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "catechin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cdp-choline": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "celastrol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cepharanthine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "chamazulene": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "chamomile": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "charantin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "chicoric-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "chlorella": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "chlorogenic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "choline": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "chondroitin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "chromium": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "chromium-picolinate": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "cimifugoside": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cinnamaldehyde": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cinnamon-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "cistanche": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "citicoline": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "citronellal": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "citrulline": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "citrulline-malate": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "cla": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "coconut-oil": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "coenzyme-a": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "collagen-peptides": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "colostrum": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "columbamine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "columbin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "commipheric-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "coptisine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "corosolic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cranberry": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "creatine": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 7
     },
     "crocetin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "crocin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "crocus-sativus": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "cryptotanshinone": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "curcumin": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 6
     },
     "curcumin-piperine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "curcumol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "curdione": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "d-aspartic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "d-chiro-inositol": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "d-mannose": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "daidzein": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "daidzin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "dandelion-root": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "daphnetin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "demethoxycurcumin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "deoxyelephantopin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "deoxymiroestrol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "desmethoxyyangonin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "devils-claw": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "digestive-enzymes": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "dihydrokavain": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "dihydromethysticin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "diosgenin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "eaa": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "echinacea": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "echinacoside": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "egcg-caffeine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "eggshell-membrane": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "elderberry": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "elemicin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "elephantopin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "eleutheroside-b": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "eleutheroside-e": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "emodin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "epicatechin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "epicatechin-gallate": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "epigallocatechin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "erinacines": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "esculetin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "eugenol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "fadogia-agrestis": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "farnesol": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "fenugreek": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "fenugreek-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "ferulic-acid": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "folate": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "formononetin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "forskolin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "fos": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "fraxetin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "fucoxanthin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "gaba": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "galangin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "galantamine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "gallic-acid": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "gallocatechin": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "garcinia-cambogia": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "garcinia-cambogia-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "garcinol": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "garlic": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "ginger": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "ginkgo": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 7
     },
     "ginseng": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "ginsenoside-rg1": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "ginsenoside-rg3": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "global": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "glucomannan": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "glucosamine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "glycinate-magnesium-complex": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "glycine": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 5
     },
     "gotu-kola": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "green-coffee": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "green-tea-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "green-tea-extract-egcg": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "guggul": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "guggulsterone": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "gymnema-sylvestre": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "harmine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "hawthorn-extract": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "hericium-erinaceus": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 8
     },
     "hesperidin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "hmb": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "holy-basil": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "hops": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "horny-goat-weed": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "huperzine-a": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "hyaluronic-acid": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "hydroxytyrosol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "iberogast": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "inositol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "iodine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 3
     },
     "iron": {
-      "eligible": 3,
+      "pmid_linked": 3,
       "total": 4
     },
     "kava": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "krill-oil": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "l-carnitine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "l-theanine": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 13
     },
     "l-tyrosine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "lactase-enzyme": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "lactoferrin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "lavandula-angustifolia": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "lavender": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "lavender-extract": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "lemon-balm": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 3
     },
     "lions-mane": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "lutein": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "maca": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "magnesium": {
-      "eligible": 6,
+      "pmid_linked": 6,
       "total": 11
     },
     "magnolia": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "marshmallow-root": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "matricaria-chamomilla": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "mct-oil": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "melatonin": {
-      "eligible": 6,
+      "pmid_linked": 6,
       "total": 10
     },
     "melissa-officinalis": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "milk-thistle": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "msm": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "mucuna-pruriens": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "myo-inositol": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "nac": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "nattokinase": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "noopept": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "olive-leaf-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "omega-3": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 6
     },
     "panax-ginseng": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "passiflora-incarnata": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "passionflower": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "passionflower-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "pelargonium-sidoides": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "peppermint-oil": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 3
     },
     "phgg": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "phosphatidylserine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "piracetam": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "plant-sterols": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "policosanol": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "pomegranate-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "potassium": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "probiotics": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "propolis": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "psyllium-husk": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "pycnogenol": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "pygeum": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "quercetin": {
-      "eligible": 3,
+      "pmid_linked": 3,
       "total": 4
     },
     "raspberry-ketones": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "red-yeast-rice": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "reishi": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "resveratrol": {
-      "eligible": 3,
+      "pmid_linked": 3,
       "total": 4
     },
     "rhodiola": {
-      "eligible": 3,
+      "pmid_linked": 3,
       "total": 14
     },
     "saccharomyces-boulardii": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "saffron-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "saw-palmetto": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "saw-palmetto-extract": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "schisandra": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "selenium": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "shilajit": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "silicon": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "slippery-elm": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "spirulina": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "taurine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "theanine": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 8
     },
     "tongkat-ali": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "tribulus-terrestris": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "turmeric": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "uc-ii-collagen": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "undenatured-type-ii-collagen": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "uridine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "valerian": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 3
     },
     "valerian-root-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "valeriana-officinalis": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "vitamin-a": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 3
     },
     "vitamin-b12": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "vitamin-c": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     },
     "vitamin-d": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 5
     },
     "vitamin-d3": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "white-kidney-bean-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "willow-bark-extract": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "withania-somnifera": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 10
     },
     "yohimbine": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "zeaxanthin": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "zinc": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 3
     }
   },
   "by_evidence_tier": {
     "FDA regulatory overview": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "Narrative/systematic-style review of cognitive mechanisms": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "RCT": {
-      "eligible": 62,
+      "pmid_linked": 62,
       "total": 62
     },
     "RCT dose-response meta-analysis": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "RCT meta-analysis": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 3
     },
     "RCT systematic review/meta-analysis": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "Systematic review metadata; abstract unavailable in fetch": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "Systematic review of randomized placebo-controlled double-blind trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "Systematic review of supplement trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "blocked_generic_blend": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "blocked_hype_compound": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "blocked_low_evidence": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "blocked_low_evidence_safety_risk": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "blocked_medical_context": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "blocked_scope": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "blocked_until_human_trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "case series": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "clinical evidence review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "clinical review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "clinical_evidence_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "clinical_study_needs_specific_design": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 41
     },
     "clinical_trial_cognitive_impairment": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "clinical_trial_combination_context": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "clinical_trial_or_review_limited": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "clinical_trials_context_restricted": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "clinical_trials_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "cochrane_review_randomized_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "dietary exposure assessment + clinical-study discussion": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "dietary exposure assessment plus clinical-study context review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "dose-response meta-analysis of RCTs": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "double-blind placebo-controlled RCT": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "evidence_summary": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 58
     },
     "exploratory randomized double-blind placebo-controlled study": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "human_trials_limited": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "large_clinical_trial_formula": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "large_randomized_trials_mixed": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "limited_human_study_context": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "limited_human_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "meta-analysis of placebo-controlled RCTs": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "meta_analysis": {
-      "eligible": 26,
+      "pmid_linked": 26,
       "total": 26
     },
     "meta_analysis_authoritative_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "meta_analysis_context_specific": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "meta_analysis_mixed_result": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "meta_analysis_randomized_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "meta_analysis_safety_guidance": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "narrative review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "needs_classification": {
-      "eligible": 18,
+      "pmid_linked": 18,
       "total": 91
     },
     "negative_randomized_clinical_trial": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "negative_randomized_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 3
     },
     "negative_replication_trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "negative_testosterone_evidence": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "official health-professional fact sheet + LiverTox monograph": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "official_guidance_and_meta_analysis": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "official_nutrient_fact_sheet": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "official_nutrient_guidance": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 4
     },
     "official_nutrient_guidance_and_human_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "official_nutrient_guidance_and_rct": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "official_nutrient_guidance_mixed_trials": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "official_safety_guidance": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "parent_extract_human_evidence": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "pilot randomized double-blind placebo-controlled trial": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "pilot_or_route_specific_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "population_specific_trials_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized double-blind placebo-controlled crossover trial": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "randomized double-blind placebo-controlled parallel-group trial": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "randomized double-blind placebo-controlled pilot trial": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "randomized double-blind placebo-controlled study": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "randomized double-blind placebo-controlled trial": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 5
     },
     "randomized triple-blind placebo-controlled crossover study": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "randomized_clinical_trials": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 4
     },
     "randomized_controlled_study": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_controlled_trial": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 5
     },
     "randomized_controlled_trials": {
-      "eligible": 7,
+      "pmid_linked": 7,
       "total": 7
     },
     "randomized_controlled_trials_mixed": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_controlled_trials_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_double_blind_crossover_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_double_blind_placebo_controlled_multicenter_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_double_blind_placebo_controlled_trial": {
-      "eligible": 13,
+      "pmid_linked": 13,
       "total": 15
     },
     "randomized_double_masked_placebo_controlled_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_exercise_recovery_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_human_trials": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "randomized_human_trials_limited": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_placebo_controlled_pilot_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_placebo_controlled_trial": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 4
     },
     "randomized_placebo_controlled_trials": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "randomized_trial_plus_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "randomized_trials_and_review": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "randomized_trials_mixed": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "review of human exercise-performance studies": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "review_and_small_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "safety_review_limited_human_evidence": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "single_randomized_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_human_intervention_trial": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_human_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_human_trials_and_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_human_trials_safety_sensitive": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_randomized_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_randomized_trials_inconsistent": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "small_trials_and_review": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "specific_probiotic_sleep_rct_not_generic_gaba": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "sports_nutrition_position_or_meta_evidence": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 5
     },
     "systematic review and dose-response meta-analysis of randomized trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review and meta-analysis of RCTs": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 4
     },
     "systematic review and meta-analysis of randomized trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review of RCT reporting quality": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review of RCTs": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "systematic review of clinical trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review of dietary supplementation trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review of interventional trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review of randomized trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review/meta-analysis": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review/meta-analysis of RCTs": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review/meta-analysis of clinical data": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic review/meta-analysis of clinical trials": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "systematic review/meta-analysis of high-dose RCTs": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic_review": {
-      "eligible": 6,
+      "pmid_linked": 6,
       "total": 6
     },
     "systematic_review_and_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic_review_combination_context": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic_review_context": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic_review_controlled_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 2
     },
     "systematic_review_meta_analysis": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 6
     },
     "systematic_review_meta_analysis_clinical_trials": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "systematic_review_meta_analysis_high_bias": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "systematic_review_meta_analysis_randomized_controlled_trials": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "systematic_review_meta_analysis_randomized_placebo_controlled_trials": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic_review_meta_analysis_randomized_trials": {
-      "eligible": 4,
+      "pmid_linked": 4,
       "total": 8
     },
     "systematic_review_meta_analysis_safety_context": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic_review_mixed_evidence": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic_review_or_meta_analysis": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 18
     },
     "systematic_review_plus_negative_combination_rct": {
-      "eligible": 1,
+      "pmid_linked": 1,
       "total": 1
     },
     "systematic_review_randomized_trials": {
-      "eligible": 2,
+      "pmid_linked": 2,
       "total": 2
     },
     "umbrella review": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     }
   },
   "by_study_class": {
     "case-report": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 1
     },
     "meta-analysis": {
-      "eligible": 51,
+      "pmid_linked": 51,
       "total": 91
     },
     "narrative-review": {
-      "eligible": 3,
+      "pmid_linked": 3,
       "total": 11
     },
     "observational": {
-      "eligible": 0,
+      "pmid_linked": 0,
       "total": 2
     },
     "rct": {
-      "eligible": 120,
+      "pmid_linked": 120,
       "total": 139
     },
     "regulatory-guidance": {
-      "eligible": 5,
+      "pmid_linked": 5,
       "total": 12
     },
     "systematic-review": {
-      "eligible": 14,
+      "pmid_linked": 14,
       "total": 32
     },
     "unclassified": {
-      "eligible": 22,
+      "pmid_linked": 22,
       "total": 200
     },
     "uncontrolled-trial": {
-      "eligible": 19,
+      "pmid_linked": 19,
       "total": 20
     }
   },
-  "eligible_claim_ids": [
+  "claims_without_pmid_linkage": 274,
+  "metadata_coverage": {
+    "coverage_rate": 0.8557213930348259,
+    "distinct_linked_pmids": 201,
+    "pmids_in_cache": 172,
+    "pmids_with_usable_metadata": 172
+  },
+  "pmid_linked_claim_ids": [
     "rg-0291",
     "rg-0292",
     "rg-0315",
@@ -2013,17 +2020,10 @@
     "study-row-97",
     "study-row-98"
   ],
-  "eligible_claims": 234,
-  "ineligible_claims": 274,
-  "ineligible_reasons": {
-    "missing_pmid": 274
-  },
-  "metadata_coverage": {
-    "coverage_rate": 0.8557213930348259,
-    "eligible_pmids": 201,
-    "pmids_in_cache": 172,
-    "pmids_with_usable_metadata": 172
-  },
-  "schema_version": "claim-dna-1c-inventory/0.1",
-  "total_claims": 508
+  "pmid_linked_claims": 234,
+  "schema_version": "claim-dna-1c-inventory/0.2",
+  "total_claims": 508,
+  "without_pmid_linkage_reasons": {
+    "missing_pmid_field": 274
+  }
 }

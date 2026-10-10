@@ -7,6 +7,14 @@
  * reconcile DOI+PMID aliases using its built-in citation-identifier logic.
  *
  * No new identity machinery: we feed the existing reconciler better inputs.
+ *
+ * INTEGRATION STATUS (Round 1C decision): this is an independently tested
+ * PREPARATORY capability only. It is NOT wired into the batch execution
+ * path — run-1a.ts, run-1b.ts, and adapter-1a.ts operate on PMID-only source
+ * records. Connecting DOI enrichment to production batch processing is
+ * deferred to R2A, pending the global identity-reconciliation design:
+ * enriching first would move union-find canonical roots from `pmid:` to
+ * `doi:` for ~172 sources and churn downstream identities.
  */
 import { loadPubmedCache, type PubmedCache } from '@/lib/research-coverage'
 

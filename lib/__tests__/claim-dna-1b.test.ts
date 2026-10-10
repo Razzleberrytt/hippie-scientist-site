@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { runClaimDnaBatch, loadBatchState } from '@/scripts/claim-dna/run-1b'
+import { runClaimDnaBatch, loadBatchState, recordSharedIdentity, type SharedIdentity } from '@/scripts/claim-dna/run-1b'
 
 // Curated 1B slice: covers cached, packed, uncached, and shared-PMID claims.
 const BATCH_ID = 'test-batch-1b'
@@ -212,5 +212,32 @@ describe('round 1b malformed records (fixtures)', () => {
     expect(byId['empty-pmid'].provenance_status).toBe('unresolved')
     // The batch completes; malformed records don't abort processing.
     expect(byId['good-claim'].join_metrics.successful_joins).toBe(1)
+  })
+})
+
+describe('round 1b shared-identity accumulation (typed identities)', () => {
+  it('keeps PMID fields free of DOI-canonical identifiers', () => {
+    const refs = new Map<string, SharedIdentity>()
+    recordSharedIdentity(refs, 'pmid:38561618', 'c1')
+    // DOI-canonical with no verified association: pmid is null, never the doi: string.
+    recordSharedIdentity(refs, 'doi:10.1000/xyz', 'c1')
+    recordSharedIdentity(refs, 'doi:10.1000/xyz', 'c2')
+
+    expect(refs.get('pmid:38561618')!.pmid).toBe('38561618')
+    const doiEntry = refs.get('doi:10.1000/xyz')!
+    expect(doiEntry.pmid).toBeNull()
+    expect(doiEntry.canonical_id).toBe('doi:10.1000/xyz')
+    expect(doiEntry.referenced_by.sort()).toEqual(['c1', 'c2'])
+  })
+
+  it('preserves verified PMID associations when provided', () => {
+    const refs = new Map<string, SharedIdentity>()
+    recordSharedIdentity(
+      refs,
+      'doi:10.1000/xyz',
+      'c1',
+      new Map([['doi:10.1000/xyz', '38561618']]),
+    )
+    expect(refs.get('doi:10.1000/xyz')!.pmid).toBe('38561618')
   })
 })

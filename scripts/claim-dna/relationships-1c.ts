@@ -6,15 +6,20 @@
  *   study_id -> { claims: [claim_ids], ingredients: [profile_slugs] }
  *   ingredient -> { claims: [claim_ids], studies: [canonical_ids] }
  *
- * All IDs are stable (canonical claim IDs, pmid: identifiers, profile slugs).
+ * All IDs are stable (canonical claim IDs, typed publication identifiers, profile slugs).
  * Provenance is preserved: each relationship records which batch run produced it.
  * No scientific relationships are inferred — only identifier co-occurrence.
+ *
+ * Publication identifiers are interpreted through the typed identity layer
+ * (lib/study-identity.ts): a DOI-canonical identifier never appears inside a
+ * PMID field. When no verified PMID association is available, pmid is null.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 
 import { sortKeysDeep } from './run-1a'
+import { parseStudyIdentity, pmidForIdentity } from '@/lib/study-identity'
 import type { BatchManifest } from './run-1b'
 
 export const RELATIONSHIP_SCHEMA_VERSION = 'claim-dna-1c-relationships/0.1'
@@ -29,7 +34,8 @@ export type ClaimNode = {
 
 export type StudyNode = {
   canonical_id: string
-  pmid: string
+  /** Verified PMID, or null when the identity is DOI-canonical without a verified PMID association. */
+  pmid: string | null
   claims: string[]
   ingredients: string[]
 }
@@ -55,6 +61,7 @@ function sha256Hex(s: string): string {
 export function buildRelationshipIndex(
   manifest: BatchManifest,
   claimIngredients: Map<string, string>,
+  pmidByCanonicalRoot: Map<string, string> = new Map(),
 ): { index: RelationshipIndex; bytes: string; sha256: string } {
   const claims: Record<string, ClaimNode> = {}
   const studies: Record<string, StudyNode> = {}
@@ -78,9 +85,10 @@ export function buildRelationshipIndex(
     }
     ingredients[ingredient] = ing
 
-    // Study nodes.
+    // Study nodes. PMID fields carry verified PMIDs or null — a DOI-canonical
+    // identifier is never written into a PMID field.
     for (const sid of c.canonical_identities) {
-      const pmid = sid.replace(/^pmid:/, '')
+      const pmid = pmidForIdentity(parseStudyIdentity(sid), pmidByCanonicalRoot)
       const st = studies[sid] ?? { canonical_id: sid, pmid, claims: [], ingredients: [] }
       if (!st.claims.includes(c.claim_id)) st.claims.push(c.claim_id)
       if (!st.ingredients.includes(ingredient)) st.ingredients.push(ingredient)
