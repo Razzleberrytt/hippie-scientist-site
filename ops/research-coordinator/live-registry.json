@@ -46504,6 +46504,83 @@
       "reservation_id": "8cad093131bff9682368",
       "reserved_at": "2026-10-10T12:04:26.539Z",
       "source_branch": "research/intake/3/20261010-0802-acai-cyp2c9-42815441"
+    },
+    {
+      "pmid": "27723543",
+      "title": "Efficacy of curcumin, and a saffron/curcumin combination for the treatment of major depression: A randomised, double-blind, placebo-controlled study.",
+      "doi": "10.1016/j.jad.2016.09.047",
+      "source_title": "Efficacy of curcumin, and a saffron/curcumin combination for the treatment of major depression: A randomised, double-blind, placebo-controlled study.",
+      "abstract": "Several studies have supported the antidepressant effects of curcumin (from the spice turmeric) and saffron for people with major depressive disorder. However, these studies have been hampered by poor designs, small sample sizes, short treatment duration, and similar intervention dosages. Furthermore, the antidepressant effects of combined curcumin and saffron administration are unknown. In a randomised, double-blind, placebo-controlled study, 123 individuals with major depressive disorder were allocated to one of four treatment conditions, comprising placebo, low-dose curcumin extract (250mg b.i.d.), high-dose curcumin extract (500mg b.i.d.), or combined low-dose curcumin extract plus saffron (15mg b.i.d.) for 12 weeks. The outcome measures were the Inventory of Depressive Symptomatology self-rated version (IDS-SR 30 ) and Spielberger State-Trait Anxiety Inventory (STAI). The active drug treatments (combined) were associated with significantly greater improvements in depressive symptoms compared to placebo (p=.031), and superior improvements in STAI-state (p<.001) and STAI-trait scores (p=.001). Active drug treatments also had greater efficacy in people with atypical depression compared to the remainder of patients (response rates of 65% versus 35% respectively, p=.012). No differences were found between the differing doses of curcumin or the curcumin/saffron combination. Investigations with larger sample sizes are required to examine the efficacy of differing doses of curcumin and saffron/curcumin combination. Its effects in people with atypical depression also require examination in larger scale studies. Active drug treatments comprising differing doses of curcumin and combined curcumin/saffron were effective in reducing depressive and anxiolytic symptoms in people with major depressive disorder.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27723543/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "27723543",
+        "doi": "10.1016/j.jad.2016.09.047",
+        "journal": "Journal of affective disorders",
+        "publication_year": 2017,
+        "hydrated_at": "2026-10-10T12:46:03.962Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "03e1d352d3884c140991",
+      "reserved_at": "2026-10-10T12:46:08.715Z",
+      "source_branch": "research/intake/1/20261010-0843-curcumin-saffron-27723543"
     }
   ],
   "batches": [
@@ -46532,16 +46609,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 590,
+    "total_reservations": 591,
     "by_lane": {
-      "1": 43,
+      "1": 44,
       "2": 114,
       "3": 108,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 590
+      "SOURCE_VERIFIED": 591
     },
     "batches": [
       {
@@ -46554,7 +46631,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 90,
+        "count": 91,
         "pr_number": null,
         "blocker": null
       }
