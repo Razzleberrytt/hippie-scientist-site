@@ -49431,6 +49431,83 @@
       "reservation_id": "5fc3156069e6e5ba34f7",
       "reserved_at": "2026-10-10T20:03:46.985Z",
       "source_branch": "research/intake/2/20261010-1556-cognition-metabolic-r53"
+    },
+    {
+      "pmid": "41342618",
+      "title": "Drug-induced Liver Injury Attributed to Traditional Herbal Medication: A Case Report with Histopathological and Clinical Correlations.",
+      "doi": "10.4103/aam.aam_254_25",
+      "source_title": "Drug-induced Liver Injury Attributed to Traditional Herbal Medication: A Case Report with Histopathological and Clinical Correlations.",
+      "abstract": "Drug-induced liver injury (DILI) is a diagnostic dilemma, often mimicking other hepatic disorders and posing a significant clinical challenge. While pharmaceuticals are well-documented culprits, herbal and traditional medications, widely perceived as harmless, increasingly contribute to hepatotoxicity, particularly in the eastern parts of the world, where their use is prevalent yet unregulated. We present the case of a 58-year-old female with a 10-day history of jaundice and new-onset abdominal discomfort, with no identifiable risk factors, the only notable detail being her intake of Ayurvedic herbal preparations for joint pains, 3 months before the onset of symptoms. Physical examination revealed icterus, while laboratory work showed hyperbilirubinemia and elevated liver enzymes, which was suggestive of hepatic dysfunction with a cholestatic pattern (R ratio: 1.6). Extensive evaluation for viral, autoimmune, and metabolic causes was negative. Liver biopsy revealed focal hepatocellular necrosis, eosinophilic infiltration, and microvesicular steatosis, which are features of DILI. Applying the Roussel Uclaf Causality Assessment Method (RUCAM), the patient scored 7, indicating a probable link to the herbal medication. Supportive care was initiated, and liver function improved steadily, allowing for a safe discharge within a week. This case highlights the potential hepatotoxicity of certain alternative and traditional herbal medications and drugs, as these preparations may contain undisclosed or poorly regulated ingredients. Hence, thorough history-taking, awareness, and clinical suspicion coupled with structured causality tools like RUCAM can aid in the early diagnosis and timely intervention of DILI. Résumé La lésion hépatique induite par les médicaments (DILI) constitue un dilemme diagnostique, imitant souvent d’autres troubles hépatiques et représentant un défi clinique majeur. Si les produits pharmaceutiques sont des coupables bien documentés, les médicaments à base de plantes et les remèdes traditionnels, largement perçus comme inoffensifs, contribuent de plus en plus à l’hépatotoxicité, en particulier dans les régions orientales du monde où leur utilisation est fréquente mais non réglementée. Nous présentons le cas d’une femme de 58 ans présentant depuis 10 jours un ictère et un inconfort abdominal d’apparition récente, sans facteur de risque identifiable, le seul élément notable étant la prise de préparations ayurvédiques à base de plantes pour des douleurs articulaires, trois mois avant l’apparition des symptômes. L’examen physique a révélé un ictère, tandis que les analyses biologiques ont montré une hyperbilirubinémie et une élévation des enzymes hépatiques, suggérant un dysfonctionnement hépatique avec un profil cholestatique (rapport R : 1,6). Une évaluation approfondie des causes virales, auto-immunes et métaboliques s’est révélée négative. La biopsie hépatique a montré une nécrose hépatocellulaire focale, une infiltration éosinophilique et une stéatose microvacuolaire, caractéristiques du DILI. En appliquant la méthode d’évaluation de causalité de Roussel Uclaf (RUCAM), la patiente a obtenu un score de 7, indiquant un lien probable avec le médicament à base de plantes. Un traitement de soutien a été instauré, et la fonction hépatique s’est améliorée progressivement, permettant un retour à domicile en toute sécurité dans un délai d’une semaine. Ce cas met en évidence l’hépatotoxicité potentielle de certains médicaments alternatifs et traditionnels à base de plantes, qui peuvent contenir des ingrédients non divulgués ou mal réglementés. Ainsi, un interrogatoire approfondi, une sensibilisation et une suspicion clinique, associés à des outils structurés d’évaluation de causalité tels que le RUCAM, peuvent faciliter le diagnostic précoce et une intervention rapide dans les cas de DILI. La lésion hépatique induite par les médicaments (DILI) constitue un dilemme diagnostique, imitant souvent d’autres troubles hépatiques et représentant un défi clinique majeur. Si les produits pharmaceutiques sont des coupables bien documentés, les médicaments à base de plantes et les remèdes traditionnels, largement perçus comme inoffensifs, contribuent de plus en plus à l’hépatotoxicité, en particulier dans les régions orientales du monde où leur utilisation est fréquente mais non réglementée. Nous présentons le cas d’une femme de 58 ans présentant depuis 10 jours un ictère et un inconfort abdominal d’apparition récente, sans facteur de risque identifiable, le seul élément notable étant la prise de préparations ayurvédiques à base de plantes pour des douleurs articulaires, trois mois avant l’apparition des symptômes. L’examen physique a révélé un ictère, tandis que les analyses biologiques ont montré une hyperbilirubinémie et une élévation des enzymes hépatiques, suggérant un dysfonctionnement hépatique avec un profil cholestatique (rapport R : 1,6). Une évaluation approfondie des causes virales, auto-immunes et métaboliques s’est révélée négative. La biopsie hépatique a montré une nécrose hépatocellulaire focale, une infiltration éosinophilique et une stéatose microvacuolaire, caractéristiques du DILI. En appliquant la méthode d’évaluation de causalité de Roussel Uclaf (RUCAM), la patiente a obtenu un score de 7, indiquant un lien probable avec le médicament à base de plantes. Un traitement de soutien a été instauré, et la fonction hépatique s’est améliorée progressivement, permettant un retour à domicile en toute sécurité dans un délai d’une semaine. Ce cas met en évidence l’hépatotoxicité potentielle de certains médicaments alternatifs et traditionnels à base de plantes, qui peuvent contenir des ingrédients non divulgués ou mal réglementés. Ainsi, un interrogatoire approfondi, une sensibilisation et une suspicion clinique, associés à des outils structurés d’évaluation de causalité tels que le RUCAM, peuvent faciliter le diagnostic précoce et une intervention rapide dans les cas de DILI.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41342618/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41342618",
+        "doi": "10.4103/aam.aam_254_25",
+        "journal": "Annals of African medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:06:13.904Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "714f32060c6b101f42eb",
+      "reserved_at": "2026-10-10T20:06:20.501Z",
+      "source_branch": "research/intake/3/20261010-1603-ayurvedic-liver-41342618"
     }
   ],
   "batches": [
@@ -49459,16 +49536,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 628,
+    "total_reservations": 629,
     "by_lane": {
       "1": 55,
       "2": 130,
-      "3": 118,
+      "3": 119,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 628
+      "SOURCE_VERIFIED": 629
     },
     "batches": [
       {
@@ -49481,7 +49558,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 128,
+        "count": 129,
         "pr_number": null,
         "blocker": null
       }
