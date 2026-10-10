@@ -47043,6 +47043,160 @@
       "reservation_id": "dff65d2d9c3d4fdb5dbc",
       "reserved_at": "2026-10-10T13:51:56.184Z",
       "source_branch": "research/intake/2/20261010-0948-cognition-metabolic-r47"
+    },
+    {
+      "pmid": "41457469",
+      "title": "Ginger as a Modulator of Drug Metabolizing Enzymes and Transporters: Potential Implications for Herb-Drug Interactions.",
+      "doi": "10.1080/19390211.2025.2606752",
+      "source_title": "Ginger as a Modulator of Drug Metabolizing Enzymes and Transporters: Potential Implications for Herb-Drug Interactions.",
+      "abstract": "Ginger ( Zingiber officinale ) is one of the most widely used herbs, employed in various food preparations, beverages, and herbal medicines. In recent decades, the demand for commercial formulations of ginger, including herbal medicines, nutraceuticals, and botanical dietary supplements (BDS), has increased significantly, and these products are now readily available. Research indicates that a significant portion of the population regularly consumes ginger and its commercial products, often believing that these products are free from side effects due to their natural origin. However, recent preclinical and clinical studies indicate that ginger can interact substantially with various xenobiotic receptors (e.g. PXR, CAR and AhR), drug-metabolizing cytochrome enzymes (CYP3A4, 2C9, 2D6, 1A2, and GST), and drug transporters (P-gp, BCRP, OATP, and OCT). As a result, over-consumption may lead to herb-drug interactions (HDIs) that are often unnoticed but can sometimes require urgent medical intervention, especially in long-term patients. However, there is limited information available regarding its HDIs. This report outlines the basic concept of HDIs, explores the HDI potential of ginger phytochemicals, and presents clinical cases resulting from the indiscriminate consumption of ginger or its products. We believe this information proves valuable to average consumers, researchers, and policymakers.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41457469/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41457469",
+        "doi": "10.1080/19390211.2025.2606752",
+        "journal": "Journal of dietary supplements",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T14:03:35.397Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c0c75c96f15938d30b75",
+      "reserved_at": "2026-10-10T14:03:40.995Z",
+      "source_branch": "research/intake/3/20261010-1002-ginger-tcm-41457469-42421515"
+    },
+    {
+      "pmid": "42421515",
+      "title": "Interactions between cytochrome P450 enzymes and traditional Chinese herbs: A comprehensive review.",
+      "doi": "10.1097/JCMA.0000000000001404",
+      "source_title": "Interactions between cytochrome P450 enzymes and traditional Chinese herbs: A comprehensive review.",
+      "abstract": "Cytochrome P450 (CYP) enzymes, predominantly expressed in the liver and intestine, are central to phase I drug metabolism. The CYP1, CYP2, and particularly CYP3 families account for most oxidative biotransformation and nearly half of all drug elimination. Their activities are modulated by genetic polymorphisms, environmental factors, and drug interactions, contributing to interindividual variability in drug efficacy, safety, and susceptibility to drug-induced liver injury. This study systematically evaluated the regulatory effects of commonly used Traditional Chinese Medicine (TCM) and Western herbal medicines on major CYP isoforms. PubMed and Google Scholar were searched for studies published between January 2000 and March 2025, with UpToDate used as a supplementary resource. Eligible evidence included in vitro assays, in vivo animal studies, human pharmacokinetic investigations, and well-documented case reports assessing herbal effects on CYP3A4, CYP2C9, CYP2D6, and CYP1A2. Evidence was graded by strength and integrated with mechanistic and pharmacokinetic data for interaction risk assessment. Herbal candidates included Astragalus membranaceus (Huangqi, ), Salvia miltiorrhiza (Danshen, ), Ginkgo biloba (Ginkgo, ), Bupleurum chinense (Chaihu, ), and Hypericum perforatum (St. John's wort, ). Many herbs demonstrated clinically relevant induction or inhibition of CYP activity, particularly CYP3A4, with the potential to alter drug exposure, reduce therapeutic efficacy, or increase toxicity. Collectively, these findings underscore the imperative for systematic assessment of CYP-mediated herb-drug interactions in integrative medicine and support the development of safer, personalized therapeutic strategies grounded in a refined understanding of metabolic variability.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42421515/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42421515",
+        "doi": "10.1097/JCMA.0000000000001404",
+        "journal": "Journal of the Chinese Medical Association : JCMA",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T14:03:35.398Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "94c9495e1c3ef788f2d3",
+      "reserved_at": "2026-10-10T14:03:40.995Z",
+      "source_branch": "research/intake/3/20261010-1002-ginger-tcm-41457469-42421515"
     }
   ],
   "batches": [
@@ -47071,16 +47225,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 597,
+    "total_reservations": 599,
     "by_lane": {
       "1": 45,
       "2": 118,
-      "3": 109,
+      "3": 111,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 597
+      "SOURCE_VERIFIED": 599
     },
     "batches": [
       {
@@ -47093,7 +47247,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 97,
+        "count": 99,
         "pr_number": null,
         "blocker": null
       }
