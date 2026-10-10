@@ -46813,6 +46813,236 @@
       "reservation_id": "937de8571a354779c70b",
       "reserved_at": "2026-10-10T13:47:04.832Z",
       "source_branch": "research/intake/1/20261010-0942-auricular-39655909"
+    },
+    {
+      "pmid": "42321075",
+      "title": "Repetitive transcranial magnetic stimulation combined with Tai Chi improves working memory in older adults with sleep disorders and mild cognitive impairment: An fMRI-based randomized controlled trial.",
+      "doi": "10.1016/j.inpsyc.2026.100233",
+      "source_title": "Repetitive transcranial magnetic stimulation combined with Tai Chi improves working memory in older adults with sleep disorders and mild cognitive impairment: An fMRI-based randomized controlled trial.",
+      "abstract": "Working memory impairment has been reported in older adults with sleep disorders and MCI, with the frontoparietal network playing a central role in working memory. The key question is whether integrating Tai Chi with rTMS improves working memory, and whether such improvements result from the modulation of frontoparietal networks plasticity. Seventy-one participants with sleep disorders and MCI were assigned to the experimental group (Tai Chi + 1-Hz rTMS, n = 37) or sham group (Tai Chi + sham rTMS, n = 34). They completed 6 weeks of Tai Chi combined with neuronavigated rTMS targeted the right DLPFC and underwent fMRI scans. Outcomes included Numerical N-back task, digit span task，Pittsburgh Sleep Quality Index (PSQI), Montreal Cognitive Assessment (MoCA). Task fMRI measured N-back activation patterns, and seed-based resting-state functional connectivity (rsFC) was assessed. Correlations between the activation/rsFC and N-back task performance were explored. Seventy-one participants (mean age 67.6 ± 4.6 years; 30 male [42%], 41 female [58%]) were included. After 6 weeks, the experimental group showed significant improvements versus shams in PSQI, MoCA, 0-back and 2-back task accuracy, 0-back reaction time, and forward digit span (all p < 0.05). The 2-back accuracy was negatively correlated with right precuneus activation (r = -0.381, p = 0.034) and positively correlated with right precuneus connectivity to the left SMA (r = 0.367, p = 0.042). Adjunctive neuronavigated rTMS delivered in addition to Tai Chi training may enhance working memory rehabilitation in older adults with sleep disorders and MCI, with frontoparietal network modulation as a potential neural basis. Clinical trial registration no. ChiCTR 2200063274.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42321075/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42321075",
+        "doi": "10.1016/j.inpsyc.2026.100233",
+        "journal": "International psychogeriatrics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T13:51:51.411Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dbe39133950d5f12b911",
+      "reserved_at": "2026-10-10T13:51:56.184Z",
+      "source_branch": "research/intake/2/20261010-0948-cognition-metabolic-r47"
+    },
+    {
+      "pmid": "42521201",
+      "title": "Multidimensional Effects of Mind-Body Exercise on Cognitive Function, Physical Function, and Body Composition in Older Adults With Mild Cognitive Impairment: A 12-Week Randomized Controlled Trial.",
+      "doi": "10.1123/japa.2025-0058",
+      "source_title": "Multidimensional Effects of Mind-Body Exercise on Cognitive Function, Physical Function, and Body Composition in Older Adults With Mild Cognitive Impairment: A 12-Week Randomized Controlled Trial.",
+      "abstract": "Cognitive decline is a common concern in aging populations, and mild cognitive impairment (MCI) often precedes dementia. Mind-body exercise (e.g., tai chi and baduanjin) combines mental focus and physical movement, potentially improving both cognitive and physical function. This study aimed to evaluate whether a 12-week mind-body exercise intervention could enhance cognitive function, physical function, and body composition in older adults with MCI. A randomized controlled trial was conducted with community-dwelling older adults (≥60 years) in Nanjing, China. Participants were assigned to either a mind-body exercise group (tai chi and baduanjin, three sessions/week, 60 min/session) or a control group (standard health education and light stretching). Cognitive outcomes included the Montreal Cognitive Assessment, memory, and executive function. Physical function was assessed via the 30-s chair stand, 30-s arm curl, 2.44-m up and go, and single-leg stand, and body composition measures encompassed waist and hip circumference, body fat percentage, and body mass index. After 12 weeks, the mind-body exercise group showed significantly greater improvements in Montreal Cognitive Assessment score (Δ = 2.04, p < .01), memory (Δ = 0.72 points), and executive function (Δ = 0.37 points) compared with the control group. Participants also improved physical function, evidenced by increased repetition counts in the 30-s chair stand (Δ = 5.93) and arm curl tests (Δ = 5.17) and reduced up-and-go times (Δ = -0.73 s). Although modest reductions in waist and hip circumference were observed, there were no statistically significant group differences in body mass index or overall body fat percentage. A 12-week mind-body exercise program (tai chi and baduanjin) significantly enhances cognitive and physical function in older adults with MCI. These findings suggest that integrating mind-body exercises may be beneficial as a nonpharmacological intervention to address cognitive decline. The observed improvements in cognition and physical performance highlight the potential for mind-body exercises to serve as a practical, low-cost strategy for delaying or mitigating MCI-related declines in aging populations. Incorporating such interventions into community-based programs or clinical recommendations could promote healthy aging and reduce the burden of cognitive impairment on health care systems.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42521201/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42521201",
+        "doi": "10.1123/japa.2025-0058",
+        "journal": "Journal of aging and physical activity",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T13:51:51.411Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6da2ea9164cfede028ee",
+      "reserved_at": "2026-10-10T13:51:56.184Z",
+      "source_branch": "research/intake/2/20261010-0948-cognition-metabolic-r47"
+    },
+    {
+      "pmid": "42401082",
+      "title": "Exercise-induced change in FGF21 and adiponectin and their association with metabolic syndrome in older women: a randomized controlled trial.",
+      "doi": "10.1016/j.jnha.2026.100923",
+      "source_title": "Exercise-induced change in FGF21 and adiponectin and their association with metabolic syndrome in older women: a randomized controlled trial.",
+      "abstract": "Metabolic syndrome is common in older adults and increases cardiometabolic risk. The fibroblast growth factor 21 (FGF21)-adiponectin axis regulates metabolic homeostasis, but its exercise responsiveness may differ by metabolic status. This study investigated the effects of exercise on circulating FGF21, adiponectin, and the FGF21/adiponectin ratio in older women with and without metabolic syndrome. Sixty older women (75.2 ± 4.3 years) were classified by metabolic syndrome status and randomly assigned to control or exercise groups. Exercise groups completed a 10-week supervised combined exercise program consisting of body-weight resistance and cross-linked elastic resistance band training (3 sessions/week, 60 min/session), while controls maintained their usual lifestyle. Blood biomarkers, body composition, physical fitness, and metabolic parameters were assessed before and after the intervention and analyzed using two-way repeated-measures ANOVA. The FGF21-adiponectin axis was modulated by the intervention. Adiponectin increased in both exercise groups (NMSE: mean change, 1.23; 95% CI, 0.98-1.49; d = 1.04; MSE: mean change, 0.86; 95% CI, 0.31-1.40; d = 0.71). FGF21 increased in the NMSE group (mean change, 16.75; 95% CI, 5.46-28.05; d = 0.40) but decreased in the MSE group (mean change, -15.91; 95% CI, -28.35 to -3.48; d = -0.33). The FGF21/adiponectin ratio decreased in both exercise groups, with a greater reduction in MSE (NMSE: mean change, -2.18; 95% CI, -4.18 to -0.18; d = -0.29; MSE: mean change, -6.48; 95% CI, -9.82 to -3.15; d = -0.86). Secondary outcomes, including body composition, physical fitness, lipid profiles, insulin resistance markers, and inflammatory markers, also improved with small-to-large effect sizes. Combined exercise improved metabolic health and modulated the FGF21-adiponectin axis in older women, with differential FGF21 responses by metabolic status. The reduced FGF21/adiponectin ratio may indicate exercise-induced metabolic adaptation. KCT 0011558.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42401082/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42401082",
+        "doi": "10.1016/j.jnha.2026.100923",
+        "journal": "The journal of nutrition, health & aging",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T13:51:51.412Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dff65d2d9c3d4fdb5dbc",
+      "reserved_at": "2026-10-10T13:51:56.184Z",
+      "source_branch": "research/intake/2/20261010-0948-cognition-metabolic-r47"
     }
   ],
   "batches": [
@@ -46841,16 +47071,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 594,
+    "total_reservations": 597,
     "by_lane": {
       "1": 45,
-      "2": 115,
+      "2": 118,
       "3": 109,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 594
+      "SOURCE_VERIFIED": 597
     },
     "batches": [
       {
@@ -46863,7 +47093,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 94,
+        "count": 97,
         "pr_number": null,
         "blocker": null
       }
