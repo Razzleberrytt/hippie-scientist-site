@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "42694510",
+    "42574103"
+  ],
+  "relevance_reason": "PubMed-verified human randomized trials of sound-based meditation for anxiety and depressive symptoms and guided digital CBT-I for insomnia with psychological distress; source identity only, no clinical claims."
+}
