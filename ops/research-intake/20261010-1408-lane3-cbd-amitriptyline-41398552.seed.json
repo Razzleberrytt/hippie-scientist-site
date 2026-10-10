@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "41398552"
+  ],
+  "relevance_reason": "Human pharmacokinetic study of cannabidiol coadministration with amitriptyline and tramadol, relevant to botanical-drug interaction safety; source identity only, no clinical promotion."
+}
