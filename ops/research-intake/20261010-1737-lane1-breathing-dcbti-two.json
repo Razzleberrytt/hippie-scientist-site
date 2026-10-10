@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "42748041",
+    "42184726"
+  ],
+  "relevance_reason": "PubMed source-verified human sleep and anxiety intervention studies for research-only intake; no efficacy or safety claims approved."
+}
