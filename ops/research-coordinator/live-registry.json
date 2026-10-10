@@ -43508,6 +43508,83 @@
       "reservation_id": "4f1ba6f5babac21e1111",
       "reserved_at": "2026-10-10T02:55:39.330Z",
       "source_branch": "research/intake/2/20261009-2252-cognition-exercise-r36"
+    },
+    {
+      "pmid": "41769651",
+      "title": "Bifidobacterium supplementation maintains gut microbiota stability and enhances well-being during short-term travel.",
+      "doi": "10.3389/fnut.2026.1724829",
+      "source_title": "Bifidobacterium supplementation maintains gut microbiota stability and enhances well-being during short-term travel.",
+      "abstract": "International travel exposes individuals to abrupt environmental, dietary, and circadian changes that can disturb gut microbiota and overall well-being. While probiotics are known to support gastrointestinal and systemic health, their effects during short-term travel remain incompletely characterized in randomized trials. This randomized, double-blind, placebo-controlled study investigated whether a multi-strain Bifidobacterium probiotic could maintain gut microbiota stability and support health during a five-day trip from China to Japan. Forty healthy adults were randomly assigned to receive either probiotic ( n = 22) or placebo ( n = 18) daily from Day 1 to Day 4. Stool samples collected before departure (Day 0) and after return (Day 5) were analyzed by metagenomic sequencing, quantitative PCR, and fecal secretory immunoglobulin A (sIgA) assays. Participants completed validated questionnaires on gastrointestinal and respiratory symptoms, sleep quality (PSQI), anxiety (GAD-7), and well-being (WHO-5). Compared with placebo, participants receiving the probiotic showed maintenance of microbial diversity (Chao1 and Fisher indices, both p = 0.044), prevented enrichment of potentially harmful taxa ( Bilophila , Flavonifractor ), and increased Bifidobacterium abundance. Clinically, the probiotic group reported fewer respiratory and systemic symptoms, including sore throat ( p = 0.034) and fatigue ( p = 0.043). Sleep quality also improved, with longer sleep duration ( p = 0.023), fewer total occurrence days of PSQI >5 ( p = 0.009), lower anxiety scores ( p = 0.001) and higher WHO-5 well-being scores ( p = 0.041). Functional profiling showed up-regulation of vitamin biosynthesis pathways (folate, biotin, retinol) and decreased antibiotic resistance gene prevalence. Short-term probiotic administration demonstrated gut microbiota resilience and improved physiological and psychological stability during travel. Probiotics may serve as an accessible strategy to support well-being under transient environmental and lifestyle stress. ClinicalTrials.gov, identifier NCT07163819.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41769651/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41769651",
+        "doi": "10.3389/fnut.2026.1724829",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T03:39:49.842Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "757de458accaf05a7000",
+      "reserved_at": "2026-10-10T03:39:55.387Z",
+      "source_branch": "research/intake/1/20261009-2337-bifido-travel-41769651"
     }
   ],
   "batches": [
@@ -43536,16 +43613,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 551,
+    "total_reservations": 552,
     "by_lane": {
-      "1": 29,
+      "1": 30,
       "2": 99,
       "3": 100,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 551
+      "SOURCE_VERIFIED": 552
     },
     "batches": [
       {
@@ -43558,7 +43635,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 51,
+        "count": 52,
         "pr_number": null,
         "blocker": null
       }
