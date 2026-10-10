@@ -46736,6 +46736,83 @@
       "reservation_id": "683d660767bc9770bb2b",
       "reserved_at": "2026-10-10T13:07:36.604Z",
       "source_branch": "research/intake/3/20261010-0905-swietenia-liver-injury-42564421"
+    },
+    {
+      "pmid": "39655909",
+      "title": "Efficacy of Auricular Acupressure Combined With Positive Psychological Techniques on Sleep Quality in Cancer Patients Undergoing Radiotherapy: A Randomized Controlled Trial.",
+      "doi": "10.1097/NCC.0000000000001436",
+      "source_title": "Efficacy of Auricular Acupressure Combined With Positive Psychological Techniques on Sleep Quality in Cancer Patients Undergoing Radiotherapy: A Randomized Controlled Trial.",
+      "abstract": "Auricular acupressure (AA) and positive psychological intervention (PPI) are promising sleep improvement methods. To assess and compare the efficacies of combined intervention (CI [AA + PPI]), AA, and PPI in sleep quality enhancement and their potential effects in alleviating negative psychological states in radiotherapy-treated patients with cancer. This study was a 4-arm, placebo-controlled randomized trial. We randomly assigned 120 eligible patients into 4 groups (30 patients per group). The main outcomes included subjective sleep quality, psychological distress, and fear of cancer recurrence, which were measured at baseline, immediate postintervention, and 4 weeks postintervention. Objective sleep quality was measured using Fitbit Charge 3 at baseline and immediate postintervention. The intervention effects were estimated using the linear mixed model. The 4 groups demonstrated significant differences in subjective sleep quality ( P < .001), psychological distress ( P = .004), and fear of cancer recurrence ( P < .001). CI, AA, and PPI had different degrees of positive effects on subjective sleep quality compared with sham control; CI was more effective than AA and PPI, whereas AA was more effective than PPI. CI and PPI showed significant and comparable effects on psychological distress and fear of cancer recurrence reduction. Only CI and AA significantly improved the objective sleep quality. CI, AA, and PPI are recommended as complementary therapies to improve the sleep quality of patients with cancer. In future clinical practice, healthcare workers should assess patients' sleep quality and psychological status and select appropriate interventions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39655909/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39655909",
+        "doi": "10.1097/NCC.0000000000001436",
+        "journal": "Cancer nursing",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T13:46:59.921Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "937de8571a354779c70b",
+      "reserved_at": "2026-10-10T13:47:04.832Z",
+      "source_branch": "research/intake/1/20261010-0942-auricular-39655909"
     }
   ],
   "batches": [
@@ -46764,16 +46841,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 593,
+    "total_reservations": 594,
     "by_lane": {
-      "1": 44,
+      "1": 45,
       "2": 115,
       "3": 109,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 593
+      "SOURCE_VERIFIED": 594
     },
     "batches": [
       {
@@ -46786,7 +46863,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 93,
+        "count": 94,
         "pr_number": null,
         "blocker": null
       }
