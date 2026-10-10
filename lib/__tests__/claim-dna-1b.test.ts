@@ -175,6 +175,24 @@ describe('round 1b malformed records (fixtures)', () => {
     }
   })
 
+  it('invalidates cached claims when the generator implementation changes', () => {
+    const localBatch = 'fixture-generator-change'
+    const ids = ['good-claim']
+    const first = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    expect(first.run_metrics.total_claims_reprocessed).toBe(1)
+    const second = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    expect(second.run_metrics.total_claims_reprocessed).toBe(0)
+    const path1a = path.join(fixtureRoot, 'scripts', 'claim-dna', 'run-1a.ts')
+    const original = fs.readFileSync(path1a, 'utf8')
+    try {
+      fs.writeFileSync(path1a, original + '\n// changed implementation', 'utf8')
+      const third = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(third.run_metrics.total_claims_reprocessed).toBe(1)
+    } finally {
+      fs.writeFileSync(path1a, original, 'utf8')
+    }
+  })
+
   it('rejects duplicate and unsafe identifiers before writing artifacts', () => {
     expect(() => runClaimDnaBatch({ batchId: 'fixture-duplicate', claimIds: ['good-claim', 'good-claim'], root: fixtureRoot })).toThrow('duplicate')
     expect(() => runClaimDnaBatch({ batchId: '../invalid', claimIds: ['good-claim'], root: fixtureRoot })).toThrow('invalid')
