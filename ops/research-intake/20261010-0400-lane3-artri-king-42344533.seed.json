@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "42344533"
+  ],
+  "relevance_reason": "PubMed-verified case report of supplement adulteration and liver injury; research-only source identity, with all clinical interpretations pending independent review."
+}
