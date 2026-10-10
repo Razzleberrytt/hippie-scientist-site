@@ -42818,6 +42818,82 @@
       "reservation_id": "1e92e6dd01054ad9bb52",
       "reserved_at": "2026-10-10T01:05:20.244Z",
       "source_branch": "research/intake/3/20261009-2103-noni-product-authentication-two"
+    },
+    {
+      "pmid": "41598182",
+      "title": "Effect of Heat-Killed Lactiplantibacillus plantarum SNK12 on Sleep Quality and Stress-Related Neuroendocrine and Inflammatory Biomarkers in Adults: A Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Trial.",
+      "doi": "10.3390/life16010026",
+      "source_title": "Effect of Heat-Killed Lactiplantibacillus plantarum SNK12 on Sleep Quality and Stress-Related Neuroendocrine and Inflammatory Biomarkers in Adults: A Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Trial.",
+      "abstract": "Heat-killed Lactiplantibacillus plantarum SNK12 (SNK), isolated from a traditional Japanese fermented food, has been suggested to influence sleep quality, but human data on sleep improvement with heat-killed lactic acid bacteria (postbiotics) remain limited. We conducted a randomized controlled trial to test whether heat-killed SNK (≥1 × 10 11 cells/day for 4 weeks) improves sleep quality and alters stress-related immune and neuroendocrine biomarkers. Healthy adults received SNK or a placebo for 4 weeks. The primary outcome was the Oguri-Shirakawa-Azumi Sleep Inventory MA version (OSA-MA) factor \"Sleepiness on Rising\"; secondary outcomes were other OSA-MA factors and the stress-related biomarkers salivary cortisol and plasma tumor necrosis factor-α (TNF-α). Compared with placebo, SNK improved Sleepiness on Rising ( p = 0.032) and Initiation and Maintenance of Sleep ( p = 0.010). Salivary cortisol ( p = 0.016) and plasma TNF-α ( p = 0.037) were also lower with SNK, and no safety concerns emerged. These concomitant changes in subjective sleep indices and stress-related biomarkers are consistent with modulation of hypothalamic-pituitary-adrenal axis activity and inflammatory pathways along the gut-brain axis. SNK may, therefore, represent a practical postbiotic option to support sleep quality.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41598182/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Randomized placebo-controlled human trial of heat-killed L. plantarum SNK12 assessing sleep quality and stress-related biomarkers; scientific review pending.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41598182",
+        "doi": "10.3390/life16010026",
+        "journal": "Life (Basel, Switzerland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T01:45:36.427Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6bb4ff1d410475d1790a",
+      "reserved_at": "2026-10-10T01:45:40.798Z",
+      "source_branch": "research/intake/1/20261009-2141-snk12-41598182"
     }
   ],
   "batches": [
@@ -42846,16 +42922,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 542,
+    "total_reservations": 543,
     "by_lane": {
-      "1": 27,
+      "1": 28,
       "2": 95,
       "3": 99,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 542
+      "SOURCE_VERIFIED": 543
     },
     "batches": [
       {
@@ -42868,7 +42944,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 42,
+        "count": 43,
         "pr_number": null,
         "blocker": null
       }
