@@ -7,13 +7,13 @@ pipeline. Git history is the versioning. Neither agent relies on memory alone.
 
 **Roles**
 
-- ChatGPT — scientific intelligence & architecture: research synthesis, evidence
-  evaluation, semantic relationships, system design, architectural critique, and
-  implementation specifications with measurable acceptance criteria.
+- ChatGPT — scientific intelligence, architecture, and delegated PR merge gate:
+  research synthesis, evidence evaluation, semantic relationships, system design,
+  measurable acceptance criteria, independent diff review, and merge decisions.
 - Muse — autonomous engineering & execution: inspect the actual repository,
   challenge specs against the existing architecture, implement worthwhile changes,
-  run scoped verification, deploy only on Willie's explicit approval, and return
-  verifiable results.
+  run scoped verification, propose release candidates, and return verifiable
+  results. Muse does not self-authorize merges or deployments.
 
 **Shared responsibility** — neither agent blindly accepts the other's conclusions.
 Each actively looks for weaknesses in the other's recommendations.
@@ -21,7 +21,11 @@ Each actively looks for weaknesses in the other's recommendations.
 **Rules**
 
 1. Never report projected capabilities as completed capabilities.
-2. Implementation is separate from approval. Muse never merges without Willie.
+2. Implementation is separate from approval. Will delegated PR merge management
+   to ChatGPT (2026-10-09). ChatGPT reviews scope, scientific integrity,
+   verification, and branch protections before merging; Muse does not self-merge.
+   High-risk publication, data-loss, security, or scientific-policy changes
+   require heightened review. Passing CI alone is not scientific approval.
 3. Every completion claim ships with verification evidence (commands run, outputs
    observed, what remains unknown).
 4. Legacy data is preserved verbatim; ambiguous values are reported for review,
@@ -72,7 +76,8 @@ join key between a lab "claim DNA" and a production claim id.
   holds 6,935 PMIDs (111/199 claim PMIDs present).
 - The suite's case-file builder is PMID-keyed (`buildResearchCaseFile`), so an
   adapter can feed production PMIDs through it wherever the register covers them,
-  degrading gracefully to `unresolved` elsewhere.
+  separately reporting `metadata_unavailable` where a linked PMID lacks cached
+  metadata; citation provenance must not be conflated with cache coverage.
 - Conclusion: interoperability via an adapter (`lib/claim-dna-adapter.ts`,
   read-only in R1), not a refactor.
 
@@ -101,7 +106,7 @@ join key between a lab "claim DNA" and a production claim id.
 
 ---
 
-## Round 1 — Claim DNA Foundation v0.1 (PROPOSED — pending Willie's approval)
+## Round 1 — Claim DNA Foundation v0.1 (APPROVED FOR IMPLEMENTATION PLANNING; code not yet merged)
 
 ### Hypothesis
 
@@ -143,6 +148,14 @@ process. The empty adjudication ledger is a future milestone in its own right:
 the infrastructure for scientific review exists, but there is no operational
 record of reviewed decisions yet.
 
+**Claim-to-evidence relationship state:** `unassessed` is the default. Only an
+individual evidence review can establish `supports | contradicts | qualifies |
+context`; a linked citation alone does not establish directionality.
+
+**Study design and certainty:** study design generally describes an individual
+source, while certainty is an independently justified assessment of a claim or
+body of evidence. Never infer certainty solely from study design.
+
 ### Implementation sequence — five small, independently testable stages
 
 **Stage A — Compatibility adapter** (`lib/claim-dna-adapter.ts`, read-only,
@@ -180,14 +193,38 @@ The repo already separates data computation from page generation: `data:build`
 (workbook → `public/data`), `agent:run` (patches), wave-versioned artifacts like
 `pmid-register-through-7000.json`, and `validate:deterministic-json-order`. A
 `claim-dna:build` job emitting `public/data/claim-dna/v1/artifact.json` +
-`manifest.json` (source hashes: `claims.json` SHA, cache state, generator
-version, generated-at) follows the established pattern exactly. The site consumes
+`manifest.json` (hashes of `claims.json`, relevant reference/cache inputs,
+source code and schema/generator versions) follows the established pattern.
+Reproducible artifact bytes must **not** contain wall-clock timestamps or
+unstable CI metadata. A `generated_at` audit event may live in a separate
+noncanonical build receipt (or derive deterministically from a pinned commit).
+The site consumes
 the artifact; no scientific recomputation during page builds. Because the
 manifest records inputs, a future job can diff and regenerate only affected
 claims — selective invalidation is achievable without architectural rework.
+Production must reject stale or mismatched manifests: a successful job for a
+previous source SHA is not evidence that the current source is covered.
 Constraints respected: static export (fully precomputed, no runtime API —
 already accepted), `validate:runtime-payload-budgets` (the artifact gets a size
 budget), and the job stays off the page-generation critical path.
+
+### Rebuild policy (decision: change-driven + separate freshness audit)
+
+- Rebuild on relevant **content** changes to published claim source,
+  PubMed metadata/cache, verified evidence references, adjudication decisions
+  affecting output, claim adapter, artifact generator, or schema/config versions.
+  Detect changed content hashes, not just file modification timestamps.
+- CI PR checks validate or generate the candidate artifact *against the PR's
+  exact source inputs*; publish/consume only after trusted merge/release gates.
+  Deployments must fail closed if artifact manifest hashes don't match source.
+- No unconditional rebuild on every push and no nightly regeneration of an
+  unchanged artifact. Schedule a lightweight **weekly freshness/coverage audit**
+  of missing and stale metadata, with separate provenance-aware source refresh
+  when warranted. Do not silently fetch mutable upstream data during a
+  deterministic artifact build. Support manual `workflow_dispatch` for recovery.
+- Keep the job off the page-generation critical path and set a payload budget.
+  Cache by content hash and pin the exact artifact SHA. Dependency-based
+  per-claim invalidation belongs to Round 2, not Round 1.
 
 ### Performance measurement (collected during pilot)
 
@@ -230,22 +267,45 @@ overhead, incremental computation / artifact caching comes before expansion.
 
 ---
 
-## Open questions for ChatGPT
+## Round 1 decisions and controlled-vocabulary proposal
 
-1. Round 2 trial identity: confirm scope as *explicitly verified* registry
-   relationships only (e.g. NCT IDs + authoritative metadata + auditable
-   adjudication), with the empty ledger's operationalization as its own
-   milestone?
-2. The 274 PMID-less claims: pilot includes `editorial_documented`/`unresolved`
-   strata — acceptable?
-3. Evidence Integrity Diagnostics (orphan claims/evidence, claim–evidence
-   mismatches, duplication, drift): R1 as internal review signals, or defer
-   entirely to R2?
-4. Will you draft the initial `study_design` / `certainty` / `claim_type`
-   controlled vocabularies for review?
-5. Scientific Interoperability Layer charter: any objection to the adapter living
-   at `lib/claim-dna-adapter.ts` with the standalone job as `claim-dna:build`
-   emitting versioned artifacts under `public/data/claim-dna/`?
+1. Trial/cohort independence remains publication-level in R1. Registry-ID
+   relationships are deferred until explicit, authoritative evidence and an
+   auditable adjudication policy exist.
+2. Include PMID-less claims in the pilot with documented or unresolved
+   provenance states. Absence of a PMID is not proof of scientific weakness.
+3. R1 integrity diagnostics are **internal, descriptive** signals (missing
+   citations, unmatched publications, unrecognized IDs, duplicate references).
+   Automated mismatch and evidence-drift conclusions require validation.
+4. Initial **proposed** vocabularies (validate before adoption; never force
+   ambiguous mappings):
+   - `study_design`: `systematic_review`, `meta_analysis`, `randomized_trial`,
+     `nonrandomized_intervention`, `cohort`, `case_control`, `cross_sectional`,
+     `case_series`, `case_report`, `animal`, `in_vitro`, `narrative_review`,
+     `other`, `unknown`.
+   - `certainty`: `high`, `moderate`, `low`, `very_low`, `insufficient`,
+     `not_assessed`.
+   - `claim_type`: `direct_empirical`, `evidence_synthesis`,
+     `mechanistic_interpretation`, `safety_interaction`, `editorial_interpretation`.
+5. The Scientific Interoperability Layer may begin as a read-only adapter at
+   `lib/claim-dna-adapter.ts`, built by `claim-dna:build`, with precomputed
+   schema-versioned artifacts under `public/data/claim-dna/`.
+
+## Round 1A — Initial vertical slice
+
+Implement one representative claim with verified citation end to end, preserving
+its source ID and provenance. Require a deterministic artifact, a verified
+claim→publication→analytics join, a documented metadata-absent test, and
+scoped performance numbers before expanding to 25 claims. No public-page
+behavior changes yet. Implementation belongs in a separate PR and undergoes
+fresh review.
+
+## Research-to-Implementation Opportunity Register
+
+For each proposal capture its hypothesis, scientific rationale, existing reuse
+candidates, intended user value, risks, dependencies, measurable acceptance
+criteria, and Muse's repository-grounded build/adapt/defer/reject recommendation.
+Never report proposed capabilities as shipped.
 
 ## Parked for Round 2
 
@@ -257,8 +317,11 @@ overhead, incremental computation / artifact caching comes before expansion.
 
 ## File status (so nothing is ambiguous)
 
-- **Committed:** this file, on branch `v/ai-collaboration-handoff`
-  (PR #6554, draft, related to #6431 without closing it).
-- **Workspace-only:** Muse's local read-only inspection clone at
-  `~/workspace/repos/hippie-scientist-site` (shallow public clone; no pushes
-  from it). No other drafts pending.
+- **Merged baseline:** `docs/AI_COLLABORATION_HANDOFF.md` via PR #6554,
+  merge commit `a27c7af69138f2de117d5e7d0f990b07eb03ef7d`.
+- **Current review:** this document is modified in PR #6555 on branch
+  `v/ai-handoff-r1-refinements`; changes remain documentation-only until merge.
+- **Workspace-only:** Muse reported a local read-only inspection clone at
+  `~/workspace/repos/hippie-scientist-site` (not verified as a committed source).
+- **Not implemented:** no adapter, artifact job, claim-data migration, or
+  new scientific UI is delivered by this documentation PR.
