@@ -47197,6 +47197,83 @@
       "reservation_id": "94c9495e1c3ef788f2d3",
       "reserved_at": "2026-10-10T14:03:40.995Z",
       "source_branch": "research/intake/3/20261010-1002-ginger-tcm-41457469-42421515"
+    },
+    {
+      "pmid": "42630409",
+      "title": "A network meta-analysis of commercial Chinese polyherbal preparations for insomnia in the elderly: focusing on sleep quality and the neuro-immune axis.",
+      "doi": "10.3389/fphar.2026.1827554",
+      "source_title": "A network meta-analysis of commercial Chinese polyherbal preparations for insomnia in the elderly: focusing on sleep quality and the neuro-immune axis.",
+      "abstract": "Insomnia is highly prevalent in the elderly and is closely linked to \"inflammaging\" and neuroinflammation. While Chinese Herbal Medicine (CHM) formulations are clinically utilized, their comparative efficacy and potential modulation of the neuro-immune axis remain to be systematically quantified. This network meta-analysis (NMA) evaluated the relative efficacy of standardized CHM interventions and explored their exploratory effects on serum inflammatory markers in geriatric patients. Eight databases were searched from inception to February 2026. Randomized controlled trials (RCTs) investigating oral CHM for insomnia in patients aged ≥60 years were included. Frequentist NMA was performed using R software (netmeta). The primary outcomes were Pittsburgh Sleep Quality Index (PSQI) scores and clinical effective rate. Mechanistic exploration focused on serum Interleukin-6 (IL-6) levels. Treatment ranking was performed using P-scores and cluster analysis. Nineteen RCTs involving 1851 participants were included. NMA showed that compared with conventional therapy (CT) alone, Commercial Chinese Polyherbal Preparations combined with CT (MD = -2.53, 95% CI [-3.62, -1.44]) and CHM Decoction combined with CT (MD = -2.02, 95% CI [-2.56, -1.48]) were the most effective in reducing PSQI scores. For the clinical effective rate, Commercial Chinese Polyherbal Preparations + CT showed the highest odds of success (OR = 6.08, 95% CI [3.21, 11.51]). Preliminary pairwise meta-analysis suggested a trend of CHM in reducing serum IL-6 levels, although the certainty of this evidence is limited by the small number of studies. Risk of bias assessment revealed \"some concerns\" in several domains, particularly regarding blinding and outcome measurement. Standardized CHM preparations, particularly as adjuncts to conventional pharmacotherapy, show potential in improving sleep quality in the elderly. However, given the identified risks of bias and the exploratory nature of the IL-6 findings, these results should be interpreted with caution. Further high-quality, double-blind trials are required to substantiate these neuro-immune therapeutic pathways. Identifier CRD420261377326.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42630409/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42630409",
+        "doi": "10.3389/fphar.2026.1827554",
+        "journal": "Frontiers in pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T14:46:34.691Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f1d5cf8b94e017eaebe4",
+      "reserved_at": "2026-10-10T14:46:39.108Z",
+      "source_branch": "research/intake/1/20261010-1042-polyherbal-kgt-two"
     }
   ],
   "batches": [
@@ -47225,16 +47302,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 599,
+    "total_reservations": 600,
     "by_lane": {
-      "1": 45,
+      "1": 46,
       "2": 118,
       "3": 111,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 599
+      "SOURCE_VERIFIED": 600
     },
     "batches": [
       {
@@ -47247,7 +47324,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 99,
+        "count": 100,
         "pr_number": null,
         "blocker": null
       }
