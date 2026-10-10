@@ -75,10 +75,6 @@ describe('round 1a pipeline', () => {
     expect(artifact['evidence_assessment']).toBe('not_evaluated')
   })
 
-  it('placeholder for negative paths: see end-to-end suite below', () => {
-    // The genuine negative tests run buildClaimDna against isolated fixtures.
-    expect(true).toBe(true)
-  })
   it('regression: adapter never manufactures editorial approval', () => {
     const profile = adaptClaimToProfile({
       id: 'test-no-approval',
@@ -152,6 +148,18 @@ describe('round 1a negative paths (end-to-end via buildClaimDna)', () => {
         pmid: 'not-a-pmid',
         profile_slug: 'fixture-profile',
       },
+      {
+        id: 'fixture-absent',
+        claim: 'Fixture claim whose valid PMID does not exist in the cache.',
+        pmid: '77777777',
+        profile_slug: 'fixture-profile',
+      },
+      {
+        id: 'fixture-titleless',
+        claim: 'Fixture claim with a title-less cache entry.',
+        pmid: '88888888',
+        profile_slug: 'fixture-profile',
+      },
     ]
     fs.mkdirSync(path.join(fixtureRoot, 'public', 'data'), { recursive: true })
     fs.writeFileSync(
@@ -196,6 +204,27 @@ describe('round 1a negative paths (end-to-end via buildClaimDna)', () => {
     expect(artifact['evidence_relationship']).toBe('unassessed')
     const outputs = artifact['analytical_outputs'] as Record<string, unknown>
     expect(outputs['canonical_study_identities']).toHaveLength(1)
+    const jm = artifact['join_metrics'] as Record<string, unknown>
+    expect(jm['identity_resolutions']).toBe(1)
+    expect(jm['metadata_resolutions']).toBe(0)
+    expect(jm['unresolved_identifiers']).toBe(1)
+    expect(jm['successful_joins']).toBe(0)
+  })
+
+  it('genuinely absent PMID: identity resolves but metadata join does not', () => {
+    const { artifact } = buildClaimDna({ claimId: 'fixture-absent', root: fixtureRoot })
+    expect(artifact['provenance_status']).toBe('primary_linked')
+    expect(artifact['resolution_status']).toBe('metadata_unavailable')
+    const jm = artifact['join_metrics'] as Record<string, unknown>
+    expect(jm['identity_resolutions']).toBe(1)
+    expect(jm['metadata_resolutions']).toBe(0)
+    expect(jm['successful_joins']).toBe(0)
+  })
+
+  it('title-less cached record: real pipeline refuses metadata resolution', () => {
+    const { artifact } = buildClaimDna({ claimId: 'fixture-titleless', root: fixtureRoot })
+    expect(artifact['provenance_status']).toBe('primary_linked')
+    expect(artifact['resolution_status']).toBe('metadata_unavailable')
     const jm = artifact['join_metrics'] as Record<string, unknown>
     expect(jm['identity_resolutions']).toBe(1)
     expect(jm['metadata_resolutions']).toBe(0)
