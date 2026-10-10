@@ -48510,6 +48510,82 @@
       "reservation_id": "52ede11076aec0c0e4b9",
       "reserved_at": "2026-10-10T16:59:57.601Z",
       "source_branch": "research/intake/2/20261010-1256-cognition-metabolic-r50"
+    },
+    {
+      "pmid": "42216677",
+      "title": "Pharmacokinetic Assessment of Atazanavir and Favipiravir Following Echinacea Supplementation: A Controlled Herb-Drug Interaction Investigation.",
+      "doi": "10.1002/bdd.70034",
+      "source_title": "Pharmacokinetic Assessment of Atazanavir and Favipiravir Following Echinacea Supplementation: A Controlled Herb-Drug Interaction Investigation.",
+      "abstract": "Echinacea is a widely used herbal supplement and is frequently co-administered with antiviral drugs, raising concerns regarding potential herb-drug interactions. This study evaluated the effect of repeated Echinacea administration on the pharmacokinetics of favipiravir and atazanavir in rats. Male Sprague Dawley rats were administered Echinacea (250 mg/kg) or vehicle once daily for 10 days, followed by a single oral dose of favipiravir (70 mg/kg) or atazanavir (35 mg/kg). Plasma drug concentrations were quantified using validated LC-MS/MS methods, and pharmacokinetic parameters were determined by noncompartmental analysis. Echinacea co-administration did not significantly alter favipiravir exposure (C max : 39,677 ± 5385 vs. 36,364 ± 5379 ng/mL; AUC0-t: 144,457 ± 17,267 vs. 104,840 ± 27,001 ng h/mL) or atazanavir exposure (C max : 3274 ± 256 vs. 4004 ± 629 ng/mL; AUC0-t: 8962 ± 1667 vs. 10,645 ± 2949 ng h/mL). No relevant changes were observed in clearance, half-life, or mean residence time for either drug. These findings indicate that repeated Echinacea administration does not result in a pharmacokinetically relevant interaction with favipiravir or atazanavir under the investigated conditions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42216677/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42216677",
+        "doi": "10.1002/bdd.70034",
+        "journal": "Biopharmaceutics & drug disposition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T17:06:36.578Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "93695fd161e9ea6fc4e3",
+      "reserved_at": "2026-10-10T17:06:42.535Z",
+      "source_branch": "research/intake/3/20261010-1305-echinacea-42216677"
     }
   ],
   "batches": [
@@ -48538,16 +48614,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 616,
+    "total_reservations": 617,
     "by_lane": {
       "1": 50,
       "2": 127,
-      "3": 114,
+      "3": 115,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 616
+      "SOURCE_VERIFIED": 617
     },
     "batches": [
       {
@@ -48560,7 +48636,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 116,
+        "count": 117,
         "pr_number": null,
         "blocker": null
       }
