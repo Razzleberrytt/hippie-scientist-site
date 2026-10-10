@@ -46045,6 +46045,83 @@
       "reservation_id": "d3251cd20384d05f1770",
       "reserved_at": "2026-10-10T10:10:16.338Z",
       "source_branch": "research/intake/3/20261010-0608-topical-noni-41805431"
+    },
+    {
+      "pmid": "42829303",
+      "title": "Aromatherapy for Anxiety and Pain in Radiologic and Interventional Procedures a Scoping Review.",
+      "doi": "10.1016/j.pmn.2026.09.003",
+      "source_title": "Aromatherapy for Anxiety and Pain in Radiologic and Interventional Procedures a Scoping Review.",
+      "abstract": "To describe the scope of evidence on the use and effects of aromatherapy for reducing anxiety and pain in adults undergoing radiologic and interventional procedures. Scoping review guided by the Arksey and O'Malley framework and reported using PRISMA‑ScR guidelines. A comprehensive search of PubMed, Scopus, CINAHL, and the Cochrane Library was conducted for studies published between 2013 and 2025. Eligible studies included randomized controlled trials (RCTs), cohort studies, case series, or pilot studies involving adults receiving an aromatherapy intervention during a diagnostic or interventional radiology procedure, with anxiety and/or pain as outcomes. Twenty-six RCTs met inclusion criteria. Data extraction captured essential oil (EO) type, delivery method, exposure duration, outcome measures, and main findings. Lavender was the most frequently studied EO, followed by peppermint, rose-based oils, citrus oils, chamomile, clary sage, Osmanthus fragrans, and Cananga odorata. EO's were delivered using cotton balls, gauze, aromatherapy tabs, patches, masks, inhalers, and diffusers. Anxiety was more frequently evaluated than pain. Reductions in anxiety were commonly reported, particularly in studies using lavender-based interventions, while findings related to pain were more variable. Marked heterogeneity in EO composition, delivery approaches, procedures, and outcome measurement tools limit cross-study comparison and generalizability. Aromatherapy, particularly lavender, may reduce procedural anxiety, while evidence supporting pain reduction remains limited. Substantial methodological variability highlights the need for standardized protocols, transparent reporting of EO composition, and rigorous study designs to clarify clinical utility. Consistent with the American Society for Pain Management Nursing's emphasis on integrative, evidence-based care, aromatherapy may serve as a safe, nonpharmacologic adjunct to support patient well-being, particularly for procedural anxiety. Safe implementation requires nursing competency in EO selection, delivery methods, contraindications, and patient screening. Continued nursing leadership and advocacy are essential to advance multimodal, patient-centered approaches to procedural pain and anxiety management across care settings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42829303/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42829303",
+        "doi": "10.1016/j.pmn.2026.09.003",
+        "journal": "Pain management nursing : official journal of the American Society of Pain Management Nurses",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T10:45:01.476Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "af3622b4e4a18de844bb",
+      "reserved_at": "2026-10-10T10:45:07.169Z",
+      "source_branch": "research/intake/1/20261010-0641-aromatherapy-qbd-two"
     }
   ],
   "batches": [
@@ -46073,16 +46150,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 584,
+    "total_reservations": 585,
     "by_lane": {
-      "1": 41,
+      "1": 42,
       "2": 112,
       "3": 106,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 584
+      "SOURCE_VERIFIED": 585
     },
     "batches": [
       {
@@ -46095,7 +46172,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 84,
+        "count": 85,
         "pr_number": null,
         "blocker": null
       }
