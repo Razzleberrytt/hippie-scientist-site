@@ -43046,6 +43046,82 @@
       "reservation_id": "a1756e1ef2eb1ae88013",
       "reserved_at": "2026-10-10T01:54:09.267Z",
       "source_branch": "research/intake/2/20261009-2151-cognition-metabolic-r35"
+    },
+    {
+      "pmid": "40468933",
+      "title": "Astragalus Injection Modulates the Pharmacokinetics of Doxorubicin and CYP450 Enzymes.",
+      "doi": "10.2174/0113816128362829250527023843",
+      "source_title": "Astragalus Injection Modulates the Pharmacokinetics of Doxorubicin and CYP450 Enzymes.",
+      "abstract": "Doxorubicin (DOX) is a widely used anthracycline antibiotic for the treatment of breast cancer, liver cancer, lymphoma, and other malignant tumors. However, its clinical application is limited by the side effects and drug resistance. Astragalus injection has been combined with DOX in the treatment of cancer, which improves the curative effect and reduces drug resistance. This study investigated the interaction between DOX and Astragalus injection and elucidated the potential mechanism. The pharmacokinetics of DOX injection (7 mg/kg, intraperitoneal injection) with or without Astragalus injection (4.25 mL/kg/day for 14 days, intraperitoneal injection) were investigated in plasma from male Sprague-Dawley rats (n = 6) by UPLC-MS/MS. The group without the Astragalus injection was set as the control group. Additionally, the effects of Astragalus injection on CYP450 enzyme activities were assessed using a rat liver microsome incubation system with cocktail probe drugs. Astragalus injection significantly increased the C max (2090.01 ± 99.60 vs. 5262.77 ± 111.15 ng/mL) and AUC 0-t (1190.23 ± 104.43 vs. 3777.27 ± 130.55 μg/L × h) and prolonged the t1/2α (0.09 ± 0.02 vs. 0.14 ± 0.04 h) of DOX. Astragalus injection significantly inhibited the activity of CYP1A2, CYP2C9, CYP2E1, and CYP3A4, and enhanced the activity of CYP2D1 with a metabolic elimination rate of 30.11 ± 2.67% vs. 19.66 ± 3.41%, 35.95 ± 2.57% vs. 23.26 ± 3.57%, 13.43 ± 2.56% vs. 9.06 ± 2.51%, 47.90 ± 6.30% vs. 25.87 ± 2.55%, 17.62 ± 1.49% vs. 24.12 ± 2.91%, respectively (p < 0.05). The co-administration of DOX and Astragalus injection alters the systemic exposure of DOX by affecting the metabolism of DOX and the activity of CYP450 enzymes. These findings highlight the importance of drug-drug interactions when combining Astragalus injection with DOX and provide a basis for optimizing combination therapies to address DOX resistance and toxicity.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40468933/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40468933",
+        "doi": "10.2174/0113816128362829250527023843",
+        "journal": "Current pharmaceutical design",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T02:01:23.416Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ea09bdb28639e0b80f76",
+      "reserved_at": "2026-10-10T02:01:28.460Z",
+      "source_branch": "research/intake/3/20261009-2159-astragalus-cyp-review-two"
     }
   ],
   "batches": [
@@ -43074,16 +43150,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 545,
+    "total_reservations": 546,
     "by_lane": {
       "1": 28,
       "2": 97,
-      "3": 99,
+      "3": 100,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 545
+      "SOURCE_VERIFIED": 546
     },
     "batches": [
       {
@@ -43096,7 +43172,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 45,
+        "count": 46,
         "pr_number": null,
         "blocker": null
       }
