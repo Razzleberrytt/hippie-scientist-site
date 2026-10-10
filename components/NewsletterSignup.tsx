@@ -167,7 +167,7 @@ export default function NewsletterSignup({
         window.turnstile?.reset(turnstileWidgetIdRef.current)
         setTurnstileToken('')
       }
-      setMessage('You are subscribed. Open the safety checklist while the next evidence note is prepared.')
+      setMessage('Check your inbox to confirm your subscription \u2014 then open the safety checklist while the next evidence note is prepared.')
       trackEmailSignup({ source: resolvedLocation })
       if (experiment) {
         trackExperimentConversion({
