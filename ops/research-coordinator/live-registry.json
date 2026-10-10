@@ -49894,6 +49894,159 @@
       "reservation_id": "092532bc3c3134580e60",
       "reserved_at": "2026-10-10T20:52:34.780Z",
       "source_branch": "research/intake/2/20261010-1650-cognition-metabolic-r54"
+    },
+    {
+      "pmid": "42748041",
+      "title": "Effect of Conscious Connected Breathing Added to Sleep Hygiene Education on Sleep Quality and Anxiety in Mothers of Pediatric Oncology Patients: A Pilot Randomized Controlled Trial.",
+      "doi": "10.1097/MPH.0000000000003274",
+      "source_title": "Effect of Conscious Connected Breathing Added to Sleep Hygiene Education on Sleep Quality and Anxiety in Mothers of Pediatric Oncology Patients: A Pilot Randomized Controlled Trial.",
+      "abstract": "Mothers of pediatric oncology patients face high psychosocial burden, poor sleep, and anxiety. Evidence for simple breathing interventions is limited; this study evaluated their impact. In this single-center, prospective pilot randomized controlled trial, 38 mothers of children undergoing active cancer treatment were allocated 1:1 to the intervention group (conscious connected breathing [CCB] plus sleep hygiene, n = 19) or the control group (sleep hygiene alone, n = 19). The intervention group received weekly 45-minute face-to-face CCB sessions for 3 weeks, with home practice encouraged. CCB consisted of continuous, deep breathing through the mouth without an intentional pause between inhalation and exhalation. Controls received standardized sleep hygiene education at baseline. Assessments were performed at baseline (T0), week 4 (T1), and week 8 (T2). Sleep quality and anxiety were measured using the PSQI and STAI, with between-group comparisons based on change scores (Δ). Baseline characteristics were comparable, except for higher STAI-II in the intervention group (P = 0.015). Sleep quality improved in both groups, with greater reductions in the intervention group (ΔT0 to T1: Z = -4.371, P < 0.001, r = 0.71; ΔT0 to T2: Z = -4.612, P < 0.001, r = 0.75). State anxiety decreased over time, with greater reductions observed in the intervention group across all time points (pre-post: Z = -5.116; pre to T1: Z = -5.177; pre to T2: Z = -4.883; all P < 0.001; r = 0.79 to 0.84). Despite higher baseline levels, trait anxiety also decreased more in the intervention group (ΔT0 to T1: Z = -4.635; ΔT0 to T2: Z = -4.544; both P < 0.001). CCB added to sleep hygiene education appears to be a feasible and promising complementary approach associated with improved sleep quality and reduced anxiety among mothers of pediatric oncology patients. Given the pilot nature of the study and the small sample size, these findings should be considered preliminary and require confirmation in larger, adequately powered randomized controlled trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42748041/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed source-verified human sleep and anxiety intervention studies for research-only intake; no efficacy or safety claims approved.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42748041",
+        "doi": "10.1097/MPH.0000000000003274",
+        "journal": "Journal of pediatric hematology/oncology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T21:40:03.246Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6c8d1bbfeedcc1b403dd",
+      "reserved_at": "2026-10-10T21:40:08.038Z",
+      "source_branch": "research/intake/1/20261010-1737-breathing-dcbti-two"
+    },
+    {
+      "pmid": "42184726",
+      "title": "Targeting hyperarousal to improve sleep: A network intervention analysis of a digital intervention for insomnia.",
+      "doi": "10.1016/j.brat.2026.105075",
+      "source_title": "Targeting hyperarousal to improve sleep: A network intervention analysis of a digital intervention for insomnia.",
+      "abstract": "Digital cognitive behavioral therapy for insomnia (CBT-I) is an effective and scalable treatment for chronic insomnia. However, treatment outcomes are typically evaluated using aggregated symptom scores, which obscure differential effects on individual symptoms and limit insights into underlying mechanisms. This study applied network intervention analysis (NIA) to investigate how somnovia, a self-guided digital CBT-I intervention, is associated with changes in individual symptoms of insomnia, depression, and anxiety over time. This secondary analysis used data from a randomized controlled trial including 290 adults with chronic insomnia who were randomized to somnovia plus treatment as usual or treatment as usual alone. Using item-level data from the Insomnia Severity Index (ISI), Patient Health Questionnaire-9 (PHQ-9), and Generalized Anxiety Disorder-7 (GAD-7) collected at baseline, 3 months, and 6 months, NIA was conducted to identify direct and indirect associations between treatment assignment and individual symptoms. At 3 months, somnovia was primarily associated with reductions in sleep-related worry, dissatisfaction with sleep, and difficulties relaxing, indicating early effects on cognitive and physiological arousal processes. Improvements in other symptoms appeared to occur indirectly through these core arousal-related processes. By 6 months, treatment-related associations were more broadly distributed across the symptom network, consistent with generalized improvements extending beyond sleep-specific complaints. Together, these findings suggest that somnovia exerts its clinical effects by reducing hyperarousal as a central transdiagnostic process, through which improvements in insomnia may contribute to sustained benefits in broader mental health outcomes, including symptoms of depression and anxiety. ClinicalTrials.gov (NCT05558865).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42184726/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed source-verified human sleep and anxiety intervention studies for research-only intake; no efficacy or safety claims approved.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42184726",
+        "doi": "10.1016/j.brat.2026.105075",
+        "journal": "Behaviour research and therapy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T21:40:03.246Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cb730338b37ee2093c8a",
+      "reserved_at": "2026-10-10T21:40:08.038Z",
+      "source_branch": "research/intake/1/20261010-1737-breathing-dcbti-two"
     }
   ],
   "batches": [
@@ -49922,16 +50075,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 634,
+    "total_reservations": 636,
     "by_lane": {
-      "1": 57,
+      "1": 59,
       "2": 133,
       "3": 119,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 634
+      "SOURCE_VERIFIED": 636
     },
     "batches": [
       {
@@ -49944,7 +50097,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 134,
+        "count": 136,
         "pr_number": null,
         "blocker": null
       }
