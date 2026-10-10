@@ -72,7 +72,7 @@ export type BatchManifest = {
 
 export type BatchState = {
   batch_id: string
-  claims: Record<string, { input_hashes: Record<string, string>; artifact_sha256: string }>
+  claims: Record<string, { input_hashes: Record<string, string>; artifact_sha256: string; generator_fingerprint?: string }>
 }
 
 function batchDir(root: string): string {
@@ -145,6 +145,12 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
   const pubmed = loadPubmedCache(root)
   const adapterBytes = fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'adapter-1a.ts'), 'utf8')
   const adapterHash = sha256Hex(adapterBytes)
+  // Recompute outputs if either pipeline implementation changes, even when
+  // input claims and metadata are unchanged.
+  const generatorFingerprint = sha256Hex(
+    fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'run-1a.ts'), 'utf8') + '\n' +
+    fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'run-1b.ts'), 'utf8'),
+  )
 
   const prevState = loadBatchState(root, batchId)
   const newState: BatchState = { batch_id: batchId, claims: {} }
@@ -168,7 +174,7 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
 
     // Hash-match alone is insufficient: also verify artifact existence,
     // integrity and readability before claiming a skipped rebuild.
-    if (prev && hashesEqual(prev.input_hashes, inputHashes) && fs.existsSync(claimPath)) {
+    if (prev && prev.generator_fingerprint === generatorFingerprint && hashesEqual(prev.input_hashes, inputHashes) && fs.existsSync(claimPath)) {
       try {
         const bytes = fs.readFileSync(claimPath, 'utf8')
         if (sha256Hex(bytes) === prev.artifact_sha256) {
@@ -196,7 +202,7 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
       artifact = reusedArtifact!
       artifactSha256 = prev!.artifact_sha256
     }
-    newState.claims[claimId] = { input_hashes: inputHashes, artifact_sha256: artifactSha256 }
+    newState.claims[claimId] = { input_hashes: inputHashes, artifact_sha256: artifactSha256, generator_fingerprint: generatorFingerprint }
 
     const joinMetrics = (artifact['join_metrics'] as BatchClaimResult['join_metrics']) ?? {
       identity_resolutions: 0,
