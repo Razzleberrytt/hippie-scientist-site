@@ -44200,6 +44200,82 @@
       "reservation_id": "501fce63c66a3e12da2e",
       "reserved_at": "2026-10-10T04:57:26.540Z",
       "source_branch": "research/intake/2/20261010-0053-cognition-metabolic-r38"
+    },
+    {
+      "pmid": "30591886",
+      "title": "Effects of Herbal combination ( Melissa officinalis L. and Nepeta menthoides Boiss. & Buhse) on insomnia severity, anxiety and depression in insomniacs: Randomized placebo controlled trial.",
+      "doi": "10.1016/j.imr.2018.08.001",
+      "source_title": "Effects of Herbal combination ( Melissa officinalis L. and Nepeta menthoides Boiss. & Buhse) on insomnia severity, anxiety and depression in insomniacs: Randomized placebo controlled trial.",
+      "abstract": "Insomnia is a prevalent disorder leading to psychological problems such as anxiety and depression. This study investigates the effect of a combination of herbs ( Melissa officinalis L. and Nepeta menthoides Boiss. & Buhse) on anxiety and depression for insomniacs and on insomnia severity. This study is a double-blind randomized placebo-controlled clinical trial. A total number of 67 participants met the inclusion criteria who were diagnosed as cases of insomnia. The patients were randomized into the herbal treatment or placebo groups. The herbal treatment group received a combination of Melissa officinalis and Nepeta menthoides Boiss. & Buhse. The primary outcomes were insomnia, depression and anxiety. We used per-protocol analysis. The all outcomes of herbal treatment were significantly improved compared with placebo in the ISI, BAI and BDI scores after four weeks' treatment ( p value: 0.008, 0.005 and <0.001 respectively). A combination of Melissa officinalis L. and Nepeta menthoides Boiss. & Buhse may improve insomnia and its comorbid depression and anxiety.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30591886/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "30591886",
+        "doi": "10.1016/j.imr.2018.08.001",
+        "journal": "Integrative medicine research",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-10T05:40:32.031Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "78f73b7d44330f544811",
+      "reserved_at": "2026-10-10T05:40:37.710Z",
+      "source_branch": "research/intake/1/20261010-0135-melissa-ashwagandha-kava-four"
     }
   ],
   "batches": [
@@ -44228,16 +44304,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 560,
+    "total_reservations": 561,
     "by_lane": {
-      "1": 33,
+      "1": 34,
       "2": 103,
       "3": 101,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 560
+      "SOURCE_VERIFIED": 561
     },
     "batches": [
       {
@@ -44250,7 +44326,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 60,
+        "count": 61,
         "pr_number": null,
         "blocker": null
       }
