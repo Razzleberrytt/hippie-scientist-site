@@ -46659,6 +46659,83 @@
       "reservation_id": "21f1df10d6188da08ecf",
       "reserved_at": "2026-10-10T12:52:44.486Z",
       "source_branch": "research/intake/2/20261010-0850-adhd-recovery-r46"
+    },
+    {
+      "pmid": "42564421",
+      "title": "Methylprednisolone for Swietenia macrophylla seeds-induced liver injury: A report of two cases.",
+      "doi": "10.14744/hf.2025.18282",
+      "source_title": "Methylprednisolone for Swietenia macrophylla seeds-induced liver injury: A report of two cases.",
+      "abstract": "Swietenia macrophylla seeds (SMS), as a traditional medicine, are widely used against diabetes, hypertension, and malaria. To date, knowledge about the safety of human consumption remains limited. We herein reported two cases of drug-induced liver injury (DILI) caused by SMS. Both patients had positive antinuclear antibodies. Hepatotoxicity of SMS is characterized by elevated alanine aminotransferase and obvious autoimmune-like hepatitis. Furthermore, the 2 nd biopsy at the 3 rd year of methylprednisolone treatment showed normal liver tissue, and then methylprednisolone was withdrawn. No recurrence occurred during one-year follow-up after methylprednisolone withdrawal. SMS may increase the risk of liver damage for patients with potential immune disorders, and patients with SMS-related DILI may benefit from methylprednisolone.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42564421/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42564421",
+        "doi": "10.14744/hf.2025.18282",
+        "journal": "Hepatology forum",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T13:07:31.017Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "683d660767bc9770bb2b",
+      "reserved_at": "2026-10-10T13:07:36.604Z",
+      "source_branch": "research/intake/3/20261010-0905-swietenia-liver-injury-42564421"
     }
   ],
   "batches": [
@@ -46687,16 +46764,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 592,
+    "total_reservations": 593,
     "by_lane": {
       "1": 44,
       "2": 115,
-      "3": 108,
+      "3": 109,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 592
+      "SOURCE_VERIFIED": 593
     },
     "batches": [
       {
@@ -46709,7 +46786,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 92,
+        "count": 93,
         "pr_number": null,
         "blocker": null
       }
