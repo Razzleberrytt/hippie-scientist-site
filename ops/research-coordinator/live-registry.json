@@ -43740,6 +43740,83 @@
       "reservation_id": "9bb324ae1f9891d570c7",
       "reserved_at": "2026-10-10T03:57:20.696Z",
       "source_branch": "research/intake/2/20261009-2354-cognition-metabolic-r37"
+    },
+    {
+      "pmid": "40388649",
+      "title": "Ribociclib-Induced hepatotoxicity exacerbated by fenugreek supplement use: A case report.",
+      "doi": "10.1177/10781552251340911",
+      "source_title": "Ribociclib-Induced hepatotoxicity exacerbated by fenugreek supplement use: A case report.",
+      "abstract": "BackgroundCyclin-dependent kinase 4 and 6 (CDK4/6) inhibitors, such as ribociclib, are the cornerstone of treatment for estrogen receptor-positive (ER+), human epidermal growth factor receptor 2-negative (HER2-) metastatic breast cancer. However, ribociclib is known to cause hepatotoxicity, and the role of other dietary supplements in this process is not well understood.Case PresentationA 47-year-old woman with metastatic breast cancer experienced grade III hepatotoxicity shortly after starting ribociclib. Despite discontinuing the drug, transaminase levels remained elevated. Using the the Roussel Uclaf Causality Assessment Method (RUCAM), a probable drug-induced liver injury was identified (score: 6). Upon disclosure of concurrent use of a fenugreek-based supplement, the revised RUCAM score dropped to 4. Further anamnesis revealed concurrent intake of a fenugreek-based supplement, prompting a revised RUCAM score of 4. The Naranjo Adverse Drug Reaction Probability Scale also indicated a possible association (score: 4). In contrast, the Drug Interaction Probability Scale (DIPS) scored 5, suggesting a probable herb-drug interaction between ribociclib and fenugreek.Management and OutcomeTransaminase levels gradually returned to normal within eight weeks of stopping ribociclib and four weeks after discontinuing the fenugreek supplement. The patient was counseled to avoid herbal supplements and initiated on palbociclib as an alternative CDK4/6 inhibitor. Liver function remained stable with no recurrent hepatotoxicity.DiscussionFenugreek modulates CYP3A4, which metabolizes ribociclib. This case highlights underrecognized herb-drug interactions in oncology.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40388649/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40388649",
+        "doi": "10.1177/10781552251340911",
+        "journal": "Journal of oncology pharmacy practice : official publication of the International Society of Oncology Pharmacy Practitioners",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T04:03:17.262Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f5cd1edbea8d7eebf777",
+      "reserved_at": "2026-10-10T04:03:22.107Z",
+      "source_branch": "research/intake/3/20261010-0001-fenugreek-ribociclib"
     }
   ],
   "batches": [
@@ -43768,16 +43845,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 554,
+    "total_reservations": 555,
     "by_lane": {
       "1": 30,
       "2": 101,
-      "3": 100,
+      "3": 101,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 554
+      "SOURCE_VERIFIED": 555
     },
     "batches": [
       {
@@ -43790,7 +43867,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 54,
+        "count": 55,
         "pr_number": null,
         "blocker": null
       }
