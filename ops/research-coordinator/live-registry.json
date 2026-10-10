@@ -47274,6 +47274,240 @@
       "reservation_id": "f1d5cf8b94e017eaebe4",
       "reserved_at": "2026-10-10T14:46:39.108Z",
       "source_branch": "research/intake/1/20261010-1042-polyherbal-kgt-two"
+    },
+    {
+      "pmid": "41538307",
+      "title": "Exercise Training Reduces Cerebrovascular Impedance in Patients with Amnestic Mild Cognitive Impairment: A 1-Year Randomized Controlled Trial.",
+      "doi": "10.1249/MSS.0000000000003935",
+      "source_title": "Exercise Training Reduces Cerebrovascular Impedance in Patients with Amnestic Mild Cognitive Impairment: A 1-Year Randomized Controlled Trial.",
+      "abstract": "In patients with amnestic mild cognitive impairment (aMCI), cerebrovascular impedance modulus ( Z ) was higher than in cognitively normal peers, which is associated with brain hypoperfusion. While 1 yr of moderate-to-vigorous aerobic exercise training (AET) reduced Z in cognitively normal older adults, the effects of AET on aMCI remain unknown. Seventy patients with aMCI were randomized into 1 yr of AET ( N = 31) or stretching and toning (SAT, N = 39). At baseline, midpoint (6 months), and trial completion (12 months), Z was assessed using transfer function analysis between carotid arterial pressure and cerebral blood flow (CBF) velocity measured simultaneously via applanation tonometry and transcranial Doppler in the middle cerebral artery, respectively. Total CBF was measured as the sum of the bilateral internal carotid and vertebral arterial flow via duplex ultrasonography. The AET group exhibited gradual, significant reductions in Z at 6 months ( P = 0.008 vs baseline) and 12 months ( P < 0.001 vs baseline; P < 0.001 vs 6 months). In the SAT group, although Z decreased during the first 6 months ( P < 0.001 vs baseline), it was maintained over the following 6 months. Repeated-measures correlation analyses revealed inverse relationships between Z and total CBF as well as cerebrovascular conductance in the AET group ( rrm = -0.503, P = 0.008; rrm = -0.404, P = 0.037, respectively), but not in the SAT group. In exploratory sex-stratified analyses, women exhibited continued reductions in Z across 12 months regardless of training modality, whereas men demonstrated a plateau after 6 months. These findings suggest that in patients with aMCI, AET reduces Z , which is associated with higher brain perfusion and cerebrovascular conductance. Sex-stratified analyses further suggested that women may experience greater improvements in Z than men across 1 yr of training.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41538307/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, N.I.H., Extramural",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41538307",
+        "doi": "10.1249/MSS.0000000000003935",
+        "journal": "Medicine and science in sports and exercise",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T14:57:11.499Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8c711d8f94e8b0be03ef",
+      "reserved_at": "2026-10-10T14:57:16.232Z",
+      "source_branch": "research/intake/2/20261010-1054-cognition-metabolic-r48"
+    },
+    {
+      "pmid": "42249042",
+      "title": "Remote cognitive-motor dual-task training and cognition in mild cognitive impairment: a randomized controlled trial.",
+      "doi": "10.1038/s41598-026-56161-w",
+      "source_title": "Remote cognitive-motor dual-task training and cognition in mild cognitive impairment: a randomized controlled trial.",
+      "abstract": "The rising prevalence of Mild Cognitive Impairment (MCI) demands effective early interventions to delay progression to dementia. This randomized controlled trial evaluated the effects of remote cognitive-motor dual-task training on cognitive function and brain functional connectivity in older adults with MCI. Linear mixed-effects models (subjects as random effects; group, time, and their interaction as fixed effects) revealed significant Group × Time interactions for MoCA scores, Mini-Mental State Examination (MMSE) scores, and brain functional connectivity (FC) (all P < 0.001), indicating that intervention effects differed across groups over time. Post-hoc comparisons showed that the Remote Cognitive-Motor Group (RCMG) achieved significant improvements in both MoCA and MMSE scores (both P < 0.001), and these gains significantly exceeded those of the Control Group (CG) (P < 0.001). The Remote Cognitive Group (RCG) showed a significant improvement in MoCA (P < 0.001), whereas no significant improvement was observed in MMSE (P = 0.188). For brain FC, the RCMG showed significantly greater post-intervention enhancement than the CG (P < 0.001). Although the RCG showed a nominally significant interaction effect (P = 0.016), this did not remain significant after correction for multiple comparisons, and no significant difference was observed between RCMG and RCG. Region-of-interest (ROI) analyses revealed that the RCMG exhibited significantly enhanced FC between multiple prefrontal and motor-related regions, including the mPFC, DLPFC, and PMC (P < 0.05).Trial registration Study on rehabilitation training of cognitive-motor dual tasks for aging-related cognitive decline (ChiCTR2200064684) and the registration date was 10/14/2022.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42249042/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42249042",
+        "doi": "10.1038/s41598-026-56161-w",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T14:57:11.501Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1f0cf639552d1a030898",
+      "reserved_at": "2026-10-10T14:57:16.232Z",
+      "source_branch": "research/intake/2/20261010-1054-cognition-metabolic-r48"
+    },
+    {
+      "pmid": "42546974",
+      "title": "Intensive glycemic control in adults aged 80 years and older: A randomized trial evaluating diabetes complications and competing mortality.",
+      "doi": "10.1016/j.diabres.2026.113483",
+      "source_title": "Intensive glycemic control in adults aged 80 years and older: A randomized trial evaluating diabetes complications and competing mortality.",
+      "abstract": "To evaluate whether intensive glycemic control reduces microvascular or macrovascular events compared with conservative glycemic targets in independently ambulatory adults aged 80 years or older with type 2 diabetes. We conducted a prospective, randomized, open-label, single-center trial enrolling independently ambulatory adults aged ≥ 80 years with type 2 diabetes. Participants were assigned (1:1) to an intensive glycemic target (HbA1c < 7 %) or a conservative target (HbA1c < 9 %) and followed for 5 years. Primary outcomes were composite microvascular and macrovascular events. Analyses were done by intention to treat. Cause-specific Cox models and Fine-Gray subdistribution hazard models were used to account for all-cause mortality as a competing event. This trial is registered with ClinicalTrials.gov, NCT00850798. 206 participants were randomly assigned to intensive (n = 102) or conservative (n = 104) treatment. At 5 years, mean HbA1c was lower in the intensive group than in the conservative group (7·42 % vs 8·21 %; p = 0·005). Intensive therapy did not reduce microvascular events (hazard ratio [HR] 1·24, 95 % CI 0·76-2·04) or macrovascular events (HR 1·02, 0·36-2·92). Competing risk analyses showed no reduction in cumulative incidence of vascular outcomes (subdistribution HR approximately 1·0 for both). The cumulative incidence of death exceeded that of vascular events, indicating that many participants died before potential glycemic benefits could be realized. Severe hypoglycemia requiring hospitalization was more frequent with intensive therapy (7 vs 1 event). In adults aged 80 years or older with type 2 diabetes, intensive glycaemic control improved glycaemic levels but did not reduce vascular events and increased the risk of severe hypoglycaemia. High competing mortality substantially limits the potential long-term benefit of intensive treatment, supporting conservative and individualized glycemic targets in very old adults. ClinicalTrials.gov Identifier: NCT00850798.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42546974/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Comparative Study; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Comparative Study",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42546974",
+        "doi": "10.1016/j.diabres.2026.113483",
+        "journal": "Diabetes research and clinical practice",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T14:57:11.501Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f55230dbf2e061c9aefa",
+      "reserved_at": "2026-10-10T14:57:16.232Z",
+      "source_branch": "research/intake/2/20261010-1054-cognition-metabolic-r48"
     }
   ],
   "batches": [
@@ -47302,16 +47536,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 600,
+    "total_reservations": 603,
     "by_lane": {
       "1": 46,
-      "2": 118,
+      "2": 121,
       "3": 111,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 600
+      "SOURCE_VERIFIED": 603
     },
     "batches": [
       {
@@ -47324,7 +47558,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 100,
+        "count": 103,
         "pr_number": null,
         "blocker": null
       }
