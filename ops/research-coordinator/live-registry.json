@@ -49660,6 +49660,240 @@
       "reservation_id": "0c6dc8d4fb0237af6b96",
       "reserved_at": "2026-10-10T20:41:22.393Z",
       "source_branch": "research/intake/1/20261010-1636-cbg-acupressure-two"
+    },
+    {
+      "pmid": "41806687",
+      "title": "Aerobic exercise combined with varied duration cognitive training to improve age-related cognitive impairment: A randomized controlled trial.",
+      "doi": "10.1016/j.gerinurse.2026.103981",
+      "source_title": "Aerobic exercise combined with varied duration cognitive training to improve age-related cognitive impairment: A randomized controlled trial.",
+      "abstract": "The study investigated the effectiveness of combining aerobic exercise (AE) with varying durations of cognitive training (CT) to improve age-related cognitive impairment. In a randomized controlled trial with 84 participants, they were assigned to one of four groups: 30-min AE + 30-min CT, 30-min AE + 15-min CT, AE-only, or a control group. Over 12 weeks, participants performed moderate-intensity aerobic exercise three times per week, with cognitive training durations of 30, 15, or 0 min. Significant improvements in cognitive function (MoCA scores) were observed in all exercise groups, with the 30-min AE + 30-min CT group showing the most pronounced benefits. This group also showed improvements in physical and mental quality of life (SF-36). No significant changes were noted in the MMSE or activities of daily living (Lawton-IADL scale). The findings suggest that combining aerobic exercise with 30-minute cognitive training improves cognitive function and quality of life in older adults.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41806687/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41806687",
+        "doi": "10.1016/j.gerinurse.2026.103981",
+        "journal": "Geriatric nursing (New York, N.Y.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:52:28.923Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "eca0992583ab047e7692",
+      "reserved_at": "2026-10-10T20:52:34.780Z",
+      "source_branch": "research/intake/2/20261010-1650-cognition-metabolic-r54"
+    },
+    {
+      "pmid": "42443901",
+      "title": "The efficacy of intermittent metformin plus lifestyle intervention for diabetes prevention in women with prediabetes and prior gestational diabetes: a randomized clinical, non-inferiority trial.",
+      "doi": "10.1186/s12916-026-05059-5",
+      "source_title": "The efficacy of intermittent metformin plus lifestyle intervention for diabetes prevention in women with prediabetes and prior gestational diabetes: a randomized clinical, non-inferiority trial.",
+      "abstract": "In women with prediabetes after prior gestational diabetes mellitus (GDM), whether intermittent metformin treatment as needed is as effective as continuous use in preventing type 2 diabetes mellitus (T2DM) is unknown. We aimed to test whether an intermittent metformin treatment is non-inferior to continuous metformin strategy for prevention of T2DM in women with prediabetes after GDM. A randomized, open-label, non-inferiority trial was conducted at three centers in China. Women aged 18-45 years with prior GDM and prediabetes at 4-12 weeks postpartum were randomly assigned to receive lifestyle intervention plus intermittent or continuous metformin treatment. In the continuous group, participants were initially treated with lifestyle intervention and metformin was initiated when lifestyle intervention alone failed to maintain euglycemia and continued without interruption throughout the trial. In the intermittent group, participants were initially treated with lifestyle intervention and metformin was added when they failed to maintain euglycemia and was discontinued if the glycemic status returned to normal. The primary outcome was the difference in incidences of newly diagnosed diabetes between the two groups during the 3-year follow-up, compared against a non-inferiority margin of 10-percentage-point by following the intention-to-treat principle. Secondary outcomes included the percentage of prediabetes remission, changes from baseline in body weight, body mass index, waist circumference, fasting plasma glucose, 2-h plasma glucose, and hemoglobin A1c. Among the 376 women randomized, 11.5% of women in the intermittent group and 11.1% in the continuous group developed newly diagnosed T2DM after three years (absolute risk difference 0.4% points [95% CI -6.5 to 7.4], meeting criteria for non-inferiority). None of the secondary outcomes were significantly different between the two groups. Women in the continuous group experienced higher rate of metformin-related vitamin B 12 deficiency (13.5% vs. 3.7%, P = 0.001). In postpartum women with prediabetes after GDM, a strategy of intermittent metformin as needed plus lifestyle intervention met the pre-specified 10-percentage-point non-inferiority margin for 3-year T2DM incidence compared with continuous metformin plus lifestyle intervention. The equivalence of the two metformin strategies needs to be confirmed in further trials with a narrower margin and a larger event count. The study was registered in the Chinese Clinical Trial Registry (ChiCTR-IOR-17012770).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42443901/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Equivalence Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Equivalence Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42443901",
+        "doi": "10.1186/s12916-026-05059-5",
+        "journal": "BMC medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:52:28.924Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b867f6e7b90db96ddd0f",
+      "reserved_at": "2026-10-10T20:52:34.780Z",
+      "source_branch": "research/intake/2/20261010-1650-cognition-metabolic-r54"
+    },
+    {
+      "pmid": "41854643",
+      "title": "Exercise-induced miR-126 expression improves vascular health in prediabetes: A randomized controlled trial.",
+      "doi": "10.1113/EP093553",
+      "source_title": "Exercise-induced miR-126 expression improves vascular health in prediabetes: A randomized controlled trial.",
+      "abstract": "In this study, we investigated whether a structured aerobic exercise programme could enhance microRNA-126 (miR-126) expression and improve subclinical atherosclerosis markers [carotid intima-media thickness (CIMT) and ankle-brachial index (ABI)] in individuals with prediabetes. In this 12 week, multicentre, assessor-blinded, randomized controlled trial, 64 adults aged 18-60 years with newly diagnosed prediabetes were randomized into exercise and control groups. The exercise group performed supervised moderate-intensity aerobic exercise programme three times per week (treadmill and cycling, 50%-70% of maximum heart rate), and both groups received standard lifestyle advice. Circulating miR-126 expression was assessed via ΔCt using qPCR at baseline and week 12. The mean age was 46.82 ± 7.94 years, and 75.0% were female. Within- and between-group comparisons of ΔCt miR-126 were evaluated using a two-way repeated-measures ANOVA, demonstrating a significant main effect of time (P < 0.001) and a significant group × time interaction (P = 0.007). A significant group × time interaction was observed for both ABI and CIMT, with the exercise group showing an increase in ABI and a reduction in CIMT compared with the control group (ABI, P = 0.017; CIMT, P = 0.007). Correlation analysis revealed a positive association between change in ΔCt and CIMT (r = 0.260, P = 0.045) and a negative correlation with ABI (r = -0.275, P = 0.034). A 12 week aerobic exercise intervention significantly increased miR-126 expression and was associated with improvements in vascular markers of subclinical atherosclerosis, as evidenced by reduced CIMT and increased ABI. These vascular changes might be influenced, in part, by miR-126-related endothelial pathways among multiple mechanisms, highlighting the potential of miR-126 as a biomarker and therapeutic target for early vascular protection in prediabetes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41854643/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41854643",
+        "doi": "10.1113/EP093553",
+        "journal": "Experimental physiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:52:28.924Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "092532bc3c3134580e60",
+      "reserved_at": "2026-10-10T20:52:34.780Z",
+      "source_branch": "research/intake/2/20261010-1650-cognition-metabolic-r54"
     }
   ],
   "batches": [
@@ -49688,16 +49922,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 631,
+    "total_reservations": 634,
     "by_lane": {
       "1": 57,
-      "2": 130,
+      "2": 133,
       "3": 119,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 631
+      "SOURCE_VERIFIED": 634
     },
     "batches": [
       {
@@ -49710,7 +49944,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 131,
+        "count": 134,
         "pr_number": null,
         "blocker": null
       }
