@@ -48894,6 +48894,160 @@
       "reservation_id": "ff82f6c8d02b384895ff",
       "reserved_at": "2026-10-10T18:41:37.224Z",
       "source_branch": "research/intake/1/20261010-1437-relaxation-vr-42827315"
+    },
+    {
+      "pmid": "42367450",
+      "title": "Possible Interaction Between Hibiscus and Warfarin Resulting in Severe International Normalized Ratio Elevation: A Case Report.",
+      "doi": "10.7759/cureus.109805",
+      "source_title": "Possible Interaction Between Hibiscus and Warfarin Resulting in Severe International Normalized Ratio Elevation: A Case Report.",
+      "abstract": "Warfarin has a narrow therapeutic window and is susceptible to interactions with medications, foods, and herbal products. We describe the case of a 59-year-old woman with a mechanical mitral valve receiving chronic warfarin therapy who developed a markedly elevated international normalized ratio (INR) after recently consuming hibiscus tea. No other clear precipitating factor for the supratherapeutic INR was identified. Warfarin was temporarily withheld, hibiscus intake was discontinued, and oral vitamin K was administered with subsequent normalization of the INR. This case highlights the importance of obtaining a thorough dietary and herbal history in patients receiving warfarin therapy and raises awareness of a possible interaction between warfarin and hibiscus products.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42367450/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42367450",
+        "doi": "10.7759/cureus.109805",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T19:04:35.733Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "18bb95b2cd4d7d124074",
+      "reserved_at": "2026-10-10T19:04:41.672Z",
+      "source_branch": "research/intake/3/20261010-1502-hibiscus-tejocote-safety"
+    },
+    {
+      "pmid": "41883558",
+      "title": "When herbal supplements cause heart problems: Clinical case report and forensic toxicological analysis.",
+      "doi": "10.1016/j.toxrep.2026.102239",
+      "source_title": "When herbal supplements cause heart problems: Clinical case report and forensic toxicological analysis.",
+      "abstract": "The global expansion of travel and online supplement markets has eliminated traditional geographic barriers to toxic plant exposures. We report a case of a 42-year-old female presenting with digoxin-like intoxication symptoms, including nausea, vomiting, and hypotension. Electrocardiography revealed sinus bradycardia (51/min), first-degree AV block, and downsloping ST-segment depressions with reverse tick morphology. Upon further comprehensive anamnesis, the patient revealed the consumption of a weight-loss supplement labeled as \"Tejocote root\" ( Crataegus mexicana ), purchased during a travel to the USA. Serum digoxin assays yielded conflicting results across different platforms. The patient was managed with supportive care, including fluid replacement and antiemetics. Bradycardia persisted for five days, with complete resolution of symptoms and ECG abnormalities by day nine. Subsequent forensic toxicological analysis using liquid chromatography coupled to high-resolution mass spectrometry (LC-HRMS) and DNA barcoding confirmed the presence of yellow oleander ( Thevetia peruviana) in the supplement, with no detection of the advertised Crataegus mexicana . While standard toxicological screening panels do not include plant-derived cardiac glycosides, cross-reactivity in digoxin assays may aid early diagnosis. Clinicians should maintain high suspicion for exotic plant poisonings in patients presenting cardiac glycoside-like symptoms, particularly following use of imported or online-purchased supplements. This case underscores the critical importance of multidisciplinary collaboration in determining the root cause of intoxication and highlights significant gaps in current forensic analytical capabilities for detecting botanical adulterants with public health implications.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41883558/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41883558",
+        "doi": "10.1016/j.toxrep.2026.102239",
+        "journal": "Toxicology reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T19:04:35.734Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b8455fa0df6e304852ea",
+      "reserved_at": "2026-10-10T19:04:41.672Z",
+      "source_branch": "research/intake/3/20261010-1502-hibiscus-tejocote-safety"
     }
   ],
   "batches": [
@@ -48922,16 +49076,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 621,
+    "total_reservations": 623,
     "by_lane": {
       "1": 52,
       "2": 128,
-      "3": 116,
+      "3": 118,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 621
+      "SOURCE_VERIFIED": 623
     },
     "batches": [
       {
@@ -48944,7 +49098,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 121,
+        "count": 123,
         "pr_number": null,
         "blocker": null
       }
