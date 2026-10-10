@@ -55,15 +55,15 @@ describe('round 1b batch orchestration', () => {
   it('is incremental: second run skips unchanged claims', () => {
     const batchId = `${BATCH_ID}-incremental`
     const first = runClaimDnaBatch({ batchId, claimIds: CLAIM_IDS })
-    expect(first.manifest.aggregate_metrics.total_claims_reprocessed).toBe(5)
-    expect(first.manifest.aggregate_metrics.total_claims_skipped).toBe(0)
+    expect(first.run_metrics.total_claims_reprocessed).toBe(5)
+    expect(first.run_metrics.total_claims_skipped).toBe(0)
 
     const second = runClaimDnaBatch({ batchId, claimIds: CLAIM_IDS })
-    expect(second.manifest.aggregate_metrics.total_claims_reprocessed).toBe(0)
-    expect(second.manifest.aggregate_metrics.total_claims_skipped).toBe(5)
-    // Manifest is deterministic across runs (processing_ms excluded from bytes? no —
-    // processing_ms IS in the manifest, so bytes differ. SHA of the deterministic
-    // *content* excluding timing is stable. We verify claim-level determinism.)
+    expect(second.run_metrics.total_claims_reprocessed).toBe(0)
+    expect(second.run_metrics.total_claims_skipped).toBe(5)
+    // Runtime counters/timing belong to audit, never the deterministic manifest.
+    expect(second.manifestBytes).toBe(first.manifestBytes)
+    expect(second.manifestSha256).toBe(first.manifestSha256)
     for (const r of second.results) {
       const prev = first.results.find((p) => p.claim_id === r.claim_id)
       expect(r.artifact_sha256).toBe(prev?.artifact_sha256)
@@ -80,7 +80,8 @@ describe('round 1b batch orchestration', () => {
     expect(m.total_claims_processed).toBe(5)
     expect(m.successful_metadata_joins).toBeGreaterThanOrEqual(1)
     expect(m.traceability_coverage).toBe(1)
-    expect(m.processing_ms).toBeGreaterThanOrEqual(0)
+    expect(runClaimDnaBatch({ batchId: `${BATCH_ID}-metrics`, claimIds: CLAIM_IDS }).run_metrics.processing_ms).toBeGreaterThanOrEqual(0)
+    expect('processing_ms' in m).toBe(false)
     // Batch-level traceability covers every claim plus the dedup step.
     const claimTraces = manifest.traceability.filter((t) => t.output.startsWith('claim:'))
     expect(claimTraces).toHaveLength(5)
@@ -129,15 +130,54 @@ describe('round 1b malformed records (fixtures)', () => {
       'utf8',
     )
     fs.mkdirSync(path.join(fixtureRoot, 'scripts', 'claim-dna'), { recursive: true })
-    fs.writeFileSync(
-      path.join(fixtureRoot, 'scripts', 'claim-dna', 'adapter-1a.ts'),
-      '// fixture adapter',
-      'utf8',
-    )
+    for (const name of ['adapter-1a.ts', 'run-1a.ts', 'run-1b.ts']) {
+      fs.writeFileSync(path.join(fixtureRoot, 'scripts', 'claim-dna', name), '// fixture ' + name, 'utf8')
+    }
   })
 
   afterAll(() => {
     fs.rmSync(fixtureRoot, { recursive: true, force: true })
+  })
+
+  it('skips actual 1A recomputation and repairs a corrupted artifact', () => {
+    const localBatch = 'fixture-integrity'
+    const first = runClaimDnaBatch({ batchId: localBatch, claimIds: ['good-claim'], root: fixtureRoot })
+    const second = runClaimDnaBatch({ batchId: localBatch, claimIds: ['good-claim'], root: fixtureRoot })
+    expect(first.run_metrics.total_claims_reprocessed).toBe(1)
+    expect(second.run_metrics.total_claims_reprocessed).toBe(0)
+    expect(second.manifestBytes).toBe(first.manifestBytes)
+    const claimFile = path.join(fixtureRoot, 'ops', 'claim-dna-1b', 'good-claim.json')
+    fs.writeFileSync(claimFile, '{}', 'utf8')
+    const repaired = runClaimDnaBatch({ batchId: localBatch, claimIds: ['good-claim'], root: fixtureRoot })
+    expect(repaired.run_metrics.total_claims_reprocessed).toBe(1)
+    expect(repaired.results[0].artifact_sha256).toBe(first.results[0].artifact_sha256)
+  })
+
+  it('rebuilds only a modified claim, then skips both on next run', () => {
+    const localBatch = 'fixture-selective'
+    const ids = ['good-claim', 'no-pmid']
+    const first = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    expect(first.run_metrics.total_claims_reprocessed).toBe(2)
+    const claimsPath = path.join(fixtureRoot, 'public', 'data', 'claims.json')
+    const old = fs.readFileSync(claimsPath, 'utf8')
+    try {
+      const claims = JSON.parse(old) as Array<Record<string, unknown>>
+      claims.find((c) => c.id === 'no-pmid')!.claim = 'Updated claim without PMID.'
+      fs.writeFileSync(claimsPath, JSON.stringify(claims), 'utf8')
+      const second = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(second.run_metrics.total_claims_reprocessed).toBe(1)
+      expect(second.run_metrics.total_claims_skipped).toBe(1)
+      const third = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(third.run_metrics.total_claims_reprocessed).toBe(0)
+      expect(third.manifestBytes).toBe(second.manifestBytes)
+    } finally {
+      fs.writeFileSync(claimsPath, old, 'utf8')
+    }
+  })
+
+  it('rejects duplicate and unsafe identifiers before writing artifacts', () => {
+    expect(() => runClaimDnaBatch({ batchId: 'fixture-duplicate', claimIds: ['good-claim', 'good-claim'], root: fixtureRoot })).toThrow('duplicate')
+    expect(() => runClaimDnaBatch({ batchId: '../invalid', claimIds: ['good-claim'], root: fixtureRoot })).toThrow('invalid')
   })
 
   it('handles missing and empty PMIDs gracefully', () => {
