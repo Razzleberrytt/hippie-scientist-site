@@ -44276,6 +44276,160 @@
       "reservation_id": "78f73b7d44330f544811",
       "reserved_at": "2026-10-10T05:40:37.710Z",
       "source_branch": "research/intake/1/20261010-0135-melissa-ashwagandha-kava-four"
+    },
+    {
+      "pmid": "42533557",
+      "title": "Effects of Exergame Balance Training with Variable Cognitive Motor Challenges on Serum BDNF, p-tau181, and Cognitive Functions in Adults with Mild Cognitive Impairment: A Randomized Trial.",
+      "doi": "10.1177/2161783X261461636",
+      "source_title": "Effects of Exergame Balance Training with Variable Cognitive Motor Challenges on Serum BDNF, p-tau181, and Cognitive Functions in Adults with Mild Cognitive Impairment: A Randomized Trial.",
+      "abstract": "Cognitive-motor exergame balance training may increase attentional demands and neuronal processing, potentially affecting serum levels of brain-derived neurotrophic factor (BDNF), Aβ1-42, and p-tau181, as well as train cognitive abilities in adults with mild cognitive impairment (MCI). This study aimed to compare the effects of exergame balance training of mild, moderate, high-difficulty, and Wii Fit™ groups on blood serum levels of BDNF, Aβ1-42, p-tau181, and cognition function in adults with MCI. In this four-arm, parallel group randomized clinical trial, 97 adults with MCI were randomly assigned to exergame balance training groups of mild, moderate, high-difficulty, and Wii Fit exergame as a control group. All participants received 40 min/session, 3 times/week for 8 weeks. Assessment of serum levels of p-tau181, Aβ1-42, BDNF, and cognitive functions was conducted at baseline, after weeks 4 and 8. A mixed-model analysis of covariance was used, with post-baseline measurements (weeks 4 and 8) specified as the within-subject factor and the corresponding baseline value entered as a covariate to adjust for initial between-group variability. A significant group × time interaction was found for BDNF, F (3,92) = 6.413, P = 0.017, ηp 2 = 0.181; p-tau181, F (3,92) = 4.640, P = 0.040, ηp 2 = 0.138; attention, F (3,92) = 4.171, P = 0.045, ηp 2 = 0.057; abstraction, F (3,92) = 4.263, P = 0.043, ηp 2 = 0.058; and visuospatial skills, F (3,92) = 6.931, P < 0.001, ηp 2 = 0.234. Cognitive-motor challenge-based exergame balance training was associated with an increase in serum BDNF, a reduction in p-tau181. In contrast, the Aβ1-42 levels remained stable. These changes were accompanied by improvement in selective cognitive functions (attention, abstraction, and visuospatial skills) in individuals with MCI. Greater effects were observed in moderate and high-difficulty groups, suggesting the importance of intervention intensity in promoting cognitive and neurobiological outcomes in MCI.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42533557/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42533557",
+        "doi": "10.1177/2161783X261461636",
+        "journal": "Games for health journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T05:50:07.867Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "00345649103b6fd804b4",
+      "reserved_at": "2026-10-10T05:50:12.357Z",
+      "source_branch": "research/intake/2/20261010-0147-cognition-metabolic-r39"
+    },
+    {
+      "pmid": "42674358",
+      "title": "Effect of sucrose-free brazzein-sweetened ice cream on continuously monitored glycemic response in patients with metabolic dysfunction-associated steatotic liver disease: A randomized controlled double-blind crossover trial.",
+      "doi": "10.1016/j.clnesp.2026.105066",
+      "source_title": "Effect of sucrose-free brazzein-sweetened ice cream on continuously monitored glycemic response in patients with metabolic dysfunction-associated steatotic liver disease: A randomized controlled double-blind crossover trial.",
+      "abstract": "Reducing sugar intake is one of the key targets for improving metabolic health in metabolic dysfunction-associated steatotic liver disease (MASLD), and natural sugar substitutes remain insufficiently studied. Brazzein, a natural sweet protein 500-2000 times sweeter than sucrose, may allow replacement of sucrose while preserving sweetness, but clinical data are lacking. We aimed to evaluate postprandial glycemic responses to brazzein-sweetened ice cream, with and without inulin, compared with sucrose-sweetened ice cream in adults with MASLD, using continuous glucose monitoring (CGM). In this double-blind, randomized, 3-period crossover trial, 101 adults with MASLD (mean age: 54.6 y; 76% female; 44% with type 2 diabetes) consumed 100 g of ice cream sweetened with sucrose (14 g), brazzein (0.014%), or brazzein plus inulin (0.014% + 4 g) on separate days. Factory-calibrated CGM sensors were used. Principal analytic outcomes were glucose over 150 min and incremental area under the curve (iAUC). Linear mixed-effects models estimated treatment effects with adjustment for baseline glucose, period, sequence, and diabetes status. Complementary analyses evaluated whether between-formulation differences were explained by total carbohydrate content alone. Compared with sucrose-sweetened, both brazzein-containing formulations produced smaller postprandial glucose excursions from 30 to 135 min (treatment × time interaction, P < 0.001). Model-adjusted iAUC was 66.3 mmol/L × min (95% CI: 54.5, 78.0) for sucrose, 31.7 (19.9, 43.6) for brazzein, and 34.3 (22.5, 46.1) for brazzein plus inulin formulations. Relative to sucrose-sweetened, iAUC was 52% lower with brazzein and 48% lower with brazzein plus inulin formulations (both P < 0.001), whereas brazzein and brazzein plus inulin formulations did not differ significantly. Complementary analyses showed that the between-formulation differences were not explained by total carbohydrate content alone. Exploratory analyses showed that formulation-related glucose trajectories differed according to diabetes status (P < 0.001). Within-stratum analyses showed lower iAUC for both brazzein-sweetened products relative to the sucrose control in participants with and without diabetes. No period, sequence, or carryover effects were observed. In adults with MASLD, the tested sucrose-free brazzein-containing ice cream formulations produced substantially smaller acute CGM-derived postprandial glucose excursions and lower iAUC over 150 min than sucrose-sweetened ice cream. The similar responses observed with brazzein alone and brazzein plus inulin suggest that adding 4 g inulin did not abolish the acute glycemic advantage of the brazzein-containing formulation. Longer-term studies are needed to determine whether repeated substitution of sucrose-containing desserts with brazzein-sweetened alternatives translates into sustained metabolic, hepatic, microbiome, or behavioral benefits. ClinicalTrials.gov NCT06724913.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42674358/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42674358",
+        "doi": "10.1016/j.clnesp.2026.105066",
+        "journal": "Clinical nutrition ESPEN",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T05:50:07.868Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2f915b70f67fb5f5afd4",
+      "reserved_at": "2026-10-10T05:50:12.357Z",
+      "source_branch": "research/intake/2/20261010-0147-cognition-metabolic-r39"
     }
   ],
   "batches": [
@@ -44304,16 +44458,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 561,
+    "total_reservations": 563,
     "by_lane": {
       "1": 34,
-      "2": 103,
+      "2": 105,
       "3": 101,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 561
+      "SOURCE_VERIFIED": 563
     },
     "batches": [
       {
@@ -44326,7 +44480,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 61,
+        "count": 63,
         "pr_number": null,
         "blocker": null
       }
