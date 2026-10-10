@@ -49277,6 +49277,160 @@
       "reservation_id": "25de1018f3f821eda97d",
       "reserved_at": "2026-10-10T19:45:39.274Z",
       "source_branch": "research/intake/1/20261010-1541-eeg-sound-probiotic-three"
+    },
+    {
+      "pmid": "42131831",
+      "title": "AI-driven telerehabilitation for older adults with mild cognitive impairment: a randomized controlled trial.",
+      "doi": "10.3389/fneur.2026.1813694",
+      "source_title": "AI-driven telerehabilitation for older adults with mild cognitive impairment: a randomized controlled trial.",
+      "abstract": "With the rising prevalence of aging populations, accessible interventions for Mild Cognitive Impairment (MCI) are critical. MCI, a high-risk transitional state to dementia, is considered the most opportune window for intervention to maintain or enhance cognitive function. This study evaluates the clinical efficacy of Zenicog ® , an Artificial Intelligence (AI)-driven, self-guided, home-based cognitive rehabilitation program designed to overcome logistical barriers of conventional therapy. A total of 70 older adults (aged 65 years or older) with MCI (indicated by a K-MMSE2 score between 18 and 26) were recruited for this delayed-treatment parallel randomized clinical trial with an exploratory crossover phase. Participants were randomized into Group AB (intervention-first) or Group BA (control-first). The intervention consisted of a 5-week home program (24 sessions) using an AI algorithm for autonomous difficulty adjustment. The primary outcome was global cognitive function, measured by the K-MMSE2. Secondary outcomes included domain-specific cognitive tests [Digit Span Forward (DSF), Digit Span Backward (DSB), Trail Making Test-A/B (TMT-A/B)], psychosocial measures and usability and adverse events were also assessed. Primary analysis focused on Period 1 (T1), comparing Group AB (intervention) to Group BA (control). Participants were randomized via a computer-generated block randomization method. Randomization used concealed allocation via sequentially numbered opaque envelopes prepared independently, with group assignment performed by a blinded investigator. Sixty-two participants were included in the final analysis, randomly allocated to Group AB ( n = 35) or Group BA ( n = 35). At the end of Period 1, the intervention group showed significantly higher K-MMSE2 scores compared to the control group (median 28.0 vs. 26.0; p < 0.001). Crossover analysis confirmed significant K-MMSE2 gains occurred only during the intervention periods for both groups. Clinical success (K-MMSE2 ≥27) was achieved by 93.9% of the intervention group vs. 0% of the control. No significant differences were found in domain-specific tests. Usability and satisfaction scores were high (≥4.5/5), with zero dropouts due to adverse effects. AI-driven, self-guided telerehabilitation is a feasible and effective strategy for improving global cognitive function in MCI patients. Its scalability and minimal supervision requirements make it a viable alternative to clinic-based therapy in aging societies. Clinical Research Information Service (CRIS), KCT0008968, https://cris.nih.go.kr/cris/search/detailSearch.do?seq=31040&search_page=L. Registered on November 21, 2023.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42131831/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42131831",
+        "doi": "10.3389/fneur.2026.1813694",
+        "journal": "Frontiers in neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:03:40.616Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "09eebf39244efe6edbf9",
+      "reserved_at": "2026-10-10T20:03:46.985Z",
+      "source_branch": "research/intake/2/20261010-1556-cognition-metabolic-r53"
+    },
+    {
+      "pmid": "42090476",
+      "title": "Wuqinxi exercise for mind and balance: Enhancing cognition, fall prevention, and quality of life in older adults with mild cognitive impairment.",
+      "doi": "10.1371/journal.pone.0346490",
+      "source_title": "Wuqinxi exercise for mind and balance: Enhancing cognition, fall prevention, and quality of life in older adults with mild cognitive impairment.",
+      "abstract": "The risk of falls is a global public health issue, with over 38 million disability-adjusted life years lost annually due to falls. However, older adults with mild cognitive impairment (MCI) are more likely to fall and suffer more severe injuries compared to cognitively normal older adults, which also has an impact on their quality of life. This study was a randomized, controlled trial with two parallel groups, allocated in a 1:1 ratio using a concealed allocation mechanism and assessor blinding. 53 participants were randomly assigned to the 12-week Wuqinxi exercise group or the 12-week stretching exercise group. Overall cognitive function, risk of falls, and quality of life were assessed at baseline and at post. Independent t-tests and non-parametric tests were used to compare the outcome variables between the two groups. There were no significant differences in baseline demographic characteristics or assessment indicators between Wuqinxi exercise group and stretching exercise group (P > 0.05), indicating comparability between the groups. After 12 weeks of intervention, the Wuqinxi exercise group showed significant improvements in primary outcome measures, including cognitive function and risk of falls (P < 0.001). In the SF-12 quality of life, Wuqinxi exercise group showed statistically significant improvements in six dimensions (P < 0.05), including general Health (GH), physical Function (PF), role Physical (RP), body Pain (BP), role Emotional (RE), and mental Health (MH). In two dimensions insignificant vitality (VT, P = 0.649) and social function (SF, P = 0.089). The median and interquartile range after intervention were also overall better in the Wuqinxi exercise group. In addition, the Mini-Mental State Examination (MMSE) was significantly negatively correlated with Timed Up and Go TestTimed Up and Go Test (TUG) (r = -0.52, p < 0.01) and significantly positively correlated with Modified Falls Efficacy Scale (MFES) (r = 0.463, p < 0.05). The improvement in quality of life in the BP and SF dimensions was significantly positively correlated with the increase Montreal Cognitive Assessment (MoCA) and MMSE respectively (BP-MoCA: r = 0.406, p < 0.05; SF-MMSE: r = 0.399, p < 0.05). The Wuqinxi exercise is a feasible and acceptable intervention for improving cognitive function, preventing falls, and enhancing quality of life in older adults with MCI. Our study's findings emphasize the importance of Wuqinxi exercise in older adults' health management and confirm the feasibility of a large-scale andomized controlled trial.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42090476/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42090476",
+        "doi": "10.1371/journal.pone.0346490",
+        "journal": "PloS one",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:03:40.618Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5fc3156069e6e5ba34f7",
+      "reserved_at": "2026-10-10T20:03:46.985Z",
+      "source_branch": "research/intake/2/20261010-1556-cognition-metabolic-r53"
     }
   ],
   "batches": [
@@ -49305,16 +49459,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 626,
+    "total_reservations": 628,
     "by_lane": {
       "1": 55,
-      "2": 128,
+      "2": 130,
       "3": 118,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 626
+      "SOURCE_VERIFIED": 628
     },
     "batches": [
       {
@@ -49327,7 +49481,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 126,
+        "count": 128,
         "pr_number": null,
         "blocker": null
       }
