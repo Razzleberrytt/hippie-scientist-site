@@ -46428,6 +46428,82 @@
       "reservation_id": "38f7b447b4aca6d7f87d",
       "reserved_at": "2026-10-10T11:46:34.617Z",
       "source_branch": "research/intake/1/20261010-0743-qbd-42021579"
+    },
+    {
+      "pmid": "42815441",
+      "title": "Integrated assessment of cytochrome P450 inhibition by açaí and mass spectrometry-based identification of P450 inhibitory constituents using biochemometric approaches.",
+      "doi": "10.1016/j.dmd.2026.100388",
+      "source_title": "Integrated assessment of cytochrome P450 inhibition by açaí and mass spectrometry-based identification of P450 inhibitory constituents using biochemometric approaches.",
+      "abstract": "The widespread use of Euterpe oleracea Mart (açaí) has raised concerns regarding potential drug interactions, particularly with narrow therapeutic index medications such as chemotherapeutic agents. Despite açaí's reputed anti-inflammatory and antioxidant properties, adverse events, including cardiovascular injury, have been reported. Because cytochrome P450 (P450) enzymes play a pivotal role in drug disposition and toxicity, the limited understanding of açaí-mediated effects on clinically relevant P450 isoforms warrants further investigation. This study evaluated the inhibitory potential of various açaí extracts on multiple P450 isoforms using a cocktail assay. Nature's Way acidic methanol extract, mountain rose methanol extract, and mountain rose ethanol extract exhibited potent to moderate inhibition of CYP2C9, with IC 50 values of 3.23, 42.24, and 68.86 μg/mL, respectively. Further fractionation revealed that the dichloromethane and ethyl acetate fractions of all 3 extracts, as well as the hexane fraction of Nature's Way acidic methanol extract, were primarily responsible for the observed CYP2C9 inhibition. Liquid chromatography-mass spectrometry data was processed for chemometric analysis, including principal component analysis, hierarchical clustering, and correlation matrix, to compare compositional differences among fractions. Untargeted metabolomics highlighted solvent-dependent chemical diversity. Random forest analysis was subsequently integrated with observed bioactivity data to prioritize potential CYP2C9 inhibitory constituents in açaí. Features identified as important were analyzed using targeted tandem mass spectrometry, enabling putative annotation of 5 compounds across positive and negative ionization modes. Collectively, these findings could indicate a potential for açaí-drug interactions, particularly with chemotherapeutic or supportive care drugs metabolized by CYP2C9. Further confirmatory clinical drug interaction studies are warranted to better define the extent of any potential risk. SIGNIFICANCE STATEMENT: Açaí has garnered increasing attention for its potential to complement conventional chemotherapeutic regimens, often without disclosure to physicians. Reports of vascular adverse events when açaí is coadministered with cytochrome P450 (P450)-interacting anticancer agents raise concerns about potential pharmacokinetic interactions. Because many oncology drugs have a narrow therapeutic index, alterations in P450-mediated metabolism may enhance drug toxicity or diminish therapeutic efficacy. This highlights the need for evaluation of P450-mediated açaí-drug interactions to guide the safe and effective use of açaí.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42815441/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42815441",
+        "doi": "10.1016/j.dmd.2026.100388",
+        "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T12:04:22.622Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8cad093131bff9682368",
+      "reserved_at": "2026-10-10T12:04:26.539Z",
+      "source_branch": "research/intake/3/20261010-0802-acai-cyp2c9-42815441"
     }
   ],
   "batches": [
@@ -46456,16 +46532,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 589,
+    "total_reservations": 590,
     "by_lane": {
       "1": 43,
       "2": 114,
-      "3": 107,
+      "3": 108,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 589
+      "SOURCE_VERIFIED": 590
     },
     "batches": [
       {
@@ -46478,7 +46554,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 89,
+        "count": 90,
         "pr_number": null,
         "blocker": null
       }
