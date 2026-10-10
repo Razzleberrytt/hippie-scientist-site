@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-09-enrichment-waves-8001-8500-final",
+  "rolling_batch_id": "rolling-0001",
+  "range": "8001-8500",
+  "state": "source_verified_independent_semantic_review_pending",
+  "research_only": true,
+  "fail_closed": true,
+  "previous_unique_pmids": 7935,
+  "accepted_new_unique_pmids": 500,
+  "cumulative_unique_pmids": 8435,
+  "exact_title_verified": 500,
+  "abstract_verified": 500,
+  "admission_policy": {
+    "published_entities": false,
+    "recommendations": false,
+    "dosing_claims": false,
+    "runtime_admission": false,
+    "clinical_claims_require_separate_review": true
+  },
+  "artifact_parts": [
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-09-enrichment-waves-8001-8500-efetch-verified-part-01.json",
+      "blob_sha": "01c96f0f62fbf841259df4732b9a97dbfa292faf",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-09-enrichment-waves-8001-8500-efetch-verified-part-02.json",
+      "blob_sha": "afa53bb7baae6f10be00f7e052d16f63fa03e8c9",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-09-enrichment-waves-8001-8500-efetch-verified-part-03.json",
+      "blob_sha": "3932ef92c901f9eb12352c4ed9846c9b40ddcecc",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-09-enrichment-waves-8001-8500-efetch-verified-part-04.json",
+      "blob_sha": "3dae062a575efe2d814f774001c00d86bff42576",
+      "rows": 100
+    },
+    {
+      "path": "ops/enrichment-submissions/reconciliation/2026-10-09-enrichment-waves-8001-8500-efetch-verified-part-05.json",
+      "blob_sha": "9f67037a5a0b03cc70fbf48171428d7df5ba0a60",
+      "rows": 100
+    }
+  ],
+  "cumulative_index": "ops/enrichment-submissions/reconciliation/2026-10-09-enrichment-waves-8001-8500-pmid-index.json",
+  "independent_semantic_review": false,
+  "batch_content_sha256": "48af24fd8ddaab85ec084a1ae51b843d4ef6e24b228e62a5e4eddc729043487b",
+  "predecessor_snapshots": [
+    {
+      "pr_number": 6397,
+      "head_sha": "f8b3744a014e3f4b814484735c0e9616b4cd44a3",
+      "wave_start": 7501,
+      "wave_end": 8000,
+      "pmid_sha256": "76c275e06ec34c3339ee6d35a9d590d4bbaadd1f5977a73e495cf2d860781063"
+    }
+  ]
+}
