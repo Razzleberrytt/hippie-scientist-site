@@ -46351,6 +46351,83 @@
       "reservation_id": "327856fff94457f2b263",
       "reserved_at": "2026-10-10T11:09:05.480Z",
       "source_branch": "research/intake/3/20261010-0707-berberine-bcrp-41901337"
+    },
+    {
+      "pmid": "42021579",
+      "title": "Qinghao Biejia Decoction Combined with Auricular Acupoint Seed Embedding in Improving TCM Syndromes and Sleep Parameters in Perimenopausal Insomnia Patients.",
+      "doi": "10.1080/15402002.2026.2657918",
+      "source_title": "Qinghao Biejia Decoction Combined with Auricular Acupoint Seed Embedding in Improving TCM Syndromes and Sleep Parameters in Perimenopausal Insomnia Patients.",
+      "abstract": "To evaluate the efficacy and safety of QinghaoBiejia Decoction (QBD) combined with auricular acupoint seed embedding (AASE) in improving Traditional Chinese Medicine (TCM) syndromes and sleep parameters in perimenopausal insomnia patients. This singlecenter, randomized, parallel-group controlled trial enrolled 160 perimenopausal women aged 45-55 years with insomnia. Participants were randomly allocated (1:1:1:1) to four groups: (1) QBD plus AASE, (2) QBD alone, (3) AASE alone, or (4) sleep hygiene education control. The intervention period was 8 weeks with 12-week follow-up. Primary outcome was Pittsburgh Sleep Quality Index (PSQI) change from baseline. Secondary outcomes included polysomnography parameters, TCM syndrome scores, Insomnia Severity Index (ISI), Menopause Rating Scale (MRS), hormone levels, and heart rate variability. The combination group showed significantly greater PSQI reduction (-5.82 ± 2.14) compared to QBD alone (-3.76 ± 1.98), AASE alone (-3.21 ± 2.05), and control (-1.43 ± 1.76) groups (all p < .001). Objective sleep parameters including total sleep time (TST), sleep efficiency (SE), and wake after sleep onset (WASO) improved significantly in the combination group. TCM syndrome scores decreased by 68.4% in the combination group versus 45.2%, 41.8%, and 18.6% in other groups respectively. The clinical effective rate was 90.0% for combination therapy. Adverse events were minimal (3.3%) and mild. QBD combined with AASE demonstrates superior efficacy compared to monotherapy in treating perimenopausal insomnia, significantly improving both subjective and objective sleep parameters while ameliorating TCM syndromes. This integrative approach offers a safe and effective treatment option for perimenopausal women with insomnia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42021579/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42021579",
+        "doi": "10.1080/15402002.2026.2657918",
+        "journal": "Behavioral sleep medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T11:46:28.663Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "38f7b447b4aca6d7f87d",
+      "reserved_at": "2026-10-10T11:46:34.617Z",
+      "source_branch": "research/intake/1/20261010-0743-qbd-42021579"
     }
   ],
   "batches": [
@@ -46379,16 +46456,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 588,
+    "total_reservations": 589,
     "by_lane": {
-      "1": 42,
+      "1": 43,
       "2": 114,
       "3": 107,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 588
+      "SOURCE_VERIFIED": 589
     },
     "batches": [
       {
@@ -46401,7 +46478,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 88,
+        "count": 89,
         "pr_number": null,
         "blocker": null
       }
