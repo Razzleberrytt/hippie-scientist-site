@@ -42360,6 +42360,236 @@
       "reservation_id": "57279d82d45497d59aee",
       "reserved_at": "2026-10-10T00:09:35.044Z",
       "source_branch": "research/intake/3/20261009-2008-aspirin-bupleurum-grapefruit-three"
+    },
+    {
+      "pmid": "41698831",
+      "title": "Cannabinol for Acute Treatment of Insomnia Disorder in a Randomized Placebo-Controlled Crossover Trial.",
+      "doi": "10.1111/jsr.70284",
+      "source_title": "Cannabinol for Acute Treatment of Insomnia Disorder in a Randomized Placebo-Controlled Crossover Trial.",
+      "abstract": "Insomnia disorder is harmful and requires novel treatments. Cannabinol, an oxidative by-product of Δ9-tetrahydrocannabinol, is claimed to be a hypnotic, but its effects on objective sleep and insomnia remain unknown. This randomized, double-blind, placebo-controlled, three-arm, single-night crossover trial evaluated the acute efficacy and safety of cannabinol for insomnia disorder. Twenty adults (aged 25-65) with physician-diagnosed insomnia disorder (meeting DSM-5 and ICSD-3 criteria; Insomnia Severity Index ≥ 15) were enrolled at the Woolcock Institute of Medical Research (Sydney, Australia) between August 2022 and September 2023. Participants received a single 2 mL oral dose of 30 mg (1.5%) or 300 mg (15%) cannabinol, or matched placebo (2-week washout). All participants (17 female and 3 males; mean ± SD age 42 ± 13 years) completed the protocol and were statistically analysed. The primary outcome was wake after sleep onset (WASO) minutes, measured by overnight polysomnography. Cannabinol did not significantly change WASO (300 mg: -6.3 min [95% CI: -18.2, +5.5], p = 0.29, dz = -0.22; 30 mg: -4.0 min [-15.9, +7.9], p = 0.50, dz = 0.11). However, 300 mg cannabinol increased non-rapid eye movement-2 sleep (p = 0.03, dz = 0.54), subjective sleep quality (p = 0.005, dz = 0.56); and reduced sleep onset latency (p = 0.004, dz = -0.74) and electroencephalographic arousal indices (p = 0.02, dz = -0.65). There were 247 mild-to-moderate adverse events across arms. Larger, longer trials are warranted. ClinicalTrials.gov Identifier: NCT05344170.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41698831/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human insomnia trial of cannabinol, randomized aromatherapy trial addressing anxiety and depression, and aromatherapy-anxiety systematic review; PubMed source identities verified; interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41698831",
+        "doi": "10.1111/jsr.70284",
+        "journal": "Journal of sleep research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:46:05.366Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "287fb56e44821997c309",
+      "reserved_at": "2026-10-10T00:46:08.781Z",
+      "source_branch": "research/intake/1/20261009-2042-cbn-aromatherapy-three"
+    },
+    {
+      "pmid": "42191515",
+      "title": "Aromatherapy Massage Reduces Psychological Distress in Rheumatoid Arthritis: A Randomized Controlled Trial.",
+      "doi": "10.1016/j.pmn.2026.04.024",
+      "source_title": "Aromatherapy Massage Reduces Psychological Distress in Rheumatoid Arthritis: A Randomized Controlled Trial.",
+      "abstract": "To evaluate the effects of aromatherapy massage on anxiety and depressive symptoms in patients with rheumatoid arthritis. A three-arm randomized controlled trial. Participants were randomly assigned to aromatherapy massage, placebo massage, or control groups. Psychological distress was operationalized as anxiety and depressive symptoms, measured using the Hospital Anxiety and Depression Scale at baseline and post-intervention. Generalized estimating equations were used to examine group differences over time. Analyses were conducted under the missing-at-random assumption. The aromatherapy group demonstrated greater reductions in anxiety and depressive symptoms compared with controls. However, differences between the aromatherapy and placebo groups were not statistically significant. Adjusted mean differences and 95% confidence intervals indicated small-to-moderate effect sizes. Aromatherapy massage may be associated with improvements in anxiety and depressive symptoms; however, these effects may not be attributable solely to the specific properties of essential oils. Aromatherapy massage may be a complementary approach for managing anxiety and depressive symptoms in patients with rheumatoid arthritis; however, further research is needed to clarify its specific and non-specific mechanisms.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42191515/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human insomnia trial of cannabinol, randomized aromatherapy trial addressing anxiety and depression, and aromatherapy-anxiety systematic review; PubMed source identities verified; interpretation pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42191515",
+        "doi": "10.1016/j.pmn.2026.04.024",
+        "journal": "Pain management nursing : official journal of the American Society of Pain Management Nurses",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:46:05.366Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ba45ffab7ab604b0f850",
+      "reserved_at": "2026-10-10T00:46:08.781Z",
+      "source_branch": "research/intake/1/20261009-2042-cbn-aromatherapy-three"
+    },
+    {
+      "pmid": "42745219",
+      "title": "Effect of Aromatherapy on Anxiety and Physiological Parameters in Patients Undergoing Coronary Angiography: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.1097/CRD.0000000000001472",
+      "source_title": "Effect of Aromatherapy on Anxiety and Physiological Parameters in Patients Undergoing Coronary Angiography: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Anxiety is common among patients undergoing coronary angiography and may adversely affect physiological stability and procedural outcomes. Although pharmacological anxiolytics are commonly used, they may be associated with undesirable adverse effects. Aromatherapy has been proposed as a complementary intervention with potential anxiolytic benefits. This systematic review and meta-analysis evaluated the effectiveness of inhalational aromatherapy in reducing anxiety and improving physiological parameters in patients undergoing coronary angiography. The review was conducted in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 guidelines and registered in the International Prospective Register of Systematic Reviews (CRD420261329600). A comprehensive search of PubMed/MEDLINE, Embase, Scopus, and Cochrane CENTRAL was performed from database inception to October 2025. Randomized controlled trials comparing inhalational aromatherapy with standard care or placebo before coronary angiography were included. Outcomes of interest were anxiety scores, systolic and diastolic blood pressure, heart rate, and respiratory rate. Data were pooled using a random-effects model and reported as standardized mean differences (SMDs) or mean differences with 95% confidence intervals (CIs). Three randomized controlled trials involving 274 participants met the inclusion criteria. Baseline anxiety levels were comparable between the aromatherapy and control groups (SMD 0.06, 95% CI -0.18 to 0.30; I2 = 3%). Aromatherapy significantly reduced postprocedural anxiety (SMD -0.66, 95% CI -1.20 to -0.13; I2 = 79%). No statistically significant differences were observed between groups in systolic blood pressure, diastolic blood pressure, heart rate, or respiratory rate. These findings suggest that aromatherapy may be an effective complementary intervention for reducing anxiety in patients undergoing coronary angiography, although its effects on physiological parameters remain uncertain. Larger, high-quality randomized controlled trials are needed to confirm these findings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42745219/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human insomnia trial of cannabinol, randomized aromatherapy trial addressing anxiety and depression, and aromatherapy-anxiety systematic review; PubMed source identities verified; interpretation pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42745219",
+        "doi": "10.1097/CRD.0000000000001472",
+        "journal": "Cardiology in review",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:46:05.366Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "802afeac8995258440c0",
+      "reserved_at": "2026-10-10T00:46:08.781Z",
+      "source_branch": "research/intake/1/20261009-2042-cbn-aromatherapy-three"
     }
   ],
   "batches": [
@@ -42388,16 +42618,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 536,
+    "total_reservations": 539,
     "by_lane": {
-      "1": 24,
+      "1": 27,
       "2": 93,
       "3": 98,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 536
+      "SOURCE_VERIFIED": 539
     },
     "batches": [
       {
@@ -42410,7 +42640,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 36,
+        "count": 39,
         "pr_number": null,
         "blocker": null
       }
