@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 3,
+  "lane_focus": "botanical-pharmacology-safety",
+  "research_only": true,
+  "pmids": [
+    "41502355"
+  ],
+  "relevance_reason": "PubMed-verified review of ashwagandha adverse effects, herb-drug interactions and toxicology; scientific interpretation remains pending independent review."
+}
