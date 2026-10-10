@@ -1,0 +1,144 @@
+{
+  "analytical_outputs": {
+    "canonical_study_identities": [
+      "pmid:34269984"
+    ],
+    "publication_metadata": {
+      "34269984": {
+        "authorCount": 6,
+        "authorList": [
+          "Deng M",
+          "Chen H",
+          "Long J",
+          "Song J",
+          "Xie L",
+          "Li X"
+        ],
+        "authors": "Deng M et al.",
+        "doi": "10.1007/s12272-021-01342-6",
+        "fetchedFrom": "pubmed-esummary",
+        "journal": "Arch Pharm Res",
+        "pages": "633-654",
+        "pmid": "34269984",
+        "publicationTypes": [
+          "Journal Article",
+          "Review"
+        ],
+        "title": "Atractylenolides (I, II, and III): a review of their pharmacology and pharmacokinetics",
+        "volume": "44",
+        "year": 2021
+      }
+    }
+  },
+  "claim_id": "rg-0344",
+  "claim_text": "Immune/survival signaling (preclinical).",
+  "evidence_assessment": "not_evaluated",
+  "evidence_relationship": "unassessed",
+  "generator_version": "round-1a-runner/0.1",
+  "input_hashes": {
+    "ops/cache/pubmed-metadata.json": "c0bed4f4e7203fec5c20dff61fca4e1e17f3bb74ce7a85a140323f2579553275",
+    "public/data/claims.json": "4e4cb1f957ec2f54b78be5c2208d512101b03b95ffce97d17275fe061e51b7f6",
+    "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+  },
+  "join_metrics": {
+    "identity_resolutions": 1,
+    "metadata_resolutions": 1,
+    "successful_join_pmids": [
+      "34269984"
+    ],
+    "successful_joins": 1,
+    "unresolved_identifiers": 0
+  },
+  "manifest": {
+    "generator_version": "round-1a-runner/0.1",
+    "schema_version": "claim-dna-1a/0.1",
+    "source_fingerprints": {
+      "ops/cache/pubmed-metadata.json": "c0bed4f4e7203fec5c20dff61fca4e1e17f3bb74ce7a85a140323f2579553275",
+      "public/data/claims.json": "4e4cb1f957ec2f54b78be5c2208d512101b03b95ffce97d17275fe061e51b7f6",
+      "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+    }
+  },
+  "pmids": [
+    "34269984"
+  ],
+  "profile_slug": "atractylenolide-i",
+  "provenance_status": "primary_linked",
+  "resolution_status": "resolved",
+  "schema_version": "claim-dna-1a/0.1",
+  "sources": [
+    {
+      "id": "src_pubmed-34269984",
+      "pmid": "34269984",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34269984/"
+    }
+  ],
+  "traceability": [
+    {
+      "inputs": [
+        "public/data/claims.json#rg-0344"
+      ],
+      "output": "production_claim",
+      "via": "loadProductionClaims+findProductionClaim"
+    },
+    {
+      "inputs": [
+        "public/data/claims.json#rg-0344"
+      ],
+      "output": "synthetic_research_profile",
+      "via": "adaptClaimToProfile"
+    },
+    {
+      "inputs": [
+        "synthetic_research_profile"
+      ],
+      "output": "normalized_profile",
+      "via": "adapter emits pre-normalized single-PMID source records"
+    },
+    {
+      "inputs": [
+        "src_pubmed-34269984"
+      ],
+      "output": "canonical_study_identities",
+      "via": "canonicalStudyIdentityMap+uniqueClaimStudyIdentities"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.34269984"
+      ],
+      "output": "publication_metadata:34269984",
+      "via": "loadPubmedCache (usable)"
+    },
+    {
+      "inputs": [
+        "claims.json:pmid:rg-0344"
+      ],
+      "output": "provenance_status",
+      "via": "pmid presence check"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.34269984"
+      ],
+      "output": "resolution_status",
+      "via": "cache membership check"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_assessment",
+      "via": "constant: not evaluated in Round 1"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_relationship",
+      "via": "constant: directionality requires evidence examination"
+    },
+    {
+      "inputs": [
+        "identity:pmid:34269984",
+        "metadata:34269984"
+      ],
+      "output": "join_metrics",
+      "via": "identity+metadata intersection"
+    }
+  ]
+}

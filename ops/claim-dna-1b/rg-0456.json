@@ -1,0 +1,145 @@
+{
+  "analytical_outputs": {
+    "canonical_study_identities": [
+      "pmid:38561618"
+    ],
+    "publication_metadata": {
+      "38561618": {
+        "authorCount": 6,
+        "authorList": [
+          "Hosseini H",
+          "Ghavidel F",
+          "Rajabian A",
+          "Homayouni-Tabrizi M",
+          "Majeed M",
+          "Sahebkar A"
+        ],
+        "authors": "Hosseini H et al.",
+        "doi": "10.2174/0109298673260515240322074849",
+        "fetchedFrom": "pubmed-esummary",
+        "journal": "Curr Med Chem",
+        "pages": "4078-4094",
+        "pmid": "38561618",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "title": "The Effects of Curcumin Plus Piperine Co-administration on Inflammation and Oxidative Stress: A Systematic Review and Meta-analysis of Randomized Controlled Trials",
+        "volume": "32",
+        "year": 2025
+      }
+    }
+  },
+  "claim_id": "rg-0456",
+  "claim_text": "OA pain/inflammation (RCTs/meta).",
+  "evidence_assessment": "not_evaluated",
+  "evidence_relationship": "unassessed",
+  "generator_version": "round-1a-runner/0.1",
+  "input_hashes": {
+    "ops/cache/pubmed-metadata.json": "d041ef73569ef3e69e24af2e4f594dd15de4543688668428de4e581500dbedfe",
+    "public/data/claims.json": "f58cc1ec675243980a1e7f089eb530ab3ff204dd66d3e3eb1af8b6be2982e177",
+    "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+  },
+  "join_metrics": {
+    "identity_resolutions": 1,
+    "metadata_resolutions": 1,
+    "successful_join_pmids": [
+      "38561618"
+    ],
+    "successful_joins": 1,
+    "unresolved_identifiers": 0
+  },
+  "manifest": {
+    "generator_version": "round-1a-runner/0.1",
+    "schema_version": "claim-dna-1a/0.1",
+    "source_fingerprints": {
+      "ops/cache/pubmed-metadata.json": "d041ef73569ef3e69e24af2e4f594dd15de4543688668428de4e581500dbedfe",
+      "public/data/claims.json": "f58cc1ec675243980a1e7f089eb530ab3ff204dd66d3e3eb1af8b6be2982e177",
+      "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+    }
+  },
+  "pmids": [
+    "38561618"
+  ],
+  "profile_slug": "curcumin-piperine",
+  "provenance_status": "primary_linked",
+  "resolution_status": "resolved",
+  "schema_version": "claim-dna-1a/0.1",
+  "sources": [
+    {
+      "id": "src_pubmed-38561618",
+      "pmid": "38561618",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38561618/"
+    }
+  ],
+  "traceability": [
+    {
+      "inputs": [
+        "public/data/claims.json#rg-0456"
+      ],
+      "output": "production_claim",
+      "via": "loadProductionClaims+findProductionClaim"
+    },
+    {
+      "inputs": [
+        "public/data/claims.json#rg-0456"
+      ],
+      "output": "synthetic_research_profile",
+      "via": "adaptClaimToProfile"
+    },
+    {
+      "inputs": [
+        "synthetic_research_profile"
+      ],
+      "output": "normalized_profile",
+      "via": "adapter emits pre-normalized single-PMID source records"
+    },
+    {
+      "inputs": [
+        "src_pubmed-38561618"
+      ],
+      "output": "canonical_study_identities",
+      "via": "canonicalStudyIdentityMap+uniqueClaimStudyIdentities"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.38561618"
+      ],
+      "output": "publication_metadata:38561618",
+      "via": "loadPubmedCache (usable)"
+    },
+    {
+      "inputs": [
+        "claims.json:pmid:rg-0456"
+      ],
+      "output": "provenance_status",
+      "via": "pmid presence check"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.38561618"
+      ],
+      "output": "resolution_status",
+      "via": "cache membership check"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_assessment",
+      "via": "constant: not evaluated in Round 1"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_relationship",
+      "via": "constant: directionality requires evidence examination"
+    },
+    {
+      "inputs": [
+        "identity:pmid:38561618",
+        "metadata:38561618"
+      ],
+      "output": "join_metrics",
+      "via": "identity+metadata intersection"
+    }
+  ]
+}
