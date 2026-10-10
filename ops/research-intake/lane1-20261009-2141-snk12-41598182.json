@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "41598182"
+  ],
+  "relevance_reason": "Randomized placebo-controlled human trial of heat-killed L. plantarum SNK12 assessing sleep quality and stress-related biomarkers; scientific review pending."
+}
