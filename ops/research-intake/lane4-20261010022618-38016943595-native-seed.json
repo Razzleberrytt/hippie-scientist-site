@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 4,
+  "lane_focus": "withdrawal-dependence-nps",
+  "research_only": true,
+  "pmids": [
+    "42685990",
+    "41275876"
+  ],
+  "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance."
+}
