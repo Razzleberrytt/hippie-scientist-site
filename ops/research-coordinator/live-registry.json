@@ -43279,6 +43279,83 @@
       "reservation_id": "5bab0f355a871209c5bb",
       "reserved_at": "2026-10-10T02:26:27.043Z",
       "source_branch": "main"
+    },
+    {
+      "pmid": "42332631",
+      "title": "Effect of Citrus aurantium capsules on peripartum anxiety and postpartum blues: a randomized triple -blind clinical trial.",
+      "doi": "10.1186/s12906-026-05437-9",
+      "source_title": "Effect of Citrus aurantium capsules on peripartum anxiety and postpartum blues: a randomized triple -blind clinical trial.",
+      "abstract": "Maternal anxiety and blue during pregnancy and postpartum can have significant negative effects on mother, child and family. In recent years, the people of Iran, like other countries in the world have paid special attention to the use of medicinal plants due to the side effects of chemical drugs, one of the medicinal plants with sedative and anti-anxiety effects is Citrus aurantium. The aim of this study was to investigate the effect of Citrus aurantium capsules on peripartum anxiety and postpartum blues. In the present clinical trial, 100 pregnant women with anxiety diagnosis were included in the study and randomly divided into control and case groups. The intervention group received 500 mg of Citrus aurantium capsule twice daily and the control group received placebo for 6 weeks (two weeks after delivery). Beck Anxiety Questionnaire was completed before the intervention, immediately after delivery and 2 weeks after delivery, and the postpartum blues checklist was completed immediately after delivery and 2 weeks after delivery. Data were analyzed by SPSS software. The mean anxiety score of the control group at two weeks postpartum was significantly lower than before the intervention (P < 0.05) but at the time of delivery was not significantly different from before the intervention. The mean score of anxiety in the intervention group during delivery and two weeks after delivery was significantly lower than before the intervention (P < 0.05). The mean score of anxiety in the intervention group during the study period was significantly lower than the control group (P < 0.05). The frequency of labor grief during labor in the control and intervention groups did not show a significant difference (P > 0.05), but two weeks after delivery the frequency of labor grief in the intervention group with 28% was significantly lower than the control group with It was 54% (P < 0.05). Citrus aurantium capsule reduces anxiety during and after childbirth and is recommended for use in anxious patients. IRCT20210926052594N1 Registration date: 2021-10-09.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42332631/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42332631",
+        "doi": "10.1186/s12906-026-05437-9",
+        "journal": "BMC complementary medicine and therapies",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T02:45:06.192Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ca7cc4699ed13a3c9c20",
+      "reserved_at": "2026-10-10T02:45:10.591Z",
+      "source_branch": "research/intake/1/20261009-2242-citrus-peripartum-42332631"
     }
   ],
   "batches": [
@@ -43307,16 +43384,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 548,
+    "total_reservations": 549,
     "by_lane": {
-      "1": 28,
+      "1": 29,
       "2": 97,
       "3": 100,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 548
+      "SOURCE_VERIFIED": 549
     },
     "batches": [
       {
@@ -43329,7 +43406,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 48,
+        "count": 49,
         "pr_number": null,
         "blocker": null
       }
