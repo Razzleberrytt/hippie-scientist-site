@@ -48742,6 +48742,82 @@
       "reservation_id": "9e24bf409ca2bc4b8e2c",
       "reserved_at": "2026-10-10T17:58:28.141Z",
       "source_branch": "research/intake/2/20261010-1356-cognition-metabolic-r51"
+    },
+    {
+      "pmid": "41398552",
+      "title": "Low-dose cannabidiol increases plasma concentrations of amitriptyline: A clinical drug-drug interaction study.",
+      "doi": "10.1002/bcp.70415",
+      "source_title": "Low-dose cannabidiol increases plasma concentrations of amitriptyline: A clinical drug-drug interaction study.",
+      "abstract": "Cannabidiol (CBD), the main non-intoxicating compound from the cannabis plant, is regularly used by patients with chronic pain who also take analgesics. CBD has previously been shown to inhibit CYP-mediated drug metabolism. This study aimed to characterize the potential pharmacokinetic interaction of CBD with amitriptyline and tramadol, two commonly used analgesics. This was an open-label, fixed-sequence, 2-way crossover study in 13 healthy participants. On Day 1, 25 mg amitriptyline and 50 mg tramadol were co-administered orally in a fasted condition, followed by a 7-day washout period. On Day 8, 30 mg CBD was administered orally 1 h prior to amitriptyline and tramadol. Pharmacokinetic sampling was performed for CBD, amitriptyline, tramadol and their respective active metabolites nortriptyline and O-desmethyltramadol for up to 24 h post-dose. The areas under the curve (AUCs) were compared between visits using a mixed effects model. Twelve participants (4M/8F) completed the study; one participant (M) dropped out for personal reasons. CBD significantly increased the AUC 0-24h (least square means [LSM] ratio 1.13, 95% CI: 1.01, 1.26, p = 0.033) and the C max (LSM ratio 1.17, 95% CI: 1.01, 1.36, p = 0.041) of amitriptyline. CBD did not significantly change the AUC 0-24h and C max of nortriptyline and tramadol, and the C max of O-desmethyltramadol. A single dose of 30 mg CBD significantly influenced the metabolism of amitriptyline in healthy volunteers. In patients, CBD-induced drug interactions may be more pronounced in chronic dosing and dependent upon prandial status.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41398552/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Human pharmacokinetic study of cannabidiol coadministration with amitriptyline and tramadol, relevant to botanical-drug interaction safety; source identity only, no clinical promotion.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41398552",
+        "doi": "10.1002/bcp.70415",
+        "journal": "British journal of clinical pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T18:09:55.219Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3ff5d3640b143f98c4e9",
+      "reserved_at": "2026-10-10T18:10:00.020Z",
+      "source_branch": "research/intake/3/20261010-1408-cbd-amitriptyline-41398552"
     }
   ],
   "batches": [
@@ -48770,16 +48846,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 619,
+    "total_reservations": 620,
     "by_lane": {
       "1": 51,
       "2": 128,
-      "3": 115,
+      "3": 116,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 619
+      "SOURCE_VERIFIED": 620
     },
     "batches": [
       {
@@ -48792,7 +48868,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 119,
+        "count": 120,
         "pr_number": null,
         "blocker": null
       }
