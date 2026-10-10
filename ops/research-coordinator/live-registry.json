@@ -50585,6 +50585,236 @@
       "reservation_id": "154d3dfe29f9c57c112a",
       "reserved_at": "2026-10-10T22:48:00.645Z",
       "source_branch": "research/intake/1/20261010-1843-null-sleep-exercise-three"
+    },
+    {
+      "pmid": "42109910",
+      "title": "Effects of Baduanjin exercise on working memory in mild cognitive impairment: an fNIRS-based randomized controlled trial.",
+      "doi": "10.3389/fnagi.2026.1829586",
+      "source_title": "Effects of Baduanjin exercise on working memory in mild cognitive impairment: an fNIRS-based randomized controlled trial.",
+      "abstract": "This study utilized functional near-infrared spectroscopy (fNIRS) technology to investigate the effects of Baduanjin exercise on activation levels in the dorsolateral prefrontal cortex (DLPFC), frontal eye field (FEF), and somatosensory cortex (SSC) during working memory tasks in patients with mild cognitive impairment (MCI). A total of 46 MCI patients were randomly assigned to either a Baduanjin group ( n = 23) or a control group ( n = 23). The Baduanjin group underwent a 12-week Baduanjin exercise intervention, while the control group received only health education. Before and after the 12-week intervention, fNIRS was used to measure changes in oxygenated hemoglobin (HbO) levels in 67 channels across the bilateral frontal lobes, temporal lobes, parietal lobes during 1-back tasks. Cognitive function was assessed using the Montreal Cognitive Assessment (MoCA) and the Mini-Mental State Examination (MMSE). Attention, executive function, and visual search ability were evaluated using the Shape Trail Test A and B (STT-A and STT-B). Psychological status was assessed with the Symptom Checklist-90 (SCL-90), and sleep quality was measured using the Pittsburgh Sleep Quality Index (PSQI). Compared to the control group, the Baduanjin group showed significant improvements in MoCA and MMSE scores after 12 weeks of training, along with significant reductions in STT-B completion time, SCL-90 scores, and PSQI scores. Our fNIRS findings demonstrated a significantly greater recruitment of the right somatosensory cortex (SSC-R) in the Baduanjin group at week 12, which coupled positively with improvements in MoCA scores. Notably, such between-group divergence was absent in the DLPFC and FEF, where activation levels remained comparable between the two groups. These findings suggest that Baduanjin training can improve cognitive function in MCI patients, particularly in executive function, which may be associated with increased activation in the SSC-R.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42109910/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42109910",
+        "doi": "10.3389/fnagi.2026.1829586",
+        "journal": "Frontiers in aging neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T22:56:14.771Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9d3c7b2654de018657c5",
+      "reserved_at": "2026-10-10T22:56:20.015Z",
+      "source_branch": "research/intake/2/20261010-1853-cognition-metabolic-r56"
+    },
+    {
+      "pmid": "42342244",
+      "title": "Effect of a Personalized Mobile App on Glucose Control in Adults With Prediabetes and Type 2 Diabetes: Exploratory Pilot Randomized Controlled Trial.",
+      "doi": "10.2196/87692",
+      "source_title": "Effect of a Personalized Mobile App on Glucose Control in Adults With Prediabetes and Type 2 Diabetes: Exploratory Pilot Randomized Controlled Trial.",
+      "abstract": "The incidence of type 2 diabetes (T2D) continues to increase, and the lack of individualized therapy strategies hinders patient engagement with and commitment to a healthy lifestyle. The PROTEIN project aimed to facilitate users in choosing healthy living, thereby improving their metabolism and T2D management. This study aims to assess the efficacy of a personalized mobile app to achieve a 5% time in range (TIR) improvement over a 12-week intervention in adults with prediabetes or T2D. We conducted an exploratory pilot randomized controlled trial with 21 individuals with T2D or prediabetes who used a continuous glucose monitoring system and the PROTEIN mobile app for personalized meals and exercise recommendations based on their glucose levels and physical activity. The TIR of the participants increased (P<.05; from 71.8%, SD 27.3% to 76%, SD 28.1%) with individual use of the PROTEIN app but did not achieve a 5% improvement overall; however, given the exploratory design and small sample size, this finding should be interpreted with caution. Glycated hemoglobin, fasting blood glucose, and body weight did not fluctuate throughout the 12-week intervention. The dropout rate was high, and the average duration of use of the PROTEIN app was 42 (range 5-84) days. Our results showed a modest increase in TIR with the use of the PROTEIN app; however, considering the exploratory design and small sample size, this finding should be interpreted as preliminary. Integrating wearables and automated personalization for well-being is an innovative approach that must keep pace with the accelerated development of ever-evolving technologies. The COVID-19 pandemic was a major obstacle to recruitment in our clinical trial. ClinicalTrials.gov NCT05951140; https://clinicaltrials.gov/study/NCT05951140.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42342244/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42342244",
+        "doi": "10.2196/87692",
+        "journal": "JMIR human factors",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T22:56:14.772Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "09a81d67e4e8c39720f9",
+      "reserved_at": "2026-10-10T22:56:20.015Z",
+      "source_branch": "research/intake/2/20261010-1853-cognition-metabolic-r56"
+    },
+    {
+      "pmid": "41601599",
+      "title": "A 24-week multi-component exercise program improves cognition and body composition in older adults with mild cognitive impairment: a randomized controlled trial.",
+      "doi": "10.3389/fnagi.2025.1711554",
+      "source_title": "A 24-week multi-component exercise program improves cognition and body composition in older adults with mild cognitive impairment: a randomized controlled trial.",
+      "abstract": "This study investigated whether a 24-week, community-based multicomponent exercise intervention (MCEI) can improve body composition and cognitive function in older adults with mild cognitive impairment (MCI). In this single-center, parallel-group randomized controlled trial (RCT), 64 community-dwelling adults aged 65-75 years with MCI characterized by Mini-Mental State Examination (MMSE) ≥ 24, Montreal Cognitive Assessment (MoCA) ≤ 26, Clinical Dementia Rating (CDR) = 0.5, low skeletal muscle mass were randomly allocated (1:1) to a MCEI (aerobic, resistance and balance training, 3 × 60 min/week) or to a usual-activity control (UAC) group receiving weekly health education. Primary outcomes were skeletal muscle mass (SMM), fat-mass index (FMI), MMSE and MoCA; secondary outcomes included skeletal muscle index (SMI), basal metabolic rate (BMR), Instrumental Activities of Daily Living (IADL) and Animal Fluency Test (AFT). Assessments were conducted at baseline and within 1 week post-intervention by trained, blinded assessors. Intervention effects were examined with a 2 (group) × 2 (time) repeated-measures analysis of variance (ANOVA), reporting partial eta-squared (η 2 ) as the effect-size estimate. A significant Group × Time interaction was observed for SMM ( p < 0.001, η 2 = 0.195) and FMI ( p = 0.003, η 2 = 0.153), indicating differential changes between groups; with significant improvements observed only in the MCEI group. SMI showed no significant interaction effect ( p = 0.270, η 2 = 0.021), whereas no significant interactions were found for MMSE, MoCA, or AFT ( p ≥ 0.18, η 2 ≤ 0.03). A 24-week community-based multicomponent exercise program safely increased skeletal muscle mass and reduced fat mass in older adults with MCI, but did not produce measurable improvements on screening-level cognitive measures. Future studies with longer duration, larger samples, and inclusion of cognitive challenges are warranted to clarify exercise-cognition interactions and establish dose-response relationships for both body composition and domain-specific cognition. Identifier ChiCTR2000035012.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41601599/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41601599",
+        "doi": "10.3389/fnagi.2025.1711554",
+        "journal": "Frontiers in aging neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T22:56:14.773Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5601200615764acef3f0",
+      "reserved_at": "2026-10-10T22:56:20.015Z",
+      "source_branch": "research/intake/2/20261010-1853-cognition-metabolic-r56"
     }
   ],
   "batches": [
@@ -50613,16 +50843,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 643,
+    "total_reservations": 646,
     "by_lane": {
       "1": 62,
-      "2": 135,
+      "2": 138,
       "3": 121,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 643
+      "SOURCE_VERIFIED": 646
     },
     "batches": [
       {
@@ -50635,7 +50865,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 143,
+        "count": 146,
         "pr_number": null,
         "blocker": null
       }
