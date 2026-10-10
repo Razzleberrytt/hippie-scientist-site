@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "beetroot-nitrate",
+  "name": "Beetroot Nitrate",
+  "summary": "Beetroot nitrate (dietary nitrate) drives nitric-oxide-mediated exercise and vascular effects. A 2024 crossover (n=44) found beetroot extract improved memory consolidation (+20.7% intermediate, +12.3% delayed recall); a 2024 trial in hypertensive postmenopausal women cut post-exercise systolic BP by 9.3 mmHg. Cognitive effects are new and need replication.",
+  "description": "Canonical beetroot nitrate research entity for evidence and safety integration. Publication remains held until nitrate dose standardization, beetroot vs isolated-nitrate boundaries, and replication status of the cognition signal have passed the site's review gates.",
+  "primary_effects_or_targets": "nitrate-nitrite-nitric oxide pathway; vascular function; exercise performance",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
