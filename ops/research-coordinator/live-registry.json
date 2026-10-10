@@ -42130,6 +42130,236 @@
       "reservation_id": "7253a006359e3764989c",
       "reserved_at": "2026-10-09T23:55:21.349Z",
       "source_branch": "research/intake/2/20261009-1953-fiber-prediabetes-r33"
+    },
+    {
+      "pmid": "41135614",
+      "title": "Pharmacokinetic and pharmacodynamic herb-drug interaction of aspirin with Ijintang (Er Chen Tang) or Cheongsanggyeontongtang (Qing Shang Juan Tong Tang): An exploratory study in healthy adults.",
+      "doi": "10.1016/j.jep.2025.120776",
+      "source_title": "Pharmacokinetic and pharmacodynamic herb-drug interaction of aspirin with Ijintang (Er Chen Tang) or Cheongsanggyeontongtang (Qing Shang Juan Tong Tang): An exploratory study in healthy adults.",
+      "abstract": "Ijintang (IJT) and Cheongsanggyeontongtang (CGT) are traditional herbal medicines frequently administered to post-stroke patients in the Republic of Korea, a population that commonly co-administer them with aspirin for secondary stroke prevention. This concurrent use creates a high potential for clinically significant herb-drug interactions. This study aimed to evaluate the potential pharmacokinetic (PK) and pharmacodynamic (PD) interactions between aspirin and two herbal formulas, IJT and CGT, in healthy adults. An open-label, randomized, three-period, two-sequence crossover trial was conducted in 14 healthy volunteers. Participants received a single 100 mg dose of aspirin alone, and then with multiple doses of IJT or CGT. PK parameters of acetylsalicylic acid (ASA) and salicylic acid (SA), and PD effects on serum thromboxane B2 (TXB2) were assessed. Co-administration with IJT showed a non-significant trend towards increased ASA exposure (Geometric LSM ratio [90 % CI] for AUC last : 1.4362 [0.7547-2.7335]) and decreased SA exposure. Conversely, CGT co-administration showed a trend toward decreased ASA exposure (Geometric LSM ratio for AUC last : 0.7695 [0.4092-1.4472]). Both herbal medicines enhanced aspirin's antiplatelet effect, evidenced by a significant reduction in the maximum change from baseline (MCFB) of TXB2 compared to aspirin alone. The co-administration was safe and well-tolerated. Co-administration of IJT and CGT with aspirin tended to alter the PK profile of aspirin and enhance its antiplatelet activity. While appearing safe in the short-term, the augmented antiplatelet effect warrants clinical awareness of potential interactions, especially with long-term use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41135614/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41135614",
+        "doi": "10.1016/j.jep.2025.120776",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T00:09:29.894Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4a1f969e80f39b822e96",
+      "reserved_at": "2026-10-10T00:09:35.044Z",
+      "source_branch": "research/intake/3/20261009-2008-aspirin-bupleurum-grapefruit-three"
+    },
+    {
+      "pmid": "42150732",
+      "title": "Risk of adverse events associated with co-administration of quetiapine and Bupleuri Radix: A population-based cohort study.",
+      "doi": "10.1016/j.phrs.2026.108251",
+      "source_title": "Risk of adverse events associated with co-administration of quetiapine and Bupleuri Radix: A population-based cohort study.",
+      "abstract": "Bupleuri Radix is a widely used herbal medicine in Asia. Experimental studies suggest it may modulate Cytochrome P450 3A4 (CYP3A4), the primary metabolic pathway of quetiapine, which is a first-line medication for psychosis, potentially altering drug exposure and raising concerns about pharmacokinetic interactions. We examined the risk of acute adverse events associated with concomitant use of Bupleuri Radix-containing formulations and quetiapine. We conducted a retrospective cohort study using a Japanese claims database. Individuals aged 18-75 years initiating quetiapine between 2014 and 2023 were eligible. Exposure was defined as dispensing of Bupleuri Radix-containing formulations during quetiapine use. Risk-set matching (1:4) was performed on age, sex, calendar time, duration of quetiapine exposure. The primary outcome was a composite of acute adverse events, including central nervous system (CNS) depression, orthostatic hypotension, tachycardia. Cox models with inverse probability of treatment weighting estimated hazard ratios (HRs) and 95% confidence intervals (CIs). The matched cohort included 7552 exposed individuals and 30,091 controls. Weighted incidence rate of the composite outcome was 50.59 vs 32.21 per 1000 person-years in the concomitant-use and quetiapine-only groups. Concomitant use was associated with a statistically significant increased risk of the composite outcome (weighted HR 1.28, 95% CI 1.04-1.57) and CNS depression (HR 1.35, 95% CI 1.05-1.74). Concomitant use of Bupleuri Radix-containing formulations with quetiapine was associated with increased risk of acute adverse events, the absolute rate difference approached 2 additional events per 100 person-years, entailing clinical significance. Clinicians should consider this potential risk alongside expected treatment benefits.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42150732/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42150732",
+        "doi": "10.1016/j.phrs.2026.108251",
+        "journal": "Pharmacological research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:09:29.895Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "bbe2d5bb8ac866dc21d8",
+      "reserved_at": "2026-10-10T00:09:35.044Z",
+      "source_branch": "research/intake/3/20261009-2008-aspirin-bupleurum-grapefruit-three"
+    },
+    {
+      "pmid": "42822636",
+      "title": "Inhibitory properties of grapefruit juice components on human cytochrome P450 3A5 activity.",
+      "doi": "10.1016/j.fct.2026.116409",
+      "source_title": "Inhibitory properties of grapefruit juice components on human cytochrome P450 3A5 activity.",
+      "abstract": "Grapefruit juice (GFJ) evokes food-drug interactions (FDIs) via mechanism-based inhibition (MBI) of gastrointestinal cytochrome P450 (CYP) 3A4. Bergamottin (BG) and 6',7'-dihydroxybergamottin (DHB) are the primary constituents responsible for this inhibition. Although CYP3A4 and CYP3A5 share overlapping substrate specificity, their inhibitor sensitivity can differ. While BG is a known mechanism-based inhibitor of CYP3A5, the inhibitory property of DHB on the CYP3A5 remains uncharacterized. This study aimed to characterize the inhibitory kinetics of DHB and BG on CYP3A5 metabolic activity in vitro. Recombinant CYP3A5 activity was determined by 1'-hydroxylation of midazolam (MDZ). The concentration of 1'-hydroxymidazolam (1'-OH MDZ) was quantified using LC-MS/MS. The residual intestinal CYP3A5 activity following the ingestion of 200 mL GFJ was estimated using the obtained MBI parameters, k inact,max and K I , and the concentrations of DHB and BG in GFJ. Both DHB and BG inhibited MDZ 1'-hydroxylation in a concentration- and preincubation time-dependent manner, confirming MBI of CYP3A5. DHB exhibited more potent inhibition than BG, with a k inact,max of 0.20 min -1 and K I of 2.4 μM. These findings suggest that GFJ-mediated FDIs may involve the concurrent inhibition of CYP3A5 alongside CYP3A4, primarily by DHB.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42822636/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42822636",
+        "doi": "10.1016/j.fct.2026.116409",
+        "journal": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:09:29.895Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "57279d82d45497d59aee",
+      "reserved_at": "2026-10-10T00:09:35.044Z",
+      "source_branch": "research/intake/3/20261009-2008-aspirin-bupleurum-grapefruit-three"
     }
   ],
   "batches": [
@@ -42158,16 +42388,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 533,
+    "total_reservations": 536,
     "by_lane": {
       "1": 24,
       "2": 93,
-      "3": 95,
+      "3": 98,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 533
+      "SOURCE_VERIFIED": 536
     },
     "batches": [
       {
@@ -42180,7 +42410,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 33,
+        "count": 36,
         "pr_number": null,
         "blocker": null
       }
