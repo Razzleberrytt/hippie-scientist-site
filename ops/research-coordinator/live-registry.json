@@ -51045,6 +51045,236 @@
       "reservation_id": "d6ac23a1c45dc570e2e8",
       "reserved_at": "2026-10-10T23:46:58.982Z",
       "source_branch": "research/intake/1/20261010-1940-sound-cbti-two-r11"
+    },
+    {
+      "pmid": "41429309",
+      "title": "The impact of olive oil polyphenol supplementation on metabolic syndrome parameters The OleoMetS study: A randomized, controlled clinical trial.",
+      "doi": "10.1016/j.clnesp.2025.102883",
+      "source_title": "The impact of olive oil polyphenol supplementation on metabolic syndrome parameters The OleoMetS study: A randomized, controlled clinical trial.",
+      "abstract": "Olive oil aldehydic phenols (OOPs), including oleocanthal, oleacein, oleuropein aglycone, and ligstroside aglycone, are highly bioactive secoiridoids with unique health-protective properties. Preclinical investigations have demonstrated that OOPs possess anti-inflammatory and antioxidant attributes. The aim of the study was to assess the direct health properties of OOPs as a food supplement in humans diagnosed with metabolic syndrome. Fasting Blood Glucose (FBG) and Hemoglobin A1c (HbA1c) were chosen as primary endpoints because they are key indicators of glucose control, a core aspect of metabolic syndrome. Their combined assessment offers a comprehensive view of both short-term and long-term glucose regulation, making them highly relevant for evaluating interventions. This double-blind, randomized, controlled clinical trial screened 110 individuals for eligibility between September 16, 2024, and January 27, 2025. Eight did not meet the inclusion criteria for metabolic syndrome, and 102 eligible participants were randomly assigned to the OOPs supplement or placebo group using a computer-generated randomization sequence to receive either the OOPs supplement or placebo. The 12-week intervention provided either a 10 mg/day polyphenol-rich olive oil extract food supplement (80 % oleocanthal/oleacein, 18 % oleuropein aglycon/ligstroside aglycon) or a placebo. No changes to lifestyle were recommended, and diet and physical activity were assessed at week 6. Fasting blood glucose (FBG) and hemoglobin A1C (HbA1c) were the primary outcomes. Secondary outcomes included lipid profile, C-reactive protein (CRP), body mass index (BMI), blood pressure, waist circumference, liver function tests (LFTs), estimated glomerular filtration rate (eGFR), uric acid, and fatigue scores. Repeated measures ANOVA/Linear Mixed Models were used to compare the mean changes (12 weeks-baseline) in fasting blood glucose levels between the intervention group and the placebo arm. Similar analysis (changes since baseline) was conducted for the continuous secondary outcomes. For categorical outcomes, changes since baseline were compared using chi-square methods. Bonferroni adjustments were made for multiple comparisons as appropriate. All 102 randomized participants completed the 12-week intervention and were included in the final analysis. The intervention group demonstrated significant improvements across various metabolic and physiological markers compared to the placebo group. Notable reductions were observed in FBG (mean difference: -7.06 mg/dL, p < 0.0001) and HbA1c (-0.29 %, p < 0.0001). Additionally, the intervention led to significant decreases in BMI (-1.15, p < 0.0001), systolic blood pressure (-7.66 mmHg, p = 0.004), triglycerides (-8.57, p = 0.0003), oxidized LDL (-5.01, p < 0.0001), uric acid (-1.04, p < 0.0001), ALT (-4.92, p = 0.0002), and fatigue scores (-16.88, p < 0.0001). A significant increase in eGFR was also noted (+3.38, p = 0.0002). Supplementation with OOPs shows promise in improving key metabolic markers in patients with MetS. The intervention was well-tolerated, with no serious adverse events reported. Further studies with longer intervention periods, follow-ups, and even higher OOPs dosages are needed to assess the long-term durability and magnitude of the effect. ClinicalTrials.gov Identifier: NCT07144488.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41429309/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41429309",
+        "doi": "10.1016/j.clnesp.2025.102883",
+        "journal": "Clinical nutrition ESPEN",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T23:59:21.727Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "17d22dd14d86a36e58b9",
+      "reserved_at": "2026-10-10T23:59:26.840Z",
+      "source_branch": "research/intake/2/20261010-1956-cognition-metabolic-r57"
+    },
+    {
+      "pmid": "42293225",
+      "title": "Comparative effects of different exercise modalities on cognitive domains in older adults: a Bayesian network meta-analysis and meta-regression.",
+      "doi": "10.3389/fnut.2026.1797113",
+      "source_title": "Comparative effects of different exercise modalities on cognitive domains in older adults: a Bayesian network meta-analysis and meta-regression.",
+      "abstract": "To compare the effects of different exercise modalities on multiple cognitive domains in cognitively healthy older adults and examine associations between exercise dose parameters and cognitive benefits. Randomized controlled trials (RCTs) of exercise interventions in cognitively healthy older adults were systematically searched. Outcomes were classified into five domains: executive function, memory, verbal fluency, processing speed, and working memory. Random-effects pairwise meta-analyses were performed using standardized mean differences (SMDs). Prespecified subgroup analyses were conducted by participant and intervention characteristics. Linear random-effects meta-regressions examined frequency, session duration, intervention length, weekly dose, and total dose as continuous moderators. Bayesian network meta-analysis (NMA) was applied to compare and rank exercise modalities, distinguishing active and PCs. Pairwise meta-analyses showed significant improvements in executive function (SMD = 0.31, 95% CI 0.18-0.44), memory (SMD = 0.26, 95% CI 0.14-0.38), and processing speed (SMD = 0.25, 95% CI 0.12-0.38), a borderline effect for working memory (SMD = 0.20, 95% CI 0.00-0.39), and no significant effect for verbal fluency. Meta-regression showed positive associations of training frequency and weekly dose with executive function, and of training frequency with processing speed. Bayesian NMA suggested aerobic exercise (AE) ranked higher for executive function and memory, while mind-body exercise (MBE) showed potential advantages for verbal fluency and working memory; however, most between-modality comparisons remained inconclusive. Exercise benefits multiple cognitive domains in cognitively healthy older adults, with more consistent effects on executive function and memory. AE appears promising, but further high-quality head-to-head trials with long-term follow-up are warranted. https://www.crd.york.ac.uk/PROSPERO/view/CRD420261290474, CRD420261290474.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42293225/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42293225",
+        "doi": "10.3389/fnut.2026.1797113",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T23:59:21.729Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0696a190caf26fd5f4c9",
+      "reserved_at": "2026-10-10T23:59:26.840Z",
+      "source_branch": "research/intake/2/20261010-1956-cognition-metabolic-r57"
+    },
+    {
+      "pmid": "42238806",
+      "title": "Telehealth-delivered multimodal mind-body intervention for mild cognitive impairment: a randomized feasibility trial toward scalable dementia prevention.",
+      "doi": "10.1038/s44400-026-00090-y",
+      "source_title": "Telehealth-delivered multimodal mind-body intervention for mild cognitive impairment: a randomized feasibility trial toward scalable dementia prevention.",
+      "abstract": "Mild cognitive impairment (MCI) is a transitional stage between healthy aging and dementia, underscoring the urgent need for accessible, low-cost, and scalable preventive strategies beyond pharmacological approaches. In this single-blind randomized feasibility trial (NCT06814483), 32 older adults with MCI were assigned to a 12-week, telehealth-delivered, computer-based multimodal mind-body approach (cbMMBA) or an active computer-based cognitive fitness program (cbCFP) used as control condition. Recruitment rate was 66.7%; retention rate was 78.6% vs. 100.0% (cbMMBA vs. cbCFP); intervention fidelity was 85.3% vs. 98.2%; satisfaction score was 4.80 vs. 4.47; and there were no serious intervention-related adverse events. Exploratory analyses indicated domain-specific cognitive improvements in both cbMMBA and cbCFP, favoring cbMMBA in memory, language, and visuospatial abilities, with within-group gains in global cognition. These findings support the feasibility, safety, and acceptability of a fully remote mind-body program for older adults with MCI; however, as a feasibility study, it was not powered to establish efficacy, and larger, longer trials are needed to confirm benefits and scalability for equitable dementia prevention.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42238806/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42238806",
+        "doi": "10.1038/s44400-026-00090-y",
+        "journal": "NPJ dementia",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T23:59:21.730Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b652e78bac849b08efaa",
+      "reserved_at": "2026-10-10T23:59:26.840Z",
+      "source_branch": "research/intake/2/20261010-1956-cognition-metabolic-r57"
     }
   ],
   "batches": [
@@ -51073,16 +51303,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 649,
+    "total_reservations": 652,
     "by_lane": {
       "1": 64,
-      "2": 138,
+      "2": 141,
       "3": 122,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 649
+      "SOURCE_VERIFIED": 652
     },
     "batches": [
       {
@@ -51095,7 +51325,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 149,
+        "count": 152,
         "pr_number": null,
         "blocker": null
       }
