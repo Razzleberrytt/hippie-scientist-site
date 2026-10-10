@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "2.0.0",
+  "lane": 2,
+  "scope": [
+    "sleep",
+    "stress",
+    "anxiety",
+    "focus"
+  ],
+  "batchTarget": 25,
+  "policy": "FAIL_CLOSED",
+  "identity": {
+    "primary": "PMID",
+    "secondary": [
+      "normalized DOI",
+      "normalized title"
+    ],
+    "reservationRule": "Before selection inspect main, all open enrichment PRs and five lane reservation records; if unavailable stop selection",
+    "concurrency": "GitHub file SHA compare-and-swap required; conflicts require reread and retry; file-based policy alone is not atomic across multiple files"
+  },
+  "states": [
+    "DISCOVERED",
+    "RESERVED",
+    "SOURCE_VERIFIED",
+    "SEMANTIC_REVIEWED",
+    "DEDUPED",
+    "INTEGRATED",
+    "STAGED",
+    "MERGED"
+  ],
+  "requiredSourceFields": [
+    "pmid",
+    "doi",
+    "exactTitle",
+    "abstract",
+    "studyDesign",
+    "population",
+    "intervention",
+    "comparator",
+    "outcomes",
+    "nullResults",
+    "limitations",
+    "safety",
+    "sourceUrl",
+    "verifiedAt"
+  ],
+  "rules": [
+    "Never advance on missing source fields",
+    "No automatic claims, dosing or entity publication",
+    "Exclude/quarantine animal or off-topic records",
+    "Keep null findings and related publications distinct from independent trials",
+    "Count candidates, source verified, semantic reviewed, integrated, staged and merged separately",
+    "Run targeted tests and exact-head merge gates"
+  ],
+  "checkpoint": {
+    "batchId": "lane2-2026-10-08-round2",
+    "target": 25,
+    "sourceReverified": 2,
+    "provisional": 23,
+    "integrated": 0,
+    "merged": 0,
+    "blockedReason": "23 original-source rechecks and global cross-lane reservations remain unverified",
+    "quarantinedWaves": [
+      7506,
+      7523,
+      7528
+    ]
+  },
+  "note": "Policy and checkpoint only; does not claim implementation of atomic reservation service or completion of research validation"
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "batch": "7501–8000",
+  "scope": "read-only heuristic category-relevance triage, not independent abstract-level methodology or clinical approval",
+  "source_records_preserved": 500,
+  "source_verified_records": 500,
+  "screened_titles": 500,
+  "potential_category_mismatches": 10,
+  "flagged_records": [
+    {
+      "category": "stress_anxiety",
+      "pmid": "31201809",
+      "reason": "Stress urinary incontinence is not psychological stress/anxiety.",
+      "title": "Pain and activity after vaginal reconstructive surgery for pelvic organ prolapse and stress urinary incontinence.",
+      "wave": 7506,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "EXCLUDE_FROM_STRESS_ANXIETY",
+        "method": "Secondary analysis of vaginal prolapse/surgical trial; urinary stress incontinence is not mental stress."
+      }
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "19501822",
+      "reason": "Oxidative stress/semen outcomes are not anxiety or mental-stress outcomes.",
+      "title": "Withania somnifera improves semen quality by regulating reproductive hormone levels and oxidative stress in seminal plasma of infertile males.",
+      "wave": 7508,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_OR_EXCLUDE",
+        "method": "Clinical intervention in infertile men evaluates semen oxidative biomarkers, hormones and sperm motility, not perceived stress or anxiety."
+      }
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "23042808",
+      "reason": "Acute THC-induced paranoia/CBD study does not itself establish withdrawal or NPS evidence.",
+      "title": "Cannabidiol inhibits THC-elicited paranoid symptoms and hippocampal-dependent memory impairment.",
+      "wave": 7585,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_TO_CANNABINOID_SAFETY_OR_EXCLUDE",
+        "method": "Controlled oral CBD then IV THC challenge examines acute THC paranoia/cognition; not withdrawal evidence."
+      }
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "27379960",
+      "reason": "Athlete muscle-strength population is indirect to aging/sarcopenia.",
+      "title": "Effects of Vitamin D Supplementation on Muscle Strength in Athletes: A Systematic Review.",
+      "wave": 7666,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_PERFORMANCE_OR_INDIRECT_ONLY",
+        "method": "Systematic review of vitamin D supplementation among athletes 18–45, not older adults or sarcopenia; population transfer would be indirect."
+      }
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "24341035",
+      "reason": "Carotid endarterectomy postoperative cognition may not involve a qualifying compound intervention.",
+      "title": "[Prevention of cognitive disorders in postoperative period after carotid endarterectomy].",
+      "wave": 7767,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "CONTEXT_LIMITED_POSSIBLY_ELIGIBLE",
+        "method": "Post-carotid surgery anesthesia comparison includes Ceraxon and cognition tests; direct special-population cognition context possible, not general focus enhancement."
+      }
+    },
+    {
+      "category": "metabolic",
+      "pmid": "24561488",
+      "reason": "Check whether a dual-prescription-drug comparison belongs in this intervention scope.",
+      "title": "Efficacy of adding once- and thrice-daily voglibose in Japanese type 2 diabetic patients treated with alogliptin.",
+      "wave": 7856,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "SCOPE_REVIEW",
+        "method": "Human randomized add-on voglibose/alogliptin type 2 diabetes study; metabolic endpoint relevant but prescription-only scope needs editorial decision."
+      }
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "39193818",
+      "reason": "Probiotic/fatigue study should not be assigned mitochondrial mechanism without direct endpoints.",
+      "title": "\"Do probiotics mitigate GI-induced inflammation and perceived fatigue in athletes? A systematic review\".",
+      "wave": 7961,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_GUT_OR_FATIGUE_IF_ELIGIBLE",
+        "method": "Review of probiotics, GI/inflammatory effects and fatigue in athletes; abstract does not demonstrate direct mitochondrial endpoints."
+      }
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "38084984",
+      "reason": "Recurrent urinary-tract-infection endpoint is not respiratory; broader immune scope requires explicit decision.",
+      "title": "Effectiveness of Prophylactic Oral and/or Vaginal Probiotic Supplementation in the Prevention of Recurrent Urinary Tract Infections: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "wave": 7984,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "RECLASSIFY_UTI_WOMENS_HEALTH_OR_EXCLUDE",
+        "method": "Human probiotic UTI prevention trial, not respiratory infection; broader immune/respiratory category needs explicit scope."
+      }
+    },
+    {
+      "pmid": "25828061",
+      "category": "stress_anxiety",
+      "title": "Withania somnifera (Ashwagandha) in neurobehavioural disorders induced by brain oxidative stress in rodents: a systematic review and meta-analysis.",
+      "reason": "Systematic review of rodent neural oxidative-stress experiments only; abstract calls for future human trials.",
+      "wave": 7523,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "EXCLUDE_FROM_HUMAN_EVIDENCE_INTAKE",
+        "method": "Animal-only rodent studies in review, no human participant outcomes; fails human-focused intake criterion."
+      }
+    },
+    {
+      "pmid": "20614803",
+      "category": "stress_anxiety",
+      "title": "A systematic review on the anxiolytic effects of aromatherapy on rodents under experimentally induced anxiety models.",
+      "reason": "Systematic review of 14 rodent behavioral studies only; calls for human translational research.",
+      "wave": 7528,
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "disposition": "UNDECIDED",
+      "abstract_review": {
+        "reviewer": "assistant triage, not independent clinical approver",
+        "evidence_basis": "provided PubMed title, publication types, and full abstract",
+        "provisional_disposition": "EXCLUDE_FROM_HUMAN_EVIDENCE_INTAKE",
+        "method": "Rodents-only experimental anxiety models, no human efficacy trials; fails human-focused intake criterion."
+      }
+    }
+  ],
+  "reviewed_scientifically": 0,
+  "admitted_clinically": 0,
+  "record_admission_changes": 0,
+  "formal_independent_review_complete": false,
+  "protocol": "Candidate flags from deterministic title/category conflict patterns; flagged records remain unchanged, pending reviewer decisions after reading abstracts and methods. Other 492 records are NOT cleared; all 500 require individual independent semantic review.",
+  "evidence_limits": "Title screening is neither a comprehensive abstract review nor trial-design/correction checking. Negative/counterevidence must be evaluated; absence of a flag is not approval.",
+  "abstract_level_assistant_triage": 10,
+  "independent_human_methodology_reviews": 0,
+  "pending_formal_review": 500,
+  "triage_limitations": "Ten flagged abstracts were individually triaged by the assistant; two are clearly animal-only reviews despite the claimed retained-title zero-animal audit. No source records edited, no independent human approval and no clinical promotion. Other 490 records remain unscreened beyond title heuristics. All 500 require governed semantic/identity/methodology adjudication.",
+  "human_only_source_filter_violations_found": 2
+}

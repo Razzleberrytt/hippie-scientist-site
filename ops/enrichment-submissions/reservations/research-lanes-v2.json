@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "2.0.0",
+  "reservations": [],
+  "warning": "Empty bootstrap registry is NOT evidence of no existing reservations. Before first use import and reconcile main, open PRs and all five lanes; block writes until bootstrap completed.",
+  "bootstrapComplete": false
+}

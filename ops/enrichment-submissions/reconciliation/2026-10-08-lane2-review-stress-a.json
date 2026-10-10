@@ -1,0 +1,20 @@
+{
+  "review": "2026-10-08-lane2",
+  "researchOnly": true,
+  "pmids": [
+    "28566632",
+    "25360512",
+    "22464012",
+    "22048283",
+    "28753943"
+  ],
+  "statuses": [
+    "reviewed",
+    "reviewed",
+    "reviewed",
+    "reviewed",
+    "reviewed"
+  ],
+  "source": "existing NCBI receipt PR 6397",
+  "claimsPromoted": 0
+}

@@ -1,0 +1,10 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { validate } from '../../scripts/data/validate-research-lanes-v2.mjs';
+const reservation=(lane,id,pmid,doi,title)=>({lane,reservationId:id,pmid,doi,title});
+const complete={reservationId:'lane2-a',state:'SOURCE_VERIFIED',pmid:'12345',exactTitle:'Study A',abstract:'Abstract',studyDesign:'randomized trial',population:'adults',intervention:'intervention',outcomes:'null',nullResults:'reported',limitations:'small sample',safety:'not reported',sourceUrl:'https://pubmed.ncbi.nlm.nih.gov/12345/',verifiedAt:'2026-10-08'};
+test('unique reservation and complete checkpoint pass',()=>assert.deepEqual(validate({reservations:[reservation(2,'lane2-a','12345','10.1/a','Study A')]},{records:[complete]}),[]));
+test('cross-lane DOI collision fails',()=>assert.match(validate({reservations:[reservation(2,'lane2-a','12345','https://doi.org/10.1/A','Study A'),reservation(3,'lane3-b','67890','doi:10.1/a','Study B')]},{records:[]}).join(' '),/Collision doi/));
+test('cross-lane title collision fails',()=>assert.match(validate({reservations:[reservation(2,'lane2-a','12345','','Study A'),reservation(4,'lane4-b','67890','',' study  a ')]},{records:[]}).join(' '),/Collision title/));
+test('incomplete verification fails closed',()=>assert.match(validate({reservations:[reservation(2,'lane2-a','12345','','Study A')]},{records:[{...complete,abstract:''}]}).join(' '),/Missing abstract/));
+test('unknown reservation and promotion fail',()=>assert.match(validate({reservations:[]},{records:[{...complete,claimsPromoted:true}]}).join(' '),/Forbidden promotion/));

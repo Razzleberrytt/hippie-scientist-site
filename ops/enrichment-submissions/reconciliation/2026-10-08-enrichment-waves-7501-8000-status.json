@@ -1,0 +1,10 @@
+{
+  "state": "500_exact_source_verified_PENDING_SEMANTIC_REVIEW",
+  "verified_rows": 500,
+  "merged": false,
+  "published": false,
+  "research_only": true,
+  "prior_unique_pmids": 7435,
+  "prospective_cumulative_pmids": 7935,
+  "warning": "Automated title/abstract checks do not establish clinical relevance or final evidence admission."
+}
