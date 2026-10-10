@@ -46122,6 +46122,159 @@
       "reservation_id": "af3622b4e4a18de844bb",
       "reserved_at": "2026-10-10T10:45:07.169Z",
       "source_branch": "research/intake/1/20261010-0641-aromatherapy-qbd-two"
+    },
+    {
+      "pmid": "41514353",
+      "title": "Effects of the Mediterranean-DASH Intervention for Neurodegenerative Delay (MIND) diet and forest bathing in improving cognitive and metabolic health among hypertensive older adults: a feasibility randomised controlled trial.",
+      "doi": "10.1186/s40795-026-01240-4",
+      "source_title": "Effects of the Mediterranean-DASH Intervention for Neurodegenerative Delay (MIND) diet and forest bathing in improving cognitive and metabolic health among hypertensive older adults: a feasibility randomised controlled trial.",
+      "abstract": "BACKGROUND: This study aimed to assess the feasibility of the protocol, including recruitment rate, intervention adherence, dropout rate, the occurrence of adverse effects and feedback from participants. This study also sought to evaluate the effects of two interventions—MIND + FB (Mediterranean-DASH Intervention for Neurodegenerative Delay diet combined with forest bathing) and MIND (Mediterranean-DASH Intervention for Neurodegenerative Delay diet only)—on clinical outcomes, including cognitive function, metabolic health markers, and adherence to the MIND diet, both immediately post-intervention and three months post-intervention. It was hypothesized that both intervention groups would show significant within-group improvements in outcomes, while the control group would not. METHODS: A three-parallel-group, single-blinded randomized controlled trial was conducted with 48 participants (aged ≥ 60 years) randomized into MIND + FB (n = 16), MIND (n = 16), and control (n = 16) groups. The outcome assessor was blinded, while the participants and interventionist were not blinded to the group assignment. The MIND + FB group received eight sessions over three months (four nutritional counseling and four forest therapy sessions), the MIND group received four nutritional counseling sessions, and the control group received usual care. Data were collected at baseline (T0), immediately post-intervention (T1), and three months post-intervention (T2). The primary aim was to test the feasibility of the study. The secondary outcomes included cognitive function, metabolic health markers and MIND diet adherence. RESULTS: The recruitment rate was 60%, with high adherence (MIND: 97%, MIND + FB: 95%) and a 4.2% dropout rate. No significant adverse effects were reported. Both MIND + FB and MIND groups showed significant within-group improvements in cognitive function with a larger effect size in MIND + FB (Kendall’s W = 0.619). The MIND + FB group also demonstrated significant reductions in fasting blood glucose (Kendall’s W = 0.279)) and waist circumference (Kendall’s W = 0.382)). Improved MIND diet adherence was observed in the MIND group (Kendall’s W = 0.256). Between-group comparisons showed significant cognitive function improvements in both intervention groups versus control. CONCLUSIONS: The MIND + FB intervention may enhance cognitive function and metabolic health in older adults with hypertension, potentially offering greater benefits than the MIND diet alone. While MIND alone promotes better diet adherence, the dose-response effects on health outcomes remain unclear. Future studies should refine behavioural strategies to enhance adherence and identify the most effective components. A larger trial is recommended to confirm these findings and address current study limitations. TRIAL REGISTRATION : ClinialTrials.gov registration number: NCT05342896. Registered on 3rd Jan 2021. https://clinicaltrials.gov/study/NCT05342896 .",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41514353/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41514353",
+        "doi": "10.1186/s40795-026-01240-4",
+        "journal": "BMC nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T10:55:15.215Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ca4846cb1c9e952fbaf1",
+      "reserved_at": "2026-10-10T10:55:19.962Z",
+      "source_branch": "research/intake/2/20261010-0651-cognition-metabolic-r44"
+    },
+    {
+      "pmid": "41577089",
+      "title": "Muscle-brain axis mechanisms linking community-based exercise to cognitive function in older adults: A five-arm randomized controlled trial.",
+      "doi": "10.1016/j.exger.2026.113041",
+      "source_title": "Muscle-brain axis mechanisms linking community-based exercise to cognitive function in older adults: A five-arm randomized controlled trial.",
+      "abstract": "To compare community-feasible exercise effects on cognition and explore muscle-brain axis mechanisms in older adults. In this a single-blind, five-arm randomized controlled trial, participants were allocated to 12-form Chen-style Tai Chi (CTC12), 24-form Yang-style Tai Chi (TC24), square dancing (SD), walking, or control for 12 weeks (two sessions/week). Global cognition was assessed using Beijing Chinese MoCA. Body composition was evaluated using multifrequency bioimpedance: skeletal muscle mass (SMM), fat mass (FM), total body water, protein mass and basal metabolic rate (BMR). Physical performance was assessed using Short Physical Performance Battery (SPPB), maximal handgrip strength (HGS). Fasting interleukin-6 (IL-6) levels and other blood biomarkers were also measured. 113 participants completed the intervention (mean age 62.3 years; 79.6% female). After 12 weeks training, MoCA scores were improved in CTC12 group (n = 22, Δ = +0.46, p = 0.0045) and SD group (n = 22, Δ = +0.50, p = 0.0046), with no change in TC24 group (n = 23), walking group (n = 23), and control group (n = 23). Physiologically, CTC12 group increased SMM and BMR with small SPPB/HGS gains and showed a significant reduction in IL-6 levels; SD group reduced BMI and FM and increased BMR and SPPB; TC24 group increased BMR only; walking showed no measurable changes. For correlation analyses, ΔMoCA was positively associated with ΔSMM (p = 0.014) and ΔBMR (p = 0.004) in the CTC12 group, and negatively associated with ΔBMI (p = 0.002) and ΔFM (p = 0.002) in the SD group. CTC12, SD were associated with modest cognitive gains and distinct physiological patterns potentially linked to the muscle-brain axis, which may help guide exercise choices for older adults.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41577089/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41577089",
+        "doi": "10.1016/j.exger.2026.113041",
+        "journal": "Experimental gerontology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T10:55:15.215Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4b69d29b2fee47b1beab",
+      "reserved_at": "2026-10-10T10:55:19.962Z",
+      "source_branch": "research/intake/2/20261010-0651-cognition-metabolic-r44"
     }
   ],
   "batches": [
@@ -46150,16 +46303,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 585,
+    "total_reservations": 587,
     "by_lane": {
       "1": 42,
-      "2": 112,
+      "2": 114,
       "3": 106,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 585
+      "SOURCE_VERIFIED": 587
     },
     "batches": [
       {
@@ -46172,7 +46325,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 85,
+        "count": 87,
         "pr_number": null,
         "blocker": null
       }
