@@ -1,0 +1,116 @@
+{
+  "analytical_outputs": {
+    "canonical_study_identities": [
+      "pmid:26609282"
+    ],
+    "publication_metadata": {}
+  },
+  "claim_id": "study-row-10",
+  "claim_text": "stress_response",
+  "evidence_assessment": "not_evaluated",
+  "evidence_relationship": "unassessed",
+  "generator_version": "round-1a-runner/0.1",
+  "input_hashes": {
+    "ops/cache/pubmed-metadata.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+    "public/data/claims.json": "18f9514ae927480876041d7a8f493c814d34de42008f2faf12c500497bec818c",
+    "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+  },
+  "join_metrics": {
+    "identity_resolutions": 1,
+    "metadata_resolutions": 0,
+    "successful_join_pmids": [],
+    "successful_joins": 0,
+    "unresolved_identifiers": 1
+  },
+  "manifest": {
+    "generator_version": "round-1a-runner/0.1",
+    "schema_version": "claim-dna-1a/0.1",
+    "source_fingerprints": {
+      "ops/cache/pubmed-metadata.json": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "public/data/claims.json": "18f9514ae927480876041d7a8f493c814d34de42008f2faf12c500497bec818c",
+      "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+    }
+  },
+  "pmids": [
+    "26609282"
+  ],
+  "profile_slug": "ashwagandha",
+  "provenance_status": "primary_linked",
+  "resolution_status": "metadata_unavailable",
+  "schema_version": "claim-dna-1a/0.1",
+  "sources": [
+    {
+      "id": "src_pubmed-26609282",
+      "pmid": "26609282",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26609282/"
+    }
+  ],
+  "traceability": [
+    {
+      "inputs": [
+        "public/data/claims.json#study-row-10"
+      ],
+      "output": "production_claim",
+      "via": "loadProductionClaims+findProductionClaim"
+    },
+    {
+      "inputs": [
+        "public/data/claims.json#study-row-10"
+      ],
+      "output": "synthetic_research_profile",
+      "via": "adaptClaimToProfile"
+    },
+    {
+      "inputs": [
+        "synthetic_research_profile"
+      ],
+      "output": "normalized_profile",
+      "via": "adapter emits pre-normalized single-PMID source records"
+    },
+    {
+      "inputs": [
+        "src_pubmed-26609282"
+      ],
+      "output": "canonical_study_identities",
+      "via": "canonicalStudyIdentityMap+uniqueClaimStudyIdentities"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.26609282"
+      ],
+      "output": "publication_metadata:26609282",
+      "via": "loadPubmedCache (absent or unusable)"
+    },
+    {
+      "inputs": [
+        "claims.json:pmid:study-row-10"
+      ],
+      "output": "provenance_status",
+      "via": "pmid presence check"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.26609282"
+      ],
+      "output": "resolution_status",
+      "via": "cache membership check"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_assessment",
+      "via": "constant: not evaluated in Round 1"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_relationship",
+      "via": "constant: directionality requires evidence examination"
+    },
+    {
+      "inputs": [
+        "identity:pmid:26609282"
+      ],
+      "output": "join_metrics",
+      "via": "identity+metadata intersection"
+    }
+  ]
+}

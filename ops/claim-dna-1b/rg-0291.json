@@ -1,0 +1,191 @@
+{
+  "analytical_outputs": {
+    "canonical_study_identities": [
+      "pmid:15070181",
+      "pmid:22167571"
+    ],
+    "publication_metadata": {
+      "15070181": {
+        "authorCount": 6,
+        "authorList": [
+          "Sharma S",
+          "Thawani V",
+          "Hingorani L",
+          "Shrivastava M",
+          "Bhate VR",
+          "Khiyani R"
+        ],
+        "authors": "Sharma S et al.",
+        "doi": "10.1078/0944-7113-00290",
+        "fetchedFrom": "pubmed-esummary",
+        "journal": "Phytomedicine",
+        "pages": "255-60",
+        "pmid": "15070181",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "title": "Pharmacokinetic study of 11-Keto beta-Boswellic acid",
+        "volume": "11",
+        "year": 2004
+      },
+      "22167571": {
+        "authorCount": 9,
+        "authorList": [
+          "Skarke C",
+          "Kuczka K",
+          "Tausch L",
+          "Werz O",
+          "Rossmanith T",
+          "Barrett JS",
+          "Harder S",
+          "Holtmeier W",
+          "Schwarz JA"
+        ],
+        "authors": "Skarke C et al.",
+        "doi": "10.1177/0091270011422811",
+        "fetchedFrom": "pubmed-esummary",
+        "journal": "J Clin Pharmacol",
+        "pages": "1592-600",
+        "pmid": "22167571",
+        "publicationTypes": [
+          "Clinical Trial, Phase I",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "title": "Increased bioavailability of 11-keto-β-boswellic acid following single oral dose frankincense extract administration after a standardized meal in healthy male volunteers: modeling and simulation considerations for evaluating drug exposures",
+        "volume": "52",
+        "year": 2012
+      }
+    }
+  },
+  "claim_id": "rg-0291",
+  "claim_text": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+  "evidence_assessment": "not_evaluated",
+  "evidence_relationship": "unassessed",
+  "generator_version": "round-1a-runner/0.1",
+  "input_hashes": {
+    "ops/cache/pubmed-metadata.json": "68ee2fd13dfd60cc69f0cc65618fa1faec2c59194b6f4b15361c05a1a271135b",
+    "public/data/claims.json": "1db4d8cb1fb3ec446d548414f2068ea5566641ffa3c2472c7596cb2484f7439a",
+    "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+  },
+  "join_metrics": {
+    "identity_resolutions": 2,
+    "metadata_resolutions": 2,
+    "successful_join_pmids": [
+      "15070181",
+      "22167571"
+    ],
+    "successful_joins": 2,
+    "unresolved_identifiers": 0
+  },
+  "manifest": {
+    "generator_version": "round-1a-runner/0.1",
+    "schema_version": "claim-dna-1a/0.1",
+    "source_fingerprints": {
+      "ops/cache/pubmed-metadata.json": "68ee2fd13dfd60cc69f0cc65618fa1faec2c59194b6f4b15361c05a1a271135b",
+      "public/data/claims.json": "1db4d8cb1fb3ec446d548414f2068ea5566641ffa3c2472c7596cb2484f7439a",
+      "scripts/claim-dna/adapter-1a.ts": "43b7c6523834df59cc21dd99dbc1c7f895fc2a9052d6cd32e7c66510c2189946"
+    }
+  },
+  "pmids": [
+    "15070181",
+    "22167571"
+  ],
+  "profile_slug": "11-keto-beta-boswellic-acid",
+  "provenance_status": "primary_linked",
+  "resolution_status": "resolved",
+  "schema_version": "claim-dna-1a/0.1",
+  "sources": [
+    {
+      "id": "src_pubmed-15070181",
+      "pmid": "15070181",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15070181/"
+    },
+    {
+      "id": "src_pubmed-22167571",
+      "pmid": "22167571",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22167571/"
+    }
+  ],
+  "traceability": [
+    {
+      "inputs": [
+        "public/data/claims.json#rg-0291"
+      ],
+      "output": "production_claim",
+      "via": "loadProductionClaims+findProductionClaim"
+    },
+    {
+      "inputs": [
+        "public/data/claims.json#rg-0291"
+      ],
+      "output": "synthetic_research_profile",
+      "via": "adaptClaimToProfile"
+    },
+    {
+      "inputs": [
+        "synthetic_research_profile"
+      ],
+      "output": "normalized_profile",
+      "via": "adapter emits pre-normalized single-PMID source records"
+    },
+    {
+      "inputs": [
+        "src_pubmed-15070181",
+        "src_pubmed-22167571"
+      ],
+      "output": "canonical_study_identities",
+      "via": "canonicalStudyIdentityMap+uniqueClaimStudyIdentities"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.15070181"
+      ],
+      "output": "publication_metadata:15070181",
+      "via": "loadPubmedCache (usable)"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.22167571"
+      ],
+      "output": "publication_metadata:22167571",
+      "via": "loadPubmedCache (usable)"
+    },
+    {
+      "inputs": [
+        "claims.json:pmid:rg-0291"
+      ],
+      "output": "provenance_status",
+      "via": "pmid presence check"
+    },
+    {
+      "inputs": [
+        "ops/cache/pubmed-metadata.json#records.15070181",
+        "ops/cache/pubmed-metadata.json#records.22167571"
+      ],
+      "output": "resolution_status",
+      "via": "cache membership check"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_assessment",
+      "via": "constant: not evaluated in Round 1"
+    },
+    {
+      "inputs": [],
+      "output": "evidence_relationship",
+      "via": "constant: directionality requires evidence examination"
+    },
+    {
+      "inputs": [
+        "identity:pmid:15070181",
+        "identity:pmid:22167571",
+        "metadata:15070181",
+        "metadata:22167571"
+      ],
+      "output": "join_metrics",
+      "via": "identity+metadata intersection"
+    }
+  ]
+}
