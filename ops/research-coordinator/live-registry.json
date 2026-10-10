@@ -43122,6 +43122,163 @@
       "reservation_id": "ea09bdb28639e0b80f76",
       "reserved_at": "2026-10-10T02:01:28.460Z",
       "source_branch": "research/intake/3/20261009-2159-astragalus-cyp-review-two"
+    },
+    {
+      "pmid": "42685990",
+      "title": "Buspirone attenuates neuropathic pain and related depression following sciatic nerve injury in mice: Role of opioid receptors.",
+      "doi": "10.1016/j.bbr.2026.116456",
+      "source_title": "Buspirone attenuates neuropathic pain and related depression following sciatic nerve injury in mice: Role of opioid receptors.",
+      "abstract": "Patients with neuropathic pain also experience depression. Although they are treated with various therapies, the effectiveness of these medications is unclear. In the present study, the effect of buspirone on allodynia and depressive-like behavior caused by chronic constriction injury (CCI) of the sciatic nerve, as well as the role of opioid pathways, was investigated. Our findings showed that acute and sub-chronic administration of buspirone (0.3-10 mg/kg) attenuated the mechanical and cold allodynia induced by CCI. In addition, a moderate dose of buspirone (1 mg/kg), but not a high dose (10 mg/kg), reduced the depressive-like behavior induced by CCI. Furthermore, pretreatment with naloxone attenuated the effects of buspirone, whereas co-administration with an ineffective dose of morphine potentiated its action. Also, hippocampal μ-opioid receptor mRNA was decreased, whereas κ-opioid receptor mRNA was increased in CCI mice 14 days after surgery. However, repeated buspirone in CCI-mice mitigated the observed alteration in opioid receptors mRNA expression. In addition, unlike morphine, buspirone did not produce tolerance or withdrawal symptoms following repeated administration. Collectively, these data provide evidence that buspirone can effectively alleviate neuropathic pain and exerts antidepressant-like benefits, potentially through modulation of opioid receptors. Moreover, the effects of buspirone may also be associated with changes in mRNA expression of μ-and κ-opioid receptors in the hippocampus.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42685990/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42685990",
+        "doi": "10.1016/j.bbr.2026.116456",
+        "journal": "Behavioural brain research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T02:26:21.785Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "db398421b6cfa7ce3f78",
+      "reserved_at": "2026-10-10T02:26:27.043Z",
+      "source_branch": "main"
+    },
+    {
+      "pmid": "41275876",
+      "title": "Comparison of inhalational methoxyflurane, intranasal fentanyl, and intravenous morphine for treatment of prehospital acute pain in Norway (PreMeFen): a randomised, non-inferiority, three-arm, phase 3 trial.",
+      "doi": "10.1016/S0140-6736(25)01575-2",
+      "source_title": "Comparison of inhalational methoxyflurane, intranasal fentanyl, and intravenous morphine for treatment of prehospital acute pain in Norway (PreMeFen): a randomised, non-inferiority, three-arm, phase 3 trial.",
+      "abstract": "Adequate pain control is essential; however, acute pain is often undertreated in prehospital care. This study aimed to evaluate three analgesic regimens for treating acute pain in an ambulance setting. PreMeFen is a randomised, open-label, non-inferiority, three-arm, phase 3 trial conducted in the working areas of the ground ambulance service of the Innlandet Hospital Trust, Norway. Patients aged 18-69 years and 70 years and older with traumatic or medical acute pain scoring 4 or higher on the Numeric Rating Scale (NRS) were randomly assigned (1:1:1) to receive in titration doses 3 mL inhalational methoxyflurane, 50 μg or 100 μg intranasal fentanyl, or 0·05 mg/kg or 0·1 mg/kg intravenous morphine, respectively, depending on the age group. The primary endpoint was change in pain NRS score from baseline to 10 min after treatment start and was analysed per protocol. The non-inferiority margin was 1·3. This trial is registered with ClinicalTrials.gov (NCT05137184) and is completed. Between Nov 12, 2021, and April 22, 2023, 632 patients were assessed for eligibility, and 338 were randomly assigned to methoxyflurane (n=112), fentanyl (n=115), or morphine (n=111). 281 patients were included in the per-protocol population. 145 (52%) of 281 patients were female and 136 (48%) were male. Median age was 61 years (IQR 47-75). The baseline NRS score was 7·6 (SD 1·8). Mean NRS score changes after 10 min were -3·31 (SD 2·67) for methoxyflurane, -1·98 (2·28) for fentanyl, and -2·74 (2·12) for morphine. Comparing changes in mean NRS score while adjusting for baseline showed that methoxyflurane was non-inferior to fentanyl (-1·33 [95% CI -2·01 to -0·64]) and morphine (-0·36 [-1·03 to 0·31]). Intranasal fentanyl was not non-inferior to morphine at 10 min (0·91 [0·27 to 1·55]). Adverse events occurred in 26 (24%) of 109 patients in the morphine group, 27 (24%) of 112 in the fentanyl group, and 24 (22%) of 111 in the methoxyflurane group. Two serious adverse events, respiratory depression (grade 2) and loss of consciousness (grade 3), occurred in the same patient in the methoxyflurane group. There were no treatment-related deaths. Inhalational methoxyflurane is non-inferior to intranasal fentanyl and intravenous morphine for acute pain management in the prehospital environment, assessed 10 min after administration. Inhalational methoxyflurane serves as a valuable non-intravenous alternative in the early phase of treatment and might bridge the gap to longer-acting analgesics. Norwegian Air Ambulance Foundation and Innlandet Hospital Trust.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41275876/",
+      "research_domain": "withdrawal-dependence-nps",
+      "category": "withdrawal_dependence_nps",
+      "relevance_reason": "PubMed identity-only source candidates; independent semantic review, clinical interpretation, DOI/title deduplication and source hydration remain under existing governance.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Clinical Trial, Phase III; Randomized Controlled Trial; Comparative Study; Equivalence Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Clinical Trial, Phase III",
+          "Randomized Controlled Trial",
+          "Comparative Study",
+          "Equivalence Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41275876",
+        "doi": "10.1016/S0140-6736(25)01575-2",
+        "journal": "Lancet (London, England)",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T02:26:21.786Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "4",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5bab0f355a871209c5bb",
+      "reserved_at": "2026-10-10T02:26:27.043Z",
+      "source_branch": "main"
     }
   ],
   "batches": [
@@ -43150,16 +43307,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 546,
+    "total_reservations": 548,
     "by_lane": {
       "1": 28,
       "2": 97,
       "3": 100,
-      "4": 46,
+      "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 546
+      "SOURCE_VERIFIED": 548
     },
     "batches": [
       {
@@ -43172,7 +43329,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 46,
+        "count": 48,
         "pr_number": null,
         "blocker": null
       }
