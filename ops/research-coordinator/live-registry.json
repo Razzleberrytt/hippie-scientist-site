@@ -44890,6 +44890,162 @@
       "reservation_id": "e6afd6e476a3e79a5acf",
       "reserved_at": "2026-10-10T07:10:25.919Z",
       "source_branch": "research/intake/3/20261010-0307-psoralea-furanocoumarin"
+    },
+    {
+      "pmid": "28742505",
+      "title": "Effects of a hops (Humulus lupulus L.) dry extract supplement on self-reported depression, anxiety and stress levels in apparently healthy young adults: a randomized, placebo-controlled, double-blind, crossover pilot study.",
+      "doi": "10.14310/horm.2002.1738",
+      "source_title": "Effects of a hops (Humulus lupulus L.) dry extract supplement on self-reported depression, anxiety and stress levels in apparently healthy young adults: a randomized, placebo-controlled, double-blind, crossover pilot study.",
+      "abstract": "The Humulus lupulus L. plant (hops) is used as a herbal medicinal product for anxiety/mood disorders. Our aim was to study the effects of a hops dry extract on self-reported depression, anxiety and stress levels in young adults. Apparently healthy young adults from our university completed the Depression Anxiety Stress Scale-21 (DASS-21) and those reporting at least mild depression, anxiety and stress were invited to complete the study intervention. This followed a randomized (1:1), placebo-controlled, double-blind, crossover design with two 4-week intervention periods (Melcalin hops or placebo; two 0.2 gr capsules once daily) separated by a 2-week wash-out. Anthropometric measurements, DASS-21 assessments and measurements of morning cortisol plasma levels were performed at the beginning and the end of the 4-week treatment periods. 36 participants (Females/Males: 31/5; age: 24.7±0.5 years) completed the study intervention (attrition: 6/42). No significant changes in body weight and composition or morning circulating cortisol were noted with the hops or placebo. Significantly decreased DASS-21 anxiety, depression and stress scores were documented with hops (9.2±7.3 vs. 5.1±5.9, 11.9±7.9 vs. 9.2±7.4, and 19.1±8.1 vs. 11.6±8.1; all p values <0.05), which were significantly greater compared to those caused by the placebo (all p values <0.05). In otherwise healthy young adults reporting at least mild depression, anxietyand stress symptoms, daily supplementation with a hops dry extract can significantly improve all these symptoms over a 4-week period. These beneficial effects agree with the indication of hops for anxiety/mood disorders and restlessness, as approved by the German Commission E.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28742505/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "28742505",
+        "doi": "10.14310/horm.2002.1738",
+        "journal": "Hormones (Athens, Greece)",
+        "publication_year": 2018,
+        "hydrated_at": "2026-10-10T07:44:45.022Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6fa29f13736808759523",
+      "reserved_at": "2026-10-10T07:44:49.604Z",
+      "source_branch": "research/intake/1/20261010-0341-hops-valerian-two"
+    },
+    {
+      "pmid": "16335333",
+      "title": "Valerian-hops combination and diphenhydramine for treating insomnia: a randomized placebo-controlled clinical trial.",
+      "doi": "10.1093/sleep/28.11.1465",
+      "source_title": "Valerian-hops combination and diphenhydramine for treating insomnia: a randomized placebo-controlled clinical trial.",
+      "abstract": "Insomnia is a prevalent health complaint associated with daytime impairments, reduced quality of life, and increased health-care costs. Although it is often self-treated with herbal and dietary supplements or with over-the-counter sleep aids, there is still little evidence on the efficacy and safety of those products. To evaluate the efficacy and safety of a valerian-hops combination and diphenhydramine for the treatment of mild insomnia. Multicenter, randomized, placebo-controlled, parallel-group study conducted in 9 sleep disorders centers throughout the United States. A total of 184 adults (110 women, 74 men; mean age of 44.3 years) with mild insomnia. (1) Two nightly tablets of standardized extracts of a valerian (187-mg native extracts; 5-8:1, methanol 45% m/m) and hops (41.9-mg native extracts; 7-10:1, methanol 45% m/m) combination for 28 days (n = 59), (2) placebo for 28 days (n = 65), or (3) 2 tablets of diphenhydramine (25 mg) for 14 days followed by placebo for 14 days (n = 60). Sleep parameters measured by daily diaries and polysomnography, clinical outcome ratings from patients and physicians, and quality of life measures. Modest improvements of subjective sleep parameters were obtained with both the valerian-hops combination and diphenhydramine, but few group comparisons with placebo reached statistical significance. Valerian produced slightly greater, though nonsignificant, reductions of sleep latency relative to placebo and diphenhydramine at the end of 14 days of treatment and greater reductions than placebo at the end of 28 days of treatment. Diphenhydramine produced significantly greater increases in sleep efficiency and a trend for increased total sleep time relative to placebo during the first 14 days of treatment. There was no significant group difference on any of the sleep continuity variables measured by polysomnography. In addition, there was no alteration of sleep stages 3-4 and rapid eye movement sleep with any of the treatments. Patients in the valerian and diphenhydramine groups rated their insomnia severity lower relative to placebo at the end of 14 days of treatment. Quality of life (Physical component) was significantly more improved in the valerian-hops group relative to the placebo group at the end of 28 days. There were no significant residual effects and no serious adverse events with either valerian or diphenhydramine and no rebound insomnia following their discontinuation. The findings show a modest hypnotic effect for a valerian-hops combination and diphenhydramine relative to placebo. Sleep improvements with a valerian-hops combination are associated with improved quality of life. Both treatments appear safe and did not produce rebound insomnia upon discontinuation during this study. Overall, these findings indicate that a valerian-hops combination and diphenhydramine might be useful adjuncts in the treatment of mild insomnia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16335333/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "16335333",
+        "doi": "10.1093/sleep/28.11.1465",
+        "journal": "Sleep",
+        "publication_year": 2006,
+        "hydrated_at": "2026-10-10T07:44:45.023Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1a20c7a52de9bd3f2480",
+      "reserved_at": "2026-10-10T07:44:49.604Z",
+      "source_branch": "research/intake/1/20261010-0341-hops-valerian-two"
     }
   ],
   "batches": [
@@ -44918,16 +45074,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 569,
+    "total_reservations": 571,
     "by_lane": {
-      "1": 36,
+      "1": 38,
       "2": 107,
       "3": 103,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 569
+      "SOURCE_VERIFIED": 571
     },
     "batches": [
       {
@@ -44940,7 +45096,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 69,
+        "count": 71,
         "pr_number": null,
         "blocker": null
       }
