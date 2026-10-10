@@ -1,0 +1,19 @@
+{
+  "entity_type": "herb",
+  "slug": "white-kidney-bean",
+  "name": "White kidney bean",
+  "summary": "White kidney bean extract (phaseolamin) is marketed as a carb blocker with small weight-loss RCTs. The trial record is underwhelming relative to the mechanism story.",
+  "description": "Canonical White kidney bean research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "carbohydrate blocking (phaseolamin); weight management",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 6.5,
+    "evidence_notes": "Small weight-loss RCTs (PMIDs flagged verify-before-publishing).",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}

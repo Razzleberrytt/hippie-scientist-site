@@ -1,0 +1,19 @@
+{
+  "entity_type": "compound",
+  "slug": "lactobacillus-plantarum-299v",
+  "name": "Lactobacillus plantarum 299v",
+  "summary": "Lactobacillus plantarum 299v (DSM 9843) is a Swedish probiotic strain with documented mucosal adhesion. Human trials in IBS show pain and bloating improvements vs placebo, including an n=214 RCT and a smaller n=40 RCT where 95% vs 15% improved, plus 12-week real-world data.",
+  "description": "Canonical Lactobacillus plantarum 299v research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "IBS pain and bloating; gut mucosal adhesion; strain-specific probiotic effects",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 7.5,
+    "evidence_notes": "RCT n=214 IBS 4wk (PMID 22912552); RCT n=40 IBS (PMID 11711768); real-world n=221 12wk (PMID 33556972). All PMIDs verified in-session.",
+    "verification_status": "pmids_verified",
+    "date_added": "2026-10-10"
+  }
+}

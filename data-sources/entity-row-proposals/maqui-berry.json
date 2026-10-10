@@ -1,0 +1,19 @@
+{
+  "entity_type": "herb",
+  "slug": "maqui-berry",
+  "name": "Maqui berry",
+  "summary": "Maqui berry (Chilean/Patagonian) has dry-eye and glucose RCTs. A berry candidate with specific clinical endpoints rather than generic antioxidant claims.",
+  "description": "Canonical Maqui berry research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "dry eye; glucose metabolism; anthocyanins",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 7.0,
+    "evidence_notes": "Dry-eye and glucose RCTs (PMIDs flagged verify-before-publishing).",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}

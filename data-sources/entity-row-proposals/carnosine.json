@@ -1,0 +1,19 @@
+{
+  "entity_type": "compound",
+  "slug": "carnosine",
+  "name": "Carnosine",
+  "summary": "Carnosine (beta-alanine + histidine dipeptide) has diabetes RCTs on glucose and advanced glycation end-products. Beta-alanine's end product may matter more for diabetes than for gym performance.",
+  "description": "Canonical Carnosine research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "diabetes; glucose control; AGEs; dipeptide",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 7.0,
+    "evidence_notes": "Diabetes RCTs on glucose and AGEs (PMIDs flagged verify-before-publishing). Distinct from zinc carnosine.",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}

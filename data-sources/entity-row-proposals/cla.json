@@ -1,0 +1,19 @@
+{
+  "entity_type": "compound",
+  "slug": "cla",
+  "name": "Conjugated linoleic acid (CLA)",
+  "summary": "CLA is a fatty-acid supplement with weight-loss meta-analyses showing statistically significant but clinically small effects (~1 kg fat loss), accompanied by insulin-resistance concerns that complicate the risk-benefit picture.",
+  "description": "Canonical Conjugated linoleic acid (CLA) research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, dose, longer-term safety, and outcome-boundary evidence has passed the site's review gates.",
+  "primary_effects_or_targets": "body composition; fat loss; insulin sensitivity (safety signal)",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "research_metadata": {
+    "round": "deep-research-round-2",
+    "report_ref": "research_notes/hippie-scientist-content-gaps-round2-20261010-0111/report.md",
+    "opportunity_score": 6.5,
+    "evidence_notes": "Weight-loss meta-analyses ~1kg; insulin-resistance concerns (PMIDs flagged verify-before-publishing). Debunk-leaning angle.",
+    "verification_status": "pmids_need_verification_before_publishing",
+    "date_added": "2026-10-10"
+  }
+}
