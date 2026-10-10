@@ -45122,6 +45122,83 @@
       "reservation_id": "a91855d27a374cc38844",
       "reserved_at": "2026-10-10T07:54:42.593Z",
       "source_branch": "research/intake/2/20261010-0351-cognition-metabolic-r41"
+    },
+    {
+      "pmid": "42344533",
+      "title": "Drug-Induced Liver Injury Associated With an Over-The-Counter Supplement.",
+      "doi": "10.14309/crj.0000000000002178",
+      "source_title": "Drug-Induced Liver Injury Associated With an Over-The-Counter Supplement.",
+      "abstract": "Use of herbal and dietary supplements has increased worldwide, with a parallel rise in herbal and dietary supplement-associated liver injury in the United States. Limited regulation and inconsistent labeling complicate diagnosis. We report a 65-year-old woman who developed severe hepatocellular drug-induced liver injury after chronic ingestion of Artri King, an unregulated product previously flagged for undisclosed pharmaceutical ingredients, including diclofenac and corticosteroids. Evaluation excluded viral, autoimmune, and metabolic etiologies. Liver biopsy demonstrated a hepatocellular injury pattern, and liver tests improved after discontinuation. This case underscores the need for routine supplement screening and stronger regulatory oversight.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42344533/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "PubMed-verified case report of supplement adulteration and liver injury; research-only source identity, with all clinical interpretations pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42344533",
+        "doi": "10.14309/crj.0000000000002178",
+        "journal": "ACG case reports journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T08:01:22.529Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "75d18b57adb0123e9515",
+      "reserved_at": "2026-10-10T08:01:27.285Z",
+      "source_branch": "research/intake/3/20261010-0400-artri-king-dili-42344533"
     }
   ],
   "batches": [
@@ -45150,16 +45227,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 572,
+    "total_reservations": 573,
     "by_lane": {
       "1": 38,
       "2": 108,
-      "3": 103,
+      "3": 104,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 572
+      "SOURCE_VERIFIED": 573
     },
     "batches": [
       {
@@ -45172,7 +45249,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 72,
+        "count": 73,
         "pr_number": null,
         "blocker": null
       }
