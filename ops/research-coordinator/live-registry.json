@@ -45583,6 +45583,237 @@
       "reservation_id": "a3e88c0ad6fd1f79a4b1",
       "reserved_at": "2026-10-10T09:01:33.933Z",
       "source_branch": "research/intake/3/20261010-0500-chelidonium-hepatitis-42359199"
+    },
+    {
+      "pmid": "38846134",
+      "title": "Comparison Between Efficacy of Oral Melatonin and Oral L-theanine in Improving Sleep in Cancer Patients Suffering From Insomnia: A Randomised Double-blinded Placebo-controlled Study.",
+      "doi": "10.25259/IJPC_89_2023",
+      "source_title": "Comparison Between Efficacy of Oral Melatonin and Oral L-theanine in Improving Sleep in Cancer Patients Suffering From Insomnia: A Randomised Double-blinded Placebo-controlled Study.",
+      "abstract": "The primary objective was to compare the hypnotic efficacy of oral melatonin, oral L-theanine, and placebo in improving sleep in cancer patients with insomnia by the Athens Insomnia Scale (AIS). The secondary objective was to know the prevalence of insomnia in patients with cancer. A prospective, double-blinded, placebo-controlled study was conducted after obtaining Institutional Ethics Committee approval. One hundred and twenty patients were randomly assigned to either Group A (melatonin), Group B (L-theanine), or Group C (placebo). They were instructed to take the tablets for 14 consecutive days, two h (hours) before bedtime, and evaluated with AIS on the 1 st day, 7 th day, and 14 th day. There were seven dropouts: Two in Group A, two in Group B, and three in Group C. Significant differences in favour of melatonin treatment were found. There were statistically significant improvements in insomnia in cancer patients on melatonin intake compared to L-theanine. L-theanine had statistically significant improvements in insomnia in comparison to placebo. The mean ± standard deviation AIS on day one in Group A was 14.82 ± 1.29; on day seven was 10.92 ± 1.12; and on day 14 was 5.00 ± 0.70. Similarly, in Group B, the mean ± standard deviation AIS was 15.39 ± 1.03, 13.05 ± 1.06, and 9.55 ± 1.01, and in Group C, the mean AIS was 14.92 ± 1.40, 14.54 ± 1.35 and 13.05 ± 1.61 on the 1 st , 7 th and 10 th day, respectively. There was an improvement in sleep from 1 to 7 days, 7 days to 14 days, and 1 day to 14 days in all the groups ( P < 0.005). The hypnotic efficacy of oral melatonin 3 mg was better than oral L-theanine 200 mg in cancer patients having insomnia. Furthermore, L-theanine had a better hypnotic efficacy when compared to a placebo.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38846134/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "38846134",
+        "doi": "10.25259/IJPC_89_2023",
+        "journal": "Indian journal of palliative care",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-10T09:46:48.108Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "324c712d3c3bf11fc4b3",
+      "reserved_at": "2026-10-10T09:46:53.798Z",
+      "source_branch": "research/intake/1/20261010-0544-ltheanine-lactolin-rose-three"
+    },
+    {
+      "pmid": "39379481",
+      "title": "Supplementation with whey peptide rich in β-lactolin improves trait anxiety and subjective stress in healthy adults: a randomized, double-blind, placebo-controlled study.",
+      "doi": "10.1038/s41598-024-73780-3",
+      "source_title": "Supplementation with whey peptide rich in β-lactolin improves trait anxiety and subjective stress in healthy adults: a randomized, double-blind, placebo-controlled study.",
+      "abstract": "Mental disorders have become one of the most burdensome health concerns. We have previously demonstrated that whey-derived β-lactolin (glycine-thereonine-tryptophan-tyrosine tetrapeptide) activates dopaminergic systems and improves psychiatric function in rodents. However, the effects of β-lactolin on human mood states have not been investigated. This randomized, double-blind, placebo-controlled study aimed to evaluate the effects of supplementation with β-lactolin-rich whey peptide on human mood states. Sixty healthy adults (aged 45-64 years) with relatively low psychological health were randomly allocated to receive either whey peptide (containing β-lactolin 1.6 mg/day) or placebo for 6 weeks. Mood states (primary outcomes) were evaluated using self-reporting questionnaires. Health-related quality of life (QOL), salivary stress marker and lipid mediator levels were evaluated as secondary outcomes. Compared with placebo, supplementation with β-lactolin improved changes in trait anxiety (p = 0.046), as assessed using the state-trait anxiety inventory, and in subjective stress (p = 0.043), as assessed using the Perceived Stress Scale. In the assessment of QOL, changes in the vitality subscale and mental health summary score of the 36-Item Short-Form Health Survey were improved in the β-lactolin group. The levels of salivary immunoglobulin A were significantly higher in the β-lactolin group. In a subgroup analysis by median age (54.5 years), subjective stress and salivary prostaglandin levels were significantly decreased by β-lactolin supplementation in the 45-54 -year-old subgroup. In conclusion, supplementation with β-lactolin improves trait anxiety, subjective stress, and psychological QOL, which may be associated with immunologic responses detected via salivary analysis.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39379481/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39379481",
+        "doi": "10.1038/s41598-024-73780-3",
+        "journal": "Scientific reports",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-10T09:46:48.109Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fc76bec37bcd6b4e4ec2",
+      "reserved_at": "2026-10-10T09:46:53.798Z",
+      "source_branch": "research/intake/1/20261010-0544-ltheanine-lactolin-rose-three"
+    },
+    {
+      "pmid": "41262694",
+      "title": "The effects of Rosa damascene aromatherapy on mood and sleep: a systematic review and meta-analysis.",
+      "doi": "10.3389/fpubh.2025.1646592",
+      "source_title": "The effects of Rosa damascene aromatherapy on mood and sleep: a systematic review and meta-analysis.",
+      "abstract": "Individuals under stress may experience a range of negative emotions and sleep disturbances. There is preliminary evidence that Rosa damascene (RD) aromatherapy is effective in improving symptoms such as negative mood and sleep. The objective of this study was to assess the effects of RD aromatherapy on anxiety, anxiety-related hemodynamic changes, depression, stress, and sleep quality, while also exploring potential moderating factors that could influence the outcome measures. Systematic review and meta-analysis of existing randomized controlled trials on RD aromatherapy in the treatment of mood and sleep. A systematic literature search was conducted across PubMed, Web of Science, EMBASE, CINAHL, and the Cochrane Central Register of Controlled Trials. We identified 28 randomized controlled trials that were pooled using a random-effects meta-analysis. The meta-analysis demonstrated that RD aromatherapy significantly alleviated anxiety symptoms (SMD = -1.31; 95% CI, -1.74 to-0.88; p < 0.001), reduced mean arterial pressure (MAP) (SMD = -0.33; 95% CI, -0.64 to-0.02; p = 0.038), and mitigated stress symptoms (SMD = -0.76; 95% CI, -1.07 to -0.44; p < 0.001), while also improving sleep quality (SMD = -2.10; 95% CI, -3.54 to -0.66; p = 0.004). The effects on depressive symptoms and pulse rate (PR) were minimal ( p > 0.1). Our findings suggest that RD aromatherapy can effectively reduce anxiety, improve related hemodynamic parameters, and alleviate stress symptoms, while also enhancing sleep quality. However, its effects on depressive symptoms and PR were smaller, indicating a need for larger randomized trials. Identifier CRD42024593400, https://www.crd.york.ac.uk/PROSPERO/view/CRD42024593400.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41262694/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41262694",
+        "doi": "10.3389/fpubh.2025.1646592",
+        "journal": "Frontiers in public health",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T09:46:48.109Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3a2c65cf6d82275f25b2",
+      "reserved_at": "2026-10-10T09:46:53.798Z",
+      "source_branch": "research/intake/1/20261010-0544-ltheanine-lactolin-rose-three"
     }
   ],
   "batches": [
@@ -45611,16 +45842,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 578,
+    "total_reservations": 581,
     "by_lane": {
-      "1": 38,
+      "1": 41,
       "2": 110,
       "3": 105,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 578
+      "SOURCE_VERIFIED": 581
     },
     "batches": [
       {
@@ -45633,7 +45864,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 78,
+        "count": 81,
         "pr_number": null,
         "blocker": null
       }
