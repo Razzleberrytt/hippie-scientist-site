@@ -48818,6 +48818,82 @@
       "reservation_id": "3ff5d3640b143f98c4e9",
       "reserved_at": "2026-10-10T18:10:00.020Z",
       "source_branch": "research/intake/3/20261010-1408-cbd-amitriptyline-41398552"
+    },
+    {
+      "pmid": "42827315",
+      "title": "How Virtual Reality and Relaxation Exercises Shape Pain, Sleep, Kinesiophobia and Anxiety Over Time After Impacted Third Molar Surgery?: A Randomized Controlled Study.",
+      "doi": "10.1111/joor.70324",
+      "source_title": "How Virtual Reality and Relaxation Exercises Shape Pain, Sleep, Kinesiophobia and Anxiety Over Time After Impacted Third Molar Surgery?: A Randomized Controlled Study.",
+      "abstract": "Surgical extraction of Impacted Third Molar (ITM) is one of the most frequently performed oral surgical procedures. The effects of relaxation exercises and VR after ITM surgery remain underinvestigated. This study aimed to evaluate the effects of relaxation exercises and VR on pain, sleep quality, kinesiophobia, and anxiety levels following ITM surgery. This study included 36 individuals between the ages of 18 and 35 with mandibular third molars in Class 2 position B, according to the Pell and Gregory classification. All third molar extractions were performed under local anaesthesia. Participants in the Relaxation Exercise Group (G1) received relaxation exercises and patient education; participants in the Relaxation Exercise + VR Group (G2) received relaxation exercises, VR and patient education; and participants in the Control Group (G3) received patient education only. We assessed pain levels using the Visual Analog Scale (VAS), kinesiophobia levels using the Tampa Scale for Kinesiophobia for Temporomandibular Disorders, sleep quality using the Visual Analog Sleep Scale, and anxiety levels using the State subscale of the State-Trait Anxiety Inventory (STAI-S). The same researcher performed assessments three times: immediately after ITM extraction and on postoperative days 2 and 7. On postoperative days 2 and 7, the three groups differed significantly in VAS and STAI-S scores (p < 0.05). Relaxation exercises, alone or combined with VR, appear to be viable approaches for managing pain and anxiety after ITM surgery and may represent a promising avenue for future rehabilitation research. ClinicalTrials.gov/NCT06917989.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42827315/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42827315",
+        "doi": "10.1111/joor.70324",
+        "journal": "Journal of oral rehabilitation",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T18:41:33.411Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ff82f6c8d02b384895ff",
+      "reserved_at": "2026-10-10T18:41:37.224Z",
+      "source_branch": "research/intake/1/20261010-1437-relaxation-vr-42827315"
     }
   ],
   "batches": [
@@ -48846,16 +48922,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 620,
+    "total_reservations": 621,
     "by_lane": {
-      "1": 51,
+      "1": 52,
       "2": 128,
       "3": 116,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 620
+      "SOURCE_VERIFIED": 621
     },
     "batches": [
       {
@@ -48868,7 +48944,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 120,
+        "count": 121,
         "pr_number": null,
         "blocker": null
       }
