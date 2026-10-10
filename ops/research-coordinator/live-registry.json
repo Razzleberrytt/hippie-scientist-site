@@ -43356,6 +43356,158 @@
       "reservation_id": "ca7cc4699ed13a3c9c20",
       "reserved_at": "2026-10-10T02:45:10.591Z",
       "source_branch": "research/intake/1/20261009-2242-citrus-peripartum-42332631"
+    },
+    {
+      "pmid": "41918619",
+      "title": "Effects of aerobic exercise and computer-based cognitive training on cognition, functional independence, quality of life, and salivary cortisol levels in older adults with mild cognitive impairment: a randomized trial.",
+      "doi": "10.3389/fnagi.2026.1776069",
+      "source_title": "Effects of aerobic exercise and computer-based cognitive training on cognition, functional independence, quality of life, and salivary cortisol levels in older adults with mild cognitive impairment: a randomized trial.",
+      "abstract": "Mild Cognitive Impairment (MCI) represents an intermediate stage between normal aging and dementia, characterized by measurable cognitive decline without significant loss of functional independence. Non-pharmacological interventions, particularly aerobic exercise and cognitive training, have demonstrated potential benefits; however, their combined effects and underlying neurobiological mechanisms remain inadequately explored. To investigate the effects of aerobic exercise combined with computer-based cognitive training on cognitive function, functional independence, health-related quality of life, and salivary cortisol levels in older adults with MCI. This assessor-blinded, two-arm randomized controlled trial included 60 older adults (60-85 years) diagnosed with MCI. Participants were randomized to either an intervention group receiving aerobic exercise plus computer-based cognitive training ( n = 28) or an active comparison group receiving aerobic exercise with conventional cognitive training ( n = 28). Interventions were delivered over 12 weeks, with assessments conducted at baseline, post-intervention (12 weeks), and follow-up (16 weeks). Primary and secondary outcomes included the Montreal Cognitive Assessment (MOCA), Barthel Index (BI), Short Form-12 (SF-12), and salivary cortisol levels. Data were analyzed using repeated measures ANOVA and Pearson correlation analysis. Both groups demonstrated significant within-group improvements in cognitive function, functional independence, quality of life, and cortisol levels over time ( p < 0.05). The intervention group showed significantly greater improvement in MOCA scores at 16-weeks ( p < 0.05). Salivary cortisol levels differed significantly between groups at 12 weeks ( p < 0.05). A significant negative correlation between cortisol levels and cognitive performance was observed at follow-up in both groups. Combining aerobic exercise with cognitive training improves clinical outcomes in older adults with MCI and may influence stress-related neurobiological pathways. This multimodal approach represents a promising, non-pharmacological strategy for mitigating age-related cognitive decline.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41918619/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41918619",
+        "doi": "10.3389/fnagi.2026.1776069",
+        "journal": "Frontiers in aging neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T02:55:35.380Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3a97f05836fada2468d0",
+      "reserved_at": "2026-10-10T02:55:39.330Z",
+      "source_branch": "research/intake/2/20261009-2252-cognition-exercise-r36"
+    },
+    {
+      "pmid": "42168724",
+      "title": "Impact of an online-guided physical activity intervention on cognition, resting-state brain connectivity, and the gut microbiome in healthy older adults-a randomized controlled trial.",
+      "doi": "10.1007/s11357-026-02324-6",
+      "source_title": "Impact of an online-guided physical activity intervention on cognition, resting-state brain connectivity, and the gut microbiome in healthy older adults-a randomized controlled trial.",
+      "abstract": "Physical activity may enhance cognition in older adults, yet evidence from randomized controlled trials (RCTs) on mechanistic pathways remains inconclusive. This single-blinded RCT examined the effects of an 8-week, online-guided, multicomponent physical activity intervention on cognitive function, resting-state functional brain connectivity (rsFC), and the gut microbiome in 92 healthy older adults (M age = 66.35). Participants were randomized to a physical activity group performing moderate-to-vigorous-intensity aerobic, coordination, and balance exercises, or to an active control group engaging in progressive muscle relaxation and listening to aging-related podcasts. The primary outcome was change in visual processing speed (items/s) from pre- to post-assessment. Secondary outcomes included changes in additional cognitive measures, rsFC, cardiorespiratory fitness (CRF), and the gut microbiome. The primary outcome showed no significant between-group differences. However, exploratory analyses revealed potential improvements in inhibition (η2 = 0.061; p = 0.025) and visual memory (η2 = 0.047; p = 0.040) in the physical activity group. This group also showed a potential increase in rsFC between visual and dorsal attention networks (η2 = 0.101; p = 0.009). Visual memory gains correlated with improvements in rsFC (p = 0.013). No between-group differences were observed in CRF or gut microbiome composition. While the primary outcome (visual processing speed) and predefined mechanistic pathways (e.g., gut microbiome composition) remained unaffected, this may partly reflect the sample's high baseline fitness, which likely limited observable improvements. Exploratory findings suggest potential cognitive and associated rsFC benefits in memory and attention-related networks. The online format enabled a structured, scalable intervention while minimizing potential confounding from social interaction. https://drks.de/search/de/trial/DRKS00028022 (date of registration: 14.02.2022).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42168724/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42168724",
+        "doi": "10.1007/s11357-026-02324-6",
+        "journal": "GeroScience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T02:55:35.381Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4f1ba6f5babac21e1111",
+      "reserved_at": "2026-10-10T02:55:39.330Z",
+      "source_branch": "research/intake/2/20261009-2252-cognition-exercise-r36"
     }
   ],
   "batches": [
@@ -43384,16 +43536,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 549,
+    "total_reservations": 551,
     "by_lane": {
       "1": 29,
-      "2": 97,
+      "2": 99,
       "3": 100,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 549
+      "SOURCE_VERIFIED": 551
     },
     "batches": [
       {
@@ -43406,7 +43558,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 49,
+        "count": 51,
         "pr_number": null,
         "blocker": null
       }
