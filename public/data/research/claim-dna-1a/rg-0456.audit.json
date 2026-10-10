@@ -1,9 +1,0 @@
-{
-  "artifact_bytes": 3758,
-  "artifact_sha256": "f28670aeec758d436753fe42efb9686f6b3e56b11e3bce0638d555f3d4631cd0",
-  "claim_id": "rg-0456",
-  "generated_at": "2026-10-10T01:55:27.668Z",
-  "generation_ms": 12,
-  "generator_version": "round-1a-runner/0.1",
-  "successful_joins": 1
-}
