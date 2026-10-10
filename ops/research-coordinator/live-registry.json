@@ -48123,6 +48123,159 @@
       "reservation_id": "0cb16fe4aecacc2344b3",
       "reserved_at": "2026-10-10T16:07:46.801Z",
       "source_branch": "research/intake/3/20261010-1205-herbal-cardiac-turmeric-safety"
+    },
+    {
+      "pmid": "41968827",
+      "title": "The Impact of Cognitive Behavioral Group Therapy with or without Lavender Aroma on Sleep Quality in Menopausal Women: Randomized Controlled Trial.",
+      "doi": "10.2174/0118746098434021260107062622",
+      "source_title": "The Impact of Cognitive Behavioral Group Therapy with or without Lavender Aroma on Sleep Quality in Menopausal Women: Randomized Controlled Trial.",
+      "abstract": "Introduction/ Objective: Menopause and the decrease in estrogen levels have numerous negative effects on sleep quality and mental health in women, potentially leading to anxiety and irritability. Non-pharmacological treatments have gained attention as alternative methods for improving sleep quality. This study aimed to evaluate the effectiveness of Cognitive Behavioral Group Therapy (CBGT) with or without lavender aroma on sleep quality in post-menopausal women. This randomized controlled trial (RCT), double-blind, enrolled 135 eligible menopausal women from health centers in Hamadan, Iran, between 2022 and 2023. Participants were randomly assigned to three groups: CBGT with placebo, CBGT with lavender aroma, and a control group. The intervention consisted of eight 60-90-minute CBGT sessions over one month for the first two groups, with placebo or lavender aroma administered. Sleep quality was assessed using the Pittsburgh Sleep Quality Index (PSQI) before and after the intervention. Data were analyzed using SPSS version 21, with statistical significance set at p < 0.05. Participants had a mean age of 60.1 ± 5.9 years and a menopause duration of 3.1 ± 1.2 years. In the CBT with lavender group, 79.1% achieved good sleep quality (PSQI ≤ 5) postintervention (p = 0.001), with significant improvements in subjective sleep quality (p = 0.001), sleep duration (p = 0.001), and sleep efficiency (p = 0.001), and reductions in sleep latency (p = 0.001) and sleep disturbances (p = 0.001). No significant improvements were observed in the CBT with placebo or control groups (p > 0.05). Combining CBGT with lavender aromatherapy is an effective nonpharmacological approach to improve sleep quality in menopausal women, potentially reducing reliance on pharmacotherapy and its associated side effects.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41968827/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41968827",
+        "doi": "10.2174/0118746098434021260107062622",
+        "journal": "Current aging science",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T16:45:38.395Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e6647c36dc5806dabbac",
+      "reserved_at": "2026-10-10T16:45:43.942Z",
+      "source_branch": "research/intake/1/20261010-1241-lavender-sleep-two"
+    },
+    {
+      "pmid": "31556690",
+      "title": "Trial of Essential Oils to Improve Sleep for Patients in Cardiac Rehabilitation.",
+      "doi": "10.1089/acm.2019.0222",
+      "source_title": "Trial of Essential Oils to Improve Sleep for Patients in Cardiac Rehabilitation.",
+      "abstract": "Objectives: The objective of this study was to determine if there was a significant difference between the sleep quality of patients who inhaled placebo and those who inhaled an aroma comprising a mixture of Lavandula x intermedia (Lavandin Super), Citrus bergamia (bergamot), and Cananga odorata (ylang ylang). Design: This was a randomized, double-blind crossover study, which compared a treatment with placebo. Settings/location: The study was conducted in an outpatient cardiac rehabilitation unit located in an urban, private nonprofit hospital in north Texas. Subjects: Participants included 42 adult patients referred to the rehabilitation service following hospitalizations by local cardiologists. Interventions: Cotton balls infused with a combination of lavender, bergamot, and ylang ylang or placebo were placed at subjects' bedsides for five nights. After a washout period, subjects crossed over to the other condition for five nights. Outcome measures: Participants completed the Pittsburgh Sleep Quality Index (PSQI) after treatment and placebo periods. Lower PSQI scores indicate better sleep quality. Results: The mean PSQI global score was statistically significantly lower when receiving the intervention oil (mean = 4.9) than the mean PSQI global score when receiving placebo (mean = 8). Duration of sleep and the time it took to fall asleep were no different between treatment groups, but patient-reported sleep quality was significantly better when participants were exposed to essential oils (χ 2 = 4.5, p = 0.03) than when exposed to placebo. Although sleep efficiency (time asleep while lying in bed) was perceived as the same under both conditions, participants reported that they had to get up to use the bathroom significantly less often when exposed to the treatment than when exposed to placebo ( t = -2.04, p = 0.05; Wilcoxon p = 0.05). Participants also reported that they had trouble sleeping because they felt too cold, which occurred significantly less often when exposed to the treatment than when exposed to placebo ( t = -2.03, p = 0.05; Wilcoxon p = 0.05). Conclusions: Sleep quality of participants receiving intervention oils was significantly better than the sleep quality of participants receiving the placebo oil. Low-cost, nontraditional aromatherapy treatment is potentially effective for improving sleep quality among cardiac rehabilitation patients.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31556690/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "31556690",
+        "doi": "10.1089/acm.2019.0222",
+        "journal": "Journal of alternative and complementary medicine (New York, N.Y.)",
+        "publication_year": 2020,
+        "hydrated_at": "2026-10-10T16:45:38.396Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c9114b729d173c014273",
+      "reserved_at": "2026-10-10T16:45:43.942Z",
+      "source_branch": "research/intake/1/20261010-1241-lavender-sleep-two"
     }
   ],
   "batches": [
@@ -48151,16 +48304,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 611,
+    "total_reservations": 613,
     "by_lane": {
-      "1": 48,
+      "1": 50,
       "2": 124,
       "3": 114,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 611
+      "SOURCE_VERIFIED": 613
     },
     "batches": [
       {
@@ -48173,7 +48326,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 111,
+        "count": 113,
         "pr_number": null,
         "blocker": null
       }
