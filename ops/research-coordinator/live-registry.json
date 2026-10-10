@@ -45046,6 +45046,82 @@
       "reservation_id": "1a20c7a52de9bd3f2480",
       "reserved_at": "2026-10-10T07:44:49.604Z",
       "source_branch": "research/intake/1/20261010-0341-hops-valerian-two"
+    },
+    {
+      "pmid": "42820970",
+      "title": "Efficacy of the digital therapeutic glucura combined with CGM in the treatment of type 2 diabetes: a randomised controlled trial over 6 months.",
+      "doi": "10.1007/s00125-026-06880-6",
+      "source_title": "Efficacy of the digital therapeutic glucura combined with CGM in the treatment of type 2 diabetes: a randomised controlled trial over 6 months.",
+      "abstract": "CGM is increasingly recommended for non-insulin-treated type 2 diabetes according to the ADA Standards of Care 2026. However, its clinical benefit in high-quality standard care remains limited. This study evaluated whether addition of the digital therapeutic glucura, which delivers personalised lifestyle intervention and self-management guidance, improves glycaemic outcomes beyond CGM and standard care. The study was a 6-month, multicentre, open-label RCT conducted at 24 sites in Germany (ID: DRKS00032537). Adults (≥18 years) with non-insulin-treated type 2 diabetes (HbA 1c 53-97 mmol/mol [7.0-11.0%], BMI≥25 kg/m 2 ) receiving standard care were randomly assigned (1:1) by centralised stratified block randomisation to glucura or a control app. Participants and study personnel were not masked to group assignment. Both groups used intermittent CGM every 3 months during the study. CGM sensors were not used prior to the study. The primary endpoint was the change in HbA 1c from baseline to 6 months. Secondary outcomes included weight change and patient-centric measures. Of 327 randomised participants (intervention: n=165; control: n=162), 320 were analysed (ITT population). The standalone CGM control group improved HbA 1c levels by 3.3 mmol/mol (0.30 percentage points); however, the intervention group showed greater reductions of 8.7 mmol/mol (0.80 percentage points) with an adjusted difference of -5 mmol/mol (-0.46 percentage points; 95% CI -7, -3 mmol/mol; p=0.00003). Within the intervention group, more participants achieved HbA 1c targets (<53 mmol/mol [<7.0%]: 55% vs 31%, OR 3.38, exploratory p=0.0002; <48 mmol/mol [<6.5%]: 27% vs 7%, OR 6.63, exploratory p=0.0001). The mean weight loss was also greater in the intervention group (4.11% vs 1.79%, p<0.0001). Significant improvements in mental health and diabetes-related distress were also observed. The positive effects were consistent across all subgroups. No device-related serious adverse events were observed. In non-insulin-treated type 2 diabetes, CGM plus standard care yielded less metabolic benefit than CGM combined with glucura. The combination of glucura and CGM also translated into improvements beyond glycaemic management. Trial registration German Clinical Trials Register DRKS00032537 Funding The study was funded by Perfood Laboratories GmbH.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42820970/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42820970",
+        "doi": "10.1007/s00125-026-06880-6",
+        "journal": "Diabetologia",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T07:54:38.426Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a91855d27a374cc38844",
+      "reserved_at": "2026-10-10T07:54:42.593Z",
+      "source_branch": "research/intake/2/20261010-0351-cognition-metabolic-r41"
     }
   ],
   "batches": [
@@ -45074,16 +45150,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 571,
+    "total_reservations": 572,
     "by_lane": {
       "1": 38,
-      "2": 107,
+      "2": 108,
       "3": 103,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 571
+      "SOURCE_VERIFIED": 572
     },
     "batches": [
       {
@@ -45096,7 +45172,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 71,
+        "count": 72,
         "pr_number": null,
         "blocker": null
       }
