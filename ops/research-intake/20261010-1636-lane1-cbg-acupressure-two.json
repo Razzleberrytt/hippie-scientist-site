@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "41574318",
+    "42339308"
+  ],
+  "relevance_reason": "Human randomized trials addressing sleep quality with cannabigerol and depression outcomes with self-administered acupressure; source identities only, not scientific approval."
+}
