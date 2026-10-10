@@ -42894,6 +42894,158 @@
       "reservation_id": "6bb4ff1d410475d1790a",
       "reserved_at": "2026-10-10T01:45:40.798Z",
       "source_branch": "research/intake/1/20261009-2141-snk12-41598182"
+    },
+    {
+      "pmid": "42620947",
+      "title": "Impact of exercise on cognitive efficiency in older adults with subjective memory complaints: a randomized clinical trial.",
+      "doi": "10.3389/fnagi.2026.1875431",
+      "source_title": "Impact of exercise on cognitive efficiency in older adults with subjective memory complaints: a randomized clinical trial.",
+      "abstract": "Cerebrovascular dysfunction may contribute to cognitive impairment in older adults. Exercise is recommended for preventing cerebrovascular health and cognition; however, it remains unclear whether cognitive changes are related to changes in cerebrovascular function. Thus, this study aimed to examine whether exercise-induced changes in cognition and subjective memory complaints are associated with changes in cerebral blood velocity. This study is a randomized controlled trial that included 72 sedentary older adults with memory complaints (age = 62 ± 7, 19 [26%♂]). Participants were randomized to a land-walking (LW), water-walking (WW), or control group (C). Exercise groups ( n = 49, age = 63 ± 6, 13 [27%♂]) completed 24 weeks of supervised training (3 times/week, 50 min/session, at 40-65% of heart rate reserve). Cognitive outcomes included the Repeatable Battery for the Assessment of Neuropsychological Status (RBANS) and Trail Making Test (TMT), and subjective memory was assessed using the Memory Complaint Questionnaire (MAC-Q). Middle (MCAv) and posterior (PCAv) cerebral artery blood velocity was assessed at rest and during visual neurovascular coupling, hypercapnic reactivity, and cerebral autoregulation. TMT-B improved in the WW group compared to C ( p = 0.031). In pooled exercise groups, improvements in RBANS ( r = -0.386, p = 0.024) and MAC-Q ( r = 0.357, p = 0.035) were associated with reduced resting MCAv. No significant associations were observed for other cerebrovascular measures. Improvements in neuropsychological status and subjective memory were associated with reduced resting MCAv following exercise training. These exploratory associations suggest that variability in cerebrovascular responses may relate to cognitive responses; however, without consistent group-level effects, findings should be interpreted cautiously and do not imply causality. https://www.anzctr.org.au/, ACTRN12614000017628.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42620947/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42620947",
+        "doi": "10.3389/fnagi.2026.1875431",
+        "journal": "Frontiers in aging neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T01:54:04.738Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "09166eea5ab569665063",
+      "reserved_at": "2026-10-10T01:54:09.267Z",
+      "source_branch": "research/intake/2/20261009-2151-cognition-metabolic-r35"
+    },
+    {
+      "pmid": "42443266",
+      "title": "The role of medium-intensity training in promoting functional independence and cognitive function in older adults: a randomized controlled trial.",
+      "doi": "10.1038/s41598-026-56561-y",
+      "source_title": "The role of medium-intensity training in promoting functional independence and cognitive function in older adults: a randomized controlled trial.",
+      "abstract": "Aging is associated with declines in physical and cognitive capacities, negatively affecting functional independence and quality of life. While physical exercise is recommended for healthy aging, uncertainty remains regarding the optimal training intensity for simultaneously supporting physical and cognitive outcomes. This study evaluated the effects of medium-intensity training (MIT) on functional independence and cognitive function in older adults. A six-month assessor-blinded randomized controlled trial was conducted with 72 community-dwelling older adults aged 60-70 years. Participants were randomly assigned using a computer-generated sequence to either the MIT group (n = 36) or control group (n = 36). The MIT program was performed three times per week at moderate intensity, prescribed using individualized heart-rate reserve targets and supported by perceived exertion monitoring. Functional independence and cognitive function were measured using the Katz Index of Independence in Activities of Daily Living (ADL) and Mini-Mental State Examination (MMSE), respectively. Data were analyzed using paired and independent t-tests for within- and between-group comparisons, and two-way repeated measures ANOVA to evaluate Time × Group interaction effects. Assumptions of normality were verified (Shapiro-Wilk test, p > 0.05). Significance was set at p < 0.05, with effect sizes interpreted cautiously in light of outcome variability and the pre-post randomized design. Baseline characteristics did not differ meaningfully between groups. Following MIT, the exercise group significantly improved in functional independence (Katz Index: 4.31 ± 0.46 to 5.33 ± 0.77; p = 0.006) and cognitive function (MMSE: 18.77 ± 2.64 to 22.25 ± 4.38; p = 0.001). The control group showed no significant changes in Katz Index (4.53 ± 0.50 to 4.24 ± 0.82; p = 0.731) or MMSE (18.31 ± 2.01 to 19.07 ± 0.81; p = 0.434). Two-way repeated measures ANOVA confirmed significant Time × Group interactions for both outcomes, suggesting greater improvements in the MIT group than in the control group. A six-month medium-intensity training program was associated with improvements in functional independence and cognitive function among community-dwelling older adults. These findings support MIT as a feasible, low-cost exercise approach for community-based healthy aging programs. Future studies with larger samples, objective intensity monitoring, systematic adherence tracking, adverse-event reporting, and long-term follow-up are warranted.Trial registration: This trial was retrospectively registered in the Thai Clinical Trials Registry (TCTR20250613003) on 13 June 2025.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42443266/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42443266",
+        "doi": "10.1038/s41598-026-56561-y",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T01:54:04.738Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a1756e1ef2eb1ae88013",
+      "reserved_at": "2026-10-10T01:54:09.267Z",
+      "source_branch": "research/intake/2/20261009-2151-cognition-metabolic-r35"
     }
   ],
   "batches": [
@@ -42922,16 +43074,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 543,
+    "total_reservations": 545,
     "by_lane": {
       "1": 28,
-      "2": 95,
+      "2": 97,
       "3": 99,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 543
+      "SOURCE_VERIFIED": 545
     },
     "batches": [
       {
@@ -42944,7 +43096,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 43,
+        "count": 45,
         "pr_number": null,
         "blocker": null
       }
