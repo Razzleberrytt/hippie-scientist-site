@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "spermidine",
+  "name": "Spermidine",
+  "summary": "Spermidine is a polyamine (wheat germ, natto, aged cheese) sold for autophagy and longevity. The largest RCT, SmartAge (n=100, 12 months, subjective cognitive decline), found NO difference on memory endpoints or biomarkers vs placebo (PMID 35616942). Marketing leans on observational and mechanistic data; EFSA considers up to 6 mg/day food-derived spermidine safe.",
+  "description": "Canonical spermidine research entity for evidence and safety integration. Publication remains held until the SmartAge null result is given proper weight against observational data, dose boundaries (food-derived vs supplemental) are explicit, and autophagy-marker vs clinical-outcome distinctions have passed the site's review gates.",
+  "primary_effects_or_targets": "autophagy induction; polyamine metabolism; cellular senescence",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

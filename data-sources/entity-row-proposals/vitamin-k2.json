@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "vitamin-k2",
+  "name": "Vitamin K2 (MK-7)",
+  "summary": "Vitamin K2 (menaquinone-7) is the long-acting K2 form positioned for arterial and bone health via matrix Gla protein activation. RCTs include VitaK-CAC (n=180 coronary artery disease patients, less calcification progression over 2 years) and Knapen (n=244 postmenopausal women, reduced arterial stiffness over 3 years). Marketing routinely omits the warfarin interaction.",
+  "description": "Canonical vitamin K2 research entity for evidence and safety integration. Publication remains held until the warfarin/anticoagulant interaction is prominently documented, MK-4 vs MK-7 form boundaries are explicit, and dose standardization has passed the site's review gates.",
+  "primary_effects_or_targets": "matrix Gla protein activation; vascular calcification; bone mineralization",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

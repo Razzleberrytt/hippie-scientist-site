@@ -1,0 +1,11 @@
+{
+  "entity_type": "herb",
+  "slug": "vitex",
+  "name": "Vitex (Chasteberry)",
+  "summary": "Vitex (Vitex agnus-castus, chasteberry) is the most-studied herb for PMS and cyclic breast pain. A meta-analysis of 3 CONSORT-compliant RCTs (n=520) found 2.57x higher PMS remission vs placebo - but only with characterized extracts (Ze 440/BNO 1095); most retail products are not these extracts. A 2013 systematic review of 13 RCTs found 7 of 8 PMS trials positive.",
+  "description": "Canonical vitex research entity for evidence and safety integration. Publication remains held until extract-specificity (Ze 440/BNO 1095 vs generic products) is explicit, PMS vs mastalgia vs hyperprolactinemia indications are separated, and prolactin-related safety notes have passed the site's review gates.",
+  "primary_effects_or_targets": "prolactin modulation; dopaminergic activity; PMS symptom cluster",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

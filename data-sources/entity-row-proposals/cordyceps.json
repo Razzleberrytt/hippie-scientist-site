@@ -1,0 +1,11 @@
+{
+  "entity_type": "herb",
+  "slug": "cordyceps",
+  "name": "Cordyceps",
+  "summary": "Cordyceps (C. militaris/sinensis) is a caterpillar fungus used for energy and endurance in the functional-mushroom category. A 2025 meta-analysis of 14 RCTs (n=528 athletes) found improved endurance performance, ventilatory threshold, and VO2peak; a 2026 crossover (n=12) found faster post-exercise reaction time (PMID 42455764). The species on the label matters and is often unstated.",
+  "description": "Canonical cordyceps research entity for evidence and safety integration. Publication remains held until C. militaris vs C. sinensis species boundaries are explicit, small-sample caveats are documented, and wild-harvest vs cultivated product distinctions have passed the site's review gates.",
+  "primary_effects_or_targets": "aerobic capacity; adenosine signaling; exercise endurance",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

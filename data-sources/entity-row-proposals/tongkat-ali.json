@@ -1,0 +1,11 @@
+{
+  "entity_type": "herb",
+  "slug": "tongkat-ali",
+  "name": "Tongkat Ali",
+  "summary": "Tongkat ali (Eurycoma longifolia) is a Southeast Asian root and TikTok's favorite 'natural testosterone' herb. A 2022 meta-analysis of 5 RCTs found increased total testosterone (SMD 1.352, p=0.001) with high heterogeneity (PMID 36013514), concentrated in men starting low; a 2024 trial in trained adults found no effect on free testosterone. EFSA (2021) concluded safety is 'not established' over genotoxicity signals.",
+  "description": "Canonical tongkat ali research entity for evidence and safety integration. Publication remains held until the EFSA safety-not-established flag is prominently documented, hypogonadal vs eugonadal evidence boundaries are explicit, and total-vs-free testosterone distinctions have passed the site's review gates.",
+  "primary_effects_or_targets": "androgen signaling; total testosterone; erectile function",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

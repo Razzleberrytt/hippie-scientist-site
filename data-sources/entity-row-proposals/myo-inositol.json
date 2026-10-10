@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "myo-inositol",
+  "name": "Myo-Inositol",
+  "summary": "Myo-inositol is a B-vitamin-like sugar alcohol used for PCOS, fertility, and insulin resistance. A high-profile 2025 JAMA trial (n=464) found 4 g/day during pregnancy did NOT reduce gestational diabetes/preeclampsia/preterm birth vs placebo (PMID 40920401), while a 2025 meta-analysis of 17 assisted-reproduction studies found increased clinical pregnancy rates (RR 1.64, PMID 40989082).",
+  "description": "Canonical myo-inositol research entity for evidence and safety integration. Publication remains held until the pregnancy-indication boundary reflects the negative JAMA 2025 trial, myo-vs-d-chiro formulation ratios are documented, and fertility vs metabolic indications are separated, passing the site's review gates.",
+  "primary_effects_or_targets": "insulin signaling; ovarian function; inositol phosphoglycan mediators",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

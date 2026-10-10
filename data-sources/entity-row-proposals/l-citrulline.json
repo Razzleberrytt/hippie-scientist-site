@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "l-citrulline",
+  "name": "L-Citrulline",
+  "summary": "L-citrulline is a nitric-oxide-pathway amino acid used in pre-workouts and studied for vascular function. A 2024 RCT (n=20 hypertensive adults) found single-dose 6 g citrulline malate improved 24-hour diastolic BP dipping (PMID 39385595); a 2025 review of 148 publications found endothelial-function benefits more consistent with chronic dosing, with heterogeneous exercise effects.",
+  "description": "Canonical L-citrulline research entity for evidence and safety integration. Publication remains held until acute vs chronic dosing boundaries, citrulline vs citrulline-malate form distinctions, and exercise vs vascular indications are explicit, passing the site's review gates.",
+  "primary_effects_or_targets": "nitric oxide synthesis; endothelial function; exercise hemodynamics",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

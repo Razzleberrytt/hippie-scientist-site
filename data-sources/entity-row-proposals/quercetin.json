@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "quercetin",
+  "name": "Quercetin",
+  "summary": "Quercetin is a flavonoid investigated as a senolytic, with most human evidence coming from dasatinib+quercetin (D+Q) combination trials rather than quercetin alone. A 2026 trial in fibrotic MASH showed >=1-stage fibrosis improvement in 47% vs 7% placebo (PMID 42823536); a 2024 bone trial in postmenopausal women missed its primary resorption endpoint (PMID 38956196).",
+  "description": "Canonical quercetin research entity for evidence and safety integration. Publication remains held until the quercetin-alone vs D+Q combination boundary is explicit, senolytic dosing/safety is documented, and fisetin comparative evidence is adjudicated, passing the site's review gates.",
+  "primary_effects_or_targets": "senescent cell clearance (combination); antioxidant activity; inflammatory signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

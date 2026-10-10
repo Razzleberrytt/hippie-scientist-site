@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "l-theanine",
+  "name": "L-Theanine",
+  "summary": "L-theanine is a green tea amino acid for calm focus with ~135,000 monthly searches. RCTs include AlphaWave 400 mg/day (n=30 stressed adults, stress down and Stroop reaction time improved ~21%, PMID 38758503) and Hidese 2019 crossover (n=30, depression/anxiety/sleep scores improved, PMID 31623400). Usually sold stacked with caffeine; standalone evidence is solid but narrower than stack marketing implies.",
+  "description": "Canonical L-theanine research entity for evidence and safety integration. Publication remains held until standalone vs caffeine-stack evidence boundaries are explicit and dose-response documentation has passed the site's review gates.",
+  "primary_effects_or_targets": "alpha brain wave activity; glutamate/GABA modulation; stress response",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

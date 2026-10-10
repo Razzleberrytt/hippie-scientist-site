@@ -1,0 +1,11 @@
+{
+  "entity_type": "herb",
+  "slug": "sage",
+  "name": "Sage",
+  "summary": "Sage (Salvia officinalis) contains cholinesterase-inhibiting terpenes with genuine nootropic data that supplement media largely ignores. RCTs include Akhondzadeh 2003 (n=39 Alzheimer's, less cognitive decline over 4 months), Wightman 2021 (n=94, working memory benefits), Scholey 2008 (n=20 older adults, secondary memory improved), and Babault 2025 (n=26 athletes, reaction time improved).",
+  "description": "Canonical sage research entity for evidence and safety integration. Publication remains held until species/preparation boundaries (S. officinalis vs S. lavandulaefolia, essential oil vs extract) are explicit and thujone safety considerations are documented, passing the site's review gates.",
+  "primary_effects_or_targets": "acetylcholinesterase inhibition; working memory; attention",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

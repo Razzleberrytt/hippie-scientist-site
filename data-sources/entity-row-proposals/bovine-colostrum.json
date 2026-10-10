@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "bovine-colostrum",
+  "name": "Bovine Colostrum",
+  "summary": "Bovine colostrum is first-milk powder marketed for gut barrier, immunity, and athletic recovery at premium prices. A 2024 meta-analysis of 10 RCTs found significantly reduced intestinal permeability (PMID 38361147). Trials used ~20 g/day while commercial products typically sell 1-3 g per serving - a major dose gap the category does not advertise.",
+  "description": "Canonical bovine colostrum research entity for evidence and safety integration. Publication remains held until the studied-dose vs sold-dose gap is documented, product quality variance is characterized, and exercise vs clinical-population boundaries are explicit, passing the site's review gates.",
+  "primary_effects_or_targets": "intestinal permeability; mucosal immunity; growth factor signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "pycnogenol",
+  "name": "Pycnogenol",
+  "summary": "Pycnogenol is a standardized French maritime pine bark extract (Horphag) with 160+ clinical trials. A 2022 Belgian RCT (n=88 children with ADHD) found teacher-rated ADHD scores down ~29% and hyperactivity/impulsivity down ~34% vs placebo; a 2024 network meta-analysis (48 studies, n=3,650) ranked it top antioxidant for teacher-rated attention. A September 2026 manufacturer PR push is overselling the cognition story.",
+  "description": "Canonical pycnogenol research entity for evidence and safety integration. Publication remains held until branded-ingredient (Horphag) vs generic pine bark boundaries are explicit, ADHD vs general-cognition indications are separated, and marketing claims are checked against trial data, passing the site's review gates.",
+  "primary_effects_or_targets": "antioxidant activity; endothelial nitric oxide; attention regulation",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

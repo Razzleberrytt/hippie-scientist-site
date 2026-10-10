@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "taurine",
+  "name": "Taurine",
+  "summary": "Taurine is a conditionally essential amino acid reframed since 2023 as a longevity candidate after animal research linked taurine deficiency to aging. A 2024 meta-analysis of 9 RCTs in overweight/obesity found metabolic benefits (triglycerides, total cholesterol, fasting insulin down); a 2025 RCT showed improved blood pressure and vascular function in type 2 diabetes. A 2025 counter-finding that taurine may not reliably decline with age in primates/humans complicates the founding premise.",
+  "description": "Canonical taurine research entity for evidence and safety integration. Publication remains held until the aging-biomarker RCT readouts, the age-decline counter-evidence is adjudicated, and dose standardization have passed the site's review gates.",
+  "primary_effects_or_targets": "osmoregulation; bile acid conjugation; vascular endothelial function; metabolic regulation",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}

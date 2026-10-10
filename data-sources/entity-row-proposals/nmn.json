@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "nmn",
+  "name": "NMN",
+  "summary": "NMN (nicotinamide mononucleotide) is an NAD+ precursor sold as a longevity supplement and the flagship molecule of the NAD+ booster category. Human RCTs show oral NMN safely raises blood NAD (MIB-626 trial, PMID 40746868); a 2026 meta-analysis of 10 RCTs found modest blood pressure reductions (resting DBP -2.15 mmHg). Effects are narrower than marketing claims, with dose-response and long-term safety still open questions.",
+  "description": "Canonical NMN research entity for evidence and safety integration. Publication remains held until dose-response relationships, longer-term safety data, NMN-vs-NR comparative evidence, and replication of clinical endpoints have passed the site's review gates.",
+  "primary_effects_or_targets": "NAD+ biosynthesis; mitochondrial bioenergetics; vascular function",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
