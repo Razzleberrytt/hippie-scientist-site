@@ -49508,6 +49508,158 @@
       "reservation_id": "714f32060c6b101f42eb",
       "reserved_at": "2026-10-10T20:06:20.501Z",
       "source_branch": "research/intake/3/20261010-1603-ayurvedic-liver-41342618"
+    },
+    {
+      "pmid": "41574318",
+      "title": "Effect of Cannabigerol on Sleep and Quality of Life in Veterans: A Decentralized, Randomized, Placebo-Controlled Trial.",
+      "doi": "10.1159/000549902",
+      "source_title": "Effect of Cannabigerol on Sleep and Quality of Life in Veterans: A Decentralized, Randomized, Placebo-Controlled Trial.",
+      "abstract": "This decentralized, randomized, triple-blind, placebo-controlled study evaluated efficacy and safety of oral cannabigerol (CBG) in Veterans with sleep issues. After a 2-week run-in phase, participants received CBG (25 mg daily for 2 weeks, then 50 mg daily for a further 2 weeks) or placebo. The primary endpoint was change in sleep quality via the Medical Outcomes Study Sleep Problems Index II questionnaire (MOS-SS SPI-II). Additional endpoints included change in quality of life measured via the World Health Organization Disability Assessment Schedule, version 2.0 instrument (WHODAS-2.0-12), post-traumatic stress disorder (PTSD) symptoms evaluated via the PTSD Checklist for the Diagnostic and Statistical Manual of Mental Disorders-Fifth Edition (PCL-5 (PCL-5), and sleep actigraphy data via Fitbit. A total of 63 participants were randomized to receive CBG ( n = 33) or placebo ( n = 30). A total of 35 participants completed the study without major protocol deviations (CBG [ n = 18]; placebo [ n = 17]). MOS-SS SPI-II scores indicated improved sleep with no statistically significant difference between the CBG and placebo groups. Similar patterns were observed for WHODAS-2.0-12 and PCL-5 scores. CBG was well tolerated. While no firm conclusion on the efficacy of CBG in improving sleep can be made, the favorable safety profile supports future studies with CBG. ClinicalTrials.gov ID: NCT05088018.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41574318/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials addressing sleep quality with cannabigerol and depression outcomes with self-administered acupressure; source identities only, not scientific approval.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41574318",
+        "doi": "10.1159/000549902",
+        "journal": "Medical cannabis and cannabinoids",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:41:17.744Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b0a01373acba59be3c89",
+      "reserved_at": "2026-10-10T20:41:22.393Z",
+      "source_branch": "research/intake/1/20261010-1636-cbg-acupressure-two"
+    },
+    {
+      "pmid": "42339308",
+      "title": "Self-administered acupressure training for depression in community-dwelling individuals: a randomized controlled trial and cost-effectiveness analysis.",
+      "doi": "10.1016/j.eclinm.2026.104023",
+      "source_title": "Self-administered acupressure training for depression in community-dwelling individuals: a randomized controlled trial and cost-effectiveness analysis.",
+      "abstract": "Depression is a detrimental mental disorder. Self-administered acupressure (SAA), a flexible self-help intervention, may be beneficial for relieving depression. A randomized controlled trial with cost-effectiveness analysis was conducted in a community setting in Hong Kong, China, between November 20, 2022, and August 19, 2024. Adults with moderate depression were randomized into SAA or mental health education (MHE) group. Participants in the SAA group underwent an acupressure training program (two 2-h sessions); they were told to practice SAA daily for 12 weeks. Participants in the MHE group received mental health education with the same schedule and duration. The primary outcome was the Patient Health Questionnaire-9 (PHQ-9) score over 12 weeks. This study was registered in ClinicalTrials.gov (#NCT05631184). A total of 250 participants (186 female [74.4%]; mean [SD] age, 41.86 [12.85] years; mean [SD] depression duration, 5.58 [6.86] years) were recruited. The SAA group (n = 125) showed a significantly greater reduction from baseline in the PHQ-9 score than the MHE group across all assessment time points (week 4: mean difference -1.04 [95% CI: -2.02 to -0.06], d = 0.26, P = 0.04; week 8: -1.25 [-2.39 to -0.11], d = 0.27, P = 0.03; week 12: -1.46 [-2.65 to -0.27], d = 0.31, P = 0.02). No serious adverse events were reported, although the adverse events may not have been adequately collected at all time points. Despite the clinically small effect sizes, the SAA training program is a potentially effective intervention for moderate depression. Health Medical Research Fund.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42339308/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials addressing sleep quality with cannabigerol and depression outcomes with self-administered acupressure; source identities only, not scientific approval.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42339308",
+        "doi": "10.1016/j.eclinm.2026.104023",
+        "journal": "EClinicalMedicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T20:41:17.745Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0c6dc8d4fb0237af6b96",
+      "reserved_at": "2026-10-10T20:41:22.393Z",
+      "source_branch": "research/intake/1/20261010-1636-cbg-acupressure-two"
     }
   ],
   "batches": [
@@ -49536,16 +49688,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 629,
+    "total_reservations": 631,
     "by_lane": {
-      "1": 55,
+      "1": 57,
       "2": 130,
       "3": 119,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 629
+      "SOURCE_VERIFIED": 631
     },
     "batches": [
       {
@@ -49558,7 +49710,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 129,
+        "count": 131,
         "pr_number": null,
         "blocker": null
       }
