@@ -47585,6 +47585,158 @@
       "reservation_id": "d1c37ce8f9c832f70bac",
       "reserved_at": "2026-10-10T15:04:44.996Z",
       "source_branch": "research/intake/3/20261010-1103-ashwagandha-safety-41502355"
+    },
+    {
+      "pmid": "40144570",
+      "title": "Effects of Lacticaseibacillus paracasei K56 on perceived stress among pregraduate students: a double-blind, randomized, placebo-controlled trial.",
+      "doi": "10.3389/fnut.2025.1544713",
+      "source_title": "Effects of Lacticaseibacillus paracasei K56 on perceived stress among pregraduate students: a double-blind, randomized, placebo-controlled trial.",
+      "abstract": "Globally, master's and doctoral students, especially pregraduate students, are under great pressure. Probiotics are emerging as a promising intervention to improve mental health via gut-brain axis. The aim of this study was to explore the impact of Lacticaseibacillus paracasei K56 supplementation on perceived stress among pregraduate students. We conducted a double-blind, randomized, placebo-controlled trial in 120 healthy master's and doctoral students who faced graduation. Participants were randomly assigned to either probiotics (containing Lacticaseibacillus paracasei K56 6 × 10 10 CFU / d) or placebo group for 2 weeks intervention. The main outcome was perceived stress assessed using Cohen's Perceived Stress Scale-10 (PSS-10). The secondary outcomes were stress, depression, and anxiety assessed by Depression, Anxiety and Stress Scales (DASS), gastrointestinal symptoms, and sleep evaluated by corresponding scales. These outcomes were assessed at baseline, 1, and 2 weeks. Pre- and post-treatment serum biomarkers, gut microbiota composition and metabolites were also detected. There was no difference in changes of PSS-10 scores from baseline to 2 weeks between the K56 groups and the placebo [mean (standard error): -1.68 (0.48) vs. -0.39 (0.46), p = 0.055]. Furthermore, the K56 group exhibited superior reductions in both stress [-2.15 (0.38) vs. -0.96 (0.49), p = 0.035] and anxiety symptoms [-1.54 (0.32) vs. 0.53 (0.43), p = 0.003] via DASS compared with the placebo group. Additionally, those receiving K56 also experienced improved sleep quality ( p = 0.010) and elevated levels of serotonin (5-HT) ( p = 0.038) compare to placebo group. Moreover, taking probiotics K56 could modulate the pressure-induced changes in gut microbiota composition, particularly by increasing the beneficial bacteria ( Lacticaseibacillus and Lacticaseibacillus paracasei ), while suppressing suspected pathogenic bacteria ( Shieglla and Escherichia_coli ). Metabolomic analysis revealed an increased in metabolites, especially butyric acid in the K56 group ( p = 0.035). Notably, there was a significant negative correlation between relative abundance of lactobacillus and stress-related symptoms, whereas butyric acid showed a significant positive correlation with lactobacillus abundance level. This study suggested the potential benefits of K56 supplementation in alleviating stress and significant effect in reducing anxiety and insomnia among master's and doctoral students, which may be attributed to K56-induced changes in microbial composition and butanoate metabolism. Chictr.org.cn, identifier ChiCTR2300078447.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40144570/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40144570",
+        "doi": "10.3389/fnut.2025.1544713",
+        "journal": "Frontiers in nutrition",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T15:46:51.930Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ebb6f8678febd703bd31",
+      "reserved_at": "2026-10-10T15:46:56.895Z",
+      "source_branch": "research/intake/1/20261010-1143-probiotic-stress-sleep-two"
+    },
+    {
+      "pmid": "40722352",
+      "title": "Effects of Probiotic Supplementation on Depressive Symptoms, Sleep Quality, and Modulation of Gut Microbiota and Inflammatory Biomarkers: A Randomized Controlled Trial.",
+      "doi": "10.3390/brainsci15070761",
+      "source_title": "Effects of Probiotic Supplementation on Depressive Symptoms, Sleep Quality, and Modulation of Gut Microbiota and Inflammatory Biomarkers: A Randomized Controlled Trial.",
+      "abstract": "Background: More than merely determining our sleep pattern, our body's internal clock also improves the quality of our sleep, alleviates the symptoms of depression, and maintains the balance of our gut flora. Methods: We carried out a 12-week randomized controlled trial with 99 adults from Kolkata, New Delhi, and Pune who reported sleep problems and symptoms of depression or anxiety. Participants received either a probiotic formulated to improve sleep quality and reduce depressive symptoms or a placebo. We tracked sleep using overnight studies and wearable devices, assessed depressive symptoms with standardized questionnaires, and analyzed stool samples to profile gut bacteria and their metabolites using gene sequencing and metabolomics. Advanced statistics and machine learning helped us pinpoint the key microbial and metabolic factors tied to sleep and mental health. Results: At the start, participants with disrupted sleep and depressive symptoms had fewer beneficial gut bacteria like Bifidobacterium and Lactobacillus , more inflammation-related microbes, and lower levels of helpful short-chain fatty acids. These imbalances were linked to poorer sleep efficiency, less REM sleep, and higher depression and anxiety scores. After 12 weeks, those taking the circadian-supporting probiotic saw a statistically significant increase in beneficial gut bacteria, improved sleep efficiency (+7.4%, p = 0.02), and greater reductions in depression and anxiety compared to the placebo. Increases in SCFA-producing bacteria most strongly predicted improvements. Conclusions: Our results show that taking a probiotic supplement can help bring your gut back into balance, support better sleep, and lift symptoms of depression and anxiety. This offers a hopeful and practical option for people looking for real relief from these deeply connected challenges.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40722352/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40722352",
+        "doi": "10.3390/brainsci15070761",
+        "journal": "Brain sciences",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-10T15:46:51.930Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "213e85f6c7ee38849d66",
+      "reserved_at": "2026-10-10T15:46:56.895Z",
+      "source_branch": "research/intake/1/20261010-1143-probiotic-stress-sleep-two"
     }
   ],
   "batches": [
@@ -47613,16 +47765,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 604,
+    "total_reservations": 606,
     "by_lane": {
-      "1": 46,
+      "1": 48,
       "2": 121,
       "3": 112,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 604
+      "SOURCE_VERIFIED": 606
     },
     "batches": [
       {
@@ -47635,7 +47787,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 104,
+        "count": 106,
         "pr_number": null,
         "blocker": null
       }
