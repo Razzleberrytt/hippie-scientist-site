@@ -51,6 +51,14 @@ export type TraceEntry = {
   via: string
 }
 
+/** Usable metadata requires at least a title. An empty object (or a record
+ * with no title) in the cache is not a successful resolution. */
+export function hasUsableMetadata(meta: unknown): boolean {
+  if (!meta || typeof meta !== 'object') return false
+  const title = String((meta as Record<string, unknown>).title ?? '').trim()
+  return title.length > 0
+}
+
 function sha256Hex(input: string): string {
   return crypto.createHash('sha256').update(input, 'utf8').digest('hex')
 }
@@ -125,34 +133,44 @@ export function buildClaimDna({ claimId, root = process.cwd() }: ClaimDnaInput):
   })
 
   // 5. PubMed cache metadata resolution.
+  // Only records with usable metadata (non-empty title) count as resolved.
+  // An empty object in the cache is metadata_unavailable, not resolved.
   const cache: PubmedCache = loadPubmedCache(root)
   const metadataByPmid: Record<string, Record<string, unknown>> = {}
+  const pmidsWithUsableMetadata: string[] = []
+  const pmidsWithoutUsableMetadata: string[] = []
   for (const pmid of pmids) {
     const meta = cache[pmid]
-    if (meta && typeof meta === 'object') {
+    if (hasUsableMetadata(meta)) {
       const { abstract, ...rest } = meta as Record<string, unknown>
       metadataByPmid[pmid] = rest
+      pmidsWithUsableMetadata.push(pmid)
       trace.push({
         output: `publication_metadata:${pmid}`,
         inputs: [`ops/cache/pubmed-metadata.json#records.${pmid}`],
-        via: 'loadPubmedCache',
+        via: 'loadPubmedCache (usable)',
       })
     } else {
+      pmidsWithoutUsableMetadata.push(pmid)
       trace.push({
         output: `publication_metadata:${pmid}`,
         inputs: [`ops/cache/pubmed-metadata.json#records.${pmid}`],
-        via: 'loadPubmedCache (absent)',
+        via: 'loadPubmedCache (absent or unusable)',
       })
     }
   }
 
   // 6. Three-state classification (independent dimensions).
+  // provenance_status is about PROVENANCE (does the claim link to source
+  // identifiers?), NOT about study design. A meta-analysis with a PMID is
+  // primary_linked because its provenance is a direct identifier link —
+  // the status must never be read as "this is primary research."
   const provenance_status: ProvenanceStatus =
     pmids.length > 0 ? 'primary_linked' : 'unresolved'
   const resolution_status: ResolutionStatus =
     pmids.length === 0
       ? 'not_attempted'
-      : pmids.every((p) => metadataByPmid[p])
+      : pmidsWithoutUsableMetadata.length === 0
         ? 'resolved'
         : 'metadata_unavailable'
   const evidence_assessment: EvidenceAssessment = 'not_evaluated'
@@ -180,12 +198,50 @@ export function buildClaimDna({ claimId, root = process.cwd() }: ClaimDnaInput):
     via: 'constant: directionality requires evidence examination',
   })
 
+  // 7b. Truthful join metrics. A successful metadata join requires BOTH
+  // canonical identity resolution AND usable publication metadata.
+  // Identity alone (or metadata alone) is not a join.
+  const identityPmids = new Set(
+    studyIdentities
+      .map((id) => String(id).replace(/^pmid:/, ''))
+      .filter((p) => /^\d+$/.test(p)),
+  )
+  const successfulJoinPmids = pmidsWithUsableMetadata.filter((p) => identityPmids.has(p))
+  const join_metrics = {
+    identity_resolutions: studyIdentities.length,
+    metadata_resolutions: pmidsWithUsableMetadata.length,
+    unresolved_identifiers: pmidsWithoutUsableMetadata.length,
+    successful_joins: successfulJoinPmids.length,
+    successful_join_pmids: successfulJoinPmids,
+  }
+  trace.push({
+    output: 'join_metrics',
+    inputs: [
+      ...studyIdentities.map((id) => `identity:${id}`),
+      ...pmidsWithUsableMetadata.map((p) => `metadata:${p}`),
+    ],
+    via: 'identity+metadata intersection',
+  })
+
   // 8. Input fingerprints for change-driven rebuilds.
+  // The adapter fingerprint is content-derived: hash the actual adapter
+  // source bytes, not a version string. Any meaningful modification to the
+  // adapter changes the fingerprint without a manual version bump.
+  // Whole-file hash (implementation) is distinct from per-record hashes.
+  const adapterPath = path.join(root, 'scripts', 'claim-dna', 'adapter-1a.ts')
+  let adapterBytes = ''
+  try {
+    adapterBytes = fs.readFileSync(adapterPath, 'utf8')
+  } catch {
+    // If the adapter file is unavailable, fall back to the generator version
+    // so the fingerprint is still present (but weaker).
+    adapterBytes = GENERATOR_VERSION
+  }
   const cacheJson = JSON.stringify(pmids.map((p) => cache[p] ?? null))
   const input_hashes = {
     'public/data/claims.json': claimHash,
     'ops/cache/pubmed-metadata.json': sha256Hex(cacheJson),
-    'adapter-1a': sha256Hex('adapter-1a/0.1'),
+    'scripts/claim-dna/adapter-1a.ts': sha256Hex(adapterBytes),
   }
 
   const artifact = sortKeysDeep({
@@ -208,6 +264,7 @@ export function buildClaimDna({ claimId, root = process.cwd() }: ClaimDnaInput):
       canonical_study_identities: studyIdentities,
       publication_metadata: metadataByPmid,
     },
+    join_metrics,
     traceability: trace,
     input_hashes,
     manifest: {
@@ -231,7 +288,9 @@ export function writeArtifact(
   claimId: string,
   root = process.cwd(),
 ): { artifactPath: string; bytes: number } {
-  const dir = path.join(root, 'public', 'data', 'research', 'claim-dna-1a')
+  // Prototype artifacts stage OUTSIDE public/ so they are not web-accessible.
+  // public/ files may be served even when no page links to them.
+  const dir = path.join(root, 'ops', 'claim-dna-1a')
   fs.mkdirSync(dir, { recursive: true })
   const artifactPath = path.join(dir, `${claimId}.json`)
   fs.writeFileSync(artifactPath, result.artifactBytes, 'utf8')
@@ -244,11 +303,16 @@ export function writeAuditReceipt(
     artifactSha256: string
     bytes: number
     generationMs: number
-    joins: number
+    joinMetrics: {
+      identity_resolutions: number
+      metadata_resolutions: number
+      unresolved_identifiers: number
+      successful_joins: number
+    }
   },
   root = process.cwd(),
 ): string {
-  const dir = path.join(root, 'public', 'data', 'research', 'claim-dna-1a')
+  const dir = path.join(root, 'ops', 'claim-dna-1a')
   fs.mkdirSync(dir, { recursive: true })
   const receiptPath = path.join(dir, `${opts.claimId}.audit.json`)
   const receipt = sortKeysDeep({
@@ -256,7 +320,10 @@ export function writeAuditReceipt(
     artifact_sha256: opts.artifactSha256,
     artifact_bytes: opts.bytes,
     generation_ms: opts.generationMs,
-    successful_joins: opts.joins,
+    identity_resolutions: opts.joinMetrics.identity_resolutions,
+    metadata_resolutions: opts.joinMetrics.metadata_resolutions,
+    unresolved_identifiers: opts.joinMetrics.unresolved_identifiers,
+    successful_joins: opts.joinMetrics.successful_joins,
     generated_at: new Date().toISOString(),
     generator_version: GENERATOR_VERSION,
   })
@@ -274,16 +341,22 @@ if (invokedAsScript) {
   }
   const t0 = Date.now()
   const result = buildClaimDna({ claimId })
-  const { bytes } = writeArtifact(result, claimId)
+  const { artifactPath, bytes } = writeArtifact(result, claimId)
   const generationMs = Date.now() - t0
-  const joins = (result.artifact['analytical_outputs'] as Record<string, unknown>)['canonical_study_identities'] as unknown[]
+  const jm = result.artifact['join_metrics'] as {
+    identity_resolutions: number
+    metadata_resolutions: number
+    unresolved_identifiers: number
+    successful_joins: number
+  }
   writeAuditReceipt({
     claimId,
     artifactSha256: result.artifactSha256,
     bytes,
     generationMs,
-    joins: Array.isArray(joins) ? joins.length : 0,
+    joinMetrics: jm,
   })
-  console.log(`claim-dna 1a: ${claimId} -> public/data/research/claim-dna-1a/${claimId}.json`)
-  console.log(`  sha256: ${result.artifactSha256.slice(0, 16)}... | bytes: ${bytes} | ms: ${generationMs} | joins: ${Array.isArray(joins) ? joins.length : 0}`)
+  console.log(`claim-dna 1a: ${claimId} -> ${artifactPath}`)
+  console.log(`  sha256: ${result.artifactSha256.slice(0, 16)}... | bytes: ${bytes} | ms: ${generationMs}`)
+  console.log(`  identity: ${jm.identity_resolutions} | metadata: ${jm.metadata_resolutions} | unresolved: ${jm.unresolved_identifiers} | joins: ${jm.successful_joins}`)
 }

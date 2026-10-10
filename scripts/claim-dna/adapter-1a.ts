@@ -74,10 +74,11 @@ export function adaptClaimToProfile(claim: ProductionClaim): ResearchProfile {
   const researchClaim: ResearchClaim = {
     id: claimId,
     predicate: String(claim.claim ?? claim.title ?? ''),
-    // Production claims are published; the synthetic profile treats them as
-    // analyzable. This does not confer approval on the underlying science.
-    // Confidence is left undefined: the adapter asserts no certainty level.
-    reviewStatus: 'approved',
+    // The adapter NEVER manufactures editorial approval. Production claims
+    // arrive without a verified approval signal, so the synthetic profile
+    // marks them pending. Identity resolution and metadata joins work
+    // independently of this status; approval is a separate governance act.
+    reviewStatus: 'pending',
     sourceRefIds: sources.map((s) => String(s.id)),
     _adapterSource: `claims.json:id:${claimId}`,
   }

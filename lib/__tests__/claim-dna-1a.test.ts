@@ -1,11 +1,14 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, beforeAll, afterAll } from 'vitest'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
 
 import {
   canonicalStudyIdentityMap,
   uniqueClaimStudyIdentities,
 } from '@/lib/research-coverage'
 import { adaptClaimToProfile, sourceRecordIdForPmid, splitPmids } from '@/scripts/claim-dna/adapter-1a'
-import { buildClaimDna, sortKeysDeep } from '@/scripts/claim-dna/run-1a'
+import { buildClaimDna, hasUsableMetadata, sortKeysDeep } from '@/scripts/claim-dna/run-1a'
 
 // rg-0456: curcumin-piperine meta-analysis, PMID 38561618 (in PubMed cache).
 const CLAIM_ID = 'rg-0456'
@@ -72,26 +75,24 @@ describe('round 1a pipeline', () => {
     expect(artifact['evidence_assessment']).toBe('not_evaluated')
   })
 
-  it('negative test: uncached PMID is metadata_unavailable, not unresolved provenance', () => {
+  it('placeholder for negative paths: see end-to-end suite below', () => {
+    // The genuine negative tests run buildClaimDna against isolated fixtures.
+    expect(true).toBe(true)
+  })
+  it('regression: adapter never manufactures editorial approval', () => {
     const profile = adaptClaimToProfile({
-      id: 'test-uncached',
+      id: 'test-no-approval',
       claim: 'test claim',
-      pmid: '99999999',
+      pmid: PMID,
       profile_slug: 'test-profile',
     })
-    // Simulate the classifier logic directly: pmid present but not in cache.
-    const pmids = ['99999999']
-    const metadataByPmid: Record<string, unknown> = {}
-    const provenance_status = pmids.length > 0 ? 'primary_linked' : 'unresolved'
-    const resolution_status =
-      pmids.length === 0
-        ? 'not_attempted'
-        : pmids.every((p) => metadataByPmid[p])
-          ? 'resolved'
-          : 'metadata_unavailable'
-    expect(provenance_status).toBe('primary_linked')
-    expect(resolution_status).toBe('metadata_unavailable')
-    expect(profile.sources?.[0]?.pmid).toBe('99999999')
+    const status = String(profile.claimMap?.[0]?.reviewStatus ?? '')
+    expect(status).not.toBe('approved')
+    expect(status).toBe('pending')
+    // Identity resolution must work independently of approval status.
+    const identities = canonicalStudyIdentityMap(profile)
+    const claim = (profile.claimMap ?? [])[0]
+    expect(uniqueClaimStudyIdentities(claim, identities)).toHaveLength(1)
   })
 
   it('never auto-assigns a supports relationship from citation presence', () => {
@@ -132,3 +133,88 @@ describe('round 1a pipeline', () => {
     expect(Object.keys(sorted['a'] as Record<string, unknown>)).toEqual(['b', 'd'])
   })
 })
+
+describe('round 1a negative paths (end-to-end via buildClaimDna)', () => {
+  let fixtureRoot: string
+
+  beforeAll(() => {
+    fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'claim-dna-1a-'))
+    const claims = [
+      {
+        id: 'fixture-uncached',
+        claim: 'Fixture claim with PMID absent from cache.',
+        pmid: '99999999',
+        profile_slug: 'fixture-profile',
+      },
+      {
+        id: 'fixture-invalid-pmid',
+        claim: 'Fixture claim with non-numeric PMID.',
+        pmid: 'not-a-pmid',
+        profile_slug: 'fixture-profile',
+      },
+    ]
+    fs.mkdirSync(path.join(fixtureRoot, 'public', 'data'), { recursive: true })
+    fs.writeFileSync(
+      path.join(fixtureRoot, 'public', 'data', 'claims.json'),
+      JSON.stringify(claims),
+      'utf8',
+    )
+    const cache = {
+      records: {
+        '99999999': {},
+        '88888888': { abstract: 'Some abstract text without a title field.' },
+      },
+    }
+    fs.mkdirSync(path.join(fixtureRoot, 'ops', 'cache'), { recursive: true })
+    fs.writeFileSync(
+      path.join(fixtureRoot, 'ops', 'cache', 'pubmed-metadata.json'),
+      JSON.stringify(cache),
+      'utf8',
+    )
+    fs.writeFileSync(
+      path.join(fixtureRoot, 'ops', 'cache', 'pubmed-abstracts.json'),
+      JSON.stringify({ abstracts: {} }),
+      'utf8',
+    )
+    fs.mkdirSync(path.join(fixtureRoot, 'scripts', 'claim-dna'), { recursive: true })
+    fs.writeFileSync(
+      path.join(fixtureRoot, 'scripts', 'claim-dna', 'adapter-1a.ts'),
+      '// fixture adapter',
+      'utf8',
+    )
+  })
+
+  afterAll(() => {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true })
+  })
+
+  it('uncached PMID: metadata_unavailable, provenance stays primary_linked', () => {
+    const { artifact } = buildClaimDna({ claimId: 'fixture-uncached', root: fixtureRoot })
+    expect(artifact['provenance_status']).toBe('primary_linked')
+    expect(artifact['resolution_status']).toBe('metadata_unavailable')
+    expect(artifact['evidence_assessment']).toBe('not_evaluated')
+    expect(artifact['evidence_relationship']).toBe('unassessed')
+    const outputs = artifact['analytical_outputs'] as Record<string, unknown>
+    expect(outputs['canonical_study_identities']).toHaveLength(1)
+    const jm = artifact['join_metrics'] as Record<string, unknown>
+    expect(jm['identity_resolutions']).toBe(1)
+    expect(jm['metadata_resolutions']).toBe(0)
+    expect(jm['unresolved_identifiers']).toBe(1)
+    expect(jm['successful_joins']).toBe(0)
+  })
+
+  it('empty or title-less cache objects do not count as resolved', () => {
+    expect(hasUsableMetadata({})).toBe(false)
+    expect(hasUsableMetadata({ abstract: 'text only' })).toBe(false)
+    expect(hasUsableMetadata({ title: 'Real Title' })).toBe(true)
+    expect(hasUsableMetadata(null)).toBe(false)
+  })
+
+  it('invalid PMID: no identity, unresolved provenance', () => {
+    const { artifact } = buildClaimDna({ claimId: 'fixture-invalid-pmid', root: fixtureRoot })
+    expect(artifact['pmids']).toEqual([])
+    expect(artifact['provenance_status']).toBe('unresolved')
+    expect(artifact['resolution_status']).toBe('not_attempted')
+  })
+})
+

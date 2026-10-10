@@ -1,0 +1,12 @@
+{
+  "artifact_bytes": 4190,
+  "artifact_sha256": "4cc916e74647b716bae39e5043e7151137f1fbbe7d5f1445eab0bd49ea477cd3",
+  "claim_id": "rg-0456",
+  "generated_at": "2026-10-10T02:05:58.305Z",
+  "generation_ms": 11,
+  "generator_version": "round-1a-runner/0.1",
+  "identity_resolutions": 1,
+  "metadata_resolutions": 1,
+  "successful_joins": 1,
+  "unresolved_identifiers": 0
+}
