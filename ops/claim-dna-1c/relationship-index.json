@@ -1,0 +1,697 @@
+{
+  "batch_id": "round-1c-sample25",
+  "claims": {
+    "rg-0291": {
+      "claim_id": "rg-0291",
+      "ingredient": "11-keto-beta-boswellic-acid",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:15070181",
+        "pmid:22167571"
+      ]
+    },
+    "rg-0292": {
+      "claim_id": "rg-0292",
+      "ingredient": "23-epi-26-deoxyactein",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:20032972"
+      ]
+    },
+    "rg-0344": {
+      "claim_id": "rg-0344",
+      "ingredient": "atractylenolide-i",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:34269984"
+      ]
+    },
+    "rg-0345": {
+      "claim_id": "rg-0345",
+      "ingredient": "atractylenolide-ii",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:34269984"
+      ]
+    },
+    "rg-0456": {
+      "claim_id": "rg-0456",
+      "ingredient": "curcumin-piperine",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:38561618"
+      ]
+    },
+    "rg-0480": {
+      "claim_id": "rg-0480",
+      "ingredient": "diosgenin",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:35677108"
+      ]
+    },
+    "rg-0620": {
+      "claim_id": "rg-0620",
+      "ingredient": "hesperidin",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:32353900"
+      ]
+    },
+    "study-row-10": {
+      "claim_id": "study-row-10",
+      "ingredient": "ashwagandha",
+      "provenance_status": "primary_linked",
+      "resolution_status": "metadata_unavailable",
+      "studies": [
+        "pmid:26609282"
+      ]
+    },
+    "study-row-11": {
+      "claim_id": "study-row-11",
+      "ingredient": "l-theanine",
+      "provenance_status": "primary_linked",
+      "resolution_status": "metadata_unavailable",
+      "studies": [
+        "pmid:18296328"
+      ]
+    },
+    "study-row-120": {
+      "claim_id": "study-row-120",
+      "ingredient": "boswellia",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:40554037"
+      ]
+    },
+    "study-row-131": {
+      "claim_id": "study-row-131",
+      "ingredient": "aloe-vera",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:27347994"
+      ]
+    },
+    "study-row-142": {
+      "claim_id": "study-row-142",
+      "ingredient": "cinnamon-extract",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:37818728"
+      ]
+    },
+    "study-row-158": {
+      "claim_id": "study-row-158",
+      "ingredient": "tribulus-terrestris",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:17530942"
+      ]
+    },
+    "study-row-169": {
+      "claim_id": "study-row-169",
+      "ingredient": "gaba",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:41554764"
+      ]
+    },
+    "study-row-180": {
+      "claim_id": "study-row-180",
+      "ingredient": "gymnema-sylvestre",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:22592140"
+      ]
+    },
+    "study-row-191": {
+      "claim_id": "study-row-191",
+      "ingredient": "devils-claw",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:11406863"
+      ]
+    },
+    "study-row-203": {
+      "claim_id": "study-row-203",
+      "ingredient": "pelargonium-sidoides",
+      "provenance_status": "primary_linked",
+      "resolution_status": "metadata_unavailable",
+      "studies": [
+        "pmid:12807337"
+      ]
+    },
+    "study-row-215": {
+      "claim_id": "study-row-215",
+      "ingredient": "d-chiro-inositol",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:29498933"
+      ]
+    },
+    "study-row-229": {
+      "claim_id": "study-row-229",
+      "ingredient": "garcinia-cambogia",
+      "provenance_status": "primary_linked",
+      "resolution_status": "metadata_unavailable",
+      "studies": [
+        "pmid:21297532"
+      ]
+    },
+    "study-row-29": {
+      "claim_id": "study-row-29",
+      "ingredient": "vitamin-d",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:28202713"
+      ]
+    },
+    "study-row-40": {
+      "claim_id": "study-row-40",
+      "ingredient": "alpha-lipoic-acid",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:12874400"
+      ]
+    },
+    "study-row-50": {
+      "claim_id": "study-row-50",
+      "ingredient": "ashwagandha",
+      "provenance_status": "primary_linked",
+      "resolution_status": "metadata_unavailable",
+      "studies": [
+        "pmid:26609282"
+      ]
+    },
+    "study-row-60": {
+      "claim_id": "study-row-60",
+      "ingredient": "vitamin-c",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:19147492"
+      ]
+    },
+    "study-row-70": {
+      "claim_id": "study-row-70",
+      "ingredient": "glycine",
+      "provenance_status": "primary_linked",
+      "resolution_status": "metadata_unavailable",
+      "studies": [
+        "pmid:22592091"
+      ]
+    },
+    "study-row-80": {
+      "claim_id": "study-row-80",
+      "ingredient": "magnesium",
+      "provenance_status": "primary_linked",
+      "resolution_status": "resolved",
+      "studies": [
+        "pmid:29679349"
+      ]
+    }
+  },
+  "ingredients": {
+    "11-keto-beta-boswellic-acid": {
+      "claims": [
+        "rg-0291"
+      ],
+      "profile_slug": "11-keto-beta-boswellic-acid",
+      "studies": [
+        "pmid:15070181",
+        "pmid:22167571"
+      ]
+    },
+    "23-epi-26-deoxyactein": {
+      "claims": [
+        "rg-0292"
+      ],
+      "profile_slug": "23-epi-26-deoxyactein",
+      "studies": [
+        "pmid:20032972"
+      ]
+    },
+    "aloe-vera": {
+      "claims": [
+        "study-row-131"
+      ],
+      "profile_slug": "aloe-vera",
+      "studies": [
+        "pmid:27347994"
+      ]
+    },
+    "alpha-lipoic-acid": {
+      "claims": [
+        "study-row-40"
+      ],
+      "profile_slug": "alpha-lipoic-acid",
+      "studies": [
+        "pmid:12874400"
+      ]
+    },
+    "ashwagandha": {
+      "claims": [
+        "study-row-10",
+        "study-row-50"
+      ],
+      "profile_slug": "ashwagandha",
+      "studies": [
+        "pmid:26609282"
+      ]
+    },
+    "atractylenolide-i": {
+      "claims": [
+        "rg-0344"
+      ],
+      "profile_slug": "atractylenolide-i",
+      "studies": [
+        "pmid:34269984"
+      ]
+    },
+    "atractylenolide-ii": {
+      "claims": [
+        "rg-0345"
+      ],
+      "profile_slug": "atractylenolide-ii",
+      "studies": [
+        "pmid:34269984"
+      ]
+    },
+    "boswellia": {
+      "claims": [
+        "study-row-120"
+      ],
+      "profile_slug": "boswellia",
+      "studies": [
+        "pmid:40554037"
+      ]
+    },
+    "cinnamon-extract": {
+      "claims": [
+        "study-row-142"
+      ],
+      "profile_slug": "cinnamon-extract",
+      "studies": [
+        "pmid:37818728"
+      ]
+    },
+    "curcumin-piperine": {
+      "claims": [
+        "rg-0456"
+      ],
+      "profile_slug": "curcumin-piperine",
+      "studies": [
+        "pmid:38561618"
+      ]
+    },
+    "d-chiro-inositol": {
+      "claims": [
+        "study-row-215"
+      ],
+      "profile_slug": "d-chiro-inositol",
+      "studies": [
+        "pmid:29498933"
+      ]
+    },
+    "devils-claw": {
+      "claims": [
+        "study-row-191"
+      ],
+      "profile_slug": "devils-claw",
+      "studies": [
+        "pmid:11406863"
+      ]
+    },
+    "diosgenin": {
+      "claims": [
+        "rg-0480"
+      ],
+      "profile_slug": "diosgenin",
+      "studies": [
+        "pmid:35677108"
+      ]
+    },
+    "gaba": {
+      "claims": [
+        "study-row-169"
+      ],
+      "profile_slug": "gaba",
+      "studies": [
+        "pmid:41554764"
+      ]
+    },
+    "garcinia-cambogia": {
+      "claims": [
+        "study-row-229"
+      ],
+      "profile_slug": "garcinia-cambogia",
+      "studies": [
+        "pmid:21297532"
+      ]
+    },
+    "glycine": {
+      "claims": [
+        "study-row-70"
+      ],
+      "profile_slug": "glycine",
+      "studies": [
+        "pmid:22592091"
+      ]
+    },
+    "gymnema-sylvestre": {
+      "claims": [
+        "study-row-180"
+      ],
+      "profile_slug": "gymnema-sylvestre",
+      "studies": [
+        "pmid:22592140"
+      ]
+    },
+    "hesperidin": {
+      "claims": [
+        "rg-0620"
+      ],
+      "profile_slug": "hesperidin",
+      "studies": [
+        "pmid:32353900"
+      ]
+    },
+    "l-theanine": {
+      "claims": [
+        "study-row-11"
+      ],
+      "profile_slug": "l-theanine",
+      "studies": [
+        "pmid:18296328"
+      ]
+    },
+    "magnesium": {
+      "claims": [
+        "study-row-80"
+      ],
+      "profile_slug": "magnesium",
+      "studies": [
+        "pmid:29679349"
+      ]
+    },
+    "pelargonium-sidoides": {
+      "claims": [
+        "study-row-203"
+      ],
+      "profile_slug": "pelargonium-sidoides",
+      "studies": [
+        "pmid:12807337"
+      ]
+    },
+    "tribulus-terrestris": {
+      "claims": [
+        "study-row-158"
+      ],
+      "profile_slug": "tribulus-terrestris",
+      "studies": [
+        "pmid:17530942"
+      ]
+    },
+    "vitamin-c": {
+      "claims": [
+        "study-row-60"
+      ],
+      "profile_slug": "vitamin-c",
+      "studies": [
+        "pmid:19147492"
+      ]
+    },
+    "vitamin-d": {
+      "claims": [
+        "study-row-29"
+      ],
+      "profile_slug": "vitamin-d",
+      "studies": [
+        "pmid:28202713"
+      ]
+    }
+  },
+  "schema_version": "claim-dna-1c-relationships/0.1",
+  "studies": {
+    "pmid:11406863": {
+      "canonical_id": "pmid:11406863",
+      "claims": [
+        "study-row-191"
+      ],
+      "ingredients": [
+        "devils-claw"
+      ],
+      "pmid": "11406863"
+    },
+    "pmid:12807337": {
+      "canonical_id": "pmid:12807337",
+      "claims": [
+        "study-row-203"
+      ],
+      "ingredients": [
+        "pelargonium-sidoides"
+      ],
+      "pmid": "12807337"
+    },
+    "pmid:12874400": {
+      "canonical_id": "pmid:12874400",
+      "claims": [
+        "study-row-40"
+      ],
+      "ingredients": [
+        "alpha-lipoic-acid"
+      ],
+      "pmid": "12874400"
+    },
+    "pmid:15070181": {
+      "canonical_id": "pmid:15070181",
+      "claims": [
+        "rg-0291"
+      ],
+      "ingredients": [
+        "11-keto-beta-boswellic-acid"
+      ],
+      "pmid": "15070181"
+    },
+    "pmid:17530942": {
+      "canonical_id": "pmid:17530942",
+      "claims": [
+        "study-row-158"
+      ],
+      "ingredients": [
+        "tribulus-terrestris"
+      ],
+      "pmid": "17530942"
+    },
+    "pmid:18296328": {
+      "canonical_id": "pmid:18296328",
+      "claims": [
+        "study-row-11"
+      ],
+      "ingredients": [
+        "l-theanine"
+      ],
+      "pmid": "18296328"
+    },
+    "pmid:19147492": {
+      "canonical_id": "pmid:19147492",
+      "claims": [
+        "study-row-60"
+      ],
+      "ingredients": [
+        "vitamin-c"
+      ],
+      "pmid": "19147492"
+    },
+    "pmid:20032972": {
+      "canonical_id": "pmid:20032972",
+      "claims": [
+        "rg-0292"
+      ],
+      "ingredients": [
+        "23-epi-26-deoxyactein"
+      ],
+      "pmid": "20032972"
+    },
+    "pmid:21297532": {
+      "canonical_id": "pmid:21297532",
+      "claims": [
+        "study-row-229"
+      ],
+      "ingredients": [
+        "garcinia-cambogia"
+      ],
+      "pmid": "21297532"
+    },
+    "pmid:22167571": {
+      "canonical_id": "pmid:22167571",
+      "claims": [
+        "rg-0291"
+      ],
+      "ingredients": [
+        "11-keto-beta-boswellic-acid"
+      ],
+      "pmid": "22167571"
+    },
+    "pmid:22592091": {
+      "canonical_id": "pmid:22592091",
+      "claims": [
+        "study-row-70"
+      ],
+      "ingredients": [
+        "glycine"
+      ],
+      "pmid": "22592091"
+    },
+    "pmid:22592140": {
+      "canonical_id": "pmid:22592140",
+      "claims": [
+        "study-row-180"
+      ],
+      "ingredients": [
+        "gymnema-sylvestre"
+      ],
+      "pmid": "22592140"
+    },
+    "pmid:26609282": {
+      "canonical_id": "pmid:26609282",
+      "claims": [
+        "study-row-10",
+        "study-row-50"
+      ],
+      "ingredients": [
+        "ashwagandha"
+      ],
+      "pmid": "26609282"
+    },
+    "pmid:27347994": {
+      "canonical_id": "pmid:27347994",
+      "claims": [
+        "study-row-131"
+      ],
+      "ingredients": [
+        "aloe-vera"
+      ],
+      "pmid": "27347994"
+    },
+    "pmid:28202713": {
+      "canonical_id": "pmid:28202713",
+      "claims": [
+        "study-row-29"
+      ],
+      "ingredients": [
+        "vitamin-d"
+      ],
+      "pmid": "28202713"
+    },
+    "pmid:29498933": {
+      "canonical_id": "pmid:29498933",
+      "claims": [
+        "study-row-215"
+      ],
+      "ingredients": [
+        "d-chiro-inositol"
+      ],
+      "pmid": "29498933"
+    },
+    "pmid:29679349": {
+      "canonical_id": "pmid:29679349",
+      "claims": [
+        "study-row-80"
+      ],
+      "ingredients": [
+        "magnesium"
+      ],
+      "pmid": "29679349"
+    },
+    "pmid:32353900": {
+      "canonical_id": "pmid:32353900",
+      "claims": [
+        "rg-0620"
+      ],
+      "ingredients": [
+        "hesperidin"
+      ],
+      "pmid": "32353900"
+    },
+    "pmid:34269984": {
+      "canonical_id": "pmid:34269984",
+      "claims": [
+        "rg-0344",
+        "rg-0345"
+      ],
+      "ingredients": [
+        "atractylenolide-i",
+        "atractylenolide-ii"
+      ],
+      "pmid": "34269984"
+    },
+    "pmid:35677108": {
+      "canonical_id": "pmid:35677108",
+      "claims": [
+        "rg-0480"
+      ],
+      "ingredients": [
+        "diosgenin"
+      ],
+      "pmid": "35677108"
+    },
+    "pmid:37818728": {
+      "canonical_id": "pmid:37818728",
+      "claims": [
+        "study-row-142"
+      ],
+      "ingredients": [
+        "cinnamon-extract"
+      ],
+      "pmid": "37818728"
+    },
+    "pmid:38561618": {
+      "canonical_id": "pmid:38561618",
+      "claims": [
+        "rg-0456"
+      ],
+      "ingredients": [
+        "curcumin-piperine"
+      ],
+      "pmid": "38561618"
+    },
+    "pmid:40554037": {
+      "canonical_id": "pmid:40554037",
+      "claims": [
+        "study-row-120"
+      ],
+      "ingredients": [
+        "boswellia"
+      ],
+      "pmid": "40554037"
+    },
+    "pmid:41554764": {
+      "canonical_id": "pmid:41554764",
+      "claims": [
+        "study-row-169"
+      ],
+      "ingredients": [
+        "gaba"
+      ],
+      "pmid": "41554764"
+    }
+  }
+}
