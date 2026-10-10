@@ -42590,6 +42590,158 @@
       "reservation_id": "802afeac8995258440c0",
       "reserved_at": "2026-10-10T00:46:08.781Z",
       "source_branch": "research/intake/1/20261009-2042-cbn-aromatherapy-three"
+    },
+    {
+      "pmid": "42772684",
+      "title": "A Mediterranean-Dietary Approaches to Stop Hypertension Intervention for Neurodegenerative Delay-Based Diet with or without Digital Cognitive Training Improves Cognitive Function and Nutritional Status in Older Adults with Mild Cognitive Impairment.",
+      "doi": "10.1016/j.tjnut.2026.101837",
+      "source_title": "A Mediterranean-Dietary Approaches to Stop Hypertension Intervention for Neurodegenerative Delay-Based Diet with or without Digital Cognitive Training Improves Cognitive Function and Nutritional Status in Older Adults with Mild Cognitive Impairment.",
+      "abstract": "Given the growing prevalence of mild cognitive impairment (MCI) among the aging population, there is a critical need for multifaceted lifestyle interventions that combine nutritional support with cognitive stimulation to prevent further decline. This study aimed to evaluate the effects of a cognitive function improvement management diet (Diet), with or without a digital cognitive enhancement program (SUPERBRAIN for group, SG), on cognitive function in adults aged ≥65 y with MCI attending daycare centers. This 12-wk cluster-randomized controlled trial included 80 older adults. Participants were assigned to a dietary intervention group (Diet, n = 33), a combined dietary and program intervention group (Diet+SG, n = 28), or a control group (n = 19) in an open-label trial. The Mediterranean-Dietary Approaches to Stop Hypertension (DASH) Intervention for Neurodegenerative Delay-based diet was provided to the Diet and Diet+SG groups as meals and snacks 5 d/wk. Assessments included anthropometry, physical measurements, blood parameters, nutritional indices, quality of life, activities of daily living (ADL), and cognitive function. Cognitive outcomes were evaluated using the Korean Mini-Mental State Examination 2 (K-MMSE2) and the clinical dementia rating. Compared with the control group, both Diet and Diet+SG groups showed significant improvements in nutritional status (Nutrition Quotient for the Elderly, P < 0.001), quality of life (EuroQol 5-Dimension 5-Level (EQ-5D-5L), P < 0.001), ADL (Korean ADL, P < 0.001; Korean Instrumental Activities of Daily Living, P < 0.001), and cognitive function (K-MMSE2, P < 0.001). Improvements in maximum muscle strength (P < 0.001), an indicator of frailty, were observed only in the Diet+SG group compared with the control group. These findings suggest that adults with MCI may derive benefits from the combined application of a cognitive function improvement management diet and a digital cognitive enhancement program. This trial was registered at Clinical Research Information Service (CRIS) as KCT0009528 (https://cris.nih.go.kr/cris/search/detailSearch.do?search_lang=E&focus=reset_12&search_page=L&pageSize=10&page=undefined&seq=27374&status=5&seq_group=27374).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42772684/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42772684",
+        "doi": "10.1016/j.tjnut.2026.101837",
+        "journal": "The Journal of nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:59:24.396Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8ec40ec2e5f244fb1eb2",
+      "reserved_at": "2026-10-10T00:59:28.513Z",
+      "source_branch": "research/intake/2/20261009-2056-cognition-metabolic-2-r34"
+    },
+    {
+      "pmid": "42715913",
+      "title": "Effects of Konjac glucosylceramides on cognitive function in cognitively unimpaired older adults with subjective cognitive concerns: a randomized, double-blind, controlled pilot study.",
+      "doi": "10.1016/j.jnha.2026.100975",
+      "source_title": "Effects of Konjac glucosylceramides on cognitive function in cognitively unimpaired older adults with subjective cognitive concerns: a randomized, double-blind, controlled pilot study.",
+      "abstract": "Diet-derived bioactive lipids may help maintain cognitive resilience during the preclinical stage of Alzheimer's disease (AD). Konjac-derived glucosylceramide (kGlcCer), traditionally used for skin barrier support, has previously been shown to reduce brain amyloid accumulation in individuals with lower baseline amyloid burden. However, earlier studies used cognitive tests with limited sensitivity. The objective of this study was to investigate whether daily intake of kGlcCer improves cognitive performance and influences amyloid-related biomarkers in cognitively unimpaired older adults with subjective cognitive concerns. A 24-week randomized, double-blind, placebo-controlled, parallel-group trial. Forty cognitively unimpaired older adults aged 60-80 years who reported subjective decline in memory or cognitive function were enrolled and randomly assigned to study groups. Participants received placebo or kGlcCer at doses of 1.8, 3.6, or 5.4 mg/day for 24 weeks. Cognitive outcomes were assessed using the Wechsler Memory Scale-Revised (WMS-R) Logical Memory I/II, Wechsler Adult Intelligence Scale-Fourth Edition (WAIS-IV) Coding, and Standard Verbal Paired-Associate Learning Test (S-PA). Brain amyloid accumulation was estimated using plasma amyloid-β (Aβ) composite biomarker levels. In this exploratory pilot trial, kGlcCer intake was associated with changes in several cognitive measures, although consistent between-group superiority was not observed across all outcomes. The medium-dose group showed significantly greater improvement in WAIS-IV Coding performance compared with the placebo group. Although significant within-group improvements were observed in several measures in the high-dose group such as immediate and delayed verbal memory assessed by WMS-R Logical Memory I/II, as well as in unrelated word-pair learning on the S-PA, consistent placebo-adjusted between-group differences were not observed across these outcomes. Stratified analysis further revealed kGlcCer intake may be associated with favorable changes in amyloid-related biomarkers in high-dose participants with low baseline amyloid burden. No safety concerns related to kGlcCer intake were observed during the study period. These exploratory findings suggest that kGlcCer may be associated with changes in selected cognitive domains and amyloid-related biomarkers. However, the present pilot study was not powered to establish efficacy, and larger adequately powered randomized trials are required. UMIN000051463, date of registration: 07-03-2023.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42715913/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42715913",
+        "doi": "10.1016/j.jnha.2026.100975",
+        "journal": "The journal of nutrition, health & aging",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T00:59:24.397Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f8d2e90a877493ac2bfb",
+      "reserved_at": "2026-10-10T00:59:28.513Z",
+      "source_branch": "research/intake/2/20261009-2056-cognition-metabolic-2-r34"
     }
   ],
   "batches": [
@@ -42618,16 +42770,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 539,
+    "total_reservations": 541,
     "by_lane": {
       "1": 27,
-      "2": 93,
+      "2": 95,
       "3": 98,
       "4": 46,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 539
+      "SOURCE_VERIFIED": 541
     },
     "batches": [
       {
@@ -42640,7 +42792,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 39,
+        "count": 41,
         "pr_number": null,
         "blocker": null
       }
