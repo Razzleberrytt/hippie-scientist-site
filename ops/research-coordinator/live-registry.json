@@ -44814,6 +44814,82 @@
       "reservation_id": "3fb82c9e8b0ad5f34a76",
       "reserved_at": "2026-10-10T06:51:47.662Z",
       "source_branch": "research/intake/2/20261010-0249-cognition-metabolic-r40"
+    },
+    {
+      "pmid": "42829071",
+      "title": "Analysis of molecular events triggered by furanocoumarins in Psoralea corylifolia L. via reactive metabolites and protein adducts.",
+      "doi": "10.1016/j.jep.2026.122460",
+      "source_title": "Analysis of molecular events triggered by furanocoumarins in Psoralea corylifolia L. via reactive metabolites and protein adducts.",
+      "abstract": "Psoralea Fructus (PF), the dried ripe fruit of Psoralea corylifolia L., is a widely utilized Chinese medicinal herb with a long-established history in clinical practice and is known for its diverse biological activities. Although furanocoumarin is potentially hepatotoxic, exposure levels at standard clinical doses are generally insufficient to induce liver injury. Moreover, traditional processing methods and herbal combinations in clinical settings can further alleviate this hepatotoxic risk. Nevertheless, owing to metabolic activation, it is essential to remain vigilant for this potential risk, necessitating careful clinical monitoring and the avoidance of overdose or prolonged inappropriate use. The objective of this study was to elucidate the potential hepatotoxic mechanisms of PF by characterizing its metabolic profile and identifying modified proteins associated with its furanocoumarin constituents. The results provide a scientific foundation for the prevention of hepatotoxicity and for enhancing clinical safety monitoring. The chemical profile of PF was characterized using UHPLC‒Q‒TOF‒MS/MS. The metabolic activation of two furanocoumarin compounds, psoralen (PRN) and isopsoralen (ISP), was assessed both in vitro (using liver microsome systems) and in vivo (in liver tissue). A novel chemoproteomic approach that integrates the enrichment of covalently modified peptides with label-free quantitative proteomics was developed to identify direct protein targets of PRN-derived reactive metabolites (RMs) in the liver. Network pharmacology and oxidative stress marker analyses were further used to validate the biological mechanisms involved. Chemical profiling revealed 116 compounds belonging to 12 classes in PF. Quantitative studies revealed that the contents of PRN and ISP were 1.14 mg/g and 2.49 mg/g, respectively. Despite its relatively low absolute content, PRN demonstrated a profound capacity for metabolic activation in vitro and in vivo, including PRN RMs and RM-amino acid conjugates, with their abundance correlating with the severity of liver injury. The RMs were found to specifically modify five key hepatic proteins and subsequently trigger downstream responses, including oxidative stress, as evidenced by alterations in markers such as superoxide dismutase (SOD), catalase (CAT), glutathione (GSH), glutathione S-transferase (GST), and malondialdehyde (MDA). The systematic elucidation of these molecular events provides direct evidence for understanding the biological effects of PF. This study established an integrated chemical proteomics strategy to analyse the molecular events by which furanocoumarins in PF trigger oxidative stress via RMs and protein adducts. PRN is the primary furanocoumarin in PF, and quantitative analysis revealed that its content in PF is relatively low, at only 1.14 mg/g (approximately 0.1%). However, the active metabolites of PRN can selectively modify proteins, interfere with normal protein function, and induce oxidative stress, ultimately leading to liver injury. Therefore, despite its low content, monitoring the levels of furocoumarin components and carefully evaluating the dosage and duration of treatment during the clinical use of PF or its related preparations are necessary to prevent potential liver injury. The integrated strategy established in this study provides a valuable tool for evaluating the hepatotoxic risk of natural products and is applicable to safety assessments of traditional Chinese medicines (TCMs).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42829071/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42829071",
+        "doi": "10.1016/j.jep.2026.122460",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T07:10:20.120Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e6afd6e476a3e79a5acf",
+      "reserved_at": "2026-10-10T07:10:25.919Z",
+      "source_branch": "research/intake/3/20261010-0307-psoralea-furanocoumarin"
     }
   ],
   "batches": [
@@ -44842,16 +44918,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 568,
+    "total_reservations": 569,
     "by_lane": {
       "1": 36,
       "2": 107,
-      "3": 102,
+      "3": 103,
       "4": 48,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 568
+      "SOURCE_VERIFIED": 569
     },
     "batches": [
       {
@@ -44864,7 +44940,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 68,
+        "count": 69,
         "pr_number": null,
         "blocker": null
       }
