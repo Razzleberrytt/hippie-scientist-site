@@ -50815,6 +50815,83 @@
       "reservation_id": "5601200615764acef3f0",
       "reserved_at": "2026-10-10T22:56:20.015Z",
       "source_branch": "research/intake/2/20261010-1853-cognition-metabolic-r56"
+    },
+    {
+      "pmid": "41908350",
+      "title": "Rhabdomyolysis, Acute Kidney Injury, and Exudative Retinal Detachment Associated with Nonsteroidal Anti-Inflammatory Drug and Herbal Product Use: A Case Report.",
+      "doi": "10.14744/cpr.2026.57203",
+      "source_title": "Rhabdomyolysis, Acute Kidney Injury, and Exudative Retinal Detachment Associated with Nonsteroidal Anti-Inflammatory Drug and Herbal Product Use: A Case Report.",
+      "abstract": "Rhabdomyolysis is a potentially life-threatening condition that may lead to acute kidney injury (AKI). Although nonsteroidal anti-inflammatory drugs (NSAIDs) are widely used, diclofenac-associated rhabdomyolysis is exceedingly rare. Herbal products, often perceived as harmless, may also contribute to nephrotoxicity through contamination or pharmacokinetic interactions. A 20-year-old woman presented with muscle pain, weakness, and dark-colored urine after using diclofenac potassium and a homemade herbal mixture. Laboratory findings revealed severe rhabdomyolysis and AKI. Kidney biopsy confirmed myoglobin-induced acute tubular injury. During treatment, the patient developed hypertension and blurred vision; ophthalmologic evaluation revealed exudative retinal detachment. Hemodialysis, ultrafiltration, and blood pressure control resulted in complete renal and visual recovery. This case highlights the unpredictable toxicity that may arise from the combined use of NSAIDs and herbal products. Clinicians should routinely inquire about herbal supplement use, particularly in patients presenting with unexplained rhabdomyolysis or AKI.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41908350/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41908350",
+        "doi": "10.14744/cpr.2026.57203",
+        "journal": "Journal of clinical practice and research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-10T23:08:56.303Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "699d44ca7e129ea0be2e",
+      "reserved_at": "2026-10-10T23:09:01.262Z",
+      "source_branch": "research/intake/3/20261010-1907-herbal-renal-yinchenhao"
     }
   ],
   "batches": [
@@ -50843,16 +50920,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 646,
+    "total_reservations": 647,
     "by_lane": {
       "1": 62,
       "2": 138,
-      "3": 121,
+      "3": 122,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 646
+      "SOURCE_VERIFIED": 647
     },
     "batches": [
       {
@@ -50865,7 +50942,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 146,
+        "count": 147,
         "pr_number": null,
         "blocker": null
       }
