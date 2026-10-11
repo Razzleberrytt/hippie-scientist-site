@@ -14,6 +14,8 @@ import hashlib
 import importlib.metadata
 import json
 import math
+import os
+import subprocess
 import sys
 import wave
 from pathlib import Path
@@ -109,6 +111,14 @@ def write_wav(path: Path, audio: np.ndarray) -> None:
 
 
 def load_pipeline(language: str):
+    """Fail closed unless immutable original model files are verified and restored offline."""
+    vault = os.environ.get("THS_VOICE_VAULT")
+    if not vault:
+        raise RuntimeError("THS_VOICE_VAULT missing. Restore permanent pinned voice assets; do not improvise TTS.")
+    script = Path(__file__).with_name("voice-vault.py")
+    for command in ("verify", "restore"):
+        subprocess.run([sys.executable, str(script), command, vault], check=True)
+    os.environ["HF_HUB_OFFLINE"] = "1"
     try:
         from kokoro import KPipeline
     except Exception as exc:
@@ -124,7 +134,16 @@ def engine_metadata(language: str, voice: str):
         kokoro_version = importlib.metadata.version("kokoro")
     except importlib.metadata.PackageNotFoundError:
         kokoro_version = "unknown"
+    vault = os.environ.get("THS_VOICE_VAULT")
+    if not vault:
+        raise RuntimeError("Voice provenance requires THS_VOICE_VAULT")
+    manifest = read_json(Path(vault) / "voice-vault.json")
     return {
+        "modelSourceRevision": manifest["revision"],
+        "modelWeightsSha256": manifest["files"]["kokoro-v1_0.pth"]["sha256"],
+        "voiceWeightsSha256": manifest["files"]["voices/am_michael.pt"]["sha256"],
+        "modelConfigSha256": manifest["files"]["config.json"]["sha256"],
+        "voiceVaultTag": manifest["tag"],
         "name": "kokoro",
         "model": "Kokoro-82M",
         "packageVersion": kokoro_version,
@@ -391,6 +410,8 @@ def main() -> int:
     parser.add_argument("--speed", type=float, default=1.0)
     parser.add_argument("--max-speed", type=float, default=1.16)
     args = parser.parse_args()
+    if args.voice != "am_michael":
+        raise RuntimeError("THS voice identity is locked to verified am_michael; voice changes require new approved vault")
 
     package_dir = Path(args.package_dir).resolve()
     package_dir.mkdir(parents=True, exist_ok=True)
