@@ -10,7 +10,6 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 41855365,,Broccoli,,,2026,Narrative review,1,/herbs/brassica-oleracea/
 41875856,10.1016/j.cub.2026.01.057,Noni Franklin-Tong,Franklin-Tong N,Curr Biol,2026,Unclassified,1,/herbs/noni/
 42196951,10.3390/nu18101491,Characterization of Isoorientin and Paeoniflorin as Botanical Glucocorticoid Receptor Modulators from White Peony and Chasteberry,Bashatwah RM et al.,Nutrients,2026,Unclassified,1,/herbs/white-peony/
-30000526,,Interferon Alfacon-1,,,2025,Narrative review,1,/herbs/tyrosine/
 30000829,,St. John's Wort,,,2025,Narrative review,1,/herbs/st-johns-wort/
 30000850,,Caraway,,,2025,Narrative review,1,/herbs/caraway/
 30000886,,Basil,,,2025,Narrative review,1,/herbs/ocimum-basilicum/
@@ -634,7 +633,6 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 27282571,10.1016/j.bcmd.2016.04.002,Molecular characterization of six new cases of red blood cell hexokinase deficiency yields four novel mutations in HK1,Koralkova P et al.,Blood Cells Mol Dis,2016,Unclassified,1,/compounds/red-yeast-rice/
 27347994,10.3390/nu8070388,Efficacy of Aloe Vera Supplementation on Prediabetes and Early Non-Treated Diabetic Patients: A Systematic Review and Meta-Analysis of Randomized Controlled Trials,Zhang Y et al.,Nutrients,2016,Meta-analysis,1,/herbs/aloe-vera/
 27399234,10.1055/s-0042-110496,A Review of the Medicinal Uses and Pharmacology of Ashitaba,Caesar LK and Cech NB,Planta Med,2016,Unclassified,1,/herbs/ashitaba/
-27403209,10.5770/cgj.19.220,Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study,Hazzan AA et al.,Can Geriatr J,2016,Unclassified,1,/herbs/curcumin/
 27533649,10.1089/jmf.2016.3705,Efficacy of Turmeric Extracts and Curcumin for Alleviating the Symptoms of Joint Arthritis: A Systematic Review and Meta-Analysis of Randomized Clinical Trials,Daily JW et al.,J Med Food,2016,Meta-analysis,1,/herbs/curcumin/
 27551171,10.5152/eurasianjmed.2015.15030,Effects of Native Type II Collagen Treatment on Knee Osteoarthritis: A Randomized Controlled Trial,Bakilan F et al.,Eurasian J Med,2016,Unclassified,1,/compounds/uc-ii-collagen/
 27671811,10.1007/978-3-319-41334-1_2,Berberine and Its Role in Chronic Disease,Cicero AF and Baggioni A,Adv Exp Med Biol,2016,Narrative review,5,/herbs/berberis-vulgaris/ /herbs/berberis/ /herbs/goldenseal/ /herbs/phellodendron-amurense/ /herbs/phellodendron/
@@ -682,9 +680,7 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 24912386,10.1038/nrgastro.2014.66,Expert consensus document. The International Scientific Association for Probiotics and Prebiotics consensus statement on the scope and appropriate use of the term probiotic,Hill C et al.,Nat Rev Gastroenterol Hepatol,2014,Unclassified,1,/compounds/probiotics/
 24941673,10.1007/978-3-0348-0828-6_11,Capsaicin for osteoarthritis pain,Laslett LL and Jones G,Prog Drug Res,2014,Narrative review,1,/compounds/capsaicin/
 25005060,10.1007/s00253-014-5899-9,Biotechnological production of eleutherosides: current state and perspectives,Murthy HN et al.,Appl Microbiol Biotechnol,2014,Narrative review,1,/herbs/eleuthero/
-25059961,10.1136/vr.g4746,One Health: time to move on from just talking,Honey L,Vet Rec,2014,Unclassified,1,/compounds/potassium/
 25153873,10.3390/molecules190812591,Allicin: chemistry and biological properties,Borlinghaus J et al.,Molecules,2014,Narrative review,1,/herbs/garlic/
-25174896,10.1016/j.ajo.2014.08.036,New insights into the development of infantile intraocular medulloepithelioma,Jakobiec FA et al.,Am J Ophthalmol,2014,Unclassified,1,/compounds/coq10/
 25282031,10.1016/j.jchf.2014.06.008,The effect of coenzyme Q10 on morbidity and mortality in chronic heart failure: results from Q-SYMBIO: a randomized double-blind trial,Mortensen SA et al.,JACC Heart Fail,2014,Randomized controlled trial,1,/compounds/coq10/
 25374169,10.7314/apjcp.2014.15.20.8571,Health benefits of Moringa oleifera,Abdull Razis AF et al.,Asian Pac J Cancer Prev,2014,Narrative review,1,/herbs/moringa/
 26664234,10.4103/0974-8520.153735,A clinical study of Punarnava Mandura in the management of Pandu Roga in old age (geriatric anemia),Pandya MG and Dave AR,Ayu,2014,Unclassified,1,/herbs/punarnava/
@@ -712,7 +708,6 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 22414105,10.2174/092986712800229096,Nature against depression,El-Alfy AT et al.,Curr Med Chem,2012,Narrative review,1,/herbs/polygala/
 22450800,10.4014/jmb.1110.10077,Bupleurum falcatum prevents depression and anxiety-like behaviors in rats exposed to repeated restraint stress,Lee B et al.,J Microbiol Biotechnol,2012,Unclassified,1,/herbs/bupleurum-falcatum/
 22460444,10.1007/s11684-012-0184-8,Medical applications of phytoestrogens from the Thai herb Pueraria mirifica,Malaivijitnond S,Front Med,2012,Narrative review,1,/herbs/pueraria-mirifica/
-22554242,10.1146/annurev-arplant-042811-105439,The shikimate pathway and aromatic amino Acid biosynthesis in plants,Maeda H and Dudareva N,Annu Rev Plant Biol,2012,Narrative review,1,/herbs/tyrosine/
 22561883,10.1016/j.mrgentox.2012.04.009,Estragole: a weak direct-acting food-borne genotoxin and potential carcinogen,Martins C et al.,Mutat Res,2012,Unclassified,1,/herbs/anise-hyssop/
 22592140,10.1016/j.drugalcdep.2012.04.013,Police custody following drink-driving: a prospective study,Lepresle A et al.,Drug Alcohol Depend,2012,Unclassified,1,/herbs/gymnema-sylvestre/
 22632862,10.2174/138161212803216979,The use of herbal medicine in cancer-related anorexia/ cachexia treatment around the world,Cheng KC et al.,Curr Pharm Des,2012,Narrative review,1,/herbs/pau-d-arco/
@@ -816,7 +811,6 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 15548480,10.1136/jnnp.2003.028761,Mucuna pruriens in Parkinson's disease: a double blind clinical and pharmacological study,Katzenschlager R et al.,J Neurol Neurosurg Psychiatry,2004,Randomized controlled trial,1,/compounds/mucuna-pruriens/
 15671695,10.1089/jmf.2004.7.487,Effects of malted barley extract and banaba extract on blood glucose levels in genetically diabetic mice,Hong H and Jai Maeng W,J Med Food,2004,Unclassified,1,/herbs/lagerstroemia-speciosa/
 15927925,,Iberis amara L. and Iberogast--results of a systematic review concerning functional dyspepsia,Melzer J et al.,J Herb Pharmacother,2004,Systematic review,1,/compounds/iberogast/
-12482446,10.1016/s0031-9422(02)00513-7,Rosmarinic acid,Petersen M and Simmonds MS,Phytochemistry,2003,Narrative review,1,/herbs/tyrosine/
 12612144,10.1093/jn/133.3.727,The consumption of processed tomato products enhances plasma lycopene concentrations in association with a reduced lipoprotein sensitivity to oxidative damage,Hadley CW et al.,J Nutr,2003,Randomized controlled trial,1,/compounds/chromium/
 12706309,10.1016/s0378-3782(03)00008-2,Occurrence of oxygen desaturation events during preterm infant bottle feeding near discharge,Thoyre SM and Carlson J,Early Hum Dev,2003,Unclassified,1,/compounds/iron/
 12874400,10.1212/01.wnl.0000073987.79060.4b,Abeta1-42 promotes cholinergic sprouting in patients with AD and Lewy body variant of AD,Masliah E et al.,Neurology,2003,Unclassified,1,/compounds/alpha-lipoic-acid/
@@ -843,7 +837,6 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 9820262,10.1001/jama.280.18.1596,Garcinia cambogia (hydroxycitric acid) as a potential antiobesity agent: a randomized controlled trial,Heymsfield SB et al.,JAMA,1998,Randomized controlled trial,1,/compounds/garcinia-cambogia-extract/
 9878519,10.1006/bbrc.1998.9681,Bioavailability of ferulic acid,Bourne LC and Rice-Evans C,Biochem Biophys Res Commun,1998,Unclassified,1,/compounds/ferulic-acid/
 9313662,,"A multicentric, placebo-controlled, double-blind clinical trial of beta-sitosterol (phytosterol) for the treatment of benign prostatic hyperplasia. German BPH-Phyto Study group",Klippel KF et al.,Br J Urol,1997,Randomized controlled trial,1,/compounds/beta-sitosterol/
-8629725,10.2105/ajph.86.5.717,Tracking community sentinel events: breast cancer mortality and neighborhood risk for advanced-stage tumors in Denver,Andres TL et al.,Am J Public Health,1996,Unclassified,1,/herbs/tyrosine/
 11362284,,Essiac,Majchrowicz MA,Notes Undergr,1995,Unclassified,1,/herbs/burdock/
 1924160,10.1023/a:1015821527621,Pharmacokinetic study of an iridoid glucoside: aucubin,Suh NJ et al.,Pharm Res,1991,Unclassified,1,/compounds/aucubin/
 33874310,10.1111/j.1469-8137.1991.tb00015.x,Reviews,,New Phytol,1991,Narrative review,1,/herbs/juniper/
