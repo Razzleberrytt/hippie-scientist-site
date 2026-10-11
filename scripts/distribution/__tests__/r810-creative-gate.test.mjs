@@ -57,6 +57,17 @@ describe('EvidenceMotion R8.10 governed narrative and safety contract',()=>{
     const g=fixture();g.r810.slots[2].beatId='human'
     expect(validateR810CreativeBrief(g,when).join('\n')).toMatch(/legacy role mapping|duplicate/)
   })
+  it('blocks ungoverned extra beats and physically reordered content despite valid slot labels',()=>{
+    const extra=fixture()
+    extra.beats.splice(5,0,{...extra.beats[5],id:'unreviewed-claim'})
+    expect(validateR810CreativeBrief(extra,when).join('\n')).toMatch(/extra legacy beats/)
+    const shuffled=fixture()
+    ;[shuffled.beats[2],shuffled.beats[3]]=[shuffled.beats[3],shuffled.beats[2]]
+    expect(validateR810CreativeBrief(shuffled,when).join('\n')).toMatch(/approved order/)
+    const misplacedSource=fixture()
+    misplacedSource.beats.unshift(misplacedSource.beats.pop())
+    expect(validateR810CreativeBrief(misplacedSource,when).join('\n')).toMatch(/final beat/)
+  })
   it('fails closed when screen text deletes risk/negation/uncertainty language',()=>{
     expect(r810TextSafetyErrors('May have a rare risk; do not use without review.',
       'Has a risk; use it')).toEqual(expect.arrayContaining([
