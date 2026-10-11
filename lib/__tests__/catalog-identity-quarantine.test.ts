@@ -232,6 +232,10 @@ describe('commerce batch 5 verified identity and claim quarantine', () => {
     for (const product of getRevenueProductSet('iron')?.products ?? []) {
       expect((product.rationale ?? '').toLowerCase()).toMatch(/children|pediatric/)
     }
+    const elite = getRevenueProductSet('resveratrol')?.products.find(p => p.brand === 'Life Extension')
+    expect(elite?.title).toContain('30 mg trans-resveratrol')
+    expect(elite?.rationale).toContain('item 02210')
+    expect(elite?.rationale).not.toMatch(/\b40 mg\b/i)
     const ginkgo = getRevenueProductSet('ginkgo-biloba')?.products ?? []
     expect(ginkgo.some(p => /EGb 761 certified/i.test(p.rationale ?? ''))).toBe(false)
   })
