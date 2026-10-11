@@ -913,8 +913,8 @@
       "total": 2
     },
     "magnesium": {
-      "pmid_linked": 6,
-      "total": 11
+      "pmid_linked": 5,
+      "total": 10
     },
     "magnolia": {
       "pmid_linked": 0,
@@ -1359,8 +1359,8 @@
       "total": 1
     },
     "meta_analysis": {
-      "pmid_linked": 26,
-      "total": 26
+      "pmid_linked": 25,
+      "total": 25
     },
     "meta_analysis_authoritative_review": {
       "pmid_linked": 1,
@@ -1745,8 +1745,8 @@
       "total": 1
     },
     "meta-analysis": {
-      "pmid_linked": 51,
-      "total": 91
+      "pmid_linked": 50,
+      "total": 90
     },
     "narrative-review": {
       "pmid_linked": 3,
@@ -1779,10 +1779,10 @@
   },
   "claims_without_pmid_linkage": 274,
   "metadata_coverage": {
-    "coverage_rate": 0.8557213930348259,
-    "distinct_linked_pmids": 201,
-    "pmids_in_cache": 172,
-    "pmids_with_usable_metadata": 172
+    "coverage_rate": 0.855,
+    "distinct_linked_pmids": 200,
+    "pmids_in_cache": 171,
+    "pmids_with_usable_metadata": 171
   },
   "pmid_linked_claim_ids": [
     "rg-0291",
@@ -1997,7 +1997,6 @@
     "study-row-76",
     "study-row-77",
     "study-row-78",
-    "study-row-79",
     "study-row-8",
     "study-row-80",
     "study-row-81",
@@ -2020,9 +2019,9 @@
     "study-row-97",
     "study-row-98"
   ],
-  "pmid_linked_claims": 234,
+  "pmid_linked_claims": 233,
   "schema_version": "claim-dna-1c-inventory/0.2",
-  "total_claims": 508,
+  "total_claims": 507,
   "without_pmid_linkage_reasons": {
     "missing_pmid_field": 274
   }
