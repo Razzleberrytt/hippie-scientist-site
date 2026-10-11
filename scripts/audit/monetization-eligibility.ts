@@ -7,7 +7,7 @@
  * validate marketplace listings, or change any monetization/safety gate.
  * The diagnostic is intentionally separate from clinical/editorial approval.
  */
-import { getHerbs, getCompounds } from '../../lib/runtime-data'
+import { getHerbs, getCompounds, getHerbBySlug, getCompoundBySlug } from '../../lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { canRenderAffiliateLinks, canShowAffiliateModule } from '../../lib/affiliate'
 import { canRenderConfiguredRevenueProducts } from '../../lib/revenue-product-governance'
@@ -51,7 +51,7 @@ function isConfiguredLink(value: unknown): boolean {
   return typeof value === 'string' && /^https?:\/\//i.test(value.trim())
 }
 
-function inspect(target: Target, record: RecordData | null) {
+function inspect(target: Target, record: RecordData | null, detailRecord: RecordData | null) {
   const productSet = getRevenueProductSet(target.slug)
   const configuredProducts = productSet?.products ?? []
   const explicitRestriction = isRestrictedIngredient(target.slug)
@@ -61,6 +61,7 @@ function inspect(target: Target, record: RecordData | null) {
     ? policyForResearchRecord(record)
     : null
   const centrallyAllowed = record ? canRenderAffiliateLinks(record) : false
+  const detailCentrallyAllowed = detailRecord ? canRenderAffiliateLinks(detailRecord) : false
   const curatedAllowed = record && productSet
     ? canRenderConfiguredRevenueProducts(target.slug, record)
     : false
@@ -88,6 +89,7 @@ function inspect(target: Target, record: RecordData | null) {
       affiliate_ready: record?.affiliate_ready ?? null,
       monetization_allowed: record?.monetization_allowed ?? null,
       governanceMonetizationAllowed: record ? getPolicyFlag(record, 'monetizationAllowed') : null,
+      detailGovernanceMonetizationAllowed: detailRecord ? getPolicyFlag(detailRecord, 'monetizationAllowed') : null,
       profile_status: record?.profile_status ?? null,
       evidence_tier: record?.evidence_tier ?? null,
       indexability_status: record?.indexability_status ?? null,
@@ -97,6 +99,9 @@ function inspect(target: Target, record: RecordData | null) {
       runtimeCanMonetize: runtimeVisibility?.canMonetize ?? false,
       maturity: maturity?.maturity ?? 'not_explicit',
       centrallyAllowed,
+      detailRecordFound: Boolean(detailRecord),
+      detailCentrallyAllowed,
+      listVsDetailGateMismatch: Boolean(detailRecord && centrallyAllowed !== detailCentrallyAllowed),
       curatedProductGateAllowed: Boolean(curatedAllowed),
       genericSearchModuleAllowed,
       profileHighCautionHold: profileSafetyHold,
@@ -119,10 +124,19 @@ async function main() {
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
   const byHerb = new Map(herbs.map((record) => [String(record.slug || ''), record as RecordData]))
   const byCompound = new Map(compounds.map((record) => [String(record.slug || ''), record as RecordData]))
-  const rows = TARGETS.map((target) => inspect(
-    target,
-    (target.kind === 'herb' ? byHerb : byCompound).get(target.slug) ?? null,
-  ))
+  const rows = await Promise.all(TARGETS.map(async (target) => {
+    // Profile templates load detail overlays, while RecommendationSection currently
+    // re-loads compact list records. A difference here can explain a product-card
+    // suppression without implying the workbook needs new monetization approval.
+    const detailRecord = target.kind === 'herb'
+      ? await getHerbBySlug(target.slug)
+      : await getCompoundBySlug(target.slug)
+    return inspect(
+      target,
+      (target.kind === 'herb' ? byHerb : byCompound).get(target.slug) ?? null,
+      (detailRecord as RecordData | null) ?? null,
+    )
+  }))
   console.log(JSON.stringify({
     audit: 'priority-affiliate-eligibility',
     mode: 'read_only',
