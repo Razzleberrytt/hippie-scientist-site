@@ -68,6 +68,8 @@ function runCommand(cmd, args) {
 
 function isPublishable(enrichment) {
   return (
+    enrichment?.reviewStatus === 'approved_for_rollup' &&
+    enrichment?.active === true &&
     enrichment?.editorialReadiness?.publishable === true &&
     (enrichment?.editorialStatus === 'approved' || enrichment?.editorialStatus === 'published')
   )
