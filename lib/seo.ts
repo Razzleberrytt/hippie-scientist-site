@@ -1112,7 +1112,7 @@ const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: 
   'omega-3': {
     title: 'Omega-3 (Fish Oil): Evidence, Dosage & Safety',
     description:
-      'Review omega-3 research, including EPA and DHA, studied benefits and limitations, dose uncertainty, anticoagulant precautions, and higher-dose atrial fibrillation concerns.',
+      'Review EPA/DHA omega-3 research, dosage limits, cardiovascular findings, anticoagulant precautions, and higher-dose atrial fibrillation concerns.',
   },
   'vitamin-c': {
     title: 'Vitamin C & Immunity: Evidence, Dosage & Safety',
@@ -1132,7 +1132,7 @@ const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: 
   'probiotics': {
     title: 'Probiotics for Gut Health: Strains, Evidence & Safety',
     description:
-      'Probiotic effects vary by strain and condition. Review research for digestive outcomes, dose uncertainty, product differences, and safety risks in vulnerable people.',
+      'Probiotic effects vary by strain and condition. Review digestive evidence, dosing uncertainty, product differences, and risks for vulnerable people.',
   },
   // Search-intent metadata: accurately describe questions answered, not proven benefits.
   'ashwagandha': {
