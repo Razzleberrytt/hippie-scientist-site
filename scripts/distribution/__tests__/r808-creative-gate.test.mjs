@@ -91,6 +91,13 @@ describe('R8.08 silent comprehension contract',()=>{
     b.beats[3].onScreenText=Array.from({length:20},()=> 'unreadable').join(' ')
     expect(validateR808CreativeBrief(b).join('\n')).toMatch(/reading budget|silentMeaning/)
   })
+  it('rejects a decorative bottom progress bar while allowing real data visualizations',()=>{
+    const b=compliant()
+    b.beats[1].visualAction='Show an unlabeled progress bar at the bottom of the frame.'
+    expect(validateR808CreativeBrief(b).join('\n')).toMatch(/decorative progress\/loading HUD/)
+    b.beats[1].visualAction='Highlight the trial response-rate comparison, with units and citation.'
+    expect(validateR808CreativeBrief(b)).toEqual([])
+  })
   it('rejects dropping the inherited R8.07 limitation motif',()=>{
     const b=compliant();b.beats[3].r807.motifId=''
     expect(validateR808CreativeBrief(b).join('\n')).toMatch(/motif must return/)
