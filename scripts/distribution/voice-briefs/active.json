@@ -1,0 +1,207 @@
+{
+  "release": "R8.05",
+  "creativeMethodology": "THS R8.08 silent-first + R8.07 authored rhythm, R8.05 voice runtime",
+  "sourceIdentity": {
+    "id": "2026-10-10-kratom-four-way-comparison-unreviewed",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/34213886/"
+  },
+  "premise": {
+    "interestScore": 4.5,
+    "coldViewerWhyCare": "People may mistake chemically and clinically distinct kratom-related opioid-active compounds for interchangeable retail products.",
+    "viewerQuestion": "How do mitragynine, 7-OH, MGM-15 and corynoxine B differ, and what can we actually say about safety?",
+    "earlyPayoff": "They differ in plant occurrence, receptor activity, synthetic status and depth of evidence; lab activity is not a safe dose.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false,
+    "hookMode": "risk-comparison"
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "sourcePacket": {
+    "publicationSources": [
+      "https://pubmed.ncbi.nlm.nih.gov/34213886/",
+      "https://doi.org/10.1002/dta.3952",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6598159/",
+      "https://www.fda.gov/consumers/consumer-updates/products-containing-7-oh-can-cause-serious-harm",
+      "https://www.justice.gov/opa/pr/department-justice-announces-updates-emergency-scheduling-actions-7-oh-and-related-opioid"
+    ],
+    "editorialStatus": "awaiting-independent-scientific-review",
+    "note": "No human potency or safety ranking permitted. MGM-15 currently Schedule I federally (2026-10-10)."
+  },
+  "conceptCandidates": [
+    {
+      "angle": "Not interchangeable",
+      "viewerHook": "The molecules are related; risk profiles aren't",
+      "selected": true
+    },
+    {
+      "angle": "Chemistry family tree",
+      "viewerHook": "One plant, multiple derivatives",
+      "selected": false
+    },
+    {
+      "angle": "Lab versus human",
+      "viewerHook": "Do lab assays predict the danger?",
+      "selected": false
+    }
+  ],
+  "beats": [
+    {
+      "id": "b1",
+      "role": "hook",
+      "narration": "Four kratom-related compounds. Treating them like the same drug can be dangerous.",
+      "onScreenText": "FOUR COMPOUNDS. NOT THE SAME DRUG.",
+      "visualPurpose": "Show four distinct molecules as cards around one μ-opioid receptor; forbid invented relative potency.",
+      "spokenAnchor": "same drug",
+      "visualAction": "At exact spoken phrase 'same drug', execute reveal over teaching object: Show four distinct molecules as cards around one μ-opioid receptor; forbid invented relative potency.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "kratom alkaloids"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b2",
+      "role": "finding",
+      "narration": "Mitragynine dominates kratom leaf. Seven-OH is more opioid-active, especially concerning in concentrated products.",
+      "onScreenText": "MITRAGYNINE: MAIN LEAF ALKALOID\n7-OH: HIGHER OPIOID ACTIVITY",
+      "visualPurpose": "Leaf-to-concentrate visual; distinguish natural leaf abundance from enhanced products without assigning a conversion ratio.",
+      "spokenAnchor": "Seven-OH",
+      "visualAction": "At exact spoken phrase 'Seven-OH', execute reveal over teaching object: Leaf-to-concentrate visual; distinguish natural leaf abundance from enhanced products without assigning a conversion ratio.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "mitragynine",
+        "7-OH"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b3",
+      "role": "evidence",
+      "narration": "MGM-fifteen is a manufactured seven-OH derivative. Lab tests show strong receptor binding, but human safety data are lacking.",
+      "onScreenText": "MGM-15: SYNTHETIC DERIVATIVE\nHUMAN SAFETY DATA: LACKING",
+      "visualPurpose": "Chemical derivative link and lab evidence lens; no numerical potency ranking.",
+      "spokenAnchor": "human safety",
+      "visualAction": "At exact spoken phrase 'human safety', execute highlight over teaching object: Chemical derivative link and lab evidence lens; no numerical potency ranking.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "MGM-15"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b4",
+      "role": "finding",
+      "narration": "Corynoxine B also binds opioid receptors in experiments. But what it does in people is still poorly understood.",
+      "onScreenText": "CORYNOXINE B\nMOSTLY PRECLINICAL EVIDENCE",
+      "visualPurpose": "Zoom from receptor motif to question mark over human silhouette to convey uncertainty.",
+      "spokenAnchor": "in people",
+      "visualAction": "At exact spoken phrase 'in people', execute reveal over teaching object: Zoom from receptor motif to question mark over human silhouette to convey uncertainty.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "corynoxine B"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b5",
+      "role": "limitation",
+      "narration": "Here's the catch. Lab receptor binding cannot predict a safe human dose, or rank overdose danger.",
+      "onScreenText": "LAB POTENCY ≠ HUMAN SAFETY",
+      "visualPurpose": "Motif returns inverted with red uncertainty boundary; semantic pattern interrupt.",
+      "spokenAnchor": "cannot predict",
+      "visualAction": "At exact spoken phrase 'cannot predict', execute highlight over teaching object: Motif returns inverted with red uncertainty boundary; semantic pattern interrupt.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "lab assays"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b6",
+      "role": "context",
+      "narration": "Dependence and withdrawal matter. Combining opioid-active products with alcohol or sedatives raises the danger. Suspected overdose? Get emergency help.",
+      "onScreenText": "DEPENDENCE • WITHDRAWAL\nMIXING DEPRESSANTS = DANGER",
+      "visualPurpose": "Unambiguous stacked warning strips; no instructions for drug use.",
+      "spokenAnchor": "alcohol or sedatives",
+      "visualAction": "At exact spoken phrase 'alcohol or sedatives', execute reveal over teaching object: Unambiguous stacked warning strips; no instructions for drug use.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "opioid-active products"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b7",
+      "role": "cta",
+      "narration": "Same chemical neighborhood. Very different evidence. Follow The Hippie Scientist for science, not hype.",
+      "onScreenText": "COMPARE EVIDENCE, NOT HYPE.\nTHE HIPPIE SCIENTIST",
+      "visualPurpose": "Return four cards with evidence bars not strength bars; end branded.",
+      "spokenAnchor": "different evidence",
+      "visualAction": "At exact spoken phrase 'different evidence', execute highlight over teaching object: Return four cards with evidence bars not strength bars; end branded.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "end",
+      "factualAuthority": "evidence-pending-independent-review",
+      "primaryEntities": [
+        "the hippie scientist"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "b8",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/34213886/",
+      "visualPurpose": "Readable publication reference card; other sources in caption/source packet",
+      "spokenAnchor": "",
+      "visualAction": "Hold full source card for 3.7 seconds",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "primary-study",
+      "primaryEntities": [],
+      "comparisonRequired": false,
+      "holdSeconds": 3.7,
+      "pauseAfterSeconds": 0
+    }
+  ]
+}
