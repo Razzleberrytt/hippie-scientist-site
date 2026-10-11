@@ -30,6 +30,23 @@ function requiredFile(dir, name) {
   return file
 }
 
+// Final encoded-master approval must not accept rejected or missing inherited
+// receipts even if their schema versions and hash lineage appear well formed.
+export function assertR809InheritedReceiptsApproved(manifest) {
+  const inherited = [
+    ['R8.06', manifest?.creativeFoundation],
+    ['R8.07', manifest?.creativeVisualFoundation],
+    ['R8.08', manifest?.creativeSilentFoundation],
+    ['R8.09', manifest?.creativeDirection],
+  ]
+  for (const [release, receipt] of inherited) {
+    if (clean(receipt?.status) !== 'approved') {
+      throw new Error(`R8.09 exact-master QA requires approved ${release} creative receipt`)
+    }
+  }
+  return true
+}
+
 export function approveR805Master({
   packageDir,
   reviewer,
@@ -134,6 +151,7 @@ export function approveR805Master({
         requiredPasses.captionMobileLegibility = captionMobileLegibility
         requiredPasses.beginnerClarity = beginnerClarity
         requiredPasses.animatedTeachingCohesion = animatedTeachingCohesion
+        assertR809InheritedReceiptsApproved(manifest)
         if (clean(manifest?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
             || clean(manifest?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
             || clean(manifest?.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
