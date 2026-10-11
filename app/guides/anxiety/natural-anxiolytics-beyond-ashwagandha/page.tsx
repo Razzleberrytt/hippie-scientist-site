@@ -33,7 +33,7 @@ const HEADINGS: Heading[] = [
 ]
 
 const NATURAL_ANXIOLYTICS_BEYOND_ASHWAGANDHA_REFS = [
-  { n: 1, text: 'Sarris J, et al. (2013). Kava for GAD. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 1, text: 'Sarris J, et al. (2013). Kava in the treatment of generalized anxiety disorder: a double-blind randomized placebo-controlled study. J Clin Psychopharmacol, 33(5):643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23635869/' },
   { n: 2, text: 'Akhondzadeh S, et al. (2001). Passionflower for anxiety. J Clin Pharm Ther, 26(5): 363-367.', url: 'https://pubmed.ncbi.nlm.nih.gov/11679026/' },
 ]
 
@@ -55,10 +55,10 @@ export default function NaturalAnxiolyticsPage() {
       name: 'Kava (Piper methysticum)',
       href: '/herbs/kava',
       type: 'Botanical Root Extract',
-      onset: '20 to 60 minutes',
-      mechanism: 'GABA-A receptor positive modulation, sodium/calcium channel blocker.',
-      bestFor: 'Social tension, muscle relaxation, rapid situational anxiety relief.',
-      safety: 'Moderate risk. Avoid with liver issues, alcohol, or daily chronic use.',
+      onset: 'Varies; clinical onset uncertain',
+      mechanism: 'Kavalactones affect multiple CNS signaling pathways; clinical benefit is not established by mechanism alone.',
+      bestFor: 'Traditionally used for relaxation; anxiety trial findings are mixed, not proof of rapid relief.',
+      safety: 'Rare serious liver injury, including failure and death. Do not combine with alcohol or sedatives; seek medical advice if you have liver disease or take medications.',
     },
     {
       name: 'Kanna (Sceletium tortuosum)',
