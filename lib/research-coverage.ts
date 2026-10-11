@@ -88,20 +88,32 @@ export function loadPubmedCache(root = process.cwd()): PubmedCache {
   return records
 }
 
+/**
+ * PubMed's generic 'Journal Article' and 'Review' tags do not distinguish
+ * the actual trial or review design. Only specific indexed types should
+ * override a separately recorded classification.
+ */
 export function designFromPublicationTypes(publicationTypes: string[] = []): StudyClass {
   const classes = publicationTypes
-    .filter((type) => !/^journal article$/i.test(type))
+    .filter((type) => !/^(journal article|review)$/i.test(type.trim()))
     .map((type) => normalizeStudyClass(type))
     .filter((studyClass) => studyClass !== 'unclassified')
   return strongestStudyClass(classes)
 }
 
 export function sourceStudyClass(source: ResearchSource, cache: PubmedCache): StudyClass {
-  const explicit = normalizeStudyClass(source.studyClass ?? source.studyType ?? '')
-  if (explicit !== 'unclassified') return explicit
   const pmid = String(source.pmid ?? source.pubmedId ?? '').trim()
-  const meta = (cache[pmid] ?? {}) as { publicationTypes?: string[] }
-  return designFromPublicationTypes(meta.publicationTypes ?? [])
+  const meta = cache[pmid] ?? {}
+  const publicationTypes = Array.isArray(meta.publicationTypes)
+    ? meta.publicationTypes.filter((value): value is string => typeof value === 'string')
+    : []
+  const indexedDesign = designFromPublicationTypes(publicationTypes)
+  // Specific PubMed publication types take precedence over unverifiable
+  // workbook/AI labels. Generic indexing never erases a useful curated label.
+  if (indexedDesign !== 'unclassified') return indexedDesign
+  const explicitClass = normalizeStudyClass(source.studyClass)
+  if (explicitClass !== 'unclassified') return explicitClass
+  return normalizeStudyClass(source.studyType)
 }
 
 function normalizeResearchSourceIdentity(source: ResearchSource): ResearchSource {
