@@ -26,6 +26,9 @@ public/media/social/articles/
 public/images/optimized/
 public/stats.json
 
+# Historical Claim DNA test state (new tests use disposable tmp roots).
+ops/claim-dna-1b/test-batch-*
+
 # Local/archive artifacts that should not ship
 archive-orphaned-not-for-app/
 src/data/backups/
