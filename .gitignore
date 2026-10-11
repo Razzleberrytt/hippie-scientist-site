@@ -26,6 +26,10 @@ public/media/social/articles/
 public/images/optimized/
 public/stats.json
 
+# Legacy Claim DNA test output from older non-isolated test runs.
+# Tests now use OS temporary directories, never the repo's staging cache.
+ops/claim-dna-1b/test-batch-*
+
 # Local/archive artifacts that should not ship
 archive-orphaned-not-for-app/
 src/data/backups/
