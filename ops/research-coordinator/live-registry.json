@@ -73344,6 +73344,162 @@
       "reservation_id": "40bb17e6bdbbcade454a",
       "reserved_at": "2026-10-11T13:55:33.139Z",
       "source_branch": "research/intake/2/20261011-0952-cognition-metabolic-r71"
+    },
+    {
+      "pmid": "42202384",
+      "title": "Transcutaneous vagus nerve stimulation influences sleep quality and insomnia: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.smrv.2026.102311",
+      "source_title": "Transcutaneous vagus nerve stimulation influences sleep quality and insomnia: A systematic review and meta-analysis.",
+      "abstract": "Impairments in sleep quality, timing, or duration disrupt normal sleep patterns. This systematic review and meta-analysis investigated the effects of transcutaneous vagus nerve stimulation (tVNS) protocols on sleep outcomes. Thirteen randomized controlled trials with parallel or crossover designs that applied tVNS intervention and assessed sleep quality (Pittsburgh Sleep Quality Index) and insomnia severity (Athens Insomnia Scale and Insomnia Severity Index) were included. Effect sizes were calculated by comparing changes between the active tVNS and control groups. Moderator analyses examined whether stimulation of different targeted regions influences sleep outcomes. Meta-regression analyses examined potential relationships between the effects of tVNS protocols on sleep quality and demographic characteristics and multiple tVNS parameters, respectively. The random-effects meta-analysis indicated that tVNS protocols influenced better sleep quality and lower insomnia severity. Moderator variable analysis revealed that tVNS targeting the concha region induced better sleep quality. Meta-regression analysis revealed that better sleep quality was associated with lower ages of participants. These findings suggest that tVNS protocols, particularly those targeting the concha, were associated with favorable changes in sleep quality and insomnia severity, with age potentially moderating the treatment response.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42202384/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42202384",
+        "doi": "10.1016/j.smrv.2026.102311",
+        "journal": "Sleep medicine reviews",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T14:48:09.933Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "bf669eca95407fa66ffc",
+      "reserved_at": "2026-10-11T14:48:20.092Z",
+      "source_branch": "research/intake/1/20261011-1045-tvns-aerobic-r24"
+    },
+    {
+      "pmid": "41880968",
+      "title": "Effect of aerobic exercise on sleep quality in patients with mental disorders: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.jpsychires.2026.03.024",
+      "source_title": "Effect of aerobic exercise on sleep quality in patients with mental disorders: A systematic review and meta-analysis.",
+      "abstract": "Aerobic exercise represents a viable non-pharmacological approach for enhancing sleep quality. This meta-analysis quantitatively synthesizes evidence on its efficacy in adults with mental disorders. Comprehensive searches of PubMed/MEDLINE, Web of Science, Embase, and Cochrane Library were conducted from database inception to June 10, 2025. This systematic review included randomized controlled trials (RCTs) evaluating aerobic exercise interventions on sleep quality in patients with mental disorders. Study quality was assessed using the Cochrane RoB 2 tool. Treatment effects were pooled using random-effects models, with Hedges' g estimating effect sizes. Subgroup analyses followed the FITT principle (frequency, intensity, time). Meta-analysis of 15 RCTs (n = 775 adults with mental disorders) demonstrated that aerobic exercise significantly improved sleep quality with a moderate effect size (g = -0.67, 95% CI: 0.95 to -0.40, p < 0.0001). Subgroup analysis by diagnostic category revealed that significant effects were observed in patients with depression (g = -0.73, p = 0.0008) and anxiety disorders (g = -0.36, p = 0.0396), but not in substance use disorder or schizophrenia subgroups. Subgroup analyses indicated larger effect sizes for interventions featuring: frequency ≥3 sessions/week (g = -0.68, p < 0.0001), low-to-moderate intensity (g = -0.73, p < 0.0001), exercise period ≥10 weeks (g = -0.64, p < 0.0001), session duration ≥30 min (g = -0.75, p = 0.0002), and weekly exercise volume >90 min (g = -0.68, p = 0.0007). Aerobic exercise demonstrates both efficacy and safety in improving sleep quality for patients with mental disorders. Exercise prescriptions suggest long-term (≥10 weeks) low-to-moderate intensity aerobic exercise, characterized by ≥ 3 sessions/week, ≥30 min/session, and >90 min weekly volume.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41880968/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41880968",
+        "doi": "10.1016/j.jpsychires.2026.03.024",
+        "journal": "Journal of psychiatric research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T14:48:09.934Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d92794fe91345d00c065",
+      "reserved_at": "2026-10-11T14:48:20.092Z",
+      "source_branch": "research/intake/1/20261011-1045-tvns-aerobic-r24"
     }
   ],
   "batches": [
@@ -73372,16 +73528,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 937,
+    "total_reservations": 939,
     "by_lane": {
-      "1": 82,
+      "1": 84,
       "2": 172,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 937
+      "SOURCE_VERIFIED": 939
     },
     "batches": [
       {
@@ -73394,7 +73550,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 437,
+        "count": 439,
         "pr_number": null,
         "blocker": null
       }
