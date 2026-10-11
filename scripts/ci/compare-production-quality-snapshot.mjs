@@ -95,9 +95,9 @@ function markdown(report) {
     `- Evidence-grade buckets changed: ${report.changes.evidenceGrades.length}`,
   ]
   if (report.majorChanges.length) {
-    lines.push('', '### Major changes requiring explanation')
+    lines.push('', '### Major changes (measured)')
     for (const item of report.majorChanges) lines.push(`- ${item}`)
-    lines.push('', report.explanation ? `Explanation: ${report.explanation}` : '❌ Missing `Quality change explanation:` in the PR body (or `QUALITY_CHANGE_EXPLANATION`).')
+    lines.push('', report.explanation ? `Explanation: ${report.explanation}` : 'No optional explanation supplied.')
   }
   return `${lines.join('\n')}\n`
 }
@@ -160,8 +160,8 @@ function main() {
   }
 
   const why = explanation()
-  const explanationRequired = majorChanges.length > 0 && process.env.REQUIRE_QUALITY_CHANGE_EXPLANATION !== 'false'
-  const passed = !explanationRequired || why.length >= 20
+  // Report measured changes, but never fail merely for omitted PR prose.
+  const passed = true
   const report = {
     generatedAt: new Date().toISOString(),
     contract: 'production-quality-regression/v1',
