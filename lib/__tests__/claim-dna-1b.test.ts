@@ -3,15 +3,44 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { runClaimDnaBatch, loadBatchState } from '@/scripts/claim-dna/run-1b'
+import { runClaimDnaBatch, loadBatchState, recordSharedIdentity, type SharedIdentity } from '@/scripts/claim-dna/run-1b'
 
 // Curated 1B slice: covers cached, packed, uncached, and shared-PMID claims.
 const BATCH_ID = 'test-batch-1b'
 const CLAIM_IDS = ['rg-0456', 'rg-0291', 'study-row-10', 'rg-0344', 'rg-0345']
 
 describe('round 1b batch orchestration', () => {
+  // Every run gets a disposable copy of the real input sources, never the
+  // repository's persistent ops/claim-dna-1b cache. This preserves genuine
+  // incremental behavior while keeping full-suite reruns independent.
+  let testRoot = ''
+  beforeAll(() => {
+    testRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'claim-dna-production-'))
+    for (const relativePath of [
+      'public/data/claims.json',
+      'scripts/claim-dna/adapter-1a.ts',
+      'scripts/claim-dna/run-1a.ts',
+      'scripts/claim-dna/run-1b.ts',
+      'ops/cache/pubmed-metadata.json',
+      'ops/cache/pubmed-abstracts.json',
+    ]) {
+      const source = path.join(process.cwd(), relativePath)
+      if (!fs.existsSync(source)) continue
+      const destination = path.join(testRoot, relativePath)
+      fs.mkdirSync(path.dirname(destination), { recursive: true })
+      fs.copyFileSync(source, destination)
+    }
+  })
+
+  afterAll(() => {
+    if (testRoot) fs.rmSync(testRoot, { recursive: true, force: true })
+  })
+
+  const runTestBatch = (input: Parameters<typeof runClaimDnaBatch>[0]) =>
+    runClaimDnaBatch({ ...input, root: testRoot })
+
   it('processes multiple claims reusing the 1A pipeline', () => {
-    const { manifest, results } = runClaimDnaBatch({ batchId: BATCH_ID, claimIds: CLAIM_IDS })
+    const { manifest, results } = runTestBatch({ batchId: BATCH_ID, claimIds: CLAIM_IDS })
     expect(results).toHaveLength(5)
     expect(manifest.aggregate_metrics.total_claims_processed).toBe(5)
     // Every claim went through the 1A pipeline: statuses present, no auto-supports.
@@ -23,7 +52,7 @@ describe('round 1b batch orchestration', () => {
   })
 
   it('handles packed PMIDs (multiple identifiers per claim)', () => {
-    const { results } = runClaimDnaBatch({ batchId: `${BATCH_ID}-packed`, claimIds: ['rg-0291'] })
+    const { results } = runTestBatch({ batchId: `${BATCH_ID}-packed`, claimIds: ['rg-0291'] })
     const r = results[0]
     // rg-0291 has "15070181; 22167571" — two identities, not one.
     expect(r.canonical_identities.length).toBeGreaterThanOrEqual(2)
@@ -31,7 +60,7 @@ describe('round 1b batch orchestration', () => {
   })
 
   it('handles absent metadata without failing', () => {
-    const { results } = runClaimDnaBatch({ batchId: `${BATCH_ID}-uncached`, claimIds: ['study-row-10'] })
+    const { results } = runTestBatch({ batchId: `${BATCH_ID}-uncached`, claimIds: ['study-row-10'] })
     const r = results[0]
     expect(r.resolution_status).toBe('metadata_unavailable')
     expect(r.join_metrics.successful_joins).toBe(0)
@@ -41,7 +70,7 @@ describe('round 1b batch orchestration', () => {
   })
 
   it('deduplicates shared canonical identities across claims', () => {
-    const { manifest } = runClaimDnaBatch({ batchId: `${BATCH_ID}-dedup`, claimIds: ['rg-0344', 'rg-0345'] })
+    const { manifest } = runTestBatch({ batchId: `${BATCH_ID}-dedup`, claimIds: ['rg-0344', 'rg-0345'] })
     // Both claims cite PMID 34269984 — one shared identity, two referencers.
     const shared = manifest.shared_identities['pmid:34269984']
     expect(shared).toBeDefined()
@@ -54,11 +83,11 @@ describe('round 1b batch orchestration', () => {
 
   it('is incremental: second run skips unchanged claims', () => {
     const batchId = `${BATCH_ID}-incremental`
-    const first = runClaimDnaBatch({ batchId, claimIds: CLAIM_IDS })
+    const first = runTestBatch({ batchId, claimIds: CLAIM_IDS })
     expect(first.run_metrics.total_claims_reprocessed).toBe(5)
     expect(first.run_metrics.total_claims_skipped).toBe(0)
 
-    const second = runClaimDnaBatch({ batchId, claimIds: CLAIM_IDS })
+    const second = runTestBatch({ batchId, claimIds: CLAIM_IDS })
     expect(second.run_metrics.total_claims_reprocessed).toBe(0)
     expect(second.run_metrics.total_claims_skipped).toBe(5)
     // Runtime counters/timing belong to audit, never the deterministic manifest.
@@ -69,18 +98,18 @@ describe('round 1b batch orchestration', () => {
       expect(r.artifact_sha256).toBe(prev?.artifact_sha256)
     }
     // State file persists hashes for the next incremental run.
-    const state = loadBatchState(process.cwd(), batchId)
+    const state = loadBatchState(testRoot, batchId)
     expect(state).not.toBeNull()
     expect(Object.keys(state!.claims)).toHaveLength(5)
   })
 
   it('reports truthful aggregate metrics', () => {
-    const { manifest } = runClaimDnaBatch({ batchId: `${BATCH_ID}-metrics`, claimIds: CLAIM_IDS })
+    const { manifest } = runTestBatch({ batchId: `${BATCH_ID}-metrics`, claimIds: CLAIM_IDS })
     const m = manifest.aggregate_metrics
     expect(m.total_claims_processed).toBe(5)
     expect(m.successful_metadata_joins).toBeGreaterThanOrEqual(1)
     expect(m.traceability_coverage).toBe(1)
-    expect(runClaimDnaBatch({ batchId: `${BATCH_ID}-metrics`, claimIds: CLAIM_IDS }).run_metrics.processing_ms).toBeGreaterThanOrEqual(0)
+    expect(runTestBatch({ batchId: `${BATCH_ID}-metrics`, claimIds: CLAIM_IDS }).run_metrics.processing_ms).toBeGreaterThanOrEqual(0)
     expect('processing_ms' in m).toBe(false)
     // Batch-level traceability covers every claim plus the dedup step.
     const claimTraces = manifest.traceability.filter((t) => t.output.startsWith('claim:'))
@@ -89,7 +118,7 @@ describe('round 1b batch orchestration', () => {
   })
 
   it('never infers evidence relationships at batch scale', () => {
-    const { manifest } = runClaimDnaBatch({ batchId: `${BATCH_ID}-governance`, claimIds: CLAIM_IDS })
+    const { manifest } = runTestBatch({ batchId: `${BATCH_ID}-governance`, claimIds: CLAIM_IDS })
     for (const c of manifest.claims) {
       expect(c.evidence_relationship).not.toBe('supports')
       expect(c.evidence_relationship).not.toBe('contradicts')
@@ -133,6 +162,8 @@ describe('round 1b malformed records (fixtures)', () => {
     for (const name of ['adapter-1a.ts', 'run-1a.ts', 'run-1b.ts']) {
       fs.writeFileSync(path.join(fixtureRoot, 'scripts', 'claim-dna', name), '// fixture ' + name, 'utf8')
     }
+    fs.mkdirSync(path.join(fixtureRoot, 'lib'), { recursive: true })
+    fs.writeFileSync(path.join(fixtureRoot, 'lib', 'study-identity.ts'), '// fixture study-identity.ts', 'utf8')
   })
 
   afterAll(() => {
@@ -193,6 +224,26 @@ describe('round 1b malformed records (fixtures)', () => {
     }
   })
 
+  it('invalidates cached claims when typed identity helper logic changes', () => {
+    const localBatch = 'fixture-study-identity-change'
+    const ids = ['good-claim']
+    const first = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    const second = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    expect(first.run_metrics.total_claims_reprocessed).toBe(1)
+    expect(second.run_metrics.total_claims_skipped).toBe(1)
+    const helperPath = path.join(fixtureRoot, 'lib', 'study-identity.ts')
+    const original = fs.readFileSync(helperPath, 'utf8')
+    try {
+      fs.writeFileSync(helperPath, original + '\\n// changed typed identity interpretation', 'utf8')
+      const third = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(third.run_metrics.total_claims_reprocessed).toBe(1)
+      const fourth = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(fourth.run_metrics.total_claims_skipped).toBe(1)
+    } finally {
+      fs.writeFileSync(helperPath, original, 'utf8')
+    }
+  })
+
   it('rejects duplicate and unsafe identifiers before writing artifacts', () => {
     expect(() => runClaimDnaBatch({ batchId: 'fixture-duplicate', claimIds: ['good-claim', 'good-claim'], root: fixtureRoot })).toThrow('duplicate')
     expect(() => runClaimDnaBatch({ batchId: '../invalid', claimIds: ['good-claim'], root: fixtureRoot })).toThrow('invalid')
@@ -212,5 +263,32 @@ describe('round 1b malformed records (fixtures)', () => {
     expect(byId['empty-pmid'].provenance_status).toBe('unresolved')
     // The batch completes; malformed records don't abort processing.
     expect(byId['good-claim'].join_metrics.successful_joins).toBe(1)
+  })
+})
+
+describe('round 1b shared-identity accumulation (typed identities)', () => {
+  it('keeps PMID fields free of DOI-canonical identifiers', () => {
+    const refs = new Map<string, SharedIdentity>()
+    recordSharedIdentity(refs, 'pmid:38561618', 'c1')
+    // DOI-canonical with no verified association: pmid is null, never the doi: string.
+    recordSharedIdentity(refs, 'doi:10.1000/xyz', 'c1')
+    recordSharedIdentity(refs, 'doi:10.1000/xyz', 'c2')
+
+    expect(refs.get('pmid:38561618')!.pmid).toBe('38561618')
+    const doiEntry = refs.get('doi:10.1000/xyz')!
+    expect(doiEntry.pmid).toBeNull()
+    expect(doiEntry.canonical_id).toBe('doi:10.1000/xyz')
+    expect(doiEntry.referenced_by.sort()).toEqual(['c1', 'c2'])
+  })
+
+  it('preserves verified PMID associations when provided', () => {
+    const refs = new Map<string, SharedIdentity>()
+    recordSharedIdentity(
+      refs,
+      'doi:10.1000/xyz',
+      'c1',
+      new Map([['doi:10.1000/xyz', '38561618']]),
+    )
+    expect(refs.get('doi:10.1000/xyz')!.pmid).toBe('38561618')
   })
 })

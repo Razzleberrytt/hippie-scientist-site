@@ -101,6 +101,12 @@ jobs:
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
         run: git diff --exit-code package-lock.json package.json
 
+      # Fresh checkout does not have .content-collections/generated (gitignored).
+      # Generate real collection modules rather than mocking production imports.
+      - name: Generate Content Collections before TypeScript and Vitest
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        run: npm run content:build
+
       - name: Verify Node engine
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
         run: npm run check:node
@@ -217,8 +223,9 @@ jobs:
       # everywhere while asserting nothing — which is how a broken governor test
       # reached main. Discovery is by content, so new suites are covered here
       # automatically.
+      # Run safety/quarantine native suites even if an earlier Vitest step fails.
       - name: Run native node:test suites
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
+        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
         run: npm run test:node
 
       - name: Upload Vitest log
