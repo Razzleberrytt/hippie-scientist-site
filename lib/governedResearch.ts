@@ -122,6 +122,9 @@ function toSourceRefs(sourceIds: string[] | undefined): ResearchSourceRef[] {
 
 export function isPublishableGovernedEnrichment(enrichment: ResearchEnrichment | null | undefined) {
   if (!enrichment) return false
+  // A generated or legacy record with no independent approval must fail closed.
+  if (enrichment.reviewStatus !== 'approved_for_rollup') return false
+  if (enrichment.active !== true) return false
   if (!PUBLISHABLE_EDITORIAL_STATUSES.has(enrichment.editorialStatus)) return false
   if (!enrichment.editorialReadiness?.publishable) return false
   return true
@@ -146,7 +149,7 @@ export function getGovernedResearchEnrichment(
   entitySlug: string,
 ): ResearchEnrichment | null {
   const enrichment = rollupMap.get(`${entityType}:${entitySlug}`)
-  if (!enrichment) return null
+  if (!isPublishableGovernedEnrichment(enrichment)) return null
   return enrichment
 }
 
@@ -168,6 +171,7 @@ export function getTopicJudgment(
 
 export function getPublishableGovernedEntries() {
   return Array.from(rollupMap.entries())
+    .filter(([, enrichment]) => isPublishableGovernedEnrichment(enrichment))
     .map(([key, researchEnrichment]) => {
       const [entityType, entitySlug] = key.split(':') as [GovernedEntityType, string]
       return { entityType, entitySlug, researchEnrichment }
