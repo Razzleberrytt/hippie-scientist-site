@@ -58,7 +58,7 @@ export default function NaturalAnxiolyticsPage() {
       onset: 'Varies; clinical onset uncertain',
       mechanism: 'Kavalactones affect multiple CNS signaling pathways; clinical benefit is not established by mechanism alone.',
       bestFor: 'Traditionally used for relaxation; anxiety trial findings are mixed, not proof of rapid relief.',
-      safety: 'Rare serious liver injury, including failure and death. Do not combine with alcohol or sedatives; seek medical advice if you have liver disease or take medications.',
+      safety: 'Serious risk: rare but potentially fatal liver injury, including liver failure and death, has been reported. Avoid alcohol and other sedatives; seek medical advice if you have liver disease or take medications.',
     },
     {
       name: 'Kanna (Sceletium tortuosum)',
