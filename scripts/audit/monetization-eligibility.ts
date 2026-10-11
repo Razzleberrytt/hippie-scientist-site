@@ -29,15 +29,18 @@ const TARGETS: Target[] = [
   { slug: 'kava', kind: 'herb' },
 ]
 
-function safetyHoldOnProfile(record: RecordData): boolean {
-  // Mirrors the high-caution / needs-review branch on the profile templates.
-  // Additional legal-status suppression in the compound template is separate.
-  const safetyText = String(
-    record.safety || record.safetyNotes || record.safety_level || record.safety_rating || '',
-  ).toLowerCase()
-  return ['high caution', 'needs-review', 'needs review', 'severe'].some((phrase) =>
-    safetyText.includes(phrase),
-  )
+function getProfileSafetyHoldMatch(record: RecordData) {
+  // The page template selects the first truthy safety field, then matches any
+  // of these substrings. Record which field/phrase actually matches so a
+  // contextual warning (e.g. "severe renal impairment") can be distinguished
+  // from an ingredient-wide high-caution classification before any edit.
+  const fields = ['safety', 'safetyNotes', 'safety_level', 'safety_rating'] as const
+  const sourceField = fields.find((key) => Boolean(record[key])) ?? null
+  const value = String(sourceField ? record[sourceField] : '').toLowerCase()
+  const phrase = ['high caution', 'needs-review', 'needs review', 'severe'].find((phrase) =>
+    value.includes(phrase),
+  ) ?? null
+  return { sourceField, phrase, held: Boolean(phrase) }
 }
 
 function getPolicyFlag(record: RecordData, key: string): unknown {
@@ -65,7 +68,8 @@ function inspect(target: Target, record: RecordData | null, detailRecord: Record
   const curatedAllowed = record && productSet
     ? canRenderConfiguredRevenueProducts(target.slug, record)
     : false
-  const profileSafetyHold = record ? safetyHoldOnProfile(record) : null
+  const profileSafetyMatch = record ? getProfileSafetyHoldMatch(record) : null
+  const profileSafetyHold = profileSafetyMatch?.held ?? null
   const genericSearchModuleAllowed = record ? canShowAffiliateModule(record) : false
   const blockedReasons: string[] = []
 
@@ -105,6 +109,7 @@ function inspect(target: Target, record: RecordData | null, detailRecord: Record
       curatedProductGateAllowed: Boolean(curatedAllowed),
       genericSearchModuleAllowed,
       profileHighCautionHold: profileSafetyHold,
+      profileSafetyMatch,
       // A true result here is only a technical eligibility observation.
       // Human editorial review and destination validation remain separate gates.
       technicallyRenderableInProfile: Boolean(curatedAllowed && !profileSafetyHold),
