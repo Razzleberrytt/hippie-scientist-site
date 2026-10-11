@@ -21,6 +21,7 @@ describe('round 1b batch orchestration', () => {
       'scripts/claim-dna/adapter-1a.ts',
       'scripts/claim-dna/run-1a.ts',
       'scripts/claim-dna/run-1b.ts',
+      'lib/study-identity.ts',
       'ops/cache/pubmed-metadata.json',
       'ops/cache/pubmed-abstracts.json',
     ]) {
