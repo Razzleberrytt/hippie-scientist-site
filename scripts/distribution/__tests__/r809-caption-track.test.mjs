@@ -41,6 +41,26 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
     expect(cues.every(c=>c.end-c.start>=0.42-1e-6)).toBe(true)
     expect(cues.at(-1).end).toBe(1)
   })
+  it('keeps speechEnd in the generated narration script so MP4 revalidation matches packaged captions', async () => {
+    const { readFileSync } = await import('node:fs')
+    const packageSource = readFileSync(new URL('../render-vertical-video-package.mjs', import.meta.url), 'utf8')
+    const scriptStart = packageSource.indexOf('const narrationScript = {')
+    const scriptEnd = packageSource.indexOf('const narrationScriptBytes =', scriptStart)
+    expect(scriptStart).toBeGreaterThanOrEqual(0)
+    expect(scriptEnd).toBeGreaterThan(scriptStart)
+    expect(packageSource.slice(scriptStart, scriptEnd)).toContain('speechEnd: scene.speechEnd')
+
+    const packagedScene = { beatId: 'pause', start: 2, end: 5, speechEnd: 4.4,
+      voiceover: 'This narration ends before the pause.' }
+    const packagedSrt = renderR809CaptionsSrt([packagedScene])
+    const scriptScene = { beatId: packagedScene.beatId, start: packagedScene.start,
+      end: packagedScene.end, speechEnd: packagedScene.speechEnd, text: packagedScene.voiceover }
+    expect(validateR809CaptionsSrt([scriptScene], packagedSrt)).toBe(true)
+    // Regression: old narration-script.json dropped speechEnd; the MP4 renderer
+    // silently assumed full scene duration, making an otherwise valid SRT fail.
+    expect(() => validateR809CaptionsSrt([{ ...scriptScene, speechEnd: undefined }], packagedSrt))
+      .toThrow(/caption track deviates/)
+  })
   it('stops captions when speech ends, not after the narration pause',()=>{
     const sample=[{beatId:'pause',start:2,end:5,speechEnd:4.4,voiceover:'Narration ends before the scene ends.'}]
     const cues=buildR809CaptionCues(sample)
