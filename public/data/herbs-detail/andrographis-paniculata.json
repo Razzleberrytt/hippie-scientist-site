@@ -12,14 +12,17 @@
     "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "safetyNotes": "SAFETY ALERT: Andrographis-containing medicines have been associated with unpredictable severe allergic reactions, including anaphylaxis. Australia's TGA received 287 reports through 31 December 2025, including one fatal case in 2024. On 17 September 2026, Australia excluded Andrographis from NEW lower-risk listed medicines; this did not automatically ban existing products or establish a worldwide ban. Emergency symptoms such as throat swelling, breathing difficulty or collapse require immediate medical attention. Also avoid during pregnancy and seek medication-interaction advice, especially with immunosuppressants.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to the plant/family",
+    "Severe allergy or prior suspected reaction to Andrographis",
+    "Pregnancy: avoid without qualified medical guidance"
   ],
   "interactions": [
     "Potential interaction concern with immunosuppressants",
-    "use clinician review for high-dose extracts or chronic use."
+    "use clinician review for high-dose extracts or chronic use.",
+    "Potential interaction with immunosuppressive medicines; seek clinical advice before use"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -61,17 +64,27 @@
       "studyClass": "rct",
       "metadataSource": "pubmed",
       "sampleSize": 60
+    },
+    {
+      "title": "TGA (21 September 2026): Andrographis removed from listed medicines framework because of allergy risk",
+      "url": "https://www.tga.gov.au/news/news-articles/andrographis-removed-listed-medicines-framework-because-allergy-risk",
+      "note": "Regulatory safety notice, not a clinical efficacy study."
+    },
+    {
+      "title": "TGA: Andrographis and anaphylaxis — updated safety review and supplementary report",
+      "url": "https://www.tga.gov.au/products/medicines/listed-medicines/monitoring-and-compliance/compliance-and-education-listed-medicines/andrographis-paniculata-andrographis-and-anaphylaxis-updated-safety-review-and-supplementary-report",
+      "note": "287 Australian reports through 31 December 2025, including one fatal case reported in 2024."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 7 safety evidence requires verified warnings and independent product-level review before monetization or recommendation."
   },
   "evidence": {
     "reviewStatus": "sourced",

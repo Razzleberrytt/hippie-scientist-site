@@ -1,6 +1,7 @@
 import { isClean, list, text } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { isRestrictedIngredient, isRestrictedRecord } from './restricted-ingredients'
+import { isBatch7SafetyHold } from './batch7-safety-holds'
 import {
   hasExplicitResearchMaturitySignal,
   policyForResearchRecord,
@@ -55,6 +56,7 @@ function hasResearchPendingEffect(item: any) {
 
 export function canRenderAffiliateLinks(item: any) {
   if (!item) return false
+  if (isBatch7SafetyHold(item.slug || item.id || item.name)) return false
 
   // Compact buying payloads carry the central runtime governance decision so
   // renderable-but-nonmonetizable records cannot regain purchase links client-side.

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import DecisionToProductEndpoint from '../DecisionToProductEndpoint'
+import { AMAZON_ASSOCIATE_IDENTIFICATION } from '@/components/AffiliateDisclosure'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 
 vi.mock('@/lib/runtime-data', () => ({
@@ -39,7 +40,9 @@ describe('DecisionToProductEndpoint', () => {
   it('shows commerce only for a runtime-governed eligible record and preserves tracking/disclosure', async () => {
     render(await DecisionToProductEndpoint({ candidates, trackingLocation: 'sleep-decision-endpoint' }))
 
-    expect(screen.getByText(/affiliate disclosure/i)).toBeInTheDocument()
+    // The compact disclosure is the actual Amazon Associates identification,
+    // not the literal section heading used only in the full-page variant.
+    expect(screen.getByText(AMAZON_ASSOCIATE_IDENTIFICATION, { exact: true })).toBeVisible()
 
     const affiliateLinks = screen.getAllByRole('link', { name: /review on amazon/i })
     expect(affiliateLinks).toHaveLength(1)
@@ -59,7 +62,7 @@ describe('DecisionToProductEndpoint', () => {
 
     render(await DecisionToProductEndpoint({ candidates, trackingLocation: 'sleep-decision-endpoint' }))
 
-    expect(screen.queryByText(/affiliate disclosure/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(AMAZON_ASSOCIATE_IDENTIFICATION, { exact: true })).not.toBeInTheDocument()
     expect(screen.queryByRole('link', { name: /review on amazon/i })).not.toBeInTheDocument()
     expect(screen.getAllByRole('link', { name: /review evidence and safety/i })).toHaveLength(2)
   })
