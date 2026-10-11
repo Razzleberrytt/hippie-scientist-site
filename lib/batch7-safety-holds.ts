@@ -5,12 +5,16 @@
 const SAFETY_REVIEW_HOLD_SLUGS = new Set([
   'andrographis',
   'andrographis-paniculata',
+  // Catalog alias accepted by getRevenueProductSet.
+  'andrographolide-herb',
   'gotu-kola',
   'centella-asiatica',
+  'brahmi-gotu-kola',
   'motherwort',
   'leonurus-cardiaca',
   'aloe',
   'aloe-vera',
+  'aloe-barbadensis',
   'cat-s-claw',
   'cats-claw',
   'uncaria-tomentosa',
