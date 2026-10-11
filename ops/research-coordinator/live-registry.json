@@ -68605,6 +68605,83 @@
       "reservation_id": "d00ef9da34433333108d",
       "reserved_at": "2026-10-11T11:56:09.283Z",
       "source_branch": "research/intake/2/20261011-0752-cognition-metabolic-r69"
+    },
+    {
+      "pmid": "42713547",
+      "title": "Severe Serotonin Syndrome With Acute Respiratory Failure Following Ayahuasca and Dextromethorphan Use: A Case Report.",
+      "doi": "10.7759/cureus.114211",
+      "source_title": "Severe Serotonin Syndrome With Acute Respiratory Failure Following Ayahuasca and Dextromethorphan Use: A Case Report.",
+      "abstract": "Ayahuasca is a psychoactive botanical brew originating from Amazonian ceremonial traditions, containing monoamine oxidase inhibitors (MAOIs) derived from Banisteriopsis caapi and N,N-dimethyltryptamine from Psychotria viridis or Diplopterys cabrerana . Its use has expanded globally for perceived antidepressant and anti-addictive effects. However, the MAOI content of ayahuasca predisposes users to serotonergic toxicity when combined with other serotonergic agents. We present the case of a 46-year-old man who developed severe serotonin syndrome (SS) complicated by acute respiratory failure after ingesting ayahuasca over three days, followed by over-the-counter dextromethorphan (DXM) and diphenhydramine. He required emergent intubation and intensive care unit (ICU) admission. Management with intravenous benzodiazepines, oral cyproheptadine, and supportive care led to rapid clinical improvement, with extubation on ICU day 2 and discharge on hospital day 3. Severe SS attributable to ayahuasca is rarely documented, and to our knowledge this is the first report of ayahuasca combined with over-the-counter DXM and diphenhydramine producing SS severe enough to cause acute respiratory failure. This case highlights the life-threatening potential of combining ayahuasca with commonly available serotonergic medications and underscores the need for clinician awareness of these interactions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42713547/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42713547",
+        "doi": "10.7759/cureus.114211",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T12:02:28.094Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0e8252434b281e4f048f",
+      "reserved_at": "2026-10-11T12:02:37.199Z",
+      "source_branch": "research/intake/3/20261011-0800-ayahuasca-dxm-42713547"
     }
   ],
   "batches": [
@@ -68633,16 +68710,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 876,
+    "total_reservations": 877,
     "by_lane": {
       "1": 79,
       "2": 165,
-      "3": 132,
+      "3": 133,
       "4": 50,
       "5": 450
     },
     "by_state": {
-      "SOURCE_VERIFIED": 876
+      "SOURCE_VERIFIED": 877
     },
     "batches": [
       {
@@ -68655,7 +68732,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 376,
+        "count": 377,
         "pr_number": null,
         "blocker": null
       }
