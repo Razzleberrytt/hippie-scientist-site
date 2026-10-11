@@ -36,6 +36,14 @@ describe('berberine vs inositol source integrity', () => {
     expect(page).toContain('Editorial citation correction')
   })
 
+  it('does not misrepresent the populations or assert a head-to-head comparison', () => {
+    expect(page).toContain('No cited trial directly compares the two')
+    expect(page).toContain('type 2 diabetes')
+    expect(page).toContain('PCOS')
+    expect(page).toContain('insufficient direct evidence')
+    expect(page).toContain('a 2024 systematic review found the evidence limited and inconclusive')
+  })
+
   it('preserves medical caution and canonical route', () => {
     expect(page).toContain('hypoglycaemia')
     expect(page).toContain('CYP2D6')
