@@ -772,7 +772,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
                       <td className="px-4 py-4 text-xs text-muted max-w-[150px] truncate">{qualityForm}</td>
                       <td className="px-4 py-4 whitespace-nowrap text-right text-xs font-semibold">
                         <a
-                          href={affUrl || `/compounds/${compound.slug}`}
+                          href={affUrl || `/compounds/${compound.slug}/`}
                           target="_blank"
                           rel="nofollow sponsored noopener noreferrer"
                           className="inline-flex rounded-full bg-brand-700 px-3.5 py-1.5 font-bold text-white transition hover:bg-brand-800"
