@@ -22,11 +22,12 @@ export function canDiscoverResearchProfile(record: Record<string, unknown>): boo
   // Keep exclusions for restricted primary identities and explicit controls.
   const primaryName = String(record.name ?? record.displayName ?? '')
   if (isRestrictedIngredient(slug) || isRestrictedIngredient(primaryName)) return false
-  const explicitHold = record.doNotPromote === true || record.do_not_promote === true ||
-    record.doNotMonetize === true || record.do_not_monetize === true
+  const explicitHold = [record.doNotPromote, record.do_not_promote,
+    record.doNotMonetize, record.do_not_monetize].some(value =>
+    value === true || /^(true|yes|y|1|blocked|restricted)$/i.test(String(value ?? '').trim()))
   const regulatory = [record.legal_status, record.legalStatus, record.controlled_status,
     record.controlledStatus, record.schedule, record.dea_status, record.regulatory_status]
     .map(value => String(value ?? '')).join(' ')
-  if (explicitHold || /controlled substance|schedule\\s*(?:i|1)\\b|dea\\s*watchlist/i.test(regulatory)) return false
+  if (explicitHold || /controlled substance|schedule\s*(?:i|1)\b|dea\s*watch\s*list/i.test(regulatory)) return false
   return getRuntimeVisibility(record).canRender
 }
