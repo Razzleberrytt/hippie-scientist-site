@@ -219,33 +219,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       },
     ],
   },
-  kava: {
-    slug: 'kava',
-    title: 'Kava product picks',
-    products: [
-      {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: 'NOW Kava Kava 250 mg',
-        rationale: 'Budget capsule pick for users who want a basic kavalactone entry point.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Kava Kava 250 mg capsules' }),
-      },
-      {
-        slot: 'overall',
-        brand: 'Gaia Herbs',
-        title: 'Gaia Herbs Kava Kava',
-        rationale: 'Best overall for phyto-caps with standardized kavalactone content and sourcing transparency.',
-        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Kava Kava supplement' }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Kavafied',
-        title: 'Kavafied Supreme Kava Powder',
-        rationale: 'Premium noble kava root powder for traditional preparation; higher kavalactone potency.',
-        affiliateUrl: amazonProductUrl({ query: 'Kavafied Supreme noble kava root powder' }),
-      },
-    ],
-  },
+  // Research-only commerce hold: kava product recommendations are intentionally disabled.
   reishi: {
     slug: 'reishi',
     title: 'Reishi product picks',
@@ -573,33 +547,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       },
     ],
   },
-  'st-johns-wort': {
-    slug: 'st-johns-wort',
-    title: "St. John's Wort product picks",
-    products: [
-      {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: "NOW St. John's Wort 300 mg",
-        rationale: 'Budget pick for standardized 0.3% hypericin St. John\'s Wort extract.',
-        affiliateUrl: amazonProductUrl({ query: "NOW Foods St John's Wort 300 mg 0.3% hypericin" }),
-      },
-      {
-        slot: 'overall',
-        brand: 'Perika',
-        title: 'Nature\'s Way Perika St. John\'s Wort',
-        rationale: "Best overall for the clinically studied WS 5570 extract with 0.3% hypericins and 3–6% hyperforin.",
-        affiliateUrl: amazonProductUrl({ query: "Nature's Way Perika St John's Wort WS 5570" }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Thorne',
-        title: "Thorne St. John's Wort",
-        rationale: 'Premium for a practitioner-brand standardized extract with consistent hypericin content.',
-        affiliateUrl: amazonProductUrl({ query: "Thorne St John's Wort standardized extract" }),
-      },
-    ],
-  },
+  // Research-only commerce hold: 'st-johns-wort' product recommendations are intentionally disabled.
   hawthorn: {
     slug: 'hawthorn',
     title: 'Hawthorn product picks',
@@ -989,33 +937,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       },
     ],
   },
-  '5-htp': {
-    slug: '5-htp',
-    title: '5-HTP product picks',
-    products: [
-      {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: 'NOW 5-HTP 100 mg',
-        rationale: 'Budget pick for 100 mg 5-HTP from Griffonia simplicifolia seed extract.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Foods 5-HTP 100 mg capsules Griffonia' }),
-      },
-      {
-        slot: 'overall',
-        brand: 'Jarrow Formulas',
-        title: 'Jarrow Formulas 5-HTP 100 mg',
-        rationale: 'Best overall for enteric-coated 5-HTP that protects from stomach acid conversion.',
-        affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas 5-HTP 100 mg' }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations 5-HTP',
-        rationale: 'Premium for a hypoallergenic 5-HTP capsule with clean excipients.',
-        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations 5-HTP 100 mg capsules' }),
-      },
-    ],
-  },
+  // Research-only commerce hold: '5-htp' product recommendations are intentionally disabled.
   nac: {
     slug: 'nac',
     title: 'NAC (N-Acetyl Cysteine) product picks',
@@ -2736,9 +2658,14 @@ const revenueProductAliases: Record<string, string> = {
   'hops-flowers': 'hops',
 }
 
+// These researched ingredients retain educational coverage but are not eligible for
+// automated product recommendations until the outstanding safety gates are met.
+export const COMMERCE_SAFETY_HOLDS = new Set(['kava', 'st-johns-wort', '5-htp'])
+
 export function getRevenueProductSet(slug: string): RevenueProductSet | null {
   const normalized = slug.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-')
   if (isRestrictedIngredient(normalized)) return null
+  if (COMMERCE_SAFETY_HOLDS.has(normalized)) return null
   const key = revenueProductAliases[normalized] || normalized
   return revenueProductSets[key] ?? null
 }
