@@ -62,6 +62,32 @@ describe('magnesium source relevance and researcher citation exports', () => {
     }
   })
 
+  it('matches the citation generator current source-of-truth, without orphaned studies', () => {
+    const cache = parsed('ops/cache/pubmed-metadata.json').records as Record<string, { pmid: string; title?: string }>
+    const referenced = new Set<string>()
+    for (const directory of ['herbs-detail', 'compounds-detail']) {
+      const folder = path.join(root, 'public/data', directory)
+      for (const filename of fs.readdirSync(folder).filter(name => name.endsWith('.json'))) {
+        const record = JSON.parse(fs.readFileSync(path.join(folder, filename), 'utf8'))
+        for (const source of Array.isArray(record.sources) ? record.sources : []) {
+          const pmid = String(source?.pmid ?? source?.pubmedId ?? '').trim()
+          if (pmid) referenced.add(pmid)
+        }
+      }
+    }
+    const expected = Object.values(cache)
+      .filter(study => referenced.has(String(study.pmid)) && Boolean(study.title))
+      .map(study => String(study.pmid))
+      .sort()
+    const actual = json.studies.map((study: { pmid: string }) => String(study.pmid)).sort()
+    // Report exact orphaned PMIDs, not merely a stale top-line count.
+    const extra = actual.filter((pmid: string) => !expected.includes(pmid))
+    const missing = expected.filter(pmid => !actual.includes(pmid))
+    expect(extra).toEqual([])
+    expect(missing).toEqual([])
+    expect(actual).toEqual(expected)
+  })
+
   it('preserves exact-title PubMed-verified systematic-review and RCT classifications', () => {
     const designs = new Map(json.studies.map((s: { pmid: string; design: string }) => [s.pmid, s.design]))
     expect(designs.get('38817505')).toBe('systematic-review')
