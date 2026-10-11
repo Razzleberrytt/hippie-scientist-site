@@ -752,7 +752,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
                   return (
                     <tr key={compound.slug} className="hover:bg-brand-50/20 transition-colors">
                       <td className="px-4 py-4 whitespace-nowrap font-bold text-ink">
-                        <Link href={`/compounds/${compound.slug}`} className="hover:text-brand-700 hover:underline">
+                        <Link href={`/compounds/${compound.slug}/`} className="hover:text-brand-700 hover:underline">
                           {compoundLabel(compound)}
                         </Link>
                       </td>
