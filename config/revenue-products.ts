@@ -2652,8 +2652,8 @@ export const COMMERCE_SAFETY_HOLDS = new Set(['kava', 'st-johns-wort', '5-htp'])
 export function getRevenueProductSet(slug: string): RevenueProductSet | null {
   const normalized = slug.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-')
   if (isRestrictedIngredient(normalized)) return null
-  if (COMMERCE_SAFETY_HOLDS.has(normalized)) return null
   const key = revenueProductAliases[normalized] || normalized
+  if (COMMERCE_SAFETY_HOLDS.has(normalized) || COMMERCE_SAFETY_HOLDS.has(key)) return null
   return revenueProductSets[key] ?? null
 }
 
