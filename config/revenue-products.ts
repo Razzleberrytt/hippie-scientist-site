@@ -387,13 +387,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         rationale: 'Best overall for traditional chamomile tea consumption with organic certification.',
         affiliateUrl: amazonProductUrl({ query: 'Traditional Medicinals Organic Chamomile Tea bags' }),
       },
-      {
-        slot: 'premium',
-        brand: 'Gaia Herbs',
-        title: 'Gaia Herbs Chamomile Liquid Extract',
-        rationale: 'Premium liquid extract for fast-acting, concentrated chamomile support.',
-        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Chamomile liquid extract' }),
-      },
     ],
   },
   'ginkgo-biloba': {
@@ -532,16 +525,9 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'overall',
         brand: 'Gaia Herbs',
-        title: 'Gaia Herbs Hawthorn Supplement',
+        title: 'Gaia Herbs Hawthorn Supreme',
         rationale: 'Best overall for a concentrated hawthorn berry and leaf/flower extract in phyto-caps.',
         affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Hawthorn cardiovascular supplement' }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Life Extension',
-        title: 'Life Extension Hawthorn Extract',
-        rationale: 'Premium for a standardized oligomeric proanthocyanidin (OPC) hawthorn extract.',
-        affiliateUrl: amazonProductUrl({ query: 'Life Extension Hawthorn Extract standardized OPC' }),
       },
     ],
   },
@@ -593,7 +579,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'premium',
         brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations Black Cohosh',
+        title: 'Pure Encapsulations Black Cohosh 2.5',
         rationale: 'Premium for a hypoallergenic, practitioner-grade black cohosh standardized capsule.',
         affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Black Cohosh standardized' }),
       },
@@ -809,9 +795,9 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'premium',
         brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations Inositol',
-        rationale: 'Premium hypoallergenic inositol powder for clean dosing in sensitive individuals.',
-        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Inositol powder capsules' }),
+        title: 'Pure Encapsulations Inositol Complex',
+        rationale: 'Myo-inositol and D-chiro-inositol complex in capsules; verify the exact ratio and label before comparing it with single-ingredient powder.',
+        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Inositol Complex capsules' }),
       },
     ],
   },
@@ -822,7 +808,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'budget',
         brand: 'NOW Foods',
-        title: 'NOW Sports Creatine Monohydrate Powder, 21.2 oz',
+        title: 'NOW Sports Micronized Creatine Monohydrate Powder, 21.2 oz',
         rationale: 'Budget unflavored creatine monohydrate powder. The 21.2 oz variant is provisional; keep a search link until its ASIN and variant are independently confirmed.',
         affiliateUrl: amazonProductUrl({ query: 'NOW Sports Creatine Monohydrate Powder unflavored 21.2 oz' }),
       },
@@ -965,7 +951,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'budget',
         brand: 'NOW Foods',
-        title: 'NOW Berberine 500 mg',
+        title: 'NOW Berberine HCl 500 mg',
         rationale: 'Berberine HCl 500 mg per capsule; human trials often study 1,000–1,500 mg/day. This is a study-design description, not dosing advice.',
         affiliateUrl: amazonProductUrl({ query: 'NOW Foods Berberine 500 mg HCl capsules' }),
       },
