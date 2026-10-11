@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "42317199",
+    "41634335"
+  ],
+  "relevance_reason": "PubMed-verified human randomized and systematic-review evidence on insomnia, anxiety, and perceived stress; source identities only, pending independent scientific review."
+}
