@@ -20,7 +20,7 @@ describe('cluster-member production runtime boundary', () => {
     expect(record).not.toBeNull()
     // Only a named Batch 8 high-risk extract may extend core-owned safety;
     // core caution text must remain intact and renderer aliases must match.
-    if (slug === 'green-tea-extract' || slug === 'green-tea-extract-egcg') {
+    if (slug === 'green-tea-extract') {
       expect(String(record?.safety)).toContain(String(core.safety))
       expect(String(record?.safety)).toMatch(/liver warning|liver.injury/i)
       expect(record?.safetyNotes).toBe(record?.safety)
@@ -43,7 +43,7 @@ describe('cluster-member production runtime boundary', () => {
     expect(record).not.toBeNull()
     // Only a named Batch 8 high-risk extract may extend core-owned safety;
     // core caution text must remain intact and renderer aliases must match.
-    if (slug === 'green-tea-extract' || slug === 'green-tea-extract-egcg') {
+    if (slug === 'green-tea-extract-egcg') {
       expect(String(record?.safety)).toContain(String(core.safety))
       expect(String(record?.safety)).toMatch(/liver warning|liver.injury/i)
       expect(record?.safetyNotes).toBe(record?.safety)
