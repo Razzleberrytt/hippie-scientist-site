@@ -673,12 +673,12 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     throw new Error(`R8.08 ${scene.role} is unreadable in the actual mobile platform safe area`)
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
-  const compositionVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
+  const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
   const composition = r809 && scene.role !== 'source'
     ? (compositionVisible ? renderR809VisualActor(scene, {
         x, y: compositionTop + 30, width: safeWidth,
         height: Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
-        foreground, background,
+        foreground, background, motionPhase,
       }) : '')
     : compositionVisible
     ? renderAuthoredComposition(scene, {

@@ -5,7 +5,7 @@ const clean = (v) => String(v ?? '').trim()
 const STAGES = new Set(['person', 'compare', 'molecule', 'evidence', 'uncertainty', 'safety', 'outro'])
 export const R809_VISUAL_STAGES = [...STAGES]
 
-export function renderR809VisualActor(scene, {x, y, width, height, foreground}) {
+export function renderR809VisualActor(scene, {x, y, width, height, foreground, motionPhase = 'post'}) {
   const stage = clean(scene.visualScene)
   if (!STAGES.has(stage)) throw new Error(`R8.09 illustration stage must be one of: ${[...STAGES].join(', ')}`)
   const cx = x + width / 2
@@ -34,6 +34,24 @@ export function renderR809VisualActor(scene, {x, y, width, height, foreground}) 
   } else {
     actor = `<circle cx="${cx}" cy="${cy}" r="175" ${pale} ${stroke}/><path d="M ${cx-70} ${cy+8} L ${cx-10} ${cy+66} L ${cx+98} ${cy-62}" ${transparent} ${stroke} stroke-width="16"/><circle cx="${cx+197}" cy="${cy-167}" r="31" fill="${foreground}" opacity=".35"/><circle cx="${cx-213}" cy="${cy+145}" r="24" fill="${foreground}" opacity=".5"/>`
   }
+  // Two meaning-owned teaching states: the pre-cue frame introduces the
+  // object; the post-cue frame reveals its implication as narration reaches
+  // the relevant phrase. Unlike a slideshow, the visual changes inside a beat.
+  if (motionPhase === 'pre') {
+    const circle = `<circle cx="${cx-95}" cy="${cy-18}" r="108" ${pale} ${stroke}/>`
+    const outline = `<circle cx="${cx}" cy="${cy}" r="160" ${pale} ${stroke}/>`
+    actor = stage === 'person'
+      ? `${circle}<path d="M ${cx-205} ${cy+174} Q ${cx-186} ${cy+37} ${cx-95} ${cy+48} Q ${cx+10} ${cy+40} ${cx+14} ${cy+174}" ${transparent} ${stroke}/>`
+      : stage === 'compare'
+        ? `<circle cx="${cx-180}" cy="${cy}" r="110" ${pale} ${stroke}/><circle cx="${cx+180}" cy="${cy}" r="110" fill="none" stroke="${foreground}" stroke-width="6" stroke-dasharray="16 16" opacity=".45"/>`
+      : stage === 'molecule'
+        ? `<g data-r809-symbolic-network="true"><circle cx="${cx-95}" cy="${cy}" r="47" ${pale} ${stroke}/><path d="M ${cx-48} ${cy} H ${cx+65}" ${transparent} ${stroke}/><circle cx="${cx+111}" cy="${cy}" r="39" ${pale} ${stroke}/></g>`
+      : stage === 'evidence'
+        ? `<rect x="${cx-172}" y="${cy-209}" width="344" height="418" rx="28" ${pale} ${stroke}/>`
+      : stage === 'safety'
+        ? `<path d="M ${cx} ${cy-210} L ${cx+230} ${cy+184} H ${cx-230}Z" ${pale} ${stroke}/>`
+      : outline
+  }
   const scale = Math.min(1, width / 690, height / 550)
-  return `<g data-r809-visual-scene="${stage}" aria-label="Stylized scientific explainer illustration" transform="translate(${cx} ${cy}) scale(${scale}) translate(${-cx} ${-cy})">${actor}</g>`
+  return `<g data-r809-visual-scene="${stage}" data-r809-visual-phase="${motionPhase}" aria-label="Stylized scientific explainer illustration" transform="translate(${cx} ${cy}) scale(${scale}) translate(${-cx} ${-cy})">${actor}</g>`
 }

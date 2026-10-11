@@ -32,6 +32,9 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
     for(const visualScene of ['person','compare','molecule','evidence','uncertainty','safety','outro']){
       const svg=renderR809VisualActor({visualScene},{x:50,y:250,width:760,height:490,foreground:'#ffffff',background:'#111827'})
       expect(svg).toContain(`data-r809-visual-scene="${visualScene}"`)
+      const pre=renderR809VisualActor({visualScene},{x:50,y:250,width:760,height:490,foreground:'#ffffff',motionPhase:'pre'})
+      expect(pre).toContain('data-r809-visual-phase="pre"')
+      expect(pre).not.toBe(svg)
       expect(svg).not.toContain('progressbar')
     }
     expect(()=>renderR809VisualActor({visualScene:'generic-slide'},{x:0,y:0,width:700,height:400,foreground:'#fff'})).toThrow(/illustration stage/)
