@@ -101,7 +101,7 @@ describe('R8.08 silent comprehension contract',()=>{
   it('rejects simulated timing bars without blocking real timed study measurements',()=>{
     const b=compliant()
     b.beats[1].visualAction='Show a decorative timing bar that fills up with the narration.'
-    expect(validateR808CreativeBrief(b).join('\\n')).toMatch(/decorative progress\\/loading HUD/)
+    expect(validateR808CreativeBrief(b).join('\n')).toMatch(/decorative progress\/loading HUD/)
     b.beats[1].visualAction='Compare the actual trial response after 8 weeks, with axis units.'
     expect(validateR808CreativeBrief(b)).toEqual([])
   })
