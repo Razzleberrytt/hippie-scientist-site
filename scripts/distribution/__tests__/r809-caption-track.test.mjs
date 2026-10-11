@@ -37,9 +37,17 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
     const sample=[{beatId:'readability',start:0,end:1,voiceover:'one two three four five six seven x'}]
     const cues=buildR809CaptionCues(sample)
     expect(cues).toHaveLength(2)
-    expect(cues.map(c=>c.text).join(' ').split(/\\s+/).join(' ')).toBe(sample[0].voiceover)
+    expect(cues.map(c=>c.text).join(' ').split(/\s+/).join(' ')).toBe(sample[0].voiceover)
     expect(cues.every(c=>c.end-c.start>=0.42-1e-6)).toBe(true)
     expect(cues.at(-1).end).toBe(1)
+  })
+  it('stops captions when speech ends, not after the narration pause',()=>{
+    const sample=[{beatId:'pause',start:2,end:5,speechEnd:4.4,voiceover:'Narration ends before the scene ends.'}]
+    const cues=buildR809CaptionCues(sample)
+    expect(cues[0].start).toBe(2)
+    expect(cues.at(-1).end).toBe(4.4)
+    expect(cues.every(c=>c.end<=4.4)).toBe(true)
+    expect(()=>buildR809CaptionCues([{...sample[0],speechEnd:5.1}])).toThrow(/invalid voice beat times/)
   })
   it('preserves inherited R8.07 rhythm, motifs and interruption in R8.09 rendered pixels',()=>{
     const base={
