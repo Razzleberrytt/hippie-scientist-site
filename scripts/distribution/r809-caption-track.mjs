@@ -77,3 +77,27 @@ export function validateR809CaptionsSrt(scenes, actual) {
   if (actual !== expected) throw new Error('R8.09 caption track deviates from the exact voice-derived phrase plan')
   return true
 }
+
+// Burn-in typography uses native FFmpeg/libass. Cue text is never rewritten.
+export function renderR809CaptionAss(scenes) {
+  const cues = buildR809CaptionCues(scenes)
+  const timestamp = (v) => {
+    const cs = Math.round(Number(v) * 100)
+    const h = Math.floor(cs / 360000)
+    const m = Math.floor(cs % 360000 / 6000)
+    const sec = Math.floor(cs % 6000 / 100)
+    return `${h}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}.${String(cs % 100).padStart(2, '0')}`
+  }
+  const header = [
+    '[Script Info]', 'ScriptType: v4.00+', 'PlayResX: 1080', 'PlayResY: 1920', 'WrapStyle: 2', 'ScaledBorderAndShadow: yes', '',
+    '[V4+ Styles]',
+    'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
+    'Style: THS,DejaVu Sans,58,&H00FFFFFF,&H00FFFFFF,&HAA0A1320,&H99000000,-1,0,0,0,100,100,0,0,1,4,1,2,140,140,440,1', '',
+    '[Events]', 'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text',
+  ]
+  const lines = cues.map(({start,end,text}) => {
+    const literal = text.replace(/[{}]/g, '').replace(/\\/g, '﹨').replace(/\n/g, '\\N')
+    return `Dialogue: 0,${timestamp(start)},${timestamp(end)},THS,,0,0,0,,${literal}`
+  })
+  return [...header, ...lines, ''].join('\n')
+}
