@@ -63,6 +63,16 @@ describe('kava safety and citation content', () => {
     expect(source).not.toContain('rapid situational anxiety relief')
   })
 
+  it('does not claim an established kava onset, duration, or sleep benefit', () => {
+    const source = compare()
+    expect(source).toContain('Reliable clinical onset not established')
+    expect(source).toContain('Varies by product; clinical duration uncertain')
+    expect(source).toContain('Sleep benefits remain uncertain; sedation possible')
+    expect(source).not.toContain('15–30 min')
+    expect(source).not.toContain('2–4 hours')
+    expect(source).not.toContain('May improve sleep quality')
+  })
+
   it('uses shared constants for all visible and structured FAQ answers', () => {
     const source = compare()
     for (const name of ['KAVA_FAQ_ALTERNATIVE', 'KAVA_FAQ_LIVER', 'KAVA_FAQ_EFFECTS']) {
