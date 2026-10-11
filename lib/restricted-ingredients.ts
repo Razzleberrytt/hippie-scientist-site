@@ -93,6 +93,9 @@ export function isRestrictedIngredient(value: unknown) {
 
   return RESTRICTED_TERMS.some((term) => {
     const normalizedTerm = normalize(term)
+    // Vitex is a genus/common ingredient name; do not accidentally flag vitexin,
+    // the distinct flavonoid reported in unrelated plants such as passionflower.
+    if (normalizedTerm === 'vitex') return new RegExp('(^| )vitex( |$)').test(normalized)
     return normalized === normalizedTerm || normalized.includes(normalizedTerm)
   })
 }
