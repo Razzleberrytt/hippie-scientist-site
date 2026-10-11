@@ -53,7 +53,10 @@ function activeProfileSourceMatches(source, identity) {
   if (!identity) return false
   // The public citation extractor renders every member of 'sources',
   // regardless of source.active or reviewStatus. Presence is still exposure.
-  if (identity.kind === 'pmid') return String(source.pmid ?? source.pubmedId ?? '') === identity.key
+  if (identity.kind === 'pmid') {
+    const urlPmid = /^https?:\/\/(?:www\.)?pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)(?:[/?#]|$)/i.exec(String(source.url ?? ''))?.[1]
+    return [source.pmid, source.pubmedId, urlPmid].some((candidate) => String(candidate ?? '') === identity.key)
+  }
   const urlDoi = /^https?:\/\/(?:dx\.)?doi\.org\/(.+)$/i.exec(String(source.url ?? ''))?.[1]
   return [source.doi, urlDoi].some((candidate) => compact(candidate) === identity.key)
 }
@@ -65,7 +68,10 @@ function readJson(file) {
 function claimMatches(claim, identity, pubmedCache) {
   if (!identity) return false
   const pmid = String(claim?.pmid ?? '')
-  if (identity.kind === 'pmid') return pmid === identity.key
+  if (identity.kind === 'pmid') {
+    const urlPmid = /^https?:\/\/(?:www\.)?pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)(?:[/?#]|$)/i.exec(String(claim?.source_url ?? ''))?.[1]
+    return pmid === identity.key || urlPmid === identity.key
+  }
   const doiFromMetadata = pubmedCache[pmid]?.doi
   const urlDoi = /^https?:\/\/(?:dx\.)?doi\.org\/(.+)$/i.exec(String(claim?.source_url ?? ''))?.[1]
   return [claim?.doi, urlDoi, doiFromMetadata].some((candidate) => compact(candidate) === identity.key)
