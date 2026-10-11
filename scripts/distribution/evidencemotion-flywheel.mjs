@@ -117,7 +117,9 @@ export function appendFlywheelObservation(root, observation) {
     observedAt:observation.observedAt,metricWindow,source:observation.source,metrics,
     note:clean(observation.note),qualityAssessment:null}
   const name=isoKey(observation.observedAt)+'-'+metricWindow+'.json'
-  return immutable(path.join(path.resolve(root),'videos',id,'observations',name),row)
+  const receipt=immutable(path.join(path.resolve(root),'videos',id,'observations',name),row)
+  persistFlywheelHookPatterns(root,{metricWindow})
+  return receipt
 }
 export function getFlywheelSnapshot(root, videoId, metricWindow='first-7d') {
   const v=getFlywheelVideo(root,videoId)
@@ -189,6 +191,54 @@ export function flywheelInsights(root,{metricWindow='first-7d',minimumComparable
       'Top-quartile means highest observed rank within a comparable platform/window, not statistical significance.',
       'No provider verification is implied for manually entered metrics.']}
 }
+// Persistent, immutable hook snapshots: future performance changes create new
+// observations and new pattern revisions rather than rewriting old recommendations.
+export function persistFlywheelHookPatterns(root,{metricWindow='first-7d'}={}) {
+  const patterns=flywheelInsights(root,{metricWindow}).hookPatterns
+  const saved=[]
+  for(const pattern of patterns){
+    const body={schemaVersion:'ths-evidencemotion-hook-pattern-v1',...pattern,
+      qualityAssessment:null,publishingAuthority:false,automaticScientificCopy:false}
+    const signature=digest(stable(body)).slice(0,16)
+    const name=isoKey(pattern.observationAt)+'-'+metricWindow+'-'+signature+'.json'
+    saved.push(immutable(path.join(path.resolve(root),'hook-patterns',pattern.videoId,name),body))
+  }
+  return saved
+}
+
+export function registerFlywheelFromPackage(root, input) {
+  const dir=path.resolve(input?.packageDir||'')
+  const manifestFile=path.join(dir,'video-asset-manifest.json')
+  const mp4File=path.join(dir,'short-video.mp4')
+  const receiptFile=path.join(dir,'short-video.mp4.receipt.json')
+  const qaFile=path.join(dir,'r805-master-qa.receipt.json')
+  const mb=fs.readFileSync(manifestFile)
+  const manifest=JSON.parse(mb.toString('utf8'))
+  const bytes=fs.readFileSync(mp4File),rec=json(receiptFile),qa=json(qaFile)
+  const artifactSha256=digest(bytes)
+  if(rec.output?.sha256!==artifactSha256 || rec.parentManifestSha256!==digest(mb)
+    || qa.exactArtifactReviewed!==true || qa.artifact?.sha256!==artifactSha256
+    || qa.parentManifestSha256!==digest(mb))throw Error('Flywheel source video is not an exact reviewed encoded master')
+  const creativeMethodRelease=manifest.creativeMethodRelease
+  if(!/^R8\./.test(String(creativeMethodRelease||'')))throw Error('Flywheel package missing creative release version')
+  // The first three seconds must come from genuine word timestamps, never guessed.
+  // For an older non-aligned R8.09 release, require explicit owner-entered hook text.
+  let hook=clean(input.hookTextFirst3Seconds)
+  if(creativeMethodRelease==='R8.10'){
+    const alignment=json(path.join(dir,'word-alignment.receipt.json'))
+    if(alignment.audioSha256!==manifest.localNarration?.sha256 && !hook){
+      // R8.10 still requires explicit selection if the package's voice receipt
+      // cannot be cross-checked here. No fabricated speech tokenization.
+      throw Error('Flywheel cannot infer R8.10 first-three-second hook without approved exact audio')
+    }
+    if(!hook)hook=(alignment.words||[]).filter(w=>Number(w.start)<3).map(w=>clean(w.word)).join(' ')
+  }
+  if(!hook)throw Error('Flywheel requires the actual first-three-second hook')
+  return registerFlywheelVideo(root,{...input,hookTextFirst3Seconds:hook,
+    beatTemplateVersion:creativeMethodRelease,artifactSha256,
+    productionManifestSha256:digest(mb)})
+}
+
 const markdownTable=(rows)=>rows.join('\n')
 export function renderFlywheelLearningReport(root,{metricWindow='first-7d',last=10}={}) {
   const ins=flywheelInsights(root,{metricWindow})
