@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -330,10 +331,12 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   fs.mkdirSync(path.dirname(output), { recursive: true })
 
   const verified = verifyPackage(inputDir)
-  if (clean(verified.manifest.creativeMethodRelease) === 'R8.10') verifyR810PackageGate(inputDir)
+  const isR810 = clean(verified.manifest.creativeMethodRelease) === 'R8.10'
+  const r810Proof = isR810 ? verifyR810PackageGate(inputDir, { requireAlignment: true }) : null
   const narration = verifyLocalNarration(inputDir, verified.manifest)
   const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
+  let alignedCaptionSrtSha256 = null
   if (isR809) {
     const manifest = verified.manifest
     const captionFile = assertCanonicalChild(inputDir, manifest.captions?.file, /^captions\.srt$/)
@@ -344,7 +347,14 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const narrationFile = assertCanonicalChild(inputDir, manifest.narrationScript?.file, /^narration-script\.json$/)
     const script = JSON.parse(fs.readFileSync(narrationFile, 'utf8'))
     validateR809CaptionsSrt(script.scenes, captionBytes.toString('utf8'))
-    burnInCaptions = renderR809CaptionAss(script.scenes)
+    if (isR810) {
+      const aligned = renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
+      burnInCaptions = aligned.ass
+      fs.writeFileSync(path.join(inputDir, 'aligned-captions.srt'), aligned.srt)
+      alignedCaptionSrtSha256 = sha256(Buffer.from(aligned.srt))
+    } else {
+      burnInCaptions = renderR809CaptionAss(script.scenes)
+    }
   }
   const version = ffmpegVersion(ffmpegPath)
   const manifestSha256 = sha256(verified.manifestBytes)
@@ -441,10 +451,13 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         audioCodec: 'aac',
         audioBitrate: '192k',
       },
-      r810Governance: clean(verified.manifest.creativeMethodRelease) === 'R8.10' ? {
+      r810Governance: isR810 ? {
         governedPlanSha256: clean(verified.manifest.creativeR810?.governedPlanSha256),
         approvedSourceLedgerSha256: clean(verified.manifest.sourceLedger?.sha256),
-        acousticWordAlignment: 'not-claimed-at-draft-render',
+        wordAlignmentReceiptSha256: r810Proof.alignment.receiptSha256,
+        alignedCaptionSrtSha256,
+        renderAssSha256: captionFileSha256,
+        acousticWordAlignment: 'mfa-offline-reviewed',
       } : null,
       r809Captioning: isR809 ? {
         burnIn: true,
