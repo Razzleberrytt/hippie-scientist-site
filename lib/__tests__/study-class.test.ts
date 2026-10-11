@@ -31,7 +31,8 @@ describe('normalizeStudyClass', () => {
 
   it('separates review types that carry very different weight', () => {
     expect(normalizeStudyClass('narrative review')).toBe('narrative-review')
-    expect(normalizeStudyClass('umbrella review')).toBe('meta-analysis')
+    // An umbrella review synthesizes reviews; the phrase alone does not prove original pooling.
+    expect(normalizeStudyClass('umbrella review')).toBe('systematic-review')
     expect(normalizeStudyClass('cochrane_review_randomized_trials')).toBe('systematic-review')
   })
 
