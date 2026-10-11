@@ -183,7 +183,7 @@ export const productPicks: ProductPick[] = [
     brand: 'Natrol',
     type: 'top',
     url: `https://www.amazon.com/s?k=Natrol+Melatonin+5+mg+Fast+Dissolve+tablets&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall fast-dissolve tablet that avoids first-pass metabolism.'
+    notes: 'Fast-dissolve melatonin remains subject to absorption and first-pass metabolism; label strength matters and 5 mg is not automatically the best starting dose.'
   },
   {
     compound_slug: 'melatonin',
@@ -262,14 +262,6 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=UltraKanna+ET2+liquid+extract&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall for standardized mesembrine-rich alkaloid extract.'
-  },
-  {
-    compound_slug: 'kanna',
-    name: 'NOW Kanna 100 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Kanna+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for a simple Kanna extract capsule.'
   },
   {
     compound_slug: 'kanna',
@@ -418,14 +410,6 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Gaia+Herbs+Lemon+Balm&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall liquid phyto-caps with certified organic extract.'
-  },
-  {
-    compound_slug: 'lemon-balm',
-    name: 'NOW Lemon Balm 500 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Lemon+Balm+500+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget capsule pick for evening relaxation.'
   },
   {
     compound_slug: 'lemon-balm',
