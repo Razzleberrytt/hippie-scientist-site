@@ -12,11 +12,11 @@ describe('Amazon Associates disclosure identity', () => {
       expect(
         screen.getByText(AMAZON_ASSOCIATE_IDENTIFICATION, { exact: true }),
       ).toBeVisible()
-      // The source and canonical site routes use trailing slashes; keep the assertion aligned.
+      // Next may normalize trailing slashes in DOM hrefs; compare normalized routes.
       expect(screen.getByRole('link', { name: variant === 'compact'
         ? 'How we stay independent'
         : 'Read our affiliate and editorial policy',
-      })).toHaveAttribute('href', '/info/affiliate-disclosure/')
+      })).toHaveAttribute('href', '/info/affiliate-disclosure')
     },
   )
 
