@@ -30,6 +30,9 @@ describe('berberine vs inositol source integrity', () => {
   it('does not convert observational or male hormone pilot data into PCOS efficacy evidence', () => {
     expect(page).not.toContain('Inositol has RCT meta-analysis support in PCOS')
     expect(page).not.toContain('meta-analysis of randomised trials covers insulin')
+    expect(page).toContain('randomized IVF comparison of 29 patients with PCOS')
+    expect(page).toContain('not berberine or general PCOS metabolic treatment')
+    expect(page).not.toContain('uncontrolled observational fertility study')
     expect(page).toContain('ten-man hormone pilot')
     expect(page).toContain('Exeltis')
     expect(page).toContain('Lo.Li. Pharma')
