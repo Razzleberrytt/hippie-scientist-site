@@ -17,7 +17,7 @@
     "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Mild GI upset possible; caution with anticoagulants/antiplatelets and before surgery; use caution with gallbladder or bile duct issues; avoid high supplemental doses in pregnancy/breastfeeding.",
+  "safetyNotes": "Mild GI upset possible; caution with anticoagulants/antiplatelets and before surgery; use caution with gallbladder or bile duct issues; avoid high supplemental doses in pregnancy/breastfeeding. Rare, sometimes severe acute liver injury has been reported with turmeric/curcumin supplements, including enhanced-bioavailability forms (such as piperine-containing products); risk is not established to be the same for ordinary culinary use. Stop supplementation and seek care for jaundice, dark urine, nausea or unexplained fatigue. Also consider anticoagulant medicines, gallbladder/bile-duct disease and pregnancy. Source: NIH LiverTox, Turmeric (NBK548561). Prior established cautions: Mild GI upset possible; caution with anticoagulants/antiplatelets and before surgery; use caution with gallbladder or bile duct issues; avoid high supplemental doses in pregnancy/breastfeeding.",
   "contraindications": [
     "Anticoagulants",
     "gallstones"
@@ -84,6 +84,18 @@
       "studyClass": "rct",
       "metadataSource": "pubmed",
       "sampleSize": 367
+    },
+    {
+      "id": "src_000031643876",
+      "title": "Turmeric — LiverTox: Clinical and Research Information on Drug-Induced Liver Injury",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548561/",
+      "pmid": "31643876",
+      "year": 2025,
+      "journal": "NIH LiverTox",
+      "authors": "National Institute of Diabetes and Digestive and Kidney Diseases",
+      "studyType": "Evidence review",
+      "reviewStatus": "pending",
+      "note": "Source-backed safety context; AI-assisted provenance entry, not human editorial sign-off."
     }
   ],
   "governance": {
