@@ -138,7 +138,28 @@ function csvCell(value: unknown): string {
   return /[",\n]/.test(cell) ? `"${cell.replace(/"/g, '""')}"` : cell
 }
 
+// PubMed eSummary sometimes supplies only generic publication types: the Rawji
+// systematic review is indexed as 'Review', and the Abbasi double-blind RCT
+// as 'Journal Article'. These *exact-title* corrections were checked against
+// the original papers; mismatch is a hard error rather than a silent upgrade.
+// Keep review design separate from study quality / certainty.
+const AUDITED_PUBLICATION_DESIGNS: Record<string, { title: string; design: StudyClass }> = {
+  '38817505': {
+    title: 'Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review',
+    design: 'systematic-review',
+  },
+  '23853635': {
+    title: 'The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial',
+    design: 'rct',
+  },
+}
+
 function designOf(study: Study): StudyClass {
+  const audited = AUDITED_PUBLICATION_DESIGNS[study.pmid]
+  if (audited) {
+    if (study.title !== audited.title) throw new Error(`Audited PMID/title mismatch: ${study.pmid}`)
+    return audited.design
+  }
   const classes = study.publicationTypes
     .filter((type) => !/^journal article$/i.test(type))
     .map((type) => normalizeStudyClass(type))
