@@ -20,6 +20,13 @@ describe('melatonin versus magnesium evidence-integrity contract', () => {
     expect(page).toContain('magnesium citrate')
   })
 
+  it('keeps magnesium-alone studies separate from a three-ingredient intervention', () => {
+    expect(page).toContain('pubmed.ncbi.nlm.nih.gov/23853635/')
+    expect(page).toContain('pubmed.ncbi.nlm.nih.gov/21226679/')
+    expect(page).toContain('a three-ingredient melatonin–magnesium–zinc supplement')
+    expect(page).toContain('cannot establish which ingredient helped')
+  })
+
   it('does not advertise unmatched-dose products or sticky affiliate picks', () => {
     expect(page).not.toMatch(/RecommendationSection|ConversionStickyCTA|getRevenueProductSet/)
     expect(page).not.toMatch(/Natrol|best overall/i)
