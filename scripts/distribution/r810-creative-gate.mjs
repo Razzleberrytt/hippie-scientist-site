@@ -41,7 +41,7 @@ export function validateR810CreativeBrief(brief,{now=new Date()}={}) {
     if(!Array.isArray(slot.claimIds)||!slot.claimIds.length||slot.claimIds.some(x=>!clean(x))) errors.push('R8.10 '+role+' requires governed claim IDs')
     if(!Array.isArray(slot.sourceIds)||!slot.sourceIds.length||slot.sourceIds.some(x=>!clean(x))) errors.push('R8.10 '+role+' requires exact source IDs')
     if(['lab-evidence','human-evidence'].includes(role)&&slot.evidenceTier!==(role==='lab-evidence'?'preclinical-or-mechanism':'human')) errors.push('R8.10 evidence tier invalid for '+role)
-    if(['safety','unknowns','lab-evidence','human-evidence'].includes(role)) errors.push(...r810TextSafetyErrors(beat.narration,beat.onScreenText,slot.requiredQualifiers||[]).map(e=>role+': '+e))
+    if(slot.safetyCritical===true||['safety','unknowns','lab-evidence','human-evidence'].includes(role)) errors.push(...r810TextSafetyErrors(beat.narration,beat.onScreenText,slot.requiredQualifiers||[]).map(e=>role+': '+e))
     if(slot.approval!=='editorial-reviewed') errors.push('R8.10 '+role+' requires editorial-reviewed mapping')
     const review=slot.reviewReceipt
     const approvedClaims=Array.isArray(slot.claimIds)?slot.claimIds.map(clean):[]
