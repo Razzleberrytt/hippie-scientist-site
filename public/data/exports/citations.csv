@@ -138,7 +138,7 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 38754041,10.1200/JCO.24.00541,Management of Fatigue in Adult Survivors of Cancer: ASCO-Society for Integrative Oncology Guideline Update,Bower JE et al.,J Clin Oncol,2024,Systematic review,1,/herbs/panax-quinquefolius/
 38784853,10.7762/cnr.2024.13.2.139,The Effect of Oral Chamomile on Anxiety: A Systematic Review of Clinical Trials,Saadatmand S et al.,Clin Nutr Res,2024,Narrative review,1,/herbs/matricaria-chamomilla/
 38797379,10.1016/j.jep.2024.118385,Beneficial effects of oxymatrine from Sophora flavescens on alleviating Ulcerative colitis by improving inflammation and ferroptosis,Gao BB et al.,J Ethnopharmacol,2024,Unclassified,1,/herbs/sophora-flavescens/
-38817505,10.7759/cureus.59317,Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review,Rawji A et al.,Cureus,2024,Narrative review,1,/compounds/magnesium/
+38817505,10.7759/cureus.59317,Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review,Rawji A et al.,Cureus,2024,Systematic review,1,/compounds/magnesium/
 38831870,10.2147/DDDT.S436446,"Physicochemistry, Nutritional, and Therapeutic Potential of Ficus carica - A Promising Nutraceutical",Fazel MF et al.,Drug Des Devel Ther,2024,Narrative review,1,/herbs/ficus-carica/
 38876007,10.1016/j.phymed.2024.155808,"Chemical composition, pharmacological effects, and parasitic mechanisms of Cistanche deserticola: An update",Zhang S et al.,Phytomedicine,2024,Narrative review,1,/herbs/cistanche-deserticola/
 38888087,10.1111/jpi.12985,Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis,Cruz-Sanabria F et al.,J Pineal Res,2024,Meta-analysis,1,/compounds/melatonin/
@@ -454,7 +454,6 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 31643695,,Noni,,,2020,Narrative review,1,/herbs/noni/
 31644013,,Yohimbine,,,2020,Narrative review,1,/herbs/yohimbe/
 31649123,10.1105/tpc.19.00279,Celebrating 20 Years of Genetic Discoveries in Legume Nodulation and Symbiotic Nitrogen Fixation,Roy S et al.,Plant Cell,2020,Narrative review,1,/herbs/soybean/
-31654344,10.1007/s11695-019-04215-6,Trends in Drain Utilization in Bariatric Surgery: an Analysis of the MBSAQIP Database 2015-2017,Clapp B et al.,Obes Surg,2020,Unclassified,1,/compounds/magnesium/
 31680350,10.1002/ptr.6532,"Aloe-emodin: A review of its pharmacology, toxicity, and pharmacokinetics",Dong X et al.,Phytother Res,2020,Narrative review,1,/herbs/rheum-palmatum/
 31714321,10.1097/YIC.0000000000000291,Effects of Passiflora incarnata Linnaeus on polysomnographic sleep parameters in subjects with insomnia disorder: a double-blind randomized placebo-controlled study,Lee J et al.,Int Clin Psychopharmacol,2020,Randomized controlled trial,1,/compounds/passionflower-extract/
 31756276,10.1002/jsfa.10152,"Resveratrol: a review of plant sources, synthesis, stability, modification and food application",Tian B and Liu J,J Sci Food Agric,2020,Narrative review,1,/herbs/resveratrol/
@@ -721,7 +720,7 @@ pmid,doi,title,authors,journal,year,design,referenced_by_count,referenced_by
 22739410,10.1016/j.phymed.2012.05.009,Lipid-lowering effect of berberine in human subjects and rats,Hu Y et al.,Phytomedicine,2012,Uncontrolled trial,1,/compounds/berberine/
 22772918,10.1007/s11655-012-1142-7,Isobavachalcone: an overview,Kuete V and Sandjo LP,Chin J Integr Med,2012,Narrative review,1,/herbs/psoralea-corylifolia/
 23723672,10.4103/0974-8520.110535,Clinical efficacy of Gokshura-Punarnava Basti in the management of microalbuminuria in diabetes mellitus,Ramteke RS et al.,Ayu,2012,Unclassified,1,/herbs/punarnava/
-23853635,,The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial,Abbasi B et al.,J Res Med Sci,2012,Unclassified,1,/compounds/magnesium/
+23853635,,The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial,Abbasi B et al.,J Res Med Sci,2012,Randomized controlled trial,1,/compounds/magnesium/
 24575672,,In vitro antioxidant activities of extract and oil from roselle (Hibiscus sabdariffa L.) seed against sunflower oil autoxidation,Nyam KL et al.,Malays J Nutr,2012,Unclassified,1,/herbs/roselle-seed/
 20091037,10.1007/s00296-009-1250-7,Biopsychosocial determinants of physical and mental fatigue in patients with spondyloarthropathy,Da Costa D et al.,Rheumatol Int,2011,Unclassified,1,/compounds/melatonin/
 20981575,10.1007/s10787-010-0062-4,A review of the pharmacological effects of Arctium lappa (burdock),Chan YS et al.,Inflammopharmacology,2011,Narrative review,1,/herbs/burdock/
