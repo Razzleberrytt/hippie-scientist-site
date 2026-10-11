@@ -34,8 +34,8 @@ export const productPicks: ProductPick[] = [
     name: 'Jarrow KSM-66 Ashwagandha',
     brand: 'Jarrow Formulas',
     type: 'top',
-    url: `https://www.amazon.com/dp/B07LFMM7N1?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.'
+    url: `https://www.amazon.com/s?k=Jarrow+Formulas+KSM-66+Ashwagandha+300mg&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Standardized KSM-66 extract; proposed replacement ASIN B0013OQEO8 awaits independent live listing confirmation.'
   },
   {
     compound_slug: 'ashwagandha',
@@ -61,7 +61,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+L-Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for plain L-theanine capsules.'
+    notes: 'This NOW capsule also contains 100 mg inositol alongside 200 mg L-theanine; it is not a single-ingredient theanine option.'
   },
   {
     compound_slug: 'l-theanine',
@@ -217,7 +217,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Ultra+Omega-3+500+EPA+250+DHA&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for high-EPA enteric-coated softgels.'
+    notes: 'NOW Ultra Omega-3 is an ethyl-ester EPA/DHA formula; verify the exact enteric-coated softgel variant.'
   },
   {
     compound_slug: 'omega-3',
@@ -231,11 +231,11 @@ export const productPicks: ProductPick[] = [
   // Berberine
   {
     compound_slug: 'berberine',
-    name: 'Thorne Berberine-500',
+    name: 'Thorne Berberine Dual-Action',
     brand: 'Thorne',
     type: 'top',
-    url: `https://www.amazon.com/s?k=Thorne+Berberine-500+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a practitioner-brand berberine with consistent testing.'
+    url: `https://www.amazon.com/s?k=Thorne+Berberine+dual+action+Berbevis&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Current 2-capsule serving contains 450 mg berberine HCl and 550 mg Berbevis phytosome; check drug interactions and the exact label.'
   },
   {
     compound_slug: 'berberine',
@@ -306,16 +306,7 @@ export const productPicks: ProductPick[] = [
     notes: 'Premium 100% pure Korean red ginseng tablets without fillers.'
   },
 
-  // Bacopa Monnieri
-  {
-    compound_slug: 'bacopa',
-    name: 'Jarrow Formulas Bacopa Monnieri 320 mg',
-    brand: 'Jarrow Formulas',
-    type: 'top',
-    url: `https://www.amazon.com/s?k=Jarrow+Formulas+Bacopa+Monnieri+320+mg+extract&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a standardized 20% bacosides extract.'
-  },
-  {
+  // Bacopa Monnieri  {
     compound_slug: 'bacopa',
     name: 'NOW Bacopa 450 mg',
     brand: 'NOW Foods',
@@ -340,16 +331,7 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Kaged+PurCaf+organic+caffeine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall for chemical-free water-extracted organic caffeine.'
-  },
-  {
-    compound_slug: 'caffeine',
-    name: 'NOW Sports Caffeine 200 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Sports+Caffeine+200+mg+tablets&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for plain caffeine anhydrous tablets.'
-  },
-  {
+  },  {
     compound_slug: 'caffeine',
     name: 'Sports Research L-Theanine + Caffeine',
     brand: 'Sports Research',
@@ -470,16 +452,7 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Life+Extension+Discomfort+Relief+PEA&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall chewable PEA tablets in a clinically studied dosage.'
-  },
-  {
-    compound_slug: 'palmitoylethanolamide',
-    name: 'Nutricost PEA 600 mg',
-    brand: 'Nutricost',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=Nutricost+Palmitoylethanolamide+PEA+600+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget capsule pick for simple micronized PEA support.'
-  },
-  {
+  },  {
     compound_slug: 'palmitoylethanolamide',
     name: 'Vitalitus Ultramicronized PEA',
     brand: 'Vitalitus',
@@ -503,7 +476,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Boswellia+Extract+500+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for standardized 65% boswellic acids extract.'
+    notes: 'NOW Boswellia combines Boswellia and turmeric; manufacturer states a 65% organic acids marker, not a generic single-ingredient product.'
   },
   {
     compound_slug: 'boswellia',
