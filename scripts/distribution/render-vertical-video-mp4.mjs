@@ -326,8 +326,9 @@ export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narration
   if (r810 && Object.entries(extraInputs).some(([, v]) => !/^[a-f0-9]{64}$/.test(String(v || '')))) {
     throw new Error('R8.10 MP4 cache key must bind exact audio alignment, renderer code and final caption track')
   }
-  const r810Suffix = r810 ? Object.entries(extraInputs).map(([name, value]) => name + '=' + value).join('\\n') : ''
-  return sha256(`${renderer}\\n${clean(manifestSha256)}\\n${clean(ffmpegVersionLine)}\\n${clean(narrationSha256)}\\n${clean(voiceQaSha256)}\\n1080x1920\\n30fps\\n${Number(durationSeconds).toFixed(4)}s\\nlibx264\\naac192k\\nyuv420p\\n${r810Suffix}`)
+  const legacyKeySource = `${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`
+  const r810Suffix = r810 ? Object.entries(extraInputs).map(([name, value]) => name + '=' + value).join('\n') : ''
+  return sha256(r810 ? legacyKeySource + r810Suffix : legacyKeySource)
 }
 
 export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
