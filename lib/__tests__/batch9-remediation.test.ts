@@ -24,7 +24,7 @@ describe('Batch 9 safety and catalog remediation', () => {
     const titles = Object.values(revenueProductSets).flatMap((set) => set.products.map((p) => p.title))
     for (const title of [
       'Gaia Herbs Hawthorn Supreme', 'Pure Encapsulations Black Cohosh 2.5',
-      'Pure Encapsulations Inositol Complex', 'NOW Sports Micronized Creatine Monohydrate Powder',
+      'Pure Encapsulations Inositol Complex', 'NOW Sports Micronized Creatine Monohydrate Powder, 21.2 oz',
       'NOW Berberine HCl 500 mg',
     ]) expect(titles).toContain(title)
   })
