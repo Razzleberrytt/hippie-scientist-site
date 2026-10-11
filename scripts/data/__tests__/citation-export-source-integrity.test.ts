@@ -30,8 +30,8 @@ describe('magnesium source relevance and researcher citation exports', () => {
     expect(json.description).toContain(`— ${total} studies.`)
     expect(bib).toContain(`— ${total} studies.`)
     expect((bib.match(/^@(article|misc)\{/gm) ?? [])).toHaveLength(total)
-    expect((ris.match(/^TY  - /gm) ?? [])).toHaveLength(total)
-    expect((ris.match(/^ER  - /gm) ?? [])).toHaveLength(total)
+    expect((ris.match(/^TY[ ]{2}- /gm) ?? [])).toHaveLength(total)
+    expect((ris.match(/^ER[ ]{2}- /gm) ?? [])).toHaveLength(total)
     expect(csv.trimEnd().split('\n').length - 1).toBe(total)
     // Counts alone cannot detect a missing row paired with a duplicated one.
     // Match exact unique PMID sets across all four output formats.
@@ -39,7 +39,7 @@ describe('magnesium source relevance and researcher citation exports', () => {
     const jsonIds: string[] = json.studies.map((item: { pmid: string }) => String(item.pmid))
     const csvIds = [...csv.matchAll(/^(\d+),/gm)].map(match => match[1])
     const bibIds = [...bib.matchAll(/\bpmid\s*=\s*\{(\d+)\}/g)].map(match => match[1])
-    const risIds = [...ris.matchAll(/^AN  - (\d+)$/gm)].map(match => match[1])
+    const risIds = [...ris.matchAll(/^AN[ ]{2}- (\d+)$/gm)].map(match => match[1])
     expect(new Set(jsonIds).size).toBe(total)
     for (const ids of [csvIds, bibIds, risIds]) {
       expect(new Set(ids).size).toBe(total)
@@ -52,7 +52,7 @@ describe('magnesium source relevance and researcher citation exports', () => {
       json.studies.map((s: { pmid: string }) => String(s.pmid)),
       [...bib.matchAll(/\bpmid\s*=\s*\{(\d+)\}/g)].map((match) => match[1]),
       [...csv.matchAll(/^(\d+),/gm)].map((match) => match[1]),
-      [...ris.matchAll(/^AN  - (\d+)$/gm)].map((match) => match[1]),
+      [...ris.matchAll(/^AN[ ]{2}- (\d+)$/gm)].map((match) => match[1]),
     ]
     const canonical = [...sets[0]].sort()
     expect(new Set(canonical).size).toBe(canonical.length)
