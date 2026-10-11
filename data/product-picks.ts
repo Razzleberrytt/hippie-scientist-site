@@ -353,14 +353,6 @@ export const productPicks: ProductPick[] = [
   // Bacopa Monnieri
   {
     compound_slug: 'bacopa',
-    name: 'Jarrow Formulas Bacopa Monnieri 320 mg',
-    brand: 'Jarrow Formulas',
-    type: 'top',
-    url: `https://www.amazon.com/s?k=Jarrow+Formulas+Bacopa+Monnieri+320+mg+extract&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a standardized 20% bacosides extract.'
-  },
-  {
-    compound_slug: 'bacopa',
     name: 'NOW Bacopa 450 mg',
     brand: 'NOW Foods',
     type: 'budget',
@@ -384,14 +376,6 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Kaged+PurCaf+organic+caffeine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall for chemical-free water-extracted organic caffeine.'
-  },
-  {
-    compound_slug: 'caffeine',
-    name: 'NOW Sports Caffeine 200 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Sports+Caffeine+200+mg+tablets&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for plain caffeine anhydrous tablets.'
   },
   {
     compound_slug: 'caffeine',
@@ -517,14 +501,6 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'palmitoylethanolamide',
-    name: 'Nutricost PEA 600 mg',
-    brand: 'Nutricost',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=Nutricost+Palmitoylethanolamide+PEA+600+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget capsule pick for simple micronized PEA support.'
-  },
-  {
-    compound_slug: 'palmitoylethanolamide',
     name: 'Vitalitus Ultramicronized PEA',
     brand: 'Vitalitus',
     type: 'premium',
@@ -543,11 +519,11 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'boswellia',
-    name: 'NOW Boswellia Extract 500 mg',
+    name: 'NOW Boswellia Extract 500 mg softgels, 90 count',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Boswellia+Extract+500+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for standardized 65% boswellic acids extract.'
+    url: `https://www.amazon.com/s?k=NOW+Boswellia+Extract+500+mg+softgels+90+item+4936&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Item #4936 is a Boswellia-only 500 mg gum-resin extract softgel standardized to at least 65% organic acids; distinct from the turmeric-containing veg-caps variant.'
   },
   {
     compound_slug: 'boswellia',
