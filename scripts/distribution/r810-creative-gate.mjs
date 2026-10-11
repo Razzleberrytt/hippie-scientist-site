@@ -83,6 +83,24 @@ export function validateR810CreativeBrief(brief,{now=new Date()}={}) {
   if(layer.estimatedWordTimingAllowed===true)errors.push('R8.10 cannot claim estimated phrase timing is word-level proof')
   return [...new Set(errors)]
 }
+export function assertR810TimedScenes(brief, scenes) {
+  const all=Array.isArray(scenes)?scenes:[]
+  for(const slot of brief.r810.slots){
+    const role=slot.role, scene=all.find(s=>s.beatId===slot.beatId)
+    if(!scene)throw Error('R8.10 missing exact voiced scene for '+role)
+    const seconds=Number(scene.speechEnd)-Number(scene.start)
+    const bounds=budgets[role]
+    if(!bounds||!Number.isFinite(seconds)||seconds<bounds[0]||seconds>bounds[1]){
+      throw Error('R8.10 natural spoken duration outside '+role+' readability budget')
+    }
+  }
+  const ledger=all.filter(s=>s.role==='source')
+  if(ledger.length!==1||clean(ledger[0].voiceover)||Number(ledger[0].end)-Number(ledger[0].start)<3){
+    throw Error('R8.10 silent source ledger must remain readable for at least three seconds')
+  }
+  return true
+}
+
 export function assertR810CreativeBrief(brief,options){
   const errors=validateR810CreativeBrief(brief,options)
   if(errors.length)throw Error('R8.10 preflight failed:\n- '+errors.join('\n- '))
