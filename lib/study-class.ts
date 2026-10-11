@@ -63,8 +63,11 @@ export const STUDY_CLASS_INFO: Record<StudyClass, StudyClassInfo> = {
  * randomized trials" is a meta-analysis regardless of what follows.
  */
 const CLASS_PATTERNS: [RegExp, StudyClass][] = [
+  // An umbrella review summarizes existing reviews; it does not necessarily
+  // perform an original pooled analysis, even if the title says "of meta-analyses".
+  // Preserve the conservative systematic-review class until separately audited.
+  [/\bumbrella review\b/i, 'systematic-review'],
   [/\bmeta[-\s]?anal/i, 'meta-analysis'],
-  [/\bumbrella review\b/i, 'meta-analysis'],
   [/\bsystematic[-\s]?review|\bsystematic\b.*\breview\b|\bcochrane\b/i, 'systematic-review'],
   [/\brandomi[sz]ed\b|\brct\b|\bdouble[-\s]?blind\b|\btriple[-\s]?blind\b|\bdouble[-\s]?masked\b|\bplacebo[-\s]?controlled\b/i, 'rct'],
   [/\bcontrolled (trial|study)\b|\bcrossover (trial|study)\b/i, 'controlled-trial'],
