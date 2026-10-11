@@ -337,13 +337,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         rationale: 'Best overall for full-spectrum ginger phyto-caps with standardized gingerols.',
         affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Ginger Supreme liquid phyto-caps' }),
       },
-      {
-        slot: 'premium',
-        brand: 'Thorne',
-        title: 'Thorne Phytisone (Ginger)',
-        rationale: 'Premium practitioner-grade ginger extract with clean formula and high-potency standardization.',
-        affiliateUrl: amazonProductUrl({ query: 'Thorne ginger extract supplement' }),
-      },
     ],
   },
   turmeric: {
@@ -501,13 +494,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         title: 'Gaia Herbs Echinacea Supreme',
         rationale: 'Best overall for a dual-extract echinacea with purpurea root + angustifolia for broader coverage.',
         affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Echinacea Supreme liquid phyto-caps' }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Thorne',
-        title: 'Thorne Echinacea',
-        rationale: 'Premium pick for clean echinacea extract in a practitioner-brand capsule.',
-        affiliateUrl: amazonProductUrl({ query: 'Thorne Echinacea purpurea supplement' }),
       },
     ],
   },
