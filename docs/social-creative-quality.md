@@ -223,6 +223,14 @@ R8.07 changes visual authorship, not scientific authority or provider dependence
 
 Audience-retention improvement remains Unknown until canonical R8.07 artifacts are published and measured.
 
+## EvidenceMotion anti-phantom-HUD rule (R8.08 quality repair, Oct 11)
+
+**Do not bake a simulated playback, loading, timing or progress bar into a TikTok/Short/Reel's bottom margin.** The native app already provides playback controls, and an unlabeled meter falsely suggests buffering or a timed task. Scene counter text (such as 02/08) is optional and should remain unobtrusive; do not pair it with a faux meter.
+
+- **Authoring gate:** R8.08 rejects scene visual-purpose/action directions that ask for a progress/loading/playback/timeline bar or track. Use diagrams, molecule comparisons, evidence labels and narrated-anchor reveals instead. Genuine scientific measurements or labeled comparison charts are not forbidden by this rule.
+- **External/standalone artwork:** The textual authoring gate cannot detect pixels baked into PNGs. The exact-master PerceptualQA review must explicitly examine first, middle, limitation and source frames for unlabeled footer bars, decorative meters and other platform-UI imitations. Reject and rebuild any affected visuals before release.
+- **Regression:** The Oct 10 four-compound comparison introduced this exact defect in scene PNGs *outside* the canonical SVG renderer. The corrected master removes the bar while preserving voice timing and source claims. Do not change the scientific narrative merely to remove UI clutter.
+
 ## R8.08 silent-first comprehension & mobile claim legibility
 
 R8.08 inherits R8.07, R8.06 and R8.05 without altering the R8.04 zero-credit path. A visual that only makes sense with audio on is not release-ready. Every core beat (hook, finding, evidence, limitation) must provide a concise, exact on-screen statement readable on a phone and inside the intersection of platform safe areas. The opening hook is **visible from the first frame**: use the highlight primitive rather than hiding the promise until a later reveal.
