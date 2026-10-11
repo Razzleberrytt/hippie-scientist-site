@@ -28,12 +28,12 @@ export function verifyR810WordAlignment(packageDir) {
     ||!looksLikeSha(receipt.alignerCodeSha256)||receipt.meteredCreditsRequired!==false
     ||receipt.accountRequired!==false)throw Error('R8.10 word alignment has no valid offline model/script/WAV provenance')
   const words=Array.isArray(receipt.words)?receipt.words:[]
-  const expected=script.scenes.flatMap(scene=>wordTokens(scene.text).map(word=>({word,scene})))
+  const expected=script.scenes.flatMap(scene=>norm(scene.text).split(' ').filter(Boolean).map(word=>({word,scene})))
   if(words.length!==expected.length||!words.length)throw Error('R8.10 word alignment does not cover every spoken token')
   let lastEnd=0
   for(let i=0;i<words.length;i++){
     const entry=words[i], target=expected[i]
-    if(wordTokens(entry?.word).join('')!==target.word)throw Error('R8.10 word transcript diverged at token '+i)
+    if(wordTokens(entry?.word).join('')!==wordTokens(target.word).join(''))throw Error('R8.10 word transcript diverged at token '+i)
     const start=Number(entry.start),end=Number(entry.end),sceneStart=Number(target.scene.start),speechEnd=Number(target.scene.speechEnd)
     if(!Number.isFinite(start)||!Number.isFinite(end)||start<lastEnd-0.002||end<=start
       ||start<sceneStart-0.002||end>speechEnd+0.002)throw Error('R8.10 word timing violates exact spoken-audio bounds at token '+i)
