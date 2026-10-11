@@ -57,7 +57,7 @@
         },
         {
           "title": "Phytosome Formulations (Meriva)",
-          "body": "Meriva is a curcumin-phosphatidylcholine complex demonstrating 29-fold higher bioavailability than standard curcumin in human trials. Multiple RCTs on joint pain have used this formulation, making it one of the better-validated approaches."
+          "body": "Meriva is a curcumin-phosphatidylcholine complex. In one small randomized crossover pharmacokinetic study (n=9; PMID 21413691), absorption of total curcuminoids was about 29-fold higher than from the corresponding unformulated curcuminoid mixture. This does not mean 29-fold better symptom relief, and results depend on the formulation, compounds measured, and comparator. Joint-pain trials must be judged separately for clinical effectiveness."
         },
         {
           "title": "BCM-95 (Biocurcumax)",
@@ -143,8 +143,8 @@
     {
       "form": "Meriva (Phytosome Complex)",
       "range": "400–800 mg/day (expressed as curcumin equivalent)",
-      "notes": "29× higher bioavailability vs. standard curcumin in human trials",
-      "bioavailabilityNote": "Best-validated formulation for joint pain endpoints"
+      "notes": "~29× total-curcuminoid absorption vs. matched unformulated mixture in one n=9 pharmacokinetic study (PMID 21413691); not a clinical benefit multiplier",
+      "bioavailabilityNote": "Pharmacokinetic endpoint, not proof of superior joint-pain outcomes"
     },
     {
       "form": "BCM-95 / Biocurcumax",
