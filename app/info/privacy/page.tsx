@@ -38,7 +38,7 @@ const dataCategories = [
   },
   {
     title: 'Analytics data',
-    body: 'Analytics may include page views, region-level traffic, device/browser information, and basic interaction events when analytics are enabled.',
+    body: 'Google Analytics 4 (GA4) is enabled by default for pageviews. It may process online identifiers, approximate location, device/browser details, and page interactions. You can turn it off through the footer Privacy settings control.',
   },
   {
     title: 'Contact data',
@@ -145,7 +145,7 @@ export default function PrivacyPage() {
             <div>
               <h3 className='text-lg font-bold text-ink mb-1'>2. Cookies, analytics, and affiliate attribution</h3>
               <p>
-                Cookies, local storage, analytics tags, or affiliate parameters may be used for measurement, site functionality, or purchase attribution. Browser settings can limit or block many of these features.
+                Google Analytics 4 (GA4) loads by default when you visit the site, without waiting for a cookie-banner choice. GA4 can set analytics cookies and collect pageview and device/usage information. To opt out at any time, select Privacy settings in the site footer and choose Turn off analytics. This stops further GA4 loading, removes accessible GA cookies, and remembers your choice. We also respect supported browser Do Not Track and Global Privacy Control signals. Other optional tracking, including Ahrefs analytics and certain attribution features, still requires separate affirmative consent. Hosting/security logs and external websites have their own practices.
               </p>
             </div>
             <div>
