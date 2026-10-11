@@ -156,14 +156,6 @@ const VAGUE_FINDING_PATTERNS = new Set([
   'likely helps',
 ])
 
-const EVIDENCE_TIER_SCORE = {
-  'human-clinical': 4,
-  'human-observational': 3,
-  'regulatory-monograph': 2,
-  'preclinical-mechanistic': 1,
-  'traditional-use': 1,
-}
-
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
 }
@@ -612,12 +604,37 @@ export function validateAndNormalizeEntries(entries, options = {}) {
   }
 }
 
-function rankEvidenceTier(evidenceClasses) {
-  const maxScore = Math.max(...evidenceClasses.map(value => EVIDENCE_TIER_SCORE[value] ?? 0), 0)
-  if (maxScore >= 4) return 'tier-1-strong'
-  if (maxScore === 3) return 'tier-2-moderate'
-  if (maxScore === 2) return 'tier-3-limited'
-  return 'tier-4-insufficient'
+// Source *class* is not certainty. The entity-level tier must never treat a
+// human study, including a large safety study, as proof of strong efficacy.
+// Existing evidence judgments preserve nulls, conflicts, and uncertainty;
+// topic-specific independent replication is still not attested here. Strong
+// certainty requires a separate reviewed, outcome-specific assessment.
+export function rankEvidenceTier(entries, pageJudgment) {
+  const humanEvidence = entries.some(entry =>
+    entry.evidenceClass === 'human-clinical' || entry.evidenceClass === 'human-observational'
+  )
+  if (!humanEvidence) return 'tier-4-insufficient'
+
+  // Require at least two distinct *efficacy* source identities, rather than
+  // counting multiple findings from one trial or a second safety-only study.
+  // Distinct source IDs alone do not prove independent cohorts, consistent
+  // populations or comparable products: cap the auto-derived tier at moderate.
+  const efficacySourceIds = new Set(entries
+    .filter(entry =>
+      entry.evidenceClass === 'human-clinical' &&
+      entry.topicType === 'supported_use' &&
+      entry.claimType === 'efficacy_signal'
+    )
+    .map(entry => entry.sourceId)
+    .filter(Boolean))
+
+  if (pageJudgment?.evidenceLabel === 'stronger_human_support' &&
+      pageJudgment?.grading?.conflictState === 'none' &&
+      efficacySourceIds.size >= 2) {
+    return 'tier-2-moderate'
+  }
+
+  return 'tier-3-limited'
 }
 
 function pickEditorialStatus(statuses) {
@@ -699,7 +716,7 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
       entitySlug,
       researchEnrichment: {
         evidenceSummary: `${entityEntries.length} approved normalized findings across ${new Set(entityEntries.map(e => e.topicType)).size} topic types.`,
-        evidenceTier: rankEvidenceTier(evidenceClassList),
+        evidenceTier: rankEvidenceTier(entityEntries, pageEvidenceJudgment),
         evidenceClassesPresent: evidenceClassList,
         supportedUses: claimsByField.supportedUses,
         unsupportedOrUnclearUses: claimsByField.unsupportedOrUnclearUses,
