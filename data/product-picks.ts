@@ -481,14 +481,6 @@ export const productPicks: ProductPick[] = [
     url: `https://www.amazon.com/s?k=NOW+Foods+Ginger+Root+550+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Budget pick for plain ginger root capsules.'
   },
-  {
-    compound_slug: 'ginger',
-    name: 'Thorne Phytisone (Ginger)',
-    brand: 'Thorne',
-    type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+ginger+extract+supplement&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium practitioner-grade ginger extract.'
-  },
 
   // PEA
   {
