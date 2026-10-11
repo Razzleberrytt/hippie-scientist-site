@@ -117,7 +117,7 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'creatine',
-    name: 'NOW Sports Creatine Monohydrate Powder, 21.2 oz',
+    name: 'NOW Sports Micronized Creatine Monohydrate Powder, 21.2 oz',
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Sports+Creatine+Monohydrate+Powder+unflavored+21.2+oz&tag=${AFFILIATE_TAGS.amazon}`,
@@ -283,7 +283,7 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'berberine',
-    name: 'NOW Berberine 500 mg',
+    name: 'NOW Berberine HCl 500 mg',
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Berberine+500+mg+HCl+capsules&tag=${AFFILIATE_TAGS.amazon}`,

@@ -17,7 +17,7 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "High-dose omega-3s may matter for bleeding-risk medication plans; fish allergy/formulation issues apply.",
+  "safetyNotes": "High-dose omega-3s may matter for bleeding-risk medication plans; fish allergy/formulation issues apply. In a meta-analysis of long-term cardiovascular outcome trials, marine omega-3 supplementation was associated with higher atrial-fibrillation incidence (HR 1.25; 95% CI 1.07–1.46), with a larger association in trials above 1 g/day. This result does not establish equal risk from ordinary dietary fish intake or for every population and formulation. People with atrial fibrillation or using anticoagulants should review supplement decisions with their clinician. Source: Gencer et al., Circulation 2021 (PMID 34612056). Prior established cautions: High-dose omega-3s may matter for bleeding-risk medication plans; fish allergy/formulation issues apply.",
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
@@ -228,6 +228,19 @@
       "year": 2019,
       "doi": "10.4103/jiaps.JIAPS_84_18",
       "metadataSource": "pubmed"
+    },
+    {
+      "id": "src_000034612056",
+      "title": "Effect of Long-Term Marine Omega-3 Fatty Acids Supplementation on the Risk of Atrial Fibrillation in Randomized Controlled Trials of Cardiovascular Outcomes",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34612056/",
+      "pmid": "34612056",
+      "doi": "10.1161/CIRCULATIONAHA.121.055654",
+      "year": 2021,
+      "journal": "Circulation",
+      "authors": "Gencer B et al.",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "pending",
+      "note": "Source-backed safety context; AI-assisted provenance entry, not human editorial sign-off."
     }
   ],
   "dosage": "softgel or liquid oil",
