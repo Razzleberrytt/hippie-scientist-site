@@ -51505,6 +51505,83 @@
       "reservation_id": "fe31b41f1c8d09675dee",
       "reserved_at": "2026-10-11T00:58:17.997Z",
       "source_branch": "research/intake/2/20261010-2055-cognition-metabolic-r58"
+    },
+    {
+      "pmid": "42572604",
+      "title": "Black Elderberry Exposure in Apparent Idiopathic Mild Acute Pancreatitis: A Case Report.",
+      "doi": "10.7759/cureus.112391",
+      "source_title": "Black Elderberry Exposure in Apparent Idiopathic Mild Acute Pancreatitis: A Case Report.",
+      "abstract": "Drug-induced acute pancreatitis is uncommon and remains difficult to confirm, particularly when the suspected exposure is an herbal or over-the-counter supplement. Black elderberry, derived from Sambucus nigra, is widely marketed for immune support, but published literature linking it to acute pancreatitis is limited. We report a 75-year-old woman with hypertension, hyperlipidemia, and prior cholecystectomy who presented with abrupt severe epigastric pain radiating to the back, diaphoresis, and lipase 3016 U/L. Computed tomography of the abdomen and pelvis on day 0 showed a normal-appearing pancreas without peripancreatic stranding, fluid collection, pancreatic ductal dilation, or biliary dilation. Triglycerides were 105 mg/dL, adjusted calcium was normal, bilirubin remained normal, and she denied alcohol use. Medication reconciliation revealed daily use of black elderberry extract along with chronic losartan, atenolol, niacin, aspirin, and latanoprost. Her course was consistent with mild acute pancreatitis. She improved with supportive care, early advancement of diet, and discontinuation of elderberry. Because occult biliary disease and medication co-exposure could not be definitively excluded, causality was conservatively classified as possible black elderberry-associated acute pancreatitis. This case reviews the importance of explicit supplement reconciliation in apparent idiopathic acute pancreatitis and the need for endoscopic ultrasound or magnetic resonance cholangiopancreatography after recovery in older adults when initial evaluation is unrevealing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42572604/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42572604",
+        "doi": "10.7759/cureus.112391",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T01:06:23.460Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a62909c1a9e18a9357e3",
+      "reserved_at": "2026-10-11T01:06:30.009Z",
+      "source_branch": "research/intake/3/20261010-2104-elderberry-42572604"
     }
   ],
   "batches": [
@@ -51533,16 +51610,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 655,
+    "total_reservations": 656,
     "by_lane": {
       "1": 64,
       "2": 143,
-      "3": 123,
+      "3": 124,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 655
+      "SOURCE_VERIFIED": 656
     },
     "batches": [
       {
@@ -51555,7 +51632,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 155,
+        "count": 156,
         "pr_number": null,
         "blocker": null
       }
