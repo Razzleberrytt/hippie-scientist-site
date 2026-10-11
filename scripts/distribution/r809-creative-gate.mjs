@@ -1,5 +1,6 @@
 import crypto from 'node:crypto'
 import { assertR808CreativeBrief, buildR808CreativeReceipt } from './r808-creative-gate.mjs'
+import { R809_VISUAL_STAGES } from './r809-visual-actors.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const digest = (value) => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex')
@@ -37,6 +38,15 @@ export function validateR809CreativeBrief(brief) {
   }
 
   const beats = Array.isArray(brief?.beats) ? brief.beats : []
+  const stages = new Set(R809_VISUAL_STAGES)
+  for (const beat of beats.filter((b) => clean(b.narration))) {
+    if (!stages.has(clean(beat?.r809?.visualScene))) {
+      errors.push(`R8.09 beat ${clean(beat.id)} must select a real cartoon teaching scene: ${R809_VISUAL_STAGES.join(', ')}`)
+    }
+    if (clean(beat?.r809?.visualReason).split(/\s+/).filter(Boolean).length < 6) {
+      errors.push(`R8.09 beat ${clean(beat.id)} must explain how the illustration teaches its narrated meaning`)
+    }
+  }
   const terms = Array.isArray(layer.technicalTerms) ? layer.technicalTerms : []
   const seen = new Set()
   for (const entry of terms) {
@@ -90,7 +100,7 @@ export function buildR809CreativeReceipt(brief) {
     inheritedR808OverlaySha256: inherited.overlaySha256,
     overlaySha256: digest({
       r809: layer,
-      narration: brief.beats.map((b) => ({ id: clean(b.id), role: clean(b.role), text: clean(b.narration) })),
+      narration: brief.beats.map((b) => ({ id: clean(b.id), role: clean(b.role), text: clean(b.narration), visualScene: clean(b?.r809?.visualScene), visualReason: clean(b?.r809?.visualReason) })),
       inheritedR808OverlaySha256: inherited.overlaySha256,
     }),
     canonicalStyle: CANONICAL_STYLE,
