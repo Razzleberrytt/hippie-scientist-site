@@ -405,7 +405,9 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-f', 'concat', '-safe', '0', '-i', concatFile,
       '-i', narration.file,
       '-vf', filter,
-      '-af', `loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`,
+      '-af', isR809
+        ? `acompressor=threshold=0.1:ratio=2:attack=10:release=150,loudnorm=I=-14:TP=-1:LRA=9,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`
+        : `loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`,
       '-map', '0:v:0', '-map', '1:a:0',
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
       '-c:a', 'aac', '-b:a', '192k',
@@ -445,6 +447,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         renderAssSha256: captionFileSha256,
         canvasSafeArea: 'platform-intersection',
         style: '2p5d-science-explainer-v1',
+        audioProfile: 'voice-forward-minus14LUFS',
         exactMasterReview: 'pending',
       } : null,
       creativeQuality: verified.release === 'R8.05' ? {
