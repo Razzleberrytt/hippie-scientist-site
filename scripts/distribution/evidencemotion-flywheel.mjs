@@ -257,7 +257,7 @@ export function renderFlywheelLearningReport(root,{metricWindow='first-7d',last=
   for(const h of ins.hookPatterns.slice(0,10)){
     out.push('- **'+h.pattern+'** · '+h.videoId+' · '+fmt(h.views)+' views · '+
       (h.followConversion==null?'conversion Unknown':(h.followConversion*100).toFixed(2)+'% attributed follow rate')+
-      ' · '+(h.winning?'top-quartile observed':'candidate / '+h.signal')+' — '+h.templateText)
+      ' · '+(h.winning?'top-quartile observed':'candidate / '+h.signal)+' — '+h.templateText)
   }
   out.push('','## Topics: repeat, explore, or deprioritize')
   if(!ins.topics.length)out.push('No comparable topics to score yet.')
