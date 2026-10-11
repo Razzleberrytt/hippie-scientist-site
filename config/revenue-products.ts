@@ -30,11 +30,11 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     products: [
       {
         slot: 'budget',
-        asin: 'B0019O2HB0',
+        // Resolution Sprint: removed stale ASIN; exact new listing remains pending review.
         brand: 'NOW Foods',
         title: 'NOW Ashwagandha 450 mg',
         rationale: 'Budget pick for a simple ashwagandha capsule from a widely available supplement brand.',
-        affiliateUrl: amazonProductUrl({ asin: 'B0019O2HB0', query: 'NOW Ashwagandha 450 mg capsules' }),
+        affiliateUrl: amazonProductUrl({ query: 'NOW Ashwagandha 450 mg capsules 90 count' }),
       },
       {
         slot: 'overall',
@@ -81,11 +81,11 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     products: [
       {
         slot: 'budget',
-        asin: 'B0013OUH1C',
+        // Resolution Sprint: removed stale ASIN; exact new listing remains pending review.
         brand: 'NOW Foods',
-        title: 'NOW L-Theanine 200 mg',
+        title: 'NOW L-Theanine 200 mg with Inositol',
         rationale: 'Contains 200 mg L-theanine plus 100 mg inositol per capsule; not a single-ingredient L-theanine supplement.',
-        affiliateUrl: amazonProductUrl({ asin: 'B0013OUH1C', query: 'NOW Foods L-Theanine 200 mg' }),
+        affiliateUrl: amazonProductUrl({ query: 'NOW L-Theanine 200 mg with inositol 60 veg capsules' }),
       },
       {
         slot: 'overall',
@@ -111,19 +111,19 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     products: [
       {
         slot: 'budget',
-        asin: 'B000155NFW',
+        // Resolution Sprint: removed stale ASIN; exact new listing remains pending review.
         brand: 'NOW Foods',
         title: 'NOW Rhodiola 500 mg',
         rationale: 'Budget pick for a common Rhodiola rosea capsule from a mainstream brand.',
-        affiliateUrl: amazonProductUrl({ asin: 'B000155NFW', query: 'NOW Rhodiola 500 mg' }),
+        affiliateUrl: amazonProductUrl({ query: 'NOW Rhodiola 500 mg 60 veg capsules' }),
       },
       {
         slot: 'overall',
-        asin: 'B00E4HSMQE',
+        // Resolution Sprint: removed stale ASIN; exact new listing remains pending review.
         brand: 'Gaia Herbs',
         title: 'Gaia Herbs Rhodiola Rosea',
         rationale: 'Best overall pick for users who want a recognizable botanical brand and liquid phyto-caps format.',
-        affiliateUrl: amazonProductUrl({ asin: 'B00E4HSMQE', query: 'Gaia Herbs Rhodiola Rosea' }),
+        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Rhodiola Rosea 60 liquid phyto-caps' }),
       },
       {
         slot: 'premium',
@@ -158,7 +158,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'premium',
         brand: 'Host Defense',
         title: "Host Defense Lion's Mane",
-        rationale: 'Premium pick for users who prefer a well-known mushroom-specialist brand.',
+        rationale: 'Host Defense Lion\'s Mane uses mycelium grown on fermented organic brown rice, not a fruiting-body-only extract.',
         affiliateUrl: amazonProductUrl({ query: "Host Defense Lion's Mane capsules" }),
       },
     ],
@@ -173,7 +173,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'budget',
         brand: 'NOW Foods',
         title: 'NOW Valerian Root 500 mg',
-        rationale: 'Valerian root capsule example. A retailer listing carries a California Proposition 65 lead warning; review the exact package warning before considering purchase.',
+        rationale: 'NOW manufacturer label carries a California Proposition 65 lead warning. May cause drowsiness; avoid driving after use and check medication/pregnancy cautions.',
         affiliateUrl: amazonProductUrl({ query: 'NOW Foods Valerian Root 500 mg capsules' }),
       },
       {
@@ -268,7 +268,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'premium',
         brand: 'Host Defense',
         title: 'Host Defense Reishi Capsules',
-        rationale: 'Premium pick from the Stamets-line mushroom brand with multi-stage extraction.',
+        rationale: 'Host Defense Reishi capsules use mycelium cultivated on fermented brown rice; not fruiting-body-only reishi.',
         affiliateUrl: amazonProductUrl({ query: 'Host Defense Reishi mushroom capsules' }),
       },
     ],
@@ -715,7 +715,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'premium',
         brand: 'Thorne',
         title: 'Thorne Vitamin D/K2 Liquid',
-        rationale: 'Premium for a combined D3 + K2 liquid drop to support calcium metabolism alongside vitamin D.',
+        rationale: 'Vitamin D3 + K2 liquid. Vitamin K can interfere with warfarin and related anticoagulants; do not combine without prescriber guidance.',
         affiliateUrl: amazonProductUrl({ query: 'Thorne Vitamin D K2 liquid drops' }),
       },
     ],
@@ -939,7 +939,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'budget',
         brand: 'NOW Foods',
         title: 'NOW Zinc Glycinate 30 mg',
-        rationale: 'Zinc glycinate in softgels with pumpkin seed oil; not a dry vegetarian capsule. Confirm excipients on the label.',
+        rationale: 'Zinc glycinate softgels contain pumpkin seed oil, bovine gelatin and soy lecithin; not vegetarian or soy-free.',
         affiliateUrl: amazonProductUrl({ query: 'NOW Foods Zinc Glycinate 30 mg softgels' }),
       },
       {
