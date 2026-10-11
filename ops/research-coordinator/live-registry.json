@@ -66046,6 +66046,159 @@
       "reservation_id": "44a3bd5de32fff3bd350",
       "reserved_at": "2026-10-11T10:38:55.872Z",
       "source_branch": "research/intake/1/20261011-0636-pmr-exercise-r20"
+    },
+    {
+      "pmid": "42657041",
+      "title": "Dual-task versus single-task walking within an Otago Exercise Program for older adults with dementia: A 24-week cluster randomized controlled trial.",
+      "doi": "10.1016/j.jesf.2026.200503",
+      "source_title": "Dual-task versus single-task walking within an Otago Exercise Program for older adults with dementia: A 24-week cluster randomized controlled trial.",
+      "abstract": "Dementia is associated with impairments in both cognitive and motor function, including gait disturbances and reduced mobility. Although dual-task walking may improve cognitive-motor integration, evidence in dementia remains limited. This study examined whether replacing single-task walking with dual-task walking within an Otago Exercise Program (OEP) provides additional benefits for cognitive function and gait performance in older adults with dementia. This cluster randomized controlled trial randomized 100 older adults with dementia from 11 dementia care centers to a control group (CG; n = 50) or experimental group (EG; n = 50). Both groups completed a 24-week OEP-based program three times weekly; the EG additionally performed 10 min of dual-task walking per session. Primary outcomes were a composite cognitive score and gait speed. Secondary outcomes included static balance, dynamic balance, and lower-extremity function (knee extensor strength and five-times sit-to-stand test [FTSTS]). Significant group × time interactions were observed for the composite cognitive score and gait speed (both p < .001), with the experimental group demonstrating significantly greater improvements than the control group at both 12 and 24 weeks. No significant group × time interactions were observed for the secondary outcomes; static balance, dynamic balance, knee extensor strength, and FTSTS improved similarly in both groups, indicating no additional benefit of dual-task walking. Adding dual-task walking to OEP was associated with greater improvements in cognitive performance and gait speed than OEP alone. Incorporating dual-task walking into such programs may provide additional benefits for older adults with dementia. KCT0010602.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42657041/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42657041",
+        "doi": "10.1016/j.jesf.2026.200503",
+        "journal": "Journal of exercise science and fitness",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T10:59:43.377Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6ab787d83f765ff3421a",
+      "reserved_at": "2026-10-11T10:59:51.389Z",
+      "source_branch": "research/intake/2/20261011-0654-cognition-metabolic-r68"
+    },
+    {
+      "pmid": "42574785",
+      "title": "Role of bioprocessing in modifying cardiometabolic outcomes of an oat-based dairy alternative in a randomised controlled clinical intervention.",
+      "doi": "10.1016/j.clnu.2026.106744",
+      "source_title": "Role of bioprocessing in modifying cardiometabolic outcomes of an oat-based dairy alternative in a randomised controlled clinical intervention.",
+      "abstract": "A healthy diet rich in fibre-containing foods such as oats supports cardiometabolic health. Bioprocessing methods, including fermentation and enzymatic treatment, may further enhance the health benefits of oat-based foods by altering their physicochemical properties. The aims of this study were to investigate the effects of consuming fermented and non-fermented oat-based products enriched with fibre and protein on cardiometabolic outcomes gastrointestinal symptoms, and to consider how assessed physicochemical and nutritional differences between the products might relate to any observed effects. In a 12-week randomised crossover trial, 56 adults with mild metabolic deterioration consumed fermented (gurt) and non-fermented (porridge) oat-based products enriched with fibre and protein as part of their habitual diet for three weeks each. The study products were specifically developed and prepared for this study using identical ingredients. Primary cardiometabolic factors and gastrointestinal symptoms (GSRS) were measured at four time points, while secondary outcomes were assessed at baseline and after both product periods. Physicochemical and nutritional characterization of the study products included cereal β-glucan (BG) and protein molecular weight distribution, starch and sugar analysis, microscopy, acidity, and viscosity. During the gurt consumption, non-high-density lipoprotein (non-HDL) and low-density lipoprotein (LDL) cholesterol concentrations decreased (-0.15 ± 0.51 mmol/L, p = 0.028; and -0.12 ± 0.46 mmol/L, p = 0.047, respectively), with a minimal impact on blood pressure and GSRS scores. Additionally, ferritin was lower after the gurt compared with baseline (-4.00 [-16.50, 6.25] μg/L, p = 0.015). Similarly, ferritin levels were lower after the porridge period (-7.50 [-20.50, 4.25] μg/L), accompanied with a modest decrease in blood pressure and HbA1c. These effects, however, did not substantially differ between the product periods. Insulin showed a significant sequence effect (p sequence∗time <0.05) and was analysed in sequence groups. Insulin levels significantly decreased during the gurt consumption in the group that started with the porridge (-2.22 ± 6.16 mU/L, p = 0.015). Fermentation and enzymatic treatment induced significant changes in BG MW, starch, and composition in the gurt, which may alongside with increased fibre intake during the intervention explain the observed results. Consuming a fermented, oat-based gurt as part of habitual diet may improve cholesterol metabolism, likely due to increased oat fibre intake rather than fermentation as such. Moreover, greater intake of oat-based products, regardless of processing, can reduce ferritin concentrations and marginally improve other cardiometabolic factors. The study was registered in ClinicalTrials.gov as NCT06393114.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42574785/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42574785",
+        "doi": "10.1016/j.clnu.2026.106744",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T10:59:43.377Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e5e22cbfdc12db322be9",
+      "reserved_at": "2026-10-11T10:59:51.389Z",
+      "source_branch": "research/intake/2/20261011-0654-cognition-metabolic-r68"
     }
   ],
   "batches": [
@@ -66074,16 +66227,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 843,
+    "total_reservations": 845,
     "by_lane": {
       "1": 77,
-      "2": 160,
+      "2": 162,
       "3": 131,
       "4": 50,
       "5": 425
     },
     "by_state": {
-      "SOURCE_VERIFIED": 843
+      "SOURCE_VERIFIED": 845
     },
     "batches": [
       {
@@ -66096,7 +66249,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 343,
+        "count": 345,
         "pr_number": null,
         "blocker": null
       }
