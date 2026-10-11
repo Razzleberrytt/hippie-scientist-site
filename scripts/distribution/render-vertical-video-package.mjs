@@ -7,6 +7,9 @@ import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creati
 import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
+import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
+import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
+import { renderR809VisualActor } from './r809-visual-actors.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -145,7 +148,7 @@ function validateIdentity(mediaPack, creativeSpec) {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
     const methodRelease = clean(creativeSpec?.creativeMethodRelease) || 'R8.05'
-    if (!['R8.05', 'R8.06', 'R8.07', 'R8.08'].includes(methodRelease)) {
+    if (!['R8.05', 'R8.06', 'R8.07', 'R8.08', 'R8.09'].includes(methodRelease)) {
       throw new Error(`unsupported R8.05 creative methodology: ${methodRelease}`)
     }
     if (methodRelease === 'R8.06') {
@@ -201,6 +204,16 @@ function validateIdentity(mediaPack, creativeSpec) {
           || clean(direction?.silentComprehensionCertifiedAt) !== 'exact-master-qa') {
         throw new Error('R8.08 requires hash-bound creative lineage and pre-render silent-comprehension approval')
       }
+    } else if (methodRelease === 'R8.09') {
+      const { creativeFoundation: a, creativeVisualFoundation: b, creativeSilentFoundation: c, creativeDirection: d } = creativeSpec
+      if (a?.status !== 'approved' || a?.schemaVersion !== 'ths-r806-creative-receipt-v1'
+          || b?.status !== 'approved' || b?.schemaVersion !== 'ths-r807-creative-receipt-v1'
+          || b.inheritedR806OverlaySha256 !== a.overlaySha256
+          || c?.status !== 'approved' || c?.schemaVersion !== 'ths-r808-creative-receipt-v1'
+          || c.inheritedR807OverlaySha256 !== b.overlaySha256
+          || d?.status !== 'approved' || d?.schemaVersion !== 'ths-r809-creative-receipt-v1'
+          || d.inheritedR808OverlaySha256 !== c.overlaySha256
+          || d.burnInNarrationCaptions !== true) throw Error('R8.09 missing hash-bound creative lineage / captions')
     }
   } else if (release === 'R8.04') {
     if (!video || Number(video.durationSeconds) !== 30 || clean(video.format) !== '1080x1920') {
@@ -375,6 +388,18 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       throw new Error('R8.07 visual-rhythm receipt does not bind the exact creative brief overlay')
     }
   }
+  if (methodRelease === 'R8.09') {
+    const a = buildR806CreativeReceipt(brief)
+    const b = buildR807CreativeReceipt(brief)
+    const c = buildR808CreativeReceipt(brief)
+    const d = buildR809CreativeReceipt(brief)
+    if (creativeSpec.creativeFoundation?.overlaySha256 !== a.overlaySha256
+        || creativeSpec.creativeVisualFoundation?.overlaySha256 !== b.overlaySha256
+        || creativeSpec.creativeSilentFoundation?.overlaySha256 !== c.overlaySha256
+        || creativeSpec.creativeDirection?.overlaySha256 !== d.overlaySha256) {
+      throw Error('R8.09 creative brief/receipt is stale')
+    }
+  }
   if (methodRelease === 'R8.08') {
     const freshFoundation = buildR806CreativeReceipt(brief)
     const freshVisual = buildR807CreativeReceipt(brief)
@@ -489,6 +514,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
       compositionFamily: clean(beat?.r807?.compositionFamily),
+      visualScene: clean(beat?.r809?.visualScene),
       rhythmAction: clean(beat?.r807?.rhythmAction),
       motifId: clean(beat?.r807?.motifId),
       patternInterrupt: beat?.r807?.patternInterrupt === true,
@@ -501,13 +527,13 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
     }
   })
 
-  if (methodRelease === 'R8.08') {
+  if (['R8.08', 'R8.09'].includes(methodRelease)) {
     for (const scene of scenes.filter(s => ['hook', 'finding', 'evidence', 'limitation'].includes(s.role))) {
       const visibleSeconds = scene.motionType === 'reveal'
         ? scene.end - scene.start - Number(scene.motionCueOffset)
         : scene.end - scene.start
       if (visibleSeconds < 0.85 - 0.0006) {
-        throw new Error(`R8.08 beat ${scene.beatId} has insufficient real readable claim dwell (<0.85 seconds); do not pad narration`)
+        throw new Error(`${methodRelease} beat ${scene.beatId} has insufficient real readable claim dwell (<0.85 seconds); do not pad narration`)
       }
     }
   }
@@ -545,7 +571,7 @@ function verticalPlatformIntersection() {
   }
 }
 
-function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase }) {
+function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase, backdropOnly = false }) {
   const family = clean(scene.compositionFamily)
   if (!family) return ''
   const phase = clean(motionPhase) || 'post'
@@ -598,12 +624,17 @@ function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, m
   const interrupt = scene.patternInterrupt === true && motionPhase === 'post'
     ? `<rect data-r807-pattern-interrupt="true" x="${x - 16}" y="${y - 18}" width="${width + 32}" height="${h + 36}" rx="42" fill="none" stroke="${foreground}" stroke-width="7" stroke-dasharray="22 16" stroke-opacity="0.82"/>`
     : ''
-  return `<g data-r807-composition="${escapeXml(family)}">${interrupt}${body}${motif}</g>`
+  // R8.09 reuses the R8.07 authored rhythm, motifs, and limitation-pivot
+  // interruption as an understated backdrop behind the new illustrated actor.
+  // Do not let the old family object compete with the primary teaching actor.
+  const composedBody = backdropOnly ? `<g opacity="0.16">${body}</g>` : body
+  return `<g data-r807-composition="${escapeXml(family)}">${interrupt}${composedBody}${motif}</g>`
 }
 
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const canvas = CREATIVE_BRAND_TOKENS.canvas.vertical
   const motionPhase = clean(options.motionPhase) || 'post'
+  const r809 = clean(options.creativeMethodRelease) === 'R8.09'
   const { foreground, background } = treatment(scene.colorTreatment)
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
@@ -646,17 +677,32 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     throw new Error(`R8.08 ${scene.role} is unreadable in the actual mobile platform safe area`)
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
-  const compositionVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
-  const composition = compositionVisible
-    ? renderAuthoredComposition(scene, {
-        x,
-        width: safeWidth,
-        top: compositionTop,
-        bottom: disclosureY - 72,
-        foreground,
-        motionPhase,
-      })
-    : ''
+  const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
+  const composition = r809 && scene.role !== 'source'
+    ? (compositionVisible
+      ? [
+          // R8.07 visual rhythm and returning motif are inherited, not discarded.
+          renderAuthoredComposition(scene, {
+            x, width: safeWidth, top: compositionTop,
+            bottom: disclosureY - 72, foreground, motionPhase, backdropOnly: true,
+          }),
+          renderR809VisualActor(scene, {
+            x, y: compositionTop + 30, width: safeWidth,
+            height: Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
+            foreground, background, motionPhase,
+          }),
+        ].join('')
+      : '')
+    : compositionVisible
+      ? renderAuthoredComposition(scene, {
+          x,
+          width: safeWidth,
+          top: compositionTop,
+          bottom: disclosureY - 72,
+          foreground,
+          motionPhase,
+        })
+      : ''
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
     sourceUrl,
@@ -678,6 +724,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
     compositionFamily: scene.compositionFamily || null,
+    visualScene: scene.visualScene || null,
     rhythmAction: scene.rhythmAction || null,
     motifId: scene.motifId || null,
     patternInterrupt: scene.patternInterrupt === true,
@@ -689,7 +736,12 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     end: scene.end,
     safeArea: { x, right: safeRight, width: safeWidth, top: safe.top, bottom: canvas.height - safe.bottom },
   })
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/><text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${composition}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  // A zero-credit illustrated, layered-vector treatment with a restrained 2.5D appearance.
+  const r809Depth = r809
+    ? `<defs><linearGradient id="r809-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${background}"/><stop offset="100%" stop-color="${foreground}" stop-opacity=".07"/></linearGradient><filter id="r809-shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".24"/></filter></defs><rect width="100%" height="100%" fill="url(#r809-bg)"/><circle cx="950" cy="300" r="265" fill="${foreground}" opacity=".045"/>`
+    : ''
+  const styledComposition = r809 ? `<g filter="url(#r809-shadow)">${composition}</g>` : composition
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/>${r809Depth}<text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${styledComposition}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
@@ -711,6 +763,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       disclosure,
       sourceLegibility: creativeSpec.verticalVideo.sourceLegibility,
       motionPhase: 'post',
+      creativeMethodRelease: creativeSpec.creativeMethodRelease,
     })
     const file = `video-scene-${suffix}.svg`
     const bytes = `${rendered.svg}\n`
@@ -727,6 +780,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
         disclosure,
         sourceLegibility: creativeSpec.verticalVideo.sourceLegibility,
         motionPhase: 'pre',
+        creativeMethodRelease: creativeSpec.creativeMethodRelease,
       })
       const preFile = `video-scene-${suffix}-pre.svg`
       const preBytes = `${preRendered.svg}\n`
@@ -763,6 +817,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       visualMode: scene.visualMode || null,
       teachingObject: scene.teachingObject || null,
       compositionFamily: scene.compositionFamily || null,
+      visualScene: scene.visualScene || null,
       rhythmAction: scene.rhythmAction || null,
       motifId: scene.motifId || null,
       patternInterrupt: scene.patternInterrupt === true,
@@ -786,15 +841,15 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fps: 30,
     durationSeconds,
     semanticBeatMapSha256: bindings?.semanticBeatMapSha256 ?? null,
-    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
+    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, visualScene, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
       id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority,
-      visualMode, teachingObject, compositionFamily, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
+      visualMode, teachingObject, compositionFamily, visualScene, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
     })),
   }
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
   fs.writeFileSync(path.join(dir, 'video-timeline.json'), timelineBytes)
 
-  const captions = buildSrt(scenes)
+  const captions = creativeSpec.creativeMethodRelease === 'R8.09' ? renderR809CaptionsSrt(scenes) : buildSrt(scenes)
   fs.writeFileSync(path.join(dir, 'captions.srt'), captions)
 
   const narrationScript = {
@@ -811,6 +866,11 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       role: scene.role,
       start: scene.start,
       end: scene.end,
+      // Keep exact spoken-audio end with the canonical script. The R8.09 SRT
+      // is generated from these timed scenes, then independently regenerated
+      // from narration-script.json during MP4 encoding; omitting speechEnd
+      // wrongly stretches captions across trailing narration pauses.
+      speechEnd: scene.speechEnd,
       text: clean(scene.voiceover),
       factualAuthority: scene.factualAuthority,
     })),
@@ -830,11 +890,12 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     creativeQuality: creativeSpec.creativeQuality ?? null,
     creativeFoundation: creativeSpec.creativeFoundation ?? null,
     creativeVisualFoundation: creativeSpec.creativeVisualFoundation ?? null,
+    creativeSilentFoundation: creativeSpec.creativeSilentFoundation ?? null,
     creativeDirection: creativeSpec.creativeDirection ?? null,
     r805Bindings: bindings,
     durationSeconds,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
-    captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true },
+    captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true, burnInRequired: creativeSpec.creativeMethodRelease === 'R8.09', source: creativeSpec.creativeMethodRelease === 'R8.09' ? 'exact-governed-voice-script' : 'legacy-sidecar' },
     narrationScript: {
       file: 'narration-script.json',
       sha256: sha256(narrationScriptBytes),

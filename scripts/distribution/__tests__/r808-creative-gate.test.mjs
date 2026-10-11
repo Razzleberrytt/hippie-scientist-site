@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { validateR808CreativeBrief, buildR808CreativeReceipt } from '../r808-creative-gate.mjs'
+import { validateR809CreativeBrief, buildR809CreativeReceipt } from '../r809-creative-gate.mjs'
 
 function brief() {
   const source='https://thehippiescientist.net/example/'
@@ -108,5 +109,74 @@ describe('R8.08 silent comprehension contract',()=>{
   it('rejects dropping the inherited R8.07 limitation motif',()=>{
     const b=compliant();b.beats[3].r807.motifId=''
     expect(validateR808CreativeBrief(b).join('\n')).toMatch(/motif must return/)
+  })
+})
+
+function noviceExplainer(){
+  const b=compliant()
+  b.beats.find(beat=>beat.role==='evidence').narration='Evidence: a randomized human trial, a study in people assigned by chance.'
+  b.beats.find(beat=>beat.role==='evidence').spokenAnchor='Evidence: a'
+  b.r809={
+    targetAudience:'general-public',
+    assumedPriorKnowledge:'none',
+    languagePolicy:'plain-english-first',
+    claimAuthority:'EvidenceBridge',
+    narrationCaptionSource:'exact-governed-voice-script',
+    burnInNarrationCaptions:true,
+    captionSync:'voice-derived-phrase-cues',
+    captionMaxWords:7,
+    captionMaxLines:2,
+    canonicalStyle:'2p5d-science-explainer-v1',
+    noPremiumCredits:true,animationMustTeach:true,
+    platformSafeArea:'platform-intersection',
+    decorativeProgressHudAllowed:false,
+    publicClarityReview:'required',
+    exactMasterCaptionReview:'required',
+    technicalTerms:[{term:'randomized',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'assigned by chance'}],glossaryCoverageReviewed:true
+  }
+  const visualByRole={hook:'person',finding:'compare',evidence:'evidence',limitation:'uncertainty',context:'safety',cta:'outro'}
+  for(const beat of b.beats) if(beat.narration){
+    beat.r809={
+      visualScene:visualByRole[beat.role],
+      visualReason:'The illustrated actor shows the viewer the actual scientific narrative visually.'
+    }
+  }
+  return b
+}
+
+describe('EvidenceMotion R8.09 general-public animated-explainer contract',()=>{
+  it('inherits R8.08 and binds every spoken scene and caption policy to the approved narration',()=>{
+    const b=noviceExplainer()
+    expect(validateR809CreativeBrief(b)).toEqual([])
+    const receipt=buildR809CreativeReceipt(b)
+    expect(receipt).toMatchObject({release:'R8.09',status:'approved',burnInNarrationCaptions:true})
+    const previous=receipt.overlaySha256
+    b.beats[1].r809.visualScene='molecule'
+    expect(buildR809CreativeReceipt(b).overlaySha256).not.toBe(previous)
+  })
+  it('rejects an unspecified PowerPoint-style visual and missing plain-English explanation',()=>{
+    const b=noviceExplainer()
+    b.beats[1].r809.visualScene='generic-slide'
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/cartoon teaching scene/)
+    b.beats[1].r809.visualScene='compare'
+    b.r809.technicalTerms=[{term:'randomized',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'assigned by chance'},{term:'trial',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'a different missing explanation'}]
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/plain meaning of trial/)
+  })
+  it('detects technical scientific terms omitted from a declared glossary',()=>{
+    const b=noviceExplainer()
+    b.r809.technicalTerms=[]
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/randomized was spoken without an explanatory glossary entry/)
+  })
+  it('requires explanations for multiword scientific terms too',()=>{
+    const b=noviceExplainer()
+    b.beats.find(beat=>beat.role==='evidence').narration += ' It was a clinical trial.'
+    expect(validateR809CreativeBrief(b).join('\\n')).toMatch(/clinical trial was spoken without an explanatory glossary entry/)
+  })
+  it('rejects ungrounded captions or missing knowledge-level policy',()=>{
+    const b=noviceExplainer()
+    b.r809.captionSync='generic-timer'
+    b.r809.assumedPriorKnowledge='some'
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/short burned-in narration captions/)
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/without prior scientific knowledge/)
   })
 })

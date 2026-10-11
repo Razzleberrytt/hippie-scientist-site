@@ -1,8 +1,9 @@
 {
   "schema": "ths.social.creative-quality.v1",
-  "release": "R8.08",
-  "name": "Silent-First Comprehension & Mobile Claim Legibility",
+  "release": "R8.09",
+  "name": "Narration-Captioned Animated Science Explainers — Plain English First",
   "inherits": [
+    "R8.08",
     "R8.07",
     "R8.06",
     "R8.05",
@@ -56,6 +57,12 @@
       "qualifierVisibility",
       "mobileSafeArea",
       "readableClaimDwell"
+    ],
+    "r809_explainer_master_gates": [
+      "spokenCaptionSync",
+      "captionMobileLegibility",
+      "beginnerClarity",
+      "animatedTeachingCohesion"
     ]
   },
   "recovery": {
@@ -119,5 +126,37 @@
     "mobile_safe_area": "platform-intersection",
     "source_url_lossless": true,
     "exact_master_audio_off_review": true
+  },
+  "voice_caption_sync": {
+    "source": "exact-governed-voice-script",
+    "burned_in_required": true,
+    "phrase_beat_alignment": "voice-derived-phrase-cues",
+    "max_words_per_cue": 7,
+    "max_lines_per_cue": 2,
+    "word_level_accuracy_claimed": false,
+    "exact_master_sync_review": true
+  },
+  "public_education": {
+    "audience": "general-public",
+    "prior_knowledge": "none",
+    "plain_english_first": true,
+    "define_technical_term_same_or_next_beat": true,
+    "explanations_must_be_spoken": true,
+    "scientific_copy_authority": "EvidenceBridge",
+    "manual_clarity_review": true
+  },
+  "animated_style": {
+    "id": "2p5d-science-explainer-v1",
+    "primary": "2D animated vectors",
+    "depth": "layered shading and simulated 3D depth",
+    "examples": [
+      "receptor diagrams",
+      "molecule comparisons",
+      "simple silhouettes",
+      "short explanatory labels"
+    ],
+    "teaching_motion_required": true,
+    "no_hosted_generation_required": true,
+    "decorative_progress_hud_allowed": false
   }
 }
