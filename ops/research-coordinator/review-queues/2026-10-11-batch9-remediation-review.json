@@ -1,0 +1,118 @@
+{
+  "batch": "Batch 9",
+  "reportedAt": "2026-10-11",
+  "source": "V research handoff supplied by site owner; individual verification claims remain attributable to V",
+  "totalTasks": 75,
+  "reportedDisposition": {
+    "confirmed": 44,
+    "provisional": 25,
+    "unresolved": 4,
+    "rejected": 2
+  },
+  "publicationAuthority": "No automatic clinical admission or editorial signoff. Reviewed-source warnings are surgical safety corrections; remaining findings need source-level review and publication governance.",
+  "lanes": {
+    "identity": {
+      "total": 30,
+      "confirmed": 21,
+      "provisional": 5,
+      "unresolved": 2,
+      "rejected": 2
+    },
+    "scientificSafety": {
+      "total": 20,
+      "provisional": 20
+    },
+    "affiliateASIN": {
+      "total": 20,
+      "confirmed": 18,
+      "unresolved": 2
+    },
+    "deepInvestigations": {
+      "total": 5,
+      "confirmed": 5
+    }
+  },
+  "rejectedProducts": [
+    "Thorne Phytisone (Ginger)",
+    "Thorne Echinacea"
+  ],
+  "unresolvedProducts": [
+    "Gaia Herbs Chamomile Liquid Extract",
+    "Life Extension Hawthorn Extract",
+    "NOW Sports Creatine size variant",
+    "Thorne Magnesium Bisglycinate powder SKU/count"
+  ],
+  "correctedTitles": [
+    "Gaia Herbs Hawthorn Supreme",
+    "Pure Encapsulations Black Cohosh 2.5",
+    "Pure Encapsulations Inositol Complex",
+    "NOW Sports Micronized Creatine Monohydrate Powder",
+    "NOW Berberine HCl 500 mg"
+  ],
+  "highConfidenceASINsReported": [
+    "B002DYIZEO",
+    "B0DVWKPJ32",
+    "B001UZPY1O",
+    "B005Z1J0EQ",
+    "B0038NF8MG",
+    "B01D8V0962",
+    "B000X9P5GM",
+    "B0013OXABS",
+    "B003GJ7CJE",
+    "B0145N1HH2",
+    "B01LXADO9Z",
+    "B000HDV7YS",
+    "B0013OXB58",
+    "B0013OVSWG",
+    "B000QVCAKQ",
+    "B000WQDD2O",
+    "B002G75WZI",
+    "B0032GTM9Y"
+  ],
+  "asinPolicy": "Research handoff only. No additional direct ASIN links are activated in this patch: some overlap pending Batches 2–8 PRs and current Amazon availability/variant match requires independent recheck. NOW D3 B001UZPY1O additionally requires Prop 65 disclosure assessment.",
+  "provisionalSafetyReviewQueue": [
+    "5-HTP serotonin/carbidopa/pregnancy",
+    "ashwagandha liver/pregnancy",
+    "berberine neonatal bilirubin/drug interactions",
+    "Chinese skullcap DILI",
+    "ginkgo bleeding/pregnancy",
+    "glucosamine warfarin INR",
+    "magnesium severe kidney disease",
+    "melatonin epilepsy/warfarin/pregnancy",
+    "omega-3 anticoagulants and atrial fibrillation",
+    "rhodiola bipolar/serotonergic/losartan",
+    "SAM-e bipolar/serotonergic/MAOI",
+    "turmeric liver/gallbladder",
+    "caffeine",
+    "CoQ10",
+    "elderberry",
+    "garlic",
+    "lion's mane",
+    "milk thistle",
+    "valerian",
+    "creatine"
+  ],
+  "deepSafetyCases": [
+    "Ashwagandha hepatotoxicity",
+    "Turmeric/curcumin supplement liver injury",
+    "Omega-3 atrial fibrillation",
+    "Melatonin unsupervised pediatric exposure",
+    "Probiotics invasive disease in vulnerable patients"
+  ],
+  "regulatorySources": [
+    "https://www.nccih.nih.gov/health/ashwagandha",
+    "https://pubmed.ncbi.nlm.nih.gov/31991029/",
+    "https://www.ncbi.nlm.nih.gov/books/NBK548561/",
+    "https://www.cdc.gov/mmwr/volumes/71/wr/mm7122a1.htm",
+    "https://www.cdc.gov/mmwr/volumes/73/wr/mm7309a5.htm",
+    "https://www.fda.gov/news-events/press-announcements/fda-raises-concerns-about-probiotic-products-sold-use-hospitalized-preterm-infants",
+    "https://pubmed.ncbi.nlm.nih.gov/34612056/"
+  ],
+  "deferred": [
+    "Individual item-by-item source and formulation recheck for 20 provisional scientific audits",
+    "Direct affiliate ASIN activation only after exact live variant/Prop65 checks",
+    "Regeneration-safe workbook safety source synchronization and review approval",
+    "Scientific source citation mismatch audit on existing canonical detail records"
+  ],
+  "currentPatchScope": "Two rejected and two unresolved catalog recommendations removed; five titles corrected in primary catalog; two secondary consistency edits; five evidence-qualified public profile safety notes; regression test added."
+}
