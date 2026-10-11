@@ -73500,6 +73500,158 @@
       "reservation_id": "d92794fe91345d00c065",
       "reserved_at": "2026-10-11T14:48:20.092Z",
       "source_branch": "research/intake/1/20261011-1045-tvns-aerobic-r24"
+    },
+    {
+      "pmid": "42317199",
+      "title": "Treating insomnia during pregnancy improves bedtime procrastination, rumination, anxiety, and positive affect: a randomized controlled trial of cognitive-behavioral and mindfulness-based therapies for prenatal insomnia.",
+      "doi": "10.1093/sleepadvances/zpag050",
+      "source_title": "Treating insomnia during pregnancy improves bedtime procrastination, rumination, anxiety, and positive affect: a randomized controlled trial of cognitive-behavioral and mindfulness-based therapies for prenatal insomnia.",
+      "abstract": "Insomnia is common in pregnancy and is associated with maladaptive sleep behaviors and poor emotion regulation. Cognitive-behavioral therapy for insomnia (CBTI) and Perinatal Understanding of Mindful Awareness for Sleep (PUMAS) are effective interventions for alleviating prenatal insomnia. However, clinical benefits outside the primary target of sleep remain unclear. This randomized controlled trial (RCT) explored the effectiveness of CBTI and PUMAS on bedtime procrastination, insomnia-focused rumination, anxiety, affect, and mindfulness. Secondary analysis of a single-site, three-arm RCT of N = 64 pregnant women with clinical insomnia who were randomized to CBTI, PUMAS, or sleep hygiene education (SHE). Outcomes included the bedtime procrastination scale (BPS), daytime insomnia symptom response scale, generalized anxiety disorder-7, positive and negative affect schedule, expanded form-modified (PANAS positive and negative affect), and five facet mindfulness questionnaire (FFMQ). Patients provided treatment feedback. CBTI and PUMAS were associated with large reductions in BPS (Cohen's ds ≥ 1.02) and medium-to-large effects on PANAS positive affect (Cohen's ds ≥ .60). In a subsample of patients with anxiety symptoms, CBTI and PUMAS produced large anxiolytic effects (Cohen's ds ≥ .92). PUMAS reduced insomnia-focused rumination relative to SHE (Cohen's d = .71), whereas CBTI did not. We observed no significant effects on negative affect or FFMQ. Patients identified behavioral sleep strategies, meditation, and honoring pregnancy as particularly helpful. CBTI and PUMAS yield clinical gains beyond the primary target of insomnia. These findings highlight the benefits of improving sleep quality for the betterment of overall maternal wellbeing, thereby strengthening consideration of CBTI and PUMAS as first-line treatments for prenatal insomnia. Improving Negative Stressful Perseverations in Insomnia to Revitalize Expectant Moms (INSPIRE). https://clinicaltrials.gov/study/NCT04445805, National Library of Medicine ClinicalTrials.gov Registry: NCT04445805.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42317199/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified human randomized and systematic-review evidence on insomnia, anxiety, and perceived stress; source identities only, pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42317199",
+        "doi": "10.1093/sleepadvances/zpag050",
+        "journal": "Sleep advances : a journal of the Sleep Research Society",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T15:41:40.306Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d06f1a4c8bf0a7069c36",
+      "reserved_at": "2026-10-11T15:41:52.916Z",
+      "source_branch": "research/intake/1/20261011-1139-prenatal-stress-r25"
+    },
+    {
+      "pmid": "41634335",
+      "title": "Effects of mindfulness-based interventions on perceived stress among non-clinical adults: a systematic review and meta-analysis.",
+      "doi": "10.1038/s44184-026-00188-4",
+      "source_title": "Effects of mindfulness-based interventions on perceived stress among non-clinical adults: a systematic review and meta-analysis.",
+      "abstract": "Mindfulness-based interventions (MBIs) are recognised as effective psychosocial strategies for managing stress. We conducted a systematic review and meta-analysis of studies published up to August 2025 across the Web of Science, PubMed, Scopus, PsycINFO, EBSCO and Google Scholar following the PRISMA guidelines. Seventeen randomised controlled trials (n = 1,641) met the inclusion criteria. Baseline stress did not differ between MBI and control groups (SMD = 0.15, 95% CI = -0.07 to 0.36, p = 0.18). Post-intervention, MBIs were associated with significantly lower perceived stress (SMD = -0.53, 95% CI = -0.72 to -0.33, p < 0.00001). Within-group analyses indicated substantial reductions among MBI participants (SMD = 0.93, 95% CI = 0.62 to 1.23, p < 0.00001), whereas controls showed only marginal changes (SMD = 0.23, 95% CI = 0.00 to 0.46, p = 0.05). Subgroup analyses confirmed effectiveness across regions and delivery modalities, with larger effects observed in indirect interventions (SMD = -0.676, p < 0.001). Meta-regression found no significant moderators, and sensitivity analyses demonstrated robustness with minimal publication bias. Collectively, these results support MBIs as effective and scalable strategies for reducing perceived stress in non-clinical adults, highlighting the need for further evaluation of their effects on physiological stress markers.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41634335/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified human randomized and systematic-review evidence on insomnia, anxiety, and perceived stress; source identities only, pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41634335",
+        "doi": "10.1038/s44184-026-00188-4",
+        "journal": "Npj mental health research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T15:41:40.306Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9b29e0af9d85ed0c7e6b",
+      "reserved_at": "2026-10-11T15:41:52.916Z",
+      "source_branch": "research/intake/1/20261011-1139-prenatal-stress-r25"
     }
   ],
   "batches": [
@@ -73528,16 +73680,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 939,
+    "total_reservations": 941,
     "by_lane": {
-      "1": 84,
+      "1": 86,
       "2": 172,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 939
+      "SOURCE_VERIFIED": 941
     },
     "batches": [
       {
@@ -73550,7 +73702,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 439,
+        "count": 441,
         "pr_number": null,
         "blocker": null
       }
