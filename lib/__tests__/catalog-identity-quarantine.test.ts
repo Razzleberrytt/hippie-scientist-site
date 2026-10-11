@@ -230,9 +230,9 @@ describe('commerce batch 5 verified identity and claim quarantine', () => {
     expect(nac?.rationale).toContain('August 2022')
     expect(nac?.rationale).toContain('enforcement discretion')
     for (const product of getRevenueProductSet('iron')?.products ?? []) {
-      expect(product.rationale.toLowerCase()).toMatch(/children|pediatric/)
+      expect((product.rationale ?? '').toLowerCase()).toMatch(/children|pediatric/)
     }
     const ginkgo = getRevenueProductSet('ginkgo-biloba')?.products ?? []
-    expect(ginkgo.some(p => /EGb 761 certified/i.test(p.rationale))).toBe(false)
+    expect(ginkgo.some(p => /EGb 761 certified/i.test(p.rationale ?? ''))).toBe(false)
   })
 })
