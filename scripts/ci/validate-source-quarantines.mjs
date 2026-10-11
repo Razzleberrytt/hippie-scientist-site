@@ -51,8 +51,8 @@ export function quarantineIdentity(sourceId) {
 
 function activeProfileSourceMatches(source, identity) {
   if (!identity) return false
-  // An inactive source record is not an active scientific citation.
-  if (source.active === false || source.reviewStatus === 'quarantined') return false
+  // The public citation extractor renders every member of 'sources',
+  // regardless of source.active or reviewStatus. Presence is still exposure.
   if (identity.kind === 'pmid') return String(source.pmid ?? source.pubmedId ?? '') === identity.key
   const urlDoi = /^https?:\/\/(?:dx\.)?doi\.org\/(.+)$/i.exec(String(source.url ?? ''))?.[1]
   return [source.doi, urlDoi].some((candidate) => compact(candidate) === identity.key)
@@ -62,7 +62,16 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
-export function assessQuarantine({ submission, profile, fragmentPath }) {
+function claimMatches(claim, identity, pubmedCache) {
+  if (!identity) return false
+  const pmid = String(claim?.pmid ?? '')
+  if (identity.kind === 'pmid') return pmid === identity.key
+  const doiFromMetadata = pubmedCache[pmid]?.doi
+  const urlDoi = /^https?:\/\/(?:dx\.)?doi\.org\/(.+)$/i.exec(String(claim?.source_url ?? ''))?.[1]
+  return [claim?.doi, urlDoi, doiFromMetadata].some((candidate) => compact(candidate) === identity.key)
+}
+
+export function assessQuarantine({ submission, profile, claims = [], pubmedCache = {}, fragmentPath }) {
   if (!isWholeSourceQuarantine(submission) || submission.active === false) return null
   const id = String(submission.submissionId ?? 'unknown')
   const tag = `${fragmentPath}:${id}`
@@ -82,19 +91,34 @@ export function assessQuarantine({ submission, profile, fragmentPath }) {
     problems.push(`${tag}: reviewed quarantine cannot resolve PMID/DOI sourceId ${submission.sourceId}`)
   }
   if (statusApproved && editorialApproved && identity) {
-    if (!profile || !Array.isArray(profile.sources)) {
-      problems.push(`${tag}: approved quarantine target profile missing or malformed`)
-    } else if (profile.sources.some((source) => activeProfileSourceMatches(source, identity))) {
-      problems.push(`${tag}: APPROVED QUARANTINE CONFLICT: ${submission.entityType}/${submission.entitySlug} still cites ${submission.sourceId}. Remove/deactivate via reviewed data change.`)
+    if (profile && !Array.isArray(profile.sources)) {
+      problems.push(`${tag}: approved quarantine target profile malformed`)
+    }
+    const presentInProfile = Array.isArray(profile?.sources)
+      && profile.sources.some((source) => activeProfileSourceMatches(source, identity))
+    // Runtime attachWorkbookEvidence() merges matching claims.json entries back
+    // into the published source list; a detail-only removal is NOT sufficient.
+    const presentInClaims = claims.some((claim) => (
+      claim.profile_slug === submission.entitySlug && claimMatches(claim, identity, pubmedCache)
+    ))
+    if (presentInProfile || presentInClaims) {
+      const surfaces = [presentInProfile && 'detail sources', presentInClaims && 'workbook claims']
+        .filter(Boolean).join(' + ')
+      problems.push(`${tag}: APPROVED QUARANTINE CONFLICT: ${submission.entityType}/${submission.entitySlug} still cites ${submission.sourceId} through ${surfaces}. Remove from active records via reviewed data change.`)
     }
   }
   return { tag, approved: statusApproved && editorialApproved, identity, problems }
 }
 
-export function reconcileQuarantines({ fragmentRoot, dataRoot }) {
+export function reconcileQuarantines({ fragmentRoot, dataRoot, pubmedMetadataPath }) {
   const errors = []
   const warnings = []
   const inspected = []
+  const claimsFile = path.join(dataRoot, 'claims.json')
+  const claims = fs.existsSync(claimsFile) ? readJson(claimsFile) : []
+  if (!Array.isArray(claims)) throw new Error('claims.json must be a list')
+  const pubmedCache = pubmedMetadataPath && fs.existsSync(pubmedMetadataPath)
+    ? readJson(pubmedMetadataPath).records ?? {} : {}
   for (const fragmentPath of listJsonFiles(fragmentRoot)) {
     const fragment = readJson(fragmentPath)
     if (!Array.isArray(fragment.submissions)) continue
@@ -107,7 +131,7 @@ export function reconcileQuarantines({ fragmentRoot, dataRoot }) {
       let profile = null
       if (target && fs.existsSync(target)) profile = readJson(target)
       const assessment = assessQuarantine({
-        submission, profile, fragmentPath: path.relative(fragmentRoot, fragmentPath),
+        submission, profile, claims, pubmedCache, fragmentPath: path.relative(fragmentRoot, fragmentPath),
       })
       if (!assessment) continue
       inspected.push(assessment.tag)
@@ -124,6 +148,7 @@ export function main() {
   const result = reconcileQuarantines({
     fragmentRoot: path.join(ROOT, 'ops/enrichment-submissions/sessions'),
     dataRoot: path.join(ROOT, 'public/data'),
+    pubmedMetadataPath: path.join(ROOT, 'ops/cache/pubmed-metadata.json'),
   })
   console.log(`[quarantine] reviewed ${result.inspected.length} whole-source warnings; ${result.errors.length} blocking conflicts; ${result.warnings.length} pending-review alerts`)
   for (const warning of result.warnings.slice(0, 30)) console.warn(`WARN: ${warning}`)
