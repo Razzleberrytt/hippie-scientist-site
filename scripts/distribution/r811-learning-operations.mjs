@@ -51,9 +51,10 @@ export function analyzeR811HookExperiment(flywheelRoot, { experimentId, metricWi
   if(names.some(x=>!slots.has(x)))throw Error('R8.11 lacks a published A/B/C arm')
   const ordered=names.map(id=>slots.get(id))
   const source=ordered[0].r811.sourcePacketSha256
+  const approvedPlanSha256=ordered[0].r811.planSha256
   const platform=ordered[0].platform
-  if (!shaOk(source)||ordered.some(v=>v.platform!==platform||v.r811.sourcePacketSha256!==source)) {
-    throw Error('R8.11 A/B arms must share one approved source packet and platform')
+  if (!shaOk(source)||!shaOk(approvedPlanSha256)||ordered.some(v=>v.platform!==platform||v.r811.sourcePacketSha256!==source||v.r811.planSha256!==approvedPlanSha256)) {
+    throw Error('R8.11 A/B arms must share one approved experiment plan, source packet and platform')
   }
   if(new Set(ordered.map(v=>v.hookTextFirst3Seconds.toLowerCase())).size!==3)throw Error('R8.11 three hook variants cannot duplicate the same hook')
   const timed=ordered.slice().sort((a,b)=>utcMs(a.publishedAt)-utcMs(b.publishedAt))
@@ -80,7 +81,7 @@ export function analyzeR811HookExperiment(flywheelRoot, { experimentId, metricWi
   const lead=rank[0]||null
   return {
     schemaVersion:'ths-evidencemotion-r811-hook-comparison-v1',
-    experimentId,sourcePacketSha256:source,platform,metricWindow,minimumSpacingHours,
+    experimentId,sourcePacketSha256:source,approvedPlanSha256,platform,metricWindow,minimumSpacingHours,
     primaryMetric,armCount:3,actualVideoIds:rows.map(x=>x.videoId),arms:rows,
     status:complete?'exploratory-observed-leader':'missing-metric-or-sample',
     observedLeaderVariantId:lead?.variantId||null,
