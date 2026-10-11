@@ -90,6 +90,17 @@ describe('whole-source quarantine publication reconciliation', () => {
     expect(assess(warning, { sources: [{ url: doiUrl }] })?.problems).toEqual([])
   })
 
+  it('blocks approved PMID quarantines even when the PMID appears only in a PubMed URL', () => {
+    const byPmid = { ...approved, sourceId: 'src_pubmed-31654344' }
+    const url = 'https://pubmed.ncbi.nlm.nih.gov/31654344/'
+    const profileByUrl = { sources: [{ url, reviewStatus: 'approved' }] }
+    expect(assess(byPmid, profileByUrl)?.problems.join(' ')).toContain('detail sources')
+    expect(assess(byPmid, { sources: [] }, [
+      { profile_slug: 'magnesium', source_url: url },
+    ])?.problems.join(' ')).toContain('workbook claims')
+    expect(assess({ ...warning, sourceId: 'src_pubmed-31654344' }, profileByUrl)?.problems).toEqual([])
+  })
+
   it('resolves DOI and PMID prefixes independently of local hashed source IDs', () => {
     expect(quarantineIdentity('src_doi-10-1007-s11695-019-04215-6')).toEqual({
       kind: 'doi', key: '101007s11695019042156',
