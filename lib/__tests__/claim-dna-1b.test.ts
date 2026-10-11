@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { runClaimDnaBatch, loadBatchState } from '@/scripts/claim-dna/run-1b'
+import { runClaimDnaBatch, loadBatchState, recordSharedIdentity, type SharedIdentity } from '@/scripts/claim-dna/run-1b'
 
 // Curated 1B slice: covers cached, packed, uncached, and shared-PMID claims.
 const BATCH_ID = 'test-batch-1b'
@@ -162,6 +162,8 @@ describe('round 1b malformed records (fixtures)', () => {
     for (const name of ['adapter-1a.ts', 'run-1a.ts', 'run-1b.ts']) {
       fs.writeFileSync(path.join(fixtureRoot, 'scripts', 'claim-dna', name), '// fixture ' + name, 'utf8')
     }
+    fs.mkdirSync(path.join(fixtureRoot, 'lib'), { recursive: true })
+    fs.writeFileSync(path.join(fixtureRoot, 'lib', 'study-identity.ts'), '// fixture study-identity.ts', 'utf8')
   })
 
   afterAll(() => {
@@ -222,6 +224,26 @@ describe('round 1b malformed records (fixtures)', () => {
     }
   })
 
+  it('invalidates cached claims when typed identity helper logic changes', () => {
+    const localBatch = 'fixture-study-identity-change'
+    const ids = ['good-claim']
+    const first = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    const second = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    expect(first.run_metrics.total_claims_reprocessed).toBe(1)
+    expect(second.run_metrics.total_claims_skipped).toBe(1)
+    const helperPath = path.join(fixtureRoot, 'lib', 'study-identity.ts')
+    const original = fs.readFileSync(helperPath, 'utf8')
+    try {
+      fs.writeFileSync(helperPath, original + '\\n// changed typed identity interpretation', 'utf8')
+      const third = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(third.run_metrics.total_claims_reprocessed).toBe(1)
+      const fourth = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(fourth.run_metrics.total_claims_skipped).toBe(1)
+    } finally {
+      fs.writeFileSync(helperPath, original, 'utf8')
+    }
+  })
+
   it('rejects duplicate and unsafe identifiers before writing artifacts', () => {
     expect(() => runClaimDnaBatch({ batchId: 'fixture-duplicate', claimIds: ['good-claim', 'good-claim'], root: fixtureRoot })).toThrow('duplicate')
     expect(() => runClaimDnaBatch({ batchId: '../invalid', claimIds: ['good-claim'], root: fixtureRoot })).toThrow('invalid')
@@ -241,5 +263,32 @@ describe('round 1b malformed records (fixtures)', () => {
     expect(byId['empty-pmid'].provenance_status).toBe('unresolved')
     // The batch completes; malformed records don't abort processing.
     expect(byId['good-claim'].join_metrics.successful_joins).toBe(1)
+  })
+})
+
+describe('round 1b shared-identity accumulation (typed identities)', () => {
+  it('keeps PMID fields free of DOI-canonical identifiers', () => {
+    const refs = new Map<string, SharedIdentity>()
+    recordSharedIdentity(refs, 'pmid:38561618', 'c1')
+    // DOI-canonical with no verified association: pmid is null, never the doi: string.
+    recordSharedIdentity(refs, 'doi:10.1000/xyz', 'c1')
+    recordSharedIdentity(refs, 'doi:10.1000/xyz', 'c2')
+
+    expect(refs.get('pmid:38561618')!.pmid).toBe('38561618')
+    const doiEntry = refs.get('doi:10.1000/xyz')!
+    expect(doiEntry.pmid).toBeNull()
+    expect(doiEntry.canonical_id).toBe('doi:10.1000/xyz')
+    expect(doiEntry.referenced_by.sort()).toEqual(['c1', 'c2'])
+  })
+
+  it('preserves verified PMID associations when provided', () => {
+    const refs = new Map<string, SharedIdentity>()
+    recordSharedIdentity(
+      refs,
+      'doi:10.1000/xyz',
+      'c1',
+      new Map([['doi:10.1000/xyz', '38561618']]),
+    )
+    expect(refs.get('doi:10.1000/xyz')!.pmid).toBe('38561618')
   })
 })
