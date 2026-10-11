@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "42806363"
+  ],
+  "relevance_reason": "2026 PubMed-verified network meta-analysis of 96 insomnia RCTs (18,419 participants), comparing six digital therapeutic modalities and clinically meaningful versus statistically significant outcomes; research-only pending independent scientific review."
+}
