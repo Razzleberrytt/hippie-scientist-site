@@ -59162,6 +59162,236 @@
       "reservation_id": "d582d919c83b655982f2",
       "reserved_at": "2026-10-11T06:33:40.762Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "42492920",
+      "title": "Digital Mahjong-Based Cognitive Engagement Intervention for Older Adults: Randomized Controlled Trial.",
+      "doi": "10.2196/85339",
+      "source_title": "Digital Mahjong-Based Cognitive Engagement Intervention for Older Adults: Randomized Controlled Trial.",
+      "abstract": "Gamified digital training may support long-term engagement in aging populations, yet randomized evidence linking behavioral effects to convergent neuroimaging outcomes remains limited. This study tested whether a home-based digital mahjong-based cognitive engagement intervention enhanced cognition in community-dwelling older adults and explored brain changes using multimodal magnetic resonance imaging (MRI). We conducted a single-blind, parallel-group randomized controlled trial in Taipei, Taiwan (July 2020-November 2021). Community-dwelling adults aged 55 years and older were randomized (1:1) to a 6-month digital mahjong-based intervention (two 30-minute sessions per week via an iPad app) with an incentivized walking component (Mi Band step tracking with in-game tokens) or no intervention. Primary MRI outcomes were gray matter volume, regional homogeneity (ReHo), fractional amplitude of low-frequency fluctuations (fALFF), and global brain connectivity. Secondary outcomes included cognition (Montreal Cognitive Assessment), physical activity (International Physical Activity Questionnaire), mental health (Brief Resilience Scale and Mandarin version of the Demoralization Scale), quality of life (EQ-5D with a visual analog scale), physical fitness and body composition, and blood biomarkers. Per-protocol analyses were performed. Voxel-wise imaging analyses used analysis of covariance in SPM12 with family-wise error (FWE) correction at the cluster level (P<.05). Sensitivity analyses controlling for MRI delay duration were conducted to assess robustness of findings. In total, 60 participants were enrolled (n=30, 50% per group); 96.7% (29/30) in the intervention group and 90% (27/30) in the control group completed primary assessments. Compared with controls, the intervention group showed a greater improvement in Montreal Cognitive Assessment delayed recall (between-group difference=-0.79 points, 95% CI -1.538 to -0.042; P=.04). Neuroimaging revealed increased ReHo in the right insula (FWE-corrected P<.05) and decreased gray matter volume in the left frontal pole and orbitofrontal cortex, with reduced fALFF in the left frontal pole. Changes in delayed recall were positively associated with right insular ReHo and also showed significant associations with the right anterior cingulate gyrus (ReHo), left inferior frontal gyrus, and right paracingulate gyrus (fALFF; FWE-corrected P<.05 in all cases). In exploratory dose analyses, right insular ReHo correlated with total practice sessions (r=0.48; P=.009). Among physiological outcomes, the intervention group had a larger reduction in diastolic blood pressure (-3.50 mm Hg, 95% CI -6.911 to -0.091; P=.04), whereas the thyroid-stimulating hormone decreased but remained within the normal range. Sensitivity analyses confirmed that primary findings remained stable after controlling for MRI delay duration. This 6-month home-based digital mahjong intervention improved delayed recall and increased right insular ReHo. Integrating culturally familiar cognitive challenges with lifestyle engagement may be a feasible strategy associated with salience network-related functional changes and memory performance. Future large-scale trials should use active control conditions and factorial designs to rigorously isolate component-specific mechanisms. ClinicalTrials.gov NCT05808426; https://clinicaltrials.gov/study/NCT05808426.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42492920/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42492920",
+        "doi": "10.2196/85339",
+        "journal": "JMIR aging",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T06:53:59.085Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f8eacf22d99749992b6c",
+      "reserved_at": "2026-10-11T06:54:06.870Z",
+      "source_branch": "research/intake/2/20261011-0250-cognition-metabolic-r64"
+    },
+    {
+      "pmid": "42701837",
+      "title": "Culturally Familiar Nostalgic Virtual Reality Cognitive Training for Older Adults: A Randomized Controlled Trial in Day-Care Centers.",
+      "doi": "10.1080/07317115.2026.2724377",
+      "source_title": "Culturally Familiar Nostalgic Virtual Reality Cognitive Training for Older Adults: A Randomized Controlled Trial in Day-Care Centers.",
+      "abstract": "This study examined the effectiveness of a virtual reality based nostalgic cognitive training program for older adults attending day-care centers. In this two-arm randomized controlled trial ( N = 55; mean age = 81.24 years), participants received 12 sessions of VR-based nostalgic cognitive training integrating culturally familiar Taiwanese life scenes (1960s-1990s) with structured multidomain cognitive tasks, or routine activities. The prespecified primary outcome was global cognitive function (MoCA-T). Prespecified secondary outcomes were nostalgia propensity (SNS), depressive symptoms (GDS-15), psychological well-being (PWB-18) and life satisfaction (LSI-SF). Generalized estimating equations (GEE) were used to examine intervention effects. This trial was retrospectively registered at ClinicalTrials.gov (Identifier: NCT06973551). Significant group × time interactions for MoCA-T, SNS, and GDS-15 favored the experimental group. No significant group × time interaction was found for PWB-18 or LSI-SF, although PWB-18 showed within-group improvement in the experimental group. VR-based nostalgic cognitive training may provide short-term benefits for global cognitive function, nostalgia propensity, and depressive symptoms among older adults in day-care settings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42701837/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42701837",
+        "doi": "10.1080/07317115.2026.2724377",
+        "journal": "Clinical gerontologist",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T06:53:59.086Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4db6b79a6ca645e59cd9",
+      "reserved_at": "2026-10-11T06:54:06.870Z",
+      "source_branch": "research/intake/2/20261011-0250-cognition-metabolic-r64"
+    },
+    {
+      "pmid": "42385988",
+      "title": "Impact of simultaneous motor-cognitive training on motor capacities in older adults: A quasi-randomized parallel controlled trial.",
+      "doi": "10.1016/j.exger.2026.113227",
+      "source_title": "Impact of simultaneous motor-cognitive training on motor capacities in older adults: A quasi-randomized parallel controlled trial.",
+      "abstract": "There are normal physiological changes in physical and cognitive functioning with age. Combining different trainings simultaneously, by adding a cognitive task as a distractor of the motor task (additional) or solving a cognitive task with a motor task (incorporated), seems beneficial to counteract aging effects on functional capacities. However, studies are needed to distinguish benefits between additional or incorporated training and to compare these effects against conventional motor training. The aim of this study is to evaluate the impact of two simultaneous motor-cognitive trainings on motor capacities in older adults. During eight weeks, fifty-five older adults were partially randomized into one of the two motor-cognitive training groups (n = 40) or integrated in a motor (strength, balance and walking exercises) training control group (n = 15). Linear mixed models were used to evaluate training effectiveness adjusted to age, sex, body mass, training frequency, level of physical activity, physical and cognitive status. Motor outcomes of interest were the walking endurance, lower limb strength endurance, functional mobility and balance. After adjusting for confounding variables, training can improve motor capacities (p < 0.01; η p 2 [0.14-0.51]). However, simultaneous motor-cognitive training effects are relatively not different from motor training effects and their modalities (incorporated and additional) do not differ between them and (p > 0.05). This study provides insights about the potential of simultaneous motor-cognitive training for improving motor capacities in older adults, even if its efficiency is not different to motor training. Furthermore, neither incorporated nor additional training seem to be the optimal modality. Future comparative studies are needed to draw firm conclusions.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42385988/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42385988",
+        "doi": "10.1016/j.exger.2026.113227",
+        "journal": "Experimental gerontology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T06:53:59.086Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "36419aa0a9bccc24c691",
+      "reserved_at": "2026-10-11T06:54:06.870Z",
+      "source_branch": "research/intake/2/20261011-0250-cognition-metabolic-r64"
     }
   ],
   "batches": [
@@ -59190,16 +59420,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 754,
+    "total_reservations": 757,
     "by_lane": {
       "1": 72,
-      "2": 154,
+      "2": 157,
       "3": 128,
       "4": 50,
       "5": 350
     },
     "by_state": {
-      "SOURCE_VERIFIED": 754
+      "SOURCE_VERIFIED": 757
     },
     "batches": [
       {
@@ -59212,7 +59442,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 254,
+        "count": 257,
         "pr_number": null,
         "blocker": null
       }
