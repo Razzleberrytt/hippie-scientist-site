@@ -15,11 +15,11 @@ describe('revenue product governance', () => {
   it('keeps dormant restricted catalog entries fail-closed at the shared renderer boundary', () => {
     const restricted = Object.keys(revenueProductSets).filter((slug) => isRestrictedIngredient(slug))
 
-    // The older catalog contract deliberately retains dormant source records
-    // (including kava) while getRevenueProductSet() returns null for them. The
-    // shared renderer must enforce the same fail-closed behavior rather than
-    // requiring destructive removal of historical catalog data.
-    expect(restricted.length).toBeGreaterThan(0)
+    // Modern catalog cleanup may remove every restricted record. Both absent
+    // records and dormant records must fail closed; neither should be repopulated.
+    for (const slug of ['kava', 'kratom', '7-oh']) {
+      expect(canRenderConfiguredRevenueProducts(slug)).toBe(false)
+    }
     for (const slug of restricted) {
       expect(canRenderConfiguredRevenueProducts(slug)).toBe(false)
     }

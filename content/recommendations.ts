@@ -87,7 +87,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'You are very sensitive to calming supplements or combining several sedating products.',
     safetyNote: 'Use extra caution with sedatives, alcohol, or medications that affect alertness.',
     practicalNote: 'Often used earlier in the evening rather than as a knockout sleep aid.',
-    sourcingPaths: [profilePath('compound', 'l-theanine'), amazonAsinPath('l-theanine', 'B01GAOCB56')],
+    sourcingPaths: [profilePath('compound', 'l-theanine'), amazonPath('l-theanine', 'Jarrow Theanine 200 mg')],
   },
   {
     id: 'sleep-glycine',
@@ -135,7 +135,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'Pregnant, nursing, thyroid-sensitive, autoimmune-sensitive, or using sedatives unless cleared by a clinician.',
     safetyNote: 'Rare liver safety reports and endocrine context make fit important.',
     practicalNote: 'Standardized extracts differ; avoid assuming all ashwagandha products are equivalent.',
-    sourcingPaths: [profilePath('herb', 'ashwagandha'), amazonAsinPath('ashwagandha', 'B07LFMM7N1')],
+    sourcingPaths: [profilePath('herb', 'ashwagandha'), amazonPath('ashwagandha', 'Jarrow KSM-66 Ashwagandha')],
   },
   {
     id: 'stress-magnesium',

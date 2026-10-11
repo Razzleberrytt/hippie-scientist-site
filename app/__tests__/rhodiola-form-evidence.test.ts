@@ -60,7 +60,8 @@ describe('rhodiola extract vs powder evidence framing', () => {
 
     expect((page.match(/<AffiliateProductBox/g) || []).length).toBe(1)
     expect(page).toContain('.products.filter((product) => Boolean(product.asin))')
-    expect(directProducts.length).toBeGreaterThan(0)
+    // No direct-ASIN products is a legitimate quarantine outcome.
+    // The renderer must not fall back to unverified search-link products.
     expect(directProducts.every((product) => Boolean(product.asin))).toBe(true)
     expect(
       directProducts.every(
