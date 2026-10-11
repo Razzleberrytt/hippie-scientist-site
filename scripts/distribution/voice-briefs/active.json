@@ -54,11 +54,11 @@
     {
       "id": "b1",
       "role": "hook",
-      "narration": "Four kratom-related compounds. Treating them like the same drug can be dangerous.",
+      "narration": "Four kratom-related compounds. Not the same drug.",
       "onScreenText": "FOUR COMPOUNDS. NOT THE SAME DRUG.",
       "visualPurpose": "Show four distinct molecules as cards around one μ-opioid receptor; forbid invented relative potency.",
       "spokenAnchor": "same drug",
-      "visualAction": "At exact spoken phrase 'same drug', execute reveal over teaching object: Show four distinct molecules as cards around one μ-opioid receptor; forbid invented relative potency.",
+      "visualAction": "At spoken phrase 'same drug', reveal the teaching graphic. Show four distinct molecules as cards around one μ-opioid receptor; forbid invented relative potency.",
       "motion": {
         "type": "reveal"
       },
@@ -73,11 +73,11 @@
     {
       "id": "b2",
       "role": "finding",
-      "narration": "Mitragynine dominates kratom leaf. Seven-OH is more opioid-active, especially concerning in concentrated products.",
+      "narration": "Mitragynine dominates kratom leaf. Concentrated seven-OH has stronger opioid activity.",
       "onScreenText": "MITRAGYNINE: MAIN LEAF ALKALOID\n7-OH: HIGHER OPIOID ACTIVITY",
       "visualPurpose": "Leaf-to-concentrate visual; distinguish natural leaf abundance from enhanced products without assigning a conversion ratio.",
-      "spokenAnchor": "Seven-OH",
-      "visualAction": "At exact spoken phrase 'Seven-OH', execute reveal over teaching object: Leaf-to-concentrate visual; distinguish natural leaf abundance from enhanced products without assigning a conversion ratio.",
+      "spokenAnchor": "seven-OH",
+      "visualAction": "At spoken phrase 'seven-OH', reveal the teaching graphic. Leaf-to-concentrate visual; distinguish natural leaf abundance from enhanced products without assigning a conversion ratio.",
       "motion": {
         "type": "reveal"
       },
@@ -93,11 +93,11 @@
     {
       "id": "b3",
       "role": "evidence",
-      "narration": "MGM-fifteen is a manufactured seven-OH derivative. Lab tests show strong receptor binding, but human safety data are lacking.",
+      "narration": "MGM-fifteen is a synthetic derivative with strong lab binding, and little human safety evidence.",
       "onScreenText": "MGM-15: SYNTHETIC DERIVATIVE\nHUMAN SAFETY DATA: LACKING",
       "visualPurpose": "Chemical derivative link and lab evidence lens; no numerical potency ranking.",
       "spokenAnchor": "human safety",
-      "visualAction": "At exact spoken phrase 'human safety', execute highlight over teaching object: Chemical derivative link and lab evidence lens; no numerical potency ranking.",
+      "visualAction": "At spoken phrase 'human safety', highlight the teaching graphic. Chemical derivative link and lab evidence lens; no numerical potency ranking.",
       "motion": {
         "type": "highlight"
       },
@@ -112,11 +112,11 @@
     {
       "id": "b4",
       "role": "finding",
-      "narration": "Corynoxine B also binds opioid receptors in experiments. But what it does in people is still poorly understood.",
+      "narration": "Corynoxine B binds opioid receptors in experiments, but human effects remain unclear.",
       "onScreenText": "CORYNOXINE B\nMOSTLY PRECLINICAL EVIDENCE",
       "visualPurpose": "Zoom from receptor motif to question mark over human silhouette to convey uncertainty.",
-      "spokenAnchor": "in people",
-      "visualAction": "At exact spoken phrase 'in people', execute reveal over teaching object: Zoom from receptor motif to question mark over human silhouette to convey uncertainty.",
+      "spokenAnchor": "human effects",
+      "visualAction": "At spoken phrase 'human effects', reveal the teaching graphic. Zoom from receptor motif to question mark over human silhouette to convey uncertainty.",
       "motion": {
         "type": "reveal"
       },
@@ -131,11 +131,11 @@
     {
       "id": "b5",
       "role": "limitation",
-      "narration": "Here's the catch. Lab receptor binding cannot predict a safe human dose, or rank overdose danger.",
+      "narration": "Lab binding cannot predict a safe dose or overdose risk.",
       "onScreenText": "LAB POTENCY ≠ HUMAN SAFETY",
       "visualPurpose": "Motif returns inverted with red uncertainty boundary; semantic pattern interrupt.",
-      "spokenAnchor": "cannot predict",
-      "visualAction": "At exact spoken phrase 'cannot predict', execute highlight over teaching object: Motif returns inverted with red uncertainty boundary; semantic pattern interrupt.",
+      "spokenAnchor": "predict",
+      "visualAction": "At spoken phrase 'predict', highlight the teaching graphic. Motif returns inverted with red uncertainty boundary; semantic pattern interrupt.",
       "motion": {
         "type": "highlight"
       },
@@ -150,11 +150,11 @@
     {
       "id": "b6",
       "role": "context",
-      "narration": "Dependence and withdrawal matter. Combining opioid-active products with alcohol or sedatives raises the danger. Suspected overdose? Get emergency help.",
+      "narration": "Dependence, withdrawal, and mixing with sedatives matter. Suspected overdose? Call emergency services.",
       "onScreenText": "DEPENDENCE • WITHDRAWAL\nMIXING DEPRESSANTS = DANGER",
       "visualPurpose": "Unambiguous stacked warning strips; no instructions for drug use.",
-      "spokenAnchor": "alcohol or sedatives",
-      "visualAction": "At exact spoken phrase 'alcohol or sedatives', execute reveal over teaching object: Unambiguous stacked warning strips; no instructions for drug use.",
+      "spokenAnchor": "sedatives",
+      "visualAction": "At spoken phrase 'sedatives', reveal the teaching graphic. Unambiguous stacked warning strips; no instructions for drug use.",
       "motion": {
         "type": "reveal"
       },
@@ -169,11 +169,11 @@
     {
       "id": "b7",
       "role": "cta",
-      "narration": "Same chemical neighborhood. Very different evidence. Follow The Hippie Scientist for science, not hype.",
+      "narration": "Related molecules. Different evidence. Follow The Hippie Scientist for the science.",
       "onScreenText": "COMPARE EVIDENCE, NOT HYPE.\nTHE HIPPIE SCIENTIST",
       "visualPurpose": "Return four cards with evidence bars not strength bars; end branded.",
-      "spokenAnchor": "different evidence",
-      "visualAction": "At exact spoken phrase 'different evidence', execute highlight over teaching object: Return four cards with evidence bars not strength bars; end branded.",
+      "spokenAnchor": "Different evidence",
+      "visualAction": "At spoken phrase 'Different evidence', highlight the teaching graphic. Return four cards with evidence bars not strength bars; end branded.",
       "motion": {
         "type": "highlight"
       },
