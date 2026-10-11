@@ -74962,6 +74962,164 @@
       "reservation_id": "206d413436acd79a7832",
       "reserved_at": "2026-10-11T19:52:17.045Z",
       "source_branch": "research/intake/2/20261011-1548-cognition-metabolic-r77"
+    },
+    {
+      "pmid": "42441396",
+      "title": "Ceperognastat in Early Symptomatic Alzheimer Disease: A Randomized Clinical Trial.",
+      "doi": "10.1001/jama.2026.12768",
+      "source_title": "Ceperognastat in Early Symptomatic Alzheimer Disease: A Randomized Clinical Trial.",
+      "abstract": "Inhibiting O-linked N-acetylglucosaminidase (OGA) is hypothesized to slow accumulation of aggregated, hyperphosphorylated tau and neurofibrillary tangle formation. To evaluate the efficacy and safety of the potent oral OGA inhibitor ceperognastat in early symptomatic Alzheimer disease (AD). This double-blind, randomized, placebo-controlled phase 2 study was conducted at 72 sites in 5 countries from September 2021 to August 2024, with a posttreatment observational extension period through May 2025. The primary outcome population comprised participants with early symptomatic AD and biomarker evidence of tau pathology, including low to medium baseline tau levels (excluding individuals with high levels), as measured by positron emission tomography (PET) with flortaucipir F18. Participants were randomized 1:1:1 to receive once-daily, oral ceperognastat at doses of 0.75 mg (n = 110) or 3 mg (n = 108) or placebo (n = 108). The primary outcome was change in Integrated AD Rating Scale (iADRS) score. The success criterion was a 60% or greater probability of achieving greater than or equal to 25% slower progression vs placebo using a bayesian probabilistic disease progression model. The 6 secondary outcomes were Alzheimer's Disease Assessment Scale-Cognitive Subscale, 13-item version; Alzheimer's Disease Cooperative Study-Activities of Daily Living scale; Clinical Dementia Rating-Sum of Boxes; Mini-Mental State Examination; tau PET; and volumetric magnetic resonance imaging. Of the 327 randomized participants (mean age, 73.4 years; 201 [61.5%] females), 259 (87 receiving ceperognastat 0.75 mg, 86 receiving ceperognastat 3 mg, and 86 receiving placebo) with low to medium baseline tau levels were included in the primary outcome population (mean age, 74.3 years; 161 [62.2%] females). In this population, no clinically meaningful benefit vs placebo was observed for the primary end point (iADRS score) at 100 weeks: posterior mean change from baseline was -8.39 with ceperognastat 0.75 mg, -13.27 with ceperognastat 3 mg, and -10.07 with placebo. The disease progression ratio relative to placebo was 0.84 (95% credible interval [CrI], 0.66-1.04) for the ceperognastat 0.75 mg group and 1.32 (CrI, 1.10-1.58) for the ceperognastat 3 mg group, corresponding to 16% less and 32% greater progression, respectively. No benefits were demonstrated for secondary clinical end points. From baseline to 76 weeks, least-squares mean change in standardized uptake value ratio on PET showed a statistically significantly smaller increase (P = .04) vs placebo only for the ceperognastat 3 mg group in the lateral temporal lobe. Volumetric magnetic resonance imaging showed less whole brain volume loss in participants treated with ceperognastat vs placebo (43.2% [ceperognastat 0.75 mg] and 49.5% [ceperognastat 3 mg] less vs placebo; both P < .001). The ceperognastat 3 mg group had more serious (ceperognastat 0.75 mg: n = 13 [12.0%]; ceperognastat 3 mg: n = 29 [26.4%]; placebo: n = 17 [15.7%]) and severe (ceperognastat 0.75 mg: n = 7 [6.5%]; ceperognastat 3 mg: n = 15 [13.6%]; placebo: n = 7 [6.5%]) treatment-emergent adverse events. Ceperognastat did not slow disease progression of early symptomatic AD. ClinicalTrials.gov Identifier: NCT05063539.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42441396/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Multicenter Study; Clinical Trial, Phase II",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Clinical Trial, Phase II"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42441396",
+        "doi": "10.1001/jama.2026.12768",
+        "journal": "JAMA",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T22:00:42.179Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8a2b9f8658721f4a50ed",
+      "reserved_at": "2026-10-11T22:00:43.606Z",
+      "source_branch": "research/intake/2/20261011-1756-cognition-metabolic-null-r78"
+    },
+    {
+      "pmid": "42683892",
+      "title": "Stage-Dependent Cognitive Effects of a Multinutrient Intervention in Alzheimer's Disease: A Stage-Stratified Meta-Analysis.",
+      "doi": "10.3791/72385",
+      "source_title": "Stage-Dependent Cognitive Effects of a Multinutrient Intervention in Alzheimer's Disease: A Stage-Stratified Meta-Analysis.",
+      "abstract": "A specific multinutrient intervention provides precursors and cofactors for synaptic membrane synthesis. Randomized trials across the Alzheimer's disease (AD) continuum have reported mixed findings. We conducted a systematic review and stage-stratified meta-analysis of randomized, placebo-controlled trials. MEDLINE, Embase, CENTRAL, Web of Science, Scopus, ClinicalTrials.gov, and the WHO International Clinical Trials Registry Platform were searched through February 28, 2026. Disease stage was prespecified as an effect modifier. Standardized mean differences (SMDs; Hedges' g) were synthesized using restricted maximum likelihood random-effects models. Four trials met the inclusion criteria; three contributed to the quantitative synthesis (analyzed n = 906). Souvenir I was retained for qualitative synthesis because its distinct co-primary outcomes and reporting did not permit a compatible SMD for the prespecified pooled analysis. The exploratory pooled cognitive effect was small and not significant (SMD = 0.08; 95% CI, -0.09 to 0.26; p = 0.35; I 2 = 41.8%). For biomarker-confirmed prodromal AD, the 24-month primary neuropsychological test battery (NTB) 5-item composite endpoint showed a small, nonsignificant effect (SMD = 0.16; 95% CI, -0.08 to 0.41; original trial p = 0.166). The primary NTB memory endpoint in mild, drug-naive AD showed a small effect (SMD = 0.21; 95% CI, -0.06 to 0.49; original longitudinal-model p = 0.023), whereas the primary Alzheimer's disease assessment scale-cognitive subscale (ADAS-Cog) endpoint in treated mild-to-moderate AD showed no benefit (SMD = -0.06; 95% CI, -0.25 to 0.13; p = 0.513). At 36 months, the LipiDiDiet extension reported significant differences in the NTB 5-item composite, clinical dementia rating - sum of boxes (CDR-SB), memory, and brain-volume outcomes. The intervention was well tolerated. The evidence is compatible with a potential early-stage signal, but the small evidence base, lack of replication across stages, and manufacturer sponsorship warrant cautious interpretation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42683892/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Video-Audio Media; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Video-Audio Media",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42683892",
+        "doi": "10.3791/72385",
+        "journal": "Journal of visualized experiments : JoVE",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T22:00:42.180Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0779851d0ee00368210c",
+      "reserved_at": "2026-10-11T22:00:43.606Z",
+      "source_branch": "research/intake/2/20261011-1756-cognition-metabolic-null-r78"
     }
   ],
   "batches": [
@@ -74991,16 +75149,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 958,
+    "total_reservations": 960,
     "by_lane": {
       "1": 91,
-      "2": 184,
+      "2": 186,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 958
+      "SOURCE_VERIFIED": 960
     },
     "batches": [
       {
@@ -75013,7 +75171,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 458,
+        "count": 460,
         "pr_number": null,
         "blocker": null
       }
