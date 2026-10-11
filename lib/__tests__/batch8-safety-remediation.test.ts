@@ -41,6 +41,8 @@ describe('Batch 8 evidence-qualified safety controls', () => {
       expect(canRenderAffiliateLinks({slug, monetization_allowed:true})).toBe(false)
       expect(canRenderConfiguredRevenueProducts(slug)).toBe(false)
     }
+    // Remifemin is a black-cohosh product even though its marketing name omits the herb.
+    expect(isRestrictedIngredient('Remifemin Menopause Supplement')).toBe(true)
     expect(isRestrictedIngredient('magnesium')).toBe(false)
   })
 
