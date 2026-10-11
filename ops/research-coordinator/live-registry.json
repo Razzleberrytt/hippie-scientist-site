@@ -51893,6 +51893,82 @@
       "reservation_id": "b586eec934f648977a5a",
       "reserved_at": "2026-10-11T01:56:08.477Z",
       "source_branch": "research/intake/2/20261010-2153-cognition-metabolic-r59"
+    },
+    {
+      "pmid": "42786864",
+      "title": "Integrated LC-MS and Computer-aided Drug Design Evaluation of Sida cordifolia Herbal Microemulsion Targeting Inflammatory Enzymes through Molecular Docking, MM-GBSA, DFT, and ADMET Profiling.",
+      "doi": "10.2174/0115734099498434260828063631",
+      "source_title": "Integrated LC-MS and Computer-aided Drug Design Evaluation of Sida cordifolia Herbal Microemulsion Targeting Inflammatory Enzymes through Molecular Docking, MM-GBSA, DFT, and ADMET Profiling.",
+      "abstract": "Sida cordifolia (SC) is traditionally used for treat inflammatory disorders; however, its molecular composition and the mechanistic basis of action remain poorly characterized. This study aimed to identify its bioactive constituents and elucidate their multi-target anti-inflammatory potential using an integrated computational and experimental approach. Phytochemical profiling of the ethanolic extract was performed using LC-MS. The identified phytoconstituents were evaluated for their pharmacokinetic and toxicity profiles using in silico ADMET prediction. Molecular docking was carried out against secretory phospholipase A2 (sPLA2), 5-lipoxygenase (5-LOX), and cyclooxygenase-2 (COX-2), followed by MMGBSA binding free energy calculations, density functional theory (DFT) analysis, and molecular dynamics (MD) simulations for selected COX-2 complexes. An oil-in-water microemulsion of the extract was formulated and characterized, followed by in vitro (protein denaturation and membrane stabilization) and in vivo (carrageenan-induced paw edema) evaluation of antiinflammatory activity. LC-MS analysis identified thirteen phytoconstituents belonging to quinazoline alkaloids, flavonoids, fatty acids, phytosterols, and ecdysteroids. ADMET analysis predicted favorable drug-likeness and low toxicity for most compounds. Molecular docking revealed strong multi-target interactions of quinazoline alkaloids and prenylated flavonoids with sPLA2, 5-LOX, and COX-2. MM-GBSA analysis demonstrated favorable binding free energies, with 5-hydroxy-3-isoprenyl flavone (-47.31 kcal/mol) and Vasicinol (-44.10 kcal/mol) exhibiting the strongest affinity toward COX-2, while Vasicinol maintained favorable binding across all three inflammatory targets. DFT analysis showed lower HOMO-LUMO energy gaps and higher softness for Vasicinol and 5-hydroxy-3-isoprenyl flavone, indicating enhanced electronic reactivity. Molecular dynamics simulations demonstrated superior dynamic stability of the COX-2- Vasicinone complex, characterized by stable protein and ligand RMSD profiles, minimal fluctuations of active-site residues, persistent interactions with key catalytic residues, and consistent thermal MM-GBSA binding energies throughout the 100 ns simulation. The formulated microemulsion exhibited desirable physicochemical characteristics and significantly enhanced antiinflammatory activity in both in vitro and in vivo models. The integrated computational analyses demonstrated that quinazoline alkaloids and flavonoids possess complementary binding characteristics toward multiple inflammatory targets. Docking, MM-GBSA, DFT, and MD simulations collectively indicated that favorable binding energetics, electronic properties, and dynamic stability contribute to the inhibitory potential of these phytoconstituents. Furthermore, incorporation of the extract into a microemulsion improved its physicochemical properties and translated the computational predictions into enhanced biological activity. This study provides comprehensive computational and experimental evidence supporting the multi-target anti-inflammatory potential of Sida cordifolia. The combined LC-MS, ADMET, molecular docking, MM-GBSA, DFT, molecular dynamics, and biological evaluation identified quinazoline alkaloids and prenylated flavonoids as the principal contributors to its pharmacological activity. These findings establish a mechanistic basis for the anti-inflammatory effects of Sida cordifolia and support its further development as a promising phytopharmaceutical candidate.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42786864/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42786864",
+        "doi": "10.2174/0115734099498434260828063631",
+        "journal": "Current computer-aided drug design",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T02:04:08.265Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5a4e1d6a923fc0250c2c",
+      "reserved_at": "2026-10-11T02:04:14.706Z",
+      "source_branch": "research/intake/3/20261010-2202-sida-pharmacology-42786864"
     }
   ],
   "batches": [
@@ -51921,16 +51997,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 660,
+    "total_reservations": 661,
     "by_lane": {
       "1": 65,
       "2": 146,
-      "3": 124,
+      "3": 125,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 660
+      "SOURCE_VERIFIED": 661
     },
     "batches": [
       {
@@ -51943,7 +52019,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 160,
+        "count": 161,
         "pr_number": null,
         "blocker": null
       }
