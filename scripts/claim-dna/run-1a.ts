@@ -28,6 +28,10 @@ import {
   loadProductionClaims,
   splitPmids,
 } from './adapter-1a'
+import {
+  buildPmidByCanonicalRoot,
+  identityPmidsForJoin,
+} from '@/lib/study-identity'
 
 export const ARTIFACT_SCHEMA_VERSION = 'claim-dna-1a/0.1'
 export const GENERATOR_VERSION = 'round-1a-runner/0.1'
@@ -201,11 +205,18 @@ export function buildClaimDna({ claimId, root = process.cwd() }: ClaimDnaInput):
   // 7b. Truthful join metrics. A successful metadata join requires BOTH
   // canonical identity resolution AND usable publication metadata.
   // Identity alone (or metadata alone) is not a join.
-  const identityPmids = new Set(
-    studyIdentities
-      .map((id) => String(id).replace(/^pmid:/, ''))
-      .filter((p) => /^\d+$/.test(p)),
+  // Identity PMIDs are resolved through the typed identity layer, never by
+  // assuming canonical identities begin with `pmid:`. DOI-canonical
+  // identities contribute their verified associated PMID (from the profile's
+  // own source records); unresolvable identities contribute nothing.
+  const sourceById = new Map((profile.sources ?? []).map((s) => [String(s.id), s]))
+  const pmidByCanonicalRoot = buildPmidByCanonicalRoot(
+    [...identities.entries()].map(([sourceId, canonical]) => ({
+      canonical: String(canonical),
+      pmid: sourceById.get(String(sourceId))?.pmid,
+    })),
   )
+  const identityPmids = new Set(identityPmidsForJoin(studyIdentities, pmidByCanonicalRoot))
   const successfulJoinPmids = pmidsWithUsableMetadata.filter((p) => identityPmids.has(p))
   const join_metrics = {
     identity_resolutions: studyIdentities.length,
