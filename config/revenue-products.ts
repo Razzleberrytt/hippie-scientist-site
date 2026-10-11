@@ -393,17 +393,10 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     title: 'Turmeric / Curcumin product picks',
     products: [
       {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: 'NOW Turmeric 400 mg',
-        rationale: 'Budget pick for basic turmeric root capsules; best used with black pepper for absorption.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Turmeric 400 mg capsules' }),
-      },
-      {
         slot: 'overall',
         brand: 'Thorne',
         title: 'Thorne Meriva-SR Curcumin',
-        rationale: 'Best overall for the clinically validated Meriva phospholipid-bound curcumin format.',
+        rationale: 'Meriva phospholipid-bound curcumin formulation. A formulation identity, not proof of superior health outcomes; review exact product label and safety cautions before any recommendation.',
         affiliateUrl: amazonProductUrl({ query: 'Thorne Meriva-SR curcumin phytosome' }),
       },
       {
@@ -920,8 +913,8 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'overall',
         brand: 'Optimum Nutrition',
         title: 'Optimum Nutrition Micronized Creatine Powder',
-        rationale: 'Best overall for Creapure-sourced micronized creatine monohydrate — industry standard.',
-        affiliateUrl: amazonProductUrl({ query: 'Optimum Nutrition Micronized Creatine Powder Creapure' }),
+        rationale: 'Manufacturer describes micronized creatine monohydrate with 5 g creatine per serving. Creapure identity and retailer listing are unverified.',
+        affiliateUrl: amazonProductUrl({ query: 'Optimum Nutrition Micronized Creatine Powder' }),
       },
       {
         slot: 'premium',
