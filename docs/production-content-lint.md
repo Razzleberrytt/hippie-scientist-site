@@ -51,7 +51,7 @@ For an intentional major change, add a substantive entry to the pull request bod
 Quality change explanation: Consolidated obsolete alias routes into canonical profiles; the page-count drop is intentional and redirects were validated.
 ```
 
-The workflow fails a pull request when a material regression/change crosses the configured thresholds and no explanation of at least 20 characters is supplied. This makes large automated changes auditable without treating every legitimate refactor as an error.
+PR descriptions and free-text explanations are optional. The workflow reports significant measured changes automatically and fails only for objectively large losses (pages, indexable pages, links, or structured citations) using recorded before/after data. Documentation fields never determine pass/fail.
 
 The first successful `main` run after this feature lands bootstraps the baseline artifact. Until that baseline exists, comparison exits successfully with an explicit bootstrap message rather than pretending a comparison occurred.
 
