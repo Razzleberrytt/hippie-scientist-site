@@ -52813,6 +52813,83 @@
       "reservation_id": "b73659590c3cb5b5c84a",
       "reserved_at": "2026-10-11T03:51:44.455Z",
       "source_branch": "research/intake/2/20261010-2349-cognition-metabolic-r61"
+    },
+    {
+      "pmid": "42647909",
+      "title": "Berberine Poisoning with Polymorphic Ventricular Tachycardia: A Case Report.",
+      "doi": "10.5811/cpcem.56949",
+      "source_title": "Berberine Poisoning with Polymorphic Ventricular Tachycardia: A Case Report.",
+      "abstract": "Natural supplements are readily available without a prescription and are not regulated by the United States Food and Drug Administration. The popularity of berberine, a bioactive compound used for centuries in traditional Chinese medicine, has surged due to its proposed benefits in glycemic control and cardiovascular health. However, use of berberine may lead to possible negative electrophysiologic changes. A 92-year-old male presented to the emergency department (ED) with chief complaints of tremors, urinary incontinence, and brief syncopal episodes that began approximately two weeks after starting berberine. In the ED he had multiple episodes of polymorphic ventricular tachycardia with pulselessness requiring immediate cardioversion, with a rapid return of spontaneous circulation between episodes. Amiodarone was started; however, despite this, he continued to have persistent episodes. Finally, the episodes resolved after starting lidocaine and isoproterenol in the intensive care unit. The patient's workup was notable for heart rate-corrected QT interval (QTc) prolongation (QTc 616 milliseconds (ms) [male reference range, QTc < 430 ms]) confirming the polymorphic ventricular tachycardia as torsades de pointes. His cardiac evaluation was otherwise normal, including a normal ejection fraction on a transthoracic echocardiogram. Withholding berberine and supportive management resulted in an improved QTc. On hospital day 3, the QTc was 454 ms. The patient had a short inpatient admission and was discharged without any further episodes. Berberine has numerous effects and is purported to have beneficial effects and cardioprotective properties. Due to induced bradycardia and QT prolongation, patients who take berberine can be vulnerable to life-threatening arrhythmias, such as the R-on-T phenomenon in our patient's case. Additional research on berberine is needed to better inform clinician-patient discussions about its use.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42647909/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42647909",
+        "doi": "10.5811/cpcem.56949",
+        "journal": "Clinical practice and cases in emergency medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T04:04:55.476Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "98224b6f5526eb401cc5",
+      "reserved_at": "2026-10-11T04:05:04.397Z",
+      "source_branch": "research/intake/3/20261011-0002-berberine-cardiac-42488242-42647909-r11"
     }
   ],
   "batches": [
@@ -52841,16 +52918,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 672,
+    "total_reservations": 673,
     "by_lane": {
       "1": 69,
       "2": 152,
-      "3": 126,
+      "3": 127,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 672
+      "SOURCE_VERIFIED": 673
     },
     "batches": [
       {
@@ -52863,7 +52940,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 172,
+        "count": 173,
         "pr_number": null,
         "blocker": null
       }
