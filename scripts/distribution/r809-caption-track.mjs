@@ -96,7 +96,11 @@ export function renderR809CaptionAss(scenes) {
     '[Events]', 'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text',
   ]
   const lines = cues.map(({start,end,text}) => {
-    const literal = text.replace(/[{}]/g, '').replace(/\\/g, '﹨').replace(/\n/g, '\\N')
+    // Failing closed prevents source words or punctuation from being silently
+    // modified by the ASS markup layer. A caller can revise the narration or
+    // use an explicitly reviewed renderer with literal-brace support.
+    if (/[{}\\\\]/.test(text)) throw new Error('R8.09 ASS caption contains unrenderable control characters')
+    const literal = text.replace(/\n/g, '\\N')
     return `Dialogue: 0,${timestamp(start)},${timestamp(end)},THS,,0,0,0,,${literal}`
   })
   return [...header, ...lines, ''].join('\n')

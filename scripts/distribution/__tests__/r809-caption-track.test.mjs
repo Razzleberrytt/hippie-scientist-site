@@ -25,6 +25,10 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
     expect(renderR809CaptionAss(scenes)).toContain('Dialogue: 0')
     expect(renderR809CaptionAss(scenes)).not.toContain('loading')
   })
+  it('rejects unrenderable ASS control characters instead of silently deleting narration',()=>{
+    expect(()=>renderR809CaptionAss([{start:0,end:4,voiceover:'This {braced} phrase is spoken.'}]))
+      .toThrow(/unrenderable control characters/)
+  })
   it('fails instead of flashing a long sentence too quickly',()=>{
     expect(()=>buildR809CaptionCues([{start:0,end:0.1,voiceover:'This is an example of too much text.'}])).toThrow(/too fast/)
   })
