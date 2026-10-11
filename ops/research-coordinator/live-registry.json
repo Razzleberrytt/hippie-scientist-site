@@ -52354,6 +52354,83 @@
       "reservation_id": "c6a09bcb7a84d742c2bd",
       "reserved_at": "2026-10-11T02:57:00.763Z",
       "source_branch": "research/intake/2/20261010-2253-cognition-metabolic-r60"
+    },
+    {
+      "pmid": "42820745",
+      "title": "Traditional Chinese medicine-derived natural products and formulations as pharmacological modulators of ageing-related pathways: mechanisms and therapeutic potential.",
+      "doi": "10.1093/jpp/rgag114",
+      "source_title": "Traditional Chinese medicine-derived natural products and formulations as pharmacological modulators of ageing-related pathways: mechanisms and therapeutic potential.",
+      "abstract": "Population ageing drives the need for interventions that extend healthspan. Ageing involves interconnected processes, including oxidative stress, mitochondrial dysfunction, chronic inflammation, metabolic dysregulation, impaired autophagy, genomic instability, proteostasis loss, stem cell exhaustion and gut microbiota dysbiosis. This review summarises ageing-related mechanisms and evaluates natural products and formulations derived from traditional Chinese medicine (TCM) as multi-target pharmacological modulators. A narrative review was conducted to integrate evidence on ageing-related pathways and representative TCM-derived bioactive compounds, plant polysaccharides, herbal extracts and classical TCM formulations with reported geroprotective effects. Emphasis was placed on mechanisms involving redox homeostasis, inflammatory signalling, energy metabolism, autophagy, mitochondrial regulation and gut microbiota modulation. TCM-derived natural products and formulations modulate multiple ageing-related pathways rather than isolated targets. Representative constituents, including ginsenosides and plant polysaccharides, regulate oxidative stress, inflammatory responses, metabolic signalling and autophagy. Classical formulations exert multi-component effects on genomic stability, mitochondrial function, immune regulation and microbiota homeostasis. These findings support the potential of TCM-derived natural products and formulations as multi-target pharmacological strategies for healthy ageing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42820745/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42820745",
+        "doi": "10.1093/jpp/rgag114",
+        "journal": "The Journal of pharmacy and pharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T03:06:50.542Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "53c3065370125214304a",
+      "reserved_at": "2026-10-11T03:06:59.758Z",
+      "source_branch": "research/intake/3/20261010-2305-tcm-ageing-42820745"
     }
   ],
   "batches": [
@@ -52382,16 +52459,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 666,
+    "total_reservations": 667,
     "by_lane": {
       "1": 67,
       "2": 149,
-      "3": 125,
+      "3": 126,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 666
+      "SOURCE_VERIFIED": 667
     },
     "batches": [
       {
@@ -52404,7 +52481,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 166,
+        "count": 167,
         "pr_number": null,
         "blocker": null
       }
