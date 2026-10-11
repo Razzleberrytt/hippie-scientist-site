@@ -24,48 +24,7 @@ export interface AffiliateProduct {
 
 export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
   // ASHWAGANDHA
-  {
-    id: 'jarrow-ashwagandha-ksm66',
-    brand: 'Jarrow Formulas',
-    name: 'KSM-66 Ashwagandha',
-    category: 'herb',
-    entitySlugs: ['ashwagandha'],
-    priceUsd: 16.95,
-    servings: 120,
-    capsulesPerContainer: 120,
-    servingSize: 1,
-    activeIngredients: [
-      {
-        name: 'Ashwagandha Root Extract (KSM-66)',
-        amountMg: 300,
-        activeCompound: 'withanolides',
-        activeYieldPercent: 5,
-      },
-    ],
-    certifications: ['GMP', 'Third-Party Tested'],
-    amazonAsin: 'B0013OQG0A',
-  },
-  {
-    id: 'now-ashwagandha-450',
-    brand: 'NOW Foods',
-    name: 'Ashwagandha Extract',
-    category: 'herb',
-    entitySlugs: ['ashwagandha'],
-    priceUsd: 11.50,
-    servings: 90,
-    capsulesPerContainer: 90,
-    servingSize: 1,
-    activeIngredients: [
-      {
-        name: 'Ashwagandha Root Extract',
-        amountMg: 450,
-        activeCompound: 'withanolides',
-        activeYieldPercent: 2.5,
-      },
-    ],
-    certifications: ['GMP'],
-    amazonAsin: 'B0013OVZMI',
-  },
+  // Conflicting Jarrow/NOW ashwagandha ASIN variants withheld from the priced affiliate registry pending exact identity verification.
   {
     id: 'le-optimized-ashwagandha',
     brand: 'Life Extension',
@@ -189,27 +148,8 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
   },
 
   // BERBERINE
-  {
-    id: 'thorne-berberine-500',
-    brand: 'Thorne',
-    name: 'Berberine-500',
-    category: 'compound',
-    entitySlugs: ['berberine'],
-    priceUsd: 36.00,
-    servings: 60,
-    capsulesPerContainer: 60,
-    servingSize: 1,
-    activeIngredients: [
-      {
-        name: 'Berberine HCl',
-        amountMg: 500,
-        activeCompound: 'berberine',
-        activeYieldPercent: 85,
-      },
-    ],
-    certifications: ['GMP', 'Third-Party Tested', 'COA'],
-    amazonAsin: 'B0094FTO68',
-  },
+  // Retired Thorne Berberine-500 variant: no longer a valid current-formula affiliate item.
+  // Re-admit only after identifying an exact current dual-action variant and its price/serving evidence.
   {
     id: 'doctors-best-berberine',
     brand: "Doctor's Best",

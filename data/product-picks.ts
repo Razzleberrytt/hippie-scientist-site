@@ -13,19 +13,27 @@ export const productPicks: ProductPick[] = [
   // Turmeric
   {
     compound_slug: 'turmeric',
-    name: 'Thorne Meriva-SR Curcumin',
-    brand: 'Thorne',
-    type: 'top',
-    url: `https://www.amazon.com/s?k=Thorne+Meriva-SR+curcumin+phytosome&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for the clinically validated Meriva phospholipid-bound curcumin format.'
+    name: 'NOW Turmeric Curcumin 665 mg, 60 veg capsules',
+    brand: 'NOW Foods',
+    type: 'budget',
+    url: `https://www.amazon.com/dp/B0013OXD3I?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Item #4638: 665 mg standardized turmeric extract supplying about 630 mg curcuminoids (95%); liver-safety context applies to concentrated curcumin.'
   },
   {
     compound_slug: 'turmeric',
-    name: 'Life Extension Super Bio-Curcumin',
+    name: 'Thorne Curcumin Phytosome (Meriva-SR), 120 capsules',
+    brand: 'Thorne',
+    type: 'top',
+    url: `https://www.amazon.com/dp/B01D8V0962?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed SF815 variant. A 29-fold total-curcuminoid absorption result came from an n=9 pharmacokinetic comparison versus the matched unformulated mixture, not a clinical efficacy comparison.'
+  },
+  {
+    compound_slug: 'turmeric',
+    name: 'Life Extension Super Bio-Curcumin, 400 mg (60 capsules)',
     brand: 'Life Extension',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Life+Extension+Super+Bio-Curcumin+BCM-95&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium BCM-95 curcumin with enhanced bioavailability.'
+    url: `https://www.amazon.com/dp/B000X9P5GM?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed BCM-95 variant; bioavailability does not establish comparative clinical effectiveness.'
   },
 
   // Ashwagandha
@@ -34,8 +42,8 @@ export const productPicks: ProductPick[] = [
     name: 'Jarrow KSM-66 Ashwagandha',
     brand: 'Jarrow Formulas',
     type: 'top',
-    url: `https://www.amazon.com/dp/B07LFMM7N1?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.'
+    url: `https://www.amazon.com/s?k=Jarrow+KSM-66+Ashwagandha&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'KSM-66 ashwagandha; historic ASIN conflicts with a provisional variant, so exact direct URL is held.'
   },
   {
     compound_slug: 'ashwagandha',
@@ -52,16 +60,16 @@ export const productPicks: ProductPick[] = [
     name: 'Jarrow Theanine 200 mg',
     brand: 'Jarrow Formulas',
     type: 'top',
-    url: `https://www.amazon.com/dp/B01GAOCB56?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a simple 200 mg L-theanine capsule format.'
+    url: `https://www.amazon.com/s?k=Jarrow+Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Single-ingredient theanine; exact ASIN remains provisional and this earlier direct ASIN cannot be assumed equivalent.'
   },
   {
     compound_slug: 'l-theanine',
-    name: 'NOW L-Theanine 200 mg',
+    name: 'NOW L-Theanine 200 mg + Inositol 100 mg',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+L-Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for plain L-theanine capsules.'
+    url: `https://www.amazon.com/s?k=NOW+L-Theanine+200+mg+inositol+100+mg&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Combination supplement, not plain L-theanine; exact ASIN unverified.'
   },
   {
     compound_slug: 'l-theanine',
@@ -69,7 +77,7 @@ export const productPicks: ProductPick[] = [
     brand: 'Sports Research',
     type: 'premium',
     url: `https://www.amazon.com/s?k=Sports+Research+Suntheanine+L-Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium pick pairing Suntheanine-labeled theanine in softgel format.'
+    notes: 'Suntheanine L-theanine liquid softgel with coconut oil; exact ASIN provisional.'
   },
 
   // Magnesium
@@ -101,27 +109,27 @@ export const productPicks: ProductPick[] = [
   // Creatine
   {
     compound_slug: 'creatine',
-    name: 'Optimum Nutrition Micronized Creatine Powder',
+    name: 'Optimum Nutrition Micronized Creatine Powder, 600 g (120 servings)',
     brand: 'Optimum Nutrition',
     type: 'top',
-    url: `https://www.amazon.com/s?k=Optimum+Nutrition+Micronized+Creatine+Powder&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for micronized creatine monohydrate — industry standard.'
+    url: `https://www.amazon.com/dp/B002DYIZEO?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed unflavored variant; 5 g creatine per serving, with Creapure branding.'
   },
   {
     compound_slug: 'creatine',
-    name: 'NOW Sports Micronized Creatine Monohydrate Powder',
+    name: 'NOW Sports Micronized Creatine Monohydrate Powder, 21.2 oz',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Sports+Creatine+Monohydrate+Powder+unflavored&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for unflavored, simple creatine monohydrate powder.'
+    url: `https://www.amazon.com/s?k=NOW+Sports+Creatine+Monohydrate+Powder+unflavored+21.2+oz&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Provisional 21.2 oz variant; retain search URL until exact product-to-ASIN verification.'
   },
   {
     compound_slug: 'creatine',
-    name: 'Thorne Creatine',
+    name: 'Thorne Creatine, unflavored (30 servings)',
     brand: 'Thorne',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+Creatine+monohydrate+NSF+Certified+for+Sport&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium NSF Certified for Sport creatine monohydrate.'
+    url: `https://www.amazon.com/dp/B0DVWKPJ32?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 30-serving variant; NSF Certified for Sport.'
   },
 
   // Rhodiola Rosea
@@ -130,8 +138,8 @@ export const productPicks: ProductPick[] = [
     name: 'Gaia Herbs Rhodiola Rosea',
     brand: 'Gaia Herbs',
     type: 'top',
-    url: `https://www.amazon.com/dp/B00E4HSMQE?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for users who want liquid phyto-caps format.'
+    url: `https://www.amazon.com/s?k=Gaia+Herbs+Rhodiola+Rosea&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Gaia Rhodiola phyto-caps; reported rosavins amount is not a 3%-1% standardized extract claim. Old direct ASIN unresolved.'
   },
   {
     compound_slug: 'rhodiola',
@@ -139,15 +147,15 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Rhodiola+500+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for a common Rhodiola rosea capsule.'
+    notes: 'NOW Rhodiola root extract standardized to 3% rosavins/1% salidroside; direct ASIN unverified.'
   },
   {
     compound_slug: 'rhodiola',
-    name: 'Thorne Rhodiola',
+    name: 'Thorne Rhodiola (SF755)',
     brand: 'Thorne',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+Rhodiola+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium practitioner-grade standardized extract.'
+    url: `https://www.amazon.com/s?k=Thorne+Rhodiola+SF755&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: '100 mg 5:1 root extract standardized to 3% rosavins and 1% salidroside; direct ASIN provisional.'
   },
 
   // Lion's Mane
@@ -156,24 +164,34 @@ export const productPicks: ProductPick[] = [
     name: 'Real Mushrooms Lions Mane',
     brand: 'Real Mushrooms',
     type: 'top',
-    url: `https://www.amazon.com/dp/B07YJN369J?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for fruiting-body-forward labeling and mushroom-category transparency.'
+    url: `https://www.amazon.com/s?k=Real+Mushrooms+Lions+Mane&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Fruiting body with stated beta-glucans; B078SZX3ML replacement is provisional and prior ASIN may be mismatched.'
   },
   {
     compound_slug: 'lions-mane',
-    name: 'NOW Lions Mane',
+    name: 'NOW Lion\'s Mane',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Lions+Mane+mushroom+supplement&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: "Budget pick for a widely available lion's mane capsule."
+    url: `https://www.amazon.com/dp/B09V3BS25N?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed USDA Organic fruiting-body variant; do not transfer strain/form claims to other lion\'s mane products.'
   },
   {
     compound_slug: 'lions-mane',
-    name: 'Host Defense Lions Mane',
+    name: 'Host Defense Lion\'s Mane mycelium-on-rice',
     brand: 'Host Defense',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Host+Defense+Lions+Mane+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium pick from a well-known mushroom-specialist brand.'
+    url: `https://www.amazon.com/s?k=Host+Defense+Lions+Mane+mycelium+brown+rice&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Mycelium on brown rice, not fruiting body. Check this variant\'s California Proposition 65 lead warning and ingredient differences.'
+  },
+
+  // Glycine — this confirmed product is capsules, not powder.
+  {
+    compound_slug: 'glycine',
+    name: 'NOW Glycine 1,000 mg capsules',
+    brand: 'NOW Foods',
+    type: 'budget',
+    url: `https://www.amazon.com/dp/B08R229KG7?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 1 g capsules. A 3 g amount used in some small sleep studies is not universal dosing advice.'
   },
 
   // Melatonin
@@ -187,11 +205,11 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'melatonin',
-    name: 'NOW Melatonin 3 mg',
+    name: 'NOW Melatonin 3 mg, 180 capsules',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Melatonin+3+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for a standard 3 mg dose.'
+    url: `https://www.amazon.com/s?k=NOW+Foods+Melatonin+3+mg+180+capsules+733739032577&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'UPC 733739032577 identifies the 180-capsule 3 mg variant. Amazon ASIN unresolved: search link retained.'
   },
   {
     compound_slug: 'melatonin',
@@ -200,6 +218,32 @@ export const productPicks: ProductPick[] = [
     type: 'premium',
     url: `https://www.amazon.com/s?k=Thorne+Melaton-3+melatonin+capsules&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Premium practitioner-brand 3 mg melatonin with clean formulation.'
+  },
+
+  // Vitamin D: Thorne D/K2 is a combination formula, not single-ingredient D3.
+  {
+    compound_slug: 'vitamin-d',
+    name: 'NOW Vitamin D3 2000 IU, 240 softgels',
+    brand: 'NOW Foods',
+    type: 'budget',
+    url: `https://www.amazon.com/dp/B001UZPY1O?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 240-softgel product, NOW item #0377; monitor total vitamin D intake.'
+  },
+  {
+    compound_slug: 'vitamin-d',
+    name: 'Pure Encapsulations Vitamin D3 1000 IU, 250 capsules',
+    brand: 'Pure Encapsulations',
+    type: 'top',
+    url: `https://www.amazon.com/dp/B005Z1J0EQ?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 250-capsule variant; separate 120-capsule SKU/ASIN is not interchangeable.'
+  },
+  {
+    compound_slug: 'vitamin-d',
+    name: 'Thorne Vitamin D/K2 Liquid, 1 fl oz (600 servings)',
+    brand: 'Thorne',
+    type: 'premium',
+    url: `https://www.amazon.com/dp/B0038NF8MG?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed model #11793; combination D3+K2 product. Vitamin K can interfere with warfarin treatment.'
   },
 
   // Omega-3
@@ -213,11 +257,11 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'omega-3',
-    name: 'NOW Ultra Omega-3',
+    name: 'NOW Ultra Omega-3 500 EPA / 250 DHA (ethyl ester)',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Ultra+Omega-3+500+EPA+250+DHA&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for high-EPA enteric-coated softgels.'
+    url: `https://www.amazon.com/dp/B0015L2LBE?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed ethyl-ester fish-oil formulation, not triglyceride; 500 mg EPA plus 250 mg DHA.'
   },
   {
     compound_slug: 'omega-3',
@@ -231,11 +275,11 @@ export const productPicks: ProductPick[] = [
   // Berberine
   {
     compound_slug: 'berberine',
-    name: 'Thorne Berberine-500',
+    name: 'Thorne Berberine Dual-Action (HCl + phytosome)',
     brand: 'Thorne',
     type: 'top',
-    url: `https://www.amazon.com/s?k=Thorne+Berberine-500+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a practitioner-brand berberine with consistent testing.'
+    url: `https://www.amazon.com/s?k=Thorne+Berberine+dual+action+HCl+phytosome&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Reformulated: 450 mg HCl plus 550 mg phytosome per two-capsule serving; old Berberine-500 and HPLC claims withdrawn.'
   },
   {
     compound_slug: 'berberine',
@@ -243,7 +287,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Berberine+500+mg+HCl+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for berberine HCl at the standard clinical dose.'
+    notes: 'Berberine HCl 500 mg per capsule; some human trials total 1,000-1,500 mg/day, not necessarily a recommended regimen.'
   },
   {
     compound_slug: 'berberine',
@@ -309,14 +353,6 @@ export const productPicks: ProductPick[] = [
   // Bacopa Monnieri
   {
     compound_slug: 'bacopa',
-    name: 'Jarrow Formulas Bacopa Monnieri 320 mg',
-    brand: 'Jarrow Formulas',
-    type: 'top',
-    url: `https://www.amazon.com/s?k=Jarrow+Formulas+Bacopa+Monnieri+320+mg+extract&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a standardized 20% bacosides extract.'
-  },
-  {
-    compound_slug: 'bacopa',
     name: 'NOW Bacopa 450 mg',
     brand: 'NOW Foods',
     type: 'budget',
@@ -340,14 +376,6 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Kaged+PurCaf+organic+caffeine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall for chemical-free water-extracted organic caffeine.'
-  },
-  {
-    compound_slug: 'caffeine',
-    name: 'NOW Sports Caffeine 200 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Sports+Caffeine+200+mg+tablets&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for plain caffeine anhydrous tablets.'
   },
   {
     compound_slug: 'caffeine',
@@ -399,7 +427,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Quercetin+with+Bromelain+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for quercetin + bromelain combination.'
+    notes: 'Quercetin plus bromelain combination; avoid unproven absorption and clinical advantage claims.'
   },
   {
     compound_slug: 'quercetin',
@@ -465,14 +493,6 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'palmitoylethanolamide',
-    name: 'Nutricost PEA 600 mg',
-    brand: 'Nutricost',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=Nutricost+Palmitoylethanolamide+PEA+600+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget capsule pick for simple micronized PEA support.'
-  },
-  {
-    compound_slug: 'palmitoylethanolamide',
     name: 'Vitalitus Ultramicronized PEA',
     brand: 'Vitalitus',
     type: 'premium',
@@ -491,11 +511,11 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'boswellia',
-    name: 'NOW Boswellia Extract 500 mg',
+    name: 'NOW Boswellia Extract 500 mg softgels, 90 count',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Boswellia+Extract+500+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for standardized 65% boswellic acids extract.'
+    url: `https://www.amazon.com/s?k=NOW+Boswellia+Extract+500+mg+softgels+90+item+4936&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Item #4936 is a Boswellia-only 500 mg gum-resin extract softgel standardized to at least 65% organic acids; distinct from the turmeric-containing veg-caps variant.'
   },
   {
     compound_slug: 'boswellia',
