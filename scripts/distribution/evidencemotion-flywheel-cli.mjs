@@ -3,7 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { registerFlywheelVideo, appendFlywheelObservation, flywheelInsights,
+import { registerFlywheelVideo, registerFlywheelFromPackage, appendFlywheelObservation, persistFlywheelHookPatterns, flywheelInsights,
   renderFlywheelLearningReport, proposeFlywheelTemplate,
   approveFlywheelTemplate, versionFlywheelTemplate
 } from './evidencemotion-flywheel.mjs'
@@ -12,6 +12,7 @@ const help = [
 'EvidenceMotion Flywheel — local append-only learning',
 'Commands:',
 '  register --input VIDEO.json [--root DIR]',
+'  register --input VIDEO.json --package R8.10_PACKAGE_DIR [--root DIR]',
 '  observe --input METRICS.json [--root DIR]',
 '  hooks [--window first-7d] [--root DIR]',
 '  topics [--window first-7d] [--root DIR]',
@@ -43,9 +44,9 @@ export function runFlywheelCLI(argv){
   const opts=args(rest),root=path.resolve(opts.root||'ops/evidencemotion/flywheel')
   const window=opts.window||'first-7d'
   switch(command){
-    case 'register':return JSON.stringify(registerFlywheelVideo(root,readInput(opts.input)),null,2)
+    case 'register':return JSON.stringify(opts.package ? registerFlywheelFromPackage(root,{...readInput(opts.input),packageDir:opts.package}) : registerFlywheelVideo(root,readInput(opts.input)),null,2)
     case 'observe':return JSON.stringify(appendFlywheelObservation(root,readInput(opts.input)),null,2)
-    case 'hooks':return JSON.stringify(flywheelInsights(root,{metricWindow:window}).hookPatterns,null,2)
+    case 'hooks':persistFlywheelHookPatterns(root,{metricWindow:window});return JSON.stringify(flywheelInsights(root,{metricWindow:window}).hookPatterns,null,2)
     case 'topics':return JSON.stringify(flywheelInsights(root,{metricWindow:window}).topics,null,2)
     case 'report':{
       const last=opts.last===undefined?10:Number(opts.last)
