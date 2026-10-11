@@ -21,14 +21,6 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'turmeric',
-    name: 'NOW Turmeric 400 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Turmeric+400+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for basic turmeric root capsules.'
-  },
-  {
-    compound_slug: 'turmeric',
     name: 'Life Extension Super Bio-Curcumin',
     brand: 'Life Extension',
     type: 'premium',
@@ -52,14 +44,6 @@ export const productPicks: ProductPick[] = [
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Ashwagandha+450+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Budget pick for a simple ashwagandha capsule.'
-  },
-  {
-    compound_slug: 'ashwagandha',
-    name: 'Thorne Stress Balance',
-    brand: 'Thorne',
-    type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+stress+balance+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium pick for practitioner-brand quality and stress-support context.'
   },
 
   // L-Theanine

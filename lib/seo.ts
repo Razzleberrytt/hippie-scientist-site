@@ -1211,14 +1211,11 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   const displayName = getProfileDisplayName(record)
   const override = PROFILE_METADATA_OVERRIDES[String(record?.slug || '').toLowerCase()]
 
-  // Title Priority:
-  // 0. near-duplicate disambiguation override (see PROFILE_METADATA_OVERRIDES)
-  // 1. meta_title
-  // 2. seoTitle
-  // 3. keyword-first generated title
-  // 4. fallback entity/page title
-  const title = override?.title ||
-                getSafeProfileTitleOverride(record, displayName, type) ||
+  // Title priority: hand-authored meta_title/seoTitle wins when valid;
+  // profile intent overrides supply defaults, not replacements for editorial work.
+  // A curated disambiguation fallback can still be used if no explicit title exists.
+  const title = getSafeProfileTitleOverride(record, displayName, type) ||
+                override?.title ||
                 formatProfileTitle(displayName, type) ||
                 displayName
 
@@ -1232,9 +1229,11 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
     : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
 
-  const rawDescription = (record.meta_description || record.metaDescription || record.description || '').trim()
-  const description = override?.description ||
-                      normalizeProfileNameInText(rawDescription, displayName) ||
+  const manuallyAuthoredDescription = String(record.meta_description || record.metaDescription || '').trim()
+  const regularDescription = String(record.description || '').trim()
+  const description = normalizeProfileNameInText(manuallyAuthoredDescription, displayName) ||
+                      override?.description ||
+                      normalizeProfileNameInText(regularDescription, displayName) ||
                       keywordFirstDescription ||
                       safeFallbackDescription
 

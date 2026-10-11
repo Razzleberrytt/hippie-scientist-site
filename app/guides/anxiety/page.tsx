@@ -163,7 +163,7 @@ const ANXIETY_REFS = [
   {
     n: 3,
     text: 'Sarris J, et al. (2020). Kava for generalised anxiety disorder: a 16-week double-blind, randomised, placebo-controlled study. Aust N Z J Psychiatry, 54(3): 288-297.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/31665900/',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/31813230/',
   },
   {
     n: 4,

@@ -21,13 +21,24 @@ describe('getProductPicks', () => {
 })
 
 describe('groupProductPicks', () => {
-  it('groups picks into top/budget/premium by type', () => {
-    const picks = getProductPicks('turmeric')
-    const grouped = groupProductPicks(picks)
+  it('groups eligible fixture picks into top/budget/premium by type', () => {
+    const grouped = groupProductPicks([
+      { type: 'top', name: 'Reviewed top' },
+      { type: 'budget', name: 'Reviewed budget' },
+      { type: 'premium', name: 'Reviewed premium' },
+    ])
 
     expect(grouped.top?.type).toBe('top')
     expect(grouped.budget?.type).toBe('budget')
     expect(grouped.premium?.type).toBe('premium')
+  })
+
+  it('does not synthesize missing catalog products to fill empty categories', () => {
+    const grouped = groupProductPicks(getProductPicks('turmeric'))
+
+    expect(grouped.top?.type).toBe('top')
+    expect(grouped.premium?.type).toBe('premium')
+    expect(grouped.budget).toBeUndefined()
   })
 
   it('leaves a bucket undefined when no pick of that type exists', () => {

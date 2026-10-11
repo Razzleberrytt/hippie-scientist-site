@@ -5440,19 +5440,6 @@
     "study_class_human": true
   },
   {
-    "id": "study-row-79",
-    "title": "sleep_quality",
-    "pmid": "31654344",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
-    "evidence_tier": "meta_analysis",
-    "profile_slug": "magnesium",
-    "study_class": "meta-analysis",
-    "study_class_source": "meta_analysis",
-    "study_class_label": "Meta-analysis",
-    "study_class_rank": 9,
-    "study_class_human": true
-  },
-  {
     "id": "study-row-8",
     "title": "stress_response",
     "pmid": "23439798",

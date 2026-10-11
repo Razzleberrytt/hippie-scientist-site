@@ -1,0 +1,51 @@
+{
+  "proposalVersion": 1,
+  "proposalId": "cbd-cyp2c19-prodrug-liver-mechanism-20261010",
+  "issueNumber": 6606,
+  "reviewStatus": "draft_submission",
+  "publicationAuthorized": false,
+  "scope": "Unapproved source correction proposal only; NOT ingested by enrichment normalization or generation.",
+  "authoritativeInput": "public/data/enrichment-normalized.jsonl",
+  "generatedOutput": "public/data/enrichment-governed.json",
+  "independentApprovalRequired": true,
+  "proposedCorrections": [
+    {
+      "enrichmentId": "enr_cbd-enzyme-cyp2c19",
+      "sourceId": "src_fda-epidiolex-label-2026",
+      "reviewStatus": "draft_submission",
+      "existingValue": {
+        "findingTextShort": "Cannabidiol is a moderate CYP2C19 inhibitor.",
+        "findingTextNormalized": "Current EPIDIOLEX prescribing information identifies cannabidiol as a moderate CYP2C19 inhibitor and notes that concomitant use can increase plasma concentrations of CYP2C19 substrates."
+      },
+      "proposedValue": {
+        "findingTextShort": "EPIDIOLEX increases exposure to some CYP2C19 substrates but may decrease activation of prodrugs such as clopidogrel.",
+        "findingTextNormalized": "The May 2026 EPIDIOLEX prescribing information identifies cannabidiol as a moderate CYP2C19 inhibitor. Concomitant EPIDIOLEX increases plasma concentrations of CYP2C19 substrates. For substrates such as the prodrug clopidogrel, whose efficacy depends on active metabolites, concomitant EPIDIOLEX may decrease active-metabolite exposure and therefore may decrease efficacy. This is a prescription-label interaction warning, not a demonstrated clinical outcome for every nonprescription CBD formulation."
+      },
+      "sourceUrl": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf27097-4870-43fb-94f0-f3d0871d1eec",
+      "sourceSection": "7.2 CYP2C19 Substrates",
+      "scientificRationale": "The general substrate-exposure warning cannot be applied in the same direction to CYP2C19-activated prodrugs; the label expressly names clopidogrel and qualifies active-metabolite/efficacy reduction as a possibility."
+    },
+    {
+      "enrichmentId": "enr_cbd-adverse-effect-transaminase",
+      "sourceId": "src_pubmed-40622698",
+      "reviewStatus": "draft_submission",
+      "existingValue": {
+        "mechanismKnown": true,
+        "uncertaintyNote": "Do not transfer this risk estimate to people with baseline liver disease, concomitant hepatotoxic medications, other doses, or longer durations without direct evidence."
+      },
+      "proposedValue": {
+        "mechanismKnown": false,
+        "uncertaintyNote": "In this 28-day healthy-adult randomized trial, CBD 5 mg/kg/day was associated with ALT/AST elevations above 3 times the upper limit of normal in 5.6% of CBD participants versus 0% of placebo participants. This observation does not establish the molecular mechanism of liver injury. Do not transfer the trial-specific estimate to people with baseline liver disease, hepatotoxic co-medications, other CBD doses, or longer exposure without direct evidence."
+      },
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40622698/",
+      "scientificRationale": "The randomized clinical observation is source-supported, but the publication does not establish a specific molecular or cellular mechanism behind the observed enzyme elevations. Severity and trial result remain unchanged."
+    }
+  ],
+  "reviewRequirements": [
+    "Independent authorized scientific/editorial decision for each correction, with accountable reviewer and date.",
+    "Do not treat the historical reviewer/editorialStatus metadata on the original records as approval of amended text.",
+    "After approval, apply changes to the existing normalized authoring input without inventing a duplicate source or enrichment identity.",
+    "Regenerate governed artifacts with the canonical pipeline; verify safety warnings and short/long summaries against consumer surfaces.",
+    "Run normalized ledger/source validation, focused propagation tests, typecheck, and applicable build/CI gates before merging publication changes."
+  ]
+}
