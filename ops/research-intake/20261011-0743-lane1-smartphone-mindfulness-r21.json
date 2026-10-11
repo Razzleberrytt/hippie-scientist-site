@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seed_only": true,
+  "lane": 1,
+  "lane_focus": "sleep-stress-mood",
+  "research_only": true,
+  "pmids": [
+    "42617378",
+    "42335492"
+  ],
+  "relevance_reason": "PubMed-verified randomized trials of smartphone-based interventions for anxiety/depressive symptoms and digital mindfulness for late-life depression; source identity only, scientific interpretation pending independent review."
+}
