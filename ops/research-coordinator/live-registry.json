@@ -73036,6 +73036,314 @@
       "reservation_id": "d7d0de0d0ddbad2b31d2",
       "reserved_at": "2026-10-11T13:47:15.765Z",
       "source_branch": "research/intake/1/20261011-0943-wearable-tvns-r23"
+    },
+    {
+      "pmid": "42508500",
+      "title": "The effects of multi-session resistance exercise on cognitive function in healthy adults: A systematic research review and meta-analysis.",
+      "doi": "10.1016/j.arr.2026.103277",
+      "source_title": "The effects of multi-session resistance exercise on cognitive function in healthy adults: A systematic research review and meta-analysis.",
+      "abstract": "Cognitive decline is a growing global concern, and lifestyle-based interventions are increasingly recognised as promising preventive strategies. This review synthesises evidence on the cognitive effects of multi-session resistance exercise in healthy adults, organising outcomes within the broad ability structure of the Cattell-Horn-Carroll (CHC) framework. Following PRISMA 2020 guidelines and a PROSPERO-registered protocol, comprehensive searches of electronic databases identified studies evaluating multi-session resistance exercise interventions and cognitive outcomes in healthy adults. Study quality was assessed using RoB 2, and random-effects Generic Inverse Variance meta-analyses were conducted to account for between-study heterogeneity. Cognitive outcomes were independently classified as global cognition, executive function, working memory, processing speed, and episodic memory. Resistance exercise was associated with improvements in global cognition and in several domains, including executive function, working memory, and processing speed. In contrast, episodic memory retrieval showed no consistent overall benefit and demonstrated substantial variability across studies. The findings indicate that the cognitive effects of multi-session resistance exercise are domain-specific rather than uniform across cognitive abilities. Resistance exercise appears particularly promising for supporting cognitive processes involving executive control, working memory, and rapid information processing. However, interpretation should remain cautious given heterogeneity across studies, limited evidence in some domains, and variation in intervention duration, intensity, and cognitive measurement approaches. Future research should employ larger samples and more consistent CHC-aligned outcome measures to strengthen the evidence base.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42508500/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42508500",
+        "doi": "10.1016/j.arr.2026.103277",
+        "journal": "Ageing research reviews",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T13:55:22.197Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d6641fd0f6f40fa5a81c",
+      "reserved_at": "2026-10-11T13:55:33.139Z",
+      "source_branch": "research/intake/2/20261011-0952-cognition-metabolic-r71"
+    },
+    {
+      "pmid": "42261542",
+      "title": "Effect of Low-Carbohydrate Diets on Glycemic Control in Type 2 Diabetes Mellitus: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.7759/cureus.108479",
+      "source_title": "Effect of Low-Carbohydrate Diets on Glycemic Control in Type 2 Diabetes Mellitus: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Low-carbohydrate diets have gained increasing attention as a strategy for improving glycemic control in individuals with type 2 diabetes mellitus (T2DM). However, evidence from randomized controlled trials (RCTs) remains variable. This study aimed to evaluate the effect of low-carbohydrate diets on HbA1c levels in patients with T2DM through a systematic review and meta-analysis of RCTs. A systematic search was conducted to identify RCTs comparing low-carbohydrate diets with control diets in adults with T2DM, including studies with mixed populations where applicable. The primary outcome was change in HbA1c. Data were pooled using a random-effects model, and heterogeneity was assessed using the I² statistic. Sensitivity analysis and funnel plot assessment were performed. Risk of bias was assessed using the Cochrane Risk of Bias 2 tool. Seven RCTs comprising 562 participants were included. Low-carbohydrate diets were associated with a statistically significant reduction in HbA1c compared with control diets (mean difference: -0.24%; 95% CI: -0.32 to -0.16; p<0.00001). Heterogeneity was low (I²=6%). Sensitivity analysis demonstrated consistent results with no single study significantly influencing the overall estimate. Funnel plot assessment showed no clear evidence of publication bias, although interpretation was limited by the small number of studies. Low-carbohydrate diets are associated with a modest but statistically significant and clinically relevant improvement in glycemic control in patients with T2DM. These findings support their role as a dietary strategy in diabetes management.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42261542/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42261542",
+        "doi": "10.7759/cureus.108479",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T13:55:22.198Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2727cef21d27b18f3530",
+      "reserved_at": "2026-10-11T13:55:33.139Z",
+      "source_branch": "research/intake/2/20261011-0952-cognition-metabolic-r71"
+    },
+    {
+      "pmid": "42182054",
+      "title": "Can exercise combined with transcranial direct current stimulation improve cognitive function in older adults? A systematic review and meta-analysis.",
+      "doi": "10.3389/fnins.2026.1836124",
+      "source_title": "Can exercise combined with transcranial direct current stimulation improve cognitive function in older adults? A systematic review and meta-analysis.",
+      "abstract": "This study investigated whether combining exercise with transcranial direct current stimulation (tDCS) improves overall cognition, memory, and executive function in older adults. Following PRISMA guidelines, we systematically searched databases including PubMed, Web of Science, CNKI, and Wan Fang for randomized controlled trials (RCTs) examining the combined effect of exercise and tDCS on cognitive function in older adults. Used RStudio (version 4.2.0) to merge effect sizes and represent them as SMD with a 95% confidence interval (CI). The main effects are synthesized using a random effects model, and heterogeneity sources are explored through subgroup regression and sensitivity analysis. The combined exercise and tDCS intervention significantly improved global cognitive function in older adults (SMD = 0.62, 95% CI: 0.36 to 0.89, p < 0.0001). Significant enhancements were observed in executive function (SMD = 0.54, 95% CI: 0.16 to 0.92, p = 0.005) and general cognitive ability (SMD = 0.75, 95% CI: 0.21 to 1.30, p = 0.006), while memory showed a non-significant improvement (SMD = 0.58, 95% CI: -0.03 to 1.19, p = 0.063). Both interventions lasting less than 6 weeks (SMD = 0.94, 95% CI: 0.60 to 1.27, p < 0.0001) and those lasting 6 weeks or longer (SMD = 0.24, 95% CI: 0.10 to 0.37, p = 0.0006) positively impacted cognitive function. However, the effect size was larger for cognitively healthy older adults (SMD = 0.69, 95% CI: 0.20 to 1.18, p = 0.006) compared to those with cognitive impairment (SMD = 0.60, 95% CI: 0.29 to 0.92, p = 0.0002). The combination of tDCS and integrated exercise produced the largest effect size (SMD = 1.74), despite high heterogeneity, while the combination of tDCS and Tai Chi produced the smallest but most robust effect (SMD = 0.25, I 2 = 0%), indicating that exercise type significantly regulates the intervention effect of tDCS ( p = 0.0015). Regression analysis shows that tDCS stimulation time has a significant positive regulatory effect on cognitive function in elderly people ( p = 0.0002), while the combined intervention period ( p = 0.030) and single exercise time ( p = 0.034) both have a significant negative regulatory effect. Based on limited evidence, we found that a combined intervention of exercise and tDCS is a potentially effective means of improving cognitive function in older adults. However, the extent of improvement varies with the cognitive domain, baseline performance level, and intervention plan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42182054/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42182054",
+        "doi": "10.3389/fnins.2026.1836124",
+        "journal": "Frontiers in neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T13:55:22.199Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3c6d6d425624247f94bc",
+      "reserved_at": "2026-10-11T13:55:33.139Z",
+      "source_branch": "research/intake/2/20261011-0952-cognition-metabolic-r71"
+    },
+    {
+      "pmid": "42072154",
+      "title": "Effect of the Rate of Glucose Consumption on the Total Peroxyl Radical Trapping Antioxidant Potential (TRAP) of Plasma in Overweight Men and Women: A Randomized Trial.",
+      "doi": "10.3390/antiox15040512",
+      "source_title": "Effect of the Rate of Glucose Consumption on the Total Peroxyl Radical Trapping Antioxidant Potential (TRAP) of Plasma in Overweight Men and Women: A Randomized Trial.",
+      "abstract": "Low glycemic-index foods may reduce postprandial oxidative stress by reducing postprandial glucose excursions, but the evidence for this is limited by dietary confounders. To determine whether reducing postprandial glucose per se reduces postprandial oxidative stress, overnight-fasted participants (BMI 25.0-39.9 kg/m 2 , n = 18) consumed four test meals in random order: 75 g dextrose solution (Dex) within 5 min (bolus/noC), Dex slowly over 3.25 h (sipping/noC), bolus with 1 g vitamin C (bolus/C) and sipping with 1 g vitamin C (sipping/C). Venous blood was taken at intervals over 6 h; a standard lunch was consumed at 4 h. Sipping flattened postprandial glucose and insulin and reduced free fatty acid rebound compared to bolus ( p < 0.05). Vitamin C raised serum vitamin C from ~20 to ~55 μmol/L. The total peroxyl radical trapping antioxidant potential (TRAP) increments differed after lunch, with a main effect of vitamin C at 5 h (mean ± SEM; C 70 ± 23 vs. noC -29 ± 27; p = 0.016) and main effects of rate (sipping 57 ± 25 vs. bolus -71 ± 28; p = 0.0002) and vitamin C (C 58 ± 25 vs. noC -73 ± 28; p = 0.0003) at 6 h. By multiple regression analysis, the TRAP area under the curve (AUC) was positively associated with the insulin AUC ( p < 0.001) and negatively with the glucose and vitamin C AUCs ( p < 0.05). The oxidized LDL increments were higher 6 h after sipping than bolus (7 ± 7 vs. -20 ± 7, p = 0.005). The oxidized LDL AUC was negatively associated with the TRAP AUC ( p < 0.001). These results support the hypothesis that reducing postprandial glucose reduces postprandial oxidative stress.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42072154/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42072154",
+        "doi": "10.3390/antiox15040512",
+        "journal": "Antioxidants (Basel, Switzerland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T13:55:22.200Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "40bb17e6bdbbcade454a",
+      "reserved_at": "2026-10-11T13:55:33.139Z",
+      "source_branch": "research/intake/2/20261011-0952-cognition-metabolic-r71"
     }
   ],
   "batches": [
@@ -73064,16 +73372,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 933,
+    "total_reservations": 937,
     "by_lane": {
       "1": 82,
-      "2": 168,
+      "2": 172,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 933
+      "SOURCE_VERIFIED": 937
     },
     "batches": [
       {
@@ -73086,7 +73394,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 433,
+        "count": 437,
         "pr_number": null,
         "blocker": null
       }
