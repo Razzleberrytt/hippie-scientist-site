@@ -33,6 +33,9 @@ const RESTRICTED_TERMS = [
   'nicotiana tabacum',
   'noopept',
   'psilocybin',
+  // Batch 5: St. John's Wort has high-consequence CYP/P-gp drug interactions.
+  'st johns wort',
+  'hypericum perforatum',
   'piper methysticum',
   'piper-methysticum',
   'salvinorin',
