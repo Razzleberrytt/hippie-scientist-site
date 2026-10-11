@@ -9,7 +9,7 @@ const words = (text) => clean(text).split(/\s+/).filter(Boolean).length
 // EvidenceMotion has no decorative playback/progress HUD: those belong to the
 // platform UI, not scientific teaching objects. A measurement chart remains
 // allowed when it is not described as a playback/progress indicator.
-const PHANTOM_PROGRESS_HUD = /\b(?:progress\s*(?:bar|track|indicator)|loading\s*(?:bar|track|indicator)|(?:playback|timeline)\s*(?:bar|meter|track))\b/i
+const PHANTOM_PROGRESS_HUD = /\b(?:progress\s*(?:bar|track|indicator)|loading\s*(?:bar|track|indicator)|(?:playback|timeline|timing)\s*(?:bar|meter|track))\b/i
 
 // An objective pre-render comprehension gate. Semantic adequacy still requires a
 // human exact-MP4 review; this function never claims to machine-verify meaning.
