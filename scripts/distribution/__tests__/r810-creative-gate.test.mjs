@@ -1,7 +1,7 @@
 import { describe,it,expect,vi } from 'vitest'
 import crypto from 'node:crypto'
 vi.mock('../r809-creative-gate.mjs',()=>({buildR809CreativeReceipt:()=>({overlaySha256:'a'.repeat(64)})}))
-import { R810_ROLES,r810TextSafetyErrors,validateR810CreativeBrief,buildR810CreativeReceipt } from '../r810-creative-gate.mjs'
+import { R810_ROLES,r810TextSafetyErrors,validateR810CreativeBrief,buildR810CreativeReceipt,assertR810TimedScenes } from '../r810-creative-gate.mjs'
 
 const sha=(v)=>crypto.createHash('sha256').update(v).digest('hex')
 const url='https://thehippiescientist.net/compounds/example/'
@@ -71,6 +71,15 @@ describe('EvidenceMotion R8.10 governed narrative and safety contract',()=>{
     expect(validateR810CreativeBrief(f,when).join('\n')).toMatch(/source ledger text\/hash differs/)
     const old=fixture();old.r810.claimAttestations[0].claimVerifiedAt='2026-09-01'
     expect(validateR810CreativeBrief(old,when).join('\n')).toMatch(/stale|as-of date not visible/)
+  })
+  it('rejects an overly fast warning or silent-source card in actual voice measured seconds',()=>{
+    const f=fixture()
+    const scenes=f.r810.slots.map((slot,i)=>({beatId:slot.beatId,role:slot.role,
+      start:i*5,speechEnd:i*5+4,end:i*5+4.4,voiceover:slot.narration}))
+    scenes.push({beatId:'source',role:'source',start:35,end:39,voiceover:''})
+    expect(assertR810TimedScenes(f,scenes)).toBe(true)
+    scenes[4].speechEnd=scenes[4].start+0.8
+    expect(()=>assertR810TimedScenes(f,scenes)).toThrow(/natural spoken duration/)
   })
   it('blocks replacing source review date with the fresh render date',()=>{
     const f=fixture();f.beats[4].narration='A rare risk may occur as of 2026-10-11.'
