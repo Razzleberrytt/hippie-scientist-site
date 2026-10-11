@@ -1,9 +1,9 @@
 {
   "name": "The Hippie Scientist citation library",
-  "description": "Citation library for https://thehippiescientist.net — 849 studies. Metadata retrieved from PubMed.",
+  "description": "Citation library for https://thehippiescientist.net — 848 studies. Metadata retrieved from PubMed.",
   "license": "Bibliographic metadata is factual and sourced from PubMed. Attribution appreciated.",
   "source": "https://pubmed.ncbi.nlm.nih.gov/",
-  "studyCount": 849,
+  "studyCount": 848,
   "studies": [
     {
       "pmid": "30000830",
@@ -5973,19 +5973,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/31649123/",
       "referencedBy": [
         "/herbs/soybean/"
-      ]
-    },
-    {
-      "pmid": "31654344",
-      "doi": "10.1007/s11695-019-04215-6",
-      "title": "Trends in Drain Utilization in Bariatric Surgery: an Analysis of the MBSAQIP Database 2015-2017",
-      "authors": "Clapp B et al.",
-      "journal": "Obes Surg",
-      "year": 2020,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
-      "referencedBy": [
-        "/compounds/magnesium/"
       ]
     },
     {
