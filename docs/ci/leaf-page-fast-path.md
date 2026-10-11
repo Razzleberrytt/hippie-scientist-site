@@ -7,7 +7,7 @@ The fast path removes duplicate heavyweight work; it does not remove page valida
 For qualifying leaf-page PRs:
 
 - Site Health remains green as a canonical workflow but delegates exhaustive `check:full` to standard CI.
-- Atomic upgrade gate still enforces the issue/measurement contract but skips duplicate `validate:release`.
+- Atomic upgrade gate keeps its stable check identity but does not demand linked issues, summaries, or manual metrics fields. Substantive checks remain in standard CI; duplicate `validate:release` is still skipped.
 - Production Content Invariants reuses the governed data corpus already committed on `main`, while still building production HTML and auditing visible language and robots behavior.
 - Schema and Media Governance keeps schema regression/build/structured-data/safety validation while skipping unrelated research-graphics generation and promotion-registry checks.
 
