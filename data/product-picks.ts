@@ -261,7 +261,7 @@ export const productPicks: ProductPick[] = [
     brand: 'UltraKanna',
     type: 'top',
     url: `https://www.amazon.com/s?k=UltraKanna+ET2+liquid+extract&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for standardized mesembrine-rich alkaloid extract.'
+    notes: 'Kanna may affect serotonin signaling; SSRIs, SNRIs and MAOIs raise a potential interaction concern. Human risk estimates are limited.'
   },
   {
     compound_slug: 'kanna',
@@ -269,7 +269,7 @@ export const productPicks: ProductPick[] = [
     brand: 'Zembrin',
     type: 'premium',
     url: `https://www.amazon.com/s?k=Zembrin+standardized+Kanna+extract&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium pick for clinically studied, patented Zembrin extract.'
+    notes: 'Patented Zembrin extract; do not infer proven clinical efficacy or safety with serotonergic medicines.'
   },
 
   // Panax Ginseng
