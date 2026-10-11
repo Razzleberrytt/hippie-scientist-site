@@ -68222,6 +68222,160 @@
       "reservation_id": "ba2b3b78f77739b51aa8",
       "reserved_at": "2026-10-11T11:33:07.575Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0731"
+    },
+    {
+      "pmid": "42617378",
+      "title": "Evaluating smartphone-based interventions for anxiety and depressive symptoms: A randomized controlled trial.",
+      "doi": "10.1016/j.brat.2026.105144",
+      "source_title": "Evaluating smartphone-based interventions for anxiety and depressive symptoms: A randomized controlled trial.",
+      "abstract": "The study evaluated the impact of two smartphone-based interventions on anxiety and depression symptoms during the COVID-19 pandemic. Racially and ethnically diverse adults from the United States (US) with elevated anxiety and/or depression (N = 822; 64.4% female; M age = 38.3 years, SD = 12.76) were randomly assigned to receive a smartphone delivered anxiety, depression, and anxiety sensitivity reduction intervention (EASE) or a mindfulness and relaxation-based (MR) digital intervention; 206 (25.1%) identified as African American, 208 (25.3%) as American Indian, 202 (24.6%) as Latinx, and 206 (25.1%) as non-Latinx White. There was a high degree of engagement for both groups. For our primary analysis, between-group differences at the 6-month primary endpoint were small and not statistically significant for anxiety and depression. Within-person effect sizes indicated decreases in anxiety, depression, probable clinical anxiety and/or depression disorder status, anxiety sensitivity, and COVID-19 fear through the follow-up. Exploratory subgroup analyses suggested variable patterns of within-condition change across racial and ethnic groups, but these analyses were not powered to test moderation or equivalence. Findings indicated that two low cost and highly disseminatable digital interventions that targeted distinct psychological processes offered clinical benefit among a diverse sample of adults in the US during the COVID-19 pandemic.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42617378/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified randomized trials of smartphone-based interventions for anxiety/depressive symptoms and digital mindfulness for late-life depression; source identity only, scientific interpretation pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42617378",
+        "doi": "10.1016/j.brat.2026.105144",
+        "journal": "Behaviour research and therapy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T11:48:37.150Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e16bc4b22922d76d8d47",
+      "reserved_at": "2026-10-11T11:48:46.198Z",
+      "source_branch": "research/intake/1/20261011-0743-smartphone-mindfulness-r21"
+    },
+    {
+      "pmid": "42335492",
+      "title": "Effect of a digital mindfulness intervention for mild-to-moderate late-life depression: A randomized controlled trial.",
+      "doi": "10.1016/j.jpsychires.2026.05.037",
+      "source_title": "Effect of a digital mindfulness intervention for mild-to-moderate late-life depression: A randomized controlled trial.",
+      "abstract": "Late-life depression (LLD) is a growing public health concern in aging populations. Although digital mindfulness interventions show promise for depression, anxiety, and insomnia, their efficacy and electroencephalogram (EEG) correlates in older adults with LLD remain unclear. This study evaluated the FocusZen Mindfulness Stress Reduction System, a digital mindfulness intervention with EEG feedback, in mild-to-moderate LLD. Fifty-four participants with mild-to-moderate LLD were randomly assigned to a 6-week intervention group (n = 27; daily FocusZen sessions) or a control group (n = 27; general health education). The primary outcome was the change in HAMD-17 score. Secondary outcomes included anxiety, sleep quality, cognition, and frontal EEG spectral activity. Data were analyzed using mixed-effects models and intention-to-treat principles. The intervention group demonstrated significant reductions in depressive symptoms [HAMD-17: F(3, 132.69) = 8.83, P < 0.001], anxiety [HAMA: F(3, 129.95) = 8.34, P < 0.001], and sleep disturbances [PSQI: F(3, 128.91) = 5.55, P = 0.01], alongside improved cognition [MOCA: F(3, 133.19) = 5.14, P = 0.01]. Response and remission rates were higher in the intervention group. Exploratory EEG analysis showed increased frontal theta [F(1.96, 43.12) = 25.28, P < 0.001] and alpha activity [F(1.44, 31.73) = 22.92, P < 0.001]. FocusZen-based digital mindfulness reduced depressive, anxiety, and sleep symptoms and improved cognition in mild-to-moderate LLD, potentially accompanied by enhanced frontal theta and alpha activity. Chinese Clinical Trial Registry Identifier: ChiCTR2400086063; https://www.chictr.org.cn/.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42335492/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified randomized trials of smartphone-based interventions for anxiety/depressive symptoms and digital mindfulness for late-life depression; source identity only, scientific interpretation pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42335492",
+        "doi": "10.1016/j.jpsychires.2026.05.037",
+        "journal": "Journal of psychiatric research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T11:48:37.150Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "f7ab6d8a4e7efcebdd24",
+      "reserved_at": "2026-10-11T11:48:46.198Z",
+      "source_branch": "research/intake/1/20261011-0743-smartphone-mindfulness-r21"
     }
   ],
   "batches": [
@@ -68250,16 +68404,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 871,
+    "total_reservations": 873,
     "by_lane": {
-      "1": 77,
+      "1": 79,
       "2": 162,
       "3": 132,
       "4": 50,
       "5": 450
     },
     "by_state": {
-      "SOURCE_VERIFIED": 871
+      "SOURCE_VERIFIED": 873
     },
     "batches": [
       {
@@ -68272,7 +68426,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 371,
+        "count": 373,
         "pr_number": null,
         "blocker": null
       }
