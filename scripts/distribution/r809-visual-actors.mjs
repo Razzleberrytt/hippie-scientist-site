@@ -5,7 +5,7 @@ const clean = (v) => String(v ?? '').trim()
 const STAGES = new Set(['person', 'compare', 'molecule', 'evidence', 'uncertainty', 'safety', 'outro'])
 export const R809_VISUAL_STAGES = [...STAGES]
 
-export function renderR809VisualActor(scene, {x, y, width, height, foreground, background}) {
+export function renderR809VisualActor(scene, {x, y, width, height, foreground}) {
   const stage = clean(scene.visualScene)
   if (!STAGES.has(stage)) throw new Error(`R8.09 illustration stage must be one of: ${[...STAGES].join(', ')}`)
   const cx = x + width / 2
@@ -13,7 +13,6 @@ export function renderR809VisualActor(scene, {x, y, width, height, foreground, b
   const stroke = `stroke="${foreground}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`
   const transparent = 'fill="none"'
   const pale = `fill="${foreground}" fill-opacity=".13"`
-  const panel = (px,py,w,h) => `<rect x="${px}" y="${py}" width="${w}" height="${h}" rx="36" ${pale} ${stroke}/>`
   // Illustrated figures, visual comparisons and teaching props -- not generic
   // page cards. Geometries below are symbolic and intentionally non-molecular.
   let actor
