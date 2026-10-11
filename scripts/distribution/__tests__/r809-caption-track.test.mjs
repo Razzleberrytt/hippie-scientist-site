@@ -64,6 +64,13 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
     expect(render({...base,motifId:'changed-motif'})).not.toBe(first)
     expect(render({...base,patternInterrupt:false})).not.toBe(first)
   })
+  it('inherits the deterministic 0.85-second readable claim dwell gate',async()=>{
+    const {readFileSync}=await import('node:fs')
+    const renderer=readFileSync('scripts/distribution/render-vertical-video-package.mjs','utf8')
+    expect(renderer).toContain("['R8.08', 'R8.09'].includes(methodRelease)")
+    expect(renderer).toContain('visibleSeconds < 0.85 - 0.0006')
+    expect(renderer).toContain('insufficient real readable claim dwell')
+  })
   it('draws authored science cartoon objects, not slideshow placeholders',()=>{
     for(const visualScene of ['person','compare','molecule','evidence','uncertainty','safety','outro']){
       const svg=renderR809VisualActor({visualScene},{x:50,y:250,width:760,height:490,foreground:'#ffffff',background:'#111827'})
