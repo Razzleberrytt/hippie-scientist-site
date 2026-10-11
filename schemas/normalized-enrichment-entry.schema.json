@@ -139,6 +139,13 @@
       "type": "string",
       "format": "date-time"
     },
+    "reviewStatus": {
+      "type": "string",
+      "enum": [
+        "draft_submission", "needs_validation_fix", "ready_for_review", "under_review",
+        "approved_for_rollup", "revision_requested", "rejected", "deprecated_submission"
+      ]
+    },
     "editorialStatus": {
       "type": "string",
       "enum": [
