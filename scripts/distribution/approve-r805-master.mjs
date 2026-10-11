@@ -220,7 +220,7 @@ export function approveR805Master({
         ? clean(manifest.creativeDirection?.overlaySha256)
         : ['R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? clean(manifest.creativeVisualFoundation?.overlaySha256) : null,
       r808OverlaySha256: creativeMethodRelease === 'R8.08'
-        ? clean(manifest.creativeDirection?.overlaySha256) : creativeMethodRelease === 'R8.09' ? clean(manifest.creativeSilentFoundation?.overlaySha256) : null,
+        ? clean(manifest.creativeDirection?.overlaySha256) : ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? clean(manifest.creativeSilentFoundation?.overlaySha256) : null,
       r809OverlaySha256: ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? clean(manifest.creativeDirection?.overlaySha256) : null,
       r810GovernedPlanSha256: creativeMethodRelease === 'R8.10' ? clean(manifest.creativeR810?.governedPlanSha256) : null,
       r810WordAlignmentReceiptSha256: r810PackageProof?.alignment?.receiptSha256 ?? null,
@@ -239,10 +239,10 @@ export function approveR805Master({
       motifContinuity: ['R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
       semanticPatternInterrupt: ['R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
       repetitionDebtRejected: ['R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
-      audioOffComprehension: ['R8.08','R8.09'].includes(creativeMethodRelease) ? 'pass' : null,
-      qualifierVisibility: ['R8.08','R8.09'].includes(creativeMethodRelease) ? 'pass' : null,
-      mobileSafeArea: ['R8.08','R8.09'].includes(creativeMethodRelease) ? 'pass' : null,
-      readableClaimDwell: ['R8.08','R8.09'].includes(creativeMethodRelease) ? 'pass' : null,
+      audioOffComprehension: ['R8.08','R8.09','R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
+      qualifierVisibility: ['R8.08','R8.09','R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
+      mobileSafeArea: ['R8.08','R8.09','R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
+      readableClaimDwell: ['R8.08','R8.09','R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
       spokenCaptionSync: ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
       captionMobileLegibility: ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
       beginnerClarity: ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
