@@ -316,12 +316,18 @@ function ffmpegVersion(ffmpegPath) {
   return clean(String(result.stdout || '').split('\n')[0])
 }
 
-export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256, release = 'R8.04', durationSeconds = 30 }) {
+export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256, release = 'R8.04', durationSeconds = 30, creativeMethodRelease = null, alignmentReceiptSha256 = null, rendererSourceSha256 = null, alignedCaptionSrtSha256 = null }) {
   for (const [label, value] of Object.entries({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 })) {
     if (!clean(value)) throw new Error(`${label} is required for MP4 render identity`)
   }
   const renderer = release === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
-  return sha256(`${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`)
+  const r810 = creativeMethodRelease === 'R8.10'
+  const extraInputs = { alignmentReceiptSha256, rendererSourceSha256, alignedCaptionSrtSha256 }
+  if (r810 && Object.entries(extraInputs).some(([, v]) => !/^[a-f0-9]{64}$/.test(String(v || '')))) {
+    throw new Error('R8.10 MP4 cache key must bind exact audio alignment, renderer code and final caption track')
+  }
+  const r810Suffix = r810 ? Object.entries(extraInputs).map(([name, value]) => name + '=' + value).join('\\n') : ''
+  return sha256(`${renderer}\\n${clean(manifestSha256)}\\n${clean(ffmpegVersionLine)}\\n${clean(narrationSha256)}\\n${clean(voiceQaSha256)}\\n1080x1920\\n30fps\\n${Number(durationSeconds).toFixed(4)}s\\nlibx264\\naac192k\\nyuv420p\\n${r810Suffix}`)
 }
 
 export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
@@ -365,6 +371,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     voiceQaSha256: narration.voiceQaSha256,
     release: verified.release,
     durationSeconds: verified.durationSeconds,
+    creativeMethodRelease: isR810 ? 'R8.10' : null,
+    alignmentReceiptSha256: isR810 ? r810Proof.alignment.receiptSha256 : null,
+    rendererSourceSha256: isR810 ? sha256(fs.readFileSync(new URL(import.meta.url))) : null,
+    alignedCaptionSrtSha256: isR810 ? alignedCaptionSrtSha256 : null,
   })
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-video-mp4-'))
 
