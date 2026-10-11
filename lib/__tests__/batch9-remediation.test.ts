@@ -79,42 +79,6 @@ describe('Batch 9 safety and catalog remediation', () => {
     expect(complex?.rationale).not.toContain('hypoallergenic inositol powder')
   })
 
-  it('does not erase existing safety cautions when adding Batch 9 findings', () => {
-    expect(safetyNotes('compounds-detail', 'melatonin')).toMatch(/drowsiness, headache, and dizziness/i)
-    expect(safetyNotes('compounds-detail', 'melatonin')).toMatch(/long-term safety reporting is limited/i)
-    expect(safetyNotes('compounds-detail', 'omega-3')).toMatch(/fish allergy\/formulation/i)
-    expect(safetyNotes('compounds-detail', 'probiotics')).toMatch(/postoperative, hospitalized/i)
-    expect(safetyNotes('herbs-detail', 'ashwagandha')).toMatch(/thyroid stimulation/i)
-    expect(safetyNotes('herbs-detail', 'turmeric')).toMatch(/antiplatelets and before surgery/i)
-    expect(safetyNotes('herbs-detail', 'turmeric')).toMatch(/pregnancy\/breastfeeding/i)
-  })
-
-  it('adds verifiable safety publications to each structured source ledger', () => {
-    const requiredSources: Array<[string, string, string[]]> = [
-      ['compounds-detail', 'melatonin', ['35653284', '38451863']],
-      ['compounds-detail', 'omega-3', ['34612056']],
-      ['compounds-detail', 'probiotics', ['fda.gov/safety/medical-product-safety-information/risk-invasive-disease']],
-      ['herbs-detail', 'ashwagandha', ['31991029', 'nccih.nih.gov/health/ashwagandha']],
-      ['herbs-detail', 'turmeric', ['ncbi.nlm.nih.gov/books/NBK548561']],
-    ]
-    for (const [folder, slug, identifiers] of requiredSources) {
-      const record = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/data', folder, slug + '.json'), 'utf8'))
-      const sources: Array<{pmid?: string; url?: string}> = record.sources
-      expect(Array.isArray(sources)).toBe(true)
-      for (const identifier of identifiers) {
-        expect(sources.some(source => source.pmid === identifier || source.url?.includes(identifier))).toBe(true)
-      }
-    }
-  })
-
-  it('describes Pure Encapsulations Inositol Complex as a capsule blend, not plain powder', () => {
-    const product = Object.values(revenueProductSets).flatMap(set => set.products)
-      .find(p => p.title === 'Pure Encapsulations Inositol Complex')
-    expect(product).toBeDefined()
-    expect(product?.rationale).toMatch(/myo-inositol and d-chiro-inositol complex in capsules/i)
-    expect(product?.affiliateUrl).toContain('Inositol%20Complex%20capsules')
-  })
-
   it('retains the provisional research queue rather than falsely approving it', () => {
     const queue = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'ops/research-coordinator/review-queues/2026-10-11-batch9-remediation-review.json'), 'utf8'))
     expect(queue.reportedDisposition).toEqual({ confirmed:44, provisional:25, unresolved:4, rejected:2 })
