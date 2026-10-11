@@ -1108,6 +1108,32 @@ export function formatProfileDescription(
  * issue while keeping both pages indexable. The primary page keeps its generated title.
  */
 const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: string; canonical?: string }> = {
+  // Search-intent metadata: accurately describe questions answered, not proven benefits.
+  'ashwagandha': {
+    title: 'Ashwagandha for Stress, Sleep & Testosterone: Evidence',
+    description:
+      'Review the human evidence for ashwagandha and stress, sleep, or testosterone, including study doses, side effects, interactions, and safety limitations.',
+  },
+  'turmeric': {
+    title: 'Turmeric (Curcumin): Inflammation, Dosage & Safety',
+    description:
+      'Explore evidence for turmeric and curcumin in inflammation, studied doses, absorption limits, possible interactions, and liver or bleeding-related safety concerns.',
+  },
+  'magnesium': {
+    title: 'Magnesium for Sleep & Anxiety: Forms, Evidence & Safety',
+    description:
+      'Compare magnesium forms for sleep and anxiety, what studies actually show, dose considerations, side effects, and risks for people with kidney disease.',
+  },
+  'melatonin': {
+    title: 'Melatonin: Dosage, Safety & How to Use for Sleep',
+    description:
+      'Learn how melatonin affects sleep timing, what studies show for insomnia or jet lag, when it is used, dosing considerations, and potential side effects.',
+  },
+  'vitamin-d': {
+    title: 'Vitamin D: Deficiency Signs, Dosage & Safety',
+    description:
+      'Understand vitamin D deficiency, testing, supplement doses, who may benefit, and why excessive vitamin D can cause harm.',
+  },
   'glycine-sleep': { title: 'Glycine for Sleep: Effects, Dose & Safety' },
   'inositol-sleep': { title: 'Inositol for Sleep & Anxiety: Effects, Dose & Safety' },
   'l-theanine-sleep': { title: 'L-Theanine for Sleep: Effects, Dose & Safety' },
