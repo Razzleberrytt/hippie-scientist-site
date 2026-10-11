@@ -3,7 +3,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 const sha = (b) => crypto.createHash('sha256').update(b).digest('hex')
 const norm = (s) => String(s ?? '').trim().replace(/\s+/g,' ')
-const wordTokens = (s) => (String(s ?? '').toLowerCase().match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)||[])
+const wordTokens = (s) => (String(s ?? '').toLowerCase().match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu)||[])
 function readBound(dir,file,label,expectedSha){
   if(!/^[a-z0-9._-]+$/i.test(String(file||''))||file==='..')throw Error('R8.10 unsafe '+label+' filename')
   const b=fs.readFileSync(path.join(dir,file))
