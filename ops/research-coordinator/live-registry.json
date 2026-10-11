@@ -66199,6 +66199,83 @@
       "reservation_id": "e5e22cbfdc12db322be9",
       "reserved_at": "2026-10-11T10:59:51.389Z",
       "source_branch": "research/intake/2/20261011-0654-cognition-metabolic-r68"
+    },
+    {
+      "pmid": "42066825",
+      "title": "Probable interaction between warfarin and a toothache solution containing Piper longum L. leading to ischemic stroke: a case report.",
+      "doi": "10.1016/j.jep.2026.121788",
+      "source_title": "Probable interaction between warfarin and a toothache solution containing Piper longum L. leading to ischemic stroke: a case report.",
+      "abstract": "Both warfarin and Chinese patent medicine (CPM) are frequently prescribed medications that may have a potential interaction that can go unnoticed. To report a clinical case of a probable interaction between warfarin and a toothache solution containing Piper longum L., which led to ischemic stroke. We collected data on the clinical case of acute ischemic stroke involving warfarin and the suspected drugs. We performed drug interaction assessment using the Lexicomp® Online™ database and literature search. The Drug Interaction Probability Scale (DIPS) was used to assess the causal relationship between potential drug interactions and the occurrence of ischemic stroke. Fluctuations in the international normalized ratio (INR) were accompanied by ischemic stroke in a patient with a mechanical heart valve taking warfarin. Causal assessment showed a probable interaction between the interaction of warfarin and a toothache solution containing Piper longum and the ischemic stroke. The potential interaction between warfarin and Piper longum should be recognized to prevent adverse outcomes in patients receiving warfarin therapy.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42066825/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article; Case Reports",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Case Reports"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42066825",
+        "doi": "10.1016/j.jep.2026.121788",
+        "journal": "Journal of ethnopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T11:08:28.672Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dd9e19210fa7e7fbcb46",
+      "reserved_at": "2026-10-11T11:08:37.980Z",
+      "source_branch": "research/intake/3/20261011-0707-piper-warfarin-42066825"
     }
   ],
   "batches": [
@@ -66227,16 +66304,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 845,
+    "total_reservations": 846,
     "by_lane": {
       "1": 77,
       "2": 162,
-      "3": 131,
+      "3": 132,
       "4": 50,
       "5": 425
     },
     "by_state": {
-      "SOURCE_VERIFIED": 845
+      "SOURCE_VERIFIED": 846
     },
     "batches": [
       {
@@ -66249,7 +66326,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 345,
+        "count": 346,
         "pr_number": null,
         "blocker": null
       }
