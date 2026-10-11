@@ -6,6 +6,7 @@ import { canRenderAffiliateLinks } from '../affiliate'
 import { canRenderConfiguredRevenueProducts } from '../revenue-product-governance'
 import { getRevenueProductSet, revenueProductSets } from '@/config/revenue-products'
 import { productPicks } from '@/data/product-picks'
+import { getHerbBySlug, getCompoundBySlug } from '../runtime-data'
 
 const safetyProfiles = [
   ['herbs-detail', 'black-cohosh', 'ncbi.nlm.nih.gov/books/NBK547990', /transplantation|transplant/i],
@@ -21,6 +22,28 @@ const safetyProfiles = [
 ] as const
 
 describe('Batch 8 evidence-qualified safety controls', () => {
+  it('renders the additional safety warning through canonical runtime resolution', async () => {
+    const cohosh = await getHerbBySlug('black-cohosh')
+    expect(cohosh).not.toBeNull()
+    expect(String(cohosh?.safety)).toMatch(/LIVER-INJURY WARNING.*transplant/i)
+    expect(cohosh?.safetyNotes).toBe(cohosh?.safety)
+    expect((cohosh?.contraindications as string[])).toContain('liver disease')
+
+    const egcg = await getCompoundBySlug('green-tea-extract-egcg')
+    expect(egcg).not.toBeNull()
+    expect(String(egcg?.safety)).toMatch(/CONCENTRATED EGCG.*LIVER WARNING/i)
+    expect(egcg?.safetyNotes).toBe(egcg?.safety)
+  })
+
+  it('keeps educational search independent from commerce quarantine', () => {
+    const search = fs.readFileSync(path.join(process.cwd(), 'components/search/ResearchSearchExperience.tsx'), 'utf8')
+    const comparison = fs.readFileSync(path.join(process.cwd(), 'app/compare/on-demand/OnDemandComparisonClient.tsx'), 'utf8')
+    for (const source of [search, comparison]) {
+      expect(source).toContain('getRuntimeVisibility')
+      expect(source).not.toContain('isRestrictedRecord')
+    }
+  })
+
   it('retains educational profiles, adds named evidence, and closes monetization/recommendations', () => {
     for (const [folder, slug, source, pattern] of safetyProfiles) {
       const file = path.join(process.cwd(), 'public', 'data', folder, slug + '.json')
