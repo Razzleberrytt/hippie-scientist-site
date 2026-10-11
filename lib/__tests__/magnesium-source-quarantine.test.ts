@@ -30,6 +30,17 @@ describe('magnesium source relevance and study-design safety', () => {
     }
   })
 
+  it('excludes the quarantined paper from all researcher-facing citation exports', () => {
+    for (const format of ['csv', 'json', 'ris', 'bib']) {
+      const exported = readFileSync(path.join(root, 'public/data/exports', `citations.${format}`), 'utf8')
+      expect(exported).not.toContain('31654344')
+    }
+    const data = JSON.parse(readFileSync(path.join(root, 'public/data/exports/citations.json'), 'utf8'))
+    expect(data.studyCount).toBe(data.studies.length)
+    expect(data.studies.find((s: { pmid?: string }) => s.pmid === '38817505')?.design).toBe('systematic-review')
+    expect(data.studies.find((s: { pmid?: string }) => s.pmid === '23853635')?.design).toBe('rct')
+  })
+
   it('retains PubMed-verified study design for magnesium sleep evidence', () => {
     const byPmid = new Map(profile.sources.map((s: { pmid?: string }) => [s.pmid, s]))
     expect(byPmid.get('38817505')).toMatchObject({
