@@ -80,3 +80,9 @@ A separate owner/editorial human must explicitly run `approve --input approval.j
 Automated three-video tests use **synthetic fixtures** only; no real video upload or TikTok metrics are claimed. Full acceptance requires three actually published videos with immutable ledger entries, at least three empirically observed hook patterns, a human-approved template proposal with a real measured delta and lineage, and an on-demand report from those real entries.
 
 R8.10 production still additionally requires reliable local acoustic word alignment, encoded MP4 human approval, exact-head CI, protected merge-controller approval, and release receipts. Missing receipts remain **Unknown / blocked**, never PASS.
+
+## Privacy, retention and exact-head validation
+
+The default local performance ledger at `ops/evidencemotion/flywheel/` and generated visuals at `ops/evidencemotion/assets/` are excluded by `.gitignore`. These may include account-performance observations and unpublished creative files. They must be retained/backed up deliberately by the owner, not committed to the public source repository or treated as a scientific publication record. Synthetic unit-test fixtures remain in tests and do not represent real metrics.
+
+The protected merge controller requires a real executable exact-head CI result on the current base. GitHub merge refreshes producing only zero-job `action_required` workflow results **do not** constitute passing validation. No release or merge without independently green final tests and a reviewed master.
