@@ -86,7 +86,7 @@ export default function KavaVsAlcoholPage() {
         ]}
         evidenceLevel="An earlier six-week trial found a benefit for generalized anxiety symptoms, while a 2020 sixteen-week trial in 171 adults found no significant improvement over placebo. Liver injury has been reported with multiple preparations, including some water-based beverages; no preparation has been proven to eliminate that risk."
         safetyNote="Do not combine kava with alcohol or other sedatives. Kava has been linked to rare severe liver injury; people with liver disease or taking medications should seek clinician or pharmacist advice before considering it."
-        notClaiming="This page is not claiming kava is a safe substitute for alcohol use disorder treatment or that it is risk-free for the liver."
+        notClaiming="This page does not claim that kava treats alcohol use disorder or that any cultivar or preparation method eliminates liver injury risk."
         referencesHref="#references"
       />
 
