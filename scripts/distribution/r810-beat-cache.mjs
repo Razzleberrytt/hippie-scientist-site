@@ -1,7 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
-import os from 'node:os'
 
 const sha=(x)=>crypto.createHash('sha256').update(x).digest('hex')
 const safeHex=/^[a-f0-9]{64}$/
