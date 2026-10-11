@@ -13,19 +13,19 @@ export const productPicks: ProductPick[] = [
   // Turmeric
   {
     compound_slug: 'turmeric',
-    name: 'Thorne Meriva-SR Curcumin',
+    name: 'Thorne Curcumin Phytosome (Meriva-SR), 120 capsules',
     brand: 'Thorne',
     type: 'top',
-    url: `https://www.amazon.com/s?k=Thorne+Meriva-SR+curcumin+phytosome&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for the clinically validated Meriva phospholipid-bound curcumin format.'
+    url: `https://www.amazon.com/dp/B01D8V0962?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed SF815 variant. A 29-fold total-curcuminoid absorption result came from an n=9 pharmacokinetic comparison versus the matched unformulated mixture, not a clinical efficacy comparison.'
   },
   {
     compound_slug: 'turmeric',
-    name: 'Life Extension Super Bio-Curcumin',
+    name: 'Life Extension Super Bio-Curcumin, 400 mg (60 capsules)',
     brand: 'Life Extension',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Life+Extension+Super+Bio-Curcumin+BCM-95&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium BCM-95 curcumin with enhanced bioavailability.'
+    url: `https://www.amazon.com/dp/B000X9P5GM?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed BCM-95 variant; bioavailability does not establish comparative clinical effectiveness.'
   },
 
   // Ashwagandha
@@ -101,27 +101,27 @@ export const productPicks: ProductPick[] = [
   // Creatine
   {
     compound_slug: 'creatine',
-    name: 'Optimum Nutrition Micronized Creatine Powder',
+    name: 'Optimum Nutrition Micronized Creatine Powder, 600 g (120 servings)',
     brand: 'Optimum Nutrition',
     type: 'top',
-    url: `https://www.amazon.com/s?k=Optimum+Nutrition+Micronized+Creatine+Powder&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for micronized creatine monohydrate — industry standard.'
+    url: `https://www.amazon.com/dp/B002DYIZEO?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed unflavored variant; 5 g creatine per serving, with Creapure branding.'
   },
   {
     compound_slug: 'creatine',
-    name: 'NOW Sports Creatine Monohydrate Powder',
+    name: 'NOW Sports Creatine Monohydrate Powder, 21.2 oz',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Sports+Creatine+Monohydrate+Powder+unflavored&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for unflavored, simple creatine monohydrate powder.'
+    url: `https://www.amazon.com/s?k=NOW+Sports+Creatine+Monohydrate+Powder+unflavored+21.2+oz&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Provisional 21.2 oz variant; retain search URL until exact product-to-ASIN verification.'
   },
   {
     compound_slug: 'creatine',
-    name: 'Thorne Creatine',
+    name: 'Thorne Creatine, unflavored (30 servings)',
     brand: 'Thorne',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+Creatine+monohydrate+NSF+Certified+for+Sport&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium NSF Certified for Sport creatine monohydrate.'
+    url: `https://www.amazon.com/dp/B0DVWKPJ32?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 30-serving variant; NSF Certified for Sport.'
   },
 
   // Rhodiola Rosea
