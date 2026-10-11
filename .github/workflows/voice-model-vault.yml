@@ -86,6 +86,7 @@ jobs:
         with:
           name: ths-original-kokoro-voice-model-drive-mirror
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 7
           path: |
             .cache/ths-voice-vault/kokoro-v1_0.pth
