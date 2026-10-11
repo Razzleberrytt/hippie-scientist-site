@@ -13,6 +13,14 @@ export const productPicks: ProductPick[] = [
   // Turmeric
   {
     compound_slug: 'turmeric',
+    name: 'NOW Turmeric Curcumin 665 mg, 60 veg capsules',
+    brand: 'NOW Foods',
+    type: 'budget',
+    url: `https://www.amazon.com/dp/B0013OXD3I?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Item #4638: 665 mg standardized turmeric extract supplying about 630 mg curcuminoids (95%); liver-safety context applies to concentrated curcumin.'
+  },
+  {
+    compound_slug: 'turmeric',
     name: 'Thorne Curcumin Phytosome (Meriva-SR), 120 capsules',
     brand: 'Thorne',
     type: 'top',
@@ -187,11 +195,11 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'melatonin',
-    name: 'NOW Melatonin 3 mg',
+    name: 'NOW Melatonin 3 mg, 180 capsules',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Melatonin+3+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for a standard 3 mg dose.'
+    url: `https://www.amazon.com/s?k=NOW+Foods+Melatonin+3+mg+180+capsules+733739032577&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'UPC 733739032577 identifies the 180-capsule 3 mg variant. Amazon ASIN unresolved: search link retained.'
   },
   {
     compound_slug: 'melatonin',
@@ -200,6 +208,32 @@ export const productPicks: ProductPick[] = [
     type: 'premium',
     url: `https://www.amazon.com/s?k=Thorne+Melaton-3+melatonin+capsules&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Premium practitioner-brand 3 mg melatonin with clean formulation.'
+  },
+
+  // Vitamin D: Thorne D/K2 is a combination formula, not single-ingredient D3.
+  {
+    compound_slug: 'vitamin-d',
+    name: 'NOW Vitamin D3 2000 IU, 240 softgels',
+    brand: 'NOW Foods',
+    type: 'budget',
+    url: `https://www.amazon.com/dp/B001UZPY1O?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 240-softgel product, NOW item #0377; monitor total vitamin D intake.'
+  },
+  {
+    compound_slug: 'vitamin-d',
+    name: 'Pure Encapsulations Vitamin D3 1000 IU, 250 capsules',
+    brand: 'Pure Encapsulations',
+    type: 'top',
+    url: `https://www.amazon.com/dp/B005Z1J0EQ?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 250-capsule variant; separate 120-capsule SKU/ASIN is not interchangeable.'
+  },
+  {
+    compound_slug: 'vitamin-d',
+    name: 'Thorne Vitamin D/K2 Liquid, 1 fl oz (600 servings)',
+    brand: 'Thorne',
+    type: 'premium',
+    url: `https://www.amazon.com/dp/B0038NF8MG?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed model #11793; combination D3+K2 product. Vitamin K can interfere with warfarin treatment.'
   },
 
   // Omega-3
