@@ -86,6 +86,37 @@ describe('production deployment handoff contract', () => {
     expect(ci).toContain('AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}')
   })
 
+  it('rejects otherwise valid CI export reuse when production GA4 is missing or mismatched', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+    const resolveAt = workflow.indexOf('- name: Resolve GA4 ID for production static build')
+    const verifyAt = workflow.indexOf('- name: Verify reusable governed export')
+    const buildAt = workflow.indexOf('- name: Build app')
+    const finalCheckAt = workflow.indexOf('- name: Verify GA4 present in exported client JavaScript')
+
+    // Production-only NEXT_PUBLIC_* values must exist before making a
+    // decision about the browser chunks reused from a separate CI build.
+    expect(resolveAt).toBeGreaterThan(-1)
+    expect(resolveAt).toBeLessThan(verifyAt)
+    expect(verifyAt).toBeLessThan(buildAt)
+    expect(buildAt).toBeLessThan(finalCheckAt)
+
+    const reuseStep = workflow.slice(verifyAt, buildAt)
+    expect(reuseStep).toContain('continue-on-error: true')
+    expect(reuseStep).toContain('! grep -R -F -q --include=\'*.js\' "$NEXT_PUBLIC_GA4_ID" out/_next/static/chunks')
+    expect(reuseStep).toContain('! grep -R -F -q --include=\'*.js\' \'googletagmanager.com/gtag/js\' out/_next/static/chunks')
+    expect(reuseStep.indexOf('self-build fallback required.')).toBeLessThan(reuseStep.indexOf('echo "reusable=true"'))
+    expect(workflow.slice(buildAt, finalCheckAt)).toContain("if: steps.governed-verify.outputs.reusable != 'true'")
+
+    const resolveStep = workflow.slice(resolveAt, verifyAt)
+    expect(resolveStep).toContain('[[ ! "$ga_id" =~ ^G-[A-Z0-9]{6,20}$ ]]')
+    expect(resolveStep).toContain('::add-mask::$ga_id')
+    expect(resolveStep).toContain('echo "NEXT_PUBLIC_GA4_ID=$ga_id" >> "$GITHUB_ENV"')
+
+    const finalCheck = workflow.slice(finalCheckAt, workflow.indexOf('- name: Verify Amazon affiliate tag', finalCheckAt))
+    expect(finalCheck).toContain('GA4 measurement ID absent from exported JavaScript. Refusing silent analytics-disabled deployment.')
+    expect(finalCheck).toContain('GA4 loader absent from exported JavaScript.')
+  })
+
   it('passes the same Amazon affiliate tag into the production build, output verification, and affiliate audit', () => {
     const workflow = read('.github/workflows/deploy.yml')
     const ci = read('.github/workflows/ci.yml')
@@ -101,6 +132,25 @@ describe('production deployment handoff contract', () => {
     const ciAuditStep = ci.slice(ci.indexOf('- name: Verify Amazon affiliate destination integrity'))
     expect(ciAuditStep).toContain(tagBinding)
     expect(ciAuditStep).toContain('run: npm run audit:affiliate-tag-production')
+  })
+
+  it('retries only transient Cloudflare Pages asset-upload 5xx without bypassing the exact deployment receipt', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+    const start = workflow.indexOf('- name: Deploy to Cloudflare Pages')
+    const verify = workflow.indexOf('- name: Verify exact production receipt')
+    expect(start).toBeGreaterThan(-1)
+    expect(verify).toBeGreaterThan(start)
+    const upload = workflow.slice(start, verify)
+    expect(upload).not.toContain('continue-on-error: true')
+    expect(upload).toContain('max_upload_attempts=3')
+    expect(upload).toContain('while [ "$attempt" -le "$max_upload_attempts" ]')
+    expect(upload).toContain('wrangler_exit="${PIPESTATUS[0]}"')
+    expect(upload).toContain("grep -Eq 'POST /pages/assets/upload -> 5[0-9]{2}'")
+    expect(upload).toContain('exit "$wrangler_exit"')
+    expect(upload).toContain('sleep "$((attempt * 30))"')
+    expect(upload).toContain('--commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}"')
+    expect(upload).not.toContain('|| true')
+    expect(workflow.slice(verify)).toContain('node scripts/ci/deployment-receipt.mjs verify')
   })
 
   it('publishes and verifies an exact-SHA production receipt before deploy success', () => {
