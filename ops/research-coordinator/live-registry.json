@@ -70622,6 +70622,158 @@
       "reservation_id": "af954c08041af5218d70",
       "reserved_at": "2026-10-11T12:29:49.773Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0828"
+    },
+    {
+      "pmid": "42129849",
+      "title": "The effects of exercise on generalized anxiety symptoms in adults: a systematic review and meta-analysis.",
+      "doi": "10.1186/s13102-026-01728-3",
+      "source_title": "The effects of exercise on generalized anxiety symptoms in adults: a systematic review and meta-analysis.",
+      "abstract": "This study aimed to systematically evaluate the interventional effect of exercise on symptoms of generalized anxiety. This systematic review and meta analysis was prospectively registered on PROSPERO (Registration Number: No. CRD420251146169). A comprehensive literature search was conducted across seven electronic databases (Embase, Web of Science, PubMed, The Cochrane Library, Wanfang, VIP, and the China National Knowledge Infrastructure) from their respective inceptions to June 2025. This search specifically targeted randomized controlled trials (RCTs) examining the effects of exercise interventions on generalized anxiety symptoms. The inclusion criteria were defined as follows: adult participants (aged 18 years or older) presenting with generalized anxiety symptoms, without any major comorbidities. The PEDro scale was utilized to assess the methodological quality of the included trials. All statistical analyses, including the primary meta analysis, subgroup evaluations, sensitivity analyses, and publication bias assessments, were performed using Stata 17.0 software. The standardized mean difference (SMD) with a 95% confidence interval (CI) was utilized as the primary effect measure. Finally, the GRADE framework was employed to evaluate the overall certainty of the evidence. A total of 10 studies (involving 2408 participants) were included. The meta analysis revealed that exercise interventions provided suggestive evidence for a potential reduction in generalized anxiety symptoms (SMD=-0.502,95%CI[-0.830,-0.174], P = 0.003). Preliminary subgroup analyses observed a potential positive trend in middle aged and older adults (SMD=-1.063,95%CI[-1.831,-0.295], P = 0.007) compared with younger adults (SMD=-0.388,95%CI[-0.698,-0.057], P = 0.022). Mind body exercise (SMD=-0.680,95%CI[-0.914,-0.445], P < 0.001) and aerobic exercise (SMD=-0.543,95%CI[-1.064,-0.022], P = 0.041) demonstrated potentially beneficial trends, whereas current evidence remains insufficient to determine the efficacy of resistance exercise (SMD=-0.302,95%CI[-0.964,0.361], P = 0.372). Regarding exercise parameters, potential positive trends were observed for frequencies of ≥ 4 sessions per week (SMD=-1.063,95%CI[-1.831,-0.295], P = 0.007), single session durations of 21 to 40 min (SMD=-1.079, 95%CI[-1.575,-0.582], P < 0.001), and interventions lasting ≥ 12 weeks (SMD=-0.868,95%CI[-1.255,-0.481], P < 0.001) or 8 weeks (SMD=-0.780,95%CI[-1.315,-0.246], P = 0.004). Evidence was insufficient to support 6 week programs (SMD=-0.061,95%CI[-0.517,0.395], P = 0.794) or ≤ 20 min sessions (SMD=-0.022, 95%CI[-0.618,0.574], P = 0.943). What was subjectively classified as light intensity exercise demonstrated a potential positive trend (SMD=-0.915,95%CI[-1.402,-0.427], P < 0.001). While leave one out sensitivity analyses confirmed a consistent beneficial direction (SMD ranging from - 0.43 to -0.61, all P < 0.05), the overall interpretability is severely limited by exceptionally high heterogeneity (I²=90.37%). The included studies demonstrated acceptable methodological quality (PEDro scores 6 to 8); however, limitations in blinding and subjective intensity classifications introduce substantial bias. In conclusion, while current findings provide suggestive evidence that exercise may assist in ameliorating generalized anxiety symptoms, the exceptionally high heterogeneity dictates that these results must be interpreted with low confidence rather than as definitive efficacy. Furthermore, while analyses across the literature indicate that specific exercise parameters (such as higher frequencies, longer intervention durations, and mind body modalities) exhibit potential positive trends, the specific strata demonstrating the largest effects are often derived from severely underpowered subgroups. Consequently, these observations must be viewed strictly as hypothesis generating rather than optimal clinical prescriptions, highlighting the critical need for robust future trials.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42129849/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42129849",
+        "doi": "10.1186/s13102-026-01728-3",
+        "journal": "BMC sports science, medicine & rehabilitation",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T12:39:32.987Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4882c11ce72dcd01a5a4",
+      "reserved_at": "2026-10-11T12:39:42.579Z",
+      "source_branch": "research/intake/1/20261011-0836-exercise-mbsr-two-r22"
+    },
+    {
+      "pmid": "41717474",
+      "title": "Effects of mindfulness-based stress reduction on sleep quality and academic stress of Chinese adolescents: a randomized controlled trial.",
+      "doi": "10.3389/fpsyg.2026.1734353",
+      "source_title": "Effects of mindfulness-based stress reduction on sleep quality and academic stress of Chinese adolescents: a randomized controlled trial.",
+      "abstract": "This study aimed to evaluate the impact of an 8-week Mindfulness-Based Stress Reduction (MBSR) program on sleep quality and academic stress among Chinese school adolescents. A total of 46 students were recruited and randomly assigned to either the experimental group ( n =22), which participated in the 8-week MBSR program, or the control group ( n =24), which received no intervention. Assessments using the Pittsburgh Sleep Quality Index (PSQI), the Academic Stress Questionnaire (ASQ), and the Five Factors Mindfulness Scale (FFMQ) were conducted before and after the intervention period. Following the 8-week MBSR program, the experimental group demonstrated significant reductions in total scores for both sleep quality and academic stress, alongside a significant increase in total mindfulness score. In contrast, the control group showed no significant changes in academic stress, sleep quality, or mindfulness scores over the same period. The findings indicate that the 8-week MBSR program effectively improved sleep quality, reduced academic stress, and enhanced mindfulness levels in Chinese adolescents, suggesting its potential as a beneficial intervention in school settings.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41717474/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41717474",
+        "doi": "10.3389/fpsyg.2026.1734353",
+        "journal": "Frontiers in psychology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T12:39:32.987Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "3a5fa17b91f703e36467",
+      "reserved_at": "2026-10-11T12:39:42.579Z",
+      "source_branch": "research/intake/1/20261011-0836-exercise-mbsr-two-r22"
     }
   ],
   "batches": [
@@ -70650,16 +70802,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 902,
+    "total_reservations": 904,
     "by_lane": {
-      "1": 79,
+      "1": 81,
       "2": 165,
       "3": 133,
       "4": 50,
       "5": 475
     },
     "by_state": {
-      "SOURCE_VERIFIED": 902
+      "SOURCE_VERIFIED": 904
     },
     "batches": [
       {
@@ -70672,7 +70824,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 402,
+        "count": 404,
         "pr_number": null,
         "blocker": null
       }
