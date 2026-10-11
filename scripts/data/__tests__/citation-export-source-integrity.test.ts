@@ -47,6 +47,21 @@ describe('magnesium source relevance and researcher citation exports', () => {
     }
   })
 
+  it('exports the same unique PMID set in JSON, BibTeX, CSV, and RIS', () => {
+    const sets = [
+      json.studies.map((s: { pmid: string }) => String(s.pmid)),
+      [...bib.matchAll(/\bpmid\s*=\s*\{(\d+)\}/g)].map((match) => match[1]),
+      [...csv.matchAll(/^(\d+),/gm)].map((match) => match[1]),
+      [...ris.matchAll(/^AN  - (\d+)$/gm)].map((match) => match[1]),
+    ]
+    const canonical = [...sets[0]].sort()
+    expect(new Set(canonical).size).toBe(canonical.length)
+    for (const ids of sets.slice(1)) {
+      expect(new Set(ids).size).toBe(ids.length)
+      expect([...ids].sort()).toEqual(canonical)
+    }
+  })
+
   it('preserves exact-title PubMed-verified systematic-review and RCT classifications', () => {
     const designs = new Map(json.studies.map((s: { pmid: string; design: string }) => [s.pmid, s.design]))
     expect(designs.get('38817505')).toBe('systematic-review')
