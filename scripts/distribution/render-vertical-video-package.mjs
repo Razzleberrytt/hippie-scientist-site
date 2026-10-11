@@ -8,7 +8,7 @@ import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
-import { buildR810CreativeReceipt } from './r810-creative-gate.mjs'
+import { buildR810CreativeReceipt, assertR810TimedScenes } from './r810-creative-gate.mjs'
 import { cachedR810BeatSvg, defaultR810CacheRoot } from './r810-beat-cache.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
 import { renderR809VisualActor } from './r809-visual-actors.mjs'
@@ -543,6 +543,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       }
     }
   }
+  if (methodRelease === 'R8.10') assertR810TimedScenes(brief, scenes)
   const durationSeconds = Number(beatTimeline.durationSeconds)
   if (!Number.isFinite(durationSeconds) || durationSeconds < 5 || durationSeconds > 60 || !timingMatches(expectedStart, durationSeconds)) {
     throw new Error('R8.05 exact narration duration is outside the governed natural-runtime envelope')
