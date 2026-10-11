@@ -80,6 +80,16 @@ describe('whole-source quarantine publication reconciliation', () => {
     expect(assess({ ...approved, usageContext: 'Source-to-claim quarantine only' })).toBe(null)
   })
 
+  it('blocks DOI citations surfaced only as profile or workbook URLs', () => {
+    const doiUrl = 'https://doi.org/10.1007/s11695-019-04215-6'
+    expect(assess(approved, { sources: [{ url: doiUrl }] })?.problems.join(' ')).toContain('detail sources')
+    expect(assess(approved, { sources: [] }, [
+      { profile_slug: 'magnesium', source_url: doiUrl },
+    ])?.problems.join(' ')).toContain('workbook claims')
+    // An unreviewed draft is advisory even if that same URL is still exposed.
+    expect(assess(warning, { sources: [{ url: doiUrl }] })?.problems).toEqual([])
+  })
+
   it('resolves DOI and PMID prefixes independently of local hashed source IDs', () => {
     expect(quarantineIdentity('src_doi-10-1007-s11695-019-04215-6')).toEqual({
       kind: 'doi', key: '101007s11695019042156',
