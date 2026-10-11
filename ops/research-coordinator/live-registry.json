@@ -61478,6 +61478,158 @@
       "reservation_id": "c39f8fe55c9f5b2a476e",
       "reserved_at": "2026-10-11T08:35:13.745Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0432"
+    },
+    {
+      "pmid": "42472472",
+      "title": "Effectiveness of Guided Internet-delivered Cognitive Behavioral Therapy for Insomnia in Autistic Adults (i-Sleep Autism): a Randomized Controlled Trial.",
+      "doi": "10.1093/sleep/zsag199",
+      "source_title": "Effectiveness of Guided Internet-delivered Cognitive Behavioral Therapy for Insomnia in Autistic Adults (i-Sleep Autism): a Randomized Controlled Trial.",
+      "abstract": "An estimated 60% of autistic adults suffer from insomnia symptoms, which significantly impairs daily functioning and wellbeing. This study evaluated the effectiveness of i-Sleep Autism, a 5-week, guided self-help internet-delivered cognitive behavioral therapy-based intervention (ICBT-I) for insomnia in autistic adults. In co-creation with seven autistic adults with sleeping problems, i-Sleep Autism was adapted from i-Sleep, a pre-existing non-autism specific intervention. A total of 163 adults with autism and insomnia (ISI≥10) was randomly allocated to i-Sleep Autism (n=82) or waitlist control (n=81; receiving psychoeducation and sleep hygiene). Participants were assessed at baseline (T0), mid-intervention (T1; 3-weeks), post-test (T2; 6-weeks), and follow-up (T3; 6 months) on insomnia severity (primary outcome), pre-sleep arousal, anxiety, depression, daily functioning, and quality of life. In the intervention group, 56.1% completed four, and 50% all five modules. Intent-To-Treat analyses revealed a significant reduction in insomnia severity at T1 and T2 (d = 1.02, 95%CI = [0.65, 1.40]), and cognitive- and somatic pre-sleep arousal at post-test, when comparing intervention to control. The intervention group showed significantly higher quality of life at post-test. At T2, 37.8% of the intervention group versus 11.1% of the control group showed clinically meaningful improvement of insomnia. Effects on insomnia severity were maintained at 6-month follow up. No significant effects were found for anxiety, depression, or daily functioning. This is the first RCT to investigate autism-adapted ICBT-I for autistic adults suffering from insomnia. i-Sleep Autism effectively and sustainably improves insomnia. Additional strategies are needed to support dropouts and those who did not benefit.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42472472/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42472472",
+        "doi": "10.1093/sleep/zsag199",
+        "journal": "Sleep",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T08:43:39.392Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c7f8e04daf8c884bc9a5",
+      "reserved_at": "2026-10-11T08:43:47.432Z",
+      "source_branch": "research/intake/1/20261011-0441-autism-cbti-bbti-two-r18"
+    },
+    {
+      "pmid": "42534162",
+      "title": "Effectiveness of Brief Behavioral Intervention for Insomnia on Anxiety, Depression, Quality of Life, and Sleep: A Randomized Pilot Trial.",
+      "doi": "10.7759/cureus.111676",
+      "source_title": "Effectiveness of Brief Behavioral Intervention for Insomnia on Anxiety, Depression, Quality of Life, and Sleep: A Randomized Pilot Trial.",
+      "abstract": "Introduction Sleep disorders and psychiatric diseases are public health problems that have increased due to the COVID-19 lockdown. In Mexico, telemedicine was a frequently used treatment modality under the circumstances of the lockdown. The present study aimed to test the effectiveness of brief behavioral intervention for improving symptoms of insomnia, anxiety, and depression and increasing quality of life in patients who survived the COVID-19 infection. Method A randomized, parallel-group equivalence clinical trial was conducted without a passive control group. Pre-treatment, post-treatment, and three-month follow-up measurements were taken. The intervention consisted of four weekly sessions lasting 50 minutes each. Five questionnaires were applied: Insomnia Severity Index (ISI), Pittsburgh Sleep Quality Index (PSQI), General Anxiety Disorder 7 (GAD-7), Patient Health Questionnaire 9 (PHQ-9), SF-36 Health Questionnaire (SF36), and a sleep diary. Results In both therapy modalities, significant improvement was identified (p < 0.05) in ISI (14.57 vs 5.57), ICSP (12.43 vs 4.86), GAD-7 (13.00 vs 5.29), PHQ-9 (15.86 vs 5.00), and SF-36 (30.00 vs 77.14) scores, which coincided with sleep diary measurements. Conclusion Both intervention modalities were effective, indicating that teleconsultation is a viable treatment option for insomnia symptoms and mental health comorbidities.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42534162/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42534162",
+        "doi": "10.7759/cureus.111676",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T08:43:39.393Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "934f8d47702ff53a5f53",
+      "reserved_at": "2026-10-11T08:43:47.432Z",
+      "source_branch": "research/intake/1/20261011-0441-autism-cbti-bbti-two-r18"
     }
   ],
   "batches": [
@@ -61506,16 +61658,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 784,
+    "total_reservations": 786,
     "by_lane": {
-      "1": 73,
+      "1": 75,
       "2": 157,
       "3": 129,
       "4": 50,
       "5": 375
     },
     "by_state": {
-      "SOURCE_VERIFIED": 784
+      "SOURCE_VERIFIED": 786
     },
     "batches": [
       {
@@ -61528,7 +61680,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 284,
+        "count": 286,
         "pr_number": null,
         "blocker": null
       }
