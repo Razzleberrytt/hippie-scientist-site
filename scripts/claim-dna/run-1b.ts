@@ -178,9 +178,13 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
   const adapterHash = sha256Hex(adapterBytes)
   // Recompute outputs if either pipeline implementation changes, even when
   // input claims and metadata are unchanged.
+  // The typed identity helper is part of both 1A join metrics and 1B's shared
+  // identity manifest. Include its bytes so changes invalidate cached artifacts
+  // instead of silently reusing output produced by obsolete interpretation logic.
   const generatorFingerprint = sha256Hex(
     fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'run-1a.ts'), 'utf8') + '\n' +
-    fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'run-1b.ts'), 'utf8'),
+    fs.readFileSync(path.join(root, 'scripts', 'claim-dna', 'run-1b.ts'), 'utf8') + '\n' +
+    fs.readFileSync(path.join(root, 'lib', 'study-identity.ts'), 'utf8'),
   )
 
   const prevState = loadBatchState(root, batchId)
