@@ -2,6 +2,7 @@ import { text } from '@/lib/display-utils'
 
 const RESTRICTED_TERMS = [
   'black cohosh',
+  'remifemin',
   'actaea racemosa',
   'cimicifuga racemosa',
   'green tea extract',
