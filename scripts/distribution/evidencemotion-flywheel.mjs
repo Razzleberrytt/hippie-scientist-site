@@ -38,7 +38,6 @@ const med = (values) => {
 }
 const ratio = (a,b) => b>0 ? a/b : null
 const rounded = (v) => v === null || v === undefined || !Number.isFinite(v) ? null : Number(v.toFixed(4))
-const comparePeriod = (a,b) => a.platform===b.platform && a.metricWindow===b.metricWindow
 const dateString = (date) => new Date(date).toISOString().slice(0,10)
 const reserved = new Set(['template','manifests','observations','reports','videos','approvals'])
 
@@ -145,8 +144,6 @@ function quartile(values) {
 }
 export function flywheelInsights(root,{metricWindow='first-7d',minimumComparable=3}={}) {
   const all=listFlywheelSnapshots(root,metricWindow)
-  const groupCount=new Map()
-  for(const v of eligible(all))groupCount.set(v.platform,(groupCount.get(v.platform)||0)+1)
   const byPlatform=eligible(all).reduce((acc,v)=>{(acc[v.platform]??=[]).push(v);return acc},{})
   const observations=eligible(all)
   const hooks=all.filter(v=>v.latestObservation).map(v=>{
@@ -171,7 +168,7 @@ export function flywheelInsights(root,{metricWindow='first-7d',minimumComparable
   const topics=[]
   const grouped=new Map()
   for(const v of observations){const k=v.platform+'|'+v.topic.toLowerCase();(grouped.get(k)||grouped.set(k,[]).get(k)).push(v)}
-  for(const [key,group] of grouped){
+  for(const group of grouped.values()){
     const platform=group[0].platform
     const peers=byPlatform[platform]||[]
     const baseline=peers.length>=minimumComparable?med(peers.map(p=>p.latestObservation.metrics.views)):null
@@ -235,7 +232,6 @@ export function registerFlywheelFromPackage(root, input) {
     productionManifestSha256:digest(mb)})
 }
 
-const markdownTable=(rows)=>rows.join('\n')
 export function renderFlywheelLearningReport(root,{metricWindow='first-7d',last=10}={}) {
   const ins=flywheelInsights(root,{metricWindow})
   const videos=listFlywheelSnapshots(root,metricWindow).slice(0,last)
