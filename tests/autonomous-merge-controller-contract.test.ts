@@ -142,8 +142,11 @@ describe('autonomous merge controller contract', () => {
     expect(productionLint).toContain('recovery_pr_number')
     for (const workflow of [ci, siteHealth, atomic, buildQuality, productionLint]) {
       expect(workflow).toContain('pull-requests: read')
-      expect(workflow).toContain('gh api')
     }
+    // Dispatch inputs remain required; PR-body API lookups are not. Workflow
+    // validation is grounded in executable checks rather than mandatory prose.
+    expect(atomic).toContain('classify-release-impact.mjs')
+    expect(buildQuality).toContain('compare-build-quality.mjs')
   })
 
   it('classifies only zero-job pull-request action_required failures as dispatch-recoverable', () => {
