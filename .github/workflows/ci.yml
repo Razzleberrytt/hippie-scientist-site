@@ -101,6 +101,12 @@ jobs:
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
         run: git diff --exit-code package-lock.json package.json
 
+      # Fresh checkout does not have .content-collections/generated (gitignored).
+      # Generate real collection modules rather than mocking production imports.
+      - name: Generate Content Collections before TypeScript and Vitest
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        run: npm run content:build
+
       - name: Verify Node engine
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
         run: npm run check:node
