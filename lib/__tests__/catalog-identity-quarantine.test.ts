@@ -8,6 +8,13 @@ const read = (file: string) =>
   fs.readFileSync(path.join(process.cwd(), file), 'utf8')
 
 describe('commerce catalog identity quarantine', () => {
+  it('excludes nonexistent or misclassified Thorne ginger and echinacea products', () => {
+    for (const file of ['config/revenue-products.ts', 'data/product-picks.ts']) {
+      expect(read(file)).not.toContain('Thorne Phytisone (Ginger)')
+      expect(read(file)).not.toContain('Thorne Echinacea')
+    }
+  })
+
   it('withdraws the unverified NOW Turmeric 400 mg recommendation from both registries', () => {
     for (const file of ['config/revenue-products.ts', 'data/product-picks.ts']) {
       expect(read(file)).not.toContain('NOW Turmeric 400 mg')
