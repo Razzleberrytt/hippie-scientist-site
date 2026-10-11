@@ -7,7 +7,7 @@ import {
   parseComparisonKey,
   type ResearchSearchItem,
 } from '@/lib/search/search-experience'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { canDiscoverResearchProfile } from '@/lib/search/research-discovery-eligibility'
 import { publicSafetyLabel } from '@/lib/decision-primitives'
 
 type LoadState = 'loading' | 'ready' | 'invalid' | 'missing'
@@ -92,7 +92,7 @@ export default function OnDemandComparisonClient() {
           const raw = String(candidate.slug || candidate.id || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
           return raw === request.slug
         })
-        if (!record || !getRuntimeVisibility(record).canRender) return null
+        if (!record || !canDiscoverResearchProfile(record)) return null
         return normalizeResearchSearchItem(record, request.type)
       }).filter((item): item is ResearchSearchItem => Boolean(item))
 
