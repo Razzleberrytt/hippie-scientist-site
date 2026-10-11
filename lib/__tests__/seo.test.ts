@@ -31,9 +31,16 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
       const meta = generateDetailMetadata(mockHerb, 'herb')
 
       expect(meta.title).toBe('Ashwagandha for Stress, Sleep & Testosterone: Evidence')
-      expect(meta.description).toContain('human evidence for ashwagandha')
+      expect(meta.description).toContain('Review the human evidence for ashwagandha')
       expect(meta.description).toContain('safety limitations')
       expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/herbs/ashwagandha/')
+    })
+
+    it('uses search-intent metadata when no editor overrides it', () => {
+      const profile = { ...mockCompound, slug: 'omega-3', name: 'Omega-3 Fatty Acids' }
+      const meta = generateDetailMetadata(profile, 'compound')
+      expect(meta.title).toBe('Omega-3 (Fish Oil): Evidence, Dosage & Safety')
+      expect(meta.description).toContain('EPA/DHA omega-3 research')
     })
 
     it('generates correct metadata for a compound', () => {
@@ -46,7 +53,7 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
 
     it('prefers a manual meta_title / meta_description when present', () => {
       const meta = generateDetailMetadata(
-        { ...mockHerb, slug: 'ashwagandha-test', meta_title: 'Custom Ashwagandha Title', meta_description: 'Custom description override.' },
+        { ...mockHerb, meta_title: 'Custom Ashwagandha Title', meta_description: 'Custom description override.' },
         'herb',
       )
 
@@ -57,7 +64,6 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
     it('uses meta_title and meta_description overrides if provided', () => {
       const overrideHerb = {
         ...mockHerb,
-        slug: 'ashwagandha-test',
         meta_title: 'Hand-authored Ashwagandha Title Override',
         meta_description: 'Hand-authored Ashwagandha Description override.',
       }
