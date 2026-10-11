@@ -44,6 +44,8 @@ describe('study-design classification provenance', () => {
       { '45678901': { publicationTypes: ['Journal Article', 'Systematic Review'] } },
     )).toBe('systematic-review')
     expect(designFromPublicationTypes(['Review'])).toBe('unclassified')
+    // Generic PubMed tags may differ in casing and whitespace across exports.
+    expect(designFromPublicationTypes(['  JOURNAL ARTICLE ', ' review '])).toBe('unclassified')
   })
 
   it('does not accept invalid PubMed type payloads as an authoritative classification', () => {
