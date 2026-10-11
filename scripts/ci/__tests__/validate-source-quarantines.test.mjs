@@ -33,8 +33,8 @@ const approved = {
   reviewedAt: '2026-10-10T20:00:00.000Z',
   approvalNotes: 'PubMed title and abstract confirm an unrelated bariatric-drain paper.',
 }
-const assess = (submission, profile = activeMagnesium) =>
-  assessQuarantine({ submission, profile, fragmentPath: 'fixture.json' })
+const assess = (submission, profile = activeMagnesium, claims = [], pubmedCache = {}) =>
+  assessQuarantine({ submission, profile, claims, pubmedCache, fragmentPath: 'fixture.json' })
 
 describe('whole-source quarantine publication reconciliation', () => {
   it('treats the historical August 30 warning as draft, not an automatic ban', () => {
@@ -58,7 +58,16 @@ describe('whole-source quarantine publication reconciliation', () => {
 
   it('allows a reviewed quarantine when the conflicting source assignment is removed', () => {
     expect(assess(approved, { sources: [] })?.problems).toEqual([])
-    expect(assess(approved, { sources: [{ ...activeMagnesium.sources[0], active: false }] })?.problems).toEqual([])
+    // Public citation extraction still renders source rows even if "active" is false.
+    expect(assess(approved, { sources: [{ ...activeMagnesium.sources[0], active: false }] })?.problems.join(' ')).toContain('APPROVED QUARANTINE CONFLICT')
+  })
+
+  it('catches sources reattached from workbook claims after detail source removal', () => {
+    const claim = { profile_slug: 'magnesium', pmid: '31654344', evidence_tier: 'meta_analysis' }
+    const cache = { '31654344': { doi: '10.1007/s11695-019-04215-6' } }
+    expect(assess(approved, { sources: [] }, [claim], cache)?.problems.join(' ')).toContain('workbook claims')
+    expect(assess({ ...approved, sourceId: 'src_pubmed-31654344' }, { sources: [] }, [claim])?.problems.join(' ')).toContain('workbook claims')
+    expect(assess(approved, { sources: [] }, [{ ...claim, profile_slug: 'zinc' }], cache)?.problems).toEqual([])
   })
 
   it('does not quarantine another ingredient or a claim-specific source dispute', () => {
