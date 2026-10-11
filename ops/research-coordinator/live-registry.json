@@ -52584,6 +52584,235 @@
       "reservation_id": "b5737e44bc459da3a08e",
       "reserved_at": "2026-10-11T03:46:26.093Z",
       "source_branch": "research/intake/1/20261010-2343-reflexology-laughter-two-r11"
+    },
+    {
+      "pmid": "41947606",
+      "title": "Effectiveness of physical activity counseling and PILATES exercises in women with prediabetes and type 2 diabetes: a randomized controlled trial.",
+      "doi": "10.1080/09593985.2026.2654807",
+      "source_title": "Effectiveness of physical activity counseling and PILATES exercises in women with prediabetes and type 2 diabetes: a randomized controlled trial.",
+      "abstract": "Physical activity (PA) has a protective effect on impaired glucose and pilates effectively supports patients with high plasma glucose levels. This study aimed to evaluate the effects of ACSM (American College of Sports Medicine) person-centered PA counseling using the 5A model (Assess, Advise, Agree, Assist, And Arrange), combined with Pilates exercises, on metabolic control variables in patients with prediabetes (PD) and type 2 diabetes (T2D). Ninety women with T2D and PD were randomly assigned to three groups: Group 1 (Pilates + PA counseling), Group 2 (PA counseling), and Group 3 (standard treatment). Both intervention groups also received standard treatment. Primary outcomes were metabolic measures (blood glucose and lipid parameters). Secondary outcomes included body composition (body fat %, visceral fat, muscle mass) and physical performance (functional capacity, PA level, balance). Measurements were taken at baseline and after 12 weeks. No significant between-group differences were found in metabolic or body composition outcomes. However, Group 1 showed higher PA levels ( p = .002, η2 = 0.13) and step counts ( p = .003, η2 = 0.12) compared with the control group. Both intervention groups improved functional capacity ( p = .001, η2 = 0.15) and balance ( p < .001, η2 = 0.26). In T2D participants, functional capacity improved in Group 1 and 2 (both p < .001, η2 = 0.25). In PD participants, steps counts increased in Group 1 ( p = .003, η2 = 0.24) compared with Group 3, while PA levels and balance scores ( p < .001, both, η2 = 0.31, η2 = 0.43, respectively) improved in Groups 1 and 2. The remaining parameters showed no differences ( p > .05). Physical activity counseling using the 5A model plus Pilates exercises may improve functional capacity, PA level, number of steps, and balance. In Type 2 diabetes, PA counseling alone may prevent declines in functional capacity. In PD, PA counseling improves PA levels and balance, and adding Pilates may further boost daily steps.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41947606/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41947606",
+        "doi": "10.1080/09593985.2026.2654807",
+        "journal": "Physiotherapy theory and practice",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T03:51:37.113Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4942c81c7fd6c2484184",
+      "reserved_at": "2026-10-11T03:51:44.455Z",
+      "source_branch": "research/intake/2/20261010-2349-cognition-metabolic-r61"
+    },
+    {
+      "pmid": "42370628",
+      "title": "Knowledge-Attitude-Practice-Based Outdoor Exercise Education for Patients With Type 2 Diabetes: A Randomized Controlled Trial.",
+      "doi": "10.1155/jdr/4523789",
+      "source_title": "Knowledge-Attitude-Practice-Based Outdoor Exercise Education for Patients With Type 2 Diabetes: A Randomized Controlled Trial.",
+      "abstract": "Regular exercise is known to improve glycemic control and health outcomes in Type 2 diabetes, but many patients struggle to achieve recommended activity levels. Knowledge-Attitude-Practice (KAP)-based education may help bridge this gap by improving exercise adherence and related outcomes. This study is aimed at assessing whether a structured KAP-based outdoor exercise education program leads to better 6-month glycemic and weight control than traditional exercise guidance in adults with Type 2 diabetes. We conducted a 6-month single-center, parallel-group, assessor-blinded randomized controlled trial in Shanghai, China. A total of 220 adults with Type 2 diabetes were randomized 1:1 to either a KAP-based exercise education intervention or a traditional exercise guidance control. The KAP group received a multicomponent educational session (covering exercise knowledge, motivational counseling, and practical skills training for safe outdoor exercise) with biweekly follow-up reinforcement, whereas the control group received one session of standard exercise advice and continued usual care. The primary outcomes (HbA1c and body weight) were assessed at baseline and 6 months. Analyses were performed on an intention-to-treat basis. Of 242 patients screened, 220 were randomized, and a 6-month follow-up was completed for all. Both groups achieved significant improvements in HbA1c and modest weight loss over 6 months. At 6 months, body weight also declined by a similar amount in both groups (between-group difference: -0.261 [95% CI -0.785, 0.262; p = 0.328]). HbA1c had decreased by about 1.3% in each group; the adjusted between-group difference was -0.045% (95% CI -0.18, 0.09; p = 0.498). No other metabolic or functional outcomes differed significantly between groups. However, exercise adherence was higher in the KAP group: By 6 months, 80.4% of KAP participants achieved ≥ 150 min/week of exercise compared to 57.8% in the control group, and the KAP arm averaged 178.5 ± 40.3 min of exercise per week versus 154.8 ± 35.8 min in the control arm; both differences were statistically significant (p < 0.05). In this randomized trial, a KAP-based outdoor exercise education program did not significantly outperform traditional one-time exercise guidance in improving 6-month glycemic control or body weight in adults with Type 2 diabetes. Both interventions yielded clinically meaningful improvements in HbA1c and other health metrics over 6 months. ClinicalTrials.gov identifier: ChiCTR2500104389.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42370628/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42370628",
+        "doi": "10.1155/jdr/4523789",
+        "journal": "Journal of diabetes research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T03:51:37.115Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "41d071444ecac9fe2bb6",
+      "reserved_at": "2026-10-11T03:51:44.455Z",
+      "source_branch": "research/intake/2/20261010-2349-cognition-metabolic-r61"
+    },
+    {
+      "pmid": "42438852",
+      "title": "Effects of exercise intensity on circadian rhythm and glucose regulation in adults with obesity: a randomized crossover trial.",
+      "doi": "10.20463/pan.2026.0029",
+      "source_title": "Effects of exercise intensity on circadian rhythm and glucose regulation in adults with obesity: a randomized crossover trial.",
+      "abstract": "Circadian rhythm disruption is associated with metabolic dysfunction and obesity. While exercise can serve as a non-photic zeitgeber, the optimal intensity for evening exercise sessions in adults with obesity remains unclear. This pilot crossover trial compared the acute effects of evening high-intensity interval training (HIIT) versus moderate-intensity interval training (MIIT) on circadian core body temperature rhythm, 24-hour glucose regulation, and sleep quality in adults with obesity. Nine adult males with obesity (BMI ≥ 25 kg/m², Asia-Pacific criterion) completed a randomised crossover trial of HIIT (~30 min at 90% heart rate reserve [HRR]) and MIIT (~50 min at 60% HRR) on a cycle ergometer between 19:00 and 21:00, separated by a 7-14-day washout. Twenty-four-hour core body temperature (ingestible telemetric capsule), interstitial glucose (FreeStyle Libre 1), and wrist actigraphy were recorded for 24 h before and 24 h after each exercise session under standardised dietary intake. The primary outcome was the change in circadian temperature amplitude (Δ amplitude) derived from a 24-hour fixed-period cosine fit with non-negative amplitude bound; mesor and acrophase were co-primary. Effect sizes (Cohen's d_z) are reported throughout. Δ amplitude differed in direction between conditions (MIIT -0.01 ± 0.19 °C; HIIT +0.12 ± 0.24 °C) but did not reach conventional statistical significance (paired t(8) = -2.19, p = 0.060, d_z = 0.73). Mesor (Δ contrast p = 0.49, d_z = 0.24) and circular acrophase (Δ contrast p = 0.67, d_z = 0.15) did not differ between conditions, with both protocols producing approximately one-hour phase advances. Twenty-four-hour mean glucose post-exercise trended lower following MIIT (95.9 ± 6.1 mg/dL) than HIIT (98.7 ± 5.5 mg/dL; p = 0.081, d_z = -0.72); coefficient of variation, time in range, and mean amplitude of glycaemic excursions did not differ. Post-exercise sleep efficiency, total sleep time, and wake after sleep onset did not differ between conditions (all p &gt; 0.50; |d_z| ≤ 0.24). In this single-session pilot crossover trial in nine adult males with obesity, evening HIIT and MIIT produced acute changes of similar magnitude in mesor and phase, with a borderline non-significant between-condition difference in amplitude change. Twenty-four-hour mean glucose showed a comparable non-significant trend toward lower values following MIIT, whereas glucose variability and sleep markers did not differ between conditions. Larger work-matched trials are required to determine whether evening exercise intensity produces clinically meaningful differences in circadian or metabolic outcomes in adults with obesity.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42438852/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42438852",
+        "doi": "10.20463/pan.2026.0029",
+        "journal": "Physical activity and nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T03:51:37.115Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b73659590c3cb5b5c84a",
+      "reserved_at": "2026-10-11T03:51:44.455Z",
+      "source_branch": "research/intake/2/20261010-2349-cognition-metabolic-r61"
     }
   ],
   "batches": [
@@ -52612,16 +52841,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 669,
+    "total_reservations": 672,
     "by_lane": {
       "1": 69,
-      "2": 149,
+      "2": 152,
       "3": 126,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 669
+      "SOURCE_VERIFIED": 672
     },
     "batches": [
       {
@@ -52634,7 +52863,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 169,
+        "count": 172,
         "pr_number": null,
         "blocker": null
       }
