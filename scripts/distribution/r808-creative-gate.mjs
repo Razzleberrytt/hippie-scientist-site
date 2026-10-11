@@ -6,6 +6,10 @@ const sha256 = (value) => crypto.createHash('sha256').update(JSON.stringify(valu
 const SILENT_ROLES = Object.freeze({hook:'promise', finding:'answer', evidence:'support', limitation:'boundary'})
 const CORE_ROLES = Object.keys(SILENT_ROLES)
 const words = (text) => clean(text).split(/\s+/).filter(Boolean).length
+// EvidenceMotion has no decorative playback/progress HUD: those belong to the
+// platform UI, not scientific teaching objects. A measurement chart remains
+// allowed when it is not described as a playback/progress indicator.
+const PHANTOM_PROGRESS_HUD = /\b(?:progress\s*(?:bar|track|indicator)|loading\s*(?:bar|track|indicator)|(?:playback|timeline)\s*(?:bar|meter|track))\b/i
 
 // An objective pre-render comprehension gate. Semantic adequacy still requires a
 // human exact-MP4 review; this function never claims to machine-verify meaning.
@@ -27,6 +31,12 @@ export function validateR808CreativeBrief(brief) {
   }
 
   const beats = Array.isArray(brief?.beats) ? brief.beats : []
+  for (const beat of beats) {
+    const visualPlan = [beat?.visualPurpose, beat?.visualAction].map(clean).join(' ')
+    if (PHANTOM_PROGRESS_HUD.test(visualPlan)) {
+      errors.push(`R8.08 EvidenceMotion forbids decorative progress/loading HUD in beat ${clean(beat?.id) || 'unknown'}; use a semantic teaching object instead`)
+    }
+  }
   for (const role of CORE_ROLES) {
     const matches = beats.filter(beat => clean(beat?.role) === role)
     if (matches.length !== 1) {
