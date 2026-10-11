@@ -8,6 +8,9 @@ import { canRenderConfiguredRevenueProducts } from '../revenue-product-governanc
 const affectedSlugs = [
   'andrographis', 'andrographis-paniculata', 'gotu-kola',
   'motherwort', 'aloe-vera', 'cat-s-claw',
+  // These aliases are accepted by the revenue catalog. Each must fail closed
+  // even if a caller passes the alias without a runtime record.
+  'andrographolide-herb', 'aloe-barbadensis', 'brahmi-gotu-kola',
 ]
 const documentedProfiles: Array<{ directory: string; slug: string; evidenceUrl: string; caution: RegExp }> = [
   { directory: 'herbs-detail', slug: 'andrographis-paniculata', evidenceUrl: 'tga.gov.au', caution: /anaphylaxis/i },
@@ -22,6 +25,8 @@ describe('Batch 7 precautionary safety holds', () => {
     for (const slug of affectedSlugs) {
       expect(isBatch7SafetyHold(slug)).toBe(true)
       expect(canRenderAffiliateLinks({ slug, governance: { monetizationAllowed: true } })).toBe(false)
+      expect(canRenderAffiliateLinks({ slug, monetization_allowed: true })).toBe(false)
+      expect(canRenderConfiguredRevenueProducts(slug, { slug, monetization_allowed: true })).toBe(false)
       expect(canRenderConfiguredRevenueProducts(slug)).toBe(false)
     }
     expect(isBatch7SafetyHold('magnesium')).toBe(false)
