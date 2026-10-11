@@ -9,6 +9,7 @@ import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
+import { renderR809VisualActor } from './r809-visual-actors.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
@@ -513,6 +514,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
       compositionFamily: clean(beat?.r807?.compositionFamily),
+      visualScene: clean(beat?.r809?.visualScene),
       rhythmAction: clean(beat?.r807?.rhythmAction),
       motifId: clean(beat?.r807?.motifId),
       patternInterrupt: beat?.r807?.patternInterrupt === true,
@@ -672,7 +674,13 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
   const compositionVisible = !(scene.motionType === 'reveal' && motionPhase === 'pre')
-  const composition = compositionVisible
+  const composition = r809 && scene.role !== 'source'
+    ? (compositionVisible ? renderR809VisualActor(scene, {
+        x, y: compositionTop + 30, width: safeWidth,
+        height: Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
+        foreground, background,
+      }) : '')
+    : compositionVisible
     ? renderAuthoredComposition(scene, {
         x,
         width: safeWidth,
@@ -703,6 +711,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
     compositionFamily: scene.compositionFamily || null,
+    visualScene: scene.visualScene || null,
     rhythmAction: scene.rhythmAction || null,
     motifId: scene.motifId || null,
     patternInterrupt: scene.patternInterrupt === true,
@@ -795,6 +804,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       visualMode: scene.visualMode || null,
       teachingObject: scene.teachingObject || null,
       compositionFamily: scene.compositionFamily || null,
+      visualScene: scene.visualScene || null,
       rhythmAction: scene.rhythmAction || null,
       motifId: scene.motifId || null,
       patternInterrupt: scene.patternInterrupt === true,
@@ -818,9 +828,9 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fps: 30,
     durationSeconds,
     semanticBeatMapSha256: bindings?.semanticBeatMapSha256 ?? null,
-    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
+    scenes: assets.map(({ id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority, visualMode, teachingObject, compositionFamily, visualScene, rhythmAction, motifId, patternInterrupt, patternInterruptReason }) => ({
       id, beatId, beatReceiptSha256, cutReason, spoken, motion, file, sha256: hash, start, end, duration, role, factualAuthority,
-      visualMode, teachingObject, compositionFamily, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
+      visualMode, teachingObject, compositionFamily, visualScene, rhythmAction, motifId, patternInterrupt, patternInterruptReason,
     })),
   }
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
