@@ -63881,6 +63881,83 @@
       "reservation_id": "0b4dc96715c56a5beac6",
       "reserved_at": "2026-10-11T09:27:28.528Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0525"
+    },
+    {
+      "pmid": "42488242",
+      "title": "Natural Is Not Always Safe: A Case of Torsades De Pointes Induced by Berberine Supplementation.",
+      "doi": "10.7759/cureus.111276",
+      "source_title": "Natural Is Not Always Safe: A Case of Torsades De Pointes Induced by Berberine Supplementation.",
+      "abstract": "Torsades de pointes (TdP) is a life-threatening form of polymorphic ventricular tachycardia (VT) that develops in the context of QT interval prolongation. Although many prescription medications are recognized as QT-prolonging agents, the arrhythmogenic risks associated with non-FDA-approved products, such as over-the-counter (OTC) and herbal supplements, are less understood. The widespread availability of these supplements online has led to increased use as holistic alternatives to conventional pharmacologic therapy. While certain supplements may offer potential benefits for chronic diseases, most remain non-FDA-approved and lack robust randomized clinical trials to assess their safety and adverse effect profiles. Here, we present the case of a 36-year-old woman who developed a prolonged QT interval of unknown origin and subsequently suffered cardiac arrest due to TdP. It was only immediately prior to a planned invasive procedure that the patient disclosed several months of berberine use, a herbal supplement purchased online. Following discontinuation of berberine, her symptoms and EKG abnormalities resolved completely. This case underscores the unknown and potentially fatal risks associated with OTC supplements promoted as holistic alternatives to medication. Increased patient education and physician awareness regarding the prevalence and dangers of supplement use are essential for ensuring patient safety and improving outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42488242/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Case Reports; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Case Reports",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42488242",
+        "doi": "10.7759/cureus.111276",
+        "journal": "Cureus",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T10:02:25.148Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b3a0435e388e9978ff70",
+      "reserved_at": "2026-10-11T10:02:34.616Z",
+      "source_branch": "research/intake/3/20261011-0601-berberine-tdp-42488242"
     }
   ],
   "batches": [
@@ -63909,16 +63986,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 815,
+    "total_reservations": 816,
     "by_lane": {
       "1": 75,
       "2": 160,
-      "3": 130,
+      "3": 131,
       "4": 50,
       "5": 400
     },
     "by_state": {
-      "SOURCE_VERIFIED": 815
+      "SOURCE_VERIFIED": 816
     },
     "batches": [
       {
@@ -63931,7 +64008,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 315,
+        "count": 316,
         "pr_number": null,
         "blocker": null
       }
