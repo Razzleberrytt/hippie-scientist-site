@@ -30,19 +30,17 @@
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
-    "sourceCount": 5,
+    "sourceCount": 4,
     "sourceIds": [
       "src_1db911595120",
       "src_46b64396df5a",
       "src_7e4a317262c5",
-      "src_972d09376205",
-      "src_a8cddfb5c4db"
+      "src_972d09376205"
     ],
-    "claimCount": 7,
+    "claimCount": 6,
     "claimIds": [
       "clm_23c56e4198a7",
       "clm_416cbc1a81e6",
-      "clm_82032f33663c",
       "clm_ce7aafbeb5f1",
       "clm_da5ee05e708a",
       "clm_ebbb3070fde9",
@@ -84,24 +82,6 @@
       },
       "sourceRefIds": [
         "src_46b64396df5a"
-      ]
-    },
-    {
-      "id": "clm_82032f33663c",
-      "claim": "improved sleep",
-      "predicate": "supports_outcome",
-      "evidenceLevel": "none",
-      "confidence": 0.5,
-      "reviewStatus": "pending",
-      "notes": "improved sleep",
-      "qualifiers": {
-        "direction": "+",
-        "dose_or_duration": "300–500 mg; varies",
-        "population": "adults",
-        "study_id": "ent_study_d9fcfd3472ee"
-      },
-      "sourceRefIds": [
-        "src_a8cddfb5c4db"
       ]
     },
     {
@@ -199,12 +179,14 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/23853635/",
       "pmid": "23853635",
       "authors": "PubMed",
-      "citation": "PubMed PMID 23853635. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "citation": "Abbasi B, et al. (2012). Double-blind randomized placebo-controlled trial in 46 older adults with primary insomnia. J Res Med Sci. PMID 23853635.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved",
       "journal": "J Res Med Sci",
       "year": 2012,
-      "metadataSource": "pubmed"
+      "metadataSource": "pubmed",
+      "studyClass": "rct",
+      "studyType": "Randomized controlled trial"
     },
     {
       "id": "src_46b64396df5a",
@@ -237,20 +219,6 @@
       "metadataSource": "pubmed"
     },
     {
-      "id": "src_a8cddfb5c4db",
-      "title": "Trends in Drain Utilization in Bariatric Surgery: an Analysis of the MBSAQIP Database 2015-2017",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
-      "pmid": "31654344",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 31654344. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Obes Surg",
-      "year": 2020,
-      "doi": "10.1007/s11695-019-04215-6",
-      "metadataSource": "pubmed"
-    },
-    {
       "id": "src_7e4a317262c5",
       "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
       "url": "https://pubmed.ncbi.nlm.nih.gov/38817505/",
@@ -259,12 +227,12 @@
       "journal": "Cureus",
       "citation": "Consensus result; citation_count=15; record_type=systematic_review",
       "note": "magnesium sleep/anxiety evidence, heterogeneity, dose/form caveat",
-      "studyType": "Narrative review",
+      "studyType": "Systematic review",
       "reviewStatus": "approved",
       "pmid": "38817505",
       "metadataSource": "pubmed",
       "doi": "10.7759/cureus.59317",
-      "studyClass": "narrative-review"
+      "studyClass": "systematic-review"
     }
   ],
   "dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms.",
