@@ -14,6 +14,7 @@ import { assertR807CreativeBrief, buildR807CreativeReceipt } from './r807-creati
 import { assertR808CreativeBrief, buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { assertR809CreativeBrief, buildR809CreativeReceipt } from './r809-creative-gate.mjs'
 import { assertR810CreativeBrief, buildR810CreativeReceipt } from './r810-creative-gate.mjs'
+import { buildR811Receipt } from './r811-creative-operations.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -45,6 +46,11 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 export function buildLosslessCreativeSpec(input) {
   const systemRelease = clean(input?.systemRelease) || 'R8.04'
   const creativeMethodRelease = clean(input?.creativeMethodRelease) || (systemRelease === 'R8.05' ? 'R8.05' : systemRelease)
+  const productionSystemRelease = clean(input?.productionSystemRelease || input?.creativeBrief?.r811?.productionSystemRelease) || null
+  if (productionSystemRelease && productionSystemRelease !== 'R8.11') throw Error('unsupported EvidenceMotion production-system release')
+  if (productionSystemRelease === 'R8.11' && (creativeMethodRelease !== 'R8.10' || systemRelease !== 'R8.05')) {
+    throw Error('R8.11 requires inherited governed R8.10 methodology and R8.05 local runtime')
+  }
   if (systemRelease === 'R8.05' && !['R8.05', 'R8.06', 'R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease)) {
     throw new Error(`unsupported creative methodology on R8.05 runtime: ${creativeMethodRelease}`)
   }
@@ -102,6 +108,11 @@ export function buildLosslessCreativeSpec(input) {
       schemaVersion: 'ths-r810-creative-receipt-v1', release: 'R8.10', status: 'concept-required',
       reason: 'R8.10 requires seven reviewed semantic roles, source ledger and temporal preflight.',
     })
+    : null
+  const r811Plan = productionSystemRelease === 'R8.11' ? input?.creativeBrief?.r811 : null
+  const r811Receipt = productionSystemRelease === 'R8.11'
+    ? r810Receipt?.status === 'approved' ? buildR811Receipt(r811Plan, { creativeR810: r810Receipt })
+      : { schemaVersion:'ths-evidencemotion-r811-receipt-v1', release:'R8.11', status:'concept-required' }
     : null
   const base = buildCreativeSpec(input)
   const creativeHook = buildCreativeHook(input)
@@ -298,6 +309,9 @@ export function buildLosslessCreativeSpec(input) {
     version: creativeMethodRelease === 'R8.10' ? 17 : creativeMethodRelease === 'R8.09' ? 16 : creativeMethodRelease === 'R8.08' ? 15 : creativeMethodRelease === 'R8.07' ? 14 : 13,
     systemRelease: systemRelease || null,
     creativeMethodRelease,
+    productionSystemRelease,
+    r811Experiment: r811Receipt,
+    r811Plan,
     creativeQuality: r805Receipt,
     creativeFoundation: ['R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? r806Receipt : null,
     creativeVisualFoundation: ['R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? r807Receipt : null,
