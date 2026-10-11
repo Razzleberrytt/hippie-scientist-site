@@ -130,7 +130,7 @@ describe('commerce batch 4 safety and identity regression', () => {
     for (const slug of ['rhodiola', 'l-theanine', 'coenzyme-q10']) {
       const entries = getRevenueProductSet(slug)?.products ?? []
       expect(entries.length).toBeGreaterThan(0)
-      expect(entries.every((entry) => !entry.asin && entry.affiliateUrl.includes('/s?k='))).toBe(true)
+      expect(entries.every((entry) => !entry.asin && entry.affiliateUrl?.includes('/s?k='))).toBe(true)
     }
     for (const brand of ['Real Mushrooms', 'Host Defense']) {
       const product = getRevenueProductSet('lions-mane')?.products.find((item) => item.brand === brand)
