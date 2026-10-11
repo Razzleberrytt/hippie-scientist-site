@@ -74502,6 +74502,82 @@
       "reservation_id": "7be0a52c9833397a2c1c",
       "reserved_at": "2026-10-11T17:45:44.531Z",
       "source_branch": "research/intake/1/20261011-1342-mindbody-stress-r27"
+    },
+    {
+      "pmid": "42488060",
+      "title": "Comparative effects of Baduanjin and square dance on working memory, executive function performance, mood, and fatigue in older women: a randomized controlled trial.",
+      "doi": "10.3389/fpsyg.2026.1867615",
+      "source_title": "Comparative effects of Baduanjin and square dance on working memory, executive function performance, mood, and fatigue in older women: a randomized controlled trial.",
+      "abstract": "This exploratory randomized controlled trial compared the effects of Baduanjin and square dance on working memory, executive function performance, mood, fatigue, and selected physiological outcomes in older women. In this 12-week randomized controlled trial, 90 older women were allocated to Baduanjin, square dance, or control groups (n = 30 each). The exercise groups completed supervised 60-min sessions three times weekly. Cognitive outcomes were assessed with the N-back, Stroop, Flanker, and Digit Span tasks. Backward Digit Span and Stroop incongruent accuracy were retrospectively designated as the primary cognitive outcomes on theoretical grounds, whereas the remaining cognitive, psychological, and physiological outcomes were treated as secondary or exploratory outcomes. Seventy-nine participants completed the intervention and were included in the per-protocol analysis. Time × group interactions were tested using mixed-design ANOVA, with Bonferroni-adjusted simple-effect comparisons for interaction-significant outcomes. Significant time × group interactions were observed for Stroop incongruent accuracy ( F (2, 76) = 4.916, p = 0.010), Flanker incongruent accuracy ( F (2, 76) = 4.683, p = 0.012), forward Digit Span ( F (2, 76) = 5.128, p = 0.008), backward Digit Span ( F (2, 76) = 6.409, p = 0.003), POMS score ( F (2, 76) = 3.149, p = 0.049), and fatigue score ( F (2, 76) = 8.212, p < 0.001). No significant time × group interaction was observed for any N-back outcome. In the ITT-LOCF sensitivity analysis, the main cognitive findings and fatigue result remained significant, whereas the POMS interaction was attenuated to a marginal level. Within the interaction-significant cognitive outcomes, within-group improvements were observed more consistently in the Baduanjin group, although this pattern does not establish direct superiority over square dance. For affective outcomes, both exercise groups showed favorable within-group changes. Interactions for systolic blood pressure, diastolic blood pressure, body weight, and BMI were not statistically significant. In this exploratory trial, Baduanjin and square dance were associated with favorable changes in selected cognitive and affective outcomes rather than across the full outcome battery. The observed cognitive pattern was descriptively broader in the Baduanjin group, but direct superiority over square dance was not established. These preliminary findings should be interpreted cautiously and require confirmation in larger, prospectively registered trials with prespecified primary outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42488060/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42488060",
+        "doi": "10.3389/fpsyg.2026.1867615",
+        "journal": "Frontiers in psychology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T17:50:19.588Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "dfdb3f4d42181e992f48",
+      "reserved_at": "2026-10-11T17:50:27.606Z",
+      "source_branch": "research/intake/2/20261011-1347-cognition-metabolic-r75-recovery"
     }
   ],
   "batches": [
@@ -74530,16 +74606,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 952,
+    "total_reservations": 953,
     "by_lane": {
       "1": 90,
-      "2": 179,
+      "2": 180,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 952
+      "SOURCE_VERIFIED": 953
     },
     "batches": [
       {
@@ -74552,7 +74628,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 452,
+        "count": 453,
         "pr_number": null,
         "blocker": null
       }
