@@ -98,6 +98,13 @@ describe('R8.08 silent comprehension contract',()=>{
     b.beats[1].visualAction='Highlight the trial response-rate comparison, with units and citation.'
     expect(validateR808CreativeBrief(b)).toEqual([])
   })
+  it('rejects simulated timing bars without blocking real timed study measurements',()=>{
+    const b=compliant()
+    b.beats[1].visualAction='Show a decorative timing bar that fills up with the narration.'
+    expect(validateR808CreativeBrief(b).join('\\n')).toMatch(/decorative progress\\/loading HUD/)
+    b.beats[1].visualAction='Compare the actual trial response after 8 weeks, with axis units.'
+    expect(validateR808CreativeBrief(b)).toEqual([])
+  })
   it('rejects dropping the inherited R8.07 limitation motif',()=>{
     const b=compliant();b.beats[3].r807.motifId=''
     expect(validateR808CreativeBrief(b).join('\n')).toMatch(/motif must return/)
