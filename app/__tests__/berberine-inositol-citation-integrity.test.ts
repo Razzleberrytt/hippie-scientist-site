@@ -44,6 +44,12 @@ describe('berberine vs inositol source integrity', () => {
     expect(page).toContain('a 2024 systematic review found the evidence limited and inconclusive')
   })
 
+  it('keeps clinically important drug and pregnancy cautions visible despite source corrections', () => {
+    expect(page).toContain('clinical cyclosporine interaction is documented')
+    expect(page).toContain('Avoid in pregnancy, breastfeeding, and infants')
+    expect(page).toContain('do not replace prescribed treatment')
+  })
+
   it('preserves medical caution and canonical route', () => {
     expect(page).toContain('hypoglycaemia')
     expect(page).toContain('CYP2D6')
