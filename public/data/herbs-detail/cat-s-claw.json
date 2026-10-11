@@ -13,14 +13,19 @@
     "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid in pregnancy, breastfeeding, transplant recipients, and immunosuppressed users; caution with autoimmune disease, anticoagulants/antiplatelets, antihypertensives, and perioperative use.",
+  "safetyNotes": "IMMUNE AND PREGNANCY CAUTION: Cat's claw (Uncaria tomentosa) might stimulate immune activity and may interact with immunosuppressant medicines. Transplant recipients should not self-medicate because of a theoretical risk of interfering with anti-rejection treatment; actual transplant rejection caused by cat's claw is NOT established. Avoid use during pregnancy; breastfeeding safety is uncertain. Possible bleeding and blood-pressure medication interactions are primarily theoretical or based on limited evidence. Human efficacy evidence remains inconclusive (NCCIH).",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to the plant/family",
+    "Pregnancy: avoid",
+    "Transplant recipients or people taking immunosuppressants: avoid unsupervised use",
+    "Autoimmune disease: seek clinical advice before use"
   ],
   "interactions": [
     "Potential interaction concern with immunosuppressants",
-    "use clinician review for high-dose extracts or chronic use."
+    "use clinician review for high-dose extracts or chronic use.",
+    "Potential interference with immunosuppressants (theoretical; clinical outcome not established)",
+    "Possible interactions with anticoagulants/antiplatelets and antihypertensive medicines; evidence is limited"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -61,17 +66,27 @@
       "studyType": "Narrative review",
       "studyClass": "narrative-review",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "NCCIH: Cat's claw — usefulness and safety",
+      "url": "https://www.nccih.nih.gov/health/cats-claw",
+      "note": "Pregnancy concerns and potential immune, bleeding and drug interactions; transplant-rejection outcome not clinically established."
+    },
+    {
+      "title": "NCCIH: Herb–drug interactions — cat's claw",
+      "url": "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science",
+      "note": "Lists potential interactions with immunosuppressants, anticoagulants/antiplatelets and antihypertensives."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 7 safety evidence requires verified warnings and independent product-level review before monetization or recommendation."
   },
   "evidence": {
     "reviewStatus": "sourced",
