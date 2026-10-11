@@ -42,8 +42,8 @@ export const productPicks: ProductPick[] = [
     name: 'Jarrow KSM-66 Ashwagandha',
     brand: 'Jarrow Formulas',
     type: 'top',
-    url: `https://www.amazon.com/dp/B07LFMM7N1?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.'
+    url: `https://www.amazon.com/s?k=Jarrow+KSM-66+Ashwagandha&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'KSM-66 ashwagandha; historic ASIN conflicts with a provisional variant, so exact direct URL is held.'
   },
   {
     compound_slug: 'ashwagandha',
