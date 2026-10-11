@@ -1,9 +1,9 @@
 {
   "name": "The Hippie Scientist citation library",
-  "description": "Citation library for https://thehippiescientist.net — 848 studies. Metadata retrieved from PubMed.",
+  "description": "Citation library for https://thehippiescientist.net — 841 studies. Metadata retrieved from PubMed.",
   "license": "Bibliographic metadata is factual and sourced from PubMed. Attribution appreciated.",
   "source": "https://pubmed.ncbi.nlm.nih.gov/",
-  "studyCount": 848,
+  "studyCount": 841,
   "studies": [
     {
       "pmid": "30000830",
@@ -146,19 +146,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42196951/",
       "referencedBy": [
         "/herbs/white-peony/"
-      ]
-    },
-    {
-      "pmid": "30000526",
-      "doi": null,
-      "title": "Interferon Alfacon-1",
-      "authors": null,
-      "journal": null,
-      "year": 2025,
-      "design": "narrative-review",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000526/",
-      "referencedBy": [
-        "/herbs/tyrosine/"
       ]
     },
     {
@@ -8341,19 +8328,6 @@
       ]
     },
     {
-      "pmid": "27403209",
-      "doi": "10.5770/cgj.19.220",
-      "title": "Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study",
-      "authors": "Hazzan AA et al.",
-      "journal": "Can Geriatr J",
-      "year": 2016,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27403209/",
-      "referencedBy": [
-        "/herbs/curcumin/"
-      ]
-    },
-    {
       "pmid": "27533649",
       "doi": "10.1089/jmf.2016.3705",
       "title": "Efficacy of Turmeric Extracts and Curcumin for Alleviating the Symptoms of Joint Arthritis: A Systematic Review and Meta-Analysis of Randomized Clinical Trials",
@@ -8975,19 +8949,6 @@
       ]
     },
     {
-      "pmid": "25059961",
-      "doi": "10.1136/vr.g4746",
-      "title": "One Health: time to move on from just talking",
-      "authors": "Honey L",
-      "journal": "Vet Rec",
-      "year": 2014,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25059961/",
-      "referencedBy": [
-        "/compounds/potassium/"
-      ]
-    },
-    {
       "pmid": "25153873",
       "doi": "10.3390/molecules190812591",
       "title": "Allicin: chemistry and biological properties",
@@ -9001,19 +8962,6 @@
       ]
     },
     {
-      "pmid": "25174896",
-      "doi": "10.1016/j.ajo.2014.08.036",
-      "title": "New insights into the development of infantile intraocular medulloepithelioma",
-      "authors": "Jakobiec FA et al.",
-      "journal": "Am J Ophthalmol",
-      "year": 2014,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25174896/",
-      "referencedBy": [
-        "/compounds/coq10/"
-      ]
-    },
-    {
       "pmid": "25282031",
       "doi": "10.1016/j.jchf.2014.06.008",
       "title": "The effect of coenzyme Q10 on morbidity and mortality in chronic heart failure: results from Q-SYMBIO: a randomized double-blind trial",
@@ -9023,7 +8971,7 @@
       "design": "rct",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
       "referencedBy": [
-        "/compounds/coq10/"
+        "/compounds/coenzyme-q10/"
       ]
     },
     {
@@ -9365,19 +9313,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/22460444/",
       "referencedBy": [
         "/herbs/pueraria-mirifica/"
-      ]
-    },
-    {
-      "pmid": "22554242",
-      "doi": "10.1146/annurev-arplant-042811-105439",
-      "title": "The shikimate pathway and aromatic amino Acid biosynthesis in plants",
-      "authors": "Maeda H and Dudareva N",
-      "journal": "Annu Rev Plant Biol",
-      "year": 2012,
-      "design": "narrative-review",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22554242/",
-      "referencedBy": [
-        "/herbs/tyrosine/"
       ]
     },
     {
@@ -10725,19 +10660,6 @@
       ]
     },
     {
-      "pmid": "12482446",
-      "doi": "10.1016/s0031-9422(02)00513-7",
-      "title": "Rosmarinic acid",
-      "authors": "Petersen M and Simmonds MS",
-      "journal": "Phytochemistry",
-      "year": 2003,
-      "design": "narrative-review",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/",
-      "referencedBy": [
-        "/herbs/tyrosine/"
-      ]
-    },
-    {
       "pmid": "12612144",
       "doi": "10.1093/jn/133.3.727",
       "title": "The consumption of processed tomato products enhances plasma lycopene concentrations in association with a reduced lipoprotein sensitivity to oxidative damage",
@@ -11082,19 +11004,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/9313662/",
       "referencedBy": [
         "/compounds/beta-sitosterol/"
-      ]
-    },
-    {
-      "pmid": "8629725",
-      "doi": "10.2105/ajph.86.5.717",
-      "title": "Tracking community sentinel events: breast cancer mortality and neighborhood risk for advanced-stage tumors in Denver",
-      "authors": "Andres TL et al.",
-      "journal": "Am J Public Health",
-      "year": 1996,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/8629725/",
-      "referencedBy": [
-        "/herbs/tyrosine/"
       ]
     },
     {
