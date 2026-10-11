@@ -44,13 +44,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         rationale: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.',
         affiliateUrl: amazonProductUrl({ asin: 'B07LFMM7N1', query: 'Jarrow Formulas KSM-66 Ashwagandha' }),
       },
-      {
-        slot: 'premium',
-        brand: 'Thorne',
-        title: 'Thorne Stress Balance',
-        rationale: 'Premium pick for users who prioritize practitioner-style branding and broader stress-support context.',
-        affiliateUrl: amazonProductUrl({ query: 'Thorne ashwagandha stress balance' }),
-      },
     ],
   },
   magnesium: {
@@ -392,13 +385,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     slug: 'turmeric',
     title: 'Turmeric / Curcumin product picks',
     products: [
-      {
-        slot: 'budget',
-        brand: 'NOW Foods',
-        title: 'NOW Turmeric 400 mg',
-        rationale: 'Budget pick for basic turmeric root capsules; best used with black pepper for absorption.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Turmeric 400 mg capsules' }),
-      },
       {
         slot: 'overall',
         brand: 'Thorne',
