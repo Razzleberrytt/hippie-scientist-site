@@ -1,0 +1,83 @@
+name: THS permanent Kokoro voice model vault
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/voice-model-vault.yml'
+      - 'scripts/distribution/voice-vault.py'
+      - 'scripts/distribution/requirements-local-voice.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ths-immutable-narrator-vault
+  cancel-in-progress: false
+jobs:
+  archive-and-readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TAG: ths-kokoro-torch-am-michael-v1
+      VAULT: .cache/ths-voice-vault
+      HF_HOME: ${{ runner.temp }}/ths-hf-offline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Bootstrap release or recover immutable original bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install 'huggingface-hub>=0.24,<2'
+          mkdir -p "$VAULT"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir "$VAULT"
+            mkdir -p "$VAULT/voices"
+            mv "$VAULT/am_michael.pt" "$VAULT/voices/am_michael.pt"
+          else
+            python scripts/distribution/voice-vault.py bootstrap "$VAULT"
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" \
+              --title "THS immutable original Kokoro-82M am_michael voice" \
+              --notes "Original hexgrad/Kokoro-82M Torch weights, am_michael voice, model config and immutable SHA-256 manifest; never modify this release. New voices require new tags and listening approval." \
+              "$VAULT/kokoro-v1_0.pth" "$VAULT/voices/am_michael.pt" \
+              "$VAULT/config.json" "$VAULT/voice-vault.json"
+          fi
+          python scripts/distribution/voice-vault.py verify "$VAULT"
+      - name: Read actual persisted release bytes back independently
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$VAULT"
+          mkdir -p "$VAULT"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir "$VAULT"
+          mkdir -p "$VAULT/voices"
+          mv "$VAULT/am_michael.pt" "$VAULT/voices/am_michael.pt"
+          python scripts/distribution/voice-vault.py verify "$VAULT"
+      - name: Offline reinstall and non-silent original Kokoro smoke synthesis
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          python -m pip install -r scripts/distribution/requirements-local-voice.txt
+          python scripts/distribution/voice-vault.py restore "$VAULT"
+          export HF_HUB_OFFLINE=1
+          export HF_HUB_DISABLE_XET=1
+          python - <<'PY'
+          from kokoro import KPipeline
+          import numpy as np
+          pipeline=KPipeline(lang_code='a')
+          chunks=[]
+          for output in pipeline("The Hippie Scientist explains what the evidence actually shows.", voice="am_michael", speed=1.0):
+              audio=getattr(output,'audio',None)
+              if audio is not None:
+                  if hasattr(audio,'detach'): audio=audio.detach().cpu().numpy()
+                  chunks.append(np.asarray(audio,dtype=np.float32).reshape(-1))
+          assert chunks, "No original voice output"
+          audio=np.concatenate(chunks)
+          assert audio.size>12000 and np.isfinite(audio).all()
+          assert float(np.sqrt(np.mean(audio*audio)))>0.005, "Silent narrator"
+          print("PASS: real offline Kokoro-82M am_michael narrator from archived model bytes")
+          PY
