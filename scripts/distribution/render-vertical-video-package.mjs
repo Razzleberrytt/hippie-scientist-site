@@ -9,6 +9,8 @@ import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
 import { buildR810CreativeReceipt, assertR810TimedScenes } from './r810-creative-gate.mjs'
+import { buildR811Receipt } from './r811-creative-operations.mjs'
+import { buildR811DraftAssets } from './r811-derived-assets.mjs'
 import { cachedR810BeatSvg, defaultR810CacheRoot } from './r810-beat-cache.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
 import { renderR809VisualActor } from './r809-visual-actors.mjs'
@@ -403,6 +405,13 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
     }
     if (methodRelease === 'R8.10' && clean(creativeSpec?.creativeR810?.governedPlanSha256) !== buildR810CreativeReceipt(brief).governedPlanSha256) {
       throw Error('R8.10 governed semantic plan is stale against approved script')
+    }
+    if (creativeSpec.productionSystemRelease === 'R8.11') {
+      const r811 = buildR811Receipt(brief.r811, { creativeR810: buildR810CreativeReceipt(brief) })
+      if (r811.planSha256 !== creativeSpec.r811Experiment?.planSha256
+          || r811.chosenHookId !== creativeSpec.r811Experiment?.chosenHookId) {
+        throw Error('R8.11 plan changed after source and scientific approval')
+      }
     }
   }
   if (methodRelease === 'R8.08') {
@@ -855,6 +864,11 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
+    productionSystemRelease: creativeSpec.productionSystemRelease || null,
+    r811Experiment: r811Bundle?.receipt ?? null,
+    r811Plan: r811PlanSidecar,
+    r811Derivatives: r811Bundle
+      ? { ...r811Bundle.workOrderFile, planSha256:r811Bundle.receipt.planSha256 } : null,
     timingAuthority: release === 'R8.05' ? 'exact-local-narration' : 'legacy-authored-30s',
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
@@ -907,6 +921,23 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   if (r810LedgerText !== null) {
     if (!r810LedgerText || sha256(r810LedgerText) !== creativeSpec.creativeR810?.sourceLedgerTextSha256) throw Error('R8.10 source ledger file differs from exact reviewed source')
     fs.writeFileSync(path.join(dir, 'sources-ledger.txt'), r810LedgerText)
+  }
+  let r811Bundle = null
+  let r811PlanSidecar = null
+  if (creativeSpec.productionSystemRelease === 'R8.11') {
+    r811Bundle = buildR811DraftAssets({
+      packageDir: dir, plan: creativeSpec.r811Plan,
+      creativeR810: creativeSpec.creativeR810, firstHookScene: scenes[0],
+      renderScene: renderVerticalVideoSceneSvg,
+      sourceUrl: mediaPack.source.url, contentHash: mediaPack.source.contentHash,
+      disclosure,
+    })
+    if (r811Bundle.receipt.planSha256 !== creativeSpec.r811Experiment?.planSha256) {
+      throw Error('R8.11 derivative pack cannot override approved experiment receipt')
+    }
+    const bytes = JSON.stringify(creativeSpec.r811Plan, null, 2) + '\n'
+    fs.writeFileSync(path.join(dir, 'r811-experiment-plan.json'), bytes)
+    r811PlanSidecar = {file:'r811-experiment-plan.json',sha256:sha256(bytes)}
   }
   const manifest = {
     schemaVersion: '1.1.0',
