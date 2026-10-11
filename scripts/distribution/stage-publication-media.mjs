@@ -163,7 +163,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
       if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.05 master QA requires ${field}=pass`)
     }
     const creativeMethodRelease = clean(pilot.assets?.creativeMethodRelease)
-    if (['R8.06', 'R8.07', 'R8.08'].includes(creativeMethodRelease)) {
+    if (['R8.06', 'R8.07', 'R8.08', 'R8.09'].includes(creativeMethodRelease)) {
       if (clean(masterQa.creativeMethodRelease) !== creativeMethodRelease) {
         throw new Error(`${creativeMethodRelease} staging requires a matching exact-master QA receipt`)
       }
@@ -179,6 +179,24 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
           || clean(pilot.assets?.creativeDirection?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
           || clean(pilot.assets?.creativeDirection?.inheritedR806OverlaySha256) !== clean(pilot.assets?.creativeFoundation?.overlaySha256)) {
         throw new Error('R8.07 staging requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
+      }
+    }
+    if (creativeMethodRelease === 'R8.09') {
+      for (const field of ['visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected',
+        'audioOffComprehension', 'qualifierVisibility', 'mobileSafeArea', 'readableClaimDwell',
+        'spokenCaptionSync', 'captionMobileLegibility', 'beginnerClarity', 'animatedTeachingCohesion']) {
+        if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.09 master QA requires ${field}=pass`)
+      }
+      if (clean(pilot.assets?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+          || clean(pilot.assets?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+          || clean(pilot.assets?.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
+          || clean(pilot.assets?.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
+          || clean(pilot.assets?.creativeDirection?.inheritedR808OverlaySha256) !== clean(pilot.assets?.creativeSilentFoundation?.overlaySha256)
+          || clean(masterQa.creativeBindings?.r809OverlaySha256) !== clean(pilot.assets?.creativeDirection?.overlaySha256)
+          || clean(masterQa.creativeBindings?.r808OverlaySha256) !== clean(pilot.assets?.creativeSilentFoundation?.overlaySha256)
+          || receipt.r809Captioning?.burnIn !== true
+          || clean(receipt.r809Captioning?.captionsSrtSha256) !== clean(pilot.assets?.captions?.sha256)) {
+        throw new Error('R8.09 publication requires the exact approved captioned animated master')
       }
     }
     if (creativeMethodRelease === 'R8.08') {
