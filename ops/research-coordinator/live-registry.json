@@ -74348,6 +74348,160 @@
       "reservation_id": "18dd855f3f3d12fc24a9",
       "reserved_at": "2026-10-11T16:58:48.227Z",
       "source_branch": "research/intake/2/20261011-1255-cognition-metabolic-r74"
+    },
+    {
+      "pmid": "42792430",
+      "title": "The Combined Effect of Mindfulness and Physical Activity on Stress: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.3390/bs16091630",
+      "source_title": "The Combined Effect of Mindfulness and Physical Activity on Stress: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Interventions combining mindfulness and physical activity are increasingly used for stress management, but their average efficacy and incremental benefit over either component alone remain uncertain. This study aimed to evaluate combined mindfulness-physical activity interventions for stress or stress-related outcomes relative to passive or general control conditions, mindfulness alone, and physical activity alone, and to explore potential sources of heterogeneity. Following PRISMA 2020, eight electronic databases were searched through November 2025. Two reviewers independently screened records. Data extraction and the initial risk-of-bias assessment were performed by the first author and checked in full by a second reviewer. Risk of bias was assessed using RoB 1.0. Certainty of evidence was assessed using the GRADE approach. Hedges' g values were synthesised in three separate comparator-specific meta-analyses using restricted maximum-likelihood random-effects models with Knapp-Hartung adjustment. Fourteen randomised controlled trials involving 872 randomised participants were included in the systematic review, and 13 contributed to quantitative synthesis. Compared with passive or general control conditions, combined interventions produced a statistically significant average effect favouring the combined intervention ( k = 12; Hedges' g = -0.74, 95% CI -1.21 to -0.27; p = 0.006; I 2 = 83.1%; 95% prediction interval -2.27 to 0.79). The combined intervention was not statistically superior to mindfulness alone ( k = 2; Hedges' g = 0.49, 95% CI -1.71 to 2.69) or physical activity alone ( k = 3; Hedges' g = 0.01, 95% CI -0.50 to 0.52), although both comparisons were imprecise. No formal subgroup test identified a statistically significant moderator. Excluding the most extreme estimate reduced the pooled control-comparison effect to -0.55 (95% CI -0.79 to -0.31) and I 2 to 27.9%. Combined mindfulness and physical activity interventions may reduce stress or stress-related psychological outcomes relative to passive or general controls. The current evidence is insufficient to determine whether they provide additional benefit over well-delivered single-component interventions. Substantial heterogeneity and the small number of active-comparator trials warrant cautious interpretation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42792430/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified 2026 systematic reviews addressing mindfulness, physical activity, psychological stress, anxiety, depression and burnout; research-only pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42792430",
+        "doi": "10.3390/bs16091630",
+        "journal": "Behavioral sciences (Basel, Switzerland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T17:45:39.034Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1d37fe31dbf149576ccc",
+      "reserved_at": "2026-10-11T17:45:44.531Z",
+      "source_branch": "research/intake/1/20261011-1342-mindbody-stress-r27"
+    },
+    {
+      "pmid": "42775969",
+      "title": "Effectiveness of Mind-Body Therapies on Anxiety, Burnout, Depression, and Stress in Graduate Health Professions Students: A Systematic Review.",
+      "doi": "10.21091/jah.2026.03066",
+      "source_title": "Effectiveness of Mind-Body Therapies on Anxiety, Burnout, Depression, and Stress in Graduate Health Professions Students: A Systematic Review.",
+      "abstract": "Mental health conditions are prevalent among graduate health professions students and can negatively impact academic performance, well-being, and relationships. This systematic review evaluated the effectiveness of mind-body therapies (MBTs) on anxiety, burnout, depression, and stress in graduate health professions students. Five healthcare/academic databases were searched from 2008 through August 25, 2023. 1) graduate health professions students; 2) MBT interventions; and 3) anxiety, burnout, depression, and/or stress outcomes. Title/abstract screening, full-text review, level of evidence, and quality assessment were performed by author pairs. Of 2,511 screened records, 24 met inclusion criteria, representing 2,220 students across 6 health professions programs. Studies described 8 anxiety, 2 burnout, 7 depression, and 10 stress outcomes. The average QuADS score was 73.64% (range 53.85-100%). Fifteen studies reported significant improvements in at least 1 anxiety, depression, or stress outcome. Of 9 studies that measured anxiety, 5 demonstrated reductions. Depression results were inconsistent, with only 1 of 7 studies showing improvements. Stress outcomes improved most frequently, with 13 of 22 studies reporting benefits. None of the 3 burnout studies showed positive results. MBTs such as mindfulness, meditation, yoga, and breathing exercises show promise in reducing anxiety and stress. Evidence supporting improvements in burnout and depression remains quite limited.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42775969/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "PubMed-verified 2026 systematic reviews addressing mindfulness, physical activity, psychological stress, anxiety, depression and burnout; research-only pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42775969",
+        "doi": "10.21091/jah.2026.03066",
+        "journal": "Journal of allied health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T17:45:39.034Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "7be0a52c9833397a2c1c",
+      "reserved_at": "2026-10-11T17:45:44.531Z",
+      "source_branch": "research/intake/1/20261011-1342-mindbody-stress-r27"
     }
   ],
   "batches": [
@@ -74376,16 +74530,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 950,
+    "total_reservations": 952,
     "by_lane": {
-      "1": 88,
+      "1": 90,
       "2": 179,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 950
+      "SOURCE_VERIFIED": 952
     },
     "batches": [
       {
@@ -74398,7 +74552,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 450,
+        "count": 452,
         "pr_number": null,
         "blocker": null
       }
