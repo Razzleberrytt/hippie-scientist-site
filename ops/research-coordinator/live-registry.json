@@ -74116,6 +74116,238 @@
       "reservation_id": "651fb968d36859818b49",
       "reserved_at": "2026-10-11T16:41:02.815Z",
       "source_branch": "research/intake/1/20261011-1236-exercise-gad-r26"
+    },
+    {
+      "pmid": "41830044",
+      "title": "Almond Consumption Improves Inflammatory Profiles Independent of Weight Change: A 6-Week Randomized Controlled Trial in Adults with Obesity.",
+      "doi": "10.3390/nu18050875",
+      "source_title": "Almond Consumption Improves Inflammatory Profiles Independent of Weight Change: A 6-Week Randomized Controlled Trial in Adults with Obesity.",
+      "abstract": "Background : Obesity is characterized by chronic low-grade systemic inflammation that contributes to metabolic dysfunction. Diet is a modifiable factor that can help reduce this inflammation. Nuts such as almonds are rich in unsaturated fats, and antioxidant and anti-inflammatory micronutrients, which may work synergistically to attenuate obesity-related inflammation. Hence, the objective of this study was to investigate whether daily almond consumption improves systemic inflammatory and immune markers in adults with obesity. Methods : In this randomized controlled parallel-arm trial (ClinicalTrials.gov ID NCT05530499), 69 adults (age 30-45 years) with obesity (BMI 30-45 kg/m 2 ) were assigned to consume either 57 g/day of almonds (n = 38) or an isocaloric snack (cookie; n = 31) for six weeks. Fasting serum inflammatory cytokines, innate immune cell counts, body weight, serum glucose, insulin, lipid profile, and alpha-tocopherol were measured at baseline and week six. Dietary intake, compliance, palatability, acceptance, and appetite ratings were also assessed. Primary outcomes were analyzed using linear mixed models and baseline-adjusted linear models. Results : Subjective compliance was high in both groups, with greater acceptance of almonds ( p < 0.05); however, serum alpha-tocopherol did not change. Almond consumption significantly decreased serum IL-6, TNF-α, and IFN-γ over 6 weeks compared with the cookie group ( p < 0.05). No significant group differences were observed for innate immune cell counts, body weight, appetite ratings, blood pressure, or serum fasting glucose, insulin, total cholesterol (C), LDL-C, and triglycerides over six weeks. The almond group also increased intakes of monounsaturated fat, fiber, alpha-tocopherol, magnesium, zinc, and manganese, and improved diet quality indices relative to the cookie group ( p < 0.05). Conclusions : Daily almond consumption for six weeks improved inflammatory cytokine profiles in adults with obesity, without changes in body weight under free-living conditions. These findings support recommending almonds as part of healthy dietary patterns to help attenuate obesity-related inflammation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41830044/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41830044",
+        "doi": "10.3390/nu18050875",
+        "journal": "Nutrients",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:58:33.299Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6e74e5ee3754f94a734d",
+      "reserved_at": "2026-10-11T16:58:48.227Z",
+      "source_branch": "research/intake/2/20261011-1255-cognition-metabolic-r74"
+    },
+    {
+      "pmid": "42812254",
+      "title": "A meta-analysis of the effects of combined interventions centered on cognitive training on cognition, executive function, and negative emotions in patients with Alzheimer's disease.",
+      "doi": "10.3389/fneur.2026.1883995",
+      "source_title": "A meta-analysis of the effects of combined interventions centered on cognitive training on cognition, executive function, and negative emotions in patients with Alzheimer's disease.",
+      "abstract": "To systematically compare the effects of five intervention strategies centered on Cognitive Training (CT), including Routine Care (RC), CT, Physical Exercise (PE), Cognitive Plus Exercise Training (CET), and Cognitive Plus Non-Invasive Brain Stimulation (CNIBS), on cognitive function, executive function, and negative emotions in patients with Alzheimer's disease, using a network meta-analysis. The relative efficacy of different interventions was ranked to provide evidence-based support for optimizing combined treatment strategies in clinical practice. PubMed, Embase, Web of Science, Cochrane Library, and EBSCO databases were systematically searched to identify randomized controlled trials on CT and its combined interventions for Alzheimer's disease published from database inception to April 2026. A network meta-analysis was conducted within a frequentist framework using Stata 17.0 software. The efficacy of interventions was ranked using the surface under the cumulative ranking curve. A total of 19 randomized controlled trials involving more than 2,000 patients were included. The network meta-analysis showed that, for cognitive function, CNIBS (SUCRA = 75.4%) and CET (SUCRA = 72.4%) ranked first and second, respectively, and were significantly superior to RC and single interventions. For executive function, CET ranked highest (SUCRA = 99.9%) and was significantly superior to PE alone (SMD = 3.71, 95% CI: 3.16 to 4.26) and RC (SMD = 1.69, 95% CI: 0.48 to 2.91), other interventions do not offer a significant advantage over RC. For negative emotions, CET ranked highest (SUCRA = 83.7%), followed by PE alone (SUCRA = 57.9%), and CNIBS was also superior to CT alone (SMD = 1.07, 95% CI: 0.53 to 1.61). Combined interventions centered on CT are superior to single interventions in improving multidimensional symptoms in patients with Alzheimer's disease. Among them, CET shows the most prominent advantages in improving executive function and negative emotions, whereas CNIBS shows the greatest effect on overall cognitive function. In clinical practice, individualized intervention strategies should be selected according to the primary rehabilitation goal.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42812254/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Network Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Network Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42812254",
+        "doi": "10.3389/fneur.2026.1883995",
+        "journal": "Frontiers in neurology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:58:33.300Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "72d10f565f760d4c1062",
+      "reserved_at": "2026-10-11T16:58:48.227Z",
+      "source_branch": "research/intake/2/20261011-1255-cognition-metabolic-r74"
+    },
+    {
+      "pmid": "42731086",
+      "title": "Clinical efficacy of non-pharmacological interventions on cognitive improvement in patients with mild to moderate Alzheimer's disease: A systematic review and Bayesian network meta-analysis.",
+      "doi": "10.1177/13872877261485496",
+      "source_title": "Clinical efficacy of non-pharmacological interventions on cognitive improvement in patients with mild to moderate Alzheimer's disease: A systematic review and Bayesian network meta-analysis.",
+      "abstract": "BackgroundNon-pharmacological interventions are increasingly used as complementary strategies for Alzheimer's disease (AD), yet their comparative effects on cognitive outcomes remain insufficiently defined.ObjectiveTo compare and rank the cognitive effects of different non-pharmacological interventions in patients with mild-to-moderate AD.MethodsRandomized controlled trials of non-pharmacological interventions for mild-to-moderate AD were searched in MEDLINE, PubMed, Embase, Web of Science, and the Cochrane Library from inception to May 2026. Eligible studies reported cognitive outcomes, including the Mini-Mental State Examination (MMSE), Montreal Cognitive Assessment (MoCA), or Alzheimer's Disease Assessment Scale-Cognitive Subscale (ADAS-Cog). Risk of bias was assessed using the Cochrane tool, and certainty of evidence was evaluated with GRADEpro. Bayesian network meta-analysis was conducted in R using gemtc. The surface under the cumulative ranking curve was used to estimate intervention rankings.ResultsFifty randomized controlled trials involving 2856 participants and 11 categories of interventions were included. Among participants with available baseline age data, the weighted mean age was approximately 75 years; among those with available sex information, 1410 participants were female (54.0%). Dual-task training ranked first for MMSE (SUCRA = 88.84%) and MoCA (SUCRA = 90.67%). Transcranial direct current stimulation (tDCS) also showed favorable rankings for MMSE (SUCRA = 85.69%) and MoCA (SUCRA = 75.63%). For ADAS-Cog, repetitive transcranial magnetic stimulation (rTMS) ranked highest (SUCRA = 85.22%) and was the only intervention showing significant improvement compared with usual care.ConclusionsDual-task training and tDCS showed relatively consistent advantages on global cognitive screening outcomes in mild-to-moderate AD. rTMS showed the clearest benefit for ADAS-Cog, but this finding requires cautious interpretation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42731086/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42731086",
+        "doi": "10.1177/13872877261485496",
+        "journal": "Journal of Alzheimer's disease : JAD",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:58:33.300Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "18dd855f3f3d12fc24a9",
+      "reserved_at": "2026-10-11T16:58:48.227Z",
+      "source_branch": "research/intake/2/20261011-1255-cognition-metabolic-r74"
     }
   ],
   "batches": [
@@ -74144,16 +74376,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 947,
+    "total_reservations": 950,
     "by_lane": {
       "1": 88,
-      "2": 176,
+      "2": 179,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 947
+      "SOURCE_VERIFIED": 950
     },
     "batches": [
       {
@@ -74166,7 +74398,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 447,
+        "count": 450,
         "pr_number": null,
         "blocker": null
       }
