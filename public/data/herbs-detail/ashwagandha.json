@@ -14,7 +14,7 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Rare but potentially serious liver injury has been linked to ashwagandha supplements, including cases requiring hospital care. Stop use and seek medical advice for jaundice, dark urine, or unexplained severe fatigue. Avoid use during pregnancy or breastfeeding. Thyroid/autoimmune conditions and medicines including sedatives, thyroid drugs, immunosuppressants, diabetes or blood-pressure medicines require extra caution. Source: NIH NCCIH ashwagandha safety guidance; Björnsson et al. 2020 (PMID 31991029).",
+  "safetyNotes": "Rare but potentially serious liver injury has been linked to ashwagandha supplements, including cases requiring hospital care. Stop use and seek medical advice for jaundice, dark urine, or unexplained severe fatigue. Avoid use during pregnancy or breastfeeding. Thyroid/autoimmune conditions and medicines including sedatives, thyroid drugs, immunosuppressants, diabetes or blood-pressure medicines require extra caution. Source: NIH NCCIH ashwagandha safety guidance; Björnsson et al. 2020 (PMID 31991029). Prior established cautions: GI upset, rare thyroid stimulation",
   "contraindications": [
     "Hyperthyroidism",
     "sedatives"
@@ -127,6 +127,29 @@
       "doi": "10.3390/ph16081129",
       "year": "2023",
       "reviewStatus": "approved"
+    },
+    {
+      "id": "src_000031991029",
+      "title": "Ashwagandha-induced liver injury: A case series from Iceland and the US Drug-Induced Liver Injury Network",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31991029/",
+      "pmid": "31991029",
+      "doi": "10.1111/liv.14393",
+      "year": 2020,
+      "journal": "Liver International",
+      "authors": "Björnsson HK et al.",
+      "studyType": "Case series",
+      "reviewStatus": "pending",
+      "note": "Source-backed safety context; AI-assisted provenance entry, not human editorial sign-off."
+    },
+    {
+      "id": "src_a50cc1a2026a",
+      "title": "Ashwagandha: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/ashwagandha",
+      "journal": "NIH National Center for Complementary and Integrative Health",
+      "authors": "NCCIH",
+      "studyType": "Safety guidance",
+      "reviewStatus": "pending",
+      "note": "Source-backed safety context; AI-assisted provenance entry, not human editorial sign-off."
     }
   ],
   "governance": {
