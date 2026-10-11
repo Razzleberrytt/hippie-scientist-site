@@ -133,6 +133,8 @@ describe('round 1b malformed records (fixtures)', () => {
     for (const name of ['adapter-1a.ts', 'run-1a.ts', 'run-1b.ts']) {
       fs.writeFileSync(path.join(fixtureRoot, 'scripts', 'claim-dna', name), '// fixture ' + name, 'utf8')
     }
+    fs.mkdirSync(path.join(fixtureRoot, 'lib'), { recursive: true })
+    fs.writeFileSync(path.join(fixtureRoot, 'lib', 'study-identity.ts'), '// fixture study-identity.ts', 'utf8')
   })
 
   afterAll(() => {
@@ -190,6 +192,26 @@ describe('round 1b malformed records (fixtures)', () => {
       expect(third.run_metrics.total_claims_reprocessed).toBe(1)
     } finally {
       fs.writeFileSync(path1a, original, 'utf8')
+    }
+  })
+
+  it('invalidates cached claims when typed identity helper logic changes', () => {
+    const localBatch = 'fixture-study-identity-change'
+    const ids = ['good-claim']
+    const first = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    const second = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+    expect(first.run_metrics.total_claims_reprocessed).toBe(1)
+    expect(second.run_metrics.total_claims_skipped).toBe(1)
+    const helperPath = path.join(fixtureRoot, 'lib', 'study-identity.ts')
+    const original = fs.readFileSync(helperPath, 'utf8')
+    try {
+      fs.writeFileSync(helperPath, original + '\\n// changed typed identity interpretation', 'utf8')
+      const third = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(third.run_metrics.total_claims_reprocessed).toBe(1)
+      const fourth = runClaimDnaBatch({ batchId: localBatch, claimIds: ids, root: fixtureRoot })
+      expect(fourth.run_metrics.total_claims_skipped).toBe(1)
+    } finally {
+      fs.writeFileSync(helperPath, original, 'utf8')
     }
   })
 
