@@ -134,6 +134,7 @@ const PUBLISHABLE_EDITORIAL_STATUSES = new Set(['approved', 'published'])
 
 function isPublishableGovernedEnrichment(enrichment) {
   if (!enrichment || typeof enrichment !== 'object') return false
+  if (enrichment.reviewStatus !== 'approved_for_rollup' || enrichment.active !== true) return false
   if (!PUBLISHABLE_EDITORIAL_STATUSES.has(String(enrichment.editorialStatus || ''))) return false
   return enrichment.editorialReadiness?.publishable === true
 }
