@@ -38,6 +38,14 @@ describe('study-design classification provenance', () => {
     expect(normalizeStudyClass('Systematic review and meta-analysis of randomized trials')).toBe('meta-analysis')
   })
 
+  it('lets verified systematic-review indexing override an inflated manual trial label', () => {
+    expect(sourceStudyClass(
+      { pmid: '45678901', studyClass: 'rct', studyType: 'Randomized trial' },
+      { '45678901': { publicationTypes: ['Journal Article', 'Systematic Review'] } },
+    )).toBe('systematic-review')
+    expect(designFromPublicationTypes(['Review'])).toBe('unclassified')
+  })
+
   it('does not accept invalid PubMed type payloads as an authoritative classification', () => {
     expect(sourceStudyClass(
       { pmid: '12345678', studyClass: 'controlled-trial' },
