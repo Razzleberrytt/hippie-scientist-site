@@ -1833,7 +1833,7 @@
       "authors": "Rawji A et al.",
       "journal": "Cureus",
       "year": 2024,
-      "design": "narrative-review",
+      "design": "systematic-review",
       "url": "https://pubmed.ncbi.nlm.nih.gov/38817505/",
       "referencedBy": [
         "/compounds/magnesium/"
@@ -9478,7 +9478,7 @@
       "authors": "Abbasi B et al.",
       "journal": "J Res Med Sci",
       "year": 2012,
-      "design": "unclassified",
+      "design": "rct",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23853635/",
       "referencedBy": [
         "/compounds/magnesium/"
