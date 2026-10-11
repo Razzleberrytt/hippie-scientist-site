@@ -65,10 +65,10 @@ function readSummary(file) {
 
 function main() {
   const authority = new Map()
-  for (const file of ['herbs-summary.json', 'compounds-summary.json']) {
+  for (const [file, kind] of [['herbs-summary.json', 'herb'], ['compounds-summary.json', 'compound']]) {
     for (const record of readSummary(file)) {
       const slug = String(record?.slug ?? '').trim()
-      if (slug) authority.set(slug, record)
+      if (slug) authority.set(`${kind}:${slug}`, record)
     }
   }
 
@@ -99,7 +99,7 @@ function main() {
       const slug = String(record.slug ?? file.replace(/\.json$/, ''))
       inspected += 1
 
-      const source = authority.get(slug)
+      const source = authority.get(`${kind}:${slug}`)
       if (!source) {
         missingFromAuthority += 1
         continue

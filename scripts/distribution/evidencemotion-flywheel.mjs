@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import { verifyR810WordAlignment } from './r810-package-qa.mjs'
+import { verifyR811Package } from './r811-package-qa.mjs'
 
 const digest = (content) => crypto.createHash('sha256').update(content).digest('hex')
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
@@ -52,6 +53,13 @@ export function registerFlywheelVideo(root, record) {
   if(!['https:'].includes(url.protocol))throw Error('Flywheel publication URL must be HTTPS')
   if(!shaPattern.test(record.artifactSha256)||!shaPattern.test(record.productionManifestSha256))throw Error('Flywheel requires actual artifact/production manifest SHA-256 receipts')
   if(!['manual-owner-attested','provider-verified'].includes(record.publicationEvidence))throw Error('Flywheel requires explicit publication evidence confidence')
+  if (record.r811 && (!/^[a-z0-9][a-z0-9_-]{2,79}$/.test(record.r811.experimentId)
+      || !['a','b','c'].includes(record.r811.variantId)
+      || !shaPattern.test(record.r811.sourcePacketSha256)
+      || !shaPattern.test(record.r811.planSha256)
+      || record.r811.methodology !== 'R8.10' || record.beatTemplateVersion !== 'R8.10')) {
+    throw Error('R8.11 immutable flywheel identity must refer to an actual source-bound experiment arm')
+  }
   const dir=path.join(path.resolve(root),'videos',id)
   const manifest={schemaVersion:'ths-evidencemotion-flywheel-manifest-v1',videoId:id,
     productionManifestSha256:record.productionManifestSha256,
@@ -62,7 +70,7 @@ export function registerFlywheelVideo(root, record) {
   const ledger={schemaVersion:'ths-evidencemotion-flywheel-video-v1',videoId:id,topic:clean(record.topic),
     hookTextFirst3Seconds:clean(record.hookTextFirst3Seconds),beatTemplateVersion:record.beatTemplateVersion,
     platform:record.platform,publishedAt:record.publishedAt,publishedUrl:record.publishedUrl,
-    publicationEvidence:record.publicationEvidence,qualityAssessment:null,autoPublishAllowed:false}
+    publicationEvidence:record.publicationEvidence,r811:record.r811 || null,qualityAssessment:null,autoPublishAllowed:false}
   const oldManifest=path.join(dir,'MANIFEST.json'),oldLedger=path.join(dir,'performance-ledger.json')
   for(const [file,value] of [[oldManifest,manifest],[oldLedger,ledger]]) {
     if(fs.existsSync(file)&&fs.readFileSync(file,'utf8')!==stable(value))throw Error('Flywheel conflicting published-video registration is immutable')
@@ -110,7 +118,7 @@ export function appendFlywheelObservation(root, observation) {
     if(!Number.isSafeInteger(value)||value<0)throw Error('Flywheel '+field+' must be a nonnegative whole number or null')
     metrics[field]=value
   }
-  for(const field of ['watchThroughPercent','averageRetentionPercent']){
+  for(const field of ['watchThroughPercent','averageRetentionPercent','threeSecondHoldPercent']){
     const value=observation.metrics?.[field]
     if(value===null||value===undefined){metrics[field]=null;continue}
     if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>100)throw Error('Flywheel '+field+' must be 0–100 or null')
@@ -255,9 +263,21 @@ export function registerFlywheelFromPackage(root, input) {
     if(!hook)hook=(aligned.receipt.words||[]).filter(w=>Number(w.start)<3).map(w=>clean(w.word)).join(' ')
   }
   if(!hook)throw Error('Flywheel requires the actual first-three-second hook')
+  const r811 = manifest.productionSystemRelease === 'R8.11'
+    ? (() => {
+      const proof = verifyR811Package(dir, { manifest })
+      const plan = json(path.join(dir, manifest.r811Plan.file))
+      if (!proof.oneExperiment || manifest.r811Experiment?.planSha256 !== proof.planSha256
+          || plan.chosenHookId !== manifest.r811Experiment?.chosenHookId) {
+        throw Error('Flywheel cannot register R8.11 without the actual approved experiment plan')
+      }
+      return { experimentId:proof.experimentId,variantId:plan.chosenHookId,
+        planSha256:proof.planSha256,sourcePacketSha256:plan.sourcePacketSha256,
+        methodology:'R8.10' }
+    })() : null
   return registerFlywheelVideo(root,{...input,hookTextFirst3Seconds:hook,
     beatTemplateVersion:creativeMethodRelease,artifactSha256,
-    productionManifestSha256:digest(mb)})
+    productionManifestSha256:digest(mb),r811})
 }
 
 export function renderFlywheelLearningReport(root,{metricWindow='first-7d',last=10}={}) {
@@ -301,7 +321,7 @@ export function renderFlywheelLearningReport(root,{metricWindow='first-7d',last=
 export function proposeFlywheelTemplate(root,input) {
   const id=safeId(input?.proposalId,'proposal ID')
   if(!/^R8\.\d+(?:-[a-z0-9.-]+)?$/.test(input.fromVersion)||!/^R8\.\d+(?:-[a-z0-9.-]+)?$/.test(input.toVersion)||input.fromVersion===input.toVersion)throw Error('Flywheel requires distinct lineage versions')
-  if(!['hook-structure','beat-order','caption-style'].includes(input.changeType))throw Error('Flywheel unsupported template change')
+  if(!['hook-structure','beat-order','caption-style','visual-layout'].includes(input.changeType))throw Error('Flywheel unsupported template change')
   if(!clean(input.description)||!clean(input.scienceBoundary))throw Error('Flywheel proposal needs description and science boundary')
   const metricWindow=input.metricWindow||'first-7d'
   const all=listFlywheelSnapshots(root,metricWindow)

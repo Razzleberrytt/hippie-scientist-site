@@ -224,6 +224,8 @@ export function approveR805Master({
       r809OverlaySha256: ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? clean(manifest.creativeDirection?.overlaySha256) : null,
       r810GovernedPlanSha256: creativeMethodRelease === 'R8.10' ? clean(manifest.creativeR810?.governedPlanSha256) : null,
       r810WordAlignmentReceiptSha256: r810PackageProof?.alignment?.receiptSha256 ?? null,
+      r811ExperimentPlanSha256: r810PackageProof?.r811?.planSha256 ?? null,
+      r811DerivativeWorkOrderSha256: r810PackageProof?.r811?.derivativeProof?.workOrderSha256 ?? null,
     },
     qa: {
       wholePieceCohesion: 'pass',
@@ -249,6 +251,8 @@ export function approveR805Master({
       animatedTeachingCohesion: ['R8.09', 'R8.10'].includes(creativeMethodRelease) ? 'pass' : null,
       r810RealWordAlignment: creativeMethodRelease === 'R8.10' ? 'pass' : null,
       r810ExactSourceLedger: creativeMethodRelease === 'R8.10' ? 'pass' : null,
+      r811OneExperimentVerified: r810PackageProof?.r811?.oneExperiment ? 'pass' : null,
+      r811ZeroCreditsVerified: r810PackageProof?.r811?.zeroPaidCredits ? 'pass' : null,
       ...(hudFrameInspection ?? {}),
       pastedNarrationFeel: 'reject-if-present',
       notes: clean(notes),
