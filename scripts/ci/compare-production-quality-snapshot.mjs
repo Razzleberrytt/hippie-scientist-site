@@ -95,9 +95,13 @@ function markdown(report) {
     `- Evidence-grade buckets changed: ${report.changes.evidenceGrades.length}`,
   ]
   if (report.majorChanges.length) {
-    lines.push('', '### Major changes requiring explanation')
+    lines.push('', '### Significant measured changes')
     for (const item of report.majorChanges) lines.push(`- ${item}`)
-    lines.push('', report.explanation ? `Explanation: ${report.explanation}` : '❌ Missing `Quality change explanation:` in the PR body (or `QUALITY_CHANGE_EXPLANATION`).')
+    if (report.explanation) lines.push('', `Optional context: ${report.explanation}`)
+    lines.push('', 'PR summaries and manual explanation fields are optional.')
+  }
+  if (report.blockingRegressions?.length) {
+    lines.push('', '### Blocking measured regressions', '', ...report.blockingRegressions.map(item => '- ' + item))
   }
   return `${lines.join('\n')}\n`
 }
@@ -159,9 +163,19 @@ function main() {
     }
   }
 
+  // PR narratives are optional; measured high-impact regressions are not.
+  const blockingRegressions = []
+  if (pageDelta <= -25 && pagePct <= -5) blockingRegressions.push('Large production page loss')
+  if (indexDelta <= -10 && indexPct <= -2) blockingRegressions.push('Large indexable page loss')
+  if (lostInternalLinks.length >= Math.max(25, Math.ceil(Math.max(linksBefore, 1) * 0.05))) {
+    blockingRegressions.push('Large internal-link loss')
+  }
+  if (sourcesBefore > 0 && sourceDelta <= -Math.max(25, Math.ceil(sourcesBefore * 0.05))) {
+    blockingRegressions.push('Large structured citation-source loss')
+  }
+  if (citationLossRows.length >= 10) blockingRegressions.push('Widespread entity citation loss')
   const why = explanation()
-  const explanationRequired = majorChanges.length > 0 && process.env.REQUIRE_QUALITY_CHANGE_EXPLANATION !== 'false'
-  const passed = !explanationRequired || why.length >= 20
+  const passed = blockingRegressions.length === 0
   const report = {
     generatedAt: new Date().toISOString(),
     contract: 'production-quality-regression/v1',
@@ -177,6 +191,7 @@ function main() {
     },
     changes: { titles, indexability, lostInternalLinks, citationLosses: citationLossRows, evidenceGrades },
     majorChanges,
+    blockingRegressions,
   }
   fs.mkdirSync(path.dirname(reportPath), { recursive: true })
   fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`)
