@@ -61,7 +61,7 @@ function main() {
   const authority = new Map()
   for (const [file, kind] of [['herbs-summary.json', 'herb'], ['compounds-summary.json', 'compound']]) {
     for (const record of readSummary(file)) {
-      if (record?.slug) authority.set(String(record.slug), { kind, record })
+      if (record?.slug) authority.set(`${kind}:${String(record.slug)}`, { kind, record })
     }
   }
 
@@ -83,7 +83,7 @@ function main() {
       if (!file.endsWith('.json')) continue
       const detail = JSON.parse(fs.readFileSync(path.join(full, file), 'utf8'))
       const slug = String(detail.slug ?? file.replace(/\.json$/, ''))
-      const entry = authority.get(slug)
+      const entry = authority.get(`${kind}:${slug}`)
       if (!entry) continue
       compared += 1
 
