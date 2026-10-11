@@ -132,6 +132,7 @@ export function appendFlywheelObservation(root, observation) {
   const name=isoKey(observation.observedAt)+'-'+metricWindow+'.json'
   const receipt=immutable(path.join(path.resolve(root),'videos',id,'observations',name),row)
   persistFlywheelHookPatterns(root,{metricWindow})
+  persistFlywheelTopicSignals(root,{metricWindow})
   return receipt
 }
 export function getFlywheelSnapshot(root, videoId, metricWindow='first-7d') {
@@ -215,6 +216,20 @@ export function persistFlywheelHookPatterns(root,{metricWindow='first-7d'}={}) {
     saved.push(immutable(path.join(path.resolve(root),'hook-patterns',pattern.videoId,name),body))
   }
   return saved
+}
+
+// Every observed topic recommendation is a dated, immutable explanation.
+// A later baseline shift creates a new receipt; historical deprioritizations
+// remain visible rather than silently changing along with the current ranking.
+export function persistFlywheelTopicSignals(root,{metricWindow='first-7d'}={}) {
+  const topics=flywheelInsights(root,{metricWindow}).topics
+  return topics.map(topic=>{
+    const key=topic.topic.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,60).replace(/^-|-$/g,'')||'topic'
+    const signature=digest(stable(topic)).slice(0,16)
+    const body={schemaVersion:'ths-evidencemotion-topic-signal-v1',...topic,
+      metricWindow,learningOnly:true,scienceJudgment:false,autoPublishAllowed:false}
+    return immutable(path.join(path.resolve(root),'topic-signals',key,metricWindow+'-'+signature+'.json'),body)
+  })
 }
 
 export function registerFlywheelFromPackage(root, input) {
