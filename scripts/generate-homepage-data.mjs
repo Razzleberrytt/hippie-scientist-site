@@ -288,7 +288,10 @@ function getGovernedMap(governedRows) {
     const key = `${cleanText(row.entityType)}:${cleanText(row.entitySlug)}`
     const enrichment = row?.researchEnrichment || {}
     const isPublishable =
-      PUBLISHABLE_EDITORIAL_STATUSES.has(cleanText(enrichment.editorialStatus)) && enrichment?.editorialReadiness?.publishable === true
+      enrichment.reviewStatus === 'approved_for_rollup' &&
+      enrichment.active === true &&
+      PUBLISHABLE_EDITORIAL_STATUSES.has(cleanText(enrichment.editorialStatus)) &&
+      enrichment?.editorialReadiness?.publishable === true
 
     if (isPublishable) publishableByEntity.set(key, enrichment)
     else blockedByEntity.set(key, {
