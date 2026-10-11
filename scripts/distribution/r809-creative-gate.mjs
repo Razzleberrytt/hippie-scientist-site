@@ -48,6 +48,19 @@ export function validateR809CreativeBrief(brief) {
     }
   }
   const terms = Array.isArray(layer.technicalTerms) ? layer.technicalTerms : []
+  // High-frequency scientific jargon must be recognized, not merely declared
+  // "reviewed" with an empty glossary. This list is intentionally bounded:
+  // a human editor must still catch other field-specific language.
+  const frequentlyUnexplained = ['receptor', 'alkaloid', 'agonist', 'antagonist',
+    'metabolite', 'bioavailability', 'randomized', 'placebo', 'assay',
+    'clinical trial', 'statistically significant', 'binding affinity']
+  const narrationText = beats.map((b) => clean(b.narration)).join(' ').toLowerCase()
+  for (const word of frequentlyUnexplained) {
+    if (new RegExp(`\\b${word.replace(/ /g, '\\\\s+')}\\b`, 'i').test(narrationText)
+        && !terms.some((entry) => clean(entry?.term).toLowerCase() === word)) {
+      errors.push(`R8.09 technical term ${word} was spoken without an explanatory glossary entry`)
+    }
+  }
   const seen = new Set()
   for (const entry of terms) {
     const term = clean(entry?.term)
