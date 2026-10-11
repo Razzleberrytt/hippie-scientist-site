@@ -16,18 +16,18 @@ import Disclaimer from '../../../../components/Disclaimer'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Berberine vs Inositol: Which Is Better for Blood Sugar?',
   description:
-    'Berberine and inositol both improve insulin sensitivity by different mechanisms. Which fits blood sugar, which fits PCOS, how they dose, and where the evidence is strongest.',
+    'Compare berberine blood-sugar studies with uncertain inositol evidence in PCOS, including trial limitations, medication interactions, and safety.',
   path: '/guides/compare/berberine-vs-inositol/',
 })
 
-// Berberine references are the vetted set already cited on the berberine-vs-metformin
-// page. Inositol references are the PMIDs carried in the site's own claims registry
-// (public/data/claims.json) for the inositol / myo-inositol profiles.
+// Every citation is matched to its actual publication identity and study type.
+// Previous inositol references 29498933 and 34078260 were misidentified as
+// reviews. Neither is a PCOS systematic review; see editorial correction below.
 const BERBERINE_VS_INOSITOL_REFS = [
   {
     n: 1,
-    text: 'Yin J, et al. (2012). Efficacy of berberine in patients with type 2 diabetes. Metabolism, 57(5): 712-717.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/18442639/',
+    text: 'Yin J, Xing H, Ye J. (2008). Efficacy of berberine in patients with type 2 diabetes mellitus. Metabolism, 57(5): 712-717.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/18442638/',
   },
   {
     n: 2,
@@ -36,54 +36,54 @@ const BERBERINE_VS_INOSITOL_REFS = [
   },
   {
     n: 3,
-    text: 'Guo Y, et al. (2012). Repeated administration of berberine inhibits cytochromes P450. Eur J Pharmacol, 685(1-3): 116-122.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/21575678/',
+    text: 'Guo Y, et al. (2012). Repeated administration of berberine inhibits cytochromes P450 in humans. Eur J Clin Pharmacol, 68(2): 213-217.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/21870106/',
   },
   {
     n: 4,
-    text: 'Systematic review and meta-analysis of inositol in polycystic ovary syndrome and related metabolic outcomes (PubMed 29498933).',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/29498933/',
+    text: 'Fitz V, et al. (2024). Inositol for Polycystic Ovary Syndrome: A Systematic Review and Meta-analysis to Inform the 2023 Update of the International Evidence-based PCOS Guidelines. J Clin Endocrinol Metab, 109(6): 1630-1655. The evidence was limited and inconclusive.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/38163998/',
   },
   {
     n: 5,
-    text: 'Systematic review of myo-inositol and D-chiro-inositol in metabolic and hormonal outcomes (PubMed 34078260).',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/34078260/',
+    text: 'Teede HJ, et al. (2023). Recommendations from the 2023 International Evidence-based Guideline for the Assessment and Management of Polycystic Ovary Syndrome. Inositol benefits for clinical outcomes remain limited or uncertain.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10477934/',
   },
 ]
 
 const COMPARISON_ROWS = [
   {
     dimension: 'Primary mechanism',
-    berberine: 'AMPK activation; reduces hepatic glucose output and improves peripheral glucose uptake.',
-    inositol: 'Acts as a second messenger in the insulin signalling pathway rather than acting on AMPK.',
+    berberine: 'Laboratory and human studies suggest metabolic pathways including AMPK; mechanistic findings do not establish long-term clinical outcomes.',
+    inositol: 'Inositols participate in cell signalling, including insulin-related pathways; a plausible mechanism does not prove clinical benefit.',
   },
   {
     dimension: 'Strongest evidence base',
-    berberine: 'Type 2 diabetes and general glycaemic control, in RCTs and meta-analysis.',
-    inositol: 'Polycystic ovary syndrome and its associated insulin resistance, in RCT meta-analysis.',
+    berberine: 'Short-term type 2 diabetes trials and a meta-analysis, with uncertainty about long-term safety and outcomes.',
+    inositol: 'PCOS randomized trials and a 2024 systematic review; overall benefits remain limited and inconclusive.',
   },
   {
     dimension: 'Typical study duration',
-    berberine: 'Mostly under three months; long-term outcome data are not available.',
-    inositol: 'Commonly three to six months in PCOS trials.',
+    berberine: 'Short-term trials dominate; cardiovascular and long-term clinical outcomes are not established.',
+    inositol: 'Varied regimens and durations; current PCOS guidelines cannot recommend a specific type or dose.',
   },
   {
     dimension: 'Tolerability',
-    berberine: 'Gastrointestinal effects are the most commonly reported adverse events.',
-    inositol: 'Generally well tolerated; mild GI upset, sleepiness, or dizziness at high intakes.',
+    berberine: 'Gastrointestinal effects occur; adverse-event reporting across trials is incomplete.',
+    inositol: 'Some comparisons suggest fewer gastrointestinal effects than metformin, but adverse-event reporting is incomplete.',
   },
   {
     dimension: 'Drug-interaction load',
     berberine:
       'Meaningful. Repeated dosing inhibited CYP2D6, CYP2C9, and CYP3A4, and a clinical cyclosporine interaction is documented.',
-    inositol: 'Low. May affect blood-glucose control in diabetes or hypoglycaemia.',
+    inositol: 'Less well characterized; review any supplement use alongside glucose-lowering medication with a clinician.',
   },
   {
     dimension: 'Key contraindications',
     berberine:
-      'Pregnancy, breastfeeding, and infants — berberine can displace bilirubin and poses a kernicterus risk.',
+      'Avoid in pregnancy, breastfeeding, and infants; medication and glucose-lowering interactions require clinical review.',
     inositol:
-      'Bipolar disorder without clinician supervision; pregnancy safety data are insufficient given a theoretical uterine-contraction risk at high doses.',
+      'Do not use as an unproven fertility therapy or replace prescribed PCOS care; pregnancy and medication decisions need clinician guidance.',
   },
 ]
 
@@ -92,7 +92,7 @@ export default function BerberineVsInositolPage() {
     <div className="container-page space-y-10 py-10">
       <AuthorityJsonLd
         title="Berberine vs Inositol"
-        description="Evidence-graded comparison of berberine and inositol for insulin sensitivity, blood sugar, and PCOS-related metabolic outcomes."
+        description="Berberine has short-term glucose trials; inositol evidence for PCOS remains limited and inconclusive. Compare trial quality, safety, and interactions."
         url="https://thehippiescientist.net/guides/compare/berberine-vs-inositol/"
         type="Article"
       />
@@ -111,23 +111,20 @@ export default function BerberineVsInositolPage() {
           Berberine vs Inositol: Which Is Better for Blood Sugar?
         </h1>
         <p className="text-lg leading-8 text-muted">
-          These two get compared because both improve insulin sensitivity, but they are not
-          interchangeable. They act through different pathways, their evidence bases sit in
-          different populations, and they carry very different interaction risk. The useful question
-          is not which is stronger — it is which one matches your situation.
+          These supplements are often marketed for blood-sugar or PCOS-related outcomes, but their evidence is not equivalent. Berberine has short-term studies in type 2 diabetes, while inositol has been studied in PCOS with mixed and inconclusive clinical results. Neither replaces recommended treatment, and no study cited here establishes which one is better in a head-to-head trial.
         </p>
       </section>
 
       <CitationReadySummary
-        answer="Berberine and inositol both support insulin sensitivity, but through different mechanisms and with evidence concentrated in different populations. Berberine activates AMPK and has its strongest evidence in type 2 diabetes glycaemic control, with meta-analysis support but mostly short trials and no long-term outcome data. Inositol acts as a second messenger in insulin signalling and has its strongest evidence in polycystic ovary syndrome and the insulin resistance associated with it. Berberine carries a substantially higher drug-interaction burden."
+        answer="Berberine has short-term human evidence for blood-glucose outcomes in type 2 diabetes, but medication interactions and missing long-term outcome data matter. Inositol has been studied in PCOS; a 2024 systematic review and the 2023 international guideline conclude that clinical benefits are limited or uncertain. No cited trial directly compares the two for diabetes or PCOS."
         bestFor={[
-          'Berberine: blood-sugar and lipid support in insulin resistance or the prediabetes range, for someone not on interacting medication.',
-          'Inositol: PCOS-associated insulin resistance, or where a low interaction burden and better tolerability matter more than maximal glycaemic effect.',
-          'Neither as a substitute for prescribed diabetes medication without clinician oversight.',
+          'Berberine: short-term glycaemic findings in selected type 2 diabetes studies; interaction and safety limits must be reviewed.',
+          'Inositol: a PCOS research topic with limited and inconclusive clinical outcomes, not a proven first-line therapy.',
+          'Neither is a substitute for prescribed diabetes or PCOS treatment, and combining them is not established as safe or effective.',
         ]}
-        evidenceLevel="Berberine has multiple positive RCTs and a meta-analysis in type 2 diabetes, but trials are mostly under three months with no cardiovascular or mortality endpoints. Inositol has RCT meta-analysis support in PCOS; evidence outside PCOS and metabolic outcomes is thinner."
-        safetyNote="Berberine inhibited CYP2D6, CYP2C9, and CYP3A4 on repeated human dosing and has a documented clinical cyclosporine interaction; it is contraindicated in pregnancy, breastfeeding, and infants. Inositol can trigger manic episodes in bipolar disorder and should only be used under clinician supervision in that population. Either may affect blood-glucose control in people already treating diabetes."
-        notClaiming="This page is not claiming either supplement treats diabetes or PCOS, or that either can replace prescribed medication."
+        evidenceLevel="Berberine evidence includes short-term trials and a meta-analysis, without established long-term clinical outcomes. A verified 2024 inositol PCOS review pooled some randomized trials but rated overall clinical benefits as limited and inconclusive."
+        safetyNote="Berberine inhibited CYP2D6, CYP2C9, and CYP3A4 in a human interaction study and may raise risk when combined with other medications, including glucose-lowering drugs. People with diabetes, PCOS, or pregnancy-related concerns should discuss supplements with their clinician. Safety evidence for inositol remains incomplete."
+        notClaiming="This page is not claiming inositol reliably improves insulin resistance, ovulation, or fertility in PCOS; nor that berberine can replace prescribed diabetes medication. The cited studies do not directly compare the two."
         referencesHref="#references"
       />
 
@@ -176,18 +173,19 @@ export default function BerberineVsInositolPage() {
             on regular medication.<sup>[3]</sup>
           </p>
           <p>
-            <span className="font-semibold text-ink">Inositol</span> has its strongest support in
-            polycystic ovary syndrome, where meta-analysis of randomised trials covers insulin
-            resistance and hormonal outcomes.<sup>[4][5]</sup> It is generally better tolerated and
-            carries far less interaction risk. Its evidence is narrower — it is well studied in PCOS
-            and metabolic contexts, and thinner elsewhere.
+            <span className="font-semibold text-ink">Inositol</span> has been evaluated in PCOS trials,
+            but a 2024 systematic review found the evidence limited and inconclusive. The 2023
+            international guideline notes possible improvements in selected metabolic measures,
+            without established clinical benefits or a recommended formulation and dose.<sup>[4][5]</sup>
+            This does not prove that it treats insulin resistance, restores ovulation, or improves
+            fertility for an individual patient.
           </p>
           <p>
-            If the goal is blood sugar and there is no PCOS context, berberine has the more relevant
-            evidence. If the context is PCOS-associated insulin resistance, or if tolerability and
-            drug interactions are the binding constraint, inositol is the better-matched option.
-            Anyone already on diabetes medication should treat either as a conversation to have with
-            a clinician rather than a decision to make alone.
+            The two compounds have not been tested directly against each other in the studies cited
+            here. Berberine should not be used to replace glucose-lowering medication, and the
+            uncertainty around inositol means it should not be presented as a proven PCOS treatment.
+            Both warrant a clinician conversation when glucose-lowering therapy or fertility care
+            is involved, particularly because adding berberine can increase hypoglycaemia risk.
           </p>
         </div>
       </section>
@@ -213,7 +211,7 @@ export default function BerberineVsInositolPage() {
             >
               <span className="font-semibold text-brand-800 dark:text-brand-100">Inositol →</span>
               <span className="mt-2 block text-xs leading-relaxed text-muted">
-                Insulin signalling role, PCOS and metabolic evidence, dosing, and safety context.
+                Insulin signalling, uncertain PCOS trial outcomes, and safety limitations.
               </span>
             </Link>
           </li>
@@ -252,25 +250,35 @@ export default function BerberineVsInositolPage() {
           {
             question: 'Is berberine or inositol better for blood sugar?',
             answer:
-              'For blood sugar specifically, berberine has the more direct evidence — randomised trials and a meta-analysis in type 2 diabetes report reductions in fasting glucose and HbA1c. Inositol’s strongest evidence sits in polycystic ovary syndrome and the insulin resistance associated with it, rather than in general glycaemic control.',
+              'Berberine has short-term type 2 diabetes trials, while the overall evidence for inositol in PCOS is limited and inconclusive. These are different populations, not a direct comparison; do not replace prescribed treatment.',
           },
           {
             question: 'Can you take berberine and inositol together?',
             answer:
-              'They act through different pathways, so combining them is not mechanistically contradictory, but there is little trial evidence for the combination and both can affect blood-glucose control. Anyone on diabetes medication, or on drugs metabolised by CYP3A4, CYP2D6, or CYP2C9, should review the combination with a clinician before starting.',
+              'There is insufficient direct evidence to establish that combining them is effective or safe. Berberine can interact with medicines metabolized by CYP3A4, CYP2D6, or CYP2C9 and may increase hypoglycaemia risk when added to glucose-lowering treatment. Consult a clinician before combining them.',
           },
           {
             question: 'Which one is safer?',
             answer:
-              'Inositol has the lower risk profile for most people: it is generally well tolerated and carries far less drug-interaction burden. Berberine inhibits several cytochrome P450 enzymes on repeated dosing and is contraindicated in pregnancy, breastfeeding, and infants. Inositol should only be used under clinician supervision by people with bipolar disorder.',
+              'Berberine has documented human CYP enzyme interactions and important pregnancy and infant precautions. Inositol has fewer reported gastrointestinal adverse effects than metformin in some studies, but broader safety and adverse-event reporting remain incomplete. Neither is automatically safe alongside prescriptions.',
           },
           {
             question: 'Which is better for PCOS?',
             answer:
-              'Inositol. Its randomised-trial and meta-analysis evidence is concentrated in polycystic ovary syndrome and the insulin resistance associated with it, which is not the population berberine has been most studied in.',
+              'There is not enough reliable evidence to rank inositol ahead of other recommended PCOS treatments. A 2024 systematic review found inositol evidence limited and inconclusive, and the 2023 guideline considers its infertility use experimental.',
           },
         ]}
       />
+
+      <section className="card-premium space-y-3 p-6" aria-labelledby="citation-correction">
+        <h2 id="citation-correction" className="text-xl font-semibold text-ink">Editorial citation correction · October 2026</h2>
+        <p className="text-sm leading-7 text-muted">
+          Earlier versions of this page incorrectly described PMID 29498933 (a publication combining a large uncontrolled fertility cohort, a small prospective randomized IVF comparison of 29 patients with PCOS, and a literature review) and PMID 34078260 (a ten-man hormone pilot) as systematic reviews supporting PCOS metabolic claims. Both have been removed as support for those broad claims. The 29-person randomized arm compared myo-inositol plus folic acid with placebo in an IVF setting, not berberine or general PCOS metabolic treatment; its small size and narrow endpoints cannot establish comparative efficacy or replace a systematic evidence assessment. The first paper includes an author affiliated with Exeltis, and the second includes an author employed by Lo.Li. Pharma; these relevant affiliations were not previously disclosed.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          The replacement sources below are the actual 2024 systematic review and the 2023 international evidence-based PCOS guideline. Their cautious findings, rather than the earlier inaccurate source labels, govern this comparison.
+        </p>
+      </section>
 
       <div className="space-y-3">
         <AffiliateDisclosure />
