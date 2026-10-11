@@ -527,13 +527,13 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
     }
   })
 
-  if (methodRelease === 'R8.08') {
+  if (['R8.08', 'R8.09'].includes(methodRelease)) {
     for (const scene of scenes.filter(s => ['hook', 'finding', 'evidence', 'limitation'].includes(s.role))) {
       const visibleSeconds = scene.motionType === 'reveal'
         ? scene.end - scene.start - Number(scene.motionCueOffset)
         : scene.end - scene.start
       if (visibleSeconds < 0.85 - 0.0006) {
-        throw new Error(`R8.08 beat ${scene.beatId} has insufficient real readable claim dwell (<0.85 seconds); do not pad narration`)
+        throw new Error(`${methodRelease} beat ${scene.beatId} has insufficient real readable claim dwell (<0.85 seconds); do not pad narration`)
       }
     }
   }
@@ -571,7 +571,7 @@ function verticalPlatformIntersection() {
   }
 }
 
-function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase }) {
+function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, motionPhase, backdropOnly = false }) {
   const family = clean(scene.compositionFamily)
   if (!family) return ''
   const phase = clean(motionPhase) || 'post'
@@ -624,7 +624,11 @@ function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, m
   const interrupt = scene.patternInterrupt === true && motionPhase === 'post'
     ? `<rect data-r807-pattern-interrupt="true" x="${x - 16}" y="${y - 18}" width="${width + 32}" height="${h + 36}" rx="42" fill="none" stroke="${foreground}" stroke-width="7" stroke-dasharray="22 16" stroke-opacity="0.82"/>`
     : ''
-  return `<g data-r807-composition="${escapeXml(family)}">${interrupt}${body}${motif}</g>`
+  // R8.09 reuses the R8.07 authored rhythm, motifs, and limitation-pivot
+  // interruption as an understated backdrop behind the new illustrated actor.
+  // Do not let the old family object compete with the primary teaching actor.
+  const composedBody = backdropOnly ? `<g opacity="0.16">${body}</g>` : body
+  return `<g data-r807-composition="${escapeXml(family)}">${interrupt}${composedBody}${motif}</g>`
 }
 
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
@@ -675,21 +679,30 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
   const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
   const composition = r809 && scene.role !== 'source'
-    ? (compositionVisible ? renderR809VisualActor(scene, {
-        x, y: compositionTop + 30, width: safeWidth,
-        height: Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
-        foreground, background, motionPhase,
-      }) : '')
+    ? (compositionVisible
+      ? [
+          // R8.07 visual rhythm and returning motif are inherited, not discarded.
+          renderAuthoredComposition(scene, {
+            x, width: safeWidth, top: compositionTop,
+            bottom: disclosureY - 72, foreground, motionPhase, backdropOnly: true,
+          }),
+          renderR809VisualActor(scene, {
+            x, y: compositionTop + 30, width: safeWidth,
+            height: Math.max(240, Math.min(450, canvas.height - safe.bottom - 490 - compositionTop)),
+            foreground, background, motionPhase,
+          }),
+        ].join('')
+      : '')
     : compositionVisible
-    ? renderAuthoredComposition(scene, {
-        x,
-        width: safeWidth,
-        top: compositionTop,
-        bottom: disclosureY - 72,
-        foreground,
-        motionPhase,
-      })
-    : ''
+      ? renderAuthoredComposition(scene, {
+          x,
+          width: safeWidth,
+          top: compositionTop,
+          bottom: disclosureY - 72,
+          foreground,
+          motionPhase,
+        })
+      : ''
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
     sourceUrl,
