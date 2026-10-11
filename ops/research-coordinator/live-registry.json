@@ -72958,6 +72958,84 @@
       "reservation_id": "6e5be94593c6d9155c6d",
       "reserved_at": "2026-10-11T13:33:00.905Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0930"
+    },
+    {
+      "pmid": "42727109",
+      "title": "Effectiveness of Wearable Digital Therapeutics in Improving Sleep Outcomes Among Individuals With Insomnia: Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.2196/93496",
+      "source_title": "Effectiveness of Wearable Digital Therapeutics in Improving Sleep Outcomes Among Individuals With Insomnia: Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Wearable devices are increasingly used for sleep monitoring and as adjunctive treatment. Existing meta-analyses mostly pool composite digital therapies and rarely isolate stand-alone wearables or distinguish between objective and subjective end points. Whether stand-alone wearable interventions improve sleep outcomes in adults with insomnia, and which factors moderate treatment heterogeneity, remains unclear. This study aims to evaluate the effectiveness of wearable digital interventions on sleep outcomes in adults with insomnia versus control strategies and explore moderators of effectiveness, including device-wearing position, intervention duration, and control type, using meta-regression. This systematic review and meta-analysis was conducted in accordance with the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta‑Analyses) 2020 statement and the PRISMA-S (Preferred Reporting Items for Systematic Reviews and Meta‑Analyses Literature Search Extension) guideline. Five electronic databases and clinical trial registries were searched from inception to May 18, 2026. Eligible studies were randomized controlled trials (RCTs) evaluating wearable digital interventions in adults with insomnia compared with sham, waitlist, usual care, or active control conditions and had an intervention duration of at least 1 week. Study screening, data extraction, and risk-of-bias assessment were carried out independently by 2 reviewers. Pooled estimates were calculated using a restricted maximum likelihood random-effects model with the Hartung-Knapp-Sidik-Jonkman correction. Heterogeneity was assessed using the I ² statistic, and 95% prediction intervals (PIs) were calculated for the primary analyses. The certainty of evidence was rated using the GRADE (Grading of Recommendations, Assessment, Development, and Evaluation) approach. Sixteen RCTs (N=910) were included. Wearable digital interventions were associated with a significant reduction in objective sleep-onset latency (SOL; mean difference [MD] -4.52, 95% CI -8.38 to -0.67, PI -9.52 to 0.47 min) and a significant improvement in subjective sleep efficiency (SE; MD 2.00%, 95% CI 1.90%-2.11%, PI 1.85%-2.15%). Subjective total sleep time (TST) also showed a significant increase (MD 19.11, 95% CI 2.98-35.24, PI -16.20 to 54.43 minutes). Meta-regression showed that control type, intervention duration, and device location did not explain the heterogeneity of the insomnia severity index (ISI) ( R ² =0). Sensitivity analysis confirmed the robustness of pooled ISI estimates, and an Egger test indicated no small-study effects ( P =.07). Certainty of evidence ranged from moderate to high. Wearable digital interventions provide selective benefits for objective SOL, subjective SE, and subjective TST in adults with insomnia, with no improvement in overall ISI. Despite statistically significant effects on several sleep parameters, wide PIs, substantial heterogeneity, and limited study numbers indicate preliminary, nonconclusive findings. Wearables should be viewed as affordable adjunctive tools requiring further validation, not substitutes for first-line cognitive behavioral therapy for insomnia. Large-scale, long-term RCTs with standardized protocols and patient-level external validation are required to consolidate the evidence base.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42727109/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42727109",
+        "doi": "10.2196/93496",
+        "journal": "Journal of medical Internet research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T13:47:04.954Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d7d0de0d0ddbad2b31d2",
+      "reserved_at": "2026-10-11T13:47:15.765Z",
+      "source_branch": "research/intake/1/20261011-0943-wearable-tvns-r23"
     }
   ],
   "batches": [
@@ -72986,16 +73064,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 932,
+    "total_reservations": 933,
     "by_lane": {
-      "1": 81,
+      "1": 82,
       "2": 168,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 932
+      "SOURCE_VERIFIED": 933
     },
     "batches": [
       {
@@ -73008,7 +73086,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 432,
+        "count": 433,
         "pr_number": null,
         "blocker": null
       }
