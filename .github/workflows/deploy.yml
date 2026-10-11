@@ -93,6 +93,33 @@ jobs:
           github-token: ${{ github.token }}
           run-id: ${{ steps.governed-producer.outputs.run_id }}
 
+      - name: Resolve GA4 ID for production static build
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+          GA4_GITHUB_ID: ${{ vars.NEXT_PUBLIC_GA4_ID }}
+        run: |
+          set -euo pipefail
+          ga_id="${GA4_GITHUB_ID:-}"
+          if [ -z "$ga_id" ]; then
+            if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_PAGES_PROJECT:-}" ]; then
+              echo "::error::Cannot read Cloudflare production GA4 configuration: missing Pages deployment credentials."
+              exit 1
+            fi
+            project_json="$(curl --fail --silent --show-error --retry 2 --connect-timeout 10 \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PAGES_PROJECT")"
+            ga_id="$(jq -r '.result.deployment_configs.production.env_vars.NEXT_PUBLIC_GA4_ID.value // empty' <<<"$project_json")"
+          fi
+          if [[ ! "$ga_id" =~ ^G-[A-Z0-9]{6,20}$ ]]; then
+            echo "::error::Production GA4 Measurement ID missing or invalid. Set NEXT_PUBLIC_GA4_ID as a plain-text Cloudflare Pages production variable or GitHub Actions production environment variable."
+            exit 1
+          fi
+          echo "::add-mask::$ga_id"
+          echo "NEXT_PUBLIC_GA4_ID=$ga_id" >> "$GITHUB_ENV"
+          echo "GA4 production build-time ID resolved (value withheld)."
+
       - name: Verify reusable governed export
         id: governed-verify
         if: steps.governed-download.outcome == 'success'
@@ -131,6 +158,15 @@ jobs:
           node scripts/ci/governed-static-export.mjs verify \
             --source-sha "$EXPECTED_SOURCE_SHA" \
             --base-sha "$base_sha"
+          # A verified CI artifact may have been built before production GA4
+          # was resolved. NEXT_PUBLIC_* values are baked into JS at build time;
+          # do not reuse chunks missing the approved production measurement ID.
+          if [ ! -d out/_next/static/chunks ] ||
+             ! grep -R -F -q --include='*.js' "$NEXT_PUBLIC_GA4_ID" out/_next/static/chunks ||
+             ! grep -R -F -q --include='*.js' 'googletagmanager.com/gtag/js' out/_next/static/chunks; then
+            echo 'Reusable CI export lacks production GA4 client configuration; self-build fallback required.'
+            exit 1
+          fi
           echo "reusable=true" >> "$GITHUB_OUTPUT"
 
 
@@ -234,32 +270,6 @@ jobs:
 
       # The static site is compiled here, not in Cloudflare Pages. Read the
       # approved production web-stream ID before Next.js bakes client env in.
-      - name: Resolve GA4 ID for production static build
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
-          GA4_GITHUB_ID: ${{ vars.NEXT_PUBLIC_GA4_ID }}
-        run: |
-          set -euo pipefail
-          ga_id="${GA4_GITHUB_ID:-}"
-          if [ -z "$ga_id" ]; then
-            if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_PAGES_PROJECT:-}" ]; then
-              echo "::error::Cannot read Cloudflare production GA4 configuration: missing Pages deployment credentials."
-              exit 1
-            fi
-            project_json="$(curl --fail --silent --show-error --retry 2 --connect-timeout 10 \
-              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PAGES_PROJECT")"
-            ga_id="$(jq -r '.result.deployment_configs.production.env_vars.NEXT_PUBLIC_GA4_ID.value // empty' <<<"$project_json")"
-          fi
-          if [[ ! "$ga_id" =~ ^G-[A-Z0-9]{6,20}$ ]]; then
-            echo "::error::Production GA4 Measurement ID missing or invalid. Set NEXT_PUBLIC_GA4_ID as a plain-text Cloudflare Pages production variable or GitHub Actions production environment variable."
-            exit 1
-          fi
-          echo "::add-mask::$ga_id"
-          echo "NEXT_PUBLIC_GA4_ID=$ga_id" >> "$GITHUB_ENV"
-          echo "GA4 production build-time ID resolved (value withheld)."
 
       - name: Build app
         if: steps.governed-verify.outputs.reusable != 'true'
