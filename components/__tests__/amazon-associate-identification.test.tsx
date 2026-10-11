@@ -12,11 +12,11 @@ describe('Amazon Associates disclosure identity', () => {
       expect(
         screen.getByText(AMAZON_ASSOCIATE_IDENTIFICATION, { exact: true }),
       ).toBeVisible()
-      // Next's link renderer canonicalizes these routes without a trailing slash.
+      // The source and canonical site routes use trailing slashes; keep the assertion aligned.
       expect(screen.getByRole('link', { name: variant === 'compact'
         ? 'How we stay independent'
         : 'Read our affiliate and editorial policy',
-      })).toHaveAttribute('href', '/info/affiliate-disclosure')
+      })).toHaveAttribute('href', '/info/affiliate-disclosure/')
     },
   )
 
