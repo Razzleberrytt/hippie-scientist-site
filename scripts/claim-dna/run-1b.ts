@@ -25,6 +25,10 @@ import {
   sortKeysDeep,
   type ClaimDnaResult,
 } from './run-1a'
+import {
+  parseStudyIdentity,
+  pmidForIdentity,
+} from '@/lib/study-identity'
 
 export const BATCH_SCHEMA_VERSION = 'claim-dna-1b/0.1'
 export const BATCH_GENERATOR_VERSION = 'round-1b-runner/0.1'
@@ -49,7 +53,8 @@ export type BatchClaimResult = {
 
 export type SharedIdentity = {
   canonical_id: string
-  pmid: string
+  /** Verified PMID, or null. A DOI-canonical identifier must never appear here. */
+  pmid: string | null
   referenced_by: string[]
 }
 
@@ -68,6 +73,32 @@ export type BatchManifest = {
     traceability_coverage: number
   }
   traceability: Array<{ output: string; inputs: string[]; via: string }>
+}
+
+/**
+ * Record one canonical identity's claim references for the batch manifest.
+ *
+ * The PMID field carries a verified PMID or null — never a DOI-canonical
+ * identifier string. At batch level there is no verified PMID association
+ * for DOI-canonical identities (the alias registry is R2A work), so those
+ * resolve to null rather than a fabricated value. Callers that DO hold
+ * verified source metadata may pass a pmidByCanonicalRoot map built with
+ * buildPmidByCanonicalRoot to preserve genuine associations.
+ */
+export function recordSharedIdentity(
+  identityRefs: Map<string, SharedIdentity>,
+  canonicalId: string,
+  claimId: string,
+  pmidByCanonicalRoot: Map<string, string> = new Map(),
+): void {
+  const pmid = pmidForIdentity(parseStudyIdentity(canonicalId), pmidByCanonicalRoot)
+  const entry = identityRefs.get(canonicalId) ?? {
+    canonical_id: canonicalId,
+    pmid,
+    referenced_by: [],
+  }
+  if (!entry.referenced_by.includes(claimId)) entry.referenced_by.push(claimId)
+  identityRefs.set(canonicalId, entry)
 }
 
 export type BatchState = {
@@ -158,7 +189,7 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
   const batchTrace: BatchManifest['traceability'] = []
 
   // Deduplication accumulator: canonical_id -> {pmid, referenced_by}
-  const identityRefs = new Map<string, { pmid: string; referenced_by: string[] }>()
+  const identityRefs = new Map<string, SharedIdentity>()
 
   for (const claimId of claimIds) {
     const productionClaim = findProductionClaim(claims, claimId)
@@ -218,10 +249,7 @@ export function runClaimDnaBatch({ batchId, claimIds, root = process.cwd() }: Ru
     // Per-claim provenance is preserved in each claim's own artifact; the
     // batch map only records the sharing relationship.
     for (const cid of canonicalIds) {
-      const pmid = cid.replace(/^pmid:/, '')
-      const entry = identityRefs.get(cid) ?? { pmid, referenced_by: [] }
-      if (!entry.referenced_by.includes(claimId)) entry.referenced_by.push(claimId)
-      identityRefs.set(cid, entry)
+      recordSharedIdentity(identityRefs, cid, claimId)
     }
 
     batchTrace.push({
