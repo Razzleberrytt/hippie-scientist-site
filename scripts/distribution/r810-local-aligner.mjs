@@ -87,6 +87,15 @@ export function renderOfflineAlignmentDraft({packageDir,mfaBinary,expectedMfaVer
 export function approveOfflineAlignment({packageDir,reviewerId,reviewedAt,observedExactAudioSha256}){
   const dir=path.resolve(packageDir)
   const draft=read(path.join(dir,'word-alignment.draft.json'))
+  const raw=fs.readFileSync(path.join(dir,'r810-mfa-output.json'))
+  const original=parseMfaJson(JSON.parse(raw.toString('utf8')))
+  if(draft.rawAlignmentSha256!==sha(raw)
+    ||original.length!==draft.words?.length
+    ||original.some((w,i)=>normalize(w.word)!==normalize(draft.words[i].word)
+      ||Math.abs(w.start-draft.words[i].start)>0.002
+      ||Math.abs(w.end-draft.words[i].end)>0.002)){
+    throw Error('R8.10 local MFA source output differs from its purported word receipt')
+  }
   const actual=sha(fs.readFileSync(path.join(dir,'narration.wav')))
   if(!clean(reviewerId)||!reviewedAt||Number.isNaN(Date.parse(reviewedAt))||
      observedExactAudioSha256!==actual||draft.audioSha256!==actual)throw Error('R8.10 alignment approval requires exact-audio human review and matching SHA-256')
