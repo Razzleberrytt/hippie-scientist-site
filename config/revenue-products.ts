@@ -398,7 +398,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Life Extension',
         asin: 'B000X9P5GM',
         title: 'Life Extension Super Bio-Curcumin, 400 mg (60 capsules)',
-        rationale: 'BCM-95 curcumin formula, 400 mg per capsule; formulation-specific absorption data are not proof of greater clinical benefit.',
+        rationale: 'BCM-95 curcumin formula, 400 mg labeled strength (60-capsule variant); formulation-specific absorption data are not proof of greater clinical benefit.',
         affiliateUrl: amazonProductUrl({ asin: 'B000X9P5GM', query: 'Life Extension Super Bio-Curcumin BCM-95 60 capsules' }),
       },
     ],
