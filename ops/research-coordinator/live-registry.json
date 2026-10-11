@@ -73652,6 +73652,315 @@
       "reservation_id": "9b29e0af9d85ed0c7e6b",
       "reserved_at": "2026-10-11T15:41:52.916Z",
       "source_branch": "research/intake/1/20261011-1139-prenatal-stress-r25"
+    },
+    {
+      "pmid": "42580712",
+      "title": "A Physical Exercise Program Significantly Boosts the Impact of Cognitive Training on Attention Deficits After a First Episode of Schizophrenia.",
+      "doi": "10.1093/schbul/sbag136",
+      "source_title": "A Physical Exercise Program Significantly Boosts the Impact of Cognitive Training on Attention Deficits After a First Episode of Schizophrenia.",
+      "abstract": "Our initial smaller study and other recent research suggest that adding a physical exercise program to cognitive training has promise for enhancing the impact on attention and overall cognition. We hypothesized that this would be the case even compared to adding a healthy living training program. In a randomized clinical trial of individuals with a recent first episode of schizophrenia, we provided cognitive training, 4 h/week for 6 months for all participants. Half were randomized to a physical exercise program and half to a healthy living group. The MATRICS Consensus Cognitive Battery was administered at baseline, 3, and 6 months, with a focus on Attention/Vigilance. Exercise was measured by the International Physical Activity Questionnaire and the number of exercise sessions completed. Attention/Vigilance was differentially enhanced by cognitive training and physical exercise compared to cognitive training and healthy living group (T score gain of 4.6 vs. -0.2 over 6 months, P < .01). Improvement in Attention/Vigilance by 3 months was significantly associated with number of exercise sessions attended (P = .02) and exercise intensity (P < .03) during that period. Attention/Vigilance gain by 6 months was significantly predicted by total metabolic energy expended during the first 3 months (P = .04) and proportion of group exercise sessions attended (P < .01) over 6 months. In the first 3 months, brain-derived neurotropic factor tended to increase in the exercise condition but decrease in the comparison condition. Adding an exercise program to cognitive training enhances the impact on the core deficit in attention in schizophrenia. The gains in attention are significantly related to the amount and intensity of exercise, consistent with the view that physical exercise is driving the attention improvements beyond the effect of cognitive training.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42580712/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42580712",
+        "doi": "10.1093/schbul/sbag136",
+        "journal": "Schizophrenia bulletin",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:00:11.759Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d6e80d3b854eebc31407",
+      "reserved_at": "2026-10-11T16:00:21.143Z",
+      "source_branch": "research/intake/2/20261011-1155-cognition-metabolic-r73"
+    },
+    {
+      "pmid": "42229579",
+      "title": "Cerebellar rTMS ameliorates cognitive impairment in Alzheimer's disease: A randomized trial.",
+      "doi": "10.1016/j.brs.2026.103138",
+      "source_title": "Cerebellar rTMS ameliorates cognitive impairment in Alzheimer's disease: A randomized trial.",
+      "abstract": "Developing effective neuromodulatory therapies for Alzheimer's disease (AD) is a critical unmet need. While repetitive transcranial magnetic stimulation (rTMS) shows promise, its optimal targets and mechanisms remain incompletely understood. The cerebellum, a key modulator of large-scale brain network dynamics, represents a novel therapeutic target for addressing the distributed cognitive network dysfunction in AD. This study aimed to evaluate the cognitive efficacy and safety of cerebellar rTMS in AD and to elucidate its potential mechanism of action through the lens of structural network topology. In this randomized, double-blind, sham-controlled trial, patients with AD were assigned to receive active or sham rTMS targeting the bilateral cerebellar Crus II region. Cognitive assessments were conducted at baseline, post-treatment (4 weeks), and at a 12-week follow-up. Diffusion tensor imaging (DTI) was employed to analyze changes in whole-brain structural network topology. Compared to the sham group, the active rTMS group demonstrated significantly greater improvement in global and domain-specific cognitive function at 4 weeks, with benefits sustained at the 12-week follow-up. Response rates on the MMSE and MoCA were also significantly higher in the active group. Neuroimaging revealed that active rTMS enhanced global network efficiency, indicated by significant increases in global/local efficiency and clustering coefficient, alongside a decreased characteristic path length, signifying an optimization toward small-world topology. Furthermore, treatment selectively enhanced nodal efficiency within core hubs of the default mode, frontoparietal, and salience networks. Critically, these structural improvements correlated with cognitive gains; increased nodal efficiency in the precuneus and posterior cingulate cortex was associated with improved episodic memory and visuospatial function. Cerebellar rTMS is a safe and effective intervention that confers sustained cognitive benefits in AD. Its therapeutic mechanism likely involves the reinforcement of structural connectivity and enhanced integrative capacity within supraordinate cognitive networks, particularly the default mode network, via cerebello-cortical pathways.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42229579/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42229579",
+        "doi": "10.1016/j.brs.2026.103138",
+        "journal": "Brain stimulation",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:00:11.760Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d450f40d72b57c5c5008",
+      "reserved_at": "2026-10-11T16:00:21.143Z",
+      "source_branch": "research/intake/2/20261011-1155-cognition-metabolic-r73"
+    },
+    {
+      "pmid": "41621174",
+      "title": "Comparison of the effects of aerobic exercise and computer-based cognitive stimulation in patients with schizophrenia - A randomized controlled trial.",
+      "doi": "10.1016/j.jpsychires.2026.01.039",
+      "source_title": "Comparison of the effects of aerobic exercise and computer-based cognitive stimulation in patients with schizophrenia - A randomized controlled trial.",
+      "abstract": "This study aimed to compare of the effects of aerobic exercise (AE) and computer-based cognitive stimulation (CS) in terms of cognition, clinical symptoms, depression, and quality of life (QOL) in patients with schizophrenia. A total of 58 individuals diagnosed with schizophrenia completed to the study (aerobic exercise group (AEG): n = 18, cognitive stimulation group (CSG): n = 20, control group (CG): n = 20). The AEG participated in a 12-week AE program, whereas the CSG engaged in computer-based CS over the same period. Also, the CG did not receive any intervention. Cognition with Montreal Cognitive Assessment scale and Frontal Assessment Battery, clinical symptoms with Positive and Negative Syndrome Scale, depression with Calgary Depression Scale for Schizophrenia, and QOL with Quality of Life Scale for Schizophrenia Patients scale were assessed at baseline and post-intervention. Within-group improvements were observed in general cognitive function, clinical symptoms, and selected QOL domains in the AEG, whereas the CSG showed significant improvements across cognitive functions, clinical symptoms, depressive symptoms, and multiple QOL domains. In contrast, the CG exhibited significant deterioration in cognitive functions, selected clinical symptoms, depressive symptoms, and certain QOL domains over the 12-week period. Between-group comparisons revealed no statistically significant differences in general cognitive function, executive function, and depression at week 12. However, significant differences were observed in specific PANSS and QOL subscales. These findings suggested that computer-based CS and AE may offer domain-specific and complementary effects in cognitive and clinical domains in PwS.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41621174/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41621174",
+        "doi": "10.1016/j.jpsychires.2026.01.039",
+        "journal": "Journal of psychiatric research",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:00:11.760Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "42266809c7fd7eb16dc6",
+      "reserved_at": "2026-10-11T16:00:21.143Z",
+      "source_branch": "research/intake/2/20261011-1155-cognition-metabolic-r73"
+    },
+    {
+      "pmid": "41499584",
+      "title": "Impact of exercise sequence in concurrent training on insulin resistance, glycemic control, and blood pressure in Type 2 diabetes.",
+      "doi": "10.1371/journal.pone.0340587",
+      "source_title": "Impact of exercise sequence in concurrent training on insulin resistance, glycemic control, and blood pressure in Type 2 diabetes.",
+      "abstract": "This study compared the effects of aerobic followed by resistance (CART) and resistance followed by aerobic (CRAT) training on insulin sensitivity, glycemic control, and blood pressure against a non-exercising control group (COT). 39 patients with type 2 diabetes were randomly assigned to CART (n = 13), CRAT (n = 13), or COT (n = 13) for a 12-week supervised program. Homeostatic Model Assessment of Insulin Resistance (HOMA-IR) improved significantly (F = 24.460, p = 0.001, η² = 0.62), with CRAT showing a modestly greater reduction than CART (MD = 0.303, p = 0.022), while both training sequences produced greater improvements compared to COT (CART: MD = -0.493, p = 0.001; CRAT: MD = -0.796, p = 0.001). Fasting Blood Sugar (FBS) decreased significantly (F = 16.206, p = 0.001, η² = 0.519) in both CART (MD = -10.747, p = 0.001) and CRAT (MD = -11.459, p = 0.001) relative to COT, though no difference emerged between the two exercise sequences (MD = 0.712, NS). Systolic Blood Pressure (SBP) also declined in CART (MD = -4.896, p = 0.005) and CRAT (MD = -5.681, p = 0.001) compared with COT (F = 8.968, p = 0.001, η² = 0.374), again without a significant sequence effect (MD = 0.785, NS). No significant between-group changes were observed in Diastolic Blood Pressure (DBP). Overall, concurrent training effectively reduced insulin resistance, improved glycemic control, and lowered SBP in patients with type 2 diabetes. While CRAT offered a modest additional benefit for HOMA-IR, the findings suggest that concurrent training, regardless of sequence, provides meaningful clinical benefits for managing type 2 diabetes. Trial registrationPan African Clinical Trials Registry (PACTR202509591505325) pactr.samrc.ac.za/TrialDisplay.aspx?TrialID=37070.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41499584/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41499584",
+        "doi": "10.1371/journal.pone.0340587",
+        "journal": "PloS one",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:00:11.761Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e6892031136e0aae5a4f",
+      "reserved_at": "2026-10-11T16:00:21.143Z",
+      "source_branch": "research/intake/2/20261011-1155-cognition-metabolic-r73"
     }
   ],
   "batches": [
@@ -73680,16 +73989,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 941,
+    "total_reservations": 945,
     "by_lane": {
       "1": 86,
-      "2": 172,
+      "2": 176,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 941
+      "SOURCE_VERIFIED": 945
     },
     "batches": [
       {
@@ -73702,7 +74011,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 441,
+        "count": 445,
         "pr_number": null,
         "blocker": null
       }
