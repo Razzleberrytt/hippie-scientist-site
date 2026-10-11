@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { verifyR811Package } from './r811-package-qa.mjs'
 import { parseMfaJson } from './r810-local-aligner.mjs'
 const sha = (b) => crypto.createHash('sha256').update(b).digest('hex')
 const norm = (s) => String(s ?? '').trim().replace(/\s+/g,' ')
@@ -82,5 +83,6 @@ export function verifyR810PackageGate(packageDir,{now=new Date(),requireAlignmen
     if(!Number.isFinite(verified)||!Number.isFinite(current)||current-verified>Number(a.maxAgeDays)*86400000||verified-current>86400000)throw Error('R8.10 stale legal/safety claim at publication staging')
   }
   const alignment=requireAlignment?verifyR810WordAlignment(dir):null
-  return {ledgerSha256:sha(ledger),sceneCount:assets.length,alignment}
+  const r811 = manifest.productionSystemRelease === 'R8.11' ? verifyR811Package(dir,{ manifest }) : null
+  return {ledgerSha256:sha(ledger),sceneCount:assets.length,alignment,r811}
 }
