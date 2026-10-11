@@ -217,8 +217,9 @@ jobs:
       # everywhere while asserting nothing — which is how a broken governor test
       # reached main. Discovery is by content, so new suites are covered here
       # automatically.
+      # Safety/quarantine native suites must still execute after an earlier Vitest failure.
       - name: Run native node:test suites
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
+        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
         run: npm run test:node
 
       - name: Upload Vitest log
