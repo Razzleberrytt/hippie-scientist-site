@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { isBatch7SafetyHold } from '../batch7-safety-holds'
 import { canRenderAffiliateLinks } from '../affiliate'
 import { canRenderConfiguredRevenueProducts } from '../revenue-product-governance'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 const affectedSlugs = [
   'andrographis', 'andrographis-paniculata', 'gotu-kola',
@@ -31,6 +32,26 @@ describe('Batch 7 precautionary safety holds', () => {
     }
     expect(isBatch7SafetyHold('magnesium')).toBe(false)
     expect(canRenderConfiguredRevenueProducts('magnesium')).toBe(true)
+  })
+
+  it('rejects every reviewed alias even after canonical revenue catalog lookup', () => {
+    const aliases = [
+      ['andrographolide-herb', 'andrographis-paniculata'],
+      ['aloe-barbadensis', 'aloe-vera'],
+      ['brahmi-gotu-kola', 'gotu-kola'],
+    ] as const
+
+    for (const [alias, canonical] of aliases) {
+      // Fail if a future catalog update accidentally drops or redirects the
+      // alias without re-evaluating its safety hold at the purchasing boundary.
+      expect(getRevenueProductSet(alias)?.slug).toBe(canonical)
+      expect(isBatch7SafetyHold(canonical)).toBe(true)
+      expect(canRenderConfiguredRevenueProducts(alias)).toBe(false)
+      expect(canRenderConfiguredRevenueProducts(alias, {
+        slug: canonical,
+        monetization_allowed: true,
+      })).toBe(false)
+    }
   })
 
   it('retains educational profile content while safety evidence and recommendations remain separately governed', () => {
