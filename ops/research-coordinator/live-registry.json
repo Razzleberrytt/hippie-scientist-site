@@ -52431,6 +52431,159 @@
       "reservation_id": "53c3065370125214304a",
       "reserved_at": "2026-10-11T03:06:59.758Z",
       "source_branch": "research/intake/3/20261010-2305-tcm-ageing-42820745"
+    },
+    {
+      "pmid": "42537947",
+      "title": "Effects of a programmed reflexology therapy on sleep quality, insomnia, and fatigue among individuals with poor sleep quality: evidence for autonomic nervous system modulation.",
+      "doi": "10.1016/j.ctim.2026.103409",
+      "source_title": "Effects of a programmed reflexology therapy on sleep quality, insomnia, and fatigue among individuals with poor sleep quality: evidence for autonomic nervous system modulation.",
+      "abstract": "Poor sleep quality is closely associated with autonomic dysregulation and increased risks of cardiovascular, metabolic, and mental disorders. Foot reflexology is a widely used complementary therapy; however, its physiological mechanisms and comparative efficacy remain insufficiently explored. This study aimed to compare the effects of manual reflexology treatment (MRT) and foot massage equipment (FEM) on autonomic nervous system function, sleep quality, insomnia severity, and fatigue in adults with poor sleep quality. Using a randomized crossover design, 32 participants with poor sleep quality received MRT and FEM interventions for 6 weeks each (once weekly, 30-40 min/session). Heart rate (HR), blood pressure, and heart rate variability (HRV; time- and frequency-domain indices) were assessed at weeks 1 and 6 before and after each intervention. Subjective outcomes included the Pittsburgh Sleep Quality Index (PSQI), Insomnia Severity Index (ISI), and Fatigue Assessment Scale (FAS). Following MRT, participants demonstrated significantly greater reductions in global PSQI scores and all PSQI components compared with FEM. MRT also resulted in larger improvements in insomnia severity and both mental and physical fatigue. In contrast, FEM primarily improved physical fatigue. Physiologically, MRT induced an immediate decrease in HR and significant increases in HRV time-domain indices (SDNN, RMSSD, pNN50), which were sustained after 6 weeks. Frequency-domain analysis further revealed reduced LF, increased HF, and a lower LF/HF ratio, indicating enhanced parasympathetic activity and cumulative autonomic modulation. In conclusion, programmed manual reflexology, delivered according to the TIDieR framework, is more effective than mechanical foot massage in improving autonomic balance, sleep quality, insomnia severity, and fatigue in individuals with poor sleep quality. These findings support MRT as a feasible and evidence-based non-pharmacological complementary intervention for sleep health promotion. TRIAL REGISTRATION: clinicaltrials.gov; NCT Number: NCT07402460; Registered 3 February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42537947/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42537947",
+        "doi": "10.1016/j.ctim.2026.103409",
+        "journal": "Complementary therapies in medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T03:46:17.205Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9a17ac4ab5af5b8b43be",
+      "reserved_at": "2026-10-11T03:46:26.093Z",
+      "source_branch": "research/intake/1/20261010-2343-reflexology-laughter-two-r11"
+    },
+    {
+      "pmid": "42530535",
+      "title": "Online vs. face-to-face laughter yoga to support nurses' well-being: A pilot randomized trial.",
+      "doi": "10.1177/10519815261472875",
+      "source_title": "Online vs. face-to-face laughter yoga to support nurses' well-being: A pilot randomized trial.",
+      "abstract": "BackgroundLaughter yoga has emerged as a complementary approach with potential benefits for nurses' well-being, particularly among those working in shift-based and demanding clinical settings; however, evidence comparing different delivery formats remains limited.ObjectiveThis study aimed to comparatively evaluate the feasibility and preliminary outcomes of online and face-to-face laughter yoga interventions on perceived stress, sleep quality, and burnout among nurses.MethodsThis three-group pilot randomized controlled trial was conducted at a public hospital between April 2024 and February 2025. A total of 47 nurses were randomly assigned to a face-to-face intervention group, an online intervention group, or a control group. The intervention consisted of four laughter yoga sessions delivered over a two-week period. Data were collected at baseline and postintervention using the Perceived Stress Scale, Jenkins Sleep Scale, and Maslach Burnout Inventory. Statistical analyses included repeated-measures analysis of variance, paired-samples t-tests, and effect size calculations.ResultsNo significant between-group or within-group differences were observed in perceived stress levels. Nurses in the online laughter yoga group demonstrated significant improvements in sleep quality (p = 0.009), emotional exhaustion (p = 0.006), and personal accomplishment (p = 0.006), with large effect sizes. No significant changes were found in the face-to-face or control groups.ConclusionsOnline laughter yoga demonstrated promising preliminary effects on sleep quality and burnout-related symptoms among nurses; however, further studies with larger samples are needed, with efforts to reduce technical barriers such as internet access and connectivity issues.Trial registrationClinicalTrials.gov, TRN: NCT06350747. Registered 18 March 2024. https://clinicaltrials.gov/study/NCT06350747.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42530535/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42530535",
+        "doi": "10.1177/10519815261472875",
+        "journal": "Work (Reading, Mass.)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T03:46:17.205Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b5737e44bc459da3a08e",
+      "reserved_at": "2026-10-11T03:46:26.093Z",
+      "source_branch": "research/intake/1/20261010-2343-reflexology-laughter-two-r11"
     }
   ],
   "batches": [
@@ -52459,16 +52612,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 667,
+    "total_reservations": 669,
     "by_lane": {
-      "1": 67,
+      "1": 69,
       "2": 149,
       "3": 126,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 667
+      "SOURCE_VERIFIED": 669
     },
     "batches": [
       {
@@ -52481,7 +52634,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 167,
+        "count": 169,
         "pr_number": null,
         "blocker": null
       }
