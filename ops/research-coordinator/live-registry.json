@@ -61630,6 +61630,238 @@
       "reservation_id": "934f8d47702ff53a5f53",
       "reserved_at": "2026-10-11T08:43:47.432Z",
       "source_branch": "research/intake/1/20261011-0441-autism-cbti-bbti-two-r18"
+    },
+    {
+      "pmid": "42007492",
+      "title": "Impact of Cognitive-Motor Dual-Task Training on Predictive Brain Functions and Functional Performance of Older Adults: A Randomized Controlled Study.",
+      "doi": "10.1111/psyp.70304",
+      "source_title": "Impact of Cognitive-Motor Dual-Task Training on Predictive Brain Functions and Functional Performance of Older Adults: A Randomized Controlled Study.",
+      "abstract": "Cognitive-motor dual-task (CMDT) training has been widely recognized as an effective method for counteracting age-related declines in physical and cognitive processes. These benefits were associated with increased activity in the frontal cortex; however, it is unclear at which stage of task processing these effects occur. Here, we tested the effect of CMDT training on predictive brain function in healthy older adults compared to standard motor training. Sixty healthy participants (mean age 73.2 years, range 65-82 years, 41 females, 19 males) were randomly divided into two groups, and all attended five weeks of standard exercise for older people, one hour twice a week. In the experimental group, the last 20' of the training session were enriched with CMDT exercises using interactive devices. Functional motor performance and a cognitive task, executed during electroencephalographic recording, were assessed before (T0) and after (T1) the training. Motor and cognitive predictive brain functions required by a cognitive task were assessed by measuring the preparatory event-related potential. Results confirmed the CMDT superiority compared to motor training on both motor and cognitive performance. The effect on frontal cortex activity was confirmed, but we showed that these effects happen during the predictive stage of processing required by a cognitive task. The CMDT training seems to increase both motor and cognitive control over cognitive tasks, resulting in improved mobility and behavioral performance. Results support the view that simultaneous engagement of cognitive and motor brain networks drives functional plasticity in late life. Thus, CMDT represents a pragmatic, neurophysiological grounded strategy for supporting healthy aging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42007492/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42007492",
+        "doi": "10.1111/psyp.70304",
+        "journal": "Psychophysiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T08:59:48.913Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a024f52e6872b7d0cadd",
+      "reserved_at": "2026-10-11T08:59:56.562Z",
+      "source_branch": "research/intake/2/20261011-0452-cognition-metabolic-r66"
+    },
+    {
+      "pmid": "42687658",
+      "title": "Effect of a continuous glucose monitoring-guided personalized lifestyle coaching intervention on glycemic outcomes and variability in patients with type 2 diabetes mellitus: a randomized controlled trial.",
+      "doi": "10.4040/jkan.26036",
+      "source_title": "Effect of a continuous glucose monitoring-guided personalized lifestyle coaching intervention on glycemic outcomes and variability in patients with type 2 diabetes mellitus: a randomized controlled trial.",
+      "abstract": "This study examined the effects of continuous glucose monitoring (CGM)-guided personalized lifestyle coaching on glycemic outcomes and glycemic variability in patients with type 2 diabetes mellitus (T2DM). This three-arm randomized controlled trial was conducted in South Korea from June 2023 to November 2024. Participants were assigned to CGM alone (Intervention I, n=34), CGM-guided personalized lifestyle coaching (Intervention II, n=34), or standard diabetes education (control, n=34). The intervention lasted 3 months, with assessments at baseline and at 3, 6, and 12 months. Data were analyzed using generalized estimating equations. At 3 months, glycated hemoglobin (HbA1c) and fasting plasma glucose (FPG) levels were significantly lower in both intervention groups than in the control group. Compared with the control group, HbA1c was lower by 0.78 percentage points in Intervention I (p=.008) and by 1.12 percentage points in Intervention II (p<.001). At 3 months, FPG was lower than in the control group by 34.05 mg/dL in Intervention I (p=.001) and by 34.77 mg/dL in Intervention II (p<.001). At 6 months, TBR70 (time below range <70 mg/dL) was lower in Intervention I than in Intervention II (adjusted mean difference=-2.18, p=.010), whereas TAR180 (time above range >180 mg/dL) was lower in Intervention II than in the control group and Intervention I by 7.85 and 8.28 percentage points, respectively (both p=.004). CGM-guided personalized lifestyle coaching improved glycemic control and reduced hyperglycemic exposure in patients with T2DM. Real-time glucose data may support individualized lifestyle counseling and sustained diabetes self-management. This study was retrospectively registered with the Clinical Research Information Service (CRIS) of the Republic of Korea (KCT0008872) on 16 October 2023.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42687658/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42687658",
+        "doi": "10.4040/jkan.26036",
+        "journal": "Journal of Korean Academy of Nursing",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T08:59:48.914Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5feefa30b9dce9496c85",
+      "reserved_at": "2026-10-11T08:59:56.562Z",
+      "source_branch": "research/intake/2/20261011-0452-cognition-metabolic-r66"
+    },
+    {
+      "pmid": "41787416",
+      "title": "Effects of resistant dextrin on glycemic traits: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1186/s12937-026-01292-z",
+      "source_title": "Effects of resistant dextrin on glycemic traits: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "BACKGROUND: Chronic hyperglycemia has affected billions of people currently and has emerged as an alarming public health concern for decades. Resistant dextrin (RD), an indigestible glucan with various applications in the food industry, has been reported to improve insulin sensitivity and help blood glucose control. However, the effect of RD on glucose metabolism was not systematically and comprehensively reviewed. The present study aimed to investigate the effect of RD on glycemic markers, including fasting blood glucose (FBG), fasting blood insulin (FBI), glycated hemoglobin (HbA1c), and homeostasis model assessment of insulin resistance (HOMA-IR). METHODS: PubMed, Embase, Web of Science, Scopus, Cochrane library databases, and other additional records were systematically retrieved for randomized controlled trials (RCTs) on the effect of resistant dextrin intervention on FBG, FBI, HbA1c, HOMA-IR up to October 2024. Data were pooled using weighted mean difference (WMD) and 95% confidence intervals (95%CI), with P value ≤ 0.05 as statistical significance. Risk of bias was assessed with the Cochrane tool. Certainty of evidence was assessed with Grading of Recommendations Assessment, Development and Evaluation approach. RESULTS: A total of 13 RCTs were eligible. RD significantly reduced FBG (WMD: -0.15 mmol/L, 95%CI: -0.30 to -0.00 mmol/L; P = 0.049; I2 = 77.5%; 13 trials; 952 participants) and HOMA-IR (WMD: -0.51; 95% CI: -0.93 to -0.09; P = 0.02; I2 = 25.2%; 7 trials;332 participants), while modestly improved HbA1c (WMD: -0.18%; 95%CI: -0.39 to 0.02%; P = 0.07; I2 = 62.0%; 10 trials; 788 participants). The effect of RD on FBI was not significant (WMD: -4.26 pmol/L; 95%CI: -13.05 to 4.53 pmol/L; P = 0.29; I2 = 65.0%; 8 trials; 625 participants). Subgroup analysis revealed that RD was more beneficial to overweight/obese or diabetic patients than the non-obese and non-diabetic. A dosage of 10 g per day was the most frequently used dose that showed efficacy. CONCLUSION: This study is so far the most extensive systematic review to evaluate the role of RD on markers of glycemic control. RD interventions can exert beneficial effects on FBG and HOMA-IR. Further high-quality and long-term studies are needed to strengthen its credibility. TRIAL REGISTRATION: This systematic review was registered on PROSPERO (international prospective register of systematic reviews) as CRD42023429881.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41787416/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41787416",
+        "doi": "10.1186/s12937-026-01292-z",
+        "journal": "Nutrition journal",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T08:59:48.914Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ea24a0592e4046a2754b",
+      "reserved_at": "2026-10-11T08:59:56.562Z",
+      "source_branch": "research/intake/2/20261011-0452-cognition-metabolic-r66"
     }
   ],
   "batches": [
@@ -61658,16 +61890,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 786,
+    "total_reservations": 789,
     "by_lane": {
       "1": 75,
-      "2": 157,
+      "2": 160,
       "3": 129,
       "4": 50,
       "5": 375
     },
     "by_state": {
-      "SOURCE_VERIFIED": 786
+      "SOURCE_VERIFIED": 789
     },
     "batches": [
       {
@@ -61680,7 +61912,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 286,
+        "count": 289,
         "pr_number": null,
         "blocker": null
       }
