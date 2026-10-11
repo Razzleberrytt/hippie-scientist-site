@@ -20,7 +20,7 @@ The protection/ruleset should require only universally applicable release gates 
 
 - `CI`
 - `Site Health Check`
-- `Atomic upgrade gate`
+- `Atomic upgrade gate` (compatibility workflow name; release-impact classification only, no PR paperwork validation)
 - `Production Content Lint`
 - `Build quality regression`
 

@@ -143,9 +143,13 @@ describe('autonomous merge controller contract', () => {
     for (const workflow of [ci, siteHealth, atomic, buildQuality, productionLint]) {
       expect(workflow).toContain('pull-requests: read')
     }
-    for (const workflow of [ci, siteHealth, buildQuality, productionLint]) {
+    for (const workflow of [ci, siteHealth]) {
       expect(workflow).toContain('gh api')
     }
+    // Build-quality and content-lint recovery remain dispatchable but never
+    // require fetching a PR body to satisfy a prose-only gate.
+    expect(buildQuality).not.toContain('Resolve PR body')
+    expect(productionLint).not.toContain('Resolve recovery PR body')
     // The atomic job remains dispatchable and keeps its protected-check identity;
     // editorial paperwork fields no longer need a GitHub API roundtrip.
     expect(atomic).toContain('PR description metadata is advisory only')
