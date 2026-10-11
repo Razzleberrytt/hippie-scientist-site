@@ -114,3 +114,64 @@ describe('commerce product ASIN batch 3', () => {
     expect(productPicks.find((item) => item.compound_slug === 'melatonin' && item.brand === 'NOW Foods')?.url).toContain('/s?k=')
   })
 })
+
+
+describe('commerce batch 4 safety and identity regression', () => {
+  it('holds kava, St. Johns wort and 5-HTP from monetization including canonical aliases', () => {
+    for (const slug of ['kava', 'kava-kava', 'piper-methysticum', 'st-johns-wort', '5-htp']) {
+      expect(getRevenueProductSet(slug)).toBeNull()
+    }
+    for (const slug of ['kava', 'st-johns-wort', '5-htp']) {
+      expect(productPicks.some((item) => item.compound_slug === slug)).toBe(false)
+    }
+  })
+
+  it('does not promote provisional and disputed variants to direct affiliate URLs', () => {
+    for (const slug of ['rhodiola', 'l-theanine', 'coenzyme-q10']) {
+      const entries = getRevenueProductSet(slug)?.products ?? []
+      expect(entries.length).toBeGreaterThan(0)
+      expect(entries.every((entry) => !entry.asin && entry.affiliateUrl.includes('/s?k='))).toBe(true)
+    }
+    for (const brand of ['Real Mushrooms', 'Host Defense']) {
+      const product = getRevenueProductSet('lions-mane')?.products.find((item) => item.brand === brand)
+      expect(product?.asin).toBeUndefined()
+      expect(product?.affiliateUrl).toContain('/s?k=')
+    }
+  })
+
+  it('protects confirmed NOW lion mane, omega-3, and glycine variants', () => {
+    for (const [slug, asin] of [
+      ['lions-mane', 'B09V3BS25N'],
+      ['omega-3', 'B0015L2LBE'],
+      ['glycine', 'B08R229KG7'],
+    ] as const) {
+      const item = getRevenueProductSet(slug)?.products.find((entry) => entry.asin === asin)
+      expect(item?.affiliateUrl).toContain(`/dp/${asin}?tag=`)
+      expect(productPicks.some((entry) => entry.compound_slug === slug && entry.url.includes(`/dp/${asin}?tag=`))).toBe(true)
+    }
+    expect(getRevenueProductSet('glycine')?.products.some((item) => item.brand === 'Jarrow Formulas')).toBe(false)
+  })
+
+  it('preserves product formulation, dose and interaction qualifiers', () => {
+    const theanine = getRevenueProductSet('l-theanine')?.products.find((item) => item.brand === 'NOW Foods')
+    expect(theanine?.title).toContain('Inositol 100 mg')
+    expect(theanine?.asin).toBeUndefined()
+    const fishOil = getRevenueProductSet('omega-3')?.products.find((item) => item.brand === 'NOW Foods')
+    expect(fishOil?.rationale).toContain('Ethyl-ester')
+    const nac = getRevenueProductSet('nac')?.products.find((item) => item.brand === 'NOW Foods')
+    expect(nac?.rationale).toContain('selenium')
+    expect(nac?.rationale).not.toContain('standard clinical dose')
+    const berberine = getRevenueProductSet('berberine')?.products.find((item) => item.brand === 'Thorne')
+    expect(berberine?.title).toContain('Dual-Action')
+    expect(berberine?.rationale).not.toContain('consistent HPLC testing')
+    const probiotics = getRevenueProductSet('probiotics')?.products.find((item) => item.brand === 'NOW Foods')
+    expect(probiotics?.rationale).toContain('Lr-32')
+    expect(probiotics?.rationale).toContain('LGG')
+  })
+
+  it('removes stale Thorne Berberine-500 structured identity from current affiliate registry', () => {
+    const registry = read('lib/affiliate-registry.ts')
+    expect(registry).not.toContain("id: 'thorne-berberine-500'")
+    expect(registry).not.toContain("amazonAsin: 'B0094FTO68'")
+  })
+})
