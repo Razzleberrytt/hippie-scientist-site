@@ -189,27 +189,8 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
   },
 
   // BERBERINE
-  {
-    id: 'thorne-berberine-500',
-    brand: 'Thorne',
-    name: 'Berberine-500',
-    category: 'compound',
-    entitySlugs: ['berberine'],
-    priceUsd: 36.00,
-    servings: 60,
-    capsulesPerContainer: 60,
-    servingSize: 1,
-    activeIngredients: [
-      {
-        name: 'Berberine HCl',
-        amountMg: 500,
-        activeCompound: 'berberine',
-        activeYieldPercent: 85,
-      },
-    ],
-    certifications: ['GMP', 'Third-Party Tested', 'COA'],
-    amazonAsin: 'B0094FTO68',
-  },
+  // Retired Thorne Berberine-500 variant: no longer a valid current-formula affiliate item.
+  // Re-admit only after identifying an exact current dual-action variant and its price/serving evidence.
   {
     id: 'doctors-best-berberine',
     brand: "Doctor's Best",
