@@ -51352,6 +51352,159 @@
       "reservation_id": "bbabd76dfa01bdabfd08",
       "reserved_at": "2026-10-11T00:07:13.725Z",
       "source_branch": "research/intake/3/20261010-2005-yinchenhao-41905832"
+    },
+    {
+      "pmid": "42527889",
+      "title": "Home-Based Tailored Light Therapy for Sleep, Mood, and Cognitive Outcomes in Mild Cognitive Impairment: A Randomized Trial.",
+      "doi": "10.1177/07334648261474211",
+      "source_title": "Home-Based Tailored Light Therapy for Sleep, Mood, and Cognitive Outcomes in Mild Cognitive Impairment: A Randomized Trial.",
+      "abstract": "BackgroundLight offers a promising approach to sleep and circadian disturbances in mild cognitive impairment (MCI).ObjectiveTest a home-based lighting intervention in people living with MCI.MethodsIn a randomized, placebo-controlled trial, 61 participants received active or placebo light for 24 weeks, with assessments for cognition, sleep, depression, and quality of life at baseline, week 13, 25, and, post-intervention, at week 37. Light exposure was measured as area under the curve (AUC) for morning circadian stimulus (CS).ResultsActive light participants (mean age 69.7 years; 52% male; mean MoCA 21.4) showed greater improvement in ADAS-Cog memory scores than placebo ( p = 0.035), higher morning CS AUC by week 25 (0.021 vs -0.030; p = 0.025), and better sleep percent (-0.21 vs -1.29; p = 0.042), wake percent (-0.10 vs 1.19; p = 0.023), and wake after sleep onset (2.19 vs 8.23 min; p = 0.031).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42527889/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42527889",
+        "doi": "10.1177/07334648261474211",
+        "journal": "Journal of applied gerontology : the official journal of the Southern Gerontological Society",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T00:58:10.226Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "736c96181dcc8c870fc7",
+      "reserved_at": "2026-10-11T00:58:17.997Z",
+      "source_branch": "research/intake/2/20261010-2055-cognition-metabolic-r58"
+    },
+    {
+      "pmid": "42086168",
+      "title": "Effects of repeated periods of high-intensity interval training on myocardial function in patients with metabolic syndrome: A 16-month follow-up.",
+      "doi": "10.1016/j.jjcc.2026.04.007",
+      "source_title": "Effects of repeated periods of high-intensity interval training on myocardial function in patients with metabolic syndrome: A 16-month follow-up.",
+      "abstract": "One program of exercise training is useful to improve myocardial function in patients with cardiovascular disease (CVD) but not in patients with CVD risk factors. However, it is unknown whether repeated periods of high-intensity interval training (HIIT) can reverse the progressive myocardial dysfunction observed in patients with metabolic syndrome (MetS). We aimed to follow MetS patients for 16 months and determine the effect of two periods of HIIT, separated by a year, on their myocardial function. Eighty-eight middle-aged volunteers with MetS and without heart failure were randomized in one of two groups: HIIT: Two periods of HIIT separated by a year (16 weeks, 3 sessions/week) or, CONTROL: standard medical treatment. Myocardial function, assessed by the left ventricle (LV) global longitudinal strain (GLS), and routine echocardiographic parameters, maximal oxygen consumption (VO 2max ), and MetS components were assessed at baseline, after the first HIIT period (4 months), and one year later, after the second HIIT period. Variables were analyzed following the intention-to-treat analysis principle using linear mixed model. At baseline, 29% of participants from HIIT, and 24% from CONTROL had an impaired LV-GLS. However, none had diastolic dysfunction. Fifty-three participants (29 from HIIT and 24 from CONTROL) completed the follow-up. LV-GLS and LV-early rapid filling (e' wave velocity and E/e' ratio) improved progressively after the two periods of HIIT in comparison to CONTROL (group*time p = 0.002, p = 0.028, and p = 0.002, respectively). VO 2max improved only in the HIIT group (group*time p = 0.002), while ejection fraction and MetS z-score changes were not different between groups (group*time p = 0.964 and p = 0.419, respectively). Among middle-aged adults receiving medical treatment for MetS, the addition of two HIIT periods, spaced one year apart, led to significant improvements in myocardial function, that were not observed in the control group receiving medical treatment alone. NCT06262256.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42086168/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42086168",
+        "doi": "10.1016/j.jjcc.2026.04.007",
+        "journal": "Journal of cardiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T00:58:10.226Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "fe31b41f1c8d09675dee",
+      "reserved_at": "2026-10-11T00:58:17.997Z",
+      "source_branch": "research/intake/2/20261010-2055-cognition-metabolic-r58"
     }
   ],
   "batches": [
@@ -51380,16 +51533,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 653,
+    "total_reservations": 655,
     "by_lane": {
       "1": 64,
-      "2": 141,
+      "2": 143,
       "3": 123,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 653
+      "SOURCE_VERIFIED": 655
     },
     "batches": [
       {
@@ -51402,7 +51555,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 153,
+        "count": 155,
         "pr_number": null,
         "blocker": null
       }
