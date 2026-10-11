@@ -61862,6 +61862,82 @@
       "reservation_id": "ea24a0592e4046a2754b",
       "reserved_at": "2026-10-11T08:59:56.562Z",
       "source_branch": "research/intake/2/20261011-0452-cognition-metabolic-r66"
+    },
+    {
+      "pmid": "42450042",
+      "title": "Berberine Stabilizes the Arrhythmogenic Substrate in Obese Rats by Klotho-Mediated Attenuation of Oxidative Stress and Inflammation.",
+      "doi": "10.3390/ijms27135769",
+      "source_title": "Berberine Stabilizes the Arrhythmogenic Substrate in Obese Rats by Klotho-Mediated Attenuation of Oxidative Stress and Inflammation.",
+      "abstract": "Obesity increases susceptibility to ventricular arrhythmias due to an arrhythmogenic substrate by promoting oxidative stress and inflammation-driven cardiac remodeling. Klotho, an anti-aging protein that is reduced in obesity-related cardiovascular disease, protects against oxidative injury and inflammation. Berberine (BBR) has been demonstrated to have antiarrhythmic properties, but Klotho mediates these effects in obesity remains unclear. Here, high-fat diet (HFD)-induced obese rats were treated with BBR for 8 weeks. Surface electrocardiography showed BBR shortened prolonged QT, QTc, and Tp-Te intervals. Optical mapping of isolated hearts revealed that BBR eliminated arrhythmia susceptibility (60% to 0%) and stabilized cardiac electrophysiology by shortening action potential duration (APD 50 /APD 90 ), reducing repolarization dispersion, normalizing conduction velocity, and improving abnormal intracellular Ca 2+ handling. BBR also attenuated cardiac hypertrophy and fibrosis and increased expression of the potassium channel subunits Kv4.2 , Kv4.3 , and KChIP2 . Furthermore, BBR suppressed oxidative stress and inflammation while upregulating circulating and tissue Klotho levels in obese rats. In ox-LDL-treated H9C2 cells, Klotho silencing abolished the antioxidative and anti-inflammatory effects of BBR, indicating that Klotho is required for its cardioprotective actions. These findings demonstrate that BBR stabilizes the arrhythmogenic substrate in obesity-related cardiac remodeling, at least partly through upregulation of Klotho expression and subsequent attenuation of oxidative stress and inflammation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42450042/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42450042",
+        "doi": "10.3390/ijms27135769",
+        "journal": "International journal of molecular sciences",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T09:01:02.175Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ec6d0fa1e9a67fa29d56",
+      "reserved_at": "2026-10-11T09:01:10.024Z",
+      "source_branch": "research/intake/3/20261011-0500-berberine-arrhythmia-rat-42450042"
     }
   ],
   "batches": [
@@ -61890,16 +61966,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 789,
+    "total_reservations": 790,
     "by_lane": {
       "1": 75,
       "2": 160,
-      "3": 129,
+      "3": 130,
       "4": 50,
       "5": 375
     },
     "by_state": {
-      "SOURCE_VERIFIED": 789
+      "SOURCE_VERIFIED": 790
     },
     "batches": [
       {
@@ -61912,7 +61988,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 289,
+        "count": 290,
         "pr_number": null,
         "blocker": null
       }
