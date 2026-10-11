@@ -7,6 +7,7 @@ import { canRenderConfiguredRevenueProducts } from '../revenue-product-governanc
 import { getRevenueProductSet, revenueProductSets } from '@/config/revenue-products'
 import { productPicks } from '@/data/product-picks'
 import { getHerbBySlug, getCompoundBySlug } from '../runtime-data'
+import { getRuntimeVisibility } from '../runtime-visibility'
 
 const safetyProfiles = [
   ['herbs-detail', 'black-cohosh', 'ncbi.nlm.nih.gov/books/NBK547990', /transplantation|transplant/i],
@@ -33,6 +34,18 @@ describe('Batch 8 evidence-qualified safety controls', () => {
     expect(egcg).not.toBeNull()
     expect(String(egcg?.safety)).toMatch(/CONCENTRATED EGCG.*LIVER WARNING/i)
     expect(egcg?.safetyNotes).toBe(egcg?.safety)
+  })
+
+  it('keeps a safety-held published ingredient educationally accessible without monetization', () => {
+    const record = {
+      slug: 'black-cohosh',
+      indexability_status: 'PUBLISH',
+      governance: { indexingAllowed: true, monetizationAllowed: false, recommendationAllowed: false },
+    }
+    const visibility = getRuntimeVisibility(record)
+    expect(visibility.canRender).toBe(true)
+    expect(visibility.canMonetize).toBe(false)
+    expect(isRestrictedIngredient(record.slug)).toBe(true)
   })
 
   it('keeps educational search independent from commerce quarantine', () => {
