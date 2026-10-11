@@ -15,18 +15,18 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "GI upset; rare allergic reactions.",
+  "safetyNotes": "SAFETY ALERT: Medicines containing Andrographis have been associated with unpredictable anaphylaxis, including a fatal case reported in Australia in 2024. The TGA received 287 anaphylaxis reports through 31 December 2025 and removed Andrographis from eligibility for NEW Australian listed medicines on 17 September 2026; existing listed products were not automatically banned. Throat swelling, breathing difficulty or collapse after exposure require emergency care. Pregnancy, immunosuppressant and other medication cautions also apply.",
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 7 safety evidence requires verified warnings and independent product-level review before monetization or recommendation."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
@@ -89,7 +89,7 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "GI upset; rare allergic reactions.",
+  "safety": "SAFETY ALERT: Medicines containing Andrographis have been associated with unpredictable anaphylaxis, including a fatal case reported in Australia in 2024. The TGA received 287 anaphylaxis reports through 31 December 2025 and removed Andrographis from eligibility for NEW Australian listed medicines on 17 September 2026; existing listed products were not automatically banned. Throat swelling, breathing difficulty or collapse after exposure require emergency care. Pregnancy, immunosuppressant and other medication cautions also apply.",
   "sources": [
     {
       "id": "src_21d61628ee99",
@@ -106,6 +106,16 @@
       "studyType": "Systematic review",
       "studyClass": "systematic-review",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "TGA (21 September 2026): Andrographis removed from listed medicines framework because of allergy risk",
+      "url": "https://www.tga.gov.au/news/news-articles/andrographis-removed-listed-medicines-framework-because-allergy-risk",
+      "note": "Regulatory safety notice, not a clinical efficacy study."
+    },
+    {
+      "title": "TGA: Andrographis and anaphylaxis — updated safety review and supplementary report",
+      "url": "https://www.tga.gov.au/products/medicines/listed-medicines/monitoring-and-compliance/compliance-and-education-listed-medicines/andrographis-paniculata-andrographis-and-anaphylaxis-updated-safety-review-and-supplementary-report",
+      "note": "287 Australian reports through 31 December 2025, including one fatal case reported in 2024."
     }
   ],
   "dosage": "capsule or standardized extract",
@@ -117,6 +127,7 @@
     "anticoagulant/antiplatelet or antihypertensive therapy without monitoring",
     "May potentiate antihypertensive and antidiabetic medications",
     "caution with anticoagulants/antiplatelets and immunosuppressants",
-    "rare reports of anaphylaxis and elevated liver enzymes at high doses."
+    "rare reports of anaphylaxis and elevated liver enzymes at high doses.",
+    "Prior allergy or anaphylaxis to Andrographis"
   ]
 }
