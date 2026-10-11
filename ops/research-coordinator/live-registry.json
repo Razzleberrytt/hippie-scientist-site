@@ -52122,6 +52122,238 @@
       "reservation_id": "0d5f92ae40e799d4797b",
       "reserved_at": "2026-10-11T02:45:50.427Z",
       "source_branch": "research/intake/1/20261010-2243-mindfulness-carnosine-two-r13"
+    },
+    {
+      "pmid": "42774742",
+      "title": "Prospective randomized clinical trial on comprehensive cardiac rehabilitation combined with individualized cognitive training in older adults with heart failure and mild cognitive impairment.",
+      "doi": "10.1016/j.ahjo.2026.100889",
+      "source_title": "Prospective randomized clinical trial on comprehensive cardiac rehabilitation combined with individualized cognitive training in older adults with heart failure and mild cognitive impairment.",
+      "abstract": "Older adults with heart failure (HF) are vulnerable to physical and cognitive decline due to disease exacerbations and hospitalization. Although comprehensive cardiac rehabilitation (CCR) is currently a core component of HF care, randomized controlled trials involving hospitalized patients with acute HF remain limited, and cognitive assessment has not been the primary focus of previous trials. We designed a randomized controlled trial examining whether a multifactorial intervention integrating CCR with individualized cognitive training can prevent in-hospital cognitive decline in older adults with HF and mild cognitive impairment (MCI). This is a single center, prospective, open-label, controlled superiority trial. Patients aged ≥65 yr who are hospitalized for HF, undergo CCR, and meet the criteria for MCI, defined by a Japanese version of the Montreal Cognitive Assessment (MoCA-J) score of 17-22, will be enrolled. Participants will be randomly assigned in a 1:1 ratio to either the intervention group receiving CCR plus individualized cognitive training using BrainHQ or the control group receiving CCR alone. Cognitive training will be conducted for 20 min/day, 5 days/week, for at least 2 weeks. The primary endpoint is the change in MoCA-J score from baseline to discharge. Secondary endpoints include changes in self-care, anxiety/depression, and physical function, as well as unplanned readmissions and major cardiovascular events within 12 months after discharge. This trial will evaluate whether adding individualized cognitive training to CCR can prevent cognitive decline during hospitalization in patients with HF and MCI, providing evidence regarding the feasibility and potential value of this intervention.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42774742/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42774742",
+        "doi": "10.1016/j.ahjo.2026.100889",
+        "journal": "American heart journal plus : cardiology research and practice",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T02:56:51.217Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e9046001c7e1e625090a",
+      "reserved_at": "2026-10-11T02:57:00.763Z",
+      "source_branch": "research/intake/2/20261010-2253-cognition-metabolic-r60"
+    },
+    {
+      "pmid": "42475977",
+      "title": "Effect of Dual-Task Training on Gait Performance in Older Adults With Mild Cognitive Impairment: A Pilot Randomized Controlled Trial.",
+      "doi": "10.1016/j.jamda.2026.106290",
+      "source_title": "Effect of Dual-Task Training on Gait Performance in Older Adults With Mild Cognitive Impairment: A Pilot Randomized Controlled Trial.",
+      "abstract": "To evaluate the efficacy of a virtual reality (VR)-based cognitive-motor dual-task training (CDTT) program on single-task gait performance, dual-task cost (DTC) of gait, and functional outcomes in older adults with mild cognitive impairment (MCI). A single-blinded, parallel-group randomized controlled trial. Community-dwelling older adults (N = 41; mean age, 71.4 years) with MCI from the geriatric medicine specialist outpatient clinic of a tertiary hospital and a neuroscience specialist center in Singapore. Participants with MCI were randomized into 3 arms: CDTT, N = 14; cognitive single-task training, N = 13; and motor single-task training, N = 14. Participants underwent 16 training sessions over 8 weeks. The cognitive component utilized a VR-based fruit-catching game that progresses in difficulty and hence provides a graded attentional load. The motor component consisted of treadmill walking only. Gait parameters were collected under single- and dual-task conditions at baseline, postintervention, and 6-month follow-up. Secondary outcomes of the Timed Up and Go test and the Berg Balance Scale scores were collected at the 6-month follow-up. For gait outcomes assessed under single-task walking conditions, the CDTT group showed within-group improvements in gait speed, step length, step time, and double-support time, which were maintained at 6-month follow-up. DTCs in these same parameters were reduced postintervention in the CDTT group. Between-group comparisons did not reveal a significant difference. Timed Up and Go scores improved in both cognitive training groups. VR-based dual-task training may be associated with improvements in gait performance and reductions in DTC in functionally independent older adults with MCI, but larger trials are required to determine the relative efficacy compared with existing single-task training programs.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42475977/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42475977",
+        "doi": "10.1016/j.jamda.2026.106290",
+        "journal": "Journal of the American Medical Directors Association",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T02:56:51.217Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ed792f2b606a48dadf61",
+      "reserved_at": "2026-10-11T02:57:00.763Z",
+      "source_branch": "research/intake/2/20261010-2253-cognition-metabolic-r60"
+    },
+    {
+      "pmid": "41207299",
+      "title": "Lifestyle Intervention for Sustained Remission of Metabolic Syndrome: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamainternmed.2025.5900",
+      "source_title": "Lifestyle Intervention for Sustained Remission of Metabolic Syndrome: A Randomized Clinical Trial.",
+      "abstract": "Prevalence of metabolic syndrome (MetS) defined as 3 or more cardiometabolic risk factors has grown to 43% among US adults. Lifestyle interventions produce benefits, but with limited sustainability. To determine whether a 6-month habit-based lifestyle program adds benefit to education and activity monitoring for sustained MetS remission at 24 months. The Enhancing Lifestyles in Metabolic Syndrome (ELM) study was a single-blind, individually randomized clinical trial of participants with MetS recruited from July 2019 to January 2022 at 5 locations in the US and followed up for 24 months. Eligible participants were motivated for lifestyle change and were contacted using electronic medical records and social or mass media; those who did not meet medical or logistical criteria were excluded. In all, 14 817 adults were screened during a 2.5 year period. Data were analyzed from March 2024 to May 2025. All participants received education and an activity monitor. Those in the intervention group also received 19 small group in-person meetings during 6 months, which sought to establish the following habits as part of their daily routine: vegetables at meals, brisk walks, sensory awareness, and emotion regulation. Repetition of these habits was encouraged by attention to participants' experience of immediate benefits and peer support. The comparator group received 24 evidence-based educational mailings monthly during the 24 months. MetS remission at 24 months determined by blinded laboratory evaluation and clinical examination. Secondary outcomes were cardiometabolic and lifestyle risk factors at 6 and 24 months. The analysis included 618 participants (mean [SD] age, 55.5 [11.0] years; 468 female [74.7%] and 150 male [24.3%] individuals), of whom 306 (49.5%) were randomized to the intervention and 312 (50.5%) to the comparator. The 24-month follow-up period was completed by 517 participants (83.7%). Obesity, measured by body mass index, was present in 513 participants (83%). At 6 months, the proportion achieving MetS remission was 24.8% in intervention group and 17.9% in comparator (adjusted odds ratio, 1.64; 95% CI, 1.07-2.53; P = .03), supported by improvements in waist circumference, triglycerides, fasting glucose, body mass index, weight, hemoglobin A1c, MetS severity, perceived stress, vegetable intake, moderate-intensity physical activity, daily steps, sensory awareness, and the habits of daily brisk walks and vegetables at meals. At 24 months, the proportion achieving sustained MetS remission was 27.8% (85 of 306 participants) in intervention group and 21.2% (66 of 312) in the comparator (adjusted odds ratio, 1.46; 95% CI, 1.01-2.14; P < .05), supported by sustained improvement in fasting glucose, vegetable intake, daily steps, sensory awareness, and the habit of daily brisk walks. This randomized clinical trial found that sustained MetS remission after treatment may be possible by promoting simple habits through a behavior-based lifestyle program focused on immediate benefits. ClinicalTrials.gov Identifier: NCT04036006.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41207299/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41207299",
+        "doi": "10.1001/jamainternmed.2025.5900",
+        "journal": "JAMA internal medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T02:56:51.218Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c6a09bcb7a84d742c2bd",
+      "reserved_at": "2026-10-11T02:57:00.763Z",
+      "source_branch": "research/intake/2/20261010-2253-cognition-metabolic-r60"
     }
   ],
   "batches": [
@@ -52150,16 +52382,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 663,
+    "total_reservations": 666,
     "by_lane": {
       "1": 67,
-      "2": 146,
+      "2": 149,
       "3": 125,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 663
+      "SOURCE_VERIFIED": 666
     },
     "batches": [
       {
@@ -52172,7 +52404,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 163,
+        "count": 166,
         "pr_number": null,
         "blocker": null
       }
