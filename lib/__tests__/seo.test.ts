@@ -30,10 +30,17 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
     it('generates correct title, description, and alternates for a herb', () => {
       const meta = generateDetailMetadata(mockHerb, 'herb')
 
-      expect(meta.title).toBe('Ashwagandha Benefits, Dosage & Safety')
-      expect(meta.description).toContain('Ashwagandha dosage ranges')
-      expect(meta.description).toContain('Strong research evidence')
+      expect(meta.title).toBe('Ashwagandha for Stress, Sleep & Testosterone: Evidence')
+      expect(meta.description).toContain('Review the human evidence for ashwagandha')
+      expect(meta.description).toContain('safety limitations')
       expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/herbs/ashwagandha/')
+    })
+
+    it('uses search-intent metadata when no editor overrides it', () => {
+      const profile = { ...mockCompound, slug: 'omega-3', name: 'Omega-3 Fatty Acids' }
+      const meta = generateDetailMetadata(profile, 'compound')
+      expect(meta.title).toBe('Omega-3 (Fish Oil): Evidence, Dosage & Safety')
+      expect(meta.description).toContain('EPA/DHA omega-3 research')
     })
 
     it('generates correct metadata for a compound', () => {
