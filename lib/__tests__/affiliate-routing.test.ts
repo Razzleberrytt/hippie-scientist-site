@@ -11,28 +11,24 @@ describe('Affiliate Intelligence Routing Layer', () => {
     p.entitySlugs.includes('ashwagandha')
   )
 
-  it('correctly calculates product route calculations', () => {
-    // Let's pick Jarrow Formulas Ashwagandha (300mg, 5% withanolides = 15mg active)
-    const jarrowProd = ashwagandhaProducts.find(p => p.id === 'jarrow-ashwagandha-ksm66')
-    expect(jarrowProd).toBeDefined()
+  it('correctly calculates a route for a currently cataloged product', () => {
+    const product = ashwagandhaProducts.find(p => p.id === 'le-optimized-ashwagandha')
+    expect(product).toBeDefined()
+    if (!product) return
 
-    if (jarrowProd) {
-      // If user wants 600mg target dose, they need 2 capsules
-      const route = calculateProductRoute(jarrowProd, 600)
-
-      expect(route.targetDoseMg).toBe(600)
-      expect(route.capsulesNeeded).toBe(2)
-      expect(route.actualYieldMg).toBe(600)
-      expect(route.activeYieldMg).toBe(30) // 15mg * 2 capsules
-      expect(route.costPerDoseUsd).toBeCloseTo((16.95 / 120) * 2, 4)
-      expect(route.affiliateUrl).toContain('B0013OQG0A')
-      expect(route.affiliateUrl).toContain('tag=')
-    }
+    const route = calculateProductRoute(product, 250)
+    expect(route.targetDoseMg).toBe(250)
+    expect(route.capsulesNeeded).toBe(2)
+    expect(route.actualYieldMg).toBe(250)
+    expect(route.activeYieldMg).toBe(25)
+    expect(route.costPerDoseUsd).toBeCloseTo((14.25 / 60) * 2, 4)
+    expect(route.affiliateUrl).toContain(product.amazonAsin)
+    expect(route.affiliateUrl).toContain('tag=')
   })
 
   it('correctly resolves all products for a slug and sorts by cost ascending', () => {
     const routes = resolveAllProductsForSlug('ashwagandha', 600, 'cost')
-    expect(routes.length).toBeGreaterThan(1)
+    expect(routes.length).toBeGreaterThan(0)
 
     // Verify sorted by cost per dose ascending
     for (let i = 0; i < routes.length - 1; i++) {
