@@ -36,9 +36,10 @@ describe('groupProductPicks', () => {
   it('does not synthesize missing catalog products to fill empty categories', () => {
     const grouped = groupProductPicks(getProductPicks('turmeric'))
 
-    expect(grouped.top?.type).toBe('top')
-    expect(grouped.premium?.type).toBe('premium')
-    expect(grouped.budget).toBeUndefined()
+    const original = getProductPicks('turmeric')
+    for (const type of ['top', 'budget', 'premium'] as const) {
+      expect(grouped[type]).toEqual(original.find(p => p.type === type))
+    }
   })
 
   it('leaves a bucket undefined when no pick of that type exists', () => {
