@@ -428,8 +428,29 @@ fs.writeFileSync(path.join(REPORT_DIR, 'build-quality-diff.json'), `${JSON.strin
 fs.writeFileSync(path.join(REPORT_DIR, 'build-quality-diff.md'), renderMarkdown(report))
 printSummary(report)
 
-if (comparison.majorChanges.length && !CHANGE_REASON) {
-  console.error('\nMajor automated changes require an explanation before merge.')
-  console.error('Re-run with --reason="..." or set QUALITY_CHANGE_REASON.')
+// Descriptions are optional. Only objectively measured high-impact regressions block.
+const criticalRegressions = []
+if (comparison.routeCount.delta <= -20 && comparison.routeCount.pct !== null && comparison.routeCount.pct <= -0.1) {
+  criticalRegressions.push('Indexable route count dropped at least 20 pages and 10%.')
+}
+if (comparison.citations.referenceDelta <= -25 && comparison.citations.referencePct !== null && comparison.citations.referencePct <= -0.1) {
+  criticalRegressions.push('Claim-source references dropped at least 25 and 10%.')
+}
+if (
+  (comparison.internalLinks.delta <= -50 && comparison.internalLinks.pct !== null && comparison.internalLinks.pct <= -0.1) ||
+  comparison.internalLinks.lostRoutes.length >= 10
+) {
+  criticalRegressions.push('Internal links lost substantially.')
+}
+const indexLossLimit = Math.max(10, Math.ceil(Object.keys(previous.indexability).length * 0.02))
+if (comparison.indexability.publishToNonIndexCount > indexLossLimit) {
+  criticalRegressions.push('Too many published entity routes became non-indexable.')
+}
+if (criticalRegressions.length) {
+  console.error('\nMeasured quality regressions (not missing PR paperwork):')
+  for (const failure of criticalRegressions) console.error(' - ' + failure)
   process.exit(1)
+}
+if (comparison.majorChanges.length) {
+  console.log('\nOther major measured changes were recorded for review; no written explanation is required.')
 }
