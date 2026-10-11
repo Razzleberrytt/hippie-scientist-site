@@ -1108,6 +1108,58 @@ export function formatProfileDescription(
  * issue while keeping both pages indexable. The primary page keeps its generated title.
  */
 const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: string; canonical?: string }> = {
+  // Round 2: search intent framed by evidence limits rather than guaranteed outcomes.
+  'omega-3': {
+    title: 'Omega-3 (Fish Oil): Evidence, Dosage & Safety',
+    description:
+      'Review EPA/DHA omega-3 research, dosage limits, cardiovascular findings, anticoagulant precautions, and higher-dose atrial fibrillation concerns.',
+  },
+  'vitamin-c': {
+    title: 'Vitamin C & Immunity: Evidence, Dosage & Safety',
+    description:
+      'Explore vitamin C\'s role in immunity, research on supplementation, deficiency context, dosage considerations, side effects, and safety limits.',
+  },
+  'zinc': {
+    title: 'Zinc & Immunity: Deficiency, Dosage & Safety',
+    description:
+      'Review zinc\'s role in immune function, deficiency concerns, supplement evidence, studied doses, medication interactions, and risks from long-term excess.',
+  },
+  'creatine': {
+    title: 'Creatine Monohydrate: Effects, Dosage & Safety',
+    description:
+      'Explore creatine monohydrate evidence for strength and exercise performance, dosing considerations, possible side effects, and safety limitations.',
+  },
+  'probiotics': {
+    title: 'Probiotics for Gut Health: Strains, Evidence & Safety',
+    description:
+      'Probiotic effects vary by strain and condition. Review digestive evidence, dosing uncertainty, product differences, and risks for vulnerable people.',
+  },
+  // Search-intent metadata: accurately describe questions answered, not proven benefits.
+  'ashwagandha': {
+    title: 'Ashwagandha for Stress, Sleep & Testosterone: Evidence',
+    description:
+      'Review the human evidence for ashwagandha and stress, sleep, or testosterone, including study doses, side effects, interactions, and safety limitations.',
+  },
+  'turmeric': {
+    title: 'Turmeric (Curcumin): Inflammation, Dosage & Safety',
+    description:
+      'Explore evidence for turmeric and curcumin in inflammation, studied doses, absorption limits, possible interactions, and liver or bleeding-related safety concerns.',
+  },
+  'magnesium': {
+    title: 'Magnesium for Sleep & Anxiety: Forms, Evidence & Safety',
+    description:
+      'Compare magnesium forms for sleep and anxiety, what studies actually show, dose considerations, side effects, and risks for people with kidney disease.',
+  },
+  'melatonin': {
+    title: 'Melatonin: Dosage, Safety & How to Use for Sleep',
+    description:
+      'Learn how melatonin affects sleep timing, what studies show for insomnia or jet lag, when it is used, dosing considerations, and potential side effects.',
+  },
+  'vitamin-d': {
+    title: 'Vitamin D: Deficiency Signs, Dosage & Safety',
+    description:
+      'Understand vitamin D deficiency, testing, supplement doses, who may benefit, and why excessive vitamin D can cause harm.',
+  },
   'glycine-sleep': { title: 'Glycine for Sleep: Effects, Dose & Safety' },
   'inositol-sleep': { title: 'Inositol for Sleep & Anxiety: Effects, Dose & Safety' },
   'l-theanine-sleep': { title: 'L-Theanine for Sleep: Effects, Dose & Safety' },
