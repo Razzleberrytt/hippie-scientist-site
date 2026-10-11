@@ -81,3 +81,14 @@ jobs:
           assert float(np.sqrt(np.mean(audio*audio)))>0.005, "Silent narrator"
           print("PASS: real offline Kokoro-82M am_michael narrator from archived model bytes")
           PY
+      - name: Package verified original weights for optional Google Drive mirror
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-original-kokoro-voice-model-drive-mirror
+          if-no-files-found: error
+          retention-days: 7
+          path: |
+            .cache/ths-voice-vault/kokoro-v1_0.pth
+            .cache/ths-voice-vault/voices/am_michael.pt
+            .cache/ths-voice-vault/config.json
+            .cache/ths-voice-vault/voice-vault.json
