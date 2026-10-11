@@ -34,6 +34,7 @@ describe('kava safety and citation content', () => {
     const source = compare()
     expect(source).toContain('beverages prepared with water')
     expect(source).toContain('no preparation has been proven to eliminate that risk')
+    expect(source).toContain('notClaiming="This page does not claim that kava treats alcohol use disorder or that any cultivar or preparation method eliminates liver injury risk."')
   })
 
   it('does not reintroduce noble-cultivar or guaranteed-clear-headed safety promises', () => {
@@ -57,7 +58,7 @@ describe('kava safety and citation content', () => {
 
   it('removes rapid-anxiety-relief promises from the alternatives guide', () => {
     const source = alternatives()
-    expect(source).toContain('Rare serious liver injury')
+    expect(source).toContain('Serious risk: rare but potentially fatal liver injury')
     expect(source).toContain('anxiety trial findings are mixed')
     expect(source).not.toContain('rapid situational anxiety relief')
   })
