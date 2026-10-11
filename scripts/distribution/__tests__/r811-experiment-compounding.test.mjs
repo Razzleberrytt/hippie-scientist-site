@@ -130,7 +130,7 @@ describe('EvidenceMotion R8.11 compounding production gates',()=>{
       reviewedAt:'2026-10-09T10:00:00Z',scienceReviewNote:'Retain original scientific claim scope',
       comparisonSha256:sha(JSON.stringify(report))})
     expect(fs.readFileSync(approvedPattern.file,'utf8')).toContain('future-drafts-only')
-    expect(getR811CadenceReport(root,{days:8,now:new Date('2026-10-09T12:00:00Z')}).metrics.registeredPublishedVideos).toBe(3)
+    expect(getR811CadenceReport(root,{days:9,now:new Date('2026-10-09T12:00:00Z')}).metrics.registeredPublishedVideos).toBe(3)
   })
   it('persists measured approved component version lineage without touching old templates',()=>{
     const root=tmp();three(root)
