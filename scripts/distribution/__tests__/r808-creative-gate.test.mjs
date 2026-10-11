@@ -100,6 +100,7 @@ describe('R8.08 silent comprehension contract',()=>{
 
 function noviceExplainer(){
   const b=compliant()
+  b.beats.find(beat=>beat.role==='evidence').narration='Evidence: a randomized human trial, a study in people assigned by chance.'
   b.r809={
     targetAudience:'general-public',
     assumedPriorKnowledge:'none',
@@ -116,7 +117,7 @@ function noviceExplainer(){
     decorativeProgressHudAllowed:false,
     publicClarityReview:'required',
     exactMasterCaptionReview:'required',
-    technicalTerms:[],glossaryCoverageReviewed:true
+    technicalTerms:[{term:'randomized',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'assigned by chance'}],glossaryCoverageReviewed:true
   }
   const visualByRole={hook:'person',finding:'compare',evidence:'evidence',limitation:'uncertainty',context:'safety',cta:'outro'}
   for(const beat of b.beats) if(beat.narration){
@@ -143,8 +144,13 @@ describe('EvidenceMotion R8.09 general-public animated-explainer contract',()=>{
     b.beats[1].r809.visualScene='generic-slide'
     expect(validateR809CreativeBrief(b).join('\n')).toMatch(/cartoon teaching scene/)
     b.beats[1].r809.visualScene='compare'
-    b.r809.technicalTerms=[{term:'trial',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'a study in people'}]
+    b.r809.technicalTerms=[{term:'randomized',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'assigned by chance'},{term:'trial',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'a different missing explanation'}]
     expect(validateR809CreativeBrief(b).join('\n')).toMatch(/plain meaning of trial/)
+  })
+  it('detects technical scientific terms omitted from a declared glossary',()=>{
+    const b=noviceExplainer()
+    b.r809.technicalTerms=[]
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/randomized was spoken without an explanatory glossary entry/)
   })
   it('rejects ungrounded captions or missing knowledge-level policy',()=>{
     const b=noviceExplainer()
