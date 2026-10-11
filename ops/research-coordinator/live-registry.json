@@ -51275,6 +51275,83 @@
       "reservation_id": "b652e78bac849b08efaa",
       "reserved_at": "2026-10-10T23:59:26.840Z",
       "source_branch": "research/intake/2/20261010-1956-cognition-metabolic-r57"
+    },
+    {
+      "pmid": "41905832",
+      "title": "Yinchenhao Decoction, a compound Chinese herbal medicine, for patients with nonalcoholic fatty liver disease: A randomized, double-blind, placebo-controlled trial.",
+      "doi": "10.1016/j.joim.2026.03.003",
+      "source_title": "Yinchenhao Decoction, a compound Chinese herbal medicine, for patients with nonalcoholic fatty liver disease: A randomized, double-blind, placebo-controlled trial.",
+      "abstract": "The incidence of nonalcoholic fatty liver disease (NAFLD) is increasing. Yinchenhao Decoction (YCHD) has been well studied for its uses in treating NAFLD. Moreover, the metabolism of bile acids (BAs) and eicosanoids have influence on NAFLD. YCHD is a classic prescription for damp-heat syndrome, and can regulate BA metabolism and alleviate inflammation in NAFLD. This study evaluated the effects of YCHD on NAFLD and explored the effect of YCHD on eicosanoids and BAs. This randomized, double-blind, placebo-controlled trial enrolled 130 NAFLD participants. The participants were randomly assigned to YCHD group or placebo group in a 1:1 ratio, receiving YCHD granules or the placebo for 24 weeks. Primary outcome was absolute change in liver magnetic resonance imaging proton density fat fraction (MRI-PDFF) from the baseline to week 24. Secondary outcomes included absolute changes in controlled attenuation parameter (CAP), metabolic parameters, and liver injury and function parameters. After 24 weeks of treatment, MRI-PDFF (average), CAP, alanine aminotransferase (ALT), aspartate aminotransferase (AST), alkaline phosphatase (ALP) and body mass index (BMI) decreased significantly in the YCHD group compared to placebo group (all P < 0.05). Moreover, no serious adverse events were observed. Further, YCHD did not significantly regulate eicosanoids (all P > 0.05); however it did regulate taurodeoxycholic acid (TDCA), glycodeoxycholic acid (GDCA), deoxycholic acid (DCA), glycolithocholic acid (GLCA), and the ratio of GDCA to total BAs, compared to the placebo at week 24 (P < 0.05). YCHD can reduce the MRI-PDFF, CAP, ALT, AST, ALP and BMI without significant adverse events. YCHD can also regulate the metabolism of TDCA, GDCA and DCA, and the ratio of GDCA to total BAs. Chinese Clinical Trial Registry, ChiCTR2000034868. Please cite this article as: Xu FP, Yang C, Yu SH, Cai H, Hui MY, Fang LL, Chen GF, Jiang SL, Qi SL, Wu SJ, Liu SJ, Yuan J, Xu G, Liu W, Liu P, Zhang H. Yinchenhao Decoction, a compound Chinese herbal medicine, for patients with nonalcoholic fatty liver disease: A randomized, double-blind, placebo-controlled trial. J Integr Med. 2026; 24(3):365-375.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41905832/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41905832",
+        "doi": "10.1016/j.joim.2026.03.003",
+        "journal": "Journal of integrative medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T00:07:07.855Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "bbabd76dfa01bdabfd08",
+      "reserved_at": "2026-10-11T00:07:13.725Z",
+      "source_branch": "research/intake/3/20261010-2005-yinchenhao-41905832"
     }
   ],
   "batches": [
@@ -51303,16 +51380,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 652,
+    "total_reservations": 653,
     "by_lane": {
       "1": 64,
       "2": 141,
-      "3": 122,
+      "3": 123,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 652
+      "SOURCE_VERIFIED": 653
     },
     "batches": [
       {
@@ -51325,7 +51402,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 152,
+        "count": 153,
         "pr_number": null,
         "blocker": null
       }
