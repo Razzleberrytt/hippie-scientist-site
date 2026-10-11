@@ -866,6 +866,11 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       role: scene.role,
       start: scene.start,
       end: scene.end,
+      // Keep exact spoken-audio end with the canonical script. The R8.09 SRT
+      // is generated from these timed scenes, then independently regenerated
+      // from narration-script.json during MP4 encoding; omitting speechEnd
+      // wrongly stretches captions across trailing narration pauses.
+      speechEnd: scene.speechEnd,
       text: clean(scene.voiceover),
       factualAuthority: scene.factualAuthority,
     })),
