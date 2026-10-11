@@ -185,3 +185,6 @@ ops/enrichment/*
 # ground that was already researched and found empty.
 !ops/enrichment/*-work.mjs
 !ops/enrichment/*-research.json
+
+# Rebuildable R8.10 per-beat visual cache; NEVER commit generated intermediates
+ops/evidencemotion/.cache/
