@@ -74578,6 +74578,84 @@
       "reservation_id": "dfdb3f4d42181e992f48",
       "reserved_at": "2026-10-11T17:50:27.606Z",
       "source_branch": "research/intake/2/20261011-1347-cognition-metabolic-r75-recovery"
+    },
+    {
+      "pmid": "42806363",
+      "title": "The effectiveness of digital therapeutics in improving sleep quality: a systematic review and network meta-analysis.",
+      "doi": "10.1186/s12916-026-05129-8",
+      "source_title": "The effectiveness of digital therapeutics in improving sleep quality: a systematic review and network meta-analysis.",
+      "abstract": "Insomnia is a prevalent global sleep disorder. Digital therapeutics, delivered via online platforms, offer novel intervention options. However, existing systematic reviews largely focus on validating individual digital therapeutics, with limited comparative evidence across different types within a unified network. This network meta-analysis aims to evaluate the comparative effectiveness of various digital therapeutics on sleep quality, thereby providing evidence-based guidance for clinical decision-making in insomnia management. PubMed, Cochrane Library, Embase, and Web of Science were systematically searched and included eligible randomized controlled trials (RCTs). Outcomes included the Insomnia Severity Index (ISI), the Pittsburgh Sleep Quality Index (PSQI), sleep diary and objective sleep parameters. Sleep diary parameters included subjective total sleep time (sTST), subjective wake after sleep onset (sWASO), subjective sleep onset latency (sSOL), and subjective sleep efficiency (sSE); objective sleep parameters included total sleep time (TST), wake after sleep onset (WASO), sleep efficiency (SE), and sleep onset latency (SOL). Furthermore, the minimal clinically important difference (MCID) was employed to evaluate the clinical relevance of all outcomes. A total of 96 RCTs comprising 18,419 participants were included, assessing 6 digital therapeutics: digital cognitive behavioral therapy (dCBT), digital brief behavioral therapy (dBBT), digital mindfulness-based therapy (dMBT), circadian rhythm support (CRS), virtual reality (VR), and tele-neurofeedback (NFB). Quality assessment of the included studies revealed that 2 low risk, 79 some concerns, 15 high risk. Network meta-analysis indicated that, compared with control treatment (CT), dCBT likely resulted in a significant decrease in ISI score (MD: -4.24 points, 95% CI: -4.83 to - 3.65; moderate-certainty evidence), a reduction in PSQI score (MD: -2.28 points, 95% CI: -2.88 to - 1.68; low-certainty evidence), shortened sSOL (MD: -12.57 min, 95% CI: -15.14 to - 10.00; low-certainty evidence), improved sSE (MD: 7.27%, 95% CI: 5.77 to 8.77; low-certainty evidence), and reduced sWASO (MD: -17.19 min, 95% CI: -20.96 to - 13.41; low-certainty evidence). dMBT significantly reduced ISI score (MD: -2.28 points, 95% CI: -4.00 to - 0.55; low-certainty evidence) and shortened SOL (MD: -7.96 min, 95% CI: -15.50 to - 0.42; moderate-certainty evidence). Based on an inconsistency model, VR substantially reduced WASO (MD: -13.38 min, 95% CI: -24.40 to - 2.36; moderate-certainty evidence). Of these findings, only dCBT reached the MCID for ISI improvement. NFB, dBBT, and CRS did not demonstrate statistically significant effects relative to CT for any of the outcomes. Given the constraints in the number of studies and sample sizes, the findings derived from objective outcomes warrant cautious interpretation. Digital therapeutics constitute a promising intervention for enhancing sleep quality. dCBT optimally reduces insomnia severity; other outcomes are statistically significant but fail to reach the MCID, leaving their clinical significance uncertain. Moreover, the majority of effect estimates derived from head-to-head comparisons among different digital therapeutics remain insufficiently precise. Future studies are warranted to confirm and expand upon these findings through large-scale, high-quality RCTs. https://www.crd.york.ac.uk/PROSPERO/view/CRD420251269932.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42806363/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "2026 PubMed-verified network meta-analysis of 96 insomnia RCTs (18,419 participants), comparing six digital therapeutic modalities and clinically meaningful versus statistically significant outcomes; research-only pending independent scientific review.",
+      "evidence_class": "review",
+      "study_design": "Systematic Review; Network Meta-Analysis; Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Systematic Review",
+          "Network Meta-Analysis",
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42806363",
+        "doi": "10.1186/s12916-026-05129-8",
+        "journal": "BMC medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T18:46:15.625Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ae673c138a55dfec3aa9",
+      "reserved_at": "2026-10-11T18:46:21.479Z",
+      "source_branch": "research/intake/1/20261011-1443-digital-cbt-r28"
     }
   ],
   "batches": [
@@ -74606,16 +74684,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 953,
+    "total_reservations": 954,
     "by_lane": {
-      "1": 90,
+      "1": 91,
       "2": 180,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 953
+      "SOURCE_VERIFIED": 954
     },
     "batches": [
       {
@@ -74628,7 +74706,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 453,
+        "count": 454,
         "pr_number": null,
         "blocker": null
       }
