@@ -4,7 +4,6 @@ import { R809_VISUAL_STAGES } from './r809-visual-actors.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const digest = (value) => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex')
-const NEXT_BEAT = (beats, index) => beats[index + 1]?.id
 const CANONICAL_STYLE = '2p5d-science-explainer-v1'
 
 // R8.09 cannot independently paraphrase evidence-authorized findings.
