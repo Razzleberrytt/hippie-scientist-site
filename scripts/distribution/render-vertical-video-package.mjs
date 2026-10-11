@@ -9,6 +9,7 @@ import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
 import { buildR810CreativeReceipt } from './r810-creative-gate.mjs'
+import { cachedR810BeatSvg, defaultR810CacheRoot } from './r810-beat-cache.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
 import { renderR809VisualActor } from './r809-visual-actors.mjs'
 
@@ -764,10 +765,21 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
   const { scenes, durationSeconds, bindings } = built
   const disclosure = clean(creativeSpec.delivery.disclosure)
+  const rendererCodeSha256 = sha256(fs.readFileSync(new URL(import.meta.url)))
+  function authoredScene(scene, options) {
+    if (creativeSpec.creativeMethodRelease !== 'R8.10') return renderVerticalVideoSceneSvg(scene, options)
+    const cached = cachedR810BeatSvg(defaultR810CacheRoot(), {
+      rendererCodeSha256,
+      sourceContentHash: mediaPack.source.contentHash,
+      creativeBriefSha256: bindings?.creativeBrief?.sha256,
+      sceneReceiptSha256: sha256(JSON.stringify({scene,options})),
+    }, () => renderVerticalVideoSceneSvg(scene, options).svg)
+    return {svg:cached.svg,width:1080,height:1920}
+  }
 
   const assets = scenes.map((scene, index) => {
     const suffix = String(index + 1).padStart(2, '0')
-    const rendered = renderVerticalVideoSceneSvg(scene, {
+    const rendered = authoredScene(scene, {
       sourceUrl: mediaPack.source.url,
       contentHash: mediaPack.source.contentHash,
       disclosure,
@@ -784,7 +796,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       const cueOffset = roundTenThousandth(scene.motionCueOffset)
       const sceneDuration = roundTenThousandth(scene.end - scene.start)
       if (!(cueOffset > 0 && cueOffset < sceneDuration)) throw new Error(`R8.05 beat ${scene.beatId} has an invalid internal-motion cue`)
-      const preRendered = renderVerticalVideoSceneSvg(scene, {
+      const preRendered = authoredScene(scene, {
         sourceUrl: mediaPack.source.url,
         contentHash: mediaPack.source.contentHash,
         disclosure,
