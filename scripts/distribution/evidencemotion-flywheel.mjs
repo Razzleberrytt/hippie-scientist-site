@@ -321,7 +321,7 @@ export function renderFlywheelLearningReport(root,{metricWindow='first-7d',last=
 export function proposeFlywheelTemplate(root,input) {
   const id=safeId(input?.proposalId,'proposal ID')
   if(!/^R8\.\d+(?:-[a-z0-9.-]+)?$/.test(input.fromVersion)||!/^R8\.\d+(?:-[a-z0-9.-]+)?$/.test(input.toVersion)||input.fromVersion===input.toVersion)throw Error('Flywheel requires distinct lineage versions')
-  if(!['hook-structure','beat-order','caption-style'].includes(input.changeType))throw Error('Flywheel unsupported template change')
+  if(!['hook-structure','beat-order','caption-style','visual-layout'].includes(input.changeType))throw Error('Flywheel unsupported template change')
   if(!clean(input.description)||!clean(input.scienceBoundary))throw Error('Flywheel proposal needs description and science boundary')
   const metricWindow=input.metricWindow||'first-7d'
   const all=listFlywheelSnapshots(root,metricWindow)
