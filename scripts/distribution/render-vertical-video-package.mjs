@@ -8,6 +8,7 @@ import { buildR806CreativeReceipt } from './r806-creative-gate.mjs'
 import { buildR807CreativeReceipt } from './r807-creative-gate.mjs'
 import { buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
+import { buildR810CreativeReceipt } from './r810-creative-gate.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
 import { renderR809VisualActor } from './r809-visual-actors.mjs'
 
@@ -148,7 +149,7 @@ function validateIdentity(mediaPack, creativeSpec) {
       throw new Error('R8.05 vertical video must use the exact-local-narration timing authority')
     }
     const methodRelease = clean(creativeSpec?.creativeMethodRelease) || 'R8.05'
-    if (!['R8.05', 'R8.06', 'R8.07', 'R8.08', 'R8.09'].includes(methodRelease)) {
+    if (!['R8.05', 'R8.06', 'R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(methodRelease)) {
       throw new Error(`unsupported R8.05 creative methodology: ${methodRelease}`)
     }
     if (methodRelease === 'R8.06') {
@@ -204,7 +205,7 @@ function validateIdentity(mediaPack, creativeSpec) {
           || clean(direction?.silentComprehensionCertifiedAt) !== 'exact-master-qa') {
         throw new Error('R8.08 requires hash-bound creative lineage and pre-render silent-comprehension approval')
       }
-    } else if (methodRelease === 'R8.09') {
+    } else if (['R8.09', 'R8.10'].includes(methodRelease)) {
       const { creativeFoundation: a, creativeVisualFoundation: b, creativeSilentFoundation: c, creativeDirection: d } = creativeSpec
       if (a?.status !== 'approved' || a?.schemaVersion !== 'ths-r806-creative-receipt-v1'
           || b?.status !== 'approved' || b?.schemaVersion !== 'ths-r807-creative-receipt-v1'
@@ -388,7 +389,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       throw new Error('R8.07 visual-rhythm receipt does not bind the exact creative brief overlay')
     }
   }
-  if (methodRelease === 'R8.09') {
+  if (['R8.09', 'R8.10'].includes(methodRelease)) {
     const a = buildR806CreativeReceipt(brief)
     const b = buildR807CreativeReceipt(brief)
     const c = buildR808CreativeReceipt(brief)
@@ -398,6 +399,9 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
         || creativeSpec.creativeSilentFoundation?.overlaySha256 !== c.overlaySha256
         || creativeSpec.creativeDirection?.overlaySha256 !== d.overlaySha256) {
       throw Error('R8.09 creative brief/receipt is stale')
+    }
+    if (methodRelease === 'R8.10' && clean(creativeSpec?.creativeR810?.governedPlanSha256) !== buildR810CreativeReceipt(brief).governedPlanSha256) {
+      throw Error('R8.10 governed semantic plan is stale against approved script')
     }
   }
   if (methodRelease === 'R8.08') {
@@ -524,10 +528,11 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       silentSafeArea: clean(beat?.r808?.safeArea),
       beatReceiptSha256: sha256(JSON.stringify(governed)),
       sourceLegibility: clean(beat.role) === 'source' ? creativeSpec.verticalVideo.sourceLegibility : undefined,
+      sourceLedgerLines: clean(beat.role) === 'source' && methodRelease === 'R8.10' ? creativeSpec.creativeR810?.sourceLedgerLines : undefined,
     }
   })
 
-  if (['R8.08', 'R8.09'].includes(methodRelease)) {
+  if (['R8.08', 'R8.09', 'R8.10'].includes(methodRelease)) {
     for (const scene of scenes.filter(s => ['hook', 'finding', 'evidence', 'limitation'].includes(s.role))) {
       const visibleSeconds = scene.motionType === 'reveal'
         ? scene.end - scene.start - Number(scene.motionCueOffset)
@@ -634,7 +639,8 @@ function renderAuthoredComposition(scene, { x, width, top, bottom, foreground, m
 export function renderVerticalVideoSceneSvg(scene, options = {}) {
   const canvas = CREATIVE_BRAND_TOKENS.canvas.vertical
   const motionPhase = clean(options.motionPhase) || 'post'
-  const r809 = clean(options.creativeMethodRelease) === 'R8.09'
+  const r809 = ['R8.09', 'R8.10'].includes(clean(options.creativeMethodRelease))
+  const r810 = clean(options.creativeMethodRelease) === 'R8.10'
   const { foreground, background } = treatment(scene.colorTreatment)
   const sourceUrl = clean(options.sourceUrl)
   const contentHash = clean(options.contentHash)
@@ -703,6 +709,10 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
           motionPhase,
         })
       : ''
+  const ledgerLines = r810 && sourceScene ? (scene.sourceLedgerLines || []) : []
+  if (r810 && sourceScene && (!ledgerLines.length || ledgerLines.length > 5)) throw Error('R8.10 source card requires approved ledger lines')
+  const ledgerSvg = ledgerLines.map((line, index) => `<text data-r810-ledger-line="${index + 1}" x="${x}" y="${Math.min(disclosureY - 110, compositionTop + 40) + index * 48}" font-size="32" fill="${foreground}">${escapeXml(line)}</text>`).join('')
+  if (ledgerLines.length && Math.min(disclosureY - 110, compositionTop + 40) + ledgerLines.length * 48 >= disclosureY - 50) throw Error('R8.10 source ledger exceeds mobile safe area')
   const provenanceY = canvas.height - safe.bottom - 26
   const metadata = JSON.stringify({
     sourceUrl,
@@ -741,7 +751,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     ? `<defs><linearGradient id="r809-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${background}"/><stop offset="100%" stop-color="${foreground}" stop-opacity=".07"/></linearGradient><filter id="r809-shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".24"/></filter></defs><rect width="100%" height="100%" fill="url(#r809-bg)"/><circle cx="950" cy="300" r="265" fill="${foreground}" opacity=".045"/>`
     : ''
   const styledComposition = r809 ? `<g filter="url(#r809-shadow)">${composition}</g>` : composition
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/>${r809Depth}<text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${styledComposition}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/>${r809Depth}<text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${styledComposition}${ledgerSvg}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
@@ -849,7 +859,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   const timelineBytes = `${JSON.stringify(timeline, null, 2)}\n`
   fs.writeFileSync(path.join(dir, 'video-timeline.json'), timelineBytes)
 
-  const captions = creativeSpec.creativeMethodRelease === 'R8.09' ? renderR809CaptionsSrt(scenes) : buildSrt(scenes)
+  const captions = ['R8.09', 'R8.10'].includes(creativeSpec.creativeMethodRelease) ? renderR809CaptionsSrt(scenes) : buildSrt(scenes)
   fs.writeFileSync(path.join(dir, 'captions.srt'), captions)
 
   const narrationScript = {
@@ -878,6 +888,13 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   const narrationScriptBytes = `${JSON.stringify(narrationScript, null, 2)}\n`
   fs.writeFileSync(path.join(dir, 'narration-script.json'), narrationScriptBytes)
 
+  const r810LedgerText = creativeSpec.creativeMethodRelease === 'R8.10'
+    ? (creativeSpec.creativeR810?.sourceLedgerLines || []).join('\n')
+    : null
+  if (r810LedgerText !== null) {
+    if (!r810LedgerText || sha256(r810LedgerText) !== creativeSpec.creativeR810?.sourceLedgerTextSha256) throw Error('R8.10 source ledger file differs from exact reviewed source')
+    fs.writeFileSync(path.join(dir, 'sources-ledger.txt'), r810LedgerText)
+  }
   const manifest = {
     schemaVersion: '1.1.0',
     release,
@@ -892,10 +909,12 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     creativeVisualFoundation: creativeSpec.creativeVisualFoundation ?? null,
     creativeSilentFoundation: creativeSpec.creativeSilentFoundation ?? null,
     creativeDirection: creativeSpec.creativeDirection ?? null,
+    creativeR810: creativeSpec.creativeR810 ?? null,
+    sourceLedger: r810LedgerText === null ? null : {file: 'sources-ledger.txt', sha256: sha256(r810LedgerText), silent: true, minimumFontPx: 32},
     r805Bindings: bindings,
     durationSeconds,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
-    captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true, burnInRequired: creativeSpec.creativeMethodRelease === 'R8.09', source: creativeSpec.creativeMethodRelease === 'R8.09' ? 'exact-governed-voice-script' : 'legacy-sidecar' },
+    captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true, burnInRequired: ['R8.09', 'R8.10'].includes(creativeSpec.creativeMethodRelease), source: ['R8.09', 'R8.10'].includes(creativeSpec.creativeMethodRelease) ? 'exact-governed-voice-script' : 'legacy-sidecar' },
     narrationScript: {
       file: 'narration-script.json',
       sha256: sha256(narrationScriptBytes),
