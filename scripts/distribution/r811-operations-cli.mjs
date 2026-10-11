@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url'
 import { validateR811Plan, buildR811Receipt } from './r811-creative-operations.mjs'
 import { buildR811DraftAssets } from './r811-derived-assets.mjs'
 import { verifyR811Package } from './r811-package-qa.mjs'
+import { renderR811SilentHookPreviews } from './r811-hook-preview-mp4.mjs'
 import { registerR811Asset, r811AssetReuseReport } from './r811-asset-library.mjs'
 import { renderVerticalVideoSceneSvg } from './render-vertical-video-package.mjs'
 import { analyzeR811HookExperiment, snapshotR811Experiment, approveR811HookPattern, getR811CadenceReport } from './r811-learning-operations.mjs'
@@ -16,6 +17,7 @@ const help = [
 '  preflight --input PLAN.json --r810 RECEIPT.json',
 '  previews --input PLAN.json --r810 RECEIPT.json --hook SCENE.json --package OUTPUT_DIR --source-url URL --source-hash CONTENT_HASH --disclosure TEXT',
 '  inspect-package --package PACKAGE_DIR',
+'  render-hook-clips --package PACKAGE_DIR [--ffmpeg /path/to/offline-ffmpeg]',
 '  catalog-asset --input ASSET_METADATA.json --file SELF_CONTAINED.svg [--asset-root DIR]',
 '  assets [--asset-root DIR]',
 '  compare-hooks --experiment EXPERIMENT_ID [--window first-7d] [--metric three-second-hold]',
@@ -37,7 +39,7 @@ function parseArgs(argv){
   return {action,args}
 }
 const fromJson=(p)=>JSON.parse(fs.readFileSync(path.resolve(p),'utf8'))
-export function runR811CLI(argv){
+export async function runR811CLI(argv){
   const {action,args}=parseArgs(argv)
   if(action==='help')return help
   const root=path.resolve(args.root||defaultRoot)
@@ -65,6 +67,10 @@ export function runR811CLI(argv){
       if(!args.package)throw Error('--package DIR required')
       return JSON.stringify(verifyR811Package(args.package),null,2)
     }
+    case 'render-hook-clips':{
+      if(!args.package)throw Error('--package DIR required')
+      return JSON.stringify(await renderR811SilentHookPreviews(args.package,{ffmpegPath:args.ffmpeg||'ffmpeg'}),null,2)
+    }
     case 'catalog-asset':{
       if(!args.file)throw Error('--file SVG required')
       return JSON.stringify(registerR811Asset(assetRoot,{...input(),content:fs.readFileSync(path.resolve(args.file),'utf8')}),null,2)
@@ -81,6 +87,6 @@ export function runR811CLI(argv){
   }
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
-  try{console.log(runR811CLI(process.argv.slice(2)))}
+  try{console.log(await runR811CLI(process.argv.slice(2)))}
   catch(error){console.error('R8.11 FAIL: '+error.message);process.exitCode=1}
 }
