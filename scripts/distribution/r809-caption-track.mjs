@@ -49,8 +49,10 @@ export function buildR809CaptionCues(scenes) {
     const spoken = clean(scene.voiceover ?? scene.text)
     if (!spoken) continue
     const start = Number(scene.start)
-    const end = Number(scene.end)
-    if (!(Number.isFinite(start) && Number.isFinite(end) && end > start)) throw new Error('R8.09 invalid voice beat times')
+    const sceneEnd = Number(scene.end)
+    const end = scene.speechEnd == null ? sceneEnd : Number(scene.speechEnd)
+    if (!(Number.isFinite(start) && Number.isFinite(sceneEnd) && sceneEnd > start &&
+      Number.isFinite(end) && end > start && end <= sceneEnd)) throw new Error('R8.09 invalid voice beat times')
     const chunks = phrases(spoken)
     const duration = end - start
     const minCueSeconds = 0.42
