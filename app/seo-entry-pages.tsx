@@ -725,6 +725,10 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
           <h2 className="text-2xl font-black text-ink">Commercial Decision Table</h2>
           <p className="max-w-3xl text-sm leading-relaxed text-muted">Compare candidate compounds by role, evidence strength, caution markers, and standardized active form before you click through to check top-rated products.</p>
 
+          <div className="pb-2">
+            <AffiliateDisclosure variant="compact" />
+          </div>
+
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <table className="min-w-full divide-y divide-brand-900/10 text-left text-sm">
               <thead className="bg-brand-50/50 text-xs font-bold uppercase tracking-wider text-muted">
@@ -785,9 +789,6 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
                 })}
               </tbody>
             </table>
-          </div>
-          <div className="pt-2">
-            <AffiliateDisclosure variant="compact" />
           </div>
         </section>
       ) : null}
