@@ -109,7 +109,7 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'creatine',
-    name: 'NOW Sports Creatine Monohydrate Powder',
+    name: 'NOW Sports Micronized Creatine Monohydrate Powder',
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Sports+Creatine+Monohydrate+Powder+unflavored&tag=${AFFILIATE_TAGS.amazon}`,
@@ -239,7 +239,7 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'berberine',
-    name: 'NOW Berberine 500 mg',
+    name: 'NOW Berberine HCl 500 mg',
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Berberine+500+mg+HCl+capsules&tag=${AFFILIATE_TAGS.amazon}`,
@@ -452,14 +452,6 @@ export const productPicks: ProductPick[] = [
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Ginger+Root+550+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Budget pick for plain ginger root capsules.'
-  },
-  {
-    compound_slug: 'ginger',
-    name: 'Thorne Phytisone (Ginger)',
-    brand: 'Thorne',
-    type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+ginger+extract+supplement&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium practitioner-grade ginger extract.'
   },
 
   // PEA

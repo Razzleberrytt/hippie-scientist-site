@@ -372,13 +372,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         rationale: 'Best overall for full-spectrum ginger phyto-caps with standardized gingerols.',
         affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Ginger Supreme liquid phyto-caps' }),
       },
-      {
-        slot: 'premium',
-        brand: 'Thorne',
-        title: 'Thorne Phytisone (Ginger)',
-        rationale: 'Premium practitioner-grade ginger extract with clean formula and high-potency standardization.',
-        affiliateUrl: amazonProductUrl({ query: 'Thorne ginger extract supplement' }),
-      },
     ],
   },
   turmeric: {
@@ -418,13 +411,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         title: 'Traditional Medicinals Organic Chamomile Tea',
         rationale: 'Best overall for traditional chamomile tea consumption with organic certification.',
         affiliateUrl: amazonProductUrl({ query: 'Traditional Medicinals Organic Chamomile Tea bags' }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Gaia Herbs',
-        title: 'Gaia Herbs Chamomile Liquid Extract',
-        rationale: 'Premium liquid extract for fast-acting, concentrated chamomile support.',
-        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Chamomile liquid extract' }),
       },
     ],
   },
@@ -527,13 +513,6 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         rationale: 'Best overall for a dual-extract echinacea with purpurea root + angustifolia for broader coverage.',
         affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Echinacea Supreme liquid phyto-caps' }),
       },
-      {
-        slot: 'premium',
-        brand: 'Thorne',
-        title: 'Thorne Echinacea',
-        rationale: 'Premium pick for clean echinacea extract in a practitioner-brand capsule.',
-        affiliateUrl: amazonProductUrl({ query: 'Thorne Echinacea purpurea supplement' }),
-      },
     ],
   },
   bacopa: {
@@ -604,16 +583,9 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'overall',
         brand: 'Gaia Herbs',
-        title: 'Gaia Herbs Hawthorn Supplement',
+        title: 'Gaia Herbs Hawthorn Supreme',
         rationale: 'Best overall for a concentrated hawthorn berry and leaf/flower extract in phyto-caps.',
         affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Hawthorn cardiovascular supplement' }),
-      },
-      {
-        slot: 'premium',
-        brand: 'Life Extension',
-        title: 'Life Extension Hawthorn Extract',
-        rationale: 'Premium for a standardized oligomeric proanthocyanidin (OPC) hawthorn extract.',
-        affiliateUrl: amazonProductUrl({ query: 'Life Extension Hawthorn Extract standardized OPC' }),
       },
     ],
   },
@@ -665,7 +637,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'premium',
         brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations Black Cohosh',
+        title: 'Pure Encapsulations Black Cohosh 2.5',
         rationale: 'Premium for a hypoallergenic, practitioner-grade black cohosh standardized capsule.',
         affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Black Cohosh standardized' }),
       },
@@ -885,7 +857,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'premium',
         brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations Inositol',
+        title: 'Pure Encapsulations Inositol Complex',
         rationale: 'Premium hypoallergenic inositol powder for clean dosing in sensitive individuals.',
         affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Inositol powder capsules' }),
       },
@@ -898,7 +870,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'budget',
         brand: 'NOW Foods',
-        title: 'NOW Sports Creatine Monohydrate Powder',
+        title: 'NOW Sports Micronized Creatine Monohydrate Powder',
         rationale: 'Budget pick for unflavored creatine monohydrate powder — proven, simple, affordable.',
         affiliateUrl: amazonProductUrl({ query: 'NOW Sports Creatine Monohydrate Powder unflavored' }),
       },
@@ -1062,7 +1034,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       {
         slot: 'budget',
         brand: 'NOW Foods',
-        title: 'NOW Berberine 500 mg',
+        title: 'NOW Berberine HCl 500 mg',
         rationale: 'Budget pick for berberine HCl at the standard clinical 500 mg dose.',
         affiliateUrl: amazonProductUrl({ query: 'NOW Foods Berberine 500 mg HCl capsules' }),
       },
