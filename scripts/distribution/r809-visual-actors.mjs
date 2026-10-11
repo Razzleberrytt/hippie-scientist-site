@@ -35,5 +35,6 @@ export function renderR809VisualActor(scene, {x, y, width, height, foreground, b
   } else {
     actor = `<circle cx="${cx}" cy="${cy}" r="175" ${pale} ${stroke}/><path d="M ${cx-70} ${cy+8} L ${cx-10} ${cy+66} L ${cx+98} ${cy-62}" ${transparent} ${stroke} stroke-width="16"/><circle cx="${cx+197}" cy="${cy-167}" r="31" fill="${foreground}" opacity=".35"/><circle cx="${cx-213}" cy="${cy+145}" r="24" fill="${foreground}" opacity=".5"/>`
   }
-  return `<g data-r809-visual-scene="${stage}" aria-label="Stylized scientific explainer illustration">${actor}</g>`
+  const scale = Math.min(1, width / 690, height / 550)
+  return `<g data-r809-visual-scene="${stage}" aria-label="Stylized scientific explainer illustration" transform="translate(${cx} ${cy}) scale(${scale}) translate(${-cx} ${-cy})">${actor}</g>`
 }
