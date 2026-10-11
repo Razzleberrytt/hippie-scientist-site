@@ -325,7 +325,8 @@ function resolveHeldSafetyDetail(base: RuntimeRecord, detail: RuntimeRecord | nu
     Array.isArray(detail.sources) && detail.sources.length > 0
   if (!eligible) return resolveRuntimeRecordLayers(base, [detail]) as RuntimeRecord
 
-  const priorSafety = typeof base.safety === 'string' ? base.safety.trim() : ''
+  const baseSafety = (base as Record<string, unknown>).safety
+  const priorSafety = typeof baseSafety === 'string' ? baseSafety.trim() : ''
   const newSafety = String(detail.safetyNotes).trim()
   const safety = priorSafety && !newSafety.includes(priorSafety)
     ? priorSafety + ' ' + newSafety : newSafety
@@ -339,7 +340,9 @@ function resolveHeldSafetyDetail(base: RuntimeRecord, detail: RuntimeRecord | nu
   }) as RuntimeRecord
   // Renderer aliases must reflect the safety field after trust resolution.
   // Merely changing detail.safetyNotes does not update a core-owned alias.
-  return { ...resolved, safetyNotes: resolved.safety, runtime_safety: resolved.safety }
+  const resolvedSafety = (resolved as Record<string, unknown>).safety
+  const textSafety = typeof resolvedSafety === 'string' ? resolvedSafety : newSafety
+  return { ...resolved, safetyNotes: textSafety, runtime_safety: textSafety }
 }
 
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
