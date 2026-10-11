@@ -54822,6 +54822,159 @@
       "reservation_id": "3474df73bf59ac1bc136",
       "reserved_at": "2026-10-11T04:32:08.632Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0028"
+    },
+    {
+      "pmid": "42585723",
+      "title": "Personalized prediction of response to three meditation practices: A randomized controlled trial.",
+      "doi": "10.1016/j.brat.2026.105141",
+      "source_title": "Personalized prediction of response to three meditation practices: A randomized controlled trial.",
+      "abstract": "Despite decades of meditation research, there is a lack of preregistered and well-powered studies that investigate the effects of brief meditation practices on subjective wellbeing and use data-driven approaches to predict response to these interventions. Using representative samples of the US and UK adult populations with regards to age, sex, and ethnicity (N = 5049), we conducted a preregistered and well-powered randomized controlled trial to investigate the effects of three brief (5-10 min) meditation practices (i.e., mindfulness, self-compassion, gratitude) relative to a control condition. We also examined whether a data-driven approach can predict an individual's response to these interventions from their pre-intervention characteristics. Taken together, our findings suggest that brief meditation practices modestly improve an aspect of subjective wellbeing (negative affect) and such response can be predicted using pre-intervention characteristics. Future prospective randomized trials should examine algorithm-guided intervention assignment to directly test the potential of personalized meditation recommendations to improve subjective wellbeing.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42585723/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials of brief meditation and mindfulness-based stress reduction, assessing negative affect, perceived distress, and anxiety.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42585723",
+        "doi": "10.1016/j.brat.2026.105141",
+        "journal": "Behaviour research and therapy",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T04:40:26.601Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4d528581af8900580a66",
+      "reserved_at": "2026-10-11T04:40:36.122Z",
+      "source_branch": "research/intake/1/20261011-0035-meditation-mbsr-two-r14"
+    },
+    {
+      "pmid": "41548095",
+      "title": "The effects of Mindfulness-Based Stress Reduction program on stress, subjective anxiety, self-compassion, and prenatal attachment in pregnant women with perinatal loss: A randomized controlled trial.",
+      "doi": "10.1080/07481187.2026.2613244",
+      "source_title": "The effects of Mindfulness-Based Stress Reduction program on stress, subjective anxiety, self-compassion, and prenatal attachment in pregnant women with perinatal loss: A randomized controlled trial.",
+      "abstract": "This randomized controlled trial investigated the effects of the Mindfulness-Based Stress Reduction (MBSR) program on stress, subjective anxiety, self-compassion, and prenatal attachment in pregnant women with perinatal loss. A total of 112 women were randomly assigned to MBSR ( n = 56) or control ( n = 56) groups. The MBSR program was delivered face-to-face in eight sessions over 4 weeks. Pretest comparisons showed no significant differences between groups ( p >.05). Posttest results indicated that the MBSR group had significantly lower Tilburg Pregnancy Distress Scale (partner involvement and negative affect) and Subjective Units of Disturbance Scale scores, with large effect sizes (η 2 = .677, .679, .143, .621). The MBSR group also showed significantly higher Self-Compassion Scale-Short Form scores (η 2 = .542) and higher Maternal Antenatal Attachment Scale scores, including both time spent on attachment and attachment quality (η 2 = .620, .760, .557). Findings suggest MBSR effectively reduces stress and anxiety while enhancing self-compassion and prenatal attachment in women with perinatal loss.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41548095/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Human randomized trials of brief meditation and mindfulness-based stress reduction, assessing negative affect, perceived distress, and anxiety.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41548095",
+        "doi": "10.1080/07481187.2026.2613244",
+        "journal": "Death studies",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T04:40:26.601Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4cb71b0e862b0eb484b5",
+      "reserved_at": "2026-10-11T04:40:36.122Z",
+      "source_branch": "research/intake/1/20261011-0035-meditation-mbsr-two-r14"
     }
   ],
   "batches": [
@@ -54850,16 +55003,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 698,
+    "total_reservations": 700,
     "by_lane": {
-      "1": 69,
+      "1": 71,
       "2": 152,
       "3": 127,
       "4": 50,
       "5": 300
     },
     "by_state": {
-      "SOURCE_VERIFIED": 698
+      "SOURCE_VERIFIED": 700
     },
     "batches": [
       {
@@ -54872,7 +55025,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 198,
+        "count": 200,
         "pr_number": null,
         "blocker": null
       }
