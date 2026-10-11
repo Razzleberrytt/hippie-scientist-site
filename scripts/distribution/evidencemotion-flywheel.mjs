@@ -107,7 +107,9 @@ export function appendFlywheelObservation(root, observation) {
   const previous=v.observations.filter(o=>o.metricWindow===metricWindow)
   if(previous.some(o=>o.observedAt===observation.observedAt)){
     const existing=previous.find(o=>o.observedAt===observation.observedAt)
-    if(stable({ ...existing,recordedAt:undefined })===stable({ ...observation,recordedAt:undefined }))return {idempotent:true}
+    if(existing.source===observation.source
+      && stable(existing.metrics)===stable(metrics)
+      && existing.note===clean(observation.note))return {idempotent:true,videoId:id,observedAt:observation.observedAt}
     throw Error('Flywheel immutable observation timestamp already recorded with different metrics')
   }
   if(previous.length&&dateMs(observation.observedAt)<=Math.max(...previous.map(o=>dateMs(o.observedAt))))throw Error('Flywheel cannot backdate an already-observed window')
