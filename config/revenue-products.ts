@@ -735,7 +735,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Thorne',
         asin: 'B0038NF8MG',
         title: 'Thorne Vitamin D/K2 Liquid, 1 fl oz (600 servings)',
-        rationale: 'Premium liquid **combination** containing vitamin D3 plus K2 (model #11793); not a vitamin D-only product. People taking warfarin or other vitamin K-sensitive treatments should obtain clinical guidance.',
+        rationale: 'Premium liquid combination containing vitamin D3 plus K2 (model #11793); not a vitamin D-only product. People taking warfarin or other vitamin K-sensitive treatments should obtain clinical guidance.',
         affiliateUrl: amazonProductUrl({ asin: 'B0038NF8MG', query: 'Thorne Vitamin D K2 Liquid 1 oz 600 servings 11793' }),
       },
     ],
