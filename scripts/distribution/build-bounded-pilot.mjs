@@ -234,6 +234,15 @@ export async function buildBoundedPilot({
               || clean(candidateSpec?.creativeDirection?.status) !== 'approved')) {
         throw new Error('R8.07 short-video pilot requires approved R8.06 foundation and R8.07 visual-rhythm receipts')
       }
+      if (creativeMethodRelease === 'R8.09'
+          && (clean(candidateSpec?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
+              || clean(candidateSpec?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
+              || clean(candidateSpec?.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
+              || clean(candidateSpec?.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
+              || clean(candidateSpec?.creativeDirection?.status) !== 'approved'
+              || clean(candidateSpec?.creativeDirection?.inheritedR808OverlaySha256) !== clean(candidateSpec?.creativeSilentFoundation?.overlaySha256))) {
+        throw new Error('R8.09 short-video pilot requires beginner education, narration captions and the inherited creative receipts')
+      }
       if (creativeMethodRelease === 'R8.08'
           && (clean(candidateSpec?.creativeFoundation?.status) !== 'approved'
               || clean(candidateSpec?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'

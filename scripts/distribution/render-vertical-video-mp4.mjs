@@ -4,6 +4,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
+import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -142,6 +143,18 @@ function verifyPackage(packageDir) {
     }
   }
 
+  if (clean(manifest.creativeMethodRelease) === 'R8.09') {
+    if (manifest.captions?.burnInRequired !== true
+        || clean(manifest.captions?.source) !== 'exact-governed-voice-script'
+        || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
+        || clean(manifest.creativeDirection?.status) !== 'approved'
+        || clean(manifest.creativeDirection?.canonicalStyle) !== '2p5d-science-explainer-v1'
+        || manifest.creativeDirection?.burnInNarrationCaptions !== true
+        || clean(manifest.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
+        || clean(manifest.creativeDirection?.inheritedR808OverlaySha256) !== clean(manifest.creativeSilentFoundation?.overlaySha256)) {
+      throw new Error('R8.09 MP4 requires approved 2.5D creative lineage and exact-script burn-in captions')
+    }
+  }
   const assets = Array.isArray(manifest.assets) ? manifest.assets : []
   if (!assets.length || assets.length !== timeline.scenes?.length) throw new Error('parent video package scene inventory is incomplete')
   let expectedStart = 0
@@ -317,6 +330,20 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
 
   const verified = verifyPackage(inputDir)
   const narration = verifyLocalNarration(inputDir, verified.manifest)
+  const isR809 = clean(verified.manifest.creativeMethodRelease) === 'R8.09'
+  let burnInCaptions = null
+  if (isR809) {
+    const manifest = verified.manifest
+    const captionFile = assertCanonicalChild(inputDir, manifest.captions?.file, /^captions\.srt$/)
+    const captionBytes = fs.readFileSync(captionFile)
+    if (sha256(captionBytes) !== clean(manifest.captions?.sha256)) {
+      throw new Error('R8.09 captions.srt hash does not match governed manifest')
+    }
+    const narrationFile = assertCanonicalChild(inputDir, manifest.narrationScript?.file, /^narration-script\.json$/)
+    const script = JSON.parse(fs.readFileSync(narrationFile, 'utf8'))
+    validateR809CaptionsSrt(script.scenes, captionBytes.toString('utf8'))
+    burnInCaptions = renderR809CaptionAss(script.scenes)
+  }
   const version = ffmpegVersion(ffmpegPath)
   const manifestSha256 = sha256(verified.manifestBytes)
   const renderKey = buildMp4RenderKey({
@@ -330,6 +357,18 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-video-mp4-'))
 
   try {
+    let filter = 'fps=30,scale=1080:1920:flags=lanczos'
+    let captionFileSha256 = null
+    if (isR809) {
+      const assFile = path.join(tempDir, 'narration-captions.ass')
+      fs.writeFileSync(assFile, burnInCaptions)
+      captionFileSha256 = sha256(Buffer.from(burnInCaptions))
+      // Small continuous camera/object drift keeps locally generated 2.5D
+      // teaching illustrations alive without a fake timer or paid video model.
+      // Captions are drawn AFTER camera motion so their text never drifts.
+      const escapedFile = assFile.replace(/\\/g, '\\\\').replace(/:/g, '\\:').replace(/'/g, "\\'")
+      filter = `fps=30,scale=1080:1920:flags=lanczos,zoompan=z='min(zoom+0.00018,1.045)':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s=1080x1920:fps=30,ass='${escapedFile}'`
+    }
     const concatLines = []
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
@@ -365,8 +404,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-hide_banner', '-loglevel', 'error',
       '-f', 'concat', '-safe', '0', '-i', concatFile,
       '-i', narration.file,
-      '-vf', 'fps=30,scale=1080:1920:flags=lanczos',
-      '-af', `loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`,
+      '-vf', filter,
+      '-af', isR809
+        ? `acompressor=threshold=0.1:ratio=2:attack=10:release=150,loudnorm=I=-14:TP=-1:LRA=9,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`
+        : `loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`,
       '-map', '0:v:0', '-map', '1:a:0',
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
       '-c:a', 'aac', '-b:a', '192k',
@@ -398,6 +439,17 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         audioCodec: 'aac',
         audioBitrate: '192k',
       },
+      r809Captioning: isR809 ? {
+        burnIn: true,
+        authority: 'exact-governed-voice-script',
+        cueTimingPrecision: 'voice-beat-bounded-phrase-estimate',
+        captionsSrtSha256: clean(verified.manifest.captions?.sha256),
+        renderAssSha256: captionFileSha256,
+        canvasSafeArea: 'platform-intersection',
+        style: '2p5d-science-explainer-v1',
+        audioProfile: 'voice-forward-minus14LUFS',
+        exactMasterReview: 'pending',
+      } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
