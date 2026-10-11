@@ -61,7 +61,7 @@ function three(root){
       publicationEvidence:'manual-owner-attested',
       artifactSha256:sha('mp4-'+i),productionManifestSha256:sha('manifest-'+i),
       r811:{experimentId:'kava-hook-experiment',variantId:labels[i],
-        sourcePacketSha256:source,planSha256:sha('plan-'+i),methodology:'R8.10'}})
+        sourcePacketSha256:source,planSha256:sha('one-approved-experiment-plan'),methodology:'R8.10'}})
     appendFlywheelObservation(root,{videoId:id,observedAt:'2026-10-08T'+published[i]+':00:00Z',
       metricWindow:'first-7d',source:'manual-owner-entry',
       metrics:{views:200+i*100,likes:25+i*10,followsAttributed:2+i*3,
@@ -120,6 +120,7 @@ describe('EvidenceMotion R8.11 compounding production gates',()=>{
     const report=analyzeR811HookExperiment(root,{experimentId:'kava-hook-experiment'})
     expect(report.status).toBe('exploratory-observed-leader')
     expect(report.observedLeaderVariantId).toBe('c')
+    expect(report.approvedPlanSha256).toBe(sha('one-approved-experiment-plan'))
     expect(report.causalClaimAllowed).toBe(false)
     expect(snapshotR811Experiment(root,root,{experimentId:'kava-hook-experiment'}).existing).toBe(false)
     expect(()=>approveR811HookPattern(root,root,{experimentId:'kava-hook-experiment',selectedVariantId:'c',reviewerId:'owner',
