@@ -18,6 +18,8 @@ describe('Batch 6 safety and product fidelity contract', () => {
     for (const alias of ['polygonum-multiflorum', 'he-shou-wu', 'chasteberry', 'sceletium-tortuosum']) {
       expect(isRestrictedIngredient(alias)).toBe(true)
     }
+    // Vitex botanical != the unrelated flavonoid vitexin in other plants.
+    expect(isRestrictedIngredient('passionflower vitexin flavonoid')).toBe(false)
   })
 
   it('removes unsupported manufacturer/product combinations in curated catalogs', () => {
