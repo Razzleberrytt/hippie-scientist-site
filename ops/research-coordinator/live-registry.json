@@ -57144,6 +57144,82 @@
       "reservation_id": "6078ca99262c590aed5f",
       "reserved_at": "2026-10-11T05:57:00.895Z",
       "source_branch": "research/intake/2/20261011-0153-cognition-metabolic-2-r63"
+    },
+    {
+      "pmid": "42172984",
+      "title": "Linking intestinal distribution to pharmacological mechanism: Berberine prevents and treats colorectal cancer by targeting SIGMAR1.",
+      "doi": "10.1016/j.phymed.2026.158284",
+      "source_title": "Linking intestinal distribution to pharmacological mechanism: Berberine prevents and treats colorectal cancer by targeting SIGMAR1.",
+      "abstract": "Given the well-known intestinal distribution of berberine (BBR), investigating the mechanism by which BBR exerts its anti-colorectal cancer (CRC) effects may provide critical insights for the discovery of new drugs. This study aimed to identify the direct target of BBR assess the therapeutic effects for its anti-CRC effects. The target was identified by SILAC-ABPP-based chemoproteomic approach, together with in vitro interaction and functional validation assays. Then in vivo gene knockout models to assess target dependency and associated signaling pathways. We identified sigma non-opioid intracellular receptor 1 (SIGMAR1) as a direct target of BBR. The nitrogen cation of BBR forms an ionic bond with Glu172 on SIGMAR1, stabilizing its inactive trimeric conformation and inhibiting its function. In vivo knockout of Sigmar1 abolished the multi-dimensional anti-tumor effects of BBR, including inhibition of proliferation, promotion of apoptosis, downregulation of PD-L1, and remodeling of the intratumoral microbiota. Mechanistically, BBR binding to SIGMAR1 inhibits MKK7 and EIF2AK2, leading to suppression of both the MAPK and NF-κB signaling pathways. Our study demonstrates that SIGMAR1 as a crucial direct target mediating the anti-colorectal cancer effects of BBR. Targeting SIGMAR1 presents a highly promising therapeutic strategy against CRC, offering potential synergistic benefits in combination with chemotherapy and immunotherapy, a along with a favorable safety profile.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42172984/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42172984",
+        "doi": "10.1016/j.phymed.2026.158284",
+        "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T06:08:34.263Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "30586d1210829e0ef5a3",
+      "reserved_at": "2026-10-11T06:08:40.424Z",
+      "source_branch": "research/intake/3/20261011-0207-berberine-sigmar1-42172984"
     }
   ],
   "batches": [
@@ -57172,16 +57248,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 728,
+    "total_reservations": 729,
     "by_lane": {
       "1": 72,
       "2": 154,
-      "3": 127,
+      "3": 128,
       "4": 50,
       "5": 325
     },
     "by_state": {
-      "SOURCE_VERIFIED": 728
+      "SOURCE_VERIFIED": 729
     },
     "batches": [
       {
@@ -57194,7 +57270,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 228,
+        "count": 229,
         "pr_number": null,
         "blocker": null
       }
