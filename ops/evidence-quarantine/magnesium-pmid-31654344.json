@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "quarantined",
+  "entity_slug": "magnesium",
+  "pmid": "31654344",
+  "doi": "10.1007/s11695-019-04215-6",
+  "publication_title": "Trends in Drain Utilization in Bariatric Surgery: an Analysis of the MBSAQIP Database 2015-2017",
+  "publication_type": "Observational analysis of bariatric surgical practices; not magnesium intervention or sleep outcome evidence",
+  "reason": "Cross-domain source-entity assignment: not a magnesium or sleep study. This was incorrectly approved as a magnesium source and treated as a meta-analysis supporting sleep quality.",
+  "identified_in": "ops/enrichment-submissions/sessions/session-c/2026-08-30-magnesium-source-integrity.json",
+  "previous_source_id": "src_a8cddfb5c4db",
+  "previous_claim_id": "clm_82032f33663c",
+  "previous_claim_registry_id": "study-row-79",
+  "preservation_policy": "Keep source identity and error history here for investigation; do not display in consumer magnesium evidence, claims registry, or citations exports.",
+  "re_admission_requirements": [
+    "Independent scientific relevance review",
+    "Publication-identity verification",
+    "Documented human review sign-off",
+    "Correction of upstream Evidence_Register/workbook",
+    "Regression test passes"
+  ],
+  "verification_url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
+  "metadata_verified_date": "2026-10-10",
+  "historical_error": {
+    "sourceReviewStatus": "approved",
+    "claimRegistryClass": "meta-analysis",
+    "claimRegistryOutcome": "sleep_quality",
+    "original_wrong_source_id": "src_a8cddfb5c4db",
+    "original_wrong_claim_id": "clm_82032f33663c"
+  }
+}

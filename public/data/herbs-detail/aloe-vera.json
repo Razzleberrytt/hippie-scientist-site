@@ -18,19 +18,24 @@
     "gut_microbiome"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Oral latex/whole-leaf aloe can cause diarrhea, electrolyte loss, and drug interactions; avoid pregnancy and kidney disease.",
+  "safetyNotes": "PREPARATION-SPECIFIC SAFETY: Topical inner-leaf aloe gel differs substantially from oral latex, whole-leaf preparations, juice and supplements. Oral aloe latex/anthraquinone laxative preparations can cause severe diarrhea, low potassium and medication interactions; liver injury/hepatitis has been reported with some internal aloe products. MSKCC discourages internal supplement use. The FDA's 2002 determination concerned aloe-containing OVER-THE-COUNTER STIMULANT LAXATIVE DRUG ingredients lacking recognized safety/effectiveness, not a ban on all aloe or topical gel. Avoid oral use during pregnancy; caution with kidney disease, medicines affected by potassium loss and glucose-lowering agents.",
   "contraindications": [
     "Pregnancy",
     "inflammatory bowel disease",
     "kidney disease",
-    "oral latex use in children"
+    "oral latex use in children",
+    "Oral aloe latex or whole-leaf laxatives: avoid unsupervised use",
+    "Oral aloe during pregnancy: avoid",
+    "Oral aloe in kidney disease: avoid without clinician assessment"
   ],
   "interactions": [
     "Oral latex may interact with diuretics",
     "digoxin",
     "corticosteroids",
     "laxatives",
-    "and antidiabetics."
+    "and antidiabetics.",
+    "Oral laxative preparations may lower potassium, creating concern with digoxin, diuretics and corticosteroids",
+    "Oral aloe products may affect blood glucose; caution with antidiabetic medicines"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -90,17 +95,22 @@
       "studyClass": "meta-analysis",
       "metadataSource": "pubmed",
       "sampleSize": 415
+    },
+    {
+      "title": "Memorial Sloan Kettering: Aloe vera — safety and interactions",
+      "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/aloe-vera",
+      "note": "Differentiates topical gel from internal aloe/latex; documents the scoped FDA OTC stimulant-laxative determination."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 7 safety evidence requires verified warnings and independent product-level review before monetization or recommendation."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
@@ -175,7 +185,7 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Oral latex/whole-leaf aloe can cause diarrhea, electrolyte loss, and drug interactions; avoid pregnancy and kidney disease.",
+  "safety": "PREPARATION-SPECIFIC SAFETY: Topical inner-leaf aloe gel differs substantially from oral latex, whole-leaf preparations, juice and supplements. Oral aloe latex/anthraquinone laxative preparations can cause severe diarrhea, low potassium and medication interactions; liver injury/hepatitis has been reported with some internal aloe products. MSKCC discourages internal supplement use. The FDA's 2002 determination concerned aloe-containing OVER-THE-COUNTER STIMULANT LAXATIVE DRUG ingredients lacking recognized safety/effectiveness, not a ban on all aloe or topical gel. Avoid oral use during pregnancy; caution with kidney disease, medicines affected by potassium loss and glucose-lowering agents.",
   "dosage": "Preparation-specific; use standardized product label for Inner leaf gel for topical/digestive products and require source-backed dosage review before therapeutic claims.",
   "typical_dosage": "Preparation-specific; use standardized product label for Inner leaf gel for topical/digestive products and require source-backed dosage review before therapeutic claims."
 }
