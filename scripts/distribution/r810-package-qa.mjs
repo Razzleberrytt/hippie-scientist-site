@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { parseMfaJson } from './r810-local-aligner.mjs'
 const sha = (b) => crypto.createHash('sha256').update(b).digest('hex')
 const norm = (s) => String(s ?? '').trim().replace(/\s+/g,' ')
 const wordTokens = (s) => (String(s ?? '').toLowerCase().match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu)||[])
@@ -20,6 +21,17 @@ export function verifyR810WordAlignment(packageDir) {
   const wav=fs.readFileSync(path.join(dir,'narration.wav'))
   const scriptBytes=readBound(dir,manifest.narrationScript?.file,'narration-script',manifest.narrationScript?.sha256)
   const script=JSON.parse(scriptBytes.toString('utf8'))
+  const raw=fs.readFileSync(path.join(dir,'r810-mfa-output.json'))
+  const sourceWords=parseMfaJson(JSON.parse(raw.toString('utf8')))
+  const localAlignerHash=sha(fs.readFileSync(new URL('./r810-local-aligner.mjs',import.meta.url)))
+  if(receipt.rawAlignmentSha256!==sha(raw)
+    ||receipt.alignerCodeSha256!==localAlignerHash
+    ||sourceWords.length!==receipt.words?.length
+    ||sourceWords.some((w,i)=>w.word.toLowerCase().replace(/[^a-z0-9]/g,'')!==String(receipt.words[i]?.word||'').toLowerCase().replace(/[^a-z0-9]/g,'')
+      ||Math.abs(w.start-receipt.words[i].start)>0.002
+      ||Math.abs(w.end-receipt.words[i].end)>0.002)){
+    throw Error('R8.10 local acoustic-alignment receipt diverges from original MFA output or pinned producer')
+  }
   const looksLikeSha=(x)=>/^[a-f0-9]{64}$/i.test(String(x||''))
   if(receipt.schemaVersion!=='ths-r810-local-word-alignment-v1'||receipt.engine!=='mfa-offline'
     ||receipt.timingSource!=='acoustic-forced-alignment'||receipt.wordLevelAccuracyClaimed!==true
