@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { verifyR810WordAlignment } from './r810-package-qa.mjs'
 
 const digest = (content) => crypto.createHash('sha256').update(content).digest('hex')
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
@@ -225,13 +226,8 @@ export function registerFlywheelFromPackage(root, input) {
   // For an older non-aligned R8.09 release, require explicit owner-entered hook text.
   let hook=clean(input.hookTextFirst3Seconds)
   if(creativeMethodRelease==='R8.10'){
-    const alignment=json(path.join(dir,'word-alignment.receipt.json'))
-    if(alignment.audioSha256!==manifest.localNarration?.sha256 && !hook){
-      // R8.10 still requires explicit selection if the package's voice receipt
-      // cannot be cross-checked here. No fabricated speech tokenization.
-      throw Error('Flywheel cannot infer R8.10 first-three-second hook without approved exact audio')
-    }
-    if(!hook)hook=(alignment.words||[]).filter(w=>Number(w.start)<3).map(w=>clean(w.word)).join(' ')
+    const aligned=verifyR810WordAlignment(dir)
+    if(!hook)hook=(aligned.receipt.words||[]).filter(w=>Number(w.start)<3).map(w=>clean(w.word)).join(' ')
   }
   if(!hook)throw Error('Flywheel requires the actual first-three-second hook')
   return registerFlywheelVideo(root,{...input,hookTextFirst3Seconds:hook,
