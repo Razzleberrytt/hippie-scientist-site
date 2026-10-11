@@ -14,7 +14,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { EvidenceBadge } from '@/components/ui'
 import { buildPageMetadata } from '../lib/seo'
 import { withRedirectSourceMetadata } from '../lib/redirect-source-metadata'
-import { isRestrictedRecord } from '../lib/restricted-ingredients'
+import { canRenderAffiliateLinks } from '../lib/affiliate'
 import { buildSeoEntrySchemaGraph } from '../lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { seoEntryExpansions } from '@/lib/curated-expansions'
@@ -741,7 +741,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
                 {linkedCompounds.map((compound) => {
                   const productSet = getRevenueProductSet(compound.slug)
                   const topProduct = productSet?.products.find(p => p.slot === 'overall')
-                  const affUrl = isRestrictedRecord(compound)
+                  const affUrl = !canRenderAffiliateLinks(compound)
                     ? ''
                     : topProduct?.affiliateUrl || `https://www.amazon.com/s?k=${encodeURIComponent(compoundLabel(compound) + ' Supplement')}&tag=${AFFILIATE_TAGS.amazon}`
                   const evidence = compound.evidenceLevel || compound.evidence_tier || 'Limited'
@@ -773,11 +773,11 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
                       <td className="px-4 py-4 whitespace-nowrap text-right text-xs font-semibold">
                         <a
                           href={affUrl || `/compounds/${compound.slug}`}
-                          target="_blank"
-                          rel="nofollow sponsored noopener noreferrer"
+                          target={affUrl ? "_blank" : undefined}
+                          rel={affUrl ? "nofollow sponsored noopener noreferrer" : undefined}
                           className="inline-flex rounded-full bg-brand-700 px-3.5 py-1.5 font-bold text-white transition hover:bg-brand-800"
                         >
-                          Shop Picks →
+                          {affUrl ? 'Shop Picks →' : 'Read Evidence →'}
                         </a>
                       </td>
                     </tr>
