@@ -101,6 +101,7 @@ describe('R8.08 silent comprehension contract',()=>{
 function noviceExplainer(){
   const b=compliant()
   b.beats.find(beat=>beat.role==='evidence').narration='Evidence: a randomized human trial, a study in people assigned by chance.'
+  b.beats.find(beat=>beat.role==='evidence').spokenAnchor='Evidence: a'
   b.r809={
     targetAudience:'general-public',
     assumedPriorKnowledge:'none',
