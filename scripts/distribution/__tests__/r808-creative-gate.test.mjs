@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { validateR808CreativeBrief, buildR808CreativeReceipt } from '../r808-creative-gate.mjs'
+import { validateR809CreativeBrief, buildR809CreativeReceipt } from '../r809-creative-gate.mjs'
 
 function brief() {
   const source='https://thehippiescientist.net/example/'
@@ -94,5 +95,62 @@ describe('R8.08 silent comprehension contract',()=>{
   it('rejects dropping the inherited R8.07 limitation motif',()=>{
     const b=compliant();b.beats[3].r807.motifId=''
     expect(validateR808CreativeBrief(b).join('\n')).toMatch(/motif must return/)
+  })
+})
+
+function noviceExplainer(){
+  const b=compliant()
+  b.r809={
+    targetAudience:'general-public',
+    assumedPriorKnowledge:'none',
+    languagePolicy:'plain-english-first',
+    claimAuthority:'EvidenceBridge',
+    narrationCaptionSource:'exact-governed-voice-script',
+    burnInNarrationCaptions:true,
+    captionSync:'voice-derived-phrase-cues',
+    captionMaxWords:7,
+    captionMaxLines:2,
+    canonicalStyle:'2p5d-science-explainer-v1',
+    noPremiumCredits:true,animationMustTeach:true,
+    platformSafeArea:'platform-intersection',
+    decorativeProgressHudAllowed:false,
+    publicClarityReview:'required',
+    exactMasterCaptionReview:'required',
+    technicalTerms:[],glossaryCoverageReviewed:true
+  }
+  const visualByRole={hook:'person',finding:'compare',evidence:'evidence',limitation:'uncertainty',context:'safety',cta:'outro'}
+  for(const beat of b.beats) if(beat.narration){
+    beat.r809={
+      visualScene:visualByRole[beat.role],
+      visualReason:'The illustrated actor shows the viewer the actual scientific narrative visually.'
+    }
+  }
+  return b
+}
+
+describe('EvidenceMotion R8.09 general-public animated-explainer contract',()=>{
+  it('inherits R8.08 and binds every spoken scene and caption policy to the approved narration',()=>{
+    const b=noviceExplainer()
+    expect(validateR809CreativeBrief(b)).toEqual([])
+    const receipt=buildR809CreativeReceipt(b)
+    expect(receipt).toMatchObject({release:'R8.09',status:'approved',burnInNarrationCaptions:true})
+    const previous=receipt.overlaySha256
+    b.beats[1].r809.visualScene='molecule'
+    expect(buildR809CreativeReceipt(b).overlaySha256).not.toBe(previous)
+  })
+  it('rejects an unspecified PowerPoint-style visual and missing plain-English explanation',()=>{
+    const b=noviceExplainer()
+    b.beats[1].r809.visualScene='generic-slide'
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/cartoon teaching scene/)
+    b.beats[1].r809.visualScene='compare'
+    b.r809.technicalTerms=[{term:'trial',firstUseBeatId:'evidence',explanationBeatId:'evidence',plainMeaning:'a study in people'}]
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/plain meaning of trial/)
+  })
+  it('rejects ungrounded captions or missing knowledge-level policy',()=>{
+    const b=noviceExplainer()
+    b.r809.captionSync='generic-timer'
+    b.r809.assumedPriorKnowledge='some'
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/short burned-in narration captions/)
+    expect(validateR809CreativeBrief(b).join('\n')).toMatch(/without prior scientific knowledge/)
   })
 })
