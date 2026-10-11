@@ -303,12 +303,51 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
   return Array.isArray(rows) ? rows : []
 })
 
+// Batch 8 safety-only detail promotion: authorize a stronger reader warning,
+// not editorial approval, product recommendations, evidence grading or indexing.
+// Canonical core safety and contraindications remain present; this is additive.
+const BATCH8_SAFETY_SLUGS = new Set([
+  'black-cohosh', 'green-tea-extract', 'green-tea-extract-egcg',
+  'holy-basil', 'holy-basil-seed', 'holy-basil-purple', 'damiana',
+  'saffron', 'saw-palmetto', 'eleuthero', 'nettle-root',
+])
+
+function resolveHeldSafetyDetail(base: RuntimeRecord, detail: RuntimeRecord | null): RuntimeRecord {
+  if (!detail) return base
+  const governance = detail.governance
+  const policy = governance && typeof governance === 'object' && !Array.isArray(governance)
+    ? governance as Record<string, unknown> : null
+  const eligible = BATCH8_SAFETY_SLUGS.has(String(base.slug || '')) &&
+    policy?.monetizationAllowed === false &&
+    policy?.recommendationAllowed === false &&
+    policy?.requiresHumanReview === true &&
+    typeof detail.safetyNotes === 'string' && Boolean(detail.safetyNotes.trim()) &&
+    Array.isArray(detail.sources) && detail.sources.length > 0
+  if (!eligible) return resolveRuntimeRecordLayers(base, [detail]) as RuntimeRecord
+
+  const priorSafety = typeof base.safety === 'string' ? base.safety.trim() : ''
+  const newSafety = String(detail.safetyNotes).trim()
+  const safety = priorSafety && !newSafety.includes(priorSafety)
+    ? priorSafety + ' ' + newSafety : newSafety
+  const oldCautions = Array.isArray(base.contraindications) ? base.contraindications : []
+  const newCautions = Array.isArray(detail.contraindications) ? detail.contraindications : []
+  const cautions = Array.from(new Set([...oldCautions, ...newCautions].filter(
+    (item): item is string => typeof item === 'string' && Boolean(item.trim()),
+  )))
+  const resolved = resolveRuntimeRecordLayers(base, [{ ...detail, safetyNotes: safety, contraindications: cautions }], {
+    approvedTrustOverrides: ['safety', 'contraindications'],
+  }) as RuntimeRecord
+  // Renderer aliases must reflect the safety field after trust resolution.
+  // Merely changing detail.safetyNotes does not update a core-owned alias.
+  return { ...resolved, safetyNotes: resolved.safety, runtime_safety: resolved.safety }
+}
+
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
   const herbs = await getHerbs()
   const herb = herbs.find((herb: any) => herb.slug === slug)
   if (!herb) return null
   const detail = await readDetailRecord('herbs', slug)
-  const mergedHerb = detail ? resolveRuntimeRecordLayers(herb, [detail]) as RuntimeRecord : herb
+  const mergedHerb = resolveHeldSafetyDetail(herb, detail)
   const enrichedHerb = await attachWorkbookEvidence(mergedHerb)
 
   if (!enrichedHerb || !getRuntimeVisibility(enrichedHerb).canRender) return null
@@ -321,7 +360,7 @@ export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | n
   const compound = compounds.find((compound: any) => compound.slug === slug)
   if (!compound) return null
   const detail = await readDetailRecord('compounds', slug)
-  const mergedCompound = detail ? resolveRuntimeRecordLayers(compound, [detail]) as RuntimeRecord : compound
+  const mergedCompound = resolveHeldSafetyDetail(compound, detail)
   const enrichedCompound = await attachWorkbookEvidence(mergedCompound)
 
   if (!enrichedCompound || !getRuntimeVisibility(enrichedCompound).canRender) return null
