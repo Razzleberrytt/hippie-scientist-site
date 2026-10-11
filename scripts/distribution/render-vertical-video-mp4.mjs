@@ -5,6 +5,7 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
+import { verifyR810PackageGate } from './r810-package-qa.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -143,7 +144,7 @@ function verifyPackage(packageDir) {
     }
   }
 
-  if (clean(manifest.creativeMethodRelease) === 'R8.09') {
+  if (['R8.09', 'R8.10'].includes(clean(manifest.creativeMethodRelease))) {
     if (manifest.captions?.burnInRequired !== true
         || clean(manifest.captions?.source) !== 'exact-governed-voice-script'
         || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
@@ -329,8 +330,9 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   fs.mkdirSync(path.dirname(output), { recursive: true })
 
   const verified = verifyPackage(inputDir)
+  if (clean(verified.manifest.creativeMethodRelease) === 'R8.10') verifyR810PackageGate(inputDir)
   const narration = verifyLocalNarration(inputDir, verified.manifest)
-  const isR809 = clean(verified.manifest.creativeMethodRelease) === 'R8.09'
+  const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
   if (isR809) {
     const manifest = verified.manifest
@@ -439,6 +441,11 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         audioCodec: 'aac',
         audioBitrate: '192k',
       },
+      r810Governance: clean(verified.manifest.creativeMethodRelease) === 'R8.10' ? {
+        governedPlanSha256: clean(verified.manifest.creativeR810?.governedPlanSha256),
+        approvedSourceLedgerSha256: clean(verified.manifest.sourceLedger?.sha256),
+        acousticWordAlignment: 'not-claimed-at-draft-render',
+      } : null,
       r809Captioning: isR809 ? {
         burnIn: true,
         authority: 'exact-governed-voice-script',
