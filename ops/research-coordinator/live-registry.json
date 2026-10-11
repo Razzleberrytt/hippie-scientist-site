@@ -51660,6 +51660,239 @@
       "reservation_id": "36eea58fec92e5fdb8fe",
       "reserved_at": "2026-10-11T01:45:54.326Z",
       "source_branch": "research/intake/1/20261010-2143-placebo-mindfulness-carnosine-three-r12"
+    },
+    {
+      "pmid": "42163067",
+      "title": "Identifying Promising Practices in Lifestyle Intervention Programs for the Prediabetes Population: A Meta-Analysis and Meta-Regression of Randomized Controlled Trials.",
+      "doi": "10.1111/wvn.70152",
+      "source_title": "Identifying Promising Practices in Lifestyle Intervention Programs for the Prediabetes Population: A Meta-Analysis and Meta-Regression of Randomized Controlled Trials.",
+      "abstract": "Despite the evidence for the efficacy of lifestyle interventions for type 2 diabetes prevention, there remains a gap in translating this evidence-based practice into real-world settings. To summarize current evidence regarding the relationship between participant characteristics, intervention components, and the effect of lifestyle interventions for individuals with prediabetes. The initial search of PubMed, Embase, the Cochrane Library, and Web of Science was performed on 6th December 2023 and was subsequently updated on 5th October 2025. Randomized controlled trials on lifestyle interventions (diet and/or physical activity), compared to usual care, no intervention, or wait-list control, in adults with prediabetes were eligible. Outcomes included the incidence of type 2 diabetes and normoglycemia, fasting plasma glucose (FPG), 2-h plasma glucose, hemoglobin A1c (HbA1c), fasting insulin (FI), and Homeostatic Model Assessment for Insulin Resistance (HOMA-IR). Random-effects meta-analyses were performed to estimate relative risks (RRs) and mean differences. Subgroup analyses and meta-regressions were conducted by participant characteristics and intervention components. Seventy-seven studies (n = 22,629 participants) were included. Greater weight loss (%) was associated with larger reductions in diabetes incidence (β = 0.07 [0.02, 0.12], p = 0.010). Achieving ≥ 5% (vs. < 5%) weight loss was associated with higher reversion rates to normoglycemia (RR = 1.80 [1.55; 2.08] vs. 1.32 [1.03; 1.70]; p subgroup = 0.036). Interventions with supervised exercise training more effectively reduced diabetes incidence than those without this component (RR = 0.40 [0.24; 0.65] vs. 0.69 [0.63; 0.76]; p subgroup = 0.031). Younger participants showed greater improvements in FPG, HbA1c, FI, and HOMA-IR. Higher baseline HbA1c levels were associated with a greater reduction in HbA1c but a smaller FI improvement. This meta-analysis provides valuable insights into the implementation of diabetes prevention programs. Weight loss is a critical determinant for diabetes prevention, and weight loss goal setting and progress monitoring are recommended. Adding supervised exercise sessions can enhance the program's effectiveness. Early interventions for younger individuals with lower HbA1c levels may prevent diabetes more effectively. PROSPERO (CRD42024486361).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42163067/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42163067",
+        "doi": "10.1111/wvn.70152",
+        "journal": "Worldviews on evidence-based nursing",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T01:55:59.895Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "23cb55b91e9ea6531308",
+      "reserved_at": "2026-10-11T01:56:08.477Z",
+      "source_branch": "research/intake/2/20261010-2153-cognition-metabolic-r59"
+    },
+    {
+      "pmid": "42025926",
+      "title": "Effects of time-restricted eating on glycemic control and variability in individuals with overweight/obesity and prediabetes: A secondary analysis of the RESET randomized controlled trial.",
+      "doi": "10.1016/j.diabres.2026.113276",
+      "source_title": "Effects of time-restricted eating on glycemic control and variability in individuals with overweight/obesity and prediabetes: A secondary analysis of the RESET randomized controlled trial.",
+      "abstract": "The aim of this exploratory analysis was to investigate effects of time-restricted eating (TRE) on glycemic control and variability in adults with prediabetes. This study utilized data from the Restricted Eating Time (RESET) randomized controlled trial. A subset of 46 participants with prediabetes, allocated to either a 10-hour TRE intervention (n = 20) or the control group (n = 26), was analyzed. Changes in continuous glucose monitoring derived outcomes, fasting glucose and glycosylated hemoglobin (HbA1c), at 6 weeks and 3 months were assessed using a linear mixed-effects model. There were no between-group differences in fasting glucose or HbA1c after 6 weeks and 3 months. The 24-hour and daytime coefficient of variation were reduced within the TRE group after 6 weeks but not after 3 months. Nighttime average sensor glucose was lower in the TRE group compared with the control group after 6 weeks [-0.3 mmol/L (-0.6 to -0.1)], but this effect was not maintained after 3 months [-0.1 mmol/L (-0.4 to 0.2)]. TRE may have a small short-term beneficial effect on nighttime glucose levels in adults with prediabetes. Larger long-term TRE studies are warranted.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42025926/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42025926",
+        "doi": "10.1016/j.diabres.2026.113276",
+        "journal": "Diabetes research and clinical practice",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T01:55:59.896Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "e5d7a8e055c4c2571237",
+      "reserved_at": "2026-10-11T01:56:08.477Z",
+      "source_branch": "research/intake/2/20261010-2153-cognition-metabolic-r59"
+    },
+    {
+      "pmid": "42547134",
+      "title": "Effects of the Otago Exercise Program on frailty and cognitive function in cognitively frail older adults in nursing homes: A randomized controlled trial.",
+      "doi": "10.1016/j.apnr.2026.152107",
+      "source_title": "Effects of the Otago Exercise Program on frailty and cognitive function in cognitively frail older adults in nursing homes: A randomized controlled trial.",
+      "abstract": "To evaluate the effects of a 12-week Otago Exercise Program (OEP) on physical frailty and cognitive function in cognitively frail older adults residing in nursing homes. Cognitive frailty increases the risk of dementia, disability, and mortality in older adults. Exercise interventions are crucial for primary prevention, but evidence on the OEP for cognitively frail nursing home residents is limited. A randomized controlled trial was conducted in a nursing home in Changsha. A total of 62 older adults aged 75-95 years with cognitive frailty were randomly assigned to the OEP group (n = 31) or control group (n = 31). The OEP group received 30-min sessions three times weekly for 12 weeks, comprising warm-up, resistance, and balance exercises. Both groups received monthly health education. Primary outcomes were physical frailty and cognitive function assessed at baseline, 6 weeks, and 12 weeks. The two-way repeated-measures ANOVA revealed significant time-by-group interactions for physical frailty and cognitive function (both F = 34.347, P < 0.001, partial η 2 = 0.364, large effect size). Specifically, the OEP group exhibited superior improvements in reducing frailty severity and enhancing cognitive function compared with the control group. A significant main group effect was also observed (F = 4.397, P = 0.040), with the OEP group showing better overall outcomes. The 12-week OEP intervention effectively reduced physical frailty and improved cognitive function in cognitively frail nursing home residents. This simple program can be readily implemented by nursing staff in long-term care settings. Clinical Trial Registry, ChiCTR2000039592 (registered 02/11/2020. Accessed on http://www.chictr.org.cn/index.aspx). The study was originally planned for 2020 but was postponed due to the COVID-19 pandemic; it was conducted in 2025 with no changes to the registered protocol.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42547134/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42547134",
+        "doi": "10.1016/j.apnr.2026.152107",
+        "journal": "Applied nursing research : ANR",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T01:55:59.896Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b586eec934f648977a5a",
+      "reserved_at": "2026-10-11T01:56:08.477Z",
+      "source_branch": "research/intake/2/20261010-2153-cognition-metabolic-r59"
     }
   ],
   "batches": [
@@ -51688,16 +51921,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 657,
+    "total_reservations": 660,
     "by_lane": {
       "1": 65,
-      "2": 143,
+      "2": 146,
       "3": 124,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 657
+      "SOURCE_VERIFIED": 660
     },
     "batches": [
       {
@@ -51710,7 +51943,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 157,
+        "count": 160,
         "pr_number": null,
         "blocker": null
       }
