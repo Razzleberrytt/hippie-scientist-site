@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { buildR809CaptionCues, renderR809CaptionsSrt, renderR809CaptionAss, validateR809CaptionsSrt } from '../r809-caption-track.mjs'
 import { renderR809VisualActor } from '../r809-visual-actors.mjs'
+import { renderVerticalVideoSceneSvg } from '../render-vertical-video-package.mjs'
 
 const scenes=[
   {beatId:'intro', start:0, end:5, voiceover:'Think of a receptor as a docking spot for certain molecules.'},
@@ -31,6 +32,37 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
   })
   it('fails instead of flashing a long sentence too quickly',()=>{
     expect(()=>buildR809CaptionCues([{start:0,end:0.1,voiceover:'This is an example of too much text.'}])).toThrow(/too fast/)
+  })
+  it('never flashes a one-character final caption after a long phrase',()=>{
+    const sample=[{beatId:'readability',start:0,end:1,voiceover:'one two three four five six seven x'}]
+    const cues=buildR809CaptionCues(sample)
+    expect(cues).toHaveLength(2)
+    expect(cues.map(c=>c.text).join(' ').split(/\\s+/).join(' ')).toBe(sample[0].voiceover)
+    expect(cues.every(c=>c.end-c.start>=0.42-1e-6)).toBe(true)
+    expect(cues.at(-1).end).toBe(1)
+  })
+  it('preserves inherited R8.07 rhythm, motifs and interruption in R8.09 rendered pixels',()=>{
+    const base={
+      role:'limitation',beatId:'limitation',visualScene:'uncertainty',
+      onScreenText:'Human evidence remains uncertain.',
+      motionType:'hold',colorTreatment:'evidence',
+      factualAuthority:'canonical-input',compositionFamily:'evidence-focus',
+      motifId:'evidence-thread',patternInterrupt:true,
+    }
+    const options={
+      creativeMethodRelease:'R8.09',motionPhase:'post',
+      sourceUrl:'https://thehippiescientist.net/compounds/mitragynine/',
+      contentHash:'sha256-demo',disclosure:'Educational evidence review',
+    }
+    const render=scene=>renderVerticalVideoSceneSvg(scene,options).svg
+    const first=render(base)
+    expect(first).toContain('data-r809-visual-scene="uncertainty"')
+    expect(first).toContain('data-r807-composition="evidence-focus"')
+    expect(first).toContain('data-r807-motif="evidence-thread"')
+    expect(first).toContain('data-r807-pattern-interrupt="true"')
+    expect(render({...base,compositionFamily:'split-compare'})).not.toBe(first)
+    expect(render({...base,motifId:'changed-motif'})).not.toBe(first)
+    expect(render({...base,patternInterrupt:false})).not.toBe(first)
   })
   it('draws authored science cartoon objects, not slideshow placeholders',()=>{
     for(const visualScene of ['person','compare','molecule','evidence','uncertainty','safety','outro']){
