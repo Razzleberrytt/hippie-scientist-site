@@ -65890,6 +65890,162 @@
       "reservation_id": "de23cc8f5be40017c91d",
       "reserved_at": "2026-10-11T10:33:53.072Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0631"
+    },
+    {
+      "pmid": "42625730",
+      "title": "The effects of progressive muscle relaxation on sleep quality in adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.3389/fpubh.2026.1906525",
+      "source_title": "The effects of progressive muscle relaxation on sleep quality in adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "With the increasing number of people suffering from insomnia, sleep has evolved into a global public health issue. Compared to the side effects and instability of drug treatments, people are constantly seeking non-pharmacological treatments to improve sleep quality. Progressive muscle relaxation (PMR) has gradually come into focus. Because existing evidence remains inconsistent, this study conducted a systematic review and meta-analysis. As of May 2026, studies related to progressive muscle relaxation and sleep quality were identified through searches of five databases, including CINAHL, Embase, PubMed, Scopus, and Web of Science. Sleep quality outcomes were synthesized using a random-effects meta-analysis. analyses were conducted according to participant type (cancer patients and non-cancer patients) and age group (Age < 55 years and Age ≥55 years). Meta-regression was used to examine whether the number of progressive muscle relaxation sessions was associated with sleep quality. Sensitivity analysis and publication bias assessment were performed. Fourteen studies involving 957 participants were included in the final analysis. The pooled findings indicated that progressive muscle relaxation improved sleep quality (Hedges g = -1.24, 95% CI -1.71--0.77, p < 0.001, I 2 = 85.5%). Improvements were observed in both cancer patients (Hedges g = -1.17, 95% CI -2.24--0.09, I 2 = 86.8%) and non-cancer patients (Hedges g = -1.29, 95% CI -1.94--0.65, I 2 = 86.5%), with a larger effect observed among non-cancer patients. When participants were grouped by age, a significant benefit was found in adults younger than 55 years (Hedges g = -1.40, 95% CI -2.12--0.69, I 2 = 89.4%), whereas no significant improvement was detected among adults aged 55 years and older (Hedges g = -1.17, 95% CI -2.67-0.32, I 2 = 77.5%). Meta-regression did not identify a significant association between the number of progressive muscle relaxation sessions and sleep quality ( p = 0.2106). The available evidence suggests that progressive muscle relaxation improves subjective sleep quality in adults. Beneficial effects were observed in both cancer and non-cancer populations, whereas the effects among older adults remain uncertain. Sleep quality improvements also do not appear to be related to the number of progressive muscle relaxation sessions. https://www.crd.york.ac.uk/PROSPERO/view/CRD420251267826, Identifier: CRD420251267826.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42625730/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42625730",
+        "doi": "10.3389/fpubh.2026.1906525",
+        "journal": "Frontiers in public health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T10:38:49.334Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8e4939f7aa06e77ead2a",
+      "reserved_at": "2026-10-11T10:38:55.872Z",
+      "source_branch": "research/intake/1/20261011-0636-pmr-exercise-r20"
+    },
+    {
+      "pmid": "41519366",
+      "title": "Effects of exercise on anxiety and depression in patients with insomnia: a systematic review and meta-analysis.",
+      "doi": "10.1016/j.physbeh.2026.115225",
+      "source_title": "Effects of exercise on anxiety and depression in patients with insomnia: a systematic review and meta-analysis.",
+      "abstract": "Chronic insomnia can negatively influence physical health and mental health, including symptoms of anxiety and depression, which have a bidirectional association with insomnia. In separate studies, exercise has elicited significant improvements in insomnia and reductions in anxiety and depressed mood. The objective of this systematic review and meta-analysis was to evaluate the effects of exercise on symptoms of anxiety and depression as primary outcomes in patients with insomnia. Secondary outcomes were improvements in sleep. A systematic literature review was based on the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA). The search was conducted in Embase, Scopus, Web of Science, CINAHL, PsycINFO, CENTRAL, MEDLINE and SPORTDiscus databases. Six randomized controlled trials (RCT) and one Quasi-RCT, published between 2010 and 2022 (with a total of 336 participants), were selected. The results showed that exercise interventions significantly improved anxiety (SMD -0.44, 95% CI = -0.72 to -0.15), depressed mood (SMD -0.53, 95% CI = -0,78 to -0.29), the Insomnia Severity Index (SMD -0.62, 95% CI = -0.87 to -0.37) and the Pittsburg Sleep Quality Index (MD -2.94, 95% CI = -3.85 to -2.03). In actigraphic assessments, a significant reduction in wake after sleep onset was found (MD -8.67, 95% CI = -16.17 to -1.17). The meta-analysis results indicate that exercise in patients with insomnia significantly improved anxiety and depression, reduced insomnia severity, increased sleep quality, and decreased wake after sleep onset (PROSPERO, CRD42022374853).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41519366/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Meta-Analysis",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41519366",
+        "doi": "10.1016/j.physbeh.2026.115225",
+        "journal": "Physiology & behavior",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T10:38:49.334Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "44a3bd5de32fff3bd350",
+      "reserved_at": "2026-10-11T10:38:55.872Z",
+      "source_branch": "research/intake/1/20261011-0636-pmr-exercise-r20"
     }
   ],
   "batches": [
@@ -65918,16 +66074,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 841,
+    "total_reservations": 843,
     "by_lane": {
-      "1": 75,
+      "1": 77,
       "2": 160,
       "3": 131,
       "4": 50,
       "5": 425
     },
     "by_state": {
-      "SOURCE_VERIFIED": 841
+      "SOURCE_VERIFIED": 843
     },
     "batches": [
       {
@@ -65940,7 +66096,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 341,
+        "count": 343,
         "pr_number": null,
         "blocker": null
       }
