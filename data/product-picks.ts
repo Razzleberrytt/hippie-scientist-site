@@ -449,14 +449,6 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'lemon-balm',
-    name: 'NOW Lemon Balm 500 mg',
-    brand: 'NOW Foods',
-    type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+Lemon+Balm+500+mg+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget capsule pick for evening relaxation.'
-  },
-  {
-    compound_slug: 'lemon-balm',
     name: 'Life Extension Cyracos Lemon Balm',
     brand: 'Life Extension',
     type: 'premium',

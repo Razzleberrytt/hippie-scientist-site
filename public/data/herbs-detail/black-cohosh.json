@@ -13,10 +13,13 @@
     "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated; rare suspected hepatotoxicity reports; clinical trials have not consistently shown liver injury",
+  "safetyNotes": "LIVER-INJURY WARNING: Products sold as black cohosh have been linked to more than 50 reported cases of clinically apparent liver injury, including acute liver failure, transplantation and death. NIH LiverTox rates products labeled black cohosh likelihood A, but the responsible ingredient remains unclear: some products were misidentified or adulterated, and trials did not consistently detect injury. Do not use with existing liver disease without medical assessment. Stop the product and seek urgent medical attention for jaundice, dark urine or abdominal pain. Avoid in pregnancy and breastfeeding because safety is not established.",
   "contraindications": [
     "liver disease",
-    "pregnancy"
+    "pregnancy",
+    "Products sold as black cohosh: serious liver-injury signal (including transplant/death), uncertain specific botanical causality",
+    "Avoid with existing liver disease until medical review",
+    "Pregnancy and breastfeeding: avoid medicinal use"
   ],
   "interactions": [
     "hepatotoxic drugs (caution)"
@@ -57,12 +60,12 @@
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": "curated_allowlist"
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced",
