@@ -26,4 +26,23 @@ describe('turmeric and creatine candidate catalog identity', () => {
     expect(thorne?.rationale).toMatch(/phospholipid.bound curcumin/i)
     expect(thorne?.rationale).not.toMatch(/best overall|29x|clinically validated/i)
   })
+
+  it('maps corroborated ASIN candidate IDs to the exact current product sets', () => {
+    const now = creatine.find((p) => p.brand === 'NOW Foods')
+    const on = creatine.find((p) => p.brand === 'Optimum Nutrition')
+    const lifeExtension = turmeric.find((p) => p.brand === 'Life Extension')
+    expect(now?.asin).toBe('B0013OUOBM')
+    expect(now?.affiliateUrl).toContain('/dp/B0013OUOBM')
+    expect(on?.asin).toBe('B002DYIZEO')
+    expect(on?.affiliateUrl).toContain('/dp/B002DYIZEO')
+    expect(lifeExtension?.asin).toBe('B000X9P5GM')
+    expect(lifeExtension?.affiliateUrl).toContain('/dp/B000X9P5GM')
+  })
+
+  it('does not invent an ASIN for unverified Thorne creatine or Meriva-SR', () => {
+    const thorneCreatine = creatine.find((p) => p.brand === 'Thorne')
+    const meriva = turmeric.find((p) => p.brand === 'Thorne')
+    expect(thorneCreatine?.asin).toBeUndefined()
+    expect(meriva?.asin).toBeUndefined()
+  })
 })
