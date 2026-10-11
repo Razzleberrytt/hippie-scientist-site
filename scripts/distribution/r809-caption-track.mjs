@@ -53,14 +53,24 @@ export function buildR809CaptionCues(scenes) {
     if (!(Number.isFinite(start) && Number.isFinite(end) && end > start)) throw new Error('R8.09 invalid voice beat times')
     const chunks = phrases(spoken)
     const duration = end - start
-    if (duration / chunks.length < 0.42) throw new Error('R8.09 captions too fast for readability; revise narration')
+    const minCueSeconds = 0.42
+    if (duration + 1e-9 < chunks.length * minCueSeconds) {
+      throw new Error('R8.09 captions too fast for readability; revise narration')
+    }
     const weight = chunks.map((c) => c.join(' ').length)
     const sum = weight.reduce((a, b) => a + b, 0)
-    let elapsedWeight = 0
+    // Reserve a readable minimum for EVERY cue before allocating spare time by
+    // phrase length. Averaging first and weighting later made one-word endings
+    // flash for milliseconds even when the average exceeded 0.42 seconds.
+    const remaining = Math.max(0, duration - chunks.length * minCueSeconds)
+    let elapsedSeconds = 0
     for (let i = 0; i < chunks.length; i++) {
-      const cueStart = i === 0 ? start : start + duration * elapsedWeight / sum
-      elapsedWeight += weight[i]
-      const cueEnd = i === chunks.length - 1 ? end : start + duration * elapsedWeight / sum
+      const cueStart = i === 0 ? start : start + elapsedSeconds
+      elapsedSeconds += minCueSeconds + remaining * weight[i] / sum
+      const cueEnd = i === chunks.length - 1 ? end : start + elapsedSeconds
+      if (cueEnd - cueStart < minCueSeconds - 1e-6) {
+        throw new Error('R8.09 individual caption cue is too fast for readability')
+      }
       cues.push({ start: cueStart, end: cueEnd, text: chunks[i].join('\n'), beatId: scene.beatId || null })
     }
   }
