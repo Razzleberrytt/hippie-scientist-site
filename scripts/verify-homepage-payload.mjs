@@ -62,6 +62,8 @@ const publishableSet = new Set(
   governed
     .filter(
       row =>
+        row?.researchEnrichment?.reviewStatus === 'approved_for_rollup' &&
+        row?.researchEnrichment?.active === true &&
         ['approved', 'published'].includes(String(row?.researchEnrichment?.editorialStatus || '')) &&
         row?.researchEnrichment?.editorialReadiness?.publishable === true,
     )
