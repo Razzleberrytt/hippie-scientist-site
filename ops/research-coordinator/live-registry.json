@@ -57220,6 +57220,1948 @@
       "reservation_id": "30586d1210829e0ef5a3",
       "reserved_at": "2026-10-11T06:08:40.424Z",
       "source_branch": "research/intake/3/20261011-0207-berberine-sigmar1-42172984"
+    },
+    {
+      "pmid": "34858513",
+      "title": "Efficacy and Safety of Ashwagandha Root Extract on Cognitive Functions in Healthy, Stressed Adults: A Randomized, Double-Blind, Placebo-Controlled Study.",
+      "doi": "10.1155/2021/8254344",
+      "source_title": "Efficacy and Safety of Ashwagandha Root Extract on Cognitive Functions in Healthy, Stressed Adults: A Randomized, Double-Blind, Placebo-Controlled Study.",
+      "abstract": "The global prevalence of stress is increasing. Stress adversely affects cognitive ability, sleep quality, and overall psychological well-being. Ashwagandha ( Withania somnifera (L.) Dunal), an essential medicine in Ayurveda, is reportedly beneficial in reducing stress and improving memory. This double-blind, randomized, placebo-controlled clinical study evaluated the effect of Ashwagandha root extract sustained-release capsule 300 mg (Prolanza™; hereafter Ashwagandha SR) on cognitive functions, stress levels, sleep quality, overall well-being, and safety in stressed subjects. Subjects (130 healthy cognitively sound adults [20-55 years, body mass index:18-29 kg/m 2 ]) having a Perceived Stress Scale (PSS) score of 14-24 were randomized to receive either Ashwagandha SR or placebo. Subjects took one capsule of Ashwagandha SR or placebo daily for 90 consecutive days. This study was registered on Clinical Trials Registry-India (CTRI) on 13/11/2019 [number: CTRI/2019/11/021990]. The primary endpoint was the change in cognitive function as measured by CANTAB from baseline to the end of the study period (90 ± 7 days). The secondary outcomes included the change in PSS-10 score, serum cortisol level (9-11 am), the OHQ score, the PSQI, and serum BDNF levels. Only 125 completed the study and were evaluated. The Cambridge Neuropsychological Test Automated Battery (CANTAB) reported significantly improved recall memory, and the total error rate in recalling patterns significantly decreased at visit 4 in the Ashwagandha SR group vs. the placebo group (first attempt memory score:12.9 ± 6.7 vs. 10.1 ± 6.3; total errors:17.5 ± 23.3 vs. 27.7 ± 23.6). At visit 4, lower PSS-10 score (13.0 ± 5.0 vs. 18.7 ± 4.6; p < .0001), serum cortisol levels ( p =0.0443), and Pittsburgh Sleep Quality Index (PSQI) score ( p < .0001) but higher Oxford Happiness Questionnaire (OHQ) scores ( p < .0001) were seen in Ashwagandha SR vs. the placebo group, suggesting significantly lower stress levels and significantly better psychological well-being and sleep quality in the former. No adverse events were reported. This is the first clinical study assessing Ashwagandha SR for its safety and efficacy. Treatment with one Ashwagandha SR capsule once daily for 90 days improved memory and focus, psychological well-being, and sleep quality, reduced stress levels, and was safe and well-tolerated.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34858513/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "34858513",
+        "doi": "10.1155/2021/8254344",
+        "journal": "Evidence-based complementary and alternative medicine : eCAM",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-11T06:33:33.842Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "db7654989c72877e5604",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "12404571",
+      "title": "The acute effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy normal subjects.",
+      "doi": "10.1002/hup.306",
+      "source_title": "The acute effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy normal subjects.",
+      "abstract": "The Ayurvedic medicine Bacopa monniera (Brahmi) has been shown to exert cognitive enhancing effects in animals. The current study examined the acute effects of an extract of Bacopa monniera on cognitive function in normal healthy human subjects. The study was a double-blind, placebo-controlled independent group design in which subjects were randomly allocated to one of two treatment conditions, Bacopa monniera (300 mg) (n = 18) or placebo (n = 20). Neuropsychological testing was conducted before and 2 h after drug administration. No significant changes were found on any of the tests. The findings suggest that Bacopa monniera, at least for the dose administered, has no acute effects on cognitive functioning in normal healthy subjects. Copyright 2001 John Wiley & Sons, Ltd.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12404571/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "12404571",
+        "doi": "10.1002/hup.306",
+        "journal": "Human psychopharmacology",
+        "publication_year": 2019,
+        "hydrated_at": "2026-10-11T06:33:33.842Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5e543e8afc79ba0d975d",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "11498727",
+      "title": "The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects.",
+      "doi": "10.1007/s002130100815",
+      "source_title": "The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects.",
+      "abstract": "Extracts of Bacopa monniera have been reported to exert cognitive enhancing effects in animals. However, the effects on human cognition are inconclusive. The current study examined the chronic effects of an extract of B. monniera (Keenmind) on cognitive function in healthy human subjects. The study was a double-blind placebo-controlled independent-group design in which subjects were randomly allocated to one of two treatment conditions, B. monniera (300 mg) or placebo. Neuropsychological testing was conducted pre-(baseline) and at 5 and 12 weeks post drug administration. B. monniera significantly improved speed of visual information processing measured by the IT task, learning rate and memory consolidation measured by the AVLT (P<0.05), and state anxiety (P<0.001) compared to placebo, with maximal effects evident after 12 weeks. These findings suggest that B. monniera may improve higher order cognitive processes that are critically dependent on the input of information from our environment such as learning and memory.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11498727/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "11498727",
+        "doi": "10.1007/s002130100815",
+        "journal": "Psychopharmacology",
+        "publication_year": 2001,
+        "hydrated_at": "2026-10-11T06:33:33.843Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "da30202d04b6fa20c109",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "34367785",
+      "title": "An Evaluation of the Effects of a Non-caffeinated Energy Dietary Supplement on Cognitive and Physical Performance: A Randomized Double-Blind Placebo-Controlled Study.",
+      "doi": "10.7759/cureus.16178",
+      "source_title": "An Evaluation of the Effects of a Non-caffeinated Energy Dietary Supplement on Cognitive and Physical Performance: A Randomized Double-Blind Placebo-Controlled Study.",
+      "abstract": "A large and growing body of research shows that non-caffeinated plant-based nutritional supplements can increase cognitive and physical performance. This study aimed to build on this work by investigating the possibility that a specific botanical blend (consisting of Bacopa monnieri bacosides, Kaempferia parviflora methoxy flavones, pomegranate peel polyphenols, and Moringa oleifera leaf saponins) could improve cognitive and physical performance. To this end, we carried out a randomized, double-blind, placebo-controlled 21-day parallel study on 36 healthy adults. We compared the effects of the botanical blend at baseline to a caffeine and a placebo condition on 1) self-reported alertness, anxiety, and headaches; 2) multiple measures of attention and cognition; 3) physical performance; and 4) stress biomarkers. We found that relative to baseline and compared to the Caffeine and Placebo groups, the botanical blend increased alertness and improved cognitive performance. The cognitive effects were most robust for attention measures. The botanical blend did not improve physical performance on a time to exhaustion (TTE) test. Of note, there was not the expected increase in catecholamine response after the TTE on Day 21, suggesting that long-term botanical blend use decreases the catecholamine stress response of a physical endurance task. In conclusion, we show that, within the confines of this study, a combination of the botanical blend could serve as a safe and effective nutritional supplement to improve cognitive performance.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34367785/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "34367785",
+        "doi": "10.7759/cureus.16178",
+        "journal": "Cureus",
+        "publication_year": 2021,
+        "hydrated_at": "2026-10-11T06:33:33.843Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "9afa3f1578a8591b681f",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "30477839",
+      "title": "The effects of alcoholic extract of saffron (Crocus satious L.) on mild to moderate comorbid depression-anxiety, sleep quality, and life satisfaction in type 2 diabetes mellitus: A double-blind, randomized and placebo-controlled clinical trial.",
+      "doi": "10.1016/j.ctim.2018.09.023",
+      "source_title": "The effects of alcoholic extract of saffron (Crocus satious L.) on mild to moderate comorbid depression-anxiety, sleep quality, and life satisfaction in type 2 diabetes mellitus: A double-blind, randomized and placebo-controlled clinical trial.",
+      "abstract": "Depression and anxiety are major health problems throughout the world. Metabolic changes in type 2 diabetes mellitus induces and aggravates mental disorders, such as depression and anxiety. Saffron as a therapeutic herb may attenuate Comorbid Depression- Anxiety (CDA). So, this trial is designed to investigate the effect of saffron alcoholic extract on symptoms of CDA in type 2 diabetic patients. Fifty-four outpatients suffered from mild to moderate CDA diagnosed by using Diagnostic and Statistical Manual of Mental Disorders-IV (DSM-IV), were assessed by Hamilton Depression and anxiety measurements, the Pittsburgh Sleep Quality Index (PSQI), and the Satisfaction with Life Scale (SWLS). The participants of this double-blind, placebo-controlled, single center and randomized trial were randomly assigned to intake 30 mg/day saffron or placebo capsules for 8 weeks. After the intervention, mild to moderate CDA, anxiety and sleep disturbance, but not depression alone, were relieved significantly in the saffron group (P < 0.05), whereas, the changes were not significant in the placebo group. Anthropometric measures and blood pressure parameters of the patients in either groups did not change significantly (P > 0.05) during the intervention. Moreover, dietary intake and physical activity did not differ during the study in the two groups. Changes in the life satisfaction were not significant. The results indicate the beneficial effect of saffron on the mild to moderate CDA in type 2 diabetic patients.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30477839/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "30477839",
+        "doi": "10.1016/j.ctim.2018.09.023",
+        "journal": "Complementary therapies in medicine",
+        "publication_year": 2019,
+        "hydrated_at": "2026-10-11T06:33:33.844Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "ea84d8648d6779b6c953",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "14994318",
+      "title": "Effects of a combined extract of Ginkgo biloba and Bacopa monniera on cognitive function in healthy humans.",
+      "doi": "10.1002/hup.544",
+      "source_title": "Effects of a combined extract of Ginkgo biloba and Bacopa monniera on cognitive function in healthy humans.",
+      "abstract": "Extracts of Ginkgo biloba and Bacopa monniera have been shown to produce positive effects on cognitive function in healthy subjects. While the exact mechanisms are not known, it has been suggested that antioxidant properties and cholinergic modulation may play a role. In the current study the sub-chronic (2 weeks) and chronic (4 weeks) effects of an extract containing Ginkgo biloba (120 mg) and Bacopa monniera (300 mg) (Blackmores Ginkgo Brahmi) on cognitive function were examined. The study was a randomized, double-blind, placebo-controlled, independent group design in which 85 healthy subjects were allocated to one of two treatment conditions (placebo or combined Ginkgo biloba and Bacopa monniera extract). Testing was conducted at baseline and 2 and 4 weeks post treatment. The results showed that the combined extract relative to placebo did not demonstrate any significant effects on tests investigating a range of cognitive processes including attention, short-term and working memory, verbal learning, memory consolidation, executive processes, planning and problem solving, information processing speed, motor responsiveness and decision making. These findings suggest that at least within the current treatment duration and doses, an extract containing Ginkgo biloba and Bacopa monniera had no cognitive enhancing effects in healthy subjects.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14994318/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Comparative Study",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "14994318",
+        "doi": "10.1002/hup.544",
+        "journal": "Human psychopharmacology",
+        "publication_year": 2004,
+        "hydrated_at": "2026-10-11T06:33:33.844Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "31b99e69a284731dae8a",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "27803728",
+      "title": "Efficacy of Standardized Extract of Bacopa monnieri (Bacognize®) on Cognitive Functions of Medical Students: A Six-Week, Randomized Placebo-Controlled Trial.",
+      "doi": "10.1155/2016/4103423",
+      "source_title": "Efficacy of Standardized Extract of Bacopa monnieri (Bacognize®) on Cognitive Functions of Medical Students: A Six-Week, Randomized Placebo-Controlled Trial.",
+      "abstract": "Rationale . Bacopa monnieri , popularly known as Brahmi, has been traditionally used in Ayurveda since ages for its memory enhancing properties. However, data on placebo-controlled trial of Bacopa monnieri on intellectual sample is scarce. Hence this study was planned to evaluate the effect of Bacopa monnieri on memory of medical students for six weeks. Objective . To evaluate the efficacy of Bacopa monnieri on memory of medical students with six weeks' administration. Method and Material . This was a randomized double blind placebo-controlled noncrossover, parallel trial. Sixty medical students of either gender from second year of medical school, third term, regular batch, were enrolled from Government Medical College, Nagpur, India. Baseline biochemical and memory tests were done. The participants were randomly divided in two groups to receive either 150 mg of standardized extract of Bacopa monnieri (Bacognize) or matching placebo twice daily for six weeks. All baseline investigations were repeated at the end of the trial. Students were followed up for 15 days after the intervention. Results . Statistically significant improvement was seen in the tests relating to the cognitive functions with use of Bacopa monnieri . Blood biochemistry also showed a significant increase in serum calcium levels (still within normal range).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27803728/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "27803728",
+        "doi": "10.1155/2016/4103423",
+        "journal": "Evidence-based complementary and alternative medicine : eCAM",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-11T06:33:33.845Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b9e5d926489d46a42d8f",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "23281132",
+      "title": "An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.",
+      "doi": "10.1002/ptr.4864",
+      "source_title": "An acute, double-blind, placebo-controlled crossover study of 320 mg and 640 mg doses of a special extract of Bacopa monnieri (CDRI 08) on sustained cognitive performance.",
+      "abstract": "Standardized extracts of the traditional Ayurvedic medicine Bacopa monnieri (BM) (Brahmi) have been recently shown to have cognitive enhancing effects in chronic administration studies. Pre-clinical work has also identified a number of acute anxiolytic, nootropic, and cardiovascular effects of BM. There has, however, been little research on the acute effects of BM on cognitive function. The current study aimed to assess the acute effects of a specific extract of BM (KeenMind®-CDRI 08) in a double-blind, placebo-controlled study in normal healthy participants who completed a cognitively demanding series of tests. Twenty-four healthy volunteers completed six repetitions of the Cognitive Demand Battery (CDB) after consuming a placebo, 320 mg BM or 640 mg of BM in a cross-over design and provided cardiovascular and mood assessments before and after treatment. Change from baseline scores indicated that the 320 mg dose of BM improved performance at the first, second, and fourth repetition post-dosing on the CDB, and the treatments had no effect upon cardiovascular activity or in attenuating task-induced ratings of stress and fatigue. It was concluded that assessment of an earlier pharmacological window and use of less memory-specific cognitive tests together with more temporally sensitive measures of brain activity may improve our understanding of the acute neurocognitive properties of BM.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23281132/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "23281132",
+        "doi": "10.1002/ptr.4864",
+        "journal": "Phytotherapy research : PTR",
+        "publication_year": 2014,
+        "hydrated_at": "2026-10-11T06:33:33.845Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2428f0b5a320c8b05446",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "34838432",
+      "title": "Efficacy of Withania somnifera supplementation on adult's cognition and mood.",
+      "doi": "10.1016/j.jaim.2021.08.003",
+      "source_title": "Efficacy of Withania somnifera supplementation on adult's cognition and mood.",
+      "abstract": "The present study examined the effects of a proprietary Ashwagandha (Withania somnifera) root and leaf extract (NooGandha® Specnova LLC, USA) supplement for improving cognitive abilities, cortisol levels, and self-reported mood, stress, food cravings, and anxiety with adults who have perceived stress. Healthy adults (n = 43 women and n = 17 men; mean age = 34.41 years) who reported experiencing perceived stress were randomized to the following groups: Ashwagandha (400 mg/d), Ashwagandha (225 mg/d), and placebo for 30 days. The following outcomes were assessed at Day 0, Day 15, and Day 30: saliva cortisol levels, cognitive performance (i.e., CNS vital signs), and the self-reported measures of Trait Anxiety Inventory, Depression Anxiety Stress Scale, Perceived Stress Scale, and Food Cravings Questionnaire-15. For the self-report assessments, significant main effects for time were evidenced for anxiety, depression, perceived stress, and food cravings, p's < 0.01. The main effect for group and the interactions were non-significant. For the CNS vital signs, significant differences were observed in cognitive flexibility, visual memory, reaction time, psychomotor speed, and executive functioning, p's < 0.05, with the Ashwagandha groups often out-performing the placebo group. Both Ashwagandha groups had reductions in cortisol levels over time, with significant reductions evidenced for the Ashwagandha 225 mg/d group from Day 0 to Day 15 to Day 30. The placebo group had a non-significant increase in cortisol levels from Day 0 to Day 15-30. No adverse events were reported. In conclusion, Ashwagandha supplementation may improve the physiological, cognitive, and psychological effects of stress.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34838432/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "34838432",
+        "doi": "10.1016/j.jaim.2021.08.003",
+        "journal": "Journal of Ayurveda and integrative medicine",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-11T06:33:33.845Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "de518b243d3eb31916a0",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "37288021",
+      "title": "Evaluation of Saffron (Crocus Sativus L) Effects on Anxiety in Hospitalized Patients with Acute Coronary Syndrome.",
+      "doi": "10.4103/abr.abr_6_21",
+      "source_title": "Evaluation of Saffron (Crocus Sativus L) Effects on Anxiety in Hospitalized Patients with Acute Coronary Syndrome.",
+      "abstract": "Anxiety is a common psychiatric condition in cardio-vascular diseases. Saffron appears to have a wide range of therapeutic effects on psychiatric conditions and cardio-vascular disorders. The aim of this study was to determine the effect of saffron on anxiety in hospitalized patients with acute coronary syndrome (ACS). In this clinical investigation, we selected 80 patients with ACS from Tohid Medical Center, Sanandaj. Patients were divided randomly into two groups, intervention group ( n = 41), and control group ( n = 39), based on how they received saffron and placebo every 12 hours for 4 days, respectively. The Spielberger Anxiety Inventory was completed before and after the intervention in both groups. There was no significant difference between the intervention and control groups regarding the mean scores of the trait and state anxiety before and after the intervention ( P > 0.05). The present study did not corroborate the therapeutic effects of saffron on reducing anxiety in patients with ACS.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37288021/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "37288021",
+        "doi": "10.4103/abr.abr_6_21",
+        "journal": "Advanced biomedical research",
+        "publication_year": 2023,
+        "hydrated_at": "2026-10-11T06:33:33.846Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4e03a37d7881fbac45b0",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "35813851",
+      "title": "An examination into the mental and physical effects of a saffron extract (affron®) in recreationally-active adults: A randomized, double-blind, placebo-controlled study.",
+      "doi": "10.1080/15502783.2022.2083455",
+      "source_title": "An examination into the mental and physical effects of a saffron extract (affron®) in recreationally-active adults: A randomized, double-blind, placebo-controlled study.",
+      "abstract": "Saffron, derived from the stigmas of the Crocus Sativus flower, has been shown in several studies to improve mood and wellbeing in adults experiencing low mood and anxiety. The goals of this study were to examine its mental and physical effects in healthy, recreationally active adults. In this 6-week, randomized, double-blind, placebo-controlled study, 62 adults engaging in regular exercise were recruited and randomized to receive a placebo or 28 mg daily of a standardized saffron extract (affron®). Self-report outcome measures include the Physical Activity Enjoyment Scale, Profile of Mood States, and Patient-Reported Outcomes Measurement Information System-29. Participants also wore a wrist-worn heart rate, activity, and sleep monitoring device (WHOOP) to measure changes in sleep quality, resting heart rate, and heart rate variability. To help identify mechanisms of action associated with saffron intake, changes in plasma concentrations of brain-derived neurotrophic factor, oxytocin, and neuropeptide Y were also measured. Based on data collected from all participants, there were no statistically significant between-group differences in changes in any of the outcome measures. However, when changes were analyzed by sex, there were statistically significant greater increases in enjoyment associated with exercise (p =.009) and heart rate variability (p =.001) in male participants taking saffron compared to the placebo. No statistically significant between-group differences were identified in females. The results of this trial suggest saffron may have beneficial effects in recreationally active males, as evidenced by increased exercise enjoyment and heart rate variability. However, no such benefits were identified in females. Future research using larger sample sizes, varying treatment periods, and additional outcome measures will be required to validate the results from this study and help clarify the mechanisms of action associated with saffron intake.This study was prospectively registered on 30 October 2020 with the Australian and New Zealand Clinical Trials Registry (Trial ID. ACTRN12621000501842).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35813851/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "35813851",
+        "doi": "10.1080/15502783.2022.2083455",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "publication_year": 2022,
+        "hydrated_at": "2026-10-11T06:33:33.847Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "338ec3645c344e2df553",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "15022653",
+      "title": "Valerian does not appear to reduce symptoms for patients with chronic insomnia in general practice using a series of randomised n-of-1 trials.",
+      "doi": "10.1016/s0965-2299(03)00122-5",
+      "source_title": "Valerian does not appear to reduce symptoms for patients with chronic insomnia in general practice using a series of randomised n-of-1 trials.",
+      "abstract": "To investigate the effectiveness of valerian for the management of chronic insomnia in general practice. Valerian versus placebo in a series of n-of-1 trials, in Queensland, Australia. Of 42 enrolled patients, 24 (57%) had sufficient data for inclusion into the n-of-1 analysis. Response to valerian was fair for 23 (96%) participants evaluating their \"energy level in the previous day\" but poor or modest for all 24 (100%) participants' response to \"total sleep time\" and for 23 (96%) participants' response to \"number of night awakenings\" and \"morning refreshment\". As a group, the proportion of treatment successes ranged from 0.35 (95% CI 0.23, 0.47) to 0.55 (95% CI 0.43, 0.67) for the six elicited outcome sleep variables. There was no significant difference in the number (P=0.06), distribution (P=1.00) or severity (P=0.46) of side effects between valerian and placebo treatments. Valerian was not shown to be appreciably better than placebo in promoting sleep or sleep-related factors for any individual patient or for all patients as a group.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15022653/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "15022653",
+        "doi": "10.1016/s0965-2299(03)00122-5",
+        "journal": "Complementary therapies in medicine",
+        "publication_year": 2004,
+        "hydrated_at": "2026-10-11T06:33:33.847Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "a034c1ced94aa9975c6d",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "3936097",
+      "title": "Effect of valerian on human sleep.",
+      "doi": "10.1007/BF00432503",
+      "source_title": "Effect of valerian on human sleep.",
+      "abstract": "The effect of an aqueous extract of valerian root on sleep was studied in two groups of healthy, young subjects. One group (N = 10) slept at home, the other (N = 8) in the sleep laboratory. Sleep was evaluated on the basis of questionnaires, self-rating scales and night-time motor activity. In addition, polygraphic sleep recordings and spectral analysis of the sleep EEG was performed in the laboratory group. Under home conditions, both doses of valerian extract (450 and 900 mg) reduced perceived sleep latency and wake time after sleep onset. Night-time motor activity was enhanced in the middle third of the night and reduced in the last third. The data suggest a dose-dependent effect. In the sleep laboratory, where only the higher dose of valerian was tested, no significant differences from placebo were obtained. However, the direction of the changes in the subjective and objective measures of sleep latency and wake time after sleep onset, as well as in night-time motor activity, corresponded to that observed under home conditions. There was no evidence for a change in sleep stages and EEG spectra. The results indicate that the aqueous valerian extract exerts a mild hypnotic action.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3936097/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "3936097",
+        "doi": "10.1007/BF00432503",
+        "journal": "Psychopharmacology",
+        "publication_year": 1986,
+        "hydrated_at": "2026-10-11T06:33:33.847Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d9874f7394297e34862c",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "15551388",
+      "title": "A double-blind, placebo-controlled investigation of the effects of two doses of a valerian preparation on the sleep, cognitive and psychomotor function of sleep-disturbed older adults.",
+      "doi": "10.1002/ptr.1574",
+      "source_title": "A double-blind, placebo-controlled investigation of the effects of two doses of a valerian preparation on the sleep, cognitive and psychomotor function of sleep-disturbed older adults.",
+      "abstract": "One of the most popular herbal remedies for the alleviation of sleep problems is valerian. However, research into valerian is sparse, and studies differ greatly with respect to design, measures, and preparations used. This clinical study used standardized sleep EEG and psychometric tests to evaluate the clinical efficacy of a valerian preparation (Li 156). A placebo-controlled three way crossover clinical trial was completed using 16 (5 male and 11 female) sleep-disturbed participants (aged 50 to 64 years, mean age 55.9, SD 4.68). Participants slept overnight in a sleep laboratory, following a 21:00 hours dose of valerian 300 mg, valerian 600 mg, or placebo (double-blind). EEG sleep was recorded for each participant at 23:00 hours until 07:00 hours, when a psychometric evaluation was performed the morning after dose. Test periods were separated by six days washout period. Results showed no significant effect between valerian 300 mg, valerian 600 mg or placebo on any EEG parameter or psychometric measure. This suggests valerian at these doses is ineffective as an acute dose for sleep problems. However, valerian is widely used, and is traditionally sedative. Therefore, more research is required into therapeutic dose, types of valerian preparation, and the optimum period of use for therapeutic effect.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15551388/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "15551388",
+        "doi": "10.1002/ptr.1574",
+        "journal": "Phytotherapy research : PTR",
+        "publication_year": 2005,
+        "hydrated_at": "2026-10-11T06:33:33.847Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "51f3b8d277452e676219",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "27110643",
+      "title": "Effects of valerian on subjective sedation, field sobriety testing and driving simulator performance.",
+      "doi": "10.1016/j.aap.2016.01.019",
+      "source_title": "Effects of valerian on subjective sedation, field sobriety testing and driving simulator performance.",
+      "abstract": "The availability of herbal medicines over-the-counter (OTC) has increased the use of natural products for self-treatment. Valerian has been used to effectively treat generalized anxiety disorder and insomnia. Studies suggest that valerenic acid may increase gamma-aminobutyric acid (GABA) modulation in the brain. Benzodiazepines have a similar mechanism of action and have been linked to an increased risk of hospitalizations due to traffic accidents. Despite the risk of somnolence, the safety of driving while under the influence of valerian remains unknown. The purpose of the study was to determine the effects of a one-time valerian 1600mg dose on subjective sedation effects, standardized field sobriety testing (SFST) and driving simulator performance parameters. The study design was a randomized, placebo-controlled, double-blind, cross-over trial. For each session, participants received either a dose of valerian or placebo. The outcome measures included a simple visual reaction test (SVRT), subjective sleepiness scales, SFST performance scores, and driving simulator performance parameters. There were no significant differences in the SVRT or sleepiness scales between placebo and valerian exposures, but the study may have been underpowered. SFST total and individual test failure rates were not significantly different between the two exposures. The driving simulator performance parameters were equivalent between the two exposure conditions. A one-time valerian 1600mg dose, often used to treat insomnia, does not appear to impair driving simulator performance after acute ingestion.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27110643/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "27110643",
+        "doi": "10.1016/j.aap.2016.01.019",
+        "journal": "Accident; analysis and prevention",
+        "publication_year": 2017,
+        "hydrated_at": "2026-10-11T06:33:33.847Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "92ac4b42da75e482f647",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "26519439",
+      "title": "Efficacy and Safety of MMFS-01, a Synapse Density Enhancer, for Treating Cognitive Impairment in Older Adults: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "doi": "10.3233/JAD-150538",
+      "source_title": "Efficacy and Safety of MMFS-01, a Synapse Density Enhancer, for Treating Cognitive Impairment in Older Adults: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "abstract": "Cognitive impairment is a major problem in elderly, affecting quality of life. Pre-clinical studies show that MMFS-01, a synapse density enhancer, is effective at reversing cognitive decline in aging rodents. Since brain atrophy during aging is strongly associated with both cognitive decline and sleep disorder, we evaluated the efficacy of MMFS-01 in its ability to reverse cognitive impairment and improve sleep. We conducted a randomized, double-blind, placebo-controlled, parallel-designed trial in older adult subjects (age 50-70) with cognitive impairment. Subjects were treated with MMFS-01 (n = 23) or placebo (n = 21) for 12 weeks and cognitive ability, sleep quality, and emotion were evaluated. Overall cognitive ability was determined by a composite score of tests in four major cognitive domains. With MMFS-01 treatment, overall cognitive ability improved significantly relative to placebo (p = 0.003; Cohen's d = 0.91). Cognitive fluctuation was also reduced. The study population had more severe executive function deficits than age-matched controls from normative data and MMFS-01 treatment nearly restored their impaired executive function, demonstrating that MMFS-01 may be clinically significant. Due to the strong placebo effects on sleep and anxiety, the effects of MMFS-01 on sleep and anxiety could not be determined. The current study demonstrates the potential of MMFS-01 for treating cognitive impairment in older adults.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/26519439/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "26519439",
+        "doi": "10.3233/JAD-150538",
+        "journal": "Journal of Alzheimer's disease : JAD",
+        "publication_year": 2016,
+        "hydrated_at": "2026-10-11T06:33:33.848Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "16d868808fabb91897a4",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "14741074",
+      "title": "Double-blind, randomised, placebo-controlled study to evaluate the efficacy and safety of a fixed combination containing two plant extracts (Crataegus oxyacantha and Eschscholtzia californica) and magnesium in mild-to-moderate anxiety disorders.",
+      "doi": "10.1185/030079903125002603",
+      "source_title": "Double-blind, randomised, placebo-controlled study to evaluate the efficacy and safety of a fixed combination containing two plant extracts (Crataegus oxyacantha and Eschscholtzia californica) and magnesium in mild-to-moderate anxiety disorders.",
+      "abstract": "To assess the clinical efficacy of a neurotonic component containing fixed quantities of two plant extracts (Crataegus oxyacantha and Eschscholtzia californica) and magnesium versus placebo in mild-to-moderate anxiety disorders with associated functional disturbances, under usual general practice prescription conditions. A total of 264 patients (81% female; mean age: 44.6 years) presenting with generalised anxiety (DSM-III-R) of mild-to-moderate intensity (total Hamilton anxiety scale score between 16 and 28) were included in a double-blind, randomised, placebo-controlled trial. Patients were randomly assigned to two groups: 130 received the study drug (Sympathyl), and 134 a placebo (two tablets twice daily for 3 months). Efficacy and safety data were recorded before first administration and 7, 14, 30, 60 and 90 days after start of treatment. Efficacy was assessed by (a) change in Hamilton anxiety scale total and somatic scores; (b) change in patient self-assessment; (c) number and percentage of responsive subjects (reduction of at least 50% in Hamilton or self-assessment score); and (d) the physician's clinical global impression. Tolerance was assessed by undesirable events spontaneously reported by the patients over the study period. Total and somatic Hamilton scale scores and subjective patient-rated anxiety fell during treatment, indicating clinical improvement. The decrease was greater in the study drug than in the placebo group. End of treatment clinical improvement, as measured by the mean difference between final and pre-treatment scores, was, for the study drug and placebo groups respectively: -10.6 and -8.9 on the total anxiety score (p = 0.005); -6.5 and -5.7 on the somatic score (p = 0.054); and -38.5 and -29.2 for subjectively assessed anxiety (p = 0.005). The risk/benefit ratio as judged by the investigating physicians was also significantly greater in the study drug than in the placebo group. In all, 15 patients (11.5%) in the study drug group and 13 patients (9.7%) in the placebo group experienced 22 and 15 adverse events, respectively. Undesirable events were mainly mild or moderate digestive or psychopathological disorders. The preparation containing fixed quantities of Crataegus oxyacantha, Eschscholtzia californica, and magnesium proved safe and more effective than placebo in treating mild-to-moderate anxiety disorders. Sympathyl is produced and marketed by Laboratoire Innotech International, Arcueil, France.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14741074/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "14741074",
+        "doi": "10.1185/030079903125002603",
+        "journal": "Current medical research and opinion",
+        "publication_year": 2004,
+        "hydrated_at": "2026-10-11T06:33:33.848Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "bac7bde68f9f1ef79f29",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "36620514",
+      "title": "Effect of magnesium supplementation in improving hyperandrogenism, hirsutism, and sleep quality in women with polycystic ovary syndrome: A randomized, placebo-controlled clinical trial.",
+      "doi": "10.1002/hsr2.1013",
+      "source_title": "Effect of magnesium supplementation in improving hyperandrogenism, hirsutism, and sleep quality in women with polycystic ovary syndrome: A randomized, placebo-controlled clinical trial.",
+      "abstract": "Polycystic ovary syndrome (PCOS) is one of the common endocrine disorders in women, which causes numerous symptoms in women. The relationship of many micronutrients with this syndrome has been investigated. This study was conducted to examine the effects of magnesium supplementation on hyperandrogenism, hirsutism, and sleep quality in women with PCOS. In this parallel randomized clinical trial, 64 women with PCOS were randomly assigned to the magnesium group ( n = 32) or placebo group ( n = 32) for 10 weeks. Patients in the magnesium group received one 250 mg magnesium oxide tablet, per day. Hyperandrogenism, hirsutism, and sleep quality were measured at the beginning and end of the study. This randomized clinical trial was registered at https://www.IRCT.ir (IRCT20130903014551N8). Magnesium supplementation had no significant effect on hyperandrogenism ( p = 0.51 for dehydroepiandrosterone sulfates, p = 0.27 for testosterone), hirsutism ( p = 0.23), and sleep quality ( p = 0.85) compared with placebo. The present study showed that a single dose of magnesium supplementation elicited no beneficial effects on the mentioned symptoms in polycystic women. It is possible that the positive effects of magnesium observed in the former studies were due to the synergistic effects of other vitamins or minerals. More studies are needed in this area.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36620514/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "36620514",
+        "doi": "10.1002/hsr2.1013",
+        "journal": "Health science reports",
+        "publication_year": 2024,
+        "hydrated_at": "2026-10-11T06:33:33.848Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cc3677be23d7bc25da58",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "28241153",
+      "title": "Effect of Magnesium Oxide Supplementation on Nocturnal Leg Cramps: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamainternmed.2016.9261",
+      "source_title": "Effect of Magnesium Oxide Supplementation on Nocturnal Leg Cramps: A Randomized Clinical Trial.",
+      "abstract": "Magnesium supplements are widely marketed for prophylaxis of nocturnal leg cramps (NLC) despite no evidence of significant benefit. To determine whether magnesium oxide is better than placebo for NLC prophylaxis. A randomized, double-blind, placebo-controlled clinical trial of 2 weeks eligibility screening followed by 4 weeks of treatment was conducted in northern Israel, from February to October 2013. An intention-to-treat data analysis was performed from March 22, 2014, to April 17, 2016. We used a volunteer sample of community-dwelling individuals experiencing NLC, 21 years or older, with 4 or more documented episodes of NLC during 2 weeks of screening. Capsules containing either magnesium oxide or a similar-looking placebo to be taken orally, once daily at bedtime for a period of 4 weeks. The primary outcome was the difference in the mean number of NLC per week between the screening and treatment phases. Secondary outcomes included severity and duration of NLC, quality of life, and quality of sleep. Of the 166 volunteers, 72 (43%) were excluded, of whom 15 declined to participate and 57 did not meet the inclusion criteria. Of the 94 individuals (39% male; mean [SD] age, 64.9 [11.1] years) randomly assigned to magnesium oxide (48) or placebo (46), 6 did not complete the study protocol (3 in each group). Mean (SD) change of NLC was -3.41 (4.05) (from 7.84 [5.68] to 4.44 [5.66]) and -3.03 (4.53) (from 8.51 [5.20] to 5.48 [4.93]) per week in the magnesium oxide and placebo groups, respectively, a difference between groups of 0.38 (0.48) NLC per week (P = .67 in an intention-to-treat analysis). There were no between-group differences in the severity and duration of NLC, quality of life, or quality of sleep. Oral magnesium oxide was not superior to placebo for older adults experiencing NLC. The decrease in the mean number of NLC per week, from the screening to the treatment phase in both groups, is probably a placebo effect that may explain the wide use of magnesium for NLC. clinicaltrials.gov Identifier: NCT01709968.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28241153/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "28241153",
+        "doi": "10.1001/jamainternmed.2016.9261",
+        "journal": "JAMA internal medicine",
+        "publication_year": 2017,
+        "hydrated_at": "2026-10-11T06:33:33.848Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c4dbc80cdd35633cca9c",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "9737496",
+      "title": "Randomized clinical trial of melatonin after night-shift work: efficacy and neuropsychologic effects.",
+      "doi": "10.1016/s0196-0644(98)70010-1",
+      "source_title": "Randomized clinical trial of melatonin after night-shift work: efficacy and neuropsychologic effects.",
+      "abstract": "Melatonin has received considerable publicity for its sleep-promoting properties; however, there is little scientific evidence of its efficacy. The objective of this study is to determine whether there are measurable beneficial effects from exogenous melatonin in emergency physicians after intermittent night-shift duty. This randomized, placebo-controlled, double-blind, crossover trial was conducted in the emergency department of an urban tertiary care hospital. Fifteen emergency physicians were given melatonin 5 mg or placebo for 3 consecutive nights after night-shift duty with crossover to the opposite agent after a subsequent block of night shifts. The primary outcome measure was the global assessment of recovery measured by a visual analog scale. Secondary outcome measures included sleep quality, duration, and tiredness. In addition, the Profile of Mood States questionnaire and neuropsychologic testing were performed. There was no difference between melatonin and placebo in the global assessment of recovery (60.4+/-16.9 and 58.9+/-14.5, respectively; P=.29). There were no differences in sleep quality, duration or tiredness scores, sleep latency, hours of sleep obtained per night, and night or early awakening at any measurement point. Profile of Mood States and neuropsychologic test performances were similar. We found no beneficial effect of melatonin on sleep quality, tiredness, or cognitive function in emergency physicians after night-shift duty. Our results suggest that exogenous melatonin is of limited value in recovery from night-shift work in emergency physicians.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/9737496/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Clinical Trial",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "9737496",
+        "doi": "10.1016/s0196-0644(98)70010-1",
+        "journal": "Annals of emergency medicine",
+        "publication_year": 1998,
+        "hydrated_at": "2026-10-11T06:33:33.849Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "818919ec41952c7eaace",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "21525520",
+      "title": "Annual high-dose vitamin D3 and mental well-being: randomised controlled trial.",
+      "doi": "10.1192/bjp.bp.110.087544",
+      "source_title": "Annual high-dose vitamin D3 and mental well-being: randomised controlled trial.",
+      "abstract": "Epidemiological evidence supports a relationship between vitamin D and mental well-being, although evidence from large-scale placebo-controlled intervention trials is lacking. To examine if vitamin D supplementation has a beneficial effect on mood in community-dwelling older women; if a single annual large dose of vitamin D has a role in the prevention of depressive symptoms; and if there is an association between serum 25-hydroxyvitamin D levels and mental health. A double-blind, randomised, placebo-controlled trial of women aged 70 or older (the Vital D Study: ISRCTN83409867 and ACTR12605000658617). Participants were randomly assigned to receive 500 000 IU vitamin D(3) (cholecalciferol) orally or placebo every autumn/winter for 3-5 consecutive years. The tools utilised at various time points were the General Health Questionnaire, the 12-item Short Form Health Survey, the Patient Global Impression-Improvement scale and the WHO Well-Being Index. Serum 25-hydroxyvitamin D levels were measured in a subset of 102 participants. In this non-clinical population, no significant differences between the vitamin D and placebo groups were detected in any of the measured outcomes of mental health. Serum 25-hydroxyvitamin D levels in the vitamin D group were 41% higher than the placebo group 12 months following their annual dose. Despite this difference, scores from the questionnaires did not differ. Furthermore, there was no interaction between those on antidepressant/anxiety medication at baseline and the treatment groups. The lack of improvement in indices of mental well-being in the vitamin D group does not support the hypothesis that an annual high dose of vitamin D(3) is a practical intervention to prevent depressive symptoms in older community-dwelling women.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21525520/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "21525520",
+        "doi": "10.1192/bjp.bp.110.087544",
+        "journal": "The British journal of psychiatry : the journal of mental science",
+        "publication_year": 2011,
+        "hydrated_at": "2026-10-11T06:33:33.849Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "8fe9cace0732b584a18d",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "19155748",
+      "title": "Melatonin fails to improve sleep or agitation in double-blind randomized placebo-controlled trial of institutionalized patients with Alzheimer disease.",
+      "doi": "10.1097/JGP.0b013e318187de18",
+      "source_title": "Melatonin fails to improve sleep or agitation in double-blind randomized placebo-controlled trial of institutionalized patients with Alzheimer disease.",
+      "abstract": "Patients with Alzheimer dementia often display both agitated behavior and poor sleep. Given that the disease is often associated with low endogenous levels of melatonin, exogenous melatonin administration may lead to improvements in sleep and agitation. Randomized, placebo-controlled study. Nursing homes in San Diego, CA, metropolitan area. Subjects were patients with probable Alzheimer disease. Melatonin (8.5 mg immediate release and 1.5 mg sustained release) (N = 24) or placebo (N = 17) administered at 10:00 P.M. for 10 consecutive nights. The protocol consisted of baseline (3 days), treatment (10 days), and posttreatment (5 days) phases. Sleep was measured continuously using actigraphy. Agitation was rated using both the Agitated Behavior Rating Scale and the Cohen-Mansfield Agitation Inventory. Treatment effects were examined both across the 24-hr day and separately by nursing shift. There were no significant effects of melatonin, compared with placebo, on sleep, circadian rhythms, or agitation. : This study failed to find a beneficial effect of exogenous melatonin, consistent with a number of other studies. The lack of efficacy may be related to the absence of a true treatment effect or to the superphysiologic dose of melatonin used.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19155748/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, U.S. Gov't, Non-P.H.S.",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural",
+          "Research Support, U.S. Gov't, Non-P.H.S."
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "19155748",
+        "doi": "10.1097/JGP.0b013e318187de18",
+        "journal": "The American journal of geriatric psychiatry : official journal of the American Association for Geriatric Psychiatry",
+        "publication_year": 2009,
+        "hydrated_at": "2026-10-11T06:33:33.849Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "db64f2af4daa3dd93b08",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "20040554",
+      "title": "Ginkgo biloba for preventing cognitive decline in older adults: a randomized trial.",
+      "doi": "10.1001/jama.2009.1913",
+      "source_title": "Ginkgo biloba for preventing cognitive decline in older adults: a randomized trial.",
+      "abstract": "The herbal product Ginkgo biloba is taken frequently with the intention of improving cognitive health in aging. However, evidence from adequately powered clinical trials is lacking regarding its effect on long-term cognitive functioning. To determine whether G. biloba slows the rates of global or domain-specific cognitive decline in older adults. The Ginkgo Evaluation of Memory (GEM) study, a randomized, double-blind, placebo-controlled clinical trial of 3069 community-dwelling participants aged 72 to 96 years, conducted in 6 academic medical centers in the United States between 2000 and 2008, with a median follow-up of 6.1 years. Twice-daily dose of 120-mg extract of G. biloba (n = 1545) or identical-appearing placebo (n = 1524). Rates of change over time in the Modified Mini-Mental State Examination (3MSE), in the cognitive subscale of the Alzheimer Disease Assessment Scale (ADAS-Cog), and in neuropsychological domains of memory, attention, visual-spatial construction, language, and executive functions, based on sums of z scores of individual tests. Annual rates of decline in z scores did not differ between G. biloba and placebo groups in any domains, including memory (0.043; 95% confidence interval [CI], 0.034-0.051 vs 0.041; 95% CI, 0.032-0.050), attention (0.043; 95% CI, 0.037-0.050 vs 0.048; 95% CI, 0.041-0.054), visuospatial abilities (0.107; 95% CI, 0.097-0.117 vs 0.118; 95% CI, 0.108-0.128), language (0.045; 95% CI, 0.037-0.054 vs 0.041; 95% CI, 0.033-0.048), and executive functions (0.092; 95% CI, 0.086-0.099 vs 0.089; 95% CI, 0.082-0.096). For the 3MSE and ADAS-Cog, rates of change varied by baseline cognitive status (mild cognitive impairment), but there were no differences in rates of change between treatment groups (for 3MSE, P = .71; for ADAS-Cog, P = .97). There was no significant effect modification of treatment on rate of decline by age, sex, race, education, APOE*E4 allele, or baseline mild cognitive impairment (P > .05). Compared with placebo, the use of G. biloba, 120 mg twice daily, did not result in less cognitive decline in older adults with normal cognition or with mild cognitive impairment. clinicaltrials.gov Identifier: NCT00010803.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20040554/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "20040554",
+        "doi": "10.1001/jama.2009.1913",
+        "journal": "JAMA",
+        "publication_year": 2010,
+        "hydrated_at": "2026-10-11T06:33:33.849Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d2cd96ec52433df6fb11",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "17341003",
+      "title": "Ginkgo biloba special extract in dementia with neuropsychiatric features. A randomised, placebo-controlled, double-blind clinical trial.",
+      "doi": "10.1055/s-0031-1296579",
+      "source_title": "Ginkgo biloba special extract in dementia with neuropsychiatric features. A randomised, placebo-controlled, double-blind clinical trial.",
+      "abstract": "In previous trials of the Ginkgo biloba special extract EGb 761 improvements in cognitive functioning and behavioural symptoms were found in patients with aging-associated cognitive impairment or dementia. This trial was undertaken to assess the efficacy of EGb 761 in mild to moderate dementia with neuropsychiatric features. Double-blind trial including 400 patients aged 50 years or above with Alzheimer's disease (AD) or vascular dementia (VaD), randomized to receive EGb 761 or placebo for 22 weeks. Patients scored below 36 on the Test for the Early Detection of Dementia with Discrimination from Depression (TE4D), between 9 and 23 on the SKT test battery and at least 5 on the Neuropsychiatric Inventory (NPI). There was a mean -3.2-point improvement in the SKT upon EGb 761 treatment and an average deterioration by +1.3 points on placebo (p < 0.001, two-sided, ANOVA). EGb 761 was significantly superior to placebo on all secondary outcome measures, including the NPI and an activities-of-daily-living scale. Treatment results were essentially similar for AD and VaD subgroups. The drug was well tolerated; adverse events were no more frequent under drug than under placebo treatment. The data add further evidence on the safety and efficacy of EGb 761 in the treatment of cognitive and non-cognitive symptoms of dementia.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17341003/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "17341003",
+        "doi": "10.1055/s-0031-1296579",
+        "journal": "Arzneimittel-Forschung",
+        "publication_year": 2007,
+        "hydrated_at": "2026-10-11T06:33:33.849Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "28a6ce377bdcf67a2f1d",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
+    },
+    {
+      "pmid": "22790678",
+      "title": "Effect of vitamin D supplement on depression scores in people with low levels of serum 25-hydroxyvitamin D: nested case-control study and randomised clinical trial.",
+      "doi": "10.1192/bjp.bp.111.104349",
+      "source_title": "Effect of vitamin D supplement on depression scores in people with low levels of serum 25-hydroxyvitamin D: nested case-control study and randomised clinical trial.",
+      "abstract": "To compare depressive symptoms in participants with low and high serum 25-hydroxyvitamin D (25(OH)D) levels and to examine whether supplementation with vitamin D(3) would improve symptoms in those with low serum 25(OH)D levels. Participants with low 25(OH)D levels were randomised to either placebo or 40 000 IU vitamin D(3) per week for 6 months. Individuals with high serum 25(OH)D levels were used as nested controls. Depressive symptoms were evaluated with the Beck Depression Inventory, Hospital Anxiety and Depression Scale, Seasonal Pattern Assessment Scale and Montgomery-Åsberg Depression Rating Scale. The study was registered at ClinicalTrials.gov (NCT00960232). Participants with low 25(OH)D levels (n = 230) at baseline were more depressed (P<0.05) than participants with high 25(OH)D levels (n = 114). In the intervention study no significant effect of high-dose vitamin D was found on depressive symptom scores when compared with placebo. Low levels of serum 25(OH)D are associated with depressive symptoms, but no effect was found with vitamin D supplementation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22790678/",
+      "research_domain": "contradictions-replication",
+      "category": "contradictions_replication",
+      "relevance_reason": "Source-verified human trials selected for null, mixed, comparator-sensitive, or conflicting evidence review; interpretation remains pending independent scientific review.",
+      "evidence_class": "human",
+      "study_design": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Comparative Study",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "22790678",
+        "doi": "10.1192/bjp.bp.111.104349",
+        "journal": "The British journal of psychiatry : the journal of mental science",
+        "publication_year": 2013,
+        "hydrated_at": "2026-10-11T06:33:33.850Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "5",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d582d919c83b655982f2",
+      "reserved_at": "2026-10-11T06:33:40.762Z",
+      "source_branch": "research/intake/5/contradictions-replication-20261011-0231"
     }
   ],
   "batches": [
@@ -57248,16 +59190,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 729,
+    "total_reservations": 754,
     "by_lane": {
       "1": 72,
       "2": 154,
       "3": 128,
       "4": 50,
-      "5": 325
+      "5": 350
     },
     "by_state": {
-      "SOURCE_VERIFIED": 729
+      "SOURCE_VERIFIED": 754
     },
     "batches": [
       {
@@ -57270,7 +59212,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 229,
+        "count": 254,
         "pr_number": null,
         "blocker": null
       }
