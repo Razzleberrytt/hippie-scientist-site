@@ -185,3 +185,12 @@ ops/enrichment/*
 # ground that was already researched and found empty.
 !ops/enrichment/*-work.mjs
 !ops/enrichment/*-research.json
+
+# Rebuildable R8.10 per-beat visual cache; NEVER commit generated intermediates
+ops/evidencemotion/.cache/
+
+# Private append-only video performance/experiment observations and generated video assets.
+# Never auto-commit manual TikTok stats, unpublished drafts, or generated source footage.
+ops/evidencemotion/flywheel/
+ops/evidencemotion/assets/
+ops/evidencemotion/r811/
