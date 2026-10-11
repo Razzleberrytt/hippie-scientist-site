@@ -864,11 +864,6 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
-    productionSystemRelease: creativeSpec.productionSystemRelease || null,
-    r811Experiment: r811Bundle?.receipt ?? null,
-    r811Plan: r811PlanSidecar,
-    r811Derivatives: r811Bundle
-      ? { ...r811Bundle.workOrderFile, planSha256:r811Bundle.receipt.planSha256 } : null,
     timingAuthority: release === 'R8.05' ? 'exact-local-narration' : 'legacy-authored-30s',
     packId: mediaPack.packId,
     sourceContentHash: mediaPack.source.contentHash,
@@ -948,6 +943,11 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     renderer: 'vertical-video-package-v1',
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
+    productionSystemRelease: creativeSpec.productionSystemRelease || null,
+    r811Experiment: r811Bundle?.receipt ?? null,
+    r811Plan: r811PlanSidecar,
+    r811Derivatives: r811Bundle
+      ? { ...r811Bundle.workOrderFile, planSha256:r811Bundle.receipt.planSha256 } : null,
     creativeQuality: creativeSpec.creativeQuality ?? null,
     creativeFoundation: creativeSpec.creativeFoundation ?? null,
     creativeVisualFoundation: creativeSpec.creativeVisualFoundation ?? null,
