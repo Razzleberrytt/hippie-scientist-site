@@ -74809,6 +74809,159 @@
       "reservation_id": "64654441c0ea8c05d2c4",
       "reserved_at": "2026-10-11T18:52:45.451Z",
       "source_branch": "research/intake/2/20261011-1448-cognition-metabolic-null-r76"
+    },
+    {
+      "pmid": "41878908",
+      "title": "Effects and reporting quality of the vitamin supplementation on cognitive function in older adults with Alzheimer's disease ‒ A systematic review.",
+      "doi": "10.20960/nh.06434",
+      "source_title": "Effects and reporting quality of the vitamin supplementation on cognitive function in older adults with Alzheimer's disease ‒ A systematic review.",
+      "abstract": "Background: evidence supporting the effectiveness of vitamin supplementation on cognitive function in older adults with Alzheimer's disease (AD) is limited, and the reporting quality of existing research is often overlooked. Objectives: to a) evaluate the effectiveness of vitamin supplementation on cognitive function in older adults with AD; b) describe the characteristics of supplementation protocols; and c) assess the reporting quality of these interventions. Methods: a systematic search of seven databases was conducted for randomized controlled trials (RCTs) up to February 2026. Included studies involved vitamin supplementation for patients with AD and assessed cognitive outcomes. The risk of bias and reporting quality were evaluated. Results: seventeen RCTs (n = 2,478 participants) were included. While eight studies reported some cognitive improvements or stabilization with vitamin B3, D, E, folic acid or specialized multi-nutrient formulations, nine found no significant benefit. A high risk of bias was identified in seven studies, while only five were rated as low risk. The median TIDieR score of 10/12 indicates a good description of the vitamin supplementation protocols. Conclusions: the current evidence for vitamin supplementation in older adults with AD is inconclusive. While some protocols show potential for stabilizing or improving cognitive domains, results are compromised by methodological heterogeneity and a high risk of bias. Future research must focus on enhancing methodological quality and achieving greater homogeneity in vitamin supplementation prescription and dosing to ensure robust clinical evidence for patients with AD. Antecedentes: la evidencia que respalda la eficacia de la suplementación vitamínica en la función cognitiva de adultos mayores con enfermedad de Alzheimer (EA) es limitada, y a menudo se pasa por alto la calidad de los informes de las investigaciones existentes. Objetivos: a) evaluar la eficacia de la suplementación vitamínica en la función cognitiva de adultos mayores con EA; b) describir las características de los protocolos de suplementación; y c) evaluar la calidad de los informes de estas intervenciones. Métodos: se realizó una búsqueda sistemática de ensayos controlados aleatorizados (ECA) en siete bases de datos hasta febrero de 2026. Los estudios incluidos incluyeron la suplementación vitamínica en pacientes con EA y evaluaron los resultados cognitivos. Se evaluaron el riesgo de sesgo y la calidad de los informes. Resultados: se incluyeron 17 ECA (n = 2478 participantes). Si bien ocho estudios informaron alguna mejora o estabilización cognitiva con vitamina B3, D, E, ácido fólico o formulaciones multinutrientes especializadas, nueve no encontraron un beneficio significativo. Se identificó un alto riesgo de sesgo en siete estudios, mientras que solo cinco se clasificaron como de bajo riesgo. La mediana de la puntuación TIDieR de 10/12 indica una buena descripción de los protocolos de suplementación vitamínica. Conclusiones: la evidencia actual sobre la suplementación vitamínica en adultos mayores con EA no es concluyente. Si bien algunos protocolos muestran potencial para estabilizar o mejorar las áreas cognitivas, los resultados se ven comprometidos por la heterogeneidad metodológica y un alto riesgo de sesgo. Las investigaciones futuras deben centrarse en mejorar la calidad metodológica y lograr una mayor homogeneidad en la prescripción y dosificación de la suplementación vitamínica para garantizar una evidencia clínica sólida para los pacientes con EA.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41878908/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41878908",
+        "doi": "10.20960/nh.06434",
+        "journal": "Nutricion hospitalaria",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T19:52:14.630Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "22d62f5b3ec2d60ca958",
+      "reserved_at": "2026-10-11T19:52:17.045Z",
+      "source_branch": "research/intake/2/20261011-1548-cognition-metabolic-r77"
+    },
+    {
+      "pmid": "42318184",
+      "title": "Effect of cyclodextrins on cardiometabolic indices: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1007/s40200-026-01976-7",
+      "source_title": "Effect of cyclodextrins on cardiometabolic indices: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "Cyclodextrins (CDs) are cyclic oligosaccharides with potential cardiometabolic and glucometabolic benefits; however, evidence from randomized controlled trials (RCTs) remains inconsistent. This systematic review and meta-analysis evaluated the effects of oral CD supplementation on cardiometabolic outcomes in adults. PubMed, Scopus, Web of Science, and Google Scholar were searched from inception to January 2026 according to PRISMA 2020 guidelines. RCTs investigating oral CD supplementation and reporting cardiometabolic outcomes were included. Random-effects meta-analyses were performed to calculate pooled weighted mean differences (WMDs) with 95% confidence intervals (CIs). Risk of bias was assessed using the Cochrane tool, and the certainty of evidence was evaluated according to the GRADE approach. Thirteen RCTs involving 742 participants were included, with intervention durations ranging from acute postprandial studies lasting several hours to long-term interventions of up to six months. Narrative findings suggested that CD consumption may improve postprandial glucose and insulin responses, with some long-term studies also reporting beneficial effects on glycemic control, lipid profile, adiponectin levels, and body weight, particularly in individuals with obesity, prediabetes, or type 2 diabetes. However, pooled meta-analyses showed no significant overall effects of CD supplementation on long-term triglyceride (TG) levels (WMD: 0.03 mmol/L; 95% CI: -0.11 to 0.17; p = 0.68), blood glucose (BG) levels (WMD: -0.05 mmol/L; 95% CI: -0.15 to 0.04; p = 0.25), or HbA1c concentrations (WMD: -0.06%; 95% CI: -0.30 to 0.17; p = 0.59). Subgroup analyses demonstrated that studies with a 24-week intervention duration showed a significant increase in TG levels (WMD: 0.29 mmol/L; 95% CI: 0.02 to 0.55; p = 0.03), whereas no significant effect was observed in studies lasting 12 weeks. Significant reductions in long-term BG and HbA1c levels were observed in food-enrichment interventions (BG: WMD: -0.16 mmol/L; 95% CI: -0.21 to -0.10; p < 0.001; HbA1c: WMD: -0.30%; 95% CI: -0.40 to -0.19; p < 0.001). However, these significant subgroup findings were generally based on single-study estimates and further studies are needed to confirm these results. For postprandial outcomes, CD supplementation did not significantly affect TG levels overall (WMD: -0.002 mmol/L; 95% CI: -0.20 to 0.20; p=0.98) or insulin concentrations (WMD: -2.22 µU/ml; 95% CI: -5.43 to 0.99; p=0.17). However, after subgroup analysis, postprandial BG levels showed significant reductions with α-CD supplementation (WMD: -0.19 mmol/L; 95% CI: -0.38 to -0.007; p=0.04) and food-enrichment interventions (WMD: -0.12 mmol/L; 95% CI: -0.23 to -0.02; p=0.01). Pure supplement formulations also showed a borderline reduction in postprandial TG levels (WMD: -0.16 mmol/L; 95% CI: -0.33 to 0.01; p=0.06). Considerable heterogeneity was observed across several outcomes, whereas sensitivity analyses confirmed the robustness of the pooled estimates. Funnel plot assessment, Begg's and Egger's tests, and trim-and-fill analyses suggested no substantial publication bias. According to the GRADE framework, the certainty of evidence ranged from low to moderate. CD supplementation, particularly α-CD and food-enrichment formulations, may modestly improve postprandial glycemic responses. However, overall evidence does not consistently support significant benefits for long-term cardiometabolic outcomes, and several subgroup findings were based on limited data. Further large-scale, long-duration randomized controlled trials are needed to confirm these effects. The online version contains supplementary material available at 10.1007/s40200-026-01976-7.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42318184/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42318184",
+        "doi": "10.1007/s40200-026-01976-7",
+        "journal": "Journal of diabetes and metabolic disorders",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T19:52:14.631Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "206d413436acd79a7832",
+      "reserved_at": "2026-10-11T19:52:17.045Z",
+      "source_branch": "research/intake/2/20261011-1548-cognition-metabolic-r77"
     }
   ],
   "batches": [
@@ -74837,16 +74990,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 956,
+    "total_reservations": 958,
     "by_lane": {
       "1": 91,
-      "2": 182,
+      "2": 184,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 956
+      "SOURCE_VERIFIED": 958
     },
     "batches": [
       {
@@ -74859,7 +75012,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 456,
+        "count": 458,
         "pr_number": null,
         "blocker": null
       }
