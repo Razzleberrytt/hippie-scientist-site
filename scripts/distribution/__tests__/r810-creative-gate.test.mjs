@@ -25,6 +25,10 @@ function fixture(){
         const beat=beats.find(b=>b.id===ids[i])
         return {role,beatId:beat.id,narration:beat.narration,screenText:beat.onScreenText,
           claimIds:['claim-'+i],sourceIds:['PMID:12345678'],approval:'editorial-reviewed',
+          reviewReceipt:{decision:'approved',reviewerRole:'editorial-science-reviewer',
+            reviewerId:'editorial-reviewer',reviewedAt:'2026-10-10',
+            approvedNarrationSha256:sha(beat.narration),approvedOverlaySha256:sha(beat.onScreenText),
+            governedClaimIds:['claim-'+i]},
           ...(role==='lab-evidence'?{evidenceTier:'preclinical-or-mechanism'}:{}),
           ...(role==='human-evidence'?{evidenceTier:'human'}:{}),
           ...(role==='safety'?{timeSensitive:true}:{})}
