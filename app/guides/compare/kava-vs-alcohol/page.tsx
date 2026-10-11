@@ -114,7 +114,7 @@ export default function KavaVsAlcoholPage() {
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How they work on the brain</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <h3 className="font-semibold text-ink">Kava: GABA-A modulation</h3>
+            <h3 className="font-semibold text-ink">Kava: multiple CNS pathways</h3>
             <p className="mt-2 text-sm leading-7 text-muted">
               Kavalactones act on several central nervous system pathways, but pharmacologic plausibility does not establish reliable anxiety relief or freedom from impairment. Serious liver injury has been linked to several kava product types, including some beverages prepared with water.
             </p>
@@ -128,7 +128,7 @@ export default function KavaVsAlcoholPage() {
         </div>
         <div className="mt-4 p-4 rounded-xl bg-amber-50/60 border border-amber-200">
           <p className="text-sm font-bold text-amber-900">Key safety note</p>
-          <p className="mt-1 text-sm leading-6 text-amber-800">Do not combine kava with alcohol. Both substances affect GABA signaling and overlapping use can amplify sedation, impair liver function, and increase accident risk. If you currently drink alcohol regularly, discuss any change with a clinician before introducing kava.</p>
+          <p className="mt-1 text-sm leading-6 text-amber-800">Do not combine kava with alcohol. Combining them may increase sedation and impair coordination. Kava has been linked to rare serious liver injury, and alcohol carries established liver risks; the additional liver risk from taking them together has not been quantified. If you drink alcohol regularly, discuss kava use with a clinician before trying it.</p>
         </div>
       </section>
 
