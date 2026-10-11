@@ -56914,6 +56914,84 @@
       "reservation_id": "8bd0ac0260750fdcb3e7",
       "reserved_at": "2026-10-11T05:28:22.596Z",
       "source_branch": "research/intake/5/contradictions-replication-20261011-0125"
+    },
+    {
+      "pmid": "42298832",
+      "title": "Efficacy of Mindfulness-Based Interventions on Anxiety and Sleep Quality in Patients with Breast Cancer: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1177/27683605261456020",
+      "source_title": "Efficacy of Mindfulness-Based Interventions on Anxiety and Sleep Quality in Patients with Breast Cancer: A Systematic Review and Meta-Analysis.",
+      "abstract": "Patients with breast cancer commonly experience anxiety and sleep disturbance during and after treatment, and these symptoms are closely interrelated, negatively affecting the quality of life. Mindfulness-based interventions (MBIs) have been increasingly used as a nonpharmacological supportive approach. This systematic review and meta-analysis aimed to evaluate the effects of MBIs on anxiety and sleep quality in patients with breast cancer. A systematic search of PubMed, Web of Science, Cochrane Library, CINAHL, and Embase was conducted up to May 15, 2025. Random-effects meta-analysis was used to estimate standardized mean differences (SMDs) with 95% confidence intervals (CIs). Risk of bias was assessed using the Cochrane RoB 2.0, and the certainty of evidence was evaluated with Grading of Recommendations, Assessment, Development, and Evaluation. Twenty-four randomized controlled trials (RCTs) including 3,212 participants were analyzed. MBIs significantly reduced anxiety compared with control groups receiving usual care, no intervention, or wait-list conditions (SMD: -0.47, 95% CI: -0.62 to -0.32), whereas no significant effect was observed for sleep quality. Subgroup analysis indicated that intervention duration accounted for 55.5% of the heterogeneity in anxiety outcomes. All studies were rated as having some concerns regarding risk of bias, primarily due to self-reported outcomes and lack of blinding. Certainty of evidence was moderate for anxiety and low for sleep quality. MBIs appear to be effective in reducing anxiety among patients with breast cancer; however, no significant effect was observed for sleep quality. All included studies were rated as having some concerns regarding risk of bias, and the limited reporting of adverse events represents a limitation of the evidence. In addition, substantial heterogeneity in sleep quality outcomes and the limited number of included RCTs restrict exploration of heterogeneity sources and limit generalizability. Further high-quality well-designed RCTs are needed to strengthen and confirm the evidence.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42298832/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42298832",
+        "doi": "10.1177/27683605261456020",
+        "journal": "Journal of integrative and complementary medicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T05:49:04.588Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "cf6fe86809a07c29d4ea",
+      "reserved_at": "2026-10-11T05:49:11.709Z",
+      "source_branch": "research/intake/1/20261011-0144-mindfulness-acupressure-two-r15"
     }
   ],
   "batches": [
@@ -56942,16 +57020,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 725,
+    "total_reservations": 726,
     "by_lane": {
-      "1": 71,
+      "1": 72,
       "2": 152,
       "3": 127,
       "4": 50,
       "5": 325
     },
     "by_state": {
-      "SOURCE_VERIFIED": 725
+      "SOURCE_VERIFIED": 726
     },
     "batches": [
       {
@@ -56964,7 +57042,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 225,
+        "count": 226,
         "pr_number": null,
         "blocker": null
       }
