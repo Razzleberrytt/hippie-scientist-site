@@ -62,17 +62,33 @@ describe('Batch 5 supplement identity and safety contract', () => {
     expect(getProductPicks('ashwagandha').find((pick) => pick.brand === 'Jarrow Formulas')?.url).toContain('/s?')
   })
 
+  it('keeps other stale ASIN catalog mappings search-only until variant confirmation', () => {
+    for (const [slug, brand] of [
+      ['ashwagandha', 'NOW Foods'],
+      ['l-theanine', 'NOW Foods'],
+      ['rhodiola', 'NOW Foods'],
+      ['rhodiola', 'Gaia Herbs'],
+    ]) {
+      const product = find(slug, brand)
+      expect(product?.asin).toBeUndefined()
+      expect(product?.affiliateUrl).toContain('/s?')
+    }
+  })
+
   it('preserves high-impact formulation, allergen and risk qualifications', () => {
-    expect(find('zinc', 'NOW Foods')?.rationale).toMatch(/softgels.*pumpkin seed oil/i)
+    expect(find('zinc', 'NOW Foods')?.rationale).toMatch(/softgels.*pumpkin seed oil.*soy lecithin/i)
     expect(find('boswellia', 'NOW Foods')?.rationale).toMatch(/turmeric.*65% organic acids/i)
     expect(find('resveratrol', 'Life Extension')?.rationale).toMatch(/40 mg trans-resveratrol/i)
     expect(find('bcaa', 'Thorne')?.rationale).toMatch(/Eleven-amino-acid/i)
     expect(find('collagen', 'Ancient Nutrition')?.rationale).toMatch(/egg and fish/i)
-    expect(find('valerian', 'NOW Foods')?.rationale).toMatch(/Proposition 65 lead warning/i)
+    expect(find('valerian', 'NOW Foods')?.rationale).toMatch(/manufacturer label.*Proposition 65 lead warning/i)
     expect(find('omega-3', 'NOW Foods')?.rationale).toMatch(/ethyl-ester/i)
     expect(find('glutamine', 'Jarrow Formulas')?.rationale).toMatch(/tablet form/i)
     expect(find('nac', 'Jarrow Formulas')?.rationale).toMatch(/tablet form/i)
     expect(find('nac', 'NOW Foods')?.rationale).toMatch(/1,200 mg/i)
     expect(find('garlic', 'Life Extension')?.rationale).toMatch(/vegetarian capsules/i)
+    expect(find('vitamin-d', 'Thorne')?.rationale).toMatch(/warfarin/i)
+    expect(find('lions-mane', 'Host Defense')?.rationale).toMatch(/mycelium.*brown rice/i)
+    expect(find('reishi', 'Host Defense')?.rationale).toMatch(/mycelium.*brown rice/i)
   })
 })
