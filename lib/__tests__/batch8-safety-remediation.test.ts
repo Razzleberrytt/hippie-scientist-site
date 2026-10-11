@@ -35,7 +35,7 @@ describe('Batch 8 evidence-qualified safety controls', () => {
   })
 
   it('fails closed on aliases and standalone affiliate entry points', () => {
-    for (const slug of ['black-cohosh', 'actaea-racemosa', 'green-tea-extract', 'green-tea-extract-egcg', 'egcg', 'holy-basil', 'holy-basil-purple', 'holy-basil-seed', 'tulsi', 'damiana', 'saffron', 'saw-palmetto', 'eleuthero', 'nettle-root']) {
+    for (const slug of ['black-cohosh', 'actaea-racemosa', 'remifemin', 'green-tea-extract', 'green-tea-extract-egcg', 'egcg', 'holy-basil', 'holy-basil-purple', 'holy-basil-seed', 'tulsi', 'damiana', 'saffron', 'saw-palmetto', 'eleuthero', 'nettle-root']) {
       expect(isRestrictedIngredient(slug)).toBe(true)
       expect(getRevenueProductSet(slug)).toBeNull()
       expect(canRenderAffiliateLinks({slug, monetization_allowed:true})).toBe(false)
