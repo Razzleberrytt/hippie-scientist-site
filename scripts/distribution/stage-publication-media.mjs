@@ -215,6 +215,15 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
             || clean(masterQa.qa?.r810RealWordAlignment) !== 'pass') {
           throw Error('R8.10 staging blocked: exact-master, reviewed claim/source ledger or local word alignment not proven')
         }
+        if (pilot.assets?.productionSystemRelease === 'R8.11'
+            && (!proof.r811?.oneExperiment
+                || !proof.r811?.zeroPaidCredits
+                || clean(masterQa.creativeBindings?.r811ExperimentPlanSha256) !== proof.r811.planSha256
+                || clean(masterQa.creativeBindings?.r811DerivativeWorkOrderSha256) !== proof.r811.derivativeProof.workOrderSha256
+                || clean(masterQa.qa?.r811OneExperimentVerified) !== 'pass'
+                || clean(masterQa.qa?.r811ZeroCreditsVerified) !== 'pass')) {
+          throw Error('R8.11 staging blocked: deliberate experiment, zero-credit policy or derivative science provenance not verified')
+        }
       }
     }
     if (creativeMethodRelease === 'R8.08') {
