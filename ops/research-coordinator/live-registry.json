@@ -51969,6 +51969,159 @@
       "reservation_id": "5a4e1d6a923fc0250c2c",
       "reserved_at": "2026-10-11T02:04:14.706Z",
       "source_branch": "research/intake/3/20261010-2202-sida-pharmacology-42786864"
+    },
+    {
+      "pmid": "41862627",
+      "title": "A digital mindfulness intervention improves sleep efficiency and heart rate variability in healthy adults.",
+      "doi": "10.1038/s41598-026-44902-w",
+      "source_title": "A digital mindfulness intervention improves sleep efficiency and heart rate variability in healthy adults.",
+      "abstract": "To test whether a 10-day mindfulness program delivered through the ŌURA app improves sleep and stress in healthy adults, eighty-one adults were randomized to mindfulness (n = 49) or waitlist control (n = 32). Participants wore an Ōura ring during baseline, intervention/wait-list, and 4-week follow-up, recording sleep efficiency, total, deep, and light sleep, plus sleep-onset time. Questionnaires-Pittsburgh sleep quality index (PSQI), perceived stress scale (PSS), Copenhagen burnout inventory (CBI), and mindful attention awareness scale (MAAS)-were completed pre- and post-intervention and at follow-up. Mixed-model ANOVAs revealed significant group × time interactions for sleep efficiency, total sleep, deep and light sleep, and sleep-onset time (all ps < 0.031). Results showed that the mindfulness group improved after 10 days (all ps < 0.021); gains persisted at follow-up except for deep sleep. The mindfulness group exhibited increased personal burnout (p = 0.021) immediately post-intervention, though this returned toward baseline at follow-up. In addition, the mindfulness showed higher MAAS scores (p = 0.017). During mindfulness sessions heart rate fell (p = 0.011) and heart-rate variability rose (p = 0.029). A brief, app-based mindfulness program produced sustained improvements in sleep efficiency and enhanced HRV, demonstrating that digital mindfulness can favorably influence biobehavioral sleep-stress metrics.Trial Registration: ClinicalTrials.gov: NCT07469644.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41862627/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41862627",
+        "doi": "10.1038/s41598-026-44902-w",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T02:45:42.226Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d0817571b87d2913985b",
+      "reserved_at": "2026-10-11T02:45:50.427Z",
+      "source_branch": "research/intake/1/20261010-2243-mindfulness-carnosine-two-r13"
+    },
+    {
+      "pmid": "41767833",
+      "title": "The Effect of Carnosine Supplementation on Depressive Symptoms and Health-Related Quality of Life in Individuals With Prediabetes and Well-Controlled Type 2 Diabetes: A Randomized Controlled Trial.",
+      "doi": "10.1002/fsn3.71514",
+      "source_title": "The Effect of Carnosine Supplementation on Depressive Symptoms and Health-Related Quality of Life in Individuals With Prediabetes and Well-Controlled Type 2 Diabetes: A Randomized Controlled Trial.",
+      "abstract": "Type 2 diabetes mellitus (T2DM) is commonly associated with mental health disorders such as depression and anxiety. Carnosine, an over-the-counter food supplement, may improve depressive symptoms through its anti-inflammatory properties; however, its effects on depressive symptoms and quality of life in prediabetes or T2DM remain unexplored. This randomized controlled trial aimed to examine whether carnosine supplementation may improve depressive symptoms and quality of life among individuals with prediabetes and well-controlled T2DM. A total of 38 participants (73.6% male) with a median (IQR) age of 54.8 years (46.2, 59.4) and mean ± SD body mass index (BMI) of 29.0 ± 4.2 kg/m 2 were randomized to carnosine ( n = 18) or placebo ( n = 20) for 14 weeks. None of the patients were diagnosed with depression or anxiety or any other chronic disease other than prediabetes ( n = 20, 52.6%) and T2DM ( n = 18, 47.4%), the latter being well-controlled with diet or metformin only. Depressive symptoms were measured using the patient health questionnaire (PHQ-8) and health-related quality of life was measured with five-dimension EuroQoL three level (EQ-5D-3L) scale. Paired t -tests were employed for within-group comparisons. Analysis of covariance (ANCOVA) was used for between group comparisons adjusted for age, BMI, and baseline values. Carnosine supplementation resulted in improvement of depressive symptoms assessed by total PHQ-8 score (mean difference = -2.0; 95% CI: -3.9, -0.2; p = 0.03), compared with placebo. However, the eight subcomponents of the PHQ-8 scale did not show significant changes ( p > 0.05). There were no significant changes both in between-group and within-group comparisons in health-related quality of life scores ( p > 0.05). We demonstrated for the first time that carnosine supplementation resulted in a modest improvement in depressive symptoms in individuals with prediabetes or T2DM. Further studies are needed to corroborate these findings in larger cohorts with more diverse baseline risk profiles. Trial Registration: NCT02917928.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41767833/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41767833",
+        "doi": "10.1002/fsn3.71514",
+        "journal": "Food science & nutrition",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T02:45:42.227Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "0d5f92ae40e799d4797b",
+      "reserved_at": "2026-10-11T02:45:50.427Z",
+      "source_branch": "research/intake/1/20261010-2243-mindfulness-carnosine-two-r13"
     }
   ],
   "batches": [
@@ -51997,16 +52150,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 661,
+    "total_reservations": 663,
     "by_lane": {
-      "1": 65,
+      "1": 67,
       "2": 146,
       "3": 125,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 661
+      "SOURCE_VERIFIED": 663
     },
     "batches": [
       {
@@ -52019,7 +52172,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 161,
+        "count": 163,
         "pr_number": null,
         "blocker": null
       }
