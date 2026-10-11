@@ -30,19 +30,17 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     products: [
       {
         slot: 'budget',
-        asin: 'B0019O2HB0',
         brand: 'NOW Foods',
         title: 'NOW Ashwagandha 450 mg',
-        rationale: 'Budget pick for a simple ashwagandha capsule from a widely available supplement brand.',
-        affiliateUrl: amazonProductUrl({ asin: 'B0019O2HB0', query: 'NOW Ashwagandha 450 mg capsules' }),
+        rationale: 'Ashwagandha capsule; the manufacturer product is confirmed but the historic ASIN remains unresolved, so no direct link.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Ashwagandha 450 mg capsules' }),
       },
       {
         slot: 'overall',
-        asin: 'B07LFMM7N1',
         brand: 'Jarrow Formulas',
         title: 'Jarrow KSM-66 Ashwagandha',
-        rationale: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.',
-        affiliateUrl: amazonProductUrl({ asin: 'B07LFMM7N1', query: 'Jarrow Formulas KSM-66 Ashwagandha' }),
+        rationale: 'Standardized KSM-66 root extract. Prior ASIN conflicts with a candidate replacement; neither is treated as confirmed pending exact-size validation.',
+        affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas KSM-66 Ashwagandha' }),
       },
     ],
   },
@@ -60,11 +58,10 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       },
       {
         slot: 'overall',
-        asin: 'B07P5K7DQP',
         brand: 'Pure Encapsulations',
-        title: 'Pure Encapsulations Magnesium Glycinate',
-        rationale: 'Best overall pick for a cleaner glycinate-style magnesium product.',
-        affiliateUrl: amazonProductUrl({ asin: 'B07P5K7DQP', query: 'Pure Encapsulations Magnesium Glycinate' }),
+        title: 'Pure Encapsulations Magnesium Glycinate 120 mg capsules',
+        rationale: 'Glycinate capsules, with 120 mg elemental magnesium per capsule reported. Provisional product ASIN; retain search URL.',
+        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Magnesium Glycinate 120mg' }),
       },
       {
         slot: 'premium',
