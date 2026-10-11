@@ -51582,6 +51582,84 @@
       "reservation_id": "a62909c1a9e18a9357e3",
       "reserved_at": "2026-10-11T01:06:30.009Z",
       "source_branch": "research/intake/3/20261010-2104-elderberry-42572604"
+    },
+    {
+      "pmid": "42289435",
+      "title": "Open-label placebos reduce hair cortisol concentrations and psychological distress - a randomized controlled trial.",
+      "doi": "10.1038/s41598-026-54791-8",
+      "source_title": "Open-label placebos reduce hair cortisol concentrations and psychological distress - a randomized controlled trial.",
+      "abstract": "The exposure to stressful events, such as demanding university exams, is associated with psychological distress and elevated physiological stress responses, which may impair performance. Recent research suggests that open-label placebo (OLP) treatments can effectively reduce psychological distress. However, evidence regarding OLP effects on biomarkers remains limited, highlighting the need for systematic investigation. This study presents the first longitudinal randomized controlled trial examining a four-week OLP intervention on hair cortisol concentrations (HCC) and psychological distress, using oral university exams as real-life stressors. 134 healthy university students were randomized to an OLP group receiving placebo pills or a control group without treatment. Psychological distress was assessed via a latent factor derived from area under the curve (AUCi) values of negative affect, test anxiety, subjective stress, and exam-related stress, continuously measured during the intervention. Analyses revealed decreasing HCC in the OLP group, demonstrating for the first time a long-term physiological effect of OLPs comparable to other stress-management interventions. Results further indicate reduced psychological distress in the OLP group. Pre-exam negative affect mediated subsequent improvements in exam grades observed in the OLP group, compared to the controls. These findings provide first evidence that OLPs may attenuate physiological and psychological impacts of prolonged stress exposure.Trial registration: This study was registered at the German clinical trials register (DRKS00031423).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42289435/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42289435",
+        "doi": "10.1038/s41598-026-54791-8",
+        "journal": "Scientific reports",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T01:45:47.068Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "36eea58fec92e5fdb8fe",
+      "reserved_at": "2026-10-11T01:45:54.326Z",
+      "source_branch": "research/intake/1/20261010-2143-placebo-mindfulness-carnosine-three-r12"
     }
   ],
   "batches": [
@@ -51610,16 +51688,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 656,
+    "total_reservations": 657,
     "by_lane": {
-      "1": 64,
+      "1": 65,
       "2": 143,
       "3": 124,
       "4": 50,
       "5": 275
     },
     "by_state": {
-      "SOURCE_VERIFIED": 656
+      "SOURCE_VERIFIED": 657
     },
     "batches": [
       {
@@ -51632,7 +51710,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 156,
+        "count": 157,
         "pr_number": null,
         "blocker": null
       }
