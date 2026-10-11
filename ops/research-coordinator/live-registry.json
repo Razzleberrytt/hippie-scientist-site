@@ -74656,6 +74656,159 @@
       "reservation_id": "ae673c138a55dfec3aa9",
       "reserved_at": "2026-10-11T18:46:21.479Z",
       "source_branch": "research/intake/1/20261011-1443-digital-cbt-r28"
+    },
+    {
+      "pmid": "42005919",
+      "title": "Tocotrienol-rich vitamin E complex in CADASIL (T3CAD): a randomised, double-blind, placebo-controlled trial.",
+      "doi": "10.1016/j.eclinm.2026.103853",
+      "source_title": "Tocotrienol-rich vitamin E complex in CADASIL (T3CAD): a randomised, double-blind, placebo-controlled trial.",
+      "abstract": "Cerebral autosomal dominant arteriopathy with subcortical infarcts and leukoencephalopathy (CADASIL) is the most common monogenic small vessel disease, causing recurrent stroke and progressive cognitive decline, with no disease-modifying treatment available. Tocotrienols, members of the vitamin E family, have demonstrated neuroprotective effects in preclinical studies. We evaluated the efficacy and safety of a tocotrienol-rich vitamin E complex (HOV12020) in patients with CADASIL. In this randomised, double-blind, placebo-controlled trial, 51 patients (median age (range): 58 years (43-73 y), male (n = 24, 47%)) with genetically confirmed CADASIL were assigned (1:1) to receive HOV12020 or placebo for 24 months. The primary endpoint was treatment failure, defined as any stroke occurrence, disability progression, or cognitive decline, and was analysed within a Bayesian framework to estimate the probability of treatment benefit. The secondary endpoints included the time to the first failure event, changes in clinical and cognitive scores, and safety. Exploratory MRI endpoints were analysed using quantile regression with Wilcoxon rank-sum sensitivity tests. EudraCT 2019-002867-23; ClinicalTrials.govNCT04658823. Patients were enrolled in the trial between 15/01/2021 and 11/02/2022. Treatment failure occurred in 68.0% of patients in the HOV12020 group and 61.5% in the placebo group, both exceeding the 40% placebo event rate that was initially expected. Bayesian analysis indicated a low posterior probability of benefit, meeting the predefined futility criteria. No significant differences were observed in the secondary endpoints or exploratory MRI measurements. HOV12020 was well tolerated, with an excellent safety profile and no excess of adverse events. HOV12020 did not reduce clinical progression in CADASIL over 24 months. Bayesian analysis confirmed futility, suggesting that tocotrienol-rich vitamin E is unlikely to confer benefits in the advanced stages of the disease. This rigorously designed trial illustrated the potential of Bayesian randomised studies in a rare, slowly progressive cerebral small vessel disease as CADASIL and provides key information for the development of future preventive strategies in cerebral small vessel disease. Hovid Berhad (study sponsor).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42005919/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42005919",
+        "doi": "10.1016/j.eclinm.2026.103853",
+        "journal": "EClinicalMedicine",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T18:52:37.748Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2cfa847703b721df7a78",
+      "reserved_at": "2026-10-11T18:52:45.451Z",
+      "source_branch": "research/intake/2/20261011-1448-cognition-metabolic-null-r76"
+    },
+    {
+      "pmid": "40345656",
+      "title": "Effect of probiotic supplementation on glycemic control in patients with type 2 diabetes: A randomized controlled trial.",
+      "doi": "10.1016/j.clnesp.2025.05.013",
+      "source_title": "Effect of probiotic supplementation on glycemic control in patients with type 2 diabetes: A randomized controlled trial.",
+      "abstract": "Type 2 diabetes presents significant public health challenges. The gut microbiome has emerged as a potential factor influencing glucose metabolism. We performed a randomized, double-blind, single-center trial involving patients with type 2 diabetes and glycated hemoglobin (HbA1c) concentration of 7 % or greater. Patients were randomly assigned to receive 100 billion colony-forming units (CFUs) of probiotic supplementation daily or placebo. The primary efficacy endpoint was the change in HbA1c from baseline to 12 weeks, and secondary endpoints included lipid and inflammatory markers. A total of 130 patients were included. HbA1c was 7.63 ± 0.54 % at baseline and 7.63 ± 0.63 % at 12 weeks in the probiotic group and 7.71 ± 0.74 % and 7.81 ± 0.84 % in the placebo group (p = 0.29 between treatment groups). There were also no significant differences between treatment groups in plasma glucose (p = 0.60) and insulin (p = 0.41), as well as in LDL-cholesterol (p = 0.90) and triglycerides (p = 0.32). The adjusted geometric mean percent change (95 % confidence interval) in high-sensitivity C-reactive protein was 1.59 % (-15.71, 22.44) in the probiotic group and -1.37 % (-18.04, 18.70) in the placebo group (p = 0.82). Gastrointestinal adverse events occurred in 38.5 % and 46.2 % of patients in the probiotic group and placebo group respectively (p = 0.48). Probiotic supplementation for 12 weeks did not improve glycemic control, lipid or inflammatory markers in patients with type 2 diabetes. Further research is needed to determine the potential benefits and underlying mechanisms of probiotics in subsets of patients. gov Identifier no. NCT03239366.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40345656/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "40345656",
+        "doi": "10.1016/j.clnesp.2025.05.013",
+        "journal": "Clinical nutrition ESPEN",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-11T18:52:37.749Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "64654441c0ea8c05d2c4",
+      "reserved_at": "2026-10-11T18:52:45.451Z",
+      "source_branch": "research/intake/2/20261011-1448-cognition-metabolic-null-r76"
     }
   ],
   "batches": [
@@ -74684,16 +74837,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 954,
+    "total_reservations": 956,
     "by_lane": {
       "1": 91,
-      "2": 180,
+      "2": 182,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 954
+      "SOURCE_VERIFIED": 956
     },
     "batches": [
       {
@@ -74706,7 +74859,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 454,
+        "count": 456,
         "pr_number": null,
         "blocker": null
       }
