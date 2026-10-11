@@ -22,6 +22,17 @@ export type EditorialStatus =
   | 'needs-update'
   | 'deprecated'
 
+// Submission approval is independent of editorial/publication status.
+export type ReviewStatus =
+  | 'draft_submission'
+  | 'needs_validation_fix'
+  | 'ready_for_review'
+  | 'under_review'
+  | 'approved_for_rollup'
+  | 'revision_requested'
+  | 'rejected'
+  | 'deprecated_submission'
+
 export type SourceRefType =
   | 'rct'
   | 'systematic-review'
@@ -166,5 +177,8 @@ export type ResearchEnrichment = {
   lastReviewedAt: string
   reviewedBy: string
   editorialStatus: EditorialStatus
+  // Required to publish. Optional in the type while historic artifacts are migrated.
+  reviewStatus?: ReviewStatus
+  active?: boolean
   relatedEntities?: RelatedEntityRef[]
 }
