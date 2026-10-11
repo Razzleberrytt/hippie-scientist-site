@@ -3,6 +3,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { validateR808HudReview } from './r808-hud-inspection.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -49,6 +50,10 @@ export function approveR805Master({
   qualifierVisibility,
   mobileSafeArea,
   readableClaimDwell,
+  hudFirstFrame,
+  hudMiddleFrame,
+  hudLimitationFrame,
+  hudSourceFrame,
   notes = '',
   now = new Date().toISOString(),
 } = {}) {
@@ -136,6 +141,11 @@ export function approveR805Master({
     if (value !== 'pass') throw new Error(`R8.05 exact master requires ${name}=pass; weak masters fail closed`)
   }
   if (!clean(reviewer)) throw new Error('R8.05 master QA reviewer is required')
+  // These are human observations of four encoded frames, not text-brief checks.
+  // The master QA artifact SHA-256 below binds the attestation to this exact MP4.
+  const hudFrameInspection = creativeMethodRelease === 'R8.08'
+    ? validateR808HudReview({ hudFirstFrame, hudMiddleFrame, hudLimitationFrame, hudSourceFrame })
+    : null
 
   const receipt = {
     schemaVersion: 'ths-r805-master-qa-receipt-v1',
@@ -185,6 +195,7 @@ export function approveR805Master({
       qualifierVisibility: creativeMethodRelease === 'R8.08' ? 'pass' : null,
       mobileSafeArea: creativeMethodRelease === 'R8.08' ? 'pass' : null,
       readableClaimDwell: creativeMethodRelease === 'R8.08' ? 'pass' : null,
+      ...(hudFrameInspection ?? {}),
       pastedNarrationFeel: 'reject-if-present',
       notes: clean(notes),
     },
@@ -215,6 +226,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     qualifierVisibility: args['qualifier-visibility'],
     mobileSafeArea: args['mobile-safe-area'],
     readableClaimDwell: args['readable-claim-dwell'],
+    hudFirstFrame: args['hud-first-frame'],
+    hudMiddleFrame: args['hud-middle-frame'],
+    hudLimitationFrame: args['hud-limitation-frame'],
+    hudSourceFrame: args['hud-source-frame'],
     notes: args.notes || '',
   })
   console.log(`[perceptual-qa] exact R8.05 master approved: ${receipt.artifact.sha256}`)

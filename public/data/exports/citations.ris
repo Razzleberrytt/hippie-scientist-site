@@ -176,14 +176,6 @@ ER  -
 
 TY  - ELEC
 PB  - NCBI Bookshelf, National Library of Medicine
-TI  - Interferon Alfacon-1
-PY  - 2025
-AN  - 30000526
-UR  - https://pubmed.ncbi.nlm.nih.gov/30000526/
-ER  - 
-
-TY  - ELEC
-PB  - NCBI Bookshelf, National Library of Medicine
 TI  - St. John's Wort
 PY  - 2025
 AN  - 30000829
@@ -10611,26 +10603,6 @@ UR  - https://pubmed.ncbi.nlm.nih.gov/27399234/
 ER  - 
 
 TY  - JOUR
-AU  - Hazzan AA
-AU  - Humphrey J
-AU  - Kilgour-Walsh L
-AU  - Moros KL
-AU  - Murray C
-AU  - Stanners S
-AU  - Montemuro M
-AU  - Giangregorio A
-AU  - Papaioannou A
-TI  - Impact of the 'Artful Moments' Intervention on Persons with Dementia and Their Care Partners: a Pilot Study
-JO  - Can Geriatr J
-PY  - 2016
-VL  - 19
-SP  - 1-8
-DO  - 10.5770/cgj.19.220
-AN  - 27403209
-UR  - https://pubmed.ncbi.nlm.nih.gov/27403209/
-ER  - 
-
-TY  - JOUR
 AU  - Daily JW
 AU  - Yang M
 AU  - Park S
@@ -11372,18 +11344,6 @@ UR  - https://pubmed.ncbi.nlm.nih.gov/25005060/
 ER  - 
 
 TY  - JOUR
-AU  - Honey L
-TI  - One Health: time to move on from just talking
-JO  - Vet Rec
-PY  - 2014
-VL  - 175
-SP  - 83
-DO  - 10.1136/vr.g4746
-AN  - 25059961
-UR  - https://pubmed.ncbi.nlm.nih.gov/25059961/
-ER  - 
-
-TY  - JOUR
 AU  - Borlinghaus J
 AU  - Albrecht F
 AU  - Gruhlke MC
@@ -11397,24 +11357,6 @@ SP  - 12591-618
 DO  - 10.3390/molecules190812591
 AN  - 25153873
 UR  - https://pubmed.ncbi.nlm.nih.gov/25153873/
-ER  - 
-
-TY  - JOUR
-AU  - Jakobiec FA
-AU  - Trief D
-AU  - Rashid A
-AU  - Rose MF
-AU  - Minckler D
-AU  - Vanderveen D
-AU  - Mukai S
-TI  - New insights into the development of infantile intraocular medulloepithelioma
-JO  - Am J Ophthalmol
-PY  - 2014
-VL  - 158
-SP  - 1275-1296.e1
-DO  - 10.1016/j.ajo.2014.08.036
-AN  - 25174896
-UR  - https://pubmed.ncbi.nlm.nih.gov/25174896/
 ER  - 
 
 TY  - JOUR
@@ -11838,19 +11780,6 @@ SP  - 8-21
 DO  - 10.1007/s11684-012-0184-8
 AN  - 22460444
 UR  - https://pubmed.ncbi.nlm.nih.gov/22460444/
-ER  - 
-
-TY  - JOUR
-AU  - Maeda H
-AU  - Dudareva N
-TI  - The shikimate pathway and aromatic amino Acid biosynthesis in plants
-JO  - Annu Rev Plant Biol
-PY  - 2012
-VL  - 63
-SP  - 73-105
-DO  - 10.1146/annurev-arplant-042811-105439
-AN  - 22554242
-UR  - https://pubmed.ncbi.nlm.nih.gov/22554242/
 ER  - 
 
 TY  - JOUR
@@ -13410,19 +13339,6 @@ UR  - https://pubmed.ncbi.nlm.nih.gov/15927925/
 ER  - 
 
 TY  - JOUR
-AU  - Petersen M
-AU  - Simmonds MS
-TI  - Rosmarinic acid
-JO  - Phytochemistry
-PY  - 2003
-VL  - 62
-SP  - 121-5
-DO  - 10.1016/s0031-9422(02)00513-7
-AN  - 12482446
-UR  - https://pubmed.ncbi.nlm.nih.gov/12482446/
-ER  - 
-
-TY  - JOUR
 AU  - Hadley CW
 AU  - Clinton SK
 AU  - Schwartz SJ
@@ -13797,21 +13713,6 @@ VL  - 80
 SP  - 427-32
 AN  - 9313662
 UR  - https://pubmed.ncbi.nlm.nih.gov/9313662/
-ER  - 
-
-TY  - JOUR
-AU  - Andres TL
-AU  - Baron AE
-AU  - Wright RA
-AU  - Marine WM
-TI  - Tracking community sentinel events: breast cancer mortality and neighborhood risk for advanced-stage tumors in Denver
-JO  - Am J Public Health
-PY  - 1996
-VL  - 86
-SP  - 717-22
-DO  - 10.2105/ajph.86.5.717
-AN  - 8629725
-UR  - https://pubmed.ncbi.nlm.nih.gov/8629725/
 ER  - 
 
 TY  - JOUR

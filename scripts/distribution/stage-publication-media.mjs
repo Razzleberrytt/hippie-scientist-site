@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import crypto from 'node:crypto'
 import fs from 'node:fs'
+import { validateR808HudReview } from './r808-hud-inspection.mjs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { renderVerticalVideoMp4 } from './render-vertical-video-mp4.mjs'
@@ -185,6 +186,9 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
       for (const field of ['visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected', 'audioOffComprehension', 'qualifierVisibility', 'mobileSafeArea', 'readableClaimDwell']) {
         if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.08 master QA requires ${field}=pass`)
       }
+      // A textual brief cannot detect faux HUDs baked into external PNG art.
+      // Require the reviewer’s four-frame attestation on the SHA-bound master QA receipt.
+      validateR808HudReview(masterQa.qa)
       if (clean(pilot.assets?.creativeFoundation?.schemaVersion) !== 'ths-r806-creative-receipt-v1'
           || clean(pilot.assets?.creativeVisualFoundation?.schemaVersion) !== 'ths-r807-creative-receipt-v1'
           || clean(pilot.assets?.creativeDirection?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
