@@ -54,6 +54,9 @@ describe('kava safety and citation content', () => {
     const source = compare()
     expect(source).toContain('Do not combine kava with alcohol or other sedatives')
     expect(source).toContain('people with liver disease')
+    expect(source).toContain('additional liver risk from taking them together has not been quantified')
+    expect(source).not.toContain('overlapping use can amplify sedation, impair liver function')
+    expect(source).toContain('Kava: multiple CNS pathways')
   })
 
   it('removes rapid-anxiety-relief promises from the alternatives guide', () => {
