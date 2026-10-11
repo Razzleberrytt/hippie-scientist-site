@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { assertR809InheritedReceiptsApproved } from '../approve-r805-master.mjs'
 
@@ -9,6 +10,15 @@ const approvedLineage = () => ({
 })
 
 describe('R8.09 exact-master final inherited-approval gate', () => {
+  it('invokes the inherited approval check inside the actual R8.09 final master path', () => {
+    const source = readFileSync(new URL('../approve-r805-master.mjs', import.meta.url), 'utf8')
+    const branchStart = source.indexOf("if (creativeMethodRelease === 'R8.09') {")
+    const branchEnd = source.indexOf("} else {", branchStart)
+    expect(branchStart).toBeGreaterThanOrEqual(0)
+    expect(branchEnd).toBeGreaterThan(branchStart)
+    expect(source.slice(branchStart, branchEnd)).toContain('assertR809InheritedReceiptsApproved(manifest)')
+  })
+
   it('accepts only a fully approved inherited creative receipt chain', () => {
     expect(assertR809InheritedReceiptsApproved(approvedLineage())).toBe(true)
   })
