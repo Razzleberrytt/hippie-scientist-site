@@ -60,16 +60,16 @@ export const productPicks: ProductPick[] = [
     name: 'Jarrow Theanine 200 mg',
     brand: 'Jarrow Formulas',
     type: 'top',
-    url: `https://www.amazon.com/dp/B01GAOCB56?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a simple 200 mg L-theanine capsule format.'
+    url: `https://www.amazon.com/s?k=Jarrow+Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Single-ingredient theanine; exact ASIN remains provisional and this earlier direct ASIN cannot be assumed equivalent.'
   },
   {
     compound_slug: 'l-theanine',
-    name: 'NOW L-Theanine 200 mg',
+    name: 'NOW L-Theanine 200 mg + Inositol 100 mg',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Foods+L-Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for plain L-theanine capsules.'
+    url: `https://www.amazon.com/s?k=NOW+L-Theanine+200+mg+inositol+100+mg&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Combination supplement, not plain L-theanine; exact ASIN unverified.'
   },
   {
     compound_slug: 'l-theanine',
@@ -77,7 +77,7 @@ export const productPicks: ProductPick[] = [
     brand: 'Sports Research',
     type: 'premium',
     url: `https://www.amazon.com/s?k=Sports+Research+Suntheanine+L-Theanine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium pick pairing Suntheanine-labeled theanine in softgel format.'
+    notes: 'Suntheanine L-theanine liquid softgel with coconut oil; exact ASIN provisional.'
   },
 
   // Magnesium
@@ -138,8 +138,8 @@ export const productPicks: ProductPick[] = [
     name: 'Gaia Herbs Rhodiola Rosea',
     brand: 'Gaia Herbs',
     type: 'top',
-    url: `https://www.amazon.com/dp/B00E4HSMQE?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for users who want liquid phyto-caps format.'
+    url: `https://www.amazon.com/s?k=Gaia+Herbs+Rhodiola+Rosea&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Gaia Rhodiola phyto-caps; reported rosavins amount is not a 3%-1% standardized extract claim. Old direct ASIN unresolved.'
   },
   {
     compound_slug: 'rhodiola',
@@ -147,15 +147,15 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Rhodiola+500+mg&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for a common Rhodiola rosea capsule.'
+    notes: 'NOW Rhodiola root extract standardized to 3% rosavins/1% salidroside; direct ASIN unverified.'
   },
   {
     compound_slug: 'rhodiola',
-    name: 'Thorne Rhodiola',
+    name: 'Thorne Rhodiola (SF755)',
     brand: 'Thorne',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Thorne+Rhodiola+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium practitioner-grade standardized extract.'
+    url: `https://www.amazon.com/s?k=Thorne+Rhodiola+SF755&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: '100 mg 5:1 root extract standardized to 3% rosavins and 1% salidroside; direct ASIN provisional.'
   },
 
   // Lion's Mane
@@ -164,24 +164,34 @@ export const productPicks: ProductPick[] = [
     name: 'Real Mushrooms Lions Mane',
     brand: 'Real Mushrooms',
     type: 'top',
-    url: `https://www.amazon.com/dp/B07YJN369J?tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall pick for fruiting-body-forward labeling and mushroom-category transparency.'
+    url: `https://www.amazon.com/s?k=Real+Mushrooms+Lions+Mane&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Fruiting body with stated beta-glucans; B078SZX3ML replacement is provisional and prior ASIN may be mismatched.'
   },
   {
     compound_slug: 'lions-mane',
-    name: 'NOW Lions Mane',
+    name: 'NOW Lion\'s Mane',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Lions+Mane+mushroom+supplement&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: "Budget pick for a widely available lion's mane capsule."
+    url: `https://www.amazon.com/dp/B09V3BS25N?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed USDA Organic fruiting-body variant; do not transfer strain/form claims to other lion\'s mane products.'
   },
   {
     compound_slug: 'lions-mane',
-    name: 'Host Defense Lions Mane',
+    name: 'Host Defense Lion\'s Mane mycelium-on-rice',
     brand: 'Host Defense',
     type: 'premium',
-    url: `https://www.amazon.com/s?k=Host+Defense+Lions+Mane+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Premium pick from a well-known mushroom-specialist brand.'
+    url: `https://www.amazon.com/s?k=Host+Defense+Lions+Mane+mycelium+brown+rice&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Mycelium on brown rice, not fruiting body. Check this variant\'s California Proposition 65 lead warning and ingredient differences.'
+  },
+
+  // Glycine — this confirmed product is capsules, not powder.
+  {
+    compound_slug: 'glycine',
+    name: 'NOW Glycine 1,000 mg capsules',
+    brand: 'NOW Foods',
+    type: 'budget',
+    url: `https://www.amazon.com/dp/B08R229KG7?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed 1 g capsules. A 3 g amount used in some small sleep studies is not universal dosing advice.'
   },
 
   // Melatonin
@@ -247,11 +257,11 @@ export const productPicks: ProductPick[] = [
   },
   {
     compound_slug: 'omega-3',
-    name: 'NOW Ultra Omega-3',
+    name: 'NOW Ultra Omega-3 500 EPA / 250 DHA (ethyl ester)',
     brand: 'NOW Foods',
     type: 'budget',
-    url: `https://www.amazon.com/s?k=NOW+Ultra+Omega-3+500+EPA+250+DHA&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for high-EPA enteric-coated softgels.'
+    url: `https://www.amazon.com/dp/B0015L2LBE?tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Confirmed ethyl-ester fish-oil formulation, not triglyceride; 500 mg EPA plus 250 mg DHA.'
   },
   {
     compound_slug: 'omega-3',
@@ -265,11 +275,11 @@ export const productPicks: ProductPick[] = [
   // Berberine
   {
     compound_slug: 'berberine',
-    name: 'Thorne Berberine-500',
+    name: 'Thorne Berberine Dual-Action (HCl + phytosome)',
     brand: 'Thorne',
     type: 'top',
-    url: `https://www.amazon.com/s?k=Thorne+Berberine-500+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Best overall for a practitioner-brand berberine with consistent testing.'
+    url: `https://www.amazon.com/s?k=Thorne+Berberine+dual+action+HCl+phytosome&tag=${AFFILIATE_TAGS.amazon}`,
+    notes: 'Reformulated: 450 mg HCl plus 550 mg phytosome per two-capsule serving; old Berberine-500 and HPLC claims withdrawn.'
   },
   {
     compound_slug: 'berberine',
@@ -277,7 +287,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Berberine+500+mg+HCl+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for berberine HCl at the standard clinical dose.'
+    notes: 'Berberine HCl 500 mg per capsule; some human trials total 1,000-1,500 mg/day, not necessarily a recommended regimen.'
   },
   {
     compound_slug: 'berberine',
@@ -433,7 +443,7 @@ export const productPicks: ProductPick[] = [
     brand: 'NOW Foods',
     type: 'budget',
     url: `https://www.amazon.com/s?k=NOW+Foods+Quercetin+with+Bromelain+capsules&tag=${AFFILIATE_TAGS.amazon}`,
-    notes: 'Budget pick for quercetin + bromelain combination.'
+    notes: 'Quercetin plus bromelain combination; avoid unproven absorption and clinical advantage claims.'
   },
   {
     compound_slug: 'quercetin',
