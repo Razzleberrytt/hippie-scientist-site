@@ -95,6 +95,25 @@ describe('EvidenceMotion append-only, manual-first learning flywheel',()=>{
     expect(data.autoDeploy).toBe(false)
     expect(()=>proposeFlywheelTemplate(root,{...request,description:'quietly changed'})).toThrow(/immutable/)
   })
+  it('does not mistake lifetime counts for comparable seven-day growth',()=>{
+    const root=setup()
+    registerFlywheelVideo(root,mkVideo(1))
+    const late={...obs(1,500,5),observedAt:'2026-10-20T12:00:00Z'}
+    expect(()=>appendFlywheelObservation(root,late)).toThrow(/actual elapsed performance window/)
+    const historical={...late,metricsThroughAt:'2026-10-08T12:00:00Z'}
+    expect(appendFlywheelObservation(root,historical).existing).toBe(false)
+    const original=getFlywheelVideo(root,'published-video-1').observations[0]
+    expect(original.metricsThroughAt).toBe('2026-10-08T12:00:00Z')
+    expect(original.observedAt).toBe('2026-10-20T12:00:00Z')
+  })
+  it('does not claim a provider-verified metric without export receipt proof',()=>{
+    const root=setup()
+    registerFlywheelVideo(root,mkVideo(1))
+    const unverified={...obs(1,400,10),source:'verified-provider-export'}
+    expect(()=>appendFlywheelObservation(root,unverified)).toThrow(/actual export receipt SHA-256/)
+    const verified={...unverified,providerReceiptSha256:sha('genuine-export-content-test-fixture')}
+    expect(appendFlywheelObservation(root,verified).existing).toBe(false)
+  })
   it('refuses fabricated or unbounded metrics and an unproven publication identity',()=>{
     const root=setup()
     expect(()=>registerFlywheelVideo(root,{...mkVideo(1),artifactSha256:'unknown'})).toThrow()
