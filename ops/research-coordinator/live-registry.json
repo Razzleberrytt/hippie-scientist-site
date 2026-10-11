@@ -70774,6 +70774,239 @@
       "reservation_id": "3a5fa17b91f703e36467",
       "reserved_at": "2026-10-11T12:39:42.579Z",
       "source_branch": "research/intake/1/20261011-0836-exercise-mbsr-two-r22"
+    },
+    {
+      "pmid": "42517095",
+      "title": "Effects of exercise intervention on executive function in college students: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.3389/fpubh.2026.1876948",
+      "source_title": "Effects of exercise intervention on executive function in college students: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "This study aims to systematically evaluate the effects of acute and long-term exercise interventions on executive functions (inhibitory control, working memory, cognitive flexibility) in college students, and to explore the moderating roles of measurement paradigms, exercise dosage, and scoring methods. We searched PubMed, Embase, Web of Science, Cochrane Library, Scopus, CNKI, and Wanfang from database inception to March 5, 2026, for randomized controlled trials on exercise interventions for executive function in college students. Two reviewers independently screened records, extracted data, and assessed risk of bias using the Cochrane ROB 2 tool. Meta-analyses were performed using Stata 17.0, with either fixed-effect or random-effect models selected based on heterogeneity. A total of 16 randomized controlled trials involving 868 college students were included. Acute exercise interventions significantly improved inhibitory control ( g = 0.52, 95% CI: 0.08, 0.95) and cognitive flexibility ( g = 0.81, 95% CI: 0.23, 1.39), but the improvement in working memory did not reach statistical significance ( g = 0.10, 95% CI: -0.21, 0.42). Long-term exercise interventions significantly improved inhibitory control ( g = 0.52, 95% CI: 0.34, 0.70) and working memory ( g = 0.57, 95% CI: 0.37, 0.78), whereas the effect size for cognitive flexibility was small and not statistically significant ( g = 0.25, 95% CI: -0.05, 0.55). Subgroup analyses indicated that the effects of exercise interventions on subcomponents of executive function varied according to measurement paradigms, exercise dosage (duration, frequency, period, intensity), and scoring methods. Acute and long-term exercise show distinct patterns of improving executive functions in college students. Acute exercise significantly enhances cognitive flexibility and inhibitory control but has limited effects on working memory. Long-term exercise significantly enhances inhibitory control and working memory but shows no significant effect on cognitive flexibility. https://www.crd.york.ac.uk/, identifier CRD420261364227.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42517095/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Meta-Analysis; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42517095",
+        "doi": "10.3389/fpubh.2026.1876948",
+        "journal": "Frontiers in public health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T12:57:00.114Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "78a9ea9d388666a4b329",
+      "reserved_at": "2026-10-11T12:57:10.229Z",
+      "source_branch": "research/intake/2/20261011-0853-cognition-metabolic-r70"
+    },
+    {
+      "pmid": "42098784",
+      "title": "A randomised controlled trial of physical activity and cognitive training in older adults: the PhABHeaD study.",
+      "doi": "10.1186/s13063-026-09681-9",
+      "source_title": "A randomised controlled trial of physical activity and cognitive training in older adults: the PhABHeaD study.",
+      "abstract": "Robust empirical evidence supports the effectiveness of physical and cognitive training in preventing and delaying cognitive decline. Emerging research suggests distinct neurobiological mechanisms underpin the effects of these different training modalities. An unresolved question is whether the mechanisms through which these training modalities impart their effect interact synergistically to improve cognitive outcomes, rather than exerting additive effects, differ. In addition, past research has been inconsistent in adequately controlling for or documenting the dosage of physical and/or cognitive training. Consequently, the aim of this study is to assess the relative effectiveness of physical and cognitive training conducted in isolation or concurrently, whilst rigorously controlling and documenting the treatment parameters. This study is a three-arm randomised controlled trial conducted over a 3-month period, comparing cognitive training, physical activity, and a combination of both interventions. Older cognitively healthy participants (n = 126) aged 60-75 years will be recruited from the community. The physical only training will require participants to cycle on a cycle ergometer at above 60% of their age-predicted heart rate maximum for 50 min with a 3-min warm-up and cool-down period. The cognitive only training will require participants to complete up to five different cognitive tasks selected from a set of eight on the BrainHQ platform during each 50-min training session. The concurrent cognitive and physical training will require participants to undertake both treatments at the same time. Primary outcomes, assessed pre- and post- intervention, will include speed of processing and episodic memory assessed with the NIH Toolbox, as well as general driving skills assessed on a driving simulator. Findings will inform the design of interventions and population health advice aimed at mitigating cognitive decline. If a substantial synergetic effect is detected, it may lead to the use of more widespread concurrent physical and cognitive training and the potential development of methods to make concurrent training practical. Findings will also provide important clarification as to the relative benefit of the two modes of training. Prospective registration with Australia and New Zealand Clinical Trial Registry (ACTRN12624001088538) on 10th September 2024 and World Health Organisation International Clinical Trials Registry (U1111-1280-3851).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42098784/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42098784",
+        "doi": "10.1186/s13063-026-09681-9",
+        "journal": "Trials",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T12:57:00.115Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "4ebc5771f28d07e4afa5",
+      "reserved_at": "2026-10-11T12:57:10.229Z",
+      "source_branch": "research/intake/2/20261011-0853-cognition-metabolic-r70"
+    },
+    {
+      "pmid": "42229460",
+      "title": "Insulin Sensitivity and Beta Cell Function With Macupatide Alone or With Dulaglutide in Type 2 Diabetes: A Phase 1b, Randomised Controlled Trial.",
+      "doi": "10.1111/dom.70863",
+      "source_title": "Insulin Sensitivity and Beta Cell Function With Macupatide Alone or With Dulaglutide in Type 2 Diabetes: A Phase 1b, Randomised Controlled Trial.",
+      "abstract": "This Phase 1b, randomised, double-blind clinical trial investigated the contribution of glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) to insulin sensitivity and secretion in people with type 2 diabetes (T2D) on metformin. Participants were randomised to receive the long-acting GIP receptor agonist macupatide, dulaglutide or both combined. Insulin sensitivity (M value), insulin secretion rate (ISR) and the corresponding clamp disposition index (cDI) were assessed from hyperinsulinemic euglycaemic clamps at baseline and after 12-week treatment. Overall baseline means were cDI, 0.3 pmol*m -2 *L*min -2 *kg -1 ; M value, 5.8 mg*kg -1 *min -1 ; ISR, 116.8 pmol*min -1 *m -2 . The 12-week increases in the macupatide, dulaglutide and combination arms were, respectively: cDI, 0.2 (63.2% change), 0.5 (181.0%) and 1.0 (321.5%); M value, 1.3 (33.1%), 0.2 (10.4%) and 2.0 (38.3%); ISR, 37.6 (32.2%), 191.1 (163.6%) and 225.3 (192.9%). Macupatide alone significantly increased the M value and, to a lesser yet significant extent, ISR. Combination therapy was numerically greater than both monotherapies in augmenting all indices. The most frequent adverse events were injection site reactions and diarrhoea. Study discontinuations due to treatment-emergent adverse events were uncommon. There were no deaths during the study. These findings demonstrate that chronic GIP receptor activation in individuals with T2D leads primarily to increased insulin sensitivity, and that combining GIP and GLP-1 receptor agonism can augment both insulin secretion and insulin sensitivity compared to GLP-1 therapy alone.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42229460/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase I",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase I"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42229460",
+        "doi": "10.1111/dom.70863",
+        "journal": "Diabetes, obesity & metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T12:57:00.115Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "5e051eb63b04ee33510d",
+      "reserved_at": "2026-10-11T12:57:10.229Z",
+      "source_branch": "research/intake/2/20261011-0853-cognition-metabolic-r70"
     }
   ],
   "batches": [
@@ -70802,16 +71035,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 904,
+    "total_reservations": 907,
     "by_lane": {
       "1": 81,
-      "2": 165,
+      "2": 168,
       "3": 133,
       "4": 50,
       "5": 475
     },
     "by_state": {
-      "SOURCE_VERIFIED": 904
+      "SOURCE_VERIFIED": 907
     },
     "batches": [
       {
@@ -70824,7 +71057,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 404,
+        "count": 407,
         "pr_number": null,
         "blocker": null
       }
