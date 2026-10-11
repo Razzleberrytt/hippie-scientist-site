@@ -15,10 +15,10 @@
   "batches": [
     {
       "id": "rolling-0001",
-      "state": "DRAFT_PR",
+      "state": "ABANDONED",
       "count": 500,
       "pr_number": 6546,
-      "blocker": "Independent scientific review pending"
+      "blocker": "Batch closed without merge"
     },
     {
       "id": "rolling-0002",
