@@ -88,6 +88,19 @@ export function appendFlywheelObservation(root, observation) {
   if(dateMs(observation.observedAt)<dateMs(v.publishedAt))throw Error('Flywheel observation precedes publishing')
   const metricWindow=observation.metricWindow
   if(!['first-72h','first-7d','first-28d','lifetime'].includes(metricWindow))throw Error('Flywheel explicit comparison window required')
+  // Entry time is not the measurement window. Historical screenshots may be
+  // entered later; each snapshot records when its metrics actually ended.
+  const metricsThroughAt = observation.metricsThroughAt || observation.observedAt
+  const throughMs = dateMs(metricsThroughAt)
+  if(throughMs>dateMs(observation.observedAt)||throughMs<dateMs(v.publishedAt))throw Error('Flywheel metric coverage must follow publication and cannot postdate collection')
+  const expectedDays = {'first-72h':3,'first-7d':7,'first-28d':28}[metricWindow]
+  if(expectedDays!==undefined) {
+    const days=(throughMs-dateMs(v.publishedAt))/86400000
+    const tolerance=expectedDays===28?2:expectedDays===7?1:0.5
+    if(Math.abs(days-expectedDays)>tolerance)throw Error('Flywheel '+metricWindow+' snapshot must represent its actual elapsed performance window')
+  }
+  const providerReceiptSha256 = observation.source==='verified-provider-export' ? String(observation.providerReceiptSha256||'') : null
+  if(observation.source==='verified-provider-export' && !shaPattern.test(providerReceiptSha256))throw Error('Flywheel provider-verified statistics require an actual export receipt SHA-256')
   if(observation.source!=='manual-owner-entry' && observation.source!=='verified-provider-export')throw Error('Flywheel requires explicit metrics provenance')
   const fields=['views','likes','followsAttributed']
   const metrics={}
@@ -107,14 +120,14 @@ export function appendFlywheelObservation(root, observation) {
   const previous=v.observations.filter(o=>o.metricWindow===metricWindow)
   if(previous.some(o=>o.observedAt===observation.observedAt)){
     const existing=previous.find(o=>o.observedAt===observation.observedAt)
-    if(existing.source===observation.source
+    if(existing.source===observation.source && existing.metricsThroughAt===metricsThroughAt && existing.providerReceiptSha256===providerReceiptSha256
       && stable(existing.metrics)===stable(metrics)
       && existing.note===clean(observation.note))return {idempotent:true,videoId:id,observedAt:observation.observedAt}
     throw Error('Flywheel immutable observation timestamp already recorded with different metrics')
   }
   if(previous.length&&dateMs(observation.observedAt)<=Math.max(...previous.map(o=>dateMs(o.observedAt))))throw Error('Flywheel cannot backdate an already-observed window')
   const row={schemaVersion:'ths-evidencemotion-flywheel-observation-v1',videoId:id,
-    observedAt:observation.observedAt,metricWindow,source:observation.source,metrics,
+    observedAt:observation.observedAt,metricsThroughAt,metricWindow,source:observation.source,providerReceiptSha256,metrics,
     note:clean(observation.note),qualityAssessment:null}
   const name=isoKey(observation.observedAt)+'-'+metricWindow+'.json'
   const receipt=immutable(path.join(path.resolve(root),'videos',id,'observations',name),row)
