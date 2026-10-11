@@ -462,7 +462,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       r809Captioning: isR809 ? {
         burnIn: true,
         authority: 'exact-governed-voice-script',
-        cueTimingPrecision: 'voice-beat-bounded-phrase-estimate',
+        cueTimingPrecision: isR810 ? 'local-acoustic-word-aligned' : 'voice-beat-bounded-phrase-estimate',
         captionsSrtSha256: clean(verified.manifest.captions?.sha256),
         renderAssSha256: captionFileSha256,
         canvasSafeArea: 'platform-intersection',
