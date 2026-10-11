@@ -401,10 +401,11 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       },
       {
         slot: 'premium',
+        asin: 'B000X9P5GM',
         brand: 'Life Extension',
         title: 'Life Extension Super Bio-Curcumin',
         rationale: 'Premium BCM-95 curcumin with enhanced bioavailability versus standard turmeric.',
-        affiliateUrl: amazonProductUrl({ query: 'Life Extension Super Bio-Curcumin BCM-95' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B000X9P5GM', query: 'Life Extension Super Bio-Curcumin BCM-95' }),
       },
     ],
   },
@@ -904,17 +905,19 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
     products: [
       {
         slot: 'budget',
+        asin: 'B0013OUOBM',
         brand: 'NOW Foods',
         title: 'NOW Sports Creatine Monohydrate Powder',
         rationale: 'Budget pick for unflavored creatine monohydrate powder — proven, simple, affordable.',
-        affiliateUrl: amazonProductUrl({ query: 'NOW Sports Creatine Monohydrate Powder unflavored' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B0013OUOBM', query: 'NOW Sports Creatine Monohydrate Powder unflavored' }),
       },
       {
         slot: 'overall',
+        asin: 'B002DYIZEO',
         brand: 'Optimum Nutrition',
         title: 'Optimum Nutrition Micronized Creatine Powder',
         rationale: 'Manufacturer describes micronized creatine monohydrate with 5 g creatine per serving. Creapure identity and retailer listing are unverified.',
-        affiliateUrl: amazonProductUrl({ query: 'Optimum Nutrition Micronized Creatine Powder' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B002DYIZEO', query: 'Optimum Nutrition Micronized Creatine Powder' }),
       },
       {
         slot: 'premium',
