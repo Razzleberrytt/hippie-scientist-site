@@ -1,7 +1,7 @@
 /**
  * Build researcher-facing citation exports (backlog 1409-1424, 213-214).
  *
- * The site cites 849 studies whose bibliographic metadata is now complete
+ * The site cites hundreds of studies whose bibliographic metadata is now complete
  * enough to hand to a reference manager. Emitting BibTeX, RIS, CSV and JSON
  * makes the library usable by the researchers and writers most likely to cite
  * the site back, which no amount of on-page formatting achieves.
@@ -138,7 +138,27 @@ function csvCell(value: unknown): string {
   return /[",\n]/.test(cell) ? `"${cell.replace(/"/g, '""')}"` : cell
 }
 
+// Exact PubMed-title-verified design corrections. PubMed's generic "Review"
+// and "Journal Article" labels alone do not establish study methodology.
+// Match title as well as PMID so a bad cache join cannot silently inflate an
+// evidence tier. These are design classifications, NOT efficacy ratings.
+const AUDITED_PUBLICATION_DESIGNS: Record<string, { title: string; design: StudyClass }> = {
+  '38817505': {
+    title: 'Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review',
+    design: 'systematic-review',
+  },
+  '23853635': {
+    title: 'The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial',
+    design: 'rct',
+  },
+}
+
 function designOf(study: Study): StudyClass {
+  const audited = AUDITED_PUBLICATION_DESIGNS[study.pmid]
+  if (audited) {
+    if (study.title !== audited.title) throw new Error(`Audited PMID/title mismatch: ${study.pmid}`)
+    return audited.design
+  }
   const classes = study.publicationTypes
     .filter((type) => !/^journal article$/i.test(type))
     .map((type) => normalizeStudyClass(type))
