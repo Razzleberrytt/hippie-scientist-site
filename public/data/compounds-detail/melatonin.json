@@ -15,7 +15,7 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Keep melatonin products, especially flavored tablets and gummies, secured out of children's reach and sight. CDC estimated approximately 11,000 US emergency-department visits for unsupervised melatonin ingestions in children aged 5 or younger during 2019–2022; a separate poison-center dataset recorded a 530% rise in pediatric ingestions over 2012–2021. These are surveillance estimates, not proof that prescribed pediatric use has the same risk. Consult a pediatric clinician before giving melatonin to children; medication and seizure-disorder cautions also apply. Sources: CDC MMWR 2022 (71:725–729) and 2024 (73:215–217).",
+  "safetyNotes": "Keep melatonin products, especially flavored tablets and gummies, secured out of children's reach and sight. CDC estimated approximately 11,000 US emergency-department visits for unsupervised melatonin ingestions in children aged 5 or younger during 2019–2022; a separate poison-center dataset recorded a 530% rise in pediatric ingestions over 2012–2021. These are surveillance estimates, not proof that prescribed pediatric use has the same risk. Consult a pediatric clinician before giving melatonin to children; medication and seizure-disorder cautions also apply. Sources: CDC MMWR 2022 (71:725–729) and 2024 (73:215–217). Prior established cautions: Higher-dose review found limited serious adverse-event signal but increased drowsiness, headache, and dizziness; long-term safety reporting is limited.",
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
@@ -303,6 +303,32 @@
       "metadataSource": "pubmed",
       "doi": "10.1111/jpi.12782",
       "sampleSize": 3861
+    },
+    {
+      "id": "src_000035653284",
+      "title": "Pediatric Melatonin Ingestions — United States, 2012–2021",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/wr/mm7122a1.htm",
+      "pmid": "35653284",
+      "doi": "10.15585/mmwr.mm7122a1",
+      "year": 2022,
+      "journal": "MMWR Morb Mortal Wkly Rep",
+      "authors": "Lelak K et al.",
+      "studyType": "Surveillance report",
+      "reviewStatus": "pending",
+      "note": "Source-backed safety context; AI-assisted provenance entry, not human editorial sign-off."
+    },
+    {
+      "id": "src_000038451863",
+      "title": "Emergency Department Visits for Unsupervised Pediatric Melatonin Ingestion — United States, 2019–2022",
+      "url": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7309a5.htm",
+      "pmid": "38451863",
+      "doi": "10.15585/mmwr.mm7309a5",
+      "year": 2024,
+      "journal": "MMWR Morb Mortal Wkly Rep",
+      "authors": "Freeman DI et al.",
+      "studyType": "Surveillance report",
+      "reviewStatus": "pending",
+      "note": "Source-backed safety context; AI-assisted provenance entry, not human editorial sign-off."
     }
   ],
   "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",
