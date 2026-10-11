@@ -16,12 +16,19 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import CitationReadySummary from '@/components/seo/CitationReadySummary'
 
 const KAVA_VS_ALCOHOL_REFS = [
-  { n: 1, text: 'Sarris J, et al. (2013). Kava in the treatment of generalized anxiety disorder. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 1, text: 'Sarris J, et al. (2013). Kava in the treatment of generalized anxiety disorder. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23635869/' },
   { n: 2, text: 'Pittler MH, Ernst E. (2003). Kava extract versus placebo for treating anxiety. Cochrane Database Syst Rev, (1): CD003383.', url: 'https://pubmed.ncbi.nlm.nih.gov/12535473/' },
   { n: 3, text: 'Teschke R, et al. (2011). Kava hepatotoxicity solution: a six-point plan for new kava standardization. Phytomedicine, 18(2-3): 96-103.', url: 'https://pubmed.ncbi.nlm.nih.gov/21112196/' },
   { n: 4, text: 'Rehm J, et al. (2010). Alcohol as a risk factor for liver cirrhosis: a systematic review. Drug Alcohol Rev, 29(4): 437-445.', url: 'https://pubmed.ncbi.nlm.nih.gov/20636661/' },
   { n: 5, text: 'Sarris J, et al. (2011). Kava for the treatment of generalized anxiety disorder. J Clin Psychopharmacol, 31(5): 592-598.', url: 'https://pubmed.ncbi.nlm.nih.gov/21849899/' },
+  { n: 6, text: 'Sarris J, et al. (2020). Kava for generalised anxiety disorder: a 16-week randomised placebo-controlled trial in 171 adults. Aust N Z J Psychiatry, 54(3):288-297.', url: 'https://pubmed.ncbi.nlm.nih.gov/31813230/' },
+  { n: 7, text: 'NCCIH. Kava: Usefulness and Safety. Includes liver-injury warnings for water-prepared beverages and sedative interactions.', url: 'https://www.nccih.nih.gov/health/kava' },
+  { n: 8, text: 'NIH LiverTox. Kava Kava: Clinical and Research Information on Drug-Induced Liver Injury.', url: 'https://www.ncbi.nlm.nih.gov/books/NBK548637/' },
 ]
+
+const KAVA_FAQ_ALTERNATIVE = 'Kava and alcohol have different effects and risks, but kava is not an established safe alternative or a treatment for alcohol use disorder. Kava may cause dizziness, sedation, and memory problems and has been linked to rare serious liver injury. Do not combine kava with alcohol.'
+const KAVA_FAQ_LIVER = 'Yes. Kava-containing products have been associated with rare but sometimes severe liver injury, including liver failure, transplantation, and death. Some reports involve beverages prepared with water, not only solvent-extracted products. No cultivar or extraction method has been established as eliminating the risk. People with liver disease or who take medications should discuss kava risks with a clinician or pharmacist.'
+const KAVA_FAQ_EFFECTS = 'Both may produce relaxation, but their effects vary between people and preparations. Kava can cause dizziness, sedation, and memory difficulties; it should not be characterized as reliably preserving judgment or coordination. Alcohol also impairs cognition and coordination.'
 
 export default function KavaVsAlcoholPage() {
   return (
@@ -71,14 +78,14 @@ export default function KavaVsAlcoholPage() {
       </section>
 
       <CitationReadySummary
-        answer="Kava produces relaxation with less cognitive impairment and a lower dependence risk than alcohol, but it is not risk-free — liver safety depends on using noble cultivars and avoiding contaminants."
+        answer="Kava may produce relaxation, but evidence for treating anxiety is mixed and it can cause sedation or memory difficulties. Kava products have been linked to rare serious liver injury, including some water-prepared beverages. Do not combine kava with alcohol."
         bestFor={[
-          'Kava: relaxation and anxiolysis while keeping mental clarity, in a harm-reduction or social-alternative context.',
+          'Kava: traditionally used for relaxation, but efficacy evidence is mixed and serious liver-injury and sedative risks limit its use.',
           'Alcohol: broadly familiar and legal, but carries well-documented dependence, liver, and cognitive-impairment risks with regular use.',
           'Neither: combining kava and alcohol, since both affect GABA signaling and can amplify sedation and liver strain.',
         ]}
-        evidenceLevel="Clinical trials support kava for short-term anxiety reduction; liver-safety data is stronger for noble cultivars and traditional water extracts than for ethanol-based extracts or non-noble (tudei) kava."
-        safetyNote="Avoid combining kava with alcohol or other sedatives. Anyone with existing liver conditions, or taking hepatically-metabolized medications, should avoid kava or discuss it with a clinician first."
+        evidenceLevel="An earlier six-week trial found a benefit for generalized anxiety symptoms, while a 2020 sixteen-week trial in 171 adults found no significant improvement over placebo. Liver injury has been reported with multiple preparations, including some water-based beverages; no preparation has been proven to eliminate that risk."
+        safetyNote="Do not combine kava with alcohol or other sedatives. Kava has been linked to rare severe liver injury; people with liver disease or taking medications should seek clinician or pharmacist advice before considering it."
         notClaiming="This page is not claiming kava is a safe substitute for alcohol use disorder treatment or that it is risk-free for the liver."
         referencesHref="#references"
       />
@@ -87,7 +94,7 @@ export default function KavaVsAlcoholPage() {
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">Kava</h2>
           <p className="text-sm leading-7 text-muted">
-            Kava (Piper methysticum) modulates GABA-A receptors via kavalactones, producing relaxation without the cognitive impairment or dependence profile associated with alcohol. Traditional Pacific Island use spans centuries in social and ceremonial contexts.
+            Kava (Piper methysticum) contains kavalactones with central nervous system activity and a long history of traditional Pacific Island ceremonial and social use. Relaxation is reported, but dizziness, sedation, memory problems, and severe liver injury are important safety concerns.
           </p>
           <Link href="/herbs/kava/" className="chip-readable">
             Explore Kava
@@ -109,7 +116,7 @@ export default function KavaVsAlcoholPage() {
           <div>
             <h3 className="font-semibold text-ink">Kava: GABA-A modulation</h3>
             <p className="mt-2 text-sm leading-7 text-muted">
-              Kavalactones bind to GABA-A receptors at a site distinct from alcohol and benzodiazepines. This produces anxiolysis and muscle relaxation without significant respiratory depression, cognitive fog, or addictive reinforcement. Liver safety depends on cultivar, extraction method, and individual factors.
+              Kavalactones act on several central nervous system pathways, but pharmacologic plausibility does not establish reliable anxiety relief or freedom from impairment. Serious liver injury has been linked to several kava product types, including some beverages prepared with water.
             </p>
           </div>
           <div>
@@ -140,9 +147,9 @@ export default function KavaVsAlcoholPage() {
             <tbody className="text-muted">
               <tr className="border-b"><td className="py-3 pr-4">Onset</td><td className="py-3 pr-4">15–30 min</td><td className="py-3">10–20 min</td></tr>
               <tr className="border-b"><td className="py-3 pr-4">Duration</td><td className="py-3 pr-4">2–4 hours</td><td className="py-3">Dose-dependent (1–4+ hours)</td></tr>
-              <tr className="border-b"><td className="py-3 pr-4">Cognitive effects</td><td className="py-3 pr-4">Mild relaxation, mental clarity preserved</td><td className="py-3">Impaired judgment, memory, coordination</td></tr>
-              <tr className="border-b"><td className="py-3 pr-4">Dependence risk</td><td className="py-3 pr-4">Low (no established withdrawal syndrome)</td><td className="py-3">Moderate to high (physical + psychological)</td></tr>
-              <tr className="border-b"><td className="py-3 pr-4">Liver concerns</td><td className="py-3 pr-4">Cultivar-dependent; noble kava safer</td><td className="py-3">Well-established dose-dependent toxicity</td></tr>
+              <tr className="border-b"><td className="py-3 pr-4">Cognitive effects</td><td className="py-3 pr-4">May cause sedation, dizziness, or memory difficulties</td><td className="py-3">Impaired judgment, memory, coordination</td></tr>
+              <tr className="border-b"><td className="py-3 pr-4">Dependence risk</td><td className="py-3 pr-4">Dependence and withdrawal risk less well characterized</td><td className="py-3">Moderate to high (physical + psychological)</td></tr>
+              <tr className="border-b"><td className="py-3 pr-4">Liver concerns</td><td className="py-3 pr-4">Rare serious liver injury reported, including with water-prepared beverages</td><td className="py-3">Well-established dose-dependent toxicity</td></tr>
               <tr><td className="py-3 pr-4">Sleep impact</td><td className="py-3 pr-4">May improve sleep quality</td><td className="py-3">Fragments sleep architecture</td></tr>
             </tbody>
           </table>
@@ -155,15 +162,15 @@ export default function KavaVsAlcoholPage() {
         <div className="space-y-4 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">Is kava a safe alternative to alcohol?</h3>
-            <p>Kava has a different risk profile than alcohol — lower dependence potential, no known carcinogenicity, and preserved cognitive function. However, kava is not risk-free. Liver safety depends on using noble cultivars and avoiding contaminants. It should not be treated as a direct substitute without understanding individual health context.</p>
+            <p>{KAVA_FAQ_ALTERNATIVE}</p>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-ink">Can kava damage your liver?</h3>
-            <p>Historically, cases of liver toxicity were associated with non-noble (tudei) cultivars, aerial plant parts (leaves/stems), and ethanol-based extracts. Noble kava root prepared as a traditional water extract has a much stronger safety record. Still, anyone with existing liver conditions or taking hepatically-metabolized medications should avoid kava.</p>
+            <p>{KAVA_FAQ_LIVER}</p>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-ink">Does kava feel like alcohol?</h3>
-            <p>Not really. Kava produces relaxation and mild euphoria but preserves mental clarity — users typically describe feeling calm but alert. Alcohol produces disinhibition, cognitive fog, and impaired coordination. The experiences are qualitatively different even though both affect GABA systems.</p>
+            <p>{KAVA_FAQ_EFFECTS}</p>
           </div>
         </div>
       </section>
@@ -171,9 +178,9 @@ export default function KavaVsAlcoholPage() {
       <FAQSchema
         pagePath="/guides/compare/kava-vs-alcohol/"
         questions={[
-          { question: 'Is kava a safe alternative to alcohol?', answer: 'Kava has a different risk profile than alcohol — lower dependence potential, no known carcinogenicity, and preserved cognitive function. However, kava is not risk-free. Liver safety depends on using noble cultivars and avoiding contaminants. It should not be treated as a direct substitute without understanding individual health context.' },
-          { question: 'Can kava damage your liver?', answer: 'Historically, cases of liver toxicity were associated with non-noble (tudei) cultivars, aerial plant parts (leaves/stems), and ethanol-based extracts. Noble kava root prepared as a traditional water extract has a much stronger safety record. Still, anyone with existing liver conditions or taking hepatically-metabolized medications should avoid kava.' },
-          { question: 'Does kava feel like alcohol?', answer: 'Not really. Kava produces relaxation and mild euphoria but preserves mental clarity — users typically describe feeling calm but alert. Alcohol produces disinhibition, cognitive fog, and impaired coordination. The experiences are qualitatively different even though both affect GABA systems.' },
+          { question: 'Is kava a safe alternative to alcohol?', answer: KAVA_FAQ_ALTERNATIVE },
+          { question: 'Can kava damage your liver?', answer: KAVA_FAQ_LIVER },
+          { question: 'Does kava feel like alcohol?', answer: KAVA_FAQ_EFFECTS },
         ]}
       />
 
