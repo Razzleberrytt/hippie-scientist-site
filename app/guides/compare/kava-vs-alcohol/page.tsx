@@ -82,7 +82,7 @@ export default function KavaVsAlcoholPage() {
         bestFor={[
           'Kava: traditionally used for relaxation, but efficacy evidence is mixed and serious liver-injury and sedative risks limit its use.',
           'Alcohol: broadly familiar and legal, but carries well-documented dependence, liver, and cognitive-impairment risks with regular use.',
-          'Neither: combining kava and alcohol, since both affect GABA signaling and can amplify sedation and liver strain.',
+          'Neither: combining kava and alcohol, which may amplify sedation and impairment and complicate liver-risk assessment.',
         ]}
         evidenceLevel="An earlier six-week trial found a benefit for generalized anxiety symptoms, while a 2020 sixteen-week trial in 171 adults found no significant improvement over placebo. Liver injury has been reported with multiple preparations, including some water-based beverages; no preparation has been proven to eliminate that risk."
         safetyNote="Do not combine kava with alcohol or other sedatives. Kava has been linked to rare severe liver injury; people with liver disease or taking medications should seek clinician or pharmacist advice before considering it."
@@ -145,12 +145,12 @@ export default function KavaVsAlcoholPage() {
               </tr>
             </thead>
             <tbody className="text-muted">
-              <tr className="border-b"><td className="py-3 pr-4">Onset</td><td className="py-3 pr-4">15–30 min</td><td className="py-3">10–20 min</td></tr>
-              <tr className="border-b"><td className="py-3 pr-4">Duration</td><td className="py-3 pr-4">2–4 hours</td><td className="py-3">Dose-dependent (1–4+ hours)</td></tr>
+              <tr className="border-b"><td className="py-3 pr-4">Onset</td><td className="py-3 pr-4">Reliable clinical onset not established</td><td className="py-3">10–20 min</td></tr>
+              <tr className="border-b"><td className="py-3 pr-4">Duration</td><td className="py-3 pr-4">Varies by product; clinical duration uncertain</td><td className="py-3">Dose-dependent (1–4+ hours)</td></tr>
               <tr className="border-b"><td className="py-3 pr-4">Cognitive effects</td><td className="py-3 pr-4">May cause sedation, dizziness, or memory difficulties</td><td className="py-3">Impaired judgment, memory, coordination</td></tr>
               <tr className="border-b"><td className="py-3 pr-4">Dependence risk</td><td className="py-3 pr-4">Dependence and withdrawal risk less well characterized</td><td className="py-3">Moderate to high (physical + psychological)</td></tr>
               <tr className="border-b"><td className="py-3 pr-4">Liver concerns</td><td className="py-3 pr-4">Rare serious liver injury reported, including with water-prepared beverages</td><td className="py-3">Well-established dose-dependent toxicity</td></tr>
-              <tr><td className="py-3 pr-4">Sleep impact</td><td className="py-3 pr-4">May improve sleep quality</td><td className="py-3">Fragments sleep architecture</td></tr>
+              <tr><td className="py-3 pr-4">Sleep impact</td><td className="py-3 pr-4">Sleep benefits remain uncertain; sedation possible</td><td className="py-3">Fragments sleep architecture</td></tr>
             </tbody>
           </table>
         </div>
