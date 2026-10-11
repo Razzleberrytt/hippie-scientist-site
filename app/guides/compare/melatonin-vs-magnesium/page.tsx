@@ -24,7 +24,7 @@ const MELATONIN_VS_MAGNESIUM_REFS = [
   { n: 1, text: 'Ferracioli-Oda E, et al. (2013). Meta-analysis: melatonin for primary sleep disorders. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
   { n: 2, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
   { n: 3, text: 'Brzezinski A, et al. (2005). Effects of exogenous melatonin on sleep: meta-analysis. Sleep Med Rev, 9(1): 41-50.', url: 'https://pubmed.ncbi.nlm.nih.gov/15649737/' },
-  { n: 4, text: 'Nielsen FH, et al. (2010). Magnesium citrate and biochemical markers in older adults with poor sleep. Magnes Res, 23(4): 158-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/21199787/' },
+  { n: 4, text: 'Nielsen FH, et al. (2010). Magnesium supplementation improves indicators of low magnesium status and inflammatory stress in adults older than 51 years with poor quality sleep. Magnes Res, 23(4): 158-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/21199787/' },
   { n: 5, text: 'Rondanelli M, et al. (2011). Combined melatonin, magnesium, and zinc intervention in insomnia. J Am Geriatr Soc, 59(1): 82-90.', url: 'https://pubmed.ncbi.nlm.nih.gov/21226679/' },
   { n: 6, text: 'NCCIH. Sleep Disorders and Complementary Health Approaches: evidence limitations and CBT-I.', url: 'https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches' },
   { n: 7, text: 'NIH Office of Dietary Supplements. Magnesium: Health Professional Fact Sheet — doses and drug interactions.', url: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/' },
