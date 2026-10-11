@@ -68376,6 +68376,235 @@
       "reservation_id": "f7ab6d8a4e7efcebdd24",
       "reserved_at": "2026-10-11T11:48:46.198Z",
       "source_branch": "research/intake/1/20261011-0743-smartphone-mindfulness-r21"
+    },
+    {
+      "pmid": "42609444",
+      "title": "Transcranial direct current stimulation combined with cognitive training for working memory in healthy adults: a systematic review and robust variance meta-analysis of trained and untrained outcomes.",
+      "doi": "10.3389/fnhum.2026.1902938",
+      "source_title": "Transcranial direct current stimulation combined with cognitive training for working memory in healthy adults: a systematic review and robust variance meta-analysis of trained and untrained outcomes.",
+      "abstract": "Transcranial direct current stimulation (tDCS) has been proposed as a potential tool for enhancing the benefits of cognitive training, but its added value for working memory in healthy adults remains unclear. This systematic review and robust variance estimation meta-analysis examined whether active tDCS combined with cognitive training improves post-training working memory performance compared with sham tDCS combined with the same training, and whether the effect varies by outcome type, assessment time point, and training characteristics. PubMed, Scopus, and Web of Science were searched from database inception to January 2026. Eligible studies were randomized controlled trials involving healthy adults, comparing active tDCS plus structured cognitive training with sham tDCS plus otherwise identical training, and reporting at least one post-training working memory outcome. Multiple correlated effect sizes within studies were synthesized using robust variance estimation. Outcomes were classified as trained-task outcomes or untrained working-memory outcomes, and both immediate post-test and follow-up assessments were included. A total of 23 studies contributing 135 effect sizes were included. Active tDCS combined with cognitive training produced a small but statistically significant improvement in post-training working memory performance, Hedges' g = 0.191, 95% CI [0.062, 0.320], p = 0.006. Effects were significant for trained-task outcomes, whereas effects on untrained working-memory outcomes were smaller and not statistically significant; however, the direct difference between the two outcome categories was not significant. Immediate post-test effects were significant, whereas follow-up effects remained positive and similar in magnitude but lay at the conventional alpha threshold, with no significant difference between time points. Stimulation timing, age group, and training type did not significantly moderate the effect. Sensitivity analyses confirmed the stability of the overall estimate, and no clear evidence of small-study effects was detected. These findings suggest that tDCS may provide a small adjunctive benefit when combined with cognitive training in healthy adults, with the most consistent benefits observed for trained-task performance and more limited evidence for transfer to untrained working-memory outcomes.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42609444/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42609444",
+        "doi": "10.3389/fnhum.2026.1902938",
+        "journal": "Frontiers in human neuroscience",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T11:55:58.954Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "acec1b3d06389b670463",
+      "reserved_at": "2026-10-11T11:56:09.283Z",
+      "source_branch": "research/intake/2/20261011-0752-cognition-metabolic-r69"
+    },
+    {
+      "pmid": "42647366",
+      "title": "Long-Term Flywheel Resistance Training Enhances Cognitive Flexibility in Older Women: A 36-Week Randomized Controlled Trial.",
+      "doi": "10.3390/jfmk11030325",
+      "source_title": "Long-Term Flywheel Resistance Training Enhances Cognitive Flexibility in Older Women: A 36-Week Randomized Controlled Trial.",
+      "abstract": "Background : Executive functions (EFs) decline with aging, impacting functional independence. While resistance training (RT) is a promising non-pharmacological intervention, the optimal modality and duration for cognitive benefits remain unclear. Flywheel RT (FRT) imposes greater motor control and attentional demands than traditional RT (TRT), potentially enhancing EFs. Objective : To compare the effects of a 36-week FRT versus TRT program on executive function and serum insulin-like growth factor 1 (IGF-1) levels in healthy older women. Methods : This parallel-group randomized controlled trial allocated 64 older women (overall mean age 66.8 ± 4.6 years; FRT group: 68.0 ± 4.8 years; TRT group: 65.5 ± 4.1 years) to either FRT (n = 25) or TRT (n = 21) for two weekly sessions over 36 weeks. Executive function was assessed using the Victoria Stroop Test (inhibitory control), Digit Span Test (working memory), and Trail Making Test (cognitive flexibility). Serum IGF-1 was quantified via chemiluminescence. Intention-to-treat analyses with ANCOVA were performed. Results: After 36 weeks, both groups showed significant within-group improvements in inhibitory control (mean reduction from pre to post: FRT: 15.2 ± 10.4 to 14.8 ± 7.4 s; TRT: 20.4 ± 11.8 to 15.6 ± 7.3 s; p = 0.028, ηp 2 = 0.38) and working memory (Digit Span Forward: FRT: 6.2 ± 1.7 to 7.9 ± 2.0; TRT: 6.7 ± 1.5 to 8.7 ± 1.8; p < 0.001, ηp 2 = 0.84). The B/A ratio of the Trail Making Test improved significantly more in the FRT group (73.0 ± 65.2 to 87.5 ± 68.1 s) compared to the TRT group (67.3 ± 54.1 to 137.7 ± 83.6 s; group × time interaction: p = 0.001, ηp 2 = 0.13). No significant changes in serum IGF-1 concentrations were observed in either group (FRT: 112.9 ± 25.4 to 115.3 ± 21.3 ng/mL; TRT: 104.7 ± 27.5 to 103.0 ± 28.9 ng/mL; p = 0.88, ηp 2 = 0.002). Adherence was high (only 4 out of 46 participants did not complete all 72 sessions), and no severe adverse events were reported. Conclusions : Flywheel training appears particularly effective for enhancing cognitive flexibility, likely due to its higher cognitive-motor demands. The absence of significant changes in circulating IGF-1 suggests that the observed cognitive benefits may not be mediated by systemic endocrine pathways, although this does not exclude the possibility of local central nervous system adaptations or changes in other neurotrophic factors not assessed in this study.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42647366/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42647366",
+        "doi": "10.3390/jfmk11030325",
+        "journal": "Journal of functional morphology and kinesiology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T11:55:58.955Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "c71cd486b588d02b79c4",
+      "reserved_at": "2026-10-11T11:56:09.283Z",
+      "source_branch": "research/intake/2/20261011-0752-cognition-metabolic-r69"
+    },
+    {
+      "pmid": "42638268",
+      "title": "Real-Time Continuous Glucose Monitoring Improves Glycemic Control in the Early Postoperative Period Following Liver Transplantation: A Randomized Controlled Trial.",
+      "doi": "10.1177/15209156261480872",
+      "source_title": "Real-Time Continuous Glucose Monitoring Improves Glycemic Control in the Early Postoperative Period Following Liver Transplantation: A Randomized Controlled Trial.",
+      "abstract": "Early postoperative glycemic control after orthotopic liver transplantation (OLTx) is challenging because of surgical stress, corticosteroid and calcineurin-inhibitor immunosuppression, and parenteral nutrition. We evaluated whether adding real-time continuous glucose monitoring (rtCGM) to standard care increases time in the target glucose range. In this single-center randomized controlled trial, OLTx recipients were randomized after surgery to open (Active) or blinded (Control) rtCGM (Dexcom G6); in the Active group, sensor data guided insulin titration. The primary endpoint was time in target range (TIR, 6.0-10.0 mmol/L), analyzed in a modified intention-to-treat population. Secondary endpoints included glycemic metrics, insulin requirements, and predefined clinical outcomes. We randomized 154 patients; 142 with available data were analyzed (82 Active, 60 Control). The Active group spent more time in target range (68.9% vs. 60.8%; median difference 7.2 percentage points [95% CI: 2.7-12.0]; P = 0.003), with less time in Level 1 hyperglycemia ( P = 0.025) and fewer extended hyperglycemic episodes (incidence rate ratio 1.65 [1.03-2.65] for Control vs. Active; P = 0.039). TIR improved similarly in patients with and without pretransplant diabetes; the only significant treatment-by-diabetes interaction was a greater reduction in Level 2 hyperglycemia among patients with diabetes ( P < 0.001). Hypoglycemia was minimal in both groups. Infectious complications were less frequent in the Active group (45.1% vs. 63.3%; P = 0.041). Adding rtCGM to standard postoperative care improved glycemic control after liver transplantation, with consistent benefit regardless of diabetes status and the greatest effect on Level 2 hyperglycemia in patients with diabetes. The lower infection rate is a hypothesis-generating finding warranting a dedicated trial.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42638268/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42638268",
+        "doi": "10.1177/15209156261480872",
+        "journal": "Diabetes technology & therapeutics",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T11:55:58.955Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "d00ef9da34433333108d",
+      "reserved_at": "2026-10-11T11:56:09.283Z",
+      "source_branch": "research/intake/2/20261011-0752-cognition-metabolic-r69"
     }
   ],
   "batches": [
@@ -68404,16 +68633,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 873,
+    "total_reservations": 876,
     "by_lane": {
       "1": 79,
-      "2": 162,
+      "2": 165,
       "3": 132,
       "4": 50,
       "5": 450
     },
     "by_state": {
-      "SOURCE_VERIFIED": 873
+      "SOURCE_VERIFIED": 876
     },
     "batches": [
       {
@@ -68426,7 +68655,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 373,
+        "count": 376,
         "pr_number": null,
         "blocker": null
       }
