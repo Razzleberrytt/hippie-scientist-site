@@ -39,7 +39,7 @@ describe('Batch 8 evidence-qualified safety controls', () => {
     const search = fs.readFileSync(path.join(process.cwd(), 'components/search/ResearchSearchExperience.tsx'), 'utf8')
     const comparison = fs.readFileSync(path.join(process.cwd(), 'app/compare/on-demand/OnDemandComparisonClient.tsx'), 'utf8')
     for (const source of [search, comparison]) {
-      expect(source).toContain('getRuntimeVisibility')
+      expect(source).toContain('canDiscoverResearchProfile')
       expect(source).not.toContain('isRestrictedRecord')
     }
   })
