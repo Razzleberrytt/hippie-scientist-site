@@ -73961,6 +73961,161 @@
       "reservation_id": "e6892031136e0aae5a4f",
       "reserved_at": "2026-10-11T16:00:21.143Z",
       "source_branch": "research/intake/2/20261011-1155-cognition-metabolic-r73"
+    },
+    {
+      "pmid": "42293647",
+      "title": "Comparative effects of exercise modalities on depression, anxiety, and stress in university students: a systematic review and network meta-analysis of randomized controlled trials.",
+      "doi": "10.3389/fpubh.2026.1795525",
+      "source_title": "Comparative effects of exercise modalities on depression, anxiety, and stress in university students: a systematic review and network meta-analysis of randomized controlled trials.",
+      "abstract": "To compare the effects of different exercise interventions on depression, anxiety, and stress in university students and to identify outcome-specific patterns and relevant prescription features using network meta-analysis. A systematic review and network meta-analysis of randomized controlled trials was conducted following PRISMA guidelines. PubMed, Embase, Cochrane Central Register of Controlled Trials, Web of Science, and Google Scholar were searched from inception to 31 October 2025. Eligible studies included university students aged 18 years or older, structured exercise interventions lasting at least 4 weeks, and validated measures of depressive symptoms, anxiety symptoms, or perceived stress. Pairwise random-effects meta-analyses and random-effects network meta-analyses were performed. Effects were summarized as standardized mean differences (SMDs) with 95% confidence intervals (95% CIs), and treatments were ranked using the surface under the cumulative ranking curve. Twenty-five RCTs involving 2,127 students were included. Compared with control conditions, exercise was associated with improvements in depression (SMD -1.07, 95% CI -1.38 to -0.75; I 2 = 87.6%), anxiety (SMD -0.69, 95% CI -1.00 to -0.38; I 2 = 87.1%), and stress (SMD -0.45, 95% CI -0.73 to -0.16; I 2 = 75.2%). These effects should be interpreted cautiously due to substantial heterogeneity and variation in outcome measures. Network meta-analysis indicated outcome-specific patterns: mind-body exercise and aerobic exercise were most consistently associated with favorable outcomes for depression; mind-body exercise showed clearer associations for anxiety, whereas team sports and resistance-based approaches appeared favorable but were supported by limited evidence; aerobic exercise was linked to the strongest comparative effect for stress. Exploratory subgroup analyses suggested that sessions of 30-59 min were more frequently associated with benefits for depression and anxiety, whereas stress benefits were more often observed with sessions of 30 min or longer. Moderate to vigorous intensity and higher weekly frequency were associated with more favorable anxiety and stress outcomes, although these findings should be considered exploratory rather than definitive. Exercise interventions are associated with improvements in depression, anxiety, and stress in university students, with outcome-specific patterns varying by modality. Exploratory findings suggest that time-efficient, moderate to vigorous exercise could inform future research on student mental health promotion. https://www.crd.york.ac.uk/PROSPERO/view/CRD420261379734.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42293647/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Exercise interventions for depression, anxiety and stress; mindfulness intervention for generalized anxiety disorder.",
+      "evidence_class": "review",
+      "study_design": "Journal Article; Systematic Review; Network Meta-Analysis; Comparative Study",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Systematic Review",
+          "Network Meta-Analysis",
+          "Comparative Study"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42293647",
+        "doi": "10.3389/fpubh.2026.1795525",
+        "journal": "Frontiers in public health",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:40:53.543Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "1b0c9543a68df0b08940",
+      "reserved_at": "2026-10-11T16:41:02.815Z",
+      "source_branch": "research/intake/1/20261011-1236-exercise-gad-r26"
+    },
+    {
+      "pmid": "42109285",
+      "title": "Mindfulness-based intervention for patients with generalized anxiety disorder: a randomized controlled trial.",
+      "doi": "10.3389/fpsyt.2026.1810049",
+      "source_title": "Mindfulness-based intervention for patients with generalized anxiety disorder: a randomized controlled trial.",
+      "abstract": "Despite growing interest in mindfulness-based interventions (MBI) for Generalized Anxiety Disorder (GAD), robust evidence for their adjunctive use alongside first-line pharmacotherapy is scarce. This study aimed to evaluate the efficacy of MBI as adjunct to pharmacotherapy in adults with GAD, assessing multidimensional outcomes. In this randomized controlled trial, 106 adults diagnosed with DSM-5 GAD and on stable pharmacotherapy were randomly assigned to intervention group or control group (n=53). The intervention group received an 8-week, group-based MBI adapted from Mindfulness-Based Cognitive Therapy in addition to their ongoing pharmacotherapy. The control group received pharmacotherapy plus an active control condition consisting of structured psychoeducation (n=53). The primary outcome was the change in clinician-rated anxiety severity on the Hamilton Anxiety Rating Scale (HAMA). Secondary outcomes included self-reported anxiety (Self-Rating Anxiety Scale, SAS), mindfulness skills (Five Facet Mindfulness Questionnaire, FFMQ), sleep quality (Pittsburgh Sleep Quality Index, PSQI), negative cognitive bias (Negative Cognitive Processing Bias Questionnaire, NCPBQ), and psychosocial functioning (Global Assessment of Functioning-Modified, GAF-M). Linear mixed-effects model was used for analysis. The intervention group demonstrated a significantly greater reduction in HAMA scores post-intervention compared to the control group (18.6 vs. 22.5; P < 0.05), with a significant group × time interaction (Estimate = -3.68, P < 0.05). Significant between-group improvements favoring the intervention group were also confirmed across all secondary outcomes: SAS (Estimate = -4.29, P < 0.05), FFMQ (Estimate = 20.25, P < 0.05), PSQI (Estimate = -2.36, P < 0.05), NCPBQ (Estimate = -6.75, P < 0.05), and GAF-M (Estimate = 6.98, P < 0.05). An adjunctive, 8-week MBI significantly reduces anxiety and enhances mindfulness, sleep, cognitive function, and psychosocial well-being in medicated GAD patients. These findings support integrating structured MBI into standard care to optimize functional recovery alongside symptom management. The study was registered prior to conducting the research in the Chinese Clinical Trial Registry (https://www.chictr.org.cn) on September 26, 2024 with the trial identification number ChiCTR2400090284.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42109285/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Exercise interventions for depression, anxiety and stress; mindfulness intervention for generalized anxiety disorder.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42109285",
+        "doi": "10.3389/fpsyt.2026.1810049",
+        "journal": "Frontiers in psychiatry",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T16:40:53.543Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "651fb968d36859818b49",
+      "reserved_at": "2026-10-11T16:41:02.815Z",
+      "source_branch": "research/intake/1/20261011-1236-exercise-gad-r26"
     }
   ],
   "batches": [
@@ -73989,16 +74144,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 945,
+    "total_reservations": 947,
     "by_lane": {
-      "1": 86,
+      "1": 88,
       "2": 176,
       "3": 133,
       "4": 50,
       "5": 500
     },
     "by_state": {
-      "SOURCE_VERIFIED": 945
+      "SOURCE_VERIFIED": 947
     },
     "batches": [
       {
@@ -74011,7 +74166,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 445,
+        "count": 447,
         "pr_number": null,
         "blocker": null
       }
