@@ -59392,6 +59392,83 @@
       "reservation_id": "36419aa0a9bccc24c691",
       "reserved_at": "2026-10-11T06:54:06.870Z",
       "source_branch": "research/intake/2/20261011-0250-cognition-metabolic-r64"
+    },
+    {
+      "pmid": "41369283",
+      "title": "Efficacy and Safety of Auricular Acupressure for Insomnia in Patients With Functional Dyspepsia: A Randomized Controlled Trial.",
+      "doi": "10.14309/ajg.0000000000003880",
+      "source_title": "Efficacy and Safety of Auricular Acupressure for Insomnia in Patients With Functional Dyspepsia: A Randomized Controlled Trial.",
+      "abstract": "Insomnia is a prevalent and debilitating disorder often experienced by patients with functional dyspepsia (FD). Auricular acupressure (AA) has gained attention for its potential in treating both FD and insomnia. However, its clinical efficacy and safety remain unclear because of a lack of high-quality randomized controlled trials. Patients with FD and insomnia were enrolled and randomly divided into AA group or sham AA (SAA) group. Patients in the AA group were treated in the ear concha region, and patients in the SAA group were treated in the earlobe region. Treatment was given 3 times a day, 1 day apart, for 2 weeks. The primary outcome was the response rate, defined as a reduction of at least 50% in the Pittsburgh Sleep Quality Index score at week 2; minimal clinically important improvement was defined as a 4-point reduction, and minimal clinically important difference was defined as a 3-point reduction. Secondary outcomes included the response rate at 8 weeks, sleep parameters measured by actigraphy, FD symptoms, quality of life, mental health status, and autonomic functions. Eighty-two participants were randomized into the AA group (41 participants) or the SAA group (41 participants). The response rate at week 2 was 53.7% in the AA group compared with 29.3% in the SAA group (95% confidence interval -35.6 to -13.2, P < 0.001). The efficacy of AA was sustained during the 8-week posttreatment follow-up. Adverse events were all mild and comparable between the 2 groups ( P = 0.53). Among patients with FD and insomnia, a 2-week treatment of AA is more effective than SAA in improving the response rate, with benefits maintained over an 8-week follow-up period.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41369283/",
+      "research_domain": "sleep-stress-mood",
+      "category": "sleep_stress_mood",
+      "relevance_reason": "Source-verified candidate selected for sleep, stress, anxiety, or mood relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "human",
+      "study_design": "Journal Article; Randomized Controlled Trial",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "41369283",
+        "doi": "10.14309/ajg.0000000000003880",
+        "journal": "The American journal of gastroenterology",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T07:42:08.077Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "1",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "2efd621c1ebfef84330e",
+      "reserved_at": "2026-10-11T07:42:14.830Z",
+      "source_branch": "research/intake/1/20261011-0338-auricular-insomnia-r17"
     }
   ],
   "batches": [
@@ -59420,16 +59497,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 757,
+    "total_reservations": 758,
     "by_lane": {
-      "1": 72,
+      "1": 73,
       "2": 157,
       "3": 128,
       "4": 50,
       "5": 350
     },
     "by_state": {
-      "SOURCE_VERIFIED": 757
+      "SOURCE_VERIFIED": 758
     },
     "batches": [
       {
@@ -59442,7 +59519,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 257,
+        "count": 258,
         "pr_number": null,
         "blocker": null
       }
