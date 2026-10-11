@@ -16,12 +16,16 @@
     "Neuroprotective Activity"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated; mild GI upset or drowsiness possible; rare photosensitivity; avoid in pregnancy/breastfeeding; caution with sedatives and liver conditions at high doses.",
+  "safetyNotes": "RARE LIVER-INJURY WARNING: Oral Centella asiatica (gotu kola) products have been linked to clinically apparent hepatitis with jaundice, typically after several weeks of use. NIH LiverTox grades this a probable but rare cause (likelihood C); one reported case recurred on re-exposure. The identity and possible contamination of the implicated commercial preparations were not fully established. Stop the suspected product and seek urgent medical assessment for jaundice, dark urine or other signs of liver injury; avoid rechallenge after suspected injury. Use caution with existing liver disease, pregnancy, breastfeeding and sedatives.",
   "contraindications": [
-    "Sedatives"
+    "Sedatives",
+    "Past suspected Centella-associated liver injury: avoid rechallenge",
+    "Existing liver disease: consult a qualified clinician before oral use",
+    "Pregnancy or breastfeeding: avoid because of insufficient safety evidence"
   ],
   "interactions": [
-    "Sedatives"
+    "Sedatives",
+    "Sedative medicines: potential additive drowsiness; clinical interaction evidence is limited"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -36,17 +40,22 @@
       "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
       "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
+    },
+    {
+      "title": "NIH LiverTox (2024): Centella asiatica",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK603561/",
+      "note": "Rare clinically apparent liver injury; likelihood C. Rechallenge case; product identity and contamination remain uncertain."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 7 safety evidence requires verified warnings and independent product-level review before monetization or recommendation."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
