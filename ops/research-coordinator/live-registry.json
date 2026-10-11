@@ -56992,6 +56992,158 @@
       "reservation_id": "cf6fe86809a07c29d4ea",
       "reserved_at": "2026-10-11T05:49:11.709Z",
       "source_branch": "research/intake/1/20261011-0144-mindfulness-acupressure-two-r15"
+    },
+    {
+      "pmid": "42639295",
+      "title": "Meal Replacement Provides Additional Benefits for Weight and Visceral Fat Reduction in Prediabetic Individuals: A Randomized Clinical Trial.",
+      "doi": "10.1155/jnme/7109903",
+      "source_title": "Meal Replacement Provides Additional Benefits for Weight and Visceral Fat Reduction in Prediabetic Individuals: A Randomized Clinical Trial.",
+      "abstract": "Meal replacements (MRs) have been shown to improve cardiometabolic risk factors; however, their effects on visceral fat and metabolic characteristics in individuals with prediabetes remain insufficiently investigated. This study was aimed to demonstrate the effectiveness of MR combined with lifestyle intervention in improving weight, visceral fat area (VFA), blood pressure, and biochemical indicators in participants with prediabetes comorbid with overweight/obesity. According to the inclusion and exclusion criteria, 100 prediabetic participants (25 kg/m 2 ≤ body mass index [BMI] ≤ 35 kg/m 2 ) were recruited and randomly divided into the lifestyle intervention group (LSI group; received guidance on lifestyle interventions) and the lifestyle intervention combined with MR group (LSI + MR group; received a nutrient-rich and low-carbohydrate MR to replace the staple food of two meals or replace one regular meal while receiving lifestyle interventions). Forty-two participants in the LSI group and 45 in the LSI + MR group completed the trial. Anthropometric indexes were collected and biochemical indexes were tested at baseline and 12 weeks post-intervention. Compared with the LSI group, the LSI + MR group showed greater percentage reductions in weight (-5.3% ± 5.5% vs. -8.3% ± 4.5%; p < 0.01) and VFA (-11.9% ± 21.0% vs. -22.7% ± 23.8%; p < 0.05). And there were significant time × group interaction effects for weight ( F = 5.296, p = 0.023), BMI ( F = 5.124, p = 0.025), and VFA ( F = 9.177, p = 0.003). For blood pressure, postprandial glucose, insulin resistance, liver enzymes, and lipids, there were only time effects ( p < 0.05) but no time × group interaction effects ( p > 0.05). Subgroup analyses suggested that MR-related benefits varied by baseline VFA, with greater improvement in 2-h postprandial plasma glucose among participants with VFA < 100 cm 2 and greater reductions in weight, triglyceride, and total cholesterol among those with VFA ≥ 100 cm 2 . Lifestyle intervention combined with MR resulted in greater reductions in body weight and VFA than lifestyle intervention alone in individuals with prediabetes and overweight/obesity. The additional metabolic benefits of MR appeared to vary according to baseline visceral adiposity. Trial Registration: ClinicalTrials.gov identifier: NCT05273840.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42639295/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42639295",
+        "doi": "10.1155/jnme/7109903",
+        "journal": "Journal of nutrition and metabolism",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T05:56:52.029Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "784ec70621e461513cac",
+      "reserved_at": "2026-10-11T05:57:00.895Z",
+      "source_branch": "research/intake/2/20261011-0153-cognition-metabolic-2-r63"
+    },
+    {
+      "pmid": "42805146",
+      "title": "A multidisciplinary nutritional-behavioral intervention improves weight loss and liver-related outcomes in patients with metabolic dysfunction-associated steatotic liver disease: A randomized controlled trial.",
+      "doi": "10.1016/j.clnu.2026.106800",
+      "source_title": "A multidisciplinary nutritional-behavioral intervention improves weight loss and liver-related outcomes in patients with metabolic dysfunction-associated steatotic liver disease: A randomized controlled trial.",
+      "abstract": "Metabolic dysfunction-associated steatotic liver disease (MASLD) is strongly associated with cardiometabolic comorbidities and increased cardiovascular risk. Despite emerging pharmacological therapies, lifestyle modification remains the cornerstone of management. However, long-term adherence to dietary and behavioral recommendations remains poor. This study evaluated the benefits of a multidisciplinary intervention integrating hepatological, nutritional, and cognitive behavioral therapy (CBT)-based support (\"Co-Co-Nut\") on MASLD outcomes and investigated the social determinants of health (SDOH) influencing adherence. A total of 286 consecutively enrolled MASLD patients were initially randomized 1:1 to either the standard-of-care cohort or the experimental cohort. Patients assigned to standard care subsequently underwent a secondary 1:1 allocation into two subgroups: hepatologist-delivered generic lifestyle counselling (A, n = 72) or hepatologist plus individualized nutritional intervention (B, n = 71), whereas the experimental cohort received the full multidisciplinary intervention, including CBT-based behavioral support (C, n = 143). Anthropometric, metabolic, lifestyle, body composition, liver stiffness measurement (LSM), and controlled attenuation parameter (CAP) data were assessed at baseline and at 6, 12, and 18 months. Adherence, SDOH, and incident acute cardiovascular events (ACEs) were also recorded. The \"Co-Co-Nut\" intervention significantly increased the proportion of patients achieving ≥10% weight loss and induced sustained improvements in body composition, metabolic profile, LSM, and CAP, which were not observed with standard care (all p < 0.0001). Loss of adherence was significantly lower in the experimental group (p < 0.0001), which also showed a significantly lower risk of ACEs (HR 0.36, 95% CI 0.18-0.71). Adherence at 12 months independently predicted ACE risk reduction (HR 0.27). Large family size (OR 1.87), limited time for meals (OR 1.91), and full-time employment (OR 1.61) (all p < 0.0001) emerged as the SDOH most strongly associated with loss of adherence. A high-intensity multidisciplinary behavioral care model integrating hepatological, nutritional, and CBT-based behavioral support significantly improved medium-term adherence, body composition, metabolic control, and clinically relevant outcomes in MASLD. The present Clinical trial registration NCT07366463 (ClinicalTrials.gov). NCT07366463 (ClinicalTrials.gov).",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42805146/",
+      "research_domain": "cognition-metabolic",
+      "category": "cognition_metabolic",
+      "relevance_reason": "Source-verified candidate selected for cognition, focus, or metabolic-health relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "42805146",
+        "doi": "10.1016/j.clnu.2026.106800",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "publication_year": 2026,
+        "hydrated_at": "2026-10-11T05:56:52.029Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "2",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "6078ca99262c590aed5f",
+      "reserved_at": "2026-10-11T05:57:00.895Z",
+      "source_branch": "research/intake/2/20261011-0153-cognition-metabolic-2-r63"
     }
   ],
   "batches": [
@@ -57020,16 +57172,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 726,
+    "total_reservations": 728,
     "by_lane": {
       "1": 72,
-      "2": 152,
+      "2": 154,
       "3": 127,
       "4": 50,
       "5": 325
     },
     "by_state": {
-      "SOURCE_VERIFIED": 726
+      "SOURCE_VERIFIED": 728
     },
     "batches": [
       {
@@ -57042,7 +57194,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 226,
+        "count": 228,
         "pr_number": null,
         "blocker": null
       }
