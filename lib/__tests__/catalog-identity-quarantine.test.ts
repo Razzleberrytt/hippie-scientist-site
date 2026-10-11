@@ -175,3 +175,64 @@ describe('commerce batch 4 safety and identity regression', () => {
     expect(registry).not.toContain("amazonAsin: 'B0094FTO68'")
   })
 })
+
+
+describe('commerce batch 5 verified identity and claim quarantine', () => {
+  it('removes unsupported product listings from both recommendation registries', () => {
+    const removed = [
+      'NOW Sports BCAA Powder',
+      'NOW Sports Caffeine 200 mg',
+      'Jarrow Formulas Saffron 30 mg',
+      'Jarrow Formulas Bacopa Monnieri 320 mg',
+      'Nutricost PEA 600 mg',
+    ]
+    for (const file of ['config/revenue-products.ts', 'data/product-picks.ts']) {
+      const text = read(file)
+      for (const name of removed) expect(text).not.toContain(name)
+    }
+    expect(getRevenueProductSet('bcaa')?.products.some(p => p.brand === 'NOW Foods')).toBe(false)
+    expect(getRevenueProductSet('caffeine')?.products.some(p => p.brand === 'NOW Foods')).toBe(false)
+  })
+
+  it('uses exact B5 ASINs for the four fully specified reported variants', () => {
+    const variants = [
+      ['vitamin-c', 'B0013P1GD6', '250 tablets'],
+      ['vitamin-c', 'B09FYFM7N3', '90 capsules'],
+      ['zinc', 'B002JNCXME', '120 softgels'],
+      ['glutamine', 'B000FGWDL8', '90 servings'],
+    ] as const
+    for (const [slug, asin, size] of variants) {
+      const product = getRevenueProductSet(slug)?.products.find(p => p.asin === asin)
+      expect(product?.title).toContain(size)
+      expect(product?.affiliateUrl).toContain(`/dp/${asin}?tag=`)
+    }
+  })
+
+  it('does not confuse distinct NOW Boswellia formulations', () => {
+    const boswellia = getRevenueProductSet('boswellia')?.products.find(p => p.brand === 'NOW Foods')
+    expect(boswellia?.title).toContain('softgels')
+    expect(boswellia?.rationale).toContain('item #4936')
+    expect(boswellia?.rationale).toContain('organic acids')
+    expect(boswellia?.rationale).toContain('250 mg turmeric-containing')
+    expect(boswellia?.asin).toBeUndefined()
+    expect(boswellia?.affiliateUrl).toContain('/s?k=')
+    const secondRegistry = productPicks.find(p => p.compound_slug === 'boswellia' && p.brand === 'NOW Foods')
+    expect(secondRegistry?.name).toContain('softgels')
+  })
+
+  it('preserves specific product ingredient, allergen and governance information', () => {
+    const zinc = getRevenueProductSet('zinc')?.products.find(p => p.brand === 'NOW Foods')
+    expect(zinc?.rationale).toContain('pumpkin seed oil')
+    expect(zinc?.rationale).toContain('soy lecithin')
+    const collagen = getRevenueProductSet('collagen')?.products.find(p => p.brand === 'Ancient Nutrition')
+    expect(collagen?.rationale).toContain('egg and fish allergens')
+    const nac = getRevenueProductSet('nac')?.products.find(p => p.brand === 'NOW Foods')
+    expect(nac?.rationale).toContain('August 2022')
+    expect(nac?.rationale).toContain('enforcement discretion')
+    for (const product of getRevenueProductSet('iron')?.products ?? []) {
+      expect(product.rationale.toLowerCase()).toMatch(/children|pediatric/)
+    }
+    const ginkgo = getRevenueProductSet('ginkgo-biloba')?.products ?? []
+    expect(ginkgo.some(p => /EGb 761 certified/i.test(p.rationale))).toBe(false)
+  })
+})
