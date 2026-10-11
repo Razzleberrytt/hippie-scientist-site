@@ -152,6 +152,11 @@ describe('EvidenceMotion R8.09 general-public animated-explainer contract',()=>{
     b.r809.technicalTerms=[]
     expect(validateR809CreativeBrief(b).join('\n')).toMatch(/randomized was spoken without an explanatory glossary entry/)
   })
+  it('requires explanations for multiword scientific terms too',()=>{
+    const b=noviceExplainer()
+    b.beats.find(beat=>beat.role==='evidence').narration += ' It was a clinical trial.'
+    expect(validateR809CreativeBrief(b).join('\\n')).toMatch(/clinical trial was spoken without an explanatory glossary entry/)
+  })
   it('rejects ungrounded captions or missing knowledge-level policy',()=>{
     const b=noviceExplainer()
     b.r809.captionSync='generic-timer'

@@ -53,9 +53,9 @@ export function validateR809CreativeBrief(brief) {
   const frequentlyUnexplained = ['receptor', 'alkaloid', 'agonist', 'antagonist',
     'metabolite', 'bioavailability', 'randomized', 'placebo', 'assay',
     'clinical trial', 'statistically significant', 'binding affinity']
-  const narrationText = beats.map((b) => clean(b.narration)).join(' ').toLowerCase()
+  const narrationText = (' ' + beats.map((b) => clean(b.narration)).join(' ').toLowerCase().replace(/[^a-z0-9]+/g, ' ') + ' ')
   for (const word of frequentlyUnexplained) {
-    if (new RegExp(`\\b${word.replace(/ /g, '\\\\s+')}\\b`, 'i').test(narrationText)
+    if (narrationText.includes(' ' + word + ' ')
         && !terms.some((entry) => clean(entry?.term).toLowerCase() === word)) {
       errors.push(`R8.09 technical term ${word} was spoken without an explanatory glossary entry`)
     }
