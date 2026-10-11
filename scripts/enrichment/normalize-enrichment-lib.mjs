@@ -335,6 +335,10 @@ export function evaluateEntryReadiness(entry, source, validationIssues = []) {
     reasons.push('missing_reviewed_at')
     criticalReasons.push('missing_reviewed_at')
   }
+  // An editorial approval cannot substitute for the separate submission approval.
+  if (entry.reviewStatus !== 'approved_for_rollup') {
+    reasons.push('submission_review_not_approved')
+  }
   if (!PUBLISH_ALLOWED_EDITORIAL_STATES.has(entry.editorialStatus)) {
     reasons.push('editorial_status_not_publishable')
   }
@@ -724,6 +728,9 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
         sourceRegistryIds: Array.from(sourceRegistryIds).sort(),
         lastReviewedAt,
         reviewedBy: 'normalized-enrichment-pipeline',
+        // Each included entry passed independent approved_for_rollup eligibility.
+        reviewStatus: 'approved_for_rollup',
+        active: true,
         editorialStatus: pickEditorialStatus(statusSet),
       },
     })
