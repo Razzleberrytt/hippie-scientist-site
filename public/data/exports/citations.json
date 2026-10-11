@@ -1,9 +1,9 @@
 {
   "name": "The Hippie Scientist citation library",
-  "description": "Citation library for https://thehippiescientist.net — 849 studies. Metadata retrieved from PubMed.",
+  "description": "Citation library for https://thehippiescientist.net — 848 studies. Metadata retrieved from PubMed.",
   "license": "Bibliographic metadata is factual and sourced from PubMed. Attribution appreciated.",
   "source": "https://pubmed.ncbi.nlm.nih.gov/",
-  "studyCount": 849,
+  "studyCount": 848,
   "studies": [
     {
       "pmid": "30000830",
@@ -1833,7 +1833,7 @@
       "authors": "Rawji A et al.",
       "journal": "Cureus",
       "year": 2024,
-      "design": "narrative-review",
+      "design": "systematic-review",
       "url": "https://pubmed.ncbi.nlm.nih.gov/38817505/",
       "referencedBy": [
         "/compounds/magnesium/"
@@ -5976,19 +5976,6 @@
       ]
     },
     {
-      "pmid": "31654344",
-      "doi": "10.1007/s11695-019-04215-6",
-      "title": "Trends in Drain Utilization in Bariatric Surgery: an Analysis of the MBSAQIP Database 2015-2017",
-      "authors": "Clapp B et al.",
-      "journal": "Obes Surg",
-      "year": 2020,
-      "design": "unclassified",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
-      "referencedBy": [
-        "/compounds/magnesium/"
-      ]
-    },
-    {
       "pmid": "31680350",
       "doi": "10.1002/ptr.6532",
       "title": "Aloe-emodin: A review of its pharmacology, toxicity, and pharmacokinetics",
@@ -9491,7 +9478,7 @@
       "authors": "Abbasi B et al.",
       "journal": "J Res Med Sci",
       "year": 2012,
-      "design": "unclassified",
+      "design": "rct",
       "url": "https://pubmed.ncbi.nlm.nih.gov/23853635/",
       "referencedBy": [
         "/compounds/magnesium/"
