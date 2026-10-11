@@ -5,6 +5,8 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
+import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -143,7 +145,7 @@ function verifyPackage(packageDir) {
     }
   }
 
-  if (clean(manifest.creativeMethodRelease) === 'R8.09') {
+  if (['R8.09', 'R8.10'].includes(clean(manifest.creativeMethodRelease))) {
     if (manifest.captions?.burnInRequired !== true
         || clean(manifest.captions?.source) !== 'exact-governed-voice-script'
         || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
@@ -314,12 +316,19 @@ function ffmpegVersion(ffmpegPath) {
   return clean(String(result.stdout || '').split('\n')[0])
 }
 
-export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256, release = 'R8.04', durationSeconds = 30 }) {
+export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256, release = 'R8.04', durationSeconds = 30, creativeMethodRelease = null, alignmentReceiptSha256 = null, rendererSourceSha256 = null, alignedCaptionSrtSha256 = null }) {
   for (const [label, value] of Object.entries({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 })) {
     if (!clean(value)) throw new Error(`${label} is required for MP4 render identity`)
   }
   const renderer = release === 'R8.05' ? 'vertical-video-mp4-v3-r805' : 'vertical-video-mp4-v2-r804'
-  return sha256(`${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`)
+  const r810 = creativeMethodRelease === 'R8.10'
+  const extraInputs = { alignmentReceiptSha256, rendererSourceSha256, alignedCaptionSrtSha256 }
+  if (r810 && Object.entries(extraInputs).some(([, v]) => !/^[a-f0-9]{64}$/.test(String(v || '')))) {
+    throw new Error('R8.10 MP4 cache key must bind exact audio alignment, renderer code and final caption track')
+  }
+  const legacyKeySource = `${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`
+  const r810Suffix = r810 ? Object.entries(extraInputs).map(([name, value]) => name + '=' + value).join('\n') : ''
+  return sha256(r810 ? legacyKeySource + r810Suffix : legacyKeySource)
 }
 
 export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
@@ -329,9 +338,12 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   fs.mkdirSync(path.dirname(output), { recursive: true })
 
   const verified = verifyPackage(inputDir)
+  const isR810 = clean(verified.manifest.creativeMethodRelease) === 'R8.10'
+  const r810Proof = isR810 ? verifyR810PackageGate(inputDir, { requireAlignment: true }) : null
   const narration = verifyLocalNarration(inputDir, verified.manifest)
-  const isR809 = clean(verified.manifest.creativeMethodRelease) === 'R8.09'
+  const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
+  let alignedCaptionSrtSha256 = null
   if (isR809) {
     const manifest = verified.manifest
     const captionFile = assertCanonicalChild(inputDir, manifest.captions?.file, /^captions\.srt$/)
@@ -342,7 +354,14 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const narrationFile = assertCanonicalChild(inputDir, manifest.narrationScript?.file, /^narration-script\.json$/)
     const script = JSON.parse(fs.readFileSync(narrationFile, 'utf8'))
     validateR809CaptionsSrt(script.scenes, captionBytes.toString('utf8'))
-    burnInCaptions = renderR809CaptionAss(script.scenes)
+    if (isR810) {
+      const aligned = renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
+      burnInCaptions = aligned.ass
+      fs.writeFileSync(path.join(inputDir, 'aligned-captions.srt'), aligned.srt)
+      alignedCaptionSrtSha256 = sha256(Buffer.from(aligned.srt))
+    } else {
+      burnInCaptions = renderR809CaptionAss(script.scenes)
+    }
   }
   const version = ffmpegVersion(ffmpegPath)
   const manifestSha256 = sha256(verified.manifestBytes)
@@ -353,6 +372,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     voiceQaSha256: narration.voiceQaSha256,
     release: verified.release,
     durationSeconds: verified.durationSeconds,
+    creativeMethodRelease: isR810 ? 'R8.10' : null,
+    alignmentReceiptSha256: isR810 ? r810Proof.alignment.receiptSha256 : null,
+    rendererSourceSha256: isR810 ? sha256(fs.readFileSync(new URL(import.meta.url))) : null,
+    alignedCaptionSrtSha256: isR810 ? alignedCaptionSrtSha256 : null,
   })
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-video-mp4-'))
 
@@ -439,10 +462,18 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         audioCodec: 'aac',
         audioBitrate: '192k',
       },
+      r810Governance: isR810 ? {
+        governedPlanSha256: clean(verified.manifest.creativeR810?.governedPlanSha256),
+        approvedSourceLedgerSha256: clean(verified.manifest.sourceLedger?.sha256),
+        wordAlignmentReceiptSha256: r810Proof.alignment.receiptSha256,
+        alignedCaptionSrtSha256,
+        renderAssSha256: captionFileSha256,
+        acousticWordAlignment: 'mfa-offline-reviewed',
+      } : null,
       r809Captioning: isR809 ? {
         burnIn: true,
         authority: 'exact-governed-voice-script',
-        cueTimingPrecision: 'voice-beat-bounded-phrase-estimate',
+        cueTimingPrecision: isR810 ? 'local-acoustic-word-aligned' : 'voice-beat-bounded-phrase-estimate',
         captionsSrtSha256: clean(verified.manifest.captions?.sha256),
         renderAssSha256: captionFileSha256,
         canvasSafeArea: 'platform-intersection',

@@ -95,7 +95,7 @@ describe('EvidenceMotion R8.09 speech-first captions',()=>{
   it('inherits the deterministic 0.85-second readable claim dwell gate',async()=>{
     const {readFileSync}=await import('node:fs')
     const renderer=readFileSync('scripts/distribution/render-vertical-video-package.mjs','utf8')
-    expect(renderer).toContain("['R8.08', 'R8.09'].includes(methodRelease)")
+    expect(renderer).toMatch(/\['R8\.08', 'R8\.09'(?:, 'R8\.10')?\]\.includes\(methodRelease\)/)
     expect(renderer).toContain('visibleSeconds < 0.85 - 0.0006')
     expect(renderer).toContain('insufficient real readable claim dwell')
   })

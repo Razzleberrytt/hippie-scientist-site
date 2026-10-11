@@ -2,6 +2,7 @@
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
+import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { renderVerticalVideoMp4 } from './render-vertical-video-mp4.mjs'
@@ -164,7 +165,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
       if (clean(masterQa.qa?.[field]) !== 'pass') throw new Error(`R8.05 master QA requires ${field}=pass`)
     }
     const creativeMethodRelease = clean(pilot.assets?.creativeMethodRelease)
-    if (['R8.06', 'R8.07', 'R8.08', 'R8.09'].includes(creativeMethodRelease)) {
+    if (['R8.06', 'R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease)) {
       if (clean(masterQa.creativeMethodRelease) !== creativeMethodRelease) {
         throw new Error(`${creativeMethodRelease} staging requires a matching exact-master QA receipt`)
       }
@@ -182,7 +183,7 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
         throw new Error('R8.07 staging requires bound R8.06 foundation and R8.07 visual-rhythm receipts')
       }
     }
-    if (creativeMethodRelease === 'R8.09') {
+    if (['R8.09', 'R8.10'].includes(creativeMethodRelease)) {
       // Inherit anti-phantom-HUD frame attestation even for captioned R8.09 videos.
       validateR808HudReview(masterQa.qa)
       for (const field of ['visualRhythm', 'motifContinuity', 'semanticPatternInterrupt', 'repetitionDebtRejected',
@@ -200,6 +201,20 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
           || receipt.r809Captioning?.burnIn !== true
           || clean(receipt.r809Captioning?.captionsSrtSha256) !== clean(pilot.assets?.captions?.sha256)) {
         throw new Error('R8.09 publication requires the exact approved captioned animated master')
+      }
+      if (creativeMethodRelease === 'R8.10') {
+        const proof = verifyR810PackageGate(sourceDirectory, { requireAlignment: true })
+        if (clean(pilot.assets?.creativeR810?.schemaVersion) !== 'ths-r810-creative-receipt-v1'
+            || clean(pilot.assets?.creativeR810?.status) !== 'approved'
+            || clean(pilot.assets?.creativeR810?.inheritedR809OverlaySha256) !== clean(pilot.assets?.creativeDirection?.overlaySha256)
+            || clean(pilot.assets?.creativeR810?.sourceLedgerTextSha256) !== clean(pilot.assets?.sourceLedger?.sha256)
+            || clean(receipt.r810Governance?.approvedSourceLedgerSha256) !== clean(pilot.assets?.sourceLedger?.sha256)
+            || clean(masterQa.creativeBindings?.r810GovernedPlanSha256) !== clean(pilot.assets?.creativeR810?.governedPlanSha256)
+            || clean(masterQa.creativeBindings?.r810WordAlignmentReceiptSha256) !== proof.alignment.receiptSha256
+            || clean(masterQa.qa?.r810ExactSourceLedger) !== 'pass'
+            || clean(masterQa.qa?.r810RealWordAlignment) !== 'pass') {
+          throw Error('R8.10 staging blocked: exact-master, reviewed claim/source ledger or local word alignment not proven')
+        }
       }
     }
     if (creativeMethodRelease === 'R8.08') {

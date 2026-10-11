@@ -12,7 +12,7 @@ const approvedLineage = () => ({
 describe('R8.09 exact-master final inherited-approval gate', () => {
   it('invokes the inherited approval check inside the actual R8.09 final master path', () => {
     const source = readFileSync(new URL('../approve-r805-master.mjs', import.meta.url), 'utf8')
-    const branchStart = source.indexOf("if (creativeMethodRelease === 'R8.09') {")
+    const branchStart = source.indexOf("if (['R8.09', 'R8.10'].includes(creativeMethodRelease)) {")
     const branchEnd = source.indexOf("} else {", branchStart)
     expect(branchStart).toBeGreaterThanOrEqual(0)
     expect(branchEnd).toBeGreaterThan(branchStart)
