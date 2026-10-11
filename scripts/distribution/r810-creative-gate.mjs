@@ -43,6 +43,15 @@ export function validateR810CreativeBrief(brief,{now=new Date()}={}) {
     if(['lab-evidence','human-evidence'].includes(role)&&slot.evidenceTier!==(role==='lab-evidence'?'preclinical-or-mechanism':'human')) errors.push('R8.10 evidence tier invalid for '+role)
     if(['safety','unknowns','lab-evidence','human-evidence'].includes(role)) errors.push(...r810TextSafetyErrors(beat.narration,beat.onScreenText,slot.requiredQualifiers||[]).map(e=>role+': '+e))
     if(slot.approval!=='editorial-reviewed') errors.push('R8.10 '+role+' requires editorial-reviewed mapping')
+    const review=slot.reviewReceipt
+    const approvedClaims=Array.isArray(slot.claimIds)?slot.claimIds.map(clean):[]
+    if(review?.decision!=='approved'||review?.reviewerRole!=='editorial-science-reviewer'
+      ||!clean(review?.reviewerId)||!validDate(review?.reviewedAt)
+      ||review?.approvedNarrationSha256!==hash(clean(beat.narration))
+      ||review?.approvedOverlaySha256!==hash(clean(beat.onScreenText))
+      ||JSON.stringify(review?.governedClaimIds)!==JSON.stringify(approvedClaims)){
+      errors.push('R8.10 '+role+' missing named hash-bound independent editorial review receipt')
+    }
     const budget=budgets[role]
     if(slot.durationSeconds!=null && (!Number.isFinite(slot.durationSeconds)||slot.durationSeconds<budget[0]||slot.durationSeconds>budget[1]))errors.push('R8.10 '+role+' duration outside readable natural-speech budget')
   }
