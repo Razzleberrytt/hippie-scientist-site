@@ -59469,6 +59469,82 @@
       "reservation_id": "2efd621c1ebfef84330e",
       "reserved_at": "2026-10-11T07:42:14.830Z",
       "source_branch": "research/intake/1/20261011-0338-auricular-insomnia-r17"
+    },
+    {
+      "pmid": "39354283",
+      "title": "Investigation of the Role of Chemical Analysis in Causality Assessment of Herbal and Dietary Supplement-Induced Liver Injury.",
+      "doi": "10.1007/s40264-024-01484-8",
+      "source_title": "Investigation of the Role of Chemical Analysis in Causality Assessment of Herbal and Dietary Supplement-Induced Liver Injury.",
+      "abstract": "The attribution of drug-induced liver injury (DILI) to specific herbal and dietary supplements (HDS) is confounded by inaccurate labels and undisclosed ingredients. The US Drug-Induced Liver Injury Network (DILIN) determines the attribution of injury to an agent through its structured expert opinion causality assessment process, but without the use of chemical analysis data of HDS. We aimed to determine the impact of chemical analysis of HDS products on prior causality assessment scores. Obtained samples of HDS consumed by DILIN-enrolled patients were analyzed by high-performance liquid chromatography-mass spectrometry (HPLC-MS). Chemical analysis data were compared to label accuracy and detect whether the product contained botanical and non-botanical compounds. A comparison of the causality scores reassessed with chemical analysis was compared with the original scores. A total of 54 previously adjudicated cases with chemical analysis available were reassessed for causality with chemical analysis data; reviewers were blinded to original causality scores. Using the chemical analysis data, 37% (n = 20) of the 54 cases were scored with a higher likelihood of DILI compared with the original causality scores; 14 of the 20 (70%) moved from probable to highly likely; 52% had no change in causality score; and 11% of cases were scored as a lower likelihood of DILI. Our study demonstrates that there is value in using HDS chemical analysis data in the causality assessment process for DILI. In more than a third of cases, chemical analysis of products led to an increased confidence in DILI attribution to HDS. These findings suggest that chemical analysis is an important tool in causality assessment for HDS agents, specifically in challenging situations, and further studies are needed to confirm its applicability in clinical practice.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39354283/",
+      "research_domain": "botanical-pharmacology-safety",
+      "category": "botanical_pharmacology_safety",
+      "relevance_reason": "Source-verified candidate selected for botanical, pharmacology, interaction, mechanism, or safety relevance; semantic interpretation remains pending independent review.",
+      "evidence_class": "mixed",
+      "study_design": "Journal Article",
+      "study_details": {
+        "hydration": "pubmed_efetch_xml",
+        "publication_types": [
+          "Journal Article"
+        ],
+        "structured_semantic_extraction": "pending_independent_review"
+      },
+      "population": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "intervention": {
+        "status": "pending_independent_review",
+        "source": "verified PubMed abstract"
+      },
+      "outcomes": [
+        "Structured outcome extraction pending independent scientific review; verified source abstract retained verbatim."
+      ],
+      "conclusion_direction": "not_applicable",
+      "interaction_evidence_level": "none",
+      "uncertainty": {
+        "status": "pending_independent_review",
+        "note": "Source identity is verified; clinical and semantic interpretation is intentionally deferred."
+      },
+      "adverse_effects": {
+        "status": "pending_independent_review"
+      },
+      "interactions": {
+        "status": "pending_independent_review"
+      },
+      "limitations": {
+        "status": "pending_independent_review",
+        "note": "Hydration does not infer study limitations beyond the source metadata and abstract."
+      },
+      "provenance": {
+        "source": "PubMed EFetch XML",
+        "pmid": "39354283",
+        "doi": "10.1007/s40264-024-01484-8",
+        "journal": "Drug safety",
+        "publication_year": 2025,
+        "hydrated_at": "2026-10-11T08:01:12.081Z",
+        "source_verification": "title and abstract fetched directly from PubMed; semantic review pending"
+      },
+      "signals": {
+        "safety": 0,
+        "evidence_gap": 1,
+        "contradiction": 0,
+        "novelty": 0.5,
+        "graph_connectivity": 0
+      },
+      "clinical_claim": false,
+      "causal_claim": false,
+      "positive_claim": false,
+      "single_ingredient_claim": false,
+      "interaction_claim": false,
+      "priority_score": 4,
+      "lane": "3",
+      "batch_id": "rolling-0002",
+      "state": "SOURCE_VERIFIED",
+      "research_only": true,
+      "reservation_id": "b4715f606934471a8440",
+      "reserved_at": "2026-10-11T08:01:19.869Z",
+      "source_branch": "research/intake/3/20261011-0400-hds-chemical-analysis-39354283"
     }
   ],
   "batches": [
@@ -59497,16 +59573,16 @@
   "observatory": {
     "schema_version": 1,
     "active_batch_id": "rolling-0002",
-    "total_reservations": 758,
+    "total_reservations": 759,
     "by_lane": {
       "1": 73,
       "2": 157,
-      "3": 128,
+      "3": 129,
       "4": 50,
       "5": 350
     },
     "by_state": {
-      "SOURCE_VERIFIED": 758
+      "SOURCE_VERIFIED": 759
     },
     "batches": [
       {
@@ -59519,7 +59595,7 @@
       {
         "id": "rolling-0002",
         "state": "ACTIVE",
-        "count": 258,
+        "count": 259,
         "pr_number": null,
         "blocker": null
       }
