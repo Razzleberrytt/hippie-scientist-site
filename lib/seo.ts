@@ -1108,6 +1108,32 @@ export function formatProfileDescription(
  * issue while keeping both pages indexable. The primary page keeps its generated title.
  */
 const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: string; canonical?: string }> = {
+  // Round 2: search intent framed by evidence limits rather than guaranteed outcomes.
+  'omega-3': {
+    title: 'Omega-3 (Fish Oil): Evidence, Dosage & Safety',
+    description:
+      'Review omega-3 research, including EPA and DHA, studied benefits and limitations, dose uncertainty, anticoagulant precautions, and higher-dose atrial fibrillation concerns.',
+  },
+  'vitamin-c': {
+    title: 'Vitamin C & Immunity: Evidence, Dosage & Safety',
+    description:
+      'Explore vitamin C\'s role in immunity, research on supplementation, deficiency context, dosage considerations, side effects, and safety limits.',
+  },
+  'zinc': {
+    title: 'Zinc & Immunity: Deficiency, Dosage & Safety',
+    description:
+      'Review zinc\'s role in immune function, deficiency concerns, supplement evidence, studied doses, medication interactions, and risks from long-term excess.',
+  },
+  'creatine': {
+    title: 'Creatine Monohydrate: Effects, Dosage & Safety',
+    description:
+      'Explore creatine monohydrate evidence for strength and exercise performance, dosing considerations, possible side effects, and safety limitations.',
+  },
+  'probiotics': {
+    title: 'Probiotics for Gut Health: Strains, Evidence & Safety',
+    description:
+      'Probiotic effects vary by strain and condition. Review research for digestive outcomes, dose uncertainty, product differences, and safety risks in vulnerable people.',
+  },
   // Search-intent metadata: accurately describe questions answered, not proven benefits.
   'ashwagandha': {
     title: 'Ashwagandha for Stress, Sleep & Testosterone: Evidence',
