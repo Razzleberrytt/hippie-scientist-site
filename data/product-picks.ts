@@ -306,7 +306,8 @@ export const productPicks: ProductPick[] = [
     notes: 'Premium 100% pure Korean red ginseng tablets without fillers.'
   },
 
-  // Bacopa Monnieri  {
+  // Bacopa Monnieri
+  {
     compound_slug: 'bacopa',
     name: 'NOW Bacopa 450 mg',
     brand: 'NOW Foods',
@@ -331,7 +332,8 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Kaged+PurCaf+organic+caffeine+200+mg&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall for chemical-free water-extracted organic caffeine.'
-  },  {
+  },
+  {
     compound_slug: 'caffeine',
     name: 'Sports Research L-Theanine + Caffeine',
     brand: 'Sports Research',
@@ -452,7 +454,8 @@ export const productPicks: ProductPick[] = [
     type: 'top',
     url: `https://www.amazon.com/s?k=Life+Extension+Discomfort+Relief+PEA&tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Best overall chewable PEA tablets in a clinically studied dosage.'
-  },  {
+  },
+  {
     compound_slug: 'palmitoylethanolamide',
     name: 'Vitalitus Ultramicronized PEA',
     brand: 'Vitalitus',
