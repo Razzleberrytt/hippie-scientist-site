@@ -134,6 +134,25 @@ describe('production deployment handoff contract', () => {
     expect(ciAuditStep).toContain('run: npm run audit:affiliate-tag-production')
   })
 
+  it('retries only transient Cloudflare Pages asset-upload 5xx without bypassing the exact deployment receipt', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+    const start = workflow.indexOf('- name: Deploy to Cloudflare Pages')
+    const verify = workflow.indexOf('- name: Verify exact production receipt')
+    expect(start).toBeGreaterThan(-1)
+    expect(verify).toBeGreaterThan(start)
+    const upload = workflow.slice(start, verify)
+    expect(upload).not.toContain('continue-on-error: true')
+    expect(upload).toContain('max_upload_attempts=3')
+    expect(upload).toContain('while [ "$attempt" -le "$max_upload_attempts" ]')
+    expect(upload).toContain('wrangler_exit="${PIPESTATUS[0]}"')
+    expect(upload).toContain("grep -Eq 'POST /pages/assets/upload -> 5[0-9]{2}'")
+    expect(upload).toContain('exit "$wrangler_exit"')
+    expect(upload).toContain('sleep "$((attempt * 30))"')
+    expect(upload).toContain('--commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}"')
+    expect(upload).not.toContain('|| true')
+    expect(workflow.slice(verify)).toContain('node scripts/ci/deployment-receipt.mjs verify')
+  })
+
   it('publishes and verifies an exact-SHA production receipt before deploy success', () => {
     const workflow = read('.github/workflows/deploy.yml')
     const verifier = read('scripts/ci/deployment-receipt.mjs')

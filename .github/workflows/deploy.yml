@@ -469,7 +469,33 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
-        run: npx --no-install wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "${DEPLOY_BRANCH:-main}" --commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}"
+        run: |
+          set -euo pipefail
+          # Preserve all pre-upload gates and the post-upload exact SHA receipt.
+          # Only retry Cloudflare's transient server-side Pages asset-upload 5xx.
+          max_upload_attempts=3
+          attempt=1
+          while [ "$attempt" -le "$max_upload_attempts" ]; do
+            log_file="$(mktemp)"
+            set +e
+            npx --no-install wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "${DEPLOY_BRANCH:-main}" --commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}" 2>&1 | tee "$log_file"
+            wrangler_exit="${PIPESTATUS[0]}"
+            set -e
+            if [ "$wrangler_exit" -eq 0 ]; then
+              rm -f "$log_file"
+              break
+            fi
+            # An unknown error, expired credential, or exhausted retry must fail closed.
+            if ! grep -Eq 'POST /pages/assets/upload -> 5[0-9]{2}' "$log_file" || [ "$attempt" -eq "$max_upload_attempts" ]; then
+              rm -f "$log_file"
+              echo "::error::Cloudflare Pages upload failed; non-retryable error or retries exhausted."
+              exit "$wrangler_exit"
+            fi
+            rm -f "$log_file"
+            echo "::warning::Cloudflare Pages asset API returned HTTP 5xx; retrying the same validated commit."
+            sleep "$((attempt * 30))"
+            attempt="$((attempt + 1))"
+          done
 
       - name: Verify exact production receipt
         env:
