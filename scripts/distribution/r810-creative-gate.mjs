@@ -28,6 +28,8 @@ export function validateR810CreativeBrief(brief,{now=new Date()}={}) {
   const slots=Array.isArray(layer.slots)?layer.slots:[]
   if(slots.length!==7) errors.push('R8.10 requires exactly seven ordered narrative slots')
   const beats=Array.isArray(brief?.beats)?brief.beats:[]
+  if(beats.length!==8)errors.push('R8.10 requires exactly seven governed spoken beats plus one silent source end-card; extra legacy beats are not allowed')
+  if(beats.at(-1)?.role!=='source')errors.push('R8.10 source ledger must be the final beat')
   const used=new Set()
   for(let i=0;i<slots.length;i++){
     const slot=slots[i],role=R810_ROLES[i],beatId=clean(slot?.beatId)
@@ -35,6 +37,7 @@ export function validateR810CreativeBrief(brief,{now=new Date()}={}) {
     const beat=beats.find(b=>clean(b?.id)===beatId)
     if(!beat||used.has(beatId)){errors.push('R8.10 missing or duplicate physical beat: '+beatId);continue}
     used.add(beatId)
+    if(beat!==beats[i])errors.push('R8.10 narrative beats must appear in their approved order, not merely in role metadata')
     if(!physicalRoles[role]?.includes(clean(beat.role))) errors.push('R8.10 illegal legacy role mapping for '+role)
     if(!clean(beat.narration)||!clean(beat.onScreenText)) errors.push('R8.10 requires spoken and visible content for '+role)
     if(clean(slot.narration)!==clean(beat.narration)||clean(slot.screenText)!==clean(beat.onScreenText)) errors.push('R8.10 text stale against governed '+role+' beat')
@@ -85,7 +88,9 @@ export function validateR810CreativeBrief(brief,{now=new Date()}={}) {
 }
 export function assertR810TimedScenes(brief, scenes) {
   const all=Array.isArray(scenes)?scenes:[]
-  for(const slot of brief.r810.slots){
+  if(all.length!==8 || all.at(-1)?.role!=='source')throw Error('R8.10 rendered scene inventory must contain seven narrated beats followed by the silent ledger')
+  for(const [index,slot] of brief.r810.slots.entries()){
+    if(all[index]?.beatId!==slot.beatId)throw Error('R8.10 rendered scene order diverges from the approved role plan')
     const role=slot.role, scene=all.find(s=>s.beatId===slot.beatId)
     if(!scene)throw Error('R8.10 missing exact voiced scene for '+role)
     const seconds=Number(scene.speechEnd)-Number(scene.start)
