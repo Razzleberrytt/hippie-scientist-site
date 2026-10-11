@@ -14,9 +14,9 @@ describe('research citation exports', () => {
       studies: Array<{ pmid: string }>
     }
     const jsonIds = json.studies.map((study) => String(study.pmid))
-    const csvIds = [...read('citations.csv').matchAll(/^(\\d+),/gm)].map((match) => match[1])
-    const bibIds = [...read('citations.bib').matchAll(/\\bpmid\\s*=\\s*\\{(\\d+)\\}/g)].map((match) => match[1])
-    const risIds = [...read('citations.ris').matchAll(/^AN  - (\\d+)$/gm)].map((match) => match[1])
+    const csvIds = [...read('citations.csv').matchAll(/^(\d+),/gm)].map((match) => match[1])
+    const bibIds = [...read('citations.bib').matchAll(/\bpmid\s*=\s*\{(\d+)\}/g)].map((match) => match[1])
+    const risIds = [...read('citations.ris').matchAll(/^AN  - (\d+)$/gm)].map((match) => match[1])
 
     expect(new Set(jsonIds).size).toBe(jsonIds.length)
     expect(json.studyCount).toBe(jsonIds.length)
