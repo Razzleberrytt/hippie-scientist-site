@@ -12,16 +12,7 @@ const BATCH8_EDUCATION_SLUGS = new Set([
 
 export function canDiscoverResearchProfile(record: Record<string, unknown>): boolean {
   if (!record || typeof record !== 'object') return false
-  if (!isRestrictedRecord(record)) return true
-  const slug = String(record.slug ?? '').trim().toLowerCase()
-  if (BATCH8_EDUCATION_SLUGS.has(slug)) return getRuntimeVisibility(record).canRender
-
-  // The monetization filter scans descriptions and safety text. An otherwise
-  // ordinary compound is not a controlled substance merely because its
-  // summary mentions a held ingredient (e.g., crocin mentioning saffron).
-  // Keep exclusions for restricted primary identities and explicit controls.
-  const primaryName = String(record.name ?? record.displayName ?? '')
-  if (isRestrictedIngredient(slug) || isRestrictedIngredient(primaryName)) return false
+  // Explicit publication/legal holds outrank every educational allowlist.
   const explicitHold = [record.doNotPromote, record.do_not_promote,
     record.doNotMonetize, record.do_not_monetize].some(value =>
     value === true || /^(true|yes|y|1|blocked|restricted)$/i.test(String(value ?? '').trim()))
@@ -29,5 +20,14 @@ export function canDiscoverResearchProfile(record: Record<string, unknown>): boo
     record.controlledStatus, record.schedule, record.dea_status, record.regulatory_status]
     .map(value => String(value ?? '')).join(' ')
   if (explicitHold || /controlled substance|schedule\s*(?:i|1)\b|dea\s*watch\s*list/i.test(regulatory)) return false
+
+  if (!isRestrictedRecord(record)) return true
+  const slug = String(record.slug ?? '').trim().toLowerCase()
+  if (BATCH8_EDUCATION_SLUGS.has(slug)) return getRuntimeVisibility(record).canRender
+
+  // Descriptive mentions of held botanicals do not turn an otherwise
+  // ordinary source-backed educational profile into a restricted identity.
+  const primaryName = String(record.name ?? record.displayName ?? '')
+  if (isRestrictedIngredient(slug) || isRestrictedIngredient(primaryName)) return false
   return getRuntimeVisibility(record).canRender
 }
