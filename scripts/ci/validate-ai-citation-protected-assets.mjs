@@ -52,7 +52,9 @@ for (const asset of ledger.assets) {
       failures.push(url + ': source identity cannot be verified in ' + asset.sourceFile)
       continue
     }
-    for (const key of ['kind', 'title', 'slug', 'canonical', 'h1']) {
+    if (asset.identity.kind === 'tsx' && !owner.identity.h1) failures.push(url + ': source H1 not verifiably protected')
+    const fields = ['kind', 'title', 'slug', 'canonical', 'h1', ...(Object.hasOwn(asset.identity, 'headingSourceFile') ? ['headingSourceFile'] : [])]
+    for (const key of fields) {
       const expected = asset.identity[key]
       const actual = owner.identity[key]
       if (expected !== actual) failures.push(url + ': protected ' + key + ' changed in ' + asset.sourceFile)
