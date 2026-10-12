@@ -5,7 +5,7 @@
 **Updated:** 2026-10-12 (retire verified GitHub-closed owner/candidate references; admission remains separate)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admitted WIP after verified 2026-10-12 cleanup:** D #6683 is independently admitted for two additive hub-navigation links at score **108.0**, while closed R #6149 and A candidate #5081 stay retired. Normal WIP **1/3** (D occupied, R/A free). This admission alone does not merge the implementation, change scientific authority, or establish search/traffic/revenue impact.
+**Verified completion 2026-10-12:** D #6683 / PR #6684 merged as `f5d2e98762786b558e64d968db158c3ba38e18e7`; Cloudflare deployment run `38251809776` verified exact production receipt. The two additive hub links shipped, with no scientific content/canonical change. Historical admission score **108.0** is not measured ROI. Normal WIP **0/3**, D/R/A free; external citation, traffic and revenue impact remain Unknown.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -106,7 +106,7 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -121,7 +121,6 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6683 | Connect anxiety and product-quality hubs to cited canonical guides | Active — admitted | P2 | 108.0 | 2026-10-12 |
 
 
 
@@ -205,7 +204,7 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Normal implementation WIP is 1/3 after an independent, scored D #6683 admission, with R/A free and D reserved until its implementation is merged or retired. Other tickets still require separate fresh admission and must not overlap #6683. Evidence, science, accessibility, canonical, privacy, governance, and external-access gates remain unchanged.
+Normal D/R/A implementation WIP is 0/3 after verified #6683 / PR #6684 merge and exact Cloudflare deployment receipt. No candidate starts merely because a slot is free: subsequent tasks require independent fresh scored admission. Evidence, science, accessibility, canonical, privacy, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
