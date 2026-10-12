@@ -58,6 +58,24 @@ describe('mobile premium UX regression contract', () => {
     expect(layout.lastIndexOf('<Ga4Bootstrap />')).toBe(bootstrapMount)
   })
 
+  it('exposes a real opt-out control and privacy policy on every translated footer', () => {
+    const layout = source('app/layout.tsx')
+    const localizedFooter = source('components/localization/LocalizedFooter.tsx')
+    const controls = source('components/FooterConsentControls.tsx')
+    const manager = source('components/ConsentManager.tsx')
+
+    expect(layout).toContain('<LocalizedOnly>')
+    expect(layout).toContain('<LocalizedFooter />')
+    expect(localizedFooter).toContain('<FooterConsentControls')
+    expect(localizedFooter).toContain("href='/info/privacy/'")
+    for (const locale of ['es', 'de', 'fr']) {
+      expect(localizedFooter).toContain(`${locale}: '`)
+    }
+    expect(controls).toContain('<ConsentManager open')
+    expect(manager).toContain('setConsent("denied")')
+    expect(manager).toContain('clearAnalyticsEvents()')
+  })
+
   it('renders shared comparison data as option-first cards on phones', () => {
     const text = source('components/ComparisonTable.tsx')
     const cardsIndex = text.indexOf('data-mobile-comparison-cards="true"')
