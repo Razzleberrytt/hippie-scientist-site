@@ -72,3 +72,9 @@ Both mechanism and trust PNGs must have real alpha channels, and trust cannot be
 **Critical limitation:** The current 7-OH 54s narrated MP4 has baked-in captions and lacks its original reviewed R8.10 source/word-alignment package in the working files. Neither an extracted waveform, assumed transcript timestamps, a silent demonstration, nor an overlay-upscaled video may be substituted for the governed full source package. Complete first-party separated layer source delivery remains required for an accepted full 7-OH R8.19 review master.
 
 **Consolidation:** Duplicate draft #6725 was closed unmerged, history retained. #6726 is the R8.19 implementation candidate; #6724 remains the independent R8.18 long-beat motion quality fix. Green CI only clears engineering tests, not owner/V creative publication gates.
+
+### Repeatable producer inventory authoring
+
+Use `authorR819LayerInventory(packageDir, verifiedR818NativeFrames)` from `scripts/distribution/r819-layer-inventory-writer.mjs` after exporting independent native art/mechanism/trust PNG files for every approved R8.18 frame. The function checks each expected source-layer path, image dimensions, file bounds and SHA256; emits `r819-layer-sequence.json` deterministically, immediately rereads it through the independent verifier, and returns the exact `{file,sha256}` object to insert into the R8.19 package manifest. A previously emitted inventory cannot be silently overwritten or re-signed. Edit source art/graphics only through an intentional versioned package rebuild.
+
+The final MP4 receipt records the complete layer-sequence SHA and a digest of all successful frame pixel-equivalence proofs. Tests exercise the valid render, changed trust pixels (whether or not their SHA is changed), missing trust, immutable inventory writer and absent source layers. This is a production-identity contract, not automatic creative acceptance.
