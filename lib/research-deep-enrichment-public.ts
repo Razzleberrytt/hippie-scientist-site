@@ -1,23 +1,32 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 
 /**
- * Public transparency view of the research-only DE10–DE15 dossiers.
- * Reading the original files means an investigation cannot silently disappear
- * from the public inventory while its merged Markdown remains in the repo.
- *
- * Deliberately DOES NOT import these claims into the clinically graded evidence
- * dataset, the PubMed source-register totals, or any product recommendations.
+ * Public bibliographic transparency for merged Deep Enrichment rounds.
+ * Discover source documents directly at build time so future rounds cannot
+ * be committed under docs/research/ without appearing on the website.
+ * This inventory never promotes unreviewed claims into graded public evidence.
  */
-const DEEP_ENRICHMENT_DOCUMENTS = [
-  { round: 10, file: 'docs/research/deep-enrichment-10-2026-10-11.md' },
-  { round: 11, file: 'docs/research/deep-enrichment-11-2026-10-11.md' },
-  { round: 12, file: 'docs/research/deep-enrichment-12-2026-10-12.md' },
-  { round: 13, file: 'docs/research/deep-enrichment-13-2026-10-12.md' },
-  { round: 14, file: 'docs/research/deep-enrichment-14-2026-10-12.md' },
-  { round: 15, file: 'docs/research/deep-enrichment-15-2026-10-12.md' },
-] as const
+const RESEARCH_PATH = 'docs/research'
+const RESEARCH_NAME = /^deep-enrichment-(\d+)-(\d{4}-\d{2}-\d{2})\.md$/
+const DEEP_ENRICHMENT_DOCUMENTS = readdirSync(path.join(process.cwd(), RESEARCH_PATH))
+  .filter((filename) => filename.startsWith('deep-enrichment-'))
+  .map((filename) => {
+    const match = filename.match(RESEARCH_NAME)
+    if (!match) throw new Error(`Unrecognized Deep Enrichment filename: ${filename}`)
+    return { round: Number(match[1]), file: `${RESEARCH_PATH}/${filename}` }
+  })
+  .filter(({ round }) => round >= 10)
+  .sort((a, b) => a.round - b.round)
 
+if (DEEP_ENRICHMENT_DOCUMENTS.length < 6) {
+  throw new Error('Deep Enrichment public inventory lost one or more of the original six rounds')
+}
+for (let index = 1; index < DEEP_ENRICHMENT_DOCUMENTS.length; index++) {
+  if (DEEP_ENRICHMENT_DOCUMENTS[index].round !== DEEP_ENRICHMENT_DOCUMENTS[index - 1].round + 1) {
+    throw new Error('Deep Enrichment inventory has duplicate or missing round numbers')
+  }
+}
 export type DeepEnrichmentInvestigation = {
   id: string
   title: string
@@ -47,7 +56,7 @@ export function getDeepEnrichmentRounds(): DeepEnrichmentRound[] {
 
     const investigations = headings.map((heading, index) => {
       const id = heading[1]
-      if (!id.startsWith(`DE${round}-`)) throw new Error(`Deep Enrichment ${round}: mismatched ${id}`)
+      if (id !== `DE${round}-${String(index + 1).padStart(2, '0')}`) throw new Error(`Deep Enrichment ${round}: mismatched ${id}`)
       const start = heading.index! + heading[0].length
       const end = headings[index + 1]?.index ?? fullText.length
       const body = fullText.slice(start, end).trim()
