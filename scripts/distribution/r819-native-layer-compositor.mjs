@@ -8,7 +8,8 @@ const isHex=s=>/^[a-f0-9]{64}$/.test(String(s??''))
 const PNG=Buffer.from('89504e470d0a1a0a','hex')
 const kinds=['art','mechanism','trust']
 function readLayer(root,item,beatId,index,kind){
- const expected='r819-layers/'+beatId+'/f'+String(index).padStart(5,'0')+'-'+kind+'.png'
+ const expected=kind==='art'?'r819-layers/'+beatId+'/art-base.png':
+   'r819-layers/'+beatId+'/f'+String(index).padStart(5,'0')+'-'+kind+'.png'
  if(item?.file!==expected||!isHex(item.sha256))throw Error('R8.19 missing/unpinned '+kind+' layer at '+beatId+'/'+index)
  const file=path.resolve(root,item.file)
  if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())
@@ -45,7 +46,7 @@ export function verifyR819LayerInventory(packageDir, meta, nativeSequence) {
     throw Error('R8.19 frame must declare three exclusive ordered layer references')
    for(const kind of kinds){
     const layer=frame.layers[kind]
-    if(used.has(layer?.file))throw Error('R8.19 duplicate mutable layer reference')
+    if(kind!=='art'&&used.has(layer?.file))throw Error('R8.19 duplicate mutable layer reference')
     used.add(layer?.file)
     // Fail closed on all source layer bytes before rendering can begin.
     readLayer(root,layer,b.beatId,i,kind)
@@ -77,7 +78,8 @@ export async function compositeR819Frame(packageDir,layerBeat,frame,originalFram
  if(!expectedFile.startsWith(root+path.sep))throw Error('R8.19 native expected path invalid')
  const expected=fs.readFileSync(expectedFile)
  if(sha(expected)!==originalFrame.sha256)throw Error('R8.19 previously reviewed R8.18 native-frame SHA drift')
- if(!await rawRGBA(composed).then(async b=>b.equals(await rawRGBA(expected))))
+ const decodedFinal=await rawRGBA(composed),decodedSource=await rawRGBA(expected)
+ if(!decodedFinal.equals(decodedSource))
   throw Error('R8.19 source art/mechanism/trust differs from native encoded-frame input')
  fs.writeFileSync(outputPath,composed)
  return {beatId:layerBeat.beatId,frameIndex:frame.frameIndex,
