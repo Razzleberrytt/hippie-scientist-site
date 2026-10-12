@@ -6,6 +6,8 @@ import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { verifyR819CanonicalHandoff } from './r819-canonical-handoff.mjs'
+import { verifyR819LayerInventory, compositeR819Frame } from './r819-native-layer-compositor.mjs'
 import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
@@ -191,7 +193,7 @@ function verifyPackage(packageDir) {
         || clean(manifest.captions?.source) !== 'exact-governed-voice-script'
         || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
         || clean(manifest.creativeDirection?.status) !== 'approved'
-        || clean(manifest.creativeDirection?.canonicalStyle) !== '2p5d-science-explainer-v1'
+        || clean(manifest.creativeDirection?.canonicalStyle) !== (manifest.r819?.enabled===true ? 'dark-cellular-organic-v1' : '2p5d-science-explainer-v1')
         || manifest.creativeDirection?.burnInNarrationCaptions !== true
         || clean(manifest.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
         || clean(manifest.creativeDirection?.inheritedR808OverlaySha256) !== clean(manifest.creativeSilentFoundation?.overlaySha256)) {
@@ -395,6 +397,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   const isR817 = Boolean(verified.r817Proof)
   if (isR817 && !isR810) throw Error('R8.17 progressive word captions require reviewed R8.10 acoustic alignment; no phrase-flash fallback')
   const r810Proof = isR810 ? verifyR810PackageGate(inputDir, { requireAlignment: true }) : null
+  // R8.19 is strictly opt-in. Fail BEFORE encoding if pinned art, R8.18 geometry,
+  // or genuine independently heard R8.10 MFA cue bindings are absent.
+  const r819Proof = verified.manifest.r819?.enabled === true
+    ? verifyR819CanonicalHandoff(inputDir) : null
   const narration = verifyLocalNarration(inputDir, verified.manifest)
   const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
@@ -459,6 +465,12 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const nativeFrameDir=isR817?path.join(tempDir,'native-frames'):null
     if(nativeFrameDir)fs.mkdirSync(nativeFrameDir)
     let nativeFrameCount=0
+    // R8.19 encoding must consume independently rendered pixels, never silently
+    // fall back to the already baked R8.18 frames. The approved R8.18 sequence is
+    // retained as a pixel-exact reference for every rebuilt native frame.
+    const r819Layers=r819Proof ? verifyR819LayerInventory(inputDir,
+      verified.manifest.r819.layerSequence,verified.r818NativeFrames) : null
+    const r819FrameProofs=[]
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
@@ -468,12 +480,20 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       if (isR817) {
         const nativeBeat=verified.r818NativeFrames.beats[index]
         if(nativeBeat.beatId!==asset.beatId)throw Error('R8.18 scene/native beat identity drift')
-        for(const frame of nativeBeat.frames){
+        const layerBeat=r819Layers?.sequence.beats[index]
+        for(let j=0;j<nativeBeat.frames.length;j++){
+          const frame=nativeBeat.frames[j]
           const nativeFile=path.join(inputDir,frame.file)
           const numberedFile=path.join(nativeFrameDir,'f'+String(nativeFrameCount).padStart(6,'0')+'.png')
-          fs.linkSync(nativeFile,numberedFile)
+          if(r819Proof){
+            const proof=await compositeR819Frame(inputDir,layerBeat,layerBeat.frames[j],frame,numberedFile)
+            r819FrameProofs.push(proof)
+            finalPng=numberedFile
+          }else{
+            fs.linkSync(nativeFile,numberedFile)
+            finalPng=nativeFile
+          }
           nativeFrameCount++
-          finalPng=nativeFile
         }
         continue
       }
@@ -626,11 +646,17 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         captionsSrtSha256: clean(verified.manifest.captions?.sha256),
         renderAssSha256: captionFileSha256,
         canvasSafeArea: 'platform-intersection',
-        style: '2p5d-science-explainer-v1',
+        style: r819Proof ? 'dark-cellular-organic-v1' : '2p5d-science-explainer-v1',
         audioProfile: 'voice-forward-minus14LUFS',
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
+      r819Canonical: r819Proof ? {...r819Proof,exactMp4Sha256:sha256(outputBytes),
+        layeredFrameInventorySha256:r819Layers.sha256,
+        exactLayeredFrameCount:r819FrameProofs.length,
+        allFramesPixelMatchedR818:r819FrameProofs.length===verified.r818NativeFrames.frameCount,
+        layeredFrameProofLedgerSha256:sha256(Buffer.from(JSON.stringify(r819FrameProofs))),
+        finalMp4PixelAndCraftApproval:'PENDING_INDEPENDENT_REVIEW',publicationApproved:false} : null,
       r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
