@@ -64,7 +64,7 @@
     {
       "id": "context",
       "role": "context",
-      "narration": "It's marketed as a nootropic or supplement, sometimes in places selling snacks and fuel.",
+      "narration": "It's sold as a nootropic or supplement at convenience stores.",
       "onScreenText": "SOLD LIKE A SUPPLEMENT",
       "visualPurpose": "Generic convenience shop aisle typography crossed by red hazard light, no real brands",
       "spokenAnchor": "nootropic",
@@ -83,10 +83,10 @@
     {
       "id": "evidence",
       "role": "evidence",
-      "narration": "Reported harms from tianeptine products include seizures, dangerous breathing problems, unconsciousness, and deaths.",
+      "narration": "Reports link tianeptine products to seizures, slowed breathing, unconsciousness, and deaths.",
       "onScreenText": "OVERDOSE CAN BE FATAL",
       "visualPurpose": "Cinematic fading respiratory waveform and emergency light; no invented clinical measurements",
-      "spokenAnchor": "breathing problems",
+      "spokenAnchor": "slowed breathing",
       "visualAction": "Cinematic fading respiratory waveform and emergency light; no invented clinical measurements",
       "motion": {
         "type": "highlight"
@@ -121,7 +121,7 @@
     {
       "id": "limitation",
       "role": "limitation",
-      "narration": "And there's another danger: a CDC investigation found synthetic cannabinoids in some products. Not every effect can be blamed on tianeptine alone.",
+      "narration": "A CDC cluster also involved synthetic cannabinoids. Those effects cannot all be attributed to tianeptine alone.",
       "onScreenText": "UNDECLARED INGREDIENTS",
       "visualPurpose": "Two intersecting glass vials, overlapping hazard colors; clearly distinct substances",
       "spokenAnchor": "synthetic cannabinoids",
@@ -160,10 +160,10 @@
     {
       "id": "cta",
       "role": "cta",
-      "narration": "If someone is unresponsive or struggling to breathe, call emergency services. Tell them what was taken. More sources at The Hippie Scientist.",
+      "narration": "If breathing slows or someone becomes unresponsive, call 911. Tell emergency staff what was taken.",
       "onScreenText": "BREATHING SLOWLY? CALL 911",
       "visualPurpose": "Human-focused safety cue with 911 and research provenance; no sensationalism",
-      "spokenAnchor": "call emergency services",
+      "spokenAnchor": "call 911",
       "visualAction": "Human-focused safety cue with 911 and research provenance; no sensationalism",
       "motion": {
         "type": "highlight"
