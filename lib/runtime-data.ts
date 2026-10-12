@@ -335,7 +335,7 @@ function resolveHeldSafetyDetail(base: RuntimeRecord, detail: RuntimeRecord | nu
   const cautions = Array.from(new Set([...oldCautions, ...newCautions].filter(
     (item): item is string => typeof item === 'string' && Boolean(item.trim()),
   )))
-  const resolved = resolveRuntimeRecordLayers(base, [{ ...detail, safetyNotes: safety, contraindications: cautions }], {
+  const resolved = resolveRuntimeRecordLayers(base, [{ ...detail, safetyNotes: safety, safety, contraindications: cautions }], {
     approvedTrustOverrides: ['safety', 'contraindications'],
   }) as RuntimeRecord
   // Renderer aliases must reflect the safety field after trust resolution.
