@@ -1,0 +1,183 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "PMID:38788532",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38788532/"
+  },
+  "premise": {
+    "interestScore": 4.8,
+    "coldViewerWhyCare": "A surprising evidence-grounded risk pattern about dose frequency versus amount",
+    "viewerQuestion": "Is how often I use kratom more associated with withdrawal than dose amount?",
+    "earlyPayoff": "Frequency showed a stronger association than amount in a 395-person self-report survey",
+    "methodologyBeforePayoff": false,
+    "hookMode": "curiosity",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "reviewState": "owner-authorized AI scientific editorial review; perceptual human QA pending",
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "With kratom, could how often you take it matter more than how much?",
+      "onScreenText": "FREQUENCY vs AMOUNT",
+      "visualPurpose": "Open on the surprising comparison rather than a study title",
+      "spokenAnchor": "how often",
+      "visualAction": "Split-screen frequency and amount diverge",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "observational interpretation",
+      "primaryEntities": [
+        "frequency",
+        "amount"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.08
+    },
+    {
+      "id": "finding",
+      "role": "finding",
+      "narration": "A study of three hundred ninety five regular users found withdrawal symptoms were more closely linked to dosing frequency than dose amount.",
+      "onScreenText": "FREQUENCY showed the stronger association",
+      "visualPurpose": "Make the direction of association immediately clear without a causal claim",
+      "spokenAnchor": "dosing frequency",
+      "visualAction": "Animate two association columns with frequency highlighted; no invented effect-size graph",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "PMID 38788532 self-reported cross-sectional analysis",
+      "primaryEntities": [
+        "dose frequency",
+        "dose amount"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "context",
+      "role": "context",
+      "narration": "Kratom contains mitragynine. This research looked at people's kratom use, not purified mitragynine by itself.",
+      "onScreenText": "KRATOM use ≠ purified mitragynine",
+      "visualPurpose": "Prevent interpreting product-level observations as isolated compound causality",
+      "spokenAnchor": "not purified",
+      "visualAction": "Identify kratom leaf then a separately labeled compound icon",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID 38788532 cohort and general botanical chemistry",
+      "primaryEntities": [
+        "kratom",
+        "mitragynine"
+      ],
+      "comparisonRequired": true,
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "narration": "The researchers surveyed U S adults in twenty twenty two. Almost all regularly used whole leaf products.",
+      "onScreenText": "395 ADULTS · US · 2022 · SELF-REPORTED",
+      "visualPurpose": "Show actual study design and sample rather than presenting experiment or RCT",
+      "spokenAnchor": "surveyed",
+      "visualAction": "Survey cards stack into a 395-person observational sample",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "PMID 38788532",
+      "primaryEntities": [
+        "self-reported survey"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "limitation",
+      "role": "limitation",
+      "narration": "Important: this was an observational survey. It cannot prove that taking kratom more often causes withdrawal.",
+      "onScreenText": "ASSOCIATION ≠ CAUSATION",
+      "visualPurpose": "Make causal limitation large and unavoidable",
+      "spokenAnchor": "cannot prove",
+      "visualAction": "Association arrow changes to a question mark, source type stays visible",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "observational study design limits",
+      "primaryEntities": [
+        "causality"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "finding2",
+      "role": "finding",
+      "narration": "The takeaway? How frequently someone uses a product deserves attention, not just the amount in one dose.",
+      "onScreenText": "PAY ATTENTION TO THE PATTERN",
+      "visualPurpose": "Deliver a nonprescriptive harm-reduction takeaway",
+      "spokenAnchor": "How frequently",
+      "visualAction": "Show a weekly calendar with repeated uses highlighted",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "author interpretation of PMID 38788532",
+      "primaryEntities": [
+        "weekly use pattern"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/38788532/",
+      "visualPurpose": "Provide the exact accessible primary study citation",
+      "spokenAnchor": "",
+      "visualAction": "Keep full citation and limitations legible for review",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "Rogers et al 2024 PMID 38788532",
+      "primaryEntities": [
+        "PMID 38788532"
+      ],
+      "comparisonRequired": false,
+      "holdSeconds": 3.3,
+      "pauseAfterSeconds": 0
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "Read the study and caveats at The Hippie Scientist. Follow for evidence, not hype.",
+      "onScreenText": "thehippiescientist.net",
+      "visualPurpose": "Clear educational CTA without medical advice or purchase prompt",
+      "spokenAnchor": "Hippie Scientist",
+      "visualAction": "Reveal site name and tiny references lockup; neutral closing panel",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "creative-framing",
+      "primaryEntities": [
+        "The Hippie Scientist"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    }
+  ]
+}
