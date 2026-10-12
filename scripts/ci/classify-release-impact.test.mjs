@@ -649,6 +649,27 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
     })
   })
 
+  it('CLI marks strictly inert editorial-staging evidence as docs-only without waiving live-content checks', () => {
+    expect(run([
+      'ops/editorial-runtime/publication-pilots/README.md',
+      'ops/editorial-runtime/publication-pilots/deep-enrichment-10-13-closure-queue.json',
+      'ops/editorial-runtime/publication-pilots/licorice-diuretic-hypokalemia-safety-2026-10-12.md',
+    ])).toEqual({
+      release_sensitive: 'false',
+      docs_only: 'true',
+      validation_only: 'false',
+      leaf_page_only: 'false',
+      ui_only: 'false',
+      bounded_ui: 'false',
+    })
+    const publicAndDraft=run([
+      'ops/editorial-runtime/publication-pilots/draft.md',
+      'public/data/herbs-detail/licorice.json',
+    ])
+    expect(publicAndDraft.docs_only).toBe('false')
+    expect(publicAndDraft.release_sensitive).toBe('true')
+  })
+
   it('reports release_sensitive=true for generated runtime data', () => {
     expect(run(['public/data/herbs.json'])).toEqual({
       release_sensitive: 'true',
