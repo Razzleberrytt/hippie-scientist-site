@@ -94,3 +94,42 @@ test('first-three-second product-to-receptor reveal binds actual visibility and 
  for(const f of t.beats[0].frames){const receptor=f.objects.find(o=>o.objectId==='receptor');receptor.visible=true;receptor.opacity=1}
  expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/hidden target/)
 })
+
+function longUserReports(highlightCards){
+ const {p,t}=fixture()
+ p.beats=[{id:'user-reports',start:0,end:13,semanticAction:'activates',
+   visualObject:{kind:'experience-card',name:'Qualitative reports'},
+   telemetryProof:{primaryObjectId:'card0',subjectObjectId:'card0',targetObjectId:'card0'}}]
+ t.beats=[{beatId:'user-reports',producer:{instrumentation:'native-2d-canvas-geometry'},
+   frames:Array.from({length:65},(_,i)=>({
+     time:i*.2,objects:[
+       ...Array.from({length:6},(_,card)=>object('card'+card,'experience-card',
+         'Report '+card,[10+(card%2)*43,10+Math.floor(card/2)*28,36,23],null,{
+           activationLevel:i/64,
+           emphasisLevel:highlightCards ? Number(Math.floor(i/10)%6===card) : 0
+         })),
+       object('caption','karaoke-word','Spoken word '+i,[i%20,91,20,5])
+     ]
+   }))}]
+ return {p,t}
+}
+test('13-second static user report cards fail despite changing word-level karaoke captions',()=>{
+ const {p,t}=longUserReports(false)
+ expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/caption-only or insufficient compositional activity/)
+})
+test('sequential narration-timed emphasis of six user report cards passes long-beat composition QA',()=>{
+ const {p,t}=longUserReports(true)
+ const report=assertR818TelemetryBinding(p,t).actionReports[0].compositionalActivity
+ expect(report.changedThreeSecondWindows).toBeGreaterThanOrEqual(3)
+ expect(report.changedArtObjectCount).toBeGreaterThanOrEqual(3)
+ expect(report.assessment).toMatch(/not-caption/)
+})
+test('a single early highlight does not excuse the rest of a 13-second static card beat',()=>{
+ const {p,t}=longUserReports(true)
+ for(let i=0;i<t.beats[0].frames.length;i++){
+   for(const card of t.beats[0].frames[i].objects.filter(o=>o.kind==='experience-card')){
+     card.emphasisLevel=Number(card.objectId==='card0'&&i>=10)
+   }
+ }
+ expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/insufficient compositional activity/)
+})
