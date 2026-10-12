@@ -15,6 +15,8 @@ describe('research discovery is distinct from shopping restrictions', () => {
     expect(isRestrictedRecord(held)).toBe(true)
     expect(canDiscoverResearchProfile(held)).toBe(true)
     expect(canDiscoverResearchProfile({...held,runtime_export_decision:'hide'})).toBe(false)
+    expect(canDiscoverResearchProfile({...held,doNotPromote:true})).toBe(false)
+    expect(canDiscoverResearchProfile({...held,legal_status:'Controlled substance'})).toBe(false)
   })
 
   it('does not hide an ordinary published ingredient merely for mentioning saffron in its summary', () => {
