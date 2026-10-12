@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "ths-r819-art-v1",
+  "style": "dark-cellular-organic",
+  "assets": [
+    {
+      "id": "cellular-organic-navy-teal",
+      "file": "public/brand/ths-cellular-organic.svg",
+      "sha256": "f63b9207682e8d56d511603e6fa27859a013e9dfdbe71c66b9c8f5236cf12a6b",
+      "purpose": "static-background",
+      "factsLayer": false
+    }
+  ]
+}
