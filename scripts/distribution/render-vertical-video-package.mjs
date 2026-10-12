@@ -11,6 +11,7 @@ import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
 import { buildR810CreativeReceipt, assertR810TimedScenes } from './r810-creative-gate.mjs'
 import { buildR811Receipt } from './r811-creative-operations.mjs'
 import { buildR811DraftAssets } from './r811-derived-assets.mjs'
+import { assertR812Storyboard, renderR812MechanismSvg } from './r812-mechanisms.mjs'
 import { cachedR810BeatSvg, defaultR810CacheRoot } from './r810-beat-cache.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
 import { renderR809VisualActor } from './r809-visual-actors.mjs'
@@ -527,6 +528,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       colorTreatment: colorTreatmentForRole(clean(beat.role), beat.colorTreatment),
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
+      r812Mechanism: beat?.r812?.mechanism ?? null,
       compositionFamily: clean(beat?.r807?.compositionFamily),
       visualScene: clean(beat?.r809?.visualScene),
       rhythmAction: clean(beat?.r807?.rhythmAction),
@@ -695,7 +697,11 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
   const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
-  const composition = r809 && scene.role !== 'source'
+  const composition = scene.r812Mechanism && r810 && scene.role !== 'source'
+    ? renderR812MechanismSvg(scene.r812Mechanism, {
+        x, y:compositionTop + 165, width:safeWidth, phase:motionPhase === 'pre' ? 'pre' : 'post', foreground,
+      })
+    : r809 && scene.role !== 'source'
     ? (compositionVisible
       ? [
           // R8.07 visual rhythm and returning motif are inherited, not discarded.
@@ -744,6 +750,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     motionCueMethod: scene.motionCueMethod || null,
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
+    r812Mechanism: scene.r812Mechanism || null,
     compositionFamily: scene.compositionFamily || null,
     visualScene: scene.visualScene || null,
     rhythmAction: scene.rhythmAction || null,
@@ -774,6 +781,10 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     ? buildTimelineR805(mediaPack, creativeSpec, dir)
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
   const { scenes, durationSeconds, bindings } = built
+  if (creativeSpec.r812?.enabled === true) {
+    assertR812Storyboard(scenes, {requireHooks:Boolean(creativeSpec.r811Plan),
+      hookApproaches:creativeSpec.r811Plan ? ['question','contrast','reveal'] : []})
+  }
   const disclosure = clean(creativeSpec.delivery.disclosure)
   const rendererCodeSha256 = sha256(fs.readFileSync(new URL(import.meta.url)))
   function authoredScene(scene, options) {
