@@ -27,9 +27,41 @@ export function getConsent(): ConsentStatus | null {
   }
 }
 
-// Only GA4 may load by default. Other consent-gated features still require an explicit grant.
+// Server-confirmed US visits may use default-on GA4. All other/unknown locations
+// require explicit prior consent. Never infer jurisdiction from /es, /fr, etc.
+let defaultGa4Allowed = false
+let eligibilityRequest: Promise<void> | null = null
+
 export function canLoadGa4(): boolean {
-  return typeof window !== 'undefined' && getConsent() !== 'denied' && !getSystemNoTracking()
+  if (typeof window === 'undefined' || getSystemNoTracking()) return false
+  const consent = getConsent()
+  return consent === 'granted' || (consent !== 'denied' && defaultGa4Allowed)
+}
+
+export function resolveGa4DefaultEligibility(): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve()
+  if (eligibilityRequest) return eligibilityRequest
+
+  // A network or provider failure must never result in default-on tracking.
+  eligibilityRequest = (async () => {
+    try {
+      const response = await fetch('/api/analytics-eligibility', {
+        credentials: 'same-origin',
+        cache: 'no-store',
+        headers: { Accept: 'application/json' },
+      })
+      if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return
+      const result = await response.json() as { defaultGa4Allowed?: unknown }
+      defaultGa4Allowed = result.defaultGa4Allowed === true
+    } catch {
+      defaultGa4Allowed = false
+    } finally {
+      // ClickTracker owns pageviews, and must retry its initial event after
+      // region eligibility becomes known (without creating a duplicate).
+      window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: { source: 'region-eligibility' } }))
+    }
+  })()
+  return eligibilityRequest
 }
 
 export function canTrackAnalytics(): boolean {
@@ -73,7 +105,7 @@ export function setConsent(status: ConsentStatus) {
 }
 
 export function initConsentDefault() {
-  // GA4 analytics alone is default-on; explicitly denied consent and DNT/GPC win.
+  // GA4 may default on only after a trusted US eligibility response; denial and DNT/GPC win.
   // Other consent-gated systems still consult getConsent()/canTrackAnalytics().
   const existing = getConsent()
   applyGaConsent(existing ?? (canLoadGa4() ? 'granted' : 'denied'))
