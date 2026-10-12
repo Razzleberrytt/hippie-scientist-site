@@ -1,0 +1,180 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "cdc-tianeptine-neptunes-fix-2024",
+    "sourceUrl": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7304a5.htm"
+  },
+  "premise": {
+    "interestScore": 4.9,
+    "coldViewerWhyCare": "Convenience-store tianeptine can cause opioid-like dependence and severe poisonings",
+    "viewerQuestion": "What are the real dangers of using tianeptine recreationally?",
+    "earlyPayoff": "It has opioid receptor activity and is linked to severe health harms",
+    "methodologyBeforePayoff": false,
+    "hookMode": "curiosity",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "reviewState": "owner-authorized AI scientific editorial review; independent V verification and owner auditory approval pending",
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "That gas station mood booster can act like an opioid. And the risks are real.",
+      "onScreenText": "GAS STATION 'MOOD BOOSTER'?",
+      "visualPurpose": "Mystery capsule shatters its colorful marketing shell to reveal red hazard core",
+      "spokenAnchor": "like an opioid",
+      "visualAction": "Mystery capsule shatters its colorful marketing shell to reveal red hazard core",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "FDA 2025 consumer warning",
+      "primaryEntities": [
+        "tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "finding",
+      "role": "finding",
+      "narration": "Tianeptine acts at mu-opioid receptors, but the FDA has not approved it for any medical use in America.",
+      "onScreenText": "OPIOID RECEPTOR ACTIVITY",
+      "visualPurpose": "Symbolic receptor docking visuals; no actual fabricated molecular structure",
+      "spokenAnchor": "mu-opioid receptors",
+      "visualAction": "Symbolic receptor docking visuals; no actual fabricated molecular structure",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "FDA 2025 tianeptine warning",
+      "primaryEntities": [
+        "mu-opioid receptor"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "context",
+      "role": "context",
+      "narration": "It's marketed as a nootropic or supplement, sometimes in places selling snacks and fuel.",
+      "onScreenText": "SOLD LIKE A SUPPLEMENT",
+      "visualPurpose": "Generic convenience shop aisle typography crossed by red hazard light, no real brands",
+      "spokenAnchor": "nootropic",
+      "visualAction": "Generic convenience shop aisle typography crossed by red hazard light, no real brands",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA tianeptine consumer update",
+      "primaryEntities": [
+        "marketing"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "narration": "Reported harms from tianeptine products include seizures, dangerous breathing problems, unconsciousness, and deaths.",
+      "onScreenText": "OVERDOSE CAN BE FATAL",
+      "visualPurpose": "Cinematic fading respiratory waveform and emergency light; no invented clinical measurements",
+      "spokenAnchor": "breathing problems",
+      "visualAction": "Cinematic fading respiratory waveform and emergency light; no invented clinical measurements",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA 2025 and CDC 2024 adverse event reports",
+      "primaryEntities": [
+        "toxicity"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "finding2",
+      "role": "finding",
+      "narration": "Repeated misuse can lead to dependence. Withdrawal may resemble opioid withdrawal and be hard to manage alone.",
+      "onScreenText": "DEPENDENCE AND WITHDRAWAL",
+      "visualPurpose": "Linked arcs morph into tightening loop then separate; never depict dose guidance",
+      "spokenAnchor": "dependence",
+      "visualAction": "Linked arcs morph into tightening loop then separate; never depict dose guidance",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "CDC 2018 poison control report and 2026 systematic review",
+      "primaryEntities": [
+        "withdrawal"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "limitation",
+      "role": "limitation",
+      "narration": "And there's another danger: a CDC investigation found synthetic cannabinoids in some products. Not every effect can be blamed on tianeptine alone.",
+      "onScreenText": "UNDECLARED INGREDIENTS",
+      "visualPurpose": "Two intersecting glass vials, overlapping hazard colors; clearly distinct substances",
+      "spokenAnchor": "synthetic cannabinoids",
+      "visualAction": "Two intersecting glass vials, overlapping hazard colors; clearly distinct substances",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "CDC 2024 New Jersey Neptune's Fix investigation",
+      "primaryEntities": [
+        "mixed products"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7304a5.htm",
+      "visualPurpose": "Legible source card, 2024 CDC report, with citation unchanged",
+      "spokenAnchor": "",
+      "visualAction": "Legible source card, 2024 CDC report, with citation unchanged",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "CDC 2024",
+      "primaryEntities": [
+        "CDC MMWR"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.5
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "If someone is unresponsive or struggling to breathe, call emergency services. Tell them what was taken. More sources at The Hippie Scientist.",
+      "onScreenText": "BREATHING SLOWLY? CALL 911",
+      "visualPurpose": "Human-focused safety cue with 911 and research provenance; no sensationalism",
+      "spokenAnchor": "call emergency services",
+      "visualAction": "Human-focused safety cue with 911 and research provenance; no sensationalism",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "end",
+      "factualAuthority": "FDA emergency instructions",
+      "primaryEntities": [
+        "emergency help"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.13
+    }
+  ]
+}
