@@ -18,7 +18,7 @@ export function sourceFileFor(url, root = process.cwd()) {
   if (route.startsWith('/articles/')) {
     const slug = route.slice('/articles/'.length, -1)
     if (!slug || slug.includes('/')) return null
-    candidates = ['content/articles/' + slug + '.md', 'content/articles/' + slug + '.mdx']
+    candidates = ['content/articles/' + slug + '.md', 'content/articles/' + slug + '.mdx', 'content/blog/' + slug + '.md', 'content/blog/' + slug + '.mdx']
   } else {
     candidates = [route === '/' ? 'app/page.tsx' : 'app' + route + 'page.tsx']
   }
@@ -57,13 +57,18 @@ function sourceCanonical(source) {
     const assigned = source.match(/\bconst\s+CANONICAL_PATH\s*=\s*(['"])([^'"]+)\1/)?.[2]
     return assigned ? normalizeUrl(assigned) : null
   }
+  const slugConstant = source.match(/\bconst\s+SLUG\s*=\s*(['"])([^'"]+)\1/)?.[2]
+  const pathExpression = source.match(/\bpath\s*:\s*\x60([^\x60]+)\x60/)?.[1]
+  if (slugConstant && pathExpression && pathExpression.includes('$' + '{SLUG}')) {
+    return normalizeUrl(pathExpression.replace('$' + '{SLUG}', slugConstant))
+  }
   return null
 }
 
-export function extractIdentity(source, sourceFile, url) {
+export function extractIdentity(source, sourceFile, url, root = process.cwd()) {
   const route = normalizeUrl(url)
   if (!route || !sourceFile) return null
-  if (sourceFile.startsWith('content/articles/')) {
+  if (sourceFile.startsWith('content/articles/') || sourceFile.startsWith('content/blog/')) {
     const fm = frontmatter(source)
     const title = scalar(fm, 'title')
     const slug = scalar(fm, 'slug')
@@ -76,8 +81,20 @@ export function extractIdentity(source, sourceFile, url) {
   if (!title) return null
   const canonical = sourceCanonical(source)
   if (canonical && canonical !== route) return null
-  const h1 = source.match(/<h1(?:\s[^>]*)?>([^<{][^<{}]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() || null
-  return { title, ...(canonical ? { canonical } : {}), ...(h1 ? { h1 } : {}) }
+  const slug = source.match(/\bconst\s+SLUG\s*=\s*(['"])([^'"]+)\1/)?.[2] || null
+  if (slug && !route.endsWith('/' + slug + '/')) return null
+  let h1 = source.match(/<h1(?:\s[^>]*)?>([^<{][^<{}]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() || null
+  let renderedBy = null
+  const importedDefault = source.match(/\bimport\s+([A-Za-z_$][\w$]*)\s+from\s+(['"])(\.\.?\/[^'"]+\/page)\2/)
+  if (importedDefault && new RegExp('\\bexport\\s+default\\s+' + importedDefault[1] + '\\b').test(source)) {
+    const imported = path.posix.normalize(path.posix.join(path.posix.dirname(sourceFile), importedDefault[3] + '.tsx'))
+    if (!imported.startsWith('app/') || !existsSync(path.join(root, imported))) return null
+    const importedSource = readFileSync(path.join(root, imported), 'utf8')
+    h1 = importedSource.match(/<h1(?:\s[^>]*)?>([^<{][^<{}]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() || null
+    if (!h1) return null
+    renderedBy = imported
+  }
+  return { title, ...(slug ? { slug } : {}), ...(canonical ? { canonical } : {}), ...(h1 ? { h1 } : {}), ...(renderedBy ? { renderedBy } : {}) }
 }
 
 export function selectProtectedAssets({ root, manifest, policy }) {
@@ -107,7 +124,7 @@ export function selectProtectedAssets({ root, manifest, policy }) {
     }
     assets.push({
       url, citations: count, sourceFile,
-      sourceType: sourceFile.startsWith('content/articles/') ? 'article-frontmatter' : 'app-route-source',
+      sourceType: (sourceFile.startsWith('content/articles/') || sourceFile.startsWith('content/blog/')) ? 'article-frontmatter' : 'app-route-source',
       citationSharePct: Number((count * 100 / total).toFixed(2)),
       identity,
     })
