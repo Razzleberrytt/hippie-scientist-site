@@ -1,8 +1,155 @@
 {
   "version": 1,
-  "status": "awaiting-fresh-ingest",
+  "status": "ready",
+  "sourceKind": "owner-verified-derived-bing-page-stats",
+  "snapshotLabel": "2026-10-12",
   "generatedAt": null,
-  "snapshotLabel": null,
   "sourceReportGeneratedAt": null,
-  "assets": []
+  "policy": {
+    "version": 1,
+    "minCitations": 100,
+    "minCitationSharePct": 5,
+    "cumulativeCoveragePct": 60,
+    "maxAssets": 25,
+    "staleAfterDays": 45,
+    "minAssets": 10
+  },
+  "totals": {
+    "citations": 49177,
+    "citedUrls": 180
+  },
+  "citationsCovered": 33560,
+  "coveragePct": 68.24,
+  "assets": [
+    {
+      "url": "/guides/sleep/best-natural-sleep-aids-that-work/",
+      "citations": 10496,
+      "sourceFile": "app/guides/sleep/best-natural-sleep-aids-that-work/page.tsx",
+      "sourceType": "app-route-source",
+      "citationSharePct": 21.34,
+      "identity": {
+        "title": "Best Natural Sleep Aids That Work: 2026 Evidence Guide",
+        "canonical": "/guides/sleep/best-natural-sleep-aids-that-work/",
+        "h1": "Natural Sleep Aids That Work: What the Evidence Actually Supports"
+      }
+    },
+    {
+      "url": "/guides/best/supplements-for-stress/",
+      "citations": 9533,
+      "sourceFile": "app/guides/best/supplements-for-stress/page.tsx",
+      "sourceType": "app-route-source",
+      "citationSharePct": 19.39,
+      "identity": {
+        "title": "Best Supplements for Stress: Evidence-Ranked Guide (2026)",
+        "canonical": "/guides/best/supplements-for-stress/"
+      }
+    },
+    {
+      "url": "/articles/mitragynine/",
+      "citations": 3323,
+      "sourceFile": "content/articles/mitragynine.mdx",
+      "sourceType": "article-frontmatter",
+      "citationSharePct": 6.76,
+      "identity": {
+        "title": "Mitragynine: Pharmacology, Human Evidence, Safety & 2026 Research Status",
+        "slug": "mitragynine"
+      }
+    },
+    {
+      "url": "/articles/how-to-choose-supplement-quality/",
+      "citations": 1973,
+      "sourceFile": "content/articles/how-to-choose-supplement-quality.md",
+      "sourceType": "article-frontmatter",
+      "citationSharePct": 4.01,
+      "identity": {
+        "title": "How to Choose a Quality Supplement: Testing, Labels, and Red Flags",
+        "slug": "how-to-choose-supplement-quality"
+      }
+    },
+    {
+      "url": "/guides/mental-health/antisocial-personality-disorder/",
+      "citations": 1916,
+      "sourceFile": "app/guides/mental-health/antisocial-personality-disorder/page.tsx",
+      "sourceType": "app-route-source",
+      "citationSharePct": 3.9,
+      "identity": {
+        "title": "ASPD Diagnosis: Criteria, Conduct Disorder & Assessment",
+        "canonical": "/guides/mental-health/antisocial-personality-disorder/",
+        "h1": "Antisocial Personality Disorder (ASPD): Diagnosis, Criteria & What It Does Not Mean"
+      }
+    },
+    {
+      "url": "/guides/sleep/best-herbs-for-sleep/",
+      "citations": 1352,
+      "sourceFile": "app/guides/sleep/best-herbs-for-sleep/page.tsx",
+      "sourceType": "app-route-source",
+      "citationSharePct": 2.75,
+      "identity": {
+        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026"
+      }
+    },
+    {
+      "url": "/guides/sleep/best-supplements-for-sleep/",
+      "citations": 1351,
+      "sourceFile": "app/guides/sleep/best-supplements-for-sleep/page.tsx",
+      "sourceType": "app-route-source",
+      "citationSharePct": 2.75,
+      "identity": {
+        "title": "Best Supplements for Sleep: Evidence-Ranked Shortlist",
+        "canonical": "/guides/sleep/best-supplements-for-sleep/",
+        "h1": "Best Supplements for Sleep: An Evidence-Ranked Shortlist"
+      }
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-anxiety/",
+      "citations": 1299,
+      "sourceFile": "app/guides/anxiety/best-herbs-for-anxiety/page.tsx",
+      "sourceType": "app-route-source",
+      "citationSharePct": 2.64,
+      "identity": {
+        "title": "Best Herbs for Anxiety: Evidence-Ranked Guide (2026)",
+        "canonical": "/guides/anxiety/best-herbs-for-anxiety/",
+        "h1": "Best Herbs for Anxiety: What Human Evidence Actually Supports"
+      }
+    },
+    {
+      "url": "/articles/mushroom-coffee-benefits-review/",
+      "citations": 1161,
+      "sourceFile": "content/articles/mushroom-coffee-benefits-review.md",
+      "sourceType": "article-frontmatter",
+      "citationSharePct": 2.36,
+      "identity": {
+        "title": "Mushroom Coffee Benefits: What the Science Actually Says",
+        "slug": "mushroom-coffee-benefits-review"
+      }
+    },
+    {
+      "url": "/articles/valerian-root/",
+      "citations": 1156,
+      "sourceFile": "content/articles/valerian-root.md",
+      "sourceType": "article-frontmatter",
+      "citationSharePct": 2.35,
+      "identity": {
+        "title": "Valerian Root for Sleep: Does It Work? Evidence Review (2026)",
+        "slug": "valerian-root"
+      }
+    }
+  ],
+  "unresolvedOwners": [
+    {
+      "url": "/articles/2c-b-effects/",
+      "citations": 748,
+      "reason": "no verified direct canonical source owner"
+    },
+    {
+      "url": "/articles/magnesium-types-for-sleep/",
+      "citations": 382,
+      "reason": "no verified direct canonical source owner"
+    },
+    {
+      "url": "/articles/yerba-mate-vs-green-tea/",
+      "citations": 234,
+      "reason": "no verified direct canonical source owner"
+    }
+  ]
 }
