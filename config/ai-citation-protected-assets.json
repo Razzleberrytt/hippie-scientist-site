@@ -41,7 +41,9 @@
       "citationSharePct": 19.39,
       "identity": {
         "title": "Best Supplements for Stress: Evidence-Ranked Guide (2026)",
-        "canonical": "/guides/best/supplements-for-stress/"
+        "canonical": "/guides/best/supplements-for-stress/",
+        "h1": "Best Supplements for Stress: What the Evidence Actually Supports",
+        "renderedBy": "app/guides/anxiety/best-supplements-for-stress/page.tsx"
       }
     },
     {
@@ -85,7 +87,10 @@
       "sourceType": "app-route-source",
       "citationSharePct": 2.75,
       "identity": {
-        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026"
+        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026",
+        "slug": "best-herbs-for-sleep",
+        "canonical": "/guides/sleep/best-herbs-for-sleep/",
+        "h1": "Best Herbs for Sleep: What Human Evidence Supports in 2026"
       }
     },
     {
@@ -137,18 +142,8 @@
   ],
   "unresolvedOwners": [
     {
-      "url": "/articles/2c-b-effects/",
-      "citations": 748,
-      "reason": "no verified direct canonical source owner"
-    },
-    {
       "url": "/articles/magnesium-types-for-sleep/",
       "citations": 382,
-      "reason": "no verified direct canonical source owner"
-    },
-    {
-      "url": "/articles/yerba-mate-vs-green-tea/",
-      "citations": 234,
       "reason": "no verified direct canonical source owner"
     }
   ]
