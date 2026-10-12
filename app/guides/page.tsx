@@ -76,7 +76,7 @@ function GuideCard({ title, href, desc }: { title: string; href: string; desc: s
 
 export default function GuidesHub() {
   return (
-    <div className='mx-auto max-w-6xl space-y-8 px-4 pb-24 pt-4 sm:pt-6'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 pb-8 pt-4 sm:pt-6'>
       <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Guides' }]} />
 
       <header className='hero-shell rounded-[2rem] border px-5 py-6 sm:p-8'>
