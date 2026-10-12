@@ -528,6 +528,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       colorTreatment: colorTreatmentForRole(clean(beat.role), beat.colorTreatment),
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
+      r812Enabled: creativeSpec.r812?.enabled === true,
       r812Mechanism: beat?.r812?.mechanism ?? null,
       r812CtaUrl: creativeSpec.r812?.enabled === true && clean(beat.role)==='cta' ? clean(creativeSpec.r812.ctaUrl) : null,
       compositionFamily: clean(beat?.r807?.compositionFamily),
@@ -676,6 +677,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   if (sourceScene && lines.join('') !== sourceUrl) throw new Error('dedicated source scene must render the exact canonical URL')
 
   const safe = verticalPlatformIntersection()
+  if (scene.r812Enabled === true && (!lines.length || lines.length > 4)) throw Error('R8.12 safe-area text: all visible scene headings must fit within four lines')
   const x = safe.left
   const safeRight = canvas.width - safe.right
   const safeWidth = safeRight - x
@@ -697,6 +699,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     throw new Error(`R8.08 ${scene.role} is unreadable in the actual mobile platform safe area`)
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
+  if (scene.r812Enabled === true && (compositionTop >= disclosureY - 220 || lineHeight * lines.length > 380)) throw Error('R8.12 safe-area text: caption/title would overlap artwork, sources or bottom disclosure')
   const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
   const ctaDestination = scene.r812CtaUrl && scene.role === 'cta'
     ? (() => {
@@ -759,6 +762,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     motionCueMethod: scene.motionCueMethod || null,
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
+    r812Enabled: scene.r812Enabled === true,
     r812Mechanism: scene.r812Mechanism || null,
     r812CtaUrl: scene.r812CtaUrl || null,
     compositionFamily: scene.compositionFamily || null,
@@ -965,6 +969,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     productionSystemRelease: creativeSpec.productionSystemRelease || null,
+    r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,
     r811Derivatives: r811Bundle
