@@ -1,5 +1,5 @@
-import test from 'node:test'
-import assert from 'node:assert/strict'
+import {test, expect} from 'vitest'
+const assert = {equal:(a,b)=>expect(a).toBe(b),match:(a,b)=>expect(a).toMatch(b),ok:a=>expect(a).toBeTruthy()}
 import {assessR819Release} from '../r819-brutal-bar.mjs'
 const sha='a'.repeat(64)
 const valid = () => ({
