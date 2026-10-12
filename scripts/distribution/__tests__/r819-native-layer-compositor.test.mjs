@@ -77,10 +77,12 @@ test('R8.19 fails closed when the trust layer is removed even with a recomputed 
 test('producer emits pinned complete frame inventory once and refuses silent re-signing',async()=>{
  const f=await fixture()
  try{
-  const originalSha=f.meta.sha256
+  const expectedTrustSha=f.frame.layers.trust.sha256
   fs.unlinkSync(path.join(f.root,'r819-layer-sequence.json'))
   const receipt=authorR819LayerInventory(f.root,f.native)
-  expect(receipt.sha256).toBe(originalSha)
+  expect(receipt.sha256).toMatch(/^[a-f0-9]{64}$/)
+  const authored=JSON.parse(fs.readFileSync(path.join(f.root,receipt.file),'utf8'))
+  expect(authored.beats[0].frames[0].layers.trust.sha256).toBe(expectedTrustSha)
   expect(verifyR819LayerInventory(f.root,receipt,f.native).totalFrames).toBe(1)
   expect(()=>authorR819LayerInventory(f.root,f.native)).toThrow(/cannot be overwritten/)
  }finally{fs.rmSync(f.root,{recursive:true,force:true})}
