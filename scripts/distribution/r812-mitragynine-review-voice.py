@@ -69,6 +69,12 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
             raw = np.asarray(raw, dtype=np.float32)
             if raw.size == 0 or not np.isfinite(raw).all():
                 raise RuntimeError(f"Missing/invalid genuine Kokoro speech in {name}")
+            raw_rms = float(np.sqrt(np.mean(np.square(raw))))
+            if raw_rms < 0.005 or float(np.max(np.abs(raw))) < 0.01:
+                raise RuntimeError(
+                    f"{name}: voice model returned silent/inaudible segment; "
+                    "refetch/review Kokoro output, never substitute a robotic narrator"
+                )
             # Honor the original review visuals; no scene may be accelerated >23%.
             available = end - start - 0.19
             ratio = (len(raw) / RATE) / available
@@ -103,6 +109,7 @@ def create_review_audio(vault: Path, output_dir: Path) -> dict:
                 "scene": name, "startSeconds": start, "endSeconds": end,
                 "script": words, "rawSeconds": round(len(raw) / RATE, 3),
                 "fittedSeconds": round(len(fit) / RATE, 3),
+                "rawRms": round(raw_rms, 6),
                 "tempo": round(tempo, 4),
             })
             print(f"KOKORO {name}: raw {len(raw)/RATE:.2f}s, slot {available:.2f}s, tempo {tempo:.3f}", flush=True)
