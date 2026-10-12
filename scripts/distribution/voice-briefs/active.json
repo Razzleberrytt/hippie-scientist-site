@@ -1,0 +1,170 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "ths-7oh-user-experience-20261012",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38481700/"
+  },
+  "premise": {
+    "interestScore": 4.8,
+    "coldViewerWhyCare": "Explain the divide between 7-OH users' subjective experiences and verified receptor pharmacology.",
+    "viewerQuestion": "What explains the range of experiences people report with 7-OH?",
+    "earlyPayoff": "7-OH is opioid-active and experience is not proof of clinical efficacy.",
+    "methodologyBeforePayoff": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "beats": [
+    {
+      "id": "7oh-01",
+      "role": "hook",
+      "narration": "Why do some people report pain relief and clearer motivation from seven O H, while others have a completely different experience?",
+      "onScreenText": "WHY DOES 7-OH FEEL DIFFERENT?",
+      "visualPurpose": "Reveal portrait silhouette splitting into calm and hazy pathways.",
+      "spokenAnchor": "different experience",
+      "visualAction": "portrait splits",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "editorial",
+      "primaryEntities": [
+        "7-hydroxymitragynine"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "7oh-02",
+      "role": "finding",
+      "narration": "Seven hydroxy mitragynine is an opioid active compound related to kratom. Its effects cannot be reduced to a single story.",
+      "onScreenText": "7-OH ≠ ORDINARY KRATOM LEAF",
+      "visualPurpose": "Show physical botanical leaf transitioning to chemically distinct annotated molecule.",
+      "spokenAnchor": "single story",
+      "visualAction": "leaf transforms",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "editorial",
+      "primaryEntities": [
+        "7-hydroxymitragynine"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "7oh-03",
+      "role": "context",
+      "narration": "The liver can convert kratom's main alkaloid, mitragynine, into seven O H. Researchers measured this formation in human volunteers.",
+      "onScreenText": "YOUR LIVER CAN FORM 7-OH",
+      "visualPurpose": "Follow mitragynine through a stylized liver and transition to metabolite.",
+      "spokenAnchor": "human volunteers",
+      "visualAction": "molecule transforms",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "primary-peer-reviewed",
+      "primaryEntities": [
+        "mitragynine"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "7oh-04",
+      "role": "evidence",
+      "narration": "In laboratory studies, seven O H activates mu opioid receptors. That helps explain opioid like effects, but doesn't prove any particular personal benefit.",
+      "onScreenText": "MU OPIOID RECEPTOR ACTIVATION",
+      "visualPurpose": "Camera follows symbolic receptor surface and glowing ligand. Clearly symbolic, not docking evidence.",
+      "spokenAnchor": "mu opioid receptors",
+      "visualAction": "receptor activates",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "primary-peer-reviewed",
+      "primaryEntities": [
+        "mu-opioid receptor"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "7oh-05",
+      "role": "limitation",
+      "narration": "Users describe pain relief, relaxation, and sometimes feeling functional or motivated. Others describe nausea, sedation, tolerance, and difficult withdrawal. These are reports, not treatment trials.",
+      "onScreenText": "REPORTED EXPERIENCES VARY",
+      "visualPurpose": "Show neutral multi-person quote motifs; clearly labeled anecdotal.",
+      "spokenAnchor": "difficult withdrawal",
+      "visualAction": "perspectives diverge",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "anecdote-not-efficacy",
+      "primaryEntities": [
+        "7-hydroxymitragynine"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "7oh-06",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/38481700/",
+      "visualPurpose": "Show complete PubMed link in a dedicated legible source card.",
+      "spokenAnchor": "",
+      "visualAction": "static source card",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "editorial",
+      "primaryEntities": [
+        "7-hydroxymitragynine"
+      ],
+      "pauseAfterSeconds": 0.12,
+      "holdSeconds": 3.4
+    },
+    {
+      "id": "7oh-07",
+      "role": "cta",
+      "narration": "The real question is which effects science can measure, and which still need careful human research. Follow The Hippie Scientist for the evidence.",
+      "onScreenText": "THE EXPERIENCE vs THE EVIDENCE",
+      "visualPurpose": "Converge patient perspective and microscope data into final clean wordmark.",
+      "spokenAnchor": "human research",
+      "visualAction": "paths converge",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "editorial",
+      "primaryEntities": [
+        "7-hydroxymitragynine"
+      ],
+      "pauseAfterSeconds": 0.12
+    }
+  ],
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "extraSources": [
+    {
+      "pmid": "38481700",
+      "role": "human metabolic formation"
+    },
+    {
+      "pmid": "31263758",
+      "role": "human liver prep and mouse analgesia"
+    },
+    {
+      "pmid": "27192616",
+      "role": "cell receptor signaling"
+    }
+  ],
+  "editorial": {
+    "mode": "owner-authorized AI scientific editorial review",
+    "userPerspectives": "qualitative anecdotal; not representative; no quotes attributed to individual users",
+    "publicationApproved": false
+  }
+}
