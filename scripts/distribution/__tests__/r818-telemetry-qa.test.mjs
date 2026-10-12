@@ -91,6 +91,6 @@ test('first-three-second product-to-receptor reveal binds actual visibility and 
      [48,20,45,60],null,{visible:i>3,opacity:i>3?1:0})
    ]}))}]
  expect(assertR818TelemetryBinding(p,t).actionReports[0].semanticAction).toBe('reveals-hidden-action')
- for(const f of t.beats[0].frames)f.objects.find(o=>o.objectId==='receptor').visible=true
+ for(const f of t.beats[0].frames){const receptor=f.objects.find(o=>o.objectId==='receptor');receptor.visible=true;receptor.opacity=1}
  expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/hidden target/)
 })
