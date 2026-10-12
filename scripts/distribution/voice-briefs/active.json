@@ -31,7 +31,9 @@
       "visualPurpose": "Reveal an anonymous convenience store vial behind a red warning lens",
       "spokenAnchor": "opioid-like",
       "visualAction": "Reveal an anonymous convenience store vial behind a red warning lens",
-      "motion": {},
+      "motion": {
+        "type": "reveal"
+      },
       "cutReason": "reveal",
       "factualAuthority": "FDA consumer advisory",
       "primaryEntities": [
@@ -48,7 +50,9 @@
       "visualPurpose": "A symbolic molecule connects to receptor silhouette; then withdrawal pulses",
       "spokenAnchor": "dependence",
       "visualAction": "A symbolic molecule connects to receptor silhouette; then withdrawal pulses",
-      "motion": {},
+      "motion": {
+        "type": "highlight"
+      },
       "cutReason": "contrast",
       "factualAuthority": "CDC surveillance and FDA scientific explanation",
       "primaryEntities": [
@@ -65,7 +69,9 @@
       "visualPurpose": "Move from a glowing storefront shelf to a clinical caution mark",
       "spokenAnchor": "not FDA approved",
       "visualAction": "Move from a glowing storefront shelf to a clinical caution mark",
-      "motion": {},
+      "motion": {
+        "type": "reveal"
+      },
       "cutReason": "emphasis",
       "factualAuthority": "FDA 2025 consumer warning",
       "primaryEntities": [
@@ -82,7 +88,9 @@
       "visualPurpose": "Show two clearly labeled yearly totals, not a clinical risk estimate",
       "spokenAnchor": "poison center exposure cases",
       "visualAction": "Show two clearly labeled yearly totals, not a clinical risk estimate",
-      "motion": {},
+      "motion": {
+        "type": "reveal"
+      },
       "cutReason": "phrase-boundary",
       "factualAuthority": "FDA 2025 poison center exposures report",
       "primaryEntities": [
@@ -99,7 +107,9 @@
       "visualPurpose": "Distress symbol, pulse graphic, oxygen-mask silhouette, not sensationalist imagery",
       "spokenAnchor": "breathing problems",
       "visualAction": "Distress symbol, pulse graphic, oxygen-mask silhouette, not sensationalist imagery",
-      "motion": {},
+      "motion": {
+        "type": "highlight"
+      },
       "cutReason": "contrast",
       "factualAuthority": "FDA adverse event alerts; not product-specific incidence",
       "primaryEntities": [
@@ -116,7 +126,9 @@
       "visualPurpose": "Product surface splits to reveal undeclared compounds, symbolic only",
       "spokenAnchor": "synthetic cannabinoids",
       "visualAction": "Product surface splits to reveal undeclared compounds, symbolic only",
-      "motion": {},
+      "motion": {
+        "type": "highlight"
+      },
       "cutReason": "emphasis",
       "factualAuthority": "CDC New Jersey 2024 case cluster",
       "primaryEntities": [
@@ -133,7 +145,9 @@
       "visualPurpose": "Show exact FDA source link",
       "spokenAnchor": "",
       "visualAction": "Hold authentic FDA source card for readability",
-      "motion": {},
+      "motion": {
+        "type": "hold"
+      },
       "cutReason": "pause",
       "factualAuthority": "FDA 2025 regulatory alert",
       "primaryEntities": [],
@@ -149,7 +163,9 @@
       "visualPurpose": "Emergency call symbol then clear evidence-first outro",
       "spokenAnchor": "call nine one one",
       "visualAction": "Emergency call symbol then clear evidence-first outro",
-      "motion": {},
+      "motion": {
+        "type": "reveal"
+      },
       "cutReason": "end",
       "factualAuthority": "FDA emergency advice",
       "primaryEntities": [
