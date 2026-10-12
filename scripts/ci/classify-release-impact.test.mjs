@@ -528,6 +528,8 @@ describe('docs-only classification', () => {
   it.each([
     'docs/audits/enrichment-datasets-2026-08-23.md',
     'ops/reports/citation-review-candidates.json',
+    'ops/editorial-runtime/publication-pilots/d-mannose-uti-prevention-evidence-2026-10-12.md',
+    'ops/editorial-runtime/publication-pilots/deep-enrichment-10-13-closure-queue.json',
     'data-sources/workbook-patches/enrichment-2026-08-23-grounded-summaries.json',
     'data-sources/workbook-patches/README.md',
     'README.md',
@@ -542,9 +544,34 @@ describe('docs-only classification', () => {
     'lib/runtime-visibility.ts',
     'public/data/herbs.json',
     'data-sources/herb_monograph_master.xlsx',
+    'ops/editorial-runtime/published-status.json',
+    'ops/editorial-runtime/publication-pilots/consumer-runtime.ts',
+    'ops/editorial-runtime/publication-pilots/nested/safety.md',
     'package.json',
   ])('does not treat %s as docs-only', (file) => {
     expect(isDocsOnlyPath(file)).toBe(false)
+  })
+
+  it('fast-paths solely staged editorial pilots but not any published or runtime co-change', () => {
+    const staging=[
+      'ops/editorial-runtime/publication-pilots/README.md',
+      'ops/editorial-runtime/publication-pilots/deep-enrichment-10-13-closure-queue.json',
+      'ops/editorial-runtime/publication-pilots/st-johns-wort-contraception-interaction-2026-10-12.md',
+    ]
+    const safe=classifyReleaseImpact(staging)
+    expect(safe.docsOnly).toBe(true)
+    expect(safe.releaseSensitive).toBe(false)
+    expect(safe.validationOnly).toBe(false)
+    for (const file of [
+      'content/articles/licorice-potassium.md',
+      'public/data/herbs-detail/licorice.json',
+      'data-sources/herb_monograph_master.xlsx',
+      'scripts/ci/classify-release-impact.mjs',
+      'ops/editorial-runtime/current-canonical-evidence.json',
+      'ops/editorial-runtime/publication-pilots/safety-processor.mjs',
+    ]) {
+      expect(classifyReleaseImpact([...staging,file]).docsOnly, file).toBe(false)
+    }
   })
 
   it('is docs-only when every changed file is documentation', () => {
@@ -620,6 +647,27 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       ui_only: 'false',
       bounded_ui: 'false',
     })
+  })
+
+  it('CLI marks strictly inert editorial-staging evidence as docs-only without waiving live-content checks', () => {
+    expect(run([
+      'ops/editorial-runtime/publication-pilots/README.md',
+      'ops/editorial-runtime/publication-pilots/deep-enrichment-10-13-closure-queue.json',
+      'ops/editorial-runtime/publication-pilots/licorice-diuretic-hypokalemia-safety-2026-10-12.md',
+    ])).toEqual({
+      release_sensitive: 'false',
+      docs_only: 'true',
+      validation_only: 'false',
+      leaf_page_only: 'false',
+      ui_only: 'false',
+      bounded_ui: 'false',
+    })
+    const publicAndDraft=run([
+      'ops/editorial-runtime/publication-pilots/draft.md',
+      'public/data/herbs-detail/licorice.json',
+    ])
+    expect(publicAndDraft.docs_only).toBe('false')
+    expect(publicAndDraft.release_sensitive).toBe('true')
   })
 
   it('reports release_sensitive=true for generated runtime data', () => {
