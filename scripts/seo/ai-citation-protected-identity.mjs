@@ -83,6 +83,37 @@ export function extractCitationIdentity(source, sourceFile, requestedUrl) {
   return null
 }
 
+// A small, explicit set of published winners delegates its actual H1 elsewhere.
+// Do not label an unparsed delegated heading as protected.
+function delegatedHeading(root, url, source, identity) {
+  if (!identity) return null
+  if (url === '/guides/best/supplements-for-stress/') {
+    const headingSourceFile = 'app/guides/anxiety/best-supplements-for-stress/page.tsx'
+    if (!source.includes("import BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'") ||
+      !source.includes('export default BestSupplementsForStressPage')) return null
+    const file = path.join(root, headingSourceFile)
+    if (!existsSync(file)) return null
+    const h1 = readFileSync(file, 'utf8').match(/<h1(?:\s[^>]*)?>([^<{][\s\S]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim()
+    if (!h1) return null
+    return { ...identity, h1, headingSourceFile }
+  }
+  if (url === '/guides/adhd/l-theanine-for-adhd/') {
+    const headingSourceFile = 'lib/focus-adhd-articles.ts'
+    const componentFile = path.join(root, 'components/articles/FocusAdhdArticlePage.tsx')
+    if (!source.includes('return <FocusAdhdArticlePage slug={SLUG} />') ||
+      !source.includes("const SLUG = 'l-theanine-for-adhd'") ||
+      !existsSync(componentFile) ||
+      !/<h1\b[^>]*>\s*\{article\.title\}\s*<\/h1>/i.test(readFileSync(componentFile, 'utf8'))) return null
+    const file = path.join(root, headingSourceFile)
+    if (!existsSync(file)) return null
+    const content = readFileSync(file, 'utf8')
+    const title = content.match(/\bslug:\s*(['"])l-theanine-for-adhd\1[\s\S]{0,360}?\btitle:\s*(['"])(.*?)\2/)?.[3]
+    if (!title) return null
+    return { ...identity, h1: title, headingSourceFile }
+  }
+  return identity
+}
+
 export function findCitationOwner(root, rawUrl) {
   const url = normalizeCitationPath(rawUrl)
   const slug = url.split('/').filter(Boolean).at(-1) ?? ''
@@ -97,7 +128,7 @@ export function findCitationOwner(root, rawUrl) {
   ]
   for (const sourceFile of candidates) {
     const file = path.join(root, sourceFile)
-    if (existsSync(file)) return { sourceFile, identity: extractCitationIdentity(readFileSync(file, 'utf8'), sourceFile, url) }
+    if (existsSync(file)) { const source = readFileSync(file, 'utf8'); return { sourceFile, identity: delegatedHeading(root, url, source, extractCitationIdentity(source, sourceFile, url)) } }
   }
   const redirects = path.join(root, 'public/_redirects')
   if (existsSync(redirects)) {
