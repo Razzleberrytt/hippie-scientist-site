@@ -31,12 +31,12 @@ export function assertR812Mechanism(mechanism) {
 }
 export function assertR812Storyboard(beats, {requireHooks = false, hookApproaches = []} = {}) {
   if (!Array.isArray(beats) || !beats.length) throw Error('R8.12 requires named narrative beats')
-  const realActions = beats.filter(b => b.mechanism || b?.r812?.mechanism)
+  const realActions = beats.filter(b => b.mechanism || b?.r812?.mechanism || b.r812Mechanism)
   if (!realActions.length) throw Error('R8.12 show, don\'t tell requires a mechanism instead of decorative movement')
   for (const beat of beats) {
     const duration = Number(beat.durationSeconds ?? (Number(beat.end)-Number(beat.start)))
     if (!Number.isFinite(duration) || duration<=0) throw Error('R8.12 invalid scene duration')
-    const m = beat.mechanism ?? beat?.r812?.mechanism
+    const m = beat.mechanism ?? beat?.r812?.mechanism ?? beat.r812Mechanism
     if (m) {
       assertR812Mechanism(m)
       // Visible object labels and both qualifiers are part of the template itself.
