@@ -37,3 +37,15 @@ Existing 54-second 1080p prototype overlays deterministic visual changes onto th
 
 ## Remaining integration requirements
 Link storyboard, exact SHA256 art assets, authoritative source/voice/word-alignment receipts and actual native composed scene geometry; produce final decoded pixel comparisons excluding subtitles. Enforce composition and audio release checks on the real artifact, not author-provided booleans alone. Then human/independent video review, repository CI/build and separate owner publication approval.
+
+## Source-bound R8.19 integration continuation (Oct 12)
+
+R8.19 is now an **opt-in pre-encode integrity gate** in the canonical MP4 renderer. Activation requires original R8.10 acoustic lineage, explicit native-separated art/mechanism/trust mode, and final encoded audio R128 metering. Legacy burnt-caption MP4 retrofits cannot self-certify as R8.19.
+
+Preflight uses **verifyR810WordAlignment** with the real original WAV hash, script, raw MFA output, pinned acoustic model/dictionary and independent original-audio audition. Every multi-card event also requires one unique original word index, matching spoken token, matching scene bounds and timing within 0.2 seconds of the validated word start. Hashes alone or manual approximate cue timestamps do not establish word sync.
+
+Art remains byte-pinned AND each beat storyboard requires exact art ID plus asset SHA. The verifier refuses SVG text/scripts and remote images/resources. An additional bridge checks R8.18 renderer/source identity and beat timings before evaluating R8.19 object geometry. Object telemetry is not final decoded-pixel certification.
+
+**Engineering smoke only:** A local 12-second silent 1080x1920/30fps sample composed three independent raster layers: art, mechanism and trust. It rendered 360 full frames and 60 geometry samples. Nine independently recomposited source-layer snapshots exactly matched nine saved final PNGs pixel-for-pixel. This proves native layer separation, NOT high-end craft. The simple sample is still visually templated and has no verified speech word cues. It must not be published or scored 90+.
+
+Original voiced 7-OH flagship and owner-selected niche reference shelf/V craft verdict/owner phone approval remain pending. Green engineering tests do not grant any of those permissions.
