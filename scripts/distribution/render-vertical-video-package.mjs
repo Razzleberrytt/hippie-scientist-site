@@ -529,6 +529,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
       r812Mechanism: beat?.r812?.mechanism ?? null,
+      r812CtaUrl: creativeSpec.r812?.enabled === true && clean(beat.role)==='cta' ? clean(creativeSpec.r812.ctaUrl) : null,
       compositionFamily: clean(beat?.r807?.compositionFamily),
       visualScene: clean(beat?.r809?.visualScene),
       rhythmAction: clean(beat?.r807?.rhythmAction),
@@ -697,7 +698,15 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
   const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
-  const composition = scene.r812Mechanism && r810 && scene.role !== 'source'
+  const ctaDestination = scene.r812CtaUrl && scene.role === 'cta'
+    ? (() => {
+        const u = new URL(scene.r812CtaUrl)
+        if(u.protocol!=='https:' || u.hostname!=='thehippiescientist.net' || !/^\/articles\/[a-z0-9-]+\/?$/.test(u.pathname)) throw Error('R8.12 CTA requires a specific on-site article URL')
+        const visible=u.hostname+u.pathname
+        return `<g data-r812-cta-destination="${escapeXml(visible)}"><rect x="${x}" y="${compositionTop+70}" width="${safeWidth}" height="260" rx="34" fill="#182e31" stroke="${foreground}" stroke-width="5"/><text x="${x+36}" y="${compositionTop+160}" font-size="32" fill="${foreground}">Read the evidence:</text><text x="${x+36}" y="${compositionTop+222}" font-size="27" fill="${foreground}">${escapeXml(visible)}</text></g>`
+      })()
+    : null
+  const composition = ctaDestination ?? (scene.r812Mechanism && r810 && scene.role !== 'source'
     ? renderR812MechanismSvg(scene.r812Mechanism, {
         x, y:compositionTop + 165, width:safeWidth, phase:motionPhase === 'pre' ? 'pre' : 'post', foreground,
       })
@@ -725,7 +734,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
           foreground,
           motionPhase,
         })
-      : ''
+      : '')
   const ledgerLines = r810 && sourceScene ? (scene.sourceLedgerLines || []) : []
   if (r810 && sourceScene && (!ledgerLines.length || ledgerLines.length > 5)) throw Error('R8.10 source card requires approved ledger lines')
   const ledgerSvg = ledgerLines.map((line, index) => `<text data-r810-ledger-line="${index + 1}" x="${x}" y="${Math.min(disclosureY - 110, compositionTop + 40) + index * 48}" font-size="32" fill="${foreground}">${escapeXml(line)}</text>`).join('')
@@ -751,6 +760,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
     r812Mechanism: scene.r812Mechanism || null,
+    r812CtaUrl: scene.r812CtaUrl || null,
     compositionFamily: scene.compositionFamily || null,
     visualScene: scene.visualScene || null,
     rhythmAction: scene.rhythmAction || null,
