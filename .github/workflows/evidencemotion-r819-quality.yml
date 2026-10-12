@@ -1,0 +1,36 @@
+name: EvidenceMotion R8.19 deterministic art and craft gates
+on:
+  pull_request:
+    paths:
+      - 'scripts/distribution/r819-*'
+      - 'scripts/distribution/__tests__/r819-*'
+      - 'config/evidencemotion/r819-*'
+      - 'public/brand/ths-cellular-organic.svg'
+      - '.github/workflows/evidencemotion-r819-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  r819-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: R8.18 inherited telemetry and R8.19 adversarial quality checks
+        run: npx vitest run scripts/distribution/__tests__/r818-telemetry-qa.test.mjs scripts/distribution/__tests__/r819-art-quality.test.mjs
+      - name: Canonical cross-brand art SHA-256
+        run: |
+          node --input-type=module - <<'EOF'
+          import fs from 'node:fs'
+          import crypto from 'node:crypto'
+          const file='public/brand/ths-cellular-organic.svg'
+          const a=JSON.parse(fs.readFileSync('config/evidencemotion/r819-art-manifest.json','utf8')).assets[0]
+          const sha=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')
+          if (a.file!==file || sha!==a.sha256) throw Error('R8.19 art does not match pinned SHA-256')
+          console.log('Art pinned: '+sha)
+          EOF
