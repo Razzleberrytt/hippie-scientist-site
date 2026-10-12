@@ -572,7 +572,7 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
       pr, changedFiles, comments: approvalEvidence.comments, reviews: approvalEvidence.reviews,
     })
     if (!publicationApproval.allowed) {
-      return { action: 'blocked', reason: `canonical publication approval: ${publicationApproval.reason}` }
+      return { action: 'stop', reason: `publication review hold: ${publicationApproval.reason}` }
     }
   }
   if (!currentBaseSha) return { action: 'wait', reason: 'current base SHA is not observable yet' }
