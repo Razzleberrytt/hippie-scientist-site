@@ -1,5 +1,5 @@
 import { assertNoDecorativeVideoChrome } from './evidencemotion-delivery-guardrails.mjs'
-import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
+import { assertR817FirstPass, assertR817SceneBinding } from './r817-canonical-first-pass.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -821,6 +821,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     ? buildTimelineR805(mediaPack, creativeSpec, dir)
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
   const { scenes, durationSeconds, bindings } = built
+  if (r817Active) assertR817SceneBinding(creativeSpec.r817FirstPass, scenes)
   if (creativeSpec.r812?.enabled === true) {
     if (creativeSpec.systemRelease !== 'R8.05'
       || creativeSpec.creativeMethodRelease !== 'R8.10'
