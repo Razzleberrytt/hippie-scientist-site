@@ -20,7 +20,8 @@ export function r812MechanismErrors(mechanism) {
   if (!sourceIds(m).length || sourceIds(m).some(x => !clean(x))) errors.push('R8.12 original source IDs missing')
   if (!Array.isArray(m.claimIds) || !m.claimIds.length || m.claimIds.some(x=>!clean(x))) errors.push('R8.12 governed claim IDs missing')
   if (!/^PMID:\s*\d{7,9}(?:\s*[,;/+]\s*\d{7,9})*$/i.test(clean(m.onScreenSources))) errors.push('R8.12 requires real visible on-screen PMID identifiers')
-  if (!clean(m.qualifier) || clean(m.qualifier).length > 110) errors.push('R8.12 readable evidence qualifier missing')
+  if (!clean(m.qualifier) || clean(m.qualifier).length > 90) errors.push('R8.12 readable evidence qualifier must fit in three 42px lines')
+  if (clean(m.onScreenSources).length > 58) errors.push('R8.12 visible PMIDs exceed two 42px lines')
   if (clean(m.inputName).toLowerCase()===clean(m.outputName).toLowerCase() && m.template!=='receptor-binding') errors.push('R8.12 transformation lacks a distinct product')
   return errors
 }
@@ -51,24 +52,61 @@ export function assertR812Storyboard(beats, {requireHooks = false, hookApproache
   }
   return true
 }
+// The same minimum 42px used for R8.10 governed overlays applies to EVERY
+// necessary mechanism label; do not shrink evidence PMIDs to win space.
+export const R812_MIN_LABEL_PX = 42
+function wrapLabel(input, limit, maxLines) {
+  const chars = clean(input)
+  const tokens = chars.replace(/-/g,'- ').split(/\s+/).filter(Boolean)
+  const lines = []
+  let current = ''
+  for (let token of tokens) {
+    while (token.length > limit) {
+      if (current) { lines.push(current); current='' }
+      lines.push(token.slice(0,limit))
+      token = token.slice(limit)
+    }
+    if (!token) continue
+    const joined=current ? current+' '+token : token
+    if (joined.length > limit && current) { lines.push(current); current=token }
+    else current=joined
+  }
+  if(current)lines.push(current)
+  if(lines.length>maxLines)throw Error('R8.12 visible evidence label cannot fit safe area at 42px; revise approved text, do not shrink')
+  return lines
+}
 export function renderR812MechanismSvg(m, {x=120,y=820,width=840,phase='post',foreground='#def5ed'}={}) {
   assertR812Mechanism(m)
-  if (!['pre','post'].includes(phase)) throw Error('R8.12 unknown animation phase')
-  const left=x+115, mid=x+width/2, right=x+width-115
-  const fill='#69b7a2', base='#182e31', active=phase==='post'
-  const label=(xx,yy,value,size=28)=>`<text text-anchor="middle" x="${xx}" y="${yy}" font-size="${size}" font-family="sans-serif" fill="${foreground}">${esc(value)}</text>`
-  const molecule=(xx,yy,filled)=>`<g data-r812-object="${filled?'after':'before'}"><circle cx="${xx}" cy="${yy}" r="60" stroke="${foreground}" stroke-width="5" fill="${filled?fill:base}"/><circle cx="${xx-20}" cy="${yy-12}" r="17" fill="${filled?base:fill}"/><circle cx="${xx+20}" cy="${yy+10}" r="13" fill="${filled?base:fill}"/></g>`
-  const catalyst=`<rect x="${mid-76}" y="${y-76}" width="152" height="152" rx="32" fill="${base}" stroke="${fill}" stroke-width="5"/>`
+  if(!['pre','post'].includes(phase))throw Error('R8.12 unknown animation phase')
+  const left=x+105,mid=x+width/2,right=x+width-105
+  const fill='#69b7a2',base='#182e31',active=phase==='post'
+  const label=(xx,yy,value,size=R812_MIN_LABEL_PX)=>`<text text-anchor="middle" x="${xx}" y="${yy}" font-size="${size}" font-family="sans-serif" fill="${foreground}">${esc(value)}</text>`
+  const objectName=(xx,caption)=>{
+    const lines=wrapLabel(caption,13,3)
+    return lines.map((line,i)=>label(xx,y+92+i*48,line)).join('')
+  }
+  const molecule=(xx,yy,filled)=>`<g data-r812-object="${filled?'after':'before'}"><circle cx="${xx}" cy="${yy}" r="53" stroke="${foreground}" stroke-width="5" fill="${filled?fill:base}"/><circle cx="${xx-16}" cy="${yy-12}" r="14" fill="${filled?base:fill}"/><circle cx="${xx+18}" cy="${yy+10}" r="12" fill="${filled?base:fill}"/></g>`
+  const catalyst=`<rect x="${mid-60}" y="${y-60}" width="120" height="120" rx="30" fill="${base}" stroke="${fill}" stroke-width="5"/>`
   let drawing=''
   if(m.template==='enzyme-conversion'){
-    drawing=molecule(left,y,false)+catalyst+(active?molecule(right,y,true):`<circle cx="${right}" cy="${y}" r="60" stroke="${foreground}" stroke-opacity=".2" stroke-dasharray="12 8" fill="none"/>`)
+    drawing=molecule(left,y,false)+catalyst+(active?molecule(right,y,true):`<circle cx="${right}" cy="${y}" r="53" stroke="${foreground}" stroke-opacity=".2" stroke-dasharray="12 8" fill="none"/>`)
   }else if(m.template==='receptor-binding'){
-    const receptor=`<path d="M ${mid-55} ${y+65} L ${mid-55} ${y-40} Q ${mid} ${y-100} ${mid+55} ${y-40} L ${mid+55} ${y+65}" stroke="${fill}" stroke-width="14" fill="none"/>`
-    drawing=molecule(active?mid:left,active?y-55:y,false)+receptor+`<circle cx="${right}" cy="${y}" r="60" fill="none" stroke="${foreground}" stroke-opacity=".3"/>`
+    const receptor=`<path d="M ${mid-55} ${y+50} L ${mid-55} ${y-35} Q ${mid} ${y-90} ${mid+55} ${y-35} L ${mid+55} ${y+50}" stroke="${fill}" stroke-width="11" fill="none"/>`
+    drawing=molecule(active?mid:left,active?y-45:y,false)+receptor+`<circle cx="${right}" cy="${y}" r="53" fill="none" stroke="${foreground}" stroke-opacity=".3"/>`
   }else{
-    drawing=molecule(left,y,false)+(active?molecule(right,y,true):`<circle cx="${right}" cy="${y}" r="60" fill="none" stroke="${foreground}" stroke-dasharray="12 8" stroke-opacity=".3"/>`)
+    drawing=molecule(left,y,false)+(active?molecule(right,y,true):`<circle cx="${right}" cy="${y}" r="53" fill="none" stroke="${foreground}" stroke-dasharray="12 8" stroke-opacity=".3"/>`)
   }
-  const arrow=`<path d="M ${left+82} ${y} L ${mid-91} ${y} M ${mid+91} ${y} L ${right-82} ${y}" stroke="${fill}" stroke-width="7" fill="none"/>`
-  const word=`<text x="${mid}" y="${y+130}" text-anchor="middle" font-size="29" fill="${foreground}">${esc(m.actionVerb)}</text>`
-  return `<g data-r812-mechanism="${m.template}" data-r812-phase="${phase}">${drawing}${arrow}${label(left,y+110,m.inputName)}${label(mid,y-115,m.targetName)}${label(right,y+110,m.outputName)}${word}${label(x+width/2,y+190,m.qualifier,24)}${label(x+width/2,y+240,m.onScreenSources,24)}</g>`
+  const arrows=`<path d="M ${left+70} ${y} L ${mid-78} ${y} M ${mid+78} ${y} L ${right-70} ${y}" stroke="${fill}" stroke-width="6" fill="none"/>`
+  const qualifierLines=wrapLabel(m.qualifier,33,3)
+  const pmidLines=wrapLabel(m.onScreenSources,33,2)
+  // Text and its source are in different sections; no object should be
+  // understood only through teal/orange color or an unrelated legend.
+  const evidence=`<g data-r812-evidence-boundary="named-and-readable">`+
+    qualifierLines.map((line,i)=>label(mid,y+286+i*50,line)).join('')+
+    pmidLines.map((line,i)=>label(mid,y+455+i*50,line)).join('')+
+    '</g>'
+  return `<g data-r812-mechanism="${m.template}" data-r812-phase="${phase}" data-r812-min-font-size="42">`+
+    drawing+arrows+
+    `<g data-r812-object-names="redundant-not-color-only">`+objectName(left,m.inputName)+objectName(mid,m.targetName)+objectName(right,m.outputName)+'</g>'+
+    label(mid,y+235,m.actionVerb)+evidence+'</g>'
 }
