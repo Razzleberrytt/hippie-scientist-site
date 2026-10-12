@@ -3,7 +3,7 @@ slug: kava
 title: "Kava for Anxiety: Does It Work for Social Anxiety? Evidence & Liver Safety"
 description: "Evidence-first 2026 review of kava for anxiety: the negative 171-person GAD trial, older mixed RCTs, social-anxiety and kava-drink evidence gaps, liver injury, interactions, and why water extracts are not risk-free."
 date: '2026-06-08'
-updatedAt: '2026-10-04'
+updatedAt: '2026-10-11'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -327,6 +327,8 @@ Researchers have proposed multiple contributors, including:
 But no single hypothesis has fully explained all cases. [PubMed 20630022](https://pubmed.ncbi.nlm.nih.gov/20630022/)
 
 The correct product-quality message is therefore **risk reduction, not risk elimination**.
+
+**Preparation-specific evidence limit (Batch 10 verification):** A structured reassessment of German/Swiss liver-injury reports found substantial causality and exposure uncertainty ([Teschke et al., 2008; PMID 18989142](https://pubmed.ncbi.nlm.nih.gov/18989142/); **human case-series review**). Short aqueous-extract anxiety RCTs did not identify clinical hepatotoxicity over their studied 3–6-week windows ([Sarris et al., 2009; PMID 19430766](https://pubmed.ncbi.nlm.nih.gov/19430766/); [Sarris et al., 2013; PMID 23635869](https://pubmed.ncbi.nlm.nih.gov/23635869/); **human RCTs**), but those trials cannot exclude rare or delayed events. **No human head-to-head study** establishes that noble cultivars prevent liver injury compared with tudei, or that water-based extraction is clinically safer than solvent extraction. Noble-only standards are product-quality precautions, not comparative liver-outcome evidence.
 
 ---
 
