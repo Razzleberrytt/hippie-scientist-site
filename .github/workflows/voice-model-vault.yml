@@ -75,15 +75,28 @@ jobs:
           assert float(np.sqrt(np.mean(a*a)))>0.005, 'Voice unexpectedly silent'
           print('PASS: pinned Kokoro ONNX INT8 am_michael, actual archived weights, generated audible PCM')
           PY
-      - name: Provide verified model/voicebank for authorized Google Drive mirror
+      # Split artifacts because the Drive connector rejects transfers >100 MiB.
+      # The model compresses to ~87 MB and the voicebank to ~26 MB.
+      - name: Expose verified original ONNX model for permanent Google Drive mirror
         uses: actions/upload-artifact@v4
         with:
-          name: ths-original-kokoro-onnx-model-drive-mirror
+          name: ths-kokoro-original-model-drive-part
           if-no-files-found: error
           include-hidden-files: true
           retention-days: 7
+          compression-level: 6
           path: |
             .cache/ths-voice-vault/kokoro-v1.0.int8.onnx
+            .cache/ths-voice-vault/voice-vault.json
+      - name: Expose verified original voicebank for permanent Google Drive mirror
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-kokoro-original-voicebank-drive-part
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 7
+          compression-level: 6
+          path: |
             .cache/ths-voice-vault/voices-v1.0.bin
             .cache/ths-voice-vault/voice-vault.json
 
@@ -128,14 +141,25 @@ jobs:
           assert float(np.sqrt(np.mean(a*a))) > 0.005, 'Kokoro output unexpectedly silent'
           print('PASS: verified archive emits non-silent authentic ONNX am_michael narration')
           PY
-      - name: Expose exact verified model assets for Google Drive archival
+      - name: Expose original ONNX model as under-100-MiB Drive transfer package
         uses: actions/upload-artifact@v4
         with:
-          name: ths-original-kokoro-onnx-model-drive-mirror
+          name: ths-kokoro-original-model-drive-part
           retention-days: 7
           if-no-files-found: error
+          compression-level: 6
           include-hidden-files: true
           path: |
             .cache/ths-voice-vault/kokoro-v1.0.int8.onnx
+            .cache/ths-voice-vault/voice-vault.json
+      - name: Expose original voicebank as under-100-MiB Drive transfer package
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-kokoro-original-voicebank-drive-part
+          retention-days: 7
+          if-no-files-found: error
+          compression-level: 6
+          include-hidden-files: true
+          path: |
             .cache/ths-voice-vault/voices-v1.0.bin
             .cache/ths-voice-vault/voice-vault.json
