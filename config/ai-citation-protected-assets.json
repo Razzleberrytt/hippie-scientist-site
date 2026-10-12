@@ -30,7 +30,8 @@
         "title": "Best Natural Sleep Aids That Work: 2026 Evidence Guide",
         "slug": null,
         "canonical": "/guides/sleep/best-natural-sleep-aids-that-work/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/best/supplements-for-stress/",
@@ -43,7 +44,8 @@
         "title": "Best Supplements for Stress: Evidence-Ranked Guide (2026)",
         "slug": null,
         "canonical": "/guides/best/supplements-for-stress/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/mitragynine/",
@@ -56,7 +58,8 @@
         "title": "Mitragynine: Pharmacology, Human Evidence, Safety & 2026 Research Status",
         "slug": "mitragynine",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/how-to-choose-supplement-quality/",
@@ -69,7 +72,8 @@
         "title": "How to Choose a Quality Supplement: Testing, Labels, and Red Flags",
         "slug": "how-to-choose-supplement-quality",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/mental-health/antisocial-personality-disorder/",
@@ -82,7 +86,8 @@
         "title": "ASPD Diagnosis: Criteria, Conduct Disorder & Assessment",
         "slug": null,
         "canonical": "/guides/mental-health/antisocial-personality-disorder/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/sleep/best-herbs-for-sleep/",
@@ -95,7 +100,8 @@
         "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026",
         "slug": null,
         "canonical": "/guides/sleep/best-herbs-for-sleep/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/sleep/best-supplements-for-sleep/",
@@ -108,7 +114,8 @@
         "title": "Best Supplements for Sleep: Evidence-Ranked Shortlist",
         "slug": null,
         "canonical": "/guides/sleep/best-supplements-for-sleep/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/anxiety/best-herbs-for-anxiety/",
@@ -121,7 +128,8 @@
         "title": "Best Herbs for Anxiety: Evidence-Ranked Guide (2026)",
         "slug": null,
         "canonical": "/guides/anxiety/best-herbs-for-anxiety/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/mushroom-coffee-benefits-review/",
@@ -134,7 +142,8 @@
         "title": "Mushroom Coffee Benefits: What the Science Actually Says",
         "slug": "mushroom-coffee-benefits-review",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/valerian-root/",
@@ -147,7 +156,8 @@
         "title": "Valerian Root for Sleep: Does It Work? Evidence Review (2026)",
         "slug": "valerian-root",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/",
@@ -160,7 +170,8 @@
         "title": "Lion's Mane Mushroom: Cognition, Mood, Dose & Evidence — 2026 Review",
         "slug": "lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/2c-b-effects/",
@@ -173,7 +184,8 @@
         "title": "2C-B Effects: Human Evidence, Risks, Pharmacology & What We Still Don't Know",
         "slug": "2c-b-effects",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/other/protein-powder-guide/",
@@ -186,7 +198,8 @@
         "title": "Whey vs Casein vs Plant Protein: What Actually Differs? (2026)",
         "slug": null,
         "canonical": "/guides/other/protein-powder-guide/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/anxiety/best-supplements-for-overthinking/",
@@ -199,7 +212,8 @@
         "title": "Racing Thoughts at Night: Supplements, Evidence & What Works",
         "slug": null,
         "canonical": "/guides/anxiety/best-supplements-for-overthinking/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/kava/",
@@ -212,7 +226,8 @@
         "title": "Kava for Anxiety: Does It Work for Social Anxiety? Evidence & Liver Safety",
         "slug": "kava",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/other/anti-inflammatory-supplements/",
@@ -225,7 +240,8 @@
         "title": "Anti-Inflammatory Supplements: Evidence Review (2026)",
         "slug": null,
         "canonical": "/guides/other/anti-inflammatory-supplements/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/other/magnesium-types-guide/",
@@ -238,7 +254,8 @@
         "title": "Magnesium Types Compared: Absorption & Evidence (2026 Guide)",
         "slug": null,
         "canonical": "/guides/other/magnesium-types-guide/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/mitragynine-pseudoindoxyl/",
@@ -251,7 +268,8 @@
         "title": "Mitragynine Pseudoindoxyl: Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
         "slug": "mitragynine-pseudoindoxyl",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/articles/elderberry/",
@@ -264,7 +282,8 @@
         "title": "Elderberry for Colds & Flu: What Human Trials Actually Show",
         "slug": "elderberry",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/other/collagen-supplements/",
@@ -277,6 +296,25 @@
         "title": "Collagen Supplements: Benefits, Risks & What the Evidence Really Shows (2026)",
         "slug": null,
         "canonical": "/guides/other/collagen-supplements/"
+      },
+      "redirect": null
+    },
+    {
+      "url": "/articles/magnesium-types-for-sleep/",
+      "sourceFile": "app/guides/sleep/magnesium-types-for-sleep/page.tsx",
+      "redirect": {
+        "to": "/guides/sleep/magnesium-types-for-sleep/",
+        "status": 301,
+        "rulesFile": "public/_redirects"
+      },
+      "citations": 382,
+      "citationSharePct": 0.78,
+      "protectionReason": "derived-page-stats",
+      "identity": {
+        "sourceType": "tsx-static-declaration",
+        "title": "Magnesium Types for Sleep: Glycinate vs Threonate vs Citrate",
+        "slug": null,
+        "canonical": "/guides/sleep/magnesium-types-for-sleep/"
       }
     },
     {
@@ -290,7 +328,8 @@
         "title": "7-Hydroxymitragynine (7-OH): Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
         "slug": "7-hydroxymitragynine",
         "canonical": null
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/anxiety/best-adaptogens-for-stress/",
@@ -303,7 +342,8 @@
         "title": "Best Adaptogens for Stress: Evidence, Safety & Ranking",
         "slug": null,
         "canonical": "/guides/anxiety/best-adaptogens-for-stress/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/",
@@ -316,7 +356,8 @@
         "title": "Best Herbs for Stress and Anxiety at Night: Evidence & Safety",
         "slug": null,
         "canonical": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/"
-      }
+      },
+      "redirect": null
     },
     {
       "url": "/guides/adhd/l-theanine-for-adhd/",
@@ -329,29 +370,11 @@
         "title": "L-Theanine for ADHD: Does It Help Focus or Sleep?",
         "slug": null,
         "canonical": "/guides/adhd/l-theanine-for-adhd/"
-      }
-    },
-    {
-      "url": "/guides/other/creatine-brain-health/",
-      "sourceFile": "app/guides/other/creatine-brain-health/page.tsx",
-      "citations": 300,
-      "citationSharePct": 0.61,
-      "protectionReason": "derived-page-stats",
-      "identity": {
-        "sourceType": "tsx-static-declaration",
-        "title": "Creatine for Brain Health: 2026 Cognition, Depression & Sleep Evidence",
-        "slug": null,
-        "canonical": "/guides/other/creatine-brain-health/"
-      }
+      },
+      "redirect": null
     }
   ],
-  "unresolved": [
-    {
-      "url": "/articles/magnesium-types-for-sleep/",
-      "citations": 382,
-      "reason": "no unique exact published source owner"
-    }
-  ],
-  "coveredCitations": 41036,
-  "coveragePct": 83.45
+  "unresolved": [],
+  "coveredCitations": 41118,
+  "coveragePct": 83.61
 }
