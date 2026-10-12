@@ -15,7 +15,7 @@ export default function ResearchInvestigationsPage() {
   const uniquePmids = new Set(investigations.flatMap((item) => item.sourcePmids))
 
   return (
-    <main className='research-page-content mx-auto max-w-6xl space-y-9 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
+    <div className='research-page-content mx-auto max-w-6xl space-y-9 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
       <nav aria-label='Breadcrumb' className='text-sm text-muted'>
         <Link href='/research/' className='font-semibold text-brand-700 hover:underline'>Research</Link>
         <span aria-hidden='true' className='mx-2'>/</span>
@@ -105,6 +105,6 @@ export default function ResearchInvestigationsPage() {
         Research materials are supplied for transparency and further verification. This inventory does not authorize
         supplement use, medication changes, safety assurances or clinical claims. See the <Link href='/info/editorial-policy/' className='font-semibold text-brand-700 hover:underline'>editorial policy</Link>.
       </footer>
-    </main>
+    </div>
   )
 }
