@@ -7,7 +7,7 @@
  */
 export const MOBILE_AUDIO_PROFILE = Object.freeze({
   codec: 'aac',
-  sampleRate: 48000,
+  sampleRate: 44100,
   channels: 2,
   channelLayout: 'stereo',
   bitrate: '192k',
@@ -50,7 +50,7 @@ export function assertMobileAudioProbe(probe) {
       || Number(stream.sample_rate) !== MOBILE_AUDIO_PROFILE.sampleRate
       || Number(stream.channels) !== MOBILE_AUDIO_PROFILE.channels
       || !['stereo', ''].includes(String(stream.channel_layout ?? '').toLowerCase())) {
-    throw Error('Mobile playback QA: encoded output must be 48 kHz stereo AAC')
+    throw Error('Mobile playback QA: encoded output must be 44.1 kHz stereo AAC')
   }
   return { codec: stream.codec_name, sampleRate: Number(stream.sample_rate), channels: Number(stream.channels), channelLayout: 'stereo' }
 }
@@ -69,7 +69,7 @@ export function assertAudibleDecodedAudio(log) {
 }
 
 export function assertMobilePlaybackReceipt(profile) {
-  if (profile?.audioCodec !== 'aac' || profile?.audioSampleRate !== 48000
+  if (profile?.audioCodec !== 'aac' || profile?.audioSampleRate !== 44100
       || profile?.audioChannels !== 2 || profile?.audioChannelLayout !== 'stereo'
       || profile?.mobileAudioVerified !== true
       || profile?.decodedAudio?.verification !== 'decoded-final-mp4-volumedetect'
@@ -77,7 +77,7 @@ export function assertMobilePlaybackReceipt(profile) {
       || !Number.isFinite(profile?.decodedAudio?.maxVolumeDb)
       || profile.decodedAudio.meanVolumeDb <= -50
       || profile.decodedAudio.maxVolumeDb <= -30) {
-    throw Error('Mobile playback QA: missing verified 48 kHz stereo AAC decoded-audio receipt')
+    throw Error('Mobile playback QA: missing verified 44.1 kHz stereo AAC decoded-audio receipt')
   }
   return true
 }
