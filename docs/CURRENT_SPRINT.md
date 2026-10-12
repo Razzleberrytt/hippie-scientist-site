@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
+**Updated:** 2026-10-12 (retire verified GitHub-closed owner/candidate references; admission remains separate)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (2026-10-09, #6149):** Following verified #6259/#6260 retirement on main, the single ready-next R candidate #6149 is admitted for consent-gated local social attribution ordering only at score **240.0**. Normal implementation WIP **1/3** (R active, D/A free); D/R/A cap unchanged. Evidence/source scientific promotion, external analytics transport and aggregate business receipts are not approved by this admission.
+**Current admitted WIP after verified 2026-10-12 cleanup:** D #6683 is independently admitted for two additive hub-navigation links at score **108.0**, while closed R #6149 and A candidate #5081 stay retired. Normal WIP **1/3** (D occupied, R/A free). This admission alone does not merge the implementation, change scientific authority, or establish search/traffic/revenue impact.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -121,7 +121,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| R | #6149 | Capture consented social attribution before remote analytics transport check | Active — admitted | P1 | 240.0 | 2026-10-09 |
+| D | #6683 | Connect anxiety and product-quality hubs to cited canonical guides | Active — admitted | P2 | 108.0 | 2026-10-12 |
 
 
 
@@ -130,7 +130,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
-**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free; that does not waive #5081's prerequisite.
+**Authority prerequisite #5081:** Retired as GitHub-closed (2026-10-09). Do not resurrect the original owner/candidate; any genuinely new Sage review requires a separate ticket and source verification.
 
 Research-only enrichment staging is not canonical implementation admission. #6338 / PR #6339 is completed; no new work may overlap an active normal-lane owner.
 
@@ -205,13 +205,12 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Revenue/Conversion and Authority/Content remain free. Discovery/SEO is occupied by admitted #6491; normal WIP is 1/3. No candidate becomes executable merely because slots are free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+Normal implementation WIP is 1/3 after an independent, scored D #6683 admission, with R/A free and D reserved until its implementation is merged or retired. Other tickets still require separate fresh admission and must not overlap #6683. Evidence, science, accessibility, canonical, privacy, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
 | Candidate | Workstream | Admission state | Proof required before implementation |
 |---|---|---|---|
-| #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation; the free Authority slot does not waive this prerequisite. |
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -236,7 +235,7 @@ Revenue/Conversion and Authority/Content remain free. Discovery/SEO is occupied 
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5540 / PR #5544, and #5296 / PR #5552 are completed or retired. #5081 / PR #5556 remains pending and does not own Authority/Content until a fresh non-overlapping governor lease exists.
+No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5540 / PR #5544, and #5296 / PR #5552 are completed or retired. #5081 is now GitHub-closed; PR #5556 is historical and grants no new Authority/Content admission.
 
 ## Sprint exit conditions
 
