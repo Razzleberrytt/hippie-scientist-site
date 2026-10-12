@@ -74,3 +74,23 @@ test('five-frame sample approximation alone cannot satisfy ten native frames',()
  t.beats[0].metrics.longestNativePocketDwellFrames=8
  expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/ten consecutive native/)
 })
+
+
+test('first-three-second product-to-receptor reveal binds actual visibility and labels',()=>{
+ const {p,t}=fixture()
+ p.beats=[{id:'hook',start:0,end:3,semanticAction:'reveals-hidden-action',
+  visualObject:{kind:'retail-bottle',name:'Generic retail bottle'},
+  telemetryProof:{primaryObjectId:'bottle',subjectObjectId:'bottle',
+   targetObjectId:'receptor',beforeLabel:'Generic retail bottle',
+   afterLabel:'Symbolic mu-opioid receptor activation'}}]
+ t.beats=[{beatId:'hook',producer:{instrumentation:'native-vtk-projection'},
+  frames:Array.from({length:15},(_,i)=>({time:i*.2,objects:[
+    object('bottle','retail-bottle','Generic retail bottle',[20,15,35,65],null,
+     {visible:i<11,opacity:i<11?1:0}),
+    object('receptor','receptor-binding','Symbolic mu-opioid receptor activation',
+     [48,20,45,60],null,{visible:i>3,opacity:i>3?1:0})
+   ]}))}]
+ expect(assertR818TelemetryBinding(p,t).actionReports[0].semanticAction).toBe('reveals-hidden-action')
+ for(const f of t.beats[0].frames)f.objects.find(o=>o.objectId==='receptor').visible=true
+ expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/hidden target/)
+})
