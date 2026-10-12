@@ -4,10 +4,12 @@ on:
   pull_request:
     paths:
       - 'scripts/distribution/r817-*'
+      - 'scripts/distribution/r818-*'
       - 'scripts/distribution/r810-aligned-captions.mjs'
       - 'scripts/distribution/render-vertical-video-mp4.mjs'
       - 'scripts/distribution/render-vertical-video-package.mjs'
       - 'scripts/distribution/__tests__/r817-*'
+      - 'scripts/distribution/__tests__/r818-*'
       - '.github/workflows/evidencemotion-r817-regression.yml'
 permissions:
   contents: read
@@ -24,8 +26,8 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Check R8.17 source syntax
         run: |
-          for f in scripts/distribution/r817-*.mjs scripts/distribution/r810-aligned-captions.mjs scripts/distribution/render-vertical-video-mp4.mjs scripts/distribution/render-vertical-video-package.mjs; do
+          for f in scripts/distribution/r817-*.mjs scripts/distribution/r818-*.mjs scripts/distribution/r810-aligned-captions.mjs scripts/distribution/render-vertical-video-mp4.mjs scripts/distribution/render-vertical-video-package.mjs; do
             node --check "$f"
           done
       - name: Run R8.17 positive and adversarial regressions
-        run: npx vitest run scripts/distribution/__tests__/r817-canonical-first-pass.test.mjs scripts/distribution/__tests__/r817-retention-and-experiments.test.mjs
+        run: npx vitest run scripts/distribution/__tests__/r817-canonical-first-pass.test.mjs scripts/distribution/__tests__/r817-retention-and-experiments.test.mjs scripts/distribution/__tests__/r817-v-adversarial-audit.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs
