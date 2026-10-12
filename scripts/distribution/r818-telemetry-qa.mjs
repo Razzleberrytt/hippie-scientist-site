@@ -123,6 +123,7 @@ export function assertR818TelemetryBinding(plan,telemetry,receipt={}){
    throw Error('R8.18 telemetry/plan beat identity mismatch')
   const frames=record.frames
   if(record.producer?.instrumentation!=='native-svg-geometry'&&
+     record.producer?.instrumentation!=='native-2d-canvas-geometry'&&
      record.producer?.instrumentation!=='native-vtk-projection'&&
      record.producer?.instrumentation!=='native-blender-projection')
     throw Error('R8.18 beat lacks actual geometry-derived producer instrumentation')
