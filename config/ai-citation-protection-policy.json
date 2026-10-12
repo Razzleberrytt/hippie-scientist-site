@@ -4,5 +4,6 @@
   "minCitationSharePct": 5,
   "cumulativeCoveragePct": 60,
   "maxAssets": 25,
-  "staleAfterDays": 45
+  "staleAfterDays": 45,
+  "minAssets": 10
 }
