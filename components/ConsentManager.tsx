@@ -159,7 +159,7 @@ export default function ConsentManager({ open, onClose }: Props) {
         </div>
 
         <p id="consent-description" className="mt-2 text-sm text-white/75">
-          Google Analytics 4 runs by default for site measurement unless you turn it off here. Other optional tracking remains consent-gated.
+          Google Analytics 4 may run by default for server-confirmed U.S. visits unless you opt out. Elsewhere it requires an affirmative choice. Other optional tracking remains consent-gated.
           {dnt && (
             <span className="mt-2 block text-amber-300">
               Detected Do Not Track / GPC — defaulting to no tracking.
