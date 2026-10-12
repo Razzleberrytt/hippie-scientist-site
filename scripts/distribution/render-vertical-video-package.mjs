@@ -701,6 +701,9 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
   if (scene.r812Enabled === true && (compositionTop >= disclosureY - 220 || lineHeight * lines.length > 380)) throw Error('R8.12 safe-area text: caption/title would overlap artwork, sources or bottom disclosure')
+  if (scene.r812Enabled === true && scene.r812Mechanism && compositionTop + 165 + 505 >= disclosureY - 50) {
+    throw Error('R8.12 mechanism qualifier/PMID at 42px would overlap the bottom disclosure: re-author approved scene layout')
+  }
   const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
   const ctaDestination = scene.r812CtaUrl && scene.role === 'cta'
     ? (() => {
@@ -798,6 +801,14 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
   const { scenes, durationSeconds, bindings } = built
   if (creativeSpec.r812?.enabled === true) {
+    if (creativeSpec.systemRelease !== 'R8.05'
+      || creativeSpec.creativeMethodRelease !== 'R8.10'
+      || creativeSpec.productionSystemRelease !== 'R8.11'
+      || creativeSpec.creativeR810?.status !== 'approved'
+      || creativeSpec.r811Experiment?.status === 'concept-required'
+      || !creativeSpec.r811Plan) {
+      throw Error('R8.12 requires approved R8.10/R8.11 lineage and reviewed plan; no bypass of mechanism or loudness QA')
+    }
     assertR812Storyboard(scenes, {requireHooks:Boolean(creativeSpec.r811Plan),
       hookApproaches:creativeSpec.r811Plan ? ['question','contrast','reveal'] : [],
       ctaUrl:creativeSpec.r812.ctaUrl})
