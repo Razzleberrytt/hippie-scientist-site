@@ -42,7 +42,7 @@ test('R8.17 encoded retention must not self-approve human muted-viewer comprehen
    hookFrames:{beforeSha256:h('a'),afterSha256:h('b'),afterAtSeconds:2.4},
    captionProof:{mode:'mfa-acoustic-progressive-word',wordCount:15,phraseFlashFallback:false}}
  expect(assessR817RetentionMaster(p).technicalRetentionPassed).toBe(false)
- expect(assessR817RetentionMaster({...p,muteTest:{result:'pass',reviewerId:'owner',prompt:'Describe what changed while video is muted'}}).technicalRetentionPassed).toBe(true)
+ expect(assessR817RetentionMaster({...p,authorId:'owner',muteTest:{result:'pass',reviewerId:'owner',prompt:'Describe what changed while video is muted',firstTimeViewer:true}}).technicalRetentionPassed).toBe(false)
 })
 function exp(){
  const a={engine:'kokoro-onnx',speaker:'am_michael',wavSha256:h('d')}
@@ -59,7 +59,7 @@ test('R8.17 A/B harness pre-registers 5-topic 15% rule but never fabricates a wi
  const pairs=Array.from({length:5},(_,i)=>({topicId:'topic'+i,platform:'tiktok',
    metric:'threeSecondHoldPercent',arms:p.arms.map((a,j)=>({id:a.id,sourceLedgerSha256:h('a'),
      narrationScriptSha256:h('b'),views:350,value:j===0?57:45,
-     observationSha256:h('e'),windowHours:72}))}))
+     observationSha256:h('e'),windowHours:72,postedAt:'2026-10-13T14:00:00Z'}))}))
  const result=evaluateR817Experiment(p,pairs)
  expect(result.status).toBe('REVIEW_PROMISING_VARIANT')
  expect(result.adoptable).toBe(false)
