@@ -30,6 +30,7 @@ jobs:
           node --check scripts/distribution/r819-acoustic-cue-binding.mjs
           node --check scripts/distribution/r819-canonical-handoff.mjs
           node --check scripts/distribution/r819-native-layer-compositor.mjs
+          node --check scripts/distribution/r819-layer-inventory-writer.mjs
           node --check scripts/distribution/render-vertical-video-mp4.mjs
       - name: Preserve R8.18 scientific object telemetry and test R8.19 visual vetoes
         run: npx vitest run scripts/distribution/__tests__/r819-brutal-bar.test.mjs scripts/distribution/__tests__/r819-art-verifier.test.mjs scripts/distribution/__tests__/r819-acoustic-cue-binding.test.mjs scripts/distribution/__tests__/r819-native-layer-compositor.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs
