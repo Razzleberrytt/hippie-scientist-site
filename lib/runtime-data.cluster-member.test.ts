@@ -28,7 +28,7 @@ describe('cluster-member production runtime boundary', () => {
       expect(record?.safety).toBe(core.safety)
       expect(record?.safetyNotes).toBe(core.safety)
     }
-    expect(record?.safety).toMatch(/^Safety evidence:/)
+    // Urgent Batch 8 extract warnings must lead the compact text; the original\n    // core Safety evidence context must still be present below them.\n    expect(record?.safety).toMatch(slug === 'green-tea-extract' ? /^CONCENTRATED .*LIVER WARNING:/ : /^Safety evidence:/)\n    expect(record?.safety).toContain('Safety evidence:')
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.interactions).toEqual([])
     expect(record?.indexability_status).toBe(core.indexability_status)
@@ -51,7 +51,7 @@ describe('cluster-member production runtime boundary', () => {
       expect(record?.safety).toBe(core.safety)
       expect(record?.safetyNotes).toBe(core.safety)
     }
-    expect(record?.safety).toMatch(/^Safety evidence:/)
+    expect(record?.safety).toMatch(slug === 'green-tea-extract-egcg' ? /^CONCENTRATED .*LIVER WARNING:/ : /^Safety evidence:/)\n    expect(record?.safety).toContain('Safety evidence:')
     expect(record?.contraindications).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.indexability_status).toBe(core.indexability_status)
