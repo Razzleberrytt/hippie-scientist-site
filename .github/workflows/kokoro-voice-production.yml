@@ -15,8 +15,6 @@ jobs:
     timeout-minutes: 30
     env:
       THS_VOICE_VAULT: .cache/ths-voice-vault
-      HF_HOME: ${{ runner.temp }}/ths-hf-offline
-      HF_HUB_OFFLINE: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -41,20 +39,17 @@ jobs:
           sudo apt-get install -y espeak-ng
           python -m pip install --upgrade pip
           python -m pip install -r scripts/distribution/requirements-local-voice.txt
-      - name: Recover pinned narrator from permanent immutable release
+      - name: Restore original portable ONNX narrator from permanent release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$THS_VOICE_VAULT/voices"
-          gh release download ths-kokoro-torch-am-michael-v1 --repo "$GITHUB_REPOSITORY" --dir "$THS_VOICE_VAULT"
-          mv "$THS_VOICE_VAULT/am_michael.pt" "$THS_VOICE_VAULT/voices/am_michael.pt"
+          mkdir -p "$THS_VOICE_VAULT"
+          gh release download ths-kokoro-onnx-am-michael-int8-v1 --repo "$GITHUB_REPOSITORY" --dir "$THS_VOICE_VAULT"
           python scripts/distribution/voice-vault.py verify "$THS_VOICE_VAULT"
-          python scripts/distribution/voice-vault.py restore "$THS_VOICE_VAULT"
       - name: Render exact Kokoro narration and timing
         env:
-          HF_HUB_DISABLE_XET: '1'
         run: |
           python scripts/distribution/render-local-narration.py \
             --package-dir artifacts/narration/active \
@@ -69,15 +64,15 @@ jobs:
           obj=json.loads((p/'narration.wav.receipt.json').read_text())
           timeline=json.loads((p/'semantic-beat-timeline.json').read_text())
           def sha(f): return hashlib.sha256((p/f).read_bytes()).hexdigest()
-          assert obj['engine']['name']=='kokoro'
+          assert obj['engine']['name']=='kokoro-onnx'
           assert obj['engine']['model']=='Kokoro-82M'
           assert obj['engine']['voice']=='am_michael'
           import os
           vault=json.loads(pathlib.Path(os.environ['THS_VOICE_VAULT'],'voice-vault.json').read_text())
-          assert obj['engine']['modelSourceRevision']==vault['revision']
-          assert obj['engine']['modelWeightsSha256']==vault['files']['kokoro-v1_0.pth']['sha256']
-          assert obj['engine']['voiceWeightsSha256']==vault['files']['voices/am_michael.pt']['sha256']
-          assert obj['engine']['modelConfigSha256']==vault['files']['config.json']['sha256']
+          assert obj['engine']['modelSourceRelease']==vault['upstreamRelease']
+          assert obj['engine']['modelWeightsSha256']==vault['assets']['kokoro-v1.0.int8.onnx']
+          assert obj['engine']['voiceWeightsSha256']==vault['assets']['voices-v1.0.bin']
+          assert obj['engine']['voiceVaultTag']==vault['tag']
           assert obj['accountRequired'] is False
           assert obj['meteredCreditsRequired'] is False
           assert sha('narration.wav')==obj['output']['sha256']==timeline['audioSha256']
