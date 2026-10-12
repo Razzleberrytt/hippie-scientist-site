@@ -7,9 +7,9 @@ const object=(id,kind,bbox=[100,200,80,65],emphasisLevel=0)=>({objectId:id,kind,
 function fixture(){
  const board={schemaVersion:'ths-r819-storyboard-v1',heroBeatId:'hero',
  compositingOrder:['art','mechanism','trust'],beats:[
- {id:'hook',start:0,end:3,hook:true,hookObjectId:'dial',artAssetIds:['cellular-organic-navy-teal']},
- {id:'hero',start:3,end:7,hero:true,heroObjectId:'receptor',artAssetIds:['cellular-organic-navy-teal']},
- {id:'reports',start:7,end:20,artAssetIds:['cellular-organic-navy-teal'],alignmentReceiptSha256:h,
+ {id:'hook',start:0,end:3,hook:true,hookObjectId:'dial',artAssetRefs:[{id:'cellular-organic-navy-teal',sha256:'f63b9207682e8d56d511603e6fa27859a013e9dfdbe71c66b9c8f5236cf12a6b'}]},
+ {id:'hero',start:3,end:7,hero:true,heroObjectId:'receptor',artAssetRefs:[{id:'cellular-organic-navy-teal',sha256:'f63b9207682e8d56d511603e6fa27859a013e9dfdbe71c66b9c8f5236cf12a6b'}]},
+ {id:'reports',start:7,end:20,artAssetRefs:[{id:'cellular-organic-navy-teal',sha256:'f63b9207682e8d56d511603e6fa27859a013e9dfdbe71c66b9c8f5236cf12a6b'}],alignmentReceiptSha256:h,
  items:Array.from({length:6},(_,i)=>({objectId:'card'+i,cueSeconds:7+i*2,wordId:'word'+i}))}]}
  const t={schemaVersion:'ths-r819-object-telemetry-v1',origin:'renderer-object-geometry',
  rendererSha256:h,sourceSha256:h,canvas:{width:1080,height:1920},sampleFps:5,beats:[
@@ -56,4 +56,11 @@ test('real needle rotation counts; moving karaoke alone does not',()=>{
   t.beats[0].frames[i].objects[0].rotationDeg=i*9
  }
  expect(verifyR819WowGates(board,t).perBeat[0].semanticChangeEvents).toBeGreaterThan(0)
+})
+
+test('storyboard asset reference with swapped SHA is rejected even when manifest bytes are pinned',()=>{
+ const root=path.resolve(new URL('../',import.meta.url).pathname)
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/r819/art-manifest.json')))
+ const {board}=fixture();board.beats[1].artAssetRefs[0].sha256=h
+ expect(()=>verifyR819ArtAssets(root,manifest,board)).toThrow(/art ID and SHA binding/)
 })
