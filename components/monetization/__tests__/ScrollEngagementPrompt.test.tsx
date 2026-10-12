@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import Link from 'next/link'
 import ScrollEngagementPrompt from '../ScrollEngagementPrompt'
 
 describe('ScrollEngagementPrompt footer privacy accessibility', () => {
@@ -30,7 +31,7 @@ describe('ScrollEngagementPrompt footer privacy accessibility', () => {
     render(
       <>
         <footer className='editorial-footer'>
-          <a href='/info/privacy/'>Privacy</a>
+          <Link href='/info/privacy/'>Privacy</Link>
           <button>Privacy settings</button>
         </footer>
         <ScrollEngagementPrompt storageKey='visual-audit-checklist' />
