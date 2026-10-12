@@ -1,26 +1,24 @@
 import assert from 'node:assert/strict'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 
-const roundFiles = [
-  'docs/research/deep-enrichment-10-2026-10-11.md',
-  'docs/research/deep-enrichment-11-2026-10-11.md',
-  'docs/research/deep-enrichment-12-2026-10-12.md',
-  'docs/research/deep-enrichment-13-2026-10-12.md',
-  'docs/research/deep-enrichment-14-2026-10-12.md',
-  'docs/research/deep-enrichment-15-2026-10-12.md',
-]
+const dir = 'docs/research'
+const filePattern = /^deep-enrichment-(\d+)-(\d{4}-\d{2}-\d{2})\.md$/
+const candidates = readdirSync(dir).filter((name) => name.startsWith('deep-enrichment-'))
+const rounds = candidates.map((name) => {
+  const match = name.match(filePattern)
+  assert(match, `Unrecognized research dossier name: ${name}`)
+  return { round: Number(match[1]), file: `${dir}/${name}` }
+}).filter(({ round }) => round >= 10).sort((a, b) => a.round - b.round)
 
-const read = (path) => readFileSync(path, 'utf8')
+assert(rounds.length >= 6, 'Original six enrichment rounds must remain present')
 const sourceIDs = new Set()
 let count = 0
-
-for (const [index, file] of roundFiles.entries()) {
+for (const [index, { round, file }] of rounds.entries()) {
+  if (index) assert.equal(round, rounds[index - 1].round + 1, 'Research rounds cannot disappear or be duplicated')
   assert(existsSync(file), `Missing public research source: ${file}`)
-  const content = read(file)
-  const round = index + 10
+  const content = readFileSync(file, 'utf8')
   const headings = [...content.matchAll(/^## (DE\d+-\d+)\s+[—–-]\s+(.+)$/gm)]
-  assert.equal(headings.length, 10, `Expected 10 studies in Round ${round}`)
-
+  assert.equal(headings.length, 10, `Expected ten investigations in DE${round}`)
   for (let i = 0; i < headings.length; i++) {
     const heading = headings[i]
     assert.equal(heading[1], `DE${round}-${String(i + 1).padStart(2, '0')}`)
@@ -32,7 +30,10 @@ for (const [index, file] of roundFiles.entries()) {
   }
 }
 
-assert.equal(count, 60, 'Do not silently hide a Deep Enrichment investigation')
+assert.equal(count, rounds.length * 10, 'Do not silently hide an investigation')
+const loader = readFileSync('lib/research-deep-enrichment-public.ts', 'utf8')
+assert(loader.includes('readdirSync('), 'Public research discovery must read source files automatically')
+assert(loader.includes('RESEARCH_NAME'), 'Public research discovery must validate dossier filenames')
 assert(existsSync('app/research/investigations/page.tsx'))
 assert(existsSync('app/research/investigations/[round]/page.tsx'))
 const links = [
@@ -42,11 +43,12 @@ const links = [
   'app/research/source-register/page.tsx',
 ]
 for (const file of links) {
-  assert(read(file).includes('/research/investigations'), `Missing route link: ${file}`)
+  assert(readFileSync(file, 'utf8').includes('/research/investigations'), `Missing navigation link: ${file}`)
 }
-const details = read('app/research/investigations/[round]/page.tsx')
-assert(details.includes('index: false'), 'Raw, unreviewed notes must remain noindex')
-assert(details.includes('item.body'), 'Original investigation text must remain accessible')
-assert(read('app/research/investigations/page.tsx').includes('getDeepEnrichmentRounds'), 'Index must use actual merged documents')
-
-console.log(`SUCCESS: 6 public research rounds, ${count} complete investigations, ${sourceIDs.size} unique linked PMIDs; full notes available, independent review gate intact.`)
+const detailPage = readFileSync('app/research/investigations/[round]/page.tsx', 'utf8')
+assert(detailPage.includes('index: false'), 'Unreviewed clinical source notes remain noindex')
+assert(detailPage.includes('item.body'), 'Original source notes must remain accessible')
+const indexPage = readFileSync('app/research/investigations/page.tsx', 'utf8')
+assert(indexPage.includes('getDeepEnrichmentRounds'), 'Index must use original dossiers')
+assert(!/All 60 investigation|these six documents|Browse 60/.test(indexPage), 'Avoid hard-coded counts that age poorly')
+console.log(`SUCCESS: ${rounds.length} rounds, ${count} investigations and ${sourceIDs.size} unique linked PMIDs represented in dynamic public inventory.`)
