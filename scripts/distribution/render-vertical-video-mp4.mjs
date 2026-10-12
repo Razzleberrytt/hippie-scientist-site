@@ -148,16 +148,7 @@ function verifyPackage(packageDir) {
       renderedSceneAssetsSha256:meta.renderedSceneAssetsSha256
     })
     r818TelemetryProof={sha256:meta.sha256, ...checked,sourceManifestSha256:t.sourceManifestSha256}
-    const native=manifest.r818NativeFrames
-    if(native?.file!=='r818-native-frames.json'||!hex64(native.sha256))
-      throw Error('R8.18 native frame manifest missing; refusing static SVG delivery')
-    const filePath=assertCanonicalChild(packageDir,native.file,/^r818-native-frames\.json$/)
-    const frameBytes=fs.readFileSync(filePath)
-    if(sha256(frameBytes)!==native.sha256)
-      throw Error('R8.18 native frame manifest hash differs from package')
-    r818NativeFrames=verifyR818NativeFrames(packageDir,JSON.parse(frameBytes.toString('utf8')),timeline.scenes)
-    if(r818NativeFrames.frameCount!==native.nativeFrames)
-      throw Error('R8.18 actual frame count mismatches manifest')
+
   }
 
   const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\.json$/)
@@ -248,6 +239,18 @@ function verifyPackage(packageDir) {
   }
   if (!timingMatches(expectedStart, durationSeconds) || !timingMatches(totalDuration, durationSeconds)) {
     throw new Error('video scene timing does not cover the exact governed runtime')
+  }
+  if(r817Active){
+    const native=manifest.r818NativeFrames
+    if(native?.file!=='r818-native-frames.json'||!/^[a-f0-9]{64}$/.test(String(native.sha256||'')))
+      throw Error('R8.18 native frame manifest missing; refusing static SVG delivery')
+    const filePath=assertCanonicalChild(packageDir,native.file,/^r818-native-frames\.json$/)
+    const frameBytes=fs.readFileSync(filePath)
+    if(sha256(frameBytes)!==native.sha256)
+      throw Error('R8.18 native frame manifest hash differs from package')
+    r818NativeFrames=verifyR818NativeFrames(packageDir,JSON.parse(frameBytes.toString('utf8')),timeline.scenes)
+    if(r818NativeFrames.frameCount!==native.nativeFrames)
+      throw Error('R8.18 actual frame count mismatches manifest')
   }
 
   return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof, r818TelemetryProof, r818NativeFrames }
