@@ -128,7 +128,7 @@ def produce(job):
    img.convert('RGB').save(file)
    frames.append({'frameIndex':fi,'file':str(file.relative_to(out)),'sha256':digest(file.read_bytes())})
    if fi%6==0:samples.append({'time':round(scene['start']+fi/30,6),'objects':objects})
-  telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action=='ligand-enters-pocket' else 'native-svg-geometry'},
+  telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action=='ligand-enters-pocket' else 'native-2d-canvas-geometry'},
     'frames':samples,'metrics':{'longestNativePocketDwellFrames':maxPocketStreak}})
   native_beats.append({'beatId':bid,'frames':frames});total+=count
  frame_doc={'schemaVersion':'ths-r818-native-frames-v1','fps':30,'width':W,'height':H,'beats':native_beats}
