@@ -4,7 +4,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { test } from 'vitest'
-import { extractCitationIdentity, normalizeCitationUrl, selectProtectedAssets, sourceOwner } from '../ai-citation-protection-core.mjs'
+import { extractCitationIdentity, normalizeCitationUrl, selectProtectedAssets, sourceOwner, protectedSourceOwner } from '../ai-citation-protection-core.mjs'
 
 const root = process.cwd()
 const readJson = file => JSON.parse(readFileSync(file, 'utf8'))
@@ -41,7 +41,10 @@ test('dated source snapshot protects real citation winners, not invented page/qu
   assert.ok(urls.has('/articles/mitragynine/'))
   assert.ok(urls.has('/articles/how-to-choose-supplement-quality/'))
   assert.ok(urls.has('/articles/2c-b-effects/'))
-  assert.ok(ledger.unresolved.some(x => x.url === '/articles/magnesium-types-for-sleep/'))
+  assert.equal(ledger.coveredCitations, 41118)
+  assert.equal(ledger.coveragePct, 83.61)
+  assert.ok(ledger.assets.some(x => x.url === '/articles/magnesium-types-for-sleep/' && x.redirect?.to === '/guides/sleep/magnesium-types-for-sleep/'))
+  assert.equal(ledger.unresolved.length, 0)
 })
 
 test('checked-in ledger is reproducible from the dated public derived signal and canonical sources', () => {
@@ -74,6 +77,15 @@ test('source lookup distinguishes published TSX guides, article MDX and blog MDX
     assert.equal(sourceOwner(fixtures, '/articles/mitragynine/'), 'content/articles/mitragynine.mdx')
     assert.equal(sourceOwner(fixtures, '/articles/2c-b-effects/'), 'content/blog/2c-b-effects.mdx')
     assert.equal(sourceOwner(fixtures, '/articles/nonexistent/'), null)
+    add('app/guides/sleep/magnesium-types-for-sleep/page.tsx', "const TITLE = 'Magnesium Types for Sleep'\nexport const metadata = { title: TITLE, alternates: { canonical: '/guides/sleep/magnesium-types-for-sleep/' } }")
+    add('public/_redirects', '/articles/magnesium-types-for-sleep /guides/sleep/magnesium-types-for-sleep/ 301\n/articles/magnesium-types-for-sleep/ /guides/sleep/magnesium-types-for-sleep/ 301\n')
+    assert.equal(sourceOwner(fixtures, '/articles/magnesium-types-for-sleep/'), null)
+    const redirected = protectedSourceOwner(fixtures, '/articles/magnesium-types-for-sleep/')
+    assert.deepEqual(redirected, { sourceFile: 'app/guides/sleep/magnesium-types-for-sleep/page.tsx', redirect: {
+      to: '/guides/sleep/magnesium-types-for-sleep/', status: 301, rulesFile: 'public/_redirects',
+    } })
+    add('public/_redirects', '/articles/magnesium-types-for-sleep/ /guides/sleep/magnesium-types-for-sleep/ 302\n')
+    assert.equal(protectedSourceOwner(fixtures, '/articles/magnesium-types-for-sleep/'), null)
     assert.equal(normalizeCitationUrl('https://www.thehippiescientist.net/articles/mitragynine/'), '/articles/mitragynine/')
     assert.equal(normalizeCitationUrl('https://another-site.test/articles/mitragynine/'), null)
     assert.equal(normalizeCitationUrl('/articles/../../etc/passwd'), null)
