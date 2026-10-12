@@ -12,7 +12,8 @@ function readLayer(root,item,beatId,index,kind){
    'r819-layers/'+beatId+'/f'+String(index).padStart(5,'0')+'-'+kind+'.png'
  if(item?.file!==expected||!isHex(item.sha256))throw Error('R8.19 missing/unpinned '+kind+' layer at '+beatId+'/'+index)
  const file=path.resolve(root,item.file)
- if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())
+ if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()||
+    !fs.realpathSync(file).startsWith(root+path.sep))
   throw Error('R8.19 illegal or absent '+kind+' layer path')
  const bytes=fs.readFileSync(file)
  if(bytes.length<100||!bytes.subarray(0,8).equals(PNG)||bytes.readUInt32BE(16)!==1080||
