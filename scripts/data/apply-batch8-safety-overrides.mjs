@@ -28,8 +28,11 @@ function appendUniqueSafety(previous, alert) {
   const earlier = typeof previous === 'string' ? previous.trim() : ''
   const warning = String(alert || '').trim()
   if (!warning) throw new Error('Batch 8 safety alert cannot be empty')
-  if (!earlier || earlier.includes(warning)) return earlier || warning
-  return `${earlier}\n\n${warning}`
+  if (!earlier || earlier.startsWith(warning)) return earlier || warning
+  // Always surface the qualified danger warning in the first two sentences.
+  // Move a previously appended copy to the front without duplicating it.
+  const legacy = earlier.replace(warning, '').trim()
+  return legacy ? `${warning}\n\n${legacy}` : warning
 }
 function mergeWarnings(existing, next) {
   const out = Array.isArray(existing) ? [...existing] : []
