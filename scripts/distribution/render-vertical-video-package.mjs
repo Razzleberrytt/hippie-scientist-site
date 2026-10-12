@@ -951,6 +951,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       renderScene: renderVerticalVideoSceneSvg,
       sourceUrl: mediaPack.source.url, contentHash: mediaPack.source.contentHash,
       disclosure,
+      r812Enabled: creativeSpec.r812?.enabled === true,
     })
     if (r811Bundle.receipt.planSha256 !== creativeSpec.r811Experiment?.planSha256) {
       throw Error('R8.11 derivative pack cannot override approved experiment receipt')
