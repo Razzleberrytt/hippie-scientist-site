@@ -10,6 +10,7 @@ import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } fro
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
 import { measureR817HookCenterChange } from './r817-rendered-evidence.mjs'
+import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
 import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
 import {
@@ -125,11 +126,26 @@ function verifyPackage(packageDir) {
     throw Error('R8.17 canonical plan sidecar mismatch; no legacy-quality downgrade')
   }
   let r817Proof = null
+  let r818TelemetryProof = null
   if (r817Active) {
     const file = assertCanonicalChild(packageDir, manifest.r817FirstPass.file, /^r817-first-pass\.json$/)
     const bytes = fs.readFileSync(file)
     if (sha256(bytes) !== manifest.r817FirstPass.sha256) throw Error('R8.17 immutable first-pass plan hash mismatch')
-    r817Proof = assertR817FirstPass(JSON.parse(bytes.toString('utf8')), manifest)
+    const plan=JSON.parse(bytes.toString('utf8'))
+    r817Proof = assertR817FirstPass(plan, manifest)
+    const meta=manifest.r818Telemetry
+    if(!meta||meta.file!=='r818-telemetry.json')throw Error('R8.18 telemetry manifest sidecar missing')
+    const telemetryFile=assertCanonicalChild(packageDir,meta.file,/^r818-telemetry\.json$/)
+    const telemetryBytes=fs.readFileSync(telemetryFile)
+    if(sha256(telemetryBytes)!==meta.sha256)throw Error('R8.18 renderer telemetry changed after package')
+    const t=JSON.parse(telemetryBytes.toString('utf8'))
+    if(t.sourceManifestSha256!==meta.sourceManifestSha256)
+      throw Error('R8.18 telemetry source-manifest changed')
+    const checked=assertR818TelemetryBinding(plan,t,{
+      rendererCodeSha256:meta.rendererCodeSha256,
+      renderedSceneAssetsSha256:meta.renderedSceneAssetsSha256
+    })
+    r818TelemetryProof={sha256:meta.sha256, ...checked,sourceManifestSha256:t.sourceManifestSha256}
   }
 
   const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\.json$/)
@@ -222,7 +238,7 @@ function verifyPackage(packageDir) {
     throw new Error('video scene timing does not cover the exact governed runtime')
   }
 
-  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof }
+  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof, r818TelemetryProof }
 }
 
 function verifyLocalNarration(packageDir, manifest) {
@@ -566,7 +582,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
-      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels } : null,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes) } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
