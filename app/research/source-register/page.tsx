@@ -58,6 +58,9 @@ export default async function SourceRegisterPage() {
           <Link href='/research/intelligence/' className='inline-flex min-h-11 items-center rounded-full border border-brand-700/35 bg-brand-50 px-5 py-2 text-sm font-semibold text-brand-800 hover:bg-brand-100'>
             Enter the Science Intelligence Studio ↗
           </Link>
+          <Link href='/research/investigations/' className='inline-flex min-h-11 items-center rounded-full border border-brand-700/35 bg-brand-50 px-5 py-2 text-sm font-semibold text-brand-800 hover:bg-brand-100'>
+            Browse deep research investigations →
+          </Link>
           <Link href='/learn/citation-explorer/' className='inline-flex min-h-11 items-center rounded-full bg-brand-800 px-5 py-2 text-sm font-semibold text-white hover:bg-brand-700'>
             Explore published evidence →
           </Link>
