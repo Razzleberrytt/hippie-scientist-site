@@ -109,6 +109,16 @@ export function buildLosslessCreativeSpec(input) {
       reason: 'R8.10 requires seven reviewed semantic roles, source ledger and temporal preflight.',
     })
     : null
+  const r812 = input?.creativeBrief?.r812 ?? input?.r812 ?? null
+  if (r812 != null) {
+    if (r812?.enabled !== true || creativeMethodRelease !== 'R8.10'
+      || systemRelease !== 'R8.05' || productionSystemRelease !== 'R8.11') {
+      throw Error('R8.12 is opt-in and requires approved R8.11/R8.10 methodology on the R8.05 voice runtime')
+    }
+    if (!/^https:\/\/thehippiescientist\.net\/articles\/[a-z0-9-]+\/?$/.test(String(r812.ctaUrl || ''))) {
+      throw Error('R8.12 requires the exact article URL in the governed creative brief')
+    }
+  }
   const r811Plan = productionSystemRelease === 'R8.11' ? input?.creativeBrief?.r811 : null
   const r811Receipt = productionSystemRelease === 'R8.11'
     ? r810Receipt?.status === 'approved' ? buildR811Receipt(r811Plan, { creativeR810: r810Receipt })
@@ -312,6 +322,7 @@ export function buildLosslessCreativeSpec(input) {
     productionSystemRelease,
     r811Experiment: r811Receipt,
     r811Plan,
+    r812: r812 == null ? null : {enabled:true,ctaUrl:r812.ctaUrl},
     creativeQuality: r805Receipt,
     creativeFoundation: ['R8.07', 'R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? r806Receipt : null,
     creativeVisualFoundation: ['R8.08', 'R8.09', 'R8.10'].includes(creativeMethodRelease) ? r807Receipt : null,

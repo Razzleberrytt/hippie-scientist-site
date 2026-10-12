@@ -11,6 +11,7 @@ import { buildR809CreativeReceipt } from './r809-creative-gate.mjs'
 import { buildR810CreativeReceipt, assertR810TimedScenes } from './r810-creative-gate.mjs'
 import { buildR811Receipt } from './r811-creative-operations.mjs'
 import { buildR811DraftAssets } from './r811-derived-assets.mjs'
+import { assertR812Storyboard, renderR812MechanismSvg } from './r812-mechanisms.mjs'
 import { cachedR810BeatSvg, defaultR810CacheRoot } from './r810-beat-cache.mjs'
 import { renderR809CaptionsSrt } from './r809-caption-track.mjs'
 import { renderR809VisualActor } from './r809-visual-actors.mjs'
@@ -527,6 +528,10 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       colorTreatment: colorTreatmentForRole(clean(beat.role), beat.colorTreatment),
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
+      r812Enabled: creativeSpec.r812?.enabled === true,
+      r812Role: creativeSpec.creativeR810?.slots?.find(slot => slot.beatId === beat.id)?.role ?? null,
+      r812Mechanism: beat?.r812?.mechanism ?? null,
+      r812CtaUrl: creativeSpec.r812?.enabled === true && clean(beat.role)==='cta' ? clean(creativeSpec.r812.ctaUrl) : null,
       compositionFamily: clean(beat?.r807?.compositionFamily),
       visualScene: clean(beat?.r809?.visualScene),
       rhythmAction: clean(beat?.r807?.rhythmAction),
@@ -673,6 +678,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   if (sourceScene && lines.join('') !== sourceUrl) throw new Error('dedicated source scene must render the exact canonical URL')
 
   const safe = verticalPlatformIntersection()
+  if (scene.r812Enabled === true && (!lines.length || lines.length > 4)) throw Error('R8.12 safe-area text: all visible scene headings must fit within four lines')
   const x = safe.left
   const safeRight = canvas.width - safe.right
   const safeWidth = safeRight - x
@@ -694,8 +700,24 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     throw new Error(`R8.08 ${scene.role} is unreadable in the actual mobile platform safe area`)
   }
   const compositionTop = contentTop + (lines.length * lineHeight) + 72
+  if (scene.r812Enabled === true && (compositionTop >= disclosureY - 220 || lineHeight * lines.length > 380)) throw Error('R8.12 safe-area text: caption/title would overlap artwork, sources or bottom disclosure')
+  if (scene.r812Enabled === true && scene.r812Mechanism && compositionTop + 165 + 505 >= disclosureY - 50) {
+    throw Error('R8.12 mechanism qualifier/PMID at 42px would overlap the bottom disclosure: re-author approved scene layout')
+  }
   const compositionVisible = r809 || !(scene.motionType === 'reveal' && motionPhase === 'pre')
-  const composition = r809 && scene.role !== 'source'
+  const ctaDestination = scene.r812CtaUrl && scene.role === 'cta'
+    ? (() => {
+        const u = new URL(scene.r812CtaUrl)
+        if(u.protocol!=='https:' || u.hostname!=='thehippiescientist.net' || !/^\/articles\/[a-z0-9-]+\/?$/.test(u.pathname)) throw Error('R8.12 CTA requires a specific on-site article URL')
+        const visible=u.hostname+u.pathname
+        return `<g data-r812-cta-destination="${escapeXml(visible)}"><rect x="${x}" y="${compositionTop+70}" width="${safeWidth}" height="260" rx="34" fill="#182e31" stroke="${foreground}" stroke-width="5"/><text x="${x+36}" y="${compositionTop+160}" font-size="32" fill="${foreground}">Read the evidence:</text><text x="${x+36}" y="${compositionTop+222}" font-size="27" fill="${foreground}">${escapeXml(visible)}</text></g>`
+      })()
+    : null
+  const composition = ctaDestination ?? (scene.r812Mechanism && r810 && scene.role !== 'source'
+    ? renderR812MechanismSvg(scene.r812Mechanism, {
+        x, y:compositionTop + 165, width:safeWidth, phase:motionPhase === 'pre' ? 'pre' : 'post', foreground,
+      })
+    : r809 && scene.role !== 'source'
     ? (compositionVisible
       ? [
           // R8.07 visual rhythm and returning motif are inherited, not discarded.
@@ -719,7 +741,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
           foreground,
           motionPhase,
         })
-      : ''
+      : '')
   const ledgerLines = r810 && sourceScene ? (scene.sourceLedgerLines || []) : []
   if (r810 && sourceScene && (!ledgerLines.length || ledgerLines.length > 5)) throw Error('R8.10 source card requires approved ledger lines')
   const ledgerSvg = ledgerLines.map((line, index) => `<text data-r810-ledger-line="${index + 1}" x="${x}" y="${Math.min(disclosureY - 110, compositionTop + 40) + index * 48}" font-size="32" fill="${foreground}">${escapeXml(line)}</text>`).join('')
@@ -744,6 +766,10 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     motionCueMethod: scene.motionCueMethod || null,
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
+    r812Enabled: scene.r812Enabled === true,
+    r812Role: scene.r812Role || null,
+    r812Mechanism: scene.r812Mechanism || null,
+    r812CtaUrl: scene.r812CtaUrl || null,
     compositionFamily: scene.compositionFamily || null,
     visualScene: scene.visualScene || null,
     rhythmAction: scene.rhythmAction || null,
@@ -774,6 +800,19 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     ? buildTimelineR805(mediaPack, creativeSpec, dir)
     : { scenes: buildTimelineR804(mediaPack, creativeSpec), durationSeconds: 30, bindings: null }
   const { scenes, durationSeconds, bindings } = built
+  if (creativeSpec.r812?.enabled === true) {
+    if (creativeSpec.systemRelease !== 'R8.05'
+      || creativeSpec.creativeMethodRelease !== 'R8.10'
+      || creativeSpec.productionSystemRelease !== 'R8.11'
+      || creativeSpec.creativeR810?.status !== 'approved'
+      || creativeSpec.r811Experiment?.status === 'concept-required'
+      || !creativeSpec.r811Plan) {
+      throw Error('R8.12 requires approved R8.10/R8.11 lineage and reviewed plan; no bypass of mechanism or loudness QA')
+    }
+    assertR812Storyboard(scenes, {requireHooks:Boolean(creativeSpec.r811Plan),
+      hookApproaches:creativeSpec.r811Plan ? ['question','contrast','reveal'] : [],
+      ctaUrl:creativeSpec.r812.ctaUrl})
+  }
   const disclosure = clean(creativeSpec.delivery.disclosure)
   const rendererCodeSha256 = sha256(fs.readFileSync(new URL(import.meta.url)))
   function authoredScene(scene, options) {
@@ -926,6 +965,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
       renderScene: renderVerticalVideoSceneSvg,
       sourceUrl: mediaPack.source.url, contentHash: mediaPack.source.contentHash,
       disclosure,
+      r812Enabled: creativeSpec.r812?.enabled === true,
     })
     if (r811Bundle.receipt.planSha256 !== creativeSpec.r811Experiment?.planSha256) {
       throw Error('R8.11 derivative pack cannot override approved experiment receipt')
@@ -944,6 +984,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     productionSystemRelease: creativeSpec.productionSystemRelease || null,
+    r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,
     r811Derivatives: r811Bundle
