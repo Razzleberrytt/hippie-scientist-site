@@ -84,6 +84,13 @@ export function assertR817FirstPass(plan,manifest){
       if(nv.legacyValue!==undefined||nv.startValue!==undefined||nv.freehandValue!==undefined)fail("R8.17 numbers must be generated from canonical claim value, not placeholders: "+id);
     }
     for(const usedId of used)if(!claims.has(usedId))fail("R8.17 scene cites an unregistered claim: "+id);
+    if(['hook','mechanism','evidence','finding','safety','limitation'].includes(b?.role)&&used.length===0)
+      fail("R8.17 substantive scientific beat needs source-bound claim IDs: "+id);
+    for(const usedId of used){
+      const c=claims.get(usedId);
+      if(c && (!Array.isArray(b?.onScreenSourceIds)||!b.onScreenSourceIds.includes(c.sourceId)))
+        fail("R8.17 each scientific beat must display its exact own source footer: "+id);
+    }
     if(/\bdeaths?\b|\bfatalit/i.test(spoken+" "+normalize(b?.onScreenText))&&used.some(x=>claims.get(x)?.sourceType==="regulatory-signal")&&!/fda|regulator|safety signal/i.test(normalize(b?.sourceAttribution)))fail("R8.17 regulator death warning must display explicit FDA/signal attribution: "+id);
     if(b?.role==="cta")hasCta=true;
     if(/science\s*[/|]\s*signal\s*[/|]\s*context|00\d\s*[/|]\s*evidence/i.test(normalize(b?.onScreenText)))fail("R8.17 bans ornamental HUD and meaningless footer: "+id);
