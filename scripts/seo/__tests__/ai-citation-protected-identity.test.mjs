@@ -90,3 +90,34 @@ test('source identity ignores body revisions but detects actual title and canoni
   assert.deepEqual(extractCitationIdentity(before, 'content/articles/foo.md', '/articles/foo/'), extractCitationIdentity(after, 'content/articles/foo.md', '/articles/foo/'))
   assert.notDeepEqual(extractCitationIdentity(before, 'content/articles/foo.md', '/articles/foo/'), extractCitationIdentity(before.replace('Original source title', 'Retitled without migration'), 'content/articles/foo.md', '/articles/foo/'))
 })
+
+
+test('delegated stress H1 is fingerprinted from its actual shared renderer', () => withFixture(({root, write}) => {
+  write('app/guides/best/supplements-for-stress/page.tsx',
+    "import BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'\nconst CANONICAL_PATH = '/guides/best/supplements-for-stress/'\nexport const metadata = { title: 'Best Stress Guide', alternates: { canonical: CANONICAL_PATH } }\nexport default BestSupplementsForStressPage")
+  const delegate = 'app/guides/anxiety/best-supplements-for-stress/page.tsx'
+  write(delegate, '<h1 className="title">Actual stress heading</h1>')
+  const before = findCitationOwner(root, '/guides/best/supplements-for-stress/')
+  assert.equal(before.identity.h1, 'Actual stress heading')
+  assert.equal(before.identity.headingSourceFile, delegate)
+  write(delegate, '<h1 className="title">Unexpected changed heading</h1>')
+  assert.equal(findCitationOwner(root, '/guides/best/supplements-for-stress/').identity.h1, 'Unexpected changed heading')
+}))
+
+test('ADHD H1 follows exact article title and verifies the binding to its renderer', () => withFixture(({root, write}) => {
+  write('app/guides/adhd/l-theanine-for-adhd/page.tsx', [
+    "const SLUG = 'l-theanine-for-adhd'",
+    "export const metadata = buildPageMetadata({title: 'L-Theanine for ADHD', path: '/guides/adhd/l-theanine-for-adhd/'})",
+    'return <FocusAdhdArticlePage slug={SLUG} />',
+  ].join('\n'))
+  write('components/articles/FocusAdhdArticlePage.tsx', '<h1 className="title">{article.title}</h1>')
+  const model = 'lib/focus-adhd-articles.ts'
+  write(model, "export const articles = [{slug: 'l-theanine-for-adhd', title: 'Real article title'}]")
+  const initial = findCitationOwner(root, '/guides/adhd/l-theanine-for-adhd/')
+  assert.equal(initial.identity.h1, 'Real article title')
+  assert.equal(initial.identity.headingSourceFile, model)
+  write(model, "export const articles = [{slug: 'l-theanine-for-adhd', title: 'Different article title'}]")
+  assert.equal(findCitationOwner(root, '/guides/adhd/l-theanine-for-adhd/').identity.h1, 'Different article title')
+  write('components/articles/FocusAdhdArticlePage.tsx', '<h1 className="title">Hardcoded alternative</h1>')
+  assert.equal(findCitationOwner(root, '/guides/adhd/l-theanine-for-adhd/').identity, null)
+}))
