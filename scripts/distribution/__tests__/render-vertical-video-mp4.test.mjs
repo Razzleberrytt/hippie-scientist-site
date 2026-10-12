@@ -105,7 +105,7 @@ function fixture({ embeddedSourceUrl = 'https://thehippiescientist.net/herbs/ash
     '  process.exit(0)',
     '}',
     "if (args.includes('-show_entries')) {", 
-    "  console.log(JSON.stringify({ streams: [{ codec_name: 'aac', sample_rate: '48000', channels: 2, channel_layout: 'stereo' }] }))",
+    "  console.log(JSON.stringify({ streams: [{ codec_name: 'aac', sample_rate: '44100', channels: 2, channel_layout: 'stereo' }] }))",
     "  process.exit(0)",
     "}",
     "if (args.includes('volumedetect')) {",
@@ -148,7 +148,7 @@ describe('vertical video MP4 renderer', () => {
     expect(receipt.sourceUrl).toBe(sourceUrl)
     expect(receipt.sourceContentHash).toBe(sourceContentHash)
     expect(receipt.ffmpegVersion).toBe('ffmpeg version test-1.0')
-    expect(receipt.profile).toMatchObject({ width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', audio: true, audioCodec: 'aac', audioSampleRate: 48000, audioChannels: 2, audioChannelLayout: 'stereo', mobileAudioVerified: true, decodedAudio: { meanVolumeDb: -19, maxVolumeDb: -1.2 } })
+    expect(receipt.profile).toMatchObject({ width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', audio: true, audioCodec: 'aac', audioSampleRate: 44100, audioChannels: 2, audioChannelLayout: 'stereo', mobileAudioVerified: true, decodedAudio: { meanVolumeDb: -19, maxVolumeDb: -1.2 } })
     expect(receipt.localNarration).toMatchObject({
       engine: 'kokoro',
       engineKind: 'local-open-source',
