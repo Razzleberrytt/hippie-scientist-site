@@ -1,7 +1,7 @@
 // R8.17 canonical-first-pass quality gates: source-bound, deterministic, owner-first.
 
 // No new evidence authority, narrator substitution or auto-publishing.
-import { assertR817RetentionPlan } from './r817-retention-gates.mjs'
+import { assertR817RetentionPlan, assessR817RetentionMaster } from './r817-retention-gates.mjs'
 
 export const R817_CANONICAL = Object.freeze({
   "schemaVersion": "ths-evidencemotion-r817-first-pass-v1",
@@ -117,6 +117,23 @@ export function assessR817EncodedMaster(receipt){
   if(errors.length)throw Error(errors.join("\n"));
   const blockers=[];
   if(r.captionProof?.type!=="mfa-offline-reviewed")blockers.push("independent exact-audio word alignment pending");
+  if(r.motionProof?.outputSha256!==r.outputSha256||!hex64(r.motionProof?.sampledRawFramesSha256))
+    blockers.push("exact-master motion frame SHA/output binding missing");
+  if(r.hookFrames?.outputSha256!==r.outputSha256)
+    blockers.push("exact-master muted-twist frame identity missing");
+  if(r.ctaProof?.outputSha256!==r.outputSha256||
+      r.ctaProof?.primaryVisible!==true||r.ctaProof?.secondaryVisible!==true||
+      r.ctaProof?.safetyPrimary!==true)
+    blockers.push("exact-master safety CTA and sourced secondary open loop pixel verification missing");
+  try {
+    const retention=assessR817RetentionMaster({
+      motion:r.motionProof,hookFrames:r.hookFrames,muteTest:r.muteTest,
+      captionProof:r.captionProof
+    });
+    blockers.push(...retention.blockers);
+  } catch (error) {
+    blockers.push("R8.17 encoded-master retention proof invalid: "+error.message);
+  }
   if(r.ownerDeviceReview?.status!=="accepted")blockers.push("owner iPhone visual/listening acceptance pending");
   if(r.independentScientificReview?.status!=="approved")blockers.push("independent exact-master scientific review pending");
   if(r.ownerPublicationApproval!==true)blockers.push("owner publication approval pending");
