@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 import numpy as np
 W,H,FPS=1080,1920,30
-PALETTE={'ligand-enters-pocket':(38,133,208),'count-up-then-settle':(196,142,69),
+PALETTE={'reveals-hidden-action':(28,101,163),'ligand-enters-pocket':(38,133,208),'count-up-then-settle':(196,142,69),
  'bottle-rotates-to-reveal-label':(179,98,70),'reveal-emergency-guidance':(218,72,90)}
 FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 def digest(b):return hashlib.sha256(b).hexdigest()
@@ -79,7 +79,7 @@ def produce(job):
  out=Path(job['outputDir']);out.mkdir(parents=True,exist_ok=True)
  plan=job['plan'];scenes=job['scenes']
  if len(plan['beats'])!=len(scenes):raise ValueError('R8.18 missing beat inventory')
- vt=make_vtk() if any(b['semanticAction']=='ligand-enters-pocket' for b in plan['beats']) else None
+ vt=make_vtk() if any(b['semanticAction'] in ('ligand-enters-pocket','reveals-hidden-action') for b in plan['beats']) else None
  telemetry_beats=[];native_beats=[];total=0
  for beat,scene in zip(plan['beats'],scenes):
   action=beat['semanticAction'];bid=beat['id']
@@ -95,7 +95,32 @@ def produce(job):
     x,y,w,h=rect;objects.append({'objectId':oid,'kind':kind,'label':str(label),
       'bbox':[float(x),float(y),float(w),float(h)],'zIndex':2,'visible':True,
       'opacity':1,'value':value,**other})
-   if action=='ligand-enters-pocket':
+   if action=='reveals-hidden-action':
+    # Reveal the biological mechanism, not a literal bottle-to-molecule metamorphosis.
+    reveal=ease((t-.16)/.64)
+    generic=Image.new('RGBA',(W,H),(0,0,0,0))
+    rect=bottle(generic,t,beat.get('bottleLabel','Tianeptine'))
+    alpha=generic.getchannel('A').point(lambda v:int(v*(1-reveal)))
+    generic.putalpha(alpha);img.alpha_composite(generic)
+    if reveal>0:
+     threed,center,pocket,edge=image_vtk(vt,ease((t-.22)/.78))
+     threed.putalpha(threed.getchannel('A').point(lambda v:int(v*reveal)))
+     img.alpha_composite(threed,(0,300))
+    # Record the genuine rendered hidden -> visible transition.
+    ob(primary,beat['visualObject']['kind'],proof['beforeLabel'],rect,
+       visible=(reveal<.99),opacity=round(1-reveal,4))
+    ob(proof['targetObjectId'],'receptor-binding',proof['afterLabel'],
+       [275,505,530,650],visible=(reveal>.01),opacity=round(reveal,4),
+       activationLevel=round(reveal,4))
+    if reveal>.08:
+     ob('hook-ligand','ligand','Symbolic tianeptine',[center[0]-28,center[1]-28,56,56],
+        opacity=round(reveal,4))
+    d=ImageDraw.Draw(img,'RGBA')
+    d.text((540,1518),'PRODUCT TO RECEPTOR ACTION',font=font(29),
+      fill=(226,239,249),anchor='mm')
+    d.text((540,1556),'SYMBOLIC MODEL — NOT MEASURED DOCKING',font=font(23),
+      fill=(171,197,218),anchor='mm')
+   elif action=='ligand-enters-pocket':
     threed,center,pocket,edge=image_vtk(vt,p);img.alpha_composite(threed,(0,300))
     radius=math.dist(pocket,edge);pocket_bbox=[pocket[0]-radius,pocket[1]-radius,radius*2,radius*2]
     ob(subject,beat['visualObject']['kind'],'SYMBOLIC RECEPTOR',[275,505,530,650])
@@ -128,7 +153,7 @@ def produce(job):
    img.convert('RGB').save(file)
    frames.append({'frameIndex':fi,'file':str(file.relative_to(out)),'sha256':digest(file.read_bytes())})
    if fi%6==0:samples.append({'time':round(scene['start']+fi/30,6),'objects':objects})
-  telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action=='ligand-enters-pocket' else 'native-2d-canvas-geometry'},
+  telemetry_beats.append({'beatId':bid,'producer':{'instrumentation':'native-vtk-projection' if action in ('ligand-enters-pocket','reveals-hidden-action') else 'native-2d-canvas-geometry'},
     'frames':samples,'metrics':{'longestNativePocketDwellFrames':maxPocketStreak}})
   native_beats.append({'beatId':bid,'frames':frames});total+=count
  frame_doc={'schemaVersion':'ths-r818-native-frames-v1','fps':30,'width':W,'height':H,'beats':native_beats}
