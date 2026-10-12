@@ -49,3 +49,26 @@ Art remains byte-pinned AND each beat storyboard requires exact art ID plus asse
 **Engineering smoke only:** A local 12-second silent 1080x1920/30fps sample composed three independent raster layers: art, mechanism and trust. It rendered 360 full frames and 60 geometry samples. Nine independently recomposited source-layer snapshots exactly matched nine saved final PNGs pixel-for-pixel. This proves native layer separation, NOT high-end craft. The simple sample is still visually templated and has no verified speech word cues. It must not be published or scored 90+.
 
 Original voiced 7-OH flagship and owner-selected niche reference shelf/V craft verdict/owner phone approval remain pending. Green engineering tests do not grant any of those permissions.
+
+## Native three-layer encoder contract (new on this branch)
+
+R8.19 is no longer satisfied by passing a metadata preflight and then encoding the existing baked R8.18 PNGs. The canonical renderer now builds **every frame** from original pinned art, mechanism and trust PNG layers, in that order, then compares decoded RGBA pixel bytes against the corresponding verified R8.18 native frame. Any difference fails before FFmpeg can encode the mismatched frame.
+
+Activate ONLY with:
+- `manifest.creativeMethodRelease = "R8.10"` and existing exact MFA + model/dictionary/WAV/human-audition receipt.
+- `manifest.r819 = { enabled: true, compositorRelease: "R8.19", renderMode: "native-separated-art-mechanism-trust", storyboard, telemetry, artManifestSha256, layerSequence: { file: "r819-layer-sequence.json", sha256 } }`.
+- `manifest.r812.enabled = true` for final MP4 R128 loudness. R8.19 selects `creativeDirection.canonicalStyle = "dark-cellular-organic-v1"`; all older releases continue requiring the old 2.5D style label and are not silently migrated.
+
+The `r819-layer-sequence.json` document must use schema `ths-r819-layer-sequence-v1`, `width=1080`, `height=1920`, `fps=30`, `layerOrder=["art","mechanism","trust"]`, and exactly the same ordered beat IDs/frame counts as `r818-native-frames.json`. Every native frame has `frameIndex` and three exclusive layer metadata entries `{file,sha256}`:
+
+- `art.file="r819-layers/<beat-id>/art-base.png"` (static, reusable inside one beat, generated from pinned approved nonfactual art; it cannot carry labels/claims).
+- `mechanism.file="r819-layers/<beat-id>/f00000-mechanism.png"` for local native frame zero (increment the five-digit frame index).
+- `trust.file="r819-layers/<beat-id>/f00000-trust.png"` for the same frame index.
+
+Both mechanism and trust PNGs must have real alpha channels, and trust cannot be an entirely transparent empty plane. All files are verified for native dimensions, PNG signatures, exact SHA256, path confinement and inventory continuity. Every rebuilt frame must decode **pixel-identically** to the separately pinned R8.18 native full-frame proof. Final renderer still adds independently MFA-aligned ASS karaoke captions last, above the deterministic art/mechanism/trust frame, then performs existing final video/audio inspections.
+
+**Cost/meaning:** All 30fps images are explicit, inspectable reproducible inputs. The static background can be reused across the beat to reduce storage. This integrity gate proves actual layer usage and image equality, not visual originality. Brand look and audience-level quality still require reference comparison and V's exact-video veto.
+
+**Critical limitation:** The current 7-OH 54s narrated MP4 has baked-in captions and lacks its original reviewed R8.10 source/word-alignment package in the working files. Neither an extracted waveform, assumed transcript timestamps, a silent demonstration, nor an overlay-upscaled video may be substituted for the governed full source package. Complete first-party separated layer source delivery remains required for an accepted full 7-OH R8.19 review master.
+
+**Consolidation:** Duplicate draft #6725 was closed unmerged, history retained. #6726 is the R8.19 implementation candidate; #6724 remains the independent R8.18 long-beat motion quality fix. Green CI only clears engineering tests, not owner/V creative publication gates.
