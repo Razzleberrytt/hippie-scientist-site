@@ -30,13 +30,17 @@ export const RELEASE_SENSITIVE_PATTERNS = [
  * changed file is documentation, an inert generated/internal report, or a
  * workbook patch proposal — and a proposal is inert by construction, since
  * `apply-workbook-patch.mjs` refuses to write while a patch is in `proposal`
- * status. Operational inputs under ops/ intentionally stay on the full path.\n * Exception: editorial publication-pilot .md/.json files are review-only\n * research staging. No current website build or runtime importer reads them;\n * any other editorial-runtime paths remain on full validation.
+ * status. Operational inputs under ops/ intentionally stay on the full path.
+ * Exception: editorial publication-pilot .md/.json files are review-only
+ * research staging. No current website build or runtime importer reads them;
+ * any other editorial-runtime paths remain on full validation.
  *
  * @type {RegExp[]}
  */
 export const DOCS_ONLY_PATTERNS = [
   /^docs\//,
-  /^ops\/(?:reports?|audits?|snapshots?)\//,\n  /^ops\/editorial-runtime\/publication-pilots\/[^/]+\.(?:md|json)$/u,
+  /^ops\/(?:reports?|audits?|snapshots?)\//,
+  /^ops\/editorial-runtime\/publication-pilots\/[^/]+\.(?:md|json)$/u,
   /^data-sources\/workbook-patches\/[^/]+\.json$/,
   /^data-sources\/workbook-patches\/README\.md$/,
   /^\.github\/ISSUE_TEMPLATE\//,
