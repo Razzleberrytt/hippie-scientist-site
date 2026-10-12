@@ -84,6 +84,8 @@ export function extractIdentity(source, sourceFile, url, root = process.cwd()) {
   const slug = source.match(/\bconst\s+SLUG\s*=\s*(['"])([^'"]+)\1/)?.[2] || null
   if (slug && !route.endsWith('/' + slug + '/')) return null
   let h1 = source.match(/<h1(?:\s[^>]*)?>([^<{][^<{}]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() || null
+  const titleConstant = source.match(/\bconst\s+TITLE\s*=\s*(['"])([^\r\n]*?)\1/)?.[2]
+  if (!h1 && titleConstant && /<h1(?:\s[^>]*)?>\s*\{TITLE\}\s*<\/h1>/.test(source)) h1 = titleConstant.trim()
   let renderedBy = null
   const importedDefault = source.match(/\bimport\s+([A-Za-z_$][\w$]*)\s+from\s+(['"])(\.\.?\/[^'"]+\/page)\2/)
   if (importedDefault && new RegExp('\\bexport\\s+default\\s+' + importedDefault[1] + '\\b').test(source)) {
