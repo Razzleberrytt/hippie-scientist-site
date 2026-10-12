@@ -1,65 +1,40 @@
 #!/usr/bin/env node
-import { createHash } from 'node:crypto'
-import { existsSync, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import path from 'node:path'
+import { identityFailures, selectProtectedAssets } from '../seo/ai-citation-protected-assets-lib.mjs'
 
-const ROOT = process.cwd()
-const LEDGER = path.join(ROOT, 'config', 'ai-citation-protected-assets.json')
-const POLICY = path.join(ROOT, 'config', 'ai-citation-protection-policy.json')
-const sha = (value) => createHash('sha256').update(value ?? '').digest('hex')
-const readJson = (file) => JSON.parse(readFileSync(file, 'utf8'))
+const root = process.cwd()
+const read = (name) => JSON.parse(readFileSync(path.join(root, name), 'utf8'))
+const ledger = read('config/ai-citation-protected-assets.json')
+const policy = read('config/ai-citation-protection-policy.json')
+const manifest = read('config/ai-citation-swarm-priorities.json')
 
-function extractIdentity(source) {
-  const canonical = source.match(/canonical(?:s)?\s*:\s*(?:{[^}]*?)?["'`]([^"'`]+)["'`]/s)?.[1] ?? null
-  const title = source.match(/title\s*:\s*["'`]([^"'`]+)["'`]/)?.[1] ?? null
-  const h1 = source.match(/<h1(?:\s[^>]*)?>([^<{][\s\S]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
-  return { canonical, title, h1, fingerprints: { canonical: sha(canonical), title: sha(title), h1: sha(h1) } }
-}
-
-if (!existsSync(LEDGER)) {
-  console.error('[ai-citation-assets] missing durable ledger')
-  process.exit(1)
-}
-if (!existsSync(POLICY)) {
-  console.error('[ai-citation-assets] missing protection policy')
-  process.exit(1)
-}
-
-const ledger = readJson(LEDGER)
-const policy = readJson(POLICY)
 if (ledger.status !== 'ready' || !Array.isArray(ledger.assets) || ledger.assets.length === 0) {
-  console.log('[ai-citation-assets] no fresh protected assets yet; identity gate is fail-safe advisory')
+  console.error('[ai-citation-assets] no active durable protection baseline; refusing silent advisory pass')
+  process.exit(1)
+}
+const label = ledger.snapshotLabel
+const stamp = /^\d{4}-\d{2}-\d{2}$/.test(label ?? '') ? Date.parse(label + 'T00:00:00Z') : NaN
+const daysOld = (Date.now() - stamp) / 86400000
+if (!Number.isFinite(daysOld) || daysOld < -1 || daysOld > policy.staleAfterDays) {
+  console.warn('[ai-citation-assets] invalid/future/stale Bing snapshot; guard neutral for unrelated changes; refresh from verified Page Stats')
   process.exit(0)
 }
-
-if (ledger.sourceReportGeneratedAt) {
-  const ageDays = (Date.now() - Date.parse(ledger.sourceReportGeneratedAt)) / 86400000
-  if (Number.isFinite(ageDays) && ageDays > policy.staleAfterDays) {
-    console.log(`[ai-citation-assets] ledger is ${ageDays.toFixed(1)} days old; stale data will not block unrelated PRs`)
-    process.exit(0)
-  }
-}
-
 const failures = []
-for (const asset of ledger.assets) {
-  if (!asset.sourceFile) continue
-  const file = path.join(ROOT, asset.sourceFile)
-  if (!existsSync(file)) {
-    failures.push(`${asset.url}: source owner missing (${asset.sourceFile})`)
-    continue
-  }
-  const current = extractIdentity(readFileSync(file, 'utf8'))
-  for (const field of ['canonical', 'title', 'h1']) {
-    const baseline = asset.identity?.fingerprints?.[field]
-    if (!baseline) continue
-    if (current.fingerprints[field] !== baseline) failures.push(`${asset.url}: protected ${field} changed in ${asset.sourceFile}`)
-  }
+if (ledger.sourceKind !== 'owner-verified-derived-bing-page-stats' || ledger.snapshotLabel !== manifest.snapshotLabel) failures.push('source/snapshot mismatch')
+if (ledger.totals?.citations !== manifest.totals?.citations || ledger.totals?.citedUrls !== manifest.totals?.citedUrls) failures.push('derived source totals changed without reviewed baseline refresh')
+let expected
+try { expected = selectProtectedAssets({ root, manifest, policy }) } catch (e) { failures.push('invalid owner selection: ' + e.message) }
+if (expected) {
+  if (JSON.stringify(ledger.assets) !== JSON.stringify(expected.assets)) failures.push('baseline identities or coverage do not match current verified owner extraction')
+  if (JSON.stringify(ledger.unresolvedOwners) !== JSON.stringify(expected.unresolvedOwners)) failures.push('source ownership exceptions changed')
+  if (ledger.citationsCovered !== expected.citationsCovered || ledger.coveragePct !== expected.coveragePct) failures.push('citation coverage mismatch')
 }
-
+failures.push(...identityFailures(root, ledger))
 if (failures.length) {
-  console.error('[ai-citation-assets] protected identity regression detected:')
-  for (const failure of failures) console.error(`  - ${failure}`)
-  console.error('If intentional, refresh the ledger from a fresh Bing AI export and document migration/redirect/rollback in the PR.')
+  console.error('[ai-citation-assets] verified citation-winner identity regression:')
+  failures.forEach(f => console.error('  - ' + f))
+  console.error('For deliberate migration: document canonical/redirect/rollback proof and refresh the ledger from a dated verified source with human review.')
   process.exit(1)
 }
-console.log(`[ai-citation-assets] PASS protected assets=${ledger.assets.length}`)
+console.log('[ai-citation-assets] PASS: ' + ledger.assets.length + ' verified canonical source owners / ' + ledger.coveragePct + '% of dated Page Stats citations')
