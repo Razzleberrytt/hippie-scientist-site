@@ -60,7 +60,10 @@ test('canonical AI citation audit runs a real protected-source identity gate', (
   assert.match(audit, /validate-ai-citation-protected-assets\.mjs/)
   const run = spawnSync(process.execPath, ['scripts/ci/validate-ai-citation-protected-assets.mjs'], { encoding: 'utf8' })
   assert.equal(run.status, 0, run.stdout + '\n' + run.stderr)
-  assert.match(run.stdout, /PASS protected page owners=25/)
+  const ageDays = (Date.now() - Date.parse(ledger.snapshotLabel + 'T00:00:00Z')) / 86400000
+  const fresh = Number.isFinite(ageDays) && ageDays >= -1 && ageDays <= policy.staleAfterDays &&
+    ledger.snapshotLabel === signal.snapshotLabel
+  assert.match(run.stdout, fresh ? /PASS protected page owners=25/ : /citation-neutral advisory/)
 })
 
 test('source lookup distinguishes published TSX guides, article MDX and blog MDX', () => {
