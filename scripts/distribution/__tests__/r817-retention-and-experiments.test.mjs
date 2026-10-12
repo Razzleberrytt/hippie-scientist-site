@@ -71,6 +71,6 @@ test('R8.17 motion gate fails on static-scene frames even when no subtitles are 
  const raw=Buffer.concat(Array.from({length:60},(_,i)=>image(i<32?10:220)))
  const scenes=[{beatId:'hook',role:'hook',start:0,end:6},{beatId:'cta',role:'cta',start:6,end:12}]
  const m=measureR817FinalMotion(raw,scenes)
- expect(m.passesHardMotionThreshold).toBe(false)
+ expect(m.staticFraction).toBeGreaterThan(.4)
  expect(()=>assertR817FinalMotion(m)).toThrow(/motion blocked/)
 })
