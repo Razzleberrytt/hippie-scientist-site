@@ -32,6 +32,26 @@ export function sourceOwner(root, url) {
   return path.relative(root, found[0]).split(path.sep).join('/')
 }
 
+// Resolve only an explicit, same-site, permanent redirect with one canonical
+// destination. Redirected cited URLs are guarded by BOTH rule and target source.
+export function protectedSourceOwner(root, url) {
+  const route = normalizeCitationUrl(url)
+  if (!route) return null
+  const direct = sourceOwner(root, route)
+  if (direct) return { sourceFile: direct, redirect: null }
+  const redirectFile = path.join(root, 'public', '_redirects')
+  if (!existsSync(redirectFile)) return null
+  const matches = readFileSync(redirectFile, 'utf8').split(/\r?\n/)
+    .map(x => x.trim().split(/\s+/))
+    .filter(parts => parts.length === 3 && normalizeCitationUrl(parts[0]) === route)
+  if (!matches.length || matches.some(parts => parts[2] !== '301')) return null
+  const targets = [...new Set(matches.map(parts => normalizeCitationUrl(parts[1])))]
+  if (targets.length !== 1 || !targets[0] || targets[0] === route) return null
+  const targetOwner = sourceOwner(root, targets[0])
+  if (!targetOwner) return null
+  return { sourceFile: targetOwner, redirect: { to: targets[0], status: 301, rulesFile: 'public/_redirects' } }
+}
+
 function literal(input) {
   if (!input) return null
   const s = input.trim()
@@ -83,18 +103,20 @@ export function selectProtectedAssets(root, signal, policy) {
     if (!url || !Number.isInteger(citations) || citations <= 0) throw Error('Invalid cited URL or count in derived manifest')
     const share = (citations / total) * 100
     if (citations < policy.minCitations && share < policy.minCitationSharePct && (covered / total) * 100 >= policy.cumulativeCoveragePct) continue
-    const sourceFile = sourceOwner(root, url)
-    if (!sourceFile) { unresolved.push({ url, citations, reason: 'no unique exact published source owner' }); continue }
+    const resolved = protectedSourceOwner(root, url)
+    if (!resolved) { unresolved.push({ url, citations, reason: 'no unique exact source or verified permanent redirect' }); continue }
+    const { sourceFile, redirect } = resolved
+    const targetUrl = redirect?.to ?? url
     const identity = extractCitationIdentity(readFileSync(path.join(root, sourceFile), 'utf8'), sourceFile)
-    if (!identity.title || (sourceFile.startsWith('content/') && identity.slug !== url.split('/').filter(Boolean).at(-1))) {
+    if (!identity.title || (sourceFile.startsWith('content/') && identity.slug !== targetUrl.split('/').filter(Boolean).at(-1))) {
       unresolved.push({ url, citations, reason: 'source title/slug not verifiable' })
       continue
     }
-    if (identity.canonical && identity.canonical !== url) {
-      unresolved.push({ url, citations, reason: 'declared canonical differs from cited URL' })
+    if (identity.canonical && identity.canonical !== targetUrl) {
+      unresolved.push({ url, citations, reason: 'declared canonical differs from resolved owner URL' })
       continue
     }
-    assets.push({ url, sourceFile, citations, citationSharePct: Number(share.toFixed(2)),
+    assets.push({ url, sourceFile, redirect, citations, citationSharePct: Number(share.toFixed(2)),
       protectionReason: 'derived-page-stats', identity })
     covered += citations
   }
