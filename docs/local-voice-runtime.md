@@ -6,7 +6,7 @@ R8.05 changes **when** narration is created: the exact local WAV now owns the vi
 
 ## Runtime
 
-The baseline runtime is Kokoro-82M through the open `kokoro` Python package. It runs on the production machine. The first run may fetch open model weights into the local cache; no hosted synthesis API, subscription, API key, or metered generation credit is used.
+The current THS house voice is **Kokoro-82M INT8 through `kokoro-onnx==0.6.1`, voice `am_michael`**, the portable Voice Engine 0.44+ configuration. Its **exact** `kokoro-v1.0.int8.onnx` and `voices-v1.0.bin` assets are pinned by SHA-256 and restored from the project's permanent GitHub Release `ths-kokoro-onnx-am-michael-int8-v1`. A disposable machine's normal model cache is never the authoritative store. See `docs/voice-model-vault.md`. Earlier `kokoro` Torch documentation is historical, not the current narrator.
 
 Prerequisites:
 
@@ -14,6 +14,7 @@ Prerequisites:
 - `espeak-ng`
 - FFmpeg
 - packages in `scripts/distribution/requirements-local-voice.txt`
+- verified `THS_VOICE_VAULT` pointing to the restored original ONNX model/voicebank and manifest (see `docs/voice-model-vault.md`)
 
 ## R8.05 canonical sequence
 
@@ -108,14 +109,12 @@ If local narration, semantic timing, visual cohesion, or the final master is wea
 
 ## R8.08+ required Kokoro recovery path
 
-**A short video must never be presented as the completed narrated THS master when it does not contain actual Kokoro synthesis.** The fallback for a chat/container without Kokoro, espeak-ng, or Hugging Face model-weight access is *not* a silent-first deliverable or a different voice service.
+The V3 October 11 robot reference narration came from FFmpeg Flite outside the governed renderer. Such a cut is never a released THS master. To recover the approved Voice Engine 0.44+ house voice, use the permanent ONNX vault, not a different model that happens to share the name `am_michael`.
 
-A zero-premium-cost build runner is available as `.github/workflows/kokoro-voice-production.yml`. This runs the existing `render-local-narration.py` on an ephemeral first-party project GitHub Actions runner. It uses exactly **Kokoro-82M / am_michael**: no Descript, ElevenLabs, hosted TTS inference, or synthetic system voice.
+1. `main` must contain `.github/workflows/voice-model-vault.yml`; the workflow must report SUCCESS after GitHub Release readback and audible offline synthesis. If not, block narration publication.
+2. Start from `main` and commit the approved R8.05 beat brief at `scripts/distribution/voice-briefs/active.json` on a `voice/**` branch.
+3. `.github/workflows/kokoro-voice-production.yml` downloads **exact** model assets from the permanent GitHub Release, validates model and voicebank SHA-256 and synthesizes using `kokoro-onnx==0.6.1`.
+4. Retrieve `ths-kokoro-narration`, verify SHA-256, build visuals against the WAV-authored timeline and listen/watch the encoded full video.
+5. Missing archive, invalid hash, inaudible signal, synthetic-sounding voice, or failing natural-presence QA means **FAIL CLOSED**. No Flite, espeak narrator, paid voice provider, unrelated Torch weights, or other TTS substitution is authorized.
 
-1. Begin from `main`, make a working branch named `voice/<topic>`, and place an approved canonical beat brief in `scripts/distribution/voice-briefs/active.json` (R8.05 renderer schema, even for a release whose creative methodology is R8.08+).
-2. Push the voice branch. The workflow installs `espeak-ng` and `scripts/distribution/requirements-local-voice.txt`, renders the exact `narration.wav` and beat-timing JSON, verifies its actual Kokoro model/voice provenance, then uploads `ths-kokoro-narration`.
-3. Retrieve the artifact, verify the SHA-256 bindings, then build visuals *against the exact waveform's scene timeline*. Do not squeeze narration into independently timed visual scenes. Run technical and perceptual QA on the actual output.
-4. **If the Kokoro workflow fails, the narrated video remains blocked.** Report the dependency as a blocker and repair it. Do not silently substitute a different TTS model or remove the narration requirement.
-5. Never mark final master QA or publication as passed merely because the workflow completed. Master approval requires listening to and watching the exact output.
-
-The audio waveform, WAV receipt, semantic beat timeline, and canonical brief are all required for provenance. The renderer does not require a per-voice credit balance. GitHub runner use may still count against the repository's ordinary Actions minutes.
+The 30-day narration WAV artifact is a derived output; the saved GitHub Release contains the durable model binary and voicebank. GitHub Actions minutes are ordinary build usage, not TTS metering.
