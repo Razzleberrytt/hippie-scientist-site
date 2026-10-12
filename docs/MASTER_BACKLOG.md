@@ -83,14 +83,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6683 | Connect anxiety and product-quality hubs to cited canonical guides | D | Active — admitted | P2 | 3/4/3/4/0.75/1 | 108.0 | 2026-10-12 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Current admission after verified retirements (2026-10-12):** #6149 and #5081 remain retired. D #6683 is admitted through its own scored, exact-base transaction at **108.0**; normal implementation WIP **1/3**, R/A free. This control-only admission does not merge its implementation PR, weaken scientific/SEO/safety gates, or assert measurable site growth.
+**Completed D #6683 verified 2026-10-12:** PR #6684 merged as `f5d2e98762786b558e64d968db158c3ba38e18e7`; Cloudflare run `38251809776` succeeded and verified the exact production receipt. The historical score **108.0** measures admission priority only. The D row is retired and normal WIP is **0/3**, D/R/A free. No subsequent ticket is admitted, and actual citation/traffic/revenue impact remains Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -130,7 +129,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-D #6683 occupies Discovery/SEO; R and A are free. No other candidate is admitted by vacancy alone.
+Discovery/SEO, Revenue/Conversion and Authority/Content are free after verified retirement of #6683. No candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
