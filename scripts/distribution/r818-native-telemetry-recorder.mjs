@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
 const hex=v=>/^[a-f0-9]{64}$/.test(String(v??''))
-const MODES=new Set(['native-svg-geometry','native-vtk-projection','native-blender-projection'])
+const MODES=new Set(['native-svg-geometry','native-2d-canvas-geometry','native-vtk-projection','native-blender-projection'])
 // A *recording interface*, not an SVG parser and NOT synthetic storyboard data.
 // Rendering engines must call recordActualFrame with their physical projected
 // object bounds during composition; snapshots are rejected if not tied to the
