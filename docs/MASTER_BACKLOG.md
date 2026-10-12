@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-08 (P0 planning priority)
+**Updated:** 2026-10-12 (retire GitHub-closed #6149 active and #5081 queued; P0 work unchanged)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -83,14 +83,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6149 | Capture consented social attribution before remote analytics transport check | R | Active — admitted | P1 | 4/4/3/5/1.00/1 | 240.0 | 2026-10-09 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Current admission (verified 2026-10-09, #6149):** The R lane owns one bounded, scored consented social-attribution ordering fix (#6149), WIP **1/3**, D/A free. The exact-base admission is independent of completed A #6259/PR #6260. This fixes only eligibility to implement; analytics provider setup, measured conversion and production receipt remain Unknown.
+**Control-state retirement (verified 2026-10-12):** #6149 was closed as completed on 2026-10-09; its historical scored admission remains recorded, but the active R row is retired. #5081 also closed as completed on 2026-10-09 and must no longer appear in the actionable Next queue. Normal WIP **0/3**. No new owner is admitted by this control-only repair.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -137,7 +136,6 @@ Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate 
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
 | #4987 | Require real evidence receipts for approval and source counts | A / L2 | Completed 2026-09-28; PR #6057 merged | — | — | — | Exact-head CI/Atomic/Project Control/Site Health/Build Quality green | Claim/source namespaces separated; sourceCount cannot self-attest; generic approval/recommendation requires approved claim→source receipt |
 | #6056 | Contain legacy Tyrosine citation contamination | A / L2 | Retired — merged in PR #6066 | Scientific integrity | — | — | Completed; no overlap with #6051 | Legacy herb grade/citations/dosing held across public indexes + runtime; compound:l-tyrosine preserved |
-| #5081 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Blocked — fresh governor lease required | P1 | — | — | Exact current main + no overlapping lease | Acquire and merge a non-overlapping governor lease before canonical evidence mutation; preserve formulation, population, endpoint, null-result, safety, and dosing boundaries |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -152,7 +150,7 @@ Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate 
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
-| #5081 / PR #5556 | Close Sage human evidence and SAGE-718 identity contamination | A/L2 | Blocked on fresh governor lease | — | Acquire and merge a fresh non-overlapping state-only governor lease, then move the ticket into `Now` before scientific implementation |
+| #5081 / PR #5556 | Sage evidence and SAGE-718 identity — historical ticket | A/L2 | Retired — issue closed 2026-10-09 | — | Preserve existing scientific review history; a new owner requires a fresh ticket/lease. |
 | #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner migration |
 | #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
