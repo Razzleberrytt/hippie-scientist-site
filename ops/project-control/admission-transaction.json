@@ -1,19 +1,19 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "66fe7f80b7c067cc9707124099049c816a197ee2",
-  "last_verified": "2026-10-09",
-  "ticket": 6149,
-  "lane": "R",
-  "title": "Capture consented social attribution before remote analytics transport check",
-  "priority": "P1",
+  "base_revision": "dcfb44708c0f6879e8c82761bf01dc20f4f3a55b",
+  "last_verified": "2026-10-12",
+  "ticket": 6683,
+  "lane": "D",
+  "title": "Connect anxiety and product-quality hubs to cited canonical guides",
+  "priority": "P2",
   "score_inputs": {
-    "businessImpact": 4,
+    "businessImpact": 3,
     "userValue": 4,
     "trafficPotential": 3,
-    "strategicLeverage": 5,
-    "confidence": 1,
+    "strategicLeverage": 4,
+    "confidence": 0.75,
     "effort": 1
   },
-  "score": 240
+  "score": 108
 }
