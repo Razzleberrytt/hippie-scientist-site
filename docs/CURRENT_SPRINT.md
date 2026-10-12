@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-08 (P0 preparation; historical WIP notes below still require GitHub reconciliation)
+**Updated:** 2026-10-12 (retire verified GitHub-closed owner/candidate references; admission remains separate)
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (2026-10-09, #6149):** Following verified #6259/#6260 retirement on main, the single ready-next R candidate #6149 is admitted for consent-gated local social attribution ordering only at score **240.0**. Normal implementation WIP **1/3** (R active, D/A free); D/R/A cap unchanged. Evidence/source scientific promotion, external analytics transport and aggregate business receipts are not approved by this admission.
+**Verified GitHub retirement 2026-10-12:** R #6149 closed as completed on 2026-10-09 and A candidate #5081 closed as completed on 2026-10-09. Both are removed from live implementation/ready queues without altering their historical admission or scientific record. Normal WIP **0/3**; any new work still requires a separate exact-base scored admission. Search, conversion and revenue impact remain Unknown.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -106,7 +106,7 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -121,7 +121,6 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| R | #6149 | Capture consented social attribution before remote analytics transport check | Active — admitted | P1 | 240.0 | 2026-10-09 |
 
 
 
@@ -130,7 +129,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
-**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free; that does not waive #5081's prerequisite.
+**Authority prerequisite #5081:** Retired as GitHub-closed (2026-10-09). Do not resurrect the original owner/candidate; any genuinely new Sage review requires a separate ticket and source verification.
 
 Research-only enrichment staging is not canonical implementation admission. #6338 / PR #6339 is completed; no new work may overlap an active normal-lane owner.
 
@@ -205,13 +204,12 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Revenue/Conversion and Authority/Content remain free. Discovery/SEO is occupied by admitted #6491; normal WIP is 1/3. No candidate becomes executable merely because slots are free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+Normal D/R/A WIP is 0/3 after GitHub-confirmed retirement of #6149; no candidate becomes executable merely because slots are free. A new implementation owner still requires its own scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
 | Candidate | Workstream | Admission state | Proof required before implementation |
 |---|---|---|---|
-| #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation; the free Authority slot does not waive this prerequisite. |
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -236,7 +234,7 @@ Revenue/Conversion and Authority/Content remain free. Discovery/SEO is occupied 
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5540 / PR #5544, and #5296 / PR #5552 are completed or retired. #5081 / PR #5556 remains pending and does not own Authority/Content until a fresh non-overlapping governor lease exists.
+No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5540 / PR #5544, and #5296 / PR #5552 are completed or retired. #5081 is now GitHub-closed; PR #5556 is historical and grants no new Authority/Content admission.
 
 ## Sprint exit conditions
 
