@@ -11,12 +11,17 @@ function fixture() {
     {id:'hook',role:'hook',start:0,end:3,visualObject:{name:'generic amber retail bottle',kind:'retail-bottle'},artMethod:'cinematic-2.5d',semanticAction:'bottle-rotates-to-reveal-label',depthPlanes:['far','mid','near'],narrationText:'A product can contain tianeptine.',captionText:'A product can contain tianeptine.',onScreenText:'Retail product with tianeptine',claimIds:[]},
     {id:'receptor',role:'mechanism',start:3,end:7,visualObject:{name:'mu-opioid receptor',kind:'receptor-binding',assetSha256:HASH('c')},artMethod:'rendered-3d',renderEngine:'vtk',symbolicLimitLabel:'SYMBOLIC RECEPTOR — NOT MEASURED DOCKING',semanticAction:'ligand-enters-pocket',bindingPocketVisible:true,ligandMotionVisible:true,depthPlanes:['far','mid','near'],narrationText:'It activates a mu opioid receptor.',captionText:'It activates a mu opioid receptor.',onScreenText:'SYMBOLIC OPIOID RECEPTOR',claimIds:[]},
     {id:'evidence',role:'evidence',start:7,end:12,visualObject:{name:'study count',kind:'animated-counter'},artMethod:'cinematic-2.5d',semanticAction:'count-up-then-settle',depthPlanes:['far','mid','near'],narrationText:'The study included eight hundred ninety two reports.',captionText:'The study included eight hundred ninety two reports.',onScreenText:'892 · Single-substance poison-center reports, 2015–2023',claimIds:['q892'],numericVisual:{claimId:'q892',sourceId:'PMID:39724478',finalDisplay:'892',denominator:'Single-substance poison-center reports, 2015–2023',animation:'count-up',settleSeconds:1.4,transientCue:'COUNTING',finalFrameProofRequired:true}},
-    {id:'cta',role:'cta',start:12,end:15,visualObject:{name:'emergency response',kind:'call-911'},artMethod:'cinematic-2.5d',semanticAction:'reveal-emergency-guidance',depthPlanes:['far','mid','near'],narrationText:'Call nine one one for severe symptoms.',captionText:'Call nine one one for severe symptoms.',onScreenText:'CALL 911 for an emergency',claimIds:[]}
+    {id:'cta',role:'cta',start:12,end:15,visualObject:{name:'emergency response',kind:'call-911'},artMethod:'cinematic-2.5d',semanticAction:'reveal-emergency-guidance',depthPlanes:['far','mid','near'],narrationText:'Call nine one one for severe symptoms.',captionText:'Call nine one one for severe symptoms.',onScreenText:'CALL 911 for an emergency. Follow for more evidence.',claimIds:[]}
   ]
   return {schemaVersion:R817_CANONICAL.schemaVersion,status:'review-ready',videoId:'pilot',sourceUrl,
     sourceContentHash:HASH('a'),reviewedClaimLedgerSha256:HASH('b'),scientificReviewAuthority:'upstream-evidence-ledger',
     output:{...R817_CANONICAL.output},voice:{...R817_CANONICAL.voice,fallbackAllowed:false},
     artisticDirection:{ownerFirst:true,noPrimitivePlaceholders:true,requires3D:true},
+    retention:{hook:{beforeName:'Retail product',afterName:'Activated mu-opioid receptor',
+      action:'activates',visibleChangeBySeconds:2.8,firstTimeMutedViewerTestRequired:true,
+      onlyLabelOrBottle:false},
+      cta:{primaryText:'CALL 911 for an emergency',secondaryLoopText:'Follow for more evidence.',
+        primarySafetyPriority:true,secondaryDoesNotDisplacePrimary:true}},
     claims:[{id:'q892',sourceId:'PMID:39724478',statement:'892 reported single-substance exposures',
       displayValue:'892',denominator:'Single-substance poison-center reports, 2015–2023',
       evidenceTier:'observational',verifiedSourceSha256:HASH('a')}],beats}
@@ -72,4 +77,11 @@ test('R817 encoded MP4 checks are independent from owner and human release appro
  const b=assessR817EncodedMaster({...r,captionProof:{type:'mfa-offline-reviewed'},ownerDeviceReview:{status:'accepted'},independentScientificReview:{status:'approved',reviewer:'V'},ownerPublicationApproval:true})
  assert.equal(b.publicationReady,true)
  assert.equal(b.autoPublished,false)
+})
+
+test('R817 requires visual twist and secondary CTA, with safety remaining primary',()=>{
+ rejects(p=>{p.retention.hook.visibleChangeBySeconds=4},'first 3 seconds')
+ rejects(p=>{p.retention.hook.onlyLabelOrBottle=true},'labeled-bottle')
+ rejects(p=>{p.retention.cta.secondaryLoopText='Which states banned it?'},'verified provenance')
+ rejects(p=>{p.retention.cta.secondaryDoesNotDisplacePrimary=false},'safety/emergency CTA')
 })
