@@ -130,7 +130,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
+Discovery/SEO is occupied by admitted #6683 (D); Revenue/Conversion and Authority/Content remain free. Normal implementation WIP is 1/3. Vacancy in R/A does not authorize another ticket without a separate scored admission.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
