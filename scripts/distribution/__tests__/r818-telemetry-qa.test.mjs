@@ -133,3 +133,14 @@ test('a single early highlight does not excuse the rest of a 13-second static ca
  }
  expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/insufficient compositional activity/)
 })
+
+test('moving PMID and brand overlays cannot masquerade as scene compositional activity',()=>{
+ const {p,t}=longUserReports(false)
+ for(let i=0;i<t.beats[0].frames.length;i++){
+  t.beats[0].frames[i].objects.push(
+   object('pmid','pmid-footer','PMID: verified',[i%20,4,24,7]),
+   object('brand','brand-label','The Hippie Scientist',[i%20,14,24,7])
+  )
+ }
+ expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/caption-only or insufficient compositional activity/)
+})
