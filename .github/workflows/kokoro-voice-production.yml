@@ -49,7 +49,6 @@ jobs:
           gh release download ths-kokoro-onnx-am-michael-int8-v1 --repo "$GITHUB_REPOSITORY" --dir "$THS_VOICE_VAULT"
           python scripts/distribution/voice-vault.py verify "$THS_VOICE_VAULT"
       - name: Render exact Kokoro narration and timing
-        env:
         run: |
           python scripts/distribution/render-local-narration.py \
             --package-dir artifacts/narration/active \
