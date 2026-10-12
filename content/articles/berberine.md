@@ -3,7 +3,7 @@ slug: berberine
 title: "Berberine: Blood Sugar, Lipids & Weight — Evidence Review"
 description: "Evidence review of berberine for glucose, lipids, and weight, with clear limits on the metformin comparison, trial-dose context, drug interactions, and long-term uncertainty."
 date: '2026-06-30'
-updatedAt: '2026-08-26'
+updatedAt: '2026-10-11'
 author: Will
 category: Metabolic health
 evidence_grade: Moderate
@@ -161,7 +161,7 @@ Berberine is poorly absorbed systemically, and gut-level effects are one propose
 
 ## Drug Interactions: Avoid DIY Medication Management
 
-Berberine can inhibit or otherwise influence enzymes and transporters involved in drug disposition, including CYP pathways and P-glycoprotein. The practical consequence is not that every theoretical interaction will become clinically important; it is that berberine should not be treated as pharmacologically inert.
+Berberine has **human drug-interaction evidence**, not merely cell-culture mechanisms. In a small randomized crossover pharmacokinetic study of healthy men, two weeks of berberine increased midazolam exposure (AUC) by 40% and changed CYP2D6 and CYP2C9 probe-metabolite ratios ([Guo et al., 2012; PMID 21870106](https://pubmed.ncbi.nlm.nih.gov/21870106/); **human PK trial**). A kidney-transplant RCT reported approximately 29% higher cyclosporine trough concentrations in the berberine group, with a small PK subgroup showing increased cyclosporine AUC ([Wu et al., 2005; PMID 16133554](https://pubmed.ncbi.nlm.nih.gov/16133554/); **human RCT**). These small, context-specific studies justify careful medication review, **not** a claim that every CYP substrate will change to the same degree. Human results have not directly established a clinically important P-glycoprotein effect or a statin-victim pharmacokinetic interaction; those are primarily mechanistic concerns.
 
 Particular caution is reasonable when someone uses medicines with narrow therapeutic windows, glucose-lowering drugs, immunosuppressants, anticoagulants, antiarrhythmics, or multiple medications. The correct response to a possible interaction is **not** to swap one prescription drug for another based on a supplement article. Medication selection and dose changes belong with the relevant prescriber or pharmacist.
 
