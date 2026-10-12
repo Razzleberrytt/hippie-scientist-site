@@ -193,7 +193,7 @@ function verifyPackage(packageDir) {
         || clean(manifest.captions?.source) !== 'exact-governed-voice-script'
         || clean(manifest.creativeDirection?.schemaVersion) !== 'ths-r809-creative-receipt-v1'
         || clean(manifest.creativeDirection?.status) !== 'approved'
-        || clean(manifest.creativeDirection?.canonicalStyle) !== '2p5d-science-explainer-v1'
+        || clean(manifest.creativeDirection?.canonicalStyle) !== (manifest.r819?.enabled===true ? 'dark-cellular-organic-v1' : '2p5d-science-explainer-v1')
         || manifest.creativeDirection?.burnInNarrationCaptions !== true
         || clean(manifest.creativeSilentFoundation?.schemaVersion) !== 'ths-r808-creative-receipt-v1'
         || clean(manifest.creativeDirection?.inheritedR808OverlaySha256) !== clean(manifest.creativeSilentFoundation?.overlaySha256)) {
@@ -644,7 +644,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         captionsSrtSha256: clean(verified.manifest.captions?.sha256),
         renderAssSha256: captionFileSha256,
         canvasSafeArea: 'platform-intersection',
-        style: '2p5d-science-explainer-v1',
+        style: r819Proof ? 'dark-cellular-organic-v1' : '2p5d-science-explainer-v1',
         audioProfile: 'voice-forward-minus14LUFS',
         exactMasterReview: 'pending',
       } : null,
