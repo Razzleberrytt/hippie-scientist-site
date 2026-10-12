@@ -6,7 +6,8 @@ import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
-import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
+import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
+import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
 import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
 import {
@@ -358,11 +359,14 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
 
   const verified = verifyPackage(inputDir)
   const isR810 = clean(verified.manifest.creativeMethodRelease) === 'R8.10'
+  const isR817 = Boolean(verified.r817Proof)
+  if (isR817 && !isR810) throw Error('R8.17 progressive word captions require reviewed R8.10 acoustic alignment; no phrase-flash fallback')
   const r810Proof = isR810 ? verifyR810PackageGate(inputDir, { requireAlignment: true }) : null
   const narration = verifyLocalNarration(inputDir, verified.manifest)
   const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
   let alignedCaptionSrtSha256 = null
+  let r817CaptionProof = null
   if (isR809) {
     const manifest = verified.manifest
     const captionFile = assertCanonicalChild(inputDir, manifest.captions?.file, /^captions\.srt$/)
@@ -374,8 +378,11 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const script = JSON.parse(fs.readFileSync(narrationFile, 'utf8'))
     validateR809CaptionsSrt(script.scenes, captionBytes.toString('utf8'))
     if (isR810) {
-      const aligned = renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
+      const aligned = isR817
+        ? renderR817ProgressiveWordCaptions(script.scenes, r810Proof.alignment.receipt.words)
+        : renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
       burnInCaptions = aligned.ass
+      if (isR817) r817CaptionProof = {mode:aligned.mode,wordCount:aligned.wordCount,cueCount:aligned.cueCount,phraseFlashFallback:false}
       fs.writeFileSync(path.join(inputDir, 'aligned-captions.srt'), aligned.srt)
       alignedCaptionSrtSha256 = sha256(Buffer.from(aligned.srt))
     } else {
@@ -476,6 +483,16 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-hide_banner', '-nostats', '-i', output, '-map', '0:a:0',
       '-af', 'volumedetect', '-f', 'null', '-',
     ]).stderr)
+    let r817MotionProof = null
+    if (isR817) {
+      const raw = runCommand(ffmpegPath, [
+        '-hide_banner','-v','error','-i',output,
+        '-vf',`fps=5,${R817_MOTION_LIMITS.crop},scale=160:176:flags=bilinear,format=gray`,
+        '-f','rawvideo','-pix_fmt','gray','-'
+      ],{encoding:null,maxBuffer:24000000,timeout:120000}).stdout
+      if (!Buffer.isBuffer(raw)) throw Error('R8.17 decoded motion evidence not a binary frame stream')
+      r817MotionProof = assertR817FinalMotion(measureR817FinalMotion(raw, verified.timeline.scenes))
+    }
     const receipt = {
       schemaVersion: verified.release === 'R8.05' ? '3.0.0' : '2.0.0',
       release: verified.release,
@@ -525,7 +542,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
-      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false } : null,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
