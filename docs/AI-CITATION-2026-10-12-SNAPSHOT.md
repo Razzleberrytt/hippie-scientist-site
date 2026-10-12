@@ -45,18 +45,18 @@ Clusters are assigned by first-matching URL slug, not by Bing's grounding-query 
 
 | Grounding query | Citations | Site citation share |
 |---|---:|---:|
-| \\|m\\|i\\|t\\|r\\|a\\|g\\|y\\|n\\|i\\|n\\|e\\| | 2,157 | 8.55% |
-| \\|s\\|l\\|e\\|e\\|p\\| \\|a\\|i\\|d\\|s\\| \\|t\\|h\\|a\\|t\\| \\|w\\|o\\|r\\|k\\| | 935 | 24.17% |
-| \\|a\\|s\\|p\\|d\\| \\|d\\|i\\|a\\|g\\|n\\|o\\|s\\|i\\|s\\| | 978 | 31.97% |
-| \\|w\\|h\\|a\\|t\\| \\|i\\|s\\| \\|m\\|i\\|t\\|r\\|a\\|g\\|y\\|n\\|i\\|n\\|e\\| | 802 | 21.22% |
-| \\|v\\|a\\|l\\|e\\|r\\|i\\|a\\|n\\| \\|r\\|o\\|o\\|t\\| \\|f\\|o\\|r\\| \\|s\\|l\\|e\\|e\\|p\\| | 599 | 15.21% |
-| \\|b\\|e\\|s\\|t\\| \\|n\\|a\\|t\\|u\\|r\\|a\\|l\\| \\|s\\|l\\|e\\|e\\|p\\| \\|a\\|i\\|d\\| | 644 | 32.69% |
-| \\|b\\|e\\|s\\|t\\| \\|n\\|a\\|t\\|u\\|r\\|a\\|l\\| \\|s\\|l\\|e\\|e\\|p\\| \\|a\\|i\\|d\\|s\\| \\|t\\|h\\|a\\|t\\| \\|w\\|o\\|r\\|k\\| | 443 | 32.34% |
-| \\|2\\|c\\|b\\| \\|d\\|r\\|u\\|g\\| \\|e\\|f\\|f\\|e\\|c\\|t\\|s\\| | 387 | 24.2% |
-| \\|s\\|c\\|i\\|e\\|n\\|c\\|e\\|-\\|b\\|a\\|c\\|k\\|e\\|d\\| \\|n\\|a\\|t\\|u\\|r\\|a\\|l\\| \\|i\\|n\\|g\\|r\\|e\\|d\\|i\\|e\\|n\\|t\\|s\\| \\|s\\|t\\|r\\|e\\|s\\|s\\| \\|r\\|e\\|s\\|i\\|l\\|i\\|e\\|n\\|c\\|e\\| \\|s\\|u\\|p\\|p\\|l\\|e\\|m\\|e\\|n\\|t\\|s\\| | 382 | 26.9% |
-| \\|m\\|u\\|s\\|h\\|r\\|o\\|o\\|m\\| \\|c\\|o\\|f\\|f\\|e\\|e\\| \\|b\\|e\\|n\\|e\\|f\\|i\\|t\\|s\\| | 308 | 15.29% |
-| \\|h\\|o\\|w\\| \\|t\\|o\\| \\|e\\|v\\|a\\|l\\|u\\|a\\|t\\|e\\| \\|s\\|a\\|f\\|e\\|t\\|y\\| \\|e\\|f\\|f\\|e\\|c\\|t\\|i\\|v\\|e\\|n\\|e\\|s\\|s\\| \\|n\\|a\\|t\\|u\\|r\\|a\\|l\\| \\|s\\|u\\|p\\|p\\|l\\|e\\|m\\|e\\|n\\|t\\|s\\| | 262 | 12.14% |
-| \\|n\\|a\\|t\\|u\\|r\\|a\\|l\\| \\|s\\|l\\|e\\|e\\|p\\| \\|s\\|u\\|p\\|p\\|l\\|e\\|m\\|e\\|n\\|t\\|s\\| | 267 | 26.38% |
+| mitragynine | 2,157 | 8.55% |
+| sleep aids that work | 935 | 24.17% |
+| aspd diagnosis | 978 | 31.97% |
+| what is mitragynine | 802 | 21.22% |
+| valerian root for sleep | 599 | 15.21% |
+| best natural sleep aid | 644 | 32.69% |
+| best natural sleep aids that work | 443 | 32.34% |
+| 2cb drug effects | 387 | 24.2% |
+| science-backed natural ingredients stress resilience supplements | 382 | 26.9% |
+| mushroom coffee benefits | 308 | 15.29% |
+| how to evaluate safety effectiveness natural supplements | 262 | 12.14% |
+| natural sleep supplements | 267 | 26.38% |
 
 **Boundary:** Query exports do not reveal which site URL was cited for that query. Citation share is not site traffic or obtainable search market share.
 
