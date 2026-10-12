@@ -6,14 +6,22 @@ on:
       - '.github/workflows/voice-model-vault.yml'
       - 'scripts/distribution/voice-vault.py'
       - 'scripts/distribution/requirements-local-voice.txt'
+  pull_request:
+    paths:
+      - '.github/workflows/voice-model-vault.yml'
+      - 'scripts/distribution/voice-vault.py'
+      - 'scripts/distribution/requirements-local-voice.txt'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: ths-immutable-original-narrator
+  group: ths-immutable-original-narrator-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   archive-and-readback:
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
@@ -74,6 +82,59 @@ jobs:
           if-no-files-found: error
           include-hidden-files: true
           retention-days: 7
+          path: |
+            .cache/ths-voice-vault/kokoro-v1.0.int8.onnx
+            .cache/ths-voice-vault/voices-v1.0.bin
+            .cache/ths-voice-vault/voice-vault.json
+
+  verify-pr-vault-and-prepare-drive-transfer:
+    # The PR test gets a READ-ONLY token, avoiding release writes from untrusted changes.
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      VAULT: .cache/ths-voice-vault
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Read back immutable release and check both original binary hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$VAULT"
+          gh release download ths-kokoro-onnx-am-michael-int8-v1 --repo "$GITHUB_REPOSITORY" --dir "$VAULT"
+          python scripts/distribution/voice-vault.py verify "$VAULT"
+      - name: Synthesize original narrator test audio from archived weights
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          python -m pip install -r scripts/distribution/requirements-local-voice.txt
+          python - <<'PY'
+          from kokoro_onnx import Kokoro
+          import numpy as np, os
+          from pathlib import Path
+          root = Path(os.environ['VAULT'])
+          speaker = Kokoro(str(root/'kokoro-v1.0.int8.onnx'), str(root/'voices-v1.0.bin'))
+          wav, rate = speaker.create("The Hippie Scientist explains the evidence.", voice="am_michael", speed=1.05, lang="en-us")
+          a = np.asarray(wav, dtype=np.float32)
+          assert rate == 24000 and a.size > 12000 and np.isfinite(a).all()
+          assert float(np.sqrt(np.mean(a*a))) > 0.005, 'Kokoro output unexpectedly silent'
+          print('PASS: verified archive emits non-silent authentic ONNX am_michael narration')
+          PY
+      - name: Expose exact verified model assets for Google Drive archival
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-original-kokoro-onnx-model-drive-mirror
+          retention-days: 7
+          if-no-files-found: error
+          include-hidden-files: true
           path: |
             .cache/ths-voice-vault/kokoro-v1.0.int8.onnx
             .cache/ths-voice-vault/voices-v1.0.bin
