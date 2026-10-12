@@ -11,6 +11,7 @@ import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } fro
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
 import { measureR817HookCenterChange } from './r817-rendered-evidence.mjs'
 import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
+import { verifyR818NativeFrames } from './r818-native-frame-sequence.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
 import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
 import {
@@ -127,6 +128,7 @@ function verifyPackage(packageDir) {
   }
   let r817Proof = null
   let r818TelemetryProof = null
+  let r818NativeFrames = null
   if (r817Active) {
     const file = assertCanonicalChild(packageDir, manifest.r817FirstPass.file, /^r817-first-pass\.json$/)
     const bytes = fs.readFileSync(file)
@@ -146,6 +148,16 @@ function verifyPackage(packageDir) {
       renderedSceneAssetsSha256:meta.renderedSceneAssetsSha256
     })
     r818TelemetryProof={sha256:meta.sha256, ...checked,sourceManifestSha256:t.sourceManifestSha256}
+    const native=manifest.r818NativeFrames
+    if(native?.file!=='r818-native-frames.json'||!hex64(native.sha256))
+      throw Error('R8.18 native frame manifest missing; refusing static SVG delivery')
+    const filePath=assertCanonicalChild(packageDir,native.file,/^r818-native-frames\.json$/)
+    const frameBytes=fs.readFileSync(filePath)
+    if(sha256(frameBytes)!==native.sha256)
+      throw Error('R8.18 native frame manifest hash differs from package')
+    r818NativeFrames=verifyR818NativeFrames(packageDir,JSON.parse(frameBytes.toString('utf8')),timeline.scenes)
+    if(r818NativeFrames.frameCount!==native.nativeFrames)
+      throw Error('R8.18 actual frame count mismatches manifest')
   }
 
   const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\.json$/)
@@ -238,7 +250,7 @@ function verifyPackage(packageDir) {
     throw new Error('video scene timing does not cover the exact governed runtime')
   }
 
-  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof, r818TelemetryProof }
+  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof, r818TelemetryProof, r818NativeFrames }
 }
 
 function verifyLocalNarration(packageDir, manifest) {
@@ -438,13 +450,26 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       // teaching illustrations alive without a fake timer or paid video model.
       // Captions are drawn AFTER camera motion so their text never drifts.
       const escapedFile = assFile.replace(/\\/g, '\\\\').replace(/:/g, '\\:').replace(/'/g, "\\'")
-      filter = `fps=30,scale=1080:1920:flags=lanczos,zoompan=z='min(zoom+0.00018,1.045)':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s=1080x1920:fps=30,ass='${escapedFile}'`
+      filter = isR817 ? `fps=30,scale=1080:1920:flags=lanczos,ass='${escapedFile}'` : `fps=30,scale=1080:1920:flags=lanczos,zoompan=z='min(zoom+0.00018,1.045)':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s=1080x1920:fps=30,ass='${escapedFile}'`
     }
     const concatLines = []
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
+      // Always validate the science/caption source SVG, but encode actual
+      // 30fps owner-authored native frames whenever R8.18 is active.
       const { bytes } = verifyScene({ packageDir: inputDir, asset, sourceUrl: verified.sourceUrl, sourceContentHash: verified.sourceContentHash })
+      if (isR817) {
+        const nativeBeat=verified.r818NativeFrames.beats[index]
+        if(nativeBeat.beatId!==asset.beatId)throw Error('R8.18 scene/native beat identity drift')
+        for(const frame of nativeBeat.frames){
+          const nativeFile=path.join(inputDir,frame.file)
+          concatLines.push(`file '${nativeFile.replace(/'/g, "'\\''")}'`)
+          concatLines.push('duration 0.0333333333333')
+          finalPng=nativeFile
+        }
+        continue
+      }
       const suffix = String(index + 1).padStart(2, '0')
       const postPng = path.join(tempDir, `scene-${suffix}-post.png`)
       await sharp(bytes).png({ compressionLevel: 9, adaptiveFiltering: false }).toFile(postPng)
@@ -483,7 +508,9 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-c:v', 'libx264', '-profile:v', 'baseline', '-level:v', '4.0',
       '-preset', 'slow', '-crf', '20', '-maxrate', '4M', '-bufsize', '8M',
       ...mobileAacEncodeArgs(),
-      '-pix_fmt', 'yuv420p', '-t', String(verified.durationSeconds),
+      '-pix_fmt', 'yuv420p',
+      ...(isR817?['-frames:v',String(verified.r818NativeFrames.frameCount)]:[]),
+      '-t', String(verified.durationSeconds),
       '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
     ])
 
@@ -582,7 +609,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
-      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes) } : null,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
