@@ -35,3 +35,17 @@ test('instrumentation cannot sample arbitrary frames or invent unsupported geome
  expect(()=>r.recordActualFrame({beatId:'beat',nativeFrameIndex:6,
    producer:{instrumentation:'handwritten-storyboard'},objects:[obj]})).toThrow(/native renderer geometry/)
 })
+
+
+test('recorder counts exactly consecutive native in-pocket frames, not isolated samples',()=>{
+ const r=new R818NativeGeometryRecorder({rendererCodeSha256:h('a'),
+  renderedSceneAssetsSha256:h('b'),sourceManifestSha256:h('c')})
+ for(let index=0;index<14;index++)
+  r.recordNativePocketFrame({beatId:'docking',nativeFrameIndex:index,
+   ligandBBox:index<4?[0,0,5,5]:[65,45,6,6],pocketBBox:[60,40,20,20]})
+ expect(r.nativePocket.get('docking').longest).toBe(10)
+ // A missing native frame breaks continuity.
+ r.recordNativePocketFrame({beatId:'docking',nativeFrameIndex:20,
+  ligandBBox:[65,45,6,6],pocketBBox:[60,40,20,20]})
+ expect(r.nativePocket.get('docking').current).toBe(1)
+})
