@@ -16,7 +16,7 @@ function fixture(){
  const t={schemaVersion:'ths-r818-renderer-telemetry-v1',origin:'render-instrumentation',
  rendererCodeSha256:h('a'),renderedSceneAssetsSha256:h('b'),sourceManifestSha256:h('c'),
  canvas:{width:100,height:100},sampleFps:5,nativeFps:30,beats:[
- {beatId:'docking',producer:{instrumentation:'native-vtk-projection'},
+ {beatId:'docking',producer:{instrumentation:'native-vtk-projection'},metrics:{longestNativePocketDwellFrames:12},
   frames:Array.from({length:15},(_,i)=>({time:i*.2,objects:[
     object('receptor','receptor-binding','μ receptor',[55,30,30,40]),
     object('pocket','binding-pocket','Pocket',[60,40,20,20]),
@@ -67,4 +67,10 @@ test('stable shared telemetry must be SHA-bound to actual scene source assets',(
  const {p,t}=fixture()
  expect(()=>assertR818TelemetryBinding(p,t,{rendererCodeSha256:h('d')})).toThrow(/source identity/)
  expect(()=>assertR818TelemetryBinding(p,t,{renderedSceneAssetsSha256:h('e')})).toThrow(/asset identity/)
+})
+
+test('five-frame sample approximation alone cannot satisfy ten native frames',()=>{
+ const {p,t}=fixture()
+ t.beats[0].metrics.longestNativePocketDwellFrames=8
+ expect(()=>assertR818TelemetryBinding(p,t)).toThrow(/ten consecutive native/)
 })
