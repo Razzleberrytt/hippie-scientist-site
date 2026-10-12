@@ -285,6 +285,14 @@ async function main() {
     const runtimeOverrideTimer = createStageTimer('enrichment-runtime-overrides')
     const runtimeOverrideReport = await applyEnrichmentRuntimeOverrides({ dataDir: DATA_DIR })
     runtimeOverrideTimer.finish({ corrected: runtimeOverrideReport.touched.length })
+
+    // This is the final mutating boundary before summary/index generation.
+    // Generic governance above can reset the Batch 8 caution/commerce holds;
+    // reapply their source-controlled precautions here for EVERY caller,
+    // including Cloudflare build-deploy and data:build:core.
+    const batch8Timer = createStageTimer('batch8-persistent-safety-holds')
+    execFileSync(process.execPath, ['scripts/data/apply-batch8-safety-overrides.mjs', `--data-dir=${DATA_DIR}`], { stdio: 'inherit' })
+    batch8Timer.finish()
   }
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))

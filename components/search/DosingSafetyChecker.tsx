@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { AlertTriangle, Info, ShieldAlert } from 'lucide-react'
-import { isRestrictedRecord } from '../../lib/restricted-ingredients'
+import { canDiscoverResearchProfile } from '../../lib/search/research-discovery-eligibility'
 
 type SubstanceItem = {
   slug: string
@@ -29,7 +29,7 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
 
   const selectableItems = useMemo(() => {
     return items
-      .filter(item => item.name && item.slug && !isRestrictedRecord(item))
+      .filter(item => item.name && item.slug && canDiscoverResearchProfile(item as unknown as Record<string, unknown>))
       .sort((a, b) => a.name.localeCompare(b.name))
   }, [items])
 
