@@ -42,7 +42,17 @@
         "15914127",
         "19015839",
         "27444983"
-      ]
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
     },
     {
       "id": "DE10-02",
@@ -67,7 +77,17 @@
       "pilot_source_pmids": [
         "19562574",
         "12574791"
-      ]
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
     },
     {
       "id": "DE10-03",
@@ -361,7 +381,17 @@
         "36041061",
         "41195062",
         "41942398"
-      ]
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
     },
     {
       "id": "DE11-09",
@@ -702,7 +732,17 @@
         "28241153",
         "32956536",
         "24280947"
-      ]
+      ],
+      "publication_control": {
+        "artifact_class": "NONPUBLIC_EDITORIAL_STAGING_ONLY",
+        "exact_copy_human_publication_approval": "NOT_RECORDED",
+        "independent_scientific_review": "NOT_RECORDED",
+        "canonical_source_identity_admission": "NOT_VERIFIED",
+        "public_content_pr": "NOT_CREATED",
+        "production_deployment_receipt": "NOT_AVAILABLE",
+        "ci_for_publishing": "NOT_RUN",
+        "authorization_to_publish": false
+      }
     },
     {
       "id": "DE13-09",
@@ -740,5 +780,15 @@
       "live_publication_claim": "NOT_VERIFIED",
       "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
     }
-  ]
+  ],
+  "staging_policy": {
+    "version": "canonical-publication-approval-v1",
+    "source": "docs/governance/canonical-automatic-publication-approval.md",
+    "governance_pr": 6709,
+    "staging_pr": 6703,
+    "classification": "AUTO_STAGING",
+    "scope": "Research/editorial files only; no article routes or indexed public claims",
+    "promotion_requires": "Human owner exact-head approval AND scientific/source review AND approved separate public content PR with green release checks",
+    "approval_inferred_from_merging": false
+  }
 }
