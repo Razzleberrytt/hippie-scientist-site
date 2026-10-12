@@ -453,6 +453,9 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       filter = isR817 ? `fps=30,scale=1080:1920:flags=lanczos,ass='${escapedFile}'` : `fps=30,scale=1080:1920:flags=lanczos,zoompan=z='min(zoom+0.00018,1.045)':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s=1080x1920:fps=30,ass='${escapedFile}'`
     }
     const concatLines = []
+    const nativeFrameDir=isR817?path.join(tempDir,'native-frames'):null
+    if(nativeFrameDir)fs.mkdirSync(nativeFrameDir)
+    let nativeFrameCount=0
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
@@ -464,8 +467,9 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         if(nativeBeat.beatId!==asset.beatId)throw Error('R8.18 scene/native beat identity drift')
         for(const frame of nativeBeat.frames){
           const nativeFile=path.join(inputDir,frame.file)
-          concatLines.push(`file '${nativeFile.replace(/'/g, "'\\''")}'`)
-          concatLines.push('duration 0.0333333333333')
+          const numberedFile=path.join(nativeFrameDir,'f'+String(nativeFrameCount).padStart(6,'0')+'.png')
+          fs.linkSync(nativeFile,numberedFile)
+          nativeFrameCount++
           finalPng=nativeFile
         }
         continue
@@ -492,13 +496,15 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       finalPng = postPng
     }
     if (!finalPng) throw new Error('video renderer produced no scene frames')
-    concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
+    if(!isR817)concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
     const concatFile = path.join(tempDir, 'concat.txt')
     fs.writeFileSync(concatFile, `${concatLines.join('\n')}\n`)
 
     runCommand(ffmpegPath, [
       '-hide_banner', '-loglevel', 'error',
-      '-f', 'concat', '-safe', '0', '-i', concatFile,
+      ...(isR817
+        ? ['-framerate','30','-start_number','0','-i',path.join(nativeFrameDir,'f%06d.png')]
+        : ['-f', 'concat', '-safe', '0', '-i', concatFile]),
       '-i', narration.file,
       '-vf', filter,
       '-af', isR809
@@ -514,8 +520,21 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
     ])
 
+    if (isR817&&nativeFrameCount!==verified.r818NativeFrames.frameCount)
+      throw Error('R8.18 native frame iteration count differs from validated sequence')
     const outputBytes = fs.readFileSync(output)
     if (!outputBytes.length) throw new Error('ffmpeg produced an empty MP4')
+    if (isR817) {
+      const frameProbe=JSON.parse(runCommand(ffprobePath, [
+        '-v','error','-select_streams','v:0','-count_frames',
+        '-show_entries','stream=nb_read_frames,avg_frame_rate,width,height',
+        '-of','json',output
+      ]).stdout)
+      const stream=frameProbe.streams?.[0]
+      if(Number(stream?.nb_read_frames)!==verified.r818NativeFrames.frameCount||
+         stream?.avg_frame_rate!=='30/1'||stream.width!==1080||stream.height!==1920)
+        throw Error('R8.18 encoded MP4 has missing/duplicated frames or changed 30fps/1080p profile')
+    }
     // Analyze the FINAL AAC/MP4 stream; filter intent is not loudness evidence.
     const r812Loudness = isR810 && verified.manifest.r812?.enabled === true
       ? assertR812Loudness(parseR812Loudness(runCommand(ffmpegPath, [
