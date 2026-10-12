@@ -87,7 +87,9 @@ test('R817 encoded MP4 checks are independent from owner and human release appro
  const withoutCaption=assessR817EncodedMaster({...finalApproved,captionProof:{type:'mfa-offline-reviewed'}})
  assert.equal(withoutCaption.publicationReady,false)
  const b=assessR817EncodedMaster(finalApproved)
- assert.equal(b.publicationReady,true)
+ assert.equal(b.publicationReady,false)
+ assert.ok(b.blockers.some(x=>/telemetry/i.test(x)))
+ assert.ok(b.blockers.some(x=>/rendered action/i.test(x)))
  assert.equal(b.autoPublished,false)
 })
 
