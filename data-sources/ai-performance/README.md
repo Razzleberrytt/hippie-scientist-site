@@ -42,6 +42,23 @@ The scheduler emits the signal snapshot label, measurement boundary, shard, sele
 
 Refresh the derived signal manifest from a new Page export rather than carrying winner assumptions indefinitely. Preserve the snapshot date and measurement boundary so later comparisons remain auditable.
 
+## Protected high-citation winner baseline (P0 #6685)
+
+The source-of-truth **dated, derived** Bing Page Stats signal is `config/ai-citation-swarm-priorities.json`. The durable guard is `config/ai-citation-protected-assets.json`, generated with:
+
+```bash
+node scripts/seo/ai-citation-protected-assets.mjs
+node scripts/ci/validate-ai-citation-protected-assets.mjs
+```
+
+The **2026-10-12** reviewed baseline protects **10 directly source-owned URLs**, totaling **33,560 of 49,177 Page Stats citations (68.24%)**. It protects file ownership and extractable stable source titles, frontmatter slugs, and literal canonical/H1 fields when they genuinely appear in source. A dynamic guide source without a static field is **not** represented as a verified rendered H1 or canonical. For MD/MDX article source, frontmatter titles and slugs are guarded without pretending they establish independently verified rendered H1.
+
+Three cited article routes currently lack an exact direct canonical article owner: `/articles/2c-b-effects/`, `/articles/magnesium-types-for-sleep/`, `/articles/yerba-mate-vs-green-tea/`. They are recorded in `unresolvedOwners`; do **not** map them to similarly named blog posts or guides without canonical/redirect/build proof.
+
+This is an **identity-change guard**, not a content freeze. Scientific safety corrections, study/claim updates, and source repairs must remain possible through the usual editorial verification. Intentional canonical/title/slug migrations require separately documented redirect, rollback and review proof before refreshing the baseline. A missing or changed protected source fails validation while the snapshot is fresh. A stale, malformed, or future-dated citation snapshot becomes neutral rather than obstructing unrelated work; the status is explicit, not a silent successful integrity check.
+
+The ledger stores the owner-verified snapshot date, not a fabricated export generation time. Raw authenticated Bing CSVs remain excluded from Git. Changes to source/content owner routing should be checked against the existing static output, article publication manifest and real canonical tags; pure source signatures alone cannot establish search or AI citation growth.
+
 ## Freshness
 
 AI Performance is a delayed, aggregated measurement surface. Keep exports current and let the monitor's processing-lag guard ignore the newest potentially incomplete dates. Known corrupted reporting windows are excluded by `scripts/seo/ai-visibility-anomaly.mjs`.
