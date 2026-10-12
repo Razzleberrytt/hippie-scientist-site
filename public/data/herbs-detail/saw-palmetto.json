@@ -14,9 +14,10 @@
     "metabolic"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated; mild GI upset, headache",
+  "safetyNotes": "PREGNANCY AND BREASTFEEDING WARNING: Saw palmetto supplements may be unsafe during pregnancy or breastfeeding; avoid medicinal use. Evidence for urinary-symptom benefit is inconsistent, and safety for pregnant or nursing people has not been established.",
   "contraindications": [
-    "hormone-sensitive conditions (theoretical)"
+    "hormone-sensitive conditions (theoretical)",
+    "Pregnancy or breastfeeding: avoid saw palmetto supplements"
   ],
   "interactions": [
     "anticoagulants (limited evidence)"
@@ -78,17 +79,22 @@
       "note": "human_rct",
       "studyType": "Randomized controlled trial",
       "reviewStatus": "pending"
+    },
+    {
+      "title": "NCCIH: Saw Palmetto—Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/saw-palmetto",
+      "note": "May be unsafe in pregnancy or breastfeeding."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
@@ -150,5 +156,5 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated; mild GI upset, headache"
+  "safety": "PREGNANCY AND BREASTFEEDING WARNING: Saw palmetto supplements may be unsafe during pregnancy or breastfeeding; avoid medicinal use. Evidence for urinary-symptom benefit is inconsistent, and safety for pregnant or nursing people has not been established."
 }

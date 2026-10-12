@@ -1,0 +1,207 @@
+{
+  "herbs": {
+    "black-cohosh": {
+      "safetyNotes": "LIVER-INJURY WARNING: Products sold as black cohosh have been linked to more than 50 reported cases of clinically apparent liver injury, including acute liver failure, transplantation and death. NIH LiverTox rates products labeled black cohosh likelihood A, but the responsible ingredient remains unclear: some products were misidentified or adulterated, and trials did not consistently detect injury. Do not use with existing liver disease without medical assessment. Stop the product and seek urgent medical attention for jaundice, dark urine or abdominal pain. Avoid in pregnancy and breastfeeding because safety is not established.",
+      "contraindications": [
+        "liver disease",
+        "pregnancy",
+        "Products sold as black cohosh: serious liver-injury signal (including transplant/death), uncertain specific botanical causality",
+        "Avoid with existing liver disease until medical review",
+        "Pregnancy and breastfeeding: avoid medicinal use"
+      ],
+      "sources": [
+        {
+          "id": "livertox-black-cohosh",
+          "title": "Black Cohosh",
+          "authors": "LiverTox: Clinical and Research Information on Drug-Induced Liver Injury",
+          "year": 2024,
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK547990/"
+        }
+      ],
+      "medicalRisk": "high"
+    },
+    "damiana": {
+      "safetyNotes": "BLOOD-GLUCOSE INTERACTION CAUTION: Damiana (Turnera diffusa) showed glucose-lowering effects in animal studies; clinically important hypoglycemia in humans has not been established. People using insulin or other diabetes medications should discuss damiana supplements with a clinician and monitor for low blood glucose. Human safety and efficacy data are limited, and pregnancy/breastfeeding use should be avoided.",
+      "contraindications": [
+        "Pregnancy/breastfeeding",
+        "seizure disorder without clinician review",
+        "planned surgery or complex psychiatric medication regimens.",
+        "Diabetes medicines: possible additive glucose-lowering effects (animal evidence; clinical magnitude unknown)",
+        "Avoid in pregnancy and breastfeeding due to insufficient safety data"
+      ],
+      "sources": [
+        {
+          "title": "Memorial Sloan Kettering: Damiana",
+          "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/damiana",
+          "note": "Preclinical hypoglycemic effects only; no established clinical hypoglycemia risk."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "eleuthero": {
+      "safetyNotes": "PREGNANCY/BREASTFEEDING CAUTION: Safety of eleuthero in pregnancy has not been established; avoid supplements during pregnancy unless specifically advised by a qualified clinician. LactMed reports no adequate safety evidence for nursing people or infants and recommends against use while breastfeeding. Potential drug interactions (including digoxin reports) require verification at the medication and formulation level.",
+      "contraindications": [
+        "Uncontrolled hypertension",
+        "pregnancy/breastfeeding without guidance",
+        "acute fever caution in some traditions",
+        "Pregnancy: avoid medicinal eleuthero because of absent adequate safety data",
+        "Breastfeeding: avoid due to lack of safety evidence for infants"
+      ],
+      "sources": [
+        {
+          "title": "NIH LactMed: Eleuthero",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK501806/",
+          "note": "No good data on safety during breastfeeding; clinical benefit unproven."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "green-tea-extract": {
+      "safetyNotes": "CONCENTRATED GREEN TEA EXTRACT LIVER WARNING: NIH LiverTox reviews more than 100 published cases of clinically apparent liver injury attributed to green tea extract; rare severe outcomes, including acute liver failure, have been reported. This is about supplements/concentrated extracts, not typical brewed tea. USP recommends its powdered decaffeinated green tea extract be taken with food, not on an empty stomach; stop use and seek medical attention if abdominal pain, dark urine or yellowing of the eyes/skin occurs. People with liver disease should avoid supplement use without clinician review.",
+      "contraindications": [
+        "Liver disease",
+        "stimulants",
+        "Liver disease or past suspected green-tea-extract-related injury: avoid without clinician review",
+        "Avoid taking concentrated green tea extract on an empty stomach (USP product-specific caution)"
+      ],
+      "sources": [
+        {
+          "title": "NIH LiverTox: Green Tea",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK547925/",
+          "note": "Concentrated extract linked to >100 reported liver-injury cases; ordinary brewed-tea risk must not be conflated."
+        },
+        {
+          "title": "USP comprehensive review of green tea extract hepatotoxicity (2020)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32140423/",
+          "note": "USP Powdered Decaffeinated Green Tea Extract monograph cautions against empty-stomach use."
+        }
+      ],
+      "medicalRisk": "high"
+    },
+    "holy-basil-purple": {
+      "safetyNotes": "REPRODUCTIVE SAFETY GAP: Animal studies of holy basil report reduced pregnancy success at high doses; whether this applies to purple-cultivar extracts or to humans is unknown. Avoid medicinal use when pregnant or trying to conceive, and avoid while breastfeeding pending safety data. Potential glucose-related interactions remain a precaution.",
+      "contraindications": [
+        "pregnancy/breastfeeding without clinician supervision",
+        "known allergy to the plant/family",
+        "Pregnancy or conception planning: avoid medicinal purple holy basil; human/cultivar-specific risk unconfirmed",
+        "Breastfeeding: safety unknown"
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual: Holy Basil",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/dietary-supplements/holy-basil",
+          "note": "Do not overgeneralize high-dose animal studies to specific cultivar or humans."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "holy-basil-seed": {
+      "safetyNotes": "REPRODUCTIVE SAFETY GAP: Holy basil species has animal data suggesting reproductive/implantation effects at high doses, but these data do not directly establish risks for seed preparations or humans. Avoid medicinal holy basil seed use when pregnant, trying to conceive or breastfeeding until preparation-specific safety is established. Review glucose-lowering medications with a clinician.",
+      "contraindications": [
+        "pregnancy/breastfeeding without clinician supervision",
+        "known allergy to the plant/family",
+        "Pregnancy or conception planning: avoid medicinal seed products because preparation-specific safety is unestablished",
+        "Breastfeeding: safety not established"
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual: Holy Basil",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/dietary-supplements/holy-basil",
+          "note": "Species-level animal reproductive findings; direct seed-specific human evidence absent."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "holy-basil": {
+      "safetyNotes": "FERTILITY/PREGNANCY CAUTION: Animal studies of holy basil (tulsi) have reported reduced implantation/pregnancy success with high doses. Human fertility and pregnancy effects have not been established; this is not proof of a human abortifacient effect. Avoid medicinal holy basil when pregnant or trying to conceive; breastfeeding safety has not been established. Holy basil may affect glucose, thyroid function and clotting; people using related medicines should consult a clinician.",
+      "contraindications": [
+        "pregnancy (insufficient data)",
+        "diabetes (monitor glucose)",
+        "Pregnancy or attempting conception: avoid medicinal holy basil (animal reproductive signals; human effects unknown)",
+        "Breastfeeding: insufficient human safety data"
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual: Holy Basil",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/dietary-supplements/holy-basil",
+          "note": "Animal reproductive-safety signals; human relevance unknown."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "nettle-root": {
+      "safetyNotes": "PREGNANCY SAFETY WARNING: Avoid medicinal nettle root during pregnancy, given concerns about uterine effects and insufficient pregnancy safety evidence. Distinguish nettle root extracts from culinary nettle leaf and from clinical evidence for BPH. Monitor for potential interactions with lithium, blood-pressure medicines, diuretics and glucose-lowering therapies; clinical certainty varies.",
+      "contraindications": [
+        "pregnancy because nettle root may stimulate uterine contractions and raise miscarriage risk",
+        "diuretic or blood pressure medication because nettle root may have additive fluid-loss and blood-pressure-lowering effects",
+        "lithium because nettle root diuretic effect can reduce lithium clearance and raise lithium levels",
+        "diabetes or anticoagulant medication because nettle root may have additive blood-glucose-lowering or blood-thinning effects",
+        "Pregnancy: avoid medicinal nettle-root extracts until safety is established"
+      ],
+      "sources": [
+        {
+          "title": "Nettles: Professional Monograph (medically reviewed November 2025)",
+          "url": "https://www.drugs.com/npp/nettles.html",
+          "note": "Avoid in pregnancy/lactation; root vs leaf clinical uses and the limits of interaction evidence are distinguished."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "saffron": {
+      "safetyNotes": "PREGNANCY WARNING: Medicinal/high-dose saffron is not equivalent to culinary use. High doses can stimulate the uterus and have been associated with miscarriage risk; do not use saffron supplements during pregnancy without specialist obstetric advice. The evidence is dose- and preparation-dependent, and this does not mean ordinary food seasoning has the same risk. Breastfeeding supplement safety is unestablished.",
+      "contraindications": [
+        "pregnancy/breastfeeding without clinician supervision",
+        "known allergy to the plant/family",
+        "Pregnancy: avoid high-dose or medicinal saffron supplements due to uterine-stimulation/miscarriage concerns",
+        "Breastfeeding: medicinal safety unestablished"
+      ],
+      "sources": [
+        {
+          "title": "Saffron and Pregnancy: Cultural Practices, Beliefs, and Safety Evidence (2026)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42186868/",
+          "note": "Review distinguishes lower doses from high-dose/occupational risks; clinical study limitations remain."
+        }
+      ],
+      "medicalRisk": "moderate"
+    },
+    "saw-palmetto": {
+      "safetyNotes": "PREGNANCY AND BREASTFEEDING WARNING: Saw palmetto supplements may be unsafe during pregnancy or breastfeeding; avoid medicinal use. Evidence for urinary-symptom benefit is inconsistent, and safety for pregnant or nursing people has not been established.",
+      "contraindications": [
+        "hormone-sensitive conditions (theoretical)",
+        "Pregnancy or breastfeeding: avoid saw palmetto supplements"
+      ],
+      "sources": [
+        {
+          "title": "NCCIH: Saw Palmetto—Usefulness and Safety",
+          "url": "https://www.nccih.nih.gov/health/saw-palmetto",
+          "note": "May be unsafe in pregnancy or breastfeeding."
+        }
+      ],
+      "medicalRisk": "moderate"
+    }
+  },
+  "compounds": {
+    "green-tea-extract-egcg": {
+      "safetyNotes": "CONCENTRATED EGCG/GREEN TEA EXTRACT LIVER WARNING: Supplement extracts have been associated with more than 100 published liver-injury cases, occasionally severe. Ordinary brewed tea is not equivalent to concentrated preparations. USP specifies taking its powdered decaffeinated green tea extract with food rather than on an empty stomach. Stop a suspected product and seek prompt clinical evaluation for dark urine, jaundice or abdominal pain; people with liver conditions should seek clinician advice before use.",
+      "contraindications": [
+        "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
+        "verify caffeine content if stimulant-sensitive.",
+        "Do not take concentrated green tea extract on an empty stomach; USP monograph specifies taking its powdered decaffeinated extract with food",
+        "Pre-existing liver disease or suspected prior extract-induced liver injury: avoid pending clinician assessment"
+      ],
+      "sources": [
+        {
+          "title": "NIH LiverTox: Green Tea",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK547925/",
+          "note": "Concentrated green tea extracts can cause rare clinically apparent liver injury."
+        },
+        {
+          "title": "USP review: green tea extract hepatotoxicity",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32140423/",
+          "note": "Specific monograph advises taking with food."
+        }
+      ],
+      "medicalRisk": "high"
+    }
+  }
+}

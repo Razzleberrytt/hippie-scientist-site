@@ -14,18 +14,18 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Concentrated extracts have liver-injury concerns, especially high-dose or fasting use.",
+  "safetyNotes": "CONCENTRATED EGCG/GREEN TEA EXTRACT LIVER WARNING: Supplement extracts have been associated with more than 100 published liver-injury cases, occasionally severe. Ordinary brewed tea is not equivalent to concentrated preparations. USP specifies taking its powdered decaffeinated green tea extract with food rather than on an empty stomach. Stop a suspected product and seek prompt clinical evaluation for dark urine, jaundice or abdominal pain; people with liver conditions should seek clinician advice before use.",
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",
@@ -103,12 +103,24 @@
       "studyType": "Narrative review",
       "studyClass": "narrative-review",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "NIH LiverTox: Green Tea",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK547925/",
+      "note": "Concentrated green tea extracts can cause rare clinically apparent liver injury."
+    },
+    {
+      "title": "USP review: green tea extract hepatotoxicity",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32140423/",
+      "note": "Specific monograph advises taking with food."
     }
   ],
   "dosage": "—",
   "typical_dosage": "—",
   "contraindications": [
     "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
-    "verify caffeine content if stimulant-sensitive."
+    "verify caffeine content if stimulant-sensitive.",
+    "Do not take concentrated green tea extract on an empty stomach; USP monograph specifies taking its powdered decaffeinated extract with food",
+    "Pre-existing liver disease or suspected prior extract-induced liver injury: avoid pending clinician assessment"
   ]
 }

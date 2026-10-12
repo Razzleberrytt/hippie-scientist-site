@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Fuse from 'fuse.js'
 import { GitCompareArrows, Search, ShieldAlert, X } from 'lucide-react'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { canDiscoverResearchProfile } from '@/lib/search/research-discovery-eligibility'
 import {
   buildOnDemandComparisonHref,
   comparisonKey,
@@ -246,11 +246,11 @@ export default function ResearchSearchExperience() {
 
   const searchItems = useMemo(() => {
     const herbItems = herbs
-      .filter((record) => !isRestrictedRecord(record))
+      .filter((record) => canDiscoverResearchProfile(record))
       .map((record) => normalizeResearchSearchItem(record, 'Herb'))
       .filter((item): item is ResearchSearchItem => Boolean(item))
     const compoundItems = compounds
-      .filter((record) => !isRestrictedRecord(record))
+      .filter((record) => canDiscoverResearchProfile(record))
       .map((record) => normalizeResearchSearchItem(record, 'Compound'))
       .filter((item): item is ResearchSearchItem => Boolean(item))
     return [...herbItems, ...compoundItems].sort((a, b) => b.discoveryScore - a.discoveryScore || b.authorityScore - a.authorityScore || a.name.localeCompare(b.name))

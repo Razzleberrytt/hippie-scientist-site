@@ -710,7 +710,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
           <p className="max-w-3xl text-sm leading-6 text-muted">These links are generated from the current compound dataset and goal mapping, so this guide points into real dataset-linked profiles.</p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {linkedCompounds.map((compound) => (
-              <Link key={compound.slug} href={`/compounds/${compound.slug}`} className="rounded-2xl border border-brand-900/10 bg-white p-4 hover:border-emerald-300/40">
+              <Link key={compound.slug} href={`/compounds/${compound.slug}/`} className="rounded-2xl border border-brand-900/10 bg-white p-4 hover:border-emerald-300/40">
                 <h3 className="font-bold text-ink">{compoundLabel(compound)}</h3>
                 <p className="mt-2 line-clamp-2 text-xs leading-5 text-muted">{clean(compound.summary || compound.mechanism || compound.evidence) || 'Open profile for evidence, dose, and safety context.'}</p>
               </Link>
@@ -752,7 +752,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
                   return (
                     <tr key={compound.slug} className="hover:bg-brand-50/20 transition-colors">
                       <td className="px-4 py-4 whitespace-nowrap font-bold text-ink">
-                        <Link href={`/compounds/${compound.slug}`} className="hover:text-brand-700 hover:underline">
+                        <Link href={`/compounds/${compound.slug}/`} className="hover:text-brand-700 hover:underline">
                           {compoundLabel(compound)}
                         </Link>
                       </td>

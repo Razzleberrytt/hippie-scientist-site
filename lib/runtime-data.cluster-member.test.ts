@@ -18,8 +18,16 @@ describe('cluster-member production runtime boundary', () => {
     const core = coreRecord('herbs', slug)
 
     expect(record).not.toBeNull()
-    expect(record?.safety).toBe(core.safety)
-    expect(record?.safetyNotes).toBe(core.safety)
+    // Only a named Batch 8 high-risk extract may extend core-owned safety;
+    // core caution text must remain intact and renderer aliases must match.
+    if (slug === 'green-tea-extract') {
+      expect(String(record?.safety)).toContain(String(core.safety))
+      expect(String(record?.safety)).toMatch(/liver warning|liver.injury/i)
+      expect(record?.safetyNotes).toBe(record?.safety)
+    } else {
+      expect(record?.safety).toBe(core.safety)
+      expect(record?.safetyNotes).toBe(core.safety)
+    }
     expect(record?.safety).toMatch(/^Safety evidence:/)
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.interactions).toEqual([])
@@ -33,8 +41,16 @@ describe('cluster-member production runtime boundary', () => {
     const core = coreRecord('compounds', slug)
 
     expect(record).not.toBeNull()
-    expect(record?.safety).toBe(core.safety)
-    expect(record?.safetyNotes).toBe(core.safety)
+    // Only a named Batch 8 high-risk extract may extend core-owned safety;
+    // core caution text must remain intact and renderer aliases must match.
+    if (slug === 'green-tea-extract-egcg') {
+      expect(String(record?.safety)).toContain(String(core.safety))
+      expect(String(record?.safety)).toMatch(/liver warning|liver.injury/i)
+      expect(record?.safetyNotes).toBe(record?.safety)
+    } else {
+      expect(record?.safety).toBe(core.safety)
+      expect(record?.safetyNotes).toBe(core.safety)
+    }
     expect(record?.safety).toMatch(/^Safety evidence:/)
     expect(record?.contraindications).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
