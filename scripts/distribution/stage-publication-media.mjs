@@ -1,5 +1,5 @@
-import { assertMobilePlaybackReceipt } from './evidencemotion-delivery-guardrails.mjs'
 #!/usr/bin/env node
+import { assertMobilePlaybackReceipt } from './evidencemotion-delivery-guardrails.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import { validateR808HudReview } from './r808-hud-inspection.mjs'
