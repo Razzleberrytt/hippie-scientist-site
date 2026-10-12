@@ -62,15 +62,13 @@ test('a composited image differing from approved R8.18 pixels blocks encoding',a
     path.join(f.root,'bad.png'))).rejects.toThrow(/differs from native/)
  }finally{fs.rmSync(f.root,{recursive:true,force:true})}
 })
-test('R8.19 cannot omit trust layer even if all other imagery is present',async()=>{
+test('R8.19 fails closed when the trust layer is removed even with a recomputed manifest SHA',async()=>{
  const f=await fixture()
  try{
-  delete f.frame.layers.trust
-  expect(()=>verifyR819LayerInventory(f.root,{...f.meta,sha256:f.meta.sha256},f.native)).not.toThrow()
-  // The inventory file is pinned; mutation to in-memory object never changes
-  // the verified on-disk sequence. The encoder uses verified sequence, not caller object.
-  expect(f.sequence.beats[0].frames[0].layers.trust).toBeUndefined()
-  const bound=verifyR819LayerInventory(f.root,f.meta,f.native)
-  expect(bound.sequence.beats[0].frames[0].layers.trust).toBeDefined()
+  delete f.sequence.beats[0].frames[0].layers.trust
+  const bytes=Buffer.from(JSON.stringify(f.sequence))
+  fs.writeFileSync(path.join(f.root,'r819-layer-sequence.json'),bytes)
+  expect(()=>verifyR819LayerInventory(f.root,{file:'r819-layer-sequence.json',sha256:sha(bytes)},f.native))
+   .toThrow(/three exclusive ordered layer references/)
  }finally{fs.rmSync(f.root,{recursive:true,force:true})}
 })
