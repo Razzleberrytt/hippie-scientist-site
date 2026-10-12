@@ -34,7 +34,7 @@
 
 **Non-duplicative first dependencies:** retain existing **#6690** for Bing query→page attribution, **#6685** for production winner-identity protection, **#6670** for editorial verification, and **#6431** for source/evidence integration. A dated Bing Overview export is still required for true 7-/30-day daily trends. Citation Page and Grounding Query totals are overlapping, not additive.
 
-**Admission status:** **0/18 implementation tasks admitted by this program**; this is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
+**Admission status:** **1/18 program candidate tasks admitted**: P0-AIC-03 via existing D #6685 only; the other 17 candidates remain unadmitted. This is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
 
 ## Scoring and gates
 
@@ -91,6 +91,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
 
 
 
@@ -137,7 +138,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO, Revenue/Conversion and Authority/Content are free after verified retirement of #6683. No candidate is admitted by vacancy alone.
+Discovery/SEO is occupied by admitted P0 #6685 (1/3 normal WIP); R/A are free. No other candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
