@@ -48,3 +48,12 @@ test('multi-item cues lacking canonical acoustic hash fail',()=>{
  const {board,t}=fixture();board.beats[2].alignmentReceiptSha256='no'
  expect(()=>verifyR819WowGates(board,t)).toThrow(/alignment SHA/)
 })
+
+test('real needle rotation counts; moving karaoke alone does not',()=>{
+ const {board,t}=fixture()
+ for(let i=0;i<t.beats[0].frames.length;i++){
+  t.beats[0].frames[i].objects[0].bbox=[150,400,80,65]
+  t.beats[0].frames[i].objects[0].rotationDeg=i*9
+ }
+ expect(verifyR819WowGates(board,t).perBeat[0].semanticChangeEvents).toBeGreaterThan(0)
+})
