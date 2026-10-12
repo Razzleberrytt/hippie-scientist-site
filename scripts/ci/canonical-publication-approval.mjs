@@ -44,31 +44,36 @@ export function classifyPublicationChange(changedFiles) {
 const APPROVE = /^THS-PUBLICATION-APPROVED PR=#(\d+) HEAD=([a-f0-9]{40})$/u;
 const REVOKE = /^THS-PUBLICATION-REVOKED PR=#(\d+) HEAD=([a-f0-9]{40})$/u;
 
-function ownerApprovalComments({ comments, owner, number, headSha }) {
+function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
   const events = [];
   for (const comment of comments || []) {
     if (String(comment?.user?.login || '').toLowerCase() !== owner.toLowerCase()) continue;
     if (String(comment?.user?.type || '').toLowerCase() === 'bot') continue;
-    // The first line alone is the authorization. No free-form 'approve all'.
+    // A bare "approve all" or user-editable PR description is never a receipt.
     const token = String(comment.body || '').trim().split(/\r?\n/u)[0];
     const approve = token.match(APPROVE);
     const revoke = token.match(REVOKE);
     const match = approve || revoke;
     if (!match || Number(match[1]) !== number || match[2] !== headSha) continue;
-    events.push({ approved: Boolean(approve), at: Date.parse(comment.updated_at || comment.created_at || '') || 0, id: Number(comment.id || 0) });
+    events.push({
+      approved: Boolean(approve),
+      at: Date.parse(comment.updated_at || comment.created_at || '') || 0,
+      id: Number(comment.id || 0),
+    });
+  }
+  for (const review of reviews || []) {
+    if (String(review?.user?.login || '').toLowerCase() !== owner.toLowerCase()) continue;
+    if (String(review?.user?.type || '').toLowerCase() === 'bot') continue;
+    if (review.commit_id !== headSha) continue;
+    if (!['APPROVED','CHANGES_REQUESTED','DISMISSED'].includes(review.state)) continue;
+    events.push({
+      approved: review.state === 'APPROVED',
+      at: Date.parse(review.submitted_at || '') || 0,
+      id: Number(review.id || 0),
+    });
   }
   events.sort((a,b) => a.at - b.at || a.id - b.id);
   return events.length ? events.at(-1).approved : false;
-}
-
-function ownerApprovedReview({ reviews, owner, headSha }) {
-  const events = (reviews || [])
-    .filter(review => String(review?.user?.login || '').toLowerCase() === owner.toLowerCase())
-    .filter(review => String(review?.user?.type || '').toLowerCase() !== 'bot')
-    .filter(review => review.commit_id === headSha)
-    .filter(review => ['APPROVED','CHANGES_REQUESTED','DISMISSED'].includes(review.state))
-    .sort((a,b) => (Date.parse(a.submitted_at || '') || 0) - (Date.parse(b.submitted_at || '') || 0) || Number(a.id || 0) - Number(b.id || 0));
-  return events.length > 0 && events.at(-1).state === 'APPROVED';
 }
 
 /**
@@ -92,8 +97,7 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
   if (pr?.head?.repo?.full_name !== pr?.base?.repo?.full_name) {
     return { allowed: false, ...classification, reason: 'fork publication approval is not allowed' };
   }
-  const approved = ownerApprovalComments({ comments, owner, number, headSha: head }) ||
-    ownerApprovedReview({ reviews, owner, headSha: head });
+  const approved = trustedApprovalEvents({ comments, reviews, owner, number, headSha: head });
   return {
     allowed: approved,
     ...classification,
@@ -101,4 +105,30 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
       ? 'exact-head approval from repository owner verified; existing science and release gates still apply'
       : `human publication approval missing for PR #${number} exact head ${head}: owner must post THS-PUBLICATION-APPROVED PR=#${number} HEAD=${head}`,
   };
+}
+
+/**
+ * Read trusted GitHub server-owned conversation/review evidence. This is only
+ * needed for public-clinical diffs; inert staging and ordinary control changes
+ * do not incur API work. Missing/partial pages must fail closed.
+ */
+export async function loadPublicationApprovalEvidence(request, repo, number, changedFiles) {
+  if (classifyPublicationChange(changedFiles).kind !== 'HUMAN_PUBLICATION') {
+    return { comments: [], reviews: [] };
+  }
+  const loadAll = async endpoint => {
+    const records=[];
+    for (let page=1; page<=10; page++) {
+      const batch=await request(`/repos/${repo}/${endpoint}?per_page=100&page=${page}`);
+      if (!Array.isArray(batch)) throw new Error(`Invalid approval API response for ${endpoint}`);
+      records.push(...batch);
+      if(batch.length<100) return records;
+    }
+    throw new Error(`Approval evidence pagination limit exceeded for ${endpoint}; manual review required`);
+  };
+  const [comments,reviews]=await Promise.all([
+    loadAll(`issues/${number}/comments`),
+    loadAll(`pulls/${number}/reviews`),
+  ]);
+  return {comments,reviews};
 }
