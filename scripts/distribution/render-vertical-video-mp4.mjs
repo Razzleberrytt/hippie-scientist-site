@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { verifyR819CanonicalHandoff } from './r819-canonical-handoff.mjs'
+import { verifyR819LayerInventory, compositeR819Frame } from './r819-native-layer-compositor.mjs'
 import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
@@ -464,6 +465,11 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     const nativeFrameDir=isR817?path.join(tempDir,'native-frames'):null
     if(nativeFrameDir)fs.mkdirSync(nativeFrameDir)
     let nativeFrameCount=0
+    // R8.19 encoding must consume independently rendered pixels, never silently
+    // fall back to the already baked R8.18 frames. The approved R8.18 sequence is
+    // retained as a pixel-exact reference for every rebuilt native frame.
+    const r819Layers=r819Proof ? verifyR819LayerInventory(inputDir,
+      verified.manifest.r819.layerSequence,verified.r818NativeFrames) : null
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
@@ -473,12 +479,19 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       if (isR817) {
         const nativeBeat=verified.r818NativeFrames.beats[index]
         if(nativeBeat.beatId!==asset.beatId)throw Error('R8.18 scene/native beat identity drift')
-        for(const frame of nativeBeat.frames){
+        const layerBeat=r819Layers?.sequence.beats[index]
+        for(let j=0;j<nativeBeat.frames.length;j++){
+          const frame=nativeBeat.frames[j]
           const nativeFile=path.join(inputDir,frame.file)
           const numberedFile=path.join(nativeFrameDir,'f'+String(nativeFrameCount).padStart(6,'0')+'.png')
-          fs.linkSync(nativeFile,numberedFile)
+          if(r819Proof){
+            await compositeR819Frame(inputDir,layerBeat,layerBeat.frames[j],frame,numberedFile)
+            finalPng=numberedFile
+          }else{
+            fs.linkSync(nativeFile,numberedFile)
+            finalPng=nativeFile
+          }
           nativeFrameCount++
-          finalPng=nativeFile
         }
         continue
       }
