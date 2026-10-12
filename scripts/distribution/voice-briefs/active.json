@@ -1,0 +1,162 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "FDA-TIANEPTINE-2025",
+    "sourceUrl": "https://www.fda.gov/consumers/consumer-updates/tianeptine-products-linked-serious-harm-overdoses-death"
+  },
+  "premise": {
+    "interestScore": 4.9,
+    "coldViewerWhyCare": "A substance sold as a nootropic can cause opioid-like addiction and severe emergencies",
+    "viewerQuestion": "What are the dangers of recreational tianeptine use?",
+    "earlyPayoff": "Tianeptine has opioid-like activity; dependence and withdrawal are documented",
+    "methodologyBeforePayoff": false,
+    "hookMode": "curiosity",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "reviewState": "owner-authorized AI scientific editorial review; no external V verification or human final perceptual approval",
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "That gas station mood booster can have opioid-like effects.",
+      "onScreenText": "AN OPIOID-LIKE DRUG AT THE GAS STATION?",
+      "visualPurpose": "Reveal an anonymous convenience store vial behind a red warning lens",
+      "spokenAnchor": "opioid-like",
+      "visualAction": "Reveal an anonymous convenience store vial behind a red warning lens",
+      "motion": {},
+      "cutReason": "reveal",
+      "factualAuthority": "FDA consumer advisory",
+      "primaryEntities": [
+        "recreational tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "finding",
+      "role": "finding",
+      "narration": "Tianeptine activates mu opioid receptors. Recreational misuse can cause dependence and withdrawal.",
+      "onScreenText": "DEPENDENCE AND WITHDRAWAL",
+      "visualPurpose": "A symbolic molecule connects to receptor silhouette; then withdrawal pulses",
+      "spokenAnchor": "dependence",
+      "visualAction": "A symbolic molecule connects to receptor silhouette; then withdrawal pulses",
+      "motion": {},
+      "cutReason": "contrast",
+      "factualAuthority": "CDC surveillance and FDA scientific explanation",
+      "primaryEntities": [
+        "opioid receptor"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "context",
+      "role": "context",
+      "narration": "In the United States, tianeptine is not FDA approved for any medical use.",
+      "onScreenText": "NOT FDA APPROVED IN THE U.S.",
+      "visualPurpose": "Move from a glowing storefront shelf to a clinical caution mark",
+      "spokenAnchor": "not FDA approved",
+      "visualAction": "Move from a glowing storefront shelf to a clinical caution mark",
+      "motion": {},
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA 2025 consumer warning",
+      "primaryEntities": [
+        "tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "narration": "FDA data show poison center exposure cases rose from four in twenty thirteen to about three hundred fifty in twenty twenty-four.",
+      "onScreenText": "4 TO ~350 REPORTED EXPOSURES",
+      "visualPurpose": "Show two clearly labeled yearly totals, not a clinical risk estimate",
+      "spokenAnchor": "poison center exposure cases",
+      "visualAction": "Show two clearly labeled yearly totals, not a clinical risk estimate",
+      "motion": {},
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "FDA 2025 poison center exposures report",
+      "primaryEntities": [
+        "poison centers"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "finding2",
+      "role": "finding",
+      "narration": "Reported emergencies include seizures, loss of consciousness, serious breathing problems, and deaths.",
+      "onScreenText": "SERIOUS EMERGENCIES REPORTED",
+      "visualPurpose": "Distress symbol, pulse graphic, oxygen-mask silhouette, not sensationalist imagery",
+      "spokenAnchor": "breathing problems",
+      "visualAction": "Distress symbol, pulse graphic, oxygen-mask silhouette, not sensationalist imagery",
+      "motion": {},
+      "cutReason": "contrast",
+      "factualAuthority": "FDA adverse event alerts; not product-specific incidence",
+      "primaryEntities": [
+        "emergency"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "limitation",
+      "role": "limitation",
+      "narration": "Some products were also found to contain synthetic cannabinoids. The label might not tell the whole story.",
+      "onScreenText": "CONTAMINATION CHANGES THE RISK",
+      "visualPurpose": "Product surface splits to reveal undeclared compounds, symbolic only",
+      "spokenAnchor": "synthetic cannabinoids",
+      "visualAction": "Product surface splits to reveal undeclared compounds, symbolic only",
+      "motion": {},
+      "cutReason": "emphasis",
+      "factualAuthority": "CDC New Jersey 2024 case cluster",
+      "primaryEntities": [
+        "adulterated product"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://www.fda.gov/consumers/consumer-updates/tianeptine-products-linked-serious-harm-overdoses-death",
+      "visualPurpose": "Show exact FDA source link",
+      "spokenAnchor": "",
+      "visualAction": "Hold authentic FDA source card for readability",
+      "motion": {},
+      "cutReason": "pause",
+      "factualAuthority": "FDA 2025 regulatory alert",
+      "primaryEntities": [],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.3
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "If someone cannot wake up or has trouble breathing, call nine one one. Learn the evidence at The Hippie Scientist.",
+      "onScreenText": "IF UNRESPONSIVE OR NOT BREATHING: 911",
+      "visualPurpose": "Emergency call symbol then clear evidence-first outro",
+      "spokenAnchor": "call nine one one",
+      "visualAction": "Emergency call symbol then clear evidence-first outro",
+      "motion": {},
+      "cutReason": "end",
+      "factualAuthority": "FDA emergency advice",
+      "primaryEntities": [
+        "emergency response"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.17
+    }
+  ]
+}
