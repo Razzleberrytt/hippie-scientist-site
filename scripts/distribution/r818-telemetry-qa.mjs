@@ -26,6 +26,9 @@ function checkBeat(beat,frames,ctx){
  if(!txt(proof.primaryObjectId)||!frames.some(f=>find(f,proof.primaryObjectId)))
   throw Error('R8.18 missing named primary rendered object: '+beat.id)
  const report={beatId:beat.id,semanticAction:action,frameSamples:frames.length}
+ const subject=proof.subjectObjectId
+ if(!txt(subject)||!frames.some(f=>find(f,subject)?.kind===beat.visualObject?.kind))
+   throw Error('R8.18 declared rendered visualObject.kind has no matching physical source object')
  const left=thirds(frames)[0],right=thirds(frames)[1]
  if(['ligand-enters-pocket','binds-to'].includes(action)){
   if(!txt(proof.targetObjectId))throw Error('R8.18 ligand binding target ID missing')
@@ -37,7 +40,8 @@ function checkBeat(beat,frames,ctx){
   if(!(d[0]>d.at(-1)+.10*w)||d.at(-1)>=.15*w||
      d.some((n,i)=>i>0&&n>d[i-1]+EPS*w))
    throw Error('R8.18 ligand must approach pocket and end within 15% of frame width')
-  const dwells=series.filter(([a,b])=>inside(a.bbox,b.bbox)).length
+  let dwells=0,contiguous=0
+  for(const [a,b] of series){contiguous=inside(a.bbox,b.bbox)?contiguous+1:0;dwells=Math.max(dwells,contiguous)}
   // At 5 samples/second there are 6 native (30fps) frames per telemetry sample.
   // >=10 native-frame dwell needs >=ceil(10/6)=2 in-pocket samples.
   const nativeFrameSamples=Math.ceil(10/(ctx.nativeFps/ctx.sampleFps))
@@ -115,6 +119,10 @@ export function assertR818TelemetryBinding(plan,telemetry,receipt={}){
   if(beat.id!==record?.beatId||!Array.isArray(record.frames)||!record.frames.length)
    throw Error('R8.18 telemetry/plan beat identity mismatch')
   const frames=record.frames
+  if(record.producer?.instrumentation!=='native-svg-geometry'&&
+     record.producer?.instrumentation!=='native-vtk-projection'&&
+     record.producer?.instrumentation!=='native-blender-projection')
+    throw Error('R8.18 beat lacks actual geometry-derived producer instrumentation')
   if((total+=frames.length)>MAX_FRAMES)throw Error('R8.18 telemetry exceeds bounded sample count')
   for(let k=0;k<frames.length;k++){
    const f=frames[k];assertFrameContract(f,t.canvas)
