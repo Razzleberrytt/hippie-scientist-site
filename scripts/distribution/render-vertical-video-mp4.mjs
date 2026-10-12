@@ -8,6 +8,10 @@ import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-tr
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
+import {
+  assertNoDecorativeVideoChrome, mobileAacEncodeArgs,
+  assertMobileAudioProbe, assertAudibleDecodedAudio,
+} from './evidencemotion-delivery-guardrails.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -43,6 +47,7 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   const file = assertCanonicalChild(packageDir, asset.file, /^video-scene-\d{2}\.svg$/)
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(asset.sha256)) throw new Error(`video scene hash mismatch: ${asset.file}`)
+  assertNoDecorativeVideoChrome(bytes.toString('utf8'))
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
   if (clean(metadata.sourceUrl) !== sourceUrl) throw new Error(`video scene source URL mismatch: ${asset.file}`)
   if (clean(metadata.contentHash) !== sourceContentHash) throw new Error(`video scene source content hash mismatch: ${asset.file}`)
@@ -79,6 +84,7 @@ function verifyMotionVariant({ packageDir, asset, sourceUrl, sourceContentHash }
   const file = assertCanonicalChild(packageDir, motion.preFile, /^video-scene-\d{2}-pre\.svg$/)
   const bytes = fs.readFileSync(file)
   if (sha256(bytes) !== clean(motion.preSha256)) throw new Error(`R8.05 pre-motion scene hash mismatch: ${motion.preFile}`)
+  assertNoDecorativeVideoChrome(bytes.toString('utf8'))
   const metadata = parseSceneMetadata(bytes.toString('utf8'))
   if (clean(metadata.sourceUrl) !== sourceUrl || clean(metadata.contentHash) !== sourceContentHash) {
     throw new Error(`R8.05 pre-motion provenance mismatch: ${motion.preFile}`)
@@ -327,12 +333,12 @@ export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narration
   if (r810 && Object.entries(extraInputs).some(([, v]) => !/^[a-f0-9]{64}$/.test(String(v || '')))) {
     throw new Error('R8.10 MP4 cache key must bind exact audio alignment, renderer code and final caption track')
   }
-  const legacyKeySource = `${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k\nyuv420p\n`
+  const legacyKeySource = `${renderer}\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\n${Number(durationSeconds).toFixed(4)}s\nlibx264\naac192k-48k-stereo\nyuv420p\n`
   const r810Suffix = r810 ? Object.entries(extraInputs).map(([name, value]) => name + '=' + value).join('\n') : ''
   return sha256(r810 ? legacyKeySource + r810Suffix : legacyKeySource)
 }
 
-export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
+export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg', ffprobePath = process.env.FFPROBE_PATH || 'ffprobe' }) {
   const inputDir = path.resolve(packageDir)
   const output = path.resolve(outputFile)
   if (path.extname(output).toLowerCase() !== '.mp4') throw new Error('outputFile must use .mp4 extension')
@@ -434,7 +440,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         : `apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds},loudnorm=I=-16:TP=-1.5:LRA=11`,
       '-map', '0:v:0', '-map', '1:a:0',
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
-      '-c:a', 'aac', '-b:a', '192k',
+      ...mobileAacEncodeArgs(),
       '-pix_fmt', 'yuv420p', '-t', String(verified.durationSeconds),
       '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
     ])
@@ -446,6 +452,17 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       ? assertR812Loudness(parseR812Loudness(runCommand(ffmpegPath, [
           '-hide_banner', '-nostats', '-i', output, '-map', '0:a:0', '-af', 'ebur128=peak=true', '-f', 'null', '-'
         ]).stderr)) : null
+    // Check the encoded MP4 itself. Avoid assuming -ar/-ac and a successful
+    // encode imply an audible file on phones (Oct 12 playback regression).
+    const encodedAudio = assertMobileAudioProbe(JSON.parse(runCommand(ffprobePath, [
+      '-v', 'error', '-select_streams', 'a',
+      '-show_entries', 'stream=codec_name,sample_rate,channels,channel_layout',
+      '-of', 'json', output,
+    ]).stdout))
+    const decodedAudio = assertAudibleDecodedAudio(runCommand(ffmpegPath, [
+      '-hide_banner', '-nostats', '-i', output, '-map', '0:a:0',
+      '-af', 'volumedetect', '-f', 'null', '-',
+    ]).stderr)
     const receipt = {
       schemaVersion: verified.release === 'R8.05' ? '3.0.0' : '2.0.0',
       release: verified.release,
@@ -467,6 +484,11 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         audio: true,
         audioCodec: 'aac',
         audioBitrate: '192k',
+        audioSampleRate: encodedAudio.sampleRate,
+        audioChannels: encodedAudio.channels,
+        audioChannelLayout: encodedAudio.channelLayout,
+        mobileAudioVerified: true,
+        decodedAudio,
       },
       r810Governance: isR810 ? {
         governedPlanSha256: clean(verified.manifest.creativeR810?.governedPlanSha256),
