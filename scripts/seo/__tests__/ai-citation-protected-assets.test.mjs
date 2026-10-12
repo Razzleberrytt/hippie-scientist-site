@@ -151,3 +151,33 @@ test('stale and future-dated ledgers are citation-neutral, not invented new metr
   assert.match(validation, /Date\.now\(\)/)
   assert.match(validation, /sourceReportGeneratedAt \|\| ledger\.snapshotLabel/)
 })
+
+test('buildPageMetadata canonical paths are protected, including exact SLUG interpolation', () => {
+  const literal = "export const metadata = buildPageMetadata({ title: 'A', path: '/guides/other/protein-powder-guide/' })"
+  assert.equal(extractCitationIdentity(literal, 'next-page').canonical, '/guides/other/protein-powder-guide/')
+
+  const tick = String.fromCharCode(96)
+  const variable = String.fromCharCode(36, 123) + 'SLUG}'
+  const template = [
+    "const SLUG = 'sample'",
+    "export const metadata = buildPageMetadata({ title: 'A', path: " +
+      tick + '/guides/adhd/' + variable + '/' + tick + ' })',
+  ].join('\n')
+  const before = extractCitationIdentity(template, 'next-page')
+  assert.equal(before.canonical, '/guides/adhd/sample/')
+  assert.equal(fixture('next-page', template, '/guides/adhd/sample/', before).status, 0)
+  const moved = template.replace("'sample'", "'renamed'")
+  const mutation = fixture('next-page', template, '/guides/adhd/sample/', before, moved)
+  assert.equal(mutation.status, 1)
+  assert.match(mutation.stderr, /protected canonical changed/)
+})
+
+test('a path-scoped GitHub action enforces the guard for every canonical guide and article change', () => {
+  const workflow = readFileSync('.github/workflows/ai-citation-identity-check.yml', 'utf8')
+  assert.match(workflow, /pull_request:/)
+  assert.match(workflow, /app\/\*\*\/page\.tsx/)
+  assert.match(workflow, /content\/articles\/\*\*/)
+  assert.match(workflow, /scripts\/ci\/validate-ai-citation-protected-assets\.mjs/)
+  assert.match(workflow, /run: node scripts\/ci\/validate-ai-citation-protected-assets\.mjs/)
+  assert.match(workflow, /head\.sha \|\| github\.sha/)
+})
