@@ -14,7 +14,9 @@ test('resumable native frames reuse verified cache, rebuild corrupt frame and is
   const input=recipe(),calls=[]
   const renderFrame=async ({frameIndex})=>{
    calls.push(frameIndex)
-   return sharp({create:{width:12,height:12,channels:3,background:{r:32+frameIndex,g:70,b:100}}}).png().toBuffer()
+   const pixels=Buffer.alloc(48*48*3)
+   for(let i=0;i<pixels.length;i++)pixels[i]=(i*43+frameIndex*19)%256
+   return sharp(pixels,{raw:{width:48,height:48,channels:3}}).png().toBuffer()
   }
   const first=await r818RenderResumableFrames({recipe:input,cacheRoot:dir,renderFrame})
   expect(first.rendered).toBe(4);expect(first.reused).toBe(0)
