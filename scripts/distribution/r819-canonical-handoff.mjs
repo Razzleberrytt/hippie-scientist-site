@@ -38,11 +38,11 @@ export function verifyR819CanonicalHandoff(packageDir){
      Math.abs(b.start-plan.beats[i].start)>.001||Math.abs(b.end-plan.beats[i].end)>.001))
   throw Error('R8.19 storyboard attempts to remap the approved R8.18 beat identities/timing')
  const artRoot=path.dirname(new URL(import.meta.url).pathname)
- const artBytes=fs.readFileSync(path.join(artRoot,'distribution/assets/r819/art-manifest.json'))
+ const artBytes=fs.readFileSync(path.join(artRoot,'assets/r819/art-manifest.json'))
  if(manifest.r819.artManifestSha256!==sha(artBytes))
   throw Error('R8.19 canonical art manifest changed since approved package')
  const artManifest=JSON.parse(artBytes.toString('utf8'))
- const art=verifyR819ArtAssets(path.join(artRoot,'distribution'),artManifest,board)
+ const art=verifyR819ArtAssets(artRoot,artManifest,board)
  const cues=verifyR819CueBinding(board,alignment)
  const wow=verifyR819WowGates(board,geometry)
  return {schemaVersion:'ths-r819-canonical-pre-encode-v1',
