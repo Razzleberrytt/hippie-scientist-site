@@ -1,0 +1,180 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "PMID:39724478",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39724478/"
+  },
+  "premise": {
+    "interestScore": 4.9,
+    "coldViewerWhyCare": "Gas-station tianeptine products pose serious opioid-like risks",
+    "viewerQuestion": "Why can recreational tianeptine use become dangerous?",
+    "earlyPayoff": "Tianeptine can trigger dependence, withdrawal and overdose, with poison-center hospitalization reports",
+    "methodologyBeforePayoff": false,
+    "hookMode": "curiosity",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "reviewState": "owner-authorized AI scientific editorial review; human review and listening pending",
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "A product sold at gas stations can act like an opioid. Tianeptine.",
+      "onScreenText": "THE OPIOID RISK HIDING IN PLAIN SIGHT",
+      "visualPurpose": "A bottle silhouette reveals a translucent warning center",
+      "spokenAnchor": "act like an opioid",
+      "visualAction": "A bottle silhouette reveals a translucent warning center",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "US FDA tianeptine warning",
+      "primaryEntities": [
+        "tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "finding",
+      "role": "finding",
+      "narration": "In the United States, tianeptine is not FDA approved for any medical use.",
+      "onScreenText": "NOT FDA APPROVED IN THE U.S.",
+      "visualPurpose": "Unapproved product stamp and contrasting regulatory seal, no fake label",
+      "spokenAnchor": "not FDA approved",
+      "visualAction": "Unapproved product stamp and contrasting regulatory seal, no fake label",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA 2025 safety notice",
+      "primaryEntities": [
+        "safety evidence"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "context",
+      "role": "context",
+      "narration": "Tianeptine can activate opioid receptors. Misuse can cause dependence, withdrawal, and overdose.",
+      "onScreenText": "DEPENDENCE · WITHDRAWAL · OVERDOSE",
+      "visualPurpose": "Symbolic receptor and caution ring, not true molecular structure",
+      "spokenAnchor": "opioid receptors",
+      "visualAction": "Symbolic receptor and caution ring, not true molecular structure",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "CDC 2018 MMWR PMC6072055",
+      "primaryEntities": [
+        "tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "narration": "Researchers counted eight hundred ninety two single substance poison center reports from twenty fifteen through twenty twenty three.",
+      "onScreenText": "892 REPORTED EXPOSURES · 2015–2023",
+      "visualPurpose": "Show 892 accurately as poison center exposure reports, not population risk",
+      "spokenAnchor": "poison center reports",
+      "visualAction": "Show 892 accurately as poison center exposure reports, not population risk",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "Retrospective poison-center analysis PMID 39724478",
+      "primaryEntities": [
+        "tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "finding2",
+      "role": "finding",
+      "narration": "About four in ten of those reported exposures required medical admission. That does not mean four in ten users.",
+      "onScreenText": "40.1% OF REPORTS REQUIRED ADMISSION",
+      "visualPurpose": "Emphasize denominator and warn not user rate, source n=892",
+      "spokenAnchor": "four in ten",
+      "visualAction": "Emphasize denominator and warn not user rate, source n=892",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "Poison center observational study PMID 39724478",
+      "primaryEntities": [
+        "safety evidence"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "limitation",
+      "role": "limitation",
+      "narration": "Some products may contain undeclared ingredients. Severe cases have included seizures, unconsciousness, and deaths.",
+      "onScreenText": "UNKNOWN CONTENTS · SERIOUS HARM",
+      "visualPurpose": "Sealed bottle refracts into unknown layers and hazard warning",
+      "spokenAnchor": "undeclared ingredients",
+      "visualAction": "Sealed bottle refracts into unknown layers and hazard warning",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA Neptune's Fix recall and safety warning 2024/2025",
+      "primaryEntities": [
+        "tianeptine"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/39724478/",
+      "visualPurpose": "Static legible full canonical primary PubMed source",
+      "spokenAnchor": "",
+      "visualAction": "Static legible full canonical primary PubMed source",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "PMID 39724478",
+      "primaryEntities": [
+        "primary study"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.35
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "If someone is unconscious or struggling to breathe, call nine one one. For dependence, seek medical support. Read the evidence.",
+      "onScreenText": "RECOGNIZE THE RISK. GET HELP.",
+      "visualPurpose": "Calm credible emergency help slate and research citation",
+      "spokenAnchor": "call nine one one",
+      "visualAction": "Calm credible emergency help slate and research citation",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "FDA safety notice 2025",
+      "primaryEntities": [
+        "emergency response"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    }
+  ]
+}
