@@ -470,6 +470,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     // retained as a pixel-exact reference for every rebuilt native frame.
     const r819Layers=r819Proof ? verifyR819LayerInventory(inputDir,
       verified.manifest.r819.layerSequence,verified.r818NativeFrames) : null
+    const r819FrameProofs=[]
     let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
@@ -485,7 +486,8 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
           const nativeFile=path.join(inputDir,frame.file)
           const numberedFile=path.join(nativeFrameDir,'f'+String(nativeFrameCount).padStart(6,'0')+'.png')
           if(r819Proof){
-            await compositeR819Frame(inputDir,layerBeat,layerBeat.frames[j],frame,numberedFile)
+            const proof=await compositeR819Frame(inputDir,layerBeat,layerBeat.frames[j],frame,numberedFile)
+            r819FrameProofs.push(proof)
             finalPng=numberedFile
           }else{
             fs.linkSync(nativeFile,numberedFile)
@@ -650,6 +652,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       } : null,
       r812Audio: r812Loudness,
       r819Canonical: r819Proof ? {...r819Proof,exactMp4Sha256:sha256(outputBytes),
+        layeredFrameInventorySha256:r819Layers.sha256,
+        exactLayeredFrameCount:r819FrameProofs.length,
+        allFramesPixelMatchedR818:r819FrameProofs.length===verified.r818NativeFrames.frameCount,
+        layeredFrameProofLedgerSha256:sha256(Buffer.from(JSON.stringify(r819FrameProofs))),
         finalMp4PixelAndCraftApproval:'PENDING_INDEPENDENT_REVIEW',publicationApproved:false} : null,
       r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
       creativeQuality: verified.release === 'R8.05' ? {
