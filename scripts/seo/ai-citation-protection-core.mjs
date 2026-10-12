@@ -62,7 +62,12 @@ export function extractCitationIdentity(source, sourceType) {
     }).filter(([, value]) => typeof value === 'string' && value.length > 0))
   }
   if (sourceType !== 'next-page') return {}
-  const title = source.match(/\btitle\s*:\s*['"]([^'"]+)['"]/)?.[1] ?? null
+  let title = source.match(/\btitle\s*:\s*['"]([^'"]+)['"]/)?.[1] ?? null
+  // buildPageMetadata({ title: compactMetaTitle(TITLE) }) has a source-title
+  // constant, not a literal metadata.title. Guard that source value honestly.
+  if (!title && /\btitle\s*:\s*(?:compactMetaTitle\(TITLE\)|TITLE)/.test(source)) {
+    title = source.match(/\bconst\s+TITLE\s*=\s*['"]([^'"]+)['"]/)?.[1] ?? null
+  }
   const match = source.match(/\balternates\s*:\s*\{\s*canonical\s*:\s*(?:'([^']+)'|"([^"]+)"|([A-Z][A-Z_0-9]+))/s)
   let canonical = match?.[1] ?? match?.[2] ?? null
   if (!canonical && match?.[3]) {
