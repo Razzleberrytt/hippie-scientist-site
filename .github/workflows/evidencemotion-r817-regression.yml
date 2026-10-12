@@ -1,0 +1,35 @@
+name: EvidenceMotion R8.17 first-pass regression
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/distribution/r817-*'
+      - 'scripts/distribution/r818-*'
+      - 'scripts/distribution/r810-aligned-captions.mjs'
+      - 'scripts/distribution/render-vertical-video-mp4.mjs'
+      - 'scripts/distribution/render-vertical-video-package.mjs'
+      - 'scripts/distribution/__tests__/r817-*'
+      - 'scripts/distribution/__tests__/r818-*'
+      - '.github/workflows/evidencemotion-r817-regression.yml'
+permissions:
+  contents: read
+jobs:
+  canonical-first-pass:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Check R8.17 and R8.18 source syntax
+        run: |
+          for f in scripts/distribution/r817-*.mjs scripts/distribution/r818-*.mjs scripts/distribution/r810-aligned-captions.mjs scripts/distribution/render-vertical-video-mp4.mjs scripts/distribution/render-vertical-video-package.mjs; do
+            node --check "$f"
+          done
+      - name: Run R8.17 positive and adversarial regressions
+        run: npx vitest run scripts/distribution/__tests__/r817-canonical-first-pass.test.mjs scripts/distribution/__tests__/r817-retention-and-experiments.test.mjs scripts/distribution/__tests__/r817-v-adversarial-audit.test.mjs scripts/distribution/__tests__/r818-telemetry-qa.test.mjs scripts/distribution/__tests__/r818-native-telemetry-recorder.test.mjs scripts/distribution/__tests__/r818-cache-and-contact.test.mjs
+      - name: Block fake finished R8.18 videos and robotic narrator substitutions
+        run: node --test scripts/distribution/__tests__/r818-voiced-review-qa.test.mjs

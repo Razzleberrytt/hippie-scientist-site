@@ -82,6 +82,7 @@ const destinationGroups: Array<{ id: SiteDestinationId; links: DirectoryLink[] }
     id: 'research',
     links: [
       { label: 'Research library', href: '/research/', detail: 'Choose a research task: source lookup, evidence check, report, or methodology' },
+      { label: 'Deep research investigations', href: '/research/investigations/', detail: 'Browse merged research-only investigations with direct PubMed sources and transparent review status' },
       { label: 'PubMed source register', href: '/research/source-register/', detail: 'Browse verified research-intake titles and the historical unique PMID index; not evidence grades' },
       { label: 'Research Intelligence Studio', href: '/research/intelligence/', detail: 'Eight provenance-bound semantic research instruments for source questions, comparisons, and editorial review' },
       { label: 'Evidence lookup', href: '/evidence/evidence-checker/', detail: 'Inspect ingredient-level evidence grades and source coverage' },

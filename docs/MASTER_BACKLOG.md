@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-08 (P0 planning priority)
+**Updated:** 2026-10-12 (P0 AI citation/evidence expansion program appended as unadmitted candidates; existing D/R/A work unchanged)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -27,6 +27,14 @@
 **Priority-ordered candidate sequence, not additional admitted tickets:** (1) validate and merge existing #6509 through the sole protected controller; (2) baseline workflows/build/CI durations and duplicate trigger graph against current main; (3) remove only demonstrably redundant workflow executions/check duplication with required names preserved; (4) profile/correct static generation and deterministic data/build bottlenecks, validate cold and cache-hit parity; (5) improve immutable identical-input artifact and dependency caching; (6) publish comparable before/after safety-and-throughput receipt. Group related changes into one reviewable ticket when they share failure domain/rollback. Never claim savings before observing them.
 
 **Acceptance for future admitted scoped work:** exact baseline/run URLs, change-risk classification, reproducible timings, required-status/check inventory, no skipped science/security/accessibility/SEO/publishing gates, byte-identical output and corrupted-cache refusal, unchanged workstream cap, mandatory exact-head CI, sole merge-controller authority, exact main/deployment receipt, measured p50/p90 wall time and Actions minutes or explicit Unknown. Use the existing score formula below; Strategic Leverage contains unlock value. Keep incident and safety fixes first, and preserve all prior P0 acceptance.
+
+## P0 — AI Citation Leadership & Evidence Expansion (candidate portfolio, #6695)
+
+**Owner-directed strategic priority (2026-10-12):** Extend the site's actual AI citation winners into an independently verified, differentiated evidence library. The [18-task P0 candidate backlog](AI_CITATION_P0_EXPANSION_BACKLOG.md) covers source-grade measurement, winner protections, canonical/intent ownership, supplement-quality and mushroom research, valerian/sleep/stress, creatine/cognition, protein, ASPD clinical education, emerging-substance safety, evidence crosswalks, source-gap observations and measured learning.
+
+**Non-duplicative first dependencies:** retain existing **#6690** for Bing query→page attribution, **#6685** for production winner-identity protection, **#6670** for editorial verification, and **#6431** for source/evidence integration. A dated Bing Overview export is still required for true 7-/30-day daily trends. Citation Page and Grounding Query totals are overlapping, not additive.
+
+**Admission status:** **1/18 program candidate tasks admitted**: P0-AIC-03 via existing D #6685 only; the other 17 candidates remain unadmitted. This is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
 
 ## Scoring and gates
 
@@ -83,14 +91,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6149 | Capture consented social attribution before remote analytics transport check | R | Active — admitted | P1 | 4/4/3/5/1.00/1 | 240.0 | 2026-10-09 |
+| #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Current admission (verified 2026-10-09, #6149):** The R lane owns one bounded, scored consented social-attribution ordering fix (#6149), WIP **1/3**, D/A free. The exact-base admission is independent of completed A #6259/PR #6260. This fixes only eligibility to implement; analytics provider setup, measured conversion and production receipt remain Unknown.
+**Completed D #6683 verified 2026-10-12:** PR #6684 merged as `f5d2e98762786b558e64d968db158c3ba38e18e7`; Cloudflare run `38251809776` succeeded and verified the exact production receipt. The historical score **108.0** measures admission priority only. The D row is retired and normal WIP is **0/3**, D/R/A free. No subsequent ticket is admitted, and actual citation/traffic/revenue impact remains Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -130,14 +138,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
+Discovery/SEO is occupied by admitted P0 #6685 (1/3 normal WIP); R/A are free. No other candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
 | #4987 | Require real evidence receipts for approval and source counts | A / L2 | Completed 2026-09-28; PR #6057 merged | — | — | — | Exact-head CI/Atomic/Project Control/Site Health/Build Quality green | Claim/source namespaces separated; sourceCount cannot self-attest; generic approval/recommendation requires approved claim→source receipt |
 | #6056 | Contain legacy Tyrosine citation contamination | A / L2 | Retired — merged in PR #6066 | Scientific integrity | — | — | Completed; no overlap with #6051 | Legacy herb grade/citations/dosing held across public indexes + runtime; compound:l-tyrosine preserved |
-| #5081 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Blocked — fresh governor lease required | P1 | — | — | Exact current main + no overlapping lease | Acquire and merge a non-overlapping governor lease before canonical evidence mutation; preserve formulation, population, endpoint, null-result, safety, and dosing boundaries |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -152,7 +159,7 @@ Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate 
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
-| #5081 / PR #5556 | Close Sage human evidence and SAGE-718 identity contamination | A/L2 | Blocked on fresh governor lease | — | Acquire and merge a fresh non-overlapping state-only governor lease, then move the ticket into `Now` before scientific implementation |
+| #5081 / PR #5556 | Sage evidence and SAGE-718 identity — historical ticket | A/L2 | Retired — issue closed 2026-10-09 | — | Preserve existing scientific review history; a new owner requires a fresh ticket/lease. |
 | #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner migration |
 | #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |

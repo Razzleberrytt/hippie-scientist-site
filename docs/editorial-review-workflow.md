@@ -83,3 +83,11 @@ Future AI-assisted workflows should:
 - never bypass validation
 - never bypass human review
 - never overwrite runtime payloads directly
+
+## Canonical automation of approval decisions (October 2026)
+
+[Canonical automatic publication approval policy](governance/canonical-automatic-publication-approval.md) is the implementation contract. The trusted merge controller automatically clears **inert research/editorial staging** through ordinary source/CI checks but never interprets this as permission to publish its clinical conclusions. Public medical content, governed public data and source-of-truth changes require **named repository-owner human approval bound to the exact PR-head SHA** and independently satisfy the separate scientific/source/safety validations.
+
+A GitHub-approved review at the exact head or a matching verified-owner PR comment is a **human editorial approval receipt, not medical credentials or an independent scientific verdict**. It must precede promotion; the controller checks it again immediately before merging. Broad messages such as “approve all,” stale-head approvals, untrusted accounts, AI review artifacts, and successful CI without owner receipt are insufficient. Draft article intake remains draft until all specific blockers are resolved.
+
+This policy applies to automated merges via the existing controller, not to privileged direct admin merges; main-branch protection must be enabled and verified before claiming global enforcement.

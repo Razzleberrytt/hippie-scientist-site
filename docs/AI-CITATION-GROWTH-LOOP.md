@@ -201,3 +201,22 @@ Issue #5206 owns this activation pass. In order:
 5. Strengthen the canonical ADHD hub from its 19 cited spokes.
 6. Add bounded post-answer conversion paths to selected citation winners under the existing Revenue/Conversion lane rules.
 7. Refresh the snapshot on the next reporting cycle and re-rank based on observed movement.
+
+
+## P0 2026-10-12: durable protection for observed citation winners
+
+This implementation uses the existing `config/ai-citation-swarm-priorities.json` derived Page Stats manifest, **not** raw authenticated Bing CSVs. The pinned, reviewable `config/ai-citation-protected-assets.json` ledger identifies **25 exact source owners**, representing **41,118 citations / 83.61%** of the 49,177 page-level citations in the Oct 12 snapshot. This is **coverage of a dated historical report**, not coverage of all published site pages, daily citations, or cross-engine reach.
+
+- The normal `npm run audit:ai-citations` validation checks the pinned canonical source owner and source-declared title/slug/canonical identity. Dynamic article URLs can resolve to `content/articles/*.md(x)` **or** `content/blog/*.md(x)`; a generic `app/articles/[slug]/page.tsx` route is not mistaken for the original authoring source.
+- Documented limitation: identity parsing is limited to statically declared source title, slug and canonical where extractable. A markdown frontmatter title is **not** represented as independent proof of the rendered H1 or dynamically generated canonical.
+- **Verified redirect ownership:** `/articles/magnesium-types-for-sleep/` (382 citations) has no matching article monograph, but both slash variants are explicitly 301-redirected in `public/_redirects` to `/guides/sleep/magnesium-types-for-sleep/`. The guard therefore binds the cited alias **and the unchanged 301 mapping** to that exact published guide source/title/canonical; altering or removing the redirect is a regression. A merely similar slug without the redirect would stay unresolved.
+- The guard only fails for **fresh, verified** identity regressions. Invalid, expired, future-dated, or different-label source telemetry is citation-neutral and must not block unrelated safety or clinical corrections. The checked-in ledger's source fields must be reviewed; running the generator after an unwanted title change and blindly committing its result defeats protection.
+- To intentionally change a protected title, route, slug or canonical identity, include source-specific scientific/editorial reasons and—if the URL changes—verified redirect/rollback evidence. Update the reviewed ledger **together with** an authorized migration. Content wording, evidence corrections, safety warnings and newly verified null results are never blocked solely for changing body text.
+
+Source dates and citation counts are held to the source snapshot; the generation command does not fabricate a current Bing receipt:
+```bash
+node scripts/seo/ai-citation-protected-assets.mjs
+node scripts/ci/validate-ai-citation-protected-assets.mjs
+```
+
+Citation/traffic/revenue uplift from the guard is **Unknown**. Its value is preventing accidental churn of already cited identity while the separate P0 research expansion proceeds.

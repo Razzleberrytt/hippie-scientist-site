@@ -7,6 +7,7 @@ import { createDistributionLifecycle, transitionDistributionLifecycle } from './
 import { renderCarouselAssets } from './render-carousel-svg.mjs'
 import { renderCarouselRasterAssets } from './render-carousel-raster.mjs'
 import { renderVerticalVideoPackage } from './render-vertical-video-package.mjs'
+import { createR818PhysicalCinemaProvider } from './r818-physical-cinema-provider.mjs'
 import { buildLosslessCreativeSpec } from './creative-spec-lossless.mjs'
 import { hashResearchObject } from './distribution-pack-contract.mjs'
 
@@ -258,11 +259,27 @@ export async function buildBoundedPilot({
         throw new Error('R8.08 short-video pilot requires bound R8.06/R8.07 foundations and R8.08 silent-comprehension approval')
       }
       const claimSafetyStatus = validateR805BriefCopyAgainstCanonical(creativeBrief, candidateSpec)
-      const renderCreativeSpec = { ...candidateSpec, claimSafetyStatus }
+      const requestedR817=packageData?.creativeSpec?.canonicalFirstPassRelease==='R8.17'
+      if(requestedR817&&creativeMethodRelease!=='R8.10')
+        throw Error('R8.17 full native 3D production requires governed R8.10 local-acoustic narration, never legacy phrase-only mode')
+      const renderCreativeSpec = {
+        ...candidateSpec,claimSafetyStatus,
+        ...(requestedR817?{
+          canonicalFirstPassRelease:'R8.17',
+          r817FirstPass:packageData.creativeSpec.r817FirstPass
+        }:{})
+      }
       if (renderCreativeSpec.claimSafetyStatus !== 'validated-lossless') {
         throw new Error('R8.05 short-video pilot requires fresh lossless evidence-safety validation of the exact brief copy')
       }
-      const videoManifest = renderVerticalVideoPackage({ mediaPack, creativeSpec: renderCreativeSpec, outputDir })
+      const nativeProvider=requestedR817?createR818PhysicalCinemaProvider():null
+      const videoManifest = renderVerticalVideoPackage({
+        mediaPack,creativeSpec:renderCreativeSpec,outputDir,
+        ...(nativeProvider?{
+          nativeFrameRenderer:nativeProvider.nativeFrameRenderer,
+          rendererGeometryRecorder:nativeProvider.rendererGeometryRecorder
+        }:{})
+      })
       assetManifest = withVerticalVideoProvenance({ manifest: videoManifest, mediaPack, creativeSpec: renderCreativeSpec })
       fs.writeFileSync(path.join(outputDir, 'video-asset-manifest.json'), `${JSON.stringify(assetManifest, null, 2)}\n`)
     }

@@ -1,0 +1,21 @@
+/* Video → article hero → social card: portable visual system, not clinical meaning. */
+.ths-cellular-brand {
+  --ths-cellular-ink: #081622;
+  --ths-cellular-panel: #0c2638;
+  --ths-cellular-surface: #144652;
+  --ths-cellular-primary: #46e8d5;
+  --ths-cellular-secondary: #6cb0ff;
+  --ths-cellular-contrast: #ffb55a;
+  --ths-cellular-text: #ebf8f6;
+  --ths-cellular-muted: #acc9ca;
+  color: var(--ths-cellular-text);
+  background: var(--ths-cellular-ink);
+}
+.ths-cellular-brand .ths-source-provenance {
+  border-top: 1px solid color-mix(in srgb, var(--ths-cellular-primary) 55%, transparent);
+  color: var(--ths-cellular-muted);
+}
+.ths-cellular-brand .ths-honesty-qualifier {
+  border-inline-start: 3px solid var(--ths-cellular-contrast);
+  padding-inline-start: .75rem;
+}

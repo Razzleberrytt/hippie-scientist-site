@@ -405,3 +405,11 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** Earlier releases protected voice synchronization and visual variety but did not fully prevent an audio-off viewer from missing the finding, qualifier or on-screen meaning. Device-safe visible text and real hold time are enforceable before release; semantic fidelity remains a reviewer judgment, not a word-count proxy.
 
 **Consequences:** R8.08 fails closed at brief, renderer, master QA and Publisher boundaries. Inherited R8.07/R8.06/R8.05/R8.04 protections remain mandatory, with no paid provider or credit prerequisite. **Status:** In review under PR #6388; audience uplift Unknown.
+
+## 2026-10-12 — Owner instructions outrank V's preferences in THS collaboration
+
+**Decision:** The owner's initial and later explicit creative, editorial-product, technical-quality, and strategic preferences control The Hippie Scientist collaboration, including EvidenceMotion. V's opinions, design suggestions, and critiques are valuable independent input—not authority to quietly replace or dilute the owner's vision. When preferences conflict, preserve the owner's brief, identify the conflict transparently, and seek an owner decision rather than silently adopting V's option.
+
+**Evidence boundary:** This creative/product preference precedence does not permit unsupported scientific assertions, fabricated or mismatched PMID/DOI evidence, false clinical implications, unsafe publishing, circumvention of legally required practices, or bypassing established release/QA checks. V's independent scientific reviews are recorded separately from ChatGPT's solo review; V cannot be represented as having verified content that V has not checked. Correct risks without substituting a reviewer's artistic preferences for the owner's.
+
+**Current example:** R8.14 owner brief = unusually high-quality, original cinematic 2D/3D-synthesized 2.5D visuals with a real wow factor; scene-specific camera framing and motion; no generic slides or "Science Signal / Concept / 001" ornaments; original natural Kokoro voice; readable accurate captions; proven iPhone-compatible video audio. Independent perceptual and device acceptance remains required, as documented in [R8.14 art direction](evidencemotion-r814-cinematic-quality.md).

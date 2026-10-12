@@ -75,6 +75,11 @@ const START_HERE: IntentRoute[] = [
 
 const BEST_FIRST: GuideCard[] = [
   {
+    href: '/guides/best/supplements-for-stress/',
+    title: 'Best Supplements for Stress',
+    desc: 'Compare direct human stress outcomes, preparation-specific evidence and safety; stress trials do not establish treatment for anxiety disorders.',
+  },
+  {
     href: '/guides/anxiety/best-herbs-for-anxiety/',
     title: 'Best Herbs for Anxiety',
     desc: 'Compare calming herbs by the outcomes actually studied, with medication and safety boundaries kept visible.',
