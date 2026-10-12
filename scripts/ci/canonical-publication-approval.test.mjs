@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { evaluateReadiness } from './autonomous-merge-controller.mjs'
 import { assessPublicationApproval, classifyPublicationChange } from './canonical-publication-approval.mjs'
 
 const sha='a'.repeat(40)
@@ -69,5 +70,30 @@ describe('canonical publication approval',()=>{
     expect(decide([publicFile],{pr:tampered,comments:[approval()]}).allowed).toBe(false)
     const fork={...pr,head:{...pr.head,repo:{full_name:'other/fork'}}}
     expect(decide([publicFile],{pr:fork,comments:[approval()]}).allowed).toBe(false)
+  })
+})
+
+describe('integration into trusted merge readiness',()=>{
+  const currentBase='c'.repeat(40)
+  const targetPr={...pr,state:'open',draft:false,mergeable:true,mergeable_state:'clean',
+    base:{...pr.base,sha:currentBase,ref:'main'},labels:[]}
+  it('stops before an apparently green public PR without approval',()=>{
+    const r=evaluateReadiness({
+      pr:targetPr, workflowRuns:[],checkRuns:[],changedFiles:[publicFile],
+      expectedHeadSha:sha,currentBaseSha:currentBase,
+      riskTier:'high',controllerRunId:'test-controller',
+    })
+    expect(r.action).toBe('stop')
+    expect(r.reason).toContain('publication review hold')
+  })
+  it('human approval cannot bypass required workflows or their failures',()=>{
+    const r=evaluateReadiness({
+      pr:targetPr,workflowRuns:[],checkRuns:[],changedFiles:[publicFile],
+      approvalEvidence:{comments:[approval()],reviews:[]},
+      expectedHeadSha:sha,currentBaseSha:currentBase,
+      riskTier:'high',controllerRunId:'test-controller',
+    })
+    expect(r.action).toBe('wait')
+    expect(r.reason).toContain('required workflows')
   })
 })
