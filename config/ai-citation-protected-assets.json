@@ -114,9 +114,11 @@
       "sourceType": "next-page",
       "protectionReason": "threshold",
       "identity": {
-        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026"
+        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026",
+        "canonical": "/guides/sleep/best-herbs-for-sleep"
       },
       "protectedFields": [
+        "canonical",
         "title"
       ]
     },
@@ -213,9 +215,11 @@
       "protectionReason": "threshold",
       "identity": {
         "title": "Whey vs Casein vs Plant Protein: What Actually Differs? (2026)",
-        "h1": "Whey vs Casein vs Plant Protein: What Actually Differs?"
+        "h1": "Whey vs Casein vs Plant Protein: What Actually Differs?",
+        "canonical": "/guides/other/protein-powder-guide/"
       },
       "protectedFields": [
+        "canonical",
         "h1",
         "title"
       ]
@@ -263,9 +267,11 @@
       "protectionReason": "threshold",
       "identity": {
         "title": "Anti-Inflammatory Supplements: Evidence Review (2026)",
-        "h1": "Anti-Inflammatory Supplements: What the Evidence Actually Supports"
+        "h1": "Anti-Inflammatory Supplements: What the Evidence Actually Supports",
+        "canonical": "/guides/other/anti-inflammatory-supplements/"
       },
       "protectedFields": [
+        "canonical",
         "h1",
         "title"
       ]
@@ -279,9 +285,11 @@
       "protectionReason": "threshold",
       "identity": {
         "title": "Magnesium Types Compared: Absorption & Evidence (2026 Guide)",
-        "h1": "Magnesium Types: What Form Comparisons Actually Show"
+        "h1": "Magnesium Types: What Form Comparisons Actually Show",
+        "canonical": "/guides/other/magnesium-types-guide/"
       },
       "protectedFields": [
+        "canonical",
         "h1",
         "title"
       ]
@@ -327,9 +335,11 @@
       "protectionReason": "threshold",
       "identity": {
         "title": "Collagen Supplements: Benefits, Risks & What the Evidence Really Shows (2026)",
-        "h1": "Collagen Supplements: The Evidence Is Stronger for Some Claims—and Much More Disputed for Skin Than Marketing Suggests"
+        "h1": "Collagen Supplements: The Evidence Is Stronger for Some Claims—and Much More Disputed for Skin Than Marketing Suggests",
+        "canonical": "/guides/other/collagen-supplements/"
       },
       "protectedFields": [
+        "canonical",
         "h1",
         "title"
       ]
@@ -394,9 +404,11 @@
       "sourceType": "next-page",
       "protectionReason": "threshold",
       "identity": {
-        "title": "L-Theanine for ADHD: Does It Help Focus or Sleep?"
+        "title": "L-Theanine for ADHD: Does It Help Focus or Sleep?",
+        "canonical": "/guides/adhd/l-theanine-for-adhd/"
       },
       "protectedFields": [
+        "canonical",
         "title"
       ]
     }
