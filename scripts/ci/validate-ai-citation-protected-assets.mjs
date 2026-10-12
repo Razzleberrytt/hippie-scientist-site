@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
-import { extractCitationIdentity, normalizeCitationUrl, sourceOwner } from '../seo/ai-citation-protection-core.mjs'
+import { extractCitationIdentity, normalizeCitationUrl, protectedSourceOwner } from '../seo/ai-citation-protection-core.mjs'
 
 const ROOT = process.cwd()
 const LEDGER = 'config/ai-citation-protected-assets.json'
@@ -39,11 +39,13 @@ for (const asset of ledger.assets ?? []) {
   observed.add(url)
   const upstream = signal.defendUrls?.find(r => r.url === url)
   if (!upstream || upstream.citations !== asset.citations) failures.push(url + ': citations differ from dated source manifest')
-  const owner = sourceOwner(ROOT, url)
-  if (!owner || owner !== asset.sourceFile) {
-    failures.push(url + ': exact source owner missing or changed (' + asset.sourceFile + ')')
+  const resolved = protectedSourceOwner(ROOT, url)
+  const owner = resolved?.sourceFile
+  if (!owner || owner !== asset.sourceFile || JSON.stringify(resolved.redirect) !== JSON.stringify(asset.redirect)) {
+    failures.push(url + ': exact source owner or permanent redirect missing/changed (' + asset.sourceFile + ')')
     continue
   }
+  const target = resolved.redirect?.to ?? url
   const current = extractCitationIdentity(readFileSync(path.join(ROOT, owner), 'utf8'), owner)
   if (!asset.identity?.title) failures.push(url + ': baseline is missing mandatory source title')
   for (const field of ['sourceType', 'title', 'slug', 'canonical']) {
@@ -51,7 +53,7 @@ for (const asset of ledger.assets ?? []) {
       failures.push(url + ': protected ' + field + ' changed in ' + owner)
     }
   }
-  if (current.canonical && current.canonical !== url) failures.push(url + ': current declared canonical differs from cited URL')
+  if (current.canonical && current.canonical !== target) failures.push(url + ': current declared canonical differs from resolved source URL')
 }
 if (failures.length) {
   console.error('[ai-citation-assets] citation identity regression detected:')
