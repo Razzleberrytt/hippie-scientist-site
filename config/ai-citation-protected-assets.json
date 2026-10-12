@@ -45,16 +45,18 @@
       "identity": {
         "kind": "tsx",
         "title": "Best Supplements for Stress: Evidence-Ranked Guide (2026)",
-        "h1": null,
+        "h1": "Best Supplements for Stress: What the Evidence Actually Supports",
         "slug": "supplements-for-stress",
-        "canonical": "/guides/best/supplements-for-stress/"
+        "canonical": "/guides/best/supplements-for-stress/",
+        "headingSourceFile": "app/guides/anxiety/best-supplements-for-stress/page.tsx"
       },
       "fingerprints": {
         "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
         "title": "23f8ba00a592b7e11a3c4fac7eaa69bc871ed6346b711a791d2a2ed1bfc54458",
-        "h1": null,
+        "h1": "5b8bbac2135fb6a51a2e261981dc3543463260b2f5b49d6dc6e6836e605f0b0e",
         "slug": "6df7dca4843a89e4bae6623245db2d3f73479ae6039158a7c86cb58c405c15c5",
-        "canonical": "262f4a1fbb6fafc41ace090a7769c344a24d771a4e095bad0566f86487912247"
+        "canonical": "262f4a1fbb6fafc41ace090a7769c344a24d771a4e095bad0566f86487912247",
+        "headingSourceFile": "6c681693f5cf1c860bdd3c3e92e9137db223e37025d3314d6921af9041d296ee"
       }
     },
     {
@@ -528,16 +530,18 @@
       "identity": {
         "kind": "tsx",
         "title": "L-Theanine for ADHD: Does It Help Focus or Sleep?",
-        "h1": null,
+        "h1": "L-Theanine for ADHD: What the Evidence Supports in 2026",
         "slug": "l-theanine-for-adhd",
-        "canonical": "/guides/adhd/l-theanine-for-adhd/"
+        "canonical": "/guides/adhd/l-theanine-for-adhd/",
+        "headingSourceFile": "lib/focus-adhd-articles.ts"
       },
       "fingerprints": {
         "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
         "title": "2aaacb4fd10ddf67d39cd7e0934e8a4ec32455a7376cad16904393ed42b0e386",
-        "h1": null,
+        "h1": "f2fc753decd4582ad8f5dad197207e5f2f105fd815b20c23b600d05eaef161de",
         "slug": "99af40dab304dbc352d35ec284dead80752658adfda26e8d162ee2c0130ea875",
-        "canonical": "b383b7765981e4d27da44972bbc3f38d387e157fb94969a006bb2706856f03f1"
+        "canonical": "b383b7765981e4d27da44972bbc3f38d387e157fb94969a006bb2706856f03f1",
+        "headingSourceFile": "8e22099a6ee654c211c82c76b276ca337f2669fd5c6b3a8bb8ef0158aff9c1f6"
       }
     }
   ]
