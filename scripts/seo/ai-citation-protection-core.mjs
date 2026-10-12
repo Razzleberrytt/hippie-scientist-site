@@ -62,39 +62,36 @@ export function extractCitationIdentity(source, sourceType) {
     }).filter(([, value]) => typeof value === 'string' && value.length > 0))
   }
   if (sourceType !== 'next-page') return {}
+
   let title = source.match(/\btitle\s*:\s*['"]([^'"]+)['"]/)?.[1] ?? null
-  // buildPageMetadata({ title: compactMetaTitle(TITLE) }) has a source-title
-  // constant, not a literal metadata.title. Guard that source value honestly.
+  // buildPageMetadata can receive a source-owned TITLE rather than a literal.
   if (!title && /\btitle\s*:\s*(?:compactMetaTitle\(TITLE\)|TITLE)/.test(source)) {
     title = source.match(/\bconst\s+TITLE\s*=\s*['"]([^'"]+)['"]/)?.[1] ?? null
   }
+
   const match = source.match(/\balternates\s*:\s*\{\s*canonical\s*:\s*(?:'([^']+)'|"([^"]+)"|([A-Z][A-Z_0-9]+))/s)
   let canonical = match?.[1] ?? match?.[2] ?? null
   if (!canonical && match?.[3]) {
     const variable = match[3]
-    const varMatch = source.match(new RegExp('\\bconst\\s+' + variable + '\\s*=\\s*[\\x27\\x22]([^\\x27\\x22]+)[\\x27\\x22]'))
-    canonical = varMatch?.[1] ?? null
+    canonical = source.match(new RegExp('\\bconst\\s+' + variable + '\\s*=\\s*[\\x27\\x22]([^\\x27\\x22]+)[\\x27\\x22]'))?.[1] ?? null
   }
-  // buildPageMetadata derives the canonical from its path argument.
-  // Resolve only literal paths or exact local string constants, never arbitrary expressions.
+
+  // The buildPageMetadata helper derives canonical from the path argument.
+  // Resolve only literal paths or exact local string constants.
   if (!canonical) {
     const pathArgument = source.match(new RegExp('buildPageMetadata\\s*\\(\\s*\\{[\\s\\S]*?\\bpath\\s*:\\s*[\\x27\\x22\\x60]([^\\x27\\x22\\x60]+)[\\x27\\x22\\x60]'))?.[1]
     if (pathArgument) {
-      const resolved = pathArgument.replace(new RegExp('\\$\\{([A-Z][A-Z_0-9]+)\\}', 'g'), (whole, name) => {
-        const value = source.match(new RegExp('\\bconst\\s+' + name + '\\s*=\\s*[\\x27\\x22]([^\\x27\\x22]+)[\\x27\\x22]'))?.[1]
-        return value ?? whole
+      const expression = new RegExp('\\$\\x7b([A-Z][A-Z_0-9]+)\\x7d', 'g')
+      const resolved = pathArgument.replace(expression, (whole, name) => {
+        const constant = source.match(new RegExp('\\bconst\\s+' + name + '\\s*=\\s*[\\x27\\x22]([^\\x27\\x22]+)[\\x27\\x22]'))?.[1]
+        return constant ?? whole
       })
-      if (!resolved.includes('
-  return Object.fromEntries(Object.entries({ title, canonical, h1 }).filter(([, value]) =>
-    typeof value === 'string' && value.length > 0))
-}
-
-export function identityFor(root, owner) {
-  return extractCitationIdentity(readFileSync(path.join(root, owner.sourceFile), 'utf8'), owner.sourceType)
-}
- + '{') && resolved.startsWith('/')) canonical = resolved
+      if (!resolved.includes(String.fromCharCode(36, 123)) && resolved.startsWith('/')) {
+        canonical = resolved
+      }
     }
   }
+
   const h1 = source.match(/<h1(?:\s[^>]*)?>([^<{][\s\S]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
   return Object.fromEntries(Object.entries({ title, canonical, h1 }).filter(([, value]) =>
     typeof value === 'string' && value.length > 0))
