@@ -84,7 +84,7 @@ export function renderR817ProgressiveWordCaptions(scenes, alignedWords) {
     for(let i=0;i<cue.words.length;i++){
       const word=cue.words[i],next=cue.words[i+1]
       const duration=Math.round(((next?next.start:cue.end)-word.start)*100)
-      if(!Number.isFinite(duration)||duration<1)throw Error('R8.17 invalid word-level acoustic duration')
+      if(!Number.isFinite(duration)||duration<8)throw Error('R8.17 imperceptible karaoke word (minimum 8 centiseconds)')
       // Explicit per-word progression. The last word of a line owns the linebreak.
       text+='{'+'\\k'+duration+'}'+word.word
       if(cue.lineBreakAfterWord===i+1)text+='\\N'
@@ -98,5 +98,5 @@ export function renderR817ProgressiveWordCaptions(scenes, alignedWords) {
   if(lines.some(line=>!line.includes('{\\k')))throw Error('R8.17 phrase-flash caption found')
   return {ass,srt:renderR810AlignedCaptionTracks(scenes,alignedWords).srt,
     wordCount:count,cueCount:cues.length,mode:'mfa-acoustic-progressive-word',
-    phraseFlashFallback:false}
+    phraseFlashFallback:false,cues}
 }
