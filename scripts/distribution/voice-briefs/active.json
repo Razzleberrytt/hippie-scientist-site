@@ -1,0 +1,180 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "PMID:35953126",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35953126/"
+  },
+  "premise": {
+    "interestScore": 4.9,
+    "coldViewerWhyCare": "A popular vitamin supplement can distort high-stakes blood tests",
+    "viewerQuestion": "Can high-dose biotin make a dangerous lab result look reassuring?",
+    "earlyPayoff": "The FDA warns high biotin exposure can make certain troponin tests read falsely low",
+    "methodologyBeforePayoff": false,
+    "hookMode": "curiosity",
+    "paperSummaryOpening": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "reviewState": "owner-authorized AI scientific editorial review; perceptual human approval pending",
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "narration": "Your hair vitamin could confuse a blood test.",
+      "onScreenText": "CAN A VITAMIN FOOL A LAB TEST?",
+      "visualPurpose": "Scientific illustration: A capsule casts a shadow across a blood test panel; do not alter evidence",
+      "spokenAnchor": "hair vitamin",
+      "visualAction": "A capsule casts a shadow across a blood test panel",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "FDA biotin advisory",
+      "primaryEntities": [
+        "biotin"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "finding",
+      "role": "finding",
+      "narration": "The FDA warns that biotin can make certain troponin tests read falsely low.",
+      "onScreenText": "A HEART MARKER CAN READ FALSELY LOW",
+      "visualPurpose": "Scientific illustration: Reveal two divergent display states; no fabricated values; do not alter evidence",
+      "spokenAnchor": "falsely low",
+      "visualAction": "Reveal two divergent display states; no fabricated values",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA troponin warning",
+      "primaryEntities": [
+        "troponin"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "context",
+      "role": "context",
+      "narration": "Biotin is vitamin B seven. It is common in hair, skin, and nail supplements.",
+      "onScreenText": "BIOTIN = VITAMIN B7",
+      "visualPurpose": "Scientific illustration: Reveal dimensional capsule form, never brand; do not alter evidence",
+      "spokenAnchor": "vitamin B seven",
+      "visualAction": "Reveal dimensional capsule form, never brand",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "FDA supplement context",
+      "primaryEntities": [
+        "biotin"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "narration": "A human study also found that ten milligrams per day disrupted some thyroid assays.",
+      "onScreenText": "HUMAN STUDY · 13 ADULTS",
+      "visualPurpose": "Scientific illustration: 13 abstract silhouettes dissolve into instrument panels; do not alter evidence",
+      "spokenAnchor": "human study",
+      "visualAction": "13 abstract silhouettes dissolve into instrument panels",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "Human prospective study PMID 34042535",
+      "primaryEntities": [
+        "thyroid assay"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "finding2",
+      "role": "finding",
+      "narration": "Depending on the test design, some results may appear falsely high, while others look low.",
+      "onScreenText": "FALSE HIGH / FALSE LOW",
+      "visualPurpose": "Scientific illustration: Split analytical directions, not numerical data; do not alter evidence",
+      "spokenAnchor": "falsely high",
+      "visualAction": "Split analytical directions, not numerical data",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "Mechanism review PMID 35953126",
+      "primaryEntities": [
+        "assay"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "limitation",
+      "role": "limitation",
+      "narration": "Not every laboratory test is affected. The assay method and biotin exposure both matter.",
+      "onScreenText": "NOT EVERY TEST IS AFFECTED",
+      "visualPurpose": "Scientific illustration: Qualify assay-dependent interference with two testing paths; do not alter evidence",
+      "spokenAnchor": "not every",
+      "visualAction": "Qualify assay-dependent interference with two testing paths",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "FDA assay-specific caveat",
+      "primaryEntities": [
+        "laboratory methods"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.14
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/35953126/",
+      "visualPurpose": "Scientific illustration: Show complete review source safely; do not alter evidence",
+      "spokenAnchor": "",
+      "visualAction": "Show complete review source safely",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "factualAuthority": "PubMed PMID 35953126",
+      "primaryEntities": [
+        "source"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0,
+      "holdSeconds": 3.35
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "Before blood work, tell your care team about supplements. The Hippie Scientist has the sources.",
+      "onScreenText": "TELL YOUR CARE TEAM · CHECK THE EVIDENCE",
+      "visualPurpose": "Scientific illustration: End on authoritative source call-to-action; do not alter evidence",
+      "spokenAnchor": "care team",
+      "visualAction": "End on authoritative source call-to-action",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "FDA communication and CTA",
+      "primaryEntities": [
+        "The Hippie Scientist"
+      ],
+      "comparisonRequired": false,
+      "pauseAfterSeconds": 0.12
+    }
+  ]
+}
