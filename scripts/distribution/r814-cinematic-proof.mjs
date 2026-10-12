@@ -40,7 +40,7 @@ for(const scene of scenes){
       <rect width="720" height="1280" fill="url(#plate)"/>
       <ellipse cx="470" cy="690" rx="330" ry="320" fill="${shot.light.flare}" fill-opacity=".08"/>
       <text x="74" y="165" font-family="sans-serif" font-size="24" letter-spacing="3" font-weight="700" fill="#b6f2df">THE HIPPIE SCIENTIST</text>
-      <text x="74" y="275" font-family="sans-serif" font-size="51" font-weight="800" fill="#f0fff9">${esc(head)}</text>
+      <text x="74" y="275" font-family="sans-serif" font-size="${head.length>20?40:head.length>16?46:51}" font-weight="800" fill="#f0fff9">${esc(head)}</text>
       <text x="74" y="342" font-family="sans-serif" font-size="23" fill="#c2dfdf">${esc(sub)}</text>
       ${visual}
       <path d="M 74 1090 H 646" stroke="#a3eadc" stroke-opacity=".26" stroke-width="3"/>
