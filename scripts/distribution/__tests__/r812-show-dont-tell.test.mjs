@@ -61,7 +61,7 @@ describe('EvidenceMotion R8.12 show dont tell safety',()=>{
   const voice=fs.readFileSync(base+'render-local-narration.py','utf8')
   expect(pkg).toContain('R8.12 safe-area text')
   expect(pkg).toContain('r812CtaUrl')
-  for(const mode of ['question','contrast','reveal'])expect(drafts).toContain('data-r812-hook-approach=\\\"'+mode)
+  for(const mode of ['question','contrast','reveal'])expect(drafts).toContain('data-r812-hook-approach="'+mode+'"')
   expect(hooks).toContain('silent-draft.mp4')
   expect(aligner).toContain('mfa-offline')
   expect(gate).toContain('R8.10 production requires local evidence-backed word alignment')
