@@ -8,9 +8,9 @@ const HASH = n => String(n).repeat(64)
 function fixture() {
   const sourceUrl='https://pubmed.ncbi.nlm.nih.gov/39724478/'
   const beats=[
-    {id:'hook',role:'hook',start:0,end:3,visualObject:{name:'generic amber retail bottle',kind:'retail-bottle'},artMethod:'cinematic-2.5d',semanticAction:'bottle-rotates-to-reveal-label',depthPlanes:['far','mid','near'],narrationText:'A product can contain tianeptine.',captionText:'A product can contain tianeptine.',onScreenText:'Retail product with tianeptine',claimIds:[]},
-    {id:'receptor',role:'mechanism',start:3,end:7,visualObject:{name:'mu-opioid receptor',kind:'receptor-binding',assetSha256:HASH('c')},artMethod:'rendered-3d',renderEngine:'vtk',symbolicLimitLabel:'SYMBOLIC RECEPTOR — NOT MEASURED DOCKING',semanticAction:'ligand-enters-pocket',bindingPocketVisible:true,ligandMotionVisible:true,depthPlanes:['far','mid','near'],narrationText:'It activates a mu opioid receptor.',captionText:'It activates a mu opioid receptor.',onScreenText:'SYMBOLIC OPIOID RECEPTOR',claimIds:[]},
-    {id:'evidence',role:'evidence',start:7,end:12,visualObject:{name:'study count',kind:'animated-counter'},artMethod:'cinematic-2.5d',semanticAction:'count-up-then-settle',depthPlanes:['far','mid','near'],narrationText:'The study included eight hundred ninety two reports.',captionText:'The study included eight hundred ninety two reports.',onScreenText:'892 · Single-substance poison-center reports, 2015–2023',claimIds:['q892'],numericVisual:{claimId:'q892',sourceId:'PMID:39724478',finalDisplay:'892',denominator:'Single-substance poison-center reports, 2015–2023',animation:'count-up',settleSeconds:1.4,transientCue:'COUNTING',finalFrameProofRequired:true}},
+    {id:'hook',role:'hook',start:0,end:3,visualObject:{name:'generic amber retail bottle',kind:'retail-bottle'},artMethod:'cinematic-2.5d',semanticAction:'bottle-rotates-to-reveal-label',depthPlanes:['far','mid','near'],narrationText:'A product can contain tianeptine.',captionText:'A product can contain tianeptine.',onScreenText:'Retail product with tianeptine',claimIds:['q892'],onScreenSourceIds:['PMID:39724478']},
+    {id:'receptor',role:'mechanism',start:3,end:7,visualObject:{name:'mu-opioid receptor',kind:'receptor-binding',assetSha256:HASH('c')},artMethod:'rendered-3d',renderEngine:'vtk',symbolicLimitLabel:'SYMBOLIC RECEPTOR — NOT MEASURED DOCKING',semanticAction:'ligand-enters-pocket',bindingPocketVisible:true,ligandMotionVisible:true,depthPlanes:['far','mid','near'],narrationText:'It activates a mu opioid receptor.',captionText:'It activates a mu opioid receptor.',onScreenText:'SYMBOLIC OPIOID RECEPTOR',claimIds:['q892'],onScreenSourceIds:['PMID:39724478']},
+    {id:'evidence',role:'evidence',start:7,end:12,visualObject:{name:'study count',kind:'animated-counter'},artMethod:'cinematic-2.5d',semanticAction:'count-up-then-settle',depthPlanes:['far','mid','near'],narrationText:'The study included eight hundred ninety two reports.',captionText:'The study included eight hundred ninety two reports.',onScreenText:'892 · Single-substance poison-center reports, 2015–2023',claimIds:['q892'],onScreenSourceIds:['PMID:39724478'],numericVisual:{claimId:'q892',sourceId:'PMID:39724478',finalDisplay:'892',denominator:'Single-substance poison-center reports, 2015–2023',animation:'count-up',settleSeconds:1.4,transientCue:'COUNTING',finalFrameProofRequired:true}},
     {id:'cta',role:'cta',start:12,end:15,visualObject:{name:'emergency response',kind:'call-911'},artMethod:'cinematic-2.5d',semanticAction:'reveal-emergency-guidance',depthPlanes:['far','mid','near'],narrationText:'Call nine one one for severe symptoms.',captionText:'Call nine one one for severe symptoms.',onScreenText:'CALL 911 for an emergency. Follow for more evidence.',claimIds:[]}
   ]
   return {schemaVersion:R817_CANONICAL.schemaVersion,status:'review-ready',videoId:'pilot',sourceUrl,
@@ -84,4 +84,9 @@ test('R817 requires visual twist and secondary CTA, with safety remaining primar
  rejects(p=>{p.retention.hook.onlyLabelOrBottle=true},'labeled-bottle')
  rejects(p=>{p.retention.cta.secondaryLoopText='Which states banned it?'},'verified provenance')
  rejects(p=>{p.retention.cta.secondaryDoesNotDisplacePrimary=false},'safety/emergency CTA')
+})
+
+test('R817 requires source/footer identity on hook, mechanism and evidence scenes',()=>{
+ rejects(p=>{p.beats[2].onScreenSourceIds=['PMID:25026323']},'source footer')
+ rejects(p=>{p.beats[1].claimIds=[]},'source-bound claim')
 })
