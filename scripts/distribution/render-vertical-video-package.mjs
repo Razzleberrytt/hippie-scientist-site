@@ -1,6 +1,7 @@
 import { assertNoDecorativeVideoChrome } from './evidencemotion-delivery-guardrails.mjs'
 import { assertR817FirstPass, assertR817SceneBinding } from './r817-canonical-first-pass.mjs'
 import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
+import { verifyR818NativeFrames } from './r818-native-frame-sequence.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -796,7 +797,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
-export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir, rendererGeometryRecorder = null }) {
+export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir, rendererGeometryRecorder = null, nativeFrameRenderer = null }) {
   // A new R8.17 quality lane is additive to the existing R8.10/R8.11
   // science/voice pipeline; never replace that source of factual authority.
   const r817Active = creativeSpec?.canonicalFirstPassRelease === 'R8.17'
@@ -808,12 +809,10 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir,
       sourceUrl: mediaPack.source.url,
       sourceContentHash: mediaPack.source.contentHash,
     })
-    // Existing canonical renderer is SVG 2.5D. A validated separate VTK
-    // overlay compositor must be connected before a real 3D asset can ship.
-    // Never silently downgrade an approved 3D shot to an SVG blob.
-    if (creativeSpec.r817FirstPass.beats.some(b => b.artMethod === 'rendered-3d')) {
-      throw Error('R8.17 physical 3D is not connected to this SVG-only producer; refuse fake 3D or a silent flat-art downgrade')
-    }
+    // New R8.18 lane only accepts physically rendered complete 30fps native
+    // frame sequences. No flat SVG stand-in for 3D, no static scene promotion.
+    if(typeof nativeFrameRenderer!=='function' || typeof rendererGeometryRecorder!=='function')
+      throw Error('R8.17 native 3D/2.5D cinematic renderer + physical geometry recorder required; no static SVG fallback')
   }
   const dir = path.resolve(outputDir)
   fs.mkdirSync(dir, { recursive: true })
@@ -997,6 +996,23 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir,
     fs.writeFileSync(path.join(dir, 'r811-experiment-plan.json'), bytes)
     r811PlanSidecar = {file:'r811-experiment-plan.json',sha256:sha256(bytes)}
   }
+  let r818NativeFrameSidecar = null
+  if (r817Active) {
+    const result=nativeFrameRenderer({
+      outputDir:dir,scenes,assets,
+      canonicalFirstPassPlan:creativeSpec.r817FirstPass,
+      rendererCodeSha256,
+      sourceUrl:mediaPack.source.url,
+      sourceContentHash:mediaPack.source.contentHash
+    })
+    const frameFile=path.join(dir,'r818-native-frames.json')
+    if(result?.path!==frameFile||!fs.existsSync(frameFile))
+      throw Error('R8.18 native frame renderer did not create complete 30fps frame manifest')
+    const bytes=fs.readFileSync(frameFile)
+    const checked=verifyR818NativeFrames(dir,JSON.parse(bytes.toString('utf8')),scenes)
+    r818NativeFrameSidecar={file:'r818-native-frames.json',
+      sha256:sha256(bytes),nativeFrames:checked.frameCount}
+  }
   let r818TelemetrySidecar = null
   if (r817Active && rendererGeometryRecorder !== null) {
     if(typeof rendererGeometryRecorder!=='function')
@@ -1050,6 +1066,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir,
     canonicalFirstPassRelease: r817Active ? 'R8.17' : null,
     r817FirstPass: r817Sidecar,
     r818Telemetry: r818TelemetrySidecar,
+    r818NativeFrames: r818NativeFrameSidecar,
     r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,
