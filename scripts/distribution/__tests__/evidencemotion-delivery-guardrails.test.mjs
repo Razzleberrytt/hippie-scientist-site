@@ -6,7 +6,7 @@ import {
 
 const svg = (label) => `<svg xmlns="http://www.w3.org/2000/svg"><text x="58" y="1184">${label}</text></svg>`
 const goodProfile = {
-  audioCodec: 'aac', audioSampleRate: 48000, audioChannels: 2, audioChannelLayout: 'stereo',
+  audioCodec: 'aac', audioSampleRate: 44100, audioChannels: 2, audioChannelLayout: 'stereo',
   mobileAudioVerified: true,
   decodedAudio: { meanVolumeDb: -21.3, maxVolumeDb: -1.1, verification: 'decoded-final-mp4-volumedetect' },
 }
@@ -26,15 +26,15 @@ describe('EvidenceMotion permanent screen + iPhone playback guardrails', () => {
     }
   )
 
-  it('specifies ordinary 48 kHz stereo AAC rather than 24/96 kHz mono', () => {
-    expect(MOBILE_AUDIO_PROFILE).toMatchObject({codec:'aac', sampleRate:48000, channels:2, channelLayout:'stereo'})
-    expect(mobileAacEncodeArgs()).toEqual(['-c:a','aac','-b:a','192k','-ar','48000','-ac','2'])
+  it('specifies ordinary 44.1 kHz stereo AAC rather than 24/96 kHz mono', () => {
+    expect(MOBILE_AUDIO_PROFILE).toMatchObject({codec:'aac', sampleRate:44100, channels:2, channelLayout:'stereo'})
+    expect(mobileAacEncodeArgs()).toEqual(['-c:a','aac','-b:a','192k','-ar','44100','-ac','2'])
   })
 
   it('requires that FFprobe actually sees the expected audio stream', () => {
-    const good={streams:[{codec_name:'aac',sample_rate:'48000',channels:2,channel_layout:'stereo'}]}
-    expect(assertMobileAudioProbe(good)).toMatchObject({sampleRate:48000,channels:2})
-    expect(() => assertMobileAudioProbe({streams:[{codec_name:'aac',sample_rate:'96000',channels:1}]})).toThrow(/48 kHz stereo/)
+    const good={streams:[{codec_name:'aac',sample_rate:'44100',channels:2,channel_layout:'stereo'}]}
+    expect(assertMobileAudioProbe(good)).toMatchObject({sampleRate:44100,channels:2})
+    expect(() => assertMobileAudioProbe({streams:[{codec_name:'aac',sample_rate:'96000',channels:1}]})).toThrow(/44.1 kHz stereo/)
     expect(() => assertMobileAudioProbe({streams:[]})).toThrow(/exactly one/)
     expect(() => assertMobileAudioProbe({streams:[good.streams[0], good.streams[0]]})).toThrow(/exactly one/)
   })
@@ -48,7 +48,7 @@ describe('EvidenceMotion permanent screen + iPhone playback guardrails', () => {
 
   it('blocks publishing older or merely self-declared AAC receipts', () => {
     expect(assertMobilePlaybackReceipt(goodProfile)).toBe(true)
-    expect(() => assertMobilePlaybackReceipt({...goodProfile, audioChannels:1})).toThrow(/48 kHz/)
+    expect(() => assertMobilePlaybackReceipt({...goodProfile, audioChannels:1})).toThrow(/44.1 kHz/)
     expect(() => assertMobilePlaybackReceipt({...goodProfile, mobileAudioVerified:false})).toThrow(/verified/)
     expect(() => assertMobilePlaybackReceipt({...goodProfile, decodedAudio:{...goodProfile.decodedAudio,meanVolumeDb:-85}})).toThrow(/decoded-audio/)
   })
