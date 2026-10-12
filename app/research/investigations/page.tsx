@@ -5,7 +5,7 @@ import { getDeepEnrichmentRounds } from '@/lib/research-deep-enrichment-public'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Investigations | Primary-Study Source Trails',
-  description: 'Browse 60 transparent research investigations from Deep Enrichment rounds 10–15, with original PubMed links and explicit independent-review status.',
+  description: 'Browse the complete merged Deep Enrichment investigation archive, with original PubMed links and explicit independent-review status.',
   path: '/research/investigations/',
 })
 
@@ -43,7 +43,7 @@ export default function ResearchInvestigationsPage() {
           ))}
         </dl>
         <p className='mt-4 max-w-3xl text-xs leading-6 text-muted'>
-          Linked PMIDs count unique source identifiers within these six documents. They may already exist elsewhere in our research ledger;
+          Linked PMIDs count unique source identifiers within the listed research documents. They may already exist elsewhere in our research ledger;
           they are <strong>not</strong> additional admitted studies or new canonical citations.
         </p>
         <div className='mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold'>
@@ -56,7 +56,7 @@ export default function ResearchInvestigationsPage() {
       <section aria-labelledby='review-limits-heading' className='rounded-2xl border border-brand-900/15 bg-brand-50/35 p-5 sm:p-7'>
         <h2 id='review-limits-heading' className='text-xl font-semibold text-ink'>What is public—and what is not approved</h2>
         <p className='mt-3 text-sm leading-7 text-muted'>
-          All 60 investigation titles, their source links, and their original research notes can be opened below.
+          Every available investigation title, source link, and original research note can be opened below.
           Editorial promotion remains separate: each claim still needs an exact PMID/DOI duplicate check, population and
           preparation matching, contradiction review, qualified independent scientific signoff, and publication QA.
           The raw research appendices are openly accessible but not indexed as consumer clinical advice.
