@@ -13,7 +13,7 @@ describe('7-OH citation FAQ companion guard', () => {
     expect(faq).toContain('](/articles/7-hydroxymitragynine/)')
   })
   it('exposes 45 unique question H2s and matching frontmatter questions', () => {
-    const headings = [...faq.matchAll(/^## (.+\\?)$/gm)].map(m => m[1])
+    const headings = faq.split('\n').filter(line => line.startsWith('## ') && line.endsWith('?')).map(line => line.slice(3))
     expect(headings).toHaveLength(45)
     expect(new Set(headings).size).toBe(45)
     const block = faq.split('citationQuestions:')[1]?.split('canonicalConcepts:')[0] ?? ''
