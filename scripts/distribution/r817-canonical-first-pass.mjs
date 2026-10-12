@@ -4,6 +4,7 @@
 import { assertR817RetentionPlan, assessR817RetentionMaster } from './r817-retention-gates.mjs'
 import { assertR817RenderedActionProof } from './r817-rendered-evidence.mjs'
 import { assertR817AlignmentAudit } from './r817-alignment-qa.mjs'
+import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
 
 export const R817_CANONICAL = Object.freeze({
   "schemaVersion": "ths-evidencemotion-r817-first-pass-v1",
@@ -138,6 +139,16 @@ export function assessR817EncodedMaster(receipt){
   } catch (error) {
     blockers.push("R8.17 encoded-master retention proof invalid: "+error.message);
   }
+  try {
+    const t=r.rendererTelemetry
+    if(t?.outputSha256!==r.outputSha256||!hex64(t?.sidecarSha256)||
+       t.sidecarSha256!==r.telemetrySidecarSha256)
+      throw Error('R8.18 exact-master/telemetry sidecar hash mismatch')
+    assertR818TelemetryBinding(r.approvedPlan,t.telemetry,{
+      rendererCodeSha256:t.rendererCodeSha256,
+      renderedSceneAssetsSha256:t.renderedSceneAssetsSha256
+    })
+  }catch(error){blockers.push("R8.18 native geometric telemetry missing: "+error.message)}
   try {
     assertR817RenderedActionProof(r.approvedPlan,r.renderedActionProof,r.outputSha256);
   }catch(error){blockers.push(error.message)}
