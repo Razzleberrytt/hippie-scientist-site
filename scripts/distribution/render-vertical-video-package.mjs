@@ -796,7 +796,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
-export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir }) {
+export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir, rendererGeometryRecorder = null }) {
   // A new R8.17 quality lane is additive to the existing R8.10/R8.11
   // science/voice pipeline; never replace that source of factual authority.
   const r817Active = creativeSpec?.canonicalFirstPassRelease === 'R8.17'
@@ -998,6 +998,21 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     r811PlanSidecar = {file:'r811-experiment-plan.json',sha256:sha256(bytes)}
   }
   let r818TelemetrySidecar = null
+  if (r817Active && rendererGeometryRecorder !== null) {
+    if(typeof rendererGeometryRecorder!=='function')
+      throw Error('R8.18 geometry recorder must be an actual native renderer callback')
+    const recorded=rendererGeometryRecorder({
+      outputDir:dir,assets,scenes,
+      rendererCodeSha256,
+      renderedSceneAssetsSha256:sha256(assets.map(a=>a.sha256).join('|')),
+      sourceManifestSha256:sha256(JSON.stringify({
+        sourceUrl:mediaPack.source.url,sourceContentHash:mediaPack.source.contentHash
+      })),
+      canonicalFirstPassPlan:creativeSpec.r817FirstPass
+    })
+    if(recorded?.path!==path.join(dir,'r818-telemetry.json'))
+      throw Error('R8.18 native recorder did not return actual canonical geometry sidecar')
+  }
   if (r817Active) {
     // Only actual SVG/3D renderer instrumentation can emit this file;
     // never synthesize geometric motion from the approved storyboard.
