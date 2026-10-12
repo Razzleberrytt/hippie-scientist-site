@@ -1,4 +1,4 @@
-import test from 'node:test'
+import { test } from 'vitest'
 import assert from 'node:assert/strict'
 import {
   R817_CANONICAL, assertR817FirstPass, assertR817SceneBinding, assessR817EncodedMaster
