@@ -10,7 +10,7 @@ export function verifyR819ArtAssets(root, manifest, storyboard) {
  if(manifest?.schemaVersion!=='ths-evidencemotion-r819-art-v1'||manifest.style!=='dark-cellular-organic'||
     !Array.isArray(manifest.assets)||manifest.assets.length<1)
     throw Error('R819 pinned cellular/organic art manifest missing')
- const ids=new Set(),dir=path.resolve(root)
+ const ids=new Map(),dir=path.resolve(root)
  for(const a of manifest.assets){
   if(typeof a.id!=='string'||!a.id||ids.has(a.id)||!sha(a.sha256)||
      !nonfactual.has(a.purpose)||a.factsLayer!==false||typeof a.file!=='string')
@@ -20,16 +20,17 @@ export function verifyR819ArtAssets(root, manifest, storyboard) {
    throw Error('R819 art asset path invalid or missing')
   const bytes=fs.readFileSync(p)
   if(sha256(bytes)!==a.sha256)throw Error('R819 pinned art SHA mismatch: '+a.id)
-  if(path.extname(p)==='.svg' && /<\s*(?:text|foreignObject|script)\b/i.test(bytes.toString('utf8')))
+  if(path.extname(p)==='.svg' && (/<\s*(?:text|foreignObject|script|image|use)\b/i.test(bytes.toString('utf8')) || /\b(?:href|xlink:href)\s*=\s*['\"](?:https?:|\/\/|file:)/i.test(bytes.toString('utf8'))))
    throw Error('R819 static art SVG cannot carry text, embedded HTML, or scripts')
-  ids.add(a.id)
+  ids.set(a.id,a.sha256)
  }
  if(!Array.isArray(storyboard?.beats)||!storyboard.beats.length||
     JSON.stringify(storyboard.compositingOrder)!==JSON.stringify(['art','mechanism','trust']))
   throw Error('R819 storyboard must specify art → mechanism → trust compositing order')
  for(const beat of storyboard.beats)
-  if(!Array.isArray(beat.artAssetIds)||!beat.artAssetIds.length||beat.artAssetIds.some(id=>!ids.has(id)))
-   throw Error('R819 storyboard beat lacks exact art ID')
+  if(!Array.isArray(beat.artAssetRefs)||!beat.artAssetRefs.length||
+    beat.artAssetRefs.some(ref=>!ids.has(ref.id)||ids.get(ref.id)!==ref.sha256))
+   throw Error('R819 storyboard beat lacks exact art ID and SHA binding')
  return {status:'PINNED_ART_VERIFIED_NOT_VIDEO_PIXELS',
    assets:manifest.assets.map(a=>({id:a.id,sha256:a.sha256})),
    storyboardSha256:sha256(Buffer.from(JSON.stringify(storyboard)))}
