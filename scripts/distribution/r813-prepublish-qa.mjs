@@ -137,6 +137,19 @@ export function verifyR813MediaStreams(probe, expectedDuration) {
   return {videoCodec:'h264',audioCodec:'aac',durationSeconds:duration,width:1080,height:1920}
 }
 
+export function verifyR813DraftMedia(probe) {
+  const streams = probe?.streams || []
+  const video = streams.filter(s => s.codec_type === 'video')
+  const audio = streams.filter(s => s.codec_type === 'audio')
+  const duration = Number(probe?.format?.duration)
+  if (video.length !== 1 || audio.length !== 0 || video[0].codec_name !== 'h264'
+      || video[0].width !== 1080 || video[0].height !== 1920
+      || !Number.isFinite(duration) || Math.abs(duration-3) > 0.25) {
+    throw Error('R8.13 hook draft must be exactly one silent 1080x1920 H.264 ~3s video stream')
+  }
+  return {draftDurationSeconds:duration,hasAudio:false}
+}
+
 export function verifyR813CaptionExport(srtBytes, expectedSha, videoReceipt) {
   if (!isSha(expectedSha) || hash(srtBytes) !== expectedSha
       || videoReceipt.r810Governance?.alignedCaptionSrtSha256 !== expectedSha
@@ -174,10 +187,17 @@ export function runR813PrepublishQa({packageDir,mp4Path,vaultDir,reviewPath,ffmp
     originalVoiceSynthesisBinaryAttestation:'NOT_YET_AVAILABLE',
   }
   const hooks=verifyR813HookDrafts(pkg,manifest.r811Experiment?.planSha256)
+  hooks.inspectedDraftStreams=hooks.drafts.map(draft=>{
+    const file=path.join(pkg,'r811-hook-'+draft.arm+'-silent-draft.mp4')
+    const probe=JSON.parse(command(ffprobe,['-v','error','-show_entries','format=duration:stream=codec_type,codec_name,width,height','-of','json',file]).stdout)
+    return {arm:draft.arm,...verifyR813DraftMedia(probe)}
+  })
   const stream=verifyR813MediaStreams(JSON.parse(command(ffprobe,['-v','error','-show_entries','format=duration:stream=codec_type,codec_name,width,height','-of','json',mp4]).stdout),Number(manifest.durationSeconds))
   const loudness=assertR812Loudness(parseR812Loudness(command(ffmpeg,['-hide_banner','-nostats','-i',mp4,'-map','0:a:0','-af','ebur128=peak=true','-f','null','-']).stderr))
-  if (Math.abs(Number(receipt.r812Audio?.integratedLufs)-loudness.integratedLufs)>0.25
-      || Math.abs(Number(receipt.r812Audio?.truePeakDbfs)-loudness.truePeakDbfs)>0.25) {
+  if (!Number.isFinite(receipt.r812Audio?.integratedLufs)
+      || !Number.isFinite(receipt.r812Audio?.truePeakDbfs)
+      || Math.abs(receipt.r812Audio.integratedLufs-loudness.integratedLufs)>0.25
+      || Math.abs(receipt.r812Audio.truePeakDbfs-loudness.truePeakDbfs)>0.25) {
     throw Error('R8.13 final AAC loudness disagrees with original renderer receipt')
   }
   const lines=manifest.creativeR810?.sourceLedgerLines || []
