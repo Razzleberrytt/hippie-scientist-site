@@ -19,7 +19,7 @@ const STAGING_ONLY = [
 // Never auto-approve these solely because a source ID, CI, or AI attestation is green.
 const PUBLICATION_SURFACES = [
   /^content\/(?:articles|blog|learn)\//u,
-  /^public\/data\/(?:herbs-detail|compounds-detail|ai-entities|claims(?:\.|\/)|herbs\.json$|compounds\.json$|runtime-enrichment|publication-manifest)/u,
+  /^public\/data\//u,
   /^app\/(?:guides|herbs|compounds|learn|articles)\//u,
   /^data-sources\/herb_monograph_master\.xlsx$/u,
 ];
