@@ -1,8 +1,271 @@
 {
   "version": 1,
-  "status": "awaiting-fresh-ingest",
+  "status": "ready",
   "generatedAt": null,
-  "snapshotLabel": null,
+  "snapshotLabel": "2026-10-12",
   "sourceReportGeneratedAt": null,
-  "assets": []
+  "provenance": "dated-derived-bing-page-stats-manifest",
+  "measurementBoundary": "Bing Page Stats citation counts are not query totals or traffic and are not added to other views.",
+  "policy": {
+    "version": 1,
+    "minCitations": 100,
+    "minCitationSharePct": 5,
+    "cumulativeCoveragePct": 60,
+    "maxAssets": 25,
+    "staleAfterDays": 45
+  },
+  "assets": [
+    {
+      "url": "/guides/sleep/best-natural-sleep-aids-that-work/",
+      "sourceFile": "app/guides/sleep/best-natural-sleep-aids-that-work/page.tsx",
+      "citations": 10496,
+      "citationSharePct": 21.34,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Natural Sleep Aids That Work: 2026 Evidence Guide",
+        "h1": "Natural Sleep Aids That Work: What the Evidence Actually Supports",
+        "slug": "best-natural-sleep-aids-that-work",
+        "canonical": "/guides/sleep/best-natural-sleep-aids-that-work/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "c5f790d133e4594d3bdba9f738d10f2f0933479ff9d2d07c7c9b55114b4f9188",
+        "h1": "cdd0d690141dd81aa2f884a062275d98eb4a8cd409a2d36efe58dc2df4170a26",
+        "slug": "4e1228044aea23ddd534e91f064649c4a5bec64c3d805a8723be833a9a528fd8",
+        "canonical": "7f85fa54ca1184f48fd64b0079befc21c40cb50a792e98babf0de0e8489ba433"
+      }
+    },
+    {
+      "url": "/guides/best/supplements-for-stress/",
+      "sourceFile": "app/guides/best/supplements-for-stress/page.tsx",
+      "citations": 9533,
+      "citationSharePct": 19.39,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Supplements for Stress: Evidence-Ranked Guide (2026)",
+        "h1": null,
+        "slug": "supplements-for-stress",
+        "canonical": "/guides/best/supplements-for-stress/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "23f8ba00a592b7e11a3c4fac7eaa69bc871ed6346b711a791d2a2ed1bfc54458",
+        "h1": null,
+        "slug": "6df7dca4843a89e4bae6623245db2d3f73479ae6039158a7c86cb58c405c15c5",
+        "canonical": "262f4a1fbb6fafc41ace090a7769c344a24d771a4e095bad0566f86487912247"
+      }
+    },
+    {
+      "url": "/articles/mitragynine/",
+      "sourceFile": "content/articles/mitragynine.mdx",
+      "citations": 3323,
+      "citationSharePct": 6.76,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Mitragynine: Pharmacology, Human Evidence, Safety & 2026 Research Status",
+        "h1": null,
+        "slug": "mitragynine",
+        "canonical": "/articles/mitragynine/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "a9e17b4e24d0c2e2b33821251bc368a84e2afbfabb138d5ce4581a4e0c091305",
+        "h1": null,
+        "slug": "92985d29601f3577fd66743591cb16a58ee1450bbed1dc6ae8665f2c9e17da43",
+        "canonical": "b088eab1a48df8d77c00ce00fa14499b05d1376fca1cb91c081a6965a614ab80"
+      }
+    },
+    {
+      "url": "/articles/how-to-choose-supplement-quality/",
+      "sourceFile": "content/articles/how-to-choose-supplement-quality.md",
+      "citations": 1973,
+      "citationSharePct": 4.01,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "How to Choose a Quality Supplement: Testing, Labels, and Red Flags",
+        "h1": null,
+        "slug": "how-to-choose-supplement-quality",
+        "canonical": "/articles/how-to-choose-supplement-quality/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "12ac0b3671855626e4748efe14716d8901f96c334b8b3b8b1c8ad9168b90d9ab",
+        "h1": null,
+        "slug": "1fd19526049162d140c00cbd77e888be2f5fc6f0e32f0609c5aa4fa22bd7903f",
+        "canonical": "0f8e6cd9913fcfba7af0351bd1756c4f39bd701e2717a3f047a0eabca767b1b1"
+      }
+    },
+    {
+      "url": "/guides/mental-health/antisocial-personality-disorder/",
+      "sourceFile": "app/guides/mental-health/antisocial-personality-disorder/page.tsx",
+      "citations": 1916,
+      "citationSharePct": 3.9,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "ASPD Diagnosis: Criteria, Conduct Disorder & Assessment",
+        "h1": "Antisocial Personality Disorder (ASPD): Diagnosis, Criteria & What It Does Not Mean",
+        "slug": "antisocial-personality-disorder",
+        "canonical": "/guides/mental-health/antisocial-personality-disorder/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "a8037789535a1021997e34a3edf8d870b637e3f83fc6e66a504627c645718a8c",
+        "h1": "a01673e4530b599fffc82428d4a2705d1e4e870f9669906d55723e63a642457e",
+        "slug": "7c0dca15342eac98a12ec9f434e10a03862fbb28c466b0e46b79a2d4d3780004",
+        "canonical": "95a23c71898a119fccf0b2f3769ac7df97bacdac80df9840ef8dd1e9947bed56"
+      }
+    },
+    {
+      "url": "/guides/sleep/best-herbs-for-sleep/",
+      "sourceFile": "app/guides/sleep/best-herbs-for-sleep/page.tsx",
+      "citations": 1352,
+      "citationSharePct": 2.75,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Herbs for Sleep: What Human Evidence Supports in 2026",
+        "h1": "Best Herbs for Sleep: What Human Evidence Supports in 2026",
+        "slug": "best-herbs-for-sleep",
+        "canonical": "/guides/sleep/best-herbs-for-sleep/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "9ad151d8dcc905d7743682da77f8c8b83052933ac4df027a5da091c28749fb7c",
+        "h1": "9ad151d8dcc905d7743682da77f8c8b83052933ac4df027a5da091c28749fb7c",
+        "slug": "e84185beb69fdf517885757cb2541753a786aeb4735bd60b430698ec6d03ad14",
+        "canonical": "7e8fa240b7462a2374ebe96504dca17e6f1518219007cae166a41f18f0795ed7"
+      }
+    },
+    {
+      "url": "/guides/sleep/best-supplements-for-sleep/",
+      "sourceFile": "app/guides/sleep/best-supplements-for-sleep/page.tsx",
+      "citations": 1351,
+      "citationSharePct": 2.75,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Supplements for Sleep: Evidence-Ranked Shortlist",
+        "h1": "Best Supplements for Sleep: An Evidence-Ranked Shortlist",
+        "slug": "best-supplements-for-sleep",
+        "canonical": "/guides/sleep/best-supplements-for-sleep/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "8e2239f85552334143e6c81a6d1ad59b6cb324902d41b7e86ce5f36a2415a5ed",
+        "h1": "3dbfe5443b9c20dad932dbcc8b52a29348d0a9114390b64d54fbda50ccbe6cb6",
+        "slug": "b3114f84715d2a0ec75499a32f7c46bdea113655b3f18e6f54ad0da34e800395",
+        "canonical": "45f323efcef455756f293d134744933cbe1bba0837b9e2720f299e0e11ee85df"
+      }
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-anxiety/",
+      "sourceFile": "app/guides/anxiety/best-herbs-for-anxiety/page.tsx",
+      "citations": 1299,
+      "citationSharePct": 2.64,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Herbs for Anxiety: Evidence-Ranked Guide (2026)",
+        "h1": "Best Herbs for Anxiety: What Human Evidence Actually Supports",
+        "slug": "best-herbs-for-anxiety",
+        "canonical": "/guides/anxiety/best-herbs-for-anxiety/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "c70106b4e9447bc91828e0d1f256806dae23aeee78ee32de7cad2a26951a4c79",
+        "h1": "9a33ff37e81fbd63cd632681a8a5991bf7307028abcd39d311e8ecfdf3314c7e",
+        "slug": "cce6e4d6686aafb253479c76a6c5081b80c98529f15371b3069960e5d24eddbb",
+        "canonical": "afa2c516ad62d56ad4243c63d43a7fcf67753c4b6997071e05e0db2d6da6fe61"
+      }
+    },
+    {
+      "url": "/articles/mushroom-coffee-benefits-review/",
+      "sourceFile": "content/articles/mushroom-coffee-benefits-review.md",
+      "citations": 1161,
+      "citationSharePct": 2.36,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Mushroom Coffee Benefits: What the Science Actually Says",
+        "h1": null,
+        "slug": "mushroom-coffee-benefits-review",
+        "canonical": "/articles/mushroom-coffee-benefits-review/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "e056aa35a88c7f315f173b899b8a57e9c2b03b95eff5195d1ce286f8935b3e41",
+        "h1": null,
+        "slug": "dc2ea12c40804227b712c3d68702be363a43e68439af5530aebd840a8f893720",
+        "canonical": "dad9d7e408de06cfcc2f0809e54dafeb2f05c63327e80d6ae029d7bd272247c2"
+      }
+    },
+    {
+      "url": "/articles/valerian-root/",
+      "sourceFile": "content/articles/valerian-root.md",
+      "citations": 1156,
+      "citationSharePct": 2.35,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Valerian Root for Sleep: Does It Work? Evidence Review (2026)",
+        "h1": null,
+        "slug": "valerian-root",
+        "canonical": "/articles/valerian-root/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "efa99d966adb4bd8cbe2a1244ddcc50ee88bd185407d1436c13c97a438ba95b8",
+        "h1": null,
+        "slug": "ea88542208c11236ac7b4af70df52e2d2304cf766ad21feb0f065310a414a29e",
+        "canonical": "c9e13662ca5487707b4b889367de0edc475aa1fb25daad299ffc98acb5bb5088"
+      }
+    },
+    {
+      "url": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/",
+      "sourceFile": "content/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide.md",
+      "citations": 907,
+      "citationSharePct": 1.84,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Lion's Mane Mushroom: Cognition, Mood, Dose & Evidence — 2026 Review",
+        "h1": null,
+        "slug": "lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide",
+        "canonical": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "f6c6850bf96f02c3ba7bcf5e4ea535b7512d73d7a9358c522f367dbe9f2e8cc1",
+        "h1": null,
+        "slug": "cf74b03e5e56b63bbd4f3f81b65ce9ffced1f6bfe1ad2160d680cee784ecb2e1",
+        "canonical": "7d33b22d0a396ba5621a82386d5229d2db2bf5aa205b9e220591bb0cfb91de50"
+      }
+    },
+    {
+      "url": "/articles/2c-b-effects/",
+      "sourceFile": "content/blog/2c-b-effects.mdx",
+      "citations": 748,
+      "citationSharePct": 1.52,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "blog-mdx",
+        "title": "2C-B Effects: Human Evidence, Risks, Pharmacology & What We Still Don't Know",
+        "h1": null,
+        "slug": "2c-b-effects",
+        "canonical": "/articles/2c-b-effects/"
+      },
+      "fingerprints": {
+        "kind": "f04eeba408e8eb30d80a47275c100af7c6aba5126753d9f8a861ae4ebc12114f",
+        "title": "eba3abd0314daa490a689651e6947f804cfa497c1a4b5a28445b00d65df3d203",
+        "h1": null,
+        "slug": "d41501a7b317560ffdbe9434bf0a6598e51737036d397fbd43f0fc91ccac9ddd",
+        "canonical": "0a2e370d7d53a988fc86c4e603da77fd8a8f26fa5db35c42bd1ee826ccc49152"
+      }
+    }
+  ]
 }
