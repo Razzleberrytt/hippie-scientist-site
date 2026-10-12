@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
+import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
@@ -429,8 +430,8 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-i', narration.file,
       '-vf', filter,
       '-af', isR809
-        ? `acompressor=threshold=0.1:ratio=2:attack=10:release=150,loudnorm=I=-14:TP=-1:LRA=9,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`
-        : `loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds}`,
+        ? `acompressor=threshold=0.1:ratio=2:attack=10:release=150,apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds},loudnorm=I=-14:TP=-1:LRA=9`
+        : `apad=pad_dur=${verified.durationSeconds},atrim=duration=${verified.durationSeconds},loudnorm=I=-16:TP=-1.5:LRA=11`,
       '-map', '0:v:0', '-map', '1:a:0',
       '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
       '-c:a', 'aac', '-b:a', '192k',
@@ -440,6 +441,11 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
 
     const outputBytes = fs.readFileSync(output)
     if (!outputBytes.length) throw new Error('ffmpeg produced an empty MP4')
+    // Analyze the FINAL AAC/MP4 stream; filter intent is not loudness evidence.
+    const r812Loudness = isR810 && verified.manifest.r812?.enabled === true
+      ? assertR812Loudness(parseR812Loudness(runCommand(ffmpegPath, [
+          '-hide_banner', '-nostats', '-i', output, '-map', '0:a:0', '-af', 'ebur128=peak=true', '-f', 'null', '-'
+        ]).stderr)) : null
     const receipt = {
       schemaVersion: verified.release === 'R8.05' ? '3.0.0' : '2.0.0',
       release: verified.release,
@@ -481,6 +487,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         audioProfile: 'voice-forward-minus14LUFS',
         exactMasterReview: 'pending',
       } : null,
+      r812Audio: r812Loudness,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
