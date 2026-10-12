@@ -5,6 +5,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import sharp from 'sharp'
 import {verifyR819LayerInventory,compositeR819Frame} from '../r819-native-layer-compositor.mjs'
+import {authorR819LayerInventory} from '../r819-layer-inventory-writer.mjs'
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex')
 async function fixture(){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'r819-native-composite-'))
@@ -70,5 +71,25 @@ test('R8.19 fails closed when the trust layer is removed even with a recomputed 
   fs.writeFileSync(path.join(f.root,'r819-layer-sequence.json'),bytes)
   expect(()=>verifyR819LayerInventory(f.root,{file:'r819-layer-sequence.json',sha256:sha(bytes)},f.native))
    .toThrow(/three exclusive ordered layer references/)
+ }finally{fs.rmSync(f.root,{recursive:true,force:true})}
+})
+
+test('producer emits pinned complete frame inventory once and refuses silent re-signing',async()=>{
+ const f=await fixture()
+ try{
+  const originalSha=f.meta.sha256
+  fs.unlinkSync(path.join(f.root,'r819-layer-sequence.json'))
+  const receipt=authorR819LayerInventory(f.root,f.native)
+  expect(receipt.sha256).toBe(originalSha)
+  expect(verifyR819LayerInventory(f.root,receipt,f.native).totalFrames).toBe(1)
+  expect(()=>authorR819LayerInventory(f.root,f.native)).toThrow(/cannot be overwritten/)
+ }finally{fs.rmSync(f.root,{recursive:true,force:true})}
+})
+test('inventory author refuses a missing source trust layer',async()=>{
+ const f=await fixture()
+ try{
+  fs.unlinkSync(path.join(f.root,'r819-layer-sequence.json'))
+  fs.unlinkSync(path.join(f.root,f.frame.layers.trust.file))
+  expect(()=>authorR819LayerInventory(f.root,f.native)).toThrow(/source layer missing/)
  }finally{fs.rmSync(f.root,{recursive:true,force:true})}
 })
