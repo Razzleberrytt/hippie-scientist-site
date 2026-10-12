@@ -1,0 +1,80 @@
+name: THS permanent Kokoro house voice vault
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/voice-model-vault.yml'
+      - 'scripts/distribution/voice-vault.py'
+      - 'scripts/distribution/requirements-local-voice.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ths-immutable-original-narrator
+  cancel-in-progress: false
+jobs:
+  archive-and-readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TAG: ths-kokoro-onnx-am-michael-int8-v1
+      VAULT: .cache/ths-voice-vault
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Bootstrap exact original voice model or recover permanent release
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$VAULT"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir "$VAULT"
+          else
+            python scripts/distribution/voice-vault.py bootstrap "$VAULT"
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" \
+              --title "THS permanent original Kokoro ONNX INT8 am_michael model" \
+              --notes "The exact THS Voice Engine 0.44+ narrator: Kokoro v1 INT8 ONNX, voices v1 voicebank, immutable SHA-256 signatures. Never replace this release; future narrator upgrades require a separate reviewed version/tag." \
+              "$VAULT/kokoro-v1.0.int8.onnx" \
+              "$VAULT/voices-v1.0.bin" "$VAULT/voice-vault.json"
+          fi
+          python scripts/distribution/voice-vault.py verify "$VAULT"
+      - name: Independently download archived release and verify exact weights
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$VAULT"
+          mkdir -p "$VAULT"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir "$VAULT"
+          python scripts/distribution/voice-vault.py verify "$VAULT"
+      - name: Prove exact archived voice produces non-silent real speech
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng
+          python -m pip install -r scripts/distribution/requirements-local-voice.txt
+          python - <<'PY'
+          from kokoro_onnx import Kokoro
+          import numpy as np, os
+          root = os.environ['VAULT']
+          speaker = Kokoro(root+'/kokoro-v1.0.int8.onnx',root+'/voices-v1.0.bin')
+          wav,rate=speaker.create("The Hippie Scientist explains what the evidence actually shows.",voice='am_michael',speed=1.05,lang='en-us')
+          a=np.asarray(wav,dtype=np.float32)
+          assert rate==24000 and a.size>12000 and np.isfinite(a).all()
+          assert float(np.sqrt(np.mean(a*a)))>0.005, 'Voice unexpectedly silent'
+          print('PASS: pinned Kokoro ONNX INT8 am_michael, actual archived weights, generated audible PCM')
+          PY
+      - name: Provide verified model/voicebank for authorized Google Drive mirror
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-original-kokoro-onnx-model-drive-mirror
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 7
+          path: |
+            .cache/ths-voice-vault/kokoro-v1.0.int8.onnx
+            .cache/ths-voice-vault/voices-v1.0.bin
+            .cache/ths-voice-vault/voice-vault.json

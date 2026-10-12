@@ -23,7 +23,9 @@ describe('Kokoro recovery workflow fails closed', () => {
   it('keeps exact Kokoro identity and human final-master review', () => {
     expect(workflow).toContain("obj['engine']['model']=='Kokoro-82M'")
     expect(workflow).toContain("obj['engine']['voice']=='am_michael'")
-    expect(workflow).toContain('HF_HUB_DISABLE_XET')
+    expect(workflow).toContain('voice-vault.py verify')
+    expect(workflow).toContain('ths-kokoro-onnx-am-michael-int8-v1')
+    expect(workflow).toContain("obj['engine']['modelWeightsSha256']")
     expect(workflow).toContain("sha('narration.wav')")
     expect(workflow).not.toMatch(/elevenlabs|descript\.com/i)
   })

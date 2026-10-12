@@ -14,6 +14,8 @@ import hashlib
 import importlib.metadata
 import json
 import math
+import os
+import subprocess
 import sys
 import wave
 from pathlib import Path
@@ -109,28 +111,44 @@ def write_wav(path: Path, audio: np.ndarray) -> None:
 
 
 def load_pipeline(language: str):
-    try:
-        from kokoro import KPipeline
-    except Exception as exc:
-        raise RuntimeError(
-            "local Kokoro runtime is unavailable; install requirements-local-voice.txt and espeak-ng. "
-            "R8.04/R8.05 forbid falling back to a hosted/credit TTS service."
-        ) from exc
-    return KPipeline(lang_code=language)
+    """Synthesize with exactly the approved R8.11 Kokoro ONNX narrator, never Torch/Flite fallback."""
+    vault = os.environ.get("THS_VOICE_VAULT")
+    if not vault:
+        raise RuntimeError("THS_VOICE_VAULT missing: retrieve the permanent ONNX am_michael archive")
+    script = Path(__file__).with_name("voice-vault.py")
+    subprocess.run([sys.executable, str(script), "verify", vault], check=True)
+    from kokoro_onnx import Kokoro
+    root = Path(vault)
+    engine = Kokoro(str(root / "kokoro-v1.0.int8.onnx"), str(root / "voices-v1.0.bin"))
+
+    def original_voice(text, *, voice: str, speed: float, split_pattern: str = r"\n+"):
+        if voice != "am_michael" or language != "a":
+            raise RuntimeError("THS house voice identity changed: only pinned am_michael/en-US approved")
+        samples, rate = engine.create(text, voice=voice, speed=speed, lang="en-us")
+        if rate != SAMPLE_RATE:
+            raise RuntimeError(f"Unexpected house voice sample rate: {rate}")
+        from types import SimpleNamespace
+        yield SimpleNamespace(audio=samples)
+
+    return original_voice
 
 
 def engine_metadata(language: str, voice: str):
-    try:
-        kokoro_version = importlib.metadata.version("kokoro")
-    except importlib.metadata.PackageNotFoundError:
-        kokoro_version = "unknown"
+    vault = os.environ.get("THS_VOICE_VAULT")
+    if not vault:
+        raise RuntimeError("THS voice provenance requires verified voice vault")
+    m = read_json(Path(vault) / "voice-vault.json")
     return {
-        "name": "kokoro",
+        "name": "kokoro-onnx",
         "model": "Kokoro-82M",
-        "packageVersion": kokoro_version,
+        "packageVersion": importlib.metadata.version("kokoro-onnx"),
         "kind": "local-open-source",
         "language": language,
         "voice": voice,
+        "modelSourceRelease": m["upstreamRelease"],
+        "modelWeightsSha256": m["assets"]["kokoro-v1.0.int8.onnx"],
+        "voiceWeightsSha256": m["assets"]["voices-v1.0.bin"],
+        "voiceVaultTag": m["tag"],
     }
 
 
@@ -391,6 +409,8 @@ def main() -> int:
     parser.add_argument("--speed", type=float, default=1.0)
     parser.add_argument("--max-speed", type=float, default=1.16)
     args = parser.parse_args()
+    if args.voice != "am_michael":
+        raise RuntimeError("THS voice identity is locked to verified am_michael; voice changes require new approved vault")
 
     package_dir = Path(args.package_dir).resolve()
     package_dir.mkdir(parents=True, exist_ok=True)

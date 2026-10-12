@@ -113,8 +113,10 @@ for (const marker of [
 }
 
 const localVoice = readRequired('scripts/distribution/render-local-narration.py')
+if (!["KPipeline", "from kokoro_onnx import Kokoro"].some(marker => localVoice.includes(marker))) {
+  fail('local voice runtime must use an explicitly governed Kokoro implementation')
+}
 for (const marker of [
-  "KPipeline",
   "meteredCreditsRequired",
   '"local-open-source"',
   "semantic-beat-timeline.json",
