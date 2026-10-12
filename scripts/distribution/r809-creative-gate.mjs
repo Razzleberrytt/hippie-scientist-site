@@ -1,3 +1,4 @@
+import { validate7OhRegulatoryStatus } from './r8-7oh-regulatory-freshness.mjs'
 import crypto from 'node:crypto'
 import { assertR808CreativeBrief, buildR808CreativeReceipt } from './r808-creative-gate.mjs'
 import { R809_VISUAL_STAGES } from './r809-visual-actors.mjs'
@@ -91,6 +92,13 @@ export function validateR809CreativeBrief(brief) {
     errors.push('R8.09 requires an explicit technical-term coverage review, not invented automatic simplification')
   }
   if (!beats.some((b) => clean(b.narration))) errors.push('R8.09 requires an actual spoken narration script')
+  const regulatory=brief?.regulatoryStatus??{}
+  errors.push(...validate7OhRegulatoryStatus({
+    onScreenText:[regulatory.onScreenText,...beats.map(b=>JSON.stringify(b.r809??{}))].join(' '),
+    narrationText:beats.map(b=>clean(b.narration)).join(' '),
+    regulatoryClaimPresent:regulatory.claimPresent===true,
+    snapshot:regulatory.snapshot,publicationDate:brief?.publicationDate
+  }))
   return [...new Set(errors)]
 }
 
