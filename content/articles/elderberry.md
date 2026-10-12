@@ -114,7 +114,7 @@ The net effect: virus can't spread as efficiently + inflammatory symptoms are mo
 
 The prominent warning traces to an experiment exposing **isolated human blood monocytes** to elderberry extract and measuring cytokine release ([Barak et al., 2001; PMID 11399518](https://pubmed.ncbi.nlm.nih.gov/11399518/); **in vitro**, not a clinical illness). Cytokine release in a cell experiment does not demonstrate a dangerous systemic inflammatory syndrome in a patient.
 
-A systematic review screening **1,187 records** found **no human clinical studies linking elderberry with cytokine-storm-type inflammatory outcomes**. Human cytokine measurements were limited and did not show consistent rises ([Wieland et al., 2021; PMID 33827515](https://pubmed.ncbi.nlm.nih.gov/33827515/); **systematic review**, with small human trials). **No demonstrated clinical link is not proof of zero risk**, especially in populations that were poorly studied. The more accurate conclusion is that the dramatic cytokine-storm claim lacks clinical support, rather than that elderberry is guaranteed risk-free.
+A systematic review screening **1,187 records** found **no human clinical studies linking elderberry with cytokine-storm-type inflammatory outcomes**. Human cytokine measurements were limited and did not show consistent rises ([Wieland et al., 2021; PMID 33827515](https://pubmed.ncbi.nlm.nih.gov/33827515/); **systematic review**, with small human trials). **No demonstrated clinical link does not rule out every possible harm**, especially in populations that were poorly studied. The more accurate conclusion is that the dramatic cytokine-storm claim lacks clinical support, rather than that elderberry is guaranteed risk-free.
 
 ---
 
