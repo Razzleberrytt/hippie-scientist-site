@@ -21,7 +21,7 @@ function assertFrameContract(frame,canvas){
   ids.add(o.objectId)
  }
 }
-function checkBeat(beat,frames,ctx){
+function checkBeat(beat,frames,ctx,record){
  const action=txt(beat.semanticAction),proof=beat.telemetryProof||{}
  if(!txt(proof.primaryObjectId)||!frames.some(f=>find(f,proof.primaryObjectId)))
   throw Error('R8.18 missing named primary rendered object: '+beat.id)
@@ -45,8 +45,11 @@ function checkBeat(beat,frames,ctx){
   // At 5 samples/second there are 6 native (30fps) frames per telemetry sample.
   // >=10 native-frame dwell needs >=ceil(10/6)=2 in-pocket samples.
   const nativeFrameSamples=Math.ceil(10/(ctx.nativeFps/ctx.sampleFps))
-  if(dwells<nativeFrameSamples)throw Error('R8.18 ligand not visibly within pocket for >=10 native-frame equivalent')
-  report.finalDistanceFraction=d.at(-1)/w;report.dwellSamples=dwells
+  if(dwells<nativeFrameSamples)throw Error('R8.18 no sampled evidence of sustained ligand pocket entry')
+  if(!Number.isInteger(record.metrics?.longestNativePocketDwellFrames)||
+    record.metrics.longestNativePocketDwellFrames<10)
+    throw Error('R8.18 renderer failed to measure ten consecutive native 30fps in-pocket frames')
+  report.finalDistanceFraction=d.at(-1)/w;report.dwellSamples=dwells;report.longestNativePocketDwellFrames=record.metrics.longestNativePocketDwellFrames
  }else if(['count-up-then-settle','counter-rolls-then-settles'].includes(action)){
   if(!beat.numericVisual||!txt(proof.primaryObjectId))throw Error('R8.18 count-up missing exact bound claim')
   const values=frames.map(f=>find(f,proof.primaryObjectId)?.value)
@@ -132,7 +135,7 @@ export function assertR818TelemetryBinding(plan,telemetry,receipt={}){
   }
   if(frames[0].time-beat.start>.21||beat.end-frames.at(-1).time>.27)
    throw Error('R8.18 per-beat telemetry missing initial/final moments')
-  reports.push(checkBeat(beat,frames,t))
+  reports.push(checkBeat(beat,frames,t,record))
  }
  return {status:'RENDERER_TELEMETRY_CHECKED_NOT_PIXEL_CERTIFIED',
    beatCount:reports.length,framesChecked:total,actionReports:reports,
