@@ -11,6 +11,7 @@ describe('GA4 default analytics and persistent opt-out', () => {
   afterEach(() => {
     window.localStorage.removeItem('consent.v1')
     window.gtag = undefined
+    vi.unstubAllGlobals()
     vi.unstubAllEnvs()
     vi.resetModules()
   })
@@ -18,6 +19,14 @@ describe('GA4 default analytics and persistent opt-out', () => {
   it('enables only GA4 analytics by default, not the other consent gates', async () => {
     const consent = await import('../consent')
     expect(consent.getConsent()).toBeNull()
+    // Unknown location must not start GA4 before a trusted server response.
+    expect(consent.canLoadGa4()).toBe(false)
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      json: async () => ({ defaultGa4Allowed: true }),
+    }))
+    await consent.resolveGa4DefaultEligibility()
     expect(consent.canLoadGa4()).toBe(true)
     expect(consent.canTrackAnalytics()).toBe(false)
     consent.initConsentDefault()
@@ -27,6 +36,46 @@ describe('GA4 default analytics and persistent opt-out', () => {
       ad_user_data: 'denied',
     }))
     expect(window.localStorage.getItem('consent.v1')).toBeNull()
+  })
+
+  it('does not load implicit GA4 for non-US location or unknown country', async () => {
+    const consent = await import('../consent')
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      json: async () => ({ defaultGa4Allowed: false }),
+    }))
+    await consent.resolveGa4DefaultEligibility()
+    expect(consent.canLoadGa4()).toBe(false)
+    expect(consent.canTrackAnalytics()).toBe(false)
+    expect(window.gtag).not.toHaveBeenCalled()
+  })
+
+  it('fails closed when the regional eligibility endpoint is inaccessible', async () => {
+    const consent = await import('../consent')
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network unavailable')))
+    await consent.resolveGa4DefaultEligibility()
+    expect(consent.canLoadGa4()).toBe(false)
+  })
+
+  it('honors explicit consent regardless of country lookup failure', async () => {
+    const consent = await import('../consent')
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network unavailable')))
+    await consent.resolveGa4DefaultEligibility()
+    expect(consent.canLoadGa4()).toBe(false)
+    consent.setConsent('granted')
+    expect(consent.canLoadGa4()).toBe(true)
+  })
+
+  it('rejects an untrusted/non-boolean geo response', async () => {
+    const consent = await import('../consent')
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      json: async () => ({ defaultGa4Allowed: 'true' }),
+    }))
+    await consent.resolveGa4DefaultEligibility()
+    expect(consent.canLoadGa4()).toBe(false)
   })
 
   it('persists opt-out, denies analytics and deletes GA cookies only', async () => {
