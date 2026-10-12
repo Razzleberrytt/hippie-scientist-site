@@ -329,7 +329,7 @@ function resolveHeldSafetyDetail(base: RuntimeRecord, detail: RuntimeRecord | nu
   const priorSafety = typeof baseSafety === 'string' ? baseSafety.trim() : ''
   const newSafety = String(detail.safetyNotes).trim()
   const safety = priorSafety && !newSafety.includes(priorSafety)
-    ? priorSafety + ' ' + newSafety : newSafety
+    ? newSafety + ' ' + priorSafety : newSafety
   const oldCautions = Array.isArray(base.contraindications) ? base.contraindications : []
   const newCautions = Array.isArray(detail.contraindications) ? detail.contraindications : []
   const cautions = Array.from(new Set([...oldCautions, ...newCautions].filter(
