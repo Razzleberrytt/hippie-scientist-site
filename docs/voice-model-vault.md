@@ -1,40 +1,42 @@
-# THS Original Narrator — Permanent Model Vault (R8.11+)
+# THS Original Narrator — Permanent Kokoro ONNX Model Vault
 
-## What happened
-The local Kokoro speech renderer already failed closed when Kokoro was missing, but the recovery workflow kept its generated WAV in a 30-day GitHub Actions artifact. It never preserved the source model weights. Previous Drive documentation contained descriptions of voice systems and presets, not the Torch model assets. A source-code branch is also **not** a durable model store.
+## Confirmed incident diagnosis (October 11, 2026)
+The actual R8.11 V3 review bundle's `mitragynine_r811_v3_alignment.json` explicitly identifies its voice as **FFmpeg Flite rms TEMPORARY**. That robot narrator did NOT originate in the governed local Kokoro pipeline. The review bundle warned that it was not a release-approved narration. The earlier pipeline itself failed closed if Kokoro was missing; this incident was a *bypass outside that pipeline*.
 
-The original current governed narrator is **Kokoro-82M / am_michael** using the Python `kokoro` package. A portable Kokoro-ONNX variant or older Holden/Reid preset may be related but is **not** interchangeable without owner review. This fix explicitly archives the original Torch implementation, not a generic new TTS.
+The supplied `THS_R811_Kokoro_AutoFinish_Kit.zip` identifies the user's updated house voice as **Kokoro ONNX 0.6.1 / Kokoro v1 INT8 / am_michael**, with two exact pinned upstream assets. It is different from the older Python Torch `kokoro` workflow and unrelated to historical Holden/Reid provider presets. This vault preserves the newer house voice exactly, not a plausible-sounding substitute.
 
-## Permanent canonical asset
-- GitHub Release tag: `ths-kokoro-torch-am-michael-v1` in `Razzleberrytt/hippie-scientist-site`.
-- Original upstream repo: `hexgrad/Kokoro-82M`, pinned to the immutable Hugging Face commit SHA observed at bootstrap.
-- Files: `kokoro-v1_0.pth`, `voices/am_michael.pt`, `config.json`, `voice-vault.json`.
-- The manifest records the actual SHA-256 and byte count of every asset.
-- `.github/workflows/voice-model-vault.yml` bootstraps the release after merge to `main`, downloads it **again**, verifies SHA-256, reconstructs the offline Hugging Face cache, and synthesizes audible PCM with the restored model. If the release already exists, it never overwrites or re-fetches new weights. Future voice changes use new tags.
-- `scripts/distribution/voice-vault.py` is the manifest validator and offline cache restorer.
+## Canonical permanent assets
+- Durable project-owned GitHub Release: `ths-kokoro-onnx-am-michael-int8-v1`.
+- Exact upstream release: `https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/`.
+- Model: `kokoro-v1.0.int8.onnx`, SHA-256 `ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c`.
+- Voicebank: `voices-v1.0.bin`, SHA-256 `bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d`.
+- Engine: `kokoro-onnx==0.6.1`; narrator: `am_michael`, locale `en-us`.
+- Third release asset: `voice-vault.json` containing identity, exact hashes and expected source release.
 
-## Mandatory render contract
-- `.github/workflows/kokoro-voice-production.yml` now **must** download and verify the above release. Missing release / any mismatch = FAIL.
-- `render-local-narration.py` now requires `THS_VOICE_VAULT`; verifies the saved model, restores the exact files into Hugging Face's offline cache, sets `HF_HUB_OFFLINE=1`, and only then initializes Kokoro.
-- The narrator receipt includes `modelSourceRevision`, `modelWeightsSha256`, `voiceWeightsSha256`, `modelConfigSha256`, and `voiceVaultTag` in addition to the WAV/brief/timeline hashes. Version of the `kokoro` package is pinned to 0.9.4.
-- No engine may substitute OS TTS, provider defaults, alternate voices or ONNX backends for this canon.
+The hashes originate in the house-voice rebuild kit's own approved asset list. The validator independently compares the binary bytes to these exact constants, not merely an easily changed manifest.
 
-## Recovery when running outside GitHub
-Install `gh`, Python 3.11, FFmpeg, `espeak-ng` and dependencies in `scripts/distribution/requirements-local-voice.txt`. Use:
+## Archive and recover
+1. `.github/workflows/voice-model-vault.yml` first downloads and validates the exact files, then stores them in a durable immutable GitHub Release. On subsequent runs it restores from the same release, never silently overwrites.
+2. That workflow **downloads its own Release again**, revalidates the bytes, installs pinned Kokoro ONNX and synthesizes a non-silent test sentence using the **saved** files. Until this workflow reports SUCCESS, the archive is not proven.
+3. `.github/workflows/kokoro-voice-production.yml` now retrieves that saved release and fails if it or any checksum is wrong; rendering is blocked without this asset.
+4. `scripts/distribution/render-local-narration.py` verifies assets before initializing the ONNX engine, restricts speaker to `am_michael`, and records model and voicebank SHA-256 in the actual narration receipt.
+5. A transient 7-day Action artifact makes verified model assets transferable to the owner-authorized Google Drive backup folder. It is **not** the durable source. No claim of a Drive mirror until upload and readback succeed.
+
+## Local recovery
+Install Python 3.11, espeak-ng, FFmpeg, GitHub CLI, and `scripts/distribution/requirements-local-voice.txt`.
 
 ```bash
-mkdir -p .cache/ths-voice-vault/voices
-gh release download ths-kokoro-torch-am-michael-v1 --repo Razzleberrytt/hippie-scientist-site --dir .cache/ths-voice-vault
-mv .cache/ths-voice-vault/am_michael.pt .cache/ths-voice-vault/voices/am_michael.pt
+mkdir -p .cache/ths-voice-vault
+gh release download ths-kokoro-onnx-am-michael-int8-v1 \
+  --repo Razzleberrytt/hippie-scientist-site --dir .cache/ths-voice-vault
 python scripts/distribution/voice-vault.py verify .cache/ths-voice-vault
 export THS_VOICE_VAULT=.cache/ths-voice-vault
-export HF_HOME="$HOME/.cache/huggingface"
-python scripts/distribution/voice-vault.py restore "$THS_VOICE_VAULT"
-python scripts/distribution/render-local-narration.py --package-dir artifacts/narration/example --brief scripts/distribution/voice-briefs/active.json
+python scripts/distribution/render-local-narration.py \
+  --package-dir artifacts/narration/approved-video \
+  --brief path/to/r805-creative-brief.json
 ```
 
-## Google Drive mirror
-Owner requested persistence, with Drive as an acceptable additional home. GitHub Release provides the primary versioned binary backup without needing to give GitHub Actions broad access to personal Google Drive. An authorized Google Drive copy should mirror the **same original four files**, not just this README; verify hashes on Drive readback before asserting a second backup. Existing Drive docs and ZIPs cannot be counted as verified weight backups.
+Source code branch checkouts, readme files, 30-day voice artifacts, cached weights in disposable ChatGPT containers, and a generated WAV are **not** canonical model backups. Reject any render that lacks a verified manifest, correct voice engine identity or perceptual narrator approval. A pass on data integrity is necessary but does not itself certify natural-sounding speech.
 
-## Acceptance vs pending
-**Implementation is not backup proof.** Completion requires successful GitHub model-vault workflow and a readable release with both weights, plus smoke synthesis and perceptual A/B audition of a real spoken master. Only then may the production voice be considered restored. Robotic narration still blocks publishing, even when model integrity passes.
+## Video publication
+The R8.11 V3 Flite reference cut remains **REVIEW ONLY**. Remake its spoken track with the exact ONNX voice, verify word/caption/audio synchrony against actual emitted waveform, listen at normal speed, then approve the complete MP4 with voice, captions and quiet music together. The house voice must be a real perceptual quality gate, not a synthetic metadata check.
