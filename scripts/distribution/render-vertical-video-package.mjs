@@ -1,3 +1,4 @@
+import { assertNoDecorativeVideoChrome } from './evidencemotion-delivery-guardrails.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -789,6 +790,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     : ''
   const styledComposition = r809 ? `<g filter="url(#r809-shadow)">${composition}</g>` : composition
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" data-r808-silent-role="${escapeXml(scene.silentRole || '')}" data-r808-hook-visible-first-frame="${scene.role === 'hook' && scene.motionType === 'highlight'}" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}" role="img" aria-label="${escapeXml(`${scene.role} scene`)}"><rect width="100%" height="100%" fill="${background}"/>${r809Depth}<text x="${x}" y="${safe.top + 70}" font-size="32" font-weight="600" fill="${foreground}">The Hippie Scientist</text>${headline}${highlight}${styledComposition}${ledgerSvg}<text x="${x}" y="${disclosureY}" font-size="24" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(disclosure)}</text><text x="${x}" y="${provenanceY}" font-size="22" fill="${foreground}" textLength="${safeWidth}" lengthAdjust="spacingAndGlyphs">${escapeXml(sourceUrl)}</text><metadata>${escapeXml(metadata)}</metadata></svg>`
+  assertNoDecorativeVideoChrome(svg)
   return { svg, width: canvas.width, height: canvas.height, hash: sha256(`${svg}\n`) }
 }
 
