@@ -83,7 +83,7 @@ export function renderR812MechanismSvg(m, {x=120,y=820,width=840,phase='post',fo
   const label=(xx,yy,value,size=R812_MIN_LABEL_PX)=>`<text text-anchor="middle" x="${xx}" y="${yy}" font-size="${size}" font-family="sans-serif" fill="${foreground}">${esc(value)}</text>`
   const objectName=(xx,caption)=>{
     const lines=wrapLabel(caption,13,3)
-    return lines.map((line,i)=>label(xx,y+92+i*48,line)).join('')
+    return `<g data-r812-full-object-name="${esc(caption)}">`+lines.map((line,i)=>label(xx,y+92+i*48,line)).join('')+'</g>'
   }
   const molecule=(xx,yy,filled)=>`<g data-r812-object="${filled?'after':'before'}"><circle cx="${xx}" cy="${yy}" r="53" stroke="${foreground}" stroke-width="5" fill="${filled?fill:base}"/><circle cx="${xx-16}" cy="${yy-12}" r="14" fill="${filled?base:fill}"/><circle cx="${xx+18}" cy="${yy+10}" r="12" fill="${filled?base:fill}"/></g>`
   const catalyst=`<rect x="${mid-60}" y="${y-60}" width="120" height="120" rx="30" fill="${base}" stroke="${fill}" stroke-width="5"/>`
@@ -101,7 +101,7 @@ export function renderR812MechanismSvg(m, {x=120,y=820,width=840,phase='post',fo
   const pmidLines=wrapLabel(m.onScreenSources,33,2)
   // Text and its source are in different sections; no object should be
   // understood only through teal/orange color or an unrelated legend.
-  const evidence=`<g data-r812-evidence-boundary="named-and-readable">`+
+  const evidence=`<g data-r812-evidence-boundary="named-and-readable" data-r812-full-qualifier="${esc(m.qualifier)}" data-r812-full-pmids="${esc(m.onScreenSources)}">`+
     qualifierLines.map((line,i)=>label(mid,y+286+i*50,line)).join('')+
     pmidLines.map((line,i)=>label(mid,y+455+i*50,line)).join('')+
     '</g>'
