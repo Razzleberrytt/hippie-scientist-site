@@ -26,7 +26,20 @@ Place the governed work order at:
 
 The brief must pass `scripts/distribution/r805-creative-gate.mjs`: cold-viewer interest, one mental job, payoff before methodology, cognitive-load limits, semantic beat ownership, and the one-rebuild rescue rule.
 
-### 2. Generate narration first, at natural speed
+### 2. Restore and verify the saved voice, then synthesize at natural speed
+
+The model and voicebank are never assumed to survive across runners or local workspaces. From the repo root, with `gh` authenticated and `scripts/distribution/requirements-local-voice.txt` installed, restore the project-owned archive first:
+
+```bash
+export THS_VOICE_VAULT="$PWD/.cache/ths-voice-vault"
+mkdir -p "$THS_VOICE_VAULT"
+gh release download ths-kokoro-onnx-am-michael-int8-v1 \
+  --repo Razzleberrytt/hippie-scientist-site \
+  --dir "$THS_VOICE_VAULT"
+python scripts/distribution/voice-vault.py verify "$THS_VOICE_VAULT"
+```
+
+If the release is unavailable or any checksum fails, **STOP**; do not run a placeholder narrator. The canonical voice workflow does the same restore automatically in GitHub Actions.
 
 ```bash
 python scripts/distribution/render-local-narration.py \
