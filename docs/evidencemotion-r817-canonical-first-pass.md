@@ -45,3 +45,29 @@ Target: one creative pass plus at most one measured correction pass for ordinary
 The current site renderer still creates native SVG-based cinematic 2.5D assets. The new R8.17 producer FAILS if a requested shot requires rendered-3d, because a reusable VTK/Blender compositor is not yet integrated with the source-bound repository video producer. It must not silently downgrade 3D direction to floating circles. The prior local R8.16 tianeptine VTK scripts are topic-specific reference implementations; an independent reusable compositor, material/lighting/camera presets, frame synchronization, cached 3D asset identity and rendered-frame checks are the next needed release slice.
 
 Normal CI, CURRENT_SPRINT workstream admission, protected merge controller, actual source validation, final audible video review and owner approval remain mandatory. PR #6698 needs to be resolved before this stacked release can reach main. Do not claim the draft passed final CI or was deployed, and never call solo assistant review V_VERIFIED.
+
+
+## V 90+ quality upgrade (October 12) — R8.17 review gates
+
+V scored the prior tianeptine video 81/100 with science at 95. Those are external reviewer scores for the earlier video, not a proven score for the upgraded renderer or measured retention.
+
+**P1 — progressive acoustic word captions:** r810-aligned-captions.mjs now builds real ASS karaoke-word events from independently reviewed MFA word timestamps. render-vertical-video-mp4.mjs uses the new track for the R8.17 lane and blocks any phrase-only fallback. The exact encoded MP4 still requires a 4fps word-highlight pixel check and human perceptual verification.
+
+**P1 — show the twist:** r817-retention-gates.mjs requires the first three seconds to visibly transform a named before-state into a named after-state. A labeled bottle is insufficient. First-time muted-viewer comprehension remains a real external review, not a self-certification.
+
+**P1 — decoded-final motion:** r817-motion-qa.mjs samples the finished H264 MP4 at 5fps, cropping the central science region rather than using moving subtitles to inflate movement. A video with >=40% static central frames or any six-second static streak within a beat fails, even if its storyboard passed. Motion density is a mechanical proxy, not an aesthetic score.
+
+**P1 — open-loop CTA:** each R8.17 closing scene must include both a primary action/safety CTA and a smaller follow-earning evidence-driven teaser. FDA and 911 emergency actions retain priority. Factual state-law or safety teasers require a separate source ID and hash, not invented promotion.
+
+**P2 — preregistered controlled experiments:** r817-experiments.mjs establishes human presence versus animation-only on the same approved source, narration script and original Kokoro house voice. One proposed rule is at least five matched topics and 250 real views per arm per topic, with a 15% relative lift in three-second retention to trigger human review of an observed candidate. Platform samples are confounded; no causal claims, invented results or auto-adoption. The alternative house-voice-delivery experiment requires owner approval and each variant must retain its verified Kokoro speaker and WAV hash.
+
+**81-point regression floor:** regulator severe-outcome attribution, denominators in visible graphics, symbolic 3D labeling, source footers on each factual beat, and pinned original Kokoro narrator. These are hard boundaries even when retention pressure encourages shortcuts.
+
+### Verification and known blockers
+
+- Targeted new tests: npx vitest run scripts/distribution/__tests__/r817-*.test.mjs. This is a command, not a claim that CI passed.
+- R8.17 producer currently rejects actual 3D shots until a reusable VTK/Blender compositor is connected and tested; it never silently substitutes a flat vector drawing.
+- Final MP4 requires SHA-bound receipt, decoded AAC stereo with measurable loudness, authentic original voice, word-caption pixel QA at 4fps, settled exact data values, readable PMID/source caveats, source-licensed B-roll, before/after hook frames, muted-viewer comprehension and independent science review.
+- First new R8.17 master must be rendered through the upgraded pipeline, paired with a final contact sheet, and independently rescored by V. No prediction of 89 or 90+ is a measured result.
+- Merge/deploy status remains governed: R8.17 is on a stacked R8.14 branch under normal project admission and controller rules.
+
