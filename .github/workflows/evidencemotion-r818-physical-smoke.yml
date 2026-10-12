@@ -32,7 +32,7 @@ jobs:
       - name: Install native headless software OpenGL and virtual display
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq xvfb libegl1 libosmesa6 libgl1-mesa-dri
+          sudo apt-get install -y -qq xvfb libegl1 libosmesa6 libgl1-mesa-dri ffmpeg
       - name: Build true-3D and 2D full-HD frame sequence, telemetry, reviewed contact sheet
         run: xvfb-run -a node scripts/distribution/r818-physical-smoke.mjs artifacts/evidencemotion-r818
       - name: Require real 1080p encoded frames and scientific QA receipt
