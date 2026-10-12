@@ -266,6 +266,279 @@
         "slug": "d41501a7b317560ffdbe9434bf0a6598e51737036d397fbd43f0fc91ccac9ddd",
         "canonical": "0a2e370d7d53a988fc86c4e603da77fd8a8f26fa5db35c42bd1ee826ccc49152"
       }
+    },
+    {
+      "url": "/guides/other/protein-powder-guide/",
+      "sourceFile": "app/guides/other/protein-powder-guide/page.tsx",
+      "citations": 711,
+      "citationSharePct": 1.45,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Whey vs Casein vs Plant Protein: What Actually Differs? (2026)",
+        "h1": "Whey vs Casein vs Plant Protein: What Actually Differs?",
+        "slug": "protein-powder-guide",
+        "canonical": "/guides/other/protein-powder-guide/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "fe534b3242547404f57205cba772ebac8dc8d3addffe608c4b94fc32fdd8d89e",
+        "h1": "381fa249fd54ea072234bba8a9f680a79ce09e05b4976a617fd58bc76530793a",
+        "slug": "c1b3e601b4fa4d2b2a9f9bf5463f4981043e91b7506c5c38837ae7d9bbf47746",
+        "canonical": "ba3f905de0cecca78d09f2cf7c2483fc2ede7ca4f58aec9736108d193cbec1b6"
+      }
+    },
+    {
+      "url": "/guides/anxiety/best-supplements-for-overthinking/",
+      "sourceFile": "app/guides/anxiety/best-supplements-for-overthinking/page.tsx",
+      "citations": 608,
+      "citationSharePct": 1.24,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Racing Thoughts at Night: Supplements, Evidence & What Works",
+        "h1": "Racing Thoughts at Night: What Actually Helps — and Where Supplements Fit",
+        "slug": "best-supplements-for-overthinking",
+        "canonical": "/guides/anxiety/best-supplements-for-overthinking/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "2d5a959e241fe99c22a4eed3405741326c030badf85b3504b59331cd5dc863e1",
+        "h1": "8cf6be734017c44b4aa6a6556cc46e2116ce49b24fd6811374d86ad1b3dff91e",
+        "slug": "227d4e4f705b5da5934dd5e978a058c43c48508327aba9c95ba2883049e81c2d",
+        "canonical": "0ddb75571b9050d2bcff55416ef754c0bd25350b18dad50c8c6b6dfa4cf9a014"
+      }
+    },
+    {
+      "url": "/articles/kava/",
+      "sourceFile": "content/articles/kava.md",
+      "citations": 607,
+      "citationSharePct": 1.23,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Kava for Anxiety: Does It Work for Social Anxiety? Evidence & Liver Safety",
+        "h1": null,
+        "slug": "kava",
+        "canonical": "/articles/kava/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "f73f76378c2b18c0373d8660488da528c89288828e9bbca9e814f4da6a8e880e",
+        "h1": null,
+        "slug": "a7f213414494e0ad78d604d5d9c67d141401395443d6ed64c3bcf298ce46b56e",
+        "canonical": "0d2258c14c91a339e1c0500268b3eb5f91e3b826f46a33bb87580758f8694008"
+      }
+    },
+    {
+      "url": "/guides/other/anti-inflammatory-supplements/",
+      "sourceFile": "app/guides/other/anti-inflammatory-supplements/page.tsx",
+      "citations": 493,
+      "citationSharePct": 1,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Anti-Inflammatory Supplements: Evidence Review (2026)",
+        "h1": "Anti-Inflammatory Supplements: What the Evidence Actually Supports",
+        "slug": "anti-inflammatory-supplements",
+        "canonical": "/guides/other/anti-inflammatory-supplements/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "fadef7dfac4ad66774b7f248dacf79c006b7b207be80333e350458783ec11a14",
+        "h1": "28c1bdaf25360b7f087167ab75d5218d331b138c7cd1ef7bd98acc39ce8e9b78",
+        "slug": "9cb7c52124aef3b76f45e6404c34098c5b7344c562f10c52447ad697939d9069",
+        "canonical": "a82962e04c0077136f78b2045e0612eb1483988ae79ca94b8b4fee1073e62f12"
+      }
+    },
+    {
+      "url": "/guides/other/magnesium-types-guide/",
+      "sourceFile": "app/guides/other/magnesium-types-guide/page.tsx",
+      "citations": 480,
+      "citationSharePct": 0.98,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Magnesium Types Compared: Absorption & Evidence (2026 Guide)",
+        "h1": "Magnesium Types: What Form Comparisons Actually Show",
+        "slug": "magnesium-types-guide",
+        "canonical": "/guides/other/magnesium-types-guide/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "1751c225c6109cb180c8f285f8f252a2d2cb881e04bd5c0385738322081598cc",
+        "h1": "5c77b1e10ca360766fc7f0536ec8f98dfaebdedee4a33c79dbedac1063cfb11d",
+        "slug": "c35e0ed8321313bc8ba4998a666682db2c2229db18883406ffea9b042ed8b1a0",
+        "canonical": "69a8a5e01c5af9aea73ea0f440f1e67b3f5da93c81c31f866e85e0e5beaae641"
+      }
+    },
+    {
+      "url": "/articles/mitragynine-pseudoindoxyl/",
+      "sourceFile": "content/articles/mitragynine-pseudoindoxyl.mdx",
+      "citations": 457,
+      "citationSharePct": 0.93,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Mitragynine Pseudoindoxyl: Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+        "h1": null,
+        "slug": "mitragynine-pseudoindoxyl",
+        "canonical": "/articles/mitragynine-pseudoindoxyl/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "960ae8c06658795a2a1cb64fd4df97452e072f8acc96950b465cd6dae5045bb3",
+        "h1": null,
+        "slug": "df1150bf258bf448873a47d4c7df72fbf51e991919a137cdfc3b327850a9f6d2",
+        "canonical": "f3fb7a02f333fe903c838e37df116268e2e11e44012fd6cd0b9cc9d2769e68cc"
+      }
+    },
+    {
+      "url": "/articles/elderberry/",
+      "sourceFile": "content/articles/elderberry.md",
+      "citations": 406,
+      "citationSharePct": 0.83,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "Elderberry for Colds & Flu: What Human Trials Actually Show",
+        "h1": null,
+        "slug": "elderberry",
+        "canonical": "/articles/elderberry/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "a032b03971e8f2c5987fc61c8c177d34321c75a0e2dde98e91837afa26c539f6",
+        "h1": null,
+        "slug": "f1915a182a1e82257c1cb2e4c5b20676eada7671b9200a38adfc8c8ea776a2bd",
+        "canonical": "52d4fe4d09a9ffdf94bc6e2ff06bdb5db4a8a055cf3c3ecec9032c17d8917422"
+      }
+    },
+    {
+      "url": "/guides/other/collagen-supplements/",
+      "sourceFile": "app/guides/other/collagen-supplements/page.tsx",
+      "citations": 392,
+      "citationSharePct": 0.8,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Collagen Supplements: Benefits, Risks & What the Evidence Really Shows (2026)",
+        "h1": "Collagen Supplements: The Evidence Is Stronger for Some Claims—and Much More Disputed for Skin Than Marketing Suggests",
+        "slug": "collagen-supplements",
+        "canonical": "/guides/other/collagen-supplements/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "b4919eb0db16345082c55f37c959e9a75e7429a45e7e817f4f239f1fddd70a78",
+        "h1": "81f5d67398a374bfd9775f3f30f6fd69dc51509f611df3d8bee902b341fdf576",
+        "slug": "81b5c6cdfdfe3189b5a240a8473a1506635592efb9c9b913ee8116b8e35a8f1d",
+        "canonical": "2f8299150f42f31e78a1fae3ec4df5de5b3048987545a925e3cbe997741371ad"
+      }
+    },
+    {
+      "url": "/articles/magnesium-types-for-sleep/",
+      "sourceFile": "public/_redirects",
+      "citations": 382,
+      "citationSharePct": 0.78,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "redirect",
+        "title": null,
+        "h1": null,
+        "slug": "magnesium-types-for-sleep",
+        "canonical": "/guides/sleep/magnesium-types-for-sleep/"
+      },
+      "fingerprints": {
+        "kind": "093452239d0e2e43b06b9d5cd8ac735c26449e340e001f87904765bb30e2293e",
+        "title": null,
+        "h1": null,
+        "slug": "0f709e8b38d2abf6d6bbf491cd170ee27dd1ff818eab75c63510a7a797593988",
+        "canonical": "d5dfaaa0a9bce2c9a90dc3912df207ac91b31665654ddda95c94bcfd4d78dd89"
+      }
+    },
+    {
+      "url": "/articles/7-hydroxymitragynine/",
+      "sourceFile": "content/articles/7-hydroxymitragynine.mdx",
+      "citations": 379,
+      "citationSharePct": 0.77,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "article",
+        "title": "7-Hydroxymitragynine (7-OH): Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+        "h1": null,
+        "slug": "7-hydroxymitragynine",
+        "canonical": "/articles/7-hydroxymitragynine/"
+      },
+      "fingerprints": {
+        "kind": "84393add8c489d33569360efd1bcb5f70ed5a22408127d241c751e5ea345eb7c",
+        "title": "0f6380c68ad02f1546b65b98339e5c7fb8a2941b9faaf4fd9f19e163c792c57c",
+        "h1": null,
+        "slug": "d0de8a2db081ce20fbaba86b86066d733208812e490aacc4d143478ea61dc637",
+        "canonical": "9b3038493b926960cd2213d21a936c81f2c74732732eaa5007db36b38c3b62dd"
+      }
+    },
+    {
+      "url": "/guides/anxiety/best-adaptogens-for-stress/",
+      "sourceFile": "app/guides/anxiety/best-adaptogens-for-stress/page.tsx",
+      "citations": 333,
+      "citationSharePct": 0.68,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Adaptogens for Stress: Evidence, Safety & Ranking",
+        "h1": "Best Adaptogens for Stress: What Human Evidence Actually Supports",
+        "slug": "best-adaptogens-for-stress",
+        "canonical": "/guides/anxiety/best-adaptogens-for-stress/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "f72d460fbef99f191a53c9d3c03c5059f62521fc46c4dc9d35cecf46218a5c69",
+        "h1": "5dd7ac559e65715092be8137649811456828886d1e657b6ebf8286c1ed24b27b",
+        "slug": "f65400ad356b212517a7ffae3a5e4faeed05c3136ce7ff5792668595d84ad942",
+        "canonical": "9145049c4bdd6495b62d75dab41113a31d2dbb4ee70d574755222a94ff83be93"
+      }
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/",
+      "sourceFile": "app/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/page.tsx",
+      "citations": 331,
+      "citationSharePct": 0.67,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "Best Herbs for Stress and Anxiety at Night: Evidence & Safety",
+        "h1": "Best Herbs for Stress and Anxiety at Night",
+        "slug": "best-herbs-for-stress-and-anxiety-at-night",
+        "canonical": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "2a9d67c9e3f3869237b2baae5fc162366fdeaf85995454fa2247069df3877202",
+        "h1": "f7dbff7587f12f49e3e77f46e2d905777571fca8946d1a8a4ccd2ecef7eabe4b",
+        "slug": "6488c71c429f47a520eb119f03f88400dd30fe408c42ef5cbb38d04531b2e4d2",
+        "canonical": "99b4760e342b0ad3db6b79fd74d7446a614b0ca6a58b9044bd2cf25c4facb9cc"
+      }
+    },
+    {
+      "url": "/guides/adhd/l-theanine-for-adhd/",
+      "sourceFile": "app/guides/adhd/l-theanine-for-adhd/page.tsx",
+      "citations": 324,
+      "citationSharePct": 0.66,
+      "protectionReason": "threshold",
+      "identity": {
+        "kind": "tsx",
+        "title": "L-Theanine for ADHD: Does It Help Focus or Sleep?",
+        "h1": null,
+        "slug": "l-theanine-for-adhd",
+        "canonical": "/guides/adhd/l-theanine-for-adhd/"
+      },
+      "fingerprints": {
+        "kind": "392874163a9634faac09c48b58adc5932ad1aac1c10d868376bffa9086cb3f1b",
+        "title": "2aaacb4fd10ddf67d39cd7e0934e8a4ec32455a7376cad16904393ed42b0e386",
+        "h1": null,
+        "slug": "99af40dab304dbc352d35ec284dead80752658adfda26e8d162ee2c0130ea875",
+        "canonical": "b383b7765981e4d27da44972bbc3f38d387e157fb94969a006bb2706856f03f1"
+      }
     }
   ]
 }
