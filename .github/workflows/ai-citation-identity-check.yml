@@ -1,0 +1,46 @@
+name: Protected AI citation identity
+
+on:
+  pull_request:
+    paths:
+      - 'app/**/page.tsx'
+      - 'content/articles/**'
+      - 'config/ai-citation-protected-assets.json'
+      - 'config/ai-citation-protection-policy.json'
+      - 'config/ai-citation-swarm-priorities.json'
+      - 'scripts/seo/ai-citation-protection-core.mjs'
+      - 'scripts/seo/ai-citation-protected-assets.mjs'
+      - 'scripts/seo/__tests__/ai-citation-protected-assets.test.mjs'
+      - 'scripts/ci/validate-ai-citation-protected-assets.mjs'
+      - '.github/workflows/ai-citation-identity-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**/page.tsx'
+      - 'content/articles/**'
+      - 'config/ai-citation-protected-assets.json'
+      - 'scripts/seo/ai-citation-protection-core.mjs'
+      - 'scripts/ci/validate-ai-citation-protected-assets.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ai-citation-identity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  protected-identity:
+    name: Protected citation identity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          show-progress: false
+
+      - name: Verify dated protected source identities
+        run: node scripts/ci/validate-ai-citation-protected-assets.mjs
