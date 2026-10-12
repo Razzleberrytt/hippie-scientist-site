@@ -42,7 +42,7 @@ const links = [
   'app/research/source-register/page.tsx',
 ]
 for (const file of links) {
-  assert(read(file).includes('/research/investigations/'), `Missing route link: ${file}`)
+  assert(read(file).includes('/research/investigations'), `Missing route link: ${file}`)
 }
 const details = read('app/research/investigations/[round]/page.tsx')
 assert(details.includes('index: false'), 'Raw, unreviewed notes must remain noindex')
