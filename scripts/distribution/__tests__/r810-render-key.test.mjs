@@ -10,7 +10,9 @@ const inputs = { manifestSha256: 'a'.repeat(64), ffmpegVersionLine: 'ffmpeg vers
 describe('R8.10 MP4 cache provenance without legacy regression', () => {
   it('invalidates old R8.05/R8.09 render cache after changing delivery encode profile', () => {
     const raw = `vertical-video-mp4-v3-r805\n${inputs.manifestSha256}\n${inputs.ffmpegVersionLine}\n${inputs.narrationSha256}\n${inputs.voiceQaSha256}\n1080x1920\n30fps\n35.2500s\nlibx264\naac192k\nyuv420p\n`
-    const modern = raw.replace('libx264\\naac192k', 'libx264-baseline-level4-crf20-max4M\\naac192k-44k1-stereo')\n    expect(buildMp4RenderKey(inputs)).toBe(sha256(modern))\n    expect(buildMp4RenderKey(inputs)).not.toBe(sha256(raw))
+    const modern = raw.replace('libx264\\naac192k', 'libx264-baseline-level4-crf20-max4M\\naac192k-44k1-stereo')
+    expect(buildMp4RenderKey(inputs)).toBe(sha256(modern))
+    expect(buildMp4RenderKey(inputs)).not.toBe(sha256(raw))
   })
   it('requires real SHA-256 lineage for all R8.10 final-caption inputs', () => {
     expect(() => buildMp4RenderKey({ ...inputs, creativeMethodRelease: 'R8.10' })).toThrow(/exact audio alignment/)
