@@ -116,7 +116,15 @@ def load_pipeline(language: str):
     if not vault:
         raise RuntimeError("THS_VOICE_VAULT missing: retrieve the permanent ONNX am_michael archive")
     script = Path(__file__).with_name("voice-vault.py")
-    subprocess.run([sys.executable, str(script), "verify", vault], check=True)
+    check = subprocess.run([sys.executable, str(script), "verify", vault],
+                           text=True, capture_output=True, check=False)
+    if check.returncode != 0:
+        raise RuntimeError(
+            "voice model missing, re-fetch the pinned Kokoro ONNX model and "
+            "am_michael voicebank from the THS permanent GitHub Release; "
+            "never substitute Flite or another voice. Details: "
+            + (check.stderr or check.stdout)[-220:]
+        )
     from kokoro_onnx import Kokoro
     root = Path(vault)
     engine = Kokoro(str(root / "kokoro-v1.0.int8.onnx"), str(root / "voices-v1.0.bin"))
@@ -148,6 +156,10 @@ def engine_metadata(language: str, voice: str):
         "modelSourceRelease": m["upstreamRelease"],
         "modelWeightsSha256": m["assets"]["kokoro-v1.0.int8.onnx"],
         "voiceWeightsSha256": m["assets"]["voices-v1.0.bin"],
+        "modelAssetFile": "kokoro-v1.0.int8.onnx",
+        "voiceAssetFile": "voices-v1.0.bin",
+        "voiceAssetFormat": "kokoro-onnx-v1.0-voicebank",
+        "recovery": "gh release download ths-kokoro-onnx-am-michael-int8-v1",
         "voiceVaultTag": m["tag"],
     }
 
