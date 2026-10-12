@@ -1,6 +1,7 @@
 // R8.17 canonical-first-pass quality gates: source-bound, deterministic, owner-first.
 
 // No new evidence authority, narrator substitution or auto-publishing.
+import { assertR817RetentionPlan } from './r817-retention-gates.mjs'
 
 export const R817_CANONICAL = Object.freeze({
   "schemaVersion": "ths-evidencemotion-r817-first-pass-v1",
@@ -92,6 +93,7 @@ export function assertR817FirstPass(plan,manifest){
   if(p.artisticDirection?.ownerFirst!==true||p.artisticDirection?.noPrimitivePlaceholders!==true)fail("R8.17 owner-first cinematic quality brief missing");
   if(p.artisticDirection?.requires3D===true&&!hasMeaningful3D)fail("R8.17 declared 3D requirement was silently replaced by flat artwork");
   if(!hasCta)fail("R8.17 requires an intentional closing CTA");
+  try { assertR817RetentionPlan(p) } catch (e) { fail(e.message) }
   if(errors.length)throw Error(errors.join("\n"));
   return {schemaVersion:R817.schemaVersion,videoId:normalize(p.videoId),sourceUrl:p.sourceUrl,claimCount:claims.size,beatCount:p.beats.length,passesSemanticPreflight:true,publicationApproved:false,ownerVisualApproval:false,independentVVerified:false};
 }
