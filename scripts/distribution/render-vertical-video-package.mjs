@@ -1,5 +1,6 @@
 import { assertNoDecorativeVideoChrome } from './evidencemotion-delivery-guardrails.mjs'
 import { assertR817FirstPass, assertR817SceneBinding } from './r817-canonical-first-pass.mjs'
+import { assertR818TelemetryBinding } from './r818-telemetry-qa.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -996,6 +997,25 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fs.writeFileSync(path.join(dir, 'r811-experiment-plan.json'), bytes)
     r811PlanSidecar = {file:'r811-experiment-plan.json',sha256:sha256(bytes)}
   }
+  let r818TelemetrySidecar = null
+  if (r817Active) {
+    // Only actual SVG/3D renderer instrumentation can emit this file;
+    // never synthesize geometric motion from the approved storyboard.
+    const telemetryFile=path.join(dir,'r818-telemetry.json')
+    if (!fs.existsSync(telemetryFile)) throw Error('R8.18 renderer-native semantic telemetry missing; visual plan alone is not render proof')
+    const bytes=fs.readFileSync(telemetryFile)
+    const telemetry=JSON.parse(bytes.toString('utf8'))
+    const renderedSceneAssetsSha256=sha256(assets.map(a=>a.sha256).join('|'))
+    const sourceManifestSha256=sha256(JSON.stringify({sourceUrl:mediaPack.source.url,sourceContentHash:mediaPack.source.contentHash}))
+    if(telemetry.sourceManifestSha256!==sourceManifestSha256)
+      throw Error('R8.18 telemetry is bound to a different source manifest')
+    const checked=assertR818TelemetryBinding(creativeSpec.r817FirstPass,telemetry,{
+      rendererCodeSha256,renderedSceneAssetsSha256
+    })
+    r818TelemetrySidecar={file:'r818-telemetry.json',sha256:sha256(bytes),
+      checkedStatus:checked.status,framesChecked:checked.framesChecked,
+      rendererCodeSha256,renderedSceneAssetsSha256,sourceManifestSha256}
+  }
   let r817Sidecar = null
   if (r817Active) {
     const exact = JSON.stringify(creativeSpec.r817FirstPass, null, 2) + '\n'
@@ -1014,6 +1034,7 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     productionSystemRelease: creativeSpec.productionSystemRelease || null,
     canonicalFirstPassRelease: r817Active ? 'R8.17' : null,
     r817FirstPass: r817Sidecar,
+    r818Telemetry: r818TelemetrySidecar,
     r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,
