@@ -29,7 +29,8 @@ export function assertR812Mechanism(mechanism) {
   if (errors.length) throw Error(errors.join('; '))
   return mechanism
 }
-export function assertR812Storyboard(beats, {requireHooks = false, hookApproaches = []} = {}) {
+export function assertR812Storyboard(beats, {requireHooks = false, hookApproaches = [], ctaUrl = null} = {}) {
+  if (typeof ctaUrl !== 'string' || !/^https:\/\/thehippiescientist\.net\/articles\/[a-z0-9-]+\/?$/.test(ctaUrl)) throw Error('R8.12 CTA must name the exact HTTPS article URL on screen')
   if (!Array.isArray(beats) || !beats.length) throw Error('R8.12 requires named narrative beats')
   const realActions = beats.filter(b => b.mechanism || b?.r812?.mechanism || b.r812Mechanism)
   if (!realActions.length) throw Error('R8.12 show, don\'t tell requires a mechanism instead of decorative movement')
@@ -43,7 +44,7 @@ export function assertR812Storyboard(beats, {requireHooks = false, hookApproache
       if (!verbs.test(clean(m.actionVerb))) throw Error('R8.12 visual action cannot be a vague hold')
     }
     if (beat.role==='cta' && duration>5.001) throw Error('R8.12 CTA must be at most 5 seconds; no frozen nine-second signoff')
-    if (['evidence','lab-evidence','human-evidence'].includes(beat.role) && duration>6.001) throw Error('R8.12 evidence beat longer than six seconds: split the nine-second beat')
+    if (['evidence','lab-evidence','human-evidence'].includes(beat.r812Role || beat.role) && duration>6.001) throw Error('R8.12 evidence beat longer than six seconds: split the nine-second beat')
   }
   if (requireHooks && (hookApproaches.length!==3 || new Set(hookApproaches).size!==3 || hookApproaches.some(x=>!['question','contrast','reveal'].includes(x)))) {
     throw Error('R8.12 requires three distinct rendered hook approaches: question, contrast, reveal')
