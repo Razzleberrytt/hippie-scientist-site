@@ -78,3 +78,9 @@ Both mechanism and trust PNGs must have real alpha channels, and trust cannot be
 Use `authorR819LayerInventory(packageDir, verifiedR818NativeFrames)` from `scripts/distribution/r819-layer-inventory-writer.mjs` after exporting independent native art/mechanism/trust PNG files for every approved R8.18 frame. The function checks each expected source-layer path, image dimensions, file bounds and SHA256; emits `r819-layer-sequence.json` deterministically, immediately rereads it through the independent verifier, and returns the exact `{file,sha256}` object to insert into the R8.19 package manifest. A previously emitted inventory cannot be silently overwritten or re-signed. Edit source art/graphics only through an intentional versioned package rebuild.
 
 The final MP4 receipt records the complete layer-sequence SHA and a digest of all successful frame pixel-equivalence proofs. Tests exercise the valid render, changed trust pixels (whether or not their SHA is changed), missing trust, immutable inventory writer and absent source layers. This is a production-identity contract, not automatic creative acceptance.
+
+For governed producers, the one-command CLI is:
+
+    node scripts/distribution/author-r819-layers-cli.mjs --package-dir /path/to/governed-package
+
+It verifies the original R8.18 frame-manifest SHA and native video timeline, then creates (never overwrites) the deterministic SHA-256 R8.19 layer inventory. Copy the printed manifestR819LayerSequence object into the parent package's R8.19 section before final encoder QA.
