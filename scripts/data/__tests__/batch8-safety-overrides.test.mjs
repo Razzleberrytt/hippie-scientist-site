@@ -43,9 +43,9 @@ test('Batch 8 safety holds survive regeneration and are idempotent', () => {
         const row = rows.find(record => record.slug === slug)
         const file = path.join(data, folder, slug + '.json')
         const detail = JSON.parse(fs.readFileSync(file, 'utf8'))
-        assert.ok(detail.safetyNotes.includes(alert.safetyNotes), slug)
+        assert.ok(detail.safetyNotes.startsWith(alert.safetyNotes), slug)
         assert.ok(detail.safetyNotes.includes('Original detail caution'), slug)
-        assert.ok(detail.safety.includes(alert.safetyNotes), slug)
+        assert.ok(detail.safety.startsWith(alert.safetyNotes), slug)
         assert.ok(detail.contraindications.includes('Original contraindication'), slug)
         assert.ok(alert.sources.every(source => detail.sources.some(saved => saved.url === source.url)), slug)
         for (const record of [row, detail]) {
