@@ -48,14 +48,32 @@ test('derived manifest re-generates exactly the committed protection baseline', 
   assert.doesNotMatch(generator, /new Date\s*\(/)
 })
 
-test('unresolved aliases are reported, not misattributed to a different canonical article', () => {
-  assert.ok(ledger.unresolvedOwners.some(a => a.url === '/articles/2c-b-effects/'))
+test('both blog-backed and article-backed owners resolve; unrelated legacy alias does not', () => {
+  assert.equal(ledger.unresolvedOwners.length, 1)
   assert.ok(ledger.unresolvedOwners.some(a => a.url === '/articles/magnesium-types-for-sleep/'))
-  assert.equal(sourceFileFor('/articles/2c-b-effects/', root), null)
+  assert.equal(sourceFileFor('/articles/2c-b-effects/', root), 'content/blog/2c-b-effects.mdx')
+  assert.equal(sourceFileFor('/articles/yerba-mate-vs-green-tea/', root), 'content/blog/yerba-mate-vs-green-tea.md')
   assert.equal(sourceFileFor('/articles/magnesium-types-for-sleep/', root), null)
   assert.equal(sourceFileFor('/articles/how-to-choose-supplement-quality/', root), 'content/articles/how-to-choose-supplement-quality.md')
+  const blogSource = readFileSync('content/blog/2c-b-effects.mdx', 'utf8')
+  assert.equal(extractIdentity(blogSource, 'content/blog/2c-b-effects.mdx', '/articles/2c-b-effects/').slug, '2c-b-effects')
   assert.equal(normalizeUrl('https://www.thehippiescientist.net/articles/mitragynine?from=bing'), '/articles/mitragynine/')
   assert.equal(normalizeUrl('https://malicious.example/articles/mitragynine/'), null)
+})
+
+test('rendered imported stress H1 and slug-based sleep H1 and canonical are guarded', () => {
+  const stress = ledger.assets.find(a => a.url === '/guides/best/supplements-for-stress/')
+  const herbs = ledger.assets.find(a => a.url === '/guides/sleep/best-herbs-for-sleep/')
+  assert.equal(stress.identity.renderedBy, 'app/guides/anxiety/best-supplements-for-stress/page.tsx')
+  assert.equal(stress.identity.h1, 'Best Supplements for Stress: What the Evidence Actually Supports')
+  assert.equal(herbs.identity.slug, 'best-herbs-for-sleep')
+  assert.equal(herbs.identity.canonical, '/guides/sleep/best-herbs-for-sleep/')
+  assert.equal(herbs.identity.h1, herbs.identity.title)
+  const copy = JSON.parse(JSON.stringify(ledger))
+  copy.assets.find(a => a.url === stress.url).identity.h1 = 'Changed imported H1'
+  copy.assets.find(a => a.url === herbs.url).identity.slug = 'changed-sleep-slug'
+  assert.ok(identityFailures(root, copy).some(x => /protected h1 changed/.test(x)))
+  assert.ok(identityFailures(root, copy).some(x => /protected slug changed/.test(x)))
 })
 
 test('changing protected title, H1, canonical or article slug fails safely', () => {
