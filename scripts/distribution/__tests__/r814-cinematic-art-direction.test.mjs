@@ -1,3 +1,4 @@
+import { directR814Shot, auditR814ShotVariety } from '../r814-cinematic-director.mjs'
 import sharp from 'sharp'
 import { describe, expect, it } from 'vitest'
 import { renderR809VisualActor, R809_VISUAL_STAGES, CINEMATIC_LOOK } from '../r809-visual-actors.mjs'
@@ -5,6 +6,35 @@ import { renderVerticalVideoSceneSvg } from '../render-vertical-video-package.mj
 import { assertNoDecorativeVideoChrome } from '../evidencemotion-delivery-guardrails.mjs'
 
 const canvas = { x: 70, y: 540, width: 820, height: 560, foreground: '#dffef3', background: '#07202e' }
+
+describe('CinematicDNA original shot identity and repetition controls', () => {
+  it('is deterministic for the same evidence and changes when the story changes', () => {
+    const basic={visualScene:'evidence',beatId:'hook',role:'hook',
+      onScreenText:'Frequency of kratom use',compositionFamily:'evidence-focus'}
+    const a=directR814Shot(basic)
+    const b=directR814Shot(basic)
+    const c=directR814Shot({...basic,onScreenText:'Comparison of dose amounts'})
+    expect(a).toEqual(b)
+    expect(a.id).toMatch(/^[a-f0-9]{16}$/)
+    expect(a.id).not.toBe(c.id)
+    expect(a.generatedScientificClaims).toBe(false)
+    expect(a.inventedResearchValues).toBe(false)
+    expect(a.camera).toMatch(/^(macro-push|orbital-drift|arc-reveal|diagonal-dolly)$/)
+    expect(Math.abs(a.parallax.near.x)).toBeGreaterThan(Math.abs(a.parallax.far.x))
+  })
+
+  it('does not reuse the exact same static direction for a series of unrelated scenes', () => {
+    const scenes=[
+      {visualScene:'compare',role:'hook',beatId:'hook',onScreenText:'Frequency versus amount'},
+      {visualScene:'evidence',role:'finding',beatId:'finding',onScreenText:'Observational survey'},
+      {visualScene:'uncertainty',role:'limitation',beatId:'limit',onScreenText:'Association is not causation'},
+    ]
+    const result=auditR814ShotVariety(scenes)
+    expect(result).toMatchObject({total:3,uniqueLooks:3,authorialVariation:true,scientificValuesGenerated:false})
+    expect(result.identity).toMatch(/^[a-f0-9]{64}$/)
+    expect(() => auditR814ShotVariety([scenes[0],scenes[0]])).toThrow(/repeated adjacent/)
+  })
+})
 
 describe('EvidenceMotion R8.14 cinematic 2.5D craft regression', () => {
   it('renders 7 distinct narrated science objects with depth, light and occlusion', () => {
