@@ -1,4 +1,5 @@
 import { assertNoDecorativeVideoChrome } from './evidencemotion-delivery-guardrails.mjs'
+import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -795,6 +796,24 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
 }
 
 export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir }) {
+  // A new R8.17 quality lane is additive to the existing R8.10/R8.11
+  // science/voice pipeline; never replace that source of factual authority.
+  const r817Active = creativeSpec?.canonicalFirstPassRelease === 'R8.17'
+  if (r817Active !== Boolean(creativeSpec?.r817FirstPass)) {
+    throw Error('R8.17 first-pass quality intent/activation mismatch; no silent fallback to legacy render')
+  }
+  if (r817Active) {
+    assertR817FirstPass(creativeSpec.r817FirstPass, {
+      sourceUrl: mediaPack.source.url,
+      sourceContentHash: mediaPack.source.contentHash,
+    })
+    // Existing canonical renderer is SVG 2.5D. A validated separate VTK
+    // overlay compositor must be connected before a real 3D asset can ship.
+    // Never silently downgrade an approved 3D shot to an SVG blob.
+    if (creativeSpec.r817FirstPass.beats.some(b => b.artMethod === 'rendered-3d')) {
+      throw Error('R8.17 physical 3D is not connected to this SVG-only producer; refuse fake 3D or a silent flat-art downgrade')
+    }
+  }
   const dir = path.resolve(outputDir)
   fs.mkdirSync(dir, { recursive: true })
   const release = clean(creativeSpec?.systemRelease) || 'R8.04'
@@ -976,6 +995,12 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     fs.writeFileSync(path.join(dir, 'r811-experiment-plan.json'), bytes)
     r811PlanSidecar = {file:'r811-experiment-plan.json',sha256:sha256(bytes)}
   }
+  let r817Sidecar = null
+  if (r817Active) {
+    const exact = JSON.stringify(creativeSpec.r817FirstPass, null, 2) + '\n'
+    fs.writeFileSync(path.join(dir, 'r817-first-pass.json'), exact)
+    r817Sidecar = { file: 'r817-first-pass.json', sha256: sha256(exact) }
+  }
   const manifest = {
     schemaVersion: '1.1.0',
     release,
@@ -986,6 +1011,8 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
     systemRelease: release,
     creativeMethodRelease: clean(creativeSpec?.creativeMethodRelease) || release,
     productionSystemRelease: creativeSpec.productionSystemRelease || null,
+    canonicalFirstPassRelease: r817Active ? 'R8.17' : null,
+    r817FirstPass: r817Sidecar,
     r812: creativeSpec.r812?.enabled === true ? { enabled: true, ctaUrl:clean(creativeSpec.r812.ctaUrl) } : null,
     r811Experiment: r811Bundle?.receipt ?? null,
     r811Plan: r811PlanSidecar,
