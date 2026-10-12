@@ -114,3 +114,20 @@ export function assessR817EncodedMaster(receipt){
   return {technicalPassed:true,publicationReady:blockers.length===0,blockers,autoPublished:false,independentVVerified:r.independentScientificReview?.reviewer==="V"&&r.independentScientificReview?.status==="approved"};
 }
 
+
+
+// Compare the storyboard against what the existing video producer *actually* rendered.
+export function assertR817SceneBinding(plan,scenes) {
+  const p=plan??{},rendered=Array.isArray(scenes)?scenes:[];
+  if(!Array.isArray(p.beats)||p.beats.length!==rendered.length)throw Error("R8.17 approved storyboard/rendered scene inventory mismatch");
+  for(let i=0;i<rendered.length;i++){
+    const a=p.beats[i],b=rendered[i],id=String(a.id??"");
+    if(id!==String(b.beatId??"")||a.role!==b.role||Math.abs(Number(a.start)-Number(b.start))>0.002||Math.abs(Number(a.end)-Number(b.end))>0.002)throw Error("R8.17 rendered scene identity or timing drift: "+id);
+    if(String(a.narrationText??"").replace(/\s+/g," ").trim()!==String(b.voiceover??"").replace(/\s+/g," ").trim())throw Error("R8.17 rendered scene narration does not match its approved beat: "+id);
+    if(String(a.onScreenText??"").trim()!==String(b.onScreenText??"").trim())throw Error("R8.17 authored headline differs from approved scene: "+id);
+    if(a.numericVisual){
+      if(!String(b.onScreenText??"").includes(a.numericVisual.finalDisplay)||!String(b.onScreenText??"").includes(a.numericVisual.denominator))throw Error("R8.17 actual on-screen headline missing exact verified number/denominator: "+id);
+    }
+  }
+  return true;
+}
