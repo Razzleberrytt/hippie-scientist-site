@@ -529,6 +529,7 @@ function buildTimelineR805(mediaPack, creativeSpec, dir) {
       visualMode: clean(beat?.r806?.visualMode),
       teachingObject: clean(beat?.r806?.teachingObject),
       r812Enabled: creativeSpec.r812?.enabled === true,
+      r812Role: creativeSpec.creativeR810?.slots?.find(slot => slot.beatId === beat.id)?.role ?? null,
       r812Mechanism: beat?.r812?.mechanism ?? null,
       r812CtaUrl: creativeSpec.r812?.enabled === true && clean(beat.role)==='cta' ? clean(creativeSpec.r812.ctaUrl) : null,
       compositionFamily: clean(beat?.r807?.compositionFamily),
@@ -763,6 +764,7 @@ export function renderVerticalVideoSceneSvg(scene, options = {}) {
     visualMode: scene.visualMode || null,
     teachingObject: scene.teachingObject || null,
     r812Enabled: scene.r812Enabled === true,
+    r812Role: scene.r812Role || null,
     r812Mechanism: scene.r812Mechanism || null,
     r812CtaUrl: scene.r812CtaUrl || null,
     compositionFamily: scene.compositionFamily || null,
@@ -797,7 +799,8 @@ export function renderVerticalVideoPackage({ mediaPack, creativeSpec, outputDir 
   const { scenes, durationSeconds, bindings } = built
   if (creativeSpec.r812?.enabled === true) {
     assertR812Storyboard(scenes, {requireHooks:Boolean(creativeSpec.r811Plan),
-      hookApproaches:creativeSpec.r811Plan ? ['question','contrast','reveal'] : []})
+      hookApproaches:creativeSpec.r811Plan ? ['question','contrast','reveal'] : [],
+      ctaUrl:creativeSpec.r812.ctaUrl})
   }
   const disclosure = clean(creativeSpec.delivery.disclosure)
   const rendererCodeSha256 = sha256(fs.readFileSync(new URL(import.meta.url)))
