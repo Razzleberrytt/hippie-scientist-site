@@ -26,10 +26,10 @@
     {
       "id": "hook",
       "role": "hook",
-      "narration": "With kratom, could how often you take it matter more than how much?",
+      "narration": "With kratom, does frequency matter more than dose size?",
       "onScreenText": "FREQUENCY vs AMOUNT",
       "visualPurpose": "Open on the surprising comparison rather than a study title",
-      "spokenAnchor": "how often",
+      "spokenAnchor": "frequency",
       "visualAction": "Split-screen frequency and amount diverge",
       "motion": {
         "type": "reveal"
@@ -46,7 +46,7 @@
     {
       "id": "finding",
       "role": "finding",
-      "narration": "A study of three hundred ninety five regular users found withdrawal symptoms were more closely linked to dosing frequency than dose amount.",
+      "narration": "In a study of three hundred ninety five users, withdrawal was more strongly linked to dosing frequency than amount.",
       "onScreenText": "FREQUENCY showed the stronger association",
       "visualPurpose": "Make the direction of association immediately clear without a causal claim",
       "spokenAnchor": "dosing frequency",
@@ -66,10 +66,10 @@
     {
       "id": "context",
       "role": "context",
-      "narration": "Kratom contains mitragynine. This research looked at people's kratom use, not purified mitragynine by itself.",
+      "narration": "But this study examined kratom products, not isolated mitragynine.",
       "onScreenText": "KRATOM use ≠ purified mitragynine",
       "visualPurpose": "Prevent interpreting product-level observations as isolated compound causality",
-      "spokenAnchor": "not purified",
+      "spokenAnchor": "not isolated",
       "visualAction": "Identify kratom leaf then a separately labeled compound icon",
       "motion": {
         "type": "reveal"
@@ -86,10 +86,10 @@
     {
       "id": "evidence",
       "role": "evidence",
-      "narration": "The researchers surveyed U S adults in twenty twenty two. Almost all regularly used whole leaf products.",
+      "narration": "U S adults reported their use in twenty twenty two. Nearly all regularly used whole leaf.",
       "onScreenText": "395 ADULTS · US · 2022 · SELF-REPORTED",
       "visualPurpose": "Show actual study design and sample rather than presenting experiment or RCT",
-      "spokenAnchor": "surveyed",
+      "spokenAnchor": "reported",
       "visualAction": "Survey cards stack into a 395-person observational sample",
       "motion": {
         "type": "reveal"
@@ -105,10 +105,10 @@
     {
       "id": "limitation",
       "role": "limitation",
-      "narration": "Important: this was an observational survey. It cannot prove that taking kratom more often causes withdrawal.",
+      "narration": "It's observational and self reported. That does not prove frequency causes withdrawal.",
       "onScreenText": "ASSOCIATION ≠ CAUSATION",
       "visualPurpose": "Make causal limitation large and unavoidable",
-      "spokenAnchor": "cannot prove",
+      "spokenAnchor": "does not prove",
       "visualAction": "Association arrow changes to a question mark, source type stays visible",
       "motion": {
         "type": "highlight"
@@ -124,10 +124,10 @@
     {
       "id": "finding2",
       "role": "finding",
-      "narration": "The takeaway? How frequently someone uses a product deserves attention, not just the amount in one dose.",
+      "narration": "The takeaway: the pattern of use matters, not just the amount in one dose.",
       "onScreenText": "PAY ATTENTION TO THE PATTERN",
       "visualPurpose": "Deliver a nonprescriptive harm-reduction takeaway",
-      "spokenAnchor": "How frequently",
+      "spokenAnchor": "the pattern",
       "visualAction": "Show a weekly calendar with repeated uses highlighted",
       "motion": {
         "type": "reveal"
@@ -163,7 +163,7 @@
     {
       "id": "cta",
       "role": "cta",
-      "narration": "Read the study and caveats at The Hippie Scientist. Follow for evidence, not hype.",
+      "narration": "Read the study at The Hippie Scientist. Follow for more.",
       "onScreenText": "thehippiescientist.net",
       "visualPurpose": "Clear educational CTA without medical advice or purchase prompt",
       "spokenAnchor": "Hippie Scientist",
