@@ -84,3 +84,17 @@ For governed producers, the one-command CLI is:
     node scripts/distribution/author-r819-layers-cli.mjs --package-dir /path/to/governed-package
 
 It verifies the original R8.18 frame-manifest SHA and native video timeline, then creates (never overwrites) the deterministic SHA-256 R8.19 layer inventory. Copy the printed manifestR819LayerSequence object into the parent package's R8.19 section before final encoder QA.
+
+## October 9, 2026: 7-OH federal regulatory freshness hotfix (review-only)
+
+HHS on October 9 recommended a concentration **OR** mitragynine-ratio test for proposed temporary Schedule I control of concentrated 7-hydroxymitragynine and mitragynine pseudoindoxyl: more than **1 mg/g** in solids, more than **1 mg/mL** in liquids, or **mitragynine to 7-OH / MGPI / combined ratio below 100:1**. DOJ reported DEA issuing **new Notices of Intent**, specifically targeting enhanced products while seeking to leave ordinary botanical kratom with trace amounts outside the intended scope. This is not an unconditional statutory exemption for every product labeled kratom. 7-OH itself had **no temporary scheduling order** as of DOJ's October 9 report. Separate existing temporary controls of **MGPI, MGM-15, MGM-16 effective August 26, 2026 remain in force** while new notice proceedings continue.
+
+Primary links:
+- HHS October 9: https://www.hhs.gov/press-room/hhs-recommends-thresholds-enhanced-kratom-products-7-oh-mgpi.html
+- DOJ October 9: https://www.justice.gov/opa/pr/department-justice-announces-updates-emergency-scheduling-actions-7-oh-and-related-opioid
+
+Never state an effective Nov 13 date, Oct 14 Federal Register publication, or completed 7-OH Schedule I order without newer official evidence. A Notice of Intent is not an order. New 30-day notice process is reported by DOJ but the exact publication/effective dates are not independently established here.
+
+`scripts/distribution/r8-7oh-regulatory-freshness.mjs` adds a narrowly scoped status gate to the R8.09 public brief and R8.19 correctness review. A current proposal must have both authoritative source URLs, exact threshold operators, the Aug 26 derivative distinction, an as-of/publication date match, a named human source review, and **an actually synchronized spoken proposal update**; a screen-only text correction cannot pass the spoken-voice gate. This is a fail-closed *receipt contract*, not a live request to DEA, so editors must check DEA and the Federal Register themselves on publication day and review the decoded master. A new order requires updating the dated status contract rather than mislabeling it as the Oct 9 proposal.
+
+The existing R8.09 7-OH master has a stale "7-OH federal scheduling: pending Oct 11" end-card line. The Oct 9 corrected on-screen candidate reuses its exact original AAC track but **does not contain a newly recorded voice close**. It is REVIEW-ONLY / DO NOT PUBLISH until an accurate voice close is recorded, aligned with the new end-card, and approved against a verified publication-day regulatory source check. Preserve the accurate MGM-15 August 26 stamp.

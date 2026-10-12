@@ -1,3 +1,4 @@
+import { validate7OhRegulatoryStatus } from './r8-7oh-regulatory-freshness.mjs'
 import crypto from 'node:crypto'
 
 // R8.19 release contract. Independent scientific and craft decisions are separate.
@@ -50,6 +51,13 @@ export function assessR819Release({build = {}, science = {}, craft = {}} = {}) {
     'sourceFootersPixelVerified', 'exactNarrationReviewed']) {
     if (science[field] !== true) scienceHolds.push('Missing science/trust verification: ' + field)
   }
+  scienceHolds.push(...validate7OhRegulatoryStatus({
+    onScreenText:science.exactOnScreenText,
+    narrationText:science.exactNarrationText,
+    regulatoryClaimPresent:science.regulatoryClaimPresent===true,
+    snapshot:science.regulatoryStatusSnapshot,
+    publicationDate:science.publicationDate
+  }))
   if (science.reviewVerdict !== 'APPROVE' || !science.reviewAuthor)
     scienceHolds.push('Named independent source/claim reviewer has not approved this exact master')
   const correctness = {verdict:scienceHolds.length ? 'PENDING_INDEPENDENT_REVIEW' : 'PASS',
