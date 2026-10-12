@@ -10,7 +10,7 @@
   "summary": {
     "investigations": 40,
     "p0_review_candidates": 15,
-    "staged_pilots": 2,
+    "staged_pilots": 4,
     "approved_publications_from_this_queue": 0,
     "fully_audited_claims": 0
   },
@@ -25,13 +25,24 @@
         "19015839"
       ],
       "editorial_priority": "P0_review",
-      "publication_audit_state": "NOT_COMPLETED",
-      "known_coverage_clue": null,
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
+      "known_coverage_clue": {
+        "kind": "generated_profile_checked",
+        "note": "Existing St. John's wort generated profile is NOINDEX with broad interaction warning; does not include contraception primary evidence in displayed sources; verify route/claim scope, do not auto-promote."
+      },
       "independent_scientific_review": "NOT_DOCUMENTED",
       "human_publication_approval": "NOT_DOCUMENTED",
       "canonical_source_admission": "NOT_VERIFIED",
       "live_publication_claim": "NOT_VERIFIED",
-      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+      "next_action": "Independent scientific/editorial review; record exact human approval before public content; canonical source deduplication and evaluate existing profile vs new article; implement separately with exact-head release proof.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/st-johns-wort-contraception-interaction-2026-10-12.md",
+      "pilot_source_pmids": [
+        "14663455",
+        "14616430",
+        "15914127",
+        "19015839",
+        "27444983"
+      ]
     },
     {
       "id": "DE10-02",
@@ -42,13 +53,21 @@
         "12574791"
       ],
       "editorial_priority": "P0_review",
-      "publication_audit_state": "NOT_COMPLETED",
-      "known_coverage_clue": null,
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
+      "known_coverage_clue": {
+        "kind": "generated_profile_checked",
+        "note": "Licorice herb profile is PUBLISH-eligible with review-based sources and generic hypertension/kidney note; specialized thiazide-potassium risk absent in displayed source list; legal path may be existing page correction rather than duplicate article."
+      },
       "independent_scientific_review": "NOT_DOCUMENTED",
       "human_publication_approval": "NOT_DOCUMENTED",
       "canonical_source_admission": "NOT_VERIFIED",
       "live_publication_claim": "NOT_VERIFIED",
-      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+      "next_action": "Independent scientific/editorial review; record exact human approval before public content; canonical source deduplication and evaluate existing profile vs new article; implement separately with exact-head release proof.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/licorice-diuretic-hypokalemia-safety-2026-10-12.md",
+      "pilot_source_pmids": [
+        "19562574",
+        "12574791"
+      ]
     },
     {
       "id": "DE10-03",
