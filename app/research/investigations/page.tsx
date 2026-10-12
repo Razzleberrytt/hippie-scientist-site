@@ -23,7 +23,7 @@ export default function ResearchInvestigationsPage() {
       </nav>
 
       <header className='rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8 lg:p-10'>
-        <p className='eyebrow-label'>Primary-source transparency · October 2026</p>
+        <p className='eyebrow-label'>Primary-source transparency · Living research archive</p>
         <h1 className='mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl'>Open research investigations</h1>
         <p className='mt-5 max-w-3xl text-base leading-8 text-muted'>
           See what our researchers are investigating, including null findings, contradictory trials, formulation questions and safety flags.
