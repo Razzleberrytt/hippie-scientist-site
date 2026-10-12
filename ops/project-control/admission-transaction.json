@@ -1,19 +1,19 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "dcfb44708c0f6879e8c82761bf01dc20f4f3a55b",
+  "base_revision": "4740e74081a1c62ca396fd8aa9a100a7b39951b9",
   "last_verified": "2026-10-12",
-  "ticket": 6683,
+  "ticket": 6685,
   "lane": "D",
-  "title": "Connect anxiety and product-quality hubs to cited canonical guides",
-  "priority": "P2",
+  "title": "Activate durable protected identities for citation-leading pages",
+  "priority": "P0",
   "score_inputs": {
-    "businessImpact": 3,
+    "businessImpact": 4,
     "userValue": 4,
-    "trafficPotential": 3,
-    "strategicLeverage": 4,
+    "trafficPotential": 4,
+    "strategicLeverage": 5,
     "confidence": 0.75,
-    "effort": 1
+    "effort": 2
   },
-  "score": 108
+  "score": 120
 }
