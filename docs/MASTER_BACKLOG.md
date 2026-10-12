@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-12 (retire GitHub-closed #6149 active and #5081 queued; P0 work unchanged)
+**Updated:** 2026-10-12 (formal exact-base D #6683 admission after stale owner retirement)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -83,13 +83,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6683 | Connect anxiety and product-quality hubs to cited canonical guides | D | Active — admitted | P2 | 3/4/3/4/0.75/1 | 108.0 | 2026-10-12 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Control-state retirement (verified 2026-10-12):** #6149 was closed as completed on 2026-10-09; its historical scored admission remains recorded, but the active R row is retired. #5081 also closed as completed on 2026-10-09 and must no longer appear in the actionable Next queue. Normal WIP **0/3**. No new owner is admitted by this control-only repair.
+**Control-state retirement and following admission (verified 2026-10-12):** PR #6687 retired closed R #6149 and A candidate #5081 from live queues, preserving historical records (base WIP 0/3). This separate exact-base transaction admits only D #6683 at score **108.0** and priority P2; head WIP **1/3**, R/A available. Previously staged PR #6684 remains closed pending completion of admission. All observed business outcomes remain Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
