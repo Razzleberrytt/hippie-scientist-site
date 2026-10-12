@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-12 (retire GitHub-closed #6149 active and #5081 queued; P0 work unchanged)
+**Updated:** 2026-10-12 (P0 AI citation/evidence expansion program appended as unadmitted candidates; existing D/R/A work unchanged)
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -27,6 +27,14 @@
 **Priority-ordered candidate sequence, not additional admitted tickets:** (1) validate and merge existing #6509 through the sole protected controller; (2) baseline workflows/build/CI durations and duplicate trigger graph against current main; (3) remove only demonstrably redundant workflow executions/check duplication with required names preserved; (4) profile/correct static generation and deterministic data/build bottlenecks, validate cold and cache-hit parity; (5) improve immutable identical-input artifact and dependency caching; (6) publish comparable before/after safety-and-throughput receipt. Group related changes into one reviewable ticket when they share failure domain/rollback. Never claim savings before observing them.
 
 **Acceptance for future admitted scoped work:** exact baseline/run URLs, change-risk classification, reproducible timings, required-status/check inventory, no skipped science/security/accessibility/SEO/publishing gates, byte-identical output and corrupted-cache refusal, unchanged workstream cap, mandatory exact-head CI, sole merge-controller authority, exact main/deployment receipt, measured p50/p90 wall time and Actions minutes or explicit Unknown. Use the existing score formula below; Strategic Leverage contains unlock value. Keep incident and safety fixes first, and preserve all prior P0 acceptance.
+
+## P0 — AI Citation Leadership & Evidence Expansion (candidate portfolio, #6695)
+
+**Owner-directed strategic priority (2026-10-12):** Extend the site's actual AI citation winners into an independently verified, differentiated evidence library. The [18-task P0 candidate backlog](AI_CITATION_P0_EXPANSION_BACKLOG.md) covers source-grade measurement, winner protections, canonical/intent ownership, supplement-quality and mushroom research, valerian/sleep/stress, creatine/cognition, protein, ASPD clinical education, emerging-substance safety, evidence crosswalks, source-gap observations and measured learning.
+
+**Non-duplicative first dependencies:** retain existing **#6690** for Bing query→page attribution, **#6685** for production winner-identity protection, **#6670** for editorial verification, and **#6431** for source/evidence integration. A dated Bing Overview export is still required for true 7-/30-day daily trends. Citation Page and Grounding Query totals are overlapping, not additive.
+
+**Admission status:** **0/18 implementation tasks admitted by this program**; this is not a replacement for the existing generational engineering P0 or the unrecovered original 150-item directive. Do not add these as active Now/Next ownership merely for being P0. Each candidate requires fresh scored admission, nonoverlap, exact-source safety/editorial checks, D/R/A WIP space and sole-controller merge; the program and its score are not an additional governance lane. Actual cross-engine leadership, growth ROI, clicks and revenue remain **Unknown**.
 
 ## Scoring and gates
 
