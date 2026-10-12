@@ -3,7 +3,7 @@ slug: ginkgo-biloba
 title: "Ginkgo Biloba 240 mg: What the Evidence Actually Supports"
 description: "Evidence-first 2026 review of Ginkgo biloba 240 mg and EGb 761: dementia symptom trials, negative prevention data, MCI, healthy cognition, product directness, bleeding/warfarin evidence, and why 240 mg is not a universal dose."
 date: '2026-06-06'
-updatedAt: '2026-08-22'
+updatedAt: '2026-10-11'
 author: Will
 category: Cognitive health
 keywords:
@@ -278,6 +278,8 @@ NCCIH also warns that Ginkgo **may increase bleeding risk in people taking antic
 A meta-analysis of **18 randomized controlled trials / 1,985 adults** examined platelet aggregation, fibrinogen, PT, aPTT, and related hemostasis measures. It did not find evidence that standardized Ginkgo extract produced a clinically meaningful increase in bleeding-related hemostasis risk overall. [PubMed 21923430](https://pubmed.ncbi.nlm.nih.gov/21923430/)
 
 A small randomized crossover study in **12 healthy men** also found that Ginkgo pretreatment did not materially alter INR, platelet aggregation, or warfarin pharmacokinetics after a single warfarin dose. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC1884814/)
+
+A large dementia-prevention trial (GEM; 3,069 older adults) also did not establish a statistically significant overall bleeding-risk increase for its studied standardized ginkgo extract ([Kuller et al., 2010; PMID 20123670](https://pubmed.ncbi.nlm.nih.gov/20123670/); **human randomized trial**). This null finding is not a universal safety clearance: bleeding events are relatively uncommon, products differ, and these trials cannot settle risk with every co-medication. In particular, **direct primary clinical evidence for SSRI-plus-ginkgo bleeding risk is lacking**; proposed additive effects should be labeled uncertain rather than proven.
 
 ### Why the medication warning still stands
 
