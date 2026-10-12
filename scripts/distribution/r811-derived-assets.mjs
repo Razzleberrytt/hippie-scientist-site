@@ -34,7 +34,7 @@ function trustedCard(plan, headline, detail) {
     '</svg>'
 }
 export function buildR811DraftAssets({ packageDir, plan, creativeR810, firstHookScene, renderScene,
-  sourceUrl, contentHash, disclosure }) {
+  sourceUrl, contentHash, disclosure, r812Enabled = false }) {
   const dir = path.resolve(packageDir)
   const receipt = buildR811Receipt(plan, { creativeR810 })
   verifyR811Receipt(plan, receipt, { creativeR810 })
@@ -51,6 +51,7 @@ export function buildR811DraftAssets({ packageDir, plan, creativeR810, firstHook
   }
   fs.mkdirSync(dir, { recursive: true })
   const previewAssets = []
+  const approachByArm = {a:'question',b:'contrast',c:'reveal'}
   for (const variant of plan.hookVariants) {
     const preview = renderScene({
       ...firstHookScene, onScreenText: variant.screenText, voiceover: variant.narration,
@@ -59,10 +60,17 @@ export function buildR811DraftAssets({ packageDir, plan, creativeR810, firstHook
     if (!preview?.svg?.startsWith('<svg') || !preview.svg.includes('</svg>')) throw Error('R8.11 source renderer returned invalid hook preview SVG')
     // This draft is a visual storyboard. Replacement spoken audio and final
     // word alignment are mandatory before it can be posted as a true A/B arm.
+    const approach = r812Enabled ? approachByArm[variant.id] : null
+    const r812Graphic = approach === 'question'
+      ? '<g data-r812-hook-approach="question"><text x="820" y="660" fill="#69b7a2" font-size="210">?</text></g>'
+      : approach === 'contrast'
+        ? '<g data-r812-hook-approach="contrast"><rect x="160" y="600" width="330" height="200" rx="35" stroke="#69b7a2" fill="none" stroke-width="9"/><rect x="590" y="600" width="330" height="200" rx="35" stroke="#e2ac69" fill="none" stroke-width="9"/></g>'
+        : approach === 'reveal'
+          ? '<g data-r812-hook-approach="reveal"><circle cx="540" cy="705" r="110" fill="none" stroke="#69b7a2" stroke-width="18"/><path d="M450 700 l80 75 l130 -170" stroke="#e2ac69" stroke-width="18" fill="none"/></g>' : ''
     const draft = preview.svg.replace('</svg>',
-      '<text x="120" y="1850" font-size="26" fill="#ffffff">A/B VISUAL DRAFT • NOT FOR PUBLICATION</text></svg>')
+      r812Graphic + '<text x="120" y="1850" font-size="26" fill="#ffffff">A/B VISUAL DRAFT • NOT FOR PUBLICATION</text></svg>')
     const file = write(dir, 'r811-hook-' + variant.id + '-preview.svg', draft + '\n')
-    previewAssets.push({ ...file, variantId: variant.id,
+    previewAssets.push({ ...file, variantId: variant.id, approach: approach ?? 'legacy-draft',
       narrationSha256: sha(clean(variant.narration)),
       scienceReviewSha256: sha(JSON.stringify(variant.reviewReceipt)),
       spokenAudio: false, published: false, needsIndependentAudioAndMasterQa: true })

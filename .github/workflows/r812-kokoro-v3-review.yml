@@ -1,0 +1,70 @@
+name: R8.12 original Kokoro V3 draft narration
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/r812-kokoro-v3-review.yml'
+      - 'scripts/distribution/r812-mitragynine-review-voice.py'
+      - 'scripts/distribution/voice-vault.py'
+      - 'scripts/distribution/requirements-local-voice.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render-original-house-voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      THS_VOICE_VAULT: ${{ github.workspace }}/.cache/ths-original-voice
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore and independently verify immutable original Kokoro assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$THS_VOICE_VAULT"
+          gh release download ths-kokoro-onnx-am-michael-int8-v1 \
+            --repo "$GITHUB_REPOSITORY" \
+            --dir "$THS_VOICE_VAULT"
+          python scripts/distribution/voice-vault.py verify "$THS_VOICE_VAULT"
+      - name: Install exact local Kokoro runtime (no hosted speech services)
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y espeak-ng ffmpeg
+          python -m pip install -r scripts/distribution/requirements-local-voice.txt
+          python -m pip install 'numpy<3' 'scipy<2' 'soundfile==0.14.0'
+      - name: Synthesize exact V3 review script using authentic am_michael
+        run: python scripts/distribution/r812-mitragynine-review-voice.py artifacts/r812
+      - name: Check WAV codec, duration and independent pinned model receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          ffprobe -v error -show_entries format=duration:stream=codec_name,sample_rate \
+            -of json artifacts/r812/r812-mitragynine-authentic-voice-REVIEW.wav
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          root=Path('artifacts/r812')
+          rec=json.loads((root/'r812-mitragynine-authentic-voice-REVIEW.receipt.json').read_text())
+          wav=root/'r812-mitragynine-authentic-voice-REVIEW.wav'
+          assert rec['narrationWavSha256']==hashlib.sha256(wav.read_bytes()).hexdigest()
+          assert rec['modelSha256']=='ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c'
+          assert rec['voicebankSha256']=='bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d'
+          assert rec['voice']=='am_michael' and rec['wordLevelAlignmentCertified'] is False
+          assert rec['humanAuditoryReview']=='pending'
+          print('AUTHENTIC HOUSE VOICE: PASS. NOT FINAL VIDEO APPROVAL.')
+          PY
+      - name: Export human-review-only WAV and its exact provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: r812-mitragynine-original-kokoro-review-wav
+          if-no-files-found: error
+          retention-days: 7
+          path: artifacts/r812/*
