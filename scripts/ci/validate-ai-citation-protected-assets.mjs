@@ -1,65 +1,98 @@
 #!/usr/bin/env node
-import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
+import {
+  normalizeCitationUrl,
+  findCitationOwner,
+  identityFor,
+} from '../seo/ai-citation-protection-core.mjs'
 
 const ROOT = process.cwd()
 const LEDGER = path.join(ROOT, 'config', 'ai-citation-protected-assets.json')
 const POLICY = path.join(ROOT, 'config', 'ai-citation-protection-policy.json')
-const sha = (value) => createHash('sha256').update(value ?? '').digest('hex')
 const readJson = (file) => JSON.parse(readFileSync(file, 'utf8'))
 
-function extractIdentity(source) {
-  const canonical = source.match(/canonical(?:s)?\s*:\s*(?:{[^}]*?)?["'`]([^"'`]+)["'`]/s)?.[1] ?? null
-  const title = source.match(/title\s*:\s*["'`]([^"'`]+)["'`]/)?.[1] ?? null
-  const h1 = source.match(/<h1(?:\s[^>]*)?>([^<{][\s\S]*?)<\/h1>/i)?.[1]?.replace(/\s+/g, ' ').trim() ?? null
-  return { canonical, title, h1, fingerprints: { canonical: sha(canonical), title: sha(title), h1: sha(h1) } }
-}
-
-if (!existsSync(LEDGER)) {
-  console.error('[ai-citation-assets] missing durable ledger')
-  process.exit(1)
-}
-if (!existsSync(POLICY)) {
-  console.error('[ai-citation-assets] missing protection policy')
+if (!existsSync(LEDGER) || !existsSync(POLICY)) {
+  console.error('[ai-citation-assets] missing ledger or protection policy')
   process.exit(1)
 }
 
 const ledger = readJson(LEDGER)
 const policy = readJson(POLICY)
-if (ledger.status !== 'ready' || !Array.isArray(ledger.assets) || ledger.assets.length === 0) {
-  console.log('[ai-citation-assets] no fresh protected assets yet; identity gate is fail-safe advisory')
+if (ledger.status !== 'ready') {
+  console.log('[ai-citation-assets] not yet ready; no identity gate claimed')
+  process.exit(0)
+}
+const stamp = ledger.sourceReportGeneratedAt || ledger.snapshotLabel
+const age = typeof stamp === 'string' && stamp.trim() ? Date.now() - Date.parse(stamp) : NaN
+if (!Number.isFinite(age)) {
+  console.error('[ai-citation-assets] ready ledger requires valid dated provenance')
+  process.exit(1)
+}
+if (age < 0 || age > policy.staleAfterDays * 86400000) {
+  console.log('[ai-citation-assets] future-dated or stale citation snapshot: citation-neutral; unrelated changes not blocked')
   process.exit(0)
 }
 
-if (ledger.sourceReportGeneratedAt) {
-  const ageDays = (Date.now() - Date.parse(ledger.sourceReportGeneratedAt)) / 86400000
-  if (Number.isFinite(ageDays) && ageDays > policy.staleAfterDays) {
-    console.log(`[ai-citation-assets] ledger is ${ageDays.toFixed(1)} days old; stale data will not block unrelated PRs`)
-    process.exit(0)
-  }
-}
-
 const failures = []
-for (const asset of ledger.assets) {
-  if (!asset.sourceFile) continue
-  const file = path.join(ROOT, asset.sourceFile)
-  if (!existsSync(file)) {
-    failures.push(`${asset.url}: source owner missing (${asset.sourceFile})`)
+if (!Array.isArray(ledger.assets) || ledger.assets.length < 1) failures.push('ready ledger has no protected assets')
+if (!Array.isArray(ledger.exceptions)) failures.push('ready ledger missing explicit exception inventory')
+if (ledger.sourceKind === 'owner-validated-derived-page-stats' &&
+    ledger.sourcePath !== 'config/ai-citation-swarm-priorities.json') {
+  failures.push('invalid derived snapshot provenance')
+}
+const seen = new Set()
+for (const asset of ledger.assets ?? []) {
+  let route
+  try { route = normalizeCitationUrl(asset.url) } catch { failures.push('invalid protected route'); continue }
+  if (seen.has(route)) failures.push(route + ': duplicate protected route')
+  seen.add(route)
+  if (!asset.sourceFile || !asset.sourceType || !asset.identity ||
+      !Array.isArray(asset.protectedFields) || !asset.identity.title) {
+    failures.push(route + ': missing verifiable source owner or protected identity')
     continue
   }
-  const current = extractIdentity(readFileSync(file, 'utf8'))
-  for (const field of ['canonical', 'title', 'h1']) {
-    const baseline = asset.identity?.fingerprints?.[field]
-    if (!baseline) continue
-    if (current.fingerprints[field] !== baseline) failures.push(`${asset.url}: protected ${field} changed in ${asset.sourceFile}`)
+  const owner = findCitationOwner(ROOT, route)
+  if (!owner || owner.sourceFile !== asset.sourceFile || owner.sourceType !== asset.sourceType) {
+    failures.push(route + ': canonical source owner missing, moved, or changed')
+    continue
+  }
+  const current = identityFor(ROOT, owner)
+  const fields = Object.keys(asset.identity).sort()
+  if (JSON.stringify(fields) !== JSON.stringify([...asset.protectedFields].sort())) {
+    failures.push(route + ': protectedFields does not match observed baseline fields')
+  }
+  if (asset.sourceType === 'article-frontmatter' && !asset.identity.slug) {
+    failures.push(route + ': article slug missing from baseline')
+  }
+  for (const field of fields) {
+    if (!['title', 'canonical', 'h1', 'slug'].includes(field) ||
+        typeof asset.identity[field] !== 'string' || asset.identity[field].length === 0) {
+      failures.push(route + ': unrecognized or empty identity baseline ' + field)
+      continue
+    }
+    if (current[field] !== asset.identity[field]) failures.push(route + ': protected ' + field + ' changed')
   }
 }
-
+for (const exception of ledger.exceptions ?? []) {
+  let route
+  try { route = normalizeCitationUrl(exception.url) } catch { failures.push('invalid exception route'); continue }
+  if (seen.has(route)) failures.push(route + ': exception overlaps another citation asset')
+  seen.add(route)
+  if (!['no-exact-canonical-source-owner', 'missing-protectable-source-identity', 'canonical-route-mismatch'].includes(exception.reason)) {
+    failures.push(route + ': unapproved or missing exception reason')
+  }
+}
+if (ledger.coverage?.selectedUrls !== seen.size ||
+    ledger.coverage?.protectedUrls !== ledger.assets?.length ||
+    ledger.coverage?.exceptionUrls !== ledger.exceptions?.length) {
+  failures.push('selected/protected/exception coverage reconciliation mismatch')
+}
 if (failures.length) {
-  console.error('[ai-citation-assets] protected identity regression detected:')
-  for (const failure of failures) console.error(`  - ${failure}`)
-  console.error('If intentional, refresh the ledger from a fresh Bing AI export and document migration/redirect/rollback in the PR.')
+  console.error('[ai-citation-assets] protected identity regression or invalid ledger:')
+  for (const failure of failures) console.error(' - ' + failure)
+  console.error('Intentional route or title migrations need reviewed source proof, redirect and rollback before the dated ledger is refreshed.')
   process.exit(1)
 }
-console.log(`[ai-citation-assets] PASS protected assets=${ledger.assets.length}`)
+console.log('[ai-citation-assets] PASS protected=' + ledger.assets.length + ' exceptions=' + ledger.exceptions.length +
+  ' snapshot=' + ledger.snapshotLabel)
