@@ -83,13 +83,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6683 | Connect anxiety and product-quality hubs to cited canonical guides | D | Active — admitted | P2 | 3/4/3/4/0.75/1 | 108.0 | 2026-10-12 |
 
 
 
 
 **Closed-owner root-cause repair:** The former active D entry #6491 / PR #6492 survived its verified merge and deploy. This control-only transaction removes the stale owner from BOTH canonical tables, freeing the correct base for a later separate A #6500 admission. No implementation scope added.
 
-**Control-state retirement (verified 2026-10-12):** #6149 was closed as completed on 2026-10-09; its historical scored admission remains recorded, but the active R row is retired. #5081 also closed as completed on 2026-10-09 and must no longer appear in the actionable Next queue. Normal WIP **0/3**. No new owner is admitted by this control-only repair.
+**Current admission after verified retirements (2026-10-12):** #6149 and #5081 remain retired. D #6683 is admitted through its own scored, exact-base transaction at **108.0**; normal implementation WIP **1/3**, R/A free. This control-only admission does not merge its implementation PR, weaken scientific/SEO/safety gates, or assert measurable site growth.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -129,7 +130,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
+D #6683 occupies Discovery/SEO; R and A are free. No other candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
