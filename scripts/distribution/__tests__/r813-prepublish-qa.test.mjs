@@ -2,7 +2,7 @@ import {describe,it,expect} from 'vitest'
 import crypto from 'node:crypto'
 import {
   assertR813MasterIdentity, verifyR813MediaStreams,
-  verifyR813CaptionExport, inspectR813ExternalReview, verifyR813VoiceVault,
+  verifyR813CaptionExport, inspectR813ExternalReview, verifyR813VoiceVault, verifyR813DraftMedia,
 } from '../r813-prepublish-qa.mjs'
 
 const sha = x => crypto.createHash('sha256').update(x).digest('hex')
@@ -54,6 +54,12 @@ describe('R8.13 exact encoded master release hold',()=>{
     expect(verifyR813MediaStreams(good,30).audioCodec).toBe('aac')
     expect(()=>verifyR813MediaStreams({...good,streams:good.streams.slice(0,1)},30)).toThrow(/stream/)
     expect(()=>verifyR813MediaStreams({...good,format:{duration:'40'}},30)).toThrow(/stream/)
+  })
+  it('inspects hook drafts as truly silent three-second MP4s',()=>{
+    const valid={format:{duration:'3.0'},streams:[{codec_type:'video',codec_name:'h264',width:1080,height:1920}]}
+    expect(verifyR813DraftMedia(valid).hasAudio).toBe(false)
+    expect(()=>verifyR813DraftMedia({...valid,streams:[...valid.streams,{codec_type:'audio',codec_name:'aac'}]})).toThrow(/silent/)
+    expect(()=>verifyR813DraftMedia({...valid,format:{duration:'6.0'}})).toThrow(/silent/)
   })
   it('never turns absent review into publish approval',()=>{
     const videoSha=sha(payload)
