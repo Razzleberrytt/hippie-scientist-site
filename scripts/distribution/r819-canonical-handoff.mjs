@@ -17,8 +17,10 @@ export function verifyR819CanonicalHandoff(packageDir){
  const dir=path.resolve(packageDir)
  const manifest=JSON.parse(fs.readFileSync(path.join(dir,'video-asset-manifest.json'),'utf8'))
  if(manifest?.r819?.enabled!==true||manifest.creativeMethodRelease!=='R8.10'||
-    manifest.r819.compositorRelease!=='R8.19')
-  throw Error('R8.19 opt-in canonical compositor and R8.10 audio lineage required')
+    manifest.r819.compositorRelease!=='R8.19'||
+    manifest.r819.renderMode!=='native-separated-art-mechanism-trust'||
+    manifest.r812?.enabled!==true)
+  throw Error('R8.19 requires native separate layers, R8.10 acoustic lineage and mandatory final -14 LUFS QA')
  // R8.10 checks actual WAV/script/raw MFA+dictionary/acoustic hashes and exact human
  // listening receipt. A made-up JSON array of approximate card cue times cannot pass.
  const alignment=verifyR810WordAlignment(dir)
