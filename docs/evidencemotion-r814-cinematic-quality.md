@@ -2,6 +2,20 @@
 
 **Status:** Codified in a review branch; not a claim of final perceptual acceptance, merge, or production deployment. Applies to the current governed R8.09/R8.10 SVG/FFmpeg runtime; preserves all scientific claims, human approvals, prior creative methods and the original Kokoro ONNX voice. R8.13 remains separately scoped.
 
+## Owner-first creative authority (October 12, 2026)
+
+**The owner's initial and subsequent explicit creative preferences are the controlling artistic brief, even when they differ from V's aesthetic recommendations.** This is a standing project decision for EvidenceMotion, not merely feedback about one mitragynine video.
+
+**Precedence within creative decisions:**
+1. Owner's explicit creative direction and previously accepted constraints: distinctive high-end cinematic 2D/3D synthesis, real depth and meaningful motion, visual variety and memorable wow factor; no generic slides, ornamental "Science Signal / Concept / 001" footer or unneeded HUD; natural saved Kokoro voice, accurate readable captions, quiet music and a mobile-video format actually playable on the owner's iPhone.
+2. Owner-accepted visual experiments and exact-master human review.
+3. V's independent artistic suggestions or preferences, as **optional critique and proposals** that must not silently displace the owner's brief.
+4. Generic presets, fallback templates or heuristics.
+
+**Separation of authority:** V or another reviewer may block unsupported scientific claims, altered meaning, unsafe implications, broken citations, distorted outcomes, or failed audiovisual/device checks. Those are evidence and release-integrity constraints—not creative veto power or permission to substitute V's artistic taste. Resolve a genuine conflict by preserving the user's creative direction while correcting scientific or technical risk; if irreconcilable, escalate rather than overriding the owner or bypassing a safety gate.
+
+**Review receipts:** Every R8.14 visual revision should identify (a) the owner preference being satisfied, (b) any V suggestion adopted by the owner versus rejected/deferred, (c) the real rendered visual evidence and caption/audio checks. Never label a preference "V_VERIFIED" scientific verification, and never claim a video was perceptually approved or merged based on tests alone.
+
 ## Owner's observed failures (October 12, 2026)
 
 - The shipped mitragynine short resembled static presentation slides. The permanent creative goal is **cinematic scientific storytelling**: depth, motivated motion, tactile objects, visual contrast and legibility, rather than a coat of gradients.
