@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
 import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-track.mjs'
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
+import { verifyR819CanonicalHandoff } from './r819-canonical-handoff.mjs'
 import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
 import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
@@ -395,6 +396,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   const isR817 = Boolean(verified.r817Proof)
   if (isR817 && !isR810) throw Error('R8.17 progressive word captions require reviewed R8.10 acoustic alignment; no phrase-flash fallback')
   const r810Proof = isR810 ? verifyR810PackageGate(inputDir, { requireAlignment: true }) : null
+  // R8.19 is strictly opt-in. Fail BEFORE encoding if pinned art, R8.18 geometry,
+  // or genuine independently heard R8.10 MFA cue bindings are absent.
+  const r819Proof = verified.manifest.r819?.enabled === true
+    ? verifyR819CanonicalHandoff(inputDir) : null
   const narration = verifyLocalNarration(inputDir, verified.manifest)
   const isR809 = ['R8.09', 'R8.10'].includes(clean(verified.manifest.creativeMethodRelease))
   let burnInCaptions = null
@@ -631,6 +636,8 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
+      r819Canonical: r819Proof ? {...r819Proof,exactMp4Sha256:sha256(outputBytes),
+        finalMp4PixelAndCraftApproval:'PENDING_INDEPENDENT_REVIEW',publicationApproved:false} : null,
       r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels,rendererTelemetry:verified.r818TelemetryProof,exactMp4Sha256:sha256(outputBytes),nativeSequenceFrameCount:verified.r818NativeFrames?.frameCount||null } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
