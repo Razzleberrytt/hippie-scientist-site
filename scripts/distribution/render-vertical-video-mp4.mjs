@@ -8,6 +8,8 @@ import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-tr
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { renderR810AlignedCaptionTracks, renderR817ProgressiveWordCaptions } from './r810-aligned-captions.mjs'
 import { measureR817FinalMotion, assertR817FinalMotion, R817_MOTION_LIMITS } from './r817-motion-qa.mjs'
+import { measureR817CaptionHighlightPixels, assertR817CaptionPixelQA } from './r817-caption-pixel-qa.mjs'
+import { measureR817HookCenterChange } from './r817-rendered-evidence.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
 import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
 import {
@@ -367,6 +369,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   let burnInCaptions = null
   let alignedCaptionSrtSha256 = null
   let r817CaptionProof = null
+  let r817CaptionCues = null
   if (isR809) {
     const manifest = verified.manifest
     const captionFile = assertCanonicalChild(inputDir, manifest.captions?.file, /^captions\.srt$/)
@@ -382,7 +385,10 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         ? renderR817ProgressiveWordCaptions(script.scenes, r810Proof.alignment.receipt.words)
         : renderR810AlignedCaptionTracks(script.scenes, r810Proof.alignment.receipt.words)
       burnInCaptions = aligned.ass
-      if (isR817) r817CaptionProof = {mode:aligned.mode,wordCount:aligned.wordCount,cueCount:aligned.cueCount,phraseFlashFallback:false}
+      if (isR817) {
+        r817CaptionProof = {mode:aligned.mode,wordCount:aligned.wordCount,cueCount:aligned.cueCount,phraseFlashFallback:false}
+        r817CaptionCues = aligned.cues
+      }
       fs.writeFileSync(path.join(inputDir, 'aligned-captions.srt'), aligned.srt)
       alignedCaptionSrtSha256 = sha256(Buffer.from(aligned.srt))
     } else {
@@ -484,6 +490,8 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       '-af', 'volumedetect', '-f', 'null', '-',
     ]).stderr)
     let r817MotionProof = null
+    let r817CaptionPixelProof = null
+    let r817HookPixels = null
     if (isR817) {
       const raw = runCommand(ffmpegPath, [
         '-hide_banner','-v','error','-i',output,
@@ -492,6 +500,22 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       ],{encoding:null,maxBuffer:24000000,timeout:120000}).stdout
       if (!Buffer.isBuffer(raw)) throw Error('R8.17 decoded motion evidence not a binary frame stream')
       r817MotionProof = assertR817FinalMotion(measureR817FinalMotion(raw, verified.timeline.scenes))
+      const rgb = runCommand(ffmpegPath, [
+        '-hide_banner','-v','error','-i',output,
+        '-vf','fps=4,crop=840:300:120:1190,scale=210:75:flags=bilinear,format=rgb24',
+        '-f','rawvideo','-pix_fmt','rgb24','-'
+      ],{encoding:null,maxBuffer:24000000,timeout:120000}).stdout
+      r817CaptionPixelProof = assertR817CaptionPixelQA(
+        measureR817CaptionHighlightPixels(rgb,r817CaptionCues))
+      const frameAt = second => runCommand(ffmpegPath, [
+        '-hide_banner','-v','error','-ss',String(second),'-i',output,
+        '-frames:v','1','-vf',`${R817_MOTION_LIMITS.crop},scale=160:176:flags=bilinear,format=gray`,
+        '-f','rawvideo','-pix_fmt','gray','-'
+      ],{encoding:null,maxBuffer:1000000,timeout:30000}).stdout
+      const hookPixel = measureR817HookCenterChange(frameAt(.30),frameAt(2.70))
+      r817HookPixels = {beforeSha256:hookPixel.beforeSha256,
+        afterSha256:hookPixel.afterSha256,afterAtSeconds:2.70,
+        outputSha256:sha256(outputBytes),pixelProof:hookPixel}
     }
     const receipt = {
       schemaVersion: verified.release === 'R8.05' ? '3.0.0' : '2.0.0',
@@ -542,7 +566,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
-      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof } : null,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false, progressiveWords:r817CaptionProof, finalMp4Motion:r817MotionProof,captionPixelProof:r817CaptionPixelProof,hookPixelProof:r817HookPixels } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
