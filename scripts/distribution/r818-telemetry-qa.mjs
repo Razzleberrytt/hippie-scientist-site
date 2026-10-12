@@ -22,7 +22,7 @@ function assertFrameContract(frame,canvas){
  }
 }
 
-const CAPTION_ONLY_KINDS = new Set(['caption','karaoke-caption','karaoke-word','subtitle','source-footer','progress-bar','decorative-overlay'])
+const CAPTION_ONLY_KINDS = new Set(['caption','karaoke-caption','karaoke-word','subtitle','source-footer','pmid-footer','brand-label','progress-bar','decorative-overlay'])
 const inView = o => o && o.visible !== false && o.opacity !== 0
 // Geometry/state are sampled from the renderer, never inferred from changing subtitle pixels.
 // A focus/emphasis change is meaningful only on an actual named scene object (e.g. a user-report card).
