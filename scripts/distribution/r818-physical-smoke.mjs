@@ -19,7 +19,14 @@ function run(cmd,args,{timeout=150000,maxBuffer=3000000}={}){
 const destination=path.resolve(process.argv[2]||path.join(os.tmpdir(),'ths-r818-physical-pilot'))
 fs.mkdirSync(destination,{recursive:true})
 const provider=createR818PhysicalCinemaProvider()
-const timing=[2,3,1.5],actions=[
+const timing=[3,2,3,1.5],actions=[
+ {id:'hook',semanticAction:'reveals-hidden-action',artMethod:'rendered-3d',
+  visualObject:{kind:'retail-bottle',name:'generic retail tianeptine packaging',
+   assetSha256:provider.sourceCodeSha256},
+  telemetryProof:{subjectObjectId:'bottle',primaryObjectId:'bottle',
+   targetObjectId:'receptor',beforeLabel:'Generic retail bottle',
+   afterLabel:'Symbolic mu-opioid receptor activation'},
+  bottleLabel:'Tianeptine',onScreenSourceIds:['PMID:25026323']},
  {id:'receptor',semanticAction:'ligand-enters-pocket',artMethod:'rendered-3d',
   visualObject:{kind:'receptor-binding',name:'symbolic mu-opioid receptor',
    assetSha256:provider.sourceCodeSha256},
@@ -38,7 +45,7 @@ const timing=[2,3,1.5],actions=[
 let time=0
 const scenes=timing.map((length,i)=>{
  const start=time;time+=length
- return {beatId:actions[i].id,start,end:time,role:['mechanism','evidence','cta'][i]}
+ return {beatId:actions[i].id,start,end:time,role:['hook','mechanism','evidence','cta'][i]}
 })
 const assets=actions.map((a,i)=>({beatId:a.id,sha256:sha('test-scene-svg:'+a.id)}))
 const rendererCodeSha256=sha('r818-video-package-synthetic-factory-exact-source')
