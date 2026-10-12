@@ -20,10 +20,10 @@
     {
       "id": "7oh-01",
       "role": "hook",
-      "narration": "Why do some people report pain relief and clearer motivation from seven O H, while others have a completely different experience?",
+      "narration": "Why does seven O H help some people feel functional, while others report the opposite?",
       "onScreenText": "WHY DOES 7-OH FEEL DIFFERENT?",
       "visualPurpose": "Reveal portrait silhouette splitting into calm and hazy pathways.",
-      "spokenAnchor": "different experience",
+      "spokenAnchor": "the opposite",
       "visualAction": "portrait splits",
       "motion": {
         "type": "reveal"
@@ -38,10 +38,10 @@
     {
       "id": "7oh-02",
       "role": "finding",
-      "narration": "Seven hydroxy mitragynine is an opioid active compound related to kratom. Its effects cannot be reduced to a single story.",
+      "narration": "Seven hydroxy mitragynine is an opioid active compound related to kratom, but different from ordinary leaf.",
       "onScreenText": "7-OH ≠ ORDINARY KRATOM LEAF",
       "visualPurpose": "Show physical botanical leaf transitioning to chemically distinct annotated molecule.",
-      "spokenAnchor": "single story",
+      "spokenAnchor": "ordinary leaf",
       "visualAction": "leaf transforms",
       "motion": {
         "type": "reveal"
@@ -56,10 +56,10 @@
     {
       "id": "7oh-03",
       "role": "context",
-      "narration": "The liver can convert kratom's main alkaloid, mitragynine, into seven O H. Researchers measured this formation in human volunteers.",
+      "narration": "Liver enzymes convert mitragynine into seven O H. Human researchers have measured that conversion.",
       "onScreenText": "YOUR LIVER CAN FORM 7-OH",
       "visualPurpose": "Follow mitragynine through a stylized liver and transition to metabolite.",
-      "spokenAnchor": "human volunteers",
+      "spokenAnchor": "that conversion",
       "visualAction": "molecule transforms",
       "motion": {
         "type": "reveal"
@@ -74,7 +74,7 @@
     {
       "id": "7oh-04",
       "role": "evidence",
-      "narration": "In laboratory studies, seven O H activates mu opioid receptors. That helps explain opioid like effects, but doesn't prove any particular personal benefit.",
+      "narration": "In laboratory studies, seven O H activates mu opioid receptors. That helps explain its opioid effects.",
       "onScreenText": "MU OPIOID RECEPTOR ACTIVATION",
       "visualPurpose": "Camera follows symbolic receptor surface and glowing ligand. Clearly symbolic, not docking evidence.",
       "spokenAnchor": "mu opioid receptors",
@@ -92,10 +92,10 @@
     {
       "id": "7oh-05",
       "role": "limitation",
-      "narration": "Users describe pain relief, relaxation, and sometimes feeling functional or motivated. Others describe nausea, sedation, tolerance, and difficult withdrawal. These are reports, not treatment trials.",
+      "narration": "People report pain relief, calm, motivation, or managing withdrawal. Others describe sedation, tolerance, and withdrawal. Personal reports don't establish clinical benefits.",
       "onScreenText": "REPORTED EXPERIENCES VARY",
       "visualPurpose": "Show neutral multi-person quote motifs; clearly labeled anecdotal.",
-      "spokenAnchor": "difficult withdrawal",
+      "spokenAnchor": "clinical benefits",
       "visualAction": "perspectives diverge",
       "motion": {
         "type": "highlight"
@@ -129,10 +129,10 @@
     {
       "id": "7oh-07",
       "role": "cta",
-      "narration": "The real question is which effects science can measure, and which still need careful human research. Follow The Hippie Scientist for the evidence.",
+      "narration": "We need to separate measurable pharmacology from lived experiences. Follow The Hippie Scientist for more.",
       "onScreenText": "THE EXPERIENCE vs THE EVIDENCE",
       "visualPurpose": "Converge patient perspective and microscope data into final clean wordmark.",
-      "spokenAnchor": "human research",
+      "spokenAnchor": "lived experiences",
       "visualAction": "paths converge",
       "motion": {
         "type": "reveal"
@@ -160,6 +160,10 @@
     {
       "pmid": "27192616",
       "role": "cell receptor signaling"
+    },
+    {
+      "pmid": "40022554",
+      "role": "kratom survey not specific to isolated 7-OH; avoid transferring prevalence figures"
     }
   ],
   "editorial": {
