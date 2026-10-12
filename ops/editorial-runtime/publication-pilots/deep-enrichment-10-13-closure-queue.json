@@ -353,7 +353,15 @@
       "human_publication_approval": "NOT_DOCUMENTED",
       "canonical_source_admission": "NOT_VERIFIED",
       "live_publication_claim": "NOT_VERIFIED",
-      "next_action": "Verify publication pilot, obtain recorded human safety/interpretation approval, reconcile source IDs, then separately submit approved live-content PR."
+      "next_action": "Verify publication pilot, obtain recorded human safety/interpretation approval, reconcile source IDs, then separately submit approved live-content PR.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/d-mannose-uti-prevention-evidence-2026-10-12.md",
+      "pilot_source_pmids": [
+        "38587819",
+        "23633128",
+        "36041061",
+        "41195062",
+        "41942398"
+      ]
     },
     {
       "id": "DE11-09",
