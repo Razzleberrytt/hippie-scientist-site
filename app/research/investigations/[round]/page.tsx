@@ -32,7 +32,7 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
   if (!doc) notFound()
 
   return (
-    <main className='research-page-content mx-auto max-w-5xl space-y-7 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
+    <div className='research-page-content mx-auto max-w-5xl space-y-7 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
       <nav aria-label='Breadcrumb' className='flex flex-wrap items-center gap-2 text-sm text-muted'>
         <Link href='/research/' className='font-semibold text-brand-700 hover:underline'>Research</Link>
         <span aria-hidden='true'>/</span>
@@ -106,6 +106,6 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
           <Link href='/research/investigations/' className='font-semibold text-brand-700 hover:underline'>← Back to all research rounds</Link>
         </div>
       </footer>
-    </main>
+    </div>
   )
 }
