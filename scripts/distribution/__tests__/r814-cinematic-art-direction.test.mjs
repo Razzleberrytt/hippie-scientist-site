@@ -1,3 +1,4 @@
+import sharp from 'sharp'
 import { describe, expect, it } from 'vitest'
 import { renderR809VisualActor, R809_VISUAL_STAGES, CINEMATIC_LOOK } from '../r809-visual-actors.mjs'
 import { renderVerticalVideoSceneSvg } from '../render-vertical-video-package.mjs'
@@ -28,6 +29,23 @@ describe('EvidenceMotion R8.14 cinematic 2.5D craft regression', () => {
       unique.add(svg)
     }
     expect(unique.size).toBe(7)
+  })
+
+  it('rasterizes every cinematic SVG into nonblank differentiated frames with Sharp', async () => {
+    const hashes = new Set()
+    for (const visualScene of R809_VISUAL_STAGES) {
+      const actor = renderR809VisualActor({visualScene}, {...canvas, motionPhase:'post'})
+      const scene = `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1280" viewBox="0 0 960 1280"><rect width="960" height="1280" fill="#071e30"/>${actor}</svg>`
+      const {data,info} = await sharp(Buffer.from(scene)).resize(192,256).removeAlpha().raw().toBuffer({resolveWithObject:true})
+      expect(info.channels).toBe(3)
+      let active=0
+      for(let i=0;i<data.length;i+=3) {
+        if (Math.abs(data[i]-7)+Math.abs(data[i+1]-30)+Math.abs(data[i+2]-48)>54) active++
+      }
+      expect(active).toBeGreaterThan(110)
+      hashes.add((await sharp(Buffer.from(scene)).resize(144,192).png().toBuffer()).toString('base64'))
+    }
+    expect(hashes.size).toBe(7)
   })
 
   it('marks the molecular-looking connectivity graphic as symbolic rather than chemical', () => {
