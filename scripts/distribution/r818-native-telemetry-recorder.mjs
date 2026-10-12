@@ -17,6 +17,7 @@ export class R818NativeGeometryRecorder {
    origin:'render-instrumentation',rendererCodeSha256,
    renderedSceneAssetsSha256,sourceManifestSha256,canvas,sampleFps,nativeFps}
   this.beats=new Map()
+  this.nativePocket=new Map()
  }
  recordActualFrame({beatId,producer,nativeFrameIndex,objects}){
   if(!String(beatId||'').trim()||!MODES.has(producer?.instrumentation)||
@@ -33,11 +34,31 @@ export class R818NativeGeometryRecorder {
   entry.frames.push({time:nativeFrameIndex/this.header.nativeFps,
     nativeFrameIndex,objects:copied})
  }
+ // Called by the compositing engine for EVERY native 30fps frame in a docking
+ // shot, unlike the sparse 5fps visual telemetry snapshots.
+ recordNativePocketFrame({beatId,nativeFrameIndex,ligandBBox,pocketBBox}){
+  const valid=b=>Array.isArray(b)&&b.length===4&&b.every(Number.isFinite)&&b[2]>0&&b[3]>0
+  if(!String(beatId||'').trim()||!Number.isInteger(nativeFrameIndex)||nativeFrameIndex<0||
+    !valid(ligandBBox)||!valid(pocketBBox))
+    throw Error('R8.18 native pocket dwell requires projected 30fps ligand/pocket bounds')
+  const inside=ligandBBox[0]+ligandBBox[2]/2>=pocketBBox[0]&&
+    ligandBBox[0]+ligandBBox[2]/2<=pocketBBox[0]+pocketBBox[2]&&
+    ligandBBox[1]+ligandBBox[3]/2>=pocketBBox[1]&&
+    ligandBBox[1]+ligandBBox[3]/2<=pocketBBox[1]+pocketBBox[3]
+  const prev=this.nativePocket.get(beatId)||{lastFrameIndex:-1,current:0,longest:0}
+  if(nativeFrameIndex<=prev.lastFrameIndex)throw Error('R8.18 native pocket observations must be strictly chronological')
+  const continuous=nativeFrameIndex===prev.lastFrameIndex+1
+  const current=inside?(continuous?prev.current+1:1):0
+  this.nativePocket.set(beatId,{lastFrameIndex:nativeFrameIndex,current,
+    longest:Math.max(prev.longest,current)})
+ }
  finalize(plan,{outputFile}={}){
   const telemetry={...this.header,beats:(plan?.beats||[]).map(b=>{
     const record=this.beats.get(b.id)
     if(!record)throw Error('R8.18 missing instrumentation for semantic beat '+b.id)
-    return {...record,frames:record.frames.slice().sort((a,b)=>a.nativeFrameIndex-b.nativeFrameIndex)}
+    return {...record,
+      metrics:{longestNativePocketDwellFrames:this.nativePocket.get(b.id)?.longest??null},
+      frames:record.frames.slice().sort((a,b)=>a.nativeFrameIndex-b.nativeFrameIndex)}
   })}
   const audit=assertR818TelemetryBinding(plan,telemetry,this.header)
   if(!outputFile)throw Error('R8.18 recorder needs an explicit sidecar output path')
