@@ -10,10 +10,12 @@
     "Metabolic Regulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "safetyNotes": "REPRODUCTIVE SAFETY GAP: Holy basil species has animal data suggesting reproductive/implantation effects at high doses, but these data do not directly establish risks for seed preparations or humans. Avoid medicinal holy basil seed use when pregnant, trying to conceive or breastfeeding until preparation-specific safety is established. Review glucose-lowering medications with a clinician.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to the plant/family",
+    "Pregnancy or conception planning: avoid medicinal seed products because preparation-specific safety is unestablished",
+    "Breastfeeding: safety not established"
   ],
   "interactions": [
     "Potential interaction concern with antidiabetic medicines",
@@ -24,16 +26,22 @@
   "evidenceLevel": "",
   "relatedHerbs": [],
   "region": "",
-  "sources": [],
+  "sources": [
+    {
+      "title": "Merck Manual: Holy Basil",
+      "url": "https://www.merckmanuals.com/professional/special-subjects/dietary-supplements/holy-basil",
+      "note": "Species-level animal reproductive findings; direct seed-specific human evidence absent."
+    }
+  ],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
+    "recommendationAllowed": false,
     "requiresHumanReview": true,
-    "reason": "missing_record_level_sources"
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "needs_review",

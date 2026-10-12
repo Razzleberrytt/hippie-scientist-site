@@ -13,10 +13,12 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "safetyNotes": "REPRODUCTIVE SAFETY GAP: Animal studies of holy basil report reduced pregnancy success at high doses; whether this applies to purple-cultivar extracts or to humans is unknown. Avoid medicinal use when pregnant or trying to conceive, and avoid while breastfeeding pending safety data. Potential glucose-related interactions remain a precaution.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to the plant/family",
+    "Pregnancy or conception planning: avoid medicinal purple holy basil; human/cultivar-specific risk unconfirmed",
+    "Breastfeeding: safety unknown"
   ],
   "interactions": [
     "Potential interaction concern with antidiabetic medicines",
@@ -27,16 +29,22 @@
   "evidenceLevel": "",
   "relatedHerbs": [],
   "region": "",
-  "sources": [],
+  "sources": [
+    {
+      "title": "Merck Manual: Holy Basil",
+      "url": "https://www.merckmanuals.com/professional/special-subjects/dietary-supplements/holy-basil",
+      "note": "Do not overgeneralize high-dose animal studies to specific cultivar or humans."
+    }
+  ],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
+    "recommendationAllowed": false,
     "requiresHumanReview": true,
-    "reason": "missing_record_level_sources"
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "needs_review",

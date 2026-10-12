@@ -11,12 +11,13 @@
     "Hormonal Signaling Context"
   ],
   "activeCompounds": [],
-  "safetyNotes": "",
+  "safetyNotes": "PREGNANCY SAFETY WARNING: Avoid medicinal nettle root during pregnancy, given concerns about uterine effects and insufficient pregnancy safety evidence. Distinguish nettle root extracts from culinary nettle leaf and from clinical evidence for BPH. Monitor for potential interactions with lithium, blood-pressure medicines, diuretics and glucose-lowering therapies; clinical certainty varies.",
   "contraindications": [
     "pregnancy because nettle root may stimulate uterine contractions and raise miscarriage risk",
     "diuretic or blood pressure medication because nettle root may have additive fluid-loss and blood-pressure-lowering effects",
     "lithium because nettle root diuretic effect can reduce lithium clearance and raise lithium levels",
-    "diabetes or anticoagulant medication because nettle root may have additive blood-glucose-lowering or blood-thinning effects"
+    "diabetes or anticoagulant medication because nettle root may have additive blood-glucose-lowering or blood-thinning effects",
+    "Pregnancy: avoid medicinal nettle-root extracts until safety is established"
   ],
   "interactions": [
     "Lithium",
@@ -63,17 +64,22 @@
       "studyType": "Narrative review",
       "studyClass": "narrative-review",
       "metadataSource": "pubmed"
+    },
+    {
+      "title": "Nettles: Professional Monograph (medically reviewed November 2025)",
+      "url": "https://www.drugs.com/npp/nettles.html",
+      "note": "Avoid in pregnancy/lactation; root vs leaf clinical uses and the limits of interaction evidence are distinguished."
     }
   ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "Batch 8 risk-specific safety review: purchase and recommendation hold pending independent editorial and product/formulation verification."
   },
   "evidence": {
     "reviewStatus": "sourced",
