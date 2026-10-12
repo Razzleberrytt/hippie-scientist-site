@@ -32,6 +32,7 @@ describe('Batch 8 evidence-qualified safety controls', () => {
     const egcg = await getCompoundBySlug('green-tea-extract-egcg')
     expect(egcg).not.toBeNull()
     expect(String(egcg?.safety)).toMatch(/CONCENTRATED EGCG.*LIVER WARNING/i)
+    expect(String(egcg?.safety).startsWith('CONCENTRATED EGCG/GREEN TEA EXTRACT LIVER WARNING')).toBe(true)
     expect(egcg?.safetyNotes).toBe(egcg?.safety)
   })
 
