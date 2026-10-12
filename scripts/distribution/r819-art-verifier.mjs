@@ -20,7 +20,7 @@ export function verifyR819ArtAssets(root, manifest, storyboard) {
    throw Error('R819 art asset path invalid or missing')
   const bytes=fs.readFileSync(p)
   if(sha256(bytes)!==a.sha256)throw Error('R819 pinned art SHA mismatch: '+a.id)
-  if(path.extname(p)==='.svg' && (/<\s*(?:text|foreignObject|script|image|use)\b/i.test(bytes.toString('utf8')) || /\b(?:href|xlink:href)\s*=\s*['\"](?:https?:|\/\/|file:)/i.test(bytes.toString('utf8'))))
+  if(path.extname(p)==='.svg' && (/<\s*(?:text|foreignObject|script|image|use)\b/i.test(bytes.toString('utf8')) || /\b(?:href|xlink:href)\s*=\s*['"](?:https?:|\/\/|file:)/i.test(bytes.toString('utf8'))))
    throw Error('R819 static art SVG cannot carry text, embedded HTML, or scripts')
   ids.set(a.id,a.sha256)
  }
