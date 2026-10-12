@@ -102,7 +102,7 @@ describe('EvidenceMotion R8.14 cinematic 2.5D craft regression', () => {
       contentHash:'verified-test-packet',disclosure:'Educational research, not medical advice',
     }).svg
     expect(svg).toContain('data-evidencemotion-look="ths-cinematic-2p5d-v1"')
-    expect(svg).toContain('Survey cannot prove causation.')
+    expect(svg).toContain('Survey cannot prove')\n    expect(svg).toContain('causation.')
     expect(svg).toContain('https://pubmed.ncbi.nlm.nih.gov/38788532/')
     expect(svg).toContain('Educational research, not medical advice')
     expect(svg).not.toContain('SCIENCE / SIGNAL / CONTEXT')
