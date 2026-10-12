@@ -76,4 +76,15 @@ describe('Batch 8 evidence-qualified safety controls', () => {
       expect(productPicks.some(x => x.name === title)).toBe(false)
     }
   })
+
+  it('reapplies the versioned safety holds in every workbook build lane', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'))
+    const manifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data-sources/batch8-safety-overrides.json'), 'utf8'))
+    expect(manifest.entries).toHaveLength(11)
+    expect(new Set(manifest.entries.map((row: {kind: string; slug: string}) => row.kind + ':' + row.slug)).size).toBe(11)
+    for (const lane of ['data:build', 'check:data', 'data:build:core']) {
+      expect(pkg.scripts[lane]).toContain('apply-batch8-safety-overrides.mjs')
+    }
+  })
+
 })
