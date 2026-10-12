@@ -3,11 +3,15 @@ import { SOCIAL_ATTRIBUTION_SESSION_KEY } from '../social-attribution'
 
 const consent = vi.hoisted(() => ({
   canTrackAnalytics: vi.fn(() => true),
+  canLoadGa4: vi.fn(() => true),
+  initConsentDefault: vi.fn(),
   getConsent: vi.fn(() => 'granted' as 'granted' | 'denied' | null),
 }))
 
 vi.mock('@/lib/consent', () => ({
   canTrackAnalytics: consent.canTrackAnalytics,
+  canLoadGa4: consent.canLoadGa4,
+  initConsentDefault: consent.initConsentDefault,
   getConsent: consent.getConsent,
 }))
 
@@ -30,6 +34,9 @@ describe('consent-triggered first-party social attribution initialization', () =
     vi.stubEnv('NEXT_PUBLIC_AHREFS_ANALYTICS_KEY', '')
     consent.canTrackAnalytics.mockReset()
     consent.canTrackAnalytics.mockReturnValue(true)
+    consent.canLoadGa4.mockReset()
+    consent.canLoadGa4.mockReturnValue(true)
+    consent.initConsentDefault.mockClear()
     consent.getConsent.mockReset()
     consent.getConsent.mockReturnValue('granted')
     window.sessionStorage.clear()
@@ -70,6 +77,7 @@ describe('consent-triggered first-party social attribution initialization', () =
   it('does not create attribution without granted consent or when tracking is disallowed', async () => {
     consent.getConsent.mockReturnValue('denied')
     consent.canTrackAnalytics.mockReturnValue(false)
+    consent.canLoadGa4.mockReturnValue(false)
     const { onConsentChange, loadAnalytics } = await import('../loadAnalytics')
     onConsentChange()
     loadAnalytics()
@@ -86,6 +94,34 @@ describe('consent-triggered first-party social attribution initialization', () =
     const { loadAnalytics } = await import('../loadAnalytics')
     loadAnalytics()
     expect(window.sessionStorage.getItem(SOCIAL_ATTRIBUTION_SESSION_KEY)).toBeNull()
+  })
+
+  it('loads only GA4 for a fresh visitor without granting other analytics', async () => {
+    vi.stubEnv('NEXT_PUBLIC_GA4_ID', 'G-7DFJL2FC6F')
+    vi.stubEnv('NEXT_PUBLIC_AHREFS_ANALYTICS_KEY', 'test-ahrefs')
+    consent.getConsent.mockReturnValue(null)
+    consent.canTrackAnalytics.mockReturnValue(false)
+    consent.canLoadGa4.mockReturnValue(true)
+    const { loadAnalytics } = await import('../loadAnalytics')
+    loadAnalytics()
+
+    expect(window.gtag).toBeTypeOf('function')
+    expect(window.sessionStorage.getItem(SOCIAL_ATTRIBUTION_SESSION_KEY)).toBeNull()
+    expect(consent.initConsentDefault).toHaveBeenCalledTimes(1)
+    vi.runAllTimers()
+    expect(document.head.querySelector('#ga4-script')?.getAttribute('src')).toContain('G-7DFJL2FC6F')
+    expect(document.head.querySelector('#ahrefs-analytics')).toBeNull()
+  })
+
+  it('honors opt-out before deferred loading, including pending timers', async () => {
+    vi.stubEnv('NEXT_PUBLIC_GA4_ID', 'G-7DFJL2FC6F')
+    consent.canTrackAnalytics.mockReturnValue(false)
+    consent.canLoadGa4.mockReturnValue(true)
+    const { loadAnalytics } = await import('../loadAnalytics')
+    loadAnalytics()
+    consent.canLoadGa4.mockReturnValue(false)
+    vi.runAllTimers()
+    expect(document.head.querySelector('#ga4-script')).toBeNull()
   })
 
   it('preserves synchronous GA queue bootstrapping for configured transport', async () => {

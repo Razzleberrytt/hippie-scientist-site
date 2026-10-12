@@ -38,7 +38,7 @@ const dataCategories = [
   },
   {
     title: 'Analytics data',
-    body: 'Analytics may include page views, region-level traffic, device/browser information, and basic interaction events when analytics are enabled.',
+    body: 'Google Analytics 4 (GA4) may run by default only when our server identifies a U.S. visit, no opt-out is stored, and no supported Do Not Track / Global Privacy Control signal blocks it. For visitors elsewhere or with unknown location, GA4 requires an affirmative choice. GA4 may process online identifiers, approximate location, device/browser details, and page interactions. You can turn it off through the footer Privacy settings control.',
   },
   {
     title: 'Contact data',
@@ -145,7 +145,7 @@ export default function PrivacyPage() {
             <div>
               <h3 className='text-lg font-bold text-ink mb-1'>2. Cookies, analytics, and affiliate attribution</h3>
               <p>
-                Cookies, local storage, analytics tags, or affiliate parameters may be used for measurement, site functionality, or purchase attribution. Browser settings can limit or block many of these features.
+                Google Analytics 4 (GA4) may load by default on visits where Cloudflare confirms the visitor is in the United States. Outside the United States, or if the location cannot be confirmed, GA4 waits for you to affirmatively allow it using Privacy settings in the footer. When enabled, GA4 can set analytics cookies and collect pageview and device/usage information. To opt out at any time, select Privacy settings in the site footer and choose Turn off analytics. This stops further GA4 loading, removes accessible GA cookies, and remembers your choice. We also respect supported browser Do Not Track and Global Privacy Control signals. Other optional tracking, including Ahrefs analytics and certain attribution features, still requires separate affirmative consent. Visitors on translated pages can open the same opt-out control from their language footer; the dialog and this policy are currently written in English. Hosting/security logs and external websites have their own practices.
               </p>
             </div>
             <div>

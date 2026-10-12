@@ -9,7 +9,7 @@ import {
   trackNavigationClick,
   trackPageView,
 } from '@/lib/analytics'
-import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
+import { CONSENT_CHANGE_EVENT, canLoadGa4, getConsent } from '@/lib/consent'
 import {
   trackCollectionDetailClick,
   trackDetailBuilderClick,
@@ -170,7 +170,7 @@ export default function ClickTracker() {
 
   useEffect(() => {
     const trackCurrentPage = () => {
-      if (getConsent() !== 'granted' || lastTrackedPagePath.current === pathname) return
+      if (!canLoadGa4() || lastTrackedPagePath.current === pathname) return
       loadAnalytics()
       if (trackPageView({ pagePath: pathname })) {
         lastTrackedPagePath.current = pathname

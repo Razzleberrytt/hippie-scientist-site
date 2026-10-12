@@ -11,7 +11,7 @@ import ClickTracker from '@/components/ClickTracker'
 import CommercialIntentBridge from '@/components/CommercialIntentBridge'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import EmailReturnAttribution from '@/components/EmailReturnAttribution'
-import ConsentBanner from '../components/ConsentBanner'
+import Ga4Bootstrap from '../components/Ga4Bootstrap'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import LocalizedNavigation from '@/components/localization/LocalizedNavigation'
@@ -114,10 +114,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var dark=s==='dark';d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light';var c=localStorage.getItem('consent.v1');var p=c?JSON.parse(c):null;d.dataset.consentPending=p&&(p.status==='granted'||p.status==='denied')?'false':'true'}catch(e){}})();`,
+            __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var dark=s==='dark';d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light';}catch(e){}})();`,
           }}
         />
-        <style>{`html[data-consent-pending='false'] [data-consent-banner='true'] { display: none; }`}</style>
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className='font-sans antialiased'>
@@ -140,7 +139,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <LocalizedNavigation />
             </DarkModeProvider>
           </header>
-          <ConsentBanner />
+          <Ga4Bootstrap />
           <EnglishOnly>
             <Breadcrumbs />
             <CommercialIntentBridge />
