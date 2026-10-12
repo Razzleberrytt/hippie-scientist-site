@@ -8,6 +8,7 @@ import { validateR809CaptionsSrt, renderR809CaptionAss } from './r809-caption-tr
 import { verifyR810PackageGate } from './r810-package-qa.mjs'
 import { renderR810AlignedCaptionTracks } from './r810-aligned-captions.mjs'
 import { parseR812Loudness, assertR812Loudness } from './r812-loudness.mjs'
+import { assertR817FirstPass } from './r817-canonical-first-pass.mjs'
 import {
   assertNoDecorativeVideoChrome, mobileAacEncodeArgs,
   assertMobileAudioProbe, assertAudibleDecodedAudio,
@@ -116,6 +117,17 @@ function verifyPackage(packageDir) {
   const sourceUrl = clean(manifest.sourceUrl)
   const sourceContentHash = clean(manifest.sourceContentHash)
   if (!sourceUrl || !sourceContentHash) throw new Error('parent package source provenance is required')
+  const r817Active = manifest.canonicalFirstPassRelease === 'R8.17'
+  if (r817Active !== Boolean(manifest.r817FirstPass)) {
+    throw Error('R8.17 canonical plan sidecar mismatch; no legacy-quality downgrade')
+  }
+  let r817Proof = null
+  if (r817Active) {
+    const file = assertCanonicalChild(packageDir, manifest.r817FirstPass.file, /^r817-first-pass\.json$/)
+    const bytes = fs.readFileSync(file)
+    if (sha256(bytes) !== manifest.r817FirstPass.sha256) throw Error('R8.17 immutable first-pass plan hash mismatch')
+    r817Proof = assertR817FirstPass(JSON.parse(bytes.toString('utf8')), manifest)
+  }
 
   const timelineFile = assertCanonicalChild(packageDir, manifest.timeline?.file, /^video-timeline\.json$/)
   const timelineBytes = fs.readFileSync(timelineFile)
@@ -207,7 +219,7 @@ function verifyPackage(packageDir) {
     throw new Error('video scene timing does not cover the exact governed runtime')
   }
 
-  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds }
+  return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets, release, durationSeconds, r817Proof }
 }
 
 function verifyLocalNarration(packageDir, manifest) {
@@ -513,6 +525,7 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         exactMasterReview: 'pending',
       } : null,
       r812Audio: r812Loudness,
+      r817FirstPass: verified.r817Proof ? { ...verified.r817Proof, intentSha256: clean(verified.manifest.r817FirstPass.sha256), status: 'encoded-review-only', exactMasterVisualApproval: false } : null,
       creativeQuality: verified.release === 'R8.05' ? {
         semanticBeatMapSha256: clean(verified.manifest.creativeQuality?.semanticBeatMapSha256),
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
