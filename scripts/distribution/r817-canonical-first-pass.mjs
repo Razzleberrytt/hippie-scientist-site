@@ -2,6 +2,8 @@
 
 // No new evidence authority, narrator substitution or auto-publishing.
 import { assertR817RetentionPlan, assessR817RetentionMaster } from './r817-retention-gates.mjs'
+import { assertR817RenderedActionProof } from './r817-rendered-evidence.mjs'
+import { assertR817AlignmentAudit } from './r817-alignment-qa.mjs'
 
 export const R817_CANONICAL = Object.freeze({
   "schemaVersion": "ths-evidencemotion-r817-first-pass-v1",
@@ -128,12 +130,22 @@ export function assessR817EncodedMaster(receipt){
   try {
     const retention=assessR817RetentionMaster({
       motion:r.motionProof,hookFrames:r.hookFrames,muteTest:r.muteTest,
-      captionProof:r.captionProof
+      captionProof:r.captionProof,captionPixelProof:r.captionPixelProof,
+      ctaProof:r.ctaProof,outputSha256:r.outputSha256,authorId:r.approvedPlan?.authorId,
+      alignmentProof:r.alignmentProof
     });
     blockers.push(...retention.blockers);
   } catch (error) {
     blockers.push("R8.17 encoded-master retention proof invalid: "+error.message);
   }
+  try {
+    assertR817RenderedActionProof(r.approvedPlan,r.renderedActionProof,r.outputSha256);
+  }catch(error){blockers.push(error.message)}
+  try {
+    assertR817AlignmentAudit(r.alignmentProof,r.narrationWavSha256);
+    if(r.alignmentProof?.reviewerId===r.approvedPlan?.authorId)
+      blockers.push("MFA audit cannot be approved by its plan author");
+  }catch(error){blockers.push(error.message)}
   if(r.ownerDeviceReview?.status!=="accepted")blockers.push("owner iPhone visual/listening acceptance pending");
   if(r.independentScientificReview?.status!=="approved")blockers.push("independent exact-master scientific review pending");
   if(r.ownerPublicationApproval!==true)blockers.push("owner publication approval pending");
