@@ -74,7 +74,19 @@ test('R817 encoded MP4 checks are independent from owner and human release appro
  assert.equal(a.publicationReady,false)
  assert.ok(a.blockers.includes('independent exact-audio word alignment pending'))
  assert.throws(()=>assessR817EncodedMaster({...r,audio:{...r.audio,sampleRate:48000}}),/AAC/)
- const b=assessR817EncodedMaster({...r,captionProof:{type:'mfa-offline-reviewed'},ownerDeviceReview:{status:'accepted'},independentScientificReview:{status:'approved',reviewer:'V'},ownerPublicationApproval:true})
+ const finalApproved={...r,captionProof:{type:'mfa-offline-reviewed',mode:'mfa-acoustic-progressive-word',wordCount:35,phraseFlashFallback:false},
+    motionProof:{decodedFinalMp4:true,outputSha256:HASH('a'),sampledRawFramesSha256:HASH('c'),staticFraction:.2,longestBeatStaticStreakSeconds:1.2},
+    hookFrames:{outputSha256:HASH('a'),beforeSha256:HASH('d'),afterSha256:HASH('e'),afterAtSeconds:2.5},
+    muteTest:{result:'pass',reviewerId:'independent-reviewer',prompt:'Describe what changed while video is muted'},
+    ctaProof:{outputSha256:HASH('a'),primaryVisible:true,secondaryVisible:true,safetyPrimary:true},
+    ownerDeviceReview:{status:'accepted'},independentScientificReview:{status:'approved',reviewer:'V'},ownerPublicationApproval:true}
+ const withoutMute=assessR817EncodedMaster({...finalApproved,muteTest:null})
+ assert.equal(withoutMute.publicationReady,false)
+ const withoutCta=assessR817EncodedMaster({...finalApproved,ctaProof:null})
+ assert.equal(withoutCta.publicationReady,false)
+ const withoutCaption=assessR817EncodedMaster({...finalApproved,captionProof:{type:'mfa-offline-reviewed'}})
+ assert.equal(withoutCaption.publicationReady,false)
+ const b=assessR817EncodedMaster(finalApproved)
  assert.equal(b.publicationReady,true)
  assert.equal(b.autoPublished,false)
 })
