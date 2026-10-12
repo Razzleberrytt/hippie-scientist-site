@@ -3,8 +3,8 @@ slug: magnesium-glycinate
 title: "Magnesium Glycinate Nightly: Sleep Evidence & Long-Term Safety — 2026 Review"
 description: "Evidence-first review of magnesium glycinate and bisglycinate for sleep, including the 2025 randomized trial, the small effect size, what is known about nightly safety, what is not known beyond four weeks, kidney risk, supplemental upper limits, and medication interactions."
 date: '2026-06-06'
-updatedAt: '2026-09-22'
-lastReviewed: '2026-09-22'
+updatedAt: '2026-10-11'
+lastReviewed: '2026-10-11'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -230,7 +230,7 @@ Magnesium glycinate/bisglycinate is often marketed as:
 
 The evidence is much narrower.
 
-The classic human absorption comparison of magnesium diglycinate versus oxide was conducted in people with **ileal resection**, a malabsorption setting. It supports usefulness in that population but does not establish a universal absorption percentage or a lifelong safety advantage in healthy adults. [5]
+The classic isotope-labeled randomized crossover study of magnesium diglycinate versus oxide enrolled **12 people with ileal resection**, a malabsorption setting. Average absorption was **not significantly different** across the full group (23.5% versus 22.8%); only a subgroup of four with the poorest oxide absorption showed a chelate advantage ([Schuette et al., 1994; PMID 7815675](https://pubmed.ncbi.nlm.nih.gov/7815675/); **human crossover trial**). This does **not** establish general-population glycinate superiority. Nor is the familiar “glycinate is 80% absorbed” advertisement backed by a verified comparative human trial; treat it as an **unverified marketing claim**, not a fact.
 
 There is also no strong head-to-head long-term sleep trial showing that glycinate is safer or more effective than citrate or another soluble form.
 

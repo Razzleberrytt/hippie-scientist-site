@@ -3,7 +3,7 @@ slug: creatine-brain-health
 title: "Creatine for Brain Health: Cognition, Sleep Loss, Mood & Safety — 2026 Review"
 description: "Evidence-first 2026 review of creatine for cognition, memory, sleep deprivation, depression, brain energy metabolism, and kidney safety, including corrected meta-analytic and citation caveats."
 date: '2026-06-30'
-updatedAt: '2026-09-22'
+updatedAt: '2026-10-11'
 author: Will
 category: Cognitive health
 evidence_grade: mixed-human-evidence
@@ -297,6 +297,8 @@ That distinction is crucial: because creatinine is a breakdown product related t
 - Creatinine-based eGFR can therefore fall artifactually.
 - The newest pooled analysis did not find a significant Cr-EDTA-measured GFR reduction.
 - Proteinuria and albuminuria did not show convincing pooled injury signals.
+
+Earlier trials using kidney-function measures beyond serum creatinine, including measured-GFR investigations, provide relevant reassurance in the **specific populations and durations studied** ([Gualano et al., 2008; PMID 18188581](https://pubmed.ncbi.nlm.nih.gov/18188581/); [Gualano et al., 2011; PMID 20976468](https://pubmed.ncbi.nlm.nih.gov/20976468/); **human randomized trials**). This does not establish safety for people with established chronic kidney disease. A rise in creatinine alone must not be equated with direct evidence of kidney injury.
 
 ### What remains uncertain
 

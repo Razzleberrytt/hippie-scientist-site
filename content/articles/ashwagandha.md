@@ -3,8 +3,8 @@ slug: ashwagandha
 title: "Ashwagandha Benefits, Sleep & Stress Evidence: What the Science Actually Shows"
 description: "Evidence-based 2026 review of ashwagandha for stress, anxiety and sleep, including meta-analyses, formulation limits, study-dose context, thyroid concerns, rare liver injury and medication safety."
 date: '2026-06-06'
-updatedAt: '2026-09-22'
-lastReviewed: '2026-09-22'
+updatedAt: '2026-10-11'
+lastReviewed: '2026-10-11'
 author: Will
 category: Stress and anxiety
 evidence_grade: Moderate
@@ -293,7 +293,7 @@ Current NCCIH guidance says ashwagandha should be avoided during pregnancy and s
 
 ### Thyroid and autoimmune conditions
 
-NCCIH does not recommend ashwagandha for people with autoimmune or thyroid disorders.[10] A small hypothyroid trial demonstrated that thyroid indices can change, which reinforces the need for caution rather than self-treatment.[7]
+NCCIH advises against ashwagandha use in people with autoimmune or thyroid disorders.[10] The human evidence is **mixed**, not a settled thyroid-stimulating effect. An eight-week pilot randomized trial in 50 people with *subclinical hypothyroidism* reported a fall in TSH and increases in T3/T4 ([Sharma et al., 2018; PMID 28829155](https://pubmed.ncbi.nlm.nih.gov/28829155/); **human pilot RCT**). In contrast, an eight-week randomized trial in euthyroid adults with chronic stress found **no significant thyroid-marker changes** versus placebo ([Pandit et al., 2024; PMID 38732539](https://pubmed.ncbi.nlm.nih.gov/38732539/); **human RCT**). Published thyrotoxicosis **case reports** raise a safety signal but cannot establish frequency or isolate supplement causation. **No human trial has directly tested a levothyroxine-plus-ashwagandha interaction**; any additive-effect warning remains precautionary.
 
 ### Medication interactions
 
