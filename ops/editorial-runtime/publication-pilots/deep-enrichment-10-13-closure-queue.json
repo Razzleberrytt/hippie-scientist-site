@@ -10,7 +10,7 @@
   "summary": {
     "investigations": 40,
     "p0_review_candidates": 15,
-    "staged_pilots": 1,
+    "staged_pilots": 2,
     "approved_publications_from_this_queue": 0,
     "fully_audited_claims": 0
   },
@@ -663,13 +663,19 @@
         "28241153"
       ],
       "editorial_priority": "P1_review",
-      "publication_audit_state": "NOT_COMPLETED",
+      "publication_audit_state": "PILOT_DRAFT_STAGED_HUMAN_APPROVAL_REQUIRED",
       "known_coverage_clue": null,
       "independent_scientific_review": "NOT_DOCUMENTED",
       "human_publication_approval": "NOT_DOCUMENTED",
       "canonical_source_admission": "NOT_VERIFIED",
       "live_publication_claim": "NOT_VERIFIED",
-      "next_action": "Audit current canonical/public use, deduplicate, review clinically, and determine correction, new content, or justified quarantine."
+      "next_action": "Independent full-paper review and human approval on exact safety/interpretation wording; verify overlap and published coverage, then approved implementation PR.",
+      "pilot_path": "ops/editorial-runtime/publication-pilots/magnesium-for-night-leg-cramps-evidence-2026-10-12.md",
+      "pilot_source_pmids": [
+        "28241153",
+        "32956536",
+        "24280947"
+      ]
     },
     {
       "id": "DE13-09",
