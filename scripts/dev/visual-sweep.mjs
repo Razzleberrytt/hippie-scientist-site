@@ -22,17 +22,18 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 const ROUTES = [
   '/', '/start/', '/explore/', '/library/', '/goals/',
   '/goals/sleep/', '/goals/stress/', '/goals/anxiety/', '/goals/focus/',
-  '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/',
+  '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/', '/compounds/magnesium/',
   '/guides/', '/guides/compare/', '/guides/compare/rhodiola-vs-ashwagandha/',
   '/guides/mental-health/', '/guides/metabolic-health/', '/guides/other/',
-  '/articles/', '/learn/', '/research/', '/safety-checker/', '/evidence/evidence-report/',
+  '/articles/', '/articles/creatine-brain-health/', '/learn/', '/research/', '/safety-checker/', '/evidence/evidence-report/',
   '/evidence/evidence-checker/', '/search/', '/info/about/', '/info/faq/',
   '/info/methodology/', '/info/privacy/', '/novel-psychoactive-substances/',
 ]
 const WIDTHS = [390, 768, 1280]
 const MOBILE_PROOF_ROUTES = new Set([
   '/', '/start/', '/explore/', '/guides/', '/herbs/', '/herbs/ashwagandha/',
-  '/compounds/', '/compounds/l-theanine/', '/research/',
+  '/compounds/', '/compounds/l-theanine/', '/compounds/magnesium/',
+  '/articles/creatine-brain-health/', '/research/',
 ])
 const tag = process.argv[2] || 'base'
 const dir = `${process.cwd()}/.visual-sweep/${tag}`
