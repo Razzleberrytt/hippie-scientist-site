@@ -49,7 +49,8 @@ function changes(a,b,width){
   const sizing=(Math.abs(o.bbox[2]-p.bbox[2])+Math.abs(o.bbox[3]-p.bbox[3]))/width
   const emphasis=['emphasisLevel','activationLevel','visibilityProgress','opacity'].some(k=>
     Number.isFinite(o[k])&&Number.isFinite(p[k])&&Math.abs(o[k]-p[k])>=.25)
-  if(translation>=.025||sizing>=.05||emphasis)seen.add(o.objectId)
+  const rotation=Number.isFinite(o.rotationDeg)&&Number.isFinite(p.rotationDeg)&&Math.abs(o.rotationDeg-p.rotationDeg)>=5
+  if(translation>=.025||sizing>=.05||emphasis||rotation)seen.add(o.objectId)
  }
  return seen
 }
