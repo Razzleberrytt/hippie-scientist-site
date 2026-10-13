@@ -77,7 +77,7 @@ function rowsByPmid(rows, sheet) {
     const id = identifyRow(row)
     if (!id) continue
     const hits = map.get(id) ?? []
-    hits.push({ sheet, row_id: cleanID(row) || null })
+    hits.push({ sheet: row.__audit_sheet || sheet, row_id: cleanID(row) || null })
     map.set(id, hits)
   }
   return map
@@ -140,16 +140,26 @@ export async function audit(root = process.cwd()) {
   const workbookPath = path.join(root, 'data-sources', 'herb_monograph_master.xlsx')
   if (!fs.existsSync(workbookPath)) throw new Error('Canonical workbook missing: ' + workbookPath)
   const workbook = await readWorkbook(workbookPath)
-  const sourceName = SOURCE_SHEETS.find((name) => Array.isArray(getSheet(workbook, name)))
-  const claimName = CLAIM_SHEETS.find((name) => Array.isArray(getSheet(workbook, name)))
-  if (!sourceName || !claimName) throw new Error('Required canonical source/study sheet missing; refusing partial results')
-  return reconcile(
-    parseDeepEnrichmentDossiers(root),
-    sheetToRows(getSheet(workbook, sourceName)),
-    sheetToRows(getSheet(workbook, claimName)),
-    sourceName,
-    claimName,
+  const sourceNames = SOURCE_SHEETS.filter((name) => Array.isArray(getSheet(workbook, name)))
+  const claimNames = CLAIM_SHEETS.filter((name) => Array.isArray(getSheet(workbook, name)))
+  if (!sourceNames.length || !claimNames.length) {
+    throw new Error('Required canonical source/study sheet missing; refusing partial results')
+  }
+  // Inspect every recognized worksheet, not just the first matching alias.
+  // Preserve the sheet of origin on each matched record for provenance.
+  const taggedRows = (names) => names.flatMap((name) =>
+    sheetToRows(getSheet(workbook, name)).map((row) => ({ ...row, __audit_sheet: name })),
   )
+  const report = reconcile(
+    parseDeepEnrichmentDossiers(root),
+    taggedRows(sourceNames),
+    taggedRows(claimNames),
+    sourceNames.join(', '),
+    claimNames.join(', '),
+  )
+  report.source_sheets = sourceNames
+  report.study_sheets = claimNames
+  return report
 }
 
 const direct = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
