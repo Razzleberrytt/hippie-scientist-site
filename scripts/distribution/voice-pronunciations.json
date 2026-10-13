@@ -11,10 +11,11 @@
     },
     {
       "term": "mitragynine",
-      "spokenAs": "mih-traj-uh-neen",
+      "spokenAs": "mitragynine",
       "reading": "mih-TRA-juh-neen",
-      "authority": "dictionary",
-      "source": "https://www.merriam-webster.com/dictionary/mitragynine"
+      "authority": "owner-feedback-native-fallback",
+      "source": "https://www.merriam-webster.com/dictionary/mitragynine",
+      "note": "Restore continuous native articulation; hyphenated respelling rejected by owner for choppy syllables. Alternative single-token spellings require audition."
     }
   ]
 }
