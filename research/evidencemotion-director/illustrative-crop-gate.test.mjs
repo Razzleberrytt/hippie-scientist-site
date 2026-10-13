@@ -1,0 +1,6 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {approveIllustrativeCrop} from './illustrative-crop-gate.mjs';
+const sha='b'.repeat(64),base={sourceSha256:sha,humanReviewedSourceSha256:sha,humanReviewerNote:'Only source botanical area is accepted; lower synthetic molecular figures and labels rejected.',width:940,height:1672,crop:[0,0,940,520],forbiddenRegions:[{bounds:[0,521,940,1672],reason:'Model generated molecule geometry and scientific labels; unverified.'}]};
+test('allows expressly reviewed botanical-only crop while withholding publication',()=>{const r=approveIllustrativeCrop(base);assert.equal(r.status,'ANNOTATED_NONFACTUAL_CROP_ONLY');assert.equal(r.publicationApproved,false)});
+test('rejects fake-science region overlap',()=>assert.ok(approveIllustrativeCrop({...base,crop:[0,500,940,800]}).errors.includes('CROP_CONTAINS_UNAPPROVED_GENERATIVE_SCIENCE')));
+test('rejects wrong full source hash or missing visual review',()=>assert.ok(approveIllustrativeCrop({...base,humanReviewedSourceSha256:'a'.repeat(64)}).errors.includes('SOURCE_NOT_HUMAN_REVIEWED')));
+test('rejects missing blocked region inventory',()=>assert.ok(approveIllustrativeCrop({...base,forbiddenRegions:[]}).errors.includes('MISSING_OR_INVALID_FORBIDDEN_REGIONS')));
