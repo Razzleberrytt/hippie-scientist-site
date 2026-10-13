@@ -23,10 +23,10 @@
 | 18.48–19.76 | complete 2D(H) | G3 source-to-model; locked diagram, **hard** editorial cut | Read authoritative connectivity before 3D | diagram cropped, premature model claim |
 | 19.76–22.04 | 3D(H) calculated model | G5 computed-geometry contrast; model orbit, hard cut | Understand 3D as one mathematical possibility | any simulated transformation, false binding footage, basic/cheap CGI |
 | 22.04–23.298 | 3D(H) space-fill | G5 uncertainty; computed close, hard cut | Hear the explicit limitation with matching picture | visual claims receptor data, caption hides qualifier |
-| 23.298–25.55 | 3D(H) | G5 structural-effects firewall; model pullback | Understand structure ≠ human experience | any visual bridge falsely suggesting clinical effect |
+| 23.298–25.55 | 3D(H) | G5 structural-effects firewall; camera eases backward from source-bound computed-model close-up, then a **hard cut at 25.55 s**; never depicts receptor effects | Understand structure ≠ human experience | any visual bridge falsely suggesting clinical effect |
 | 25.55–27.89 | complete 2D(H) | G3 source evidence; stable documentation view, hard cut | Retain the source's identity and limits | incorrect CID, tiny source copy |
-| 27.89–31.09 | exact H PubChem citation | G3 source ledger; **3.2 s intentional locked hold** | Have enough time to locate/read CID/source | moving-poster detector penalizes *source-reading hold*, source illegible |
-| 31.09–34.3667 | 3D(H) and THS identity | G6 consequence/CTA; model-backed earned close | Recall “follow the evidence,” not a medical benefit | unsupported implication, abrupt audio crop, branded outro obscures conclusion |
+| 27.89–31.09 | exact H PubChem citation | G3 source ledger; **locked, orthogonal/full-frame text-card camera** with no push or pan; **hard cut in at 27.89 s and out at 31.09 s** to protect the 3.2 s reading interval | Have enough time to locate/read CID/source | moving-poster detector penalizes *source-reading hold*, source illegible |
+| 31.09–34.3667 | 3D(H) and THS identity | G6 consequence/CTA; **centered three-quarter, fixed camera** on the computed model with legible THS outro overlay; **hard cut in at 31.09 s and terminal picture cut at 34.3667 s**; no gratuitous movement | Recall “follow the evidence,” not a medical benefit | unsupported implication, abrupt audio crop, branded outro obscures conclusion |
 
 ## Mandatory inspection and rejection rules
 
