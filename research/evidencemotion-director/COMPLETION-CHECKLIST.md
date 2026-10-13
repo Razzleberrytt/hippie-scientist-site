@@ -1,6 +1,6 @@
 # EvidenceMotion: system completion checklist (living tracker)
 
-**Updated:** 2026-10-13 (V3 exact-media audit) | **Verified research foundations: 22/46 merged; proposed 23/46 with 23 open, pending bounded CPU benchmark CI/merge** | **Owner direction:** phone-first, existing remote CPU | **Production freeze:** ON | **Video quality milestone:** 0/1 first excellent native final, then 0/5 consecutive excellent native first renders.
+**Updated:** 2026-10-13 (V3 exact-media audit) | **Verified research foundations: 23/46 merged; 23 open. A passive source-verified 63-PNG reuse escrow was prepared without checking another gate or lifting the freeze.** | **Owner direction:** phone-first, existing remote CPU | **Production freeze:** ON | **Video quality milestone:** 0/1 first excellent native final, then 0/5 consecutive excellent native first renders.
 
 ## Definition of "complete"
 **A video** is release-ready only after source/correctness review, original voice ear-check, native 1080×1920/30fps first final, full decoded A/V and real iPhone playback, craft approval against best-in-niche references, and the owner's explicit go/no-go. **The director system** is canonically complete only after that first excellent first-render master **and five consecutive excellent first renders on varied topics**, with reproducible locked sources, model/execution budgets, robust failed-shot regression tests, and no safety bypass.
