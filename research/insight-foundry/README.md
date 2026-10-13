@@ -1,8 +1,8 @@
 # Insight Foundry — research-only source-linked contracts
 
-**Implementation status:** admitted A-lane implementation proposal under review, NOT a scientific review, deployed feature, or independent evidence verification.
+**Implementation status:** standalone, reviewed-at-code-level only; NOT scientific review, code admission, a deployed feature, or independent evidence verification.
 
-**Owner:** issue #6749 is admitted through protected control PR #6754 (merged as `654a29c4ab9fcb5eb3c4a2af568c64c06edf0a25`). This source remains a research-only PR candidate until separate exact-head tests and protected controller merge.
+**Admitted owner needed:** issue #6749 and protected merge of control PR #6754 are required before this source is committed to the THS repo.
 
 ## Integration intent
 
@@ -26,9 +26,9 @@ The existing repo `scripts/run-node-tests.mjs` discovers both files via top-leve
 - Exact normalized question + PICO identity, protocol digest and immutable-by-hash case content.
 - Protocol-specific database/query/limits search records; completion requires separate, matching externally verified receipts sourced from an approved upstream authority (not user input).
 - Research metadata stays ungraded; title co-occurrence is never an effect, novel global finding, or evidence gap.
-- Independently reviewed claim and underlying-trial lineage maps remain separate authorities and cannot be self-attested by the case.
+- Independently reviewed claims must match exact source ID, PMID, graph fingerprint, snapshot and approved effect direction; underlying-trial lineage maps remain separate authorities and cannot be self-attested by the case.
 - `publicationStatus: 'not-authorized'` and `scientificGate: 'research-only'` cannot be escalated by this code.
 
 ## Limitations
 
-The 62 synthetic tests verify only local invariants. They are not live external search receipts, publication review, or actual THS integration tests. That requires a separately governed CI run against canonical source register and genuine sources, followed by mandatory release gates.
+The 69 synthetic tests verify only local invariants. They are not live external search receipts, publication review, or actual THS integration tests. That requires a separately governed CI run against canonical source register and genuine sources, followed by mandatory release gates.

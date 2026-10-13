@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import {
  createOpportunity, validateOpportunity, opportunityId, freezeProtocol, validateProtocol,
- digest, canonicalJson, evidenceFromSignedSource, createCaseFile, validateCaseFile,
+ digest, canonicalJson, evidenceFromSignedSource, createCaseFile, validateCaseFile, protocolIdentity,
 } from '../src/contracts.mjs'
 const copy=(value)=>JSON.parse(JSON.stringify(value))
 const snapshot='a'.repeat(64)
@@ -17,8 +17,8 @@ const makeProtocol=(o=opportunity())=>freezeProtocol(o,{
 })
 const sourceAuthority={synthetic1:{pmid:'99999999',sourceSignature:sign1,snapshotId:snapshot,authority:'research-only'},synthetic2:{pmid:'99999998',sourceSignature:sign2,snapshotId:snapshot,authority:'reviewed'}}
 const evidence1=()=>evidenceFromSignedSource({pmid:'99999999',sourceId:'synthetic1',sourceSignature:sign1,context:'synthetic source metadata, no empirical outcome extraction',limitations:'synthetic fixture only'})
-const evidence2=()=>evidenceFromSignedSource({pmid:'99999998',sourceId:'synthetic2',sourceSignature:sign2,context:'synthetic reviewed source metadata, no empirical outcome extraction',limitations:'synthetic fixture only',sourceRole:'reviewed',reviewedClaimId:'review_fixture_1'})
-const approved={review_fixture_1:{sourceId:'synthetic2',pmid:'99999998',approved:true,independentlyReviewed:true}}
+const evidence2=()=>evidenceFromSignedSource({pmid:'99999998',sourceId:'synthetic2',sourceSignature:sign2,context:'synthetic reviewed source metadata, no empirical outcome extraction',limitations:'synthetic fixture only',sourceRole:'reviewed',reviewedClaimId:'review_fixture_1',direction:'null'})
+const approved={review_fixture_1:{sourceId:'synthetic2',pmid:'99999998',sourceSignature:sign2,snapshotId:snapshot,direction:'null',approved:true,independentlyReviewed:true}}
 function context(overrides={}){const o=opportunity(),p=makeProtocol(o);return {opportunity:o,protocol:p,sourceAuthority:copy(sourceAuthority),reviewedClaimAuthority:copy(approved),trialLineageAuthority:{},searchReceiptAuthority:{},...overrides}}
 function sampleCase(ctx=context(),options={}){const c=createCaseFile(ctx.opportunity,ctx.protocol,options);return c}
 function signCase(c){const {caseDigest:_,...rest}=c;c.caseDigest=digest(rest);return c}
@@ -33,6 +33,17 @@ test('candidate forbids elevated review state and invented demand',()=>{const o=
 test('candidate rejects fabricated global prior-art claim',()=>{const o=opportunity();o.priorArtState='never-studied';assert.throws(()=>validateOpportunity(o),/prior-art/)})
 test('candidate rejects incorrect source snapshot digest',()=>{const o=opportunity();o.intakeSnapshotId='x';assert.throws(()=>validateOpportunity(o),/sha256/)})
 test('frozen protocol validates and is reproducible',()=>{const o=opportunity();const a=makeProtocol(o),b=makeProtocol(o);assert.equal(a.protocolDigest,b.protocolDigest);assert.equal(validateProtocol(a,o),a)})
+test('different same-day protocol freezes receive distinct IDs and digests',()=>{
+ const o=opportunity(),a=makeProtocol(o)
+ const b=freezeProtocol(o,{frozenOn:'2026-10-13',databases:[{database:'pubmed',query:'different bounded search',limits:'same limits'}],eligibilityCriteria:{include:['Human trials'],exclude:['Animal only']},extractionPlan:['human outcomes'],priorArtScope:'bounded search only'})
+ assert.notEqual(a.protocolId,b.protocolId);assert.notEqual(a.protocolDigest,b.protocolDigest)
+ assert.equal(a.protocolId,protocolIdentity(a));assert.equal(b.protocolId,protocolIdentity(b))
+})
+test('re-signing altered search under an old same-day protocol ID fails',()=>{
+ const o=opportunity(),p=makeProtocol(o);p.databases[0].query='altered query'
+ const {protocolDigest:_,...body}=p;p.protocolDigest=digest(body)
+ assert.throws(()=>validateProtocol(p,o),/invalid protocol id/)
+})
 test('frozen protocol cannot be edited after signing',()=>{const o=opportunity();const p=makeProtocol(o);p.databases[0].query='select all!';assert.throws(()=>validateProtocol(p,o),/mutated/)})
 test('protocol cannot silently mutate PICO',()=>{const o=opportunity();const p=makeProtocol(o);p.pico.comparator='placebo';assert.throws(()=>validateProtocol(p,o),/diverged/)})
 test('protocol refuses invalid calendar date',()=>{assert.throws(()=>makeProtocolWithBadDate(),/invalid date/);function makeProtocolWithBadDate(){const o=opportunity();return freezeProtocol(o,{frozenOn:'2026-02-30',databases:[{database:'pubmed',query:'test',limits:'no limits'}],eligibilityCriteria:{include:['yes'],exclude:['no']},extractionPlan:['x'],priorArtScope:'test'})}})
@@ -45,6 +56,14 @@ ensureBad('rejects cross-snapshot source authority substitution', (c,ctx)=>{ctx.
 ensureBad('rejects source-only to reviewed laundering', c=>{c.evidence[0].sourceRole='reviewed';c.evidence[0].reviewedClaimId='review_fixture_1';signCase(c)})
 ensureBad('rejects even a reviewed source without approved exact claim',c=>{c.evidence=[evidence2()];c.evidence[0].reviewedClaimId='fabricated';signCase(c)})
 ensureBad('rejects reviewer spoofing (approved flag without independent marker)',(c,ctx)=>{c.evidence=[evidence2()];ctx.reviewedClaimAuthority.review_fixture_1.independentlyReviewed=false;signCase(c)})
+test('approved reviewed receipt must exactly bind direction, source signature and snapshot',()=>{
+ const ctx=context(),c=sampleCase(ctx,{evidence:[evidence2()]})
+ assert.equal(validateCaseFile(c,ctx),c);assert.equal(c.publicationStatus,'not-authorized')
+})
+ensureBad('rejects laundering reviewed null result as supporting',c=>{c.evidence=[evidence2()];c.evidence[0].direction='supporting';signCase(c)})
+ensureBad('rejects reviewed approval bound to another snapshot',(c,ctx)=>{c.evidence=[evidence2()];ctx.reviewedClaimAuthority.review_fixture_1.snapshotId='b'.repeat(64);signCase(c)})
+ensureBad('rejects reviewed approval bound to another source fingerprint',(c,ctx)=>{c.evidence=[evidence2()];ctx.reviewedClaimAuthority.review_fixture_1.sourceSignature=sign1;signCase(c)})
+ensureBad('rejects reviewed approval with no extracted direction',c=>{c.evidence=[evidence2()];c.evidence[0].direction='not-extracted';signCase(c)})
 ensureBad('rejects duplicate publication counted as two evidence items',c=>{c.evidence.push(evidence1());signCase(c)})
 ensureBad('rejects invented independent trial count',c=>{c.independentTrialCount=1;signCase(c)})
 ensureBad('rejects asserted independent cohort without independent lineage receipt',c=>{c.evidence[0].studyIndependence='verified';c.evidence[0].underlyingStudyId='trial_fixture';c.independentTrialCount=1;signCase(c)})
@@ -88,8 +107,8 @@ test('rejects search receipt signed against a different frozen protocol',()=>{
  const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[log]});assert.throws(()=>validateCaseFile(c,ctx),/exact externally verified search receipt/)
 })
 test('identical planned searches cannot inflate protocol screening coverage',()=>{
- const ctx=context();ctx.protocol.databases.push(copy(ctx.protocol.databases[0]))
- const {protocolDigest:_a,...body}=ctx.protocol;ctx.protocol.protocolDigest=digest(body)
+ const ctx=context();const p=ctx.protocol
+ ctx.protocol=freezeProtocol(ctx.opportunity,{frozenOn:p.frozenOn,databases:[...p.databases,copy(p.databases[0])],eligibilityCriteria:p.eligibilityCriteria,extractionPlan:p.extractionPlan,priorArtScope:p.priorArtScope})
  const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[{database:'pubmed',query:ctx.protocol.databases[0].query,searchedOn:'2026-10-13',resultCount:0,scopeLimits:ctx.protocol.databases[0].limits}]})
  assert.throws(()=>validateCaseFile(c,ctx),/duplicate database queries/)
 })
@@ -99,8 +118,7 @@ test('screening cannot cite an unplanned search as completed',()=>{
 })
 test('completed screen must execute every frozen database query',()=>{
  const ctx=context();const p=ctx.protocol
- p.databases.push({database:'clinicaltrials',query:'magnesium sleep',limits:'synthetic'})
- const {protocolDigest:_a,...body}=p;p.protocolDigest=digest(body)
+ ctx.protocol=freezeProtocol(ctx.opportunity,{frozenOn:p.frozenOn,databases:[...p.databases,{database:'clinicaltrials',query:'magnesium sleep',limits:'synthetic'}],eligibilityCriteria:p.eligibilityCriteria,extractionPlan:p.extractionPlan,priorArtScope:p.priorArtScope})
  const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[makeSearchLog(ctx)]})
  assert.throws(()=>validateCaseFile(c,ctx),/cover all protocol searches/)
 })

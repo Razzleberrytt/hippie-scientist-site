@@ -79,6 +79,12 @@ export function createOpportunity({question,pico:scope,intakeSnapshotId,originSi
   const result={schemaVersion:SCHEMA_VERSION,opportunityId:opportunityId({question,pico:scope}),question,pico:scope,intakeSnapshotId,originSignals,researchState:'candidate',priorArtState:'unchecked',scientificGate:'research-only',commercialState:'demand-unknown'}
   return validateOpportunity(result)
 }
+export function protocolIdentity(input){
+  // A protocol ID names the exact frozen method, not merely an opportunity/date.
+  // A same-day change to queries, eligibility or extraction becomes a new identity.
+  const body={...input};delete body.protocolId;delete body.protocolDigest
+  return `ifproto_${input.opportunityId.slice(6,18)}_${input.frozenOn.replaceAll('-','')}_${digest(body).slice(0,16)}`
+}
 export function frozenProtocolDigest(input){const rest={...input};delete rest.protocolDigest;return digest(rest)}
 export function validateProtocol(input, opportunity){
   obj(input,'protocol');validateOpportunity(opportunity)
@@ -99,15 +105,16 @@ export function validateProtocol(input, opportunity){
   const extraction=array(input.extractionPlan,'extractionPlan');if(!extraction.length)reject('extractionPlan missing');extraction.forEach(x=>required(x,'extraction field'))
   required(input.priorArtScope,'priorArtScope')
   if(array(input.amendments,'amendments').length)reject('freeze baseline must have zero amendments; amendments become a new protocol version')
-  if(input.protocolId!==`ifproto_${input.opportunityId.slice(6,18)}_${input.frozenOn.replaceAll('-','')}`)reject('invalid protocol id')
   hex(input.protocolDigest,'protocolDigest');if(input.protocolDigest!==frozenProtocolDigest(input))reject('frozen protocol mutated or hash incorrect')
+  if(input.protocolId!==protocolIdentity(input))reject('invalid protocol id')
   return input
 }
 const cloneJson=(value)=>JSON.parse(canonicalJson(value))
 export function freezeProtocol(opportunity,{frozenOn,databases,eligibilityCriteria,extractionPlan,priorArtScope}){
   validateOpportunity(opportunity)
-  const result={schemaVersion:1,protocolId:`ifproto_${opportunity.opportunityId.slice(6,18)}_${frozenOn.replaceAll('-','')}`,opportunityId:opportunity.opportunityId,
+  const result={schemaVersion:1,opportunityId:opportunity.opportunityId,
     snapshotId:opportunity.intakeSnapshotId,pico:cloneJson(opportunity.pico),reviewQuestion:opportunity.question,frozenOn,databases:cloneJson(databases),eligibilityCriteria:cloneJson(eligibilityCriteria),extractionPlan:cloneJson(extractionPlan),priorArtScope,amendments:[]}
+  result.protocolId=protocolIdentity(result)
   result.protocolDigest=frozenProtocolDigest(result)
   return validateProtocol(result,opportunity)
 }
@@ -171,7 +178,11 @@ function verifySources(items,sourceAuthority,reviewedClaimAuthority,snapshotId,t
     if(x.sourceRole==='reviewed'){
       if(receipt.authority!=='reviewed')reject('source-only paper cannot self-promote to reviewed')
       const approved=reviewedClaimAuthority[x.reviewedClaimId]
-      if(!approved||approved.approved!==true||approved.independentlyReviewed!==true||approved.sourceId!==x.sourceId||approved.pmid!==x.pmid)reject('reviewed claim lacks independent authority receipt')
+      if(!approved||approved.approved!==true||approved.independentlyReviewed!==true||
+        approved.sourceId!==x.sourceId||approved.pmid!==x.pmid||
+        approved.sourceSignature!==x.sourceSignature||approved.snapshotId!==snapshotId||
+        approved.direction!==x.direction||x.direction==='not-extracted')
+        reject('reviewed claim lacks exact independent source, snapshot and direction receipt')
     } else if(x.reviewedClaimId!==null)reject('unreviewed evidence cannot carry reviewed claim id')
     allowed(x.direction,DIRECTIONS,'evidence.direction')
     allowed(x.studyIndependence,INDEPENDENCE,'evidence.studyIndependence')
