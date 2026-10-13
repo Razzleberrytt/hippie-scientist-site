@@ -41,7 +41,7 @@ A second still-first, stylized **specimen bottle** concept (480x854, 4.5s, 12fps
 ## Research-ready code
 - `previz-director.mjs`: six grammar candidates; source-audio-science constraints, never auto-approves.
 - `stage-gates.mjs`: still/voice/parallax/camera/disclosure/safe-area contracts, returns `PREVIZ_PACKAGE_READY_FOR_PIXEL_AUDIT` only, not cinematic PASS.
-- `decoded-preview-audit.py`: stream-decodes actual FFmpeg frames, crops caption-dominated regions, compares per-frame pixel differences, reports >6s static. Never certifies perceptual quality. Requires Python NumPy and FFmpeg installed.
+- `audit_decoded_preview.py`: stream-decodes actual FFmpeg frames, crops caption-dominated regions, compares per-frame pixel differences, reports >6s static. Never certifies perceptual quality. Requires Python NumPy and FFmpeg installed.
 - `specialist-router.mjs`: proposes *roles*, not model integrations. VTK/Pillow/locked stills available on CPU; Depth Anything V2 Small/MobileSAM are benchmark-only, not installed or called by this router.
 - Node's built-in tests are under `*.test.mjs`; execute manually; no new CI triggers.
 - Experiment renders and owner's reference-shelf acceptance still require separate review.
