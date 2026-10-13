@@ -1,14 +1,14 @@
 {
   "release": "R8.05",
   "sourceIdentity": {
-    "id": "sr15099-longform-chapter-1",
-    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31443104/"
+    "id": "sr15099-longform-chapter-2",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29149605/"
   },
   "premise": {
     "interestScore": 4.5,
     "coldViewerWhyCare": "A jargon-free SR-15099 and SR-17018 scientific explanation focusing on opioid tolerance and what mouse results can and cannot demonstrate.",
     "viewerQuestion": "Can SR-15099 be said to reset tolerance?",
-    "earlyPayoff": "The famous animal tolerance-reversal study used SR-17018, not SR-15099.",
+    "earlyPayoff": "Related compounds activate mu-opioid receptors but are not interchangeable.",
     "methodologyBeforePayoff": false,
     "paperSummaryOpening": false,
     "hookMode": "curiosity",
@@ -23,125 +23,125 @@
     "macroRebuildCount": 0
   },
   "chapter": {
-    "index": 1,
+    "index": 2,
     "total": 5,
     "editorialOnly": true,
     "fullNarrationNotSub60": true
   },
   "beats": [
     {
-      "id": "sr15099-long-01-hook",
+      "id": "sr15099-long-02-hook",
       "role": "hook",
-      "narration": "Could this experimental opioid really reset tolerance? That's the claim making people curious about S R one-five-zero-nine-nine.",
+      "narration": "Withdrawal means something different. After the body has adapted to a drug, stopping it can cause unpleasant symptoms.",
       "onScreenText": "THE QUESTION",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
-      "spokenAnchor": "Could this experimental",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
+      "spokenAnchor": "Withdrawal means something",
       "visualAction": "A distinct physical evidence-bound visual reveal for hook, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:29149605",
       "primaryEntities": [
-        "SR-15099"
+        "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-01-finding",
+      "id": "sr15099-long-02-finding",
       "role": "finding",
-      "narration": "But the most famous tolerance experiment actually tested a related chemical: S R one-seven-zero-one-eight.",
+      "narration": "A person can have tolerance, withdrawal, or both—but they're different things.",
       "onScreenText": "WHAT CHANGES",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
-      "spokenAnchor": "But the most",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
+      "spokenAnchor": "A person can",
       "visualAction": "A distinct physical evidence-bound visual reveal for finding, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "emphasis",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:29149605",
       "primaryEntities": [
-        "SR-15099"
+        "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-01-context",
+      "id": "sr15099-long-02-context",
       "role": "context",
-      "narration": "First, let's make sense of the word tolerance. Say an opioid has a certain effect the first time someone takes it.",
+      "narration": "Now, these two experimental compounds both activate a part of cells called the mu-opioid receptor. Think of it like a receiving station for chemical messages.",
       "onScreenText": "EXPLAIN THE TERMS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
-      "spokenAnchor": "First, let's make",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
+      "spokenAnchor": "Now, these two",
       "visualAction": "A distinct physical evidence-bound visual reveal for context, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "phrase-boundary",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:29149605",
       "primaryEntities": [
-        "SR-15099"
+        "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-01-evidence",
+      "id": "sr15099-long-02-evidence",
       "role": "evidence",
-      "narration": "With repeated use, the same amount may have less effect.",
+      "narration": "The receptor can send signals through more than one pathway.",
       "onScreenText": "WHAT WAS MEASURED",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
-      "spokenAnchor": "With repeated use,",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
+      "spokenAnchor": "The receptor can",
       "visualAction": "A distinct physical evidence-bound visual reveal for evidence, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:29149605",
       "primaryEntities": [
-        "SR-15099"
+        "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-01-limitation",
+      "id": "sr15099-long-02-limitation",
       "role": "limitation",
-      "narration": "The body has adapted.",
+      "narration": "Scientists became interested in the way these compounds affected those signals.",
       "onScreenText": "IMPORTANT LIMIT",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
-      "spokenAnchor": "The body has",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
+      "spokenAnchor": "Scientists became interested",
       "visualAction": "A distinct physical evidence-bound visual reveal for limitation, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "contrast",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:29149605",
       "primaryEntities": [
-        "SR-15099"
+        "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-01-cta",
+      "id": "sr15099-long-02-cta",
       "role": "cta",
-      "narration": "That's tolerance. It's not the same thing as addiction.",
+      "narration": "But they are different chemicals, so results for one do not automatically apply to the other. Here's what researchers actually did.",
       "onScreenText": "WHAT THIS MEANS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
-      "spokenAnchor": "That's tolerance.",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
+      "spokenAnchor": "But they are",
       "visualAction": "A distinct physical evidence-bound visual reveal for cta, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "end",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:29149605",
       "primaryEntities": [
-        "SR-15099"
+        "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-1-source",
+      "id": "sr15099-long-2-source",
       "role": "source",
       "narration": "",
-      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/31443104/",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/29149605/",
       "visualPurpose": "Readable original journal citation, required standstill.",
       "spokenAnchor": "",
       "visualAction": "Hold actual canonical PubMed URL for review.",
