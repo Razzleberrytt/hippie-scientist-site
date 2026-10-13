@@ -61,7 +61,19 @@ export function getDeepEnrichmentRounds(): DeepEnrichmentRound[] {
     const sharedNotesHeading = [...fullText.matchAll(/^## (?!DE\d+-\d+\s+[—–-]).+$/gm)]
       .find((match) => (match.index ?? -1) > lastInvestigationOffset)
     const sharedNotesStart = sharedNotesHeading?.index ?? fullText.length
-    const sharedDossierNotes = fullText.slice(sharedNotesStart).trim()
+    // Some rounds place shared QA *before* DE##-01 rather than after DE##-10.
+    // Both layouts must remain visible, without assigning round-level notes
+    // to any individual source/study.
+    const firstInvestigationOffset = headings[0].index ?? fullText.length
+    const prefaceHeading = [...fullText.matchAll(/^### Whole-round research QA.*$/gm)]
+      .find((match) => (match.index ?? -1) < firstInvestigationOffset)
+    const prefacedGovernanceNotes = prefaceHeading
+      ? fullText.slice(prefaceHeading.index, firstInvestigationOffset).trim()
+      : ''
+    const sharedDossierNotes = [
+      prefacedGovernanceNotes,
+      fullText.slice(sharedNotesStart).trim(),
+    ].filter(Boolean).join('\\n\\n')
 
     const investigations = headings.map((heading, index) => {
       const id = heading[1]
