@@ -24,3 +24,15 @@ Move from **art-only texture reveal** to a **real source-justified physical acti
 
 ## Safety and freeze
 All operations remain under `research/evidencemotion-director/`. No new R-number, no production importer, auto-triggered CI run, deployment, website edit, video publishing, paid inference or hardware purchase. Never treat a decoded-pixel score, provenance hash or QA receipt as acceptance of the finished video. Current goal remains one excellent first-final-render video, then five consecutive excellent first-final-render videos.
+
+
+## Phone-first codec retest + paired evaluator (verified local research)
+The first render above used H.264 **High** profile. The portable research renderer was tightened to explicitly request `-profile:v baseline -level 3.1 -pix_fmt yuv420p -movflags +faststart`; a fresh run now probes as **H.264 Constrained Baseline**, 540×960, 15fps, yuv420p, Level 3.1, no audio stream (intentionally silent).
+
+- Phone-safe encoded master SHA-256: `07a353b73c06b0ac7a3ec43bb6b83359ae0146e427931fb695eaa9c920a17fc2`. The source input is the same locked botanical PNG. The prior High-profile SHA above is historical, not the preferred phone-first preview.
+- Independent CPU decode: 90 frames, subject ROI [59,173,481,730], longest static run 0.467s, **median subject changed-pixel fraction 0.00278**. This is below the documented 0.005 near-static heuristic. Different encoder profiles may affect the pixel-motion proxy; never compare the metrics as if they were codec-independent.
+- Independently decoded state-pair comparison at 1.0s→5.0s: **0.9921** fraction of 24px subject blocks differ; visually the leaf art becomes a cyan edge trace. This verifies a large before/after *pixel* change only, not an explanation, narration sync or aesthetic merit.
+- Newly committed `reveal-quality-gate.mjs` couples both reports bound to the exact MP4 hash. It returns `RESEARCH_HOLD` with `NEAR_STATIC_MOVING_POSTER_RISK` on this actual phone-safe pilot, not a false PASS.
+- 6/6 gate tests passed locally; 4/4 decoded state-pair adversarial Python tests passed locally. The repository's full current combined regression suite has **not** been verified in this pass. A human must still audition the exact master on iPhone before claiming playback compatibility; an encoder probe is not a device test.
+
+**Owner review status stays UNREQUESTED / HOLD** for creative release. Zero videos have achieved the one-plus-five excellence milestone. Research remains isolated and unmerged.
