@@ -2,9 +2,9 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import {
  createOpportunity, validateOpportunity, opportunityId, freezeProtocol, validateProtocol,
- digest, canonicalJson, evidenceFromSignedSource, createCaseFile, validateCaseFile, independentTrialCount,
+ digest, canonicalJson, evidenceFromSignedSource, createCaseFile, validateCaseFile,
 } from '../src/contracts.mjs'
-const copy=(value)=>structuredClone(value)
+const copy=(value)=>JSON.parse(JSON.stringify(value))
 const snapshot='a'.repeat(64)
 const sign1='b7-11223344-90abcdef'
 const sign2='c3-11224455-9900abcd'
@@ -88,7 +88,7 @@ test('rejects search receipt signed against a different frozen protocol',()=>{
  const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[log]});assert.throws(()=>validateCaseFile(c,ctx),/exact externally verified search receipt/)
 })
 test('identical planned searches cannot inflate protocol screening coverage',()=>{
- const ctx=context();ctx.protocol.databases.push(structuredClone(ctx.protocol.databases[0]))
+ const ctx=context();ctx.protocol.databases.push(copy(ctx.protocol.databases[0]))
  const {protocolDigest:_a,...body}=ctx.protocol;ctx.protocol.protocolDigest=digest(body)
  const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[{database:'pubmed',query:ctx.protocol.databases[0].query,searchedOn:'2026-10-13',resultCount:0,scopeLimits:ctx.protocol.databases[0].limits}]})
  assert.throws(()=>validateCaseFile(c,ctx),/duplicate database queries/)
