@@ -2,12 +2,17 @@
  * Build-time JSON view of publicly readable research-only DE investigations.
  * Do not merge this payload into public clinical evidence grade sources.
  */
-import { getDeepEnrichmentRounds } from '@/lib/research-deep-enrichment-public'
+import { getDeepEnrichmentRounds, getDeepEnrichmentSourceOccurrences } from '@/lib/research-deep-enrichment-public'
 
 export const dynamic = 'force-static'
 
 export async function GET() {
   const rounds = getDeepEnrichmentRounds()
+  const occurrences = getDeepEnrichmentSourceOccurrences(rounds)
+  const repeatedSources = [...occurrences.entries()]
+    .filter(([, citedIn]) => citedIn.length > 1)
+    .map(([pmid, citedIn]) => ({ pmid, cited_in: citedIn }))
+    .sort((a, b) => a.pmid.localeCompare(b.pmid))
   const investigations = rounds.flatMap(({ round, investigations }) =>
     investigations.map(({ id, title, sourcePmids }) => ({
       id,
@@ -33,6 +38,8 @@ export async function GET() {
     round_count: rounds.length,
     investigation_count: investigations.length,
     distinct_referenced_pmids: uniquePmids.size,
+    repeated_pmid_count_across_investigations: repeatedSources.length,
+    repeated_pubmed_sources: repeatedSources,
     rounds: rounds.map(({ round, sourceHref }) => ({
       round,
       url: `https://thehippiescientist.net/research/investigations/${round}/`,
