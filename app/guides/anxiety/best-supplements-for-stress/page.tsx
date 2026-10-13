@@ -5,7 +5,6 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
@@ -112,14 +111,11 @@ const HEADINGS: Heading[] = [
   { id: 'combinations', text: 'Why stack recipes overreach', level: 2 },
   { id: 'safety', text: 'Safety and stop rules', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
+  { id: 'product-checks', text: 'Product-verification status', level: 2 },
 ]
 
 export default function BestSupplementsForStressPage() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const comparisonProducts = ['ashwagandha', 'rhodiola', 'magnesium', 'l-theanine'].flatMap(
-    (slug) => getRevenueProductSet(slug)?.products ?? [],
-  )
-
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -260,12 +256,29 @@ export default function BestSupplementsForStressPage() {
           <div className="space-y-3">{FAQS.map((faq) => <details key={faq.question} className="card-premium p-5"><summary className="cursor-pointer font-semibold text-ink">{faq.question}</summary><p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p></details>)}</div>
         </section>
 
-        {comparisonProducts.length > 0 ? (
-          <section className="space-y-3">
-            <p className="text-sm leading-7 text-muted"><strong className="text-ink">Neutral sourcing examples:</strong> this module covers the four directly compared ingredients. Product placement does not change the evidence ranking, and affiliate links do not imply treatment efficacy.</p>
-            <RecommendationSection products={comparisonProducts} />
-          </section>
-        ) : null}
+        <section id="product-checks" className="card-premium scroll-mt-20 space-y-4 p-6">
+          <p className="eyebrow-label">Before buying</p>
+          <h2 className="text-2xl font-semibold text-ink">Check the evidence and the exact product first</h2>
+          <p className="text-sm leading-7 text-muted">
+            The ingredient evidence above does not validate every retail listing. The product catalog currently includes
+            unresolved product identifiers and search-only destinations; those are not verified picks. We are withholding
+            product-specific shopping links from this guide until the exact product, dose, formulation, safety information
+            and destination have been checked. No brand here is a proven stress treatment.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/guides/herbs/ashwagandha/" data-decision-cta="true" data-tracking-location="stress-evidence-next-step" data-cta-variant="ashwagandha-evidence" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              Review ashwagandha evidence and safety →
+            </Link>
+            <Link href="/guides/other/magnesium-types-guide/" data-decision-cta="true" data-tracking-location="stress-evidence-next-step" data-cta-variant="magnesium-forms" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              Compare magnesium formulations →
+            </Link>
+            <Link href="/articles/how-to-choose-supplement-quality/" data-decision-cta="true" data-tracking-location="stress-evidence-next-step" data-cta-variant="product-quality" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              Check supplement quality before buying →
+            </Link>
+          </div>
+        </section>
+
+        <RecommendationSection products={[]} title="Product listings pending verification" />
 
         <EmailCapture location="guides-best-supplements-for-stress" />
 
