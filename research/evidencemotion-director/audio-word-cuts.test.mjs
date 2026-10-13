@@ -52,3 +52,12 @@ test('natural inter-word pauses are assigned to an adjacent visual; no black gap
  assert.equal(result.shots[0].startMs,0);
  assert.equal(result.shots.at(-1).endMs,3600);
 });
+
+test('reject absent and malformed scientific asset lineage on every shot',()=>{
+ for(const scientificAssetIDs of [undefined,[],['BAD SPACE'],['chem_7oh','chem_7oh']]){
+  const x=sample();x.beats[1].scientificAssetIDs=scientificAssetIDs;
+  const r=plan(x);assert.equal(r.status,'HOLD');
+  assert.ok(r.errors.includes('SHOT_ASSET_LINEAGE_MISSING'));
+  assert.equal(r.shots.length,0);
+ }
+});
