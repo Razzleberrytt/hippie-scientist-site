@@ -20,7 +20,7 @@ citationQuestions:
   - "What does ADHD have to do with dopamine and rewards?"
   - "Can someone with ADHD hyperfocus?"
   - "Why is it difficult to start simple tasks with ADHD?"
-relatedSlugs: ["psychedelics-and-the-brain-science"]
+relatedSlugs: ["lions-mane-vs-stimulants-adhd"]
 references:
   - title: "Time-Perception Deficits in Attention-Deficit/Hyperactivity Disorder: A Systematic Review and Meta-Analysis"
     authors: "Metcalfe KB, McFeaters CD, Voyer D"
@@ -138,6 +138,12 @@ The goal of learning about these brain processes is understanding—not diagnosi
 **Can ADHD affect motivation?** Yes, motivation and rewards can play a role, but the effects vary, and there is no one explanation for every person.
 
 **Is ADHD only a childhood condition?** No. It starts in childhood, but symptoms can continue into adulthood. [3]
+
+## Related reading: what about supplements for ADHD?
+
+Understanding how ADHD works is different from proving a treatment works. For instance, a supplement that changes performance on a test in healthy volunteers has **not** automatically been shown to help people diagnosed with ADHD.
+
+Our existing [Lion's Mane vs. prescription stimulants ADHD evidence review](/articles/lions-mane-vs-stimulants-adhd/) explains that difference without treating a laboratory theory as a proven therapy.
 
 ## Bottom line
 
