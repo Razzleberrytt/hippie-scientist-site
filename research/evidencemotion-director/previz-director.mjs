@@ -1,3 +1,4 @@
+import {inspectDecodedProof} from './preview-proof.mjs';
 /**
  * EvidenceMotion research-only shot proposal and preview critique.
  * NO production imports, network, model execution, or publish permissions.
@@ -69,6 +70,14 @@ export function proposeShots(beat,{previousGrammar=null,previousCamera=null}={})
  */
 export function evaluatePreviz(candidate,receipt){
   const reasons=[];
+  const decoded=inspectDecodedProof(receipt);
+  for(const code of decoded.errors){
+    reasons.push(code==='STATIC_COMPOSITION_KILL'?code:'DECODED_PROOF_'+code);
+  }
+  // An apparent moving-poster effect is a creative HOLD requiring a real
+  // owner critique. A few changing pixels cannot prove purposeful animation.
+  if(decoded.advisories.includes('NEAR_STATIC_MOVING_POSTER_RISK'))
+    reasons.push('MOVING_POSTER_CONCEPT_REVIEW_HOLD');
   if(!candidate||candidate.status!=='PREVIZ_PROPOSAL_NOT_APPROVED')
     reasons.push('NOT_AN_AUTHORED_CANDIDATE');
   if(!receipt||(receipt.origin!=='independent-full-decode'||receipt.schemaVersion!=='ths-director-decoded-pixels-v1')||!clean(receipt.previewSha256)||
