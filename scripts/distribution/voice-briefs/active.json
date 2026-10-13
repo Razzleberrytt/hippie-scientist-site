@@ -25,10 +25,10 @@
     {
       "id": "sr15-hook",
       "role": "hook",
-      "narration": "Can S R one-five-zero-nine-nine really reset opioid tolerance? The famous experiment was actually performed with a different compound: S R one-seven-zero-one-eight.",
+      "narration": "Can S R one-five-zero-nine-nine reset opioid tolerance? The famous experiment actually tested another chemical: S R one-seven-zero-one-eight.",
       "onScreenText": "SR-15099: DOES IT RESET TOLERANCE?",
       "visualPurpose": "Make the rumor a question, then separate the tested compound from the discussed compound.",
-      "spokenAnchor": "different compound",
+      "spokenAnchor": "another chemical",
       "visualAction": "Split the question into two chemically verified and separate identities, reserving SR-17018 for the actual evidence.",
       "motion": {
         "type": "reveal"
@@ -43,10 +43,10 @@
     {
       "id": "sr15-finding",
       "role": "finding",
-      "narration": "In a mouse experiment, morphine sensitivity returned during a switch to S R one-seven-zero-one-eight, while signs of withdrawal were suppressed.",
+      "narration": "In mice, morphine sensitivity returned during a switch to S R one-seven-zero-one-eight, with withdrawal signs suppressed.",
       "onScreenText": "MOUSE STUDY • SR-17018",
       "visualPurpose": "Present the intriguing result accurately as mouse study.",
-      "spokenAnchor": "while signs of withdrawal were suppressed",
+      "spokenAnchor": "withdrawal signs suppressed",
       "visualAction": "Show a qualitative mouse hot-plate response marker returning while a separate withdrawal marker diminishes, with illustrative labels.",
       "motion": {
         "type": "reveal"
@@ -61,10 +61,10 @@
     {
       "id": "sr15-context",
       "role": "context",
-      "narration": "Tolerance means the same amount of a drug has less effect after repeated use. Withdrawal means symptoms when an adapted body stops taking it. They're different.",
+      "narration": "Tolerance means the same amount has less effect with repeated use. Withdrawal means symptoms when an adapted body stops the drug.",
       "onScreenText": "TOLERANCE IS NOT WITHDRAWAL",
       "visualPurpose": "Explain concepts in everyday language before comparing groups.",
-      "spokenAnchor": "They're different",
+      "spokenAnchor": "Withdrawal means",
       "visualAction": "Physically separate response-strength animation from discontinuation-and-symptoms illustration. Clearly label conceptual diagrams, not measurements.",
       "motion": {
         "type": "reveal"
@@ -79,7 +79,7 @@
     {
       "id": "sr15-evidence",
       "role": "evidence",
-      "narration": "Here's the critical detail: after three days without morphine, both the S R one-seven-zero-one-eight group and the control group regained sensitivity in the hot-plate test.",
+      "narration": "Here's the important detail: after three days without morphine, both the S R one-seven-zero-one-eight group and the control group regained sensitivity.",
       "onScreenText": "BOTH GROUPS REGAINED SENSITIVITY",
       "visualPurpose": "Make the control-group finding visually impossible to miss.",
       "spokenAnchor": "both",
@@ -99,7 +99,7 @@
     {
       "id": "sr15-limit",
       "role": "limitation",
-      "narration": "The difference was withdrawal: it was suppressed in the replacement group, not in the control group. A later mouse test also failed to show tolerance reversal.",
+      "narration": "Withdrawal was suppressed in the replacement group, not the control group. A later mouse test found no reversal.",
       "onScreenText": "A SECOND MOUSE TEST DID NOT REPLICATE REVERSAL",
       "visualPurpose": "Separate the observed withdrawal effect from the failed transfer across assays.",
       "spokenAnchor": "A later mouse test",
@@ -117,7 +117,7 @@
     {
       "id": "sr15-cta",
       "role": "cta",
-      "narration": "That's fascinating animal research, not proof that S R one-five-zero-nine-nine safely resets tolerance in people.",
+      "narration": "That is animal research, not proof that S R one-five-zero-nine-nine safely resets tolerance in people.",
       "onScreenText": "NO HUMAN SR-15099 TOLERANCE-RESET EVIDENCE",
       "visualPurpose": "Close explicitly on the inference boundary and human safety uncertainty.",
       "spokenAnchor": "not proof",
