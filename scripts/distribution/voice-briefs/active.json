@@ -1,0 +1,157 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "sr15099-longform-chapter-1",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31443104/"
+  },
+  "premise": {
+    "interestScore": 4.5,
+    "coldViewerWhyCare": "A jargon-free SR-15099 and SR-17018 scientific explanation focusing on opioid tolerance and what mouse results can and cannot demonstrate.",
+    "viewerQuestion": "Can SR-15099 be said to reset tolerance?",
+    "earlyPayoff": "The famous animal tolerance-reversal study used SR-17018, not SR-15099.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false,
+    "hookMode": "curiosity",
+    "methodIsStory": false
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "chapter": {
+    "index": 1,
+    "total": 5,
+    "editorialOnly": true,
+    "fullNarrationNotSub60": true
+  },
+  "beats": [
+    {
+      "id": "sr15099-long-01-hook",
+      "role": "hook",
+      "narration": "Could this experimental opioid really reset tolerance? That's the claim making people curious about S R one-five-zero-nine-nine.",
+      "onScreenText": "THE QUESTION",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
+      "spokenAnchor": "Could this experimental",
+      "visualAction": "A distinct physical evidence-bound visual reveal for hook, tied exactly to the spoken assertion; never invent chemistry or statistics.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "sr15099-long-01-finding",
+      "role": "finding",
+      "narration": "But the most famous tolerance experiment actually tested a related chemical: S R one-seven-zero-one-eight.",
+      "onScreenText": "WHAT CHANGES",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
+      "spokenAnchor": "But the most",
+      "visualAction": "A distinct physical evidence-bound visual reveal for finding, tied exactly to the spoken assertion; never invent chemistry or statistics.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "sr15099-long-01-context",
+      "role": "context",
+      "narration": "First, let's make sense of the word tolerance. Say an opioid has a certain effect the first time someone takes it.",
+      "onScreenText": "EXPLAIN THE TERMS",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
+      "spokenAnchor": "First, let's make",
+      "visualAction": "A distinct physical evidence-bound visual reveal for context, tied exactly to the spoken assertion; never invent chemistry or statistics.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "phrase-boundary",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "sr15099-long-01-evidence",
+      "role": "evidence",
+      "narration": "With repeated use, the same amount may have less effect.",
+      "onScreenText": "WHAT WAS MEASURED",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
+      "spokenAnchor": "With repeated use,",
+      "visualAction": "A distinct physical evidence-bound visual reveal for evidence, tied exactly to the spoken assertion; never invent chemistry or statistics.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "sr15099-long-01-limitation",
+      "role": "limitation",
+      "narration": "The body has adapted.",
+      "onScreenText": "IMPORTANT LIMIT",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
+      "spokenAnchor": "The body has",
+      "visualAction": "A distinct physical evidence-bound visual reveal for limitation, tied exactly to the spoken assertion; never invent chemistry or statistics.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "sr15099-long-01-cta",
+      "role": "cta",
+      "narration": "That's tolerance. It's not the same thing as addiction.",
+      "onScreenText": "WHAT THIS MEANS",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 1 narrative: From the rumor to the definition of tolerance.",
+      "spokenAnchor": "That's tolerance.",
+      "visualAction": "A distinct physical evidence-bound visual reveal for cta, tied exactly to the spoken assertion; never invent chemistry or statistics.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.1
+    },
+    {
+      "id": "sr15099-long-1-source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/31443104/",
+      "visualPurpose": "Readable original journal citation, required standstill.",
+      "spokenAnchor": "",
+      "visualAction": "Hold actual canonical PubMed URL for review.",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "primary-source",
+      "primaryEntities": [],
+      "holdSeconds": 3.3
+    }
+  ]
+}
