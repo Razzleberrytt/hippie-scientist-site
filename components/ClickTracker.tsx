@@ -308,6 +308,29 @@ export default function ClickTracker() {
         trackLeadMagnetClick({ slug: leadMagnetMatch[1], sourcePath: window.location.pathname })
       }
 
+      // Deliberately tagged internal evidence handoffs are not affiliate clicks.
+      // Capture their decision intent only after affirmative analytics consent.
+      // Never block navigation or collect the visitor's query parameters.
+      if (consentGranted && link.dataset.decisionCta === 'true') {
+        const destination = internalPathFromHref(href)
+        if (destination) {
+          void loadRevenueTracking()
+            .then(({ trackRevenueEvent }) => {
+              trackRevenueEvent({
+                kind: 'cta_click',
+                location: journeyPlacement(link),
+                label: 'Evidence next step',
+                target: destination,
+                ctaVariant: link.dataset.ctaVariant || 'evidence-next-step',
+                modulePosition: 'post-evidence',
+              })
+            })
+            .catch(() => {
+              // Measurement cannot interfere with navigating to the evidence.
+            })
+        }
+      }
+
       if (!isAffiliateLink(link) || link.dataset.revenueTracked === 'true' || !consentGranted) return
       const meta = affiliateMetadata(link)
       void loadRevenueTracking()
