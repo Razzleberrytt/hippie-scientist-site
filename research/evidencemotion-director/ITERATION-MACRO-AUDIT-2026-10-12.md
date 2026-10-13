@@ -27,3 +27,14 @@ Choose an approved science brief and narrated anchor FIRST; choose a single exce
 
 ### Operating boundaries
 Draft PR #6734 remains separate and unmerged, no publishing permissions. The milestone is unchanged: **one excellent first-final-render master, then five excellent first-final-render masters consecutively**. Merely passing the mechanical tests is not an improvement to the milestone count.
+
+
+## Follow-up adversarial creative test: moving powder confetti
+- Rendered a second 6-second silent 540×960/15 fps art experiment from the **same verified botanical source crop**, adding a deterministic dust/grain fall in the scoop beat (all nonfactual and illustrative). New encoded MP4 SHA-256: `14638990020463a2ee6f404a6497394125f8627838162baa19b1847e810ae0bb`.
+- This increased **median per-pixel motion fraction** from ~0.00003 to **~0.00914** (the new motion indicator would stop complaining). But the result still looks like a static photograph with tiny particles added. It is **CREATIVE HOLD / KILL**, not a better finished science video.
+- Structural-motion test: spatially averaged 32×32 RGB blocks, looking for a color difference >=6, reported **median large-scale change fraction 0** for both original and dust-animated candidates. This intentionally weak negative proxy correctly shows that tiny confetti motion does not establish a changed hero composition; it is still **not proof** of a meaningful narrative action.
+- Tightened canonical independent preview decoder to emit `medianBroadStructureChangedFraction`. `preview-proof.mjs` now requires that evidence; `previz-director.mjs` holds a preview when its hero composition is effectively static even if tiny particle movement increases raw motion. Negative tests cover the case.
+- **10/10 isolated Node gate tests executed locally and passed** for `preview-proof.test.mjs` and `illustrative-crop-gate.test.mjs`. The full updated draft PR end-to-end suite has **not** been executed here; do not call it green based on these targeted tests.
+
+**Creative conclusion:** A film-worthy change needs a before/after transformation *in the main visual subject* that is explicitly timed to narration and source-supported; faster particle movement, richer colored lighting, or increased raw motion cannot substitute for it.
+
