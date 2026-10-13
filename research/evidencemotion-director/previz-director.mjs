@@ -71,7 +71,7 @@ export function evaluatePreviz(candidate,receipt){
   const reasons=[];
   if(!candidate||candidate.status!=='PREVIZ_PROPOSAL_NOT_APPROVED')
     reasons.push('NOT_AN_AUTHORED_CANDIDATE');
-  if(!receipt||receipt.origin!=='decoded-preview'||!clean(receipt.previewSha256)||
+  if(!receipt||(receipt.origin!=='independent-full-decode'||receipt.schemaVersion!=='ths-director-decoded-pixels-v1')||!clean(receipt.previewSha256)||
      !/^[a-f0-9]{64}$/i.test(clean(receipt.previewSha256))||
      !Number.isInteger(receipt.decodedFrameCount)||receipt.decodedFrameCount<=0)
     reasons.push('ACTUAL_DECODED_PREVIEW_RECEIPT_REQUIRED');
