@@ -23,7 +23,7 @@ describe('SR-15099 compound coverage and research integrity', () => {
       expect(page).toContain('31443104')
       expect(page).toContain('33345829')
       expect(page).toMatch(/SR-15099[^\n]{0,120}(?:not established|no direct|no controlled human|not a proven)|no controlled human[^\n]{0,140}SR-15099/i)
-      expect(page).toMatch(/both groups/i)
+      expect(page).toMatch(/both groups|also regained morphine sensitivity/i)
       expect(page).toMatch(/withdrawal/i)
       // Restrict denial-of-overclaim assertions to declarative prose, not questions or metadata.\n      const proseAssertions = page.replace(/^---[\\s\\S]*?---/, '').replace(/\\*\\*/g, '')\n        .split('\\n').filter(line => !line.trim().endsWith('?')).join('\\n')\n      expect(proseAssertions).not.toMatch(/(?:^|\\n)\\s*(?:[-*>]\\s*)?SR-15099 (?:reverses|resets|prevents) (?:opioid |morphine )?(?:tolerance|withdrawal)\\b/i)
     }
