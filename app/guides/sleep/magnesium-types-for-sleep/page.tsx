@@ -298,7 +298,7 @@ export default function MagnesiumTypesForSleepPage() {
             description="We are not endorsing a specific brand or product. Use the ingredient and label checklist above; verified examples will appear only after independent product-level review."
             products={[]}
             trackingProductSlug="magnesium"
-          />}
+          />
         </section>
 
         <EmailCapture headline="Get future research notes by email" description="Evidence-first supplement updates, safety context, and new guide announcements." location={`article-${SLUG}`} />
