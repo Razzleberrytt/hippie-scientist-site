@@ -1,6 +1,8 @@
 """Native final media audit negative tests; no media needed for test fixtures."""
 import tempfile
 import unittest
+import subprocess
+from decimal import Decimal
 from pathlib import Path
 from unittest.mock import patch
 import native_master_audit as target
@@ -15,14 +17,18 @@ class NativeMasterAuditTests(unittest.TestCase):
         self.master.write_bytes(b'a')
         self.ref.write_bytes(b'b')
         self.video = {'codec_type': 'video', 'codec_name': 'h264',
-                      'width': 1080, 'height': 1920, 'r_frame_rate': '30/1',
+                      'width': 1080, 'height': 1920, 'r_frame_rate': '30/1', 'avg_frame_rate': '30/1',
                       'nb_frames': '1031', 'duration': '34.366667'}
         self.audio = {'codec_type': 'audio', 'codec_name': 'aac', 'duration': '34.347'}
 
-    def run_checked(self, **changes):
+    def run_checked(self, *, frames=None, audio_hashes=None, **changes):
         video = {**self.video, **changes}
+        if audio_hashes is None:
+            audio_hashes = ['b' * 64, 'b' * 64]
+        stamps = frames if frames is not None else [Decimal(i)/30 for i in range(1031)]
         with patch.object(target, 'probe', return_value=[video, self.audio]), \
-             patch.object(target, 'audio_hash', return_value='b' * 64):
+             patch.object(target, 'frame_timestamps', return_value=stamps), \
+             patch.object(target, 'audio_hash', side_effect=audio_hashes):
             return target.verify(self.master, self.ref, target.sha256_file(self.master),
                                  'b' * 64, 1031, decode_all=False)
 
@@ -59,6 +65,46 @@ class NativeMasterAuditTests(unittest.TestCase):
     def test_bad_duration_is_rejected(self):
         self.audio['duration'] = '34.0'
         self.assertIn('AUDIO_VIDEO_DURATION_MISMATCH', self.run_checked()['problems'])
+
+
+    def test_guessed_30fps_but_variable_frame_timestamps_rejected(self):
+        stamps = [Decimal(i)/30 for i in range(1031)]
+        stamps[10] += Decimal('0.025')
+        result = self.run_checked(frames=stamps)
+        self.assertEqual(result['technical'], 'HOLD')
+        self.assertIn('NONCONSTANT_VIDEO_FRAME_TIMING', result['problems'])
+
+    def test_frame_timestamps_unavailable_rejected(self):
+        with patch.object(target, 'probe', return_value=[self.video, self.audio]), \
+             patch.object(target, 'frame_timestamps',
+                          side_effect=subprocess.CalledProcessError(1, 'ffprobe')), \
+             patch.object(target, 'audio_hash', return_value='b' * 64):
+            result = target.verify(self.master, self.ref,
+                                   target.sha256_file(self.master), 'b'*64,
+                                   1031, decode_all=False)
+        self.assertIn('FRAME_TIMESTAMP_EXTRACTION_FAILED', result['problems'])
+
+    def test_duration_not_consistent_with_frame_count_rejected(self):
+        result = self.run_checked(duration='34.50')
+        self.assertIn('VIDEO_DURATION_NOT_FIXED_FPS', result['problems'])
+
+    def test_missing_master_audio_returns_structured_hold(self):
+        error = subprocess.CalledProcessError(1, 'ffmpeg -map 0:a:0')
+        result = self.run_checked(audio_hashes=[error, 'b'*64])
+        self.assertEqual(result['technical'], 'HOLD')
+        self.assertIn('MASTER_AUDIO_EXTRACTION_FAILED', result['problems'])
+
+    def test_missing_reference_audio_returns_structured_hold(self):
+        error = subprocess.CalledProcessError(1, 'ffmpeg -map 0:a:0')
+        result = self.run_checked(audio_hashes=['b'*64, error])
+        self.assertEqual(result['technical'], 'HOLD')
+        self.assertIn('REFERENCE_AUDIO_EXTRACTION_FAILED', result['problems'])
+
+    def test_decoded_frame_count_mismatch_rejected(self):
+        stamps = [Decimal(i)/30 for i in range(100)]
+        result = self.run_checked(frames=stamps)
+        self.assertIn('DECODED_FRAME_COUNT_MISMATCH', result['problems'])
+        self.assertFalse(result['releaseApproved'])
 
 
 if __name__ == '__main__':
