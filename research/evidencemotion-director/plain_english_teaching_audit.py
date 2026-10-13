@@ -23,7 +23,7 @@ ADDITIONAL_TERMS = {
     "pharmacodynamics": ("effects", "body"),
 }
 OVERCLAIM_PATTERNS = (
-    (r'(?i)\b(?:the|this) molecular? (?:picture|diagram|drawing) proves\b',
+    (r'(?i)\b(?:the|this) (?:molecule|molecular) (?:picture|diagram|drawing) proves\b',
      "diagram cannot by itself establish an effect on people"),
     (r'(?i)\bcomputer model (?:proves|shows exactly) what (?:you|people) feel\b',
      "computed model cannot establish a human experience"),
