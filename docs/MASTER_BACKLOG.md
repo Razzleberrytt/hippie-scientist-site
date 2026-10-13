@@ -94,7 +94,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
-| #6749 | Insight Foundry: versioned source-bound research contracts | A | Active — admitted (research-only contracts; pending implementation) | P1 | 3/4/2/5/0.75/2 | 45.0 | 2026-10-13 |
+| #6749 / PR #6762 | Insight Foundry: versioned source-bound research contracts | A | Active — admitted; PR #6762 in review (research-only, not production) | P1 | 3/4/2/5/0.75/2 | 45.0 | 2026-10-13 |
 
 
 
