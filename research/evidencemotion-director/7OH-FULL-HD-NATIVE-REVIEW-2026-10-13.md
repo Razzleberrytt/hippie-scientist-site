@@ -1,5 +1,7 @@
 # EvidenceMotion 7-OH — complete native Full-HD research review master
 
+> **Superseded review candidate:** This 1,030-frame master is historical. The currently selected verified full-HD output is the independently re-rendered, corrected 1,031-frame video documented in [`7OH-FULL-HD-NATIVE-REPRODUCIBLE-2026-10-13.md`](7OH-FULL-HD-NATIVE-REPRODUCIBLE-2026-10-13.md). The latest master uses 1080×1920/30fps, exact SHA `130857e331d40e452edd38a1d112d88e552b56009c4aa0e57cd1e15559581b86`, and repairs source labels/caption safe area.
+
 **2026-10-13 · Research-only; user delegated routine creative/engineering approvals and prefers a complete end result to refine rather than approving each preview.** This records a delivered candidate, not a production/version freeze lift, automatic social publication, independently qualified scientific review, or a milestone-quality acceptance.
 
 ## Selected research cut
