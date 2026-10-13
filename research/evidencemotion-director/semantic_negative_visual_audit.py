@@ -6,6 +6,8 @@ from pathlib import Path
 import numpy as np
 
 SOURCE_FILM_SHA='d2aff53b7a18c32eb6c4ee9d60fd3bb216593d897b730f5ebf58086dd2a71e51'
+SOURCE_MANIFEST_SHA='fb0845ca439b689ccf1bef477ed5cd323a8e5f894c14dcbdb24ed3d03a72c789'
+SOURCE_RENDERER_SHA='7b3233673cb1d69fadd3abc7e98a659236895eeb1f582b1d3eb9cdb94c80de69'
 TIMES=[1.8,5.0,7.5,9.5,10.05,11.8,15.0,17.0,18.5,19.7,19.83,20.,22.3,24.5,26.2,29.5,32.2]
 WINDOWS=[(0,3.4267),(3.4267,6.25),(6.25,8.85),(8.85,9.78),(9.78,10.694),
          (10.694,13.63),(13.63,16.496),(16.496,18.48),(18.48,19.76),
@@ -85,11 +87,14 @@ def decode_frame(master,frame_number):
 def build_model(root):
     from PIL import Image
     root=Path(root)
+    if digest(root/'source_input_manifest.json')!=SOURCE_MANIFEST_SHA:
+        raise RuntimeError('SOURCE_MANIFEST_SHA_DRIFT')
     manifest=json.loads((root/'source_input_manifest.json').read_text())
     if manifest.get('releaseApproved') is not False or manifest.get('craftApproved') is not False:
         raise RuntimeError('RESEARCH_RELEASE_HOLD_MISSING')
     rel='original/build_fullhd_matchcut.py'
-    if digest(root/rel)!=manifest['sourceInputs'][rel]:raise RuntimeError('SOURCE_RENDERER_HASH_DRIFT')
+    if digest(root/rel)!=SOURCE_RENDERER_SHA or digest(root/rel)!=manifest['sourceInputs'][rel]:
+        raise RuntimeError('SOURCE_RENDERER_HASH_DRIFT')
     for path,sha in manifest['sourceInputs'].items():
         if not (root/path).is_file() or digest(root/path)!=sha:
             raise RuntimeError('SOURCE_INPUT_HASH_DRIFT:'+path)
