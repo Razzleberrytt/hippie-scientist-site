@@ -5,7 +5,7 @@
 ## Exact off-repo asset archive
 
 - File in the originating ChatGPT research workspace: **`EvidenceMotion_7OH_Searchable_Asset_Library_RESEARCH.zip`**
-- **ZIP SHA-256:** `93950f07755e820415b70c0cf3615bf7573d9e23adf2225dbc4093909dbe6bf9`
+- **ZIP SHA-256:** `7b6a35ba12ba2266e6447a35011e041ebcebe94b63e90fd8aa00937c8b668bb1`
 - Originally sourced only from `EvidenceMotion_7OH_Intermediates_Provenance_RESEARCH.zip` (SHA-256 `2c2d06028e86978ce6799f58c5476a881144cff623322c3339f2d9c83ffe0618`).
 - Immutable canonical `ORIGINAL_SOURCE_MANIFEST.json` SHA-256: `fb0845ca439b689ccf1bef477ed5cd323a8e5f894c14dcbdb24ed3d03a72c789`.
 - The ZIP is **not** checked into Git, published to the website, or backed by guaranteed permanent cloud object storage. If the conversation archive becomes inaccessible, the source must be re-materialized from verified separate originals; never invent an archive URL or imply durable production retention.
@@ -18,7 +18,7 @@
 | 7-OH 3D ball-and-stick frame sequence | 42 original PNGs | **computed**, source-bound 7-OH ETKDG/MMFF/VTK model | Recut/retime for 7-OH; **not** an observed docking or measured pose |
 | 7-OH 3D space-filling frame sequence | 18 original PNGs | **computed**, same 7-OH model | 7-OH structural illustration with uncertainty disclosed |
 | Generic composition backdrop | 1 PNG | THS studio graphic, **not scientific evidence** | Can be reused as nonfactual aesthetic background |
-| Derived presentation-only previews | 2 MP4s | Labelled computed-geometry review loops | Preview only; never substitute for approved original source sequence |
+| Derived presentation-only previews | 2 MP4s | Labelled computed-geometry review loops, H.264 Constrained Baseline 720p square @24fps | Preview only; never substitute for approved original source sequence |
 
 **63 immutable original PNGs**: 2 chemical diagrams + 60 frames across **two coherent sequences** + 1 background. Do not misrepresent 60 animation *frames* as 60 distinct completed motion assets, or two cut-together research loops as excellent final videos.
 
