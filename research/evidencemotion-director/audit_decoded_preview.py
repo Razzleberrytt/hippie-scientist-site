@@ -42,6 +42,7 @@ def audit(filepath, pixel_threshold=8, change_floor=0.018):
         if code:raise RuntimeError('FFmpeg decode error: '+stderr[-250:])
     finally:
         if p.poll() is None:p.kill();p.wait()
+        p.stdout.close();p.stderr.close()
     if frames<2:raise ValueError('Need at least two decoded frames')
     now=longest=0
     for frac in changed:
