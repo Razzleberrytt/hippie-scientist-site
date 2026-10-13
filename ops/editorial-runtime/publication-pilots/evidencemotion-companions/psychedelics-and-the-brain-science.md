@@ -104,7 +104,7 @@ Laboratory and animal studies suggest that certain psychedelic compounds can cha
 
 A **synapse** is a tiny junction where nerve cells pass signals to one another. "Growing more synapses" is a different claim from "brain scans show changing activity."
 
-In July 2026, a small study of **15 healthy volunteers** used a different scanning method called **PET**, which tracks a labeled marker in the body. Researchers examined a protein linked with synapses before and after psilocybin. They did **not** find a statistically significant overall increase in the marker one week later. [3]
+In July 2026, a small study included **15 healthy volunteers** and used a different scanning method called **PET**, which tracks a labeled marker in the body. Researchers examined **SV2A**, a protein commonly used as an indirect sign of nerve-cell connection sites, before and one week after psilocybin. The **main planned analysis used 12 participants with complete blood-sampling data**, and the wider group supplied a second measurement. Neither analysis found a statistically significant overall increase in this marker. In other words, the study did not clearly establish that more synapses had formed. It did **not** prove that the brain is unable to adapt in other ways. The study also had no placebo comparison group, which limits how confidently changes can be attributed to the drug. [3]
 
 **Statistically significant** means a result met a planned mathematical threshold used to judge whether the data support a difference. Not reaching that threshold does not prove nothing happened anywhere in the brain. It means the study could not establish the overall increase it was testing.
 
