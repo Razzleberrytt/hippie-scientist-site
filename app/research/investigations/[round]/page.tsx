@@ -83,6 +83,9 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
                 <a href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`} target='_blank' rel='noopener noreferrer' className='inline-flex min-h-10 items-center rounded-full border border-brand-700/25 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 hover:bg-brand-100'>
                   PMID {pmid} ↗
                 </a>
+                {(sourceOccurrences.get(pmid)?.length ?? 0) > 1 ? (
+                  <span className='text-xs text-muted'>Same PubMed paper reused, not another independent study.</span>
+                ) : null}
                 {(sourceOccurrences.get(pmid) ?? [])
                   .filter((entry) => entry.id !== item.id)
                   .map((entry) => (
