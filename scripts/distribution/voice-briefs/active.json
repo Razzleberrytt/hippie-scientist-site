@@ -1,0 +1,152 @@
+{
+  "release": "R8.05",
+  "sourceIdentity": {
+    "id": "sr15099-tolerance-audition-grim2020",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31443104/"
+  },
+  "premise": {
+    "interestScore": 4.5,
+    "coldViewerWhyCare": "People are hearing that SR-15099 resets opioid tolerance; this explains the mouse research, control group and missing human evidence.",
+    "viewerQuestion": "Does SR-15099 reset opioid tolerance?",
+    "earlyPayoff": "The famous tolerance-reversal experiment actually tested related SR-17018, not SR-15099.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false,
+    "hookMode": "curiosity"
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "sr15-hook",
+      "role": "hook",
+      "narration": "Can S R one-five-zero-nine-nine really reset opioid tolerance? The famous experiment was actually performed with a different compound: S R one-seven-zero-one-eight.",
+      "onScreenText": "SR-15099: DOES IT RESET TOLERANCE?",
+      "visualPurpose": "Make the rumor a question, then separate the tested compound from the discussed compound.",
+      "spokenAnchor": "different compound",
+      "visualAction": "Split the question into two chemically verified and separate identities, reserving SR-17018 for the actual evidence.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "factualAuthority": "research-context",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "sr15-finding",
+      "role": "finding",
+      "narration": "In a mouse experiment, morphine sensitivity returned during a switch to S R one-seven-zero-one-eight, while signs of withdrawal were suppressed.",
+      "onScreenText": "MOUSE STUDY • SR-17018",
+      "visualPurpose": "Present the intriguing result accurately as mouse study.",
+      "spokenAnchor": "while signs of withdrawal were suppressed",
+      "visualAction": "Show a qualitative mouse hot-plate response marker returning while a separate withdrawal marker diminishes, with illustrative labels.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "emphasis",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [
+        "SR-17018"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "sr15-context",
+      "role": "context",
+      "narration": "Tolerance means the same amount of a drug has less effect after repeated use. Withdrawal means symptoms when an adapted body stops taking it. They're different.",
+      "onScreenText": "TOLERANCE IS NOT WITHDRAWAL",
+      "visualPurpose": "Explain concepts in everyday language before comparing groups.",
+      "spokenAnchor": "They're different",
+      "visualAction": "Physically separate response-strength animation from discontinuation-and-symptoms illustration. Clearly label conceptual diagrams, not measurements.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "general-education",
+      "primaryEntities": [
+        "tolerance"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "sr15-evidence",
+      "role": "evidence",
+      "narration": "Here's the critical detail: after three days without morphine, both the S R one-seven-zero-one-eight group and the control group regained sensitivity in the hot-plate test.",
+      "onScreenText": "BOTH GROUPS REGAINED SENSITIVITY",
+      "visualPurpose": "Make the control-group finding visually impossible to miss.",
+      "spokenAnchor": "both",
+      "visualAction": "Two explicitly qualitative controlled tracks separate, advance over three days, and arrive at the same recovered morphine-sensitivity marker.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID:31443104",
+      "comparisonRequired": true,
+      "primaryEntities": [
+        "SR-17018 group",
+        "vehicle control"
+      ],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "sr15-limit",
+      "role": "limitation",
+      "narration": "The difference was withdrawal: it was suppressed in the replacement group, not in the control group. A later mouse test also failed to show tolerance reversal.",
+      "onScreenText": "A SECOND MOUSE TEST DID NOT REPLICATE REVERSAL",
+      "visualPurpose": "Separate the observed withdrawal effect from the failed transfer across assays.",
+      "spokenAnchor": "A later mouse test",
+      "visualAction": "Split the withdrawal signs, then transition into separate hot-plate and warm-water tail-response assay illustrations.",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "factualAuthority": "PMID:31443104;PMID:33345829",
+      "primaryEntities": [
+        "SR-17018"
+      ],
+      "pauseAfterSeconds": 0.16
+    },
+    {
+      "id": "sr15-cta",
+      "role": "cta",
+      "narration": "That's fascinating animal research, not proof that S R one-five-zero-nine-nine safely resets tolerance in people.",
+      "onScreenText": "NO HUMAN SR-15099 TOLERANCE-RESET EVIDENCE",
+      "visualPurpose": "Close explicitly on the inference boundary and human safety uncertainty.",
+      "spokenAnchor": "not proof",
+      "visualAction": "The study evidence frame remains attached to SR-17018, while a barrier prevents its transfer to SR-15099 as a proven human treatment.",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "end",
+      "factualAuthority": "evidence-boundary",
+      "primaryEntities": [
+        "SR-15099"
+      ],
+      "pauseAfterSeconds": 0.15
+    },
+    {
+      "id": "sr15-source",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/31443104/",
+      "visualPurpose": "Readable primary-source citation accessible after the narration.",
+      "spokenAnchor": "",
+      "visualAction": "Hold the canonical URL in a quiet source frame, no invented claims or animation.",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "end",
+      "factualAuthority": "PMID:31443104",
+      "primaryEntities": [],
+      "holdSeconds": 3.5
+    }
+  ]
+}
