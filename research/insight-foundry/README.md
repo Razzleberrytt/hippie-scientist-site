@@ -1,8 +1,8 @@
 # Insight Foundry — research-only source-linked contracts
 
-**Implementation status:** standalone, reviewed-at-code-level only; NOT scientific review, code admission, a deployed feature, or independent evidence verification.
+**Implementation status:** admitted as Authority ticket #6749 by merged control PR #6754; this code is an unmerged implementation candidate, not a deployed feature, scientific review, or independent source verification.
 
-**Admitted owner needed:** issue #6749 and protected merge of control PR #6754 are required before this source is committed to the THS repo.
+**Owning work:** issue #6749, formally admitted by protected merge of control PR #6754. Implementation remains gated by exact-head CI and the sole merge controller.
 
 ## Integration intent
 
@@ -31,4 +31,4 @@ The existing repo `scripts/run-node-tests.mjs` discovers both files via top-leve
 
 ## Limitations
 
-The 62 synthetic tests verify only local invariants. They are not live external search receipts, publication review, or actual THS integration tests. That requires a separately governed CI run against canonical source register and genuine sources, followed by mandatory release gates.
+The 62 synthetic tests verify code-level invariants when run on the exact implementation PR head. They are not live external search receipts, publication review, or actual THS integration tests. That requires a separately governed CI run against canonical source register and genuine sources, followed by mandatory release gates.
