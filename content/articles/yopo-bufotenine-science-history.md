@@ -38,8 +38,10 @@ references:
     pmid: "20942780"
     url: "https://pubmed.ncbi.nlm.nih.gov/20942780/"
   - title: "Short- and Long-Acting Psychedelics: Structure-Activity Relationships, Pharmacology, and Implications for Neuropsychiatric Therapeutics"
-    authors: "Scientific review"
+    authors: "Bhat A, Zolali E, Sakib MA, et al."
     year: "2026"
+    pmid: "42257400"
+    doi: "10.1021/acschemneuro.6c00202"
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13281395/"
 ---
 
