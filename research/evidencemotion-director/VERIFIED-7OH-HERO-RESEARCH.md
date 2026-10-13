@@ -41,3 +41,13 @@ To escape the previous near-static molecular orbit, a separate local CPU experim
 - Independent before-after sampled at 1s and 5s: **0.2917** large-scale changed subject blocks (versus **0.0179** for the initial slow orbit). These are *negative quality proxies* only.
 - The repository's adapted source script was updated for the same two-shot concept but **has not yet been independently executed** on a checkout; do not claim bit-for-bit match or exact source reproduction for the repo version until verified.
 - **CRAFT HOLD:** The deliberate atom-site move is more legible, but lacks voice, source-specific explanatory stakes, material richness and owner on-phone acceptance. Neither this nor the original silent orbit counts toward the one-plus-five milestone.
+
+
+## Third research treatment: botanical → verified 3D structure → hydroxyl close-up
+A separate local silent CPU study combined **existing approved nonfactual botanical pixels** with the already computed chemical model frames; no new generative molecules, data or factual labels were introduced. Its three visual beats are botanical context, spatial/optical reveal, and a genuine molecular-geometry close-up of the chemically verified hydroxyl site. It does **not** represent visible molecules on a leaf, a measurement of 7OH content in botanical material, or a true chemical transformation.
+
+- Pilot MP4: `botanical_to_verified_7oh_RESEARCH_ONLY_SILENT.mp4` (source SHA-256 `82c84546aed02386e9ea7d9c3af04da1fc945acc696a794507acc5a9b30d3194`), 480×854, 72 real decoded frames, 12fps, six seconds, H.264 Baseline, no audio.
+- Independent decoded-frame check: longest subject ROI static run **0.833s**; median changed-pixel fraction **0.08186**. Cuts and occlusions can inflate scores, so this is not quality certification.
+- Compared with single slow molecular orbit, this is more legible and narratively staged; compared with flagship 3D explainers, lighting, scientific staging and phone-scale scene continuity remain open issues.
+- **Creative/owner approval: HOLD.** There is no audited narrator performance, genuine source-bound timing, independent V artistic review, owner phone playback, high-definition master or publication permission.
+- Experimental assembly script and its source artwork are local research artifacts, not committed CI production dependencies. No video milestone completed.
