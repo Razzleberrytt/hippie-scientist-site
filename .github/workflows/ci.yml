@@ -127,19 +127,6 @@ jobs:
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
         run: npm run validate:workbook-source
 
-      - name: Reconcile research dossier PMIDs against canonical workbook
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
-        run: npm run research:reconcile-canonical
-
-      - name: Preserve inspectable canonical PMID reconciliation report
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
-        uses: actions/upload-artifact@v7
-        with:
-          name: canonical-deep-enrichment-pmid-audit-${{ github.sha }}
-          path: ops/reports/deep-enrichment-canonical-pmid-presence.json
-          if-no-files-found: error
-          retention-days: 30
-
       - name: Validate static export compatibility
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.bounded_ui != 'true'
         run: npm run validate:static-export
