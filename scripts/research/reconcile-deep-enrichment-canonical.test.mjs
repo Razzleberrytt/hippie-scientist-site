@@ -30,6 +30,26 @@ test('exact PMID join includes workbook sources and claims but never asserts nov
   assert.equal(result.promotes_clinical_claims, false)
 })
 
+test('matched records preserve per-row worksheet provenance and do not double-count PMID identities', () => {
+  const dossiers = [{ round: 10, id: 'DE10-01', pmids: ['12345678', '87654321'] }]
+  const sourceRows = [
+    { __audit_sheet: 'Source_Register', pmid: '12345678', source_id: 'source_1' },
+    { __audit_sheet: 'Source Register', pmid: '12345678', source_id: 'source_2' },
+  ]
+  const claimRows = [
+    { __audit_sheet: 'Study Registry', pmid: '87654321', claim_id: 'study_1' },
+    { __audit_sheet: 'Evidence_Register', PMID: '87654321', claim_id: 'study_2' },
+  ]
+  const audit = reconcile(dossiers, sourceRows, claimRows)
+  assert.equal(audit.summary.pmids_present_in_workbook_by_exact_id, 2)
+  assert.equal(audit.source_rows_scanned, 2)
+  assert.equal(audit.study_rows_scanned, 2)
+  assert.deepEqual(audit.entries.find((e) => e.pmid === '12345678').workbook_source_records.map((x) => x.sheet),
+    ['Source_Register', 'Source Register'])
+  assert.deepEqual(audit.entries.find((e) => e.pmid === '87654321').workbook_study_claim_records.map((x) => x.sheet),
+    ['Study Registry', 'Evidence_Register'])
+})
+
 test('unknown and invalid source identities do not silently become matched citations', () => {
   const out = reconcile([{ id: 'DE10-01', round: 10, pmids: ['33333333'] }],
     [{ pmid: '333333330' }, { title: 'PMID 33333333' }, { pmid: 'PMID 3333333; 33333333' }], [])
