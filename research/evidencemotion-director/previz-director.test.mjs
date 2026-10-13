@@ -11,7 +11,7 @@ const beat={
 };
 const receipt={
  origin:'independent-full-decode',schemaVersion:'ths-director-decoded-pixels-v1',previewSha256:hex,decodedFrameCount:120,
- width:360,height:640,fps:12,roiPixels:[40,115,320,486],medianChangedFraction:0.18,
+ width:360,height:640,fps:12,roiPixels:[40,115,320,486],medianChangedFraction:0.18,medianBroadStructureChangedFraction:0.08,
  voiceTimeStretched:false,factualGeometryGenerated:false,heroAbsent:false,
  stockClipArtDetected:false,maxCaptionExcludedStaticSec:1.5,sourceLocked:true,
  narrationSha256:hex,approvedNarrationSha256:hex
@@ -70,4 +70,11 @@ test('moving-poster warning must hold even when no 6-second freeze exists',()=>{
  const result=evaluatePreviz(candidate,{...receipt,medianChangedFraction:0.0,maxCaptionExcludedStaticSec:0.33});
  assert.equal(result.status,'HOLD');
  assert.ok(result.reasons.includes('MOVING_POSTER_CONCEPT_REVIEW_HOLD'));
+});
+
+test('moving pixels do not establish hero motion',()=>{
+ const candidate=proposeShots(beat).candidates[0];
+ const result=evaluatePreviz(candidate,{...receipt,medianChangedFraction:0.2,medianBroadStructureChangedFraction:0});
+ assert.equal(result.status,'HOLD');
+ assert.ok(result.reasons.includes('HERO_STATIC_CONCEPT_REVIEW_HOLD'));
 });
