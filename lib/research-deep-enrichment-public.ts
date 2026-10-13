@@ -43,6 +43,24 @@ export type DeepEnrichmentRound = {
   sharedDossierNotes: string
 }
 
+/**
+ * Exact PMID occurrence links across the research-only archive.
+ * These are citation reuses, never independent studies or ledger admissions.
+ */
+export function getDeepEnrichmentSourceOccurrences(rounds: DeepEnrichmentRound[]) {
+  const uses = new Map<string, Array<{ id: string; round: number }>>()
+  for (const { investigations } of rounds) {
+    for (const { id, round, sourcePmids } of investigations) {
+      for (const pmid of sourcePmids) {
+        const entries = uses.get(pmid) ?? []
+        entries.push({ id, round })
+        uses.set(pmid, entries)
+      }
+    }
+  }
+  return uses
+}
+
 export const DEEP_ENRICHMENT_ROUND_NUMBERS: number[] = DEEP_ENRICHMENT_DOCUMENTS.map((doc) => doc.round)
 
 export function getDeepEnrichmentRounds(): DeepEnrichmentRound[] {
