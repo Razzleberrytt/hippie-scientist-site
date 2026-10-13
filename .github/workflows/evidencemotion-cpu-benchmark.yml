@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Check syntax and execute seven adversarial budget cases
+      - name: Check syntax and execute 13 adversarial budget cases
         run: |
           python -m py_compile research/evidencemotion-director/repeat_cpu_render_benchmark.py
           python -m py_compile research/evidencemotion-director/test_repeat_cpu_render_benchmark.py
