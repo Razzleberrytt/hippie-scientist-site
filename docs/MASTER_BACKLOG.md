@@ -94,6 +94,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
+| #6749 | Insight Foundry: versioned source-bound research contracts | A | Active — admitted (research-only contracts; pending implementation) | P1 | 3/4/2/5/0.75/2 | 22.5 | 2026-10-13 |
 
 
 
@@ -140,7 +141,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by admitted P0 #6685 (1/3 normal WIP); R/A are free. No other candidate is admitted by vacancy alone.
+Discovery/SEO #6685 and Authority/Content #6749 occupy 2/3 normal WIP; Revenue/Conversion is free. The A scope is restricted to a source-bound research-only contract pilot. New tickets require separate admission.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
