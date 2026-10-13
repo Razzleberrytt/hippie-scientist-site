@@ -7,7 +7,7 @@ const CANONICAL_PATH = '/guides/best/supplements-for-stress/'
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress: Evidence-Ranked Guide (2026)',
   description:
-    'Evidence-ranked stress supplements with 18 clinical sources: ashwagandha, rhodiola, magnesium and L-theanine, plus careful context on omega-3 and saffron.',
+    'Evidence-ranked stress supplements with 17 clinical sources: ashwagandha, rhodiola, magnesium and L-theanine, plus careful context on omega-3 and saffron.',
   alternates: { canonical: CANONICAL_PATH },
   robots: { index: true, follow: true },
   openGraph: {
