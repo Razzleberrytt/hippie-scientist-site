@@ -1,6 +1,6 @@
 # EvidenceMotion: system completion checklist (living tracker)
 
-**Updated:** 2026-10-13 (V3 exact-media audit) | **Verified foundations proposed: 20/46; 26 open (pending PR CI/merge)** | **Owner direction:** phone-first, existing remote CPU | **Production freeze:** ON | **Video quality milestone:** 0/1 first excellent native final, then 0/5 consecutive excellent native first renders.
+**Updated:** 2026-10-13 (V3 exact-media audit) | **Verified foundations proposed: 21/46; 25 open (pending PR CI/merge)** | **Owner direction:** phone-first, existing remote CPU | **Production freeze:** ON | **Video quality milestone:** 0/1 first excellent native final, then 0/5 consecutive excellent native first renders.
 
 ## Definition of "complete"
 **A video** is release-ready only after source/correctness review, original voice ear-check, native 1080×1920/30fps first final, full decoded A/V and real iPhone playback, craft approval against best-in-niche references, and the owner's explicit go/no-go. **The director system** is canonically complete only after that first excellent first-render master **and five consecutive excellent first renders on varied topics**, with reproducible locked sources, model/execution budgets, robust failed-shot regression tests, and no safety bypass.
@@ -32,7 +32,7 @@ Checklist states: `[x]` = evidence established, `[ ]` = open gate. An implementa
 - [x] V9 source-bound detail→whole molecule camera reveal; complete RDKit graph when labeled as whole, explicit `DETAIL VIEW` when cropped.
 - [x] Source-specific ball-and-stick, 2D bond diagram, and space-filling views from the **same** graph; deterministic physical cameras and constraints.
 - [x] CPU research previews and V9 clean-directory MP4 SHA reproduction, including exact original audio preservation, have been demonstrated.
-- [ ] Redesign remaining over-static **18.48–22.04s computed-conformer** beat using a meaningful alternate visualization, not a decorative wipe. Preserve exact voice and avoid false molecular motion.
+- [x] **18.48–22.04s V3 source→model redesign implemented and frame-audited**: real 1080p frames at 19.733s vs 19.767s show a motivated **hard cut** from complete PubChem-verified 2D graph (bonds known) to source-bound RDKit computed 3D conformer (pose not observed), not a chemical transformation; locked Kokoro narration and timing unchanged. [Actual decoded-frame cut proof](7OH-V3-1976-SOURCE-TO-MODEL-CUT-PROOF-2026-10-13.md). **This passes the specific shot's semantic-repair criterion, not premium materials, scene diversity, or final craft approval.**
 - [ ] Design recognizable, premium hero materials: lighting, physically plausible shading, readable element colors, depth/composition, clean silhouettes; reject basic-CGI look.
 - [ ] Replace repetitive chemistry panels with motivated transformations and a distinct visual payoff. Keep one intentional camera move per shot and explicit source-bound visual purpose.
 - [x] **V3 exact-shot director plan completed**: all 15 actual scene intervals mapped to source IDs, hero, grammar, camera/cut, intended viewer reaction, and abort conditions in [7OH-V3-SHOT-DECISIONS-2026-10-13.md](7OH-V3-SHOT-DECISIONS-2026-10-13.md). This is planning/documentation, **not** visual craft or owner acceptance.
