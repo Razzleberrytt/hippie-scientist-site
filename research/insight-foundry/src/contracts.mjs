@@ -189,7 +189,10 @@ function verifySources(items,sourceAuthority,reviewedClaimAuthority,snapshotId,t
         approved.sourceSignature!==x.sourceSignature||approved.snapshotId!==snapshotId||
         approved.direction!==x.direction||x.direction==='not-extracted')
         reject('reviewed claim lacks exact independent source, snapshot and direction receipt')
-    } else if(x.reviewedClaimId!==null)reject('unreviewed evidence cannot carry reviewed claim id')
+    } else {
+      if(x.reviewedClaimId!==null)reject('unreviewed evidence cannot carry reviewed claim id')
+      if(x.direction!=='not-extracted')reject('research-only source cannot assert an unreviewed effect direction')
+    }
     allowed(x.direction,DIRECTIONS,'evidence.direction')
     allowed(x.studyIndependence,INDEPENDENCE,'evidence.studyIndependence')
     if(x.studyIndependence==='verified'){

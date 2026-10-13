@@ -51,6 +51,18 @@ test('empty research case cannot be auto-published',()=>{const ctx=context();con
 test('signed synthetic source case passes while remaining research-only',()=>{const ctx=context();const c=sampleCase(ctx,{evidence:[evidence1()],claims:[{claimType:'evidence-map',sentence:'Synthetic record indexed, no outcome inference',evidenceIds:[evidence1().evidenceId],status:'unreviewed-proposal',limitations:'synthetic-only evidence'}]});assert.equal(validateCaseFile(c,ctx),c);assert.equal(c.independentTrialCount,null)})
 ensureBad('rejects altered evidence record without integrity digest',c=>{c.evidence[0].direction='supporting'})
 ensureBad('rejects forged/missing PMID through source authority', (c)=>{c.evidence[0].pmid='77777777';signCase(c)})
+test('ungraded research-only source cannot assert a clinical effect direction even with a valid case digest',()=>{
+ const ctx=context(), c=sampleCase(ctx,{evidence:[evidence1()]})
+ c.evidence[0].direction='supporting'
+ signCase(c)
+ assert.throws(()=>validateCaseFile(c,ctx),/research-only source cannot assert an unreviewed effect direction/)
+})
+test('research-only source cannot claim a null result without independent review',()=>{
+ const ctx=context(), c=sampleCase(ctx,{evidence:[evidence1()]})
+ c.evidence[0].direction='null'
+ signCase(c)
+ assert.throws(()=>validateCaseFile(c,ctx),/research-only source cannot assert an unreviewed effect direction/)
+})
 ensureBad('rejects mismatched source signature',c=>{c.evidence[0].sourceSignature='e3-00000000-11111111';signCase(c)})
 ensureBad('rejects cross-snapshot source authority substitution', (c,ctx)=>{ctx.sourceAuthority.synthetic1.snapshotId='f'.repeat(64)})
 ensureBad('rejects source-only to reviewed laundering', c=>{c.evidence[0].sourceRole='reviewed';c.evidence[0].reviewedClaimId='review_fixture_1';signCase(c)})
