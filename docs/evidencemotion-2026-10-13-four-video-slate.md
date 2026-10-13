@@ -284,6 +284,22 @@
 
 ---
 
+## Paired article destinations (separate article PR #6761)
+
+Every video has a dedicated long-form reader resource, with first-use definitions, primary references, caveats, and FAQ sections. The videos are short explanations, **not** substitutes for their full articles. Only link to these destinations in a published video caption after article PR #6761 is merged and the route is verified on production.
+
+| Video | Planned article URL | Article slug |
+| --- | --- | --- |
+| Different types of DMT | https://thehippiescientist.net/articles/dmt-types-explained/ | `dmt-types-explained` |
+| Long-term cannabis | https://thehippiescientist.net/articles/long-term-cannabis-brain-effects/ | `long-term-cannabis-brain-effects` |
+| ADHD facts | https://thehippiescientist.net/articles/adhd-brain-facts-explained/ | `adhd-brain-facts-explained` |
+| Yopo / bufotenine | https://thehippiescientist.net/articles/yopo-bufotenine-science-history/ | `yopo-bufotenine-science-history` |
+| Psychedelics and brain science | https://thehippiescientist.net/articles/psychedelics-and-the-brain-science/ | `psychedelics-and-the-brain-science` |
+
+Video and article share claim IDs and scientific scope but are written for different formats: audiovisual teaching versus text readers who want evidence, sources and precise limitations. **No article is live solely because this table names its future URL.**
+
+---
+
 ## Production order / stage gates
 
 | Priority | Topic | Signature shot | First deliverable |
