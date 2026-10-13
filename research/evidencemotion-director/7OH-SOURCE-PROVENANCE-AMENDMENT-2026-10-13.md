@@ -15,7 +15,7 @@ The previous manifest is retained unchanged as `MANIFEST_ORIGINAL.json`, along w
 ## Reusable fail-closed validator
 `native_source_provenance.py` uses standard-library SHA-256 on **actual source-file bytes**, compared against `sourceInputs`, and on the actual selected MP4 against `originalFinalSha256`. It rejects absent/malformed hashes, missing inputs, path escape, symlinks, tampered source bytes, tampered master, or absent `notReleasableWithoutFinalQualityReview` gate.
 
-The paired `test_native_source_provenance.py` covers **10 PASS/HOLD cases**. Both exact files have Git blob hashes equal to those used in independent local tests (`ef7280f1ac98928e8e91905e7f573904c6cff642` and `15c6a6e1f8100a7194d4afc940e2bf726747b751`).
+The paired `test_native_source_provenance.py` covers **12 PASS/HOLD cases** (including noncanonical `./` master/source aliases). Both exact files have Git blob hashes equal to those used in independent local tests (`356a895d93fc840ae348d5edc590020782a59ea5` and `1f0a21525bdfaa63b163f0b0a50709652f4a1b30`).
 
 Actual original package audit: **HOLD**, `SOURCE_HASH_MISMATCH:fullhd_master/make_contact.py`.
 
@@ -25,3 +25,7 @@ Actual corrected standalone package audit: **PASS**, no mismatches, all listed f
 **Hash equality alone is not proof of native pixels or chemistry review.** Exact-source clean native re-render was separately demonstrated for the same MP4, and #6742's `native_master_audit.py` independently confirms the actual H.264 CFR timestamps, frame count, AAC bytes and full media decode. Still not established: qualified complete-script chemical/editorial approval, independently validated acoustic word timestamps, user-tested exact master on iPhone, cinematic reference-shelf quality, and the first-then-five owner-excellent first-render milestone.
 
 Therefore `releaseApproved=false`, `craftApproved=false`, `scienceReviewApproved=false`, `nativeSourceProof=false` remain explicit, and the production freeze remains ON. The existing master checklist stays at **16/46 verified, 30 open** until new audited governance entries and acceptance are merged; this research PR does not self-credit an unapproved system release.
+
+
+## P2 review-hardening: canonical path ownership
+The initial validator compared literal manifest path strings and would have accepted `./final.mp4` as a distinct source spelling of the same master. It now rejects noncanonical `./`, repeated separators, traversal and symlink paths before any source/master ownership check. Two additional automated tests require `HOLD` for the master or a source supplied through `./` aliases. All **12/12** exact-local-blob tests pass, and the actual corrected source+master package still returns PASS. The superseding user-facing research package is `EvidenceMotion_7OH_Provenance_V3_Validated.zip` with SHA-256 `8135a396b2dfb32213e71ca112691b8929e0b1ffd36f060e9fb9df43584fddf2`. Prior packages remain historical.
