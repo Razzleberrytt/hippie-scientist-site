@@ -70,7 +70,7 @@ Checklist states: `[x]` = evidence established, `[ ]` = open gate. An implementa
 4. **Only after acceptance:** freeze a genuinely approved golden master, demonstrate five consecutive genuinely excellent first renders across varied topics, then consider canonical integration/freeze lift with owner permission.
 
 ## Current authoritative artifacts
-- Research PR #6742 (full-HD source-verified comparison): merged. PR #6744 (provenance validator): merged. PR #6745 (native Python exact-MP4 auditor and hosted smoke suite): open at this update; do not claim merged.
+- Research PR #6742 (full-HD source-verified comparison): merged. PR #6744 (provenance validator): merged. PR #6745 (native Python exact-MP4 auditor and hosted smoke suite): merged on 2026-10-13; native Python byte-audit tests and actual H.264/AAC smoke are enforced in CI.
 - V9 reproduced MP4 SHA-256: `deaf54d09d40239ce91e77619d9be291fcb6f46ad468f20f02280c3580fe00aa`; saved in `EvidenceMotion_7OH_V9_structural_reveal_RESEARCH.zip` in the conversation, not committed to the repo.
 - Original WAV SHA-256: `434fca399f1ab74a12a5beb3da44373fe1117696b045ffd8026179df7bf14b34`; no human auditory acceptance yet.
 

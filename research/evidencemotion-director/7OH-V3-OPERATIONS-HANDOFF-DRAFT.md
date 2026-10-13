@@ -32,7 +32,7 @@ On a clean extract run `python verify_source_input_manifest.py --root . --manife
 | Captions obscure bond map | Decode sample frames at all molecular comparison intervals, source-locked caption time windows | Move or split graphic within caption safe region, regenerate exact final MP4 and all receipts |
 | Wrong hydroxyl or implied morph | Recheck both pinned RDKit InChIKeys/CIDs and actual structure/comparison frame | Abort scene; regenerate only from governed chemical graphs; **hard-cut** the two distinct structures |
 | Synthetic CGI perceived as cheap | Compare against owner-curated outside top-niche reference films | Refine lighting and visual purpose in cheap previews, no papering-over with useless particles or unearned approval |
-| Green site CI but broken Python research audit | `python -m py_compile` and actual `unittest discover` for audit sources | Use research-only native audit workflow (PR #6745 pending merge), never treat site build as native video proof |
+| Green site CI but broken Python research audit | `python -m py_compile` and actual `unittest discover` for audit sources | Use research-only native audit workflow (PR #6745 merged), never treat site build as native video proof |
 | Invalid source/asset hash | Verify actual byte hash and unsafe path checks, not receipt booleans | Stop/recover trusted original, recheck manifest; do not replace expected hash to hide mismatch |
 
 ## Approval and publication gates — deliberately LAST
