@@ -28,8 +28,9 @@ references:
     pmid: "20942780"
     url: "https://pubmed.ncbi.nlm.nih.gov/20942780/"
   - title: "Structural pharmacology and therapeutic potential of 5-methoxytryptamines"
-    authors: "Structural pharmacology research collaboration"
+    authors: "Warren AL, Lankri D, Cunningham MJ, et al."
     year: "2024"
+    pmid: "38720072"
     doi: "10.1038/s41586-024-07403-2"
     url: "https://www.nature.com/articles/s41586-024-07403-2"
   - title: "Bufotenine: toward an understanding of possible psychoactive mechanisms"
@@ -43,8 +44,10 @@ references:
     pmid: "30521880"
     url: "https://pubmed.ncbi.nlm.nih.gov/30521880/"
   - title: "Short- and Long-Acting Psychedelics: Structure-Activity Relationships, Pharmacology, and Implications for Neuropsychiatric Therapeutics"
-    authors: "Scientific review"
+    authors: "Bhat A, Zolali E, Sakib MA, et al."
     year: "2026"
+    pmid: "42257400"
+    doi: "10.1021/acschemneuro.6c00202"
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13281395/"
 ---
 
