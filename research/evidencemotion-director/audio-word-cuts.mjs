@@ -34,8 +34,9 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
    errors.push('NARRATION_WORDS_UNASSIGNED');
  if(wordAlignment[0].startMs>2000)errors.push('FIRST_SPOKEN_HOOK_AFTER_TWO_SECONDS');
  if(errors.length)return {status:'HOLD',errors,shots:[],finalRenderEligible:false};
+ // Segment cuts are contiguous: natural pauses remain under the previous shot.
  const shots=beats.map((beat,i)=>{
-  const end=i===beats.length-1?durationMs:wordAlignment[beat.endWordIndex].endMs;
+  const end=i===beats.length-1?durationMs:wordAlignment[beats[i+1].startWordIndex].startMs;
   return {id:beat.id,role:beat.role,grammar:beat.grammar,
    startMs:i===0?0:wordAlignment[beat.startWordIndex].startMs,
    endMs:end,anchorWord:wordAlignment[beat.startWordIndex].word,
