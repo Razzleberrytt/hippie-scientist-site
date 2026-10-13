@@ -48,6 +48,7 @@ references:
   - title: "Single-Dose Psilocybin for a Treatment-Resistant Episode of Major Depression"
     authors: "Goodwin GM, Aaronson ST, Alvarez O, et al."
     year: "2022"
+    pmid: "36322843"
     doi: "10.1056/NEJMoa2206443"
     url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2206443"
 ---
@@ -123,7 +124,7 @@ Research is investigating whether **psilocybin-assisted treatment** can help som
 
 A **randomized trial** is a study in which participants are assigned by chance to different study groups, reducing some kinds of bias.
 
-A 2022 trial reported a meaningful improvement in depression scores for one psilocybin study group at a measured time point, along with adverse effects. [5]
+A 2022 study randomly assigned **233 adults with treatment-resistant depression**—depression that had not improved with previous treatments—to receive one of three amounts of a specific experimental psilocybin formulation called **COMP360**, alongside psychological support. The groups received 25 mg, 10 mg, or a low 1 mg comparison amount. These numbers describe what researchers studied; they are **not instructions** for use. The main test was the change in depression symptoms measured at **three weeks**. The 25 mg group improved by about **6.6 points more** than the 1 mg comparison group on a standard depression questionnaire. The 10 mg group did not show a statistically clear difference from the 1 mg group, and a lasting response through 12 weeks was not convincingly established. Adverse effects occurred. The study was funded by **COMPASS Pathfinder**, the company developing the product; this potential conflict matters when interpreting the results. [5]
 
 But a 2026 trial, called **EPISODE**, examined people with treatment-resistant depression and did **not** find a statistically significant difference on its main planned response measure at six weeks. Other measures suggested potential improvements, and the trial also reported safety concerns, including a case of lasting visual-perception disturbance. [4]
 
