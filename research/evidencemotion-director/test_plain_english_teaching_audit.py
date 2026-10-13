@@ -48,6 +48,11 @@ class PlainEnglishTeachingRegression(unittest.TestCase):
         self.assertTrue(any(x['reason']=='INFERRED_HUMAN_EFFECT_FROM_DIAGRAM'
                             for x in audit_public_text('This molecular picture proves safety.')['flags']))
 
+    def test_molecule_picture_overclaim_is_rejected_too(self):
+        r=audit_public_text('This molecule picture proves safety.')
+        self.assertIn('INFERRED_HUMAN_EFFECT_FROM_DIAGRAM',
+                      [x['reason'] for x in r['flags']])
+
     def test_only_spoken_section_is_scanned_not_internal_notes(self):
         md='## Suggested spoken script\nAn oxygen-and-hydrogen pair is called hydroxyl group.\n\n## Notes\nETKDG is in the developer notes.'
         self.assertNotIn('ETKDG',spoken_section(md))
