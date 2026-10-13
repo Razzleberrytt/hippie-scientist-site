@@ -26,7 +26,8 @@ def safe_file(root: Path, rel: str) -> Path:
     if not isinstance(rel, str) or not rel or rel.startswith(('/', '\\')) or '\\' in rel:
         raise ValueError('invalid relative path')
     item = Path(rel)
-    if item.is_absolute() or not item.parts or any(part in ('.', '..') for part in item.parts):
+    if (item.is_absolute() or not item.parts or rel != item.as_posix()
+            or any(part in ('', '.', '..') for part in rel.split('/'))):
         raise ValueError('path traversal or noncanonical path')
     base = root.resolve(strict=True)
     resolved = (base / item).resolve(strict=True)
