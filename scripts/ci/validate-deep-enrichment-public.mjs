@@ -74,6 +74,7 @@ const detailPage = readFileSync('app/research/investigations/[round]/page.tsx', 
 assert(detailPage.includes('index: false'), 'Unreviewed clinical source notes remain noindex')
 assert(detailPage.includes('item.body'), 'Original source notes must remain accessible')
 assert(detailPage.includes('getDeepEnrichmentSourceOccurrences') && detailPage.includes('Also cited in'), 'Public research pages must link repeated PMIDs to their other investigations')
+assert(detailPage.includes('Same PubMed paper reused, not another independent study.'), 'Repeated PubMed citations must not be misrepresented as independent studies')
 assert(detailPage.includes('doc.sharedDossierNotes') && detailPage.includes("id='round-governance'"), 'Full round QA notes must be publicly accessible')
 const indexPage = readFileSync('app/research/investigations/page.tsx', 'utf8')
 assert(indexPage.includes('getDeepEnrichmentRounds'), 'Index must use original dossiers')
