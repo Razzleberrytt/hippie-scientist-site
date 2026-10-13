@@ -34,9 +34,16 @@ describe('magnesium sleep six-form buyer comparison', () => {
     for (const pmid of ['42661485', '40918053', '39252819', '41601871', '23853635', '33865376']) {
       expect(text).toContain(pmid)
     }
+    expect(text).toContain('21199787')
+    expect(text).toMatch(/citrate.*(?:sleep scores improved in both groups|did not outperform placebo|no magnesium-specific)/i)
+    expect(text).toContain('40567408')
+    expect(text).toContain('10.3389/fnut.2026.2010644')
+    expect(text).toMatch(/three L-threonate trials/i)
     expect(text).toMatch(/small effect d = 0\.2/)
     expect(text).toMatch(/no between-group wearable sleep-outcome difference/)
-    expect(text).toMatch(/No verified .* sleep trial/i)
+    expect(text).toMatch(/No verified direct malate-only randomized sleep trial/i)
+    expect(text).toMatch(/No verified direct taurate-only randomized sleep trial/i)
+    expect(text).not.toContain('No verified direct citrate-only randomized sleep trial')
     expect(text).toMatch(/low to very-low certainty/i)
     expect(text).not.toMatch(/cures? insomnia/i)
   })
