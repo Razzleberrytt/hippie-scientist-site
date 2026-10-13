@@ -58,24 +58,24 @@ const FORMS = [
   {
     name: 'Citrate',
     amount: '100–200 mg',
-    evidence: 'No verified citrate-only sleep trial',
+    evidence: 'Direct RCT: no benefit over placebo',
     gi: 'More likely to loosen stools',
     price: '$',
     absorption: 'More soluble and better absorbed than oxide in small human comparisons; exact personal absorption is not predictable (PMIDs 2407766, 14596323).',
-    trial: 'No verified direct citrate-only randomized sleep trial was identified for this comparison. Absorption data are not sleep-outcome data.',
+    trial: 'A randomized study of 100 adults over age 51 with poor sleep used 320 mg/day of elemental magnesium as citrate versus sodium-citrate placebo for seven weeks (96 completed). Sleep scores improved in both groups, without a magnesium-specific sleep benefit (PMID 21199787). The magnesium-status and inflammation findings do not establish a sleep benefit.',
     fit: 'Often a practical lower-cost option when constipation or stool-softening would be acceptable. Skip as a sleep-first choice if diarrhea is already an issue.',
-    refs: [5, 6],
+    refs: [5, 6, 12],
   },
   {
     name: 'L-threonate',
     amount: 'About 72–144 mg from 1–2 g of compound',
-    evidence: 'Limited, mixed: 2 direct RCTs',
+    evidence: 'Limited, mixed RCT evidence',
     gi: 'Usually tolerated in small trials; limited comparison data',
     price: '$$$',
     absorption: 'Brain-delivery claims come largely from preclinical or indirect work. Human sleep effects cannot establish superior brain penetration or bioavailability versus other salts.',
-    trial: 'An 80-person, 21-day 2024 trial using 1 g/day reported some better Oura-derived sleep scores (PMID 39252819). A separate 100-person, six-week 2026 trial using 2 g/day showed some subjective sleep-related improvement, but no between-group wearable sleep-outcome difference (PMID 41601871).',
+    trial: 'An 80-person, 21-day 2024 trial using 1 g/day reported some better Oura-derived sleep scores (PMID 39252819); a 2025 corrigendum acknowledged delayed registration (PMID 40567408). A separate 100-person, six-week 2026 trial using 2 g/day showed some subjective improvement, but no between-group wearable sleep-outcome difference (PMID 41601871); a 2026 correction clarified its two-tailed statistical testing without altering findings (DOI 10.3389/fnut.2026.2010644). The 2026 review counts three L-threonate trials overall, of which two are detailed here.',
     fit: 'Someone weighing a premium, cognition-marketed formula against mixed human evidence; brain fog is not a proven indication, and sleep benefits are not clearly better than cheaper forms.',
-    refs: [3, 4],
+    refs: [1, 3, 4, 13],
   },
   {
     name: 'Malate',
@@ -115,18 +115,18 @@ const FORMS = [
 const FAQS = [
   {
     question: 'Which magnesium is best for sleep?',
-    answer: 'There is no proven best magnesium form for sleep. Bisglycinate has one small positive four-week randomized trial (PMID 40918053), L-threonate has two direct but mixed trials (PMIDs 39252819, 41601871), and the 2026 review of 12 main sleep RCTs rated overall certainty low to very low (PMID 42661485).',
-    refs: [1, 2, 3, 4],
+    answer: 'There is no proven best magnesium form for sleep. Bisglycinate has one small positive four-week randomized trial (PMID 40918053), citrate failed to outperform placebo in an older-adult sleep RCT (PMID 21199787), and L-threonate has mixed trials (PMIDs 39252819, 41601871), and the 2026 review of 12 main sleep RCTs rated overall certainty low to very low (PMID 42661485).',
+    refs: [1, 2, 3, 4, 12],
   },
   {
     question: 'Is magnesium glycinate better than citrate for sleep?',
-    answer: 'No head-to-head sleep trial establishes glycinate as better than citrate. Glycinate has one direct small-benefit sleep RCT (PMID 40918053), while citrate has better evidence for absorption relative to oxide than for an independent sleep effect (PMIDs 2407766, 14596323).',
-    refs: [2, 5, 6],
+    answer: 'No head-to-head sleep trial establishes glycinate as better than citrate. Glycinate has one small-benefit sleep RCT (PMID 40918053), while citrate did not outperform placebo in a seven-week sleep trial in older adults (PMID 21199787). Separate small studies suggest citrate absorbs better than oxide (PMIDs 2407766, 14596323); absorption does not prove sleep efficacy.',
+    refs: [2, 5, 6, 12],
   },
   {
     question: 'Does magnesium L-threonate improve deep sleep or brain fog?',
-    answer: 'L-threonate has promising but inconsistent preliminary findings, not proof that it increases deep sleep or treats brain fog. One 2024 trial reported improved Oura-derived sleep metrics (PMID 39252819), but a 2026 trial found no between-group wearable sleep improvement despite some subjective and cognitive signals (PMID 41601871).',
-    refs: [3, 4],
+    answer: 'L-threonate has promising but inconsistent preliminary findings, not proof that it increases deep sleep or treats brain fog. One 2024 trial reported improved Oura-derived sleep metrics (PMID 39252819), but a 2026 trial found no between-group wearable sleep improvement despite some subjective and cognitive signals (PMID 41601871). Both papers have published corrections concerning trial registration and statistical wording; the latter did not alter the results (PMID 40567408; DOI 10.3389/fnut.2026.2010644).',
+    refs: [3, 4, 13],
   },
   {
     question: 'How much elemental magnesium is in a typical sleep supplement?',
@@ -167,6 +167,8 @@ const REFS = [
   { n: 9, text: 'NIH Office of Dietary Supplements. Magnesium: Fact Sheet for Health Professionals. Elemental label meaning, UL, diarrhea, renal risk and medication spacing.', url: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/' },
   { n: 10, text: 'Abbasi B, et al. (2012). Magnesium oxide in 46 older adults with primary insomnia, eight weeks; small, high-dose trial.', pmid: '23853635', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
   { n: 11, text: 'Mah J, Pitre T. (2021). Meta-analysis of three insomnia trials in older adults: sleep-onset estimate ~17 minutes, low/very-low certainty.', pmid: '33865376', url: 'https://pubmed.ncbi.nlm.nih.gov/33865376/' },
+  { n: 12, text: 'Nielsen FH, Johnson LK, Zeng H. (2010). Magnesium citrate, 320 mg/day, versus sodium-citrate placebo in adults older than 51 with poor sleep: sleep quality improved in both groups; no magnesium-specific benefit.', pmid: '21199787', url: 'https://pubmed.ncbi.nlm.nih.gov/21199787/' },
+  { n: 13, text: 'Hausenblas HA, et al. (2025). Trial-registration corrigendum to PMID 39252819 (PMID 40567408). Lopresti & Smith (2026). Two-tailed-test wording correction to PMID 41601871, with results unchanged (DOI 10.3389/fnut.2026.2010644).', pmid: '40567408', url: 'https://pubmed.ncbi.nlm.nih.gov/40567408/' },
 ] as const
 
 function Cites({ refs }: { refs: readonly number[] }) {
@@ -222,13 +224,13 @@ export default function MagnesiumFormsForSleepBuyingGuide() {
         <section id="quick-answer" className="card-premium p-5 sm:p-7" data-answer-engine-summary="true" data-evidence="true">
           <h2 className="text-2xl font-semibold text-ink">Quick answer: what would we compare first?</h2>
           <p className="mt-3 leading-7 text-muted" data-claim="true">
-            <strong>Glycinate / bisglycinate is a reasonable sleep-first starting point</strong> if you prioritize lower GI disruption,
+            <strong>Glycinate / bisglycinate is a reasonable sleep-first comparison</strong> if you prioritize lower GI disruption,
             but its one direct trial found only a small benefit. <strong>Citrate</strong> makes sense when price and stool-softening
             matter more than a direct sleep study. <strong>L-threonate</strong> costs more and has mixed sleep results.
             <strong> Oxide</strong> is cheap and has an older small insomnia trial, but generally poorer fractional absorption.
-            The 2026 review found that overall magnesium evidence for sleep remains low to very-low certainty. <Cites refs={[1, 2, 3, 4, 7, 10]} />
+            A citrate trial showed no sleep benefit beyond placebo, and the 2026 review found low to very-low certainty overall. <Cites refs={[1, 2, 3, 4, 7, 10, 12]} />
           </p>
-          <p className="mt-3 text-sm leading-7 text-muted">No form has proved superior to every other form in a direct, sufficiently powered sleep head-to-head trial.</p>
+          <p className="mt-3 text-sm leading-7 text-muted">No form has proved superior to every other form in a sufficiently powered sleep head-to-head trial. The 2026 review includes three L-threonate trials and five oxide trials in its larger evidence inventory; the examples below are not a complete trial census.</p>
         </section>
 
         <section id="comparison-table" className="card-premium p-5 sm:p-7">
@@ -302,7 +304,7 @@ export default function MagnesiumFormsForSleepBuyingGuide() {
           <h2 className="text-2xl font-semibold text-ink">If this matters to you, compare this form first</h2>
           <ul className="mt-4 space-y-3 leading-7 text-muted">
             <li><strong>Sensitive stomach or frequent loose stools:</strong> compare a clearly labeled glycinate first, while recognizing that “gentle” is a tendency, not a form-specific guarantee.</li>
-            <li><strong>Constipation and lower price matter too:</strong> compare citrate; stool-softening is a tradeoff, not proof of better sleep.</li>
+            <li><strong>Constipation and lower price matter too:</strong> compare citrate; stool-softening is a tradeoff, and an older-adult sleep trial did not show magnesium-specific benefit versus placebo. <Cites refs={[12]} /></li>
             <li><strong>Brain fog / cognitive marketing catches your attention:</strong> read both L-threonate trials before paying a premium. Neither proves treatment for brain fog or superior deep sleep. <Cites refs={[3, 4]} /></li>
             <li><strong>Budget comes first:</strong> compare citrate with oxide on <em>elemental milligrams and tolerance</em>, not the bold number on the front. Oxide often supplies more elemental magnesium per gram but is less efficiently absorbed in small studies. <Cites refs={[5, 7]} /></li>
             <li><strong>Already happy with malate or taurate:</strong> no sound sleep-evidence reason to switch solely because of a new label claim.</li>
