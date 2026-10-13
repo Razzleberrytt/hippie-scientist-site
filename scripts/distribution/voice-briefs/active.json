@@ -1,6 +1,6 @@
 {
   "release": "R8.05",
-  "project": "THS EvidenceMotion 7-OH molecular-identity REVIEW WAV",
+  "project": "THS EvidenceMotion 7-OH nomenclature-safe review-only revised WAV",
   "researchOnly": true,
   "doNotPublish": true,
   "sourceIdentity": {
@@ -10,8 +10,8 @@
   "premise": {
     "interestScore": 4.3,
     "coldViewerWhyCare": "The term 7-OH is widely used, but the name itself hides a visually explainable piece of its molecular identity.",
-    "viewerQuestion": "What does 7-OH mean structurally?",
-    "earlyPayoff": "The 7 refers to a hydroxyl group at a specific numbered position in the molecular framework.",
+    "viewerQuestion": "What is structurally different about 7-OH compared with mitragynine?",
+    "earlyPayoff": "A hydroxyl group differentiates the verified structure of 7-hydroxymitragynine from mitragynine.",
     "methodologyBeforePayoff": false,
     "paperSummaryOpening": false,
     "hookMode": "visual-question"
@@ -28,8 +28,8 @@
     {
       "id": "hook_7oh",
       "role": "hook",
-      "narration": "What does the seven in seven O H actually mean?",
-      "onScreenText": "WHAT DOES 7-OH MEAN?",
+      "narration": "What makes seven O H different from mitragynine?",
+      "onScreenText": "WHAT MAKES 7-OH DIFFERENT?",
       "visualPurpose": "Immediate full-molecule hero and prominent question",
       "spokenAnchor": "seven O H",
       "visualAction": "Recognizable molecular model emerges from depth, no biological animation",
@@ -45,8 +45,8 @@
     {
       "id": "finding_hydroxyl",
       "role": "finding",
-      "narration": "It refers to a hydroxyl group, at position seven on the mitragynine framework.",
-      "onScreenText": "THE 7-HYDROXYL GROUP",
+      "narration": "This hydroxyl group is a structural difference between seven-hydroxymitragynine and mitragynine.",
+      "onScreenText": "A DISTINCT HYDROXYL GROUP",
       "visualPurpose": "Locate the actual hydroxyl oxygen on the source-verified 3D model",
       "spokenAnchor": "hydroxyl group",
       "visualAction": "Cut to close-up toward coordinate-locked hydroxyl oxygen, physical camera push",
@@ -145,5 +145,11 @@
       ],
       "pauseAfterSeconds": 0.1
     }
-  ]
+  ],
+  "technicalHold": {
+    "reviewOnly": true,
+    "keepExistingNarrator": true,
+    "scriptChangeReason": "Do not conflate common 7-hydroxy naming with systematic 7a-hydroxy locant. New narration and timing require fresh approval.",
+    "productionReleaseAllowed": false
+  }
 }
