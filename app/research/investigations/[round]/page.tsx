@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { buildPageMetadata } from '@/lib/seo'
-import { DEEP_ENRICHMENT_ROUND_NUMBERS, getDeepEnrichmentRounds } from '@/lib/research-deep-enrichment-public'
+import { DEEP_ENRICHMENT_ROUND_NUMBERS, getDeepEnrichmentRounds, getDeepEnrichmentSourceOccurrences } from '@/lib/research-deep-enrichment-public'
 
 type RoundParams = { params: Promise<{ round: string }> }
 
@@ -28,8 +28,10 @@ export async function generateMetadata({ params }: RoundParams): Promise<Metadat
 
 export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
   const { round: roundParam } = await params
-  const doc = getDeepEnrichmentRounds().find((item) => String(item.round) === roundParam)
+  const rounds = getDeepEnrichmentRounds()
+  const doc = rounds.find((item) => String(item.round) === roundParam)
   if (!doc) notFound()
+  const sourceOccurrences = getDeepEnrichmentSourceOccurrences(rounds)
 
   return (
     <div className='research-page-content mx-auto max-w-5xl space-y-7 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
@@ -77,10 +79,17 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
           <h3 className='mt-5 text-sm font-bold text-ink'>Direct original-study sources</h3>
           <ul className='mt-3 flex flex-wrap gap-2'>
             {item.sourcePmids.map((pmid) => (
-              <li key={pmid}>
+              <li key={pmid} className='flex flex-wrap items-center gap-2'>
                 <a href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`} target='_blank' rel='noopener noreferrer' className='inline-flex min-h-10 items-center rounded-full border border-brand-700/25 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 hover:bg-brand-100'>
                   PMID {pmid} ↗
                 </a>
+                {(sourceOccurrences.get(pmid) ?? [])
+                  .filter((entry) => entry.id !== item.id)
+                  .map((entry) => (
+                    <Link key={entry.id} href={`/research/investigations/${entry.round}/#${entry.id.toLowerCase()}`} className='text-xs font-medium text-muted underline-offset-2 hover:underline'>
+                      Also cited in {entry.id}
+                    </Link>
+                  ))}
               </li>
             ))}
           </ul>
