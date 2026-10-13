@@ -5,7 +5,7 @@ const spanishFooter = '<html>Configuración de privacidad <a>Privacy policy (Eng
 const policy = '<html>GA4 may load where Cloudflare confirms the visitor is in the United States</html>'
 
 function mockFetch({
-  payload = { defaultGa4Allowed: true },
+  payload = { defaultGa4Allowed: true } as Record<string, unknown>,
   contentType = 'application/json; charset=utf-8',
   cacheControl = 'private, no-store',
   cacheStatus = 'DYNAMIC',
