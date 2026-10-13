@@ -355,7 +355,7 @@ export default function Page() {
             <div className="card-premium p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Regulation</p>
               <p className="mt-2 text-sm text-muted">
-                October 9, 2026: HHS/DOJ announced updated proposed 7-OH/MGPI thresholds (>1 mg/g solids, >1 mg/mL liquids, or <100:1 mitragynine ratio) targeting enhanced products; as of that announcement, no 7-OH temporary order had issued. MGPI, MGM-15 and MGM-16 have remained Schedule I since August 26 [32–35].
+                October 9, 2026: HHS/DOJ announced updated proposed 7-OH/MGPI thresholds (&gt;1 mg/g solids, &gt;1 mg/mL liquids, or &lt;100:1 mitragynine ratio) targeting enhanced products; as of that announcement, no 7-OH temporary order had issued. MGPI, MGM-15 and MGM-16 have remained Schedule I since August 26 [32–35].
               </p>
             </div>
           </div>
