@@ -23,22 +23,22 @@ INTRODUCTION_GUARDS = {
     "pharmacodynamics": "explain what the substance does in the body",
 }
 OVERCLAIM_PATTERNS = (
-    (r'(?i)\\b(?:the|this) molecular? (?:picture|diagram|drawing) proves\\b',
+    (r'(?i)\b(?:the|this) molecular? (?:picture|diagram|drawing) proves\b',
      "diagram cannot by itself establish an effect on people"),
-    (r'(?i)\\bcomputer model (?:proves|shows exactly) what (?:you|people) feel\\b',
+    (r'(?i)\bcomputer model (?:proves|shows exactly) what (?:you|people) feel\b',
      "computed model cannot establish a human experience"),
 )
 
 def normalise(text):
-    text = re.sub(r'\\*{1,2}|_{1,2}', '', text)
-    text = re.sub(r'(?<!\\w)3[ -]?d\\b', '3d model', text, flags=re.IGNORECASE)
-    return re.sub(r'\\s+', ' ', text).strip()
+    text = re.sub(r'\*{1,2}|_{1,2}', '', text)
+    text = re.sub(r'(?<!\w)3[ -]?d\b', '3d model', text, flags=re.IGNORECASE)
+    return re.sub(r'\s+', ' ', text).strip()
 
 def audit_public_text(text):
     text = normalise(text)
     failures = []
     for term, required in TERMS.items():
-        found = re.search(r'(?i)\\b'+re.escape(term)+r'\\b', text)
+        found = re.search(r'(?i)\b'+re.escape(term)+r'\b', text)
         if not found:
             continue
         start, end = found.span()
@@ -47,7 +47,7 @@ def audit_public_text(text):
         if absent:
             failures.append({'term':term,'reason':'MISSING_NEARBY_PLAIN_LANGUAGE_EXPLANATION','missing':absent})
     for term, note in INTRODUCTION_GUARDS.items():
-        if re.search(r'(?i)\\b'+re.escape(term)+r'\\b', text):
+        if re.search(r'(?i)\b'+re.escape(term)+r'\b', text):
             failures.append({'term':term,'reason':'SPECIALIST_TERM_WITHOUT_PUBLIC_TEACHING','fix':note})
     for pattern,description in OVERCLAIM_PATTERNS:
         if re.search(pattern,text):
@@ -61,7 +61,7 @@ def audit_public_text(text):
     }
 
 def spoken_section(markdown):
-    match=re.search(r'(?im)^## Suggested spoken script[^\\n]*$',markdown)
+    match=re.search(r'(?im)^## Suggested spoken script[^\n]*$',markdown)
     if not match:
         raise ValueError('PUBLIC_SPOKEN_SECTION_MISSING')
     rest=markdown[match.end():]
