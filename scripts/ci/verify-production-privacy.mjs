@@ -38,6 +38,15 @@ export async function verifyProductionPrivacy({ origin = DEFAULT_ORIGIN, fetcher
     'Privacy smoke: eligibility missing a strict boolean defaultGa4Allowed')
   assert(Object.keys(payload).length === 1, 'Privacy smoke: eligibility unexpectedly exposes extra fields')
 
+  // Compare the Pages Function's decision with Cloudflare's independent edge
+  // geolocation for this same probe. Never print/store trace IP or headers.
+  const trace = await getResponse(fetcher, `${base}/cdn-cgi/trace`, 'text/plain')
+  const traceText = await trace.text()
+  const traceCountry = /^loc=([A-Z]{2})$/m.exec(traceText)?.[1]
+  assert(Boolean(traceCountry), 'Privacy smoke: Cloudflare trace did not expose a country')
+  assert(payload.defaultGa4Allowed === (traceCountry === 'US'),
+    'Privacy smoke: live geo eligibility disagrees with Cloudflare trace country')
+
   const spanish = await getResponse(fetcher, `${base}/es/`, 'text/html')
   const esType = spanish.headers.get('content-type') || ''
   assert(esType.includes('text/html'), 'Privacy smoke: Spanish route did not return HTML')
@@ -52,7 +61,7 @@ export async function verifyProductionPrivacy({ origin = DEFAULT_ORIGIN, fetcher
     'Privacy smoke: production policy does not disclose the U.S.-scoped default GA4 behavior')
 
   console.log('Production privacy smoke PASS: JSON eligibility endpoint is uncached, localized opt-out and regional disclosure are published.')
-  console.log(`Regional eligibility from probe location: ${payload.defaultGa4Allowed ? 'allowed' : 'requires opt-in'} (not a global jurisdiction test)`)
+  console.log(`Regional eligibility and independent Cloudflare trace agree: ${payload.defaultGa4Allowed ? 'allowed' : 'requires opt-in'} (probe only)`)
   return { regionAllowedAtProbe: payload.defaultGa4Allowed }
 }
 
