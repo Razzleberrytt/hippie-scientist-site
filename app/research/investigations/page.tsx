@@ -88,7 +88,7 @@ export default function ResearchInvestigationsPage() {
               <article key={entry.id} className='flex flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
                 <p className='text-xs font-bold uppercase tracking-wide text-brand-700'>{entry.id} · Research-only</p>
                 <h3 className='mt-2 text-lg font-semibold leading-7 text-ink'>{entry.title}</h3>
-                <p className='mt-2 text-xs text-muted'>{entry.sourcePmids.length} original-source link{entry.sourcePmids.length === 1 ? '' : 's'} in dossier · Independent review pending</p>
+                <p className='mt-2 text-xs text-muted'>{entry.sourcePmids.length} PubMed source link{entry.sourcePmids.length === 1 ? '' : 's'} in dossier · Study or synthesis type described in original notes · Independent review pending</p>
                 <div className='mt-auto flex flex-wrap gap-x-4 gap-y-2 pt-4 text-sm font-semibold'>
                   <Link href={`/research/investigations/${round}/#${entry.id.toLowerCase()}`} className='text-brand-700 hover:underline'>Investigation notes →</Link>
                   <a href={`https://pubmed.ncbi.nlm.nih.gov/${entry.sourcePmids[0]}/`} target='_blank' rel='noopener noreferrer' className='text-brand-700 hover:underline'>First PubMed record ↗</a>
