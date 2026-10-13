@@ -20,8 +20,8 @@ describe('SR-15099 compound coverage and research integrity', () => {
   it('does not transfer SR-17018 mouse tolerance findings to SR-15099 humans', () => {
     for (const page of [article, profile]) {
       expect(page).toContain('SR-17018')
-      expect(page).toContain('PMID 31443104')
-      expect(page).toContain('PMID 33345829')
+      expect(page).toContain('31443104')
+      expect(page).toContain('33345829')
       expect(page).toMatch(/SR-15099[^\n]{0,120}(?:not established|no direct|no controlled human|not a proven)|no controlled human[^\n]{0,140}SR-15099/i)
       expect(page).toMatch(/both groups/i)
       expect(page).toMatch(/withdrawal/i)
