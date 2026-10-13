@@ -4,6 +4,7 @@ Usage: python native_master_audit.py --master final.mp4 --reference-audio previo
     --expected-sha 64HEX --expected-audio-sha 64HEX --expected-frames 1031
 
 Never treats technical success as approval of chemistry, copyright, craft, voice, or posting.
+Full CI on refreshed main must remain green; a standalone Python test pass is insufficient.
 """
 import argparse
 import hashlib
