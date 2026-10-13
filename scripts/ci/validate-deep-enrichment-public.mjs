@@ -76,5 +76,8 @@ assert(detailPage.includes('Linked PubMed research sources') && detailPage.inclu
 assert(detailPage.includes('doc.sharedDossierNotes') && detailPage.includes("id='round-governance'"), 'Full round QA notes must be publicly accessible')
 const indexPage = readFileSync('app/research/investigations/page.tsx', 'utf8')
 assert(indexPage.includes('getDeepEnrichmentRounds'), 'Index must use original dossiers')
+assert(indexPage.includes('Research Investigations | PubMed Research Source Trails'), 'Metadata title cannot mislabel secondary reviews as independent primary studies')
+assert(indexPage.includes('linked PubMed trials, reviews'), 'Metadata description must distinguish trials and syntheses')
+assert(!indexPage.includes('Primary-Study Source Trails'), 'Remove misleading primary-only research-archive title')
 assert(!/All 60 investigation|these six documents|Browse 60/.test(indexPage), 'Avoid hard-coded counts that age poorly')
 console.log(`SUCCESS: ${rounds.length} rounds, ${count} investigations and ${sourceIDs.size} unique linked PMIDs represented in dynamic public inventory.`)
