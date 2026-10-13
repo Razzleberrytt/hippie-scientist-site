@@ -8,6 +8,12 @@ Securely retain *unchanged originals*: `EvidenceMotion_7OH_Final_Technical_Revie
 
 The downloadable V3 ZIP stores source scripts, two chemical identity assertions, original voice and beat timeline, final MP4, 720p fallback, 13 QA negative fixtures, 2D comparison repair frames, manifests, and research-only release holds. Binary copies are conversation artifacts, **not files in this GitHub repository**. Check every SHA after transferring between systems.
 
+## Regenerable source-asset escrow (separate from final film)
+
+An actual 72-file input/provenance package now accompanies the caption-safe master: `EvidenceMotion_7OH_Intermediates_Provenance_RESEARCH.zip` SHA-256 `2c2d06028e86978ce6799f58c5476a881144cff623322c3339f2d9c83ffe0618`. Its `intermediates/` folder includes all **63 exact PNGs** independently regenerated twice from the pinned script/chemical identities; it also includes `original/`, `delivery/`, the exact current final MP4 and `verify_source_input_manifest.py`.
+
+On a clean extract run `python verify_source_input_manifest.py --root . --manifest source_input_manifest.json`. Expect `PASS_RESEARCH_ONLY` with **72 files**. The package's intentional tamper test changed one VTK frame and verified an immediate hash-mismatch HOLD. Retain the original ZIP and manifest hashes when troubleshooting. Headless VTK on the current CPU runner requires `VTK_DEFAULT_OPENGL_WINDOW=vtkEGLRenderWindow LIBGL_ALWAYS_SOFTWARE=1`; record and test alternative backends before adopting them. Full encoded silent-film byte-identical reproduction is **not** established (see [source byte proof](7OH-V3-INTERMEDIATE-SOURCE-BYTE-PROOF-2026-10-13.md)); do not silently call this a golden master.
+
 ## Research QA procedure (not approval)
 
 1. Obtain the exact ZIP, confirm its hash with `sha256sum` or equivalent, then `unzip -t`. Reject archive paths outside the target directory and symlinks in a new/repacked bundle.
