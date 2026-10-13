@@ -25,14 +25,14 @@ async function getResponse(fetcher, url, accept) {
 }
 
 export async function verifyProductionPrivacy({ origin = DEFAULT_ORIGIN, fetcher = fetch } = {}) {
-  const base = origin.replace(/\\/$/, '')
+  const base = origin.endsWith('/') ? origin.slice(0, -1) : origin
 
   const eligibility = await getResponse(fetcher, `${base}/api/analytics-eligibility`, 'application/json')
   const jsonType = eligibility.headers.get('content-type') || ''
   const cache = eligibility.headers.get('cache-control') || ''
   assert(jsonType.toLowerCase().includes('application/json'), 'Privacy smoke: eligibility returned non-JSON content')
   assert(/no-store/i.test(cache), 'Privacy smoke: eligibility response is missing no-store')
-  assert(!/\\bHIT\\b/i.test(eligibility.headers.get('cf-cache-status') || ''), 'Privacy smoke: personalized eligibility was edge-cached')
+  assert((eligibility.headers.get('cf-cache-status') || '').toUpperCase() !== 'HIT', 'Privacy smoke: personalized eligibility was edge-cached')
   const payload = await eligibility.json()
   assert(payload && typeof payload === 'object' && typeof payload.defaultGa4Allowed === 'boolean',
     'Privacy smoke: eligibility missing a strict boolean defaultGa4Allowed')
