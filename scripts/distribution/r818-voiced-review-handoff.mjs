@@ -4,6 +4,7 @@
 // No fake voice, proportional caption timing, review bypass, or autopublishing.
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import crypto from 'node:crypto'
 import { renderVerticalVideoMp4 } from './render-vertical-video-mp4.mjs'
 import { renderR818ContactSheet } from './r818-render-contact-sheet.mjs'
@@ -37,7 +38,7 @@ export async function createR818VoicedReviewHandoff(packageDir, outputDir) {
   fs.writeFileSync(path.join(output,'r818-voiced-review-handoff.json'),JSON.stringify(meta,null,2)+'\n')
   return meta
 }
-if(process.argv[1] && path.resolve(process.argv[1])===path.resolve(new URL(import.meta.url).pathname)) {
+if(process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href===import.meta.url) {
   const [, , input, destination]=process.argv
   if(!input||!destination){console.error('Usage: node r818-voiced-review-handoff.mjs <governed-package-dir> <review-output-dir>');process.exitCode=2}
   else createR818VoicedReviewHandoff(input,destination).then(r=>console.log(JSON.stringify(r,null,2)))

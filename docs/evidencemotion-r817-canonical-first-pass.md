@@ -102,3 +102,10 @@ Practitioner advice from r/blender, r/ffmpeg and r/AfterEffects supports determi
 
 **Remaining release blockers:** first full Kokoro original-voice R8.10→R8.17 narration/word alignment render; verify progressive caption pixels at 4fps, check physical CTA prominence and first-three-second visual twist on the exact encoded master; evaluate scene artistry against owner standard; independent V master and scientific review; owner iPhone listening/visual approval; exact merged-head workflow/CI, then explicit publication authorization. No measured 90+/100 quality score or sub-four-hour promise yet. Production throughput must be measured on subsequent completed videos, not inferred from smoke-test duration.
 
+## R8.18 long-beat compositional-activity guard — October 12 follow-up
+
+V's independent 7-OH explainer audit scored the 54s 720x1280 cut 83/100, identifying a ~13-second user-report section in which changing karaoke words obscured stationary cards in raw pixel-motion analysis. This is external reviewer evidence about that cut, **not** verification of the canonical 1080x1920 renderer or a new video acceptance.
+
+The R8.18 geometry audit now checks scenes lasting 8 seconds or more in 1-second comparisons of actual named scene objects. It excludes caption/subtitle/progress/source overlay kinds and requires multiple three-second windows containing meaningful object displacement, size, visibility, opacity, emphasis or activation changes. The intended user-report repair is narration-time sequential emphasis of real report cards, not a cosmetic animated subtitle. A single pulse in an otherwise 13-second hold must fail. This guard uses SHA-bound renderer telemetry and negative regression fixtures; it cannot independently certify that the decoded pixels match telemetry or that artistic motion is interesting.
+
+**Release boundaries:** This guard is not evidence of a new 7-OH master, a 90+ score, a -14 LUFS audio repair or owner/V publication approval. A genuine 1080x1920 30fps full-mix MP4 must still pass post-encode EBU R128, intelligibility and full-phone viewing, exact word/scene alignment, factual/symbolic labels and separate human review.

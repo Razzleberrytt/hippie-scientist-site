@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "../lib/router-compat";
-import { getConsent, setConsent, getSystemNoTracking } from "@/lib/consent";
+import { getConsent, setConsent, getSystemNoTracking, canLoadGa4 } from "@/lib/consent";
 import { clearAnalyticsEvents } from "@/lib/analyticsEventStorage";
 
 type Props = { open: boolean; onClose: () => void };
@@ -9,13 +9,16 @@ type ConsentState = "granted" | "denied" | "unknown";
 
 export default function ConsentManager({ open, onClose }: Props) {
   const [status, setStatus] = useState<ConsentState>("unknown");
+  const [defaultOn, setDefaultOn] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     const consent = getConsent();
-    setStatus(consent ?? "unknown");
+    const autoOn = consent === null && canLoadGa4();
+    setDefaultOn(autoOn);
+    setStatus(consent ?? (autoOn ? "granted" : "denied"));
 
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     closeButtonRef.current?.focus();
@@ -75,6 +78,7 @@ export default function ConsentManager({ open, onClose }: Props) {
     const nextStatus = dnt ? "denied" : "granted";
     setConsent(nextStatus);
     setStatus(nextStatus);
+    setDefaultOn(false);
 
     if (nextStatus === "denied") {
       clearAnalyticsEvents();
@@ -96,12 +100,14 @@ export default function ConsentManager({ open, onClose }: Props) {
   }
 
   function decline() {
-    const hadGrantedConsent = getConsent() === "granted";
+    // Even without saved consent GA4 was already active by default.
+    const hadActiveAnalytics = canLoadGa4() || getConsent() === "granted";
     setConsent("denied");
     setStatus("denied");
+    setDefaultOn(false);
     clearAnalyticsEvents();
 
-    if (hadGrantedConsent) {
+    if (hadActiveAnalytics) {
       // A full reload is the only reliable way to tear down third-party analytics
       // code that may already be resident after a previous opt-in (for example,
       // GA4 or Ahrefs). The persisted denied state prevents those scripts from
@@ -153,7 +159,7 @@ export default function ConsentManager({ open, onClose }: Props) {
         </div>
 
         <p id="consent-description" className="mt-2 text-sm text-white/75">
-          Control whether anonymous analytics are collected. We don’t collect personal data unless you opt in.
+          Google Analytics 4 may run by default for server-confirmed U.S. visits unless you opt out. Elsewhere it requires an affirmative choice. Other optional tracking remains consent-gated.
           {dnt && (
             <span className="mt-2 block text-amber-300">
               Detected Do Not Track / GPC — defaulting to no tracking.
@@ -176,7 +182,7 @@ export default function ConsentManager({ open, onClose }: Props) {
                   : "text-white/60"
               }`}
             >
-              {dnt ? "Blocked by DNT/GPC" : status === "granted" ? "Accepted" : status === "denied" ? "Declined" : "Not set"}
+              {dnt ? "Blocked by DNT/GPC" : defaultOn ? "On by default" : status === "granted" ? "Enabled" : status === "denied" ? "Off" : "Not set"}
             </strong>
           </div>
         </div>
@@ -187,14 +193,14 @@ export default function ConsentManager({ open, onClose }: Props) {
             onClick={decline}
             className="min-h-11 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
           >
-            Decline
+            Turn off analytics
           </button>
           <button
             type="button"
             onClick={accept}
             className="min-h-11 rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-3 py-1.5 text-sm font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
           >
-            {dnt ? "Continue without tracking" : "Accept"}
+            {dnt ? "Continue without tracking" : "Allow analytics"}
           </button>
           <Link to="/info/privacy" className="w-full rounded text-center underline sm:ml-auto sm:w-auto text-white/70 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
             Privacy Policy

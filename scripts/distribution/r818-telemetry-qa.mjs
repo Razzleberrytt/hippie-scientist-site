@@ -21,6 +21,56 @@ function assertFrameContract(frame,canvas){
   ids.add(o.objectId)
  }
 }
+
+const CAPTION_ONLY_KINDS = new Set(['caption','karaoke-caption','karaoke-word','subtitle','source-footer','pmid-footer','brand-label','progress-bar','decorative-overlay'])
+const inView = o => o && o.visible !== false && o.opacity !== 0
+// Geometry/state are sampled from the renderer, never inferred from changing subtitle pixels.
+// A focus/emphasis change is meaningful only on an actual named scene object (e.g. a user-report card).
+function changedArtObjects(before,after,canvas){
+ const prior=new Map(before.objects.map(o=>[o.objectId,o]))
+ const changed=new Set()
+ for(const item of after.objects){
+  if(CAPTION_ONLY_KINDS.has(item.kind))continue
+  const old=prior.get(item.objectId)
+  if(!old){
+   if(inView(item))changed.add(item.objectId)
+   continue
+  }
+  if(inView(old)!==inView(item)){changed.add(item.objectId);continue}
+  if(!inView(item))continue
+  const centerMotion=dist(item.bbox,old.bbox)
+  const resizing=Math.abs(item.bbox[2]-old.bbox[2])/canvas.width+
+    Math.abs(item.bbox[3]-old.bbox[3])/canvas.height
+  const stateDelta=['opacity','emphasisLevel','activationLevel','visibilityProgress']
+    .some(key=>Number.isFinite(item[key])&&Number.isFinite(old[key])&&
+      Math.abs(item[key]-old[key])>=.24)
+  if(centerMotion>=.025*canvas.width||resizing>=.05||stateDelta)
+   changed.add(item.objectId)
+ }
+ return changed
+}
+// Long static card layouts cannot pass because the captions change. Require
+// several independently timed semantic-art changes instead of any pixel difference.
+// These are evidence/retention QA signals, not proof of artistic merit.
+function checkLongBeatComposition(beat,frames,canvas){
+ const duration=beat.end-beat.start
+ if(duration<8)return null
+ const activeSeconds=new Set(),activeObjects=new Set()
+ for(let i=5;i<frames.length;i+=5){
+  const changed=changedArtObjects(frames[i-5],frames[i],canvas)
+  if(!changed.size)continue
+  const window=Math.floor((frames[i].time-beat.start)/3)
+  activeSeconds.add(window)
+  for(const id of changed)activeObjects.add(id)
+ }
+ const minimumWindows=Math.max(2,Math.floor(duration/4))
+ if(activeSeconds.size<minimumWindows)
+  throw Error('R8.18 long beat has caption-only or insufficient compositional activity: '+beat.id)
+ return {durationSeconds:duration,changedThreeSecondWindows:activeSeconds.size,
+   requiredChangedWindows:minimumWindows,changedArtObjectCount:activeObjects.size,
+   assessment:'renderer-object-motion-not-caption-pixel-difference'}
+}
+
 function checkBeat(beat,frames,ctx,record){
  const action=txt(beat.semanticAction),proof=beat.telemetryProof||{}
  if(!txt(proof.primaryObjectId)||!frames.some(f=>find(f,proof.primaryObjectId)))
@@ -97,6 +147,8 @@ function checkBeat(beat,frames,ctx,record){
   if(!start||!end||!(Number(end.visibilityProgress)-Number(start.visibilityProgress)>=.5))
    throw Error('R8.18 visual reveal not manifested in renderer frames')
  }else throw Error('R8.18 uninstrumented semantic action cannot silently pass: '+action)
+ const composition=checkLongBeatComposition(beat,frames,ctx.canvas)
+ if(composition)report.compositionalActivity=composition
  return report
 }
 // Renderer-authored frames, not inferred from plan. The producer must supply

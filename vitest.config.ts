@@ -19,6 +19,8 @@ const TEST_EXCLUDES = [
   'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
   // Native node:test, never Vitest: npm run test:node already discovers and runs each file.
   'scripts/research/*.test.mjs',
+  // This suite uses node:test and is already exercised by npm run test:node.
+  'scripts/distribution/__tests__/r818-voiced-review-qa.test.mjs',
 ]
 
 function workspaceAliasPlugin(): Plugin {
