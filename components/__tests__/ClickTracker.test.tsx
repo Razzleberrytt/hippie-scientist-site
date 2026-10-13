@@ -104,7 +104,8 @@ describe('ClickTracker', () => {
       kind: 'cta_click',
       location: 'sleep-evidence-next-step',
       label: 'Evidence next step',
-      target: '/guides/sleep/best-magnesium-for-sleep/',
+      // next/link normalizes the trailing slash; query params must still be removed.
+      target: '/guides/sleep/best-magnesium-for-sleep',
       ctaVariant: 'magnesium-forms',
       modulePosition: 'post-evidence',
     })
