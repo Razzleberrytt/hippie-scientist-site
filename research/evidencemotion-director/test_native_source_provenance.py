@@ -43,6 +43,14 @@ class ProvenanceTests(unittest.TestCase):
  def test_noncanonical_relative_path_blocks(self):
   m=copy.deepcopy(self.manifest);m['sourceInputs']['/etc/passwd']='b'*64
   self.assertEqual(validate(self.root,m)['status'],'HOLD')
+ def test_noncanonical_master_alias_fails_closed(self):
+  m=copy.deepcopy(self.manifest);m['finalNativeMasterPath']='./final.mp4'
+  self.assertEqual(validate(self.root,m)['status'],'HOLD')
+  self.assertTrue(any(x.startswith('MASTER_UNAVAILABLE_OR_UNSAFE') for x in validate(self.root,m)['errors']))
+ def test_noncanonical_source_alias_fails_closed(self):
+  m=copy.deepcopy(self.manifest);m['sourceInputs']['./final.mp4']=H(self.src['final.mp4'])
+  self.assertEqual(validate(self.root,m)['status'],'HOLD')
+  self.assertTrue(any(x.startswith('SOURCE_UNAVAILABLE_OR_UNSAFE') for x in validate(self.root,m)['errors']))
  def test_master_as_source_blocks(self):
   m=copy.deepcopy(self.manifest);m['sourceInputs']['final.mp4']=H(self.src['final.mp4'])
   self.assertIn('MASTER_MUST_NOT_BE_OWN_SOURCE',validate(self.root,m)['errors'])
