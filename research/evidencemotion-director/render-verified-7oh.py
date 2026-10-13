@@ -165,9 +165,23 @@ def render(source, outdir):
     for n in range(FRAMES):
         t = n / FPS
         angle = math.radians(-4 + 8*smooth((t-.65)/4.5))
-        camera.SetPosition(math.sin(angle)*38, 3.3, math.cos(angle)*38)
-        camera.SetFocalPoint(0, 0, 0)
-        halo.GetProperty().SetOpacity(.15*smooth((t-3.35)/1.2))
+        # Two shots, each with ONE purpose-driven camera move:
+        # wide establishing orbit then a hard cut to a real hydroxyl-site macro.
+        # This is visual emphasis, not synthesis, reaction or receptor binding.
+        if t < 2.75:
+            radius = 38.0
+            camera.SetPosition(math.sin(angle)*radius, 3.3,
+                               math.cos(angle)*radius)
+            camera.SetFocalPoint(0, 0, 0)
+        else:
+            progress = smooth((t-2.75)/2.4)
+            radius = 20.0 - 5.0*progress
+            focus = coords[hydroxyl]
+            camera.SetPosition(float(focus[0] + math.sin(.08)*radius),
+                               float(focus[1] + 2.5),
+                               float(focus[2] + math.cos(.08)*radius))
+            camera.SetFocalPoint(*map(float, focus))
+        halo.GetProperty().SetOpacity(.15*smooth((t-2.75)/.70))
         window.Render()
         capture = vtk.vtkWindowToImageFilter()
         capture.SetInput(window)
