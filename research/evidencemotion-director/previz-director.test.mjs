@@ -11,6 +11,7 @@ const beat={
 };
 const receipt={
  origin:'independent-full-decode',schemaVersion:'ths-director-decoded-pixels-v1',previewSha256:hex,decodedFrameCount:120,
+ width:360,height:640,fps:12,roiPixels:[40,115,320,486],medianChangedFraction:0.18,
  voiceTimeStretched:false,factualGeometryGenerated:false,heroAbsent:false,
  stockClipArtDetected:false,maxCaptionExcludedStaticSec:1.5,sourceLocked:true,
  narrationSha256:hex,approvedNarrationSha256:hex
@@ -62,4 +63,11 @@ test('missing decoded footage or metrics holds without claiming quality',()=>{
  assert.equal(evaluatePreviz(candidate,{...receipt,origin:'storyboard'}).status,'HOLD');
  assert.equal(evaluatePreviz(candidate,{...receipt,maxCaptionExcludedStaticSec:null}).status,'HOLD');
  assert.equal(evaluatePreviz(candidate,{...receipt,approvedNarrationSha256:'b'.repeat(64)}).status,'HOLD');
+});
+
+test('moving-poster warning must hold even when no 6-second freeze exists',()=>{
+ const candidate=proposeShots(beat).candidates[0];
+ const result=evaluatePreviz(candidate,{...receipt,medianChangedFraction:0.0,maxCaptionExcludedStaticSec:0.33});
+ assert.equal(result.status,'HOLD');
+ assert.ok(result.reasons.includes('MOVING_POSTER_CONCEPT_REVIEW_HOLD'));
 });
