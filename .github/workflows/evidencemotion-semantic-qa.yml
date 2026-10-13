@@ -25,7 +25,7 @@ jobs:
           python-version: '3.12'
       - name: Install lightweight synthetic-frame test dependencies
         run: python -m pip install "numpy>=1.26,<3" "Pillow>=10,<13"
-      - name: Syntax and nine adversarial semantic cases
+      - name: Syntax and ten adversarial semantic cases
         run: |
           python -m py_compile research/evidencemotion-director/semantic_negative_visual_audit.py
           python -m py_compile research/evidencemotion-director/test_semantic_negative_visual_audit.py
