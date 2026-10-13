@@ -259,22 +259,7 @@ export default function MagnesiumTypesForSleepPage() {
           </div>
         </section>
 
-        <section className="space-y-4">
-          <p className="eyebrow-label">Decision table</p>
-          <h2 className="text-2xl font-semibold text-ink">How the forms compare in 2026</h2>
-          <ResponsiveTable label="Magnesium forms for sleep evidence comparison">
-            <table className="min-w-[900px] w-full text-sm">
-              <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr><th className="p-4 text-left font-semibold text-ink">Form</th><th className="p-4 text-left font-semibold text-ink">Direct sleep evidence</th><th className="p-4 text-left font-semibold text-ink">Other useful evidence</th><th className="p-4 text-left font-semibold text-ink">Verdict</th></tr></thead>
-              <tbody className="divide-y divide-brand-900/10 text-muted">
-                <tr><td className="p-4 font-semibold text-ink">Bisglycinate / glycinate</td><td className="p-4">One 155-person placebo RCT; small ISI effect.<Cite n={3} /></td><td className="p-4">Popularity/tolerability claims exceed direct comparative evidence.</td><td className="p-4"><strong className="text-ink">Promising, not proven best.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">L-threonate</td><td className="p-4">Two recent branded-product RCTs with mixed endpoint patterns.<Cite n={4} /><Cite n={6} /></td><td className="p-4">Industry funding/product specificity matters.</td><td className="p-4"><strong className="text-ink">Interesting, premium price not evidence of superiority.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">Citrate</td><td className="p-4">An older-adult RCT found no sleep benefit beyond placebo.<Cite n={13} /></td><td className="p-4">Better bioavailability than oxide in small studies.<Cite n={10} /><Cite n={11} /></td><td className="p-4"><strong className="text-ink">Good absorption ≠ proven better sleep.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">Oxide</td><td className="p-4">Older positive insomnia RCT exists.<Cite n={7} /></td><td className="p-4">Lower bioavailability than several soluble forms.<Cite n={9} /></td><td className="p-4"><strong className="text-ink">Not a winner; not evidence-free either.</strong></td></tr>
-                <tr><td className="p-4 font-semibold text-ink">Malate / taurate</td><td className="p-4">Very sparse direct sleep evidence.</td><td className="p-4">Mechanistic/carrier stories dominate marketing.</td><td className="p-4"><strong className="text-ink">Insufficient evidence for a sleep ranking.</strong></td></tr>
-              </tbody>
-            </table>
-          </ResponsiveTable>
-        </section>
+
 
         <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
           <h2 className="text-2xl font-semibold text-ink">What would actually prove one form is better?</h2>
@@ -300,7 +285,26 @@ export default function MagnesiumTypesForSleepPage() {
           <div className="space-y-3">{FAQS.map((faq) => (<section key={faq.question} className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm"><h2 className="text-lg font-semibold text-ink">{faq.question}</h2><p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p></section>))}</div>
         </section>
 
-        <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
+        <section id="buying-checklist" className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="eyebrow-label">How to choose without marketing shortcuts</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">What should you check before buying magnesium for sleep?</h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-7 text-muted">
+            <li>Read the <strong>elemental magnesium</strong> amount and serving size on Supplement Facts; it is not the same as the compound weight.<Cite n={9} /></li>
+            <li>Add magnesium from supplements and medications. The NIH adult tolerable upper limit is <strong>350 mg/day from those sources</strong> unless a clinician advises otherwise; food does not count.<Cite n={9} /></li>
+            <li>Consider diarrhea, constipation, kidney disease, and antibiotic or bisphosphonate interactions before comparing price.<Cite n={9} /></li>
+            <li>Compare cost per 100 mg elemental magnesium, added ingredients, independent testing evidence, and realistic return terms rather than promises of deep sleep.</li>
+            <li>Expect gradual, small or absent effects rather than a same-night sleeping pill; magnesium has not been proven to cure chronic insomnia.<Cite n={3} /><Cite n={14} /></li>
+          </ol>
+          <h2 className="mt-5 text-xl font-semibold text-ink">Which form fits your shopping constraint?</h2>
+          <p className="mt-2 text-sm leading-7 text-muted">For GI sensitivity, compare glycinate; for lower cost or constipation, consider citrate's stool-softening tradeoff; for L-threonate, weigh a premium against mixed, commercially funded studies. Malate and taurate lack verified form-only sleep RCTs; oxide is inexpensive but can be laxative and less efficiently absorbed. This is a shopping framework, not a prescription.</p>
+          <AffiliateDisclosure />
+          <p className="mt-4 text-sm leading-7 text-muted">No product-specific Amazon ASIN currently meets this guide's explicit HIGH-confidence verification gate; named products and direct ASIN offers are withheld. The optional links below are disclosed generic searches by form, not endorsements of search results.</p>
+          {allowSearchLinks && <div className="mt-3 flex flex-wrap gap-3">
+            <a href={magnesiumSearchUrl('glycinate')} data-product-slot="search-only" rel="nofollow sponsored noopener noreferrer" target="_blank" className="rounded-xl border border-brand-900/20 p-3 text-sm font-semibold text-brand-700">Search glycinate ↗</a>
+            <a href={magnesiumSearchUrl('citrate')} data-product-slot="search-only" rel="nofollow sponsored noopener noreferrer" target="_blank" className="rounded-xl border border-brand-900/20 p-3 text-sm font-semibold text-brand-700">Search citrate ↗</a>
+            <a href={magnesiumSearchUrl('L-threonate')} data-product-slot="search-only" rel="nofollow sponsored noopener noreferrer" target="_blank" className="rounded-xl border border-brand-900/20 p-3 text-sm font-semibold text-brand-700">Search L-threonate ↗</a>
+          </div>}
+        </section>
 
         <EmailCapture headline="Get future research notes by email" description="Evidence-first supplement updates, safety context, and new guide announcements." location={`article-${SLUG}`} />
         <NewsletterCtaBlock title="Continue with the newsletter archive" description="Short notes built for cautious supplement decisions." location={`article-${SLUG}-newsletter`} />
