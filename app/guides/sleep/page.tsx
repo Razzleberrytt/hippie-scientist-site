@@ -169,11 +169,6 @@ const BEST_FIRST: GuideCard[] = [
 
 const COMPARISONS: GuideCard[] = [
   {
-    href: '/guides/sleep/magnesium-forms-for-sleep-buying-guide/',
-    title: 'Magnesium Forms for Sleep: Six-Form Buyer Comparison',
-    desc: 'Glycinate, citrate, L-threonate, malate, taurate and oxide compared by actual trial results, elemental dose, tolerance and cost, with unverified products held.',
-  },
-  {
     href: '/guides/sleep/magnesium-vs-melatonin/',
     title: 'Magnesium vs Melatonin',
     desc: 'Nervous-system calm vs circadian timing — which problem is yours?',
@@ -195,8 +190,8 @@ const COMPARISONS: GuideCard[] = [
   },
   {
     href: '/guides/sleep/magnesium-types-for-sleep/',
-    title: 'Magnesium Types for Sleep',
-    desc: 'Glycinate vs citrate vs threonate vs oxide, ranked for sleep.',
+    title: 'Magnesium Types for Sleep — Evidence and Six-Form Buyer Guide',
+    desc: 'Compare six forms, elemental label amounts, gut tolerance, relative cost, placebo findings and funding disclosures without unverified product rankings.',
   },
   {
     href: '/guides/sleep/best-magnesium-for-sleep/',
