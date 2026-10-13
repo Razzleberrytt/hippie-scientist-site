@@ -34,7 +34,23 @@ def probe(path):
 
 def frame_timestamps(path):
     """Read actual decoded presentation timestamps, never trust guessed r_frame_rate."""
-    raw = command(['ffprobe',def verify(master, reference_audio, expected_sha, expected_audio_sha, expected_frames,
+    raw = command(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
+                   '-show_entries', 'frame=best_effort_timestamp_time',
+                   '-of', 'csv=p=0', str(path)])
+    return [Decimal(item.strip()) for item in raw.decode('utf-8').splitlines() if item.strip()]
+
+
+def audio_hash(path):
+    """SHA-256 of actual AAC elementary stream with canonical ADTS framing."""
+    raw = command(['ffmpeg', '-hide_banner', '-v', 'error',
+                   '-i', str(path), '-map', '0:a:0', '-c:a', 'copy',
+                   '-f', 'adts', '-'])
+    if not raw:
+        raise ValueError('empty audio stream')
+    return hashlib.sha256(raw).hexdigest()
+
+
+def verify(master, reference_audio, expected_sha, expected_audio_sha, expected_frames,
            *, width=1080, height=1920, fps=30, decode_all=True):
     problems = []
     result = {
@@ -52,6 +68,7 @@ def frame_timestamps(path):
     if not all(isinstance(h, str) and re.fullmatch('[0-9a-fA-F]{64}', h)
                for h in (expected_sha, expected_audio_sha)):
         problems.append('PINNED_HASHES_REQUIRED')
+        return result
     if not isinstance(expected_frames, int) or expected_frames <= 0 or not isinstance(fps, int) or fps <= 0:
         problems.append('INVALID_FRAME_CONTRACT')
         return result
@@ -131,16 +148,6 @@ def frame_timestamps(path):
             problems.append('FULL_MEDIA_DECODE_FAILED')
     result['technical'] = 'PASS' if not problems else 'HOLD'
     return result
- subprocess.CalledProcessError:
-            problems.append('FULL_MEDIA_DECODE_FAILED')
-    return {
-        'technical': 'PASS' if not problems else 'HOLD', 'problems': problems,
-        'masterSha256': master_sha, 'audioAdtsSha256': current_audio_sha,
-        'fullDecodePerformed': decode_all, 'releaseApproved': False, 'craftApproved': False,
-        'scientificEditorialApproved': False, 'ownerDevicePlaybackApproved': False,
-        'nativeProvenanceNote': 'Pixel dimensions alone do not prove native source rendering; separately audit renderer inputs and source receipts.',
-    }
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
