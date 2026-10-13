@@ -107,5 +107,31 @@ class NativeMasterAuditTests(unittest.TestCase):
         self.assertFalse(result['releaseApproved'])
 
 
+    def test_malformed_expected_hash_fails_without_probe(self):
+        with patch.object(target, 'probe', side_effect=AssertionError('must stop early')):
+            result = target.verify(self.master, self.ref, 'bad hash', 'b'*64, 1031, decode_all=False)
+        self.assertEqual(result['technical'], 'HOLD')
+        self.assertIn('PINNED_HASHES_REQUIRED', result['problems'])
+
+    def test_actual_timestamp_parser_uses_frame_timestamps(self):
+        with patch.object(target, 'command', return_value=b'0.000000\\n0.033333\\n0.066667\\n'):
+            actual = target.frame_timestamps(self.master)
+        self.assertEqual(len(actual), 3)
+        self.assertEqual(actual[1], Decimal('0.033333'))
+
+    def test_actual_audio_hash_uses_adts_bytes(self):
+        import hashlib
+        with patch.object(target, 'command', return_value=b'ADTS-STREAM-BYTES') as cmd:
+            actual = target.audio_hash(self.master)
+        self.assertEqual(actual, hashlib.sha256(b'ADTS-STREAM-BYTES').hexdigest())
+        self.assertIn('-f', cmd.call_args.args[0])
+        self.assertIn('adts', cmd.call_args.args[0])
+
+    def test_empty_audio_stream_is_hard_error(self):
+        with patch.object(target, 'command', return_value=b''):
+            with self.assertRaises(ValueError):
+                target.audio_hash(self.master)
+
+
 if __name__ == '__main__':
     unittest.main()
