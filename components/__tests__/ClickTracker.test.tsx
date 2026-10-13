@@ -1,11 +1,12 @@
 import { fireEvent, render } from '@testing-library/react'
 import Link from 'next/link'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import ClickTracker from '../ClickTracker'
 
 const mocks = vi.hoisted(() => ({
   getConsent: vi.fn(),
+  canLoadGa4: vi.fn(),
   trackLeadMagnetClick: vi.fn(),
   trackPageView: vi.fn(),
   trackHomepageEntityClick: vi.fn(),
@@ -39,14 +40,21 @@ vi.mock('@/lib/contentJourneyTracking', () => ({
 vi.mock('@/lib/consent', () => ({
   CONSENT_CHANGE_EVENT: 'consent-granted',
   getConsent: mocks.getConsent,
+  canLoadGa4: mocks.canLoadGa4,
 }))
 
 vi.mock('@/lib/loadAnalytics', () => ({
   loadAnalytics: vi.fn(),
 }))
 
+beforeEach(() => {
+  // GA4 pageviews may run before an explicit grant, but a denial blocks them.
+  mocks.canLoadGa4.mockImplementation(() => mocks.getConsent() !== 'denied')
+})
+
 afterEach(() => {
   mocks.getConsent.mockReset()
+  mocks.canLoadGa4.mockReset()
   mocks.trackLeadMagnetClick.mockReset()
   mocks.trackPageView.mockReset()
   mocks.trackHomepageEntityClick.mockReset()
@@ -138,7 +146,7 @@ describe('ClickTracker', () => {
     expect(mocks.trackDetailRelatedEntityClick).not.toHaveBeenCalled()
   })
 
-  it('does not track before analytics consent', () => {
+  it('allows default GA4 pageviews, but not lead tracking, before affirmative consent', () => {
     mocks.getConsent.mockReturnValue('unknown')
     render(
       <>
@@ -151,8 +159,15 @@ describe('ClickTracker', () => {
 
     fireEvent.click(document.querySelector('a')!)
 
-    expect(mocks.trackPageView).not.toHaveBeenCalled()
+    expect(mocks.trackPageView).toHaveBeenCalledTimes(1)
+    expect(mocks.trackPageView).toHaveBeenCalledWith({ pagePath: '/guides/adhd/' })
     expect(mocks.trackLeadMagnetClick).not.toHaveBeenCalled()
+  })
+
+  it('respects a persistent denial for GA4 pageviews', () => {
+    mocks.getConsent.mockReturnValue('denied')
+    render(<ClickTracker />)
+    expect(mocks.trackPageView).not.toHaveBeenCalled()
   })
 
   it('does not install affiliate impression observers before analytics consent', () => {

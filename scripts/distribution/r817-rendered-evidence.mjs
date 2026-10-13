@@ -8,7 +8,7 @@ export function measureR817HookCenterChange(before,after,{width=160,height=176,p
    throw Error('R8.17 hook needs two equal decoded grayscale CENTRAL artwork frames')
  const changed=new Uint8Array(size);let count=0
  for(let i=0;i<size;i++){if(Math.abs(before[i]-after[i])>=pixelDelta){changed[i]=1;count++}}
- const visited=new Uint8Array(size);let largest=0,queue=new Int32Array(size)
+ const visited=new Uint8Array(size);let largest=0;const queue=new Int32Array(size)
  for(let i=0;i<size;i++){
   if(!changed[i]||visited[i])continue
   let head=0,tail=1;queue[0]=i;visited[i]=1

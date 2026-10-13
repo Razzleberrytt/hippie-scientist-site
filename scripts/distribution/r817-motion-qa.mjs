@@ -11,7 +11,7 @@ export const R817_MOTION_LIMITS=Object.freeze({
 })
 const sha=v=>crypto.createHash('sha256').update(v).digest('hex')
 function connectedLargest(mask,w,h){
- let largest=0,seen=new Uint8Array(mask.length),queue=new Int32Array(mask.length)
+ let largest=0;const seen=new Uint8Array(mask.length),queue=new Int32Array(mask.length)
  for(let pos=0;pos<mask.length;pos++){
   if(!mask[pos]||seen[pos])continue
   let head=0,tail=1;queue[0]=pos;seen[pos]=1
@@ -43,7 +43,7 @@ export function measureR817FinalMotion(rawFrames,scenes,opts={}){
   const a=Math.max(1,Math.ceil((Number(b.start)+.04)*l.sampleFps))
   const z=Math.min(n-1,Math.floor((Number(b.end)-.04)*l.sampleFps))
   if(!Number.isFinite(a)||!Number.isFinite(z)||z<a)throw Error('R8.17 missing beat samples')
-  let lastStable=Math.max(Number(b.start),a/l.sampleFps-.2)
+  const lastStable=Math.max(Number(b.start),a/l.sampleFps-.2)
   let streak=0,pending=0,meaningfulPairs=0,previousQualified=false,peak=0,staticSamples=0,eligibleSamples=0
   for(let i=a;i<=z;i++){
     const good=changes[i]?.meaningful===true

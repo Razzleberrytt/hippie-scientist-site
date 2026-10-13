@@ -37,24 +37,43 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).toContain("body:has(.hs-home) [data-footer-new-here='true'] {\n    display: none;")
   })
 
-  it('keeps the privacy choice visible without covering page actions', () => {
-    const banner = source('components/ConsentBanner.tsx')
+  it('keeps privacy settings in the footer without an obsolete consent banner', () => {
+    const bootstrap = source('components/Ga4Bootstrap.tsx')
     const layout = source('app/layout.tsx')
+    const footerControls = source('components/FooterConsentControls.tsx')
+    const consentManager = source('components/ConsentManager.tsx')
     const headerEnd = layout.indexOf('</header>')
-    const consentMount = layout.indexOf('<ConsentBanner />')
+    const bootstrapMount = layout.indexOf('<Ga4Bootstrap />')
     const mainStart = layout.indexOf('<main')
 
-    expect(banner).toContain("data-consent-banner='true'")
-    expect(banner).toContain('useState(true)')
-    expect(banner).toContain('min-h-5')
-    expect(banner).toContain("className='relative z-[100]")
-    expect(layout).toContain("localStorage.getItem('consent.v1')")
-    expect(layout).toContain("data-consent-pending='false'")
-    expect(banner).not.toContain("className='fixed ")
+    expect(bootstrap).toContain('loadAnalytics()')
+    expect(bootstrap).toContain('return null')
+    expect(layout).not.toContain('ConsentBanner')
+    expect(layout).not.toContain('data-consent-pending')
+    expect(footerControls).toContain('Privacy settings')
+    expect(consentManager).toContain('Turn off analytics')
     expect(headerEnd).toBeGreaterThan(-1)
-    expect(consentMount).toBeGreaterThan(headerEnd)
-    expect(mainStart).toBeGreaterThan(consentMount)
-    expect(layout.lastIndexOf('<ConsentBanner />')).toBe(consentMount)
+    expect(bootstrapMount).toBeGreaterThan(headerEnd)
+    expect(mainStart).toBeGreaterThan(bootstrapMount)
+    expect(layout.lastIndexOf('<Ga4Bootstrap />')).toBe(bootstrapMount)
+  })
+
+  it('exposes a real opt-out control and privacy policy on every translated footer', () => {
+    const layout = source('app/layout.tsx')
+    const localizedFooter = source('components/localization/LocalizedFooter.tsx')
+    const controls = source('components/FooterConsentControls.tsx')
+    const manager = source('components/ConsentManager.tsx')
+
+    expect(layout).toContain('<LocalizedOnly>')
+    expect(layout).toContain('<LocalizedFooter />')
+    expect(localizedFooter).toContain('<FooterConsentControls')
+    expect(localizedFooter).toContain("href='/info/privacy/'")
+    for (const locale of ['es', 'de', 'fr']) {
+      expect(localizedFooter).toContain(`${locale}: '`)
+    }
+    expect(controls).toContain('<ConsentManager open')
+    expect(manager).toContain('setConsent("denied")')
+    expect(manager).toContain('clearAnalyticsEvents()')
   })
 
   it('renders shared comparison data as option-first cards on phones', () => {
