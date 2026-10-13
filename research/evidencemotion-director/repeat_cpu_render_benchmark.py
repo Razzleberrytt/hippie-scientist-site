@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bounded, fail-closed research CPU benchmark. Never a film release or craft certificate."""
 from __future__ import annotations
-import argparse, hashlib, json, os, subprocess, sys, time, zipfile
+import argparse, hashlib, json, math, os, signal, subprocess, sys, time, zipfile
 from pathlib import Path
 
 ARCHIVE_SHA='2c2d06028e86978ce6799f58c5476a881144cff623322c3339f2d9c83ffe0618'
@@ -35,48 +35,94 @@ def extract_exact_original(zip_path,target):
     if file_hash(target/'build_fullhd_matchcut.py')!=RENDERER_SHA:raise ValueError('RENDERER_SHA_MISMATCH')
     if file_hash(target/'original_kokoro_narration.wav')!=NARRATION_SHA:raise ValueError('ORIGINAL_VOICE_SHA_MISMATCH')
 
+def terminate_render_process_group(process):
+    """Stop the /usr/bin/time wrapper AND any child renderer on deadline."""
+    if process.poll() is not None:
+        return
+    try:
+        os.killpg(process.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        pass
+    try:
+        process.wait(timeout=3)
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        process.wait()
+
+
+def measured_resource_fields(path):
+    """Only measured finite Linux /usr/bin/time data qualifies as a benchmark."""
+    if not path.is_file():
+        raise ValueError('RESOURCE_TIMING_MISSING')
+    raw=path.read_text().strip().split(',')
+    if len(raw)!=4:
+        raise ValueError('RESOURCE_TIMING_MALFORMED')
+    wall,user,system=map(float,raw[:3])
+    rss_kib=int(raw[3])
+    if not all(math.isfinite(x) for x in (wall,user,system)):
+        raise ValueError('RESOURCE_TIMING_NONFINITE')
+    if wall<=0 or user<0 or system<0 or rss_kib<=0:
+        raise ValueError('RESOURCE_TIMING_INVALID')
+    return dict(wallSeconds=wall,cpuUserSeconds=user,cpuSystemSeconds=system,
+                totalCpuMinutes=round((user+system)/60,4),
+                peakResidentMiB=round(rss_kib/1024,2))
+
+
 def perform_run(archive,folder,number,timeout_seconds):
     target=folder/f'run_{number:02d}'
     extract_exact_original(archive,target)
     timing=target/'time.csv'
     env=os.environ.copy()
-    env.update(VTK_DEFAULT_OPENGL_WINDOW='vtkEGLRenderWindow',LIBGL_ALWAYS_SOFTWARE='1')
+    env.update(VTK_DEFAULT_OPENGL_WINDOW='vtkEGLRenderWindow',LIBGL_ALWAYS_SOFTWARE='1',LC_ALL='C')
     command=['/usr/bin/time','-f','%e,%U,%S,%M','-o',str(timing),
              sys.executable,str(target/'build_fullhd_matchcut.py')]
     started=time.monotonic()
     with (target/'stdout.log').open('w') as output,(target/'stderr.log').open('w') as errors:
-        process=subprocess.Popen(command,cwd=target,env=env,stdout=output,stderr=errors)
+        process=subprocess.Popen(command,cwd=target,env=env,stdout=output,stderr=errors,
+                                 start_new_session=True)
         try:code=process.wait(timeout=timeout_seconds)
         except subprocess.TimeoutExpired:
-            process.kill();process.wait();code=124
+            terminate_render_process_group(process)
+            code=124
     metrics={'run':number,'status':'HOLD','exitCode':code,
              'controllerWallSeconds':round(time.monotonic()-started,3)}
-    if timing.exists():
-        try:
-            seconds,user_cpu,system_cpu,peak_kib=timing.read_text().strip().split(',')
-            metrics.update(wallSeconds=float(seconds),cpuUserSeconds=float(user_cpu),
-                           cpuSystemSeconds=float(system_cpu),
-                           totalCpuMinutes=round((float(user_cpu)+float(system_cpu))/60,4),
-                           peakResidentMiB=round(int(peak_kib)/1024,2))
-        except (ValueError,TypeError):metrics['timingDataInvalid']=True
+    try:
+        metrics.update(measured_resource_fields(timing))
+        timing_valid=True
+    except (ValueError, OSError) as exc:
+        metrics['timingDataInvalid']=str(exc)
+        timing_valid=False
     movie=target/SILENT_OUTPUT
     if code==0 and movie.exists():
         metrics['silentMovieSha256']=file_hash(movie)
         metrics['outputBytes']=movie.stat().st_size
-        probe=subprocess.run(['ffprobe','-v','error','-show_streams','-of','json',str(movie)],capture_output=True,text=True)
+        probe=subprocess.run(['ffprobe','-v','error','-show_streams','-of','json',str(movie)],capture_output=True,text=True,timeout=120)
         try:metrics['nativeFramesCorrect']=probe.returncode==0 and valid_native_probe(json.loads(probe.stdout))
         except (ValueError,TypeError):metrics['nativeFramesCorrect']=False
-        decoded=subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(movie),'-f','null','-'],capture_output=True)
+        decoded=subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(movie),'-f','null','-'],capture_output=True,timeout=120)
         metrics['fullDecodePass']=decoded.returncode==0
-        if metrics['nativeFramesCorrect'] and metrics['fullDecodePass']:
+        if timing_valid and metrics['nativeFramesCorrect'] and metrics['fullDecodePass']:
             metrics['status']='PASS_TECHNICAL_ONLY'
     return metrics
 
-def research_receipt(runs):
+def research_receipt(runs, expected_attempts):
+    """A partial or nondeterministic benchmark is never a passing artifact."""
+    if not isinstance(expected_attempts,int) or not 1<=expected_attempts<=10:
+        raise ValueError('EXPECTED_ATTEMPT_COUNT_REQUIRED')
     n=len(runs)
     successes=sum(x.get('status')=='PASS_TECHNICAL_ONLY' for x in runs)
-    return {'status':'PASS_RESEARCH_ONLY' if n and n==successes else 'HOLD',
-            'attempts':n,'successes':successes,'observedFailureCount':n-successes,
+    hashes=[x.get('silentMovieSha256') for x in runs]
+    same_hash=(n>0 and all(isinstance(h,str) and len(h)==64
+                              and all(c in '0123456789abcdef' for c in h.lower()) for h in hashes)
+               and len(set(hashes))==1)
+    complete=(n==expected_attempts and successes==expected_attempts and same_hash)
+    return {'status':'PASS_RESEARCH_ONLY' if complete else 'HOLD',
+            'expectedAttempts':expected_attempts,'attempts':n,'successes':successes,
+            'matchingOutputHashes':same_hash,'identicalSilentMovieSha256':hashes[0] if same_hash else None,
+            'observedFailureCount':n-successes,
             'observedFailureFraction':(n-successes)/n if n else None,
             'longTermFailureRateEstablished':False,
             'scope':'this exact cloud CPU container, NOT production social publishing or GitHub Actions benchmark',
@@ -105,7 +151,8 @@ def main():
         try:receipt=perform_run(args.archive,args.root,i,args.timeout_seconds)
         except Exception as e:receipt={'run':i,'status':'HOLD','error':str(e)}
         runs.append(receipt)
-        (args.root/'BENCHMARK_RECEIPT.json').write_text(json.dumps(research_receipt(runs),indent=2)+'\n')
-    return int(not all(x['status']=='PASS_TECHNICAL_ONLY' for x in runs))
+        (args.root/'BENCHMARK_RECEIPT.json').write_text(
+            json.dumps(research_receipt(runs,expected_attempts=args.repeats),indent=2)+'\n')
+    return int(research_receipt(runs,expected_attempts=args.repeats)['status']!='PASS_RESEARCH_ONLY')
 
 if __name__=='__main__':sys.exit(main())
