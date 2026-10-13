@@ -21,6 +21,7 @@ Checklist states: `[x]` = evidence established, `[ ]` = open gate. An implementa
 - [x] Original pinned Kokoro ONNX INT8 `am_michael` WAV generated in successful GitHub workflow; voice/model provenance and WAV hashes recorded.
 - [x] V9 uses unchanged original AAC audio and genuine exact-WAV **beat-level** boundaries (33.135 seconds).
 - [x] **V11 research preview only:** corrected severely quiet narrator mastering from −27.79 to −17.52 LUFS (peak −1.49 dBTP), preserved exact original Kokoro performance and timing (0 ms measured shift, 0.99836 waveform correlation), and independently decoded 497/497 frames. This is mechanical QC, **not** the owner ear-check.
+- [x] **Owner preliminary audio feedback (Oct 13):** after receiving the V11 phone-audition preview, owner reports the narration “sounds alright.” Treat as provisional acceptance of overall voice/loudness and freeze the existing take for visual iteration. **Not** explicit certification of each specialized pronunciation, final native-master playback, or craft.
 - [ ] Owner ear-check of **this exact WAV** for `7-OH`, `hydroxyl`, `mitragynine`, conversational cadence, stress and endings; record audible PASS/FAIL, not only waveform metrics.
 - [ ] If voice rejected, regenerate only affected natural sentence chunks, validate original vault, **invalidate old cuts/hashes** and realign; never substitute Flite/espeak or time-stretch.
 - [ ] Genuine original-WAV word-level acoustic alignment (MFA or equivalently validated) for on-screen word cues, highlighted OH timing, and any word-synchronized captions.
