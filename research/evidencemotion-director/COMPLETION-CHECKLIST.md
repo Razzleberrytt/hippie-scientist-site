@@ -1,6 +1,6 @@
 # EvidenceMotion: system completion checklist (living tracker)
 
-**Updated:** 2026-10-13 (V3 exact-media audit) | **Verified foundations: 17/46; 29 open** | **Owner direction:** phone-first, existing remote CPU | **Production freeze:** ON | **Video quality milestone:** 0/1 first excellent native final, then 0/5 consecutive excellent native first renders.
+**Updated:** 2026-10-13 (V3 exact-media audit) | **Verified foundations proposed: 18/46; 28 open (pending PR CI/merge)** | **Owner direction:** phone-first, existing remote CPU | **Production freeze:** ON | **Video quality milestone:** 0/1 first excellent native final, then 0/5 consecutive excellent native first renders.
 
 ## Definition of "complete"
 **A video** is release-ready only after source/correctness review, original voice ear-check, native 1080×1920/30fps first final, full decoded A/V and real iPhone playback, craft approval against best-in-niche references, and the owner's explicit go/no-go. **The director system** is canonically complete only after that first excellent first-render master **and five consecutive excellent first renders on varied topics**, with reproducible locked sources, model/execution budgets, robust failed-shot regression tests, and no safety bypass.
@@ -38,7 +38,7 @@ Checklist states: `[x]` = evidence established, `[ ]` = open gate. An implementa
 - [x] **V3 exact-shot director plan completed**: all 15 actual scene intervals mapped to source IDs, hero, grammar, camera/cut, intended viewer reaction, and abort conditions in [7OH-V3-SHOT-DECISIONS-2026-10-13.md](7OH-V3-SHOT-DECISIONS-2026-10-13.md). This is planning/documentation, **not** visual craft or owner acceptance.
 - [ ] Two genuinely different low-resolution previz candidates evaluated *against real reference shelf* before any final native render; reject cheap concepts, not just poorly scored pixels.
 - [ ] Capture and inspect semantic negative filters beyond pixel motion: cropped structure, wrong OH highlight, scene identity drift, meaningless particles, flat-card templates, captions obscuring molecule, and cheap-looking transitions.
-- [ ] Confirm deliberate 3-second **PubChem source hold** is exempt from moving-poster penalties while preserving readable citation. Do not artificially animate citations to game metrics.
+- [x] **Verified V3 3.2-second PubChem source hold** is exempt from moving-poster penalties **only for that source-reading window**, with the other hero/motion kills unchanged. Actual decoded 29.5s portrait frame visibly displays CID 44301524 and pubchem.ncbi.nlm.nih.gov; source frame hash `2949511637f1296fbabd67002c75192e3e96bd6cc4ecce77c0b4b28f65ae3017`. Narrow fail-closed guard/test: [source-reading-hold.mjs](source-reading-hold.mjs) and [tests](source-reading-hold.test.mjs). **Owner phone legibility approval remains separate/open**.
 - [ ] Visual originality and whole-piece cohesion accepted by **owner**, and independent reviewer when available (never claim `V_VERIFIED` from solo review).
 
 ### D. Trust, mobile and final media validation — release blockers
