@@ -31,3 +31,13 @@ python -m unittest test_validated_7oh_chemistry.py -v
 python render-verified-7oh.py --source /path/to/approved_botanical_crop.png --out /tmp/evidencemotion-7oh-previz
 ```
 Requirements for this research-only CPU path: Python 3.12 or compatible, RDKit, NumPy, VTK, OpenCV, Pillow, FFmpeg, and DejaVu Sans fonts. No packages or model weights are installed by the script. The source is not a license to make any therapeutic claims or representations of measured molecular poses. There are no mutations to production scripts, CI or content.
+
+
+## Second research treatment: physical camera cut to verified hydroxyl site
+To escape the previous near-static molecular orbit, a separate local CPU experiment kept the exact same pinned RDKit graph/conformer and used **two shots**: a wide orbit (0–2.75 seconds), then a hard cut to a macro push aimed at the correct hydroxyl oxygen (2.75–6 seconds). There is no molecule morph, new bond, fake receptor or implied chemical reaction.
+
+- Local silent research video SHA-256: `ad7a81cc51b154fcfb1b1169ba5f9ac03c0ac233a60c458a231c93aafaf7c49b`. The source was the same approved botanical PNG.
+- Independent FFmpeg decoder: 72 frames at 480×854/12fps; longest low-motion stretch **2.667s**, median per-frame ROI change **0.01232**.
+- Independent before-after sampled at 1s and 5s: **0.2917** large-scale changed subject blocks (versus **0.0179** for the initial slow orbit). These are *negative quality proxies* only.
+- The repository's adapted source script was updated for the same two-shot concept but **has not yet been independently executed** on a checkout; do not claim bit-for-bit match or exact source reproduction for the repo version until verified.
+- **CRAFT HOLD:** The deliberate atom-site move is more legible, but lacks voice, source-specific explanatory stakes, material richness and owner on-phone acceptance. Neither this nor the original silent orbit counts toward the one-plus-five milestone.
