@@ -2,7 +2,7 @@ import tempfile,unittest
 from pathlib import Path
 import numpy as np
 from PIL import Image,ImageDraw
-from semantic_negative_visual_audit import frame_guard,run_audit
+from semantic_negative_visual_audit import frame_guard,run_audit,build_model
 
 class ResearchVisualNegativeTests(unittest.TestCase):
     def setUp(self):
@@ -52,6 +52,13 @@ class ResearchVisualNegativeTests(unittest.TestCase):
     def test_bad_decoded_frame_geometry_is_rejected(self):
         self.assertEqual(frame_guard(self.expected,self.actual[:310,:,:])['status'],'HOLD')
         self.assertEqual(frame_guard(self.expected,np.zeros((320,320),dtype=np.uint8))['status'],'HOLD')
+
+    def test_manifest_cannot_self_authenticate_coordinated_source_tampering(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            (root/'source_input_manifest.json').write_text('{"sourceInputs":{}}')
+            with self.assertRaisesRegex(RuntimeError,'SOURCE_MANIFEST_SHA_DRIFT'):
+                build_model(root)
 
     def test_wrong_video_byte_hash_rejected_before_any_source_claim(self):
         with tempfile.TemporaryDirectory() as d:
