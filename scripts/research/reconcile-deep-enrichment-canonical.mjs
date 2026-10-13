@@ -135,6 +135,109 @@ export function reconcile(dossiers, sourceRows, claimRows, sourceSheet = 'Source
   return out
 }
 
+
+/**
+ * Cumulative research-only PMID index is a separate scientific intake stream.
+ * Its presence does not imply canonical admission, publication, clinical
+ * approval, or independent trial identity. Require the finalized, fail-closed
+ * manifest + status + full cumulative-index consistency before using it.
+ */
+export function readResearchOnlyIndex(root) {
+  const dir = path.join(root, 'ops', 'enrichment-submissions', 'reconciliation')
+  const candidates = fs.readdirSync(dir)
+    .filter((file) => file.endsWith('-final-manifest.json'))
+    .map((file) => {
+      const envelope = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'))
+      const match = String(envelope.range || '').match(/^(\d+)-(\d+)$/)
+      return match ? { file, envelope, through: Number(match[2]), start: Number(match[1]) } : null
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.through - a.through)
+  const current = candidates[0]
+  if (!current) throw new Error('No finalized research-only cumulative PMID manifest found')
+  const { envelope, file, through, start } = current
+  const policy = envelope.admission_policy || {}
+  if (through - start + 1 !== 500 || envelope.research_only !== true ||
+      envelope.fail_closed !== true || envelope.accepted_new_unique_pmids !== 500 ||
+      policy.published_entities !== false || policy.recommendations !== false ||
+      policy.runtime_admission !== false) {
+    throw new Error('Research-only cumulative manifest admission or coverage policy invalid: ' + file)
+  }
+  const stem = file.replace(/-final-manifest\.json$/, '')
+  const statusFile = path.join(dir, stem + '-final-status.json')
+  // The status and manifest share the batch range even though the status
+  // batch_id often carries an additional "-status" suffix.
+  const status = JSON.parse(fs.readFileSync(statusFile, 'utf8'))
+  const relative = String(envelope.cumulative_index || '')
+  const expectedPrefix = 'ops/enrichment-submissions/reconciliation/'
+  if (!relative.startsWith(expectedPrefix) ||
+      path.basename(relative) !== relative.slice(expectedPrefix.length)) {
+    throw new Error('Research index must stay in the audited reconciliation directory')
+  }
+  const index = JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'))
+  if (status.range !== envelope.range || status.research_only !== true ||
+      status.published !== false || status.verified_rows !== 500 ||
+      status.total_unique_pmids !== envelope.cumulative_unique_pmids ||
+      index.through_wave !== through || index.total_unique_pmids !== envelope.cumulative_unique_pmids ||
+      index.previous_unique_pmids !== envelope.previous_unique_pmids ||
+      !Array.isArray(index.pmids) || index.pmids.length !== index.total_unique_pmids ||
+      new Set(index.pmids).size !== index.pmids.length ||
+      index.pmids.some((id) => !/^\d{5,10}$/.test(String(id)))) {
+    throw new Error('Research-only cumulative index, manifest and status disagree')
+  }
+  return {
+    pmids: new Set(index.pmids.map(String)),
+    provenance: {
+      manifest: 'ops/enrichment-submissions/reconciliation/' + file,
+      index: relative,
+      range: envelope.range,
+      through_wave: through,
+      total_unique_pmids: index.total_unique_pmids,
+      independent_clinical_review: false,
+    },
+  }
+}
+
+export function reconcileResearchOnlyIndex(report, { pmids, provenance }) {
+  const entries = report.entries.map((entry) => {
+    const researchIndex = pmids.has(entry.pmid)
+    const canonical = entry.pmid_present_in_workbook
+    const identityStatus = canonical && researchIndex ? 'both' :
+      canonical ? 'canonical_workbook_only' :
+      researchIndex ? 'research_only_index_only' : 'unmatched_exact_pmid'
+    return {
+      ...entry,
+      pmid_in_research_only_index: researchIndex,
+      exact_pmid_presence: identityStatus,
+    }
+  })
+  const tally = (status) => entries.filter((entry) => entry.exact_pmid_presence === status).length
+  const unmatched = entries.filter((entry) => entry.exact_pmid_presence === 'unmatched_exact_pmid')
+    .map(({ pmid, investigations }) => ({ pmid, investigations }))
+    .sort((a, b) => {
+      const latestRound = (item) => Math.max(...item.investigations.map(
+        (id) => Number(/^DE(\d+)-/.exec(id)?.[1] || 0),
+      ))
+      return latestRound(b) - latestRound(a) || Number(a.pmid) - Number(b.pmid)
+    })
+  return {
+    ...report,
+    entries,
+    research_only_index: provenance,
+    summary: {
+      ...report.summary,
+      pmids_in_research_only_index: entries.filter((e) => e.pmid_in_research_only_index).length,
+      pmids_in_both_stores: tally('both'),
+      pmids_in_canonical_only: tally('canonical_workbook_only'),
+      pmids_in_research_only_index_only: tally('research_only_index_only'),
+      pmids_not_found_in_either_by_exact_id: unmatched.length,
+      pmids_in_at_least_one_store: entries.length - unmatched.length,
+    },
+    unmatched_exact_pmids_for_identity_review: unmatched,
+    no_automatic_admissions: true,
+  }
+}
+
 export async function audit(root = process.cwd()) {
   const { readWorkbook, getSheet, sheetToRows } = await import('../data/workbook-parser.mjs')
   const workbookPath = path.join(root, 'data-sources', 'herb_monograph_master.xlsx')
@@ -159,7 +262,7 @@ export async function audit(root = process.cwd()) {
   )
   report.source_sheets = sourceNames
   report.study_sheets = claimNames
-  return report
+  return reconcileResearchOnlyIndex(report, readResearchOnlyIndex(root))
 }
 
 const direct = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
