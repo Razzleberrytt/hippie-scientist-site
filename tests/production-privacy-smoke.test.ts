@@ -13,7 +13,8 @@ function mockFetch({
   spanish = spanishFooter,
   privacy = policy,
 } = {}) {
-  return vi.fn(async (url: string) => {
+  return vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => {
+    const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
     if (url.endsWith('/api/analytics-eligibility')) {
       return new Response(JSON.stringify(payload), {
         status: 200,
