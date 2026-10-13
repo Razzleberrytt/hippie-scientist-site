@@ -145,6 +145,14 @@ Understanding how ADHD works is different from proving a treatment works. For in
 
 Our existing [Lion's Mane vs. prescription stimulants ADHD evidence review](/articles/lions-mane-vs-stimulants-adhd/) explains that difference without treating a laboratory theory as a proven therapy.
 
+## How to read the research behind these ADHD facts
+
+The bracketed numbers—such as **[1]**—point to the References list. A **PMID** is a paper's record number in **PubMed**, a research database. A **DOI** is a lasting identifier for a publication. Neither is a rating of the paper's quality.
+
+Several findings in this article come from a **meta-analysis**, which means a study combining results from other studies. Combining groups can make patterns easier to notice, but an average is not a prediction for one person. For example, a study finding that ADHD groups value immediate rewards differently does **not** establish a chemical explanation for every individual or diagnose anyone. Check the size of the groups, the tasks measured, and whether participants had a diagnosis or merely reported symptoms. [1,2]
+
+Official health guidance can explain diagnostic practice, but it also cannot diagnose the reader of this article. [3,4]
+
 ## Bottom line
 
 ADHD is much more than "can't pay attention." Time estimation, holding instructions in mind, waiting for rewards, adjusting focus, and starting a task are all useful parts of the picture. The most important scientific lesson is **variation**: what researchers measure across groups may look different in any one person's life.

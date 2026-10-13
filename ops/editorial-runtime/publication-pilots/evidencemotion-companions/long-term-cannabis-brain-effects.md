@@ -137,6 +137,12 @@ If someone's cannabis use or withdrawal is causing significant distress or diffi
 
 **Does cannabis help sleep?** Some people report it does, but the evidence varies by product and outcome. See [cannabis and sleep](/articles/cannabis-cannabinoids-and-sleep/).
 
+## How to check the scientific sources
+
+Small numbers such as **[1]** point to studies in the References section. A **PMID** is a research paper's record number in **PubMed**, a public database of medical and life-science studies. A **DOI** is a permanent publication identifier. These help you find the paper; they do not guarantee its conclusion is true.
+
+Ask what each study measured. A **brain scan** showing changes in available CB1 receptors is not a direct memory test. A memory test is not proof that cannabis caused the result if other factors could matter. In a **systematic review**, researchers gather and compare previous studies, but the review can still be limited if those studies are small or very different. In cannabis research, pay special attention to the number and ages of participants, how often they used cannabis, and whether recovery was measured after a brief or longer period without it. [1–5]
+
 ## Bottom line
 
 The brain adapts to repeated THC exposure. Some changes are measurable, and some can reverse after use stops. The most useful science is about **which change, in which people, over what time**, rather than declaring cannabis perfectly harmless or permanently destructive.

@@ -133,6 +133,12 @@ There is also no reliable basis for equating one plant tradition with another by
 
 **Can modern neuroscience tell us what people saw thousands of years ago?** No. Chemistry can help explain possibilities, not reconstruct individual experiences.
 
+## How to check the research on yopo
+
+Numbers like **[1]** refer to papers in the References list. A **PMID** is an identifying number for a paper in **PubMed**, a public research database. A **DOI** is a lasting identifier for a publication. These identifiers let you trace a claim; they are not safety certificates.
+
+This subject combines different ways of knowing. **Archaeology** examines physical traces of the past. **Ethnobotany** studies relationships between people and plants. **Chemistry** identifies molecules and their structure. **Pharmacology** examines how substances act on living systems. An archaeological review can document historical evidence without revealing every person's experience. A chemical analysis may identify bufotenine without proving all plants or traditional materials had the same composition. A receptor experiment cannot replace either cultural context or human safety evidence. [1–4]
+
 ## Bottom line
 
 Yopo connects plant biology, chemical science, and thousands of years of human history. The story becomes more interesting—and more accurate—when those subjects are explored together without treating them as interchangeable.

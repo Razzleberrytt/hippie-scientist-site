@@ -130,6 +130,12 @@ The evidence also comes from different kinds of research: chemistry, cells, anim
 
 **Can the molecule's name predict a safe experience?** No. Chemistry helps explain possible mechanisms, but human effects and risks depend on more than the molecule's family name.
 
+## How to check the scientific sources
+
+The numbers in square brackets, such as **[1]** and **[3]**, refer to the numbered studies in the References section below. A **PMID** is a paper's identifying number in **PubMed**, a public database of medical and life-science research. A **DOI** is a long-lasting identifier used to find a publication, even if its website address changes. Neither number tells you whether the study was well designed or whether a substance is safe.
+
+For these four molecules, check **what researchers actually tested**. A chemical-structure study tells us how atoms are arranged. A receptor experiment measures how a chemical affects a cell's receiving spots. A study in people measures real human outcomes. These are useful but different kinds of evidence, so we should never turn a cell result into a promise about a person's experience. [1–5]
+
 ## Bottom line
 
 The most interesting lesson is not that four molecules share part of a name. It's that **tiny changes in chemistry can lead to meaningful changes in biology**. The limits of that knowledge are equally important: related substances are not interchangeable, and laboratory effects do not automatically predict human experiences.

@@ -163,6 +163,12 @@ Some people experience intense distress during psychedelic effects. There are al
 
 **Are all psychedelics alike?** No. They differ in chemistry, how they act, how long their effects last, and how much evidence exists. See [the different types of DMT](/articles/dmt-types-explained/).
 
+## How to read the research for yourself
+
+The bracketed numbers—like **[1]**—match the References list below. A **PMID** is a paper's identifying number in **PubMed**, a public medical-science database. A **DOI** is a long-lasting publication identifier. Both help you find a study; neither is a seal of approval.
+
+Before accepting a headline, ask: **Who was studied? What was measured? How many people participated? What was the comparison? How long were they followed? Who funded the work?** A brain scan that finds changes in the coordination of activity cannot on its own demonstrate new physical connections. A scan that fails to detect an overall increase in one synapse-related protein does not prove no other type of brain adaptation occurred. And a trial that improves symptoms at one time point does not automatically establish permanent benefit or safety for everyone. [1–5]
+
 ## Bottom line
 
 The scientifically interesting answer is neither "psychedelics magically rebuild the brain" nor "nothing changes." **Classic psychedelics can measurably alter human brain-network activity.** Some changes may outlast the immediate experience. The evidence for physical rewiring, lasting clinical benefits, and safety in different people is still developing.
