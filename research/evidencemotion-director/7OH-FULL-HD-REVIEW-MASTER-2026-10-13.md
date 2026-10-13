@@ -1,5 +1,7 @@
 # EvidenceMotion 7-OH — first full-length native 1080p review master (2026-10-13)
 
+> **Historical complete-film candidate (superseded):** The latest selected corrected master is the 1,031-frame, byte-for-byte independently reproduced MP4 with SHA `130857e331d40e452edd38a1d112d88e552b56009c4aa0e57cd1e15559581b86`, documented in [7OH-FULL-HD-NATIVE-REPRODUCIBLE-2026-10-13.md](7OH-FULL-HD-NATIVE-REPRODUCIBLE-2026-10-13.md). This earlier candidate's distinct SHA and bundle remain retained for comparison, not recommended as the current master.
+
 **RESEARCH-ONLY / COMPLETE VIDEO ARTIFACT, NOT AN ACCEPTED FIRST-RENDER EXCELLENCE MILESTONE.** Owner directed autonomous routine decisions, a complete candidate for refinement, and no preview-by-preview consent questions. EvidenceMotion's production version freeze remains ON.
 
 ## Complete deliverable
