@@ -72,6 +72,7 @@ assert(readFileSync('app/research/investigations/page.tsx', 'utf8').includes('so
 const detailPage = readFileSync('app/research/investigations/[round]/page.tsx', 'utf8')
 assert(detailPage.includes('index: false'), 'Unreviewed clinical source notes remain noindex')
 assert(detailPage.includes('item.body'), 'Original source notes must remain accessible')
+assert(detailPage.includes('Linked PubMed research sources') && detailPage.includes('not additional independent clinical trials'), 'Do not mislabel research syntheses as original independent trials')
 assert(detailPage.includes('doc.sharedDossierNotes') && detailPage.includes("id='round-governance'"), 'Full round QA notes must be publicly accessible')
 const indexPage = readFileSync('app/research/investigations/page.tsx', 'utf8')
 assert(indexPage.includes('getDeepEnrichmentRounds'), 'Index must use original dossiers')
