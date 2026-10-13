@@ -44,7 +44,7 @@ export function validateDirectorPackage(pkg){
    errors.push('UNVERIFIED_SCIENCE_LAYER');
  const shots=pkg.shots??[];
  if(!Array.isArray(shots)||!shots.length||!unique(shots.map(s=>s.id)))errors.push('MISSING_OR_DUPLICATE_SHOTS');
- let previousEnd=0,changeMarks=[];
+ let previousEnd=0; const changeMarks=[];
  for(const s of Array.isArray(shots)?shots:[]){
    if(!isId(s.id)||!finite(s.startSec)||!finite(s.endSec)||s.endSec<=s.startSec||s.startSec<previousEnd-0.01)
      errors.push('INVALID_SHOT_TIMING');

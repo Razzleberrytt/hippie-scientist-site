@@ -61,9 +61,16 @@ Use canonical, public, indexable URLs. Prefer the most specific page that answer
 - [Comparison hub](https://thehippiescientist.net/guides/compare/)
 - [Safety checker](https://thehippiescientist.net/safety-checker/)
 - [Methodology](https://thehippiescientist.net/info/methodology/)
+- [Research library](https://thehippiescientist.net/research/)
+- [Deep Enrichment investigation inventory](https://thehippiescientist.net/research/investigations/)
 - [Dosing principles](https://thehippiescientist.net/info/dosing/)
 - [Attribution/reuse policy](https://thehippiescientist.net/info/content-licensing/)
 - [Disclaimer](https://thehippiescientist.net/info/disclaimer/)
+
+### Research intake transparency
+
+- [Published inventory of Deep Enrichment investigations](https://thehippiescientist.net/research/investigations/) is an indexable, source-linked directory of research-only appraisal dossiers. Its [JSON source inventory](https://thehippiescientist.net/research/investigations/sources.json) enumerates IDs and original PubMed links with pending-review flags; neither index adds those source IDs to independently reviewed evidence totals.
+- Individual round transcripts are accessible for transparency but explicitly **noindex** and **not independently verified clinical conclusions**. Do not cite them as approved treatment or safety recommendations. For medical claims, prefer published editorially reviewed evidence pages with their original PubMed or DOI sources.
 
 ### Topic hubs
 
