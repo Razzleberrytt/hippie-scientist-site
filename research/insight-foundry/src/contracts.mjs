@@ -96,6 +96,12 @@ export function validateProtocol(input, opportunity){
   }
   const dbs=array(input.databases,'databases');if(!dbs.length)reject('at least one planned database required')
   dbs.forEach((d,i)=>{obj(d,`databases[${i}]`);knownFields(d,['database','query','limits'],`databases[${i}]`);allowed(d.database,SEARCH_DATABASES,'database');required(d.query,'database.query');required(d.limits,'database.limits')})
+  const seenProtocolQueries=new Set()
+  for(const item of dbs){
+    const key=JSON.stringify([item.database,item.query.trim()])
+    if(seenProtocolQueries.has(key))reject('frozen protocol contains duplicate database queries')
+    seenProtocolQueries.add(key)
+  }
   const extraction=array(input.extractionPlan,'extractionPlan');if(!extraction.length)reject('extractionPlan missing');extraction.forEach(x=>required(x,'extraction field'))
   required(input.priorArtScope,'priorArtScope')
   if(array(input.amendments,'amendments').length)reject('freeze baseline must have zero amendments; amendments become a new protocol version')
