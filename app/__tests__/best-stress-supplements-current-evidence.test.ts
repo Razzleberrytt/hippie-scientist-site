@@ -64,7 +64,7 @@ describe('best stress supplements evidence calibration', () => {
     expect(text).toContain('<RecommendationSection products={[]} title="Product listings pending verification" />')
     expect(text).not.toContain('getRevenueProductSet(')
     expect(text).not.toContain('comparisonProducts')
-    expect(text).not.toMatch(/affiliateUrl|amazon\\.com|amzn\\.to/)
+    expect(text).not.toMatch(/affiliateUrl|amazon\.com|amzn\.to/)
     for (const destination of [
       '/guides/herbs/ashwagandha/',
       '/guides/other/magnesium-types-guide/',
