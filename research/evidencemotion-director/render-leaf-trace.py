@@ -82,7 +82,7 @@ sheet.save(ROOT/'contact_sheet.jpg',quality=86)
 mp4=ROOT/'leaf_edge_trace_RESEARCH_ONLY_SILENT.mp4'
 subprocess.run(['ffmpeg','-hide_banner','-v','error','-y','-framerate',str(FPS),
  '-start_number','0','-i',str(FRAMES/'f%05d.png'),'-frames:v',str(N),
- '-c:v','libx264','-preset','fast','-crf','20','-pix_fmt','yuv420p',
+ '-c:v','libx264','-preset','fast','-crf','20','-profile:v','baseline','-level','3.1','-pix_fmt','yuv420p',
  '-movflags','+faststart','-an',str(mp4)],check=True)
 receipt={'status':'RESEARCH_ONLY_REQUIRES_CRAFT_REVIEW',
  'source_sha256':digest(SOURCE),'video_sha256':digest(mp4),'frames':N,
