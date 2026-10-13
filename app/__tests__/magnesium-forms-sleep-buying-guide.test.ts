@@ -26,6 +26,9 @@ describe('magnesium sleep six-form buyer comparison', () => {
       expect(text).toContain(field)
     }
     expect(text).toContain('ResponsiveTable')
+    expect(text).toContain('<caption className="sr-only">')
+    expect(text).toContain('scope="row"')
+    expect(text).toContain('scope="col"')
     expect(text).toMatch(/typical label serving/i)
   })
 
