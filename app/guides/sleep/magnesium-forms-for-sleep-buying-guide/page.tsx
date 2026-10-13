@@ -170,7 +170,7 @@ const REFS = [
 ] as const
 
 function Cites({ refs }: { refs: readonly number[] }) {
-  return <span className="whitespace-nowrap text-xs font-semibold text-brand-800">{refs.map((n, index) => (
+  return <span className="whitespace-nowrap text-xs font-semibold text-brand-800">{refs.map((n) => (
     <a key={n} href={'#ref-' + n} className="ml-1 underline underline-offset-2" aria-label={'Go to reference ' + n}>[{n}]</a>
   ))}</span>
 }
