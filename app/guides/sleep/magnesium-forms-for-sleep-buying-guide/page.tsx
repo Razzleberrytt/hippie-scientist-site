@@ -242,6 +242,7 @@ export default function MagnesiumFormsForSleepBuyingGuide() {
           </p>
           <ResponsiveTable label="Six magnesium forms compared for sleep" className="mt-4">
             <table className="w-full min-w-[740px] border-collapse text-left text-sm">
+              <caption className="sr-only">Magnesium forms compared by elemental magnesium per label serving, direct human sleep evidence, digestive tolerance and relative cost</caption>
               <thead>
                 <tr className="border-b border-brand-900/15 text-xs uppercase tracking-wider text-ink">
                   <th scope="col" className="py-3 pr-3">Form</th>
