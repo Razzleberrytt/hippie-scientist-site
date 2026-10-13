@@ -73,7 +73,7 @@ A type of scan called **functional MRI**, or **fMRI**, estimates changes in brai
 
 Scientists compare patterns from different brain regions. When two areas change activity in a related way, researchers call that **functional connectivity**. In everyday language, their activity appears more coordinated.
 
-A major study published in April 2026 combined **11 brain-scan datasets** involving classic psychedelic substances. The researchers found a pattern of stronger communication between some large brain networks during psychedelic effects. The pattern differed across drugs and networks. [1]
+A major study published in April 2026 combined **11 sets of brain-scan data** from different research teams. Together, the researchers analyzed scans from **267 people** and more than **500 scanning sessions**. They found that, during psychedelic effects, activity in some brain networks became more coordinated with activity in other networks. The pattern differed across substances and brain regions. This was a study of **brain activity**, not a study showing new brain cells growing. [1]
 
 Imagine a workplace where certain teams usually communicate mostly within their own group. During a psychedelic experience, some teams' activity may become more connected with other teams. That is a **metaphor**, not evidence of new wires being built between parts of the brain.
 
@@ -126,7 +126,7 @@ A **randomized trial** is a study in which participants are assigned by chance t
 
 A 2022 study randomly assigned **233 adults with treatment-resistant depression**—depression that had not improved with previous treatments—to receive one of three amounts of a specific experimental psilocybin formulation called **COMP360**, alongside psychological support. The groups received 25 mg, 10 mg, or a low 1 mg comparison amount. These numbers describe what researchers studied; they are **not instructions** for use. The main test was the change in depression symptoms measured at **three weeks**. The 25 mg group improved by about **6.6 points more** than the 1 mg comparison group on a standard depression questionnaire. The 10 mg group did not show a statistically clear difference from the 1 mg group, and a lasting response through 12 weeks was not convincingly established. Adverse effects occurred. The study was funded by **COMPASS Pathfinder**, the company developing the product; this potential conflict matters when interpreting the results. [5]
 
-But a 2026 trial, called **EPISODE**, examined people with treatment-resistant depression and did **not** find a statistically significant difference on its main planned response measure at six weeks. Other measures suggested potential improvements, and the trial also reported safety concerns, including a case of lasting visual-perception disturbance. [4]
+A different trial published in 2026, called **EPISODE**, included **144 adults** whose depression had not improved enough with previous treatments. The study compared psilocybin with lower-dose and non-psychedelic comparison groups, alongside structured psychological support. At **six weeks**, it did **not** find a clear enough difference on its main planned measure—how many people had a large reduction in depression symptoms. Other measures suggested possible benefits, but those findings were less conclusive. Researchers also recorded safety concerns, including one person's long-lasting disturbance in visual perception. [4]
 
 That is why "shows promise" is scientifically different from "proven cure."
 

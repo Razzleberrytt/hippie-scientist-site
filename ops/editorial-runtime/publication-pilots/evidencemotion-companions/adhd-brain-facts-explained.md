@@ -85,7 +85,7 @@ Imagine two tasks. One gives you a satisfying result in two minutes. The other m
 
 Researchers call the tendency to value a reward less when you have to wait **delay discounting**. In plain English, waiting can make a reward feel less motivating.
 
-A meta-analysis of 21 studies involving 3,913 participants found, on average, greater delay discounting in ADHD groups than comparison groups. [2]
+A review combining **21 studies and 3,913 participants** found that ADHD groups, on average, placed a greater value on sooner rewards than comparison groups. The researchers called that pattern **greater delay discounting**. Put simply, **waiting tended to make a reward lose some of its appeal faster** for people in these study groups. It was an average difference, not a rule about everyone with ADHD. [2]
 
 That doesn't prove everyone with ADHD is impatient or that one chemical—like **dopamine**, a messenger involved in many brain processes—explains all motivation problems. The brain's reward system is complicated.
 
