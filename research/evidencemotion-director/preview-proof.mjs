@@ -20,9 +20,12 @@ export function inspectDecodedProof(p){
   errors.push('STATIC_DURATION_NOT_MEASURED');
  if(!num(p?.medianChangedFraction)||p.medianChangedFraction<0||p.medianChangedFraction>1)
   errors.push('MOTION_DENSITY_NOT_MEASURED');
+ if(!num(p?.medianBroadStructureChangedFraction)||p.medianBroadStructureChangedFraction<0||p.medianBroadStructureChangedFraction>1)
+  errors.push('STRUCTURAL_MOTION_NOT_MEASURED');
  if(!errors.length){
   if(p.maxCaptionExcludedStaticSec>6) errors.push('STATIC_COMPOSITION_KILL');
   if(p.medianChangedFraction<.005) advisories.push('NEAR_STATIC_MOVING_POSTER_RISK');
+  if(p.medianBroadStructureChangedFraction<.005) advisories.push('HERO_STRUCTURE_STILL_STATIC');
   if(p.decodedFrameCount/p.fps > 60) advisories.push('PREVIEW_LONGER_THAN_EXPECTED');
  }
  return {status:errors.length?'HOLD':'AUDIT_EVIDENCE_USABLE',errors,advisories,
