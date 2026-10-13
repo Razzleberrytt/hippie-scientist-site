@@ -1,0 +1,149 @@
+{
+  "release": "R8.05",
+  "project": "THS EvidenceMotion 7-OH molecular-identity REVIEW WAV",
+  "researchOnly": true,
+  "doNotPublish": true,
+  "sourceIdentity": {
+    "id": "pubchem-cid-44301524",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/44301524"
+  },
+  "premise": {
+    "interestScore": 4.3,
+    "coldViewerWhyCare": "The term 7-OH is widely used, but the name itself hides a visually explainable piece of its molecular identity.",
+    "viewerQuestion": "What does 7-OH mean structurally?",
+    "earlyPayoff": "The 7 refers to a hydroxyl group at a specific numbered position in the molecular framework.",
+    "methodologyBeforePayoff": false,
+    "paperSummaryOpening": false,
+    "hookMode": "visual-question"
+  },
+  "timing": {
+    "durationPolicy": "natural",
+    "narrationIsTimingMaster": true,
+    "voiceFirstBeatMapApproved": true
+  },
+  "recovery": {
+    "macroRebuildCount": 0
+  },
+  "beats": [
+    {
+      "id": "hook_7oh",
+      "role": "hook",
+      "narration": "What does the seven in seven O H actually mean?",
+      "onScreenText": "WHAT DOES 7-OH MEAN?",
+      "visualPurpose": "Immediate full-molecule hero and prominent question",
+      "spokenAnchor": "seven O H",
+      "visualAction": "Recognizable molecular model emerges from depth, no biological animation",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "primaryEntities": [
+        "7-OH"
+      ],
+      "pauseAfterSeconds": 0.12
+    },
+    {
+      "id": "finding_hydroxyl",
+      "role": "finding",
+      "narration": "It refers to a hydroxyl group, at position seven on the mitragynine framework.",
+      "onScreenText": "THE 7-HYDROXYL GROUP",
+      "visualPurpose": "Locate the actual hydroxyl oxygen on the source-verified 3D model",
+      "spokenAnchor": "hydroxyl group",
+      "visualAction": "Cut to close-up toward coordinate-locked hydroxyl oxygen, physical camera push",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "emphasis",
+      "primaryEntities": [
+        "hydroxyl"
+      ],
+      "pauseAfterSeconds": 0.18,
+      "factualAuthority": "verified-molecular-structure"
+    },
+    {
+      "id": "evidence_molecule",
+      "role": "evidence",
+      "narration": "This molecular structure is built from a verified chemical record, atom by atom.",
+      "onScreenText": "STRUCTURE: VERIFIED GRAPH",
+      "visualPurpose": "Reveal connectivity with deterministic source-defined 3D ball-stick model",
+      "spokenAnchor": "atom by atom",
+      "visualAction": "Reveal bonds and element colors through already-pinned geometry, no generated atoms",
+      "motion": {
+        "type": "reveal"
+      },
+      "cutReason": "reveal",
+      "primaryEntities": [
+        "7-hydroxymitragynine"
+      ],
+      "pauseAfterSeconds": 0.17,
+      "factualAuthority": "pubchem-cid-44301524"
+    },
+    {
+      "id": "limitation_conformer",
+      "role": "limitation",
+      "narration": "But the three dimensional pose is computed. It is not footage of a molecule binding to a receptor.",
+      "onScreenText": "COMPUTED 3D · NOT RECEPTOR FOOTAGE",
+      "visualPurpose": "Clearly label the rendered ETKDG/MMFF conformer as illustrative",
+      "spokenAnchor": "computed",
+      "visualAction": "Contrast physical model against deterministic computed-geometry disclosure with single camera movement",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "primaryEntities": [
+        "computed conformer"
+      ],
+      "pauseAfterSeconds": 0.2
+    },
+    {
+      "id": "context_identity",
+      "role": "context",
+      "narration": "So the picture explains its structure, not what its effects feel like.",
+      "onScreenText": "STRUCTURE ≠ HUMAN EFFECTS",
+      "visualPurpose": "Return to whole-molecule context and explicitly separate geometry from human effects",
+      "spokenAnchor": "structure",
+      "visualAction": "Measured pull-back to single whole molecular hero, no fictitious receptor",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "contrast",
+      "primaryEntities": [
+        "molecular structure"
+      ],
+      "pauseAfterSeconds": 0.24
+    },
+    {
+      "id": "source_hold",
+      "role": "source",
+      "narration": "",
+      "onScreenText": "https://pubchem.ncbi.nlm.nih.gov/compound/44301524",
+      "visualPurpose": "Readable direct scientific source access in mobile-safe area",
+      "spokenAnchor": "",
+      "visualAction": "Hold actual verified PubChem CID URL on deterministic branded source slate",
+      "motion": {
+        "type": "hold"
+      },
+      "cutReason": "pause",
+      "primaryEntities": [],
+      "holdSeconds": 3.2,
+      "factualAuthority": "pubchem-cid-44301524"
+    },
+    {
+      "id": "cta",
+      "role": "cta",
+      "narration": "That's the kind of detail worth looking closer at.",
+      "onScreenText": "FOLLOW THE EVIDENCE",
+      "visualPurpose": "Close on clear verified molecular visual with a low-pressure earned-follow phrase",
+      "spokenAnchor": "detail",
+      "visualAction": "Final close on actual hydroxyl coordinate then cut cleanly to outro",
+      "motion": {
+        "type": "highlight"
+      },
+      "cutReason": "end",
+      "primaryEntities": [
+        "7-OH"
+      ],
+      "pauseAfterSeconds": 0.1
+    }
+  ]
+}
