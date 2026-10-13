@@ -37,6 +37,11 @@ jobs:
         run: |
           python -m unittest discover -s research/evidencemotion-director -p 'test_native_master_audit.py' -v
           python -m unittest discover -s research/evidencemotion-director -p 'test_native_source_provenance.py' -v
+      - name: Install local open-source FFmpeg used by real-byte tests
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -n 1
       - name: Exercise actual FFmpeg portrait H264/AAC master and frame timestamp reader
         run: |
           ffmpeg -hide_banner -v error -y \
