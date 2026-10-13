@@ -90,8 +90,11 @@ test('rejects search receipt signed against a different frozen protocol',()=>{
 test('identical planned searches cannot inflate protocol screening coverage',()=>{
  const ctx=context();ctx.protocol.databases.push(structuredClone(ctx.protocol.databases[0]))
  const {protocolDigest:_a,...body}=ctx.protocol;ctx.protocol.protocolDigest=digest(body)
- const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[{database:'pubmed',query:ctx.protocol.databases[0].query,searchedOn:'2026-10-13',resultCount:0,scopeLimits:ctx.protocol.databases[0].limits}]})
- assert.throws(()=>validateCaseFile(c,ctx),/duplicate database queries/)
+ assert.throws(()=>validateProtocol(ctx.protocol,ctx.opportunity),/duplicate database queries/)
+})
+test('freezeProtocol rejects duplicate planned database searches before signing',()=>{
+ const o=opportunity(), first={database:'pubmed',query:'magnesium sleep',limits:'synthetic human-only'}
+ assert.throws(()=>freezeProtocol(o,{frozenOn:'2026-10-13',databases:[first,{...first}],eligibilityCriteria:{include:['Human studies'],exclude:['Animal models']},extractionPlan:['population'],priorArtScope:'Only the bounded search'}),/duplicate database queries/)
 })
 test('screening cannot cite an unplanned search as completed',()=>{
  const ctx=context();const c=sampleCase(ctx,{novelty:'underexplored-in-search-scope',screeningStatus:'completed',searchLog:[{database:'pubmed',query:'unrelated sleep science',searchedOn:'2026-10-13',resultCount:0,scopeLimits:ctx.protocol.databases[0].limits}]})
