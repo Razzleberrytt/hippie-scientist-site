@@ -7,6 +7,19 @@ function read(relativePath: string) {
 }
 
 describe('production deployment handoff contract', () => {
+  it('requires a live regional privacy smoke check after the exact deployment receipt', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+    const receipt = workflow.indexOf('- name: Verify exact production receipt')
+    const privacy = workflow.indexOf('- name: Verify live regional privacy controls')
+    const indexNow = workflow.indexOf('- name: Notify IndexNow of changed URLs')
+
+    expect(receipt).toBeGreaterThan(-1)
+    expect(privacy).toBeGreaterThan(receipt)
+    expect(indexNow).toBeGreaterThan(privacy)
+    expect(workflow.slice(privacy, indexNow)).toContain('node scripts/ci/verify-production-privacy.mjs')
+    expect(workflow.slice(privacy, indexNow)).not.toContain('continue-on-error: true')
+  })
+
   it('uses successful main CI completion as the normal deploy handoff with workflow_dispatch fallback', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
