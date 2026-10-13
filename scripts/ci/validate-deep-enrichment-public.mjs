@@ -21,12 +21,22 @@ for (const [index, { round, file }] of rounds.entries()) {
   assert.equal(headings.length, 10, `Expected ten investigations in DE${round}`)
   const footer = [...content.matchAll(/^## (?!DE\d+-\d+\s+[—–-]).+$/gm)]
     .find((m) => (m.index ?? -1) > (headings[9].index ?? -1))
-  assert(footer, `Round ${round} must preserve its shared editorial QA receipt`)
-  assert(content.slice(footer.index).trim().length > 200, `Round ${round} shared QA receipt is missing`)
+  // Whole-round QA is either a dedicated trailing section (DE10–16) or a
+  // clear preface before DE17-01. Never attribute it to study DE##-10.
+  const firstInvestigationStart = headings[0].index ?? content.length
+  const prefaceStart = content.indexOf('### Whole-round research QA')
+  const prefaceReceipt = prefaceStart >= 0 && prefaceStart < firstInvestigationStart
+    ? content.slice(prefaceStart, firstInvestigationStart).trim()
+    : ''
+  const trailingReceipt = footer ? content.slice(footer.index).trim() : ''
+  assert(
+    prefaceReceipt.length > 200 || trailingReceipt.length > 200,
+    `Round ${round} must preserve its independent shared editorial QA receipt`,
+  )
   for (let i = 0; i < headings.length; i++) {
     const heading = headings[i]
     assert.equal(heading[1], `DE${round}-${String(i + 1).padStart(2, '0')}`)
-    const body = content.slice(heading.index + heading[0].length, headings[i + 1]?.index ?? footer.index)
+    const body = content.slice(heading.index + heading[0].length, headings[i + 1]?.index ?? footer?.index ?? content.length)
     const pmids = [...body.matchAll(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{7,9})\/?/g)].map((match) => match[1])
     assert(pmids.length > 0, `Research ${heading[1]} missing PubMed provenance`)
     pmids.forEach((pmid) => sourceIDs.add(pmid))
