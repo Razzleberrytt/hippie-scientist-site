@@ -99,6 +99,25 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
         </article>
       ))}
 
+      {doc.sharedDossierNotes ? (
+        <section id='round-governance' className='scroll-mt-24 rounded-2xl border border-brand-900/10 bg-brand-50/35 p-5 sm:p-7'>
+          <h2 className='text-xl font-semibold text-ink'>Whole-round source integrity and editorial gates</h2>
+          <p className='mt-3 text-sm leading-7 text-muted'>
+            These original QA, deduplication, and release notes apply across the round. They are kept
+            separate from the tenth investigation so a study-specific citation is not mistakenly
+            attached to a whole-round governance statement. Scientific signoff is still pending.
+          </p>
+          <details className='mt-4'>
+            <summary className='cursor-pointer text-sm font-semibold text-brand-700 hover:underline'>
+              Read complete whole-round governance notes (original Markdown)
+            </summary>
+            <pre className='mt-3 overflow-x-auto whitespace-pre-wrap break-words rounded-xl bg-white p-4 font-mono text-xs leading-6 text-ink sm:p-5'>
+              {doc.sharedDossierNotes}
+            </pre>
+          </details>
+        </section>
+      ) : null}
+
       <footer className='rounded-2xl border border-brand-900/10 p-5 text-sm leading-7 text-muted'>
         These investigations are visible for accountability; <strong>source links do not mean clinical approval</strong>.
         Independent review, correct formulation/population mapping and exact citation deduplication are prerequisites for promotion into public treatment or safety advice.
