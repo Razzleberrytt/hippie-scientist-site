@@ -52,6 +52,14 @@ class PlainEnglishTeachingRegression(unittest.TestCase):
         md='## Suggested spoken script\nAn oxygen-and-hydrogen pair is called hydroxyl group.\n\n## Notes\nETKDG is in the developer notes.'
         self.assertNotIn('ETKDG',spoken_section(md))
 
+    def test_our_actual_proposed_7oh_spoken_script_teaches_named_jargon(self):
+        from pathlib import Path
+        path=Path(__file__).with_name('7OH-PLAIN-ENGLISH-SCRIPT-PILOT-2026-10-13.md')
+        content=spoken_section(path.read_text())
+        report=audit_public_text(content)
+        self.assertEqual(report['flags'],[],report)
+        self.assertFalse(report['automaticApproval'])
+
     def test_missing_public_section_rejected(self):
         with self.assertRaisesRegex(ValueError,'PUBLIC_SPOKEN_SECTION_MISSING'):
             spoken_section('## Editorial notes\nNo public-facing draft yet.')
