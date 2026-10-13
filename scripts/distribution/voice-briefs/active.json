@@ -1,14 +1,14 @@
 {
   "release": "R8.05",
   "sourceIdentity": {
-    "id": "sr15099-longform-chapter-4",
-    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33345829/"
+    "id": "sr15099-longform-chapter-5",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31443104/"
   },
   "premise": {
     "interestScore": 4.5,
     "coldViewerWhyCare": "A jargon-free SR-15099 and SR-17018 scientific explanation focusing on opioid tolerance and what mouse results can and cannot demonstrate.",
     "viewerQuestion": "Can SR-15099 be said to reset tolerance?",
-    "earlyPayoff": "Withdrawal signs differed, and a second assay found no tolerance reversal.",
+    "earlyPayoff": "No controlled human SR-15099 tolerance-reset evidence.",
     "methodologyBeforePayoff": false,
     "paperSummaryOpening": false,
     "hookMode": "curiosity",
@@ -23,125 +23,125 @@
     "macroRebuildCount": 0
   },
   "chapter": {
-    "index": 4,
+    "index": 5,
     "total": 5,
     "editorialOnly": true,
     "fullNarrationNotSub60": true
   },
   "beats": [
     {
-      "id": "sr15099-long-04-hook",
+      "id": "sr15099-long-05-hook",
       "role": "hook",
-      "narration": "So the exciting part wasn't simply that the mice recovered their response to morphine. That happened in both groups.",
+      "narration": "And this is the part online discussions often skip.",
       "onScreenText": "THE QUESTION",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
-      "spokenAnchor": "So the exciting",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 5 narrative: What is and isn't proven about SR-15099.",
+      "spokenAnchor": "And this is",
       "visualAction": "A distinct physical evidence-bound visual reveal for hook, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:33345829",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-04-finding",
+      "id": "sr15099-long-05-finding",
       "role": "finding",
-      "narration": "The unusual part was recovering the response while signs of withdrawal were being suppressed.",
+      "narration": "The reversal study was about S R one-seven-zero-one-eight, not S R one-five-zero-nine-nine.",
       "onScreenText": "WHAT CHANGES",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
-      "spokenAnchor": "The unusual part",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 5 narrative: What is and isn't proven about SR-15099.",
+      "spokenAnchor": "The reversal study",
       "visualAction": "A distinct physical evidence-bound visual reveal for finding, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "emphasis",
-      "factualAuthority": "PMID:33345829",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-04-context",
+      "id": "sr15099-long-05-context",
       "role": "context",
-      "narration": "But there's another twist.",
+      "narration": "So far, we can't say that S R one-five-zero-nine-nine safely resets opioid tolerance in people.",
       "onScreenText": "EXPLAIN THE TERMS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
-      "spokenAnchor": "But there's another",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 5 narrative: What is and isn't proven about SR-15099.",
+      "spokenAnchor": "So far, we",
       "visualAction": "A distinct physical evidence-bound visual reveal for context, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "phrase-boundary",
-      "factualAuthority": "PMID:33345829",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-04-evidence",
+      "id": "sr15099-long-05-evidence",
       "role": "evidence",
-      "narration": "In a later experiment, scientists used a different heat-response test: how quickly mice moved their tails away from warm water.",
+      "narration": "These are early animal experiments, not human treatment evidence.",
       "onScreenText": "WHAT WAS MEASURED",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
-      "spokenAnchor": "In a later",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 5 narrative: What is and isn't proven about SR-15099.",
+      "spokenAnchor": "These are early",
       "visualAction": "A distinct physical evidence-bound visual reveal for evidence, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:33345829",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-04-limitation",
+      "id": "sr15099-long-05-limitation",
       "role": "limitation",
-      "narration": "In that test, S R one-seven-zero-one-eight did not reverse morphine tolerance.",
+      "narration": "There is fascinating science here.",
       "onScreenText": "IMPORTANT LIMIT",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
-      "spokenAnchor": "In that test,",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 5 narrative: What is and isn't proven about SR-15099.",
+      "spokenAnchor": "There is fascinating",
       "visualAction": "A distinct physical evidence-bound visual reveal for limitation, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "contrast",
-      "factualAuthority": "PMID:33345829",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-04-cta",
+      "id": "sr15099-long-05-cta",
       "role": "cta",
-      "narration": "The same chemical gave a different result depending on what was being measured.",
+      "narration": "But an interesting laboratory finding is not the same thing as a proven—and safe—treatment.",
       "onScreenText": "WHAT THIS MEANS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
-      "spokenAnchor": "The same chemical",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 5 narrative: What is and isn't proven about SR-15099.",
+      "spokenAnchor": "But an interesting",
       "visualAction": "A distinct physical evidence-bound visual reveal for cta, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "end",
-      "factualAuthority": "PMID:33345829",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-4-source",
+      "id": "sr15099-long-5-source",
       "role": "source",
       "narration": "",
-      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/33345829/",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/31443104/",
       "visualPurpose": "Readable original journal citation, required standstill.",
       "spokenAnchor": "",
       "visualAction": "Hold actual canonical PubMed URL for review.",
