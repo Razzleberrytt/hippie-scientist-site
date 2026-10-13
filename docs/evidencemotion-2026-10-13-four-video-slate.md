@@ -14,27 +14,66 @@
 
 ---
 
+## Universal plain-English teaching standard (owner direction, October 13)
+
+**Audience test:** A viewer with no chemistry, medicine, or neuroscience background should understand the video after one listen. Write at approximately middle-school comprehension without talking down to anyone. Aim for **one new idea per sentence** and **one unfamiliar term at a time**; preserve the real science rather than swapping in hype.
+
+**Mandatory rules for every video:**
+1. **Name → translate → demonstrate.** The first time a scientific word or acronym appears in narration, immediately explain it in everyday words. Show a matching visual on screen. When several technical names are necessary, use one at a time and recap before moving forward.
+2. **Make the invisible visible.** Define *molecule* as a tiny group of atoms, *receptor* as a receiving spot on a cell, *neuron* as a message-sending brain cell, *synapse* as a point where nerve cells pass messages, and *brain network* as groups of brain areas working together. Only define what is actually used in a particular script.
+3. **Every finding says what scientists did.** Prefer "scientists compared brain scans" over "functional-connectivity mega-analysis," "studies found a link" over "observational association," and "not enough evidence to be sure" over "non-significant endpoint." Quantities should be understandable, e.g. "15 people in one small study" rather than an unexplained *n=15*.
+4. **Separate three levels of certainty with simple labels:** "people reported...", "a study observed...", "scientists haven't shown..." Do not treat stories from users as clinical evidence or present brain activity as proof of new brain-cell growth.
+5. **Use analogy, then fix its limits.** Example: "receptors are like receiving docks" is an analogy; the visuals must not imply real metal docks or an experimentally verified physical animation. "Brain regions talking more" means statistical coordination on scans, not new wires growing instantly.
+6. **Put comprehension before terminology.** Pronounce chemical names naturally; also label them on screen. Add a short subtitle translating jargon, not just repeating it: "5-HT2A — a serotonin signal receiver." Avoid throwing three new names on one frame.
+7. **Teach with visuals that advance the explanation**, not abstract psychedelia or decorative slides. Leave enough read time for labels, use short captions, and make the video intelligible even if viewers have never encountered the topic.
+8. **Audio-first checkpoint:** Read the draft aloud with no visuals. If a listener needs to pause, Google a term, or hear a sentence twice, simplify before recording. Make an independent science pass afterwards to ensure the simpler wording hasn't changed the evidence claim.
+9. **Target ~150–215 words for a 90–120-second short**, but trust the locked, naturally spoken narration length instead of stretching speech or rushing the explanation. Longer topics may need a two-part series rather than cutting essential definitions.
+10. **Publish block:** Every technical word/abbreviation spoken or displayed must have a correct, brief, adjacent lay explanation; science and creative QA must both pass.
+
+### Shared on-screen micro-glossary (use only relevant entries)
+| Technical term | Audience-friendly explanation |
+| --- | --- |
+| Molecule | A tiny group of atoms joined together |
+| Serotonin | One of the chemical messengers used by the brain |
+| Receptor | A receiving spot on a cell that reacts to a chemical message |
+| CB1 | A type of receiving spot that responds to the body's cannabis-like signals and to THC |
+| Tolerance | Needing more of a substance to feel a similar effect |
+| Neuroplasticity | The brain's ability to change how it works or connects over time |
+| Neuron | A nerve cell that sends messages |
+| Synapse | The tiny junction where nerve cells pass signals |
+| Brain network | Brain areas whose activity often works together |
+| fMRI | A scan that tracks blood-flow changes associated with brain activity; not a video of neurons |
+| PET / SV2A | A scan uses a tracer to estimate a protein linked with nerve-cell connection sites; it cannot directly count every synapse |
+| Working memory | Your mental sticky note: information you hold briefly to do something |
+| Executive functions | Mental skills for planning, stopping, switching, and getting started |
+| Tryptamine | A family of compounds built around a related chemical structure |
+| Hydroxy / methoxy | Names for different small groups of atoms attached to a molecule |
+| Clinical trial | A study that tests an intervention in people; results depend on its design |
+| Correlation | Two things change together; that alone doesn't prove one caused the other |
+
+---
+
 ## 01 — DMT family: Four relatives, four different stories
 
 **Platform title:** "4 DMT-Related Molecules: Tiny Changes, Different Effects"
 
 **Hook:** "People say DMT like it's just one thing. Chemically, the story gets much more interesting."
 
-**Narration draft (~150 words):**
+**Narration draft — plain-English teaching pass (186 words; spoken length to verify after voice audition):**
 
-> People talk about DMT like it's just one thing. But meet four related molecules that aren't interchangeable.
+> When someone says DMT, they usually mean one particular chemical. But there are several relatives in the same family—and small differences in their structures can really matter.
 >
-> First is N,N-DMT—the compound most people mean when they say DMT.
+> A molecule is a tiny group of atoms joined together. Picture four related molecules, each with a slightly different set of parts.
 >
-> Change the chemical structure and you get 5-MeO-DMT, short for five-methoxy DMT. That small change alters how it interacts with serotonin receptors, and researchers have found meaningful differences from N,N-DMT.
+> First, there's N,N-DMT: the one people usually mean by DMT.
 >
-> Then there's 5-HO-DMT, also called bufotenine. It's found in certain plants, including the tree associated with yopo. Its ability to reach the brain differs from its chemical relatives.
+> Another is 5-MeO-DMT. That name means it has a particular small group of atoms attached. The change affects how it responds to serotonin receptors—receiving spots on brain cells that react to chemical messages.
 >
-> And 4-HO-DMT? That's psilocin—the active substance formed when the body processes psilocybin from certain mushrooms.
+> Then there's bufotenine, sometimes called 5-HO-DMT. It's found in certain plants, including one associated with yopo. It doesn't get into the brain in exactly the same way as all its chemical cousins.
 >
-> Same broad tryptamine family. Different chemistry, different pharmacology, and potentially very different subjective experiences.
+> Finally, psilocin is also called 4-HO-DMT. It's what the body makes from psilocybin, a substance found in certain mushrooms.
 >
-> These aren't four versions of the same high, and one molecule can't safely substitute for another. What's remarkable is how much a tiny molecular change can matter.
+> Here's the surprising part: related chemicals can produce different effects. They're not four interchangeable versions of the same experience—and their names alone don't tell you which is safer or stronger.
 
 **Visual vocabulary (cut to final narration, timings not hardcoded):**
 1. Isolated actual N,N-DMT structure, with atom-position labels and source-verified connectivity.
@@ -63,21 +102,21 @@
 
 **Hook:** "If someone uses weed every day for years, is the brain permanently changed? The real answer is more interesting."
 
-**Narration draft (~160 words):**
+**Narration draft — plain-English teaching pass (196 words; spoken length to verify after voice audition):**
 
-> What happens to your brain if you use weed every day for years?
+> If someone uses weed every day for years, what might actually change in their brain?
 >
-> THC interacts with a signaling system that helps regulate memory, mood, sleep, and more. One of its main targets is the CB1 receptor.
+> THC—the main chemical responsible for the high—attaches to receiving spots on cells called CB1 receptors. These spots are part of a system involved in memory, mood, sleep, and more.
 >
-> With repeated exposure, the brain can reduce how available these receptors are. That adaptation helps explain why people may need more THC to notice the same effects.
+> With frequent use, the brain can make fewer of those receiving spots available. That helps explain tolerance: when the same amount doesn't feel as strong as it used to.
 >
-> Research also links heavier, longer-term cannabis use—especially when it starts young—to differences in learning, memory, and some thinking skills. But these studies can't prove every difference was caused by cannabis.
+> Studies also find links between heavier, longer-term use and differences in memory, learning, or attention—especially when use starts young. A link doesn't automatically prove that cannabis caused every difference.
 >
-> And here's what surprises people: the brain can adapt again after stopping. Some brain-imaging research finds CB1 receptor measures moving toward typical levels over several weeks. Some thinking skills also improve, but the timeline varies.
+> Now the interesting part: some changes can move back toward normal after someone stops. In brain-scan studies, certain receptor measurements improved over weeks. Thinking and memory may improve too, but not on the same schedule for everyone.
 >
-> Sleep may actually feel worse at first, with unusually vivid dreams or irritability during withdrawal.
+> Early on, sleep can get worse and dreams can become unusually vivid. That's part of withdrawal: symptoms some people experience when they stop a substance they've used regularly.
 >
-> So no, the research doesn't support either extreme: "weed does nothing" or "every user's brain is permanently ruined." The real story is adaptation, risk, and potential recovery.
+> The science doesn't support either extreme: "weed has no effects" or "everyone's brain is permanently damaged."
 
 **Visual vocabulary:**
 1. Human-level timeline showing daily use over years, no judgement.
@@ -104,21 +143,21 @@
 
 **Hook:** "ADHD can make five minutes feel like forever—and two hours disappear."
 
-**Narration draft (~160 words):**
+**Narration draft — plain-English teaching pass (192 words; spoken length to verify after voice audition):**
 
-> ADHD isn't just about being distracted. Here are five things research can help explain.
+> ADHD is short for attention-deficit/hyperactivity disorder. But it's about more than getting distracted. Here are five facts that help explain why.
 >
-> One: time perception. Some people with ADHD have measurable difficulty estimating intervals, and a large meta-analysis found average differences across studies.
+> First: time. Some people with ADHD find it harder to judge how long something takes. That's called time perception—basically, your brain's sense of time.
 >
-> Two: working memory. That's your brain's temporary notepad. You can know exactly what you were doing—and still lose the next step.
+> Second: working memory. Think of it as your mental sticky note. You might walk into a room and suddenly lose the thought you were holding.
 >
-> Three: rewards. Tasks with an immediate payoff may be easier to start than equally important tasks with a faraway reward.
+> Third: rewards. A task with a payoff right now can feel easier to start than something equally important that won't pay off until next week.
 >
-> Four: attention isn't a simple on-or-off switch. Interest, urgency, environment, and context can change how much focus someone can sustain. People often call intense absorption "hyperfocus," but it's not a stand-alone test for ADHD.
+> Fourth: focus isn't simply on or off. Interest, urgency, and surroundings can change how attention works. Intense focus on one activity is sometimes called hyperfocus, but it doesn't prove someone has ADHD.
 >
-> Five: knowing a task matters isn't the same as being able to initiate it. Planning, inhibition, and other executive skills play a role.
+> Fifth: starting a task takes its own set of mental skills, like planning and choosing what to do first. Scientists call these executive functions.
 >
-> None of these facts defines every person with ADHD, and none by itself establishes a diagnosis. But together, they show why "just try harder" misses the science.
+> Not everyone with ADHD experiences all five things, and they don't diagnose ADHD by themselves. But they help explain why "just try harder" is such an incomplete answer.
 
 **Visual vocabulary:** One flowing ordinary human situation, not five numbered PowerPoint slides: warped clock → disappearing sticky note → delayed vs immediate feedback → attention spotlight shifting → task start gate. Show varied circumstances without implying every ADHD brain is biologically identical. Visualize attention networks only as explicitly marked metaphor.
 
@@ -140,23 +179,23 @@
 
 **Hook:** "A South American tree produces seeds containing a molecule related to DMT. Its story is thousands of years old."
 
-**Narration draft (~155 words):**
+**Narration draft — plain-English teaching pass (188 words; spoken length to verify after voice audition):**
 
-> Long before modern psychedelic science, some Indigenous communities in South America had traditions involving seeds from trees called Anadenanthera.
+> Have you heard of yopo? It comes from a South American tree with a fascinating connection to psychedelic chemistry and Indigenous history.
 >
-> One of those plants is Anadenanthera peregrina, associated with yopo.
+> For a very long time, some Indigenous communities—peoples native to the region—have had traditions involving seeds from trees called Anadenanthera.
 >
-> This isn't a mushroom, and it isn't the same preparation as ayahuasca.
+> One of these trees, Anadenanthera peregrina, is associated with yopo. It's not the same thing as ayahuasca, a different traditional plant-based preparation.
 >
-> One notable molecule associated with these seeds is bufotenine, also called five-hydroxy DMT.
+> These seeds can contain bufotenine. That's a psychedelic-related chemical also called five-hydroxy DMT.
 >
-> That little "hydroxy" group may sound trivial, but chemistry matters. Bufotenine doesn't cross into the brain the same way some related tryptamines do, so scientists can't treat them as equivalent compounds.
+> Hydroxy simply means a particular little group of atoms is attached to the molecule. And a molecule is a tiny group of atoms joined together.
 >
-> Archeological and historical research traces ritual use of Anadenanthera seeds back thousands of years, but living Indigenous traditions are more than a chemistry lesson.
+> That small chemical difference matters. Bufotenine and some related compounds don't enter the brain or interact with it in exactly the same way.
 >
-> And here's the fascinating limit of science: finding a molecule, or measuring a receptor in a lab, doesn't tell us exactly what ancient experiences felt like.
+> Archaeologists—researchers who study the human past through physical remains—have found evidence linking these trees with practices going back thousands of years.
 >
-> Yopo connects botany, human history, and neuroscience—and each part deserves to be understood on its own terms.
+> But knowing which chemicals were present can't tell us exactly what those experiences felt like. Yopo has a rich human story as well as a chemical one.
 
 **Visual vocabulary:**
 1. Accurate botanical Anadenanthera peregrina seedpods, scientific labels; avoid fake stock plants.
@@ -186,27 +225,25 @@
 
 **Alternative hook B (evidence-first):** "Psychedelics change how brain regions communicate. That's NOT the same as proving they grow new brain cells."
 
-**Narration-first draft (~200 words; natural pacing, not hardcoded):**
+**Narration draft — plain-English teaching pass (225 words; spoken length to verify after voice audition):**
 
 > You've probably heard that psychedelics rewire your brain. But what does that actually mean?
 >
-> Classic psychedelics like psilocybin and LSD act mainly through a serotonin receptor called five-H-T-two-A.
+> Psychedelics are substances that can change perception—how we experience sights, sounds, thoughts, and feelings.
 >
-> During an experience, brain networks that normally work in separate groups can communicate differently. An April 2026 analysis combined eleven brain-scanning datasets across several psychedelics and found increased communication between some of these networks.
+> Classic examples include LSD and psilocybin, a compound found in certain mushrooms. They act partly through a receiving spot on brain cells called the 5-HT2A receptor. It responds to serotonin, one of the brain's chemical messengers.
 >
-> That's fascinating. But it doesn't mean you're unlocking a hidden ninety percent of your brain.
+> Brain scans show that, during some psychedelic experiences, groups of brain areas can become more coordinated in unusual ways. Think of teams that don't usually work together sharing more signals. But these scans measure activity—they don't show new brain wires growing.
 >
-> In one closely monitored study, some changes after psilocybin lasted for weeks.
+> In one small psilocybin study, some of these changes were still measurable weeks later.
 >
-> Here's an important distinction: changing communication between brain regions isn't the same as growing brand-new synapses.
+> You may also hear the word neuroplasticity. That means the brain's ability to change how it works over time.
 >
-> Animal research suggests some psychedelics can promote neuroplasticity. But in a small 2026 human brain-imaging study, researchers did *not* find a statistically significant overall increase in one marker of synaptic density.
+> Animal studies suggest some psychedelics can change the tiny connections where nerve cells communicate. But a small human study couldn't clearly show an overall increase in one brain-scan measure of those connections.
 >
-> Meanwhile, some carefully supported clinical studies report improvements in depression, while others have mixed results—and potential harms matter, too.
+> Some treatment studies have found promising results for depression. Others have been mixed, and risks remain.
 >
-> So are psychedelics capable of changing the brain? Yes, in measurable ways.
->
-> Do we know exactly which changes lead to lasting benefits, or that every person's brain gets permanently 'rewired'? No. That's the science we're still figuring out.
+> So yes, psychedelics can measurably change brain activity. But "changes your brain" is not the same as "permanently heals or rewires it."
 
 **Production concept:** Premium cinematic neuroscience explainer. No stock-psychedelic kaleidoscope wallpaper. Let the *scientific distinctions* drive meaningful visual transformations. Scenes cut to the measured, locked narration waveform.
 
