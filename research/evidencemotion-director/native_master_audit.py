@@ -37,7 +37,7 @@ def frame_timestamps(path):
     raw = command(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
                    '-show_entries', 'frame=best_effort_timestamp_time',
                    '-of', 'csv=p=0', str(path)])
-    return [Decimal(item.strip()) for item in raw.decode('utf-8').splitlines() if item.strip()]
+    return [Decimal(item.strip().split(',', 1)[0]) for item in raw.decode('utf-8').splitlines() if item.strip()]
 
 
 def audio_hash(path):
