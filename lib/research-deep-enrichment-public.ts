@@ -73,7 +73,7 @@ export function getDeepEnrichmentRounds(): DeepEnrichmentRound[] {
     const sharedDossierNotes = [
       prefacedGovernanceNotes,
       fullText.slice(sharedNotesStart).trim(),
-    ].filter(Boolean).join('\\n\\n')
+    ].filter(Boolean).join('\n\n')
 
     const investigations = headings.map((heading, index) => {
       const id = heading[1]
