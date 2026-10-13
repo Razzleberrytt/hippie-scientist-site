@@ -18,7 +18,7 @@
 - Independent FFmpeg full decode **497/497 frames**, H.264 Constrained Baseline 540×960 @15fps, AAC-LC 48 kHz, 33.13s video / 33.20s padded AAC container (approximately 67ms end padding; PCM analysis of both versions exactly 795,648 samples / 33.152s with 0ms relative lag).
 - The author's `verify_v11.py` checks **actual decoded media** for source chemistry, original WAV SHA, exact mastered audio stream hash, lag/correlation, loudness and true peak, all real frames/codec. It reports technical success while correctly returning **CRAFT/SCIENCE/OWNER HOLD**.
 - Fresh temporary directory copy of only source V10 video, mastered narration video, 47 VTK hydroxyl frames, and `build_v11.py` reproduced the output **byte-for-byte** with identical MP4 SHA.
-- Contact: `V11_CONTACT_SHEET.jpg`. A portable 58-file package with the exact source videos, original WAV, frames, scripts, QA receipts and output exists as conversation artifact `EvidenceMotion_7OH_V11_phone_audition_RESEARCH.zip`; bundle SHA-256 `58e26c3989ac9185a76d2aad0efbad6564f8c0a36fac95dfb7c95b5c412c6b80`. The MP4, full scripts and binaries are **not** in this GitHub PR; no CI reproduction falsely claimed.
+- Contact: `V11_CONTACT_SHEET.jpg`. A portable 58-file package with the exact source videos, original WAV, frames, scripts, QA receipts and output exists as conversation artifact `EvidenceMotion_7OH_V11_phone_audition_RESEARCH.zip`; bundle SHA-256 `58ec29263efaaf99bedfdbe1d595c8292b16dee76575df11fa4d3085212e42ec`. The MP4, full scripts and binaries are **not** in this GitHub PR; no CI reproduction falsely claimed.
 
 ### Same-method video motion negative proxy
 Central ROI x55:485,y215:645 with gray resized to 96×106, pixel change >=9 and near-static cutoff <2% changed.
@@ -41,3 +41,7 @@ Improved motion is not visual taste; footage still resembles a polished explaine
 
 ## Reusable prevention
 The new research-only `audio-mastering-gate.mjs` enforces objective voice loudness, peak, original-voice identity and non-stretched timing, while explicitly refusing to certify pronunciation or owner review. Targeted Node test cases commit beside it, not automatically counted as executed unless they were actually run.
+
+
+## Native 1080×1920 feasibility smoke (separate research operation)
+Eight real software-VTK **1080×1920 native frames** from the same pinned RDKit graph were rendered with physically moved camera/atom geometry, not an upscale. Measured cumulative frame-render/write time **0.976 seconds** on the current local CPU environment, about **480,468 KiB** peak resident memory. Exact individual PNG hashes and process metadata are in the downloadable conversation bundle's `native_1080_smoke/receipt.json`. This is a limited feasibility test: not a 30fps/full narration-composited film, not the 1080p first final, not deployment. The sample deliberately crops the molecule in macro, which would require a visible **DETAIL VIEW** label in a finished film; uncropped source-authoritative 2D graph remains mandatory.
