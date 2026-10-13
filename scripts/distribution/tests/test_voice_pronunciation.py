@@ -13,13 +13,18 @@ class VoicePronunciationTests(unittest.TestCase):
     def test_owner_and_dictionary_readings(self):
         self.assertEqual(
             apply_pronunciations("Kratom leaf contains mitragynine."),
-            "craytum leaf contains mih-traj-uh-neen."
+            "craytum leaf contains mitragynine."
         )
+
+    def test_owner_rejected_split_syllables(self):
+        output = apply_pronunciations("Mitragynine is found in kratom.")
+        self.assertEqual(output, "mitragynine is found in craytum.")
+        self.assertNotIn("mih-traj-uh-neen", output)
 
     def test_whole_words_only_and_punctuation(self):
         text = "superkratom mitragynines 7-hydroxymitragynine; KRATOM, mitragynine!"
         self.assertEqual(apply_pronunciations(text),
-                         "superkratom mitragynines 7-hydroxymitragynine; craytum, mih-traj-uh-neen!")
+                         "superkratom mitragynines 7-hydroxymitragynine; craytum, mitragynine!")
 
     def test_empty_or_unrelated_text_is_unchanged(self):
         for text in ("", "Research suggests the effect is uncertain.", "Mitragyna speciosa"):
@@ -43,6 +48,8 @@ class VoicePronunciationTests(unittest.TestCase):
                  "language": "en-US", "entries": entries * 2},
                 {"schemaVersion": "ths-voice-pronunciation-lexicon-v1",
                  "language": "en-US", "entries": [{"term": "kratom", "spokenAs": "", "source": "owner"}]},
+                {"schemaVersion": "ths-voice-pronunciation-lexicon-v1",
+                 "language": "en-US", "entries": [{"term": "kratom", "spokenAs": "k-ray-tum", "source": "owner"}]},
             ]:
                 path.write_text(json.dumps(item), encoding="utf-8")
                 with self.assertRaises(ValueError):
