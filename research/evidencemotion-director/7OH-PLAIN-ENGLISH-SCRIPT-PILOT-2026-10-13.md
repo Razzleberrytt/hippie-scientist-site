@@ -2,7 +2,7 @@
 
 **RESEARCH DRAFT ONLY.** Owner requested that a person with no scientific background should follow every term. This new written script is **not** new speech, a changed caption timeline, a modified MP4, or a reviewed scientific/publishing claim. It must not inherit any previous voice/audio/device/craft approvals.
 
-## Proposed spoken narration (~55–70 seconds depending on natural delivery)
+## Suggested spoken script (~55–70 seconds depending on natural delivery)
 
 “Here are two chemicals related to the kratom plant: **mitragynine** and **7-hydroxymitragynine**, usually shortened to **7-OH**. Their names are complicated. The basic idea isn't.
 
