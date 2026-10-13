@@ -30,7 +30,7 @@ def load_lexicon(path: Path | None = None) -> tuple[list[dict], str]:
             raise ValueError("Voice pronunciation entries must be objects")
         term, spoken = entry.get("term"), entry.get("spokenAs")
         if (not isinstance(term, str) or not TERM_PATTERN.fullmatch(term) or
-                not isinstance(spoken, str) or not spoken.strip() or
+                not isinstance(spoken, str) or not spoken.strip() or "-" in spoken or
                 "\\n" in spoken or "\\r" in spoken or not entry.get("source")):
             raise ValueError("Invalid voice pronunciation entry")
         if term.lower() in seen:
