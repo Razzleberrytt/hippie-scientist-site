@@ -10,7 +10,7 @@ const beat={
  scientificAssetIds:['approved-illustrative-receptor-v1']
 };
 const receipt={
- origin:'decoded-preview',previewSha256:hex,decodedFrameCount:120,
+ origin:'independent-full-decode',schemaVersion:'ths-director-decoded-pixels-v1',previewSha256:hex,decodedFrameCount:120,
  voiceTimeStretched:false,factualGeometryGenerated:false,heroAbsent:false,
  stockClipArtDetected:false,maxCaptionExcludedStaticSec:1.5,sourceLocked:true,
  narrationSha256:hex,approvedNarrationSha256:hex
