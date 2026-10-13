@@ -47,6 +47,7 @@ export default function ResearchInvestigationsPage() {
           they are <strong>not</strong> additional admitted studies or new canonical citations.
         </p>
         <div className='mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold'>
+          <a href='/research/investigations/sources.json' className='text-brand-700 hover:underline'>Download source inventory (JSON) →</a>
           <Link href='/research/source-register/' className='text-brand-700 hover:underline'>Research source register →</Link>
           <Link href='/info/methodology/' className='text-brand-700 hover:underline'>Methodology and review standards →</Link>
           <Link href='/research/operations/' className='text-brand-700 hover:underline'>Research operations →</Link>
