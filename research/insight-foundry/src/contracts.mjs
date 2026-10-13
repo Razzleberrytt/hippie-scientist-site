@@ -79,7 +79,7 @@ export function createOpportunity({question,pico:scope,intakeSnapshotId,originSi
   const result={schemaVersion:SCHEMA_VERSION,opportunityId:opportunityId({question,pico:scope}),question,pico:scope,intakeSnapshotId,originSignals,researchState:'candidate',priorArtState:'unchecked',scientificGate:'research-only',commercialState:'demand-unknown'}
   return validateOpportunity(result)
 }
-export function frozenProtocolDigest(input){const {protocolDigest,...rest}=input;return digest(rest)}
+export function frozenProtocolDigest(input){const rest={...input};delete rest.protocolDigest;return digest(rest)}
 export function validateProtocol(input, opportunity){
   obj(input,'protocol');validateOpportunity(opportunity)
   knownFields(input,['schemaVersion','protocolId','opportunityId','snapshotId','pico','reviewQuestion','frozenOn','databases','eligibilityCriteria','extractionPlan','priorArtScope','amendments','protocolDigest'],'protocol')
@@ -103,10 +103,11 @@ export function validateProtocol(input, opportunity){
   hex(input.protocolDigest,'protocolDigest');if(input.protocolDigest!==frozenProtocolDigest(input))reject('frozen protocol mutated or hash incorrect')
   return input
 }
+const cloneJson=(value)=>JSON.parse(canonicalJson(value))
 export function freezeProtocol(opportunity,{frozenOn,databases,eligibilityCriteria,extractionPlan,priorArtScope}){
   validateOpportunity(opportunity)
   const result={schemaVersion:1,protocolId:`ifproto_${opportunity.opportunityId.slice(6,18)}_${frozenOn.replaceAll('-','')}`,opportunityId:opportunity.opportunityId,
-    snapshotId:opportunity.intakeSnapshotId,pico:structuredClone(opportunity.pico),reviewQuestion:opportunity.question,frozenOn,databases:structuredClone(databases),eligibilityCriteria:structuredClone(eligibilityCriteria),extractionPlan:structuredClone(extractionPlan),priorArtScope,amendments:[]}
+    snapshotId:opportunity.intakeSnapshotId,pico:cloneJson(opportunity.pico),reviewQuestion:opportunity.question,frozenOn,databases:cloneJson(databases),eligibilityCriteria:cloneJson(eligibilityCriteria),extractionPlan:cloneJson(extractionPlan),priorArtScope,amendments:[]}
   result.protocolDigest=frozenProtocolDigest(result)
   return validateProtocol(result,opportunity)
 }
@@ -215,7 +216,7 @@ export function validateCaseFile(caseFile,{opportunity,protocol,sourceAuthority,
     refs.forEach(id=>{if(!ids.has(id))reject('claim references unknown evidence item')})
     unique(refs,'claim references')
   }
-  hex(caseFile.caseDigest,'caseDigest');const {caseDigest,...body}=caseFile
+  hex(caseFile.caseDigest,'caseDigest');const body={...caseFile};delete body.caseDigest
   if(caseFile.caseDigest!==digest(body))reject('case content integrity mismatch')
   return caseFile
 }
