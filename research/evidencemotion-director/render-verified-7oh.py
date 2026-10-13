@@ -169,7 +169,7 @@ def render(source, outdir):
         # wide establishing orbit then a hard cut to a real hydroxyl-site macro.
         # This is visual emphasis, not synthesis, reaction or receptor binding.
         if t < 2.75:
-            radius = 38.0
+            radius = 31.0
             camera.SetPosition(math.sin(angle)*radius, 3.3,
                                math.cos(angle)*radius)
             camera.SetFocalPoint(0, 0, 0)
@@ -216,6 +216,22 @@ def render(source, outdir):
                      fill=(207, 220, 222, 255), font=font(11, True))
         drawing.text((29, 812), "PUBCHEM CID 44301524 • ILLUSTRATIVE GEOMETRY",
                      fill=(153, 184, 192, 255), font=font(10))
+        # Project the actual RDKit hydroxyl oxygen into portrait pixels.
+        # The marker is deterministic annotation, never generated chemistry.
+        if t > 3.1:
+            world_to_display = vtk.vtkCoordinate()
+            world_to_display.SetCoordinateSystemToWorld()
+            world_to_display.SetValue(*map(float, coords[hydroxyl]))
+            px, py = world_to_display.GetComputedDisplayValue(renderer)
+            atom_x = int(px * WIDTH/520)
+            atom_y = int(142 + (630-py) * 565/630)
+            if 18 < atom_x < WIDTH-18 and 190 < atom_y < 680:
+                opacity = int(240*smooth((t-3.1)/.45))
+                drawing.ellipse((atom_x-20, atom_y-20,
+                                 atom_x+20, atom_y+20),
+                                outline=(255, 211, 115, opacity), width=3)
+                drawing.line([(atom_x+17, atom_y+15), (WIDTH-40, 694)],
+                             fill=(250, 198, 109, int(.72*opacity)), width=2)
         image.save(folder / f"f{n:04d}.png")
 
     output = outdir / "verified_7oh_model_RESEARCH_ONLY_SILENT.mp4"
