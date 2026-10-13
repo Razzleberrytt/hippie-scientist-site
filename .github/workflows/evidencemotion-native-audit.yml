@@ -1,0 +1,42 @@
+name: EvidenceMotion native master audit regression
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/native_master_audit.py'
+      - 'research/evidencemotion-director/test_native_master_audit.py'
+      - 'research/evidencemotion-director/native_source_provenance.py'
+      - 'research/evidencemotion-director/test_native_source_provenance.py'
+      - '.github/workflows/evidencemotion-native-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/native_master_audit.py'
+      - 'research/evidencemotion-director/test_native_master_audit.py'
+      - 'research/evidencemotion-director/native_source_provenance.py'
+      - 'research/evidencemotion-director/test_native_source_provenance.py'
+      - '.github/workflows/evidencemotion-native-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  byte-verified-media-audit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail on syntactically invalid research audit sources
+        run: |
+          python -m py_compile research/evidencemotion-director/native_master_audit.py
+          python -m py_compile research/evidencemotion-director/native_source_provenance.py
+          python -m py_compile research/evidencemotion-director/test_native_master_audit.py
+          python -m py_compile research/evidencemotion-director/test_native_source_provenance.py
+      - name: Execute real Python regressions, not only site build
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_master_audit.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_source_provenance.py' -v
+      - name: Report purpose and non-approval
+        run: |
+          echo "Python syntax and adversarial tests PASS; no user playback, science, craft or publication permission is granted." >> "$GITHUB_STEP_SUMMARY"
