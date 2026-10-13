@@ -67,7 +67,9 @@ THC interacts with CB1 receptors. This can change communication between nerve ce
 
 When THC repeatedly activates CB1 receptors, the brain can adapt. One measured change is **lower CB1 receptor availability** in some brain regions. Availability refers to how many of these receiving spots can be detected by a particular scan—not to proof that brain cells have died.
 
-A 2012 brain-imaging study found region-specific reductions in CB1 receptor availability among daily cannabis smokers. These changes were described as reversible during abstinence. A separate study also found relatively rapid changes after participants stopped. [1,2]
+A 2012 brain-imaging study found region-specific reductions in CB1 receptor availability among daily cannabis smokers. These changes were described as reversible during abstinence. [1] A separate 2016 study compared **11 cannabis-dependent men** with **19 people without cannabis dependence**. Before abstinence, measured CB1 receptor availability was about **15% lower** in the cannabis-dependent group. After **two days** without cannabis, the difference was no longer detectable in that study. Measurements were also taken after 28 days, although not everyone completed every follow-up scan. [2]
+
+Those numbers are informative, but they're **not** a universal recovery schedule. The group was small and included only men. The scans measured the availability of certain brain-cell receiving spots, **not** full recovery of memory, sleep or mental health.
 
 **Abstinence** simply means going without the substance. The brain's ability to adapt after use stops is an important part of the story.
 
