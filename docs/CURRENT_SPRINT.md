@@ -124,7 +124,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
-| A | #6749 | Insight Foundry: versioned source-bound research contracts | Active — admitted (research-only contracts; pending implementation) | P1 | 45.0 | 2026-10-13 |
+| A | #6749 / PR #6762 | Insight Foundry: versioned source-bound research contracts | Active — admitted; PR #6762 in review (research-only, not production) | P1 | 45.0 | 2026-10-13 |
 
 
 
