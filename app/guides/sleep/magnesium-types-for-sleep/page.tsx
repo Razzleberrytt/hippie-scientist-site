@@ -4,8 +4,7 @@ import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../lib/seo'
 import EmailCapture from '@/components/EmailCapture'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { canRenderConfiguredRevenueProducts } from '@/lib/revenue-product-governance'
+import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
@@ -100,12 +99,7 @@ const BUYER_FORMS = [
   { name: 'Oxide', amount: '200–400 mg', evidence: 'Small older-adult insomnia RCT at ~500 mg/day', gi: 'Laxative; lower fractional absorption', price: '$' },
 ] as const
 
-function magnesiumSearchUrl(form: string) {
-  return 'https://www.amazon.com/s?k=' + encodeURIComponent('magnesium ' + form + ' elemental supplement') + '&tag=' + encodeURIComponent(AFFILIATE_TAGS.amazon)
-}
-
 export default function MagnesiumTypesForSleepPage() {
-  const allowSearchLinks = canRenderConfiguredRevenueProducts('magnesium')
   const articleLd = blogJsonLd(
     { title: TITLE, slug: SLUG, date: DATE, updated: UPDATED_DATE, description: DESCRIPTION },
     `/guides/sleep/${SLUG}/`,
@@ -298,12 +292,13 @@ export default function MagnesiumTypesForSleepPage() {
           <h2 className="mt-5 text-xl font-semibold text-ink">Which form fits your shopping constraint?</h2>
           <p className="mt-2 text-sm leading-7 text-muted">For GI sensitivity, compare glycinate; for lower cost or constipation, consider citrate's stool-softening tradeoff; for L-threonate, weigh a premium against mixed, commercially funded studies. Malate and taurate lack verified form-only sleep RCTs; oxide is inexpensive but can be laxative and less efficiently absorbed. This is a shopping framework, not a prescription.</p>
           <AffiliateDisclosure />
-          <p className="mt-4 text-sm leading-7 text-muted">No product-specific Amazon ASIN currently meets this guide's explicit HIGH-confidence verification gate; named products and direct ASIN offers are withheld. The optional links below are disclosed generic searches by form, not endorsements of search results.</p>
-          {allowSearchLinks && <div className="mt-3 flex flex-wrap gap-3">
-            <a href={magnesiumSearchUrl('glycinate')} data-product-slot="search-only" rel="nofollow sponsored noopener noreferrer" target="_blank" className="rounded-xl border border-brand-900/20 p-3 text-sm font-semibold text-brand-700">Search glycinate ↗</a>
-            <a href={magnesiumSearchUrl('citrate')} data-product-slot="search-only" rel="nofollow sponsored noopener noreferrer" target="_blank" className="rounded-xl border border-brand-900/20 p-3 text-sm font-semibold text-brand-700">Search citrate ↗</a>
-            <a href={magnesiumSearchUrl('L-threonate')} data-product-slot="search-only" rel="nofollow sponsored noopener noreferrer" target="_blank" className="rounded-xl border border-brand-900/20 p-3 text-sm font-semibold text-brand-700">Search L-threonate ↗</a>
-          </div>}
+          <p className="mt-4 text-sm leading-7 text-muted">No product-specific Amazon ASIN currently meets this guide's HIGH-confidence verification gate. Direct product offers and affiliate search shortcuts are withheld until a curated set passes source and product-quality checks.</p>
+          <RecommendationSection
+            title="Magnesium sourcing — verification pending"
+            description="We are not endorsing a specific brand or product. Use the ingredient and label checklist above; verified examples will appear only after independent product-level review."
+            products={[]}
+            trackingProductSlug="magnesium"
+          />
         </section>
 
         <EmailCapture headline="Get future research notes by email" description="Evidence-first supplement updates, safety context, and new guide announcements." location={`article-${SLUG}`} />
