@@ -1,20 +1,20 @@
 # EvidenceMotion video companion articles — **staged, NOT PUBLISHED**
 
-Five candidate full-length science explainers are held here rather than in `content/articles/` to prevent static export and public routing before a separately authorized editorial release. Each has its original publish-ready source frontmatter for controlled promotion. **Do not tell readers any linked future article URL is currently live based on the existence of these files.**
+Five candidate full-length science explainers are stored directly in this review-only directory as `evidencemotion-companions--*.md` files rather than in `content/articles/` to prevent static export and public routing before a separately authorized editorial release. Each has its original publish-ready source frontmatter for controlled promotion. **Do not tell readers any linked future article URL is currently live based on the existence of these files.**
 
 ## Owner request / why this exists
 On October 13, 2026, the owner requested articles to accompany the five selected video topics, in plain English for a non-specialist audience. This bundle preserves the finished draft content and evidence source lists. Related EvidenceMotion video research: PR #6758.
 
 ## Five reviewed draft files
-1. `dmt-types-explained.md` — DMT family and distinctions
-2. `long-term-cannabis-brain-effects.md` — THC exposure, tolerance, cognition and recovery
-3. `adhd-brain-facts-explained.md` — time, working memory, rewards, focus, initiating tasks
-4. `yopo-bufotenine-science-history.md` — ethnobotany and bufotenine
-5. `psychedelics-and-the-brain-science.md` — functional brain-network changes vs structural neuroplasticity
+1. `evidencemotion-companions--dmt-types-explained.md` — DMT family and distinctions
+2. `evidencemotion-companions--long-term-cannabis-brain-effects.md` — THC exposure, tolerance, cognition and recovery
+3. `evidencemotion-companions--adhd-brain-facts-explained.md` — time, working memory, rewards, focus, initiating tasks
+4. `evidencemotion-companions--yopo-bufotenine-science-history.md` — ethnobotany and bufotenine
+5. `evidencemotion-companions--psychedelics-and-the-brain-science.md` — functional brain-network changes vs structural neuroplasticity
 
 ## 2026-10-13 adopted plain-language editorial gate
 
-Use the repository's new canonical [plain-language science editorial standard](../../../../docs/PLAIN_LANGUAGE_SCIENCE_EDITORIAL_STANDARD.md) when evaluating **each** of these five drafts. Its order is: ordinary-language answer → accurate technical name and first-use definition → concrete example → what a study measured → what is not established. A glossary or word-count check alone cannot establish that a beginner understands the article.
+Use the repository's new canonical [plain-language science editorial standard](../../../docs/PLAIN_LANGUAGE_SCIENCE_EDITORIAL_STANDARD.md) when evaluating **each** of these five drafts. Its order is: ordinary-language answer → accurate technical name and first-use definition → concrete example → what a study measured → what is not established. A glossary or word-count check alone cannot establish that a beginner understands the article.
 
 **Additional acceptance evidence required before promoting a draft to a live article:**
 - A lay reader can restate the key claim in their own words, without being forced to look up chemistry or neuroscience vocabulary.
@@ -40,4 +40,4 @@ Use the repository's new canonical [plain-language science editorial standard](.
 - Codex **P2**: inaccurate generic research-paper author labels — replaced with checked author names and PMIDs in DMT, ADHD and yopo drafts.
 - Open science/source checks and release proofs should be reviewed on the exact new commit, not retroactively marked passed.
 
-This staging is an integrity safeguard, **not** a withdrawal of the owner's request to publish all five articles.
+The files are located directly within `ops/editorial-runtime/publication-pilots/` to use the existing, expressly approved **docs-only staging rule** in `scripts/ci/classify-release-impact.mjs`. They cannot affect built output or live pages. Full scientific, editorial, publication, release-controller and future live build gates still apply once separately admitted. This staging is an integrity safeguard, **not** a withdrawal of the owner's request to publish all five articles.
