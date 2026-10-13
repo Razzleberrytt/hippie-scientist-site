@@ -21,6 +21,10 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
      !finite(w.endMs)||w.startMs<0||w.endMs<=w.startMs||
      (i>0&&w.startMs<wordAlignment[i-1].endMs)||w.endMs>durationMs))
    errors.push('WORD_TIMING_INVALID');
+ if(Array.isArray(beats)&&beats.some(b=>!b||!Array.isArray(b.scientificAssetIDs)||
+    b.scientificAssetIDs.length===0||b.scientificAssetIDs.some(assetId=>!ID(assetId))||
+    new Set(b.scientificAssetIDs).size!==b.scientificAssetIDs.length))
+   errors.push('SHOT_ASSET_LINEAGE_MISSING');
  if(!Array.isArray(beats)||beats.length!==3||beats.some((b,i)=>!b||!ID(b.id)||
     !roles.has(b.role)||!grammars.has(b.grammar)||!Number.isInteger(b.startWordIndex)||
     !Number.isInteger(b.endWordIndex)||b.endWordIndex<b.startWordIndex||
@@ -40,7 +44,7 @@ export function proposeAudioLockedCuts({approvedWavSha256,actualWavSha256,
   return {id:beat.id,role:beat.role,grammar:beat.grammar,
    startMs:i===0?0:wordAlignment[beat.startWordIndex].startMs,
    endMs:end,anchorWord:wordAlignment[beat.startWordIndex].word,
-   scientificAssetIDs:[...(beat.scientificAssetIDs||[])],
+   scientificAssetIDs:[...beat.scientificAssetIDs],
    cameraMoveCount:1,voiceTimeStretch:false,metadata:'PREVIZ_ONLY'};
  });
  return {status:'PREVIZ_EDL_READY_FOR_INDEPENDENT_MEDIA_QA',errors:[],shots,
