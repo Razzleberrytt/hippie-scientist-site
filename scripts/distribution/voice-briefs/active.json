@@ -1,18 +1,18 @@
 {
   "release": "R8.05",
   "sourceIdentity": {
-    "id": "sr15099-longform-chapter-3",
-    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31443104/"
+    "id": "sr15099-longform-chapter-4",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33345829/"
   },
   "premise": {
     "interestScore": 4.5,
     "coldViewerWhyCare": "A jargon-free SR-15099 and SR-17018 scientific explanation focusing on opioid tolerance and what mouse results can and cannot demonstrate.",
     "viewerQuestion": "Can SR-15099 be said to reset tolerance?",
-    "earlyPayoff": "Both groups regained morphine sensitivity in the hot-plate test.",
+    "earlyPayoff": "Withdrawal signs differed, and a second assay found no tolerance reversal.",
     "methodologyBeforePayoff": false,
     "paperSummaryOpening": false,
-    "hookMode": "methodology",
-    "methodIsStory": true
+    "hookMode": "curiosity",
+    "methodIsStory": false
   },
   "timing": {
     "durationPolicy": "natural",
@@ -23,125 +23,125 @@
     "macroRebuildCount": 0
   },
   "chapter": {
-    "index": 3,
+    "index": 4,
     "total": 5,
     "editorialOnly": true,
     "fullNarrationNotSub60": true
   },
   "beats": [
     {
-      "id": "sr15099-long-03-hook",
+      "id": "sr15099-long-04-hook",
       "role": "hook",
-      "narration": "First, they gave mice morphine repeatedly, until the mice showed less of a response to morphine during a heat-response test. That was their measure of tolerance.",
+      "narration": "So the exciting part wasn't simply that the mice recovered their response to morphine. That happened in both groups.",
       "onScreenText": "THE QUESTION",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
-      "spokenAnchor": "First, they gave",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
+      "spokenAnchor": "So the exciting",
       "visualAction": "A distinct physical evidence-bound visual reveal for hook, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:33345829",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-03-finding",
+      "id": "sr15099-long-04-finding",
       "role": "finding",
-      "narration": "Then they stopped the morphine.",
+      "narration": "The unusual part was recovering the response while signs of withdrawal were being suppressed.",
       "onScreenText": "WHAT CHANGES",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
-      "spokenAnchor": "Then they stopped",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
+      "spokenAnchor": "The unusual part",
       "visualAction": "A distinct physical evidence-bound visual reveal for finding, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "emphasis",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:33345829",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-03-context",
+      "id": "sr15099-long-04-context",
       "role": "context",
-      "narration": "One group received S R one-seven-zero-one-eight for three days. Another group received only the comparison treatment—no replacement opioid.",
+      "narration": "But there's another twist.",
       "onScreenText": "EXPLAIN THE TERMS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
-      "spokenAnchor": "One group received",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
+      "spokenAnchor": "But there's another",
       "visualAction": "A distinct physical evidence-bound visual reveal for context, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "phrase-boundary",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:33345829",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-03-evidence",
+      "id": "sr15099-long-04-evidence",
       "role": "evidence",
-      "narration": "When scientists tested morphine again, both groups had regained sensitivity to it in that hot-plate test.",
+      "narration": "In a later experiment, scientists used a different heat-response test: how quickly mice moved their tails away from warm water.",
       "onScreenText": "WHAT WAS MEASURED",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
-      "spokenAnchor": "When scientists tested",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
+      "spokenAnchor": "In a later",
       "visualAction": "A distinct physical evidence-bound visual reveal for evidence, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:33345829",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-03-limitation",
+      "id": "sr15099-long-04-limitation",
       "role": "limitation",
-      "narration": "But the groups differed in something very important.",
+      "narration": "In that test, S R one-seven-zero-one-eight did not reverse morphine tolerance.",
       "onScreenText": "IMPORTANT LIMIT",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
-      "spokenAnchor": "But the groups",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
+      "spokenAnchor": "In that test,",
       "visualAction": "A distinct physical evidence-bound visual reveal for limitation, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "contrast",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:33345829",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-03-cta",
+      "id": "sr15099-long-04-cta",
       "role": "cta",
-      "narration": "The mice receiving S R one-seven-zero-one-eight showed fewer signs of withdrawal during the switch. The other group went through withdrawal.",
+      "narration": "The same chemical gave a different result depending on what was being measured.",
       "onScreenText": "WHAT THIS MEANS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
-      "spokenAnchor": "The mice receiving",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 4 narrative: The control group and the conflicting 2021 experiment.",
+      "spokenAnchor": "The same chemical",
       "visualAction": "A distinct physical evidence-bound visual reveal for cta, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "end",
-      "factualAuthority": "PMID:31443104",
+      "factualAuthority": "PMID:33345829",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-3-source",
+      "id": "sr15099-long-4-source",
       "role": "source",
       "narration": "",
-      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/31443104/",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/33345829/",
       "visualPurpose": "Readable original journal citation, required standstill.",
       "spokenAnchor": "",
       "visualAction": "Hold actual canonical PubMed URL for review.",
