@@ -24,7 +24,7 @@ const sample=()=>({
  ]});
 test('cuts are derived from original aligned WAV not assigned render seconds',()=>{
  const r=plan(sample());assert.equal(r.status,'PREVIZ_EDL_READY_FOR_INDEPENDENT_MEDIA_QA');
- assert.deepEqual(r.shots.map(s=>[s.startMs,s.endMs]),[[0,650],[880,1720],[1900,3600]]);
+ assert.deepEqual(r.shots.map(s=>[s.startMs,s.endMs]),[[0,880],[880,1900],[1900,3600]]);
  assert.equal(r.finalRenderEligible,false);assert.ok(r.shots.every(s=>s.voiceTimeStretch===false));
 });
 test('missing real voice and independent aligned audio cannot proceed',()=>{
@@ -44,4 +44,11 @@ test('fake early hook and overlong words fail closed',()=>{
  assert.equal(plan(x).status,'HOLD');
  const y=sample();y.wordAlignment[9].endMs=4000;
  assert.ok(plan(y).errors.includes('WORD_TIMING_INVALID'));
+});
+
+test('natural inter-word pauses are assigned to an adjacent visual; no black gaps',()=>{
+ const result=plan(sample());
+ for(let i=1;i<result.shots.length;i++) assert.equal(result.shots[i-1].endMs,result.shots[i].startMs);
+ assert.equal(result.shots[0].startMs,0);
+ assert.equal(result.shots.at(-1).endMs,3600);
 });
