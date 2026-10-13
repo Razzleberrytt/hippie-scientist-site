@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import Link from 'next/link'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -8,6 +8,7 @@ const mocks = vi.hoisted(() => ({
   getConsent: vi.fn(),
   canLoadGa4: vi.fn(),
   trackLeadMagnetClick: vi.fn(),
+  trackRevenueEvent: vi.fn(),
   trackPageView: vi.fn(),
   trackHomepageEntityClick: vi.fn(),
   trackCollectionDetailClick: vi.fn(),
@@ -43,6 +44,10 @@ vi.mock('@/lib/consent', () => ({
   canLoadGa4: mocks.canLoadGa4,
 }))
 
+vi.mock('../../lib/revenue-tracking', () => ({
+  trackRevenueEvent: mocks.trackRevenueEvent,
+}))
+
 vi.mock('@/lib/loadAnalytics', () => ({
   loadAnalytics: vi.fn(),
 }))
@@ -56,6 +61,7 @@ afterEach(() => {
   mocks.getConsent.mockReset()
   mocks.canLoadGa4.mockReset()
   mocks.trackLeadMagnetClick.mockReset()
+  mocks.trackRevenueEvent.mockReset()
   mocks.trackPageView.mockReset()
   mocks.trackHomepageEntityClick.mockReset()
   mocks.trackCollectionDetailClick.mockReset()
@@ -78,6 +84,45 @@ describe('ClickTracker', () => {
 
     fireEvent(window, new Event('consent-granted'))
     expect(mocks.trackPageView).toHaveBeenCalledTimes(1)
+  })
+
+  it('records a single tagged evidence handoff with consent and no query text', async () => {
+    mocks.getConsent.mockReturnValue('granted')
+    mocks.trackPageView.mockReturnValue(true)
+    render(
+      <>
+        <ClickTracker />
+        <Link href="/guides/sleep/best-magnesium-for-sleep/?private=ignored" data-decision-cta="true" data-tracking-location="sleep-evidence-next-step" data-cta-variant="magnesium-forms" onClick={(event) => event.preventDefault()}>
+          Compare magnesium forms
+        </Link>
+      </>,
+    )
+
+    fireEvent.click(document.querySelector('[data-decision-cta="true"]')!)
+    await waitFor(() => expect(mocks.trackRevenueEvent).toHaveBeenCalledTimes(1))
+    expect(mocks.trackRevenueEvent).toHaveBeenCalledWith({
+      kind: 'cta_click',
+      location: 'sleep-evidence-next-step',
+      label: 'Evidence next step',
+      target: '/guides/sleep/best-magnesium-for-sleep/',
+      ctaVariant: 'magnesium-forms',
+      modulePosition: 'post-evidence',
+    })
+  })
+
+  it('does not record tagged evidence handoffs without affirmative consent', () => {
+    mocks.getConsent.mockReturnValue('unknown')
+    render(
+      <>
+        <ClickTracker />
+        <Link href="/guides/sleep/best-magnesium-for-sleep/" data-decision-cta="true" data-tracking-location="sleep-evidence-next-step" onClick={(event) => event.preventDefault()}>
+          Compare magnesium forms
+        </Link>
+      </>,
+    )
+
+    fireEvent.click(document.querySelector('[data-decision-cta="true"]')!)
+    expect(mocks.trackRevenueEvent).not.toHaveBeenCalled()
   })
 
   it('tracks lead-magnet clicks after analytics consent', () => {
