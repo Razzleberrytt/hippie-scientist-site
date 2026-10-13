@@ -9,6 +9,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { normalizePmidList } from '../../lib/citation-identifiers.mjs'
 
 const DIRECTORY = 'docs/research'
 const DOSSIER = /^deep-enrichment-(\d+)-(\d{4}-\d{2}-\d{2})\.md$/
@@ -24,16 +25,23 @@ const field = (row, names) => {
   }
   return ''
 }
-const pmid = (value) => {
-  const str = String(value ?? '').trim().replace(/^PMID\s*[:#]?\s*/i, '')
-  return /^\d{7,9}$/.test(str) ? str : ''
+// A canonical row can cite *several* studies. Never collapse a packed
+// PMID cell or url_or_source cell to only its first PubMed identity.
+const identifyRowPmids = (row) => {
+  const found = new Set()
+  for (const name of ['pmid', 'PMID', 'pubmed_id', 'pubmedId']) {
+    for (const id of normalizePmidList(row?.[name])) found.add(id)
+  }
+  for (const name of ['source_url', 'source url', 'url', 'URL', 'link', 'canonicalUrl', 'url_or_source']) {
+    const value = String(row?.[name] ?? '')
+    for (const match of value.matchAll(/(?:https?:\/\/)?(?:www\.)?pubmed\.ncbi\.nlm\.nih\.gov\/(\d{7,9})(?=\/|\b)/gi)) {
+      found.add(match[1])
+    }
+    // Some workbook cells store a prefixed PMID rather than a PubMed URL.
+    for (const id of normalizePmidList(value)) found.add(id)
+  }
+  return [...found]
 }
-const pmidFromUrl = (value) => {
-  const match = String(value ?? '').match(/(?:https?:\/\/)?(?:www\.)?pubmed\.ncbi\.nlm\.nih\.gov\/(\d{7,9})(?:\/|\b)/i)
-  return match?.[1] || ''
-}
-const identifyRow = (row) => pmid(field(row, ['pmid', 'PMID', 'pubmed_id', 'pubmedId']))
-  || pmidFromUrl(field(row, ['source_url', 'source url', 'url', 'URL', 'link', 'canonicalUrl']))
 const cleanID = (row) => field(row, ['source_id', 'source id', 'claim_id', 'claim id', 'record_id', 'id'])
 const uniqueSorted = (items) => [...new Set(items)].sort((a, b) => a.localeCompare(b))
 
@@ -74,11 +82,11 @@ export function parseDeepEnrichmentDossiers(root) {
 function rowsByPmid(rows, sheet) {
   const map = new Map()
   for (const row of rows) {
-    const id = identifyRow(row)
-    if (!id) continue
-    const hits = map.get(id) ?? []
-    hits.push({ sheet: row.__audit_sheet || sheet, row_id: cleanID(row) || null })
-    map.set(id, hits)
+    for (const id of identifyRowPmids(row)) {
+      const hits = map.get(id) ?? []
+      hits.push({ sheet: row.__audit_sheet || sheet, row_id: cleanID(row) || null })
+      map.set(id, hits)
+    }
   }
   return map
 }
