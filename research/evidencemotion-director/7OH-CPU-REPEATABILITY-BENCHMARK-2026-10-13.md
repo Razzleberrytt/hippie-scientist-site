@@ -28,8 +28,8 @@
 ## Reuse and fail-closed gates
 
 - [repeat_cpu_render_benchmark.py](repeat_cpu_render_benchmark.py) accepts a private source ZIP and a bounded attempt count (1–10), refusing SHA-drift and recording a receipt even if a child renderer errors.
-- [test_repeat_cpu_render_benchmark.py](test_repeat_cpu_render_benchmark.py) includes seven negative/contract tests for native geometry, truncated frames, missing/unreadable streams, observed denominator/failures, empty runs, missing billed rates and counterfeit source ZIP.
-- Path-scoped GitHub CI runs these fast unit regressions, **not** the 3 expensive full source renders. The actual 3-run receipt is also provided separately as an exact downloadable conversation research artifact.
+- [test_repeat_cpu_render_benchmark.py](test_repeat_cpu_render_benchmark.py) includes 13 negative/contract tests for native geometry, truncation, missing streams, exact identical MP4 hashes across all runs, fail-closed incomplete receipts, missing/nonfinite resource measurements, explicit Linux renderer process-group termination after timeout, unknown billed rates, and forged source ZIP.
+- Path-scoped GitHub CI runs the **13 fail-closed unit regressions**, **not** the 3 expensive full source renders. Unfinished partial artifacts must stay HOLD, and only the completed, same-hash batch can PASS. The original three cold renders were independently observed with identical hashes; the corrected harness adds enforcement for future runs. The actual 3-run receipt is also provided separately as an exact downloadable conversation research artifact.
 - The research helper uses no dedicated GPU or laptop; optional image/voice models remain prohibited until separately justified by spend/quality proof.
 
 **Checklist disposition:** the *research CPU-runner benchmark* requirement is supported with explicit runtime, CPU-minutes, memory, observed failure fraction, compute budget and transparent unknown hosting price. This does not prove production-fleet reliability, 1+5 excellent first renders, owner listening, phone compatibility, source-qualified scientific peer review or craft approval. Freeze ON, no upload or production invocation.
