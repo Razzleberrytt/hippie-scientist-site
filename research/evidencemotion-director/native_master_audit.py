@@ -8,8 +8,10 @@ Never treats technical success as approval of chemistry, copyright, craft, voice
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 from fractions import Fraction
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 
@@ -27,60 +29,109 @@ def command(args):
 
 def probe(path):
     return json.loads(command(['ffprobe', '-v', 'error', '-show_entries',
-       'stream=codec_type,codec_name,width,height,r_frame_rate,nb_frames,duration',
+       'stream=codec_type,codec_name,width,height,r_frame_rate,avg_frame_rate,nb_frames,duration',
        '-of', 'json', str(path)]))['streams']
 
-
-def audio_hash(path):
-    output = command(['ffmpeg', '-hide_banner', '-v', 'error', '-i', str(path),
-        '-map', '0:a:0', '-c:a', 'copy', '-f', 'adts', 'pipe:1'])
-    return hashlib.sha256(output).hexdigest()
-
-
-def verify(master, reference_audio, expected_sha, expected_audio_sha, expected_frames,
+def frame_timestamps(path):
+    """Read actual decoded presentation timestamps, never trust guessed r_frame_rate."""
+    raw = command(['ffprobe',def verify(master, reference_audio, expected_sha, expected_audio_sha, expected_frames,
            *, width=1080, height=1920, fps=30, decode_all=True):
     problems = []
+    result = {
+        'technical': 'HOLD', 'problems': problems, 'releaseApproved': False,
+        'craftApproved': False, 'scientificEditorialApproved': False,
+        'ownerDevicePlaybackApproved': False, 'fullDecodePerformed': False,
+        'frameTimingVerified': False,
+        'nativeProvenanceNote': 'Pixel dimensions alone do not prove native source rendering; audit renderer input receipts separately.'
+    }
     for label, path in [('MASTER', master), ('REFERENCE_AUDIO', reference_audio)]:
         if not Path(path).is_file():
             problems.append(label + '_MISSING')
     if problems:
-        return {'technical': 'HOLD', 'problems': problems, 'releaseApproved': False}
-    if len(expected_sha) != 64 or len(expected_audio_sha) != 64:
+        return result
+    if not all(isinstance(h, str) and re.fullmatch('[0-9a-fA-F]{64}', h)
+               for h in (expected_sha, expected_audio_sha)):
         problems.append('PINNED_HASHES_REQUIRED')
-    master_sha = sha256_file(master)
-    if master_sha != expected_sha:
-        problems.append('MASTER_BYTES_CHANGED')
-    streams = probe(master)
-    videos = [s for s in streams if s.get('codec_type') == 'video']
-    audios = [s for s in streams if s.get('codec_type') == 'audio']
-    if len(videos) != 1 or len(audios) != 1:
-        problems.append('EXACTLY_ONE_VIDEO_AND_AUDIO_REQUIRED')
-    else:
-        video, audio = videos[0], audios[0]
+    if not isinstance(expected_frames, int) or expected_frames <= 0 or not isinstance(fps, int) or fps <= 0:
+        problems.append('INVALID_FRAME_CONTRACT')
+        return result
+    try:
+        master_sha = sha256_file(master)
+        result['masterSha256'] = master_sha
+        if master_sha.lower() != expected_sha.lower():
+            problems.append('MASTER_BYTES_CHANGED')
+    except OSError:
+        problems.append('MASTER_HASH_FAILED')
+    try:
+        streams = probe(master)
+        videos = [s for s in streams if s.get('codec_type') == 'video']
+        audios = [s for s in streams if s.get('codec_type') == 'audio']
+        if len(videos) != 1 or len(audios) != 1:
+            problems.append('EXACTLY_ONE_VIDEO_AND_AUDIO_REQUIRED')
+        else:
+            video, audio = videos[0], audios[0]
+            try:
+                rate = Fraction(video.get('r_frame_rate', '0/1'))
+                average = Fraction(video.get('avg_frame_rate', '0/1'))
+            except (ValueError, ZeroDivisionError):
+                rate = average = None
+            if ((video.get('width'), video.get('height')) != (width, height)
+                    or rate != fps or average != fps):
+                problems.append('INCORRECT_NATIVE_FRAME_GEOMETRY')
+            if video.get('codec_name') != 'h264' or audio.get('codec_name') != 'aac':
+                problems.append('UNSUPPORTED_VIDEO_OR_AUDIO_CODEC')
+            try:
+                if int(video.get('nb_frames', -1)) != expected_frames:
+                    problems.append('FRAME_COUNT_MISMATCH')
+            except (ValueError, TypeError):
+                problems.append('FRAME_COUNT_MISMATCH')
+            try:
+                video_duration = Decimal(str(video['duration']))
+                audio_duration = Decimal(str(audio['duration']))
+                if abs(video_duration - audio_duration) > Decimal('0.10'):
+                    problems.append('AUDIO_VIDEO_DURATION_MISMATCH')
+                if abs(video_duration - Decimal(expected_frames)/Decimal(fps)) > Decimal('0.002'):
+                    problems.append('VIDEO_DURATION_NOT_FIXED_FPS')
+            except (KeyError, ValueError, InvalidOperation):
+                problems.append('STREAM_DURATION_MISSING')
+    except (subprocess.CalledProcessError, OSError, KeyError, ValueError):
+        problems.append('MEDIA_PROBE_FAILED')
+    # Constant presentation timestamps are required: r_frame_rate alone is a guessed base-rate.
+    try:
+        stamps = frame_timestamps(master)
+        if len(stamps) != expected_frames:
+            problems.append('DECODED_FRAME_COUNT_MISMATCH')
+        elif not stamps or any(not stamp.is_finite() for stamp in stamps):
+            problems.append('VIDEO_FRAME_TIMESTAMPS_INVALID')
+        else:
+            origin, step = stamps[0], Decimal(1)/Decimal(fps)
+            tolerance = Decimal('0.001')
+            if (origin < Decimal('-0.001') or origin > step + tolerance or
+                any(abs((stamp - origin) - step*i) > tolerance for i,stamp in enumerate(stamps))):
+                problems.append('NONCONSTANT_VIDEO_FRAME_TIMING')
+            else:
+                result['frameTimingVerified'] = True
+    except (subprocess.CalledProcessError, OSError, ValueError, InvalidOperation, UnicodeError, KeyError):
+        problems.append('FRAME_TIMESTAMP_EXTRACTION_FAILED')
+    for label, path in [('MASTER', master), ('REFERENCE', reference_audio)]:
         try:
-            actual_fps = Fraction(video['r_frame_rate'])
-        except (ValueError, ZeroDivisionError, KeyError):
-            actual_fps = None
-        if (video.get('width'), video.get('height')) != (width, height) or actual_fps != fps:
-            problems.append('INCORRECT_NATIVE_FRAME_GEOMETRY')
-        if video.get('codec_name') != 'h264' or audio.get('codec_name') != 'aac':
-            problems.append('UNSUPPORTED_VIDEO_OR_AUDIO_CODEC')
-        if int(video.get('nb_frames', -1)) != expected_frames:
-            problems.append('FRAME_COUNT_MISMATCH')
-        try:
-            if abs(float(video['duration']) - float(audio['duration'])) > 0.10:
-                problems.append('AUDIO_VIDEO_DURATION_MISMATCH')
-        except (KeyError, ValueError):
-            problems.append('STREAM_DURATION_MISSING')
-    current_audio_sha = audio_hash(master)
-    source_audio_sha = audio_hash(reference_audio)
-    if current_audio_sha != expected_audio_sha or source_audio_sha != expected_audio_sha:
-        problems.append('NARRATION_AAC_NOT_EXACTLY_PINNED')
+            observed = audio_hash(path)
+            if label == 'MASTER':
+                result['audioAdtsSha256'] = observed
+            if observed.lower() != expected_audio_sha.lower():
+                problems.append('NARRATION_AAC_NOT_EXACTLY_PINNED')
+        except (subprocess.CalledProcessError, OSError, ValueError):
+            problems.append(label+'_AUDIO_EXTRACTION_FAILED')
     if decode_all:
         try:
             command(['ffmpeg', '-hide_banner', '-v', 'error', '-xerror',
                      '-i', str(master), '-f', 'null', '-'])
-        except subprocess.CalledProcessError:
+            result['fullDecodePerformed'] = True
+        except (subprocess.CalledProcessError, OSError):
+            problems.append('FULL_MEDIA_DECODE_FAILED')
+    result['technical'] = 'PASS' if not problems else 'HOLD'
+    return result
+ subprocess.CalledProcessError:
             problems.append('FULL_MEDIA_DECODE_FAILED')
     return {
         'technical': 'PASS' if not problems else 'HOLD', 'problems': problems,
