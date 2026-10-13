@@ -1,18 +1,18 @@
 {
   "release": "R8.05",
   "sourceIdentity": {
-    "id": "sr15099-longform-chapter-2",
-    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29149605/"
+    "id": "sr15099-longform-chapter-3",
+    "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31443104/"
   },
   "premise": {
     "interestScore": 4.5,
     "coldViewerWhyCare": "A jargon-free SR-15099 and SR-17018 scientific explanation focusing on opioid tolerance and what mouse results can and cannot demonstrate.",
     "viewerQuestion": "Can SR-15099 be said to reset tolerance?",
-    "earlyPayoff": "Related compounds activate mu-opioid receptors but are not interchangeable.",
+    "earlyPayoff": "Both groups regained morphine sensitivity in the hot-plate test.",
     "methodologyBeforePayoff": false,
     "paperSummaryOpening": false,
-    "hookMode": "curiosity",
-    "methodIsStory": false
+    "hookMode": "methodology",
+    "methodIsStory": true
   },
   "timing": {
     "durationPolicy": "natural",
@@ -23,125 +23,125 @@
     "macroRebuildCount": 0
   },
   "chapter": {
-    "index": 2,
+    "index": 3,
     "total": 5,
     "editorialOnly": true,
     "fullNarrationNotSub60": true
   },
   "beats": [
     {
-      "id": "sr15099-long-02-hook",
+      "id": "sr15099-long-03-hook",
       "role": "hook",
-      "narration": "Withdrawal means something different. After the body has adapted to a drug, stopping it can cause unpleasant symptoms.",
+      "narration": "First, they gave mice morphine repeatedly, until the mice showed less of a response to morphine during a heat-response test. That was their measure of tolerance.",
       "onScreenText": "THE QUESTION",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
-      "spokenAnchor": "Withdrawal means something",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
+      "spokenAnchor": "First, they gave",
       "visualAction": "A distinct physical evidence-bound visual reveal for hook, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:29149605",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-02-finding",
+      "id": "sr15099-long-03-finding",
       "role": "finding",
-      "narration": "A person can have tolerance, withdrawal, or both—but they're different things.",
+      "narration": "Then they stopped the morphine.",
       "onScreenText": "WHAT CHANGES",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
-      "spokenAnchor": "A person can",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
+      "spokenAnchor": "Then they stopped",
       "visualAction": "A distinct physical evidence-bound visual reveal for finding, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "emphasis",
-      "factualAuthority": "PMID:29149605",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-02-context",
+      "id": "sr15099-long-03-context",
       "role": "context",
-      "narration": "Now, these two experimental compounds both activate a part of cells called the mu-opioid receptor. Think of it like a receiving station for chemical messages.",
+      "narration": "One group received S R one-seven-zero-one-eight for three days. Another group received only the comparison treatment—no replacement opioid.",
       "onScreenText": "EXPLAIN THE TERMS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
-      "spokenAnchor": "Now, these two",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
+      "spokenAnchor": "One group received",
       "visualAction": "A distinct physical evidence-bound visual reveal for context, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "phrase-boundary",
-      "factualAuthority": "PMID:29149605",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-02-evidence",
+      "id": "sr15099-long-03-evidence",
       "role": "evidence",
-      "narration": "The receptor can send signals through more than one pathway.",
+      "narration": "When scientists tested morphine again, both groups had regained sensitivity to it in that hot-plate test.",
       "onScreenText": "WHAT WAS MEASURED",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
-      "spokenAnchor": "The receptor can",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
+      "spokenAnchor": "When scientists tested",
       "visualAction": "A distinct physical evidence-bound visual reveal for evidence, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "reveal",
-      "factualAuthority": "PMID:29149605",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-02-limitation",
+      "id": "sr15099-long-03-limitation",
       "role": "limitation",
-      "narration": "Scientists became interested in the way these compounds affected those signals.",
+      "narration": "But the groups differed in something very important.",
       "onScreenText": "IMPORTANT LIMIT",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
-      "spokenAnchor": "Scientists became interested",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
+      "spokenAnchor": "But the groups",
       "visualAction": "A distinct physical evidence-bound visual reveal for limitation, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "contrast",
-      "factualAuthority": "PMID:29149605",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-02-cta",
+      "id": "sr15099-long-03-cta",
       "role": "cta",
-      "narration": "But they are different chemicals, so results for one do not automatically apply to the other. Here's what researchers actually did.",
+      "narration": "The mice receiving S R one-seven-zero-one-eight showed fewer signs of withdrawal during the switch. The other group went through withdrawal.",
       "onScreenText": "WHAT THIS MEANS",
-      "visualPurpose": "Illustrate without invented empirical numbers the chapter 2 narrative: Withdrawal, receptors, and why chemical identity matters.",
-      "spokenAnchor": "But they are",
+      "visualPurpose": "Illustrate without invented empirical numbers the chapter 3 narrative: How the 2020 two-group mouse experiment worked.",
+      "spokenAnchor": "The mice receiving",
       "visualAction": "A distinct physical evidence-bound visual reveal for cta, tied exactly to the spoken assertion; never invent chemistry or statistics.",
       "motion": {
         "type": "reveal"
       },
       "cutReason": "end",
-      "factualAuthority": "PMID:29149605",
+      "factualAuthority": "PMID:31443104",
       "primaryEntities": [
         "SR-17018"
       ],
       "pauseAfterSeconds": 0.1
     },
     {
-      "id": "sr15099-long-2-source",
+      "id": "sr15099-long-3-source",
       "role": "source",
       "narration": "",
-      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/29149605/",
+      "onScreenText": "https://pubmed.ncbi.nlm.nih.gov/31443104/",
       "visualPurpose": "Readable original journal citation, required standstill.",
       "spokenAnchor": "",
       "visualAction": "Hold actual canonical PubMed URL for review.",
