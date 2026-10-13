@@ -30,6 +30,26 @@ test('exact PMID join includes workbook sources and claims but never asserts nov
   assert.equal(result.promotes_clinical_claims, false)
 })
 
+test('indexes multiple canonical PMIDs in packed Evidence_Register URL and PMID cells', () => {
+  const dossiers = [
+    { id: 'DE18-01', round: 18, pmids: ['27912875', '15080016', '12345678'] },
+  ]
+  const evidence = [{
+    __audit_sheet: 'Evidence_Register',
+    claim_id: 'shared_source_row',
+    url_or_source: 'https://pubmed.ncbi.nlm.nih.gov/27912875/; https://pubmed.ncbi.nlm.nih.gov/15080016/',
+    PMID: 'PMID 12345678',
+  }]
+  const out = reconcile(dossiers, [], evidence)
+  assert.equal(out.summary.pmids_present_in_workbook_by_exact_id, 3)
+  assert.equal(out.summary.pmids_not_found_in_selected_workbook_rows, 0)
+  for (const id of ['27912875', '15080016', '12345678']) {
+    assert.deepEqual(out.entries.find((e) => e.pmid === id).workbook_study_claim_records, [
+      { sheet: 'Evidence_Register', row_id: 'shared_source_row' },
+    ])
+  }
+})
+
 test('matched records preserve per-row worksheet provenance and do not double-count PMID identities', () => {
   const dossiers = [{ round: 10, id: 'DE10-01', pmids: ['12345678', '87654321'] }]
   const sourceRows = [
@@ -52,7 +72,7 @@ test('matched records preserve per-row worksheet provenance and do not double-co
 
 test('unknown and invalid source identities do not silently become matched citations', () => {
   const out = reconcile([{ id: 'DE10-01', round: 10, pmids: ['33333333'] }],
-    [{ pmid: '333333330' }, { title: 'PMID 33333333' }, { pmid: 'PMID 3333333; 33333333' }], [])
+    [{ pmid: '333333330' }, { title: 'PMID 33333333' }, { pmid: 'PMID 3333333; 3333333300' }], [])
   assert.equal(out.summary.pmids_present_in_workbook_by_exact_id, 0)
   assert.equal(out.summary.pmids_not_found_in_selected_workbook_rows, 1)
   assert.match(out.notes, /NOT established/)
