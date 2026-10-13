@@ -78,6 +78,8 @@ export function evaluatePreviz(candidate,receipt){
   // owner critique. A few changing pixels cannot prove purposeful animation.
   if(decoded.advisories.includes('NEAR_STATIC_MOVING_POSTER_RISK'))
     reasons.push('MOVING_POSTER_CONCEPT_REVIEW_HOLD');
+  if(decoded.advisories.includes('HERO_STRUCTURE_STILL_STATIC'))
+    reasons.push('HERO_STATIC_CONCEPT_REVIEW_HOLD');
   if(!candidate||candidate.status!=='PREVIZ_PROPOSAL_NOT_APPROVED')
     reasons.push('NOT_AN_AUTHORED_CANDIDATE');
   if(!receipt||(receipt.origin!=='independent-full-decode'||receipt.schemaVersion!=='ths-director-decoded-pixels-v1')||!clean(receipt.previewSha256)||
