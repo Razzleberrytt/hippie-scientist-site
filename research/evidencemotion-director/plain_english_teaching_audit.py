@@ -15,12 +15,12 @@ TERMS = {
     "statistically significant": ("unlikely", "difference"),
     "CID": ("record", "number"),
 }
-INTRODUCTION_GUARDS = {
-    "ETKDG": "unnecessary model-software abbreviation in public narration",
-    "MMFF": "unnecessary model-software abbreviation in public narration",
-    "locant": "chemistry naming detail should be explained or left to sources",
-    "conformer": "say one possible computer-estimated 3D shape first",
-    "pharmacodynamics": "explain what the substance does in the body",
+ADDITIONAL_TERMS = {
+    "ETKDG": ("computer", "method"),
+    "MMFF": ("computer", "model"),
+    "locant": ("number", "position"),
+    "conformer": ("possible", "shape"),
+    "pharmacodynamics": ("effects", "body"),
 }
 OVERCLAIM_PATTERNS = (
     (r'(?i)\b(?:the|this) molecular? (?:picture|diagram|drawing) proves\b',
@@ -46,9 +46,14 @@ def audit_public_text(text):
         absent = [t for t in required if t.casefold() not in nearby]
         if absent:
             failures.append({'term':term,'reason':'MISSING_NEARBY_PLAIN_LANGUAGE_EXPLANATION','missing':absent})
-    for term, note in INTRODUCTION_GUARDS.items():
-        if re.search(r'(?i)\b'+re.escape(term)+r'\b', text):
-            failures.append({'term':term,'reason':'SPECIALIST_TERM_WITHOUT_PUBLIC_TEACHING','fix':note})
+    for term, required in ADDITIONAL_TERMS.items():
+        found = re.search(r'(?i)\b'+re.escape(term)+r'\b', text)
+        if not found:
+            continue
+        start, end = found.span()
+        nearby = text[max(0,start-170):min(len(text),end+220)].casefold()
+        if not all(phrase.casefold() in nearby for phrase in required):
+            failures.append({'term':term,'reason':'SPECIALIST_TERM_WITHOUT_PUBLIC_TEACHING','missing':list(required)})
     for pattern,description in OVERCLAIM_PATTERNS:
         if re.search(pattern,text):
             failures.append({'term':'scientific certainty','reason':'INFERRED_HUMAN_EFFECT_FROM_DIAGRAM','fix':description})
