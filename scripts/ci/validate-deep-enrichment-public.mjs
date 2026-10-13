@@ -19,10 +19,14 @@ for (const [index, { round, file }] of rounds.entries()) {
   const content = readFileSync(file, 'utf8')
   const headings = [...content.matchAll(/^## (DE\d+-\d+)\s+[—–-]\s+(.+)$/gm)]
   assert.equal(headings.length, 10, `Expected ten investigations in DE${round}`)
+  const footer = [...content.matchAll(/^## (?!DE\d+-\d+\s+[—–-]).+$/gm)]
+    .find((m) => (m.index ?? -1) > (headings[9].index ?? -1))
+  assert(footer, `Round ${round} must preserve its shared editorial QA receipt`)
+  assert(content.slice(footer.index).trim().length > 200, `Round ${round} shared QA receipt is missing`)
   for (let i = 0; i < headings.length; i++) {
     const heading = headings[i]
     assert.equal(heading[1], `DE${round}-${String(i + 1).padStart(2, '0')}`)
-    const body = content.slice(heading.index + heading[0].length, headings[i + 1]?.index ?? content.length)
+    const body = content.slice(heading.index + heading[0].length, headings[i + 1]?.index ?? footer.index)
     const pmids = [...body.matchAll(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{7,9})\/?/g)].map((match) => match[1])
     assert(pmids.length > 0, `Research ${heading[1]} missing PubMed provenance`)
     pmids.forEach((pmid) => sourceIDs.add(pmid))
@@ -34,6 +38,7 @@ assert.equal(count, rounds.length * 10, 'Do not silently hide an investigation')
 const loader = readFileSync('lib/research-deep-enrichment-public.ts', 'utf8')
 assert(loader.includes('readdirSync('), 'Public research discovery must read source files automatically')
 assert(loader.includes('RESEARCH_NAME'), 'Public research discovery must validate dossier filenames')
+assert(loader.includes('sharedDossierNotes') && loader.includes('sharedNotesStart'), 'Shared QA must remain separate from the tenth investigation')
 assert(existsSync('app/research/investigations/page.tsx'))
 assert(existsSync('app/research/investigations/[round]/page.tsx'))
 const links = [
@@ -45,9 +50,19 @@ const links = [
 for (const file of links) {
   assert(readFileSync(file, 'utf8').includes('/research/investigations'), `Missing navigation link: ${file}`)
 }
+const llms = readFileSync('public/llms.txt', 'utf8')
+assert(llms.includes('https://thehippiescientist.net/research/investigations/'), 'AI discovery guide must link to public research archive')
+assert(llms.includes('not independently verified clinical conclusions'), 'AI discovery guide must preserve scientific-review caveat')
+assert(llms.includes('https://thehippiescientist.net/research/investigations/sources.json'), 'AI discovery guide must point to source-only JSON')
+const jsonRoute = readFileSync('app/research/investigations/sources.json/route.ts', 'utf8')
+assert(jsonRoute.includes('getDeepEnrichmentRounds'), 'Source manifest must derive from original merged dossiers')
+assert(jsonRoute.includes("approved_clinical_claim: false"), 'Source manifest cannot promote clinical claims')
+assert(jsonRoute.includes('x-robots-tag'), 'Machine-readable research manifest must declare crawler policy')
+assert(readFileSync('app/research/investigations/page.tsx', 'utf8').includes('sources.json'), 'Visible index must link to research JSON')
 const detailPage = readFileSync('app/research/investigations/[round]/page.tsx', 'utf8')
 assert(detailPage.includes('index: false'), 'Unreviewed clinical source notes remain noindex')
 assert(detailPage.includes('item.body'), 'Original source notes must remain accessible')
+assert(detailPage.includes('doc.sharedDossierNotes') && detailPage.includes("id='round-governance'"), 'Full round QA notes must be publicly accessible')
 const indexPage = readFileSync('app/research/investigations/page.tsx', 'utf8')
 assert(indexPage.includes('getDeepEnrichmentRounds'), 'Index must use original dossiers')
 assert(!/All 60 investigation|these six documents|Browse 60/.test(indexPage), 'Avoid hard-coded counts that age poorly')
