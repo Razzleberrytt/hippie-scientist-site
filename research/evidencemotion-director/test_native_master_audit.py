@@ -114,7 +114,7 @@ class NativeMasterAuditTests(unittest.TestCase):
         self.assertIn('PINNED_HASHES_REQUIRED', result['problems'])
 
     def test_actual_timestamp_parser_uses_frame_timestamps(self):
-        with patch.object(target, 'command', return_value=b'0.000000\\n0.033333\\n0.066667\\n'):
+        with patch.object(target, 'command', return_value=b'0.000000\n0.033333\n0.066667\n'):
             actual = target.frame_timestamps(self.master)
         self.assertEqual(len(actual), 3)
         self.assertEqual(actual[1], Decimal('0.033333'))
