@@ -25,12 +25,16 @@ word-alignment transcript **must not** be rewritten to phonetic approximations.
 
 Initial entries (October 12, 2026):
 - `kratom` → "craytum" (owner-selected English reading: KRAY-tum).
-- `mitragynine` → "mih-traj-uh-neen" (Merriam-Webster: mi-TRA-juh-neen,
-  https://www.merriam-webster.com/dictionary/mitragynine).
+- `mitragynine` → **native Kokoro spelling** (`mitragynine`) after owner rejected
+  syllable-split phonetic input. Target dictionary stress is mi-TRA-juh-neen,
+  https://www.merriam-webster.com/dictionary/mitragynine. A new one-token alias
+  must be auditioned before replacing native synthesis.
 
 To add another term, append a unique, lowercase canonical term, a TTS-friendly
 `spokenAs`, readable `reading`, and a credible `source` to the lexicon.
-Override whole terms only; related compounds (such as
+Never encode pronunciation guides with hyphens into `spokenAs`: these have
+produced artificial syllable separation in the house voice. Whole-word natural
+readings are preferred; audition candidates side-by-side. Override whole terms only; related compounds (such as
 `7-hydroxymitragynine`) need their own verified entries rather than unsafe
 substring edits. If the dictionary is corrupt or missing, synthesis stops.
 
