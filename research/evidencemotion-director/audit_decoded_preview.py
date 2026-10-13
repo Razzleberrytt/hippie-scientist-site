@@ -26,6 +26,9 @@ def audit(filepath, pixel_threshold=8, change_floor=0.018):
     p=subprocess.Popen(['ffmpeg','-hide_banner','-v','error','-i',str(path),
       '-f','rawvideo','-pix_fmt','rgb24','pipe:1'],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     chunk=w*h*3; last=None; changed=[]; frames=0
+    # Spatially averaged blocks suppress tiny particles and subtitle flicker.
+    # This cannot prove a semantic reveal, but catches micro-motion gaming.
+    block_size=32; prev_blocks=None; structural_changed=[]
     try:
         while True:
             b=p.stdout.read(chunk)
@@ -38,6 +41,15 @@ def audit(filepath, pixel_threshold=8, change_floor=0.018):
                 d=np.max(np.abs(roi-last),axis=2)
                 changed.append(float((d>=pixel_threshold).mean()))
             last=roi
+            ph,pw=roi.shape[:2]
+            bh,bw=ph//block_size,pw//block_size
+            if bh<2 or bw<2:raise ValueError('ROI too small for structural audit')
+            blocks=roi[:bh*block_size,:bw*block_size].astype(np.float32).reshape(
+                bh,block_size,bw,block_size,3).mean(axis=(1,3))
+            if prev_blocks is not None:
+                broad=np.max(np.abs(blocks-prev_blocks),axis=2)
+                structural_changed.append(float((broad>=6).mean()))
+            prev_blocks=blocks
         stderr=p.stderr.read().decode(errors='replace'); code=p.wait(timeout=15)
         if code:raise RuntimeError('FFmpeg decode error: '+stderr[-250:])
     finally:
@@ -54,9 +66,11 @@ def audit(filepath, pixel_threshold=8, change_floor=0.018):
        'width':w,'height':h,'fps':fps,'decodedFrameCount':frames,'roiPixels':[x1,y1,x2,y2],
        'maxCaptionExcludedStaticSec':static_sec,'hasSixSecondStaticKill':static_sec>6,
        'medianChangedFraction':round(float(np.median(changed)),5),
+       'medianBroadStructureChangedFraction':round(float(np.median(structural_changed)),5),
+       'structuralBlockSize':block_size,
        'changeFractionThreshold':change_floor,'pixelDifferenceThreshold':pixel_threshold,
        'excellentCertified':False,
-       'limitations':'Simple subject-ROI pixel proxy; independent human visual/phone review still mandatory.'}
+       'limitations':'Pixel and 32-pixel block changes are negative proxies only; particles, camera drift and geometry may still fool them. Independent human visual/phone review mandatory.'}
 if __name__=='__main__':
  a=argparse.ArgumentParser();a.add_argument('preview');a.add_argument('--change-floor',type=float,default=.018)
  v=a.parse_args();print(json.dumps(audit(v.preview,change_floor=v.change_floor),indent=2))
