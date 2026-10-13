@@ -1,8 +1,8 @@
 # Insight Foundry — research-only source-linked contracts
 
-**Implementation status:** standalone, reviewed-at-code-level only; NOT scientific review, code admission, a deployed feature, or independent evidence verification.
+**Implementation status:** admitted A-lane implementation proposal under review, NOT a scientific review, deployed feature, or independent evidence verification.
 
-**Admitted owner needed:** issue #6749 and protected merge of control PR #6754 are required before this source is committed to the THS repo.
+**Owner:** issue #6749 is admitted through protected control PR #6754 (merged as `654a29c4ab9fcb5eb3c4a2af568c64c06edf0a25`). This source remains a research-only PR candidate until separate exact-head tests and protected controller merge.
 
 ## Integration intent
 
