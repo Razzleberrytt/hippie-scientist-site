@@ -12,6 +12,21 @@ On October 13, 2026, the owner requested articles to accompany the five selected
 4. `yopo-bufotenine-science-history.md` — ethnobotany and bufotenine
 5. `psychedelics-and-the-brain-science.md` — functional brain-network changes vs structural neuroplasticity
 
+## 2026-10-13 adopted plain-language editorial gate
+
+Use the repository's new canonical [plain-language science editorial standard](../../../../docs/PLAIN_LANGUAGE_SCIENCE_EDITORIAL_STANDARD.md) when evaluating **each** of these five drafts. Its order is: ordinary-language answer → accurate technical name and first-use definition → concrete example → what a study measured → what is not established. A glossary or word-count check alone cannot establish that a beginner understands the article.
+
+**Additional acceptance evidence required before promoting a draft to a live article:**
+- A lay reader can restate the key claim in their own words, without being forced to look up chemistry or neuroscience vocabulary.
+- The editor can identify source-grounded claims, participants, comparison, duration, reported negative/null findings and funding conflicts where relevant.
+- The article explains PMID (the PubMed paper identifier), DOI (a permanent publication identifier), and specialized brain-scan/receptor vocabulary in context where displayed for readers.
+- The linked video must undergo its own audio-first script check, on-phone caption/readability review, scientific accuracy pass and owner approval. A page being cleared does not automatically clear the video.
+- Treat the draft metadata as preparation dates. Assign actual publication/update dates only in the authorized live-promotion PR.
+
+**Current limited review proof:** All five have FAQ sections, linked papers and first-use examples. Solo source and accessibility review is documented in the PR discussion. **There is no independent audience-comprehension session or qualified scientific approval recorded yet.** This content remains outside public article collections.
+
+---
+
 ## Release blockers / requirements
 - **Admission:** Per `AGENTS.md` and `docs/CURRENT_SPRINT.md`, Authority/Content is occupied by #6749. This article bundle is review-only until the existing owner completes or the owner-approved project controller separately admits a non-overlapping article-publication ticket. Do not create a silent fourth workstream or overwrite active A ownership.
 - **Science and editorial:** independently verify references and important claims, including negative/null findings and funding disclosures. All five currently carry source lists but no human clinical publication sign-off is implied.
