@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 /** Research-only: read and verify actual SHA-locked PNG source plates.
  * Does not render, install a model, alter production or approve visual quality.
  */
