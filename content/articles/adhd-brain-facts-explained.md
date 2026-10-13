@@ -28,9 +28,10 @@ references:
     pmid: "38145491"
     url: "https://pubmed.ncbi.nlm.nih.gov/38145491/"
   - title: "Attention-Deficit/Hyperactivity Disorder and Monetary Delay Discounting: A Meta-Analysis of Case-Control Studies"
-    authors: "Meta-analysis of case-control studies"
+    authors: "Jackson JNS, MacKillop J"
     year: "2016"
     pmid: "27722208"
+    doi: "10.1016/j.bpsc.2016.01.007"
     url: "https://pubmed.ncbi.nlm.nih.gov/27722208/"
   - title: "ADHD in Adults: 4 Things to Know"
     authors: "National Institute of Mental Health"
@@ -84,7 +85,7 @@ Imagine two tasks. One gives you a satisfying result in two minutes. The other m
 
 Researchers call the tendency to value a reward less when you have to wait **delay discounting**. In plain English, waiting can make a reward feel less motivating.
 
-A meta-analysis of ADHD research involving thousands of participants found, on average, greater delay discounting in ADHD groups than comparison groups. [2]
+A meta-analysis of 21 studies involving 3,913 participants found, on average, greater delay discounting in ADHD groups than comparison groups. [2]
 
 That doesn't prove everyone with ADHD is impatient or that one chemical—like **dopamine**, a messenger involved in many brain processes—explains all motivation problems. The brain's reward system is complicated.
 
