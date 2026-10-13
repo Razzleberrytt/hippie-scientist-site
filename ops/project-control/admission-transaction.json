@@ -1,19 +1,19 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "4740e74081a1c62ca396fd8aa9a100a7b39951b9",
-  "last_verified": "2026-10-12",
-  "ticket": 6685,
-  "lane": "D",
-  "title": "Activate durable protected identities for citation-leading pages",
-  "priority": "P0",
+  "base_revision": "f430e91bcb6176accfda7b8bb062d9467a082552",
+  "last_verified": "2026-10-13",
+  "ticket": 6749,
+  "lane": "A",
+  "title": "Insight Foundry: versioned source-bound research contracts",
+  "priority": "P1",
   "score_inputs": {
-    "businessImpact": 4,
+    "businessImpact": 3,
     "userValue": 4,
-    "trafficPotential": 4,
+    "trafficPotential": 2,
     "strategicLeverage": 5,
     "confidence": 0.75,
     "effort": 2
   },
-  "score": 120
+  "score": 45
 }
