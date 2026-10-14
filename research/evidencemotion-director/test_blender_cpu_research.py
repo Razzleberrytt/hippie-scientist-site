@@ -74,9 +74,9 @@ class BlenderResearchContractTests(unittest.TestCase):
         p=mock_packet();p["bonds"].append({"a":1,"b":0,"kind":"SINGLE"})
         with self.assertRaisesRegex(ValueError,"DUPLICATE_BOND"): b.validate(p)
 
-    def test_bad_bond_order_rejected(self):
+    def test_unknown_bond_kind_rejected(self):
         p=mock_packet();p["bonds"][0]["kind"]="IMPOSSIBLE"
-        with self.assertRaisesRegex(ValueError,"UNSUPPORTED_BOND"): b.validate(p)
+        with self.assertRaisesRegex(ValueError,"BAD_BOND"): b.validate(p)
 
     def test_highlight_must_point_to_oxygen(self):
         p=mock_packet();p["highlightAtomIndex"]=1
