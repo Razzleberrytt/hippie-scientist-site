@@ -7,7 +7,8 @@ const older='b'.repeat(40)
 const pr={number:6703,base:{repo:{owner:{login:'Razzleberrytt'},full_name:'Razzleberrytt/hippie-scientist-site'}},head:{sha,repo:{full_name:'Razzleberrytt/hippie-scientist-site'}}}
 const publicFile='content/articles/new-licorice-claim.md'
 const approval=(head=sha,login='Razzleberrytt',id=1)=>({
-  id, user:{login,type:'User'},body:`THS-PUBLICATION-APPROVED PR=#6703 HEAD=${head}`,created_at:'2026-10-12T16:00:00Z'
+  id, user:{login,type:'User'},performed_via_github_app:null,
+  body:`THS-PUBLICATION-APPROVED PR=#6703 HEAD=${head}`,created_at:'2026-10-12T16:00:00Z'
 })
 const decide=(changedFiles,extra={})=>assessPublicationApproval({pr,changedFiles,...extra})
 
@@ -57,13 +58,35 @@ describe('canonical publication approval',()=>{
     const revoked={...approval(sha,'Razzleberrytt',2),body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,created_at:'2026-10-12T17:00:00Z'}
     expect(decide([publicFile],{comments:[approval(),revoked]}).allowed).toBe(false)
   })
-  it('accepts only the current exact-head approved reviewer state',()=>{
+  it('does not mistake unproven GitHub review authorship for a direct human approval',()=>{
     const prior={id:1, user:{login:'Razzleberrytt',type:'User'},commit_id:sha, state:'APPROVED',submitted_at:'2026-10-12T16:00:00Z'}
     const change={...prior,id:2,state:'CHANGES_REQUESTED',submitted_at:'2026-10-12T17:00:00Z'}
-    expect(decide([publicFile],{reviews:[prior]}).allowed).toBe(true)
-    expect(decide([publicFile],{reviews:[prior,change]}).allowed).toBe(false)
+    // GitHub REST review responses may not include app-origin provenance.
+    expect(decide([publicFile],{reviews:[prior]}).allowed).toBe(false)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:{slug:'chatgpt-codex-connector'}}]}).allowed).toBe(false)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null}]}).allowed).toBe(true)
+    expect(decide([publicFile],{reviews:[{...prior,performed_via_github_app:null},change]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,commit_id:older}]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[{...prior,user:{login:'other',type:'User'}}]}).allowed).toBe(false)
+  })
+  it('blocks app-authored and origin-unknown owner approval comments even when username is Owner',()=>{
+    const asApp={...approval(),performed_via_github_app:{slug:'chatgpt-codex-connector',id:1144995}}
+    const originUnknown={...approval()}
+    delete originUnknown.performed_via_github_app
+    expect(decide([publicFile],{comments:[asApp]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[originUnknown]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[approval()]}).allowed).toBe(true)
+  })
+  it('accepts later negative owner review/revocation without treating an app as publication approver',()=>{
+    const first=approval()
+    const revoked={...approval(sha,'Razzleberrytt',2),
+      body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,
+      performed_via_github_app:{slug:'chatgpt-codex-connector'},
+      created_at:'2026-10-12T17:00:00Z'}
+    const changed={id:3,user:{login:'Razzleberrytt',type:'User'},
+      commit_id:sha,state:'CHANGES_REQUESTED',submitted_at:'2026-10-12T18:00:00Z'}
+    expect(decide([publicFile],{comments:[first,revoked]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[first],reviews:[changed]}).allowed).toBe(false)
   })
   it('blocks when exact PR or base owner identity is missing',()=>{
     const tampered={...pr,base:{repo:{full_name:'Razzleberrytt/hippie-scientist-site'}}}

@@ -15,21 +15,25 @@
 
 ## Exact-version owner approval receipt
 
-For PRs touching a public publication surface, the trusted **base repository owner** must review the exact content and leave **either** a GitHub approved review tied to the latest PR commit **or** a top-level PR comment from that owner's verified GitHub account whose **first line** is exactly:
+For PRs touching a public publication surface, the trusted **base repository owner** must intentionally approve the exact content. **Current verified path:** a top-level PR comment written directly in the GitHub website UI (not by a connected app) whose **first line** is exactly:
 
 ```text
 THS-PUBLICATION-APPROVED PR=#123 HEAD=<full-40-character-PR-head-SHA>
 ```
 
-The comment template is **not** an auto-generated approval token. Owner action must be intentional. The system fetches real GitHub user identity and the newest head SHA; it does not accept a user-written PR description, AI-generated JSON, green tests alone, “approve all”, comment from a different account, or an approval for an earlier commit. To revoke the exact-head approval, the owner can leave a later first-line comment:
+The comment template is **not** an auto-generated approval token. Owner action must be intentional. GitHub comments written using connected apps can be attributed to the owner's real username and `User` type; that alone does **not** prove human intent. The approval gate must see explicit trusted server metadata `performed_via_github_app: null` on the owner comment. App-origin or missing/unknown app provenance fails closed; an AI/connector cannot supply this receipt on the owner's behalf. The system also rejects user-written PR descriptions, AI-generated JSON, green tests alone, “approve all”, different accounts, or an approval for an earlier commit. To revoke the exact-head approval, the owner can leave a later first-line comment:
 
 ```text
 THS-PUBLICATION-REVOKED PR=#123 HEAD=<same-full-head-SHA>
 ```
 
-A later GitHub change-request review at that head also revokes an earlier approval. A subsequent content change **changes HEAD** and requires new approval. Reviews or issue-comment evidence unavailable due to API error, pagination, or missing provenance are not presumed successful. The actual source of approvals is GitHub's server-reported PR comments/reviews, not untrusted PR files.
+A later GitHub change-request review at that head also revokes an earlier approval. A subsequent content change **changes HEAD** and requires new approval. GitHub's REST pull-request review entries do not reliably expose app-origin provenance, so standalone `APPROVED` reviews **do not grant** publication permission unless the GitHub server explicitly reports `performed_via_github_app: null`; positive provenance absent is a hold. Negative `CHANGES_REQUESTED` / `DISMISSED` review states still revoke. Reviews or issue-comment evidence unavailable due to API error, pagination, or missing provenance are not presumed successful. The actual source of approvals is GitHub's server-reported PR comments/reviews, not untrusted PR files.
 
 The receipt is **owner editorial approval** only. It cannot assert that the owner is a physician, that an independent scientific reviewer signed off, that the workbook/source registry is clean, or that a medical claim is correct. Those questions have separate gates and should remain held until their real evidence exists.
+
+### Approval-origin incident and rollback (October 13, 2026)
+
+GitHub comment `6158687768` was observed as `Razzleberrytt` / `User` **and** `performed_via_github_app.slug="chatgpt-codex-connector"`, demonstrating that owner identity alone does not prove direct human consent. This comment was ordinary audit prose, **not** an approval token. Repair is tracked against [#6672](https://github.com/Razzleberrytt/hippie-scientist-site/issues/6672). Rollback of this stricter rule is unsafe until an alternative server-authenticated, human-origin proof mechanism is independently verified; the conservative fallback is to hold public merges while owner-origin metadata is unavailable.
 
 ## Trusted-controller implementation
 

@@ -55,6 +55,12 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
     const revoke = token.match(REVOKE);
     const match = approve || revoke;
     if (!match || Number(match[1]) !== number || match[2] !== headSha) continue;
+    // GitHub app delegation can write as the repository owner with
+    // user.type="User". Only a first-party GitHub user comment explicitly
+    // marked as *not* performed by an app may GRANT publication approval.
+    // Missing app provenance is UNKNOWN, never proof of a manual action.
+    // Revocation remains fail-closed even if issued by a delegated app.
+    if (approve && comment.performed_via_github_app !== null) continue;
     events.push({
       approved: Boolean(approve),
       at: Date.parse(comment.updated_at || comment.created_at || '') || 0,
@@ -66,6 +72,11 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
     if (String(review?.user?.type || '').toLowerCase() === 'bot') continue;
     if (review.commit_id !== headSha) continue;
     if (!['APPROVED','CHANGES_REQUESTED','DISMISSED'].includes(review.state)) continue;
+    // GitHub REST PR review objects currently do not reliably report
+    // performed_via_github_app. An owner's account can also act via apps.
+    // Thus only explicit non-app provenance may GRANT; negative review states
+    // continue to invalidate earlier approvals as a safety precaution.
+    if (review.state === 'APPROVED' && review.performed_via_github_app !== null) continue;
     events.push({
       approved: review.state === 'APPROVED',
       at: Date.parse(review.submitted_at || '') || 0,
@@ -80,7 +91,8 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
  * Pass REST-sourced PR, changedFiles, comments and reviews. Source verification
  * is NOT publication approval.  The base repository OWNER is the default
  * trusted publication editor; no trust can be conferred by PR body, labels,
- * workflow file, or a proposed PR-local JSON receipt.
+ * workflow file, or a proposed PR-local JSON receipt. User.login alone does
+ * not prove direct manual intent when delegated GitHub apps can act as owner.
  */
 export function assessPublicationApproval({ pr, changedFiles, comments = [], reviews = [] }) {
   const classification = classifyPublicationChange(changedFiles);
