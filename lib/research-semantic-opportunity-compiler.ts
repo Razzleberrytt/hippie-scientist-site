@@ -10,7 +10,7 @@
 import 'server-only'
 import {getResearchSourceRegister} from './research-source-register'
 import {buildResearchSemanticNetwork,semanticSourceSignature} from './research-semantic-network'
-import {buildResearchIntelligenceStudio} from './research-intelligence-studio'
+import {buildResearchIntelligenceStudio,type ReviewedStudyInput} from './research-intelligence-studio'
 import {discoverResearchIntake} from './research-intelligence-discovery'
 import {buildIntegratedResearchCase,type IntegratedResearchCase} from './research-intelligence-integration'
 import type {DistributionIdentity} from './research-semantic-fabric'
@@ -97,7 +97,7 @@ function fromCurrentAuthorities(untrustedArgs:SemanticOpportunityCompileArgs){
   const graph=buildResearchSemanticNetwork(register.records)
   // A research-only Studio can still link exact DOI publication identities
   // using the repo-owned distribution register, without approved effect claims.
-  const reviewedStudies=[]
+  const reviewedStudies:ReviewedStudyInput[]=[]
   const studio=buildResearchIntelligenceStudio(register.records,graph,reviewedStudies)
   const inspection=inspectResearchStudio(studio,graph,register,semanticSourceSignature)
   const usingDiscovery=typeof args.discoveryQuery==='string'
