@@ -5,10 +5,10 @@ description: "Discover what yopo is, which trees are involved, what bufotenine m
 date: "2026-10-13"
 updatedAt: "2026-10-13"
 author: "Will"
+ai_assisted: true
 category: "Substance Use & Harm Reduction"
 evidenceGrade: "Established historical and chemical associations; limited modern controlled human evidence"
 tags: ["yopo", "Anadenanthera peregrina", "bufotenine", "5-HO-DMT", "ethnobotany", "psychedelics", "Indigenous history"]
-readingTime: 6
 keyTakeaways:
   - "Yopo refers to traditions associated with Anadenanthera trees, notably Anadenanthera peregrina, rather than a purified single drug."
   - "Bufotenine is a DMT-related molecule also called 5-HO-DMT; chemical resemblance does not make it equivalent to N,N-DMT."

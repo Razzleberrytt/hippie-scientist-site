@@ -5,10 +5,10 @@ description: "Four related psychedelic molecules explained in plain English: wha
 date: "2026-10-13"
 updatedAt: "2026-10-13"
 author: "Will"
+ai_assisted: true
 category: "Substance Use & Harm Reduction"
 evidenceGrade: "Mixed: established chemistry, limited direct human comparisons"
 tags: ["DMT", "5-MeO-DMT", "bufotenine", "psilocin", "psychedelics", "tryptamines", "brain"]
-readingTime: 6
 keyTakeaways:
   - "DMT usually means N,N-DMT, but the name appears inside the chemical names of several related molecules."
   - "5-MeO-DMT, bufotenine (5-HO-DMT), and psilocin (4-HO-DMT) are chemically related but not interchangeable."

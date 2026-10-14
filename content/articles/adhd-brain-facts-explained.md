@@ -5,10 +5,10 @@ description: "ADHD goes beyond being distracted. Learn what studies say about ti
 date: "2026-10-13"
 updatedAt: "2026-10-13"
 author: "Will"
+ai_assisted: true
 category: "Focus & Cognition"
 evidenceGrade: "Moderate for group-level findings; individual experiences vary"
 tags: ["ADHD", "attention", "executive function", "working memory", "time perception", "motivation", "neuroscience"]
-readingTime: 6
 keyTakeaways:
   - "ADHD is a pattern of difficulties involving attention, activity level or self-control—not simply a short attention span."
   - "Research identifies average differences in time perception and delayed-reward choices, but no single pattern explains everyone with ADHD."

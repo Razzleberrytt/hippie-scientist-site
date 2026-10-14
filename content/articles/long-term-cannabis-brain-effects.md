@@ -5,10 +5,10 @@ description: "What studies show about years of marijuana use, THC and CB1 recept
 date: "2026-10-13"
 updatedAt: "2026-10-13"
 author: "Will"
+ai_assisted: true
 category: "Substance Use & Harm Reduction"
 evidenceGrade: "Moderate for tolerance and withdrawal; mixed for long-term cognitive causation and recovery timelines"
 tags: ["cannabis", "THC", "marijuana", "brain", "memory", "CB1", "tolerance", "recovery"]
-readingTime: 7
 keyTakeaways:
   - "Frequent exposure to THC can change the availability of CB1 receptors, which helps explain cannabis tolerance."
   - "Heavy or early-onset cannabis use is associated with some differences in thinking and memory, but association alone does not prove causation."

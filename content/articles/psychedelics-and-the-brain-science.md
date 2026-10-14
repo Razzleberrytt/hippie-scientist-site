@@ -5,10 +5,10 @@ description: "Do psychedelics rewire the brain? A plain-English guide to seroton
 date: "2026-10-13"
 updatedAt: "2026-10-13"
 author: "Will"
+ai_assisted: true
 category: "Brain & Neuroscience"
 evidenceGrade: "Strong for acute brain-network changes; early and mixed for lasting structural and clinical effects"
 tags: ["psychedelics", "psilocybin", "LSD", "DMT", "brain", "neuroplasticity", "brain scans", "neuroscience"]
-readingTime: 7
 keyTakeaways:
   - "Classic psychedelics can change how brain networks coordinate during an experience; this has been observed in human brain scans."
   - "Functional connectivity measures patterns of activity, not the growth of new physical brain connections."
