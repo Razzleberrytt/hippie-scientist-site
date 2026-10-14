@@ -177,4 +177,3 @@ The scientifically interesting answer is neither "psychedelics magically rebuild
 
 *Evidence note: This page explains research and is not treatment advice. Medical decisions about depression or other conditions should be discussed with a qualified professional.*
 
-*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
