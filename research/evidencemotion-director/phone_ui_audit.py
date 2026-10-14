@@ -149,6 +149,17 @@ def audit(movie, manifest, output):
         decoded_overlay(movie, t, shot, destination, width, height)
         frame_receipts.append({"shotId": shot["id"], "timeSec": t,
                                "file": destination.name, "frameSha256": sha256_file(destination)})
+    # The opening deserves its own actual pixel samples even when shot 1 is long.
+    # Timestamp declarations alone cannot prove the first two seconds work.
+    for t in (.25, 1.50):
+        opening_shot = next((s for s in plan["shots"] if s["startSec"] <= t < s["endSec"]), None)
+        if opening_shot is None:
+            hold("NO_SHOT_FOR_OPENING_SAMPLE")
+        destination = output / f"opening-{str(t).replace('.', '_')}.png"
+        decoded_overlay(movie, t, opening_shot, destination, width, height)
+        frame_receipts.append({"shotId": opening_shot["id"], "timeSec": t,
+                               "openingHookProbe": True, "file": destination.name,
+                               "frameSha256": sha256_file(destination)})
     receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
                     "videoResolution": [width, height], "durationSec": duration,
                     "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
