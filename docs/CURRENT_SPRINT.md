@@ -106,7 +106,19 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
+
+**2026-10-13 exact-main A #6769 admission proposal:** PR #6784 deferred human-review-blocked article release #6766 (publication PR #6774 remains OPEN and unmerged). This distinct A research-only compiler admission retains D #6685; score **75.0** = 4×5×3×5×0.75/3, ordinal priority only. Existing isolated prototype passed 69 native tests locally, but the real repository integration smoke, full CI, static build and scientific review have not run. No automatic clinical, safety, editorial, media or public content release authority. A separate implementation PR and sole protected controller are required after this admission merges.
+
+
+
+**2026-10-13 control proposal — park external-review-blocked A #6766 without publishing:** Article PR #6774 remains OPEN, held and unmerged, with its complete five manuscripts, cited sources, security and safety fixes and independent review questions intact. The validation/data checks passed at head `e891c255adc70c3b96d5a9dac4b9b4ddcd219edd`, while the remaining release checks, named independent science and plain-language reviews, and verified human owner publication authorization are not complete. A held article PR is not automatically a public article. No content, claim, source grade, existing PR, route, or approval changes in this transaction; no declaration of completion. Normal workstream A is deferred so the unblocked research-only #6769 can seek its own separate current-base scored admission **after** this control PR passes the protected merge controller. Do not reactivate #6766 until reviewer receipts and a new scored admission exist.
+
+
+
+**2026-10-13 historical A #6766 admission (superseded by deferred-control PR #6784):** Owner previously approved advancing five already-merged nonpublishing EvidenceMotion companion explainers (DMT types, cannabis brain effects, ADHD facts, yopo/bufotenine, psychedelic brain science). The earlier A #6766 score was **100.0** (estimated priority; no measured traffic or ROI). That historical A scope permitted independent science/editorial/safety/lay-comprehension QA and a separately governed production article PR, never automatic publication. After review and human-origin approval remained blocked, PR #6784 deferred #6766 without closing or merging publication PR #6774. On this admission candidate head, **D #6685 and A #6769 are the active owners**; #6766 is deferred, not completed or published.
+
+**2026-10-13 historical #6749 retirement:** GitHub confirms #6749 closed after PR #6762 merged as `d8035514480f4abb2ff57169c0530ff18c26b1ca` at 2026-10-14 00:17 UTC (October 13 ET). At that point D #6685 was the only active ticket and Semantic Opportunity Compiler #6769 was **not yet admitted**. Later, after #6766 was admitted and then deferred by merged PR #6784, this separate exact-base scored control transaction proposes admitting #6769. Historical retirement never granted scientific/publication/deployment approval.
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -117,11 +129,14 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 **Creative-quality control #6382:** Active — implement R8.05 Attention-First Story Architecture & Semantic AV Lock after a real TikTok field failure exposed that scientific correctness, clean visuals and a good local narrator can still produce weak social content. Scope is bounded to premise selection and audiovisual temporal coherence: premise-interest, one-mental-job, payoff-before-method, natural-duration, narration-first beat mapping, semantic clip ownership, cut-on-meaning, internal-motion synchronization, cognitive-load ceiling, whole-piece cohesion, and a one-macro-rebuild rescue limit. R8.04 zero-credit sovereignty remains mandatory.
 
 
+**Research-only review #6743 / EvidenceMotion technical evidence (2026-10-13):** The 7-OH molecular director, original pinned Kokoro take, exact-media audit, and source asset reproducibility remain **inert research only**. Full-HD source comparison **PR #6742 MERGED**, provenance safeguard **PR #6744 MERGED**; native-video-audit regression **PR #6745 MERGED** and the director/evidence/checklist reconciliation **PR #6747 MERGED**; decoded-shot/visual-tamper safeguards **PR #6753 MERGED**. The merged foundation count is **23/46; 23 open** after benchmark **PR #6756 MERGED**, with strict repeat-hash, deadline/process-group and missing-timing guards. The independent 63-original-PNG **7-OH research asset escrow** (full archive SHA pinned in [7OH-REUSABLE-ASSET-ESCROW-2026-10-13.md](../research/evidencemotion-director/7OH-REUSABLE-ASSET-ESCROW-2026-10-13.md)) is a reusable-file inventory, not a production feature or an extra checklist tick. Verified document/byte evidence includes the full 15-shot plan, the actual 19.76s 2D-source→computed-3D hard-cut repair, bounded 3.2s sourced reading-hold rule, 1,031-frame full media and mobile caption bounds, and two independent 63/63 source-render asset SHA replays with a fail-closed 72-file manifest. **Historical earlier edited film re-encode was not SHA-identical to its different master; three fresh runs of the same frozen CPU renderer DID produce the same native silent-picture SHA**, with observed 0/3 local failures and hosting dollar costs/fleet reliability unknown. No qualified science, owner voice, owner phone playback, artistic craft or video publication approval is claimed. Freeze and 1+5-first-render target remain. This research ticket is **NOT admitted as a D/R/A production WIP slot**; #6685's existing normal admission is unchanged and subject to live reconciliation. Production integration needs a separately authorized/scored admission and all independent reviews.
+
 **Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
+| A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 
 
 
@@ -205,12 +220,13 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Following verified #6683 retirement, P0 D #6685 is the **sole admitted normal implementation owner**, 1/3 WIP (D occupied; A/R free) at score **120.0**. This admission covers durable source/identity protection only, not scientific page rewrites or citation-share claims. Additional implementation requires a distinct fresh scored admission and must not overlap #6685. Evidence, science, accessibility, canonical, privacy, governance and release gates remain unchanged.
+**Current admission candidate state:** D #6685 and research-only A #6769 are the two active normal implementation owners (2/3 WIP; R free). D #6685 retains its distinct source/identity-protection scope and historical **120.0** score; A #6769 has a separate exact-base score of **75.0** and is limited to inspected research opportunity review requests, not publishing or clinical evidence admission. The five-article #6766 remains deferred with its publication PR #6774 open and unmerged. Any further implementation requires a separately scored available lane. Scientific, accessibility, canonical, privacy, governance and release gates remain unchanged.
 
 ### Blocked or deferred candidates
 
 | Candidate | Workstream | Admission state | Proof required before implementation |
 |---|---|---|---|
+| #6766 / PR #6774 | A | Deferred — independent review + secure publication authorization hold; PR remains open and unmerged | Record real independent scientific/editorial, Indigenous-context and beginner-comprehension reviews; restore safe human-origin owner approval; then fresh exact-base scored admission, full checks, controller merge, Cloudflare origin receipt. No AI self-approval. |
 
 ## Control hardening — merged implementation, observed use still gated
 
