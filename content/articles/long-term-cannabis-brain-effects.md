@@ -153,4 +153,3 @@ The brain adapts to repeated THC exposure. Some changes are measurable, and some
 
 *Evidence note: This is an educational summary of studies, not a diagnosis or a recommendation about substance use.*
 
-*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
