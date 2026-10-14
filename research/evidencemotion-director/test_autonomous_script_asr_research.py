@@ -64,6 +64,12 @@ class ASRSourceScriptTests(unittest.TestCase):
         self.assertEqual(m.tokens("seven O H"),["seven","o","h"])
         self.assertIn("different from mitragynine",m.LINES[0])
         self.assertNotIn("position seven", " ".join(m.LINES).lower())
+    def test_actual_model_is_immutable_after_real_asr_execution(self):
+        self.assertEqual(m.MODEL_ID,"Systran/faster-whisper-tiny.en")
+        self.assertEqual(m.MODEL_REV,"0d3d19a32d3338f10357c0889762bd8d64bbdeba")
+        self.assertEqual(m.MODEL_BIN_SHA,"1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a")
+        self.assertNotEqual(m.MODEL_REV,"main")
+
     def test_precomputed_receipt_cannot_claim_independent_recognition(self):
         x=m.comparison(fixture(),34.35,model=None)
         self.assertIsNone(x["speechRecognizer"])
