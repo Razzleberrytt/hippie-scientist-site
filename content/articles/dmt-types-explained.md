@@ -136,6 +136,10 @@ The numbers in square brackets, such as **[1]** and **[3]**, refer to the number
 
 For these four molecules, check **what researchers actually tested**. A chemical-structure study tells us how atoms are arranged. A receptor experiment measures how a chemical affects a cell's receiving spots. A study in people measures real human outcomes. These are useful but different kinds of evidence, so we should never turn a cell result into a promise about a person's experience. [1–5]
 
+## Where to get help
+
+If you are worried about substance use, withdrawal, or someone's immediate safety, the U.S. SAMHSA National Helpline is available at **1-800-662-HELP (4357)**. You can also visit [SAMHSA's National Helpline](https://www.samhsa.gov/find-help/helplines/national-helpline) for support and treatment resources. These resources **do not replace emergency care**. In an immediate emergency, contact local emergency services.
+
 ## Bottom line
 
 The most interesting lesson is not that four molecules share part of a name. It's that **tiny changes in chemistry can lead to meaningful changes in biology**. The limits of that knowledge are equally important: related substances are not interchangeable, and laboratory effects do not automatically predict human experiences.
