@@ -112,7 +112,7 @@ def render(packet_file, expected_sha, outdir, direction):
     validate(packet)
     try:
         import bpy
-        from mathutils import Vector
+        from mathutils import Vector, Quaternion
     except ImportError:
         fail("BLENDER_RUNTIME_REQUIRED")
     if bpy.app.background is not True:
@@ -182,7 +182,12 @@ def render(packet_file, expected_sha, outdir, direction):
     focus=positions[packet["highlightAtomIndex"]] if direction=="hydroxyl-detail" else Vector((0,0,0))
     bpy.ops.object.camera_add(location=focus+Vector((6,-11,5)) if direction=="hydroxyl-detail" else (0,-17,5))
     camera=bpy.context.object
-    camera.rotation_euler=(focus-camera.location).to_track_quat('-Z','Y').to_euler()
+    camera.rotation_mode='QUATERNION'
+    camera.rotation_quaternion=(focus-camera.location).to_track_quat('-Z','Y')
+    if direction=="whole":
+        # Roll the *camera*, never the chemistry: fit the long molecular axis to
+        # the short-form portrait frame without tiny hero art or broken bonds.
+        camera.rotation_quaternion=camera.rotation_quaternion @ Quaternion((0,0,1),math.pi/2)
     camera.data.type='ORTHO'
     camera.data.ortho_scale=7.5 if direction=="hydroxyl-detail" else 12.5
     scene.camera=camera
@@ -222,6 +227,7 @@ def render(packet_file, expected_sha, outdir, direction):
         "status":"RESEARCH_STILL_RENDERED_NOT_CRAFT_APPROVED",
         "direction":direction,"renderEngine":"BLENDER_CYCLES_CPU",
         "resolution":[270,480],"samples":32,"cameraOrthoScale":round(preview_scale,4),
+        "portraitRollDegrees":90 if direction=="whole" else 0,
         "isDeliberateDetailCrop":direction=="hydroxyl-detail",
         "packetSha256":expected_sha.lower(),"pngSha256":sha256(output),
         "renderWallSeconds":round(time.monotonic()-start,3),
