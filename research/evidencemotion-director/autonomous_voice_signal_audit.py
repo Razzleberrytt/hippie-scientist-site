@@ -71,7 +71,7 @@ def actual_master_pcm(path):
         raw = subprocess.check_output([
             "ffmpeg", "-hide_banner", "-v", "error", "-xerror", "-nostdin",
             "-i", str(p), "-map", "0:a:0", "-ac", "1", "-ar", str(RATE),
-            "-acodec", "pcm_s16le", "-f", "s16le", "pipe:1"
+            "-t", str(MAX_DURATION + 1), "-acodec", "pcm_s16le", "-f", "s16le", "pipe:1"
         ], timeout=90)
     except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
         hold("ACTUAL_MASTER_AUDIO_DECODE_FAILED:" + type(exc).__name__)
@@ -117,6 +117,42 @@ def best_envelope_alignment(a, b):
     return score, lag
 
 
+def matching_waveform_shape(original, mastered, lag_bins):
+    """Actual waveform fidelity independent of mastering gain and attenuation.
+
+    FFT searches a 20-ms window around the energy-derived lag in three
+    nonadjacent high-energy source fragments. Hard clipping that was later
+    attenuated retains obvious nonlinear flat-topping and fails this metric
+    even when the mastered PCM peak is below 0.99.
+    """
+    window = int(.7 * RATE)
+    pad = HOP
+    n = min(len(original), len(mastered))
+    if n <= window + 2 * pad:
+        return 0.
+    positions = range(0, n - window - pad, window)
+    high_energy = sorted(positions, key=lambda k: float(np.dot(
+        original[k:k + window], original[k:k + window])), reverse=True)[:3]
+    scores = []
+    for start in high_energy:
+        x = np.asarray(original[start:start + window], dtype=np.float64)
+        estimated = start + lag_bins * HOP
+        lo = max(0, estimated - pad)
+        hi = min(len(mastered), estimated + window + pad)
+        y = np.asarray(mastered[lo:hi], dtype=np.float64)
+        if len(y) < window or np.linalg.norm(x) < 1.e-5:
+            continue
+        nfft = 1 << (len(x) + len(y) - 2).bit_length()
+        # Cross-correlation by FFT avoids quadratic memory/time on full tracks.
+        conv = np.fft.irfft(np.fft.rfft(y, nfft) *
+                           np.fft.rfft(x[::-1], nfft), nfft)
+        valid = conv[len(x)-1:len(y)]
+        offset = int(np.argmax(valid))
+        selected = y[offset:offset + window]
+        scores.append(corr(x, selected))
+    return float(np.median(scores)) if scores else 0.
+
+
 def compare_decoded_pcm(original, mastered):
     a, b = envelope(original), envelope(mastered)
     source_duration = len(original) / RATE
@@ -137,6 +173,7 @@ def compare_decoded_pcm(original, mastered):
     retained_fraction = float(np.mean(retained)) if len(retained) else 0.
     abs_peak = float(np.max(np.abs(mastered)))
     clipped_fraction = float(np.mean(np.abs(mastered) >= MAX_PEAK))
+    waveform_shape = matching_waveform_shape(original, mastered, lag)
     issues = []
     if abs(source_duration - master_duration) > .15:
         issues.append("PERFORMANCE_DURATION_CHANGED_OR_TRUNCATED")
@@ -148,6 +185,8 @@ def compare_decoded_pcm(original, mastered):
         issues.append("SOURCE_SPOKEN_WINDOWS_MUTED_OR_MISSING")
     if clipped_fraction > MAX_CLIPPED_FRACTION:
         issues.append("AUDIBLE_PCM_SAMPLES_CLIPPED")
+    if waveform_shape < .975:
+        issues.append("MASTERED_WAVEFORM_NONLINEAR_OR_DISTORTED")
     if gain < .35:
         issues.append("MASTERED_SPEECH_UNEXPECTEDLY_QUIET_VS_SOURCE")
     return {
@@ -159,6 +198,7 @@ def compare_decoded_pcm(original, mastered):
         "masterToSourceRmsGainMedian": round(gain, 4),
         "masteredPcmPeak": round(abs_peak, 5),
         "masteredClippedSampleFraction": round(clipped_fraction, 8),
+        "sourceMatchedWaveformCorrelation": round(waveform_shape, 5),
         "issues": issues,
     }
 
