@@ -143,3 +143,5 @@ The most interesting lesson is not that four molecules share part of a name. It'
 For the bigger question of what psychedelic compounds do in the brain, read [What science actually says about psychedelics and your brain](/articles/psychedelics-and-the-brain-science/).
 
 *Evidence note: Sources are linked in the reference list. This page explains research rather than recommending substance use.*
+
+*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
