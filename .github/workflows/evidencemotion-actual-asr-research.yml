@@ -1,0 +1,83 @@
+name: EvidenceMotion actual 7-OH word-ASR research
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/autonomous_script_asr_research.py'
+      - 'research/evidencemotion-director/test_autonomous_script_asr_research.py'
+      - 'research/evidencemotion-director/ASR-SOURCE-LOCK-2026-10-13.md'
+      - 'research/evidencemotion-director/COMPLETION-CHECKLIST.md'
+      - '.github/workflows/evidencemotion-actual-asr-research.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  strict-script-compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail closed on changed source claims and scripted aliases
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_autonomous_script_asr_research.py' -v
+          python -m py_compile research/evidencemotion-director/autonomous_script_asr_research.py
+  actual-original-audio-asr-cpu:
+    needs: strict-script-compare
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore exact original narration from successful same-repo GitHub run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ths-7oh-asr/voice"
+          gh run download 38417454106 --repo "$GITHUB_REPOSITORY" \
+            --name ths-kokoro-narration \
+            --dir "$RUNNER_TEMP/ths-7oh-asr/voice"
+          find "$RUNNER_TEMP/ths-7oh-asr/voice" -type f -maxdepth 3 -print
+          WAV="$(find "$RUNNER_TEMP/ths-7oh-asr/voice" -type f -name '*.wav' | head -n 1)"
+          test -n "$WAV"
+          test "$(sha256sum "$WAV" | cut -d' ' -f1)" = '9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
+          cp "$WAV" "$RUNNER_TEMP/ths-7oh-asr/original.wav"
+      - name: Install CPU-only pinned open-source ASR runtime
+        run: |
+          python -m pip install 'faster-whisper==1.2.1' 'huggingface_hub==0.34.4'
+      - name: Transcribe exact original WAV, record immutable model commit and word timestamps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/evidencemotion-director/autonomous_script_asr_research.py \
+            --wav "$RUNNER_TEMP/ths-7oh-asr/original.wav" \
+            --out "$RUNNER_TEMP/ths-7oh-asr/asr-research-receipt.json"
+          python - <<'PY'
+          import json,os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'ths-7oh-asr','asr-research-receipt.json')
+          r=json.load(open(p))
+          assert r['origin']=='ACTUAL_PINNED_WAV_DECODED_ASR_CPU'
+          assert r['sourceWavSha256']=='9dca049ee2d4c827b1283e4816fd6047187f39449de0441fea420b036f959435'
+          assert r['speechRecognizer']['revisionSha'] and len(r['speechRecognizer']['revisionSha'])==40
+          assert r['speechRecognizer']['modelBinarySha256']
+          assert r['phoneticPronunciationVerified'] is False and r['mayPublish'] is False
+          print('ACTUAL_RESEARCH_ASR_EXECUTED, script decision:',r['decision'])
+          PY
+      - name: Preserve audit-only receipt (not source audio)
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencemotion-source-locked-7oh-asr-word-intervals
+          path: ${{ runner.temp }}/ths-7oh-asr/asr-research-receipt.json
+          retention-days: 5
+          if-no-files-found: error
+      - name: Explain scientific and quality limits
+        if: always()
+        run: |
+          echo 'The actual original 7-OH WAV was pinned by SHA; no user laptop or paid inference service used.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Recognized words and timestamps are an ASR estimate, NOT a verified phoneme/stress/naturalness rating.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'A script-match candidate cannot grant clinical, craft or publishing approval, and no 46-point checklist tick is automatic.' >> "$GITHUB_STEP_SUMMARY"
