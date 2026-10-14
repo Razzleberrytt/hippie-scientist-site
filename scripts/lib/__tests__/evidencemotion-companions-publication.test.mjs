@@ -20,19 +20,14 @@ const substanceArticles = [
 const readArticle = (slug) =>
   matter(fs.readFileSync(`content/articles/${slug}.md`, 'utf8'))
 
-test('all five held EvidenceMotion companions visibly disclose AI drafting assistance', () => {
+test('all five held EvidenceMotion companions use renderer-owned AI disclosure without duplicates', () => {
   for (const slug of articles) {
     const { data, content } = readArticle(slug)
     assert.equal(data.slug, slug)
     assert.equal(data.ai_assisted, true, slug)
-    // The article collection schema currently strips the ai_assisted field.
-    // The disclosure MUST be real body content rendered by ArticleMdx.
-    assert.match(
-      content,
-      /Editorial transparency: AI tools assisted with drafting and organizing this article\./,
-      slug,
-    )
-    assert.match(content, /AI assistance is not independent scientific verification/, slug)
+    // The shared article renderer displays the notice based on this flag.
+    // Avoid duplicating the visible byline disclosure in Markdown itself.
+    assert.doesNotMatch(content, /Editorial transparency: AI tools assisted with drafting and organizing this article\./, slug)
     assert.match(content, /## Bottom line/, slug)
     assert.ok(Array.isArray(data.references) && data.references.length >= 2, `${slug}: cited source records`)
   }
