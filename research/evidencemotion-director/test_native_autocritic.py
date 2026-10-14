@@ -29,13 +29,19 @@ class AutonomousFilmCriticTests(unittest.TestCase):
         self.assertIn('MISSING_RECOGNIZABLE_SUBJECT_OR_NEAR_BLANK_CENTRAL_STAGE',report['issues'])
         self.assertIn('REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR',report['issues'])
     def test_varied_subjects_are_not_certified_as_premium(self):
-        rng=np.random.default_rng(20261013)
-        f=np.zeros((9,320,180),dtype=np.uint8)
+        from PIL import Image,ImageDraw
+        f=[]
         for i in range(9):
-            # Deliberately vary the actual central subject pixels, while
-            # holding header and subtitle bands constant.
-            f[i,35:225,5:175]=rng.integers(0,255,(190,170),dtype=np.uint8)
-        r=m.review_decoded_samples(f)
+            # Actual moving *subject silhouette*; pure random noise is not
+            # semantic movement, and its averaged edge histogram can remain
+            # identical even when every pixel changes.
+            im=Image.new('L',(180,320),15)
+            d=ImageDraw.Draw(im)
+            x=10+(i%5)*24
+            y=60+(i%3)*32
+            d.rounded_rectangle((x,y,x+45,y+65),radius=10,fill=220,outline=245,width=4)
+            f.append(np.asarray(im))
+        r=m.review_decoded_samples(np.asarray(f))
         self.assertLess(r['highEdgeSimilarityFraction'],.45)
         self.assertFalse(r['issues'])
         self.assertIn('NOT_HUMAN_QUALITY',r['critiqueScope'])
