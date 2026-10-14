@@ -144,7 +144,7 @@ def transcribe(audio,revision=None):
         raw=subprocess.check_output(["ffmpeg","-nostdin","-v","error",
             "-i",str(audio),"-ac","1","-ar","16000",
             "-f","f32le","pipe:1"],timeout=50)
-    except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as exc:
+    except (OSError,subprocess.CalledProcessError,subprocess.TimeoutExpired) as exc:
         hold("PINNED_WAV_PCM_RESAMPLE_FAILED:"+type(exc).__name__)
     import numpy as np
     if len(raw)%4 or not raw:hold("INCOMPLETE_ASR_FLOAT_PCM")
