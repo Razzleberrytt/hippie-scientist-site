@@ -25,8 +25,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Confirm real FFmpeg decoder
+      - name: Install free FFmpeg tools and verify availability
         run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg
+          command -v ffprobe
+          command -v ffmpeg
           ffprobe -version | head -1
           ffmpeg -version | head -1
       - name: Run decoded-film and fail-closed research tests
