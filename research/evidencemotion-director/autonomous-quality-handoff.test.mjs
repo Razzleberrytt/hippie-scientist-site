@@ -8,10 +8,12 @@ import {adjudicateFilm} from './autonomous-quality-arbiter.mjs';
 const script=path.resolve('research/evidencemotion-director/native_autocritic.py');
 const command=(cmd,args)=>{
  const r=spawnSync(cmd,args,{encoding:'utf8',timeout:45000});
- assert.equal(r.status,0,`${cmd} failed: ${r.stderr?.slice(-2000)}`);
+ assert.equal(r.status,0,`${cmd} failed: ${r.error?.message||r.signal||r.stderr?.slice(-2000)||'unknown'}`);
  return r;
 };
-test('REAL H264 MP4 -> actual Python decoded-pixel proof -> JS autonomous negative decision',()=>{
+test('REAL H264 MP4 -> actual Python decoded-pixel proof -> JS autonomous negative decision',{
+ skip:process.env.EVIDENCEMOTION_ACTUAL_MEDIA_HANDOFF!=='1'?'FFmpeg/Python provisioned in dedicated protected research job only':false
+},()=>{
  const dir=mkdtempSync(path.join(os.tmpdir(),'ths-autonomous-handoff-'));
  try{
   const file=path.join(dir,'static.mp4');
