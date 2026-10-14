@@ -125,7 +125,8 @@ class ActualFilmSmoke(unittest.TestCase):
             plan.write_text(json.dumps(m))
             receipt = audit(movie, plan, root / "frames")
             self.assertEqual(receipt["publicationVerdict"], "HOLD")
-            self.assertEqual(len(receipt["decodedOverlayFrames"]), 1)
+            self.assertEqual(len(receipt["decodedOverlayFrames"]), 3)
+            self.assertEqual([x["timeSec"] for x in receipt["decodedOverlayFrames"] if x.get("openingHookProbe")], [.25, 1.5])
             png = root / "frames" / receipt["decodedOverlayFrames"][0]["file"]
             self.assertGreater(png.stat().st_size, 1000)
             self.assertEqual(receipt["decodedOverlayFrames"][0]["frameSha256"], hashlib.sha256(png.read_bytes()).hexdigest())
