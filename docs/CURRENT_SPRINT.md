@@ -108,9 +108,17 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 ## Active / in review — implementation WIP 2/3
 
-**2026-10-13 approved A admission:** Owner approved advancing five already-merged nonpublishing EvidenceMotion companion explainers (DMT types, cannabis brain effects, ADHD facts, yopo/bufotenine, psychedelic brain science). Candidate #6766 scored 4×5×4×5×0.75÷3 = **100.0** (estimated priority; no observed traffic or ROI). This A slot permits independent science/editorial/safety/lay-comprehension QA and a separately governed production article-release PR; it grants **no** automatic scientific approval, video/publication permission, or bypass of protected build, SEO, accessibility, review and deployment checks. The existing D #6685 remains active; candidate #6769 is not admitted.
+**2026-10-13 exact-main A #6769 admission proposal:** PR #6784 deferred human-review-blocked article release #6766 (publication PR #6774 remains OPEN and unmerged). This distinct A research-only compiler admission retains D #6685; score **75.0** = 4×5×3×5×0.75/3, ordinal priority only. Existing isolated prototype passed 69 native tests locally, but the real repository integration smoke, full CI, static build and scientific review have not run. No automatic clinical, safety, editorial, media or public content release authority. A separate implementation PR and sole protected controller are required after this admission merges.
 
-**2026-10-13 owner retirement:** GitHub confirms #6749 closed after PR #6762 merged as `d8035514480f4abb2ff57169c0530ff18c26b1ca` at 2026-10-14 00:17 UTC (October 13 ET). Retire that A owner; D #6685 remains the only recorded active ticket. This is bookkeeping only, not a new scientific approval, release or verified Cloudflare deployment. Candidate Semantic Opportunity Compiler #6769 is **not admitted**; a separate fresh admission is required.
+
+
+**2026-10-13 control proposal — park external-review-blocked A #6766 without publishing:** Article PR #6774 remains OPEN, held and unmerged, with its complete five manuscripts, cited sources, security and safety fixes and independent review questions intact. The validation/data checks passed at head `e891c255adc70c3b96d5a9dac4b9b4ddcd219edd`, while the remaining release checks, named independent science and plain-language reviews, and verified human owner publication authorization are not complete. A held article PR is not automatically a public article. No content, claim, source grade, existing PR, route, or approval changes in this transaction; no declaration of completion. Normal workstream A is deferred so the unblocked research-only #6769 can seek its own separate current-base scored admission **after** this control PR passes the protected merge controller. Do not reactivate #6766 until reviewer receipts and a new scored admission exist.
+
+
+
+**2026-10-13 historical A #6766 admission (superseded by deferred-control PR #6784):** Owner previously approved advancing five already-merged nonpublishing EvidenceMotion companion explainers (DMT types, cannabis brain effects, ADHD facts, yopo/bufotenine, psychedelic brain science). The earlier A #6766 score was **100.0** (estimated priority; no measured traffic or ROI). That historical A scope permitted independent science/editorial/safety/lay-comprehension QA and a separately governed production article PR, never automatic publication. After review and human-origin approval remained blocked, PR #6784 deferred #6766 without closing or merging publication PR #6774. On this admission candidate head, **D #6685 and A #6769 are the active owners**; #6766 is deferred, not completed or published.
+
+**2026-10-13 historical #6749 retirement:** GitHub confirms #6749 closed after PR #6762 merged as `d8035514480f4abb2ff57169c0530ff18c26b1ca` at 2026-10-14 00:17 UTC (October 13 ET). At that point D #6685 was the only active ticket and Semantic Opportunity Compiler #6769 was **not yet admitted**. Later, after #6766 was admitted and then deferred by merged PR #6784, this separate exact-base scored control transaction proposes admitting #6769. Historical retirement never granted scientific/publication/deployment approval.
 
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
@@ -128,7 +136,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
-| A | #6766 | Publish five evidence-first EvidenceMotion companion explainers | Active — admitted (editorial QA and governed publication prep; publication requires independent review) | P1 | 100.0 | 2026-10-13 |
+| A | #6769 | Semantic Opportunity Compiler: source-bound cross-system review pilot | Active — admitted (research-only, review requests only; no publication) | P1 | 75.0 | 2026-10-13 |
 
 
 
@@ -212,12 +220,13 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Following verified #6683 retirement, P0 D #6685 is the **sole admitted normal implementation owner**, 1/3 WIP (D occupied; A/R free) at score **120.0**. This admission covers durable source/identity protection only, not scientific page rewrites or citation-share claims. Additional implementation requires a distinct fresh scored admission and must not overlap #6685. Evidence, science, accessibility, canonical, privacy, governance and release gates remain unchanged.
+**Current admission candidate state:** D #6685 and research-only A #6769 are the two active normal implementation owners (2/3 WIP; R free). D #6685 retains its distinct source/identity-protection scope and historical **120.0** score; A #6769 has a separate exact-base score of **75.0** and is limited to inspected research opportunity review requests, not publishing or clinical evidence admission. The five-article #6766 remains deferred with its publication PR #6774 open and unmerged. Any further implementation requires a separately scored available lane. Scientific, accessibility, canonical, privacy, governance and release gates remain unchanged.
 
 ### Blocked or deferred candidates
 
 | Candidate | Workstream | Admission state | Proof required before implementation |
 |---|---|---|---|
+| #6766 / PR #6774 | A | Deferred — independent review + secure publication authorization hold; PR remains open and unmerged | Record real independent scientific/editorial, Indigenous-context and beginner-comprehension reviews; restore safe human-origin owner approval; then fresh exact-base scored admission, full checks, controller merge, Cloudflare origin receipt. No AI self-approval. |
 
 ## Control hardening — merged implementation, observed use still gated
 
