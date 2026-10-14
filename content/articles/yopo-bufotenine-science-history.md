@@ -139,6 +139,10 @@ Numbers like **[1]** refer to papers in the References list. A **PMID** is an id
 
 This subject combines different ways of knowing. **Archaeology** examines physical traces of the past. **Ethnobotany** studies relationships between people and plants. **Chemistry** identifies molecules and their structure. **Pharmacology** examines how substances act on living systems. An archaeological review can document historical evidence without revealing every person's experience. A chemical analysis may identify bufotenine without proving all plants or traditional materials had the same composition. A receptor experiment cannot replace either cultural context or human safety evidence. [1–4]
 
+## Where to get help
+
+If you are worried about substance use, withdrawal, or someone's immediate safety, the U.S. SAMHSA National Helpline is available at **1-800-662-HELP (4357)**. You can also visit [SAMHSA's National Helpline](https://www.samhsa.gov/find-help/helplines/national-helpline) for support and treatment resources. These resources **do not replace emergency care**. In an immediate emergency, contact local emergency services.
+
 ## Bottom line
 
 Yopo connects plant biology, chemical science, and thousands of years of human history. The story becomes more interesting—and more accurate—when those subjects are explored together without treating them as interchangeable.
