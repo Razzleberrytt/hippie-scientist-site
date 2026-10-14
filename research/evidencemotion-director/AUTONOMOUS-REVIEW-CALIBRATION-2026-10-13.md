@@ -26,7 +26,7 @@
 
 - No user laptop, GPU, new model download, model API key, background scheduler or recurring paid service required for this pilot; uses Pillow/NumPy/FFmpeg on bounded remote CPU.
 - GitHub CI generates and fully decodes a **real** synthetic static MP4, expects automatic REVISE, and checks adversarial sample arrays including blank scenes and varied content. Varied content **does not** count as premium. The movie is not a chemical-science example and does not demonstrate clinical-claim judgment.
-- Real 7-OH Treatment B (SHA pinned in a separate review receipt when run): preliminary local sampled-layout audit showed a ~50% fraction of neighboring two-second pairs with edge similarity above 0.95. That supports a **provisional REVISE** decision on repetitiveness; it is not an internationally calibrated craft grade.
+- Real 7-OH Treatment B (SHA pinned in a separate review receipt when run): the earlier broad-crop audit showed about 50% of neighboring two-second pairs with edge similarity above 0.95. Re-evaluation using **the new source-stage-only crop** measured **43.75%** (7/16 pairs), a median 0.9396 similarity, and exact MP4 SHA `5a3ba3313a091fd745bd9cab6764b644fbe97b38a0aaac05217f8a0752059550`. At the unmodified provisional **45%** threshold, the automated critic properly returns **AWAIT** instead of a false REVISE; separate visual film criticism remains REVISE. This is calibration disagreement requiring reference examples, not a universal aesthetic grade.
 - Do not move any existing 24/46 gate or 0/1 + 0/5 milestone for this pilot. Record genuine owner-free **negative review capacity** as a new supporting research ability rather than rewriting a human review checkbox without validated positive replacement.
 
 ## Acceptance to close this pilot
