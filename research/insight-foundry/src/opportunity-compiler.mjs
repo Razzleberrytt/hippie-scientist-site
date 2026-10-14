@@ -37,7 +37,7 @@ function canonicalPath(path){
 }
 const uniqueSorted=xs=>[...new Set(xs)].sort()
 // Text supplied by investigators is always rendered as plain text, never as Markdown instructions.
-const markdownText=x=>String(x).replace(/[\\`*_{}\[\]()#+.!|><&~-]/g,'\\$&').replace(/\r/g,'\\r').replace(/\n/g,'\\n').replace(/\t/g,'\\t')
+const markdownText=x=>String(x).replace(/[\\`*_{}[\]()#+.!|><&~-]/g,'\\$&').replace(/\r/g,'\\r').replace(/\n/g,'\\n').replace(/\t/g,'\\t')
 
 /**
  * Inputs:
