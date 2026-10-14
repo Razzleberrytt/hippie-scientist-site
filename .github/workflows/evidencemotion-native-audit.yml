@@ -1,0 +1,71 @@
+name: EvidenceMotion native master audit regression
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/native_master_audit.py'
+      - 'research/evidencemotion-director/test_native_master_audit.py'
+      - 'research/evidencemotion-director/native_source_provenance.py'
+      - 'research/evidencemotion-director/test_native_source_provenance.py'
+      - '.github/workflows/evidencemotion-native-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/evidencemotion-director/native_master_audit.py'
+      - 'research/evidencemotion-director/test_native_master_audit.py'
+      - 'research/evidencemotion-director/native_source_provenance.py'
+      - 'research/evidencemotion-director/test_native_source_provenance.py'
+      - '.github/workflows/evidencemotion-native-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  byte-verified-media-audit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail on syntactically invalid research audit sources
+        run: |
+          python -m py_compile research/evidencemotion-director/native_master_audit.py
+          python -m py_compile research/evidencemotion-director/native_source_provenance.py
+          python -m py_compile research/evidencemotion-director/test_native_master_audit.py
+          python -m py_compile research/evidencemotion-director/test_native_source_provenance.py
+      - name: Execute real Python regressions, not only site build
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_master_audit.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_native_source_provenance.py' -v
+      - name: Install local open-source FFmpeg used by real-byte tests
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -n 1
+      - name: Exercise actual FFmpeg portrait H264/AAC master and frame timestamp reader
+        run: |
+          ffmpeg -hide_banner -v error -y \
+            -f lavfi -i 'color=c=black:s=1080x1920:r=30:d=1' \
+            -f lavfi -i 'sine=frequency=440:duration=1' \
+            -map 0:v:0 -map 1:a:0 \
+            -c:v libx264 -preset ultrafast -pix_fmt yuv420p \
+            -c:a aac -b:a 128k -t 1 -movflags +faststart \
+            /tmp/ths-real-frame-smoke.mp4
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'research/evidencemotion-director')
+          import native_master_audit as audit
+          master=Path('/tmp/ths-real-frame-smoke.mp4')
+          actual=audit.verify(master, master, audit.sha256_file(master),
+                              audit.audio_hash(master), 30,
+                              width=1080, height=1920, fps=30)
+          print(json.dumps(actual, indent=2))
+          if actual['technical'] != 'PASS' or not actual['frameTimingVerified'] or not actual['fullDecodePerformed']:
+              raise SystemExit('Real decoded H264/AAC smoke did not pass')
+          if any(actual[k] for k in ('releaseApproved','craftApproved','scientificEditorialApproved','ownerDevicePlaybackApproved')):
+              raise SystemExit('Never grant release from technical smoke')
+          PY
+      - name: Report purpose and non-approval
+        run: |
+          echo "Python syntax and adversarial tests PASS; no user playback, science, craft or publication permission is granted." >> "$GITHUB_STEP_SUMMARY"

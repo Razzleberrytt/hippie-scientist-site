@@ -28,6 +28,7 @@
     "data:normalize-evidence": "tsx scripts/data/normalize-evidence-grades.ts --data-dir=public/data",
     "audit:content-integrity": "node scripts/ci/audit-content-integrity.mjs",
     "audit:source-integrity": "tsx scripts/ci/audit-source-integrity.ts",
+    "research:reconcile-canonical": "node scripts/research/reconcile-deep-enrichment-canonical.mjs --report=ops/reports/deep-enrichment-canonical-pmid-presence.json",
     "validate:sitemap-indexability": "node scripts/ci/validate-sitemap-indexability.mjs",
     "validate:redirect-indexability": "node scripts/ci/validate-redirect-indexability.mjs",
     "validate:evidence-backing": "node scripts/ci/validate-evidence-backing-disclosure.mjs",

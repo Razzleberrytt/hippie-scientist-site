@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { buildPageMetadata } from '@/lib/seo'
-import { DEEP_ENRICHMENT_ROUND_NUMBERS, getDeepEnrichmentRounds } from '@/lib/research-deep-enrichment-public'
+import { DEEP_ENRICHMENT_ROUND_NUMBERS, getDeepEnrichmentRounds, getDeepEnrichmentSourceOccurrences } from '@/lib/research-deep-enrichment-public'
 
 type RoundParams = { params: Promise<{ round: string }> }
 
@@ -28,8 +28,10 @@ export async function generateMetadata({ params }: RoundParams): Promise<Metadat
 
 export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
   const { round: roundParam } = await params
-  const doc = getDeepEnrichmentRounds().find((item) => String(item.round) === roundParam)
+  const rounds = getDeepEnrichmentRounds()
+  const doc = rounds.find((item) => String(item.round) === roundParam)
   if (!doc) notFound()
+  const sourceOccurrences = getDeepEnrichmentSourceOccurrences(rounds)
 
   return (
     <div className='research-page-content mx-auto max-w-5xl space-y-7 px-4 py-8 sm:px-6 sm:py-10 lg:px-8'>
@@ -74,13 +76,24 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
         <article key={item.id} id={item.id.toLowerCase()} className='scroll-mt-24 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm sm:p-7'>
           <p className='eyebrow-label'>{item.id} · Research-only / awaiting independent review</p>
           <h2 className='mt-2 text-2xl font-semibold tracking-tight text-ink'>{item.title}</h2>
-          <h3 className='mt-5 text-sm font-bold text-ink'>Direct original-study sources</h3>
+          <h3 className='mt-5 text-sm font-bold text-ink'>Linked PubMed research sources</h3>
+          <p className='mt-1 text-xs leading-5 text-muted'>Some citations are research syntheses that combine earlier studies; they are not additional independent clinical trials. Check each investigation for its source type and limitations.</p>
           <ul className='mt-3 flex flex-wrap gap-2'>
             {item.sourcePmids.map((pmid) => (
-              <li key={pmid}>
+              <li key={pmid} className='flex flex-wrap items-center gap-2'>
                 <a href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`} target='_blank' rel='noopener noreferrer' className='inline-flex min-h-10 items-center rounded-full border border-brand-700/25 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700 hover:bg-brand-100'>
                   PMID {pmid} ↗
                 </a>
+                {(sourceOccurrences.get(pmid)?.length ?? 0) > 1 ? (
+                  <span className='text-xs text-muted'>Same PubMed paper reused, not another independent study.</span>
+                ) : null}
+                {(sourceOccurrences.get(pmid) ?? [])
+                  .filter((entry) => entry.id !== item.id)
+                  .map((entry) => (
+                    <Link key={entry.id} href={`/research/investigations/${entry.round}/#${entry.id.toLowerCase()}`} className='text-xs font-medium text-muted underline-offset-2 hover:underline'>
+                      Also cited in {entry.id}
+                    </Link>
+                  ))}
               </li>
             ))}
           </ul>
@@ -98,6 +111,25 @@ export default async function DeepEnrichmentRoundPage({ params }: RoundParams) {
           </details>
         </article>
       ))}
+
+      {doc.sharedDossierNotes ? (
+        <section id='round-governance' className='scroll-mt-24 rounded-2xl border border-brand-900/10 bg-brand-50/35 p-5 sm:p-7'>
+          <h2 className='text-xl font-semibold text-ink'>Whole-round source integrity and editorial gates</h2>
+          <p className='mt-3 text-sm leading-7 text-muted'>
+            These original QA, deduplication, and release notes apply across the round. They are kept
+            separate from the tenth investigation so a study-specific citation is not mistakenly
+            attached to a whole-round governance statement. Scientific signoff is still pending.
+          </p>
+          <details className='mt-4'>
+            <summary className='cursor-pointer text-sm font-semibold text-brand-700 hover:underline'>
+              Read complete whole-round governance notes (original Markdown)
+            </summary>
+            <pre className='mt-3 overflow-x-auto whitespace-pre-wrap break-words rounded-xl bg-white p-4 font-mono text-xs leading-6 text-ink sm:p-5'>
+              {doc.sharedDossierNotes}
+            </pre>
+          </details>
+        </section>
+      ) : null}
 
       <footer className='rounded-2xl border border-brand-900/10 p-5 text-sm leading-7 text-muted'>
         These investigations are visible for accountability; <strong>source links do not mean clinical approval</strong>.

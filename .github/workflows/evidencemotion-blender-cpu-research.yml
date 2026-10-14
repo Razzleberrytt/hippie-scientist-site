@@ -1,0 +1,90 @@
+name: EvidenceMotion Blender CPU research proof
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/blender_cpu_research.py'
+      - 'research/evidencemotion-director/test_blender_cpu_research.py'
+      - 'research/evidencemotion-director/validated_7oh_chemistry.py'
+      - 'research/evidencemotion-director/test_validated_7oh_chemistry.py'
+      - '.github/workflows/evidencemotion-blender-cpu-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bounded-scientific-still-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run strict offline safety and integrity regressions
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p test_blender_cpu_research.py -v
+          python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
+          python -m unittest discover -s research/evidencemotion-director -p test_validated_7oh_chemistry.py -v
+          python -m py_compile research/evidencemotion-director/blender_cpu_research.py
+      - name: Provision open-source CPU-only research renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends blender
+          blender --version | head -n 2
+      - name: Export genuine repo-verified RDKit computed conformer
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/ths-blender-proof
+          python research/evidencemotion-director/blender_cpu_research.py --export /tmp/ths-blender-proof/verified-7oh.json
+          SHA="$(sha256sum /tmp/ths-blender-proof/verified-7oh.json | cut -d' ' -f1)"
+          python research/evidencemotion-director/blender_cpu_research.py --validate-only /tmp/ths-blender-proof/verified-7oh.json --expected-sha "$SHA"
+          printf '%s\n' "$SHA" > /tmp/ths-blender-proof/input-sha256.txt
+      - name: Actually render two small CPU-only Blender scientific stills
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHA="$(cat /tmp/ths-blender-proof/input-sha256.txt)"
+          for DIRECTION in whole hydroxyl-detail; do
+            blender --background --factory-startup --python-exit-code 22 --python research/evidencemotion-director/blender_cpu_research.py -- \
+              --render /tmp/ths-blender-proof/verified-7oh.json \
+              --expected-sha "$SHA" \
+              --direction "$DIRECTION" \
+              --out /tmp/ths-blender-proof
+          done
+          test -s /tmp/ths-blender-proof/blender_7oh_whole_RESEARCH_ONLY.png
+          test -s /tmp/ths-blender-proof/blender_7oh_hydroxyl-detail_RESEARCH_ONLY.png
+      - name: Audit the actual whole-molecule PNG for clipped horizontal edges
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          p='/tmp/ths-blender-proof/blender_7oh_whole_RESEARCH_ONLY.png'
+          image=Image.open(p).convert('RGB')
+          w,h=image.size
+          def molecule_pixel(rgb):
+              return max(rgb)-min(rgb)>35 and max(rgb)>65
+          edge=sum(molecule_pixel(image.getpixel((x,y)))
+                   for y in range(h)
+                   for x in list(range(4))+list(range(w-4,w)))
+          subject=sum(molecule_pixel(image.getpixel((x,y)))
+                      for y in range(20,h-20,2) for x in range(20,w-20,2))
+          print(f'Decoded PNG whole-molecule clipping audit: {edge} colored edge pixels; {subject} subject pixels')
+          if edge>12 or subject<200:
+              raise SystemExit('FAIL: whole molecule cropped at portrait edges or essentially missing')
+          PY
+      - name: Preserve exact stills and machine receipts for human visual review
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: blender-cpu-two-stills-research-only
+          path: |
+            /tmp/ths-blender-proof/*.png
+            /tmp/ths-blender-proof/*receipt.json
+            /tmp/ths-blender-proof/input-sha256.txt
+          if-no-files-found: error
+          retention-days: 5
+      - name: Note that no scientific, cinema or release approval was granted
+        if: always()
+        run: |
+          echo 'Research-only source-locked Blender Cycles CPU stills, not a completed video.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Visual comparison to actual VTK frames, human source/craft review, voice timing, exact-phone preview and costs remain unverified.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Do not promote to production or tick the EvidenceMotion 23/46 research checklist.' >> "$GITHUB_STEP_SUMMARY"

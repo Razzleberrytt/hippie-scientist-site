@@ -68,6 +68,8 @@ for (const { round } of rounds) {
   const html = await getHtml(`/research/investigations/${round}/`)
   assert(/<meta[^>]+name="robots"[^>]+content="noindex, follow"/.test(html), `Raw round ${round} has lost its scientific review gate`)
   const expected = expectedByRound.get(round)
+  assert(html.includes('id="round-governance"'), `Round ${round} is missing its shared QA section`)
+  assert(html.includes('Read complete whole-round governance notes'), `Round ${round} hides its whole-round QA record`)
   for (const id of expected.ids) {
     assert(html.includes(`id="${id.toLowerCase()}"`), `Round ${round} missing ${id}`)
   }
