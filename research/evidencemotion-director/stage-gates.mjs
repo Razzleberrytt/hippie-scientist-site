@@ -4,6 +4,7 @@
  * Narration remains authoritative for cuts, captions, and scientific cues.
  */
 import {createHash} from 'node:crypto';
+import {validateStoryFirstPlan} from './story-first-gates.mjs';
 const hex64=x=>typeof x==='string'&&/^[a-f0-9]{64}$/i.test(x);
 const isId=x=>typeof x==='string'&&/^[a-z0-9][a-z0-9_.:-]{1,79}$/i.test(x);
 const finite=x=>typeof x==='number'&&Number.isFinite(x);
@@ -24,6 +25,11 @@ export function validateDirectorPackage(pkg){
    errors.push('PHONE_FIRST_ISOLATION');
  if(pkg.productionImports||pkg.autoPublish||pkg.paidInference)errors.push('PRODUCTION_FREEZE_VIOLATION');
  if(pkg.stage!=='PREVIZ'&&pkg.stage!=='HUMAN_CONCEPT_ACCEPTED')errors.push('PREVIEW_STAGE_ONLY');
+ const story=validateStoryFirstPlan(pkg.storyFirstPlan);
+ if(story.status!=='STORY_PREFLIGHT_READY_FOR_HUMAN_AND_PIXEL_REVIEW')
+   errors.push('STORY_FIRST_PREFLIGHT_REQUIRED',...story.errors);
+ if(story.mayRenderFinal===true||story.excellentCertified===true)
+   errors.push('STORY_PREVIEW_CANNOT_SELF_CERTIFY');
  const ref=pkg.reference??{};
  if(!isId(ref.id)||!hex64(ref.pixelSha256)||!hex64(ref.depthLayersSha256)||!hex64(ref.backgroundFillSha256)||
     ref.approvedByOwner!==true||ref.generatedDataOrText===true||ref.generatedHumanFaces===true)
@@ -68,6 +74,12 @@ export function validateDirectorPackage(pkg){
    previousEnd=s.endSec;
  }
  if(shots.length&&shots[0].startSec!==0)errors.push('MISSING_ZERO_TIME_OPEN');
+ // Authoring goals must refer to the identical source, voice and audio duration.
+ if(pkg.storyFirstPlan&&(
+    pkg.storyFirstPlan.sourceManifestSha256!==pkg.approvedScienceManifestSha256||
+    pkg.storyFirstPlan.lockedNarrationWavSha256!==pkg.voice?.originalWavSha256||
+    Math.abs(pkg.storyFirstPlan.durationSec-pkg.durationSec)>.05))
+   errors.push('STORY_SOURCE_VOICE_OR_TIMELINE_DRIFT');
  const duration=finite(pkg.durationSec)?pkg.durationSec:-1;
  if(duration<=0||!finite(previousEnd)||Math.abs(previousEnd-duration)>0.05)
    errors.push('TIMELINE_DOES_NOT_MATCH_AUDIO');

@@ -3,15 +3,17 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {validateDirectorPackage as validate} from './stage-gates.mjs';
+import {sampleStoryPlan} from './story-first-fixture.mjs';
 const sha=(s)=>s.repeat(64);
 const good=()=>({
  track:'RESEARCH_ONLY',devicePath:'PHONE_FIRST_REMOTE_CPU',laptopRequired:false,
  stage:'PREVIZ',productionImports:false,autoPublish:false,paidInference:false,
  durationSec:5,approvedScienceManifestSha256:sha('a'),scientificVisualsAreDeterministic:true,
+ storyFirstPlan:sampleStoryPlan(),
  reference:{id:'still-v1',pixelSha256:sha('b'),depthLayersSha256:sha('c'),backgroundFillSha256:sha('d'),
   approvedByOwner:true,generatedDataOrText:false,generatedHumanFaces:false,sourcePixelsReused:true,
   layers:[{id:'bg',sha256:sha('e'),depthClass:'background'},{id:'hero',sha256:sha('f'),depthClass:'foreground'}]},
- voice:{originalWavSha256:sha('1'),auditionedByHuman:true,wordTimingVerified:true,
+ voice:{originalWavSha256:sha('b'),auditionedByHuman:true,wordTimingVerified:true,
   pronunciationLedgerApproved:true,pronunciationLedgerSha256:sha('2'),timeStretchApplied:false,
   sentences:[{id:'s1',wavSha256:sha('3'),text:'A simple test line.',auditioned:true}]},
  shots:[
@@ -74,4 +76,17 @@ test('six-second static streak fails concept, independently decoded pixels also 
  const g=good();g.durationSec=8;g.shots[0].endSec=3;g.shots[1].startSec=3;g.shots[1].endSec=8;
  g.shots[0].compositionalChangeTimesSec=[0];g.shots[1].compositionalChangeTimesSec=[];
  assert.ok(errors(g).includes('SIX_SECOND_STATIC_KILL'));
+});
+
+test('missing story or absent plain-English answer blocks the main director gate',()=>{
+ const a=good();delete a.storyFirstPlan;
+ assert.ok(errors(a).includes('STORY_FIRST_PREFLIGHT_REQUIRED'));
+ const b=good();b.storyFirstPlan.plainAnswer='';
+ assert.ok(errors(b).includes('NO_COMPLETE_BEGINNING_MIDDLE_ANSWER'));
+});
+test('the creative plan and actual director must point to the same source, voice, duration',()=>{
+ const a=good();a.storyFirstPlan.lockedNarrationWavSha256='c'.repeat(64);
+ assert.ok(errors(a).includes('STORY_SOURCE_VOICE_OR_TIMELINE_DRIFT'));
+ const b=good();b.storyFirstPlan.sourceManifestSha256='d'.repeat(64);
+ assert.ok(errors(b).includes('STORY_SOURCE_VOICE_OR_TIMELINE_DRIFT'));
 });
