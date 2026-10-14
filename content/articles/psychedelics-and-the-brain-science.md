@@ -176,3 +176,5 @@ Before accepting a headline, ask: **Who was studied? What was measured? How many
 The scientifically interesting answer is neither "psychedelics magically rebuild the brain" nor "nothing changes." **Classic psychedelics can measurably alter human brain-network activity.** Some changes may outlast the immediate experience. The evidence for physical rewiring, lasting clinical benefits, and safety in different people is still developing.
 
 *Evidence note: This page explains research and is not treatment advice. Medical decisions about depression or other conditions should be discussed with a qualified professional.*
+
+*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
