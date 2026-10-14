@@ -13,6 +13,21 @@ on:
       - 'research/evidencemotion-director/scientific-view-contract.mjs'
       - 'research/evidencemotion-director/hero-action-contract.mjs'
       - 'research/evidencemotion-director/preview-proof.mjs'
+      - 'research/evidencemotion-director/test_rejected_real_aac_truncation.py'
+      - 'research/evidencemotion-director/audit_decoded_preview.py'
+      - 'research/evidencemotion-director/test_decoded_preview.py'
+      - 'research/evidencemotion-director/test_semantic_negative_visual_audit.py'
+      - 'research/evidencemotion-director/test_native_master_audit.py'
+      - 'research/evidencemotion-director/native_media_research_gate.py'
+      - 'research/evidencemotion-director/test_native_media_research_gate.py'
+      - 'research/evidencemotion-director/story-first-gates.test.mjs'
+      - 'research/evidencemotion-director/story-first-fixture.mjs'
+      - 'research/evidencemotion-director/scientific-view-contract.test.mjs'
+      - 'research/evidencemotion-director/hero-action-contract.test.mjs'
+      - 'research/evidencemotion-director/preview-proof.test.mjs'
+      - 'research/evidencemotion-director/native-test-isolation.test.mjs'
+      - 'vitest.config.ts'
+      - 'scripts/run-node-tests.mjs'
       - '.github/workflows/evidencemotion-rejected-failure-matrix.yml'
 permissions:
   contents: read
@@ -54,6 +69,7 @@ jobs:
         run: |
           python -m unittest discover -s research/evidencemotion-director -p 'test_native_master_audit.py' -v
           python -m unittest discover -s research/evidencemotion-director -p 'test_native_media_research_gate.py' -v
+          python -m unittest discover -s research/evidencemotion-director -p 'test_rejected_real_aac_truncation.py' -v
       - name: Explicit non-approval and failure-matrix evidence
         if: always()
         run: |
