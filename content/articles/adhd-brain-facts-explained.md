@@ -158,3 +158,5 @@ Official health guidance can explain diagnostic practice, but it also cannot dia
 ADHD is much more than "can't pay attention." Time estimation, holding instructions in mind, waiting for rewards, adjusting focus, and starting a task are all useful parts of the picture. The most important scientific lesson is **variation**: what researchers measure across groups may look different in any one person's life.
 
 *Evidence note: This article is educational. Only an appropriate healthcare professional can evaluate whether a person meets diagnostic criteria.*
+
+*Editorial transparency: AI tools assisted with drafting and organizing this article. AI assistance is not independent scientific verification; readers can examine the cited sources for themselves.*
