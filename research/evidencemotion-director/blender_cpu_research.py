@@ -52,7 +52,7 @@ def export_verified_packet(destination):
               "xyz":[round(float(coordinates[i][k])-centers[k],7) for k in range(3)]}
              for i in range(heavy)]
     bonds = [{"a":int(b.GetBeginAtomIdx()),"b":int(b.GetEndAtomIdx()),
-              "order":int(b.GetBondTypeAsDouble())} for b in graph.GetBonds()]
+              "kind":"AROMATIC" if b.GetIsAromatic() else str(b.GetBondType())} for b in graph.GetBonds()]
     packet = {
         "schema":SCHEMA, "pubchemCID":CID,"inchiKey":INCHIKEY,
         "geometryKind":"COMPUTED_RDKIT_ETKDG_MMFF_NOT_OBSERVED",
@@ -87,10 +87,10 @@ def validate(packet):
             fail("INVALID_COORDINATES")
     used=set()
     for b in bonds:
-        if not isinstance(b,dict) or type(b.get("a")) is not int or type(b.get("b")) is not int or type(b.get("order")) is not int:
+        if not isinstance(b,dict) or type(b.get("a")) is not int or type(b.get("b")) is not int or b.get("kind") not in ("SINGLE","DOUBLE","TRIPLE","AROMATIC"):
             fail("BAD_BOND")
         a,z=b["a"],b["b"]
-        if not (0<=a<30 and 0<=z<30 and a!=z and b["order"] in (1,2,3)):
+        if not (0<=a<30 and 0<=z<30 and a!=z):
             fail("UNSUPPORTED_BOND")
         edge=tuple(sorted((a,z)))
         if edge in used:
@@ -154,11 +154,20 @@ def render(packet_file, expected_sha, outdir, direction):
         diff=z-a
         if diff.length<.001:
             fail("ZERO_LENGTH_BOND")
-        bpy.ops.mesh.primitive_cylinder_add(vertices=10,radius=.072,depth=diff.length,location=(a+z)/2)
-        obj=bpy.context.object
-        obj.name="RDKit_bond_"+str(idx)
-        obj.rotation_euler=diff.to_track_quat('Z','Y').to_euler()
-        obj.data.materials.append(materials["bond"])
+        transverse=diff.cross(Vector((0,0,1)))
+        if transverse.length<.001:
+            transverse=diff.cross(Vector((0,1,0)))
+        transverse.normalize()
+        kind=bond["kind"]
+        count={"SINGLE":1,"DOUBLE":2,"TRIPLE":3,"AROMATIC":2}[kind]
+        shift=[0.0] if count==1 else ([-.10,.10] if count==2 else [-.14,0.0,.14])
+        for member,delta in enumerate(shift):
+            bpy.ops.mesh.primitive_cylinder_add(vertices=10,radius=.051 if count>1 else .072,
+                                               depth=diff.length,location=(a+z)/2+transverse*delta)
+            obj=bpy.context.object
+            obj.name="RDKit_"+kind+"_bond_"+str(idx)+"_"+str(member)
+            obj.rotation_euler=diff.to_track_quat('Z','Y').to_euler()
+            obj.data.materials.append(materials["bond"])
     focus=positions[packet["highlightAtomIndex"]] if direction=="hydroxyl-detail" else Vector((0,0,0))
     bpy.ops.object.camera_add(location=focus+Vector((6,-11,5)) if direction=="hydroxyl-detail" else (0,-17,5))
     camera=bpy.context.object
