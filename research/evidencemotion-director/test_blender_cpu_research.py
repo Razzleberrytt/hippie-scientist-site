@@ -21,7 +21,7 @@ def mock_packet():
             "scientificClaims":[],"assertsHumanEffect":False,
             "assertsDocking":False,"highlightAtomIndex":0,
             "atoms":atoms,
-            "bonds":[{"a":i,"b":i+1,"order":1} for i in range(29)]}
+            "bonds":[{"a":i,"b":i+1,"kind":"SINGLE"} for i in range(29)]}
 
 class BlenderResearchContractTests(unittest.TestCase):
     def test_synthetic_contract_does_not_authorize_science_or_release(self):
@@ -71,11 +71,11 @@ class BlenderResearchContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"INVALID_COORDINATES"): b.validate(p)
 
     def test_duplicate_bonds_rejected(self):
-        p=mock_packet();p["bonds"].append({"a":1,"b":0,"order":1})
+        p=mock_packet();p["bonds"].append({"a":1,"b":0,"kind":"SINGLE"})
         with self.assertRaisesRegex(ValueError,"DUPLICATE_BOND"): b.validate(p)
 
     def test_bad_bond_order_rejected(self):
-        p=mock_packet();p["bonds"][0]["order"]=9
+        p=mock_packet();p["bonds"][0]["kind"]="IMPOSSIBLE"
         with self.assertRaisesRegex(ValueError,"UNSUPPORTED_BOND"): b.validate(p)
 
     def test_highlight_must_point_to_oxygen(self):
