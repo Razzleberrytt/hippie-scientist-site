@@ -106,7 +106,9 @@ Live GitHub #6259 is CLOSED and PR #6260 MERGED as `bba24cd536f7f75e95f86c0a8ec9
 
 Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0/3. Candidate #6149 is OPEN and `ready-next` with direct code reproduction and scored 4×4×3×5×1/1 = **240.0**. This separate control-plane PR admits only one R owner and does not implement consent logic or activate GA4/Ahrefs transport; exact-head checks, privacy and release proof remain required.
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
+
+**2026-10-13 approved A admission:** Owner approved advancing five already-merged nonpublishing EvidenceMotion companion explainers (DMT types, cannabis brain effects, ADHD facts, yopo/bufotenine, psychedelic brain science). Candidate #6766 scored 4×5×4×5×0.75÷3 = **100.0** (estimated priority; no observed traffic or ROI). This A slot permits independent science/editorial/safety/lay-comprehension QA and a separately governed production article-release PR; it grants **no** automatic scientific approval, video/publication permission, or bypass of protected build, SEO, accessibility, review and deployment checks. The existing D #6685 remains active; candidate #6769 is not admitted.
 
 **2026-10-13 owner retirement:** GitHub confirms #6749 closed after PR #6762 merged as `d8035514480f4abb2ff57169c0530ff18c26b1ca` at 2026-10-14 00:17 UTC (October 13 ET). Retire that A owner; D #6685 remains the only recorded active ticket. This is bookkeeping only, not a new scientific approval, release or verified Cloudflare deployment. Candidate Semantic Opportunity Compiler #6769 is **not admitted**; a separate fresh admission is required.
 
@@ -126,6 +128,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
+| A | #6766 | Publish five evidence-first EvidenceMotion companion explainers | Active — admitted (editorial QA and governed publication prep; publication requires independent review) | P1 | 100.0 | 2026-10-13 |
 
 
 
