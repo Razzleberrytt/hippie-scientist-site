@@ -78,7 +78,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**2026-10-13 owner-approved A admission:** #6766 is the five-article release review, score **100.0** (4×5×4×5×0.75÷3; ordinal priority only, not actual traffic/revenue). Five full drafts already merged to inert staging. Independent source/lay-comprehension and clinical-caution review remain required before any live publication; follow with full build, release checks and exact production receipt. Preserve D #6685 and leave semantic pilot #6769 unadmitted.
+**2026-10-13 historical A #6766 admission (now deferred by protected PR #6784):** The five-article release review previously scored **100.0** (4×5×4×5×0.75÷3; ordinal priority, not actual traffic/revenue). Five full drafts remain in inert merged staging and held article PR #6774 remains OPEN and unmerged. Independent source/lay-comprehension, clinical-caution and verifiable human owner approval remain prerequisites to future new A admission and production release. On this new exact-main admission transaction, active owners are D #6685 and research-only A #6769; no publication occurred.
 
 **#6427 / PR #6428 — Scientific Intelligence 1.08–1.14, in review (2026-10-08):** Build twelve source-bound analysis/review instruments on the existing exact PMID research graph and eight-instrument relay after #6420. Acceptance: 12 distinct inspectable receipts, valid source identity, 13 calibration invariants on 500 verified intake PMIDs, 0 automatic medical promotions/publications, stable route, static export and UI/CI gates. Available source data cannot prove underlying trial independence, live correction status or full-text efficacy. Consumer/scientific performance impact and revenue ROI remain **Unknown**. This in-review entry does not grant another WIP slot or override machine-managed admission.
 
@@ -143,7 +143,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-After GitHub verified #6749 closed and #6762 merged, retire that A owner: #6685 alone occupies 1/3 normal WIP. Candidate #6769 (Semantic Opportunity Compiler) remains unadmitted until a separate scored exact-base admission; source/review controls and the existing D owner remain unchanged. No new scientific authority, publication or observed business impact is implied.
+**Current ordered queue after merged #6784 deferral:** D #6685 remains active, and this distinct exact-base scored PR admits research-only A #6769 (2/3 normal WIP on this head; R is free). Former A #6766 is externally review-blocked, preserved in the deferred queue with its unpublished PR #6774. The compiler's implementation is a separate PR after admission through the sole controller; no source/claim authority, publishing or observed business impact is implied.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
