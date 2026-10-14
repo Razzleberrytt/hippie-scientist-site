@@ -58,7 +58,7 @@ export function validateStoryFirstPlan(p){
  if(Array.isArray(a)&&new Set(a.map(s=>s?.layoutId)).size<3)
   add(errors,'REPEATED_POSTER_LAYOUT_INSTEAD_OF_STORY');
  const words=p.firstUseTerms;
- if(!Array.isArray(words)||!words.length||words.some(w=>!TEXT(w.term)||!TEXT(w.simpleDefinition)||
+ if(!Array.isArray(words)||words.some(w=>!TEXT(w.term)||!TEXT(w.simpleDefinition)||
    !FIN(w.spokenAtSec)||!FIN(w.explainedAtSec)||w.spokenAtSec<0||w.spokenAtSec>p.durationSec||
    w.explainedAtSec<0||w.explainedAtSec>w.spokenAtSec+.001))
   add(errors,'JARGON_NOT_TAUGHT_AT_FIRST_USE');
@@ -66,6 +66,8 @@ export function validateStoryFirstPlan(p){
  if(!Array.isArray(claims)||!claims.length||claims.some(c=>!TEXT(c.id)||!IDS(c.sourceIds)||
     !['STRUCTURE','PRECLINICAL','HUMAN'].includes(c.evidenceClass)))
   add(errors,'SOURCE_EVIDENCE_BOUNDARY_MISSING');
+ if(Array.isArray(claims)&&claims.length!==new Set(claims.map(c=>c?.id)).size)
+  add(errors,'DUPLICATE_CLAIM_IDENTIFIERS');
  if(Array.isArray(claims)&&claims.some(c=>['STRUCTURE','PRECLINICAL'].includes(c.evidenceClass)&&c.assertsHumanEffect===true))
   add(errors,'STRUCTURE_OR_ANIMAL_DATA_PROMOTED_TO_HUMAN_EFFECT');
  if(Array.isArray(a)&&Array.isArray(claims)){
