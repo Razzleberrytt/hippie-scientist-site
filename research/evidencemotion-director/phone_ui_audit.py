@@ -9,8 +9,12 @@ import hashlib
 import json
 import math
 import re
+import os
+import tempfile
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 import subprocess
+from native_master_audit import frame_timestamps
 
 TOP, RIGHT, BOTTOM = .10, .20, .18
 MAX_SHOTS = 24
@@ -91,6 +95,12 @@ def validate_manifest(m, *, width, height, duration, actual_sha):
             a["role"] == "disclosure" and "illustration" in a["text"].lower() and "not proof" in a["text"].lower()
             for a in anns):
             hold("NONFACTUAL_BOTANICAL_DISCLOSURE_REQUIRED")
+    # A declared text appearance must land inside a shot that actually carries
+    # its hook annotation, not merely within the film's first two seconds.
+    hook_time = hook["textVisibleAtSec"]
+    if not any(s["startSec"] <= hook_time < s["endSec"] and
+               any(a["role"] == "hook" for a in s["annotations"]) for s in shots):
+        hold("HOOK_TIMESTAMP_NOT_IN_ANNOTATED_SHOT")
     if not any(a["role"] == "hook" for a in shots[0]["annotations"]):
         hold("MISSING_OPENING_HOOK_ANNOTATION")
     return {
@@ -112,9 +122,30 @@ def probe_movie(movie):
     data = json.loads(subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=True).stdout)
     track = data["streams"][0]
     numerator, denominator = map(int, track["avg_frame_rate"].split("/"))
-    if denominator == 0 or abs(numerator / denominator - 30) > .001:
-        hold("EXACT_30FPS_REQUIRED")
-    return int(track["width"]), int(track["height"]), float(data["format"]["duration"])
+    if denominator == 0 or abs(numerator / denominator - 30) > .6:
+        hold("AVERAGE_RATE_NOT_30FPS")
+    duration = float(data["format"]["duration"])
+    # Reuse the already-tested native audit's *actual per-frame timestamps*:
+    # avg_frame_rate alone can falsely certify a variable-frame-rate movie.
+    try:
+        stamps = frame_timestamps(movie)
+        nominal_step = Decimal(1) / Decimal(30)
+        tolerance = Decimal("0.001")
+        if not stamps or len(stamps) > 18000 or any(not t.is_finite() for t in stamps):
+            hold("DECODED_FRAME_TIMESTAMPS_MISSING")
+        origin = stamps[0]
+        if (origin < -tolerance or origin > nominal_step + tolerance or
+            any(abs((stamp - origin) - nominal_step * index) > tolerance
+                for index, stamp in enumerate(stamps))):
+            hold("NONCONSTANT_DECODED_FRAME_TIMING")
+        if abs(len(stamps) / 30 - duration) > .12:
+            hold("VIDEO_FRAME_COUNT_DURATION_MISMATCH")
+    except (subprocess.CalledProcessError, OSError, ValueError, InvalidOperation,
+            UnicodeError, KeyError, IndexError) as exc:
+        if isinstance(exc, ValueError) and str(exc).startswith("PHONE_UI_HOLD:"):
+            raise
+        hold("FRAME_TIMESTAMP_EXTRACTION_FAILED")
+    return int(track["width"]), int(track["height"]), duration, len(stamps)
 
 def decoded_overlay(movie, time_sec, shot, destination, width, height):
     x = int((1 - RIGHT) * width)
@@ -137,34 +168,57 @@ def decoded_overlay(movie, time_sec, shot, destination, width, height):
 
 def audit(movie, manifest, output):
     movie, manifest, output = Path(movie), Path(manifest), Path(output)
+    output.mkdir(parents=True, exist_ok=True)
+    report_path = output / "research-report.json"
+    # Fail closed BEFORE probing / validation: a prior successful report must
+    # never survive a new failed attempt against changed inputs.
+    report_path.unlink(missing_ok=True)
     plan = json.loads(manifest.read_text(encoding="utf-8"))
     movie_hash = sha256_file(movie)
-    width, height, duration = probe_movie(movie)
-    receipt = validate_manifest(plan, width=width, height=height, duration=duration, actual_sha=movie_hash)
-    output.mkdir(parents=True, exist_ok=True)
+    width, height, duration, decoded_count = probe_movie(movie)
+    receipt = validate_manifest(plan, width=width, height=height,
+                                duration=duration, actual_sha=movie_hash)
     frame_receipts = []
-    for index, shot in enumerate(plan["shots"]):
-        t = (shot["startSec"] + shot["endSec"]) / 2
-        destination = output / f"{index:02d}-{shot['id']}.png"
-        decoded_overlay(movie, t, shot, destination, width, height)
-        frame_receipts.append({"shotId": shot["id"], "timeSec": t,
-                               "file": destination.name, "frameSha256": sha256_file(destination)})
-    # The opening deserves its own actual pixel samples even when shot 1 is long.
-    # Timestamp declarations alone cannot prove the first two seconds work.
-    for t in (.25, 1.50):
-        opening_shot = next((s for s in plan["shots"] if s["startSec"] <= t < s["endSec"]), None)
-        if opening_shot is None:
-            hold("NO_SHOT_FOR_OPENING_SAMPLE")
-        destination = output / f"opening-{str(t).replace('.', '_')}.png"
-        decoded_overlay(movie, t, opening_shot, destination, width, height)
-        frame_receipts.append({"shotId": opening_shot["id"], "timeSec": t,
-                               "openingHookProbe": True, "file": destination.name,
-                               "frameSha256": sha256_file(destination)})
-    receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
-                    "videoResolution": [width, height], "durationSec": duration,
-                    "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
-                    "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
-    (output / "research-report.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    # Emit all decoded artifacts into an isolated staging folder, not into the
+    # previous run's public review directory. Publish receipt *last*.
+    with tempfile.TemporaryDirectory(prefix=".phone-ui-stage-", dir=output) as stage:
+        stage = Path(stage)
+        for index, shot in enumerate(plan["shots"]):
+            t = (shot["startSec"] + shot["endSec"]) / 2
+            name = f"{index:02d}-{shot['id']}.png"
+            destination = stage / name
+            decoded_overlay(movie, t, shot, destination, width, height)
+            frame_receipts.append({"shotId": shot["id"], "timeSec": t,
+                                   "file": name, "frameSha256": sha256_file(destination)})
+        # The opening deserves two additional *actual* pixel samples.
+        for t in (.25, 1.50):
+            opening_shot = next((s for s in plan["shots"]
+                                 if s["startSec"] <= t < s["endSec"]), None)
+            if opening_shot is None:
+                hold("NO_SHOT_FOR_OPENING_SAMPLE")
+            name = f"opening-{str(t).replace('.', '_')}.png"
+            destination = stage / name
+            decoded_overlay(movie, t, opening_shot, destination, width, height)
+            frame_receipts.append({"shotId": opening_shot["id"], "timeSec": t,
+                                   "openingHookProbe": True, "file": name,
+                                   "frameSha256": sha256_file(destination)})
+        receipt.update({"videoSha256": movie_hash, "manifestSha256": sha256_file(manifest),
+                        "videoResolution": [width, height], "durationSec": duration,
+                        "decodedFrameCount": decoded_count,
+                        "exact30FpsTimestampGridVerified": True,
+                        "platformExclusions": {"top": TOP, "right": RIGHT, "bottom": BOTTOM},
+                        "decodedOverlayFrames": frame_receipts, "publicationVerdict": "HOLD"})
+        # Only generated filenames are ever cleaned up; unrelated files remain
+        # untouched. A failed next run leaves no authoritative success report.
+        generated = re.compile(r"(?:[0-9]{2}-[a-z][a-z0-9_-]{0,49}|opening-(?:0_25|1_5))\\.png")
+        for old in output.iterdir():
+            if old.is_file() and generated.fullmatch(old.name):
+                old.unlink()
+        for entry in frame_receipts:
+            os.replace(stage / entry["file"], output / entry["file"])
+        staged_report = stage / "research-report.json"
+        staged_report.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+        os.replace(staged_report, report_path)
     return receipt
 
 if __name__ == "__main__":
