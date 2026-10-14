@@ -108,6 +108,10 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 
 ## Active / in review — implementation WIP 2/3
 
+**2026-10-13 approved A admission:** Owner approved advancing five already-merged nonpublishing EvidenceMotion companion explainers (DMT types, cannabis brain effects, ADHD facts, yopo/bufotenine, psychedelic brain science). Candidate #6766 scored 4×5×4×5×0.75÷3 = **100.0** (estimated priority; no observed traffic or ROI). This A slot permits independent science/editorial/safety/lay-comprehension QA and a separately governed production article-release PR; it grants **no** automatic scientific approval, video/publication permission, or bypass of protected build, SEO, accessibility, review and deployment checks. The existing D #6685 remains active; candidate #6769 is not admitted.
+
+**2026-10-13 owner retirement:** GitHub confirms #6749 closed after PR #6762 merged as `d8035514480f4abb2ff57169c0530ff18c26b1ca` at 2026-10-14 00:17 UTC (October 13 ET). Retire that A owner; D #6685 remains the only recorded active ticket. This is bookkeeping only, not a new scientific approval, release or verified Cloudflare deployment. Candidate Semantic Opportunity Compiler #6769 is **not admitted**; a separate fresh admission is required.
+
 **Scientific Intelligence #6427 / PR #6428 — In review (2026-10-08):** Twelve exact-source research capabilities are stacked after #6422: Claim DNA, Trial Lineage, Comparability, Integrity Radar, Hypothesis Forge, Counterfactuals, bounded local Research Missions, Citation Constellations, Mechanism/Human boundary, Living Review, rule-based Adversarial Review, and Calibration Lab. The release must keep all 12 receipts source-bound and fail-closed for unverified clinical effects. This entry documents an existing user-requested implementation/review, does not raise the normal WIP cap or invent an admission transaction, and does not claim deployment. The upstream full-text, registry, correction-feed and external autonomous research dependencies remain blocked/Unknown. Exact-head CI and production receipt are required.
 
 **Research Intelligence #6420 / PR #6422 — In review (2026-10-08):** Source-verified Semantic Intelligence 1.06 adds exact-PMID navigation junctions between the eight original research instruments, a title-backed two-concept Voyages eligibility gate, and a separate independently reviewed annotation lane. The branch also carries the exact DOI publication-to-editorial/distribution review map from 1.07 (#6423/#6424). The 1.05 foundation has merged via #6419. These are read-only research-infrastructure changes; clinical promotions, automated publications, and proof of deployment are **not** authorized. The normal D/R/A WIP cap remains 3; this status entry does not silently change machine-managed reservations or grant another implementation slot. Merge requires latest-head CI, closed review threads and production verification.
@@ -124,7 +128,7 @@ Closed A #6259/PR #6260 was retired under #6535/PR #6536, returning normal WIP 0
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #6685 | Activate durable protected identities for citation-leading pages | Active — admitted | P0 | 120.0 | 2026-10-12 |
-| A | #6749 / PR #6762 | Insight Foundry: versioned source-bound research contracts | Active — admitted; PR #6762 in review (research-only, not production) | P1 | 45.0 | 2026-10-13 |
+| A | #6766 | Publish five evidence-first EvidenceMotion companion explainers | Active — admitted (editorial QA and governed publication prep; publication requires independent review) | P1 | 100.0 | 2026-10-13 |
 
 
 

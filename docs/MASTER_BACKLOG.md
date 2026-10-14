@@ -78,6 +78,8 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+**2026-10-13 owner-approved A admission:** #6766 is the five-article release review, score **100.0** (4×5×4×5×0.75÷3; ordinal priority only, not actual traffic/revenue). Five full drafts already merged to inert staging. Independent source/lay-comprehension and clinical-caution review remain required before any live publication; follow with full build, release checks and exact production receipt. Preserve D #6685 and leave semantic pilot #6769 unadmitted.
+
 **#6427 / PR #6428 — Scientific Intelligence 1.08–1.14, in review (2026-10-08):** Build twelve source-bound analysis/review instruments on the existing exact PMID research graph and eight-instrument relay after #6420. Acceptance: 12 distinct inspectable receipts, valid source identity, 13 calibration invariants on 500 verified intake PMIDs, 0 automatic medical promotions/publications, stable route, static export and UI/CI gates. Available source data cannot prove underlying trial independence, live correction status or full-text efficacy. Consumer/scientific performance impact and revenue ROI remain **Unknown**. This in-review entry does not grant another WIP slot or override machine-managed admission.
 
 **#6420 / PR #6422 — Research Intelligence 1.06/1.07, in review (2026-10-08):** Exact source identity is preserved across all eight existing instruments; explicit semantic handoffs require real title-backed traceable concept pairs. The 1.07 downstream review fabric uses exact DOI and claim/source IDs and cannot publish. Prerequisite #6419 (1.05) merged. #6423/#6424's review-only fabric is included on #6422's head, not yet a separate main-branch release. Continue required PR checks and resolve P1/P2 review threads before merge. Value: safer source navigation/editorial audit; business ROI, retention and time savings **Unknown**. No additional normal D/R/A WIP admission implied.
@@ -94,7 +96,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
-| #6749 / PR #6762 | Insight Foundry: versioned source-bound research contracts | A | Active — admitted; PR #6762 in review (research-only, not production) | P1 | 3/4/2/5/0.75/2 | 45.0 | 2026-10-13 |
+| #6766 | Publish five evidence-first EvidenceMotion companion explainers | A | Active — admitted (editorial QA and governed publication prep; publication requires independent review) | P1 | 4/5/4/5/0.75/3 | 100.0 | 2026-10-13 |
 
 
 
@@ -141,7 +143,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO #6685 and Authority/Content #6749 occupy 2/3 normal WIP; Revenue/Conversion is free. The A scope is restricted to a source-bound research-only contract pilot. New tickets require separate admission.
+After GitHub verified #6749 closed and #6762 merged, retire that A owner: #6685 alone occupies 1/3 normal WIP. Candidate #6769 (Semantic Opportunity Compiler) remains unadmitted until a separate scored exact-base admission; source/review controls and the existing D owner remain unchanged. No new scientific authority, publication or observed business impact is implied.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
