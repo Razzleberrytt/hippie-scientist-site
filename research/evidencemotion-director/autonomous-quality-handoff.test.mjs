@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import process from 'node:process';
 import {mkdtempSync,rmSync,readFileSync} from 'node:fs';
 import os from 'node:os';import path from 'node:path';
 import {adjudicateFilm} from './autonomous-quality-arbiter.mjs';
