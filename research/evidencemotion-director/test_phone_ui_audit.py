@@ -90,6 +90,23 @@ class MobileAuditContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "FIRST_TWO_SECOND_HOOK_TIMING_REQUIRED"):
             self.check(m)
 
+    def test_hook_timestamp_must_belong_to_the_annotated_shot(self):
+        m = fixture()
+        m["shots"][0]["endSec"] = .5
+        m["shots"].append({
+            "id": "followup", "startSec": .5, "endSec": 3.,
+            "assetKind": "editorial",
+            "annotations": [{
+                "role": "caption", "text": "A different scene",
+                "fontPx": 40, "boxPx": [100, 250, 700, 350]
+            }]
+        })
+        m["hook"]["textVisibleAtSec"] = 1.5
+        with self.assertRaisesRegex(ValueError, "HOOK_TIMESTAMP_NOT_IN_ANNOTATED_SHOT"):
+            self.check(m)
+        m["shots"][1]["annotations"][0]["role"] = "hook"
+        self.assertEqual(self.check(m)["status"], "OVERLAY_PREFLIGHT_PASS_REVIEW_REQUIRED")
+
     def test_nonfactual_botanical_requires_visible_disclosure_annotation(self):
         m = fixture()
         m["shots"][0]["assetKind"] = "nonfactual_illustration"
@@ -111,6 +128,48 @@ class MobileAuditContract(unittest.TestCase):
             self.check(fixture(), size=(540, 960))
 
 class ActualFilmSmoke(unittest.TestCase):
+    def test_vfr_video_rejected_by_decoded_timestamp_grid(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "vfr.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=30:d=3",
+                "-vf", r"settb=AVTB,setpts=PTS+mod(N\,2)*0.01/TB",
+                "-fps_mode", "vfr", "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            m = fixture()
+            m["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+            plan = root / "manifest.json"
+            plan.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError, "NONCONSTANT_DECODED_FRAME_TIMING"):
+                audit(movie, plan, root / "frames")
+
+    def test_failed_rerun_erases_prior_success_receipt(self):
+        with tempfile.TemporaryDirectory() as root:
+            root = Path(root)
+            movie = root / "smoke.mp4"
+            subprocess.run([
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
+                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=30:d=3",
+                "-c:v", "libx264", "-preset", "ultrafast",
+                "-pix_fmt", "yuv420p", "-an", str(movie)
+            ], capture_output=True, timeout=50, check=True)
+            m = fixture()
+            m["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
+            plan = root / "plan.json"
+            plan.write_text(json.dumps(m))
+            output = root / "frames"
+            first = audit(movie, plan, output)
+            self.assertTrue((output / "research-report.json").is_file())
+            m["expectedVideoSha256"] = H
+            plan.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError, "EXACT_VIDEO_SHA_MISMATCH"):
+                audit(movie, plan, output)
+            self.assertFalse((output / "research-report.json").exists(),
+                             "Failed rerun must invalidate prior PASS metadata")
+
     def test_ffmpeg_generated_actual_mp4_frame_and_sha_receipts(self):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
