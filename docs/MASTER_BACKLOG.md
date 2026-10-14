@@ -96,7 +96,6 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
-| #6766 | Publish five evidence-first EvidenceMotion companion explainers | A | Active — admitted (editorial QA and governed publication prep; publication requires independent review) | P1 | 4/5/4/5/0.75/3 | 100.0 | 2026-10-13 |
 
 
 
@@ -156,6 +155,7 @@ After GitHub verified #6749 closed and #6762 merged, retire that A owner: #6685 
 
 | ID | Title | WS | Status | Score | Blocker / next legal action |
 |---|---|---|---|---:|---|
+| #6766 / PR #6774 | Five EvidenceMotion companion articles | A | Deferred — external independent review / secure owner publication approval; PR open but HELD | 100.0 (historic ordinal priority) | Original manuscripts on merged inert staging; publication candidate PR remains OPEN and unmerged. Obtain named human scientific/editorial and beginner-comprehension reviews, secure verifiable owner approval, then new scored A admission and complete CI/Cloudflare release; never count draft as published. |
 | REV-001 / #4280 | Verify production analytics and governed funnel events | R | Blocked external access | 400.0 | Authorized production environment + GA4/Ahrefs receipt evidence; code readiness already merged, but production receipt remains Unknown |
 | SEO-004 | Import aligned 28-day GSC opportunity baseline | D | Blocked external access | 375.0 | Search Console/service-account access or dated export |
 | REV-002 | Establish aligned funnel/revenue baseline | R | Blocked external access | 375.0 | REV-001 plus GA4/GSC/Amazon/Mailchimp data; partial source-level observations may still be recorded honestly |
