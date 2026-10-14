@@ -132,13 +132,24 @@ class ActualFilmSmoke(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             root = Path(root)
             movie = root / "vfr.mp4"
+            # 30 frames at 20fps + 60 at 40fps: 90 frames/3 seconds
+            # => avg_frame_rate 30/1 while *real* frame intervals differ.
+            # Unlike a 30fps setpts jitter, this survives encoder timebase
+            # quantization across supported hosted FFmpeg versions.
             subprocess.run([
                 "ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-y",
-                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=30:d=3",
-                "-vf", r"settb=AVTB,setpts=PTS+mod(N\,2)*0.01/TB",
-                "-fps_mode", "vfr", "-c:v", "libx264", "-preset", "ultrafast",
-                "-pix_fmt", "yuv420p", "-an", str(movie)
+                "-f", "lavfi", "-i", "color=c=blue:s=1080x1920:r=20:d=1.5",
+                "-f", "lavfi", "-i", "color=c=red:s=1080x1920:r=40:d=1.5",
+                "-filter_complex", "[0:v][1:v]concat=n=2:v=1:a=0[v]",
+                "-map", "[v]", "-fps_mode", "vfr", "-c:v", "libx264",
+                "-preset", "ultrafast", "-pix_fmt", "yuv420p", "-an", str(movie)
             ], capture_output=True, timeout=50, check=True)
+            measured = json.loads(subprocess.run(
+                ["ffprobe", "-v", "error", "-select_streams", "v:0",
+                 "-show_entries", "stream=avg_frame_rate,nb_frames", "-of", "json",
+                 str(movie)], capture_output=True, text=True, check=True).stdout)
+            self.assertEqual(measured["streams"][0]["avg_frame_rate"], "30/1")
+            self.assertEqual(int(measured["streams"][0]["nb_frames"]), 90)
             m = fixture()
             m["expectedVideoSha256"] = hashlib.sha256(movie.read_bytes()).hexdigest()
             plan = root / "manifest.json"
