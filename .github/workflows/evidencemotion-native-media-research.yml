@@ -1,0 +1,28 @@
+name: EvidenceMotion native media research gate
+on:
+  pull_request:
+    paths:
+      - 'research/evidencemotion-director/native_media_research_gate.py'
+      - 'research/evidencemotion-director/test_native_media_research_gate.py'
+      - '.github/workflows/evidencemotion-native-media-research.yml'
+permissions:
+  contents: read
+jobs:
+  fail-closed-native-media-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test native-media research-only contracts and regressions
+        run: |
+          python -m unittest discover -s research/evidencemotion-director -p test_native_media_research_gate.py -v
+          python -m py_compile research/evidencemotion-director/native_media_research_gate.py
+      - name: Explicit limits of this lightweight CI job
+        if: always()
+        run: |
+          echo 'These tests exercise media contract failure modes using synthetic fixtures.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'They do NOT replace an exact-original-WAV, 1031-frame decode or human source/voice/craft/iPhone review.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No production integration, release approval, source rewriting or auto-publishing granted.' >> "$GITHUB_STEP_SUMMARY"
