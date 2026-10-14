@@ -123,7 +123,7 @@ def render(packet_file, expected_sha, outdir, direction):
     scene=bpy.context.scene
     scene.render.engine='CYCLES'
     scene.cycles.device='CPU'
-    scene.cycles.samples=12
+    scene.cycles.samples=32
     # The distro CPU build may not include OpenImageDenoiser; refuse implicit optional backends.
     if hasattr(scene.cycles,'use_denoising'):
         scene.cycles.use_denoising=False
@@ -135,11 +135,16 @@ def render(packet_file, expected_sha, outdir, direction):
     scene.render.resolution_percentage=100
     scene.render.image_settings.file_format='PNG'
     scene.render.film_transparent=False
-    scene.world.color=(0.008,0.014,0.025)
+    scene.world.use_nodes=True
+    background_node=scene.world.node_tree.nodes.get("Background")
+    if background_node is not None:
+        background_node.inputs["Color"].default_value=(.007,.015,.030,1)
+        background_node.inputs["Strength"].default_value=.32
     scene.render.threads_mode='FIXED'
     scene.render.threads=2
     materials={}
-    for element,rgba in {"C":(.29,.64,.72,1),"N":(.12,.50,1,1),"O":(1,.24,.13,1),"bond":(.56,.63,.68,1)}.items():
+    for element,rgba in {"C":(.29,.64,.72,1),"N":(.12,.50,1,1),"O":(1,.24,.13,1),
+                         "OH":(1,.65,.22,1),"bond":(.56,.63,.68,1)}.items():
         mat=bpy.data.materials.new("source-element-"+element)
         mat.diffuse_color=rgba
         mat.use_nodes=True
@@ -154,7 +159,7 @@ def render(packet_file, expected_sha, outdir, direction):
         bpy.ops.mesh.primitive_uv_sphere_add(segments=16,ring_count=10,radius=.29,location=positions[i])
         obj=bpy.context.object
         obj.name="RDKit_atom_"+str(i)
-        obj.data.materials.append(materials[atom["element"]])
+        obj.data.materials.append(materials["OH" if i==packet["highlightAtomIndex"] else atom["element"]])
     for idx,bond in enumerate(packet["bonds"]):
         a,z=positions[bond["a"]],positions[bond["b"]]
         diff=z-a
@@ -181,6 +186,18 @@ def render(packet_file, expected_sha, outdir, direction):
     camera.data.type='ORTHO'
     camera.data.ortho_scale=7.5 if direction=="hydroxyl-detail" else 12.5
     scene.camera=camera
+    if direction=="whole":
+        # Portrait width is narrower than height: derive safe camera scale
+        # from actual source-verified atom centers, not a decorative layout guess.
+        bpy.context.view_layer.update()
+        camera_inverse=camera.matrix_world.inverted()
+        view_positions=[camera_inverse @ p for p in positions]
+        span_x=max(p.x for p in view_positions)-min(p.x for p in view_positions)+.7
+        span_y=max(p.y for p in view_positions)-min(p.y for p in view_positions)+.7
+        aspect=scene.render.resolution_x/scene.render.resolution_y
+        camera.data.ortho_scale=max(span_y/.77,span_x/(aspect*.74))
+        bpy.context.view_layer.update()
+    preview_scale=camera.data.ortho_scale
     for i,(pos,power,color,size) in enumerate([
         ((-4,-6,10),1100,(.60,.80,1),6),
         ((6,3,4),950,(1,.64,.42),5),
@@ -204,7 +221,8 @@ def render(packet_file, expected_sha, outdir, direction):
     receipt={
         "status":"RESEARCH_STILL_RENDERED_NOT_CRAFT_APPROVED",
         "direction":direction,"renderEngine":"BLENDER_CYCLES_CPU",
-        "resolution":[270,480],"samples":12,
+        "resolution":[270,480],"samples":32,"cameraOrthoScale":round(preview_scale,4),
+        "isDeliberateDetailCrop":direction=="hydroxyl-detail",
         "packetSha256":expected_sha.lower(),"pngSha256":sha256(output),
         "renderWallSeconds":round(time.monotonic()-start,3),
         "costUSD":"UNKNOWN","scienceApproved":False,
