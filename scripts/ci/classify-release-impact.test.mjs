@@ -48,6 +48,7 @@ describe('release impact classification', () => {
     'next.config.mjs',
     'package.json',
     'package-lock.json',
+    'docs/research/deep-enrichment-20-2026-10-13.md',
   ])('classifies %s as release-sensitive', (file) => {
     expect(isReleaseSensitivePath(file)).toBe(true)
   })
@@ -525,6 +526,17 @@ describe('validation-only classification', () => {
 })
 
 describe('docs-only classification', () => {
+  it('treats public Deep Enrichment dossier changes as active build/data inputs', () => {
+    const dossier = 'docs/research/deep-enrichment-20-2026-10-13.md'
+    expect(isDocsOnlyPath(dossier)).toBe(false)
+    const impact = classifyReleaseImpact([dossier])
+    expect(impact.docsOnly).toBe(false)
+    expect(impact.validationOnly).toBe(false)
+    expect(impact.releaseSensitive).toBe(true)
+    expect(classifyReleaseImpact([dossier, 'docs/research/README.md']).docsOnly).toBe(false)
+    expect(isDocsOnlyPath('docs/research/README.md')).toBe(true)
+  })
+
   it.each([
     'docs/audits/enrichment-datasets-2026-08-23.md',
     'ops/reports/citation-review-candidates.json',
