@@ -1,19 +1,19 @@
 {
   "version": 1,
   "mode": "fresh-admission",
-  "base_revision": "9df8bea4fba5176db368622af64dd564ecf10dd8",
+  "base_revision": "9172f04d105b0c4183d6cb675167a4e33a4d7704",
   "last_verified": "2026-10-13",
-  "ticket": 6766,
+  "ticket": 6769,
   "lane": "A",
-  "title": "Publish five evidence-first EvidenceMotion companion explainers",
+  "title": "Semantic Opportunity Compiler: source-bound cross-system review pilot",
   "priority": "P1",
   "score_inputs": {
     "businessImpact": 4,
     "userValue": 5,
-    "trafficPotential": 4,
+    "trafficPotential": 3,
     "strategicLeverage": 5,
     "confidence": 0.75,
     "effort": 3
   },
-  "score": 100
+  "score": 75
 }
