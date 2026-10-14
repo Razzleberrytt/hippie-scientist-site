@@ -1,76 +1,86 @@
-"""Fail-closed native media research gates; synthetic fixtures are NOT review proof."""
-import copy
+"""Negative contract tests: this runner's mock files are NOT scientific/media proof."""
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-s=importlib.util.spec_from_file_location("native_media_research_gate",
-    Path(__file__).with_name("native_media_research_gate.py"))
-m=importlib.util.module_from_spec(s)
-s.loader.exec_module(m)
-def good_receipt():
+s=importlib.util.spec_from_file_location("native_media_research_gate",Path(__file__).with_name("native_media_research_gate.py"))
+m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+
+def receipt():
     return {"status":"RESEARCH_NOT_FINAL","nativeCanvas":True,
-            "ownerApproved":False,"voiceAuditioned":False,"scienceApproved":False,
-            "craftApproved":False,"phonePlaybackApproved":False,"mayPublish":False,
+            "mayPublish":False,"ownerApproved":False,"scienceApproved":False,
+            "craftApproved":False,"voiceAuditioned":False,"phonePlaybackApproved":False,
             "resolution":[1080,1920],"fps":30,"frames":1031,"fullFilm":True,
-            "sourceWavSha256":m.ORIGINAL_WAV,"sourceInchiKey":m.INCHIKEY,
-            "note":"The computed 3D is a lower-resolution source-verified inset, not native render",
-            "reviewVideoSha256":"a"*64}
-def good_probe():
-    return {"streams":[
-        {"codec_type":"video","codec_name":"h264","width":1080,"height":1920,
-         "avg_frame_rate":"30/1","nb_read_frames":"1031","duration":"34.366667"},
-        {"codec_type":"audio","codec_name":"aac","duration":"34.319"}],
-        "format":{"duration":"34.366667"}}
-class NativeResearchMediaContract(unittest.TestCase):
-    def test_receipt_is_inert_not_an_owner_approval(self):
-        self.assertFalse(m.validate_receipt(good_receipt())["publishAllowed"])
-        self.assertFalse(m.validate_probe(good_probe())["mayPublish"])
-    def test_bypass_of_any_approval_is_rejected(self):
-        for flag in ("ownerApproved","voiceAuditioned","scienceApproved",
-                     "craftApproved","phonePlaybackApproved","mayPublish"):
-            r=good_receipt();r[flag]=True
+            "sourceInchiKey":m.INCHIKEY,"sourceWavSha256":m.WAV_SHA,
+            "reviewVideoSha256":m.MASTER_SHA,
+            "note":"lower-resolution source-verified computed 3D illustration in a labeled inset"}
+
+def fake_audit(technical="PASS",audio=None,problems=None):
+    return {"technical":technical,"problems":problems or [],
+            "frameTimingVerified":technical=="PASS",
+            "fullDecodePerformed":technical=="PASS",
+            "audioAdtsSha256":audio or m.AAC_ADTS_SHA}
+
+class NativeMediaReviewTests(unittest.TestCase):
+    def test_synthetic_good_receipt_is_not_an_owner_approval(self):
+        a=m.validate_receipt(receipt())
+        self.assertFalse(a["mayPublish"])
+        self.assertTrue(a["requiresActualTimestampAndAdtsDecode"])
+    def test_caller_cannot_swap_master_by_repinning_own_receipt(self):
+        r=receipt();r["reviewVideoSha256"]="a"*64
+        with self.assertRaisesRegex(ValueError,"UNREVIEWED_NEW_MASTER_SHA"):
+            m.validate_receipt(r)
+    def test_original_voice_and_chemical_source_must_match(self):
+        for key,wrong in [("sourceWavSha256","b"*64),("sourceInchiKey","WRONG")]:
+            r=receipt();r[key]=wrong
+            with self.assertRaisesRegex(ValueError,"PINNED_SCIENCE_OR_VOICE_IDENTITY_DRIFT"):
+                m.validate_receipt(r)
+    def test_approval_bypass_never_allowed(self):
+        for flag in ("mayPublish","ownerApproved","scienceApproved","craftApproved",
+                     "voiceAuditioned","phonePlaybackApproved"):
+            r=receipt();r[flag]=True
             with self.subTest(flag=flag),self.assertRaisesRegex(ValueError,"NO_SELF_APPROVAL"):
                 m.validate_receipt(r)
-    def test_reject_wrong_voice_hash(self):
-        r=good_receipt();r["sourceWavSha256"]="0"*64
-        with self.assertRaisesRegex(ValueError,"PINNED_SOURCE_IDENTITY_CHANGED"):
+    def test_no_claim_of_native_3d_from_lower_res_inset(self):
+        r=receipt();r["note"]="All source pixels native"
+        with self.assertRaisesRegex(ValueError,"COMPUTED_3D_INSET_DISCLOSURE_REQUIRED"):
             m.validate_receipt(r)
-    def test_reject_fake_native_upscaled_claim(self):
-        r=good_receipt();r["nativeCanvas"]=False
-        with self.assertRaisesRegex(ValueError,"NATIVE_CANVAS_PROVENANCE_REQUIRED"):
+    def test_fake_native_frame_count_is_rejected(self):
+        r=receipt();r["frames"]=1000
+        with self.assertRaisesRegex(ValueError,"EXPECTED_NATIVE_FILM_BOUNDS"):
             m.validate_receipt(r)
-    def test_reject_low_resolution_movie(self):
-        p=good_probe();p["streams"][0]["width"]=540
-        with self.assertRaisesRegex(ValueError,"NOT_NATIVE_HD_H264_ENCODE"):
-            m.validate_probe(p)
-    def test_reject_truncated_video(self):
-        p=good_probe();p["streams"][0]["nb_read_frames"]="1000"
-        with self.assertRaisesRegex(ValueError,"WRONG_FRAME_GRID_OR_TRUNCATED_FILM"):
-            m.validate_probe(p)
-    def test_reject_clipped_aac(self):
-        p=good_probe();p["streams"][1]["duration"]="30.0"
-        with self.assertRaisesRegex(ValueError,"AUDIO_TOO_SHORT_OR_OVERLONG"):
-            m.validate_probe(p)
-    def test_reject_unexpected_voice_stream_and_wrong_audio_codec(self):
-        p=good_probe();p["streams"].append({"codec_type":"audio","codec_name":"aac"})
-        with self.assertRaisesRegex(ValueError,"EXACTLY_ONE_VIDEO_AND_AUDIO_STREAM"):
-            m.validate_probe(p)
-        p=good_probe();p["streams"][1]["codec_name"]="mp3"
-        with self.assertRaisesRegex(ValueError,"LOCKED_AAC_MASTER_REQUIRED"):
-            m.validate_probe(p)
-    def test_computed_low_res_inset_cannot_be_disguised_as_native_3d(self):
-        r=good_receipt();r["note"]="ALL NATIVE 3D"
-        with self.assertRaisesRegex(ValueError,"LOW_RES_COMPUTED_INSET_DISCLOSURE_REQUIRED"):
-            m.validate_receipt(r)
-    def test_invalid_review_sha_rejected(self):
-        r=good_receipt();r["reviewVideoSha256"]="not-a-sha"
-        with self.assertRaisesRegex(ValueError,"EXACT_REVIEW_VIDEO_SHA_REQUIRED"):
-            m.validate_receipt(r)
-    def test_real_bytes_override_clean_metadata(self):
-        with tempfile.TemporaryDirectory() as temp:
-            source=Path(temp)/"data";source.write_bytes(b"intentional source drift")
-            self.assertNotEqual(m.digest(source),good_receipt()["reviewVideoSha256"])
+    def test_mismatched_pcm_bytes_fail_before_any_media_decode(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rp=Path(tmp)/"receipt.json";rp.write_text(json.dumps(receipt()))
+            with patch.object(m,"digest",return_value="0"*64),patch.object(m,"strict_native_master_verify") as strict:
+                with self.assertRaisesRegex(ValueError,"WRONG_LOCKED_ORIGINAL_PCM"):
+                    m.audit("video.mp4","voice.wav",rp)
+                strict.assert_not_called()
+    def test_exact_existing_strict_gate_rejects_variable_frame_timing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rp=Path(tmp)/"receipt.json";rp.write_text(json.dumps(receipt()))
+            with patch.object(m,"digest",side_effect=[m.WAV_SHA,m.MASTER_SHA]),patch.object(m,"strict_native_master_verify",return_value=fake_audit("HOLD",problems=["NONCONSTANT_VIDEO_FRAME_TIMING"])) as strict:
+                with self.assertRaisesRegex(ValueError,"EXISTING_STRICT_NATIVE_AUDIT_REJECTED_NONCONSTANT_VIDEO_FRAME_TIMING"):
+                    m.audit("video.mp4","voice.wav",rp)
+                strict.assert_called_once()
+                self.assertTrue(strict.call_args.kwargs["decode_all"])
+    def test_audio_aac_is_immutably_pinned_outside_receipt(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rp=Path(tmp)/"receipt.json";rp.write_text(json.dumps(receipt()))
+            with patch.object(m,"digest",side_effect=[m.WAV_SHA,m.MASTER_SHA]),patch.object(m,"strict_native_master_verify",return_value=fake_audit(audio="f"*64)):
+                with self.assertRaisesRegex(ValueError,"PINNED_AAC_NARRATION_CHANGED"):
+                    m.audit("video.mp4","voice.wav",rp)
+    def test_pass_still_ineligible_for_publishing_or_craft(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rp=Path(tmp)/"receipt.json";rp.write_text(json.dumps(receipt()))
+            with patch.object(m,"digest",side_effect=[m.WAV_SHA,m.MASTER_SHA]),patch.object(m,"strict_native_master_verify",return_value=fake_audit()) as strict:
+                result=m.audit("video.mp4","voice.wav",rp)
+                self.assertFalse(result["mayPublish"])
+                self.assertFalse(result["craftApproved"])
+                self.assertEqual(result["wordLevelAcousticAlignment"],"NOT_PROVEN")
+                self.assertEqual(strict.call_args.args[3],m.AAC_ADTS_SHA)
 
 if __name__=="__main__":unittest.main()
