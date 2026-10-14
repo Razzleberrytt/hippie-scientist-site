@@ -37,6 +37,11 @@ jobs:
       - name: End-to-end actual H264 -> Python vision -> JavaScript automatic decision
         run: |
           node --test research/evidencemotion-director/autonomous-quality-handoff.test.mjs
+      - name: Run actual Python decoded-pixel to Node arbiter handoff in the provisioned media runner
+        env:
+          EVIDENCEMOTION_ACTUAL_MEDIA_HANDOFF: '1'
+        run: |
+          node --test research/evidencemotion-director/autonomous-quality-handoff.test.mjs
       - name: Keep true model review and source recognition prerequisites honest
         if: always()
         run: |
