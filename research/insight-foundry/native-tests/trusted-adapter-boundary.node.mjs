@@ -11,7 +11,7 @@ import {createRequire} from 'node:module'
 import {runInNewContext} from 'node:vm'
 import {createHash} from 'node:crypto'
 import {fileURLToPath} from 'node:url'
-import {resolve,dirname,join} from 'node:path'
+import {resolve,dirname} from 'node:path'
 import {compileOpportunityReport,verifyOpportunityReport} from '../src/opportunity-compiler.mjs'
 const require=createRequire(import.meta.url)
 const ts=require('typescript')
@@ -21,7 +21,7 @@ const pmids=['12345','23456']
 const source=pmid=>({sourceId:`studio-pmid:${pmid}`,pmid,sourceSignature:S,snapshotId:H,sourceUrl:`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`,authority:'research-only'})
 const sources=Object.fromEntries(pmids.map(p=>[`studio-pmid:${p}`,source(p)]))
 const pico={population:'adults',intervention:'synthetic magnesium',comparator:'synthetic comparator',outcomes:['sleep quality'],timeframe:'as described by the paper'}
-const args=()=>({question:'What magnesium publications mention sleep?',pico:structuredClone(pico),originSignals:[{kind:'user-question',referenceId:'synthetic-local-test',limitation:'Only a research question, no finding'}],discoveryQuery:'magnesium'})
+const args=()=>({question:'What magnesium publications mention sleep?',pico:JSON.parse(JSON.stringify(pico)),originSignals:[{kind:'user-question',referenceId:'synthetic-local-test',limitation:'Only a research question, no finding'}],discoveryQuery:'magnesium'})
 const scene=pmid=>({sourceSignature:S,status:'source-bound-human-review-only',clinicalPromotions:0,publicationAllowed:false,mutationAllowed:false,
   caseFile:{pmid,sourceSignature:S,status:'source-discovery-only-no-clinical-adjudication',reviewedCitationIds:[],relatedPapers:[],instruments:instrumentNames.map(instrument=>({instrument,linkedItems:0}))},
   scientific:{capabilities:Array.from({length:12},(_,n)=>({id:String(n)})),calibrationPassed:true,clinicalPromotions:0,autopublished:0},
