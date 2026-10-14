@@ -143,6 +143,10 @@ Small numbers such as **[1]** point to studies in the References section. A **PM
 
 Ask what each study measured. A **brain scan** showing changes in available CB1 receptors is not a direct memory test. A memory test is not proof that cannabis caused the result if other factors could matter. In a **systematic review**, researchers gather and compare previous studies, but the review can still be limited if those studies are small or very different. In cannabis research, pay special attention to the number and ages of participants, how often they used cannabis, and whether recovery was measured after a brief or longer period without it. [1–5]
 
+## Where to get help
+
+If you are worried about substance use, withdrawal, or someone's immediate safety, the U.S. SAMHSA National Helpline is available at **1-800-662-HELP (4357)**. You can also visit [SAMHSA's National Helpline](https://www.samhsa.gov/find-help/helplines/national-helpline) for support and treatment resources. These resources **do not replace emergency care**. In an immediate emergency, contact local emergency services.
+
 ## Bottom line
 
 The brain adapts to repeated THC exposure. Some changes are measurable, and some can reverse after use stops. The most useful science is about **which change, in which people, over what time**, rather than declaring cannabis perfectly harmless or permanently destructive.
