@@ -94,7 +94,6 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6685 | Activate durable protected identities for citation-leading pages | D | Active — admitted | P0 | 4/4/4/5/0.75/2 | 120.0 | 2026-10-12 |
-| #6749 / PR #6762 | Insight Foundry: versioned source-bound research contracts | A | Active — admitted; PR #6762 in review (research-only, not production) | P1 | 3/4/2/5/0.75/2 | 45.0 | 2026-10-13 |
 
 
 
@@ -141,7 +140,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO #6685 and Authority/Content #6749 occupy 2/3 normal WIP; Revenue/Conversion is free. The A scope is restricted to a source-bound research-only contract pilot. New tickets require separate admission.
+After GitHub verified #6749 closed and #6762 merged, retire that A owner: #6685 alone occupies 1/3 normal WIP. Candidate #6769 (Semantic Opportunity Compiler) remains unadmitted until a separate scored exact-base admission; source/review controls and the existing D owner remain unchanged. No new scientific authority, publication or observed business impact is implied.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
