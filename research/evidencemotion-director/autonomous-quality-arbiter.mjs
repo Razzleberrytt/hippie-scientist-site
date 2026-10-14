@@ -25,7 +25,7 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
      needs.push('INDEPENDENT_RETRIEVED_CLAIM_SOURCE_AUDIT_REQUIRED');
  else for(const claim of science.claimChecks){
    if(!sha(claim.claimTextSha256)||!Array.isArray(claim.exactSourceIds)||!claim.exactSourceIds.length
-      ||claim.humanEvidenceDirectness==='UNKNOWN')
+      ||!['NOT_A_HUMAN_EFFECT_CLAIM','STRUCTURAL_ONLY','PRECLINICAL_INDIRECT','DIRECT_VERIFIED_HUMAN'].includes(claim.humanEvidenceDirectness))
       needs.push('CLAIM_PROVENANCE_OR_EVIDENCE_DIRECTNESS_MISSING');
    if(claim.supportStatus==='UNSUPPORTED'||claim.supportStatus==='CONTRADICTED'
       ||claim.humanEffectAsserted===true&&claim.humanEvidenceDirectness!=='DIRECT_VERIFIED_HUMAN')
@@ -49,7 +49,8 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
   &&c.origin==='INDEPENDENT_FULL_VIDEO_MULTIMODAL_CRITIC'
   &&sha(c.modelRunSha256)&&sha(c.referenceSetSha256)
   &&c.calibrationPassed===true
-  &&c.anchorFalsePassRate<=.05&&c.anchorFalseRejectRate<=.15
+  &&Number.isFinite(c.anchorFalsePassRate)&&c.anchorFalsePassRate>=0&&c.anchorFalsePassRate<=.05
+  &&Number.isFinite(c.anchorFalseRejectRate)&&c.anchorFalseRejectRate>=0&&c.anchorFalseRejectRate<=.15
   &&c.reviewedFullAudioAndVideo===true&&c.scienceJudgeSeparate===true
   &&DIMS.every(dim=>Number.isFinite(c.scores?.[dim])&&c.scores[dim]>=0&&c.scores[dim]<=10)
   &&Array.isArray(c.timecodedFaults));
