@@ -84,8 +84,14 @@ function trustedApprovalEvents({ comments, reviews, owner, number, headSha }) {
       id: Number(review.id || 0),
     });
   }
-  events.sort((a,b) => a.at - b.at || a.id - b.id);
-  return events.length ? events.at(-1).approved : false;
+  // REST timestamps have only second resolution and issue-comment IDs are
+  // unrelated to PR-review IDs. If a revocation and an approval occur at the
+  // same timestamp, their real ordering cannot be established: fail closed.
+  // Do NOT use numeric IDs across API object families as a chronology.
+  if (!events.length) return false;
+  const latest = Math.max(...events.map(event => event.at));
+  const lastGroup = events.filter(event => event.at === latest);
+  return lastGroup.every(event => event.approved);
 }
 
 /**
@@ -116,7 +122,7 @@ export function assessPublicationApproval({ pr, changedFiles, comments = [], rev
     ...classification,
     reason: approved
       ? 'exact-head approval from repository owner verified; existing science and release gates still apply'
-      : `human publication approval missing for PR #${number} exact head ${head}: owner must post THS-PUBLICATION-APPROVED PR=#${number} HEAD=${head}`,
+      : `publication review hold for PR #${number} exact head ${head}: positive PR-comment approval tokens are disabled; only a server-verifiable non-app human-origin exact-head APPROVED review is eligible (if GitHub exposes trusted provenance). Otherwise hold until an immutable human approval mechanism exists; do not request an unusable comment token`,
   };
 }
 

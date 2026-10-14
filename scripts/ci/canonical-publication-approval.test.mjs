@@ -53,7 +53,9 @@ describe('canonical publication approval',()=>{
     const r=decide([publicFile],{comments:[approval()]})
     expect(r.allowed).toBe(false)
     expect(r.kind).toBe('HUMAN_PUBLICATION')
-    expect(r.reason).toMatch(/human publication approval missing/)
+    expect(r.reason).toMatch(/publication review hold/)
+    expect(r.reason).toContain('positive PR-comment approval tokens are disabled')
+    expect(r.reason).not.toContain('owner must post THS-PUBLICATION-APPROVED')
   })
   it('owner revocation after approval must close the publication gate',()=>{
     const revoked={...approval(sha,'Razzleberrytt',2),body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,created_at:'2026-10-12T17:00:00Z'}
@@ -113,6 +115,33 @@ describe('canonical publication approval',()=>{
       commit_id:sha,state:'CHANGES_REQUESTED',submitted_at:'2026-10-12T18:00:00Z'}
     expect(decide([publicFile],{comments:[revoked],reviews:[prior]}).allowed).toBe(false)
     expect(decide([publicFile],{reviews:[prior,changed]}).allowed).toBe(false)
+  })
+  it('same-second revocation overrides a higher-ID approved review',()=>{
+    const review={id:9000001,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
+      state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T16:00:00Z'}
+    const revoke={...approval(sha,'Razzleberrytt',4),
+      body:`THS-PUBLICATION-REVOKED PR=#6703 HEAD=${sha}`,
+      created_at:'2026-10-12T16:00:00Z',
+      updated_at:'2026-10-12T16:00:00Z'}
+    // Issue-comment IDs and review IDs are not chronologically comparable.
+    expect(decide([publicFile],{comments:[revoke],reviews:[review]}).allowed).toBe(false)
+    expect(decide([publicFile],{comments:[revoke],reviews:[{...review,id:1}]}).allowed).toBe(false)
+  })
+  it('same-second CHANGES_REQUESTED vetoes an apparently approved review',()=>{
+    const a={id:9000001,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
+      state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T16:00:00Z'}
+    const revoked={...a,id:1,state:'CHANGES_REQUESTED'}
+    expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(false)
+  })
+  it('only an unambiguous later independently verified review can clear an earlier revocation',()=>{
+    const a={id:12,user:{login:'Razzleberrytt',type:'User'},commit_id:sha,
+      state:'APPROVED',performed_via_github_app:null,
+      submitted_at:'2026-10-12T17:00:00Z'}
+    const revoked={...a,id:100,state:'CHANGES_REQUESTED',
+      submitted_at:'2026-10-12T16:00:00Z'}
+    expect(decide([publicFile],{reviews:[a,revoked]}).allowed).toBe(true)
   })
   it('blocks when exact PR or base owner identity is missing',()=>{
     const tampered={...pr,base:{repo:{full_name:'Razzleberrytt/hippie-scientist-site'}}}
