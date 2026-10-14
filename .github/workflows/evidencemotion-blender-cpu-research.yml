@@ -22,7 +22,7 @@ jobs:
       - name: Run strict offline safety and integrity regressions
         run: |
           python -m unittest discover -s research/evidencemotion-director -p test_blender_cpu_research.py -v
-          python -m pip install 'rdkit==2025.9.4'
+          python -m pip install 'rdkit==2025.9.4' 'pillow==12.0.0'
           python -m unittest discover -s research/evidencemotion-director -p test_validated_7oh_chemistry.py -v
           python -m py_compile research/evidencemotion-director/blender_cpu_research.py
       - name: Provision open-source CPU-only research renderer
@@ -53,6 +53,24 @@ jobs:
           done
           test -s /tmp/ths-blender-proof/blender_7oh_whole_RESEARCH_ONLY.png
           test -s /tmp/ths-blender-proof/blender_7oh_hydroxyl-detail_RESEARCH_ONLY.png
+      - name: Audit the actual whole-molecule PNG for clipped horizontal edges
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          p='/tmp/ths-blender-proof/blender_7oh_whole_RESEARCH_ONLY.png'
+          image=Image.open(p).convert('RGB')
+          w,h=image.size
+          def molecule_pixel(rgb):
+              return max(rgb)-min(rgb)>35 and max(rgb)>65
+          edge=sum(molecule_pixel(image.getpixel((x,y)))
+                   for y in range(h)
+                   for x in list(range(4))+list(range(w-4,w)))
+          subject=sum(molecule_pixel(image.getpixel((x,y)))
+                      for y in range(20,h-20,2) for x in range(20,w-20,2))
+          print(f'Decoded PNG whole-molecule clipping audit: {edge} colored edge pixels; {subject} subject pixels')
+          if edge>12 or subject<200:
+              raise SystemExit('FAIL: whole molecule cropped at portrait edges or essentially missing')
+          PY
       - name: Preserve exact stills and machine receipts for human visual review
         if: success()
         uses: actions/upload-artifact@v4
