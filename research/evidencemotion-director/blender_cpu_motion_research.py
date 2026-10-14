@@ -23,6 +23,7 @@ spec.loader.exec_module(base)
 CONCEPTS=("oxygen-to-whole","depth-orbit")
 FPS=12
 FRAMES=36
+ORBIT_MAX_TRAVEL_DEGREES=8.0
 W,H=270,480
 SHA=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
@@ -32,6 +33,9 @@ def hold(code):
 def smooth(t):
     t=min(1.,max(0.,t))
     return t*t*(3-2*t)
+
+def orbit_degrees(progress):
+    return -ORBIT_MAX_TRAVEL_DEGREES/2 + ORBIT_MAX_TRAVEL_DEGREES*smooth(progress)
 
 def validate_job(job):
     if not isinstance(job,dict) or job.get("schema")!="ths-blender-motion-research-v1":
@@ -97,7 +101,7 @@ def render_motion(packet_file, expected_sha,outdir,concept):
         else:
             # Distinct geometry-demonstration: a small true 3D orbit emphasizing
             # molecular depth, not a molecule undergoing a chemical reaction.
-            angle=math.radians(-16+32*t)
+            angle=math.radians(orbit_degrees(n/(FRAMES-1)))
             radius=17.7
             camera.location=Vector((radius*math.sin(angle),-radius*math.cos(angle),5))
             camera.rotation_quaternion=(Vector((0,0,0))-camera.location).to_track_quat('-Z','Y') @ Quaternion((0,0,1),math.pi/2)
