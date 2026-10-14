@@ -20,7 +20,7 @@ Existing agent/tool/system proposes an action
    risk policy + all required domain gates
                 |
   AUTO_APPROVE / AUTO_APPROVE_WITH_PROOF
-  REVIEW_REQUIRED / REPAIR_REQUIRED
+  WAIT / REVIEW_REQUIRED / REPAIR_REQUIRED
              BLOCKED / COMPLETE
                 |
  existing designated executor; terminal recheck
@@ -60,6 +60,10 @@ Never treat user-controlled JSON, branch files, PR descriptions, LLM-generated t
   "subjectFingerprint": "sha256:...",
   "policyVersion": "uaer-v0.1",
   "riskTier": "high",
+  "scientificReviewStatus": "required",
+  "ownerAuthorizationStatus": "required",
+  "technicalChecksStatus": "pending",
+  "productionOutcomeStatus": "not-executed",
   "proofRefsUsed": ["actually verified provenance IDs"],
   "missingProof": ["scientific-review"],
   "reasons": ["specific rule and affected claim/section"],
@@ -70,6 +74,8 @@ Never treat user-controlled JSON, branch files, PR descriptions, LLM-generated t
 }
 ```
 
+All four independent gate statuses are mandatory on **every** output (including holds and waits): `scientificReviewStatus` and `ownerAuthorizationStatus` use `not-required | required | verified | unknown`; `technicalChecksStatus` uses `passed | pending | failed | unknown`; `productionOutcomeStatus` uses `not-executed | verified | failed | unknown`. Reject missing/invalid statuses. Treat caller-supplied `verified` as untrusted until the designated adapter re-fetches authenticated server evidence. None of these statuses implies any other.
+
 Outputs MUST have explicit reason codes and must be stored as an **append-only audit trail** in an existing, owner-approved ledger when an adapter is implemented. The audit trail is not a second source-of-truth for scientific effects.
 
 ## 3. Policy precedence (fail-closed)
@@ -77,7 +83,7 @@ Outputs MUST have explicit reason codes and must be stored as an **append-only a
 1. **Hard stop:** forged, unauthorized, revoked, stale, mis-scoped or unavailable proof; malformed changed-file inventory; incompatible owner/workstream; unverified source status; payment or destructive side effect lacking authenticated authority. `BLOCKED`.
 2. **Existing risk controls:** any new clinical efficacy, medical safety, interaction, dosage or regulated claim requires actual independently qualified/scoped source review; high-risk owner exact-head GitHub publication approval still required until a separately reviewed policy makes a narrower scope-bound preauthorization possible. `REVIEW_REQUIRED`.
 3. **Failed check:** source drift, failed CI, SEO/content lint, video asset integrity, a11y or provider auth: `REPAIR_REQUIRED` only for known-repairable conditions with a bounded attempt count. Otherwise `BLOCKED`.
-4. **Pending check:** not complete and not approvable. Use `REVIEW_REQUIRED` with `pending_check` reason until the implementation adds a distinct wait state; do not imply failure or success.
+4. **Pending check:** when an identified mandatory check or base/receipt verification is queued or running, use **`WAIT`**, not `REVIEW_REQUIRED`. Return an exact job/source identity and a safe next poll. A missing/unknown check receipt with no trusted pending job remains `BLOCKED`, not forever waiting or automatically approved.
 5. **Safe automated approval:** low-risk, reversible, unmodified source/claim authority, all domain mandatory checks and existing permissions verified; `AUTO_APPROVE`. Public changes already approved for the same **exact** protected claims, target and release scope can be `AUTO_APPROVE_WITH_PROOF` only under a future fully authenticated policy.
 6. **Post-execution:** `COMPLETE` only on actual merged SHA/Cloudflare receipt/external published-video or post ID with user-facing verification as needed. An opened PR and an encoding job are not completion.
 
@@ -119,6 +125,9 @@ For every decision, explicitly state `scientific_review_status`, `owner_authoriz
 | Fixture | Expected |
 | --- | --- |
 | Inert staged Markdown + valid same-head CI | AUTO_APPROVE (as staging only) |
+| Known exact-head required check still running | WAIT; never generate a human review prompt |
+| Missing/unknown check receipt | BLOCKED (no guess of pending/success) |
+| Any missing/invalid scientific, owner, technical, or production status | BLOCKED |
 | New article includes unverified medication-interaction claim | REVIEW_REQUIRED / BLOCKED, never public |
 | New article uses verified PMID but no assessed effect extraction | REVIEW_REQUIRED |
 | Owner says “approve and continue” for unchanged scope | Reuse OWNER_INTENT, not falsely GITHUB_APPROVED |
@@ -141,7 +150,7 @@ For every decision, explicitly state `scientific_review_status`, `owner_authoriz
 
 ## 8. Smallest safe implementation route
 
-1. **Separate control admission required:** reconcile active D/A/R lane and record exact-base priority/owner, preserving #6766 and any newly admitted semantic work. A cross-system change cannot silently take another active lane or claim incident overflow.
+1. **Separate control admission required:** #6775 is now a queued **ready-next candidate**, not admitted to D/R/A. PR #6777 must remain **draft with `hold-merge`** while A #6766 and D #6685 are active. No research contract, prototype or test from this PR should merge or operate as a live gate until a correctly scored separate admission is merged (or an explicit existing admitted owner legally includes this scope). Do not use docs-only staging to evade WIP; reconcile competing A #6769 fairly.
 2. Implement a **pure decision/receipt module** alongside `scripts/ci/canonical-publication-approval.mjs`, reading an explicit risk classification from its existing trusted output, not creating new review credentials.
 3. First consumer: existing autonomous merge **monitor** only (read-only explanation). Tests assert **all old publication hard holds remain**; do not wire terminal decision to merge until the same negative suite is green.
 4. Second consumer: one low-risk source/enrichment or media **staging** queue with stable dedupe and bounded retry. Do not unlock live publication, medical claims, videos or accounts in this phase.

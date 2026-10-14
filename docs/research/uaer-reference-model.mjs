@@ -7,7 +7,7 @@
 export const UAER_POLICY_VERSION = "research-v0.1";
 export const UAER_DECISIONS = Object.freeze([
   "AUTO_APPROVE", "AUTO_APPROVE_WITH_PROOF", "REVIEW_REQUIRED",
-  "REPAIR_REQUIRED", "BLOCKED", "COMPLETE"
+  "REPAIR_REQUIRED", "WAIT", "BLOCKED", "COMPLETE"
 ]);
 
 const SAFE_OPERATIONS = new Set(["read", "stage", "preview", "reuse-stage"]);
@@ -24,7 +24,14 @@ export function assessResearchApproval(input) {
     policyVersion: UAER_POLICY_VERSION,
     actionId: typeof input?.actionId === "string" ? input.actionId : null,
     decision: "BLOCKED", reasonCode: "invalid_action",
-    missingProof: [], advisoryOnly: true, canExecute: false, complete: false
+    missingProof: [], advisoryOnly: true, canExecute: false, complete: false,
+    scientificReviewStatus: input?.evidence?.requiresIndependentReview === true ||
+      (input?.risk === "high" && ["publish","clinical-claim","canonical-source-promote"].includes(input?.operation)) ||
+      input?.evidence?.claimDelta === "changed" ? "required" : "not-required",
+    ownerAuthorizationStatus: PROTECTED_OPERATIONS.has(input?.operation) ? "required" : "not-required",
+    technicalChecksStatus: ["passed","pending","failed"].includes(input?.evidence?.checks)
+      ? input.evidence.checks : "unknown",
+    productionOutcomeStatus: "not-executed"
   };
   const result = (decision, reasonCode, missingProof = []) =>
     Object.freeze({ ...base, decision, reasonCode, missingProof });
@@ -63,8 +70,11 @@ export function assessResearchApproval(input) {
       ? result("REPAIR_REQUIRED", "bounded_repair_allowed")
       : result("BLOCKED", "failed_checks_or_retry_budget_exhausted");
   }
+  if (evidence.checks === "pending") {
+    return result("WAIT", "required_checks_running", ["exact_revision_checks"]);
+  }
   if (evidence.checks !== "passed") {
-    return result("REVIEW_REQUIRED", "required_checks_pending_or_unavailable", ["exact_revision_checks"]);
+    return result("BLOCKED", "required_check_receipt_unavailable", ["exact_revision_checks"]);
   }
   if (operation === "read") return result("AUTO_APPROVE", "read_only_safe");
   if (!NONPUBLIC_TARGET.test(target)) {

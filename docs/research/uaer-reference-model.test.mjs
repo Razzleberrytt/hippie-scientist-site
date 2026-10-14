@@ -16,6 +16,10 @@ const check = (name, input, expected) => test(name, () => {
   assert.equal(r.advisoryOnly, true);
   assert.equal(r.complete, false);
   assert.equal(r.policyVersion, UAER_POLICY_VERSION);
+  assert.ok(["required","verified","not-required","unknown"].includes(r.scientificReviewStatus));
+  assert.ok(["required","verified","not-required","unknown"].includes(r.ownerAuthorizationStatus));
+  assert.ok(["passed","pending","failed","unknown"].includes(r.technicalChecksStatus));
+  assert.ok(["not-executed","verified","failed","unknown"].includes(r.productionOutcomeStatus));
 });
 check("safe inert editorial staging", valid, "AUTO_APPROVE");
 check("safe research staging", withChange({target:"docs/research/report.md"}), "AUTO_APPROVE");
@@ -40,7 +44,8 @@ check("withdrawn study blocks", withChange({evidence:{sourceStatus:"withdrawn"}}
 check("revoked proof blocks", withChange({evidence:{revoked:true}}), "BLOCKED");
 check("mismatched identity blocks", withChange({evidence:{identityMismatch:true}}), "BLOCKED");
 check("repeated external effect blocks", withChange({evidence:{duplicateExternalEffect:true}}), "BLOCKED");
-check("missing checks do not pass", withChange({evidence:{checks:"pending"}}), "REVIEW_REQUIRED");
+check("pending checks WAIT without reviewer", withChange({evidence:{checks:"pending"}}), "WAIT");
+check("unknown check receipt blocks", withChange({evidence:{checks:"unknown"}}), "BLOCKED");
 check("repairable check limited", withChange({evidence:{checks:"failed",repairable:true,repairAttempts:1}}), "REPAIR_REQUIRED");
 check("retry exhaustion blocks", withChange({evidence:{checks:"failed",repairable:true,repairAttempts:2}}), "BLOCKED");
 check("invalid sha fingerprint blocks", withChange({fingerprint:"sha256:fake"}), "BLOCKED");
@@ -55,4 +60,18 @@ test("cannot claim completion from proposed check results", () => {
   assert.equal(r.decision, "AUTO_APPROVE");
   assert.equal(r.complete, false);
   assert.equal(r.canExecute, false);
+});
+
+test("four independent status fields remain distinct on high risk",()=>{
+  const r=decide(withChange({risk:"high",operation:"publish",evidence:{requiresIndependentReview:true}}));
+  assert.equal(r.scientificReviewStatus,"required");
+  assert.equal(r.ownerAuthorizationStatus,"required");
+  assert.equal(r.technicalChecksStatus,"passed");
+  assert.equal(r.productionOutcomeStatus,"not-executed");
+});
+test("running checks cannot trigger human approval request",()=>{
+  const r=decide(withChange({evidence:{checks:"pending"}}));
+  assert.equal(r.decision,"WAIT");
+  assert.equal(r.ownerAuthorizationStatus,"not-required");
+  assert.equal(r.technicalChecksStatus,"pending");
 });
