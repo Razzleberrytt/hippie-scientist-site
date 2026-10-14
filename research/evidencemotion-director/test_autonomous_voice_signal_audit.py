@@ -79,6 +79,26 @@ class AutonomousActualAudioTests(unittest.TestCase):
         result=mod.compare_decoded_pcm(a,crushed)
         self.assertIn("AUDIBLE_PCM_SAMPLES_CLIPPED",result["issues"])
 
+    def test_upstream_clipping_then_attenuation_still_gets_rejected(self):
+        original=synthetic_speech()
+        # Huge analog/digital clipping occurs *before* output mastering,
+        # and the final peak is only 0.19; peak-only checks miss this.
+        clipped_then_attenuated=np.clip(original*7,-.19,.19)
+        self.assertLess(float(np.max(np.abs(clipped_then_attenuated))),.99)
+        result=mod.compare_decoded_pcm(original,clipped_then_attenuated)
+        self.assertEqual(result["masteredClippedSampleFraction"],0.)
+        self.assertIn("MASTERED_WAVEFORM_NONLINEAR_OR_DISTORTED",result["issues"])
+
+    def test_oversized_master_is_bounded_at_ffmpeg_decode_stage(self):
+        long_audio=self.root/"long.aac.m4a"
+        subprocess.run(["ffmpeg","-hide_banner","-loglevel","error",
+            "-nostdin","-y","-f","lavfi","-i",
+            "anullsrc=r=24000:cl=mono:d=181.5",
+            "-c:a","aac","-b:a","32k",str(long_audio)],
+            check=True,timeout=40)
+        with self.assertRaisesRegex(ValueError,"MASTERED_AUDIO_DURATION_UNBOUNDED"):
+            mod.actual_master_pcm(long_audio)
+
     def test_missing_audio_after_early_truncation_is_rejected(self):
         a=synthetic_speech()
         result=mod.compare_decoded_pcm(a,a[:int(mod.RATE*3.1)])
