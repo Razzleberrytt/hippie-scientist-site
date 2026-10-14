@@ -37,6 +37,7 @@ def analyze_grayscale_frames(frames):
     if frames.ndim!=3 or frames.shape[1:]!=(FRAME_H,FRAME_W) or len(frames)<4:
         raise ValueError("INSUFFICIENT_OR_BAD_ACTUAL_FRAME_SAMPLES")
     vectors=[]
+    edge_strength=[]
     for arr in frames:
         # Actual decoded subject-layout features, suppress persistent header,
         # bottom platform UI and narration captions. This isn't an aesthetic AI.
@@ -45,15 +46,19 @@ def analyze_grayscale_frames(frames):
         edge[230:,:]=0
         feat=edge.reshape(32,10,18,10).mean(axis=(1,3)).ravel()
         vectors.append(feat.astype(np.float64))
+        edge_strength.append(float(np.mean(feat)))
     similarities=[cosine(a,b) for a,b in zip(vectors,vectors[1:])]
     high=sum(x>EDGE_MATCH_LIMIT for x in similarities)
     repetition=round(high/len(similarities),4)
     issues=[]
+    if float(np.median(edge_strength))<1.5:
+        issues.append("EMPTY_OR_UNREADABLE_PRIMARY_VISUAL")
     if repetition>=HIGH_REPETITION_FRAC:
         issues.append("REPETITIVE_SOURCE_LAYOUT_REQUIRES_ART_DIRECTION_REPAIR")
     return {"samples":len(frames),"sampleEverySeconds":SAMPLE_STEP_SECONDS,
         "highEdgeSimilarityFraction":repetition,
         "medianSubjectLayoutSimilarity":round(float(np.median(similarities)),4),
+        "medianSubjectEdgeStrength":round(float(np.median(edge_strength)),4),
         "threshold":HIGH_REPETITION_FRAC,
         "issues":issues,
         "scope":"DECODED_LAYOUT_NEGATIVE_FILTER_NOT_AESTHETIC_CERTIFICATION"}
