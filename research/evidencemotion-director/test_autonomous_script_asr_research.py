@@ -35,6 +35,14 @@ class ASRSourceScriptTests(unittest.TestCase):
         result=m.comparison(fixture(bad),34.35)
         self.assertIn("mitragynine",result["possiblyMisrecognizedScientificTerms"])
         self.assertEqual(result["decision"],"AUTO_REVISE_SCRIPT_MISMATCH")
+    def test_missing_negation_or_computed_pose_caveat_is_always_revise(self):
+        for deleted in ("not","computed","pose","effects"):
+            script=m.tokens(" ".join(m.LINES))
+            script.remove(deleted)
+            result=m.comparison(fixture(script),34.35)
+            self.assertEqual(result["decision"],"AUTO_REVISE_SCRIPT_MISMATCH",deleted)
+            self.assertIn(deleted,result["missingSafetyOrScienceBoundaryWords"])
+
     def test_asr_hallucination_does_not_certify_science(self):
         words=fixture(m.tokens(" ".join(m.LINES))+
                       ["it","definitely","cures","opioid","withdrawal"])
