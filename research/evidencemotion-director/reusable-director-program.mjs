@@ -34,7 +34,7 @@ export function compileReusableDirector(program){
     add(errors,'AT_LEAST_TWO_DISTINCT_SOURCE_BEATS_REQUIRED');
  const outputs=[];
  let previousGrammar=null,previousCamera=null,last=0;
- for(const b of program.beats||[]){
+ for(const b of Array.isArray(program.beats)?program.beats:[]){
    if(!b||!ID(b.id)||!PURPOSES.has(b.visualIntent)||!Number.isFinite(b.startSec)
       ||!Number.isFinite(b.endSec)||b.startSec<0||b.endSec<=b.startSec
       ||Math.abs(b.startSec-last)>.035)
@@ -82,7 +82,9 @@ export function compileReusableDirector(program){
      });
    }
  }
- if(program.beats?.length && Math.abs(last-program.totalNarrationDurationSec)>.035)
+ if(!Number.isFinite(program.totalNarrationDurationSec)
+    ||program.totalNarrationDurationSec<=0
+    ||Math.abs(last-program.totalNarrationDurationSec)>.035)
     add(errors,'EPISODE_NOT_TIMED_TO_ORIGINAL_VOICE');
  if(errors.length)return {status:'HOLD',errors:[...new Set(errors)],productionEligible:false,
                              excellentCertified:false,shots:[]};
