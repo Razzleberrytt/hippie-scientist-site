@@ -6,7 +6,6 @@
  * production runner must generate, verify and archive them.
  */
 const sha=x=>typeof x==='string'&&/^[a-f0-9]{64}$/i.test(x);
-const enough=x=>Number.isFinite(x)&&x>=8.3&&x<=10;
 const DIMS=['firstSecond','narrative','artDirection','motionPurpose','typography','cohesion','audioNaturalness'];
 export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=[]}={}){
  const blockers=[],needs=[],fixes=[];
@@ -41,7 +40,8 @@ export function adjudicateFilm({videoSha256,decodedVisual,science,voice,critics=
  else{
    if(voice.hardAudioFailures?.length)fixes.push(...voice.hardAudioFailures);
    if(voice.fittedWordAlignment!==true||voice.termPronunciationCoverage!==true
-      ||voice.pronunciationConfidence<.92||voice.asrCoverage<.94)
+      ||!Number.isFinite(voice.pronunciationConfidence)||voice.pronunciationConfidence<.92||voice.pronunciationConfidence>1
+      ||!Number.isFinite(voice.asrCoverage)||voice.asrCoverage<.94||voice.asrCoverage>1)
        needs.push('SPECIALIST_PRONUNCIATION_OR_EXACT_WORD_COVERAGE_UNCERTAIN');
    if(voice.verifiedMispronunciations?.length)fixes.push('AUTOMATED_VOICE_PRONUNCIATION_REJECT');
  }
