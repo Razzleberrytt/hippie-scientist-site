@@ -48,6 +48,13 @@ class MotionContractTests(unittest.TestCase):
         self.assertEqual(m.smooth(1),1)
         self.assertEqual(m.smooth(4),1)
         self.assertLess(m.smooth(.25),.25)
+    def test_physical_orbit_never_exceeds_adopted_eight_degree_ceiling(self):
+        angles=[m.orbit_degrees(i/35) for i in range(36)]
+        self.assertAlmostEqual(angles[0],-4.0)
+        self.assertAlmostEqual(angles[-1],4.0)
+        self.assertLessEqual(max(angles)-min(angles),m.ORBIT_MAX_TRAVEL_DEGREES)
+        self.assertEqual(m.ORBIT_MAX_TRAVEL_DEGREES,8.0)
+        self.assertEqual(angles,sorted(angles))
     def test_wrong_hash_refused_prior_to_blender(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/"src.json";p.write_text('{"test":1}')
