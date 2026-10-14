@@ -81,3 +81,17 @@ test('proposal is NEVER a substitute for complete film science or art approval',
  assert.equal(r.generatedScience,false);
  assert.equal(r.mayPublish,false);
 });
+
+test('malformed episode shape or missing total timing causes HOLD, never crash/approve',()=>{
+ for(const mutate of [
+  p=>{p.beats={invalid:true}},
+  p=>{delete p.totalNarrationDurationSec},
+  p=>{p.totalNarrationDurationSec=NaN}
+ ]){
+  const p=source('science:bad-fixture');mutate(p);
+  const result=compileReusableDirector(p);
+  assert.equal(result.status,'HOLD');
+  assert.equal(result.productionEligible,false);
+  assert.equal(result.excellentCertified,false);
+ }
+});
