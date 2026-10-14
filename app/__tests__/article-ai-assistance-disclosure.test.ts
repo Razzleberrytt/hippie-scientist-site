@@ -14,7 +14,8 @@ const slugs = [
 describe('EvidenceMotion article AI-assistance disclosure', () => {
   it('preserves the flag through the article collection schema', () => {
     const schema = read('content-collections.ts')
-    expect(schema).toMatch(/const citationPageSchema = z\\.object\\(\\{[\\s\\S]*?ai_assisted: z\\.boolean\\(\\)\\.optional\\(\\)/)
+    const articleSchema = schema.split('const citationPageSchema = z.object({')[1]?.split('const articleMonographs =')[0]
+    expect(articleSchema).toContain('ai_assisted: z.boolean().optional()')
   })
 
   it('renders visible, accessible text only for AI-assisted articles', () => {
@@ -28,8 +29,8 @@ describe('EvidenceMotion article AI-assistance disclosure', () => {
   it('marks each of the five new manuscripts as AI-assisted', () => {
     for (const slug of slugs) {
       const source = read(`content/articles/${slug}.md`)
-      expect(source).toMatch(/^ai_assisted:\\s*true$/m)
-      expect(source).not.toMatch(/^readingTime:/m)
+      expect(source).toContain('\nai_assisted: true\n')
+      expect(source.split('---')[1]).not.toContain('readingTime:')
     }
   })
 
