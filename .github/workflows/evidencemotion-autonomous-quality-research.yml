@@ -6,6 +6,7 @@ on:
       - 'research/evidencemotion-director/test_native_autocritic.py'
       - 'research/evidencemotion-director/autonomous-quality-arbiter.mjs'
       - 'research/evidencemotion-director/autonomous-quality-arbiter.test.mjs'
+      - 'research/evidencemotion-director/autonomous-quality-handoff.test.mjs'
       - '.github/workflows/evidencemotion-autonomous-quality-research.yml'
 permissions:
   contents: read
@@ -33,6 +34,9 @@ jobs:
         run: |
           python -m unittest discover -s research/evidencemotion-director -p test_native_autocritic.py -v
           python -m py_compile research/evidencemotion-director/native_autocritic.py
+      - name: End-to-end actual H264 -> Python vision -> JavaScript automatic decision
+        run: |
+          node --test research/evidencemotion-director/autonomous-quality-handoff.test.mjs
       - name: Keep true model review and source recognition prerequisites honest
         if: always()
         run: |
