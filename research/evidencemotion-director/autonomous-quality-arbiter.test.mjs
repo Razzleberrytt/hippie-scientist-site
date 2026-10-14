@@ -73,10 +73,11 @@ test('verified mispronunciation is a machine-triggered repair',()=>{
  const p=full();p.voice.verifiedMispronunciations=['mitragynine'];
  assert.equal(adjudicateFilm(p).decision,'AUTO_REVISE');
 });
-test('sufficient synthetic receipts only pass RESEARCH quality, never publish or unfreeze',()=>{
+test('synthetic high scores do not counterfeit actual model/source tool invocations',()=>{
  const x=adjudicateFilm(full());
- assert.equal(x.decision,'AUTO_ACCEPT_RESEARCH_QUALITY');
- assert.equal(x.qualityAcceptableForResearch,true);
+ assert.equal(x.decision,'AUTO_RUN_MISSING_REVIEWS');
+ assert.equal(x.qualityAcceptableForResearch,false);
+ assert.ok(x.missingMachineWork.includes('TRUSTED_MULTIMODAL_AND_SOURCE_RUN_ATTESTATION_NOT_IMPLEMENTED'));
  assert.equal(x.contentMayPublish,false);
  assert.equal(x.productionVersionFreezeLifted,false);
  assert.equal(x.humanReviewerImpersonated,false);
